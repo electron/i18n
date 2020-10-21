@@ -1,21 +1,21 @@
-# Electron Release Timelines
+# الجدول الزمني لإصدار إلكترون
 
-* The `-beta.1` and `stable` dates are our solid release dates.
-* We strive for weekly beta releases, however we often release more betas than scheduled.
-* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
-* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
-* Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* التواريخ `-beta.1` و `المستقرة` هي تواريخ الإصدار الصلبة.
+* ونحن نسعى جاهدين إلى إصدار بيتا أسبوعيا، إلا أننا كثيرا ما نطلق بيتاس أكثر مما هو مقرر.
+* وجميع التواريخ هي أهدافنا ولكن قد تكون هناك أسباب لتعديل الموعد النهائي المستقر، مثل الأخطاء الأمنية.
+* ألقي نظرة على [مشاركة المدونة الزمنية 5.0.0](https://electronjs.org/blog/electron-5-0-timeline) للحصول على معلومات حول نشر تواريخ إصدارنا.
+* منذ إلكترون 6.0، كنا نستهدف كل إصدار كروميوم و نطلق مستقرنا في نفس اليوم مع استقرار كروم. يمكنك الرجوع إلى جدول إصدار Chromium [هنا](https://chromiumdash.appspot.com/schedule). راجع [مشاركة مدونة الإصدار الجديدة لـ Electron's](https://www.electronjs.org/blog/12-week-cadence) لمزيد من التفاصيل حول جدول الإصدار.
 
-| Version | -beta.1    | Stable     | Chrome | Node   |
-| ------- | ---------- | ---------- | ------ | ------ |
-| 2.0.0   | 2018-02-21 | 2018-05-01 | M61    | v8.9   |
-| 3.0.0   | 2018-06-21 | 2018-09-18 | M66    | v10.2  |
-| 4.0.0   | 2018-10-11 | 2018-12-20 | M69    | v10.11 |
-| 5.0.0   | 2019-01-22 | 2019-04-24 | M73    | v12.0  |
-| 6.0.0   | 2019-05-01 | 2019-07-30 | M76    | v12.4  |
-| 7.0.0   | 2019-08-01 | 2019-10-22 | M78    | v12.8  |
-| 8.0.0   | 2019-10-24 | 2020-02-04 | M80    | v12.13 |
-| 9.0.0   | 2020-02-06 | 2020-05-19 | M83    | v12.14 |
-| 10.0.0  | 2020-05-21 | 2020-08-25 | M85    | v12.16 |
-| 11.0.0  | 2020-08-27 | 2020-11-17 | M87    | v12.x  |
-| 12.0.0  | TBD        | TBD        | TBD    | TBD    |
+| الإصدار | - بيتا.1   | اسطبل      | كروم | عقدة          |
+| ------- | ---------- | ---------- | ---- | ------------- |
+| 2.0.0   | 2018-02-21 | 2018-05-01 | M61  | الإصدار 8.9   |
+| 3.0.0   | 2018-06-21 | 2018-09-18 | M66  | الإصدار 10.2  |
+| 4.0.0   | 2018-10-11 | 2018-12-20 | م 69 | v10.11        |
+| 5.0.0   | 2019-01-22 | 2019-04-24 | م73  | الإصدار 12.0  |
+| 6.0.0   | 2019-05-01 | 2019-07-30 | م 76 | الإصدار 12.4  |
+| 7.0.0   | 2019-08-01 | 2019-10-22 | M78  | الإصدار 12.8  |
+| 8.0.0   | 2019-10-24 | 2020-02-04 | M80  | الإصدار 12-13 |
+| 9.0.0   | 2020-02-06 | 2020-05-19 | م 83 | الإصدار 12.14 |
+| 10.0.0  | 2020-05-21 | 2020-08-25 | م 85 | الإصدار 12-16 |
+| 11.0.0  | 2020-08-27 | 2020-11-17 | م 87 | v12.x         |
+| 12.0.0  | TBD        | TBD        | TBD  | TBD           |

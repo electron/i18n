@@ -73,22 +73,22 @@ Come potresti indovinare, questo ha implicazioni di sicurezza importanti se mai 
 
 2) Puoi usare i moduli di Node.js nella tua applicazione. Scegli il tuo modulo npm preferito. npm offre la repository correntemente più grande al mondo di codice open source - l'abilità di usare del codice testato e ben mantenuto che era riservato alle applicazioni dei serve è una delle funzionalità chiave di Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Ad esempio, per utilizzare l'SDK ufficiale AWS nella tua applicazione, dovresti prima installarlo come dipendenza:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Poi, nella tua app Electron, richiede e utilizza il modulo come se stavi costruendo un'applicazione Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
+// Un client S3 pronto all'uso
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+C'è una avvertenza importante: Nativo Nodo. s moduli (cioè, i moduli che richiedono la compilazione di codice nativo prima di poter essere usati) dovranno essere compilati per essere utilizzati con Electron.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Solo 400 su ~ 650.000 moduli sono nativi. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

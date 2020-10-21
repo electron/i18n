@@ -7,7 +7,7 @@ Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-For example:
+De exemplu:
 
 ```javascript
 const { app, powerMonitor } = require('electron')

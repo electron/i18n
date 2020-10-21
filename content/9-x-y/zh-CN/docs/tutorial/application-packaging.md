@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## 使用 `asar` 档案文件
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron 有两套API： Node API由Node.js和Web API由Chromium提供。 两个API支持从 `asar` 档案中读取文件。
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+在网页中，可以使用 `文件请求归档中的文件：` 协议。 像Node API一样， `asar` 存档被作为目录处理。
 
 例如，用 `$.get` 获取文件:
 
@@ -139,9 +139,9 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 ## 添加未打包的文件到 asar 档案
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+As stated above, some Node APIs will unpack the file to the filesystem when called. 除了性能问题外，各种抗病毒扫描仪可能会被这种行为触发 。
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+作为一个工作区，您可以使用 `--unpack` 选项解压各种文件。 在以下示例中，本机Node.js模块的共享库将不会被 打包：
 
 ```sh
 $ asar pack app app.asar --unpack *.node

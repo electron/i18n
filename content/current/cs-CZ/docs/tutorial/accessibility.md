@@ -1,16 +1,16 @@
-# Accessibility
+# Přístupnost
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Vytvoření přístupných aplikací je důležité a rádi poskytneme funkci [Devtron](https://electronjs.org/devtron) a [Spectron](https://electronjs.org/spectron) , která dává vývojářům možnost vylepšit jejich aplikace pro všechny.
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Obavy o přístupnost v Electron aplikacích se podobají problémům webových stránek, protože oba jsou v konečném důsledku HTML. S Electron aplikacemi však nemůžete použít online zdroje pro audity přístupnosti, protože vaše aplikace nemá adresu URL, na kterou by měl auditor odkazovat.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+Tyto funkce přinášejí tyto auditorské nástroje do vaší aplikace Electron. Můžete přidat audity do svých testů pomocí Spectronu nebo je použít v rámci DevTools s Devtronem. Přečtěte si přehled nástrojů.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Například:
+V testovacím frameworku můžete nyní provést audit každého okna a značky `<webview>` ve vaší aplikaci. Například:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,33 +20,33 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Více o této funkci si můžete přečíst v [Dokumentaci Spectronu](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
-In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+V Devtron je záložka přístupnosti, která vám umožní provést audit stránky ve vaší aplikaci, seřadit a filtrovat výsledky.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![snímek obrazovky devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Oba tyto nástroje používají [Nástroje vývojáře přístupnosti](https://github.com/GoogleChrome/accessibility-developer-tools) knihovnu vytvořenou společností Google pro Chrome. Více se dozvíte o pravidlech auditu přístupnosti , která tato knihovna používá, [wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) tohoto repositáře .
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Pokud znáte další skvělé nástroje přístupnosti pro Electron, přidejte je do dokumentace přístupnosti pomocí požadavku na natažení.
 
-## Manually enabling accessibility features
+## Ruční zapnutí funkcí usnadnění přístupu
 
-Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Elektronické aplikace automaticky zapnou funkce usnadnění přístupu v přítomnosti asistenční technologie (např. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) na Windows nebo [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) na macOS). Další informace naleznete v [dokumentaci o přístupnosti](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology).
 
-You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
+Tyto funkce můžete také ručně přepnout buď v aplikaci Electron , nebo nastavením příznaků v nativním softwaru třetích stran.
 
-### Using Electron's API
+### Použití Electron's API
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
+Používáním [`app.setAccessibilitySupportEenabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, můžete ručně vystavit strom přístupnosti Chromu uživatelům v nastavení aplikace. Všimněte si, že systémové asistenční služby uživatele mají přednost před tímto nastavením a jej nahradí.
 
-### Within third-party software
+### V rámci softwaru třetích stran
 
 #### macOS
 
-On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
+Na macOS může asistenční technologie třetích stran přepínat funkce přístupnosti uvnitř Electron aplikací nastavením `AXManualAccessibility` atributu programmaticky:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

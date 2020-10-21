@@ -33,7 +33,7 @@ Npm te guiará a través de la creación de un fichero package.json básico. El 
 
 __Nota__: Si el campo `main` no está presente en el fichero `package.json`, Electron intentará cargar un fichero `index.js` (como hace Node.js).
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+Por defecto, `npm start` ejecutaría el script principal con Node.js. para que se ejecute con Electron, puedes añadir un `script de inicio`:
 
 ```json
 {
@@ -113,18 +113,18 @@ function createWindow () {
 // Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Salir cuando todas las ventanas están cerradas, excepto en macOS. Ésto, es común que
+// las aplicaciones y su barra de menús permanezcan activas hasta que el usuario cierre
+// explícitamente con Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app. uit()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+aplicación. n('activar', () => {
+  // En macOS es común volver a crear una ventana en la aplicación cuando el
+  // icono de acoplamiento se hace clic y no hay otras ventanas abiertas.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }

@@ -1,63 +1,63 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Project van de week: WordPress Desktop'
 author:
   - mkaz
-  - johngodley
+  - Johngodley
   - zeke
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+Deze week hebben we ingehaald bij mensen van [Automattisch](https://automattic.com/) tot over [WordPress Desktop](https://apps.wordpress.com/desktop/), een open-source desktop client voor het beheren van WordPress-inhoud.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Iedereen weet van WordPress, maar wat is WordPress Desktop?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+De [WordPress. Met de desktop-app](https://apps.wordpress.com/desktop/) kunt u zich concentreren op uw inhoud en ontwerp zonder browsertabbladen om u af te leiden - of uw sites buiten de deur te houden, maar toegankelijk houden. In combinatie met onze browserondersteuning en mobiele app kunt u uw site overal bouwen, op welke manier dan ook om uw werk te doen.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## Waarom een Desktop app bouwen voor het beheren van WordPress-websites? Kon het niet allemaal webgebaseerd zijn?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+Het gebruikt eigenlijk precies dezelfde technologie die u krijgt wanneer u [WordPress.com](https://wordpress.com) bezoekt in uw browser. Het is echter allemaal lokaal gehost, dus het heeft minimale laadtijden. Met het voordeel van inheemse functies zoals het zijn in je dock, meldingen, enz., kunt u zich echt concentreren op uw WordPress-sites en bloggen.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Waarom heeft u ervoor gekozen om WordPress Desktop op Electrono te bouwen?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+Eind 2015 hebben we veel WordPress.com opnieuw opgebouwd in de vorm van [Calypso](https://github.com/automattic/wp-calypso), een open source moderne JavaScript-app met React. We zijn begonnen te kijken naar Electron en met enkele wijzigingen in Calypso konden we het lokaal laten draaien. Het was een dwingende ervaring en we dachten dat het veel waarde had om deze verder te ontwikkelen.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+We hadden verschillende teams die aan Calypso werkten. Om een volledige multi-platform GUI-client te maken die dit koppelt aan traditionele desktoptechnologieën, zou meer werk hebben verzet. Door Electron te gebruiken een klein team van 2-4 van ons was in staat om de inspanningen van het andere team te bundelen en de Desktop app te bouwen in een paar maanden.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Wat zijn enkele uitdagingen waarmee u wordt geconfronteerd tijdens het bouwen van WordPress Desktop?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+We hebben een eerste versie van de app zeer snel laten werken. maar het afstemmen ervan voor een optimaal gedrag als een desktopapp heeft veel meer tijd in beslag genomen. Een grote uitdaging met de app is dat je eigenlijk een kopie van Calypso op je eigen machine hebt - het is puur een door de API gedreven UI. Daarbij was veel overbruggingswerk gemoeid en er waren veranderingen aan Calypso zelf te wijten.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+Daarnaast is er veel energie gestoken in de verpakking van de app voor verschillende platforms - we bieden Windows aan, macOS en Linux versies - en er zijn voldoende verschillen om dit lastig te maken.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+Op dat moment was Electron relatief nieuw en hielden we ons bezig met kwesties die binnenkort (soms dezelfde dag!) waren opgelost.
 
-## In what areas should Electron be improved?
+## Op welke gebieden moet Electron worden verbeterd?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron biedt al het meeste van wat we nodig hebben voor de desktop-app, en het is snel gevorderd sinds we het begon te gebruiken. Dat gezegd hebbende, zijn er enkele gebieden die vanzelfsprekend zijn in een desktop app, zoals spellingscontrole en vinden/vervanging die moeilijker te repliceren zijn met Electron als-is.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+We zouden ook graag enkele van de nieuwere Chrome technologieën zien filteren naar Electron. We zijn erg blij met WebVR te experimenteren.
 
-## What are your favorite things about Electron?
+## Wat zijn jouw lievelingsdingen over Electron?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+De belangrijkste reden dat we Electron hebben gekozen, en het is de grootste kracht, is de zeer actieve en open gemeenschap. Automatisch heeft altijd geloofd in open source. Het is een van onze grondbeginselen en het Electron project en de gemeenschap volgen veel van de kernovertuigingen dat ze zeer open en positief zijn.
 
-## What's coming next in WordPress Desktop?
+## Wat komt er hierna in WordPress Desktop?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Het mooie aan ons model is dat de Desktop app profiteert van elke nieuwe Calypso functie - er zijn constante verbeteringen. We hopen dat we extra functies aan de app kunnen toevoegen, zoals offline ondersteuning. die de app echt op zijn eigen grondgebied zou brengen, en betere systeemmeldingen.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Zijn er teams in Automattic die aan andere Electron apps werken?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Ja, na onze inspanningen voor de desktop-app, het Simplenote team heeft besloten Electron te gebruiken om desktop apps voor Windows en Linux te bouwen (een native Mac client bestaat). De [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is ook open source en beschikbaar op Github.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+We hebben ook een aankomende Raspberry Pi-integratie die Electron gebruikt.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Als een van dat interessant klinkt, zouden we [graag van je](https://automattic.com/work-with-us/) horen!
 
-## Any Electron tips that might be useful to other developers?
+## Heb je Electron tips die nuttig kunnen zijn voor andere ontwikkelaars?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Het proces van de verzending met ondertekende desktop software is relatief nieuw voor ons, vooral voor Windows. We hebben een artikel geschreven voor [Code ondertekenen van een Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) dat het proces en een paar van de obstakels bevat die we hebben doorlopen om het goed te doen.
 

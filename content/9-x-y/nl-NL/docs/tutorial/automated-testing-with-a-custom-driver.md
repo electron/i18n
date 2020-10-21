@@ -1,8 +1,8 @@
 # Geautomatiseerd testen met een aangepast stuurprogramma
 
-To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Om geautomatiseerde tests voor je Electron app te schrijven heb je een manier nodig om je applicatie te "schijven". [Spectron](https://electronjs.org/spectron) is een veelgebruikte oplossing waarmee u gebruikersacties kunt emuleren via [WebDriver](http://webdriver.io/). Het is echter ook mogelijk om uw eigen aangepaste stuurprogramma te schrijven met behulp van ingebouwde IPC-overSTDIO. Het voordeel van een custom driver is dat het minder overhead vereist dan Spectron, en laat je aangepaste methoden aan je testset blootstellen.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. The test suite will spawn the Electron process, then establish a simple messaging protocol:
+Om een aangepast stuurprogramma te maken, gebruiken we Node.js' [child_process](https://nodejs.org/api/child_process.html) API. De test suite zal het Electron proces starten en vervolgens een eenvoudig berichtenprotocol instellen:
 
 ```js
 const childProcess = require('child_process')
@@ -18,25 +18,25 @@ appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// stuur een IPC bericht naar de app
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+Van binnen de Electron app, kunt u naar berichten luisteren en antwoorden sturen met behulp van de Node.js [proces](https://nodejs.org/api/process.html) API:
 
 ```js
-// listen for IPC messages from the test suite
+// luisteren voor IPC berichten van de test suite
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// stuur een IPC-bericht naar het testsuite
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+We kunnen nu vanuit de testsuite communiceren met de Electron app via het `appProcess` object.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Voor het gemak kunt u `appProcess` in een bestuurder object wikkelen dat meer hoogwaardige functies biedt. Hier is een voorbeeld van hoe je dit kunt doen:
 
 ```js
 class TestDriver {
@@ -81,39 +81,39 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+In de app moet je een eenvoudige handler schrijven voor de RPC-oproepen:
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+  proces. n('bericht', onMessage)
 }
 
-async function onMessage ({ msgId, cmd, args }) {
-  let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
-  try {
-    let resolve = await method(...args)
-    process.send({ msgId, resolve })
+async functie onMessage ({ msgId, cmd, args }) {
+  let methode = METHODS[cmd]
+  als (! ethod) methode = () => nieuwe fout ('Ongeldige methode: ' + cmd)
+  probeer {
+    let op te lossen = wacht method(. .args)
+    proces. end({ msgId, resolve })
   } catch (err) {
     let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    proces. end({ msgId, reject })
   }
 }
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // doe elke setup nodig
     return true
   }
-  // define your RPC-able methods here
+  // definieer je RPC-able methoden hier
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Vervolgens kunt u in uw testset uw test-driver op de volgende manier gebruiken:
 
 ```js
 const test = require('ava')
@@ -121,7 +121,7 @@ const electronPath = require('electron')
 
 let app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ let app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
-  await app.stop()
+test. fter.always('cleanup', async t => {
+  wacht app.stop()
 })
 ```

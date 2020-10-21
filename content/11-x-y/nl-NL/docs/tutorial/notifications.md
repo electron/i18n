@@ -2,56 +2,56 @@
 
 Alle drie besturingssystemen bieden middelen voor toepassingen om meldingen te verzenden naar de gebruiker. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. Als u notificaties wilt weergeven in het hoofdproces, bekijk dan de [Notificatie](../api/notification.md) module.
 
 ```javascript
-const myNotification = new Notification('Title', {
+const myNotification = new Notification('Titel', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('Notificatie aangeklikt')
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Hoewel code en ervaring van gebruikers met verschillende besturingssystemen overeenkomen, zijn er subtiele verschillen.
 
 ## Windows
-* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Dit kan worden overkill tijdens de ontwikkeling, dus het toevoegen van `node_modules\electron\dist\electron.exe` aan uw startmenu doet ook de truc. Navigeer naar het bestand in Verkenner met de rechtermuisknop en 'Pin om Menu te starten'. Daarna moet u de regel `app.setAppUserModelId(process.execPath)` toevoegen aan uw hoofdproces om meldingen te zien.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Opmerking: deze hoeft niet aan het startscherm te worden vastgezet.
+* Op Windows 7 werken meldingen via een aangepaste implementatie die visueel op de oorspronkelijke systemen lijkt.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron probeert het werk rond het Application User Model ID te automatiseren. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Bovendien, Electron detecteert dat Squirrel werd gebruikt en zal `app.setAppUserModelId()` automatisch bellen met de juiste waarde. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Bovendien is de maximale lengte in Windows 8 voor het lichaam van meldingen 250 tekens, met het Windows-team dat aanbeveelt dat meldingen tot 200 tekens moeten worden gehouden. Dat gezegd hebbende, die beperking is verwijderd in Windows 10, met het Windows-team dat ontwikkelaars vraagt redelijk te zijn. Poging gigantische hoeveelheden tekst te verzenden naar de API (duizenden tekens) kan leiden tot instabiliteit.
 
 ### Geavanceerde Notificaties
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Later versies van Windows staan geavanceerde meldingen toe, met aangepaste sjablonen, afbeeldingen en andere flexibele elementen. Voor het verzenden van deze meldingen (van het hoofdproces of het proces van de renderer), gebruik je de gebruikerslandmodule [electron-windows-notificaties](https://github.com/felixrieseberg/electron-windows-notifications), die gebruik maakt van native Node addons om `ToastNotification` en `TileNotification` objecten te verzenden.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Tijdens meldingen inclusief knoppen werken met `electron-windows-meldingen`, het afhandelen van antwoorden vereist het gebruik van [`electron-windows-interactive-meldingen`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), die helpt met het registreren van de vereiste COM componenten en het bellen van je Electron app met de ingevoerde gebruikersgegevens.
 
-### Quiet Hours / Presentation Mode
+### Stille uren / Presentatiemodus
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Om te bepalen of je wel of niet toestemming hebt om een melding te versturen, gebruik je de gebruikerslandmodule [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Dit stelt u in staat om vooraf te bepalen of Windows de melding stilletjes weggooit.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Notificaties zijn recht op macOS, maar u moet op de hoogte zijn van [Apple's Human Interface guidelines voor meldingen](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Merk op dat meldingen beperkt zijn tot 256 bytes in grootte en worden ingekort als je die limiet overschrijdt.
 
 ### Geavanceerde Notificaties
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Later versies van macOS toestaan voor meldingen met een invoerveld, waardoor de gebruiker snel kan reageren op een melding. Om meldingen met een invoerveld te verzenden, gebruik de userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Niet storen / sessie status
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Om te bepalen of je wel of niet toestemming hebt om een melding te versturen, gebruik je de gebruikerslandmodule [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Dit geeft je de mogelijkheid om vooraf te detecteren of de notificatie al dan niet wordt weergegeven.
 
 ## Linux
 

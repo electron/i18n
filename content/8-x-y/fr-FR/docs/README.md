@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Certaines questions sont souvent posées. Vérifiez ceci avant de créer un problème :
 
 * [FAQ Electron](faq.md)
 

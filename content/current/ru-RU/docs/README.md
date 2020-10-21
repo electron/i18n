@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Есть вопросы, которые довольно часто задаваются. Проверьте это перед созданием задачи:
 
 * [FAQ по Electron](faq.md)
 
@@ -17,8 +17,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Выбор редактора](tutorial/development-environment.md#a-good-editor)
 * [Создание Вашего первого приложения](tutorial/quick-start.md)
   * [Требования](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [Создать базовое приложение](tutorial/quick-start.md#create-a-basic-application)
+  * [Пакет и распространение приложения](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Макеты и CLI](tutorial/boilerplates-and-clis.md)
   * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Доступность](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка основного( main ) процесса](tutorial/debugging-main-process.md)
   * [Отладка главного процесса с кодом Visual Studio](tutorial/debugging-main-process-vscode.md)

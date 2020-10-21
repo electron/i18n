@@ -7,114 +7,114 @@ author:
 date: '2019-04-23'
 ---
 
-The Electron team is excited to announce the release of Electron 5.0.0! You can install it with npm via `npm install electron@latest` or download the tarballs from [our releases page](https://github.com/electron/electron/releases/tag/v5.0.0). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Het Electron team is enthousiast over de release van Electron 5.0.0! Je kunt het installeren met npm via `npm install electron@latest` of de tarballen downloaden van [onze releases pagina](https://github.com/electron/electron/releases/tag/v5.0.0). De versie wordt verpakt met upgrades, reparaties en nieuwe functies. We kunnen niet wachten om te zien wat je met hen bouwt! Ga door met het lezen van details over deze release en deel alle feedback die je hebt!
 
 ---
 
-## What's New?
+## Wat is nieuw?
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
+Veel van de functionaliteit van Electron wordt geleverd door de kerncomponenten Chromium, Node.js en V8. Electron blijft up-to-date met deze projecten om onze gebruikers nieuwe JavaScript-functies, prestatieverbeteringen en beveiligingsoplossingen te bieden. Elk van deze pakketten heeft een grote versie bump in Electron 5:
 
 - Chromium `73.0.3683.119`
-  - [New in 70](https://developers.google.com/web/updates/2018/10/nic70)
-  - [New in 71](https://developers.google.com/web/updates/2018/12/nic71)
-  - [New in 72](https://developers.google.com/web/updates/2019/01/nic72)
-  - [New in 73](https://developers.google.com/web/updates/2019/03/nic73)
+  - [Nieuw in 70](https://developers.google.com/web/updates/2018/10/nic70)
+  - [Nieuw in 71](https://developers.google.com/web/updates/2018/12/nic71)
+  - [Nieuw in 72](https://developers.google.com/web/updates/2019/01/nic72)
+  - [Nieuw in 73](https://developers.google.com/web/updates/2019/03/nic73)
 - Node.js `12.0.0`
-  - [Node 12 Blog Post](https://nodejs.org/en/blog/release/v12.0.0/)
+  - [Node 12 blogpost](https://nodejs.org/en/blog/release/v12.0.0/)
 - V8 `7.3.492.27`.
-  - [New JS Features](https://twitter.com/mathias/status/1120700101637353473)
+  - [Nieuwe JS functies](https://twitter.com/mathias/status/1120700101637353473)
 
-Electron 5 also includes improvements to Electron-specific APIs. A summary of the major changes is below; for the full list of changes, check out the [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
+Electron 5 bevat ook verbeteringen aan de Electron-specifieke API's. Een samenvatting van de belangrijkste wijzigingen is hieronder; voor de volledige lijst van wijzigingen zie de [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
 
 ### Promisification
 
-Electron 5 continues [Promisification initiative](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiative to convert Electron's callback-based API to use Promises. These APIs were converted for Electron 5:
+Electron 5 gaat door met het [Promisificatie-initiatief](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiatief om de callbackgebaseerde API van Electron om beloften te gebruiken. Deze API's zijn geconverteerd voor Electron 5:
 * `app.getFileIcon`
-* `contentTracing.getCategories`
-* `contentTracing.startRecording`
-* `contentTracing.stopRecording`
+* `contentTracing.getCategorieën`
+* `contentTracing.startOpname`
+* `contentTracing.stopOpname`
 * `debugger.sendCommand`
 * Cookies API
-* `shell.openExternal`
-* `webContents.loadFile`
-* `webContents.loadURL`
-* `webContents.zoomLevel`
+* `shell.openExterne`
+* `Bestand`
+* `URL`
+* `Niveau`
 * `webContents.zoomFactor`
-* `win.capturePage`
+* `win.capturePagina`
 
-### System colors access for macOS
+### Systeemkleuren toegang voor macOS
 
-These functions were changed or added to `systemPreferences` to access macOS systems' colors:
+Deze functies zijn gewijzigd of toegevoegd aan `systemPreferences` voor toegang tot de kleuren van macOS-systemen:
 * `systemPreferences.getAccentColor`
 * `systemPreferences.getColor`
 * `systemPreferences.getSystemColor`
 
-### Process memory information
+### Geheugeninformatie verwerken
 
-The function `process.getProcessMemoryInfo` has been added to get memory usage statistics about the current process.
+De functie `process.getProcessMemoryInfo` is toegevoegd om geheugenstatistieken over het huidige proces op te halen.
 
-### Additional filtering for remote APIs
+### Extra filtering voor externe API's
 
-To improve security in the `remote` API, new remote events have been added so that `remote.getBuiltin`, `remote.getCurrentWindow`, `remote.getCurrentWebContents` and `<webview>.getWebContents` can be [filtered](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
+Om de beveiliging te verbeteren in de `externe` API, zijn nieuwe externe gebeurtenissen toegevoegd, zodat `op afstand staat. etBuiltin`, `afstandsbediening. etCurrentWindow`, `remote.getCurrentWebContents` en `<webview>.getWebContents` kan [gefilterd](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows) zijn.
 
-### Multiple BrowserViews on BrowserWindow
+### Meerdere BrowserViews in browservenster
 
-BrowserWindow now supports managing multiple BrowserViews within the same BrowserWindow.
+BrowserWindow ondersteunt nu het beheren van meerdere BrowserViews binnen hetzelfde BrowserWindow.
 
 ## Breaking Changes
 
-### Defaults for packaged apps
+### Standaardwaarden voor verpakte apps
 
-Packaged apps will now behave the same as the default app: a default application menu will be created unless the app has one and the `window-all-closed` event will be automatically handled unless the app handles the event.
+Verpakte apps gedragen zich nu als de standaard app: er wordt een standaard applicatiemenu gemaakt tenzij de app er een heeft en de `window-all-closed` event automatisch wordt afgehandeld tenzij de app de gebeurtenis afhandelt.
 
-### Mixed sandbox
+### Gemengde sandbox
 
-Mixed sandbox mode is now enabled by default. Renderers launched with `sandbox: true` will now be actually sandboxed, where previously they would only be sandboxed if mixed-sandbox mode was also enabled.
+Gemengde sandbox-modus is nu standaard ingeschakeld. Renderers gelanceerd met `sandbox: true` zal nu echt sandboxen zijn, waar ze eerder alleen sandboxed zouden zijn als mixed-sandbox-modus was ingeschakeld.
 
-### Security improvements
-The default values of `nodeIntegration` and `webviewTag` are now `false` to improve security.
+### Verbetering van de beveiliging
+De standaardwaarden van `nodeIntegration` en `webviewTag` zijn nu `false` om de beveiliging te verbeteren.
 
-### Spellchecker now asynchronous
+### Spellchecker nu asynchroon
 
-The SpellCheck API has been changed to provide [asynchronous results](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
+De SpellCheck API is gewijzigd om [asynchrone resultaten](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider) te bieden.
 
-## Deprecations
+## Afschrijvingen
 
-The following APIs are newly deprecated in Electron 5.0.0 and planned for removal in 6.0.0:
+De volgende API's zijn pas verouderd in Electron 5.0.0 en gepland voor verwijdering in 6.0.0:
 
-### Mksnapshot binaries for arm and arm64
-Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
+### Mksnapshot binaries voor arm en arm64
+Oorspronkelijke binaries van mksnapshot voor arm en arm64 worden niet meer ondersteund en zullen over 6 worden verwijderd. .0. Snapshots kunnen voor arm en arm64 worden gemaakt met behulp van de x64 binaries.
 
-### ServiceWorker APIs on WebContents
-Deprecated ServiceWorker APIs on WebContents in preparation for their removal.
-* `webContents.hasServiceWorker`
-* `webContents.unregisterServiceWorker`
+### ServiceWorker API's op WebContent
+Verouderde ServiceWorker API's op WebContents in voorbereiding voor de verwijdering ervan.
+* `Worker`
+* `ServiceWorker`
 
-### Automatic modules with sandboxed webContents
-In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
-* `electron.screen`
+### Automatische modules met sandboxed webcontent
+Om de beveiliging te verbeteren de volgende modules worden niet meer ondersteund voor gebruik direct via `require` en moeten in plaats daarvan worden opgenomen via `remote. equire` in een sandboxed webcontent:
+* `Elektron.scherm`
 * `child_process`
 * `fs`
 * `os`
-* `path`
+* `pad`
 
 ## webFrame Isolated World APIs
-`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` have been deprecated in favor of `webFrame.setIsolatedWorldInfo`.
+`webFrame.setIsolatedWorldSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` zijn verouderd ten gunste van `webFrame.setIsolatedWorldInfo`.
 
-### Mixed sandbox
-`enableMixedSandbox` and the `--enable-mixed-sandbox` command-line switch still exist for compatibility, but are deprecated and have no effect.
+### Gemengde sandbox
+`enableMixedSandbox` en de `--enable-mixed-sandbox` command-line switch bestaat nog steeds voor compatibiliteit, maar zijn verouderd en hebben geen effect.
 
-## End of support for 2.0.x
+## Einde van de ondersteuning voor 2.0.x
 
-Per our [supported versions policy](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x has reached end of life.
+Per onze [ondersteunde versiesbeleid](https://electronjs.org/docs/tutorial/support#supported-versions)heeft 2.0.x zijn einde bereikt.
 
 ## App Feedback programma
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+We blijven ons [App Feedback Programma](https://electronjs.org/blog/app-feedback-program) gebruiken om te testen. Projecten die deelnemen aan dit programma en Electron betas testen op hun apps; en in ruil daarvoor hebben de nieuwe bugs die ze vinden prioriteit voor de stabiele vrijlating. Als u deel wilt nemen of meer informatie wilt ontvangen, [bekijk dan onze blogpost over het programma](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Wat is volgende
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 6.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) maps out key dates in the Electron 6 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+In de korte termijn. je kan verwachten dat het team zich blijft concentreren op het bijhouden van de ontwikkeling van de belangrijkste onderdelen die Electron vormen, inclusief Chromium, Node en V8. Hoewel we ons ervoor hoeden om geen beloften te doen over releasedatums, ons plan is nieuwe grote versies van Electron vrij te geven met nieuwe versies van deze componenten ongeveer kwartaal. Het [voorlopige schema 6.0.0](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) brengt de belangrijkste data in de ontwikkelingscyclus van Electron 6. Bekijk ook [ons versiedocument](https://electronjs.org/docs/tutorial/electron-versioning) voor meer gedetailleerde informatie over versiebeheer in Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Voor informatie over geplande brekende wijzigingen in de aankomende versies van Electron, [zie onze geplande Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

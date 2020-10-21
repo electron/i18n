@@ -1,26 +1,26 @@
 # Debuggare il Processo Principale
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Il DevTools in una finestra del browser Electron può solo debug di JavaScript che è eseguito in quella finestra (cioè le pagine web). Per debug di JavaScript che è eseguito nel processo principale dovrai usare un debugger esterno e avviare Electron con l'interruttore `--inspect` o `--inspect-brk`.
 
-## Command Line Switches
+## Interruttori Riga Di Comando
 
-Use one of the following command line switches to enable debugging of the main process:
+Utilizzare uno dei seguenti interruttori a riga di comando per abilitare il debug del processo principale:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron ascolterà i messaggi del protocollo dell'ispettore V8 sulla porta ``specificata, un debugger esterno dovrà connettersi su questa porta. La porta predefinita `` è `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 la tua/app
 ```
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Come `--inspect` ma interrompe l'esecuzione sulla prima riga di JavaScript.
 
-## External Debuggers
+## Debug Esterno
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Dovrai usare un debugger che supporti il protocollo dell'ispettore V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- Collega Chrome visitando `chrome://inspect` e selezionando per ispezionare l'app lanciata Electron presente lì.
 - [Debug del Processo Principale in VSCode](debugging-main-process-vscode.md)

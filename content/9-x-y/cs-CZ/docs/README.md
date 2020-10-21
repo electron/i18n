@@ -4,7 +4,7 @@ Použijte prosím dokumentaci, která odpovídá vámi používanou verzi Electr
 
 ## Časté dotazy
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Existují otázky, které se kladou poměrně často. Před vytvořením problém zkontrolujte:
 
 * [Electron FAQ](faq.md)
 
@@ -23,13 +23,13 @@ There are questions that are asked quite often. Check this out before creating a
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
   * [Varo.com.chikitaisaac123@gmail.com](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [elektronová kovárna](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [elektronický stavitel](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [elektronická reakční kotle](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Ostatní nástroje a vařiče](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Application Architecture](tutorial/application-architecture.md)
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Hlavní a zobrazovací procesy](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Použití Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Adding Features to Your App
@@ -41,37 +41,37 @@ There are questions that are asked quite often. Check this out before creating a
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Předložený soubor pro macOS BrowserWindows](tutorial/represented-file.md)
+  * [Nativní přetažení souborů & Zahodit](tutorial/native-file-drag-drop.md)
   * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
   * [Podpora macOS tmavého módu [Dark Mode]](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
-* [Accessibility](tutorial/accessibility.md)
+  * [Webové vložení do Electronu](tutorial/web-embeds.md)
+* [Přístupnost](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+  * [Povolení usnadnění přístupu](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md)
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Ladění hlavního procesu](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Automatizované testování s vlastním řidičem](tutorial/automated-testing-with-a-custom-driver.md)
 * [Distribuce](tutorial/application-distribution.md)
   * [Podporované platformy](tutorial/support.md#supported-platforms)
-  * [Code Signing](tutorial/code-signing.md)
+  * [Podepsání kódu](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpečnost](tutorial/security.md)
-  * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
-  * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Hlášení bezpečnostních problémů](tutorial/security.md#reporting-security-issues)
+  * [Problémy a vylepšení zabezpečení Chromu](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Upozornění na elektronické zabezpečení](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizace](tutorial/updates.md)
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Publikování aktualizačního serveru](tutorial/updates.md#deploying-an-update-server)
+  * [Provádění aktualizací ve vaší aplikaci](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Aplikování aktualizací](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
 
 ## Detailní provodci
@@ -80,7 +80,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [Instalování Electronu](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Vlastní zrcátka a keše](tutorial/installation.md#custom-mirrors-and-caches)
   * [Odstranění problémů](tutorial/installation.md#troubleshooting)
 * Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
@@ -91,7 +91,7 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Omezení](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Testování širokého CDM](tutorial/testing-widevine-cdm.md)
 * [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 
 ---
@@ -150,7 +150,7 @@ These individual tutorials expand on topics discussed in the guide above.
 ### Modules for Both Processes:
 
 * [schránka](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
+* [Hlášení pádů](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [shell](api/shell.md)
 

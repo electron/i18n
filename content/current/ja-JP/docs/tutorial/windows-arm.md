@@ -7,7 +7,7 @@
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
 2. _コマンドプロンプト_ を使用して、`set npm_config_arch = arm64` を実行してから、同じように `npm install` / `yarn install` を実行します。
-3. [If you have Electron installed as a development dependency](quick-start.md#prerequisites), npm will download and unpack the arm64 version. その後、通常どおりアプリをパッケージ化して配布できます。
+3. [Electron が開発依存関係としてインストールされている場合](quick-start.md#prerequisites), npm は、arm64 バージョンをダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
 
 ## 一般的な考慮事項
 
@@ -26,7 +26,7 @@ if (process.arch === 'x64') {
 arm64 をターゲットにしたい場合、このようなロジックは通常間違ったアーキテクチャを選択するため、アプリケーションを慎重に確認したうえで、このような条件のスクリプトを作成してください。 カスタムビルドおよびパッケージスクリプトでは、現在の process.arch に依存するのではなく、環境内の `npm_config_arch` の値を常に確認する必要があります。
 
 ### ネイティブモジュール
-If you use native modules, you must make sure that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+ネイティブモジュールを使用する場合は、(Visual Studio 2017 で提供されている MSVC コンパイラの v142 に対してコンパイルされていることを確認する必要があります。 You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
 
 ### アプリをテストする
 アプリをテストするには、Windows 10 (バージョン 1903 以降) を実行している Arm 版 Windows デバイスを使用します。 必ずターゲットデバイスにアプリケーションをコピーしてください。Chromium のサンドボックスは、ネットワーク位置上からアプリケーションアセットを読み込むと正しく機能しません。

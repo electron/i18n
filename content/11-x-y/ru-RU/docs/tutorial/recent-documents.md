@@ -4,11 +4,11 @@ Windows и macOS предоставляют легкий доступ к спи�
 
 __JumpList:__
 
-![JumpList Recent Files][1]
+![Список последних файлов][1]
 
 __Dock меню приложения:__
 
-![macOS Dock Menu][2]
+![macOS панель меню][2]
 
 Чтобы добавить файл в недавние документы, можно использовать [app.addRecentDocument][addrecentdocument] API:
 
@@ -26,17 +26,17 @@ app.clearRecentDocuments()
 
 ## Windows примечания
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Вы можете найти все о регистрации вашего приложения в [Application Registration][app-registration].
+Чтобы иметь возможность использовать эту функцию в Windows, ваша заявка должна быть зарегистрирована как обработчик типа файла документа, иначе файл не будет отображаться в JumpList даже после его добавления. Вы можете найти все о регистрации вашего приложения в [Application Registration][app-registration].
 
 Когда пользователь щелкает файл из JumpList, новый экземпляр приложения будет запущен с добавленного пути файла, как аргумент командной строки.
 
 ## macOS примечания
 
-### Adding the Recent Documents list to the application menu:
+### Добавление списка последних документов в меню приложения:
 
-![macOS Recent Documents menu item][6]
+![Элемент меню macOS последних документов][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Вы можете добавить пункты меню для доступа к недавним документам и очистить их, добавив следующий фрагмент кода в шаблон меню.
 
 ```json
 {
@@ -47,7 +47,7 @@ You can add menu items to access and clear recent documents by adding the follow
       "submenu":[
         {
           "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "роль":"clearrecentdocuments"
         }
       ]
     }
@@ -55,7 +55,7 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Когда файл запрашивается из меню последних документов, будет эмулировано событие `open-file` из `приложения` для него.
 
 [1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
 [2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png

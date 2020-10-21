@@ -4,39 +4,39 @@ author: zeke
 date: '2016-08-16'
 ---
 
-As of Electron version 1.3.1, you can `npm install electron --save-dev` to install the latest precompiled version of Electron in your app.
+منذ إصدار إلكترون 1.3.1، يمكنك `npm تثبيت إلكترون --save-dev` إلى تثبيت أحدث نسخة مسبقة التجميع من إلكترون في التطبيق الخاص بك.
 
 ---
 
 ![npm install electron](https://cloud.githubusercontent.com/assets/378023/17259327/3e3196be-55cb-11e6-8156-525e9c45e66e.png)
 
-## The prebuilt Electron binary
+## ثنائي إلكترون مبني مسبقاً
 
-If you've ever worked on an Electron app before, you've likely come across the `electron-prebuilt` npm package. This package is an indispensable part of nearly every Electron project. When installed, it detects your operating system and downloads a prebuilt binary that is compiled to work on your system's architecture.
+إذا كنت قد عملت على تطبيق إلكترون من قبل، فمن المرجح أن تأتي إلى حزمة `التي تم بناؤها مسبقاً إلكترونيا` npm . هذه الحزمة جزء لا غنى عنه من حوالي كل مشروع إلكترون. عند التثبيت، فإنه يكتشف نظام التشغيل الخاص بك ويقوم بتنزيل ثنائي مبني مسبقاً يتم تجميعه للعمل على معماري النظام الخاص بك.
 
-## The new name
+## الاسم الجديد
 
-The Electron installation process was often a stumbling block for new developers. Many brave people tried to get started developing an Electron by app by running `npm install electron` instead of `npm install electron-prebuilt`, only to discover (often after much confusion) that it was not the `electron` they were looking for.
+كانت عملية تثبيت إلكترون في كثير من الأحيان حجر عثرة أمام المطورين الجدد. حاول العديد من الناس الشجعان البدء في تطوير إلكترون بواسطة التطبيق عن طريق تشغيل `npm تثبيت إلكترون` بدلاً من `npm تثبيت إلكترون - تم بناؤه مسبقاً`، فقط لاكتشاف (غالباً بعد الكثير من الارتباك) أنه ليس إلكترون `` هم يبحثون عنه.
 
-This was because there was an existing `electron` project on npm, created before GitHub's Electron project existed. To help make Electron development easier and more intuitive for new developers, we reached out to the owner of the existing `electron` npm package to ask if he'd be willing to let us use the name. Luckily he was a fan of our project, and agreed to help us repurpose the name.
+كان ذلك بسبب وجود مشروع `إلكترون` موجود على npm، تم إنشاؤه قبل وجود مشروع إلكترون GitHub. للمساعدة في جعل تطوير إلكترون أسهل وأكثر بديهيا للمطورين الجدد، لقد وصلنا إلى مالك حزمة `إلكترون الحالي` npm لسؤاله عما إذا كان على استعداد للسماح لنا باستخدام الاسم. لحسن الحظ كان معجباً بمشروعنا، ووافق على مساعدتنا في إعادة إستخدام الاسم.
 
-## Prebuilt lives on
+## الحياة المبنية مسبقاً على
 
-As of version 1.3.1, we have begun publishing [`electron`](https://www.npmjs.com/package/electron) and `electron-prebuilt` packages to npm in tandem. The two packages are identical. We chose to continue publishing the package under both names for a while so as not to inconvenience the thousands of developers who are currently using `electron-prebuilt` in their projects. We recommend updating your `package.json` files to use the  new `electron` dependency, but we will continue releasing new versions of `electron-prebuilt` until the end of 2016.
+بدءاً من الإصدار 1.3.1، بدأنا في نشر [`إلكترون`](https://www.npmjs.com/package/electron) و `إلكترون - تم بناؤه مسبقاً` حزم إلى npm بالترادف. والحزمتان متطابقتان. لقد اخترنا الاستمرار في نشر الحزمة تحت كلا الاسمين لبعض الوقت حتى لا نزعج الآلاف من المطورين الذين يستخدمون حاليا `التي تم بناؤها سلفا` في مشاريعهم. نوصي بتحديث حزمة `الخاصة بك. ابن` ملفات لاستخدام `إلكترون الجديد` التبعية، لكننا سنستمر في إصدار إصدارات جديدة من `الإلكترون الذي تم بناؤه مسبقاً` حتى نهاية عام 2016.
 
 The [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) repository will remain the canonical home of the `electron` npm package.
 
-## Many thanks
+## شكراً جزيلاً
 
-We owe a special thanks to [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), and many other [contributors](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) for creating and maintaining `electron-prebuilt`, and for their tireless service to the JavaScript, Node.js, and Electron communities.
+نحن مدينون بشكر خاص ل [@mafintosh](https://github.com/mafintosh)، [@maxogden](https://github.com/maxogden)، والعديد من [المساهمين](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) لإنشاء وصيانة `الإلكترون الذي تم بناؤه مسبقاً`، ولخدمتهم الدؤوبة إلى JavaScript، العقدة. ، ومجتمعات إلكترون.
 
-And thanks to [@logicalparadox](https://github.com/logicalparadox) for allowing us to take over the `electron` package on npm.
+وبفضل [@logicalparadox](https://github.com/logicalparadox) لسماحه لنا بتولي حزمة البريد `` على npm.
 
-## Updating your projects
+## تحديث مشاريعك
 
-We've worked with the community to update popular packages that are affected by this change. Packages like [electron-packager](https://github.com/electron-userland/electron-packager), [electron-rebuild](https://github.com/electron/electron-rebuild), and [electron-builder](https://github.com/electron-userland/electron-builder) have already been updated to work with the new name while continuing to support the old name.
+لقد عملنا مع المجتمع لتحديث الحزم الشعبية التي تتأثر بهذا التغيير. حزم مثل [حزمة إلكترون-حزمة](https://github.com/electron-userland/electron-packager)، [إلكترون - إعادة بناء](https://github.com/electron/electron-rebuild)، و [وحدة الإنشاء الإلكتروني](https://github.com/electron-userland/electron-builder) تم تحديثها بالفعل للعمل مع الاسم الجديد مع الاستمرار في دعم الاسم القديم.
 
-If you encounter any problems installing this new package, please let us know by opening an issue on the [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) repository.
+إذا واجهت أي مشاكل في تثبيت هذه الحزمة الجديدة، الرجاء إبلاغنا عن طريق فتح مشكلة في [مستودع إلكترون-مستخدم/إلكترون-تم بناؤه مسبقاً](https://github.com/electron-userland/electron-prebuilt/issues) .
 
-For any other issues with Electron, please use the [electron/electron](https://github.com/electron/electron/issues) repository.
+لأي مشاكل أخرى مع إلكترون، الرجاء استخدام [electron/electron](https://github.com/electron/electron/issues) مستودع.
 

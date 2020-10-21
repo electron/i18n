@@ -1,26 +1,26 @@
 ---
-title: Electron Meetup at GitHub HQ
-author: jlord
+title: Electron Meetup в GitHub HQ
+author: джлорд
 date: '2015-09-17'
 ---
 
-Join us September 29th at GitHub's HQ for an Electron meetup hosted by Atom team members [@jlord](https://github.com/jlord) and [@kevinsawicki](https://github.com/kevinsawicki). There will be talks, food to snack on, and time to hangout and meet others doing cool things with Electron. We'll also have a bit of time to do lightning talks for those interested. Hope to see you there!
+Присоединяйтесь к нам 29 сентября в HQ GitHub, чтобы провести встречу Electron, управляемую членами команды Atom [@jlord](https://github.com/jlord) и [@kevinsawicki](https://github.com/kevinsawicki). Будут беседы, еда для закусок, время для развешивания и знакомство с другими делающими крутые вещи с Electron. У нас также будет немного времени, чтобы начать молниеносные переговоры для интересующихся. Надеемся увидеть вас здесь!
 
 ---
 
-**Talks**
+**Переговоры**
 
-- **Jonathan Ross** and **Francois Laberge** from [Jibo](http://jibo.com) will share how they use Electron to animate a robot.
-- **Jessica Lord** will talk about building a teaching tool, [Git-it](https://github.com/jlord/git-it-electron), on Electron.
-- **Tom Moor** will talk about the pros and cons of building  video and screen sharing on Electron with [speak.io](https://speak.io).
-- **Ben Gotow** will preview N1: [The Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) and talk about developing it on Electron.
+- **Jonathan Ross** и **Francois Laberge** из [Jibo](http://jibo.com) поделится тем, как они используют Electron для анимирования робота.
+- **Джессика Лорд** расскажет о создании учебного инструмента, [Git-it](https://github.com/jlord/git-it-electron), Electron.
+- **Tom Moor** расскажет о плюсах и минусах создания видео и делегирования экрана Electron с [speak.io](https://speak.io).
+- **Ben Gotow** будет просматривать N1: [Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) и говорить о его разработке на Electron.
 
-### Details
+### Детали
 
-- **Location:** GitHub HQ, 275 Brannan Street, San Francisco, CA, 94107
-- **Date:** Tuesday, September 29th, 2015
-- **Time:** 6pm - 9pm
+- **Расположение:** GitHub HQ, 275 Brannan Street, San Francisco, CA, 94107
+- **Дата:** Вторник, 29 сентября 2015
+- **Время:** 6 вечера - 9 вечера
 - **RSVP:** [ti.to/github-events/electron-meetup](https://ti.to/github-events/electron-meetup)
 
-![electron-meetup-office-2](https://cloud.githubusercontent.com/assets/1305617/9918496/0bc7093c-5c7c-11e5-83c9-bdbb34a2cd19.png)
+![Электрон-меступ-офис-2](https://cloud.githubusercontent.com/assets/1305617/9918496/0bc7093c-5c7c-11e5-83c9-bdbb34a2cd19.png)
 

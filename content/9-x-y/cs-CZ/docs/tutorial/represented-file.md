@@ -1,12 +1,12 @@
-# Represented File for macOS BrowserWindows
+# Předložený soubor pro macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Na macOS může okno nastavit zastoupený soubor, aby se ikona souboru mohla zobrazit v záhlaví a po kliknutí uživatele na tlačítko Ovládat název se zobrazí cesta vyskakovací okno.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Můžete také nastavit upravený stav okna tak, aby ikona souboru mohla indikovat zda byl dokument v tomto okně upraven.
 
-__Represented file popup menu:__
+__Předložené vyskakovací menu souboru:__
 
-![Represented File][1]
+![Předložený soubor][1]
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs:
 
@@ -15,7 +15,7 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 win.setRepresentedFilename('/etc/passwd')
-win.setDocumentEdited(true)
+win.setDocumented(true)
 ```
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png

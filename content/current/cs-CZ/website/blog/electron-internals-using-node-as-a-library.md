@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron interals&#58; Používání uzlu jako knihovny'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+Toto je druhý příspěvek v probíhající sérii vysvětlující interakce Electron. Podívejte se na [první příspěvek](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) o integraci cyklu událostí , pokud jste již neměli.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+Většina lidí používá [uzel](https://nodejs.org) pro serverové aplikace, ale z důvodu bohaté API sady a vzkvétající komunity Node je také skvělý vyhovující pro vloženou knihovnu. Tento příspěvek vysvětluje, jak je uzel používán jako knihovna v Electronu.
 
 ---
 
-## Build system
+## Sestavit systém
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+Uzel i Electron používají jako své stavební systémy [`GYP`](https://gyp.gsrc.io). Pokud chcete vložit uzel do aplikace, musíte jej použít také jako svůj systém pro sestavování.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+Jste na `GYP`? Před pokračováním v tomto příspěvku si přečtěte [tento návod](https://gyp.gsrc.io/docs/UserDocumentation.md).
 
-## Node's flags
+## Vlajky uzlu
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+[`uzel. yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) soubor v adresáři zdrojových kódů uzlu popisuje, jak je vytvořen uzel , společně se spoustou proměnných [`GYP`](https://gyp.gsrc.io) , které určují, které části uzlu jsou povoleny a zda mají být otevřeny určité konfigurace.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+Pro změnu parametrů sestavení musíte nastavit proměnné v souboru `.gypi` z vašeho projektu. `configure` skript v uzlu vám může generovat některé běžné konfigurace, například běžící `. configure --shared` vygeneruje a `config.gypi` s proměnnými instrukujícími uzel, které mají být postaveny jako sdílená knihovna.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron nepoužívá `configure` skript, protože má vlastní build skripty. Konfigurace pro uzel jsou definovány v souboru [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) v kořenovém adresáři Electronu.
 
-## Link Node with Electron
+## Propojit uzel s Electron
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+V elektrolýze Uzel je propojen jako sdílená knihovna nastavením proměnné `GYP` `node_shared` na `true`takže typ Node sestavení bude změněn z `spustitelný soubor` na `shared_library`, a zdrojový kód obsahující vstupní bod `hlavního` uzlu nebude kompilován.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Jelikož Electron používá knihovnu V8 dodávanou s Chromiem, není použita knihovna V8 zahrnutá do zdrojového kódu Node. To se provádí nastavením `node_use_v8_platform` a `node_use_bundled_v8` na `false`.
 
-## Shared library or static library
+## Sdílená knihovna nebo statická knihovna
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Při propojení s uzlem existují dvě možnosti: buďto můžete vytvořit uzel jako statickou knihovnu a zahrnout jej do konečného spustitelného souboru, nebo ji můžete postavit jako sdílenou knihovnu a odeslat ji vedle konečného spustitelného souboru.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+V Electronu byl uzel postaven jako statická knihovna po dlouhou dobu. Díky tomu sestavil jednoduchý sestavení, povolil nejlepší optimalizaci kompilátoru a umožnil Electronu distribuovat bez extra `node.dll` souboru.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+To se však změnilo po přepnutí Chrome na použití [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL je fork [OpenSSL](https://www.openssl.org) , který odstraňuje několik nepoužívaných API a mění mnoho stávajících rozhraní. Protože uzel stále používá OpenSSL, kompilátor by generoval mnoho chyb spojených kvůli protichůdným symbolům, pokud by byly propojeny dohromady.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron nemohl použít BoringSSL v uzlu nebo použít OpenSSL v Chromiu, takže jedinou možností bylo přepnout na stavbu uzlu jako sdílené knihovny, a [skrýt symboly BoringSSL a OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) v jednotlivých komponentách.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+Tato změna přinesla Electronu pozitivní vedlejší účinky. Před touto změnou nemohli jste přejmenovat spustitelný soubor Electronu na Windows, pokud jste použili nativní moduly, protože název spustitelného souboru byl v importní knihovně s velkým kódem. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
 
-## Supporting native modules
+## Podpora nativních modulů
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Nativní moduly](https://nodejs.org/api/addons.html) v práci s uzlem definováním vstupní funkce uzlu, který se má načítat, a poté vyhledávat symboly V8 a libuv z Node. Toto je trochu problémové pro embeddery, protože ve výchozím nastavení jsou symboly V8 a libuv skryté při vytváření uzlu jako knihovny a nativní moduly nenačtou , protože tyto symboly nemohou najít.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Takže aby původní moduly fungovaly, byly v Electronu odhaleny symboly V8 a libuv . Pro V8 se to provádí tak, že se projeví [a všechny symboly v konfiguračním souboru Chromia](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). Pro libuv, je dosaženo [nastavením `BUILDING_UV_SHARED=1` definice](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## Spouštění uzlu ve vaší aplikaci
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+Po všech pracích budování a propojení s uzlem je posledním krokem spuštění uzlu ve vaší aplikaci.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+Uzel neposkytuje mnoho veřejných API pro vložení do jiných aplikací. Obvykle můžete zavolat [`uzlů::Start` a `uzel::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) a spustit novou instanci uzlu. Pokud však budujete komplexní aplikaci založenou na Node, musíte použít APIs jako `uzl::CreateEnvironment` pro přesné ovládání každého kroku.
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+V Electronu je uzel spuštěn ve dvou režimech: samostatný režim, který běží v hlavním procesu , což je podobné oficiálním binarům uzlu a vloženému režimu , který vloží API uzlu do webových stránek. Podrobnosti budou vysvětleny v budoucím příspěvku.
 

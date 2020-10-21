@@ -26,11 +26,11 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 
 在两个网页（渲染进程）间共享数据最简单的方法是使用浏览器中已经实现的 HTML5 API。 Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+或者，您可以使用 Electron 提供的 IPC 原始。 在主进程和渲染器进程之间共享数据， 您可以使用 [`ipcMain`](api/ipc-main.md) 和 [`ipcRenderer`](api/ipc-renderer.md) 模块。 若要直接在网页之间进行沟通，您可以发送一个 [`MessagePort`][message-port] 可能通过主进程 使用 [`ipcRendererer。 ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). 随后在邮件端口上的通信是直接的，不会绕过主进程 。
 
 ## 我的程序的托盘一段时间后消失了？
 
-This happens when the variable which is used to store the tray gets garbage collected.
+当用来存储托盘的变量得到 垃圾收集时，就会发生这种情况。
 
 你可以参考以下两篇文章来了解为什么会遇到这个问题：
 
@@ -41,8 +41,8 @@ This happens when the variable which is used to store the tray gets garbage coll
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
+app.whenReady().then(() => *
+  const tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -52,7 +52,7 @@ app.whenReady().then(() => {
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.whenReady().then(() => {
+app.whenReady().then(() =>
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -67,7 +67,7 @@ app.whenReady().then(() => {
 ```javascript
 // 在主进程中.
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({
+const win = new BrowserWindow(format@@
   webPreferences: {
     nodeIntegration: false
   }
@@ -102,13 +102,13 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例:
+如果 [个子像素反锯齿](http://alienryderflex.com/sub_pixel/) 被禁用，那么LCD 屏幕上的字体看起来会变得模糊。 示例:
 
-![subpixel rendering example][]
+！[子像素渲染示例][]
 
 子像素反锯齿需要一个包含字体光图的图层的非透明背景。 （详情请参阅[这个问题](https://github.com/electron/electron/issues/6344#issuecomment-420371918)）
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+要实现这个目标，请在构造函数中设置 [浏览窗口][browser-window] 的背景：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. 即使您没有看到不同的情况，您的一些用户可能也会看到。 最好始终以这种方式确定背景，除非你有理由不这样做。
 
 注意到，仅设置 CSS 背景并不具有预期的效果。
 
@@ -129,4 +129,4 @@ The effect is visible only on (some?) LCD screens. Even if you don't see a diffe
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[子像素渲染示例]: images/subpixel-rendering-screenshot.gif

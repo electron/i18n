@@ -1,6 +1,6 @@
 # Instalación
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Para instalar los binarios de Electron preconstruidos, utilice [`npm`](https://docs.npmjs.com). El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación :
 
 ```sh
 npm install electron -save-dev
@@ -32,37 +32,37 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Si necesita utilizar un proxy HTTP, necesita establecer la variable `ELECTRON_GET_USE_PROXY` a cualquier valor además de variables de entorno adicionales dependiendo de la versión del nodo del sistema host:
 
-* [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Nodo 10 o superior](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [Antes del Nodo 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Espejos y cachés personalizados
-During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
+Durante la instalación, el módulo `electron` llamará a [`@electron/get`](https://github.com/electron/get) para descargar binarios preconstruidos de Electron para su plataforma. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
 
 Si no puede acceder a GitHub o necesita proporcionar una compilación personalizada, puede hacerlo proporcionando un espejo o un directorio de caché existente.
 
 #### Espejo
-Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. The URL used by `@electron/get` is composed as follows:
+Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. La URL utilizada por `@electron/get` se compone de la siguiente manera:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China CDN mirror:
+Por ejemplo, para utilizar el espejo CDN de China:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+Por defecto, `ELECTRON_CUSTOM_DIR` se establece en `v$VERSION`. Para cambiar el formato, use el marcador de posición `{{ version }}`. Por ejemplo, `version-{{ version }}` se resuelve a `version-5.0.`, `{{ version }}` se resuelve a `5.0.`, y `v{{ version }}` es equivalente al valor predeterminado. Como un ejemplo más concreto, para usar el espejo no CDN de China:
 
 ```shell
-ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_MIROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+La configuración anterior descargará de URLs como `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Caché
 Alternativamente, puede anular la memoria caché local. `@electron-get` almacenará en caché los archivos binarios descargados en un directorio local para no sobrecargar tu red. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
@@ -73,9 +73,9 @@ Alternativamente, puede anular la memoria caché local. `@electron-get` almacena
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+También puede sobrescribir la ubicación de la caché local proporcionando una variable de entorno `electron_config_cache` .
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+La caché contiene el archivo zip oficial de la versión, así como una suma de comprobación, almacenada como un archivo de texto. Un caché típico podría verse así:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -105,7 +105,7 @@ Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo b
 
 Esto puede ser innecesario, por ejemplo en un entorno CI, cuando se prueba otro componente.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Para evitar que el binario se descargue cuando instale todas las dependencias de npm, puede establecer la variable de entorno `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ej.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

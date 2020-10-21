@@ -1,10 +1,10 @@
-# Multithreading
+# Multi-citire
 
 With [Web Workers][web-workers], it is possible to run JavaScript in OS-level threads.
 
-## Multi-threaded Node.js
+## Node.js multi-filament
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Este posibil să folosiți Nodul. caracteristicile lui Electron Web Workers, pentru a face astfel încât opţiunea `nodeIntegrationInWorker` ar trebui setată la `true` în `webPreferences`.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,25 +14,25 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker` poate fi folosit independent de `nodeIntegration`, `cutie de nisip` nu trebuie setată ca `adevărat`.
 
-## Available APIs
+## API disponibile
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Toate modulele încorporate din Node.js sunt acceptate în WebWorkers, iar `asar` arhive pot fi citite în continuare cu API-uri Node.js. Cu toate acestea, niciunul dintre modulele încorporate ale Electron nu poate fi folosit într-un mediu cu mai multe filete.
 
-## Native Node.js modules
+## Module native Node.js
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Orice modul nativ Node.js poate fi încărcat direct în WebWorkers, dar este recomandat să nu se facă acest lucru. Majoritatea modulelor native existente au fost scrise presupunând un mediu cu un singur fir, folosirea lor în Web Workers va duce la prăbuşiri şi corupţii de memorie.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Țineți cont de asta chiar și în cazul unui nod nativ. s modulul este securizat pentru thread-safe tot nu este sigur să îl încarci într-un Web Worker deoarece procesul `. funcția` lopen nu este sigur.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Pentru moment, singura modalitate de a încărca un modul nativ în condiţii de siguranţă, este să te asiguri că aplicația nu încarcă module native după ce Web.
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  aruncați o nouă Error('Încărcarea modulului nativ nu este sigură')
 }
-let worker = new Worker('script.js')
+las pe lucrător = new Worker('script.js')
 ```
 
 [web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

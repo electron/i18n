@@ -43,7 +43,7 @@ Renvoie :
 
 * `event` Événement
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis avant que l'application ne commence à fermer ses fenêtres. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 **Remarque :** Si l'application a été quittée par `autoUpdater.quitAndInstall()`, puis `before-quit` est émise *après* émettant un événement `close` sur toutes les fenêtres et les fermant.
 
@@ -55,7 +55,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Émis lorsque toutes les fenêtres ont été fermées et que l'application va se fermer. L'appel à `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
@@ -162,7 +162,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Émis lorsque l'utilisateur clique sur le bouton natif de nouvel onglet de macOS. Le bouton de nouvel onglet n'est visible que si la `BrowserWindow actuelle` possède un `tabbingIdentifier`
 
 ### Événement : 'browser-window-blur'
 
@@ -315,16 +315,16 @@ Retourne :
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Valeurs possibles :
-    * `clean-exit` - Process exited with an exit code of zero
+  * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
+    * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+    * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
+    * `crashed` - Processus s'est planté
+    * `oom` - Le processus est tombé à cours de mémoire
+    * `launch-failure` - Le processus n'a jamais réussi a être lancé
+    * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Émis lorsque le processus de rendu disparait de façon inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 ### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -374,7 +374,7 @@ Retourne :
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
 ### Événement : 'remote-require'
 
@@ -450,7 +450,7 @@ Cette méthode garantit que tous les écouteurs d’événements de `beforeunloa
 
 * `exitCode` Integer (facultatif)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sort immédiatement avec `exitCode`. `exitCode` est par défaut à 0.
 
 Toutes les fenêtres seront fermées immédiatement sans demander à l'utilisateur, et les événements `before-quit` et `will-quit` ne seront pas émis.
 

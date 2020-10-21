@@ -103,7 +103,7 @@ Pour définir l'icône de superposition d'une fenêtre, vous pouvez utiliser l'A
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Description pour superposition')
 ```
 
 

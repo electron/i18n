@@ -1,20 +1,20 @@
 ---
-title: Accessibility Tools
-author: jlord
+title: Інструменти для спец. можливостей
+author: молодший
 date: '2016-08-23'
 ---
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Створення доступу до доступних програм дуже важливе, і ми з радістю представляємо нові функціональні можливості [Devtron](https://electronjs.org/devtron) та [Spectron](https://electronjs.org/spectron) , що дає розробникам можливість покращити їх додаткам для всіх.
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Проблеми з доступністю для Electron додатків схожі на ті веб-сайти, тому що вони в кінцевому рахунку HTML. За допомогою застосунків Electron, однак, ви не можете використовувати онлайн-ресурси для контролю доступності тому що ваш додаток не має URL для вказівника.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) for more information.
+Ці нові функції надають ці інструменти аудиту для програми Electron. Ви можете вибрати перевірку ваших тестів за допомогою Spectron або використовувати їх в інструментах DevTools з Devtron. Читайте на огляд інструментів або отримайте нашу [доступну документацію](https://electronjs.org/docs/tutorial/accessibility/) для отримання додаткової інформації.
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Наприклад:
+При тестуванні специфікації фреймворку ви можете тепер перевіряти кожне вікно і тег `<webview>` у вашому додатку. Наприклад:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,15 +24,15 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Ви можете прочитати більше про цю функцію в документації [Spectron's](https://github.com/electron/spectron#accessibility-testing).
 
 ### Devtron
 
-In Devtron there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+У Devtron є нова вкладка доступності, яка дозволить вам перевіряти сторінку у програмі, сортувати і фільтрувати результати.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![Скріншот розробника](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Обидва ці інструменти використовують [бібліотеку розробника](https://github.com/GoogleChrome/accessibility-developer-tools) з набору розробників </a> за допомогою Google для Chrome. Ви можете дізнатися більше про правила аудиту доступності, які використовує ця бібліотека на [вікі репозиторію](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) with a pull request.
+Якщо ви знаєте про інші чудові інструменти для доступності для Electron, додайте їх до [документації](https://electronjs.org/docs/tutorial/accessibility/) за допомогою pull request.
 

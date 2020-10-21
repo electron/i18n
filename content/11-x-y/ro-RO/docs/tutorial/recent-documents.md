@@ -1,14 +1,14 @@
-# Recent Documents (Windows & macOS)
+# Documente recente (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows și macOS oferă acces la o listă de documente recente deschise de prin meniul JumpList, respectiv dock.
 
 __JumpList:__
 
-![JumpList Recent Files][1]
+![JumpList Fișiere recente][1]
 
-__Application dock menu:__
+__Meniu dock aplicație:__
 
-![macOS Dock Menu][2]
+![Meniu andocare macOS][2]
 
 To add a file to recent documents, you can use the [app.addRecentDocument][addrecentdocument] API:
 
@@ -24,19 +24,19 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Note Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration][app-registration].
+Pentru a putea utiliza această funcție pe Windows, aplicația dvs. trebuie să fie înregistrată ca gestionar al tipului de fișier al documentului, În caz contrar, fișierul nu va apărea în JumpList nici după ce l-ați adăugat. You can find everything on registering your application in [Application Registration][app-registration].
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Când un utilizator apasă pe un fișier din lista JumpList, o nouă instanță a aplicației dvs. va fi începută cu calea fișierului adăugat ca argument în linia de comandă.
 
-## macOS Notes
+## Note macOS
 
-### Adding the Recent Documents list to the application menu:
+### Adăugarea listei de documente recente în meniul de aplicare:
 
-![macOS Recent Documents menu item][6]
+![element meniu documente recente macOS][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Puteți adăuga elemente de meniu pentru a accesa și șterge documentele recente prin adăugarea următorului cod snippet în șablonul meniului.
 
 ```json
 {
@@ -55,7 +55,7 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Atunci când se solicită un fișier din meniul de documente recente, modulul `fişier deschis` eveniment din `app` va fi emis pentru acesta.
 
 [1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
 [2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png

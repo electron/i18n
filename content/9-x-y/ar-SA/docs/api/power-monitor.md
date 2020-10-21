@@ -7,7 +7,7 @@
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { app, powerMonitor } = require('electron')

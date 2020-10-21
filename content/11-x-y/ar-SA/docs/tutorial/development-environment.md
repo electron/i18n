@@ -24,13 +24,13 @@ npm -v
 
 ## اعداد نظام الويندوز (Windows)
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
+> يدعم إلكترون Windows 7 والإصدارات اللاحقة - محاولة تطوير تطبيقات إلكترون على الإصدارات السابقة من ويندوز لن تعمل. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
 أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. Visit [the Node.js download page][node-download] and select the `Windows Installer`. بمجرد إنتهاء التحميل، قم بتثبيت البرنامج و ذلك بمساعدة التوجيهات.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+على الشاشة التي تسمح لك بتكوين التثبيت، تأكد من تحديد عقدة `s يتم تشغيل`، `npm مدير الحزمة`، و `إضافة إلى PATH` خيارات.
 
-عند الإنتهاء من التثبيت، قم بالتثبت أن كل شيء يعمل بشكل جيد. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+عند الإنتهاء من التثبيت، قم بالتثبت أن كل شيء يعمل بشكل جيد. العثور على Windows PowerShell عن طريق فتح قائمة البدء وكتابة `PowerShell`. افتح لأعلى `PowerShell` أو أي عميل من إختيارك لتأكيد أن كل من `عقدة` و `npm` متاحة:
 
 ```powershell
 # هذا الأمر يجب أن يظهر لك إصدار الـnode المتوفر على جهازك
@@ -44,11 +44,11 @@ npm -v
 
 ## اعداد نظام لينكس (Linux)
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> بشكل عام، يدعم إلكترون Ubuntu 12.04, Fedora 21, Debian 8 وما بعدها.
 
-أولا، عليك تثبيت إصدار حديث من "Node.js". Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
+أولا، عليك تثبيت إصدار حديث من "Node.js". اعتمادا على توزيع لينكس الخاص بك، قد تختلف خطوات التثبيت. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+أنت تقوم بتشغيل لينوكس، لذلك من المحتمل أن تعرف بالفعل كيفية تشغيل عميل سطر الأوامر قم بفتح العميل المفضل لديك وتأكيد أن كلا من `العقدة` و `npm` متاحان عالمياً:
 
 ```sh
 # هذا الأمر يجب أن يظهر لك إصدار الـnode المتوفر على جهازك
@@ -60,11 +60,11 @@ npm -v
 
 إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! قبل البداية، يفضل منك تنصيب محرر أكواد يدعم البرمجة بـJavaScript.
 
-## A Good Editor
+## محرر جيد
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
+We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. كلا لديهم دعم ممتاز من جافا سكريبت.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+إذا كنت أحد المطورين العديدين مع تفضيلات قوية، معرفة أن تقريبا جميع محرري التعليمات البرمجية و IDEs هذه الأيام تدعم جافا سكريبت.
 
 [macincloud]: https://www.macincloud.com/
 [node-download]: https://nodejs.org/en/download/

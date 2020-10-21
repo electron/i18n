@@ -16,7 +16,7 @@ Une archive [asar][asar] est un simple format d'archive comme tar, qui concatèn
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Paquet avec le pack `asar`
 
 ```sh
 $ asar pack votre-application app.asar
@@ -24,7 +24,7 @@ $ asar pack votre-application app.asar
 
 ## Lire une archive `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Dans Electron, il y a deux jeux d'APIs : les APIs Node fournis par Node.js et les APIs Web fournis par Chromium. Les deux API prennent en charge la lecture des fichiers des archives `asar`.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Dans une page web, les fichiers dans une archive peuvent être demandés avec le fichier `:` protocole. Comme l'API Node, les archives `asar` sont traitées comme des répertoires.
 
 Par exemple, pour obtenir un fichier avec `$.get`:
 
@@ -139,9 +139,9 @@ C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entr�
 
 ## Ajouter des fichiers non empaquetés dans une archive `asar`
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Comme indiqué ci-dessus, certaines API Node décompresseront le fichier sur le système de fichiers quand a été appelé. En dehors des problèmes de performance, divers scanners anti-virus peuvent être déclenchés par ce comportement.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Comme solution de contournement, vous pouvez laisser différents fichiers décompressés en utilisant l'option `--unpack`. Dans l'exemple suivant, les bibliothèques partagées des modules natifs Node.js ne seront pas empaquetées :
 
 ```sh
 $ asar pack app app.asar --unpack *.node

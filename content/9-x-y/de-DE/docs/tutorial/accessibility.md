@@ -4,13 +4,13 @@ Die Bereitstellung zugänglicher Anwendungen ist wichtig und wir freuen uns, neu
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Accessibility Bedenken in Electron Anwendungen ähneln denen von Webseiten, da sie beide letztendlich HTML sind. Mit Electron-Apps jedoch Sie können die Online-Ressourcen nicht für Zugänglichkeitsprüfungen verwenden, weil Ihre App keine URL hat, auf die Sie den Auditor verweisen können.
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Lesen Sie weiter für eine Zusammenfassung der Werkzeuge.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Ein Beispiel:
+Im Test-Framework Spectron können Sie nun jedes Fenster und `<webview>` Tag in Ihrer Anwendung überprüfen. Ein Beispiel:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,27 +24,27 @@ Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation][spectron-
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+In Devtron gibt es einen neuen Tab für Barrierefreiheit, der es Ihnen erlaubt, eine Seite in Ihrer App zu überprüfen, zu sortieren und zu filtern.
 
 ![Screenshot von Devtron][4]
 
 Both of these tools are using the [Accessibility Developer Tools][a11y-devtools] library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki][a11y-devtools-wiki].
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Wenn Sie andere großartige Zugänglichkeitstools für Electron kennen, fügen Sie sie der Zugänglichkeitsdokumentation mit einem Pull-Request hinzu.
 
 ## Barrierefreiheit aktivieren
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Elektronische Anwendungen halten die Zugänglichkeit standardmäßig aus Performance- Gründen deaktiviert, aber es gibt mehrere Wege, dies zu aktivieren.
 
 ### Innerhalb der Anwendung
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. Die Systemwerkzeuge des Benutzers haben Vorrang vor dieser Einstellung und werden sie überschreiben.
 
 ### Unterstützende Technologien
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
+Die Electron-Anwendung wird die Zugänglichkeit automatisch aktivieren, wenn sie unterstützende Technologie (Windows) oder VoiceOver (macOS) erkennt. See Chrome's [accessibility documentation][a11y-docs] for more details.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Bei macOS kann die externe unterstützende Technologie die Zugänglichkeit innerhalb von Elektron-Anwendungen ändern, indem sie das Attribut `AXManualAccessibility` programmatisch einstellen:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

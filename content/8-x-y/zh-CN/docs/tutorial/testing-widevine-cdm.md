@@ -2,50 +2,50 @@
 
 在 Electron 中，你可以使用 Widevine CDM 库装载 Chrome 浏览器。
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. 广义支持是目前依靠银灯来播放 DRM保护视频内容的 流媒体服务的替代解决方案。 它将允许网站在 Firefox 中显示 DRM 保护的视频 内容，而无需使用 NPAPI 插件。 宽体清洁发展机制运行于 开放源码清洁发展机制沙盒，比NPAPI插件提供更好的用户安全。
 
-#### Note on VMP
+#### VMP 上的注释
 
-As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
+从 [`Electron v1.8。 (Chrome v59)`](https://electronjs.org/releases#1.8.1), 以下步骤可能只是开启宽体的一些必要步骤； 任何版本上或之后打算使用宽广清洁发展机制的应用程序可能需要 使用从 [宽广获得的许可证进行签名](https://www.widevine.com/) 本身。
 
-Per [Widevine](https://www.widevine.com/):
+每 [宽度](https://www.widevine.com/):
 
-> Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (及以后)包括支持已验证的媒体路径(VMP)。 VMP 提供了验证设备平台真实性的方法。 对于浏览器 部署，这将提供一个额外的信号，以确定基于浏览器的 实现是否可靠和安全。
 > 
-> The proxy integration guide has been updated with information about VMP and how to issue licenses.
+> 代理集成指南已经更新，包含关于 VMP 和 如何颁发许可证的信息。
 > 
-> Widevine recommends our browser-based integrations (vendors and browser-based applications) add support for VMP.
+> 广义建议我们基于浏览器的集成(供应商和基于浏览器的 应用程序)，增加对 VMP的支持。
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+要使用此新限制启用视频回放， [种姓标签](https://castlabs.com/open-source/downstream/) 创建了一个 [派生](https://github.com/castlabs/electron-releases) 已经实现了 所需的更改，以便在一个 Electron 应用程序中播放，如果 一个人已经从广泛获取了必要的许可的话。
 
-## Getting the library
+## 获取库
 
-Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
+在 Chrome 浏览器中打开 `chrome://compons/` 找到 `宽松内容解密模块` 并确保它是最新的 然后您可以从 应用程序目录中找到库文件。
 
 ### Windows 中
 
-The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
+库文件 `widvinecdm.dll` 将在 `程序文件(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` 目录。
 
 ### On MacOS
 
-The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
+库文件 `libwidivinecdm.dylib` 将在 下。`/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` 目录。
 
-**Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
+**注意：** 请确保Electron 使用的chrome版本大于或 等于 `min_chrome_version` 值的 Chrome's widentific cdm 组件. 该值可以在 `manifest.json` 处在 `WidevineCdm` 目录下找到。
 
-## Using the library
+## 使用库
 
-After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+在获取库文件后，您应该将路径传递到文件 与 `--wandvine-cdm-path` 命令行开关， 和库版本 用 `--widvine-cdm-version` 开关。 The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
 示例代码：
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// You have to pass the directory that contains widevine library here, it is
-// * `libwidevinecdm.dylib` on macOS,
-// * `widevinecdm.dll` on Windows.
-app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://components` page in Chrome.
+// 您必须在此传递包含宽带库的目录，它是
+// * `libwidvinecdm。 macOS上的 ylib`，
+// * Windows上的 `widvinecdm.dll` 。
+app.commandLine.appendSwitch('widvine-cdm-path', '/path/to/warvine_library')
+// 插件版本可以从 Chrome://components`页面获取。
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
@@ -55,9 +55,9 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying Widevine CDM support
+## 验证广义清洁发展机制支持
 
-To verify whether widevine works, you can use following ways:
+要验证是否广泛工作，您可以使用以下方式：
 
 * 打开 https://shaka-player-demo.appspot.com/ 加载一个使用 `Widevine` 的 manifest。
 * 打开 http://www.dash-player.com/demo/drm-test-area/，检查是否界面输出 `bitdash uses Widevine in your browser`，然后播放 video。

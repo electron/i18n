@@ -12,11 +12,11 @@ Read-Eval-Print-Loop (REPL) - это простая интерактивная �
 * Если у вас `electron` или `electron-prebuilt` установлен глобально:
 
   ```sh
-  electron --interactive
+  электрон --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Это только создает REPL для основного процесса. Вы можете использовать вкладку Консоль в инструментах Dev для получения REPL для процессов визуализации.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Примечание:** `электрон --interactive` не доступен в Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Дополнительную информацию можно найти в [документации к REPL](https://nodejs.org/dist/latest/docs/api/repl.html) Node.js .

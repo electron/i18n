@@ -4,68 +4,68 @@ author: jlord
 date: '2015-06-04'
 ---
 
-This week we've given Electron's documentation a home on [electronjs.org](https://electronjs.org). You can visit [/docs/latest](https://electronjs.org/docs/latest) for the latest set of docs. We'll keep versions of older docs, too, so you're able to visit [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) for the docs that correlate to the version you're using.
+Tento týden jsme dokumentaci Electronu dali domů na [electronjs.org](https://electronjs.org). Můžete navštívit [/docs/latest](https://electronjs.org/docs/latest) pro nejnovější soubor dokumentů. Také si ponecháme verze starších dokumentů, takže můžete navštívit [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) dokumentů, které odpovídají verzi, kterou používáte.
 
 ---
 
-You can visit [/docs](https://electronjs.org/docs) to see what versions are available or [/docs/all](https://electronjs.org/docs/all) to see the latest version of docs all on one page (nice for `cmd` + `f` searches).
+Můžete navštívit [/docs](https://electronjs.org/docs) , abyste zjistili, jaké verze jsou k dispozici nebo [/docs/all](https://electronjs.org/docs/all) , abyste viděli nejnovější verzi dokumentace na jedné stránce (pěkná pro vyhledávání `cmd` + `f`.).
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/master/docs), where the docs are fetched from. We fetch them for each minor release and add them to the [Electron site repository](http://github.com/electron/electronjs.org), which is made with [Jekyll](http://jekyllrb.com).
+Pokud chcete přispět k obsahu dokumentace, můžete tak učinit v [Electron repozitáři](https://github.com/electron/electron/tree/master/docs), odkud jsou dokumenty načteny. Načítáme je pro každý menší vydání a přidáváme je do [úložiště stránek Electronu](http://github.com/electron/electronjs.org), která je vytvořena s [Jekyll](http://jekyllrb.com).
 
-If you're interested in learning more about how we pull the docs from one repository to another continue reading below. Otherwise, enjoy the [docs](https://electronjs.org/latest)!
+Pokud máte zájem dozvědět se více o tom, jak stahujeme dokumenty z jednoho repozitáře do jiného, pokračujte ve čtení níže. Jinak si vychutnejte [dokumentace](https://electronjs.org/latest)!
 
-## The Technical Bits
+## Technické základny
 
-We're preserving the documentation within the Electron core repository as is. This means that [electron/electron](http://github.com/electron/electron) will always have the latest version of the docs. When new versions of Electron are released, we duplicate them over on the Electron website repository, [electron/electronjs.org](http://github.com/electron/electronjs.org).
+Uchováváme dokumentaci v jádru Electronu tak, jak je. To znamená, že [elektron/elektronický](http://github.com/electron/electron) bude mít vždy nejnovější verzi dokumentů. Když jsou vydány nové verze Electronu, duplikujeme je na webových stránkách Electronu, [elektronick/elektronjs.org](http://github.com/electron/electronjs.org).
 
 ### script/docs
 
-To fetch the docs we run a [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) with a command line interface of `script/docs vX.XX.X` with or without the `--latest` option (depending on if the version you're importing is the latest version). Our [script for fetching docs](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) uses a few interesting Node modules:
+Pro načtení dokumentace spouštíme [skript](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) s rozhraním příkazové řádky `script/docs vX.XX.` s nebo bez možnosti `--latest` (v závislosti na tom, zda je importovaná verze nejnovější verze). Náš [skript pro načítání dokumentace](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) používá několik zajímavých modulů uzlu:
 
-- [`nugget`](http://npmjs.com/nugget) for [getting the release tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) and saving it to a temporay directory.
-- [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) to [unzip the tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
-- [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
+- [`nugget`](http://npmjs.com/nugget) pro [získání release tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) a uložení do dočasného adresáře.
+- [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) to [rozbalit tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
+- [`tar-fs`](http://npmjs.com/tar-fs) pro [streamování pouze adresáře `/docs`](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) z tarbalu a [filtrování a zpracování souborů](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (s pomocí [`through 2`](http://npmjs.com/through2)), aby fungovaly hezky s naší stránkou Jekyll (více na níže uvedené stránce).
 
-[Tests](https://github.com/electron/electronjs.org/tree/gh-pages/spec) help us know that all the bits and pieces landed as expected.
+[Testy](https://github.com/electron/electronjs.org/tree/gh-pages/spec) nám pomáhají vědět, že všechny kousky a kusy vyložené podle očekávání.
 
 ### Jekyll
 
-The Electron website is a Jekyll site and we make use of the [Collections](http://jekyllrb.com/docs/collections/) feature for the docs with a structure like this:
+Electron webové stránky jsou stránky Jekyll a používáme funkci [kolekcí](http://jekyllrb.com/docs/collections/) pro dokumenty se strukturou, jako je tento:
 
 ```bash
 electron.atom.io
-└── _docs
-    ├── latest
-    ├── v0.27.0
-    ├── v0.26.0
-    ├── so on
-    └── so forth
+<unk> š.--_docs
+    <unk> ý-ý-poslední
+    <unk> ý-v0.27.0
+    <unk> ý-v0.26.0
+    <unk> ý-takhle na
+    <unk> ý-tak dále.
 ```
 
-#### Front matter
+#### Přední část
 
-For Jekyll to render each page it needs at least empty front matter. We're going to make use of front matter on all of our pages so while we're streaming out the `/docs` directory we check to see if a file is the `README.md` file (in which case it receives one front matter configuration) or if it is any other file with a markdown extension (in which case it receives slightly different front matter).
+Aby Jekyll vykreslil každou stránku, potřebuje alespoň prázdné titulní předměty. Použijeme fronty na všech našich stránkách, takže zatímco vysíláme adresář `/docs` , zjistíme, zda je soubor `ČÍTAČ. d` soubor (v tom případě obdrží jednu přední složku) nebo jiný soubor s příponou markdown (v tom případě obdrží mírně odlišnou přední část).
 
-Each page receives this set of front matter variables:
+Každá stránka obdrží tuto sadu předních proměnných:
 
 ```yaml
 ---
-version: v0.27.0
+verze: v0.27.0
 category: Tutorial
 title: 'Quick Start'
 source_url: 'https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md'
 ---
 ```
 
-The `README.md` gets an additional `permalink` so that has a URL has a common root of `index.html` rather than an awkward `/readme/`.
+`ČTĚ. d` získává další `trvalý odkaz` , takže URL má běžnou kořenovou složku indexu `. tml` namísto nepříjemné `/readme/`.
 
 ```yaml
-permalink: /docs/v0.27.0/index.html
+trvalý odkaz: /docs/v0.27.0/index.html
 ```
 
-#### Config and Redirects
+#### Konfigurace a přesměrování
 
-In the site's `_config.yml` file a variable `latest_version` is set every time the `--latest` flag is used when fetching docs. We also add a list of all the versions that have been added to the site as well as the permalink we'd like for the entire docs collection.
+Na webu `_config. ml` soubor proměnná `latest_version` je nastavena pokaždé, když je při načítání dokumentace použit znak `--latest`. Přidáváme také seznam všech verzí, které byly přidány na stránku, stejně jako trvalý odkaz jako pro celou kolekci dokumentů.
 
 ```yaml
 latest_version: v0.27.0
@@ -75,18 +75,18 @@ collections:
     docs: {output: true, permalink: '/docs/:path/'}
 ```
 
-The file `latest.md` in our site root is empty except for this front matter which allows users to see the index (aka `README`) of the latest version of docs by visiting this URL, [electron.atom.io/docs/latest](https://electronjs.org/docs/latest), rather than using the latest version number specifically (though you can do that, too).
+Soubor `později. d` v kořenovém adresáři našich stránek je prázdné kromě této fronty, která uživatelům umožňuje vidět index (aka `README`z nejnovější verze dokumentace navštívením této URL, [elektron. tom.io/docs/latest](https://electronjs.org/docs/latest), namísto použití čísla nejnovější verze konkrétně (i když to můžete udělat).
 
 ```yaml
 ---
-permalink: /docs/latest/
+permalink: /cs/latest/
 redirect_to: /docs/{{ site.data.releases[0].version }}
 ---
 ```
 
-#### Layouts
+#### Rozvržení
 
-In the `docs.html` layout template we use conditionals to either show or hide information in the header and breadcrumb.
+V šabloně `docs.html` použijeme podmínky pro zobrazení nebo skrytí informací v záhlaví a drobečku.
 
 ```html
 {% raw %}
@@ -97,7 +97,7 @@ In the `docs.html` layout template we use conditionals to either show or hide in
 {% endraw %}
 ```
 
-To create a page showing the versions that are available we just loop through the list in our config on a file, `versions.md`, in the site's root. Also we give this page a permalink: `/docs/`
+Chcete-li vytvořit stránku zobrazující dostupnou verzi, stačí provést smyčku přes seznam v našem konfiguračním souboru, `verzí. d`v kořenovém adresáři webu. Také dáme této stránce trvalý odkaz: `/docs/`
 
 ```html
 {% raw %}
@@ -107,5 +107,5 @@ To create a page showing the versions that are available we just loop through th
 {% endraw %}
 ```
 
-Hope you enjoyed these technical bits! If you're interested in more information on using Jekyll for documentation sites, checkout how GitHub's docs team publishes [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
+Doufáme, že se vám tyto technické bity líbily! Pokud máte zájem o více informací o používání Jekyll pro stránky dokumentace, podívejte se, jak GitHubův dokovací tým publikuje [Dokumenty GitHubu na Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
 

@@ -1,30 +1,30 @@
-# Custom Linux Desktop Launcher Actions
+# Custom Linux Desktop Launcher Acties
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+In veel Linux omgevingen kunt u aangepaste items toevoegen aan de launcher door het `.desktop` bestand aan te passen. Voor de documentatie over de eenheid van Canonical, zie [Snelkoppelingen toevoegen aan een Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Voor meer informatie over een meer algemene implementatie, zie de [freedesktop.org specificatie](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-__Launcher shortcuts of Audacious:__
+__Launcher snelkoppelingen van Audacious:__
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![stoutmoedig](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Over het algemeen worden snelkoppelingen toegevoegd door het geven van een `naam` en `Exec` eigenschap voor elk item in het snelkoppelingenmenu. Eenheid zal het `Exec` veld uitvoeren eenmaal geklikt door de gebruiker. Het formaat is als volgt:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Acties =PlayPause;Volgende;Vorige
 
 [Desktop Action PlayPause]
-Name=Play-Pause
+Naam=Play-Pause
 Exec=audacious -t
-OnlyShowIn=Unity;
+Only ShowIn=Unity;
 
 [Desktop Action Next]
 Name=Next
-Exec=audacious -f
+Exec=audous -f
 OnlyShowIn=Unity;
 
 [Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+Naam=Vorige
+Exec=audieuze -r
+OnlyShowIn=eenheid;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Eenheid is de beste manier om uw toepassing te vertellen wat te doen is parameters gebruiken. Deze vind je in je app in de globale variabele `process.argv`.

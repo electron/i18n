@@ -1,29 +1,29 @@
 ---
-title: BrowserView window.open() Vulnerability Fix
+title: Przeglądarka window.open() Korekta wrażliwości
 author: ckerr
 date: '2019-02-03'
 ---
 
-A code vulnerability has been discovered that allows Node to be re-enabled in child windows.
+Odkryto podatność kodu, która pozwala na ponowne włączenie węzła w oknach podrzędnych.
 
 ---
 
-Opening a BrowserView with `sandbox: true` or `nativeWindowOpen: true` and `nodeIntegration: false` results in a webContents where `window.open` can be called and the newly opened child window will have `nodeIntegration` enabled. This vulnerability affects all supported versions of Electron.
+Otwieranie BrowserView z `sandbox: true` lub `nativeWindowOpen: true` i `nodeIntegration: false` skutkuje oknem webContents where `. pisak` może być wywołany, a nowo otwarte okno podrzędne będzie miało włączoną `nodeIntegration`. Ta wrażliwość dotyczy wszystkich obsługiwanych wersji Electron.
 
-## Mitigation
+## Łagodzenie skutków
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`2.0.17`](https://github.com/electron/electron/releases/tag/v2.0.17), [`3.0.15`](https://github.com/electron/electron/releases/tag/v3.0.15), [`3.1.3`](https://github.com/electron/electron/releases/tag/v3.1.3), [`4.0.4`](https://github.com/electron/electron/releases/tag/v4.0.4), and [`5.0.0-beta.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2). We encourage all Electron developers to update their apps to the latest stable version immediately.
+Opublikowaliśmy nowe wersje Electrona, które zawierają poprawki dla tej podatności: [`. .17`](https://github.com/electron/electron/releases/tag/v2.0.17), [`3.0. 5`](https://github.com/electron/electron/releases/tag/v3.0.15), [`3.1.3`](https://github.com/electron/electron/releases/tag/v3.1.3) [`4. .4`](https://github.com/electron/electron/releases/tag/v4.0.4)i [` 5.0.0-beta.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2) Zachęcamy wszystkich programistów Electron do natychmiastowej aktualizacji ich aplikacji do najnowszej stabilnej wersji.
 
-If for some reason you are unable to upgrade your Electron version, you can mitigate this issue by disabling all child web contents:
+Jeśli z jakiegoś powodu nie możesz zaktualizować swojej wersji Electron, możesz złagodzić ten problem wyłączając wszystkie podrzędne treści:
 
 ```javascript
 view.webContents.on('-add-new-contents', e => e.preventDefault());
 ```
 
-## Further Information
+## Inne informacje
 
-This vulnerability was found and reported responsibly to the Electron project by [PalmerAL](https://github.com/PalmerAL).
+Ta wrażliwość została znaleziona i zgłoszona odpowiedzialnie projektowi Electron przez [PalmerAL](https://github.com/PalmerAL).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Aby dowiedzieć się więcej o najlepszych praktykach, aby zachować bezpieczeństwo aplikacji Electron, zobacz nasz [samouczek dotyczący bezpieczeństwa](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Jeśli chcesz zgłosić lukę w Electron, napisz na adres e-mail@electronjs.org.

@@ -45,7 +45,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## Meine App ist nach ein paar Minuten verschwunden.
 
 Dies geschieht, wenn die Variable die das Fenster speichert abgeräumt wird.
 
@@ -140,7 +140,7 @@ Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler beko
 
 ## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Beispiel:
+Wenn [Unterpixel Anti-Aliasing](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen verschwommen werden. Beispiel:
 
 ![subpixel rendering example][]
 
@@ -155,7 +155,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
 
 Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.
 

@@ -1,64 +1,64 @@
 # Utilizarea Selenium și WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+De la [ChromeDriver - WebDriver pentru Chrom](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver este un instrument open source pentru testarea automată a aplicațiilor web în multe browsere. Acesta oferă capabilități pentru navigarea la pagini web, intrări ale utilizatorului, execuție JavaScript și multe altele. ChromeDriver este un server de sine stătător, care implementează protocolul de fir al WebDriver pentru Chromium. Acesta este dezvoltat de membrii echipelor de crom şi WebDriver.
 
-## Setting up Spectron
+## Configurarea Spectron
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) este suportat oficial de ChromeDriver framework pentru Electron. Este construit pe [WebdriverIO](http://webdriver.io/) și are ajutor pentru a accesa API-urile Electron în testele și pachetele ChromeDriver.
 
 ```sh
-$ npm install --save-dev spectron
+$ npm instalare --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-const Application = require('spectron').Application
+// Un test simplu pentru a verifica dacă o fereastră vizibilă este deschisă cu un titlu
+const Application = require('spectron'). pplication
 const assert = require('assert')
 
 const myApp = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+  : '/Applications/MyApp. pp/Contents/MacOS/MyApp'
 })
 
 const verifyWindowIsVisibleWithTitle = async (app) => {
-  await app.start()
-  try {
-    // Check if the window is visible
-    const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
-    assert.strictEqual(isVisible, true)
-    // Get the window's title
-    const title = await app.client.getTitle()
-    // Verify the window's title
-    assert.strictEqual(title, 'My App')
-  } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+  așteaptă aplicația. tart()
+  încercaţi {
+    // Verificaţi dacă fereastra este vizibilă
+    const isVisible = await app. rowserWindow. sVizibil()
+    // Verificați dacă fereastra este vizibilă
+    . trictEqual(isVisible, true)
+    // Obține titlul ferestrei
+    const titlu = așteaptă app. lient.getTitle()
+    // Verificați titlul ferestrei
+    . trictEqual(title, 'My App')
+  } captura (eroare) {
+    // Jurnal orice eșec
+    consolă. rror('Test esuat', eroare. essage)
   }
-  // Stop the application
-  await app.stop()
+  // Opriți aplicația
+  așteaptă app.stop()
 }
 
-verifyWindowIsVisibleWithTitle(myApp)
+verifyWindowIsbleWithTitle(myApp)
 ```
 
-## Setting up with WebDriverJs
+## Configurarea cu WebDriverJ
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJ](https://code.google.com/p/selenium/wiki/WebDriverJs) oferă un pachet Node pentru testarea pe web driver, îl vom folosi ca exemplu.
 
-### 1. Start ChromeDriver
+### 1. Pornește ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+În primul rând trebuie să descarci binarul `chromedriver` și să-l rulezi:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm instalează electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Pornind ChromeDriver (v2.10.291558) pe portul 9515
+Sunt permise numai conexiuni locale.
 ```
 
-Remember the port number `9515`, which will be used later
+Amintiţi-vă numărul portului `9515`, care va fi folosit mai târziu
 
 ### 2. Install WebDriverJS
 
@@ -66,91 +66,91 @@ Remember the port number `9515`, which will be used later
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Conectează-te la ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Utilizarea `selenium-webdriver` cu Electron este identică cu în amonte, exceptând faptul că trebuie să specifici manual cum să conectezi chrome driver și unde să găsești binarul Electronului:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // Portul deschis de către șoferul chrome.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+      // Aici este calea către binarul dvs. Electron.
+      binar: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
   .forBrowser('electron')
-  .build()
+  . uild()
 
 driver.get('http://www.google.com')
 driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
+driver. indElement(webdriver.By.name('btnG')).click()
 driver.wait(() => {
-  return driver.getTitle().then((title) => {
+  return driver.getTitle(). hen(title) => {
     return title === 'webdriver - Google Search'
   })
 }, 1000)
 
-driver.quit()
+șofer. ()
 ```
 
-## Setting up with WebdriverIO
+## Configurarea cu WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) oferă un pachet Node pentru testarea cu web driver.
 
-### 1. Start ChromeDriver
+### 1. Pornește ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+În primul rând trebuie să descarci binarul `chromedriver` și să-l rulezi:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm instalează electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Pornind ChromeDriver (v2.10.291558) în portul 9515
+Doar conexiunile locale sunt permise.
 ```
 
-Remember the port number `9515`, which will be used later
+Amintiţi-vă numărul portului `9515`, care va fi folosit mai târziu
 
-### 2. Install WebdriverIO
+### 2. Instalează WebdriverIO
 
 ```sh
-$ npm install webdriverio
+$ npm instalați webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Conectează-te la chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+opțiunile de const = {
+  host: 'localhost', // Folosiți localhost ca server de șofer partener de chrom
+  port: 9515, // "9515" este portul deschis de șoferul chrome.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Calea către binarul dvs. Electron
+      args: [/* argumente cli */] // Opționale, Poate 'app=' + /path/to/your/app/
     }
   }
 }
 
-const client = webdriverio.remote(options)
+const client = webdriverio. emote(opțiuni)
 
 client
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen(title) => {
+    console.log('Titlu a fost: ' + title)
   })
   .end()
 ```
 
-## Workflow
+## Flux
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Pentru a testa aplicația ta fără a reconstrui Electron, [plasează](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) sursa aplicației tale în directorul de resurse Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternativ, transmiteți un argument pentru a rula cu binarul dvs. Electron care indică către directorul aplicației dvs. Acest lucru elimină necesitatea de a copia aplicația dvs. în Directorul de resurse al Electron.

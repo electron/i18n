@@ -1,97 +1,97 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: Změny API přicházejí v Electronu 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+Od začátku elektronu se startovací cesta zpět, když se nazývala Atom-Shell, experimentujeme s tím, že poskytujeme pěkné JavaScript API pro modul obsahu Chromia a nativní komponenty GUI. API začaly velmi ekologicky a v průběhu času jsme udělali několik změn, abychom zlepšili původní návrhy.
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+Nyní s Electron vytahováním na verzi 1.0, rádi bychom využili příležitosti ke změně tím, že se zabýváme posledními sklepujícími údaji API. Níže popsané změny jsou zahrnuty v **0,35.**, se starými API oznamují výstrahy zastaralého používání, abyste mohli být aktuální pro budoucí vydání 1.0. Electron 1.0 nebude po dobu několika měsíců ven, takže máte nějaký čas, než se tyto změny rozpadnou.
 
-## Deprecation warnings
+## Zastaralé výstrahy
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+Ve výchozím nastavení se zobrazí varování, pokud používáte zastaralé API. Chcete-li je vypnout, můžete nastavit `process.noDeprecation` na `true`. Chcete-li sledovat zdroje zastaralého používání API, můžete nastavit `proces. hrowDeprecation` - `true` pro shození výjimek místo tisku výstrah, nebo nastavit `proces. závodníDeprecation` až `true` k vytisknutí stopy deprese
 
-## New way of using built-in modules
+## Nový způsob používání vestavěných modulů
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+Integrované moduly jsou nyní seskupeny do jednoho modulu, místo aby byly rozděleny do nezávislých modulů, takže je můžete použít [bez konfliktů s ostatními moduly](https://github.com/electron/electron/issues/387):
 
 ```javascript
-var app = require('electron').app
-var BrowserWindow = require('electron').BrowserWindow
+var app = vyžadováno ('electron').app
+var BrowserWindow = vyžadováno ('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+Starý způsob `vyžadovaný ('app')` je stále podporován pro zpětnou kompatibilitu, ale můžete také vypnout:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // throws error.
+require('app') // hodí chybu.
 ```
 
-## An easier way to use the `remote` module
+## Snadnější způsob, jak použít `vzdálený` modul
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+Vzhledem k tomu, jak se změnilo používání vestavěných modulů, usnadnili jsme používání modulů hlavního procesu v procesu zobrazování. Nyní můžete přistupovat k atributům `vzdáleného`pro jejich použití:
 
 ```javascript
-// New way.
-var app = require('electron').remote.app
-var BrowserWindow = require('electron').remote.BrowserWindow
+// Nová cesta.
+var app = vyžadováno ('electron').remote.app
+var BrowserWindow = vyžadováno ('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+Namísto dlouhého používání vyžaduje řetěz:
 
 ```javascript
-// Old way.
+// Stará cesta.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## Rozdělení `ipc` modulu
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+Modul `ipc` existoval jak v hlavním procesu, tak v procesu vykreslování a API se lišilo na každé straně, což je pro nové uživatele celkem matoucí. Modul jsme přejmenovali na `ipcMain` v hlavním procesu a `ipcRenderer` v procesu vykreslování, abychom se vyhnuli nejasnostem:
 
 ```javascript
 // In main process.
-var ipcMain = require('electron').ipcMain
+var ipcMain = vyžadovat('electron').ipcMain
 ```
 
 ```javascript
-// In renderer process.
+// V procesu vykreslování.
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+A pro `ipcRenderer` modul byl při přijímání zpráv přidán extra `objekt` , aby odpovídal způsobu zpracování zpráv v modulech `ipcMain`:
 
 ```javascript
-ipcRenderer.on('message', function (event) {
+ipcRender.on('message', funkce (event) {
   console.log(event)
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## Standardizuji možnosti `BrowserWindow`
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+Možnosti `BrowserWindow` mají různé styly na základě možností jiných API, a bylo těžké použít v JavaScriptu kvůli názvu `-`. Nyní jsou standardizovány podle tradičních názvů JavaScriptu:
 
 ```javascript
-new BrowserWindow({ minWidth: 800, minHeight: 600 })
+nový prohlížeč Window({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## Podle pravidel DOM pro API názvy
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+Názvy API v Electronu preferovaly camelCase pro všechna API jména, jako `Url` na `URL`, ale DOM má své vlastní zvyklosti, a dávají přednost `URL adrese` před `Url`, při použití `Id` místo `ID`. Provedli jsme následující API přejmenování, aby odpovídalo stylům DOM:
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `Url` je přejmenován na `URL`
+* `Csp` je přejmenován na `CSP`
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+V důsledku těchto změn si všimnete spousty deprese při používání Electron v0.35.0 pro vaši aplikaci. Jednoduchý způsob, jak je opravit, je nahradit všechny instance `Url` `URL`.
 
-## Changes to `Tray`'s event names
+## Změny názvů událostí `v systémové liště`
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+Styl názvů událostí `Tray` byl trochu odlišný od ostatních modulů, takže bylo provedeno přejmenování, aby odpovídalo ostatním.
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `kliknuto` je přejmenováno na `klikni`
+* `dvojitým kliknutím` je přejmenován na `dvojklikem`
+* `kliknutí pravým tlačítkem myši` je přejmenováno na `kliknutím pravým tlačítkem`
 

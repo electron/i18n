@@ -1,80 +1,80 @@
 ---
-title: "Announcing TypeScript support in Electron"
+title: "Anunțând suportul TypeScript în Electron"
 author: zeke
 date: '2017-06-01'
 ---
 
-The `electron` npm package now includes a TypeScript definition file that provides detailed annotations of the entire Electron API. These annotations can improve your Electron development experience **even if you're writing vanilla JavaScript**. Just `npm install electron` to get up-to-date Electron typings in your project.
+Pachetul `electron` npm include acum un fișier de definiție TypeScript care oferă adnotări detaliate ale întregului API Electon. Aceste adnotări pot îmbunătăți experiența ta de dezvoltare Electron **chiar dacă scrii vanilie JavaScript**. Doar `npm instalați electronul` pentru a obține tipuri Electron actualizate în proiectul dvs.
 
 ---
 
-TypeScript is an open-source programming language created by Microsoft. It's a superset of JavaScript that extends the language by adding support for static types. The TypeScript community has grown quickly in recent years, and TypeScript was ranked among the [most loved programming languages](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) in a recent Stack Overflow developer survey.  TypeScript is described as "JavaScript that scales", and teams at [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), and [Microsoft](https://github.com/Microsoft/vscode) are all using it to write scalable Electron apps that are used by millions of people.
+TypeScript este un limbaj de programare open-source creat de Microsoft. It's a superset of JavaScript that extends the language by adding support for static types. Comunitatea TypeScript a crescut rapid în ultimii ani, și TypeScript a fost clasat printre [cele mai iubite limbi de programare](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) într-un Sondaj Stack Overflow dezvoltator.  TypeScript este descris ca "JavaScript that scales" și echipe la [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), și [Microsoft](https://github.com/Microsoft/vscode) folosesc toate aplicațiile pentru a scrie aplicații Electron scalabile care sunt folosite de milioane de oameni.
 
-TypeScript supports many of the newer language features in JavaScript like classes, object destructuring, and async/await, but its real differentiating feature is **type annotations**. Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
+TypeScript suportă multe dintre noile caracteristici lingvistice din JavaScript, cum ar fi clase, destructurarea obiectului, și async/await, dar caracteristica sa reală de diferențiere este **tipul de adnotări**. Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
 
-When libraries are written in vanilla Javascript, the types are often vaguely defined as an afterthought when writing documentation. Functions can often accept more types than what was documented, or a function can have invisible constraints that are not documented, which can lead to runtime errors.
+Când bibliotecile sunt scrise în Javascript de vanilie, tipurile sunt adesea vag definite ca un replică la scrierea documentației. Funcţiile pot accepta mai multe tipuri decât ceea ce a fost înregistrat, sau o funcţie poate avea constrângeri invizibile care nu sunt documentate, ceea ce poate duce la erori de rulare.
 
-TypeScript solves this problem with **definition files**. A TypeScript definition file describes all the functions of a library and its expected input and output types. When library authors bundle a TypeScript definition file with their published library, consumers of that library can [explore its API right inside their editor](https://code.visualstudio.com/docs/editor/intellisense) and start using it right away, often without needing to consult the library's documentation.
+TypeScript rezolvă această problemă cu **fişierele de definire**. Un fișier cu definiție TypeScript descrie toate funcțiile unei biblioteci și tipurile de intrare și ieșire așteptate. Când biblioteca autori grupează un fișier de definiție TypeScript cu biblioteca lor publicată, consumatorii din biblioteca respectivă pot [explora API chiar în interiorul editorului lor](https://code.visualstudio.com/docs/editor/intellisense) și începe să o folosească imediat, adesea fără a fi nevoie să consultaţi documentaţia a bibliotecii.
 
-Many popular projects like [Angular](https://angularjs.org/), [Vue.js](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (and now Electron!) compile their own definition file and bundle it with their published npm package. For projects that don't bundle their own definition file, there is [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), a third-party ecosystem of community-maintained definition files.
+Multe proiecte populare precum [Angular](https://angularjs.org/), [Vue. s](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (și acum Electron! compilează propriul fișier de definiție și adaugă-l cu pachetul lor npm publicat. Pentru proiectele care nu își grupează propriul fișier de definiție, există [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), un ecosistem terț de fișiere de definiții întreținute de comunitate.
 
-## Installation
+## Instalare
 
-Starting at version 1.6.10, every release of Electron includes its own TypeScript definition file. When you install the `electron` package from npm, the `electron.d.ts` file is bundled automatically with the installed package.
+Începând de la versiunea 1.6.10, fiecare versiune de Electron include propriul său fişier de definiţie TypeScript. When you install the `electron` package from npm, the `electron.d.ts` file is bundled automatically with the installed package.
 
-The [safest way](https://electronjs.org/docs/tutorial/electron-versioning/) to install Electron is using an exact version number:
+[Cea mai sigură cale](https://electronjs.org/docs/tutorial/electron-versioning/) de a instala Electron folosește un număr exact de versiune:
 
 ```sh
-npm install electron --save-dev --save-exact
+npm instalare electron --save-dev --save-exact
 ```
 
-Or if you're using [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison):
+Sau dacă folosești [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison):
 
 ```sh
 yarn add electron --dev --exact
 ```
 
-If you were already using third-party definitions like `@types/electron` and `@types/node`, you should remove them from your Electron project to prevent any collisions.
+Dacă utilizați deja definiții terțe părți, cum ar fi `@types/electron` și `@types/node`, ar trebui să le elimini din proiectul tău Electron pentru a preveni orice coliziuni.
 
-The definition file is derived from our [structured API documentation](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), so it will always be consistent with [Electron's API documentation](https://electronjs.org/docs/api/). Just install `electron` and you'll always get TypeScript definitions that are up to date with the version of Electron you're using.
+Fișierul de definiție derivă din [documentație API structurată](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), astfel încât să fie întotdeauna în concordanță cu [Documentația API a Electronului](https://electronjs.org/docs/api/). Doar instalați `electron` și veți obține întotdeauna definiții TypeScript care sunt actualizate cu versiunea Electron pe care o folosiți.
 
-## Usage
+## Utilizare
 
-For a summary of how to install and use Electron's new TypeScript annotations, watch this short demo screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+Pentru un rezumat al modului de instalare și utilizare a noilor adnotări TypeScript ale Electron, urmăriți acest scurt ecran demo: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/), you've already got TypeScript support built in. There are also community-maintained plugins for [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), and [other editors](https://www.typescriptlang.org/index.html#download-links).
+Dacă folosiți [Cod Visual Studio](https://code.visualstudio.com/), deja aveți inclus suport TypeScript. Există, de asemenea, plugin-uri întreţinute de comunitate pentru [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), şi [alţi editori](https://www.typescriptlang.org/index.html#download-links).
 
-Once your editor is configured for TypeScript, you'll start to see more context-aware behavior like autocomplete suggestions, inline method reference, argument checking, and more.
+Odată ce editorul tău este configurat pentru TypeScript, vei începe să vezi mai multe comportament conștient de contexte, cum ar fi sugestii autocomplete, referință metodă integrată, verificare argument și multe altele.
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Method autocompletion">
-  <figcaption>Method autcompletion</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Completare automată metodă">
+  <figcaption>Metoda de autocompletare</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="Method reference">
-  <figcaption>Inline method reference</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="Referință metodă">
+  <figcaption>Referință metodă integrată</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="Argument checking">
-  <figcaption>Argument checking</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="Verificare argument">
+  <figcaption>Verificare Argument</figcaption>
 </figure>
 
-## Getting started with TypeScript
+## Cum să începi cu TypeScript
 
-If you're new to TypeScript and want to learn more, this [introductory video from Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) provides a nice overview of why the language was created, how it works, how to use it, and where it's headed.
+Dacă sunteți nou în TypeScript și doriți să aflați mai multe, acest [video introductiv de la Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) oferă o imagine de ansamblu frumoasă a motivului pentru care a fost creată limba, cum funcționează, cum să o folosească, și încotro se îndreptă.
 
-There's also a [handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html) and a [playground](https://www.typescriptlang.org/play/index.html) on the official TypeScript website.
+Există, de asemenea, un [manual](https://www.typescriptlang.org/docs/handbook/basic-types.html) şi un [teren de joacă](https://www.typescriptlang.org/play/index.html) pe site-ul oficial TypeScript.
 
-Because TypeScript is a superset of JavaScript, your existing JavaScript code is already valid TypeScript. This means you can gradually transition an existing JavaScript project to TypeScript, sprinkling in new language features as needed.
+Deoarece TypeScript este un superset de JavaScript, codul existent JavaScript este deja valid TypeScript. Asta înseamnă că poți trece treptat un proiect JavaScript existent la TypeScript, stropind noi caracteristici lingvistice după cum este necesar.
 
-## Thanks
+## Mulțumim
 
-This project would not have been possible without the help of Electron's community of open-source maintainers. Thanks to [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), and many others for their bug fixes, documentation improvements, and technical guidance.
+Acest proiect nu ar fi fost posibil fără ajutorul comunității de întreținători open-source a Electron. Mulțumită [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg) [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Forster Brendan](https://github.com/shiftkey), și multe altele pentru remedierea erorilor, îmbunătățirea documentației, și îndrumare tehnică.
 
 ## Asistență
 
-If you encounter any issues using Electron's new TypeScript definition files, please file an issue on the [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues) repository.
+Dacă întâmpinați probleme cu noile fișiere de definire TypeScript ale Electron, vă rugăm să introduceți o problemă în depozitul [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues).
 
-Happy TypeScripting!
+Discriere fericită!

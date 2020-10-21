@@ -2,11 +2,11 @@
 
 From [ChromeDriver - WebDriver for Chrome][chrome-driver]:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver je open source nástroj pro automatické testování webových aplikací v mnoha prohlížečích. Umožňuje navigaci na webové stránky, uživatelský vstup, spuštění JavaScriptu a další. ChromeDriver je samostatný server, který implementuje WebDriver drát pro Chromium. Vyvíjí ji členové týmů Chromium a WebDriver
 
-## Setting up Spectron
+## Nastavuji Spectron
 
-[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. Je postaven na vrcholu [WebdriverIO](http://webdriver.io/) a má pomocníky pro přístup k Electron API ve vašich testech a svazcích ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -43,22 +43,22 @@ const verifyWindowIsVisibleWithTitle = async (app) => {
 verifyWindowIsVisibleWithTitle(myApp)
 ```
 
-## Setting up with WebDriverJs
+## Nastavení pomocí WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) poskytuje balíček Node pro testování pomocí webového ovladače, použijeme ho jako příklad.
 
-### 1. Start ChromeDriver
+### 1. Spustit ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Nejprve si musíte stáhnout binární soubor `chromedriver` a spustit jej:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
 Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Pouze lokální připojení jsou povolena.
 ```
 
-Remember the port number `9515`, which will be used later
+Pamatovat si číslo portu `9515`, který bude použit později
 
 ### 2. Install WebDriverJS
 
@@ -66,94 +66,94 @@ Remember the port number `9515`, which will be used later
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Připojit k ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Používání `selenium-webdriver` s Electron je stejné s předcházejícím streamem, kromě toho, že musíte ručně určit, jak se připojit chrome ovladač a kde najít binární soubor Electron:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
-const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+const driver = nový webdriver.Builder()
+  // "9515" je port otevřený chrome driver.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+      // Zde je cesta k vašemu Electron binárnímu binaru.
+      binary: '/Cesta k Your-App.app/Contents/MacOS/Electron'
     }
   })
   .forBrowser('electron')
-  .build()
+  . uild()
 
 driver.get('http://www.google.com')
 driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
-  return driver.getTitle().then((title) => {
+driver. indElement(webdriver.By.name('btnG')).klikni ()
+driver.wait() => {
+  return driver.getTitle(). hen(((title) => {
     return title === 'webdriver - Google Search'
   })
 }, 1000)
 
-driver.quit()
+řidiče. uit()
 ```
 
-## Setting up with WebdriverIO
+## Nastavení pomocí WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) poskytuje balíček Node pro testování pomocí web ovladače.
 
-### 1. Start ChromeDriver
+### 1. Spustit ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Nejprve si musíte stáhnout binární soubor `chromedriver` a spustit jej:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
 Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Pouze lokální připojení jsou povolena.
 ```
 
-Remember the port number `9515`, which will be used later
+Pamatovat si číslo portu `9515`, který bude použit později
 
-### 2. Install WebdriverIO
+### 2. Nainstalovat WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Připojit k chrome ovladači
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Použijte localhost jako server ovladače chrome
+  port: 9515, // "9515" je port otevřený ovladačem chrome.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Cesta k vašemu Electron binary.
+      náklady: [/* cli argumenty */] // Nepovinné, Možná 'app=' + /path/to/your/app/
     }
   }
 }
 
-let client = webdriverio.remote(options)
+nechat klienta = webdriverio. emote(volitelně)
 
-client
+klient
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen(((title) => {
+    console.log('Nadpis: ' + title)
   })
   .end()
 ```
 
-## Workflow
+## Pracovní postup
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Chcete-li vyzkoušet vaši aplikaci bez přestavby Electronu, [umístěte](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) váš zdroj aplikace do adresáře zdrojů Electronu.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Případně předejte argument, který běží s vaším Electron binárním souborem, který odkazuje na složku vaší aplikace. Tím se eliminuje potřeba kopírovat aplikaci do adresáře zdrojů Electronu.
 
 [chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
 [spectron]: https://electronjs.org/spectron

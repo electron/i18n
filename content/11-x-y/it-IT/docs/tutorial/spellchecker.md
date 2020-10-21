@@ -1,10 +1,10 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron ha il supporto integrato per il correttore ortografico di Chromium da Electron 8.  Su Windows e Linux questo è alimentato dai dizionari di Hunmag, e su macOS utilizza le API native del correttore ortografico.
 
-## How to enable the spellchecker?
+## Come abilitare il correttore ortografico?
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+Per Electron 9 e superiore, il correttore ortografico è abilitato per impostazione predefinita.  Per Electron 8 è necessario abilitarlo in `webPreferences`.
 
 ```js
 const myWindow = new BrowserWindow({
@@ -14,46 +14,46 @@ const myWindow = new BrowserWindow({
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## Come impostare le lingue usate dal correttore ortografico?
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+Su macOS come usiamo le API native non c'è modo di impostare la lingua che il correttore ortografico usa. Per impostazione predefinita su macOS il correttore ortografico nativo rileverà automaticamente la lingua utilizzata per te.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+Per Windows e Linux ci sono alcune API Electron da usare per impostare i linguaggi per il correttore ortografico.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// Imposta il correttore ortografico per controllare myWindow.session italiano e francese
+. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
+// Un array di tutti i codici di lingua disponibili
 const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+Per impostazione predefinita, il correttore ortografico attiverà la lingua corrispondente al locale OS corrente.
 
-## How do I put the results of the spellchecker in my context menu?
+## Come posso mettere i risultati del correttore ortografico nel mio menu contestuale?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+Tutte le informazioni necessarie per generare un menu contestuale sono fornite nell'evento [`context-menu`](../api/web-contents.md#event-context-menu) su ogni `webContents` istanza.  Di seguito viene fornito un piccolo esempio di come fare un menu contestuale con queste informazioni.
 
 ```js
 const { Menu, MenuItem } = require('electron')
 
-myWindow.webContents.on('context-menu', (event, params) => {
+myWindow.webContents. n('context-menu', (evento, params) => {
   const menu = new Menu()
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
+  // Aggiungi ogni suggerimento ortografico
+  for (const suggestion of params. ictionarySuggestions) {
+    menu. ppend(new MenuItem({
       label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
+      click: () => mainWindow.webContents. eplaceMisspelling(suggestion)
     }))
   }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
+  // Consenti agli utenti di aggiungere la parola errata al dizionario
+  se (parametri. isspelledWord) {
+    menu. ppend(
       new MenuItem({
         label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
+        clic: () => mainWindow. ebContents. ession.addWordToSpellCheckerDictionary(params.misspelledWord)
       })
     )
   }
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## Il correttore ortografico utilizza qualsiasi servizio Google?
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+Anche se il correttore ortografico stesso non invia alcun tipo di battitura, parole o input utente ai servizi di Google i file di dizionario hunspell vengono scaricati da un CDN di Google per impostazione predefinita.  Se si desidera evitare questo è possibile fornire un URL alternativo per scaricare i dizionari da.
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Dai un'occhiata ai documenti per la sessione [`. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) per ulteriori informazioni su dove ottenere i file del dizionario da e come è necessario ospitarli.

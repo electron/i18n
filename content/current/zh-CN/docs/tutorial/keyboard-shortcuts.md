@@ -20,8 +20,8 @@ menu.append(new MenuItem({
 你还可以在操作系统中配置不同的组合键。
 
 ```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+???????
+  加速器: process.platform === 'darwin' 'Alt+Cmd+I': 'Ctrl+Shift+I'
 }
 ```
 
@@ -32,8 +32,8 @@ menu.append(new MenuItem({
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
+app.whenReady().then(() => }
+  globalShortcut.register('CommandOrControl+X', () => }
     console.log('CommandOrControl+X is pressed')
   })
 })

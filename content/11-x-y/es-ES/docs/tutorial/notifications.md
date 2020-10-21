@@ -5,19 +5,19 @@ Los tres sistemas operativos proporcionan medios para que las aplicaciones enví
 **Nota:** dado que se trata de una API HTML5, solo está disponible en el proceso de renderizado. Si desea mostrar notificaciones en el proceso principal, consulte el módulo [Notificación](../api/notification.md).
 
 ```javascript
-const myNotification = new Notification('Title', {
+const myNotification = new Notification('Título', {
   body: 'Lorem Ipsum Dolor Sit Amet'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('Notificación pulsada')
 }
 ```
 
 Si bien el código y la experiencia del usuario en los sistemas operativos son similares, existen diferencias sutiles.
 
 ## Windows
-* En Windows 10, un acceso directo a tú aplicación con el [Application User Model ID][app-user-model-id] debe ser instalado en el Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* En Windows 10, un acceso directo a tú aplicación con el [Application User Model ID][app-user-model-id] debe ser instalado en el Start Menu. Esto puede ser sobrematado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco. Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
 * En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID][app-user-model-id] debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 

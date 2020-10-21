@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Kap'
+title: 'Проект Тижня: Кап'
 author:
   - skllcrn
-  - sindresorhus
+  - синдрезорхус
   - zeke
 date: '2017-01-31'
 ---
 
-The Electron community is growing quickly, and people are creating powerful new apps and tools at an astounding rate. To celebrate this creative momentum and keep the community informed of some of these new projects, we've decided to start a weekly blog series featuring noteworthy Electron-related projects.
+Спільнота Electron швидко зростає, і люди створюють потужні нові застосунки та інструменти вражаючими. Щоб відсвяткувати цей творчий імпульс і зберегти спільноту в повідомленні деяких з цих нових проектів, ми вирішили розпочати тижневий блог серії, з відомими видатними проектами, пов'язаними з Electron.
 
 ---
 
-This post is the first in the series, and features [Kap](https://getkap.co/), an open-source screen recording app built by [Wulkano](https://wulkano.com/), a geodistributed team of freelance designers and developers.
+Ця публікація є першим у серії, а також функції [Kap](https://getkap.co/), Додаток з відкритим вихідним кодом для запису створеного [Wulkano](https://wulkano.com/), географічною командою дизайнерів і розробників фрілансу.
 
-[![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
+[![Кепський скринкаст](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
-## What is Kap?
+## Що таке кап?
 
-[Kap is an open-source screen recorder](https://getkap.co) built primarily for designers and developers to easily capture their work. People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap - це рекордер з відкритим вихідним кодом](https://getkap.co) , побудований насамперед для дизайнерів і розробників, щоб легко відобразити свою роботу. Люди використовують його, щоб ділитися анімованими прототипами, документами - створювати дурні GIF-анімації та все всередині.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
+Ми побачили, як люди різного віку та ззаду використовують його в налаштуваннях, діагностиках, підручниках... список продовжується. Навіть для створення виробничих активів! Ми повністю відірвалися від того, наскільки добре отримав наш бічний проект.
 
-## Why did you build it?
+## Навіщо ти це побудував?
 
-That's a very good question, it's not like there's a lack of screen recorders out there! We felt the alternatives were either too complex, too expensive or too limited. Nothing felt *just right* for our everyday needs. We also think it's great when the tools we use to do our work are open-source, that way everyone can help shape them. [Building Kap ended up being just as much about what we didn't do](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). It's all in the details, an accumulation of small improvements that became the outline of a tool we wanted to use.
+Це дуже гарне запитання, воно не означає, що там немає записів на екрані! Ми відчували, що альтернативи або були занадто складними, занадто дорогими або надто обмеженими. Ніщо не здавалося *просто* для наших щоденних потреб. Крім того, ми також вважаємо, що коли є інструменти, які ми використовуємо для роботи - з відкритим кодом, що так, як кожен може допомогти формувати їх. [Будування капу виявилося не стільки про те, що ми не робили](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). Це все в деталях, накопичення невеликих поліпшень, що стало обрисом інструменту, який ми хотіли використовувати.
 
-However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
+Однак, і, що найважливіше, Кеп став місцем, де ми залишаємо свої турботи у дверях і просто весело будуємо щось для себе і таких людей як ми. Дуже важливо створити середовище, в якому можна просто, випробувати нові тонни і насолоджуватися створеним ремеслом. Немає вимог, тиску, очікувань. Чи повинні дизайнери та розробники проекти? Чому, так. Так, вони повинні.
 
-## Why did you choose to build Kap on Electron?
+## Чому ви вирішили побудувати Kap на Electron?
 
-There were a number of reasons:
+Було кілька причин:
 
-* Web tech
-* Most of the team are web developers
-* We're invested in JavaScript
-* It opens the door for more people to contribute
-* Electron itself is open-source
-* The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* Веб-технології
+* Більша частина команди - розробники
+* Ми інвестували в JavaScript
+* Це відкриває двері для більших людей, які роблять свій внесок
+* Сам електрон є відкритим кодом
+* Потужність і легко контрольована модульність `node_modules`
+* Перехресні можливості
 
-We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
+Ми думаємо, що майбутнє додатків знаходиться у браузері, але ми ще не зовсім існує. Електрон - важливий крок у подорожі до цього майбутнього. Це не лише робить програми більш доступними, але й код, з яким вони створені. Цікава думка уявляє в майбутньому, де ОС є браузер, і вкладки, по суті, це застосунки Electron.
 
-Additionally, being primarily web developers, we're big fans of the isomorphic nature of JavaScript, in that you can run JS on the client, server, and now the desktop. With web tech (HTML, CSS and JS), many things are much simpler than native: Faster prototyping, less code, flexbox > auto-layout (macOS/iOS).
+Крім того, будучи насамперед веб-розробниками, ми великі шанувальники ізоморфічної природи JavaScript, на якому Ви можете керувати JS на клієнті, сервері, і на комп'ютері. За допомогою веб-технологій (HTML, CSS і JS), багато речей набагато простіші, ніж нароста: Швидші прототип, менш код, flexbox > автоматичне розміщення (macOS/iOS).
 
-## What are some challenges you've faced while building Kap?
+## Які певні виклики ви зіткнулися під час створення Капа?
 
-Using the resources Electron has available to record the screen was the biggest challenge. They simply weren't performant enough to meet our requirements and would render the project a failure in our eyes. Though at no fault of Electron itself, there's still a gap between native development and building desktop apps with web tech.
+Використання ресурсів Electron має доступ для запису екрану було найбільшою проблемою. Вони просто не були достатньо ефективними, щоб задовольнити наші вимоги і представити проект провалом в наших очах. Хоча без помилок у самих Electron все ще існує розрив між місцевим розвитком та побудовою настільних програм за допомогою веб-технологій.
 
-We spent a lot of time trying to work around the poor performance of the `getUserMedia` API, an issue originating in Chromium. One of our main goals when we set out to make Kap was to build the entire app with web tech. After trying everything we could to get it working (the minimum requirement being 30 FPS on a Retina screen), we eventually had to find another solution.
+Ми витратили багато часу на спробу працювати над поганою продуктивністю `getUserMedia` API, виникла проблема в Chromium. Однією з наших головних цілей було створення капу для створення всього додатку за допомогою веб-технології. Випробувавши все, ми могли б зробити це роботою (мінімальна вимога - 30 кадрів в секунду на екрані сітківки), Зрештою, ми повинні були знайти інше рішення.
 
-## I see some Swift code in the repo. What's that about?
+## Я бачу певний Swift код в репозиторії. Про що це?
 
-Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. Problem? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
+Бути змушеним шукати альтернативи для `getUserMedia`, ми почали експериментувати з `ffmpeg`. Окрім того, що є одним з найкращих інструментів для перетворення аудіо та відео він має функціональність запису екрану майже в будь-якій ОС, і ми змогли зафіксувати чіткі відеозустрічі за мінімальною вимогою 30 кадрів в секунду на екрані сітківки. З'явились проблеми? Продуктивність була ":weary:, використання процесора було оброблено. Тож ми повернулися до креслярської дошки, обговорили свої варіанти і зрозуміли, що нам треба було зробити компроміс. Це призвело до [Aperture](https://github.com/wulkano/aperture), наша власна бібліотека запису екрану для macOS, записана в Swift.
 
-## In what areas should Electron be improved?
+## В яких областях потрібно покращити Electron ?
 
-We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
+Ми всі знаємо, що застосунки Electron можуть щось використовувати RAM, але ще раз, це дійсно річ Chromium. Це частина того, як це працює, і це насправді залежить від того, з чим ви працюєте, наприклад, Kap і Hyper зазвичай використовують менше 100 Мб пам'яті.
 
-One of the biggest areas of improvement that we see is payload, particularly how Electron distributes Chromium. One idea would be to have a shared Electron core and make app installers check if it's already present on the system.
+Однією з найбільших областей покращення, які ми бачимо, є корисне навантаження, особливо тим, як Electron розподіляє Chromium. Однією з ідей було б мати спільне ядро Electron і зробити перевірку встановлювачів додатків, якщо воно вже є в системі.
 
-Creating cross-platform Electron apps could be a better experience. Right now there are too many inconsistencies, platform-specific APIs, and missing features between platforms, making your codebase littered with if-else statements. For example, vibrancy is only supported on macOS, the auto-updater works differently on macOS and Windows, and is not even supported on Linux. Transparency is a hit or miss on Linux, usually miss.
+Створення крос-платформених додатків може бути кращим досвідом. Зараз занадто багато невідповідностей, залежних від платформи API та відсутні можливості між платформами, зробивши ваш код блокований разом з операторами if. Наприклад, вібрація підтримується лише на macOS, автооновлення працює інакше, на macOS і Windows, і навіть не підтримується на Linux. Прозорість є влученням або пропуском на Linux, зазвичай не впусти.
 
-It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
+Також має бути легше зателефонувати до вбудованого API системи. Electron постачає з дуже гарним набором API, але іноді вам потрібна функціональність не забезпечення. Створення рідного додатку Node.js є параметром, але з ним боляче працювати. Це ідеально Electron отримає хороший [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, наприклад [`швидкий виклик`](https://github.com/cmake-js/fastcall). Натомість це дозволило нам писати Swift частину на JavaScript.
 
-## What are your favorite things about Electron?
+## Які ваші улюблені речі про Electron?
 
-Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
+Наше улюблене є легко той факт, що будь-хто з знаннями про створення для веб може створити і сприяти багатоплатформовному нативному досвіду. Не кажучи вже про легкість та радість розвитку на ній, прекрасну документацію та ощадливу екосистему.
 
-From a front-end perspective, building Kap felt no different than building a simple website using browser APIs. Electron does a really great job of making app development similar (basically identical) to web development. So simple in fact that there was no need for frameworks or similar to help us, just clean and modular JS and CSS.
+З передньої точки зору побудова Kap не відрізнялася від створення простого веб-сайту за допомогою API браузера. Electron робить дійсно велику роботу для розробки програм схожим (в основному ідентико) для веб-розробки. Дуже просто. Він не потребував фреймворків або схожих на те, щоб допомогти нам, просто чистий і модульний JS і CSS.
 
-We are also huge fans of the team building it, their dedication and support, and the active and friendly community they maintain. Hugs to all of you!
+Ми також є величезними прихильниками команди, які будують свою самовідданість та підтримку, активної та доброзичливої громади, яку вони підтримують. Вся гра для всіх вас!
 
-## What's coming next in Kap?
+## Що йде далі на капу?
 
-The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
+Наступним кроком буде ознайомитися з додатком при підготовці до 2,0. етап включає в себе React перезапис на підтримку плагінів, дозволяючи розробникам розширити функціональність Kap! Ми запрошуємо всіх приєднатися до проекту та внести свій внесок на наш [репозиторій GitHub](https://github.com/wulkano/kap). Ми слухаємо та хочемо почути від усіх вас, наскільки це можливо, [Дайте нам знати, як ми можемо зробити Kap найкращим інструментом, який він може бути для вас](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## Що таке Вулькано?
 
-[Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
+[Wulkano](https://wulkano.com) є студією та цифровою колективою, команда віддалених технологів, які люблять спільну роботу над клієнтськими gigs та нашими власними проектами. Ми розподілена, але щільна група людей з різних місць і походження, ділитися знаннями, ідеями, досвідом, але найбільш важливим є GIF і меми в нашому віртуальному офісі (що трапляється з Electron на основі Slack!).
 
-## Any Electron tips that might be useful to other developers?
+## Будь-які поради Electron можуть бути корисними для інших розробників?
 
-Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
+Скористайтеся перевагами та отримуйте участь у фантастичній [спільноті](https://discuss.atom.io/c/electron), подивіться [Awesome Electron](https://github.com/sindresorhus/awesome-electron)Подивіться на [приклади](https://github.com/electron/electron-api-demos) і використовуйте великі [документації](https://electronjs.org/docs/)!
 

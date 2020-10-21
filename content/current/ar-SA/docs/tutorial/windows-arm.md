@@ -1,61 +1,61 @@
 # تطبيق ويندوز 10
 
-If your app runs with Electron 6.0.8 or later, you can now build it for Windows 10 on Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+If your app runs with Electron 6.0.8 or later, you can now build it for Windows 10 on Arm. هذا يحسن الأداء بشكل كبير، ولكن يتطلب إعادة تجميع أي وحدات أصلية مستخدمة في التطبيق الخاص بك. قد يتطلب أيضا إصلاحات صغيرة في برامج البناء والتغليف الخاصة بك.
 
-## Running a basic app
-If your app doesn't use any native modules, then it's really easy to create an Arm version of your app.
+## تشغيل تطبيق أساسي
+إذا لم يستخدم تطبيقك أي وحدات أصلية، فسيكون من السهل حقاً إنشاء نسخة تسليح من التطبيق الخاص بك.
 
-1. Make sure that your app's `node_modules` directory is empty.
-2. Using a _Command Prompt_, run `set npm_config_arch=arm64` before running `npm install`/`yarn install` as usual.
-3. [If you have Electron installed as a development dependency](quick-start.md#prerequisites), npm will download and unpack the arm64 version. You can then package and distribute your app as normal.
+1. تأكد من أن دليل تطبيقك `node_modules` فارغ.
+2. باستخدام _طلب الأمر_، قم بتشغيل `تعيين npm_config_arch=arm64` قبل تشغيل `npm تثبيت`/`yarn تثبيت` كالمعتاد.
+3. [إذا كان لديك إلكترون مثبت كاعتماد على التطوير](quick-start.md#prerequisites)، سيقوم npm بتنزيل وفك حزمة إصدار الذراع 64. يمكنك بعد ذلك حزم التطبيق الخاص بك وتوزيعه كأمر طبيعي.
 
-## General considerations
+## ألف- اعتبارات عامة
 
-### Architecture-specific code
+### رمز معماري خاص
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+الكثير من كود ويندوز الخاص يحتوي على إذا... غير ذلك المنطق الذي يختار بين عمارة x64 أو x86
 
 ```js
-if (process.arch === 'x64') {
-  // Do 64-bit thing...
-} else {
-  // Do 32-bit thing...
+إذا (process.arch === 'x64') {
+  // Do 64-bit شيء...
+} أخرى {
+  // Do 32 bit...
 }
 ```
 
-If you want to target arm64, logic like this will typically select the wrong architecture, so carefully check your application and build scripts for conditions like this. In custom build and packaging scripts, you should always check the value of `npm_config_arch` in the environment, rather than relying on the current process arch.
+إذا كنت ترغب في استهداف arm64، منطق مثل هذا سيحدد المعمارية الخاطئة، قم بالتحقق بعناية من تطبيقك وبناء البرامج النصية للحصول على شروط كهذه. في البرامج النصية المخصصة للبناء والتغليف، يجب أن تتحقق دائما من قيمة `npm_config_arch` في البيئة، بدلاً من الاعتماد على ركن العملية الحالي.
 
-### Native modules
-If you use native modules, you must make sure that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+### الوحدات الأصلية
+إذا كنت تستخدم وحدات أصلية، فيجب عليك التأكد من أنها تجمع ضد v142 من مجمع MSVC (مقدم في Visual Studio 2017). يجب عليك أيضًا التحقق من أنه تم بناء أي `.dll` أو `. '4'` الملفات المقدمة أو التي تمت الإشارة إليها من قبل الوحدة الأصلية متاحة لنظام التشغيل Windows على التسلح.
 
-### Testing your app
-To test your app, use a Windows on Arm device running Windows 10 (version 1903 or later). Make sure that you copy your application over to the target device - Chromium's sandbox will not work correctly when loading your application assets from a network location.
+### اختبار التطبيق الخاص بك
+لاختبار التطبيق الخاص بك، استخدم Windows على جهاز الذخيرة الذي يعمل بنظام Windows 10 (الإصدار 1903 أو لاحقا). تأكد من أنك قمت بنسخ التطبيق الخاص بك إلى الجهاز المستهدف- صندوق الرمل الخاص بـ Chromium لن يعمل بشكل صحيح عند تحميل أصول التطبيق الخاص بك من موقع الشبكة.
 
-## Development prerequisites
+## المتطلبات الأساسية للتنمية
 ### Node.js/node-gyp
 
-[Node.js v12.9.0 or later is recommended.](https://nodejs.org/en/) If updating to a new version of Node is  undesirable, you can instead [update npm's copy of node-gyp manually](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) to version 5.0.2 or later, which contains the required changes to compile native modules for Arm.
+[Node.js v12.9.0 أو أحدث ينصح به.](https://nodejs.org/en/) إذا كان التحديث إلى إصدار جديد من العقدة غير مرغوب فيه، يمكنك بدلاً من ذلك [تحديث نسخة npm من العقدة يدويًا](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) إلى الإصدار 5. (2) أو بعده، وهو يتضمن التغييرات المطلوبة لتجميع الوحدات المحلية للتسليح.
 
-### Visual Studio 2017
-Visual Studio 2017 (any edition) is required for cross-compiling native modules. You can download Visual Studio Community 2017 via Microsoft's [Visual Studio Dev Essentials program](https://visualstudio.microsoft.com/dev-essentials/). After installation, you can add the Arm-specific components by running the following from a _Command Prompt_:
+### ستوديو مرئي 2017
+الاستوديو المرئي 2017 (أي طبعة) مطلوب لتجميع الوحدات الأصلية المتقاطعة. يمكنك تنزيل برنامج Visual Studio Community 2017 عن طريق برنامج Microsoft [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/). بعد التثبيت، يمكنك إضافة المكونات الخاصة بالأسلحة عن طريق تشغيل ما يلي من _طلب الأوامر_:
 
 ```powershell
 vs_installer.exe ^
---add Microsoft.VisualStudio.Workload.NativeDesktop ^
---add Microsoft.VisualStudio.Component.VC.ATLMFC ^
---add Microsoft.VisualStudio.Component.VC.Tools.ARM64 ^
---add Microsoft.VisualStudio.Component.VC.MFC.ARM64 ^
---includeRecommended
+--إضافة Microsoft.VisualStudio.Workload.NativeDesktop ^
+--إضافة Microsoft.VisualStudio.Component.VC.ATLMFC ^
+--إضافة Microsoft.VisualStudio.Component.VC.Tools.ARM64 ^
+--إضافة Microsoft.VisualStudio.Component.VC.MC.ARM64 ^
+- بما في ذلك التوصية
 ```
 
-#### Creating a cross-compilation command prompt
-Setting `npm_config_arch=arm64` in the environment creates the correct arm64 `.obj` files, but the standard _Developer Command Prompt for VS 2017_ will use the x64 linker. To fix this:
+#### إنشاء موجه أمر التجميع
+إعداد `npm_config_arch=arm64` في البيئة يخلق الذراع 64 `الصحيح. bj` ملفات، ولكن موجه أمر المطور القياسي _لـ VS 2017_ سوف يستخدم رابط x64. لإصلاح هذا:
 
-1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
-2. Right click the new shortcut and choose _Properties_.
-3. Change the _Target_ field to read `vcvarsamd64_arm64.bat` at the end instead of `vcvarsamd64_x86.bat`.
+1. تكرار إختصار _x64_x86 Tools Tools Prompt لـ VS 2017_ (على سبيل المثال. عن طريق وضعها في قائمة البدء، انقر بزر الماوس الأيمن، حدد _فتح موقع الملف_، نسخ ولصق ) إلى مكان مناسب في مكان ما.
+2. انقر بزر الماوس الأيمن على الاختصار الجديد واختر _خصائص_.
+3. تغيير الحقل _الهدف_ إلى قراءة `vcvarsamd64_arm64.bat` في النهاية بدلاً من `vcvarsamd64_x86.bat`.
 
-If done successfully, the command prompt should print something similar to this on startup:
+إذا تم ذلك بنجاح، يجب على توجيه الأمر طباعة شيء مماثل لهذا عند بدء التشغيل:
 
 ```bat
 **********************************************************************
@@ -65,31 +65,31 @@ If done successfully, the command prompt should print something similar to this 
 [vcvarsall.bat] Environment initialized for: 'x64_arm64'
 ```
 
-If you want to develop your application directly on a Windows on Arm device, substitute `vcvarsx86_arm64.bat` in _Target_ so that cross-compilation can happen with the device's x86 emulation.
+إذا كنت ترغب في تطوير التطبيق الخاص بك مباشرة على ويندوز على جهاز الذراع، بديل `vcvarsx86_arm64. في` في _الهدف_ بحيث يمكن أن يحدث التجميع الشامل مع محاكاة x86 للجهاز.
 
-### Linking against the correct `node.lib`
+### ربط ضد `node.lib الصحيح`
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) To fix this:
+بشكل افتراضي، `عقدة` فك حزم رؤوس عقدة Electron's وتنزيل نسختي x86 و x64 من `عقدة. ib` إلى `%APPDATA%\. \محلي\node-gyp\Cache`, ولكنها لا تقوم بتنزيل اصدار arm64 ([إصلاح لهذا في طور التطوير](https://github.com/nodejs/node-gyp/pull/1875). لإصلاح هذا:
 
-1. Download the arm64 `node.lib` from https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
-2. Move it to `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
+1. تحميل arm64 `node.lib` من https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
+2. نقله إلى `%APPDATA%\..\المحلية\node-gyp\Cache\6.0.9\arm64\node.lib`
 
-Substitute `6.0.9` for the version you're using.
+استبدال `6.0.9` للنسخة التي تستخدمها.
 
 
-## Cross-compiling native modules
-After completing all of the above, open your cross-compilation command prompt and run `set npm_config_arch=arm64`. Then use `npm install` to build your project as normal. As with cross-compiling x86 modules, you may need to remove `node_modules` to force recompilation of native modules if they were previously compiled for another architecture.
+## الوحدات الأصلية التجميعية المتداخلة
+بعد إكمال كل ما سبق، افتح موجه أمر التجميع الشامل الخاص بك وقم بتشغيل `تعيين npm_config_arch=arm64`. ثم استخدم `npm تثبيت` لبناء مشروعك كطبيعي. كما هو الحال بالنسبة لتجميع وحدات x86، قد تحتاج إلى إزالة `node_modules` لفرض إعادة تجميع الوحدات الأصلية إذا كانت قد تم تجميعها مسبقاً لهندسة معمارية أخرى.
 
-## Debugging native modules
+## تصحيح الأخطاء الوحدات الأصلية
 
-Debugging native modules can be done with Visual Studio 2017 (running on your development machine) and corresponding [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) running on the target device. To debug:
+يمكن تصحيح الأخطاء في الوحدات الأصلية بواسطة Visual Studio 2017 (قيد التشغيل على جهاز التطوير الخاص بك) وما يقابله [Visual Studio Debute Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) قيد التشغيل على الجهاز المستهدف. لتصحيح الأخطاء:
 
-1. Launch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
-2. Launch Visual Studio 2017 on your development machine.
-3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
-4. Click _Refresh_ and select the [appropriate Electron process to attach](../development/debug-instructions-windows.md).
-5. You may need to make sure that any symbols for native modules in your app are loaded correctly. To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
-5. Once attached, set any appropriate breakpoints and resume JavaScript execution using Chrome's [remote tools for Node](debugging-main-process.md).
+1. بدء تشغيل التطبيق الخاص بك `. xe` على الجهاز المستهدف عن طريق _طلب الأوامر_ (اجتياز `--افحص علامة تجارية` لإيقافها مؤقتاً قبل تحميل أي وحدات أصلية).
+2. تشغيل Visual Studio 2017 على آلة التطوير الخاصة بك.
+3. الاتصال بالجهاز المستهدف عن طريق تحديد _تصحيح > إرفاق إلى العملية..._ أدخل عنوان IP الخاص بالجهاز ورقم المنفذ المعروض بواسطة أداة التصحيح البصري عن بعد (Visual Studio).
+4. انقر فوق _تحديث_ وحدد [عملية إلكترون المناسبة لإرفاق](../development/debug-instructions-windows.md).
+5. قد تحتاج إلى التأكد من أن أي رموز للوحدات الأصلية في التطبيق الخاص بك يتم تحميلها بشكل صحيح. لتكوين هذا، انتقل إلى _تصحيح > الخيارات..._ في Visual Studio 2017، وإضافة المجلدات التي تحتوي على `الخاص بك. db` رموز تحت _تصحيح > رموز_.
+5. بمجرد إرفاقه، قم بتعيين أي نقاط توقف مناسبة واستئناف تنفيذ JavaScript باستخدام أدوات Chrome [البعيدة ل Node](debugging-main-process.md).
 
-## Getting additional help
-If you encounter a problem with this documentation, or if your app works when compiled for x86 but not for arm64, please [file an issue](../development/issues.md) with "Windows on Arm" in the title.
+## الحصول على مساعدة إضافية
+إذا واجهت مشكلة في هذا المستند، أو إذا كان تطبيقك يعمل عند تجميعه لـ x86 ولكن ليس للarm64، الرجاء [تقديم مشكلة](../development/issues.md) مع "ويندوز على السلاح" في العنوان.

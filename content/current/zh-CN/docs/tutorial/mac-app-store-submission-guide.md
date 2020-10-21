@@ -1,8 +1,8 @@
 # Mac App Store 应用程序提交指南
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+从 v0.34.0 开始，Electron 允许将封装应用提交Mac App Store (MAS)。 本指南提供以下信息：如何提交您的应用程序和 MAS 构建的 限制。
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意：** 将一个应用程序提交给Mac App Store需要注册 [Apple Developer 程序](https://developer.apple.com/support/compare-memberships/), 这需要资金。
 
 ## 如何提交你的应用
 
@@ -53,14 +53,14 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www. ple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
-    <key>com.apple.security.application-groups</key>
+    <key>com.apple.security。 pplication-groups</key>
     <array>
-      <string>TEAM_ID.your.bundle.id</string>
+      <string>TEAM_ID。 our.bundle.id</string>
     </array>
   </dict>
 </plist>
@@ -70,10 +70,10 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0。 td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
   </dict>
 </plist>
@@ -122,7 +122,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 
 #### 原生模块签名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+您的应用中使用的本地模块也需要签名。 如果使用 electron-osx-sign, 请务必在 参数列表中包含内建二进制文件的路径：
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -178,7 +178,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
+<key>com.apple.security.files.users selected.read-only</key>
 <true/>
 ```
 
@@ -187,7 +187,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key>
+<key>com.apple.security.files.user-selected.write</key>
 <true/>
 ```
 

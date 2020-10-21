@@ -1,31 +1,31 @@
-# Updating Applications
+# Actualizarea aplicațiilor
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Există mai multe moduri de a actualiza o aplicație Electron. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
-## Using `update.electronjs.org`
+## Folosind `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+GitHub's Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. Serviciul este proiectat pentru aplicații Electron care îndeplinesc următoarele criterii:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- Aplicația rulează pe macOS sau Windows
+- Aplicația are un depozit public GitHub
+- Versiuni sunt publicate pe GitHub lansări
+- Clădirile sunt marcate cu cod
 
 The easiest way to use this service is by installing [update-electron-app][], a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+Instaleaza modulul:
 
 ```sh
-npm install update-electron-app
+npm instalați update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Invocă actualizarea din fișierul de proces principal al aplicației tale:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+În mod implicit, acest modul va verifica actualizările la pornirea aplicației, apoi la fiecare zece minute. Când este găsită o actualizare, aceasta va fi descărcată automat în fundal. Când descărcarea se termină, un dialog este afișat care permite utilizatorului să repornească aplicația.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
 
@@ -35,35 +35,35 @@ If your app is packaged with [`electron-builder`][electron-builder-lib] you can 
 
 ## Implementarea unui server de actualizare
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Dacă dezvoltați o aplicație Electron privată, sau dacă nu publicați versiuni pe GitHub, poate fi necesar să rulezi propriul tău server de actualizare .
 
-Depending on your needs, you can choose from one of these:
+În funcție de nevoile tale, poți alege din unul dintre acestea:
 
 - [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Suportă mai multe aplicații și canale; folosește un magazin static de fișiere pentru a micșora costul serverului.
 
 ## Implementarea actualizărilor în aplicația ta
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Odată ce ai instalat serverul de actualizare, continuă să importe modulele necesare din codul tău. Următorul cod poate varia pentru alt server software, dar funcţionează ca cel descris atunci când se utilizează [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Important:** Asigurați-vă că codul de mai jos va fi executat doar în aplicația dvs. pachetată, și nu în dezvoltare. Puteţi utiliza [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) pentru a verifica mediul.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Apoi, construiește URL-ul serverului de actualizare și spune [autoUpdater](../api/auto-updater.md) despre acesta:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const feed = '${server}/update/${process.platform}/${app.getVersion()}'
 
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Ca ultim pas, verifică actualizările. Exemplul de mai jos va verifica în fiecare minut:
 
 ```javascript
 setInterval(() => {
@@ -71,20 +71,20 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Odată ce aplicația dvs. este [împachetată](../tutorial/application-distribution.md), va primi o actualizare pentru fiecare nou[Versiunea GitHub](https://help.github.com/articles/creating-releases/) pe care o publicați.
 
 ## Aplicarea actualizărilor
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. Acest poate fi realizat folosind evenimentele API autoUpdater [](../api/auto-updater.md#events):
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoactualizare. n('update-Downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    butoane: ['Restart', 'Mai târziu'],
+    titlu: 'Actualizare aplicație',
+    : proces. latform === 'win32' ? Noutăți: lansareName,
+    detaliu: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -93,11 +93,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+De asemenea, asigură-te că erorile sunt [tratate](../api/auto-updater.md#event-error). Iată un exemplu pentru a le conecta la `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('A apărut o problemă la actualizarea aplicației')
   console.error(message)
 })
 ```

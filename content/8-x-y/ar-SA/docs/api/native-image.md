@@ -51,7 +51,7 @@ On platforms that have high-DPI support such as Apple Retina displays, you can a
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. وعلى سبيل المثال:
 
 ```plaintext
 images/
@@ -88,7 +88,7 @@ The most common case is to use template images for a menu bar icon, so it can ad
 
 **Note:** Template image is only supported on macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+To mark an image as a template image, its filename should end with the word `Template`. وعلى سبيل المثال:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`

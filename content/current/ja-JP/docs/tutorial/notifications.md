@@ -2,15 +2,15 @@
 
 ## 概要
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+3つのオペレーティングシステムはすべて、アプリケーションが 通知をユーザーに送信する手段を提供します。 通知を表示する方法は Main と Renderer のプロセスでは と異なります。
 
 For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+メインプロセスに通知を表示するには、 [通知](../api/notification.md) モジュールを使用する必要があります。
 
 ## サンプル
 
-### Show notifications in the Renderer process
+### レンダラープロセスに通知を表示する
 
 Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
 
@@ -18,7 +18,7 @@ Assuming you have a working Electron application from the [Quick Start Guide](qu
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+`renderer.js` ファイルを追加します。
 
 ```js
 const myNotification = new Notification('Title', {
@@ -30,17 +30,17 @@ myNotification.onclick = () => {
 }
 ```
 
-After launching the Electron application, you should see the notification:
+Electron アプリケーションを起動すると、通知が表示されます。
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![レンダラープロセスの通知](../images/notification-renderer.png)
 
 If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![通知のオンクリックメッセージ](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### メインプロセスに通知を表示する
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md)の動作アプリケーションから始めて、 `main.js` ファイルを次の行で更新します。
 
 ```js
 const { Notification } = require('electron')
@@ -56,17 +56,17 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+Electron アプリケーションを起動すると、通知が表示されます。
 
-![Notification in the Main process](../images/notification-main.png)
+![メインプロセスでの通知](../images/notification-main.png)
 
-## Additional information
+## 追加情報
 
 オペレーティングシステム間でのコードとユーザエクスペリエンスは似ていますが、微妙な違いがあります。
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. エクスプローラーでそのファイルを開き、右クリックして 'スタート メニューにピン留めする' を選択します。 You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* Windows 10 では、 [アプリケーション ユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) がインストールされている必要があります スタート メニュー. これは開発中にオーバーキルすることができるので、 `node_modules\electron\dist\electron.exe` を トリックに追加することもできます。 エクスプローラーでそのファイルを開き、右クリックして 'スタート メニューにピン留めする' を選択します。 You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * Windows 8.1 と Windows 8 では、スタート画面に [アプリケーションユーザーモデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) でアプリへのショートカットをインストールしなければなりません。 注釈: ただし、スタート画面にピン留めする必要はありません。
 * Windows 7 では、通知はカスタム実装を介して動作します。これは新しいシステムのネイティブのものと似た見た目になります。
 
@@ -82,9 +82,9 @@ While notifications including buttons work with `electron-windows-notifications`
 
 #### 非通知 / プレゼンテーションモード
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+通知の送信を許可されているかどうかを検出するには、 userland モジュール [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) を使用します。
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+これにより、Windowsが 通知を黙って投げるかどうかを事前に判断することができます。
 
 ### macOS
 

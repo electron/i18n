@@ -1,68 +1,68 @@
 ---
-title: 'Project of the Week: Ghost'
+title: 'مشروع الأسبوع: الشبح'
 author:
-  - felixrieseberg
+  - Philixrieseberg
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+هذا الأسبوع تحدثنا مع [فيليكس ريزبيرغ](https://felixrieseberg.com/)، مهندس سطح المكتب في [Slack](https://slack.com/) ومشرف [Ghost سطح المكتب](https://ghost.org/downloads/)، عميل إلكترون لمنصة النشر [شبح](https://ghost.org/).
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="لقطة شاشة سطح المكتب الشبح"> 
 </div>
 
-## What is Ghost?
+## ما هو الشبح ؟
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+الشبح هو مصدر مفتوح تماما، ومنصة قابلة للقرصنة لبناء وتشغيل منشور حديث على الإنترنت. نحن نقود المدونات والمجلات والصحفيين من زابوس إلى سكاي نيوز.
 
-## What makes it different from other publishing platforms?
+## ما الذي يجعله مختلفا عن منصات النشر الأخرى؟
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+تم تأسيس Ghost في إبريل/نيسان 2013، بعد حملة كيكستر الناجحة جدا لإنشاء منصة جديدة تركز فقط على النشر المهني. وتتمثل مهمتنا في إيجاد أفضل أدوات المصدر المفتوح للصحفيين والكتاب المستقلين في جميع أنحاء العالم، ويكون لها تأثير حقيقي على مستقبل وسائط الإعلام عبر الإنترنت. وهو يوفر تجربة أبسط وأكثر تركيزا: محررنا مصمم فقط لتوفير أفضل تجربة ممكنة في الكتابة.
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+مقارنة بتجربة WordPress الكلاسيكية التي لم يسبق لها مثيل، فهي تقدم تجربة أبسط وأكثر تبسيطاً- من الأسهل إعدادها وصيانتها، يأتي مع جميع الميزات الهامة خارج الصندوق ، وهو أسرع بشكل كبير. مقارنة بالمنصات الأخرى على الإنترنت، يمنح Ghost الكتاب الملكية الكاملة والتحكم في محتوياتهم، يسمح بالتكييف الكامل، ويمكّن المؤلفين من بناء عمل تجاري حول منشوراتهم.
 
-## Is Ghost a for-profit company?
+## هل شركة غوشت شركة هادفة للربح؟
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+هذا مهم بالنسبة لنا: الشبح منظمة مستقلة لا تستهدف الربح. نحن نبني أدوات النشر للصحافة الحديثة & المدونات لأننا نعتقد أن حرية التعبير مهمة. تم إصدار برنامجنا تحت [ترخيص مفتوح المصدر](https://github.com/TryGhost/Ghost)، نموذج عملنا [شفاف تماما](https://blog.ghost.org/year-3/)، ويعني هيكلنا القانوني أن 100% من الأموال التي نجنيها يعاد استثمارها في جعل الشبح أفضل.
 
-## What is Ghost Desktop?
+## ما هو سطح المكتب الشبح؟
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+يسمح سطح المكتب الشبح للكتاب بإدارة عدة مدونات في وقت واحد - والتركيز على كتابتهم. لا يمكن تحقيق أشياء بسيطة مثل اختصارات الكتابة الشائعة في المتصفح، لكنها متوفرة في تطبيق سطح المكتب لدينا. يسمح للتطبيقات الأخرى بالاتصال مباشرة [مع المدونة عن طريق روابط أعمق](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
-## What is Ghost for Journalism?
+## ما هو شبح الصحافية؟
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+هذا العام نحن متحمسون جدا لتكريس فريق الشبح المتفرغ البالغ 10 أشخاص للمساعدة في إنتاج ثلاثة منشورات مستقلة، إلى جانب مبلغ 000 45 دولار كموارد لجهودهم. نحن نسميها [شبح للصحافة](https://ghost.org/journalism/).
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+لقد ظللنا نبني Ghost كمنصة رائعة للشبكة للناشرين المستقلين منذ حوالي ثلاث سنوات ونصف الآن، وقد وصلنا الآن إلى نقطة انعكاس مثيرة للاهتمام. بدأنا هذه الرحلة لإنشاء منصة مدونات بسيطة جيدة التصميم يمكن استخدامها من قبل أي شخص تقريبا. وكان ذلك سيكون دائما الخطوة الأولى.
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+على المدى الطويل، نريد أن يكون غوشت منصة رائعة لأفضل صحافة في العالم، وهذا يعني أننا بحاجة إلى بناء سمات لجذب هؤلاء الناس بالضبط. هذا العام نحن نتخذ قرارا واعيا جدا بالتركيز على ذلك تماما.
 
-## Why did you choose to build Ghost Desktop on Electron?
+## لماذا اخترت بناء سطح المكتب الشبح على إلكترون؟
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+الشبح يستخدم JavaScript و العقدة. ) على كل من الجانب الخلفي والواجهة الأمامية، لذلك فإن القدرة على استخدام نفس التكنولوجيا والمهارات تمكن فريقنا من التحرك بشكل أسرع، بناء المزيد، وتقديم تجربة أفضل في نهاية المطاف. بالإضافة إلى ذلك، التمكن من مشاركة أكثر من 95 في المائة من التعليمات البرمجية بين ماكوس، ويندوز، و إصدار لينكس من التطبيق يسمح لنا بالتركيز على بناء تجربة كبيرة للمستخدم الأساسي دون الحاجة إلى الحفاظ على قاعدة رمز واحد لكل منصة.
 
-## What are some challenges you've faced while building Ghost Desktop?
+## ما هي بعض التحديات التي واجهتها أثناء بناء سطح المكتب الشبح؟
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+ومن المرجح أن التدقيق الإملائي لا يزال واحدا من أصعب الخدمات المقدمة - فبإمكاننا أن نستخدم بسهولة إحدى الخدمات العديدة المتاحة على شبكة الإنترنت. ولكن التدقيق الإملائي الصحيح في النص بلغات متعددة مع الحفاظ على خصوصية المستخدمين واستقلاليتهم ليس بالمهمة السهلة.
 
-## In what areas should Electron be improved?
+## في أي مجالات ينبغي تحسين إلكترون؟
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+نود أن نرى إلكترون يجلب قدرات التدقيق الإملائي الأصلية لنظام التشغيل إلى تطبيقاتها. نحن نحلم بعالم يتلقى فيه الحقل `<input>` نفس الخدمات مثل `NSTextView`، ولكننا ندرك أيضا عن كثب مدى صعوبة ذلك.
 
-## What are your favorite things about Electron?
+## ما هي الأشياء المفضلة لديك عن إلكترون؟
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+إن جافاسكريبت مشهورة لكونها نظاما إيكولوجيا واسع النطاق، ينطوي على عدد لا يحصى من الأدوات والأطر - ولكن من الصعب المبالغة في تقدير ما يوفره لنا من ملاءمة. بناء تطبيق باستخدام إلكترون هو فقط __ أصعب قليلا من بناء تطبيق ويب، وهو ميزة مذهلة.
 
-## Is Ghost done? If not, what's coming next?
+## هل الشبح قد انتهى؟ إن لم يكن الأمر كذلك، ما الذي سيأتي بعد ذلك؟
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+Ghost سطح المكتب هو أيضا مشروع مستمر - نحن بعيدون جدا عن القيام به. لقد كنا نتحدث لبعض الوقت عن جلب وضع غير متصل بالكامل إلى مستخدمينا، ونحن نقترب إلى حد ما. مجالات العمل البارزة الأخرى هي التمديد والتكامل مع تطبيقات تحرير النصوص الأخرى (مثل وورد أو الذكر)، في نهاية المطاف السماح للناس بكتابة الوظائف باستخدام أدواتهم المفضلة. بشكل عام، بمجرد شحننا خاصية وضع عدم الاتصال، نحن نبحث عن تكامل أعمق مع نظام التشغيل. إذا كان هذا يبدو مثيرًا لك، [انضم إلينا](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## ما هي بعض تطبيقات إلكترون المفضلة لديك؟
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+أنا معجب كبير بـ [كاب](https://getkap.co/)و [جناح](https://github.com/henryboldi/felony)و [ستوديو البصر](https://code.visualstudio.com).
 
 👻
 

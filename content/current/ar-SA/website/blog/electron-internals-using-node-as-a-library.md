@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'إلكترون الداخلي&#58؛ استخدام العقدة كمكتبة'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+هذه هي الوظيفة الثانية في سلسلة مستمرة تشرح الداخليين لـ إلكترون. تحقق من [أول مشاركة](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) حول تكامل الحلقة إذا لم تكن قد فعلت ذلك من قبل.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+معظم الناس يستخدمون [العقدة](https://nodejs.org) للتطبيقات على جانب الخادم، ولكن بسبب ثراء Node's API الذي تم إعداده وازدهاره ، فإنه أيضا يصلح للمكتبة المدمجة. يوضح هذا المنشور كيفية استخدام العقدة كمكتبة في إلكترون.
 
 ---
 
-## Build system
+## بناء النظام
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+كل من العقدة والإلكترون يستخدم [`GYP`](https://gyp.gsrc.io) كأنظمة بناء لديهما. إذا كنت ترغب في تضمين عقدة داخل التطبيق الخاص بك، يجب عليك استخدامه كنظام بناء خاص بك أيضا.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+جديد في `GYP`? اقرأ [هذا الدليل](https://gyp.gsrc.io/docs/UserDocumentation.md) قبل أن تستمر في هذا المنشور.
 
-## Node's flags
+## أعلام العقدة
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+عقدة [`yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) ملف في دليل الكود المصدري للعقدة يصف كيفية بناء العقدة ، بالإضافة إلى الكثير من [`GYP`](https://gyp.gsrc.io) متغيرات تتحكم في أجزاء العقدة التي يتم تمكينها وما إذا كان سيتم فتح بعض الإعدادات.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+لتغيير أعلام البناء، تحتاج إلى تعيين المتغيرات في ملف `.gypi` من مشروعك. البرنامج النصي `تهيئة` في العقدة يمكن أن ينشئ بعض الإعدادات الشائعة لك، على سبيل المثال تشغيل `. تكوين --شارك` سيولد `config.gypi` مع المتغيرات التي توجه عقدة لكي يتم بناؤها كمكتبة مشتركة.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+إلكترون لا يستخدم البرنامج النصي `configure` لأن لديه نصوصه الخاصة للبناء. تم تعريف تكوينات العقدة في ملف [`الشائع.gypi`](https://github.com/electron/electron/blob/master/common.gypi) في دليل رمز المصدر الرئيسي لـ Electrons.
 
-## Link Node with Electron
+## ربط العقدة مع إلكترون
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+في إلكترون، يتم ربط العقدة كمكتبة مشتركة عن طريق تعيين متغير `GYP` `عقدة مشتركة` إلى `صحيح`، لذلك سيتم تغيير نوع بناء العقدة من `قابل للتنفيذ` إلى `مشاركة المكتبة`، ولن يتم تجميع رمز المصدر الذي يحتوي على العقدة `الرئيسية` نقطة الدخول.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+بما أن إلكترون يستخدم مكتبة V8 المشحونة مع Chromium، فإن مكتبة V8 المتضمنة في رمز مصدر Node's غير مستخدمة. يتم ذلك عن طريق إعداد كل من `node_use_v8_platform` و `node_use_bundled_v8` إلى `false`.
 
-## Shared library or static library
+## المكتبة المشتركة أو المكتبة الثابتة
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+عند الربط مع العقدة، هناك خياران: يمكنك بناء العقدة كمكتبة ثابتة وإدراجها في قابلة للتنفيذ النهائي. أو يمكنك بناءه كمكتبة مشتركة وشحنه جنبا إلى جنب مع التنفيذ النهائي.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+في إلكترون، تم بناء العقدة كمكتبة ثابتة لفترة طويلة. هذا جعل بناء بسيط، ومكّن أفضل تحسينات المترجم، ومكّن إلكترون من أن يتم توزيعه بدون ملف `عقد.dll` إضافي.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+ومع ذلك، تغير هذا بعد أن تحول كروم إلى استخدام [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL هو شوك من [OpenSSL](https://www.openssl.org) الذي يزيل العديد من واجهات APIs غير مستخدمة ويغير العديد من الواجهات الموجودة نظرًا لأن العقدة لا تزال تستخدم OpenSSL، سيقوم المترجم بإنشاء العديد من الأخطاء في الربط بسبب تضارب الرموز إذا تم ربطها معا.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+إلكترون لا يمكن استخدام BoringSSL في العقدة، أو استخدام OpenSSL في Chromium، لذلك كان الخيار الوحيد هو التبديل إلى بناء العقدة كمكتبة مشتركة، و [إخفاء رموز BoringSSL و OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) في مكونات كل منها.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+هذا التغيير جلب اليكترون بعض الآثار الجانبية الإيجابية. قبل تغيير هذا لم تتمكن من إعادة تسمية الملف القابل للتنفيذ من إلكترون على ويندوز إذا استخدمت وحدات أصلية لأن اسم الجهاز التنفيذي تم ترميزه في مكتبة الاستيراد. بعد بناء العقدة كمكتبة مشتركة، تم تحديد هذا الحد لأن جميع الوحدات الأصلية كانت مرتبطة بالعقدة `. ل`، الذي لم يكن اسمه بحاجة إلى أن يتغير.
 
-## Supporting native modules
+## دعم الوحدات الأصلية
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[وحدات نمطية أصلية](https://nodejs.org/api/addons.html) في عمل العقدة من خلال تحديد دالة إدخال العقدة لتحميلها، ثم البحث عن رموز V8 والشيبوف من العقدة. هذه مشكلة قليلاً في المدمجين لأن رموز V8 و libuv بشكل افتراضي هي مخفية عند بناء العقدة كمكتبة والوحدات الأصلية سوف تفشل في تحميل لأنهم لا يستطيعون العثور على الرموز.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+لذا من أجل جعل الوحدات المحلية تعمل ، تم الكشف عن رموز V8 و libuv في إلكترون. بالنسبة ل V8 يتم هذا عن طريق [إجبار جميع رموز في ملف تكوين Chromium على الكشف عن](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## بدء عقدة في التطبيق الخاص بك
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+بعد كل أعمال البناء والربط مع العقدة، الخطوة الأخيرة هي تشغيل عقدة في التطبيق الخاص بك.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+العقدة لا توفر العديد من واجهات برمجة التطبيقات العامة لتضمينها في تطبيقات أخرى. عادة، يمكنك فقط الاتصال بـ [`عقدة:Start` و `العقدة:Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) لبدء مثيل جديد من العقدة. ومع ذلك، إذا كنت تبني تطبيقا معقدا استنادا إلى العقدة، عليك استخدام APIs مثل `عقدة::CreateEnvironment` للتحكم بدقة في كل خطوة
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+في إلكترون ، تبدأ العقدة في وضعين : الوضع المستقل الذي يعمل في العملية الرئيسية ، والذي يشبه ثنائيات العقدة الرسمية، والوضع المدمج الذي يدرج واجهة برمجة تطبيقات العقدة في صفحات الويب. سيتم شرح تفاصيل هذا في وظيفة مقبلة.
 

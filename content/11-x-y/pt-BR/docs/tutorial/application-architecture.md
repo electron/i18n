@@ -20,7 +20,7 @@ Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuá
 
 > #### Aparte: Comunicação entre processos
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> No Electron, a comunicação entre o processo principal e os processos de renderização, é feito através dos módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md). Há também uma entrada de FAQ no [como compartilhar dados entre páginas web][share-data].
 
 
 ## Usando APIs do Electron
@@ -43,23 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Uma vez que a comunicação entre os processos é possível, um processo de renderização pode chamar o processo principal de executar tarefas por meio do IPC.
 
 ```javascript
-// In the main process:
+// No processo principal:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('perform-action', (event, ...args) => {
+  // ... fazer algo em nome do renderizador...
 })
 
-// In the renderer process:
+// No processo de renderização:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Note que o código no renderizador pode não ser confiável, portanto, é importante validar cuidadosamente as principais solicitações de processo que vêm de renderizadores, especialmente se eles hospedam conteúdo de terceiros.
 
 ## Usando Node.js APIs
 

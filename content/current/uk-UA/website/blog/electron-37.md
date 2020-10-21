@@ -1,26 +1,26 @@
 ---
-title: What's new in Electron 0.37
+title: Що нового в Electron 0.37
 author: zeke
 date: '2016-03-25'
 ---
 
-Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. This latest release brings in all the new features shipped in [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
+Електрон `0. Нещодавно 7` було [випущено](https://github.com/electron/electron/releases) та включало велике оновлення з Chrome 47 по 49 та також декілька нових основних API. Ця остання версія викликає у всіх нових функцій, які відправляються в [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) та [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
 
 ---
 
-## What's New
+## Що нового
 
 ### CSS Custom Properties
 
-If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
+Якщо ви використовували попередньо оброблені мови, такі як Sass і Less, ви, швидше за все, знайомі з *змінними*який дозволяє визначати повторно використовувані значення для речей на кшталт схем кольорів і макетів. Змінні допомагають зберегти ваші таблиці стилів і більш підтримувати.
 
-CSS custom properties are similar to preprocessed variables in that they are reusable, but they also have a unique quality that makes them even more powerful and flexible: **they can be manipulated with JavaScript**. This subtle but powerful feature allows for dynamic changes to visual interfaces while still benefitting from [CSS's hardware acceleration](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), and reduced code duplication between your frontend code and stylesheets.
+Користувацькі властивості CSS схожі на попередньо оброблені змінні в тому, що вони повторно використовуються, але у них є унікальна якість, яка робить їх ще більш потужними та гнучкими: **їх можна маніпулювати з JavaScript**. Ця тонка, але потужна функція дозволяє динамічним змінам до візуальних інтерфейсів при все ще користуванні [апаратне прискорення CSS](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions)і зменшений символ коду між вашими основними кодами і таблицями стилів.
 
-For more info on CSS custom properties, see the [MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) and the [Google Chrome demo](https://googlechrome.github.io/samples/css-custom-properties/).
+Для отримання додаткової інформації про власні властивості CSS дивіться [статтю MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) та [демонстрацію Google Chrome](https://googlechrome.github.io/samples/css-custom-properties/).
 
-#### CSS Variables In Action
+#### Змінні CSS в дії
 
-Let's walk through a simple variable example that can be tweaked live in your app.
+Пройдемо через простий приклад змінної, який можна налаштувати в вашому додатку.
 
 ```css
 :root {
@@ -32,58 +32,58 @@ body {
 }
 ```
 
-The variable value can be retrieved and changed directly in JavaScript:
+Значення змінної може бути отримане і змінено безпосередньо в JavaScript:
 
 ```js
-// Get the variable value ' #A5ECFA'
+// Отримайте значення змінної ' #A5ECFA'
 let color = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
 
-// Set the variable value to 'orange'
-document.body.style.setProperty('--awesome-color', 'orange')
+// Встановлює значення змінної на 'помаранчевий'
+document.body.style.setProperty('--awesome-color', 'помаранчеe')
 ```
 
-The variable values can be also edited from the **Styles** section of the development tools for quick feedback and tweaks:
+Значення змінної можуть бути також відредаговані з **Стилів** розділу інструментів розробки для швидкого зворотнього зв'язку та налаштувань:
 
-![CSS properties in Styles tab](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
+![Властивості CSS у вкладці Стилів](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
 
 ### `KeyboardEvent.code` Property
 
-Chrome 48 added the new `code` property available on `KeyboardEvent` events that will be the physical key pressed independent of the operating system keyboard layout.
+Chrome 48 додав новий `код` , доступний на `Keyboard` події, які будуть фізичним ключем незалежних від розкладки клавіатури операційної системи.
 
-This should make implementing custom keyboard shortcuts in your Electron app more accurate and consistent across machines and configurations.
+Це повинно зробити реалізацію користувацьких комбінацій клавіш у вашому додатку Electron більш точні та послідовні для машин та конфігурацій.
 
 ```js
 window.addEventListener('keydown', function(event) {
-  console.log(`${event.code} was pressed.`)
+  console.log(`${event.code} було натиснуто.`)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) to see it in action.
+Перевірте [цей приклад](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) , щоб побачити його в дії.
 
-### Promise Rejection Events
+### Події відмови Promise
 
 Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
 
 ```js
-window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+window.addEventListener('unhandledrejection', функція (event) {
+  console.log('A відхилення обіцянку не було оброблено', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+вікно. ddEventListener('rejectionhandhand', function (event) {
+  console.log('A rejected promise було оброблено', event.promise, event.reason)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/promise-rejection-events/index.html) to see it in action.
+Перевірте [цей приклад](https://googlechrome.github.io/samples/promise-rejection-events/index.html) , щоб побачити його в дії.
 
-### ES2015 Updates in V8
+### Оновлення ES2015 у V8
 
-The version of V8 now in Electron incorporates [91% of ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Here are a few interesting additions you can use out of the box—without flags or pre-compilers:
+Версія V8 зараз у Electron включає [91% ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Ось декілька цікавих додатків, які ви можете використовувати з коробки — без прапорів чи зкомпіляторів:
 
-#### Default parameters
+#### Параметри за замовчуванням
 
 ```js
-function multiply(x, y = 1) {
+функція multiply(x, y = 1) {
   return x * y
 }
 
@@ -92,87 +92,88 @@ multiply(5) // 5
 
 #### Призначення деструктуризації
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+Chrome 49 додали [знищення значення](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) для створення змінних та параметрів функцій набагато простіше.
 
-This makes Electron requires cleaner and more compact to assign now:
+Це робить Electron чистим та більш компактним для призначити зараз:
 
-##### Browser Process Requires
+##### Потрібен процес браузера
 
 ```js
 const {app, BrowserWindow, Menu} = require('electron')
 ```
 
-##### Renderer Process Requires
+##### Необхідний процес рендерингу
 
 ```js
 const {dialog, Tray} = require('electron').remote
 ```
 
-##### Other Examples
+##### Інші приклади
 
 ```js
-// Destructuring an array and skipping the second element
-const [first, , last] = findAll()
+// Деструктуризація масиву і пропуск другого елемента
+const [first, last] = findAll()
 
-// Destructuring function parameters
-function whois({displayName: displayName, fullName: {firstName: name}}){
-  console.log(`${displayName} is ${name}`)
-}
+// Блокує параметри функції
+функція whois({displayname: displayName, fullname: {firstName: name}}){
+  консоль. og(`${displayName} - ${name}`)
 
-let user = {
+
+
+, дайте користувачу = {
   displayName: "jdoe",
-  fullName: {
-      firstName: "John",
-      lastName: "Doe"
+  повність: {
+      перший: "Джон",
+      останній: "Doe"
   }
 }
-whois(user) // "jdoe is John"
+цілих (користувач) // "jdoe є Джон"
 
-// Destructuring an object
+// Деструктуризація об'єкта
 let {name, avatar} = getUser()
 ```
 
-## New Electron APIs
+## Новий API Electron
 
-A few of the new Electron APIs are below, you can see each new API in the release notes for [Electron releases](https://github.com/electron/electron/releases).
+Декілька нових API Electron нижче, ви можете побачити кожен новий API в нотах релізу для [релізів Electron](https://github.com/electron/electron/releases).
 
-#### `show` and `hide` events on `BrowserWindow`
+#### `Показати` та `приховати` події в `BrowserWindow`
 
-These events are emitted when the window is either shown or hidden.
+Ці події випромінюються, коли вікно або відображається або приховується.
 
 ```js
 const {BrowserWindow} = require('electron')
 
-let window = new BrowserWindow({width: 500, height: 500})
-window.on('show', function () { console.log('Window was shown') })
-window.on('hide', function () { console.log('Window was hidden') })
+Нехай вікно = нове BrowserWindow({width: 500, height: 500})
+вікно. n('show', function () () { console.log('Window was shown') })
+window.on('hide', function () { console.log('Window було приховано') })
 ```
 
-#### `platform-theme-changed` on `app` for `OS X`
+#### `платформа-тема змінена` на `додатку` для `OS X`
 
-This event is emitted when the system’s [Dark Mode](https://discussions.apple.com/thread/6661740) theme is toggled.
+Ця подія викликається коли ввімкнена система [Темний режим](https://discussions.apple.com/thread/6661740) тема </a>.
 
 ```js
 const {app} = require('electron')
 
-app.on('platform-theme-changed', function () {
-  console.log(`Platform theme changed. In dark mode? ${app.isDarkMode()}`)
+app.on('platform-theme-changed', функція () {
+  console.log(`змінено тему платформи. У темному режимі? ${app.isDarkMode()}`)
 })
 ```
 
-#### `app.isDarkMode()` for `OS X`
+#### `app.isDarkMode()` для `OS X`
 
-This method returns `true` if the system is in Dark Mode, and `false` otherwise.
+Цей метод повертає `true` , якщо система знаходиться в темному режимі, та `false` в іншому випадку.
 
-#### `scroll-touch-begin` and `scroll-touch-end` events to BrowserWindow for `OS X`
+#### `scroll-touch-start` і `scroll-touch-end` події у веб-вікні для `ОС X`
 
-These events are emitted when the scroll wheel event phase has begun or has ended.
+Ці події випромінюються, коли починається або закінчується фаза заходу прокручування.
 
 ```js
 const {BrowserWindow} = require('electron')
 
-let window = new BrowserWindow({width: 500, height: 500})
-window.on('scroll-touch-begin', function () { console.log('Scroll touch started') })
-window.on('scroll-touch-end', function () { console.log('Scroll touch ended') })
+Нехай вікно = new BrowserWindow({width: 500, height: 500})
+window.on('scroll-touch-begin', функція () { консоль. og('touch started') })
+window.on('scroll-touch-end', функція () { console.log('Scroll touch end') })
 ```
 

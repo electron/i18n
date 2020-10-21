@@ -1,37 +1,37 @@
-# Debugging the Main Process in VSCode
+# Depanarea procesului principal în VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Deschide un proiect Electron în VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Adaugă un fișier `.vscode/launch.json` cu următoarea configurație:
 
 ```json
 {
-  "version": "0.2.0",
-  "configurations": [
+  "versiune": "0.2. ",
+  "configuraţii": [
     {
       "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
+      "tip": "nod",
+      "cerere": "lansare",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "runtimeExecutabil": "${workspaceFolder}/node_modules/. in/electron",
       "windows": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron. md"
       },
-      "args" : ["."],
-      "outputCapture": "std"
+      "args" : [". ],
+      "Ieșire capturată": "std"
     }
   ]
 }
 ```
 
 
-### 3. Debugging
+### 3. Depanare
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Setează niște puncte de întrerupere în `main.js`, și începe depanarea în [Debug View](https://code.visualstudio.com/docs/editor/debugging). Ar trebui să puteți să atingeți punctele de pauză.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Aici este un proiect pre-configurat pe care îl puteți descărca și depana direct în VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

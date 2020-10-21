@@ -14,7 +14,7 @@ Electron временно приостанавливает основные ре
 
 Мы считаем, что наш лучший выбор — это следовать по стопам Chromium, и так в то же время команда Electron переместится на полную работу по исправлению ошибок, безопасности, производительности и стабильности.
 
-We want to ensure that both our maintainers and our consumers' wellbeing is prioritized during this time, so we welcome your feedback and look forward to returning to our regular release schedule.
+Мы хотим, чтобы в это время приоритетными были как наши сопровождающие, так и наши потребители, Поэтому мы приветствуем Ваши отзывы и с нетерпением ждем возвращения к нашему регулярному графику выпуска.
 
 Пожалуйста, подпишитесь на наш [Twitter аккаунт](https://twitter.com/electronjs) для получения обновлений.
 

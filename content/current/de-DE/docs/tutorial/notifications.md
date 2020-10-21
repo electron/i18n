@@ -2,23 +2,23 @@
 
 ## Übersicht
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+Alle drei Betriebssysteme bieten Mittel für Anwendungen, um Benachrichtigungen an den Benutzer zu senden. Die Technik der Anzeige von Benachrichtigungen ist anders für die Haupt- und Renderer-Prozesse.
 
-For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Für den Renderer-Prozess ermöglicht Electron Entwicklern das Senden von Benachrichtigungen mit der [HTML5 Notification API](https://notifications.spec.whatwg.org/), Verwendung der nativen Benachrichtigungs-APIs des laufenden Betriebssystems , um sie anzuzeigen.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+Um Benachrichtigungen im Hauptprozess anzuzeigen, müssen Sie das [Benachrichtigungsmodul](../api/notification.md) verwenden.
 
 ## Beispiel
 
-### Show notifications in the Renderer process
+### Benachrichtigungen im Renderer-Prozess anzeigen
 
-Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+Angenommen, Sie haben eine funktionierende Electron-Anwendung aus dem [Schnellstart-Leitfaden](quick-start.md), füge die folgende Zeile dem `Index hinzu. tml` Datei vor dem Schließen `</body>` Tag:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+und fügen Sie die `renderer.js` Datei hinzu:
 
 ```js
 const myNotification = new Notification('Title', {
@@ -30,17 +30,17 @@ myNotification.onclick = () => {
 }
 ```
 
-After launching the Electron application, you should see the notification:
+Nach dem Start der Electron-Anwendung sollten Sie die Benachrichtigung sehen:
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![Benachrichtigung im Renderer-Prozess](../images/notification-renderer.png)
 
-If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
+Wenn Sie die Konsole öffnen und dann auf die Benachrichtigung klicken, du wirst die Nachricht sehen, die nach dem Auslösen des `onclick` Ereignisses generiert wurde:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![Onclick-Nachricht für die Benachrichtigung](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### Benachrichtigungen im Hauptprozess anzeigen
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Beginnend mit einer funktionierenden Anwendung aus dem [Quick Start Guide](quick-start.md), aktualisieren Sie die `main.js` Datei mit den folgenden Zeilen:
 
 ```js
 const { Notification } = require('electron')
@@ -56,52 +56,52 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+Nach dem Start der Electron-Anwendung sollten Sie die Benachrichtigung sehen:
 
-![Notification in the Main process](../images/notification-main.png)
+![Benachrichtigung im Hauptprozess](../images/notification-main.png)
 
-## Additional information
+## Zusätzliche Informationen
 
 Während Code und Benutzererfahrung innerhalb der Betriebssysteme ähnlich sind, gibt es leichte Unterschiede.
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Unter Windows 10 muss eine Verknüpfung mit Ihrer App mit einer [Anwendungsbenutzer-ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) im Startmenü installiert werden. Dies kann während der Entwicklung überkill sein. Das Hinzufügen von `node_modules\electron\dist\electron.exe` in Ihr Startmenü führt auch den Trick aus. Navigieren Sie zur Datei im Explorer, mit der rechten Maustaste und dem 'Pin to Start Menu'. Sie müssen dann die Zeile `app.setAppUserModelId(process.execPath)` zu Ihrem Hauptprozess hinzufügen, um Benachrichtigungen zu sehen.
+* Unter Windows 8. und Windows 8, eine Verknüpfung zu Ihrer App mit einer [Anwendungsbenutzer Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) muss auf dem Startbildschirm installiert sein. Note, however, that it does not need to be pinned to the Start screen.
+* Unter Windows 7 funktionieren Benachrichtigungen über eine benutzerdefinierte Implementierung, die visuell der nativen auf neueren Systemen ähnelt.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+Electron versucht die Arbeit um die Application User Model ID zu automatisieren. Wenn Electron zusammen mit dem Installations- und Update-Framework Squirrel verwendet wird, werden [Verknüpfungen automatisch korrekt](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events) gesetzt. Darüber hinaus wird Electron erkennen, dass Squirrel verwendet wurde und wird automatisch `app.setAppUserModelId()` mit dem korrekten Wert aufrufen. Während der Entwicklung können Sie aufrufen [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) selbst.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Außerdem beträgt die maximale Länge für den Benachrichtigungstext unter Windows 8 250 Zeichen, mit dem Windows-Team, das empfiehlt, Benachrichtigungen bis 200 Zeichen zu halten. Allerdings wurde diese Einschränkung in Windows 10 entfernt, da das Windows-Team die Entwickler auffordert, vernünftig zu sein. Der Versuch, gigantische Textmengen an die API zu senden (Tausende von Zeichen) könnte zu Instabilität führen.
 
-#### Advanced Notifications
+#### Erweiterte Benachrichtigungen
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Spätere Windows-Versionen ermöglichen erweiterte Benachrichtigungen, mit benutzerdefinierten Vorlagen, Bildern und anderen flexiblen Elementen. Um diese Benachrichtigungen zu senden (von entweder dem Hauptprozess oder dem Renderer-Prozess), verwenden Sie das Userland Modul [Elektron-Windows-Benachrichtigungen](https://github.com/felixrieseberg/electron-windows-notifications), welches native Node-Addons verwendet, um `ToastNotification` und `TileNotification` Objekte zu senden.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Während Benachrichtigungen mit Schaltflächen funktionieren mit `Elektron-Windows-Benachrichtigungen`, Die Bearbeitung von Antworten erfordert die Verwendung von [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), , was hilft, die benötigten COM-Komponenten zu registrieren und Ihre Electron-App mit den eingegebenen Benutzerdaten aufzurufen.
 
-#### Quiet Hours / Presentation Mode
+#### Ruhige Stunden / Präsentationsmodus
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Um festzustellen, ob Sie eine Benachrichtigung senden dürfen oder nicht, verwenden Sie das Userland Modul [Elektron-Benachrichtigungsstatus](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+So können Sie vorzeitig festlegen, ob Windows die Benachrichtigung stillschweigend wegwirft.
 
 ### macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Benachrichtigungen sind auf macOS geradlinig, aber du solltest dir [Apples Human Interface-Richtlinien bezüglich Benachrichtigungen](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/) bewusst sein.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Beachten Sie, dass Benachrichtigungen auf 256 Bytes in der Größe begrenzt sind und abgeschnitten werden, wenn Sie dieses Limit überschreiten.
 
-#### Advanced Notifications
+#### Erweiterte Benachrichtigungen
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Spätere Versionen von macOS ermöglichen Benachrichtigungen mit einem Eingabefeld, so dass Benutzer schnell auf eine Benachrichtigung antworten kann. Um Benachrichtigungen mit einem Eingabefeld zu senden, verwenden Sie das Userland-Modul [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-#### Do not disturb / Session State
+#### Nicht stören / Sitzungszustand
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Um festzustellen, ob Sie eine Benachrichtigung senden dürfen oder nicht, verwenden Sie das Userland-Modul [Elektron-Benachrichtigungsstatus](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Dadurch können Sie frühzeitig erkennen, ob die Benachrichtigung angezeigt wird oder nicht.
 
 ### Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Benachrichtigungen werden mit `libnotify` gesendet, die Benachrichtigungen in jeder Desktopumgebung anzeigen können, die [Desktopbenachrichtigungen Spezifikation](https://developer.gnome.org/notification-spec/)folgt einschließlich Cinnamon, Aufklärung, Einheit, GNOME, KDE.

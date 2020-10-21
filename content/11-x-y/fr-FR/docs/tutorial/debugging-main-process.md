@@ -8,7 +8,7 @@ Utilisez une des variables d'environnement de ligne de commande suivantes pour a
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron écoutera les messages du protocole d'inspecteur V8 sur le port `spécifié`, un débogueur externe devra se connecter sur ce port. Le port `par défaut` est `5858`.
 
 ```shell
 electron --inspect=5858 votre/app

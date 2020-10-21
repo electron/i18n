@@ -24,30 +24,30 @@ npm install -g electron-windows-store
 
 ## Etapa 1: Empacotar sua aplicação Electron
 
-Empacote a aplicação utilizando [electron-packager](https://github.com/electron/electron-packager) (ou uma ferramenta similar). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Empacote a aplicação utilizando [electron-packager](https://github.com/electron/electron-packager) (ou uma ferramenta similar). Certifique-se de remover `node_modules` que você não precisa no seu aplicativo final, Desde qualquer módulo de que você não precise aumentará o tamanho do seu aplicativo.
 
 A saída deve ser algo mais ou menos assim:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+── Ghost.exe
+── LICENSE
+── content_resources_200_percent.pak
+── content_shell.pak
+── d3dcompiler_47. ll
+── ffmpeg.dll
+── icudtl.dat
+─── libEGL.dll
+── libGLESv2.dll
+── localidades
+─── am. aka
+├── ar.pak
+─── [...]
+── node. ll
+─── recursos
+── app. Cr
+── v8_context_snapshot.bin
+── squirrel.exe
+── ui_resources_200_por_pak
 ```
 
 ## Etapa 2: Executando o electron-windows-store
@@ -70,7 +70,7 @@ Assim que os arquivos AppX expandidos são criados, a ferramente utiliza o Windo
 
 Para conseguir executar sua aplicação, seus usuários precisarão do Windows 10 com sua então chamada "Atualização de Aniversário" - detalhes em como atualizar o Windows podem ser encontrados [aqui](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-Ao contrário de aplicações UWP tradicionais, aplicações empacotadas deverão seguir um processo de verificação manual, em qual você pode se increver [aqui](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. Em ambientes gerenciados (geralmente empresas) o `Add-AppxPackage`, que é um [Cmdlet do PowerShell, pode ser utilizado para instalá-lo de uma forma automatizada](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Ao contrário de aplicações UWP tradicionais, aplicações empacotadas deverão seguir um processo de verificação manual, em qual você pode se increver [aqui](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Enquanto isso, todos os usuários poderão instalar seu pacote clicando duas vezes nele, então uma submissão à loja pode não ser necessária se você estiver procurando um método de instalação mais fácil. Em ambientes gerenciados (geralmente empresas) o `Add-AppxPackage`, que é um [Cmdlet do PowerShell, pode ser utilizado para instalá-lo de uma forma automatizada](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Outra limitação importante é que a aplicação AppX compilada contém um executável win32 - e, portanto, não pode ser executado no Xbox, Hololens ou smartphones.
 

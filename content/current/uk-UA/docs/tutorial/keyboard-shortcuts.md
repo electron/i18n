@@ -1,80 +1,80 @@
 # Гарячі Клавіші
 
-> Configure local and global keyboard shortcuts
+> Налаштувати локальні і глобальні клавіші швидкого запуску
 
-## Local Shortcuts
+## Локальні ярлики
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Ви можете використовувати [Меню](../api/menu.md) для налаштування комбінацій клавіш, які будуть викликатись , лише коли застосунок буде у фокусі. Для цього вкажіть параметр [`accelerator`] під час створення [MenuItem](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
-const menu = new Menu()
+const меню = new Menu()
 
-menu.append(new MenuItem({
+меню. ppend(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { консоль. og('time to print stuff') }
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Ви можете налаштувати різні комбінації клавіш на основі операційної системи користувача.
 
 ```js
 {
   accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
+
 ```
 
-## Global Shortcuts
+## Глобальні комбінації клавіш
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Ви можете використовувати модуль [globalShortcut](../api/global-shortcut.md) для виявлення подій клавіатури, навіть якщо програма не має фокусу клавіатури.
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X натиснуто')
   })
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Ярлики в вікні браузера
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Якщо ви хочете запустити ярлики клавіатури для [BrowserWindow](../api/browser-window.md), ви можете використовувати `keyup` та `keydown` слухачів подій на віконному об'єкті в процесі рендерингу.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Зверніть увагу на третій параметр `true` , це означає, що слухач завжди отримуватиме натискання клавіш перед іншими слухачами, щоб вони не могли мати `stopPropagation()` викликані на них.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Можна використовувати , щоб зловити і обробити користувацькі ярлики, які не відображаються в меню.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Якщо ви не бажаєте провести ручний ярлик - це бібліотеки, що створюють розширене виявлення ключів, наприклад [мишоловок](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => консоль. og('показати ярлики!') })
+Mousetrap.bind('esc', () => консоль. og('escape') }, 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// комбінація
+Mousetrap.bind('command+shift+k', () => { консоль. og('command shift k') })
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// вміщують декілька комбінацій на той самий зворотний
+Мусетрап. ind(['command+k', 'ctrl+k'], () => {
+  консоль. og('command k або control k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
+  // повернути false для запобігання поведінці за замовчуванням і зупинити події від бульбашок
+  повертати false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// gmail стилю послідовностей
+Мусетрап. ind('g i', () => { console.log('go to inbox') })
+Мусетрап. ind('* a', () => { console.log('select all') })
 
-// konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+// код коннамі!
+Mousetrap.bind('вгору вниз праворуч ліворуч ліворуч b a enter', () => {
   console.log('konami code')
 })
 ```

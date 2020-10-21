@@ -8,14 +8,14 @@ Gli Iframe in Electron si comportano come gli iframe nei broswer regulari. Un `<
 
 ## WebViews
 
-[WebViews](../api/webview-tag.md) si basano sulle WebViews di Chromium e non sono esplicitamente supportate da Electron. Non garantiamo che le API di WebView rimarranno disponibile nelle versioni future di Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebViews](../api/webview-tag.md) si basano sulle WebViews di Chromium e non sono esplicitamente supportate da Electron. Non garantiamo che le API di WebView rimarranno disponibile nelle versioni future di Electron. Questo è il motivo per cui, se vuoi usare i tag `<webview>` , dovrai impostare `webviewTag` a `true` nelle `webPreferences` della tua `BrowserWindow`.
 
-WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
+WebViews sono un elemento personalizzato (`<webview>`) che funzionerà solo all'interno di Electron. Essi sono attuati come "iframe fuori procedura". Ciò significa che tutta la comunicazione con il `<webview>` è fatta asincronamente utilizzando IPC. L'elemento `<webview>` ha molti metodi ed eventi personalizzati, simile a `webContents`, che ti permettono un controllo molto maggiore sui contenuti.
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
+Rispetto a un `<iframe>`, `<webview>` tende ad essere leggermente più lento, ma offre un controllo molto maggiore nel caricamento e nella comunicazione con i contenuti di terze parti e nella gestione di vari eventi.
 
-## BrowserViews
+## Visualizzazioni
 
-[BrowserViews](../api/browser-view.md) are not part of the DOM - instead, they are created in and controlled by your main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) non fanno parte del DOM - invece, sono creati e controllati dal processo principale. Sono semplicemente un altro livello di contenuto web in cima alla finestra esistente. Ciò significa che sono completamente separati dal proprio contenuto `BrowserWindow` e che la loro posizione non è controllata dal DOM o dal CSS, ma impostando i limiti nel processo principale.
 
-BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
+BrowserViews offre il più grande controllo sui loro contenuti, poiché implementano il `contenuto web` in modo simile a come una `BrowserWindow` lo implementa. Tuttavia, non fanno parte del vostro DOM ma sono sovrapposti, il che significa che dovrete gestire la loro posizione manualmente.

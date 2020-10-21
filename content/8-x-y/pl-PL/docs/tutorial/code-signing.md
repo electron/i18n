@@ -4,48 +4,48 @@ Code signing is a security technology that you use to certify that an app was cr
 
 On macOS the system can detect any change to the  app, whether the change is introduced accidentally or by malicious code.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+W systemie Windows system przypisuje poziom zaufania do certyfikatu podpisywania kodu, który jeśli nie posiadasz, lub jeśli Twój poziom zaufania jest niski, spowoduje pojawienie się okien dialogowych bezpieczeństwa , gdy użytkownicy zaczną korzystać z aplikacji.  Zaufaj poziomowi budować z czasem , aby łatwiej było rozpocząć podpisywanie kodu tak szybko, jak to możliwe.
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+Chociaż możliwe jest dystrybuowanie niepodpisanych aplikacji, nie jest to zalecane. For example, here's what macOS users see when attempting to start an unsigned app:
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
 > App can't be opened because it is from an unidentified developer
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+If you are building an Electron app that you intend to package and distribute, it should be code signed. Magazyny aplikacji Mac i Windows nie pozwalają na bezpodpisane aplikacji.
 
-# Signing macOS builds
+# Podpisywanie kompilacji macOS
 
-Before signing macOS builds, you must do the following:
+Przed podpisaniem kompilacji macOS, musisz wykonać następujące czynności:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
 2. Download and install [Xcode][]
 3. Generate, download, and install [signing certificates][]
 
-There are a number of tools for signing your packaged app:
+Istnieje wiele narzędzi do podpisywania spakowanej aplikacji:
 
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- [`electron-packager`][] bundles `electron-osx-sign`. Jeśli używasz `electron-packer`, przejdź flagę `--osx-sign=true` aby podpisać swoją kompilację.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Zobacz [electron.build/code-signing](https://www.electron.build/code-signing)
 
 For more info, see the [Mac App Store Submission Guide][].
 
-# Signing Windows builds
+# Podpisywanie wersji Windows
 
-Before signing Windows builds, you must do the following:
+Przed podpisaniem wersji Windows musisz wykonać następujące czynności:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Pobierz certyfikat podpisywania kodu uwierzytelniania Windows (wymaga rocznej opłaty)
+2. Zainstaluj Visual Studio 2015/2017 (aby uzyskać narzędzie podpisania)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Możesz otrzymać certyfikat podpisywania kodu od wielu sprzedawców. Ceny są różne, więc może być warte twojego czasu na zakupy. Popularni sprzedawcy to:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Między innymi prosimy o znalezienie takiego, który odpowiada Twoim potrzebom, Google jest twoim znajomym :)
 
-There are a number of tools for signing your packaged app:
+Istnieje wiele narzędzi do podpisywania spakowanej aplikacji:
 
 - [`electron-winstaller`][] will generate an installer for windows and sign it for you
 - [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.

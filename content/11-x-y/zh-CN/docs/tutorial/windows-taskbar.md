@@ -102,8 +102,8 @@ To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayI
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const win = new BrowserWindow(
+win.setOverlayIcon('path/to/overlay.png', 'overlay描述')
 ```
 
 
@@ -117,8 +117,8 @@ To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashF
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.once('focus', () => win.flashFrame(false))
+const win = new BrowserWindow(
+win.once('focus'() => win.flashFramework(false))
 win.flashFrame(true)
 ```
 

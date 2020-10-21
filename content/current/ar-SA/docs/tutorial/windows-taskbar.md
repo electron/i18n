@@ -1,38 +1,38 @@
-# Windows Taskbar
+# شريط مهام ويندوز
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+إلكترون لديه واجهة برمجة التطبيقات لتهيئة رمز التطبيق في Windows taskbar. يدعم [إنشاء `قائمة مقطعة`](#jumplist)، [مصغرات مخصصة وأشرطة أدوات](#thumbnail-toolbars)، [تراكب الأيقونة](#icon-overlays-in-taskbar)وما يسمى [تأثير "الإطار الفلاش"](#flash-frame)، لكن إلكترون يستخدم أيضًا رمز الإرساء للتطبيق لتنفيذ ميزات عبر المنصات مثل [المستندات الأخيرة](./recent-documents.md) و [تقدم التطبيق](./progress-bar.md).
 
-## JumpList
+## قائمة القفز
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+يسمح ويندوز للتطبيقات بتحديد قائمة السياق المخصص التي تظهر عند المستخدمين انقر بزر الماوس الأيمن على أيقونة التطبيق في شريط المهام. قائمة السياق هذه تسمى `قائمة القفز`. يمكنك تحديد إجراءات مخصصة في فئة `المهام` من قائمة JumpList، كما هو مقتبس من MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> تحدد التطبيقات المهام استناداً إلى ميزات البرنامج والمفتاح الأشياء التي يتوقع أن يقوم بها المستخدم معهم. يجب أن تكون المهام خالية من السياقات، في أن التطبيق لا يحتاج إلى تشغيله للعمل. يجب أن تكون أيضا الإجراءات الأكثر شيوعا إحصائيا التي يقوم بها المستخدم العادي في التطبيق، مثل إنشاء رسالة بريد إلكتروني أو فتح التقويم في برنامج بريد، إنشاء مستند جديد في معالج الكلمات، قم بتشغيل تطبيق في وضع معين، أو اطلاق واحد من الأوامر الفرعية. يجب على تطبيق أن لا يحجب القائمة مع الميزات المتقدمة التي لن يحتاج إليها مستخدمو أو إجراءات لمرة واحدة مثل التسجيل. لا تستخدم المهام لعناصر الترويج مثل الترقيات أو العروض الخاصة.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> ويوصى بشدة بأن تكون قائمة المهام جامدة. يجب أن يبقى نفس بغض النظر عن حالة أو وضع الطلب. بينما يمكن تغيير القائمة بشكل ديناميكي، يجب أن تأخذ في الاعتبار أن هذا يمكن أن يخلط بين المستخدم الذي لا يتوقع ذلك الجزء من قائمة الوجهة و يتغير.
 
-__Tasks of Internet Explorer:__
+__مهام مستكشف الإنترنت:__
 
-![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
+![آي](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+خلاف قائمة الإرساء في macOS التي هي قائمة حقيقية، مهام المستخدم في ويندوز تعمل مثل اختصارات التطبيق بحيث عندما ينقر المستخدم على مهمة، سيتم تنفيذ برنامج باستخدام حجج محددة.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+لتعيين مهام المستخدم لتطبيقك، يمكنك استخدام [app.setUserTtask](../api/app.md#appsetusertaskstasks-windows) API:
 
 ```javascript
-const { app } = require('electron')
+إختر { app } = مطلوب('electron')
 app.setUserTasks([
   {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
-    iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    البرنامج: العملية. xecPath,
+    حجج: '--new-window',
+    أيقونة المسار: العملية. xecPath,
+    أيقونة المفهرس: 0,
+    title: 'Window',
+    الوصف: 'إنشاء نافذة جديدة'
   }
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+لتنظيف قائمة المهام الخاصة بك، اتصل `app.setUserTasks` مع مصفوفة فارغة:
 
 ```javascript
 const { app } = require('electron')
@@ -44,41 +44,41 @@ The user tasks will still show even after your application closes, so the icon a
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+في ويندوز، يمكنك إضافة شريط أدوات مصغرة مع أزرار محددة في شريط المهام تخطيط لنافذة التطبيق. يوفر للمستخدمين طريقة للوصول إلى أمر الخاص بالنوافذ دون استعادة أو تنشيط النافذة.
 
-From MSDN, it's illustrated:
+من الـ MSDN، يوضح ما يلي:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> شريط الأدوات هذا هو التحكم الموحد المألوف في شريط الأدوات. يحتوي على كحد أقصى سبعة أزرار. يتم تعريف معرف كل زر، والصورة، ونصيحة أدوات، والحالة في هيكل، ثم يتم تمريره إلى شريط المهام. يمكن للتطبيق أن يظهر أو تمكين أو تعطيل أو إخفاء الأزرار من شريط الأدوات المصغرة كما هو مطلوب في حالته الحالية .
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> على سبيل المثال، Windows Media Player قد يوفر ضوابط قياسية لنقل الوسائط مثل اللعب، الإيقاف، الكتم، والتوقف.
 
-__Thumbnail toolbar of Windows Media Player:__
+__شريط أدوات الصور المصغرة للويندوز ميديا لاعب :__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![لاعب](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+يمكنك استخدام [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) لتعيين شريط أدوات مصغرة في تطبيقاتك:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const path = require('path')
+const { BrowserWindow } = مطلوب('electron')
+مسار المسار = مطلوب('path')
 
-const win = new BrowserWindow()
+فوز الفوز = متصفح جديد ()
 
-win.setThumbarButtons([
+الفوز. تلميح etThumbarButtons([
   {
-    tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    أداة: 'button1',
+    أيقونة : الطريق. oin(__dirname, 'button1.png'),
+    انقر على () console. og('button1 click icked'}
   }, {
     tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
-    flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    أيقونة: path.join(__dirname, 'button2. ng'),
+    الأعلام: ['تمكين', 'dismissonclick'],
+    انقر فوق () { console. og('button2 ضغط.')
   }
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+لتنظيف أزرار شريط الأدوات المصغرة، فقط اتصل بـ `BrowserWindow.setThumbarButtons` مع مصفوفة فارغة:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,38 +88,38 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## تراكب الأيقونة في شريط المهام
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+على Windows يمكن أن يستخدم زر شريط المهام تراكب صغير لعرض حالة التطبيق كما هو مقتبس من MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> وتشكل طبقات الأيقونات إشعارا بالوضع في سياقه الصحيح، والمقصود منها أن تنفي الحاجة إلى أيقونة حالة إشعارات منفصلة لإرسال تلك المعلومات إلى المستخدم. على سبيل المثال، حالة البريد الإلكتروني الجديدة في Microsoft Outlook، يظهر حاليا في منطقة الإشعار، يمكن الآن الإشارة من خلال تراكب على زر شريط المهام. مرة أخرى، يجب عليك أن تقرر، خلال دورة التطوير الخاصة بك، الطريقة الأفضل لتطبيقك. الرموز الخلفية هي الغرض منها توفير حالة مهمة أو إشعارات قديمة مثل حالة الشبكة، أو حالة السعاة، أو البريد الجديد. لا ينبغي أن يكون المستخدم معروضة مع طبقات أو حركات متحركة متغيرة باستمرار.
 
-__Overlay on taskbar button:__
+__التداخل على زر شريط المهام:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![تراكب على زر شريط المهام](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+لتعيين رمز تراكب النافذة، يمكنك استخدام [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const { BrowserWindow } = مطلوب('electron')
+فوز = متصفح ويندوز جديد ()
+win.setOverlayIcon('path/to/overlay.png', 'وصف للتجاوز')
 ```
 
 
-## Flash Frame
+## إطار الفلاش
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+على Windows يمكنك تسليط الضوء على زر شريط المهام للحصول على اهتمام المستخدم. هذا شبيه بربط أيقونة الإرساء على macOS. من الوثائق المرجعية لوزارة التنمية المستدامة:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> عادة ، يتم تفليش النافذة لإبلاغ المستخدم بأن النافذة تتطلب انتباها ولكنها لا تحتوي حاليا على تركيز لوحة المفاتيح.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+لفلاش زر شريط المهام الخاص بالمتصفح، يمكنك استخدام [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = مطلوبة ('electron')
+الفوز = جديد BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+لا تنسى أن تتصل بطريقة `فلاش` مع `كاذب` لإيقاف تشغيل الفلاش. في المثال الآنف الذكر، يتم استدعاؤه عندما تصبح النافذة في بؤرة التركيز، ولكن قد تستخدم مهلة أو حدث آخر لتعطيلها.

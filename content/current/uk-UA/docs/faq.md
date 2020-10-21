@@ -12,7 +12,7 @@
 
 Chrome для Electron зазвичай випускається протягом тижня чи двох після релізу стабільної версії Chrome. Цей термін не є гарантованим і залежить від кількості роботи спричиненої оновленням.
 
-Тільки стабільний канал Chrome використовується. If an important fix is in beta or dev channel, we will back-port it.
+Тільки стабільний канал Chrome використовується. Якщо важливе виправлення є в бета-версії або розробці каналі, ми повернемося до нього знову.
 
 Для більш детальної інформації, перегляньте [Політику безпеки](tutorial/security.md).
 
@@ -26,11 +26,11 @@ Chrome для Electron зазвичай випускається протяго�
 
 Для передачі даних між веб-сторінками (рендеринг) найлегшим способом буде використання HTML5 API, який вже доступний в браузері. Хорошими кандидатами є [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) та [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Крім того, можна використовувати примітиви IPC, які надаються Electron. Щоб поділитися даними між основними і процесами рендерингу, ви можете використовувати [`ipcMain`](api/ipc-main.md) та [`ipcRenderer`](api/ipc-renderer.md) модулів. Щоб спілкуватися безпосередньо між веб-сторінками, ви можете надіслати [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) з одного в інший, можливо через головний процес використовуючи [`ipcRenderer. ostage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over порти повідомлень є прямим і не передається через основний процес.
 
-## My app's tray disappeared after a few minutes.
+## Мій лоток зникав через декілька хвилин.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Це відбувається при збереженні змінної, яка використовується для зберігання лотка збору сміття.
 
 Якщо ви стикнулися з цією проблемою, наступні статті стануть вам у нагоді:
 
@@ -98,15 +98,15 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
+Швидше за все, ви використовуєте модуль в неправильному процесі. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
 
 ## Шрифт виглядає розмитим, у чому причина і що я можу з цим зробити?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Приклад:
+Якщо [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) деактивовано, тоді шрифти на LCD екранах можуть виглядати розмитими. Приклад:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Підпіч-піксельне антиаліаціонування потребує непрозорого тла шару, що містить гліфи шрифту. (див. [цю проблему](https://github.com/electron/electron/issues/6344#issuecomment-420371918) для отримання додаткової інформації).
 
 Для досягнення цієї цілі, виберіть фон в конструкторі для [BrowserWindow](api/browser-window.md):
 
@@ -117,6 +117,6 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Ефект видимий лише на (деякі?) LCD екранах. Навіть, якщо ви не бачите різниці, деякі з ваших користувачів можуть це зробити. Завжди відкладати фон таким чином, якщо у вас немає причин не робити цього.
 
 Зверніть увагу, що лише налаштування фону в CSS не принесе бажаного результату.

@@ -1,84 +1,84 @@
 ---
-title: 'Electron Internals: Building Chromium as a Library'
+title: 'Інтерналі: Будівництво Chromium в якості бібліотеки'
 author: zcbenz
 date: '2017-03-03'
 ---
 
-Electron is based on Google's open-source Chromium, a project that is not necessarily designed to be used by other projects. This post introduces how Chromium is built as a library for Electron's use, and how the build system has evolved over the years.
+Electron засновано на Google open-source Chromium, проекті, який не обов'язково розроблений для використання іншими проектами. Цей пост представляє як бібліотеку Chromium побудовано як бібліотеку для використання Electron, і як розроблена система будівництва протягом багатьох років.
 
 ---
 
-## Using CEF
+## Використання CEF
 
-The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
+The Chromium Embedwork (CEF) - це проект, який перетворює Chromium на бібліотеку і забезпечує стабільні API-інтерфейси на основі коду Chromium. Лише ранні версії Atom editor and NW.js використовували CEF.
 
-To maintain a stable API, CEF hides all the details of Chromium and wraps Chromium's APIs with its own interface. So when we needed to access underlying Chromium APIs, like integrating Node.js into web pages, the advantages of CEF became blockers.
+Для підтримки стабільного API, CEF приховує всі деталі Chromium і огортає API Chromium зі своїм власним інтерфейсом. Тому коли нам потрібен доступ до основних API Chromium, наприклад, інтеграція Node.js на веб-сторінки, переваги CEF стали блокувальниками.
 
-So in the end both Electron and NW.js switched to using Chromium's APIs directly.
+Отож, у кінці Electron та NW.js перемикались на використання API Chromium безпосередньо.
 
-## Building as part of Chromium
+## Будівля як частина Хрому
 
-Even though Chromium does not officially support outside projects, the codebase is modular and it is easy to build a minimal browser based on Chromium. The core module providing the browser interface is called Content Module.
+Незважаючи на те, що Chromium офіційно не підтримує зовнішні проекти, код є модульним, і легко створити мінімальний браузер на основі Chromium. Ядро , що надає інтерфейс браузера називається Модуль контенту.
 
-To develop a project with Content Module, the easiest way is to build the project as part of Chromium. This can be done by first checking out Chromium's source code, and then adding the project to Chromium's `DEPS` file.
+Для розробки проекту з модулем Контенту, найпростішим способом створити проект як частину Chromium. Це можна зробити шляхом першої перевірки коду Chromium , а потім додавання проекту в `DEPS` файлу.
 
-NW.js and very early versions of Electron are using this way for building.
+NW.js та дуже ранні версії Electron використовують цей спосіб для побудування.
 
-The downside is, Chromium is a very large codebase and requires very powerful machines to build. For normal laptops, that can take more than 5 hours. So this greatly impacts the number of developers that can contribute to the project, and it also makes development slower.
+Зворотній бік означає, що Chromium - це дуже велика кодова база і потребує дуже потужних машин для побудування. Для нормальних ноутбуків, які можуть зайняти більше 5 годин. Це значно вплине на кількість розробників, які можуть зробити внесок в проект, а також пришвидшити розробку.
 
-## Building Chromium as a single shared library
+## Побудова хрому як єдину спільну бібліотеку
 
-As a user of Content Module, Electron does not need to modify Chromium's code under most cases, so an obvious way to improve the building of Electron is to build Chromium as a shared library, and then link with it in Electron. In this way developers no longer need to build all off Chromium when contributing to Electron.
+Як користувач вмісту модуля, Electron не потребує редагування коду Chromium під більшими випадками, таким чином, очевидний спосіб поліпшити побудову Electron - побудувати Chromium як спільну бібліотеку, а потім посилатися з ним через Electron. У цьому розробникам більше не потрібно створювати усі вимкнені Chromium при включенні Electron.
 
-The [libchromiumcontent](https://github.com/electron/libchromiumcontent) project was created by [@aroben](https://github.com/aroben) for this purpose. It builds the Content Module of Chromium as a shared library, and then provides Chromium's headers and prebuilt binaries for download. The code of the initial version of libchromiumcontent can be found [in this link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+Проект [libchromiumcontent](https://github.com/electron/libchromiumcontent) створено [@aroben](https://github.com/aroben) для цієї мети. Він будує модуль Контенту Chromium як спільна бібліотека, а потім забезпечує заголовки Chromium та попередньо побудовані бінарні файли для завантаження. Код початкової версії libchromiumcontent знайдено [у цьому посиланні](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
 
-The [brightray](https://github.com/electron/brightray) project was also born as part of libchromiumcontent, which provides a thin layer around Content Module.
+Проект [яскравим треєм](https://github.com/electron/brightray) також народився як частина вмісту libchromiumcontent, який забезпечує тонкий шар навколо модуля контенту.
 
-By using libchromiumcontent and brightray together, developers can quickly build a browser without getting into the details of building Chromium. And it removes the requirement of a fast network and powerful machine for building the project.
+Використовуючи libchromiumcontent і яскравіше разом розробники можуть швидко будувати браузер без деталей побудови Chromium. І це знімає вимоги швидкої мережі і потужного автомату для будівлі проекту.
 
 Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
-## Filtering exported symbols
+## Фільтрування експортованих символів
 
-On Windows there is a limitation of how many symbols one shared library can export. As the codebase of Chromium grew, the number of symbols exported in libchromiumcontent soon exceeded the limitation.
+На Windows є обмеження кількості символів з однієї спільної бібліотеки експорту. В якості кодової бази Chromium кількість символів, що експортуються в libchromiumcontent незабаром перевищила обмеження.
 
-The solution was to filter out unneeded symbols when generating the DLL file. It worked by [providing a `.def` file to the linker](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), and then using a script to [judge whether symbols under a namespace should be exported](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
+Рішення було відфільтрувати непотрібні символи під час генерації DLL-файлу. Це спрацювало [, підставляючи `. ef файл` на linker](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), а потім використовуючи скрипт до [судити про те, чи мають бути символи в просторі імен , що експортується](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
 
-By taking this approach, though Chromium kept adding new exported symbols, libchromiumcontent could still generate shared library files by stripping more symbols.
+Використовуючи цей підхід, Chromium продовжував додавати нові експортовані символи, libchromiumcontent все ще може створювати загальні файли бібліотеки, знищуючи більше символів.
 
-## Component build
+## Збірка компонентів
 
-Before talking about the next steps taken in libchromiumcontent, it is important to introduce the concept of component build in Chromium first.
+Перед тим, як говорити про наступні кроки, зроблені в libchromicontt, важливо додати концепцію побудови компонентів в Chromium.
 
-As a huge project, the linking step takes very long in Chromium when building. Normally when a developer makes a small change, it can take 10 minutes to see the final output. To solve this, Chromium introduced component build, which builds each module in Chromium as separated shared libraries, so the time spent in the final linking step becomes unnoticeable.
+Як величезний проект, крок зв'язування займає дуже багато часу в Chromium при будуванні. Як правило, коли розробник трохи змінить, через це може зайняти 10 хвилин, щоб побачити остаточний результат . Для цього Chromium ввів збірку компонентів, яка будує кожен модуль в Chromium як розділені спільні бібліотеки, тож час, витрачений на остаточне посилання стає непомітним.
 
-## Shipping raw binaries
+## Сирі двійки доставки
 
-With Chromium continuing to grow, there were so many exported symbols in Chromium that even the symbols of Content Module and Webkit were more than the limitation. It was impossible to generate a usable shared library by simply stripping symbols.
+З Chromium продовжує рости, в Chromium було так багато експортованих символів, що навіть символи модуля Контенту і Webkit були більшими за обмеженнями. Неможливо створити придатну для використання бібліотеку лише позбавити символи.
 
-In the end, we had to [ship the raw binaries of Chromium](https://github.com/electron/libchromiumcontent/pull/98) instead of generating a single shared library.
+Зрештою, ми змушені були [відправити необроблені бінарні файли Chromium](https://github.com/electron/libchromiumcontent/pull/98) замість генерації єдиної спільної бібліотеки.
 
-As introduced earlier there are two build modes in Chromium. As a result of shipping raw binaries, we have to ship two different distributions of binaries in libchromiumcontent. One is called `static_library` build, which includes all static libraries of each module generated by the normal build of Chromium. The other is `shared_library`, which includes all shared libraries of each module generated by the component build.
+Як ви вже представили два режими будування в Chromium. В результаті постачати сирі бінарники, ми маємо доставити два різних розподіли виконуваних файлів в libchromiumcontent. Одна називається збірка `static_library` , яка включає в себе всі статичні бібліотеки кожного модуля, згенерованого звичайною збіркою Chromium. Інша - `shared_library`, яка включає в себе всі загальні бібліотеки кожного модуля, згенерованого компонентом.
 
-In Electron, the Debug version is linked with the `shared_library` version of libchromiumcontent, because it is small to download and takes little time when linking the final executable. And the Release version of Electron is linked with the `static_library` version of libchromiumcontent, so the compiler can generate full symbols which are important for debugging, and the linker can do much better optimization since it knows which object files are needed and which are not.
+Для Electron, версія Debug має посилання `shared_library` версії libchromiumcontent, тому що завантаження мале і займає мало часу під час зв'язку з виконуваним файлом. Реліз версії Electron з'єднана з `static_library` версією libchromiumcontent, таким чином, компілятор може генерувати повноцінні символи, які важливі для налагодження, і велінкер може зробити набагато кращу оптимізацію, так як він знає, які файли об'єктів потрібні і які ні.
 
-So for normal development, developers only need to build the Debug version, which does not require a good network or powerful machine. Though the Release version then requires much better hardware to build, it can generate better optimized binaries.
+So for normal development, developers only need to build the Debug version, which does not require a good network or powerful machine. Хоча Реліз версія і потребує значно кращого обладнання для побудови, вона може генерувати краще оптимізовані двійкові системи.
 
-## The `gn` update
+## `вирівняти` оновлення
 
 Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
 
-Earlier versions of Chromium were using `gyp` as a build system, but it suffers from being slow, and its configuration file becomes hard to understand for complex projects. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
+Попередні версії Chromium використовували `gyp` як будівельну систему, але вона страждає від повільності, і його конфігураційний файл стає важко зрозуміти для складних проектів. Після багатьох років розробки Chromium перемкнувся на `gn` з будівельною системою , яка набагато швидше має чітку архітектуру.
 
-One of the improvements of `gn` is to introduce `source_set`, which represents a group of object files. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. By using `gn`, each module now only generates a bunch of object files, and the final executable just links all the object files together, so the intermediate static library files are no longer generated.
+Одне з покращень `gn` означає ввести `source_set`, який представляє групу об'єктних файлів. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. Використовуючи `gn`, кожен модуль генерує тільки купу файлів з об'єктів, і останній виконуваний файл просто зв'язаний усі файли об’єктів разом, , тому файли статичної бібліотеки більше не генеруються.
 
-This improvement however made great trouble to libchromiumcontent, because the intermediate static library files were actually needed by libchromiumcontent.
+Однак це вдосконалення викликало великі проблеми з появою libchromiumcontt, так як файли тимчасових статичних бібліотек були насправді потрібні libchromiumcontent.
 
-The first try to solve this was to [patch `gn` to generate static library files](https://github.com/electron/libchromiumcontent/pull/239), which solved the problem, but was far from a decent solution.
+Перша спроба вирішити цю проблему була [патч `вирівняти` щоб генерувати статичну бібліотеку файли](https://github.com/electron/libchromiumcontent/pull/239)який вирішив проблему, але був далеко не гідним рішенням.
 
-The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
+Друга спроба була зроблена [@alespergl](https://github.com/alespergl) до [виробляє спеціальні статичні бібліотеки з списку об'єктів](https://github.com/electron/libchromiumcontent/pull/249). За допомогою трюка вперше запустила туманну білку для збору списку згенерованих файлів об'єкта, а потім - створити статичні бібліотеки, годуючи `gn` зі списком. Він вносив лише мінімальні зміни до джерела Chromium код, і утримував будівельну архітектуру Electron.
 
 ## Summary
 
-As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
+Як ви можете бачити, в порівнянні з побудовою Electron як частини Chromium, побудова Chromium в якості бібліотеки, займає більше зусиль і вимагає безперервного обслуговування. Однак останнє знімає вимоги потужного обладнання , щоб створити Electron, Таким чином, забезпечення набагато більшого діапазону розробників для створення і сприяння Electron. Зусилля варті того.
 

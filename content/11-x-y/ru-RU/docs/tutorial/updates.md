@@ -4,7 +4,7 @@
 
 ## Используя `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+Команда Electron поддерживает [update.electronjs.org][], бесплатный и открытый веб-сервис, который Electron приложения могут использовать для самообновления. The service is designed for Electron apps that meet the following criteria:
 
 - Приложение работает на macOS или Windows
 - App has a public GitHub repository
@@ -38,7 +38,7 @@ Depending on your needs, you can choose from one of these:
 - [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Поддержка нескольких приложений и каналов; использует статический файловый магазин для минимизации стоимости сервера.
 
 ## Внедрение обновлений в Ваше приложение
 
@@ -50,7 +50,7 @@ Once you've deployed your update server, continue with importing the required mo
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Далее постройте URL сервера обновлений и скажите [autoUpdater](../api/auto-updater.md) об этом:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+В качестве последнего шага проверьте наличие обновлений. Пример ниже проверяется каждую минуту:
 
 ```javascript
 setInterval(() => {
@@ -67,20 +67,20 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+После того, как ваша заявка [упакована](../tutorial/application-distribution.md), он получит обновление для каждого нового [GitHub релиза](https://help.github.com/articles/creating-releases/) , который вы публикуете.
 
 ## Применение обновлений
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Теперь, когда вы настроили базовый механизм обновления для вашего приложения, необходимо убедиться, что пользователь будет получать уведомления о появлении обновления. Это может быть достигнуто с помощью autoUpdater API [событий](../api/auto-updater.md#events):
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoUpdater. n('update-downloaded', (событие, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    кнопки: ['Перезапустить', 'Позже'],
+    название: 'Application Update',
+    сообщение: процесс. latform === 'win32' ? releaseNotes : releaseName,
+    detail: 'Новая версия была загружена. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -89,18 +89,18 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Также убедитесь, что ошибки [обрабатываются](../api/auto-updater.md#event-error). Вот пример для записи в `stderr`:
 
 ```javascript
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+autoUpdater.on('error', сообщение => {
+  console.error('При обновлении приложения')
   console.error(message)
 })
 ```
 
-## Handing Updates Manually
+## Обработка обновлений вручную
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Потому что запросы, сделанные автоматическим обновлением, не находятся под вашим непосредственным контролем, вы можете обнаружить ситуации, с которыми сложно справиться (например, если сервер обновления находится за аутентификацией). Поле `url` выполняет поддержку файлов, что означает, что с некоторой стороны процесса можно отключить. [Вот пример того, как это могло бы работать](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
 
 [now]: https://zeit.co/now
 [hazel]: https://github.com/zeit/hazel

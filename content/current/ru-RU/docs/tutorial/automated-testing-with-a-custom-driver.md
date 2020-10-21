@@ -8,12 +8,12 @@
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
+// порождаем процесс
 const env = { /* ... */ }
-const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const stdio = ['inherit', 'inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
 
-// listen for IPC messages from the app
+// прослушивание IPC сообщений из приложения
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -36,43 +36,43 @@ process.send({ my: 'message' })
 
 Теперь мы можем передавать данные из теста в приложению Electron, используя объект `appProcess`.
 
-Для удобства, вы можете обернуть `appProcess` в объект драйвера, который предоставляет более высокоуровневые функции. Here is an example of how you can do this:
+Для удобства, вы можете обернуть `appProcess` в объект драйвера, который предоставляет более высокоуровневые функции. Вот пример того, как вы можете это сделать:
 
 ```js
 class TestDriver {
-  constructor ({ path, args, env }) {
-    this.rpcCalls = []
+  конструктор ({ path, args, env }) {
+    это. pcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    // запуск дочернего процесса
+    env. PP_TEST_DRIVER = 1 // дайте приложению знать, что оно должно слушать сообщения
+    это. rocess = детский процесс. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
-    this.process.on('message', (message) => {
+    // обрабатываем ответы rpc
+    это. рокес. n('сообщение', (message) => {
       // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
+      const rpcCall = this. pccalls[message.msgId]
+      если (!rpcCall) возвращают
+      это. pccalls[message.msgId] = null
+      // отвергнуть/решить
+      если (сообщение). eject) rpcCall.reject(message.reject)
+      else rpcCall.resolve(сообщение. esolve)
     })
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
+    // ждать готовые
+    this.isReady = this.rpc('isReady'). atch(err) => {
       console.error('Application failed to start', err)
-      this.stop()
-      process.exit(1)
+      это. top()
+      процесс. xit(1)
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) {
-    // send rpc request
-    const msgId = this.rpcCalls.length
-    this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
+  // простой RPC-вызов
+  // к использованию: драйвер. pc('method', 1, 2, 3).затем (. .)
+  асинхронный rpc (cmd, ... rgs) {
+    // отправить запрос rpc
+    const msgId = this. pcCalls.length
+    это.процесс. end({ msgId, cmd, args })
+    возвращают новый Promise((resolve, reject) => this.rpcalls. ush({ resolve, reject }))
   }
 
   stop () {
@@ -84,32 +84,32 @@ class TestDriver {
 В приложении вам нужно будет написать простой обработчик для вызовов RPC:
 
 ```js
-if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+if (process.env.APP_TEST_DRIVER) { процесс
+  . n('сообщение', onMessage)
 }
 
-async function onMessage ({ msgId, cmd, args }) {
+асинхронная функция onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+  if (! ethod) метод = () => new Error('Недопустимый метод: ' + cmd)
   try {
-    const resolve = await method(...args)
-    process.send({ msgId, resolve })
+    const resolve = await method(. ggs)
+    процесс. end({ msgId, resolve })
   } catch (err) {
     const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    process end({ msgId, reject })
   }
 }
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // делаем любые установки, необходимые
     return true
   }
-  // define your RPC-able methods here
+  // определяем ваши RPC-доступные методы здесь
 }
 ```
 
@@ -121,7 +121,7 @@ const electronPath = require('electron')
 
 const app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ const app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
+test. fter.always('cleanup', async t => {
   await app.stop()
 })
 ```

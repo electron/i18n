@@ -1,26 +1,26 @@
 # Depanarea procesului principal
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools într-o fereastră de browser Electron poate să depaneze doar JavaScript care este executat în acea fereastră (adică paginile web). Pentru a depana JavaScript care este executat în procesul principal va trebui să folosești un debugger extern și să lansezi Electron cu comutatorul `--inspectt` sau `--inspect-brk`.
 
-## Command Line Switches
+## Comutatoare linie de comandă
 
-Use one of the following command line switches to enable debugging of the main process:
+Folosește unul dintre următoarele comutatoare ale liniei de comandă pentru a activa depanarea procesului principal:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron va asculta mesajele protocolului de inspector V8 pe portul `specificat`, un depanator extern va trebui să se conecteze în acest port. Portul `implicit` este `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 dumneavoastră/aplicație
 ```
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Ca `--inspectt` dar pune capăt execuției pe prima linie a JavaScript.
 
-## External Debuggers
+## Depanatori externi
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Va trebui să utilizați un depanator care acceptă protocolul de inspector V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- Conectați Chrome vizitând `chrome://inspectt` și selectând pentru a inspecta a lansat aplicația Electron prezentă acolo.
+- [Depanarea procesului principal în VSCode](debugging-main-process-vscode.md)

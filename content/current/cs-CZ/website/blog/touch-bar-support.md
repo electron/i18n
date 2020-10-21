@@ -1,26 +1,26 @@
 ---
-title: Touch Bar Support
+title: Podpora dotykového panelu
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) verze beta obsahuje počáteční podporu pro macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+Nové API dotykové lišty umožňuje přidávat tlačítka, štítky, vyskakovače, barvu vypínače, posuvníky a mezery. Tyto prvky mohou být dynamicky aktualizovány a vypouštějí také události při jejich vzájemném působení.
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+Toto je první vydání tohoto API, takže se bude vyvíjet během dalších verzí. Prosím podívejte se na poznámky k vydání pro další aktualizace a otevřete [problémy](https://github.com/electron/electron/issues) pro případné problémy nebo chybějící funkce.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+Tuto verzi můžete nainstalovat přes `npm instalovat electron@beta` a se o ní dozvědět více na [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) a [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+Velké díky [@MarshallOfSound](https://github.com/MarshallOfSound) za přispění k Electronu. :tada:
 
-## Touch Bar Example
+## Příklad dotykové lišty
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![Dotyková lišta Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+Níže je příklad vytvoření jednoduchého automatického hra v dotykové liště. Ukazuje, jak vytvořit dotykovou lištu, stylovat položky, přiřadit ji k oknu , stiskněte tlačítko a dynamicky aktualizujte popisky.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -29,7 +29,7 @@ const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// Reel labels
+// Reel label
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
@@ -40,28 +40,28 @@ const result = new TouchBarLabel()
 // Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+  barva pozadí: '#7851A9',
+  klikněte: () => {
+    // Ignorovat kliknutí, pokud se již otočí
+    , pokud (otočí) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    otáčení = true
+    výsledek. abel = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    const spinLength = 4 * 1000 // 4 sekundy
+    const startTime = datum. ow()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now() - startTime) >= spinLength) {
+      if ((Datum. ow() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
+        // Slow down a bit na každé spin
+        timeout *= 1.
         setTimeout(spinReels, timeout)
       }
     }
@@ -72,56 +72,56 @@ const spin = new TouchBarButton({
 
 const getRandomValue = () => {
   const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  návratové hodnoty[Math. loor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel3. abel = getRandomValue()
 }
 
-const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
+finishSpin = () => {
+  const uniqueValues = nová Set([reel1. abel, reel2.štítek, reel3.štítky]). velikost
+  , pokud (uniqueValues === 1) {
+    // Všechny 3 hodnoty jsou stejné
+    výsledek. abel = '💰 jackpot!'
+    výsledek. extColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
+    // 2 Hodnoty jsou stejné
+    výsledek. abel = '😍 Winner!'
+    výsledek. extColor = '#FDFF00'
   } else {
     // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+    result. abel = '🙁 Spin Again'
+    výsledek. extColor = null
   }
-  spinning = false
+  otáčení = nepravý
 }
 
-const touchBar = new TouchBar([
+shodná dotyková lišta = nový TouchBar([
   spin,
-  new TouchBarSpacer({size: 'large'}),
+  nový TouchBarSpacer({size: 'large'}),
   reel1,
-  new TouchBarSpacer({size: 'small'}),
+  nový TouchBarSpacer({size: 'small'}),
   reel2,
-  new TouchBarSpacer({size: 'small'}),
+  nový TouchBarSpacer({size: 'small'}),
   reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
+  nový TouchBarSpacer({size: 'large'}),
+  výsledek
 ])
 
-let window
+let okno
 
-app.once('ready', () => {
+aplikace. nce('ready', () => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+    šířka: 200,
+    výška: 200,
+    Barva pozadí: '#000'
   })
-  window.loadURL('about:blank')
+  okno. oadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```

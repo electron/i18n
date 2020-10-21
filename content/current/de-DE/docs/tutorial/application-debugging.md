@@ -25,7 +25,7 @@ Für weitere Informationen, ließ einfach die [Debugging des Main-Prozess](./deb
 
 Wenn der V8-Kontext abstützen sollte, wird folgende Nachricht in DevTools angezeigt:
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`DevTools wurde von der Seite getrennt. Sobald die Seite neu geladen ist, wird DevTools die Verbindung wiederherstellen.`
 
 Chromium Logs können durch das Einstellen der Umgebungsvariabel `ELECTRON_ENABLE_LOGGING` aktiviert werden. Weitere Informationen könenn in der [Dokumentation zu den Umgebungsvariablen](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging) gefunden werden.
 

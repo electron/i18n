@@ -12,7 +12,7 @@ Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykaj�
 
 عادة ما يتم صدم نسخة كروم من الإلكترون في غضون أسبوع أو أسبوعين بعد يتم إصدار إصدار Chrome مستقر جديد. هذا التقدير غير مضمون و يعتمد على مقدار العمل المعني بالترقية.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+يتم استخدام قناة كروم المستقرة فقط. إذا كان إصلاح مهم في قناة بيتا أو ديف ، سنقوم بعودة المنبور.
 
 لمزيد من المعلومات، يرجى الاطلاع على [مقدمة الأمان.](tutorial/security.md).
 
@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## اختفت صالة تطبيقي بعد بضع دقائق.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+يحدث هذا عندما يتم جمع المتغير الذي يستخدم لتخزين العلامة القمامة.
 
 If you encounter this problem, the following articles may prove helpful:
 
@@ -58,19 +58,19 @@ If you want a quick fix, you can make the variables global by changing your code
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+app.whenReady{()) => {
+  علبة const = علبة جديدة('/path/to/icon.png')
+  tray.setTitle ('مرحبا العالم')
 })
 ```
 
 to this:
 
 ```javascript
-const { app, Tray } = require('electron')
-let tray = null
+const { app, Tray } = مطلوب('electron')
+اسمح باللعبة = null
 app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
+  tray = Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -139,25 +139,25 @@ npm uninstall -g electron
 ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
 متاح فقط في renderer processes.</p>
 
-<h2 spaces-before="0">The font looks blurry, what is this and what can I do?</h2>
+<h2 spaces-before="0">يبدو الخط غير واضح، ما هو هذا وماذا يمكنني أن أفعل؟</h2>
 
-<p spaces-before="0">If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. مثال:</p>
+<p spaces-before="0">إذا تم إلغاء تنشيط <a href="http://alienryderflex.com/sub_pixel/">منع الاستيفاء من الباطن بالبكسل</a> ، يمكن أن تبدو الخطوط على شاشات LCD غير واضحة. مثال:</p>
 
 <p spaces-before="0">!<a href="images/subpixel-rendering-screenshot.gif" fo="9">subpixel rendering example</a></p>
 
-<p spaces-before="0">Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
+<p spaces-before="0">وتحتاج مكافحة التحرر من الباطن إلى خلفية غير شفافة للطبقة التي تحتوي على غليفات الخط. (انظر <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">هذه المشكلة</a> لمزيد من المعلومات).</p>
 
 <p spaces-before="0">To achieve this goal, set the background in the constructor for <a href="api/browser-window.md" f-id="browser-window" fo="8">BrowserWindow</a>:</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+<pre><code class="javascript">متجر { BrowserWindow } = مطلوبة ('electron')
+اسمح للفوز = متصفح جديد ({
   backgroundColor: '#fff'
 })
 `</pre>
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. حتى لو كنت لا ترى فرقا، قد يرى بعض المستخدمين الخاص بك. ومن الأفضل أن نضع دائماً الخلفية بهذه الطريقة، ما لم تكن لديك أسباب لعدم القيام بذلك.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+لاحظ أن إعداد الخلفية فقط في CSS ليس له التأثير المطلوب.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

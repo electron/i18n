@@ -1,31 +1,31 @@
 # Integratie van desktop omgeving
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Verschillende besturingssystemen bieden verschillende functies voor het integreren van desktop- applicaties in hun desktopomgevingen. Bijvoorbeeld in Windows, applicaties kunnen snelkoppelingen in de taakbalk plaatsen, en op Mac, applicaties kunnen een aangepast menu plaatsen in het dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Deze handleiding legt uit hoe je je applicatie integreert in die desktop- omgevingen met Electron API's.
 
 ## Notificaties
 
-See the [Notifications documentation](notifications.md).
+Zie de [meldingendocumentatie](notifications.md).
 
 ## Recente documenten
 
-See [Recent Documents documentation](recent-documents.md).
+Zie [Recente Documenten documentatie](recent-documents.md).
 
-## Progress Bar
+## Voortgangsbalk
 
-See the [Progress Bar documentation](progress-bar.md).
+Zie de [voortgangsbalk documentatie](progress-bar.md).
 
-## Unity Launcher
+## Eenheid Launcher
 
 See the [Unity Launcher documentation][unity-launcher].
 
-## Represented File for macOS Window
+## Representatief bestand voor macOS-venster
 
-See the [Represented File documentation](represented-file.md).
+Zie de [Representatieve Bestandsdocumentatie](represented-file.md).
 
-## Dragging files out of the window
+## Bestanden uit het venster slepen
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Zie de [Moederlijke Bestandslepen & Sleep documentatie](native-file-drag-drop.md).
 
 [unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

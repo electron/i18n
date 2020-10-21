@@ -12,13 +12,13 @@ __Dock menu:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+Aby dodać plik do najnowszych dokumentów, musisz użyć API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows).
 
 ## Przykład
 
-### Add an item to recent documents
+### Dodaj element do najnowszych dokumentów
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+Zaczynając od działającej aplikacji z [Poradnika szybkiego startu](quick-start.md), dodaj następujące linie do pliku `main.js`:
 
 ```javascript
 const { app } = require('electron')
@@ -26,13 +26,13 @@ const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+Po uruchomieniu aplikacji Electron, kliknij prawym przyciskiem myszy na ikonę aplikacji. Powinieneś zobaczyć element, który właśnie dodałeś. W tym przewodniku przedmiotem jest plik Markdown znajdujący się w katalogu głównym projektu:
 
-![Recent document](../images/recent-documents.png)
+![Ostatni dokument](../images/recent-documents.png)
 
-### Clear the list of recent documents
+### Wyczyść listę najnowszych dokumentów
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
+Aby wyczyścić listę ostatnich dokumentów, musisz użyć [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API w pliku `main.js`:
 
 ```javascript
 const { app } = require('electron')
@@ -40,19 +40,19 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Additional information
+## Dodatkowe informacje
 
 ### Windows Notes
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Możesz znaleźć wszystko, po zarejestrowaniu swojej aplikacji w [Rejestracja Aplikacji](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Aby korzystać z tej funkcji w systemie Windows, aplikacja musi być zarejestrowana jako obsługa pliku typu dokumentu, w przeciwnym razie plik nie pojawi się na JumpList nawet po dodaniu go. Możesz znaleźć wszystko, po zarejestrowaniu swojej aplikacji w [Rejestracja Aplikacji](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Kiedy użytkownik kliknie na plik z JumpList, nowa instancja twojej aplikacji wystartuje ze ścieżki pliku dodanej jako argument w wierszu polecenia.
 
 ### macOS Notes
 
-#### Add the Recent Documents list to the application menu
+#### Dodaj listę ostatnich dokumentów do menu aplikacji
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+Możesz dodać pozycje menu, aby uzyskać dostęp i wyczyścić najnowsze dokumenty dodając następujący kod do szablonu menu:
 
 ```json
 {
@@ -71,6 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![pozycja menu najnowszych dokumentów macOS](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 Gdy żądany jest plik z listy ostatnich dokumentów (dock menu), emitowany jest event `open-file` z modułu `app`.

@@ -1,63 +1,63 @@
 ---
-title: WebPreferences Vulnerability Fix
+title: WebPreferences Kwetsbaarheid Fix
 author: ckerr
 date: '2018-08-22'
 ---
 
-A remote code execution vulnerability has been discovered affecting apps with the ability to open nested child windows on Electron versions (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685).
+Er is een kwetsbaarheid voor uitvoering op afstand ontdekt voor apps met de mogelijkheid om geneste subvensters te openen op Electron versies (3. .0-beta.6, 2.0.7, 1.8.7 en 1.7.15). Deze kwetsbaarheid is toegewezen aan CVE identificatie [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685).
 
 ---
 
-## Affected Platforms
+## Getroffen platformen
 
-You are impacted if:
+Je wordt beïnvloed als:
 
-1. You embed _any_ remote user content, even in a sandbox
-2. You accept user input with any XSS vulnerabilities
+1. Je hebt _elke_ externe gebruikersinhoud ingevoegd, zelfs in een sandbox
+2. U accepteert gebruikersinvoer met alle XSS kwetsbaarheden
 
-_Details_
+_Beschrijving_
 
-You are impacted if any user code runs inside an `iframe` / can create an `iframe`. Given the possibility of an XSS vulnerability it can be assumed that most apps are vulnerable to this case.
+Je wordt beïnvloed als een gebruikerscode binnen een `iframe` / een `iframe` kan maken. Gezien de mogelijkheid van een kwetsbaarheid van XSS kunnen we ervan uitgaan dat de meeste apps kwetsbaar zijn voor deze zaak.
 
-You are also impacted if you open any of your windows with the `nativeWindowOpen: true` or `sandbox: true` option.  Although this vulnerability also requires an XSS vulnerability to exist in your app, you should still apply one of the mitigations below if you use either of these options.
+Het werkt ook als u een van uw ramen opent met de `nativeWindowOpen: true` or `sandbox: true` optie.  Hoewel deze kwetsbaarheid ook een XSS kwetsbaarheid in je app vereist, als je een van deze opties gebruikt, moet je nog steeds een van de onderstaande mitigaties toepassen.
 
-## Mitigation
+## Mitigatie
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
+We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We dringen er bij alle ontwikkelaars van Electron op aan hun apps onmiddellijk te updaten naar de laatste stabiele versie.
 
-If for some reason you are unable to upgrade your Electron version, you can protect your app by blanket-calling `event.preventDefault()` on the `new-window` event for all  `webContents`'. If you don't use `window.open` or any child windows at all then this is also a valid mitigation for your app.
+Als u om een of andere reden uw Electron versie niet kunt upgraden, kunt u uw app beschermen door een deken-call `event. herventDefault()` op het `nieuw-venster` evenement voor alle  `webcontent`'. Als u `window.open` of subvensters helemaal niet gebruikt, dan is dit ook een geldige mitigatie voor uw app.
 
 ```javascript
-mainWindow.webContents.on('new-window', e => e.preventDefault())
+mainWindow.webContents.on('nieuw-venster', e => e.preventDefault())
 ```
 
-If you rely on the ability of your child windows to make grandchild windows, then a third mitigation strategy is to use the following code on your top level window:
+Als u erop vertrouwt dat uw kinderraamen kleinkindramen kunnen maken, dan is een derde mitigatiestrategie om de volgende code in je topvenster te gebruiken:
 
 ```javascript
 const enforceInheritance = (topWebContents) => {
   const handle = (webContents) => {
-    webContents.on('new-window', (event, url, frameName, disposition, options) => {
-      if (!options.webPreferences) {
-        options.webPreferences = {}
+    webContents. n('nieuw-venster', (event, url, frameName, dispositie, opties) => {
+      if (!options ebPreferences) {
+        opties. ebPreferences = {}
       }
-      Object.assign(options.webPreferences, topWebContents.getLastWebPreferences())
+      Object. ssign(options.webPreferences, topWebContents.getLastWebPreferences())
       if (options.webContents) {
-        handle(options.webContents)
+        handle(opties. ebContents)
       }
     })
   }
   handle(topWebContents)
 }
 
-enforceInheritance(mainWindow.webContents)
+enforceInheritance(mainWindow. ebContent
 ```
 
-This code will manually enforce that the top level windows `webPreferences` is manually applied to all child windows infinitely deep.
+Deze code zorgt ervoor dat het hoogste niveau scherm `webPreferences` handmatig wordt toegepast op alle onderliggende vensters oneindig diep.
 
-## Further Information
+## Verdere informatie
 
-This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
+Deze kwetsbaarheid is gevonden en op verantwoorde wijze gerapporteerd aan het Electron project door [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Om meer te weten te komen over beste praktijken om je Electron apps veilig te houden, bekijk onze [beveiligingshandleiding](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Als u een kwetsbaarheid in Electron wilt melden, e-mail security@electronjs.org.

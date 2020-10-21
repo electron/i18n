@@ -14,9 +14,9 @@
 
 ## 予定されている破壊的なAPIの変更 (13.0)
 
-### Removed: `shell.moveItemToTrash()`
+### 削除: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+非推奨の同期 `shell.moveItemToTrash()` API が削除されました。 代わりに の非同期 `shell.trashItem()` を使用してください。
 
 ```js
 // Removed in Electron 13
@@ -27,17 +27,17 @@ shell.trashItem(path).then(/* ... */)
 
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### Removed: Pepper Flash support
+### 削除: Pepper(ペッパー)フラッシュ対応
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
 
-### Default Changed: `contextIsolation` defaults to `true`
+### Default Changed: `contextIsolation` default to `true`
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+Electron 12 では、 `contextIsolation` がデフォルトで有効になります。  以前の動作を復元するには、 、 `contextIsolation: false` をWebPreferencesで指定する必要があります。
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+[アプリケーションのセキュリティのためにコンテキスト分離を有効にする](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) をお勧めします。
 
-For more details see: https://github.com/electron/electron/issues/23506
+詳細は以下をご覧ください: https://github.com/electron/electron/issues/23506
 
 ### 削除: レンダラープロセス内での `crashReporter` メソッド
 
@@ -54,15 +54,15 @@ For more details see: https://github.com/electron/electron/issues/23506
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### デフォルトの変更: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+`compress` オプションの `crashReporter.start` のデフォルト値が `false` から `true` に変更されました。 This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
-### Deprecated: `remote` module
+### 非推奨: `リモート` モジュール
 
-The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+`リモート` モジュールは Electron 12 で非推奨で、 Electron 14 で削除されます。 [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
 
 ```js
 // Deprecated in Electron 12:
@@ -70,16 +70,16 @@ const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+// 置換:
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// メインプロセスで:
 require('@electron/remote/main').initialize()
 ```
 
-### Deprecated: `shell.moveItemToTrash()`
+### 非推奨: `shell.moveItemToTrash()`
 
-The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+同期 `shell.moveItemToTrash()` が新しい 非同期 `shell.trashItem()` に置き換えられました。
 
 ```js
 // Deprecated in Electron 12
@@ -90,7 +90,7 @@ shell.trashItem(path).then(/* ... */)
 
 ## 予定されている破壊的なAPIの変更 (11.0)
 
-There are no breaking changes planned for 11.0.
+11.0に予定されている破壊的な変更はありません。
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
@@ -133,9 +133,9 @@ All above methods remain non-deprecated when called from the main process.
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### Deprecated: `crashReporter.start({ compress: false })`
+### 非推奨: `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. ほぼ すべてのクラッシュ受信サーバーはgzip圧縮をサポートしています。 This option will be removed in a future version of Electron.
 
 ### 削除: Browser Window の Affinity
 
@@ -343,7 +343,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API 変更: `powerMonitor.querySystemIdleTime` が `powerMonitor.getSystemIdleTime` になりました
 
 ```js
 // Electron 7.0 で削除
@@ -793,10 +793,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// 置換
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```

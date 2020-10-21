@@ -21,7 +21,7 @@ Você pode configurar diferentes combinações de teclas com base no sistema ope
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  acelerador: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X é pressionado')
   })
 })
 ```
@@ -55,25 +55,25 @@ Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => { console. og('mostra atalhos!') })
+Mousetrap.bind('esc', () => { console. og('escape') }, 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// Combinações
+Mousetrap.bind('command+shift+k', () => { console. og('comando shift k') })
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// mapeia várias combinações para o mesmo callback
+Mousetrap. ind(['command+k', 'ctrl+k'], () => {
+  console. og('comando ou controle k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // retorna falso para impedir o comportamento padrão e parar o evento de bubbling
   return false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// sequências de estilo do gmail
+Mousetrap. ind('g i', () => { console.log('vá para caixa de entrada') })
+Mousetrap. ind('* a', () => { console.log('select all') })
 
-// konami code!
+// Código konam!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })

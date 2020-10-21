@@ -17,8 +17,8 @@
   * [选择一款编辑器](tutorial/development-environment.md#a-good-editor)
 * [创建你的第一个应用](tutorial/quick-start.md)
   * [前提条件](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [创建基本应用程序](tutorial/quick-start.md#create-a-basic-application)
+  * [打包并分发应用程序](tutorial/quick-start.md#package-and-distribute-the-application)
 * [模板和命令行界面](tutorial/boilerplates-and-clis.md)
   * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@
 * [辅助功能](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [手动启用辅助功能](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)
   * [调试主进程](tutorial/debugging-main-process.md)
   * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
@@ -136,7 +136,7 @@
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
-* [webFrameMain](api/web-frame-main.md)
+* [webFramework](api/web-frame-main.md)
 
 ### 渲染进程（网页）可用的模块:
 

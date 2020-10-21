@@ -1,10 +1,10 @@
-# Native File Drag & Drop
+# Nativní přetažení souborů & Zahodit
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Přetažení souborů do webového obsahu je běžné a podporováno mnoha webovými stránkami. Electron navíc podporuje přetahování souborů a obsahu z webového obsahu do světa operačního systému.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+Chcete-li implementovat tuto funkci ve vaší aplikaci, musíte zavolat `webContents.startDrag(item)` API v reakci na událost `ondragstart`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+Ve vašem procesu renderer můžete zpracovat událost `ondragstart` a předat informace vašemu hlavnímu procesu.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,14 +16,14 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+V hlavním procesu pak událost rozšíří o cestu k souboru, který je přetažen a ikona.
 
 ```javascript
 const { ipcMain } = require('electron')
 
-ipcMain.on('ondragstart', (event, filePath) => {
+ipcMain.on('ondragstart', (event filePath) => {
   event.sender.startDrag({
-    file: filePath,
+    soubor: filePath,
     icon: '/path/to/icon.png'
   })
 })

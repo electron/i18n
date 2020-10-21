@@ -1,16 +1,16 @@
-# Context Isolation
+# Izolare contextuală
 
-## What is it?
+## Ce este?
 
-Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
+Izolarea contextului este o caracteristică care asigură că atât script-urile tale `preîncarcă` cât și logica internă a Electron rulează într-un context separat față de site-ul web încarci [`conținut web`](../api/web-contents.md).  Acest lucru este important în scopuri de securitate, deoarece ajută ca site-ul web să aibă acces la Electron intern sau la API-urile puternice la care aveți acces scriptul de pre-încărcare.
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+Acest lucru înseamnă că obiectul `fereastra` la care are acces scriptul de preîncărcare este de fapt un **diferit** de cel la care ar avea acces site-ul.  De exemplu, dacă setați `window.hello = 'wave'` în scriptul de preîncărcare și izolarea contextului este activată `fereastră. ello` va fi nedefinit dacă site-ul încearcă să îl acceseze.
 
-Every single application should have context isolation enabled and from Electron 12 it will be enabled by default.
+Fiecare aplicație ar trebui să aibă activată izolarea contextului, iar de Electron 12 va fi activată în mod implicit.
 
-## How do I enable it?
+## Cum o activez?
 
-From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
+De la Electron 12, acesta va fi activat în mod implicit. Pentru versiunile inferioare este o opţiune în opţiunea `webPreferences` atunci când se construieşte `o fereastră nouă de browser`'s.
 
 ```javascript
 const mainWindow = new BrowserWindow({
@@ -20,13 +20,13 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-## Migration
+## Migrare
 
-> I used to provide APIs from my preload script using `window.X = apiObject` now what?
+> Obişnuiam să furnizez API-uri din scriptul meu de preîncărcare folosind `window.X = apiObject` acum ce?
 
-Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
+Expunerea de API-uri din scriptul de pre-încărcare la site-ul încărcat este o usecază comună și există un modul dedicat în Electron pentru a vă ajuta să faceți acest lucru într-un mod nedureros.
 
-**Before: With context isolation disabled**
+**Înainte: Cu izolarea contextului dezactivată**
 
 ```javascript
 window.myAPI = {
@@ -34,36 +34,36 @@ window.myAPI = {
 }
 ```
 
-**After: With context isolation enabled**
+**După: Cu izolarea contextului activată**
 
 ```javascript
 const { contextBridge } = require('electron')
 
-contextBridge.exposeInMainWorld('myAPI', {
+contextBridge.ExpseInMainWorld('myAPI', {
   doAThing: () => {}
 })
 ```
 
-The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+Modulul [`contextBridge`](../api/context-bridge.md) poate fi utilizat pentru **în condiții de siguranță** a expune API-urile din contextul izolat în care rulează scriptul de preîncărcare în contextul în care se află site-ul web. API va fi, de asemenea, accesibil de pe site-ul `window.myAPI` la fel cum a fost înainte.
 
-You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
+Ar trebui să citiţi documentaţia `contextBridge` conectată mai sus pentru a înţelege complet limitările sale.  De exemplu, nu poți trimite prototipuri sau simboluri personalizate peste punte.
 
-## Security Considerations
+## Considerații de securitate
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
+Doar activând contextIsolation `` şi utilizând `contextBridge` nu înseamnă automat că tot ce faci este în siguranţă.  De exemplu, acest cod este **nesigur**.
 
 ```javascript
-// ❌ Bad code
-contextBridge.exposeInMainWorld('myAPI', {
+// ❌ Cod greșit
+contextBridge.exhibition seInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+Expune direct un API puternic fără niciun fel de filtru de argumente. Acest lucru ar permite oricărui site web să trimită mesaje IPC arbitrare pe care nu doriți să le permiteți. Modul corect de a expune API-urile bazate pe IPC ar fi, în schimb, să se furnizeze o metodă pentru fiecare mesaj IPC.
 
 ```javascript
-// ✅ Good code
-contextBridge.exposeInMainWorld('myAPI', {
+// ✅ Cod bun
+contextBridge.ExpseInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```

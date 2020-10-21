@@ -17,11 +17,11 @@ myNotification.onclick = () => {
 Pur potendo considerare il codice e l'esperienza utente sostanzialmente identiche nei tre sistemi operativi, permangono tuttavia alcune sottili differenze.
 
 ## Windows
-* Su Windows 10, una scorciatoia alla tua app con un [ID Modello Applicazione Utente][app-user-model-id] deve essere installato al Menu Avvio. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* Su Windows 10, una scorciatoia alla tua app con un [ID Modello Applicazione Utente][app-user-model-id] deve essere installato al Menu Avvio. Questo può essere overkill durante lo sviluppo, quindi l'aggiunta `node_modules\electron\dist\electron.exe` al tuo menu Start fa anche il trucco. Navigare nel file in Explorer, fare clic con il tasto destro del mouse e 'Pin al menu di avvio'. Sarà quindi necessario aggiungere la riga `app.setAppUserModelId(process.execPath)` al processo principale per visualizzare le notifiche.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Nota, comunque, che non necessita di essere inserito nella schermata Start.
 * Su Windows 7, le notifiche lavorano per un'implementazione personalizzata che riassembla visualmente quella nativa sui sistemi più nuovi.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron tenta di automatizzare il lavoro intorno all'ID del modello utente dell'applicazione. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Inoltre, Electron rileverà che Squirrel è stato usato e chiamerà automaticamente `app.setAppUserModelId()` con il valore corretto. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
 Inoltre, in Windows 8, la lunghezza massima per il corpo notifica è 250 caratteri, con il team di Windows raccomandante che le notifiche dovrebbero essere mantenute a 200 caratteri. Detto questo, tale limitazione è stata rimossa in Windows 10, con il team di Windows richiedente agli sviluppatori di essere ragionevoli. Provare ad inviare giganti quantità di testo all'API (migliaia di caratteri) potrebbe risultare in instabilità.
 
@@ -29,7 +29,7 @@ Inoltre, in Windows 8, la lunghezza massima per il corpo notifica è 250 caratte
 
 Le ultime versioni di Windows consentono le notifiche avanzate, con template personalizzati, immagini ed altri elementi flessibili. Per inviare queste notifiche (dal processo principale o da quello di rendering), usa il modulo userland [electron-windows-notifiche](https://github.com/felixrieseberg/electron-windows-notifications) che usa componenti aggiuntivi nativi di Node per inviare oggetti `ToastNotifiche` e `TileNotifiche`.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Mentre le notifiche inclusi i pulsanti funzionano con `electron-windows-notifications`, gestire le risposte richiede l'uso di [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), che aiuta a registrare i componenti COM richiesti e a chiamare la tua app Electron con i dati utente inseriti.
 
 ### Ore Silenziose / Modalità Presentazione
 

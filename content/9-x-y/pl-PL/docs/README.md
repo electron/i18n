@@ -45,7 +45,7 @@ To są pytania, które są zadawane dość często. Sprawdź to przed utworzenie
   * [Natywne przeciąganie i upuszczanie plików](tutorial/native-file-drag-drop.md)
   * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
   * [Wsparcie dla Ciemnego Motywu w macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Web osadza się w Electron](tutorial/web-embeds.md)
 * [Dostępność](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

@@ -1,58 +1,58 @@
 ---
-title: Easier AutoUpdating for Open-Source Apps
+title: Snadná automatická aktualizace pro Open-Source aplikace
 author: zeke
 date: '2018-05-01'
 ---
 
-Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
+Dnes vydáváme zdarma, open-source, hostováno [aktualizuje webservice](https://github.com/electron/update.electronjs.org) a společník [npm balíček](https://github.com/electron/update-electron-app) , který umožňuje snadné automatické aktualizace pro open-source Electron aplikace. Toto je krok směrem k tomu, aby vývojáři aplikací přemýšleli méně o nasazení a více o vývoji vysoce kvalitních zkušeností pro své uživatele.
 
 ---
 
 <figure>
   <a href="https://github.com/electron/update-electron-app" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Updater Screenshot">
-    <figcaption>The new updater module in action</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Snímek obrazovky aktualizace">
+    <figcaption>Nový modul aktualizací v akci</figcaption>
   </a>
 </figure>
 
-## Making life easier
+## Usnadnění života
 
 Electron has an [autoUpdater](https://electronjs.org/docs/tutorial/updates) API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
 
-Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
+Povolení těchto aktualizací bylo těžkopádným krokem v procesu nasazení pro mnoho vývojářů Electronů, protože vyžaduje nasazení webového serveru a jeho údržbu, aby sloužil metadatům historie aplikací.
 
-Today we are announcing a new drop-in solution for automatic app updates. If your Electron app is in a public GitHub repository and you're using GitHub Releases to publish builds, you can use this service to deliver continuous app updates to your users.
+Dnes oznamujeme nové řešení pro automatické aktualizace aplikací. Pokud je vaše Electron ve veřejném úložišti GitHub a používáte GitHub verze ke zveřejnění sestavení, Tuto službu můžete použít k doručování nepřetržitých aktualizací aplikací vašim uživatelům.
 
-## Using the new module
+## Použití nového modulu
 
-To minimize configuration on your part, we've created [update-electron-app](https://github.com/electron/update-electron-app), an npm module which integrates with the new [update.electronjs.org](https://github.com/electron/update.electronjs.org) webservice.
+Pro minimalizaci konfigurace na vaší straně jsme vytvořili [update-electron-app](https://github.com/electron/update-electron-app) modul npm, který integruje s novou [update.electronjs.org](https://github.com/electron/update.electronjs.org) webslužbou.
 
-Install the module:
+Instalovat modul:
 
 ```sh
-npm install update-electron-app
+npm nainstalovat update-electron-app
 ```
 
-Call it from anywhere in your app's [main process](https://electronjs.org/docs/glossary#main-process):
+Zavolejte to odkudkoliv v [hlavním procesu vaší aplikace](https://electronjs.org/docs/glossary#main-process):
 
 ```js
-require('update-electron-app')()
+vyžadováno ('update-electron-app')()
 ```
 
-That's it! The module will check for updates at app startup, then every ten minutes. When an update is found it will download automically in the background, and a dialog will be displayed when the update is ready.
+To je ono! Modul zkontroluje aktualizace při spuštění aplikace, poté každých deset minut. Když je nalezena aktualizace, automaticky se stáhne na pozadí a zobrazí se dialogové okno, když je aktualizace připravena.
 
-## Migrating existing apps
+## Migrovat existující aplikace
 
-Apps already using Electron's autoUpdater API can use this service too. To do so, you can [customize the `update-electron-app`](https://github.com/electron/update-electron-app) module or [integrate directly with update.electronjs.org](https://github.com/electron/update.electronjs.org).
+Aplikace, které již používají Electron's autoUpdater API, mohou tuto službu používat také. Chcete-li tak učinit, můžete [přizpůsobit `update-electron-app`](https://github.com/electron/update-electron-app) modul nebo [integrovat přímo s update.electronjs.org](https://github.com/electron/update.electronjs.org).
 
-## Alternatives
+## Alternativní řešení
 
-If you're using [electron-builder](https://github.com/electron-userland/electron-builder) to package your app, you can use its built-in updater. For details, see [electron.build/auto-update](https://www.electron.build/auto-update).
+Pokud používáte [electron-builder](https://github.com/electron-userland/electron-builder) pro balíček vaší aplikace, můžete použít její vestavěnou aktualizaci. Podrobnosti naleznete v [electron.build/auto-update](https://www.electron.build/auto-update).
 
-If your app is private, you may need to run your own update server. There are a number of open-source tools for this, including Zeit's [Hazel](https://github.com/zeit/hazel) and Atlassian's [Nucleus](https://github.com/atlassian/nucleus). See the [Deploying an Update Server](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) tutorial for more info.
+Pokud je vaše aplikace soukromá, možná budete muset spustit vlastní aktualizační server. K tomu existuje řada open-source nástrojů, včetně Zeit [Hazel](https://github.com/zeit/hazel) a Atlassian [Nucleus](https://github.com/atlassian/nucleus). Pro více informací si přečtěte [nasazení Aktualizačního serveru](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server).
 
-## Thanks
+## Děkujeme
 
-Thanks to [Julian Gruber](http://juliangruber.com/) for helping design and build this simple and scalable web service. Thanks to the folks at [Zeit](https://zeit.co) for their open-source [Hazel](https://github.com/zeit/hazel) service, from which we drew design inspiration. Thanks to [Samuel Attard](https://www.samuelattard.com/) for the code reviews. Thanks to the Electron community for helping test this service.
+Díky [Julian Ruber](http://juliangruber.com/) za pomoc při navrhování a budování této jednoduché a škálovatelné webové služby. Díky lidu na [Zeit](https://zeit.co) za otevřený zdroj [Hazel](https://github.com/zeit/hazel) , ze kterého jsme se inspirovali návrhem. Děkujeme [Samuel Attard](https://www.samuelattard.com/) za hodnocení kódu. Díky komunitě Electron za pomoc při testování této služby.
 
-🌲 Here's to an evergreen future for Electron apps!
+🌲 Tady je stále zelená budoucnost Electronových aplikací!

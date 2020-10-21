@@ -102,8 +102,8 @@ __任务栏按钮的叠加:__
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const win = new BrowserWindow(
+win.setOverlayIcon('path/to/overlay.png', 'overlay描述')
 ```
 
 
@@ -117,8 +117,8 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.once('focus', () => win.flashFrame(false))
+const win = new BrowserWindow(
+win.once('focus'() => win.flashFramework(false))
 win.flashFrame(true)
 ```
 

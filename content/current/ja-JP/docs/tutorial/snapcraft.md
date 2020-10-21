@@ -10,7 +10,7 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
+場合によっては、 `snapcraft` ツールがインストールされている必要があります。 特定のディストリビューションの `snapcraft` をインストールする手順は [ここ](https://snapcraft.io/docs/installing-snapcraft) にあります。
 
 ## `electron-installer-snap`の使用
 

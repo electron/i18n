@@ -1,6 +1,6 @@
 # 安装
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. 首选方法是在您的 应用程序中安装Electron 作为开发依赖：
 
 ```sh
 npm install electron --save-dev
@@ -43,7 +43,7 @@ npm install --platform=win32 electron
 如果您无法访问GitHub，或者您需要提供自定义构建，则可以通过提供镜像或现有的缓存目录来实现。
 
 #### 镜像
-您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 The URL used by `@electron/get` is composed as follows:
+您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 `@electron/get` 使用的URL组成如下：
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -75,7 +75,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 您也可以通过提供一个 `electron_config_cache` 环境变量来覆盖本地缓存位置。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+缓存包含版本的官方zip文件以及校验和，存储为 个文本文件。 典型的缓存看起来像这样：
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -105,7 +105,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 当在CI环境中 测试另一个组件的时候，这可能是不必要的。
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+为了防止在安装所有npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 如：
 ```sh
 ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 ```

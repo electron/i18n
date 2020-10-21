@@ -1,8 +1,8 @@
 # Desktop Environment Integration
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+توفر أنظمة تشغيل مختلفة ميزات مختلفة لدمج تطبيقات سطح المكتب في بيئات سطح المكتب الخاصة بها. على سبيل المثال، على Windows، يمكن للتطبيقات وضع اختصارات في قائمة المقتطفات من شريط المهام، وعلى ماك، يمكن للتطبيقات وضع قائمة مخصصة في قائمة الإرساء
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+يشرح هذا الدليل كيفية دمج التطبيق الخاص بك في بيئات سطح المكتب تلك مع واجهة برمجة تطبيقات إلكترون.
 
 ## الإشعارات
 
@@ -16,7 +16,7 @@ This guide explains how to integrate your application into those desktop environ
 
 إطلع على [شريط التقدم التوثيق](progress-bar.md).
 
-## Unity Launcher
+## قاذفة الوحدة
 
 See the [Unity Launcher documentation][unity-launcher].
 

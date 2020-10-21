@@ -8,10 +8,10 @@ Pour implémenter cette fonctionnalité dans votre application, vous devez appel
 
 ## Example
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
+Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajouter les lignes suivantes au fichier `index.html`:
 
 ```html
-<a href="#" id="drag">Drag me</a>
+<a href="#" id="drag">Glissez-moi</a>
 <script src="renderer.js"></script>
 ```
 
@@ -43,4 +43,4 @@ ipcMain.on('ondragstart', (event, filePath) => {
 
 Après avoir lancé l'application Electron, essayez de glisser-déposer l'élément depuis la BroswerWindow jusqu'à votre bureau. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet :
 
-![Drag and drop](../images/drag-and-drop.gif)
+![Glisser-déposer](../images/drag-and-drop.gif)

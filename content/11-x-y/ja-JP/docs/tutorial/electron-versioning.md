@@ -85,7 +85,7 @@ Electron 8 以降、安定化ブランチは常に **major** のバージョン�
 
 具体的に言うと、以下が上記の意味です。
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
+1. ベータサイクルの第3週までに非ブレークAPIの変更を許可することは問題ありません。これらの変更が中程度の副作用を引き起こす可能性がある場合でも問題ありません。
 2. ベータサイクルのほとんどの時点で、既存のコードパスを変更しない、機能フラグの変更を認めることは問題ありません。 ユーザーは自分のアプリでこれらのフラグを明示的に有効にできます。
 3. ベータサイクル第 3 週以降での新機能の採択は、よほどの理由がない限り 👎 です。
 
@@ -133,7 +133,7 @@ Electron 8 以降、安定化ブランチは常に **major** のバージョン�
 * **minor** バージョン上げをするコミットは `feat:` で始まる必要があります。
 * **patch** バージョン上げをするコミットは `fix:` で始まる必要があります。
 
-* We allow squashing of commits, provided that the squashed message adheres to the above message format.
+* 上記のメッセージフォーマットに準拠していることを条件として、コミットのスカッシングを許可します。
 * プルリクエストのタイトルが意味のある包括的なセマンティックメッセージを含むのであれば、プルリクエストにおけるいくつかのコミットがセマンティックプレフィックスを含まないことは許容できます。
 
 # バージョン付けされた `master`

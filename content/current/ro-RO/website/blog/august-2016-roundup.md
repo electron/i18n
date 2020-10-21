@@ -1,42 +1,42 @@
 ---
-title: 'August 2016&#58; New Apps'
-author: jlord
+title: 'August 2016&#58; Aplicații noi'
+author: Jlord
 date: '2016-09-06'
 ---
 
-Here are the new Electron apps that were added to the site in August.
+Iată noile aplicații Electron care au fost adăugate pe site în august.
 
 ---
 
-The site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+Site-ul este actualizat cu noi [aplicații](https://electronjs.org/apps) și [întâlniri](https://electronjs.org/community) prin [trage cereri](https://github.com/electron/electronjs.org/pulls) de la comunitate. Puteți [privi depozitul](https://github.com/electron/electronjs.org) pentru a primi notificări despre adăugiri noi sau dacă nu sunteți interesat de _toate_ modificările site-ului, abonează-te la [fluxul de blog RSS](https://electronjs.org/feed.xml).
 
-If you've made an Electron app or host a meetup, make a [pull request](https://github.com/electron/electronjs.org) to add it to the site and it will make the next roundup.
+Dacă ai făcut o aplicație Electron sau ai găzduit o ședință, fă o [pull request](https://github.com/electron/electronjs.org) pentru a o adăuga la site și va face următorul roundup.
 
-### New Apps
+### Aplicații noi
 
 {: .table .table-ruled .table-full-width .table-with-spacious-first-column .mb-7}
 
-|                                                                                          |                                                                                 |                                                                                                |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| <img src='/images/apps/coderpgify.png' width='50' />                    | [Code RPGify](http://code.rpgify.com)                                           | RPG style coding application                                                                   |
-| <img src='/images/apps/pamfax.png' width='50' />                        | [PamFax](https://www.pamfax.biz)                                                | A cross-platform app for sending and receiving faxes                                           |
-| <img src='/images/apps/blankup.png' width='50' />                       | [BlankUp](https://hoverbaum.github.io/BlankUp-Electron/)                        | Markdown editor witch clarity +1                                                               |
-| <img src='/images/apps/rambox.png' width='50' />                        | [Rambox](http://rambox.pro)                                                     | Free and Open Source messaging and emailing app that combines common web applications into one |
-| <img src='/images/apps/gordie.png' width='50' />                        | [Gordie](http://gordie-app.bitbucket.org/)                                      | The best app for your card collections                                                         |
-| <img src='/images/apps/ionic-creator.png' width='50' />                 | [Ionic Creator](https://github.com/Meadowcottage/Ionic-Creator)                 | Build amazing mobile apps, faster                                                              |
-| <img src='/images/apps/twitchalerts.png' width='50' />                  | [TwitchAlerts](https://github.com/Meadowcottage/TwitchAlerts)                   | Keep your viewers happy with beautiful alerts and notifications                                |
-| <img src='/images/apps/museeks.png' width='50' />                       | [Museeks](http://museeks.io/)                                                   | A simple, clean and cross-platform music player                                                |
-| <img src='/images/apps/seapig.png' width='50' />                        | [SeaPig](https://github.com/yasumichi/seapig/blob/master/README.md)             | A converter from markdown to html                                                              |
-| <img src='/images/apps/groupme.png' width='50' />                       | [GroupMe](https://github.com/dcrousso/GroupMe#readme)                           | Unofficial GroupMe App                                                                         |
-| <img src='/images/apps/moeditor.png' width='50' />                      | [Moeditor](https://moeditor.github.io/)                                         | Your all-purpose markdown editor                                                               |
-| <img src='/images/apps/soundnode.png' width='50' />                     | [Soundnode](http://www.soundnodeapp.com)                                        | Soundnode App is the Soundcloud for desktop                                                    |
-| <img src='/images/apps/qmui.png' width='50' />                          | [QMUI Web](http://qmuiteam.com/web)                                             | QMUI Web Desktop is an application for managing projects based on QMUI Web Framework           |
-| <img src='/images/apps/svgsus.png' width='50' />                        | [Svgsus](http://www.svgs.us)                                                    | Organize, clean and transform your SVGs                                                        |
-| <img src='/images/apps/ramme.png' width='50' />                         | [Ramme](https://github.com/terkelg/ramme)                                       | Unofficial Instagram Desktop App                                                               |
-| <img src='/images/apps/insomnia.png' width='50' />                      | [Insomnia](https://insomnia.rest/)                                              | REST API Client                                                                                |
-| <img src='/images/apps/correo.png' width='50' />                        | [Correo](https://github.com/amitmerchant1990/correo)                            | A menubar/taskbar Gmail App for Windows, macOS and Linux                                       |
-| <img src='/images/apps/kongdash.png' width='50' />                      | [KongDash](https://ajaysreedhar.github.io/kongdash)                             | Desktop client for Kong Admin API                                                              |
-| <img src='/images/apps/react-intl-translation-editor.png' width='50' /> | [Translation Editor](https://bitbucket.org/bflower/react-intl-editor/wiki/Home) | Translation files editor for INTL ICU messages (see formatjsio)                                |
-| <img src='/images/apps/5eplay.png' width='50' />                        | [5EClient](https://www.5eplay.com/)                                             | 5EPlay CSGO Client                                                                             |
-| <img src='/images/apps/theme-juice.png' width='50' />                   | [Theme Juice](https://www.themejuice.it)                                        | Local WordPress development made easy                                                          |
+|                                                                                          |                                                                                  |                                                                                                             |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <img src='/images/apps/coderpgify.png' width='50' />                    | [Cod RPGify](http://code.rpgify.com)                                             | Aplicație de codificare stil RPG                                                                            |
+| <img src='/images/apps/pamfax.png' width='50' />                        | [PamFax](https://www.pamfax.biz)                                                 | O aplicație cross-platform pentru trimiterea și primirea faxurilor                                          |
+| <img src='/images/apps/blankup.png' width='50' />                       | [BlankUp](https://hoverbaum.github.io/BlankUp-Electron/)                         | Editor Markdown claritatea vrăjitoare +1                                                                    |
+| <img src='/images/apps/rambox.png' width='50' />                        | [Rambox](http://rambox.pro)                                                      | Aplicație de mesagerie gratuită și Open Source care combină aplicațiile web comune într-o singură aplicație |
+| <img src='/images/apps/gordie.png' width='50' />                        | [Gordie](http://gordie-app.bitbucket.org/)                                       | Cea mai bună aplicație pentru colecțiile de pe card                                                         |
+| <img src='/images/apps/ionic-creator.png' width='50' />                 | [Creator Ionic](https://github.com/Meadowcottage/Ionic-Creator)                  | Construiește aplicații mobile uimitoare, mai repede                                                         |
+| <img src='/images/apps/twitchalerts.png' width='50' />                  | [TwitchAlerts](https://github.com/Meadowcottage/TwitchAlerts)                    | Păstrează-ți spectatorii fericiți cu alerte și notificări frumoase                                          |
+| <img src='/images/apps/museeks.png' width='50' />                       | [Museeks](http://museeks.io/)                                                    | Un player de muzică simplu, curat și cross-platform                                                         |
+| <img src='/images/apps/seapig.png' width='50' />                        | [SeaPig](https://github.com/yasumichi/seapig/blob/master/README.md)              | Un convertor din markdown în html                                                                           |
+| <img src='/images/apps/groupme.png' width='50' />                       | [GroupMe](https://github.com/dcrousso/GroupMe#readme)                            | Aplicație neoficială GroupMe                                                                                |
+| <img src='/images/apps/moeditor.png' width='50' />                      | [Moeditor](https://moeditor.github.io/)                                          | Editorul tău de marcaje pentru toate scopurile                                                              |
+| <img src='/images/apps/soundnode.png' width='50' />                     | [Nod sunet](http://www.soundnodeapp.com)                                         | Aplicația Soundnode este Soundcloud pentru desktop                                                          |
+| <img src='/images/apps/qmui.png' width='50' />                          | [Web QMUI](http://qmuiteam.com/web)                                              | QMUI Web Desktop este o aplicație pentru gestionarea proiectelor bazate pe QMUI Web Framework               |
+| <img src='/images/apps/svgsus.png' width='50' />                        | [Svgsus](http://www.svgs.us)                                                     | Organizează, curăță și transformă SVG-urile                                                                 |
+| <img src='/images/apps/ramme.png' width='50' />                         | [Ramme](https://github.com/terkelg/ramme)                                        | Aplicație neoficială de Instagram Desktop                                                                   |
+| <img src='/images/apps/insomnia.png' width='50' />                      | [Insomnia](https://insomnia.rest/)                                               | Client API REST                                                                                             |
+| <img src='/images/apps/correo.png' width='50' />                        | [Correo](https://github.com/amitmerchant1990/correo)                             | O aplicație Gmail de menubar/taskbar pentru Windows, macOS și Linux                                         |
+| <img src='/images/apps/kongdash.png' width='50' />                      | [KongDash](https://ajaysreedhar.github.io/kongdash)                              | Client desktop pentru Kong Admin API                                                                        |
+| <img src='/images/apps/react-intl-translation-editor.png' width='50' /> | [Editor de traducere](https://bitbucket.org/bflower/react-intl-editor/wiki/Home) | Editorul fişierelor de traducere pentru mesajele INTL ICU (vezi formatjsio)                                 |
+| <img src='/images/apps/5eplay.png' width='50' />                        | [5EClient](https://www.5eplay.com/)                                              | 5EPlay CSGO Client                                                                                          |
+| <img src='/images/apps/theme-juice.png' width='50' />                   | [Temă suc](https://www.themejuice.it)                                            | Dezvoltarea WordPress local a facilitat                                                                     |
 

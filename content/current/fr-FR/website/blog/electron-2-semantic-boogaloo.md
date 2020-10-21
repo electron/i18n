@@ -1,14 +1,14 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
-author: groundwater
+title: 'Electron 2.0 et Beyond - Versioning sémantique'
+author: eaux souterraines
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+Une nouvelle version majeure d'Electron est dans les travaux, et avec elle quelques changements à notre stratégie de versions. Depuis la version 2.0.0, Electron adhèrera strictement à la version sémantique.
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+Ce changement signifie que vous verrez le bogue de la version majeure plus souvent, et ce sera généralement une mise à jour majeure de Chromium. Les versions de correctifs seront également plus stables, car elles ne contiendront plus que des corrections de bugs sans nouvelles fonctionnalités.
 
 **Incréments de version Majeure**
 
@@ -27,12 +27,12 @@ This change means you'll see the major version bump more often, and it will usua
 * mises à jour de correctifs Chromium
 * Mises à jour de correctif Electron
 
-Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
+Parce que les plages semver d'Electron seront maintenant plus significatives, nous vous recommandons d'installer Electron en utilisant l'option par défaut `--save-dev` de npm, qui va préfixer votre version avec `^`, vous tenir à jour en toute sécurité avec des mises à jour mineures et des correctifs :
 
 ```sh
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+Pour les développeurs qui ne s'intéressent qu'aux corrections de bogues, vous devriez utiliser le préfixe tilde semver par exemple `~2. .0`, qui n'introduira jamais de nouvelles fonctionnalités, ne corrigera que pour améliorer la stabilité.
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+Pour plus de détails, voir [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).

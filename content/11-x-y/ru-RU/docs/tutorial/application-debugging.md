@@ -21,15 +21,15 @@ Google предлагает [отличную документацию для с
 
 Для получения дополнительной информации см. Документацию [Отладка основной процедуры][main-debug].
 
-## V8 Crashes
+## V8 вылетов
 
-If the V8 context crashes, the DevTools will display this message.
+При падении контекста V8 это сообщение будет отображаться в DevTools.
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`DevTools был отключен от страницы. После перезагрузки страницы DevTools будет автоматически подключаться.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Журналы Chromium могут быть включены через переменную окружения `ELECTRON_ENABLE_LOGING`. Для получения дополнительной информации обратитесь к [документации по переменным окружения](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+В качестве альтернативы, может быть передан аргумент командной строки `--enable-logging`. Более подробная информация доступна в [командной строке переключает документацию](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools

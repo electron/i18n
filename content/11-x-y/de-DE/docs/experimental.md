@@ -1,17 +1,17 @@
-# Experimental APIs
+# Experimentelle APIs
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Einige der Electron-APIs sind mit `_Experimental_` in der Dokumentation markiert. Dieses Schlagwort gibt an, dass die API möglicherweise nicht als stabil angesehen wird und die API häufiger entfernt oder verändert werden kann als andere APIs mit weniger Warnung.
 
-## Conditions for an API to be tagged as Experimental
+## Bedingungen für eine API, die als experimentell markiert werden soll
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Jeder kann eine API als experimentell in einem FeaturePR markieren Unstimmigkeiten über die experimentelle Natur eines Feature können in der API WG diskutiert werden, wenn diese nicht im PR gelöst werden können.
 
-## Process for removing the Experimental tag
+## Prozess zum Entfernen des experimentellen Tags
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Sobald eine API stabil war und in mindestens zwei wichtigen stabilen Release-Zeilen kann nominiert werden, um seinen experimentellen Tag entfernen zu lassen.  Diese Diskussion sollte bei einem API-WG-Meeting stattfinden.  Dinge, die bei der Diskussion / Nominierung berücksichtigt werden sollen:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Die obige Bedingung "zwei wichtige Stabel-Freigabe-Zeilen" muss erfüllt sein
+* Während dieser Zeit sollten keine größeren Fehler / Probleme durch die Übernahme dieser Funktion verursacht worden sein
+* Die API ist stabil genug und wurde von Chromium-Upgrades nicht stark beeinträchtigt
+* Benutzt jemand die API?
+* Erfüllt die API die ursprünglich vorgeschlagenen Usenecasen, weist sie Lücken auf?

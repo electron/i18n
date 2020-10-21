@@ -1,61 +1,61 @@
 ---
-title: Electron Simple Samples
+title: Elektronické jednoduché vzorky
 author: zeke
 date: '2017-01-19'
 ---
 
-We recently hosted an Electron hackathon at GitHub HQ for members of [Hackbright Academy](https://hackbrightacademy.com), a coding school for women founded in San Francisco. To help attendees get a head start on their projects, our own [Kevin Sawicki](https://github.com/kevinsawicki) created a few sample Electron applications.
+Nedávno jsme hostili hackaton Electronu na GitHubu pro členy [Hackbright Academy](https://hackbrightacademy.com), kódovací škola pro ženy založené v San Franciscu. Abychom pomohli účastníkům získat nástup na jejich projekty, naše [Kevin Sawicki](https://github.com/kevinsawicki) vytvořila několik ukázkových Electronových aplikací.
 
 ---
 
-If you're new to Electron development or haven't yet tried it out, these sample applications are a great place to start. They are small, easy to read, and the code is heavily commented to explain how everything works.
+Pokud jste noví ve vývoji Electronu nebo jste to ještě nevyzkoušeli, jsou tyto ukázkové aplikace skvělým místem pro začátek. Jsou malé, snadno čitelné, a kód je silně komentován, aby vysvětlil, jak všechno funguje.
 
-To get started, clone this repository:
+Chcete-li začít, klonovat tento repozitář:
 
 ```sh
-git clone https://github.com/electron/simple-samples
+git klonovat https://github.com/electron/simple-samples
 ```
 
-To run any of the apps below, change into the app's directory, install dependencies, then start:
+Chcete-li spustit některou z níže uvedených aplikací, přejděte do adresáře aplikace, nainstalujte závislosti, pak spusťte:
 
 ```sh
-cd activity-monitor
+cd aktivita-monitor
 npm install
 npm start
 ```
 
-## Activity Monitor
+## Monitor aktivity
 
-Shows a doughnut chart of the CPU system, user, and idle activity time.
+Zobrazí graf s kašlem CPU systému, uživatele a nečinnosti v nečinnosti.
 
-[![Screenshot](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
+[![Snímek obrazovky](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
 
 ## Hash
 
-Shows the hash values of entered text using different algorithms.
+Zobrazí hash hodnoty zadaného textu pomocí různých algoritmů.
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
+[![snímek obrazovky](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
 
-## Mirror
+## Zrcadlení
 
-Plays a video of the computer's camera at a maximized size like looking into a mirror. Includes an optional rainbow filter effect that uses CSS animations.
+Přehraje video kamery počítače v maximální velikosti, jako je pohled na zrcadlo. Obsahuje volitelný efekt rainbow filtru, který používá CSS animace.
 
-## Prices
+## Ceny
 
-Shows the current price of oil, gold, and silver using the Yahoo Finance API.
+Zobrazuje aktuální cenu ropy, zlata a stříbra pomocí Yahoo Finance API.
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
+[![snímek obrazovky](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
 
 ## URL
 
-Loads a URL passed on the command line in a window.
+Načte URL přenesenou na příkazový řádek v okně.
 
-## Other Resources
+## Jiné zdroje
 
-We hope these apps help you get started using Electron. Here are a handful other resources for learning more:
+Doufáme, že tyto aplikace vám pomohou začít používat Electron. Zde je hrstka dalších zdrojů pro další učení:
 
-- [electron-quick-start](https://github.com/electron/electron-quick-start): A minimal Electron application boilerplate.
-- [Electron API Demos](https://github.com/electron/electron-api-demos): An interactive app that demonstrates the core features of the Electron API
-- [electronjs.org/docs/all](https://electronjs.org/docs/all/): All of the Electron documentation together on a single searchable page.
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Another collection of sample applications for Electron, compiled by Electron maintainer [Haojian Wu](https://github.com/hokein).
-- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - A GitHub repository that collects the latest and greatest Electron-related tutorials, books, videos, etc.
+- [elektronick-rychlý start](https://github.com/electron/electron-quick-start): Minimální elektronová aplikační kotle.
+- [Electron API Demos](https://github.com/electron/electron-api-demos): interaktivní aplikace, která demonstruje základní funkce Electron API
+- [electronjs.org/docs/all](https://electronjs.org/docs/all/): All of the Electron documentation together on the single searchable page.
+- [hokein/electron-sample apps](https://github.com/hokein/electron-sample-apps): Další soubor ukázkových aplikací pro Electron, sestavený správcem Electronu [Haojian Wu](https://github.com/hokein).
+- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - GitHub repozitář, který sbírá nejnovější a největší elektronický návod, knihy, videa, atd.

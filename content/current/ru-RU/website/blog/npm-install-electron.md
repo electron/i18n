@@ -10,33 +10,33 @@ date: '2016-08-16'
 
 ![npm install electron](https://cloud.githubusercontent.com/assets/378023/17259327/3e3196be-55cb-11e6-8156-525e9c45e66e.png)
 
-## The prebuilt Electron binary
+## Предстроенный двоичный файл Electron
 
-If you've ever worked on an Electron app before, you've likely come across the `electron-prebuilt` npm package. This package is an indispensable part of nearly every Electron project. When installed, it detects your operating system and downloads a prebuilt binary that is compiled to work on your system's architecture.
+Если вы когда-либо работали в приложении Electron, то скорее всего вы столкнетесь с `сбором` npm пакета. Этот пакет является неотъемлемой частью почти каждого проекта Electron. После установки она обнаруживает вашу операционную систему и загружает готовый бинарный файл, который компилируется для работы на системной архитектуре.
 
-## The new name
+## Новое имя
 
-The Electron installation process was often a stumbling block for new developers. Many brave people tried to get started developing an Electron by app by running `npm install electron` instead of `npm install electron-prebuilt`, only to discover (often after much confusion) that it was not the `electron` they were looking for.
+Процесс установки Electron часто был блоком преткновения для новых разработчиков. Многие люди смело пытались начать разработку Electron, запустив `npm install electron` вместо `npm install electron-prebuilt`, только для того, чтобы обнаружить (часто после много путаницы), что это не электрон `` они искали.
 
-This was because there was an existing `electron` project on npm, created before GitHub's Electron project existed. To help make Electron development easier and more intuitive for new developers, we reached out to the owner of the existing `electron` npm package to ask if he'd be willing to let us use the name. Luckily he was a fan of our project, and agreed to help us repurpose the name.
+Это было потому, что существовал проект `электрон` на npm, созданный до того, как был реализован проект GitHub's Electron. Чтобы помочь сделать развитие Electron проще и более интуитивно понятным для новых разработчиков, мы дошли до владельца существующего `электрона` npm пакета, чтобы спросить, будет ли он готов использовать название. К счастью, он был фанатом нашего проекта и согласился помочь нам перестроить название.
 
-## Prebuilt lives on
+## Предпостроил жизни на
 
-As of version 1.3.1, we have begun publishing [`electron`](https://www.npmjs.com/package/electron) and `electron-prebuilt` packages to npm in tandem. The two packages are identical. We chose to continue publishing the package under both names for a while so as not to inconvenience the thousands of developers who are currently using `electron-prebuilt` in their projects. We recommend updating your `package.json` files to use the  new `electron` dependency, but we will continue releasing new versions of `electron-prebuilt` until the end of 2016.
+Начиная с версии 1.3.1, мы начали публиковать [`, электрон`](https://www.npmjs.com/package/electron) и `электронные предварительно собранные` пакеты до npm в тандеме. Эти два пакета идентичны. Мы решили продолжить публикацию пакета под обоими именами, чтобы не помешать тысячам разработчиков, использующих в своих проектах `электрон предсборочный`. Мы рекомендуем обновить пакет `. сын` файлов, чтобы использовать новую зависимость `electron` , но мы продолжим выпуск новых версий `электро-предустановленных` до конца 2016 года.
 
-The [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) repository will remain the canonical home of the `electron` npm package.
+[Электрон-пользователь/электронное хранилище](https://github.com/electron-userland/electron-prebuilt) будет оставаться каноническим домом `электронов` пакета npm.
 
-## Many thanks
+## Большое спасибо
 
-We owe a special thanks to [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), and many other [contributors](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) for creating and maintaining `electron-prebuilt`, and for their tireless service to the JavaScript, Node.js, and Electron communities.
+Мы обязаны особой благодарность [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), и многие другие [разработчики](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) для создания и поддержания `электронных предустановленных`, и за их неустанное обслуживание JavaScript, Node. и сообществ Electron.
 
 And thanks to [@logicalparadox](https://github.com/logicalparadox) for allowing us to take over the `electron` package on npm.
 
-## Updating your projects
+## Обновление ваших проектов
 
-We've worked with the community to update popular packages that are affected by this change. Packages like [electron-packager](https://github.com/electron-userland/electron-packager), [electron-rebuild](https://github.com/electron/electron-rebuild), and [electron-builder](https://github.com/electron-userland/electron-builder) have already been updated to work with the new name while continuing to support the old name.
+Мы работали с сообществом над обновлением популярных пакетов, затрагиваемых этим изменением. Пакеты типа [электрон-упаковщика](https://github.com/electron-userland/electron-packager), [электро-пересборщика](https://github.com/electron/electron-rebuild), и [](https://github.com/electron-userland/electron-builder) уже были обновлены для работы с новым именем, продолжая поддерживать старое имя.
 
-If you encounter any problems installing this new package, please let us know by opening an issue on the [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) repository.
+Если у вас возникли какие-либо проблемы с установкой этого нового пакета, сообщите нам о том, что открыл проблему в репозитории [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) .
 
-For any other issues with Electron, please use the [electron/electron](https://github.com/electron/electron/issues) repository.
+Для любых других проблем с Electron, пожалуйста, используйте репозиторий [electron/electron](https://github.com/electron/electron/issues) .
 

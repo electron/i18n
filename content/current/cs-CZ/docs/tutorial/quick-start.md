@@ -1,42 +1,42 @@
-# Quick Start Guide
+# Průvodce rychlým startem
 
-## Quickstart
+## Rychlý start
 
-Electron is a framework that enables you to create desktop applications with JavaScript, HTML, and CSS. These applications can then be packaged to run directly on macOS, Windows, or Linux, or distributed via the Mac App Store or the Microsoft Store.
+Electron je framework, který umožňuje vytvářet desktopové aplikace pomocí JavaScript, HTML, a CSS. Tyto aplikace pak mohou být baleny tak, aby běžely přímo na macOS, Windows, Linuxu nebo přes Mac App Store nebo Microsoft Store.
 
-Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
+Obvykle vytváříte desktopovou aplikaci pro operační systém (OS) pomocí specifických nativních aplikačních rámců každého operačního systému. Electron umožňuje psát vaši aplikaci jednou pomocí technologií, které již znáte.
 
 ### Prerequisites
 
-Before proceeding with Electron you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest `LTS` or `Current` version available.
+Než budete pokračovat s Electronem, musíte nainstalovat [Node.js](https://nodejs.org/en/download/). Doporučujeme nainstalovat nejnovější `LTS` nebo `aktuální` verzi.
 
-> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+> Nainstalujte si prosím Node.js pomocí předkompilovaných instalátorů pro vaši platformu. V opačném případě se můžete setkat s problémy s nekompatibilitou s různými vývojovými nástroji.
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Chcete-li zkontrolovat, že Node.js byl správně nainstalován, zadejte následující příkazy do vašeho terminálu klienta:
 
 ```sh
-node -v
+uzel -v
 npm -v
 ```
 
-The commands should print the versions of Node.js and npm accordingly. If both commands succeeded, you are ready to install Electron.
+Příkazy by měly odpovídajícím způsobem vytisknout verze Node.js a npm. Pokud oba příkazy uspějí, jste připraveni nainstalovat Electron.
 
-### Create a basic application
+### Vytvořit základní aplikaci
 
-From a development perspective, an Electron application is essentially a Node.js application. This means that the starting point of your Electron application will be a `package.json` file like in any other Node.js application. A minimal Electron application has the following structure:
+Z vývojového hlediska, Electron aplikace je v podstatě aplikace Node.js. To znamená, že výchozím bodem vaší Electron aplikace bude soubor `package.json` jako v jakékoliv jiné aplikaci Node.js. minimální elektronická aplikace má tuto strukturu:
 
 ```plain
-my-electron-app/
-├── package.json
-├── main.js
-└── index.html
+muj-elektronická aplikace/
+<unk> ，package.json
+<unk> ázázázej, main.js
+<unk> ázú index.html
 ```
 
-Let's create a basic application based on the structure above.
+Vytvořme základní aplikaci založenou na výše uvedené struktuře.
 
 #### Install Electron
 
-Create a folder for your project and install Electron there:
+Vytvořte složku pro váš projekt a nainstalujte si tam Electron:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -44,56 +44,56 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Create the main script file
+#### Vytvořit hlavní soubor skriptu
 
-The main script specifies the entry point of your Electron application (in our case, the `main.js` file) that will run the Main process. Typically, the script that runs in the Main process controls the lifecycle of the application, displays the graphical user interface and its elements, performs native operating system interactions, and creates Renderer processes within web pages. An Electron application can have only one Main process.
+Hlavní skript specifikuje vstupní bod vaší Electron aplikace (v našem případě soubor `main.js` , který spustí hlavní proces. Skript, který běží v hlavním procesu, obvykle řídí životní cyklus aplikace, zobrazuje grafické uživatelské rozhraní a jeho prvky, provádí interakce nativního operačního systému a vytváří procesy Renderer na webových stránkách. Electron aplikace může mít pouze jeden hlavní proces.
 
-The main script may look as follows:
+Hlavní skript může vypadat takto:
 
 ```js
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
+funkce createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+    wide: 800,
+    výška: 600,
+    webPreference: {
       nodeIntegration: true
     }
   })
 
-  win.loadFile('index.html')
+  vyhrává. oadFile('index.html')
   win.webContents.openDevTools()
 }
 
-app.whenReady().then(createWindow)
+aplikace. henReady().then(createWindow)
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
+  if (process.platform!== 'darwin') {
+    app. uit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
+  if (BrowserWindow. etAllWindows().length === 0) {
     createWindow()
   }
 })
 ```
 
-##### What is going on above?
+##### Co se děje výše?
 
-1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 18: You add a new listener that tries to quit the application when it no longer has any open windows. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Line 24: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. For example, after launching the application for the first time, or re-launching the already running application.
+1. Řádek 1: Nejprve importujete moduly `aplikace` a `BrowserWindow` balíčku `electron` , abyste mohli spravovat životní cyklus vaší aplikace, stejně jako vytváření a ovládání oken prohlížeče.
+2. 3. řádek: Poté definujete funkci, která vytváří [nové okno prohlížeče](../api/browser-window.md#new-browserwindowoptions) s povolenou integrací uzlu, načte `index. tml` soubor do tohoto okna (řádek 12, budeme diskutovat o souboru později) a otevře Nástroje vývojáře (řádek 13).
+3. Řádek 16: Vytvoříte nové okno prohlížeče vyvoláním funkce `createWindow` , jakmile je Electron aplikace [inicializována](../api/app.md#appwhenready).
+4. Řádek 18: Přidáte nový posluchač, který se pokouší ukončit aplikaci, když již nemá žádná otevřená okna. Tento posluchač je no-op na macOS kvůli [řízení oken systému](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Řádek 24: Přidáte nový posluchač, který vytvoří nové okno prohlížeče, pouze pokud aplikace nemá po aktivaci žádná viditelná okna. Například po prvním spuštění aplikace nebo po opětovném spuštění již spuštěné aplikace.
 
-#### Create a web page
+#### Vytvořit webovou stránku
 
-This is the web page you want to display once the application is initialized. This web page represents the Renderer process. You can create multiple browser windows, where each window uses its own independent Renderer. Each window can optionally be granted with full access to Node.js API through the `nodeIntegration` preference.
+Toto je webová stránka, kterou chcete zobrazit po inicializaci aplikace. Tato webová stránka představuje proces vykreslování. Můžete vytvořit více oken prohlížeče, kde každé okno používá vlastní nezávislé vykreslování. Každé okno může být uděleno s plným přístupem k Node.js API prostřednictvím předvolby `nodeIntegration`.
 
-The `index.html` page looks as follows:
+`index.html` stránka vypadá takto:
 
 ```html
 <!DOCTYPE html>
@@ -112,9 +112,9 @@ The `index.html` page looks as follows:
 </html>
 ```
 
-#### Modify your package.json file
+#### Upravte soubor balíčku .json
 
-Your Electron application uses the `package.json` file as the main entry point (as any other Node.js application). The main script of your application is `main.js`, so modify the `package.json` file accordingly:
+Vaše Electron aplikace používá soubor `package.json` jako hlavní vstupní bod (jako jakákoli jiná aplikace Node.js). Hlavní skript vaší aplikace je `main.js`, takže podle toho upravte soubor `package.json`:
 
 ```json
 {
@@ -124,9 +124,9 @@ Your Electron application uses the `package.json` file as the main entry point (
 }
 ```
 
-> NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
+> POZNÁMKA: Pokud je vynecháno pole `hlavní` Electron se pokusí načíst index `. s` soubor z adresáře obsahujícího `package.json`.
 
-By default, the `npm start` command will run the main script with Node.js. To run the script with Electron, you need to change it as such:
+Ve výchozím nastavení příkaz `npm start` spustí hlavní skript s Node.js. Chcete-li spustit skript s Electronem, musíte jej změnit:
 
 ```json
 {
@@ -139,139 +139,139 @@ By default, the `npm start` command will run the main script with Node.js. To ru
 }
 ```
 
-#### Run your application
+#### Spustit aplikaci
 
 ```sh
 npm start
 ```
 
-Your running Electron app should look as follows:
+Vaše spuštěná aplikace Electron by měla vypadat takto:
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![Simplest Electron aplikace](../images/simplest-electron-app.png)
 
-### Package and distribute the application
+### Balík a rozesílat aplikaci
 
-The simplest and the fastest way to distribute your newly created app is using [Electron Forge](https://www.electronforge.io).
+Nejjednodušší a nejrychlejší způsob, jak distribuovat nově vytvořenou aplikaci, je použití [Electron Forge](https://www.electronforge.io).
 
-1. Import Electron Forge to your app folder:
+1. Importujte Electron Forge do složky aplikace:
 
     ```sh
     npx @electron-forge/cli import
 
-    ✔ Checking your system
+    ✔ Kontrola vašeho systému
     ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
-    ✔ Fixing .gitignore
+    ✔ Writing modified package. syn soubor
+    ✔ Instalace závislostí
+    ✔ zápis modifikovaného balíčku. syn soubor
+    ✔ Oprava . ignorovat
 
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
+    Máme ATTEMPTED pro převod vaší aplikace ve formátu, kterému elektronická forge rozumí.
 
-    Thanks for using "electron-forge"!!!
+    Děkujeme, že používáte "elektronické"!!!
     ```
 
-1. Create a distributable:
+1. Vytvořit distribuovatelný:
 
     ```sh
     npm run make
 
-    > my-gsod-electron-app@1.0.0 make /my-electron-app
+    > my-gsod-electron-app@1.0. make /my-electron-app
     > electron-forge make
 
     ✔ Checking your system
     ✔ Resolving Forge Config
-    We need to package your application before we can make it
-    ✔ Preparing to Package Application for arch: x64
+    We need to packing your application before we can make it
+    ✔ Preparing to Package Application for arche: x64
     ✔ Preparing native dependencies
     ✔ Packaging Application
     Making for the following targets: zip
-    ✔ Making for target: zip - On platform: darwin - For arch: x64
+    ✔ zip - On platform: darwin - For arch: x64
     ```
 
-    Electron-forge creates the `out` folder where your package will be located:
+    Electron-forge vytvoří složku `mimo` kde bude váš balíček umístěn:
 
     ```plain
-    // Example for MacOS
-    out/
-    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
-    ├── ...
-    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    // Příklad pro MacOS
+    od/
+    <unk> (<unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> /zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
+    <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> ...
+    <unk> ázázázky/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
-## Learning the basics
+## Učit se základy
 
-This section guides you through the basics of how Electron works under the hood. It aims at strengthening knowledge about Electron and the application created earlier in the Quickstart section.
+Tato sekce vás vede přes základy fungování Electronu pod hoodou. Jeho cílem je posílit znalosti o Electronu a aplikaci, která byla vytvořena dříve v sekci Rychlý start.
 
-### Application architecture
+### Architektura aplikace
 
-Electron consists of three main pillars:
+Elektron se skládá ze tří hlavních pilířů:
 
-* **Chromium** for displaying web content.
-* **Node.js** for working with the local filesystem and the operating system.
-* **Custom APIs** for working with often-needed OS native functions.
+* **Chromium** pro zobrazení webového obsahu.
+* **Node.js** pro práci s místním souborovým systémem a operačním systémem.
+* **Vlastní API** pro práci s často potřebnými funkcemi.
 
-Developing an application with Electron is like building a Node.js app with a web interface or building web pages with seamless Node.js integration.
+Vývoj aplikace s Electron je jako vytváření aplikace Node.js s webovým rozhraním nebo vytváření webových stránek s integrací hladkého Node.js.
 
-#### Main and Renderer Processes
+#### Hlavní a zobrazovací procesy
 
-As it was mentioned before, Electron has two types of processes: Main and Renderer.
+Jak již bylo zmíněno, Electron má dva typy procesů: Hlavní a Renderer.
 
-* The Main process **creates** web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its Renderer process. When a `BrowserWindow` instance is destroyed, the corresponding Renderer process gets terminated as well.
-* The Main process **manages** all web pages and their corresponding Renderer processes.
-
-----
-
-* The Renderer process **manages** only the corresponding web page. A crash in one Renderer process does not affect other Renderer processes.
-* The Renderer process **communicates** with the Main process via IPC to perform GUI operations in a web page. Calling native GUI-related APIs from the Renderer process directly is restricted due to security concerns and potential resource leakage.
+* Hlavní proces **vytváří** webové stránky vytvořením instancí `BrowserWindow`. Každá instance `BrowserWindow` spustí webovou stránku v procesu Renderer. Když je zničena instance `BrowserWindow` , ukončí se také odpovídající proces vykreslování.
+* Hlavní proces **spravuje** všechny webové stránky a jejich odpovídající procesy Renderer.
 
 ----
 
-The communication between processes is possible via Inter-Process Communication (IPC) modules: [`ipcMain`](../api/ipc-main.md) and [`ipcRenderer`](../api/ipc-renderer.md).
+* Proces vykreslování **spravuje** pouze odpovídající webovou stránku. Pád v jednom procesu vykreslování nemá vliv na ostatní procesy vykreslování.
+* Proces Renderer **komunikuje** s hlavním procesem přes IPC pro provádění operací GUI na webové stránce. Volání nativních API souvisejících s GUI z procesu Renderer je omezeno kvůli obavám z bezpečnosti a možnému úniku zdrojů.
 
-#### APIs
+----
+
+Komunikace mezi procesy je možná prostřednictvím modulů Inter-Process Communication (IPC): [`ipcMain`](../api/ipc-main.md) a [`ipcRenderer`](../api/ipc-renderer.md).
+
+#### API
 
 ##### Electron API
 
-Electron APIs are assigned based on the process type, meaning that some modules can be used from either the Main or Renderer process, and some from both. Electron's API documentation indicates which process each module can be used from.
+Electron API je přiřazena na základě typu procesu, znamená, že některé moduly mohou být použity buď z hlavního nebo Renderer a některé z nich. Dokumentace API Electronu uvádí, ze kterého procesu lze každý modul použít.
 
-For example, to access the Electron API in both processes, require its included module:
+Například pro přístup k Electron API v obou procesech je třeba zahrnout modul:
 
 ```js
-const electron = require('electron')
+const elektronron = vyžadováno ('elektron')
 ```
 
-To create a window, call the `BrowserWindow` class, which is only available in the Main process:
+Chcete-li vytvořit okno, zavolejte do třídy `BrowserWindow` , která je dostupná pouze v hlavním procesu:
 
 ```js
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-To call the Main process from the Renderer, use the IPC module:
+Chcete-li zavolat hlavní proces z aplikace Renderer, použijte modul IPC:
 
 ```js
-// In the Main process
+// V hlavním procesu
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+ipcMain.handle('perform-action', (event ...args) => {
+  // ... podniká kroky jménem Renderer
 })
 ```
 
 ```js
-// In the Renderer process
+// V procesu Renderer
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-> NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
+> POZNÁMKA: Protože procesy vykreslování mohou spustit nedůvěryhodný kód (zejména od třetích stran), je důležité pečlivě potvrdit požadavky, které přicházejí do hlavního procesu.
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
+> POZNÁMKA: Pro přístup k Node.js API z procesu Renderer musíte nastavit `nodeIntegration` preference na `true`.
 
-Electron exposes full access to Node.js API and its modules both in the Main and the Renderer processes. For example, you can read all the files from the root directory:
+Electron vystavuje plný přístup k Node.js API a jeho modulům jak v hlavních procesech, tak v procesu Renderer. Například můžete číst všechny soubory z kořenového adresáře:
 
 ```js
 const fs = require('fs')
@@ -281,14 +281,14 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-To use a Node.js module, you first need to install it as a dependency:
+Chcete-li použít modul Node.js, musíte jej nejdříve nainstalovat jako závislost:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron application, require the module:
+Potom ve vaší aplikaci Electron vyžaduje modul:
 
 ```js
-const S3 = require('aws-sdk/clients/s3')
+const S3 = vyžadováno ('aws-sdk/clients/s3')
 ```

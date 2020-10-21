@@ -1,4 +1,4 @@
-# crashReporter
+# Hlášení pádů
 
 > Submit crash reports to a remote server.
 

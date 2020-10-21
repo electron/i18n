@@ -1,64 +1,64 @@
 # Using Selenium and WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+من [ChromeDriver - WebDriver لـ Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> مشغل الويب هو أداة مفتوحة المصدر للاختبار الآلي لتطبيقات الويب عبر العديد من المتصفحات. يوفر القدرات للتنقل إلى صفحات الويب، ومدخلات المستخدم، تنفيذ جافا سكريبت، وأكثر من ذلك. ChromeDriver هو خادم مستقل يقوم بتنفيذ بروتوكول سلك WebDriver's لـ Chromium. يتم تطويره من قبل أعضاء فرق Chromium و WebDriver.
 
 ## وضع Spectron
 
-</> Spectron </ 0> هو إطار اختبار ChromeDriver المدعوم رسميًا للإلكترون. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+</> Spectron </ 0> هو إطار اختبار ChromeDriver المدعوم رسميًا للإلكترون. تم بناءه على [WebdriverIO](http://webdriver.io/) و لديه مساعدين للوصول إلى واجهة برمجة تطبيقات إلكترون في اختبارات وحزم ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-const Application = require('spectron').Application
-const assert = require('assert')
+// يتم فتح اختبار بسيط للتحقق من النافذة المرئية بعنوان
+تطبيق المنصة = مطلوب('spectron'). التكرار
+تأكيد = مطلوب('تأكيد')
 
-const myApp = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+const myApp = New Application({
+  path: '/Applications/MyApp. pp/contents/MacOS/MyApp'
 })
 
 const verifyWindowIsVisibleWithTitle = async (app) => {
-  await app.start()
-  try {
-    // Check if the window is visible
-    const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
-    assert.strictEqual(isVisible, true)
-    // Get the window's title
-    const title = await app.client.getTitle()
-    // Verify the window's title
-    assert.strictEqual(title, 'My App')
-  } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+  بانتظار التطبيق. tart()
+  جرب {
+    // تحقق مما إذا كانت النافذة مرئية
+    isvisible = بانتظار التطبيق. صفوف. sVisible()
+    // التحقق من النافذة مرئية
+    تأكيد trtEqual(isvisible, true)
+    // احصل على عنوان النافذة
+    عنوان المتجر = انتظار التطبيق. lient.getTitle()
+    // التحقق من عنوان النافذة
+    التأكيد. trictEqual(عنوان، 'تطبيقي')
+  } اصطياد (خطأ) {
+    // سجل أي فشل
+    . rror('فشل الاختبار'، خطأ. مقالة)
   }
-  // Stop the application
-  await app.stop()
+  // أوقف التطبيق
+  في انتظار التطبيق.stop()
 }
 
 verifyWindowIsVisibleWithTitle(myApp)
 ```
 
-## Setting up with WebDriverJs
+## الإعداد مع WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) يوفر حزمة عقدة لاختبارها مع مشغل الويب، وسوف نستخدمها كمثال.
 
-### 1. Start ChromeDriver
+### 1. بدء تشغيل ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+أولاً تحتاج إلى تنزيل النهر `الكروميدفر` الثنائي، وتشغيلها:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm تثبيت electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+بدء تشغيل ChromeDriver (v2.10.291558) على المنفذ 9515
+مسموح فقط بالاتصالات المحلية.
 ```
 
-Remember the port number `9515`, which will be used later
+تذكر رقم المنفذ `9515`، الذي سيتم استخدامه في وقت لاحق
 
 ### 2. Install WebDriverJS
 
@@ -66,91 +66,91 @@ Remember the port number `9515`, which will be used later
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. الاتصال بـ ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+استخدام `سيلينيوم - ويب مشغل` مع إلكترون هو نفسه مع ما قبل التدفق، باستثناء أنه يجب عليك أن تحدد يدوياً كيفية توصيل سائق الكروم وأين تجد الكلترون ثنائي:
 
 ```javascript
-const webdriver = require('selenium-webdriver')
+const webdriver = require('selenum-webdriver')
 
-const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+const driver = webdriver.Builder()
+  // The "9515" هو المنفذ الذي يفتحه سائق كروم.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      / هنا هو الطريق إلى binary الخاص بك.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
   .forBrowser('electron')
-  .build()
+  . uild()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
+driver.findElement(webdriver.By.name('q').sendKeys('webdriver')
+driver. indElement(webdriver.By.name('btnG')).click()
 driver.wait(() => {
-  return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
+  return driver.getTitle(). hen(title) => {
+    Retitle === 'webdriver - Google Search'
   })
-}, 1000)
+}، 1000)
 
-driver.quit()
+سائق. uit()
 ```
 
-## Setting up with WebdriverIO
+## الإعداد مع WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) يوفر حزمة عقدة لاختبار مع مشغل الويب .
 
-### 1. Start ChromeDriver
+### 1. بدء تشغيل ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+أولاً تحتاج إلى تنزيل النهر `الكروميدفر` الثنائي، وتشغيلها:
 
 ```sh
-$ npm install electron-chromedriver
+$npm تثبيت electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+بدء ChromeDriver (v2.10.291558) على المنفذ 9515
+يسمح فقط بالاتصالات المحلية.
 ```
 
-Remember the port number `9515`, which will be used later
+تذكر رقم المنفذ `9515`، الذي سيتم استخدامه في وقت لاحق
 
-### 2. Install WebdriverIO
+### 2. تثبيت WebdriverIO
 
 ```sh
-$ npm install webdriverio
+$ npm تثبيت webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. الاتصال بمشغل كروم
 
 ```javascript
-const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
-  desiredCapabilities: {
-    browserName: 'chrome',
+const webdriverio = مطلوب('webdriverio')
+خيارات المتجر = {
+  المضيف: 'localhost', // استخدم localhost كخادم مشغل الكروم
+  منفذ 9515, // "9515" هو المنفذ الذي فتحه سائق الكروم.
+  رغبت في القدرات: {
+    المتصفح: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to Your-App/electron', // مسار إلى binary الخاص بك.
+      args: [/* cli arguments */] // اختياري، ربما 'app=' + /path/to/your/app/
     }
   }
-}
 
-const client = webdriverio.remote(options)
 
-client
+const client = webdriverio. الرموز التعبيرية (الخيارات)
+
+العميل
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen(title) => {
+    console.log('Ttle: ' + title)
   })
   .end()
 ```
 
-## Workflow
+## سير العمل
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+لاختبار التطبيق الخاص بك دون إعادة بناء إلكترون، [ضع](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) مصدر التطبيق الخاص بك في دليل موارد إلكترون.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+بدلاً من ذلك، قم بتمرير حجة للتشغيل مع ثنائيات إلكترون التي تشير إلى مجلد التطبيق الخاص بك. هذا يزيل الحاجة إلى نسخ ولصق التطبيق الخاص بك في دليل موارد Electron.

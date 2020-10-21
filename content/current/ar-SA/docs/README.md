@@ -4,7 +4,7 @@
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+وهناك أسئلة تُطرح في كثير من الأحيان. تحقق من هذا قبل إنشاء مشكلة:
 
 * [إلكترون - الاسئلة الشائعة](faq.md)
 
@@ -17,8 +17,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/quick-start.md)
   * [المتطلبات الأساسية](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [إنشاء تطبيق أساسي](tutorial/quick-start.md#create-a-basic-application)
+  * [حزمة الطلب وتوزيعه](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [إمكانية الوصول](tutorial/accessibility.md)
   * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [تمكين ميزات إمكانية الوصول يدويا](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
   * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)

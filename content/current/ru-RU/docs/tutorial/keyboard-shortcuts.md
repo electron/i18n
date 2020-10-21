@@ -21,7 +21,7 @@ menu.append(new MenuItem({
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  ускоритель: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X pressed')
   })
 })
 ```
@@ -55,26 +55,26 @@ If you don't want to do manual shortcut parsing there are libraries that do adva
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => { console. og('показать ярлыки!') })
+Mousetrap.bind('esc', () => { консоль. og('escape') }, 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// комбинации
+Mousetrap.bind('command+shift+k', () => { console. og('command shift k') })
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// сопоставление нескольких комбинаций к одному и тому же вызову
+Mousetrap. ind(['command+k', 'ctrl+k'], () => {
+  консоль. og('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // возвращаем false, чтобы предотвратить поведение по умолчанию, и останавливаем событие от пузырька
   return false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// Последовательности стиля gmail
+Mousetrap. ind('g i', () => { console.log('go to inbox') })
+Mousetrap. ind('* a', () => { console.log('select all') })
 
-// konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+// код konam!
+Mousetrap.bind('Вверх вниз слева справа b enter', () => {
   console.log('konami code')
 })
 ```

@@ -1,42 +1,42 @@
-# Quick Start Guide
+# دليل البدء السريع
 
-## Quickstart
+## البداية السريعة
 
-Electron is a framework that enables you to create desktop applications with JavaScript, HTML, and CSS. These applications can then be packaged to run directly on macOS, Windows, or Linux, or distributed via the Mac App Store or the Microsoft Store.
+إلكترون هو إطار يمكّنك من إنشاء تطبيقات سطح المكتب باستخدام جافا سكريبت و HTML و CSS. يمكن بعد ذلك تعبئة هذه التطبيقات لتشغيلها مباشرة على macOS أو Windows أو Linux أو توزيعها عبر Mac App Store أو متجر Microsoft Store.
 
-Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
+عادة ، تقوم بإنشاء تطبيق سطح المكتب لنظام تشغيل (OS) باستخدام أطر التطبيق الأصلية الخاصة بكل نظام تشغيل. يتيح إلكترون كتابة التطبيق الخاص بك بمجرد استخدام التقنيات التي تعرفها مسبقاً.
 
 ### المتطلبات الأساسية
 
-Before proceeding with Electron you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest `LTS` or `Current` version available.
+قبل المضي قدما مع Electron تحتاج إلى تثبيت [Node.js](https://nodejs.org/en/download/). نوصي بتثبيت أحدث `LTS` أو `الإصدار الحالي` المتاح.
 
-> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+> الرجاء تثبيت Node.js باستخدام المثبتات المبنية مسبقاً للمنصة الخاصة بك. قد تواجه مشاكل عدم التوافق مع أدوات التطوير المختلفة لولا ذلك.
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+للتحقق من أن Node.js تم تثبيته بشكل صحيح، اكتب الأوامر التالية في العميل الطرفي الخاص بك:
 
 ```sh
-node -v
+العقدة -v
 npm -v
 ```
 
-The commands should print the versions of Node.js and npm accordingly. If both commands succeeded, you are ready to install Electron.
+وينبغي للأوامر أن تطبع نسختي Node.js و npm تبعا لذلك. إذا نجح الأمرين، فإنك على استعداد لتثبيت إلكترون.
 
-### Create a basic application
+### إنشاء تطبيق أساسي
 
-From a development perspective, an Electron application is essentially a Node.js application. This means that the starting point of your Electron application will be a `package.json` file like in any other Node.js application. A minimal Electron application has the following structure:
+من منظور التنمية، يعتبر تطبيق إلكترون أساسا تطبيقا من تطبيقات Node.js. هذا يعني أن نقطة البداية في تطبيق Electron الخاص بك ستكون ملف `package.json` مثل أي تطبيق Node.js آخر. التطبيق الإلكترون الأدنى له البنية التالية:
 
 ```plain
 my-electron-app/
-├── package.json
-├── main.js
-└── index.html
+<unk> <unk> <unk> <unk> <unk> ', package.json
+<unk> <unk> <unk> ', main.js
+<unk> <unk> ', index.html
 ```
 
-Let's create a basic application based on the structure above.
+دعونا ننشئ تطبيقا أساسيا بناء على الهيكل أعلاه.
 
 #### Install Electron
 
-Create a folder for your project and install Electron there:
+إنشاء مجلد لمشروعك وتثبيت إلكترون هناك:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -44,94 +44,94 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Create the main script file
+#### إنشاء ملف البرنامج النصي الرئيسي
 
-The main script specifies the entry point of your Electron application (in our case, the `main.js` file) that will run the Main process. Typically, the script that runs in the Main process controls the lifecycle of the application, displays the graphical user interface and its elements, performs native operating system interactions, and creates Renderer processes within web pages. An Electron application can have only one Main process.
+يحدد البرنامج النصي الرئيسي نقطة الدخول في تطبيق إلكترون (في حالتنا الملف `main.js` ) الذي سيقوم بتشغيل العملية الرئيسية. عادة ، البرنامج النصي الذي يعمل في العملية الرئيسية يتحكم في دورة حياة التطبيق ، يعرض واجهة المستخدم الرسم البياني وعناصره، يقوم بأداء تفاعلات نظام التشغيل الأصلي، وينشئ عمليات Renderer داخل صفحات الويب. طلب إلكترون من الممكن أن يحتوي على عملية رئيسية واحدة فقط.
 
-The main script may look as follows:
+قد يبدو النص الرئيسي كما يلي:
 
 ```js
-const { app, BrowserWindow } = require('electron')
+خلال { app, BrowserWindow } = مطلوب('electron')
 
-function createWindow () {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+وظيفة إنشاء نافذة () {
+  الفوز = عرض متصفح جديد ({
+    : 800,
+    الطول: 600,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  win.loadFile('index.html')
+  فوز. oadFile('index.html')
   win.webContents.openDevTools()
 }
 
-app.whenReady().then(createWindow)
+التطبيق. henReady().then(createWindow)
 
-app.on('window-all-closed', () => {
+app.on('window-all closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    التطبيق. uit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
+  if (BrowserWindow. etlWindows().length === 0) {
     createWindow()
   }
 })
 ```
 
-##### What is going on above?
+##### ماذا يحدث أعلاه؟
 
-1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 18: You add a new listener that tries to quit the application when it no longer has any open windows. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Line 24: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. For example, after launching the application for the first time, or re-launching the already running application.
+1. السطر 1: أولا، تستورد `التطبيق` و `نافذة المتصفح` وحدات `إلكترون` لحزمة لتتمكن من إدارة أحداث دورة حياة التطبيق الخاص بك، بالإضافة إلى إنشاء نوافذ المتصفح والتحكم فيها.
+2. السطر 3: بعد ذلك، يمكنك تحديد دالة تنشئ [نافذة متصفح جديدة](../api/browser-window.md#new-browserwindowoptions) مع تمكين تكامل العقدة، تحميل `فهرس. ملف tml` في هذه النافذة (السطر 12، سنناقش الملف لاحقا) وفتح أدوات المطور (السطر 13).
+3. السطر 16: أنت تنشئ نافذة متصفح جديدة عن طريق الاستناد إلى دالة `إنشاء نافذة` بمجرد تهيئة تطبيق إلكترون [](../api/app.md#appwhenready).
+4. السطر 18: تضيف مستمع جديد يحاول الإقلاع عن التطبيق عندما لا يكون لديه أي نوافذ مفتوحة. هذا المستمع غير موجود على macOS بسبب سلوك إدارة النافذة [لنظام التشغيل](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. السطر 24: تضيف مستمع جديد ينشئ نافذة متصفح جديدة فقط إذا كان التطبيق لا يحتوي على نوافذ مرئية بعد التفعيل. على سبيل المثال بعد إطلاق التطبيق لأول مرة أو إعادة تشغيل التطبيق قيد التشغيل بالفعل.
 
-#### Create a web page
+#### إنشاء صفحة ويب
 
-This is the web page you want to display once the application is initialized. This web page represents the Renderer process. You can create multiple browser windows, where each window uses its own independent Renderer. Each window can optionally be granted with full access to Node.js API through the `nodeIntegration` preference.
+هذه هي صفحة الويب التي تريد عرضها بمجرد تهيئة التطبيق. هذه الصفحة تمثل عملية المعرض. يمكنك إنشاء نوافذ متصفح متعددة، حيث كل نافذة تستخدم عارض مستقل خاص بها. يمكن منح كل نافذة اختياريا مع الوصول الكامل إلى واجهة برمجة التطبيقات Node.js من خلال تفضيلات `nodeIntegr`.
 
-The `index.html` page looks as follows:
+صفحة `index.html` تبدو كما يلي:
 
 ```html
-<!DOCTYPE html>
+<! OCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>مرحبا بالعالم!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>مرحبا بالعالم!</h1>
+    نحن نستخدم وثيقة العقدة <script>. rite(process.versions.node)</script>،
+    Chrome <script>document.write(process.versions. hrome)</script>و
+    وElectron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>
 ```
 
-#### Modify your package.json file
+#### تعديل ملف package.json
 
-Your Electron application uses the `package.json` file as the main entry point (as any other Node.js application). The main script of your application is `main.js`, so modify the `package.json` file accordingly:
+يستخدم تطبيق Electron الخاص بك ملف `package.json` كنقطة دخول رئيسية (كما في أي تطبيق Node.js آخر). البرنامج النصي الرئيسي لتطبيقك هو `main.js`، لذا قم بتعديل ملف `package.json` تبعاً لذلك:
 
 ```json
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
+    "الاسم": "my-electron-app",
+    "الإصدار": "0.1.0",
     "main": "main.js"
 }
 ```
 
-> NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
+> ملاحظة: إذا تم حذف الحقل الرئيسي `` ، فسيحاول إلكترون تحميل فهرس `. s` ملف من الدليل الذي يحتوي على `package.json`.
 
-By default, the `npm start` command will run the main script with Node.js. To run the script with Electron, you need to change it as such:
+بشكل افتراضي، سيقوم أمر `npm star` بتشغيل البرنامج النصي الرئيسي باستخدام Node.js. لتشغيل البرنامج النصي باستخدام إلكترون، تحتاج إلى تغييره على هذا النحو:
 
 ```json
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
+    "الاسم": "my-electron-app",
+    "الإصدار": "0.1.0",
     "main": "main.js",
     "scripts": {
         "start": "electron ."
@@ -139,156 +139,156 @@ By default, the `npm start` command will run the main script with Node.js. To ru
 }
 ```
 
-#### Run your application
+#### تشغيل التطبيق الخاص بك
 
 ```sh
-npm start
+npm بداية
 ```
 
-Your running Electron app should look as follows:
+يجب أن يكون تطبيق إلكترون قيد التشغيل كما يلي:
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![تطبيق إلكترون بسيط](../images/simplest-electron-app.png)
 
-### Package and distribute the application
+### حزمة الطلب وتوزيعه
 
-The simplest and the fastest way to distribute your newly created app is using [Electron Forge](https://www.electronforge.io).
+أبسط وأسرع طريقة لتوزيع تطبيقك الذي تم إنشاؤه حديثا هي استخدام [إلكترون فورج](https://www.electronforge.io).
 
-1. Import Electron Forge to your app folder:
-
-    ```sh
-    npx @electron-forge/cli import
-
-    ✔ Checking your system
-    ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
-    ✔ Fixing .gitignore
-
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
-
-    Thanks for using "electron-forge"!!!
-    ```
-
-1. Create a distributable:
+1. استيراد تصنيع إلكترون إلى مجلد التطبيق الخاص بك:
 
     ```sh
-    npm run make
+    npx @electron-forge/cli استيراد
 
-    > my-gsod-electron-app@1.0.0 make /my-electron-app
-    > electron-forge make
+    ✔ التحقق من نظامك
+    ✔ التمهيد لمستودع Git
+    ✔ كتابة الحزمة المعدلة. ملف سون
+    ✔ تثبيت الإعتمادات
+    ✔ كتابة الحزمة المعدلة. ملف ابن
+    ✔ إصلاح قم بتحريك
 
-    ✔ Checking your system
-    ✔ Resolving Forge Config
-    We need to package your application before we can make it
-    ✔ Preparing to Package Application for arch: x64
-    ✔ Preparing native dependencies
-    ✔ Packaging Application
-    Making for the following targets: zip
-    ✔ Making for target: zip - On platform: darwin - For arch: x64
+    لدينا تيميميد لتحويل التطبيق الخاص بك إلى صيغة يفهمها تصنيع الإلكترون.
+
+    شكرا لاستخدام "النسيج الإلكتروني"!!!
     ```
 
-    Electron-forge creates the `out` folder where your package will be located:
+1. إنشاء قابل للتوزيع:
+
+    ```sh
+    npm تشغيل يجعل
+
+    > my-gsod-electron-app@1.0. اجعل /my-electron-app
+    > electron-forge صنع
+
+    ✔ التحقق من نظامك
+    ✔ إصلاح تشكيل التكوين
+    نحن بحاجة إلى حزم تطبيقك قبل أن نتمكن من جعله
+    ✔ التحضير لتطبيق الحزمة لـ ter: x64
+    ✔ إعداد الإعتمادات الأصلية
+    ✔ تطبيق الحزم
+    لتحقيق الأهداف التالية: zip
+    ✔ جعل الهدف : zip - على المنصة: لأرخ: 64
+    ```
+
+    ينشئ تصنيع إلكترون مجلد `خارج` حيث ستوضع الحزمة الخاصة بك:
 
     ```plain
-    // Example for MacOS
-    out/
-    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
-    ├── ...
-    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    // مثال ل MacOS
+    خارج/
+    <unk> <unk> <unk> <unk> )-out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.zip
+    <unk> <unk> <unk> م....
+    <unk> <unk> - خارج/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
-## Learning the basics
+## تعلم الأساسيات
 
-This section guides you through the basics of how Electron works under the hood. It aims at strengthening knowledge about Electron and the application created earlier in the Quickstart section.
+هذا القسم يوجهك من خلال أساسيات كيفية عمل إلكترون تحت القاعة. وهو يهدف إلى تعزيز المعرفة بشأن إلكترون والتطبيق الذي أنشئ في وقت سابق في قسم التدخل السريع.
 
-### Application architecture
+### بنية التطبيق
 
-Electron consists of three main pillars:
+يتكون إلكترون من ثلاث ركائز رئيسية:
 
-* **Chromium** for displaying web content.
-* **Node.js** for working with the local filesystem and the operating system.
-* **Custom APIs** for working with often-needed OS native functions.
+* **Chromium** لعرض محتوى الويب.
+* **Node.js** للعمل مع نظام الملفات المحلي ونظام التشغيل.
+* **واجهات برمجة التطبيقات المخصصة** للعمل مع الدوال الأصلية المطلوبة في كثير من الأحيان.
 
-Developing an application with Electron is like building a Node.js app with a web interface or building web pages with seamless Node.js integration.
+تطوير تطبيق باستخدام Electron هو مثل بناء تطبيق Node.js مع واجهة ويب أو بناء صفحات ويب مع تكامل سلسلة Node.js.
 
 #### العمليات الرئيسية والرابط
 
-As it was mentioned before, Electron has two types of processes: Main and Renderer.
+وكما ذُكر من قبل، فإن لشركة إلكترون نوعان من العمليات: الرئيسية وشركة Renderer.
 
-* The Main process **creates** web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its Renderer process. When a `BrowserWindow` instance is destroyed, the corresponding Renderer process gets terminated as well.
-* The Main process **manages** all web pages and their corresponding Renderer processes.
-
-----
-
-* The Renderer process **manages** only the corresponding web page. A crash in one Renderer process does not affect other Renderer processes.
-* The Renderer process **communicates** with the Main process via IPC to perform GUI operations in a web page. Calling native GUI-related APIs from the Renderer process directly is restricted due to security concerns and potential resource leakage.
+* العملية الرئيسية **تنشئ** صفحات ويب عن طريق إنشاء `مثيلات نافذة المتصفح`. كل مثيل `نافذة المتصفح` يدير صفحة الويب في عملية العارض الخاصة به. عندما يتم تدمير نموذج `نافذة المتصفح` ، يتم إنهاء عملية العارض المقابلة كذلك.
+* العملية الرئيسية **تدير** جميع صفحات الويب وعمليات العارض المقابلة لها.
 
 ----
 
-The communication between processes is possible via Inter-Process Communication (IPC) modules: [`ipcMain`](../api/ipc-main.md) and [`ipcRenderer`](../api/ipc-renderer.md).
+* عملية المعرض **تدير** صفحة الويب المقابلة فقط. الانهيار في عملية عارض واحدة لا يؤثر على عمليات عارض أخرى.
+* عملية المعرض **تتواصل** مع العملية الرئيسية عبر IPC لأداء عمليات واجهة المستخدم في صفحة ويب. أما استدعاء واجهة برمجة تطبيقات واجهة المستخدم المحلية من عملية العارض فهو محدود مباشرة بسبب الشواغل الأمنية واحتمال تسرب الموارد.
+
+----
+
+الاتصال بين العمليات ممكن من خلال وحدات الاتصال بين العمليات: [`ipcMain`](../api/ipc-main.md) و [`ipcRenderer`](../api/ipc-renderer.md).
 
 #### APIs
 
 ##### Electron API
 
-Electron APIs are assigned based on the process type, meaning that some modules can be used from either the Main or Renderer process, and some from both. Electron's API documentation indicates which process each module can be used from.
+تم تعيين واجهة برمجة تطبيقات إلكترون استنادًا إلى نوع العملية، يعني أنه يمكن استخدام بعض الوحدات النمطية من عملية الرئيسية أو Renderer، وبعضها من كليهما. تشير وثائق واجهة برمجة تطبيقات Electron's إلى العملية التي يمكن استخدام كل وحدة منها.
 
-For example, to access the Electron API in both processes, require its included module:
+على سبيل المثال، للوصول إلى واجهة برمجة تطبيقات إلكترون في كلتا العمليتين، يتطلب وحدة الإدراج:
 
 ```js
-const electron = require('electron')
+إلكترون = مطلوبة ('electron')
 ```
 
-To create a window, call the `BrowserWindow` class, which is only available in the Main process:
+لإنشاء نافذة، اتصل بفصل `مستعرض النافذة` ، والذي هو متاح فقط في العملية الرئيسية:
 
 ```js
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = مطلوبة ('electron')
+الفوز = متصفح ويندوز جديد()
 ```
 
-To call the Main process from the Renderer, use the IPC module:
+لتسمية العملية الرئيسية من المعرض، استخدم الوحدة النمطية للجنة IPC:
 
 ```js
-// In the Main process
+// في العملية الرئيسية
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+  // ... القيام بإجراءات نيابة عن المعرض
 })
 ```
 
 ```js
-// In the Renderer process
-const { ipcRenderer } = require('electron')
+// في عملية العارض
+خلال { ipcRenderer } = المطلوب('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-> NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
+> ملاحظة: لأن عمليات العارض قد تعمل برمز غير موثوق به (خاصة من أطراف ثالثة)، ومن المهم التحقق بعناية من صحة الطلبات التي تأتي إلى العملية الرئيسية.
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
+> ملاحظة: للوصول إلى واجهة برمجة التطبيقات Node.js من عملية Renderer، تحتاج إلى تعيين تفضيل `nodeintegration` إلى `true`.
 
-Electron exposes full access to Node.js API and its modules both in the Main and the Renderer processes. For example, you can read all the files from the root directory:
+ويكشف إلكترون إمكانية الوصول الكامل إلى واجهة برمجة تطبيقات Node.js ووحداته في كل من عمليتي الرئيسية و Renderer. على سبيل المثال، يمكنك قراءة جميع الملفات من الدليل الجذر :
 
 ```js
-const fs = require('fs')
+const fs = مطلوب('fs')
 
-const root = fs.readdirSync('/')
+الجذر = fs.readdirSync('/')
 
 console.log(root)
 ```
 
-To use a Node.js module, you first need to install it as a dependency:
+لاستخدام وحدة Node.js ، تحتاج أولاً إلى تثبيته كاعتماد :
 
 ```sh
-npm install --save aws-sdk
+npm تثبيت --حفظ aws-sdk
 ```
 
-Then, in your Electron application, require the module:
+ثم في تطبيق إلكترون الخاص بك، يتطلب الوحدة:
 
 ```js
-const S3 = require('aws-sdk/clients/s3')
+S3 = مطلوبة ('aws-sdk/clients/s3')
 ```

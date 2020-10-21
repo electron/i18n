@@ -1,10 +1,10 @@
-# Application Debugging
+# تصحيح أخطاء التطبيق
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+كلما كان تطبيق إلكترون الخاص بك لا يتصرف بالطريقة التي تريدها، مجموعة من أدوات تصحيح الأخطاء قد تساعدك على العثور على أخطاء في البرمجة، اختناقات الأداء أو فرص التحسين.
 
-## Renderer Process
+## عملية العارض
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+الأداة الأكثر شمولاً لتصحيح عمليات العرض الفردية هي أداة مطور كروميوم. وهي متاحة لجميع عمليات العرض، بما في ذلك مثيلات `نافذة المتصفح`، `عرض المتصفح`، و `عرض الويب`. يمكنك فتحها برمجياً عن طريق الاتصال بـ `أدوات openDevDevols()` API على `webContents` من المثال:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,23 +13,23 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools][devtools]. We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google offers [excellent documentation for their developer tools][devtools]. ننصح بأن تكون على دراية بها - فهي عادة واحدة من أقوى المنافع في أي حزام أدوات مطور إلكترون.
 
-## Main Process
+## العملية الرئيسية
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process][node-inspect] thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+تصحيح أخطاء العملية الرئيسية أكثر صعوبة، لأنه لا يمكنك فتح أدوات المطور لهم. The Chromium Developer Tools can [be used to debug Electron's main process][node-inspect] thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
 
 For more information, see the [Debugging the Main Process documentation][main-debug].
 
-## V8 Crashes
+## تحطم V8
 
-If the V8 context crashes, the DevTools will display this message.
+إذا تعطل سياق V8، فستعرض أدوات DevTools هذه الرسالة.
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`تم قطع اتصال الأدوات من الصفحة. بمجرد إعادة تحميل الصفحة، سيتم إعادة الاتصال تلقائيًا.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+يمكن تمكين سجلات الكروم عن طريق متغير البيئة `ELECTRON_ENABLE_LOGING`. لمزيد من المعلومات، راجع [وثائق متغيرات البيئة](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+بدلاً من ذلك، يمكن تمرير حجة سطر الأوامر `--تسجيل الأوامر` يمكن الحصول على مزيد من المعلومات في [مفاتيح تبديل سطر الأوامر](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools

@@ -1,5 +1,5 @@
 # Používání Pepper Flash Pluginu
 
-Electron no longer supports the Pepper Flash plugin, as Chrome has removed support.
+Electron již nepodporuje zásuvný modul Pepper Flash, protože Chrome odstranil podporu.
 
-See [Chromium's Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Více podrobností viz [Mapa Flash Roadium](https://www.chromium.org/flash-roadmap).

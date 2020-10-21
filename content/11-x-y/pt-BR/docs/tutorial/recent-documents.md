@@ -1,14 +1,14 @@
-# Recent Documents (Windows & macOS)
+# Documentos Recentes (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows e macOS fornecem acesso a uma lista de documentos recentes abertos pelo o aplicativo via JumpList ou menu dock, respectivamente.
 
 __JumpList:__
 
-![JumpList Recent Files][1]
+![Arquivos recentes do JumpList][1]
 
-__Application dock menu:__
+__Menu dock de aplicação:__
 
-![macOS Dock Menu][2]
+![Menu Dock do macOS][2]
 
 To add a file to recent documents, you can use the [app.addRecentDocument][addrecentdocument] API:
 
@@ -24,30 +24,30 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Notas do Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration][app-registration].
+Para poder utilizar este recurso no Windows, sua aplicação tem que ser registrada como um manipulador do tipo de arquivo do documento, caso contrário, o arquivo não aparecerá no JumpList mesmo depois de adicioná-lo. You can find everything on registering your application in [Application Registration][app-registration].
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Quando um usuário clica em um arquivo do JumpList, uma nova instância de sua aplicação será iniciada com o caminho do arquivo adicionado como um argumento de linha de comando.
 
-## macOS Notes
+## Notas do macOS
 
-### Adding the Recent Documents list to the application menu:
+### Adicionando a lista de Documentos Recentes ao menu de aplicação:
 
-![macOS Recent Documents menu item][6]
+![Item de menu recentes do macOS Documents][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Você pode adicionar itens de menu para acessar e limpar documentos recentes adicionando o seguinte trecho de código ao modelo de seu menu.
 
 ```json
 {
   "submenu":[
     {
-      "label":"Open Recent",
-      "role":"recentdocuments",
+      "label":"Abrir recente",
+      "papel":"recentdocuments",
       "submenu":[
         {
           "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "papel":"clearrecentdocuments"
         }
       ]
     }

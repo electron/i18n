@@ -1,82 +1,82 @@
 ---
-title: What's New in Electron
-author: jlord
+title: ما هو الجديد في إلكترون
+author: سيد
 date: '2015-10-15'
 ---
 
-There have been some interesting updates and talks given on Electron recently, here's a roundup.
+كان هناك بعض التحديثات و المحادثات المثيرة للاهتمام التي قدمت مؤخرا على إلكترون ، إليك خلاصة.
 
 ---
 
-## Source
+## المصدر
 
-Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
+إلكترون الآن محدثة مع Chrome 45 في `v0.32.0`. التحديثات الأخرى تشمل...
 
-### Better Documentation
+### وثائق أفضل
 
-![new docs](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
+![مستندات جديدة](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
 
-We have restructured and standardized the documentation to look better and read better. There are also community-contributed translations of the documentation, like Japanese and Korean.
+وقد قمنا بإعادة هيكلة وتوحيد الوثائق لكي تبدو أفضل وتقرأ على نحو أفضل. وهناك أيضا ترجمات تسهم بها المجتمعات المحلية للوثائق، مثل الترجمات اليابانية والكورية.
 
-Related pull requests: [electron/electron#2028](https://github.com/electron/electron/pull/2028), [electron/electron#2533](https://github.com/electron/electron/pull/2533), [electron/electron#2557](https://github.com/electron/electron/pull/2557), [electron/electron#2709](https://github.com/electron/electron/pull/2709), [electron/electron#2725](https://github.com/electron/electron/pull/2725), [electron/electron#2698](https://github.com/electron/electron/pull/2698), [electron/electron#2649](https://github.com/electron/electron/pull/2649).
+طلبات السحب ذات الصلة: [electron/electron#2028](https://github.com/electron/electron/pull/2028)، [electron/electron#2533](https://github.com/electron/electron/pull/2533)، [electron/electron#2557](https://github.com/electron/electron/pull/2557)، [إلكترون/إلكترون#2709](https://github.com/electron/electron/pull/2709)، [إلكترون/إلكترون#2725](https://github.com/electron/electron/pull/2725)، [إلكترون/إلكترون#2698](https://github.com/electron/electron/pull/2698)، [إلكترون/إلكترون#2649](https://github.com/electron/electron/pull/2649)
 
 ### Node.js 4.1.0
 
-Since `v0.33.0` Electron ships with Node.js 4.1.0.
+منذ `v0.33.0` سفن إلكترون مع Node.js 4.1.0.
 
-Related pull request: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
+طلب سحب ذو صلة: [إلكتروني/إلكتروني#2817](https://github.com/electron/electron/pull/2817).
 
-### node-pre-gyp
+### ما قبل العقدة
 
-Modules relying on `node-pre-gyp` can now be compiled against Electron when building from source.
+يمكن الآن تجميع الوحدات النمطية التي تعتمد على `ما قبل العقدة` مقابل إلكترون عند البناء من المصدر.
 
-Related pull request: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
+طلب سحب ذو صلة: [خرائط / عقدة ما قبل مصر #175](https://github.com/mapbox/node-pre-gyp/pull/175).
 
-### ARM Support
+### دعم ARM
 
-Electron now provides builds for Linux on ARMv7. It runs on popular platforms like Chromebook and Raspberry Pi 2.
+يوفر إلكترون الآن بنايات لـ Linux على ARMv7. يعمل على منصات شعبية مثل Chromebook و Raspberry Pi 2.
 
-Related issues: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
+المسائل ذات الصلة: [الذرة/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138)، [electron/electron#2094](https://github.com/electron/electron/pull/2094)، [electron/tron#366](https://github.com/electron/electron/issues/366).
 
-### Yosemite-style Frameless Window
+### نافذة الإطار على نمط يوسمايت
 
-![frameless window](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
+![نافذة بلا إفراغ](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
 
-A patch by [@jaanus](https://github.com/jaanus) has been merged that, like the other built-in OS X apps, allows creating frameless windows with system traffic lights integrated on OS X Yosemite and later.
+تم دمج تعديل بواسطة [@jaanus](https://github.com/jaanus) ، مثل التطبيقات الأخرى المدمجة في OS X ، يسمح بإنشاء نوافذ بلا إطارات مع أضواء حركة مرور النظام مدمجة على OS X Yosemite وما بعدها.
 
-Related pull request: [electron/electron#2776](https://github.com/electron/electron/pull/2776).
+طلب سحب ذو صلة: [إلكتروني/إلكتروني#2776](https://github.com/electron/electron/pull/2776).
 
-### Google Summer of Code Printing Support
+### دعم طباعة صيف البرمجة في جوجل
 
-After the Google Summer of Code we have merged patches by [@hokein](https://github.com/hokein) to improve printing support, and add the ability to print the page into PDF files.
+بعد صيف قوقل من البرمجة قمنا بدمج التصحيحات بواسطة [@hokein](https://github.com/hokein) لتحسين دعم الطباعة، وإضافة القدرة على طباعة الصفحة في ملفات PDF
 
-Related issues: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
+المسائل ذات الصلة: [إلكترون/إلكترون#2677](https://github.com/electron/electron/pull/2677)، [electron/electron#1935](https://github.com/electron/electron/pull/1935)، [electron/electron#1532](https://github.com/electron/electron/pull/1532)، [إلكترون/إلكترون#805](https://github.com/electron/electron/issues/805)، [إلكترون/إلكترون#1669](https://github.com/electron/electron/pull/1669)، [إلكترون/إلكترون#1835](https://github.com/electron/electron/pull/1835)
 
 ## Atom
 
-Atom has now upgraded to Electron `v0.30.6` running Chrome 44. An upgrade to `v0.33.0` is in progress on [atom/atom#8779](https://github.com/atom/atom/pull/8779).
+تم ترقية Atom الآن إلى إلكترون `v0.30.6` قيد تشغيل Chrome 44. تجري الترقية إلى `v0.33.0` في [ذرة/ذرة #8779](https://github.com/atom/atom/pull/8779).
 
-## Talks
+## محادثات
 
-GitHubber [Amy Palamountain](https://github.com/ammeep) gave a great introduction to Electron in a talk at [Nordic.js](https://nordicjs2015.confetti.events). She also created the [electron-accelerator](https://github.com/ammeep/electron-accelerator) library.
+GitHubber [Amy Palamountain](https://github.com/ammeep) قدمت مقدمة رائعة لـ Electron في حديث [Nordic.js](https://nordicjs2015.confetti.events). كما أنشأت مكتبة [تسارع إلكترون-](https://github.com/ammeep/electron-accelerator).
 
-#### Building native applications with Electron by Amy Palomountain
+#### بناء التطبيقات الأصلية باستخدام إلكترون من قبل آمي بالومونتين
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
-[Ben Ogle](https://github.com/benogle), also on the Atom team, gave an Electron talk at [YAPC Asia](http://yapcasia.org/2015/):
+[بن أوجل](https://github.com/benogle)، أيضًا على فريق Atom ، ألقى حديث إلكترون في [YAPC Asia](http://yapcasia.org/2015/):
 
-#### Building Desktop Apps with Web Technologies by Ben Ogle
+#### بناء تطبيقات سطح المكتب مع تكنولوجيات الويب من قبل بن أوجل
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
-Atom team member [Kevin Sawicki](https://github.com/kevinsawicki) and others gave talks on Electron at the [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) meetup recently. The [videos](http://www.wagonhq.com/blog/electron-meetup) have been posted, here are a couple:
+عضو فريق آتوم [كيفن ساويكي](https://github.com/kevinsawicki) وآخرون قدموا محادثات حول إلكترون في [مجموعة مستخدم باي إلكترون](http://www.meetup.com/Bay-Area-Electron-User-Group/) الاجتماع مؤخرًا. تم نشر [فيديوهات](http://www.wagonhq.com/blog/electron-meetup) ، هنا زوجين:
 
-#### The History of Electron by Kevin Sawicki
+#### تاريخ إلكترون من قبل كيفن ساويكي
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
-#### Making a web app feel native by Ben Gotow
+#### جعل تطبيق الويب يشعر بأنه أصلي من قبل بن غوتوو
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

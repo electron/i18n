@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js Native Addons и Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Если у вас возникли проблемы с использованием родного дополнения Node.js с Electron 5. , есть шанс, что она должна быть обновлена для работы с самой последней версией V8.
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## Прощай `v8::Handle`, Здравствуй, `v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+В 2014 году команда V8 устарела `v8::Handle` в пользу `v8::Local` для локальных обработчиков. Electron 5.0 включает в себя версию V8, которая наконец удалила `v8::Handle` для хорошего и родного узла. , которые все еще используют его, необходимо будет обновить, прежде чем они могут быть использованы с Electron 5.0.
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+Необходимое изменение кода минимальное, но *каждый* родной модуль узла, который все еще использует `v8::Handle` не сможет собрать с Electron 5. и должны быть изменены. Хорошей новостью является тот узел. s v12 также будет включать это изменение V8, чтобы все модули, использующие `v8::Handle` , в любом случае должны быть обновлены ** для работы с предстоящей версией узла.
 
-## I maintain a native addon, how can I help?
+## Я поддерживаю родной аддон, как я могу помочь?
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+Если вы поддерживаете собственное аддон для Node.js, убедитесь, что вы заменили все вхождения в `v8::Handle` на `v8::Local`. Первое из них было просто псевдонимом последнего, поэтому для решения этого конкретного вопроса не нужно вносить никаких других изменений.
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+Вам также может быть интересно ознакомиться с [N-API](https://nodejs.org/api/n-api.html), который поддерживается отдельно от V8 как часть узла. , и стремится изолировать родные аддоны от изменений в базовом движке JavaScript. Вы можете найти дополнительную информацию [на N-API документации на сайте Node.js](https://nodejs.org/api/n-api.html#n_api_n_api).
 
-## Help! I use a native addon in my app and it won't work!
+## Помогите! Я использую родной аддон в моем приложении и он не будет работать!
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+Если вы потребляете родной аддон для узла. в вашем приложении и родной аддон не будет работать из-за этой проблемы, проверьте вместе с автором аддона, чтобы увидеть, выпустили ли ли они новую версию, которая исправляет проблему. Если нет, то заходите к автору (или [открываем Pull Request!](https://help.github.com/articles/about-pull-requests/)— это, скорее всего, ваша лучшая ставка.

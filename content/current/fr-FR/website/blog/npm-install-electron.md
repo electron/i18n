@@ -4,39 +4,44 @@ author: zeke
 date: '2016-08-16'
 ---
 
-As of Electron version 1.3.1, you can `npm install electron --save-dev` to install the latest precompiled version of Electron in your app.
+Depuis la version 1.3.1 d'Electron, vous pouvez `npm installer electron --save-dev` pour installer la dernière version précompilée d'Electron dans votre application.
 
 ---
 
 ![npm install electron](https://cloud.githubusercontent.com/assets/378023/17259327/3e3196be-55cb-11e6-8156-525e9c45e66e.png)
 
-## The prebuilt Electron binary
+## Le binaire Electron précompilé
 
-If you've ever worked on an Electron app before, you've likely come across the `electron-prebuilt` npm package. This package is an indispensable part of nearly every Electron project. When installed, it detects your operating system and downloads a prebuilt binary that is compiled to work on your system's architecture.
+Si vous avez déjà travaillé sur une application Electron, vous avez probablement rencontré le paquet npm</code> précompilé à partir de `electron. Ce paquet est une partie indispensable de presque
+tous les projets Electron. Une fois installé, il détecte votre système d'exploitation
+et télécharge un binaire précompilé qui est compilé pour fonctionner sur l'architecture
+de votre système.</p>
 
-## The new name
+<h2 spaces-before="0">Le nouveau nom</h2>
 
-The Electron installation process was often a stumbling block for new developers. Many brave people tried to get started developing an Electron by app by running `npm install electron` instead of `npm install electron-prebuilt`, only to discover (often after much confusion) that it was not the `electron` they were looking for.
+<p spaces-before="0">Le processus d'installation d'Electron était souvent une pierre d'achoppement pour les nouveaux développeurs.
+Beaucoup de braves gens ont essayé de commencer à développer un Electron par application en exécutant
+<code>npm installer electron` au lieu de `npm installer electron-prebuilt`, seulement pour découvrir (souvent après beaucoup de confusion) que ce n'est pas l' `électron` qu'ils recherchaient.
 
-This was because there was an existing `electron` project on npm, created before GitHub's Electron project existed. To help make Electron development easier and more intuitive for new developers, we reached out to the owner of the existing `electron` npm package to ask if he'd be willing to let us use the name. Luckily he was a fan of our project, and agreed to help us repurpose the name.
+Ceci est dû au fait qu'il y avait un projet `electron` existant sur npm, créé avant le projet Electron de GitHub. Pour aider à rendre le développement d'Electron plus facile et plus intuitif pour les nouveaux développeurs, nous avons contacté le propriétaire du paquet npm `electron` pour demander s'il serait prêt à nous laisser utiliser le nom. Heureusement, il a été fan de notre projet et a accepté de nous aider à réutiliser le nom.
 
-## Prebuilt lives on
+## Vues préconstruites sur
 
-As of version 1.3.1, we have begun publishing [`electron`](https://www.npmjs.com/package/electron) and `electron-prebuilt` packages to npm in tandem. The two packages are identical. We chose to continue publishing the package under both names for a while so as not to inconvenience the thousands of developers who are currently using `electron-prebuilt` in their projects. We recommend updating your `package.json` files to use the  new `electron` dependency, but we will continue releasing new versions of `electron-prebuilt` until the end of 2016.
+Depuis la version 1.3.1, nous avons commencé à publier des paquets [`electron`](https://www.npmjs.com/package/electron) et `des paquets précompilés` à npm dans tandem. Les deux paquets sont identiques. Nous avons choisi de continuer à publier le paquet sous les deux noms pendant un certain temps afin de ne pas gêner les milliers de développeurs qui utilisent actuellement `electron-prebuilt` dans leurs projets. Nous vous recommandons de mettre à jour votre paquet `. fils` fichiers pour utiliser la nouvelle dépendance `electron` , mais nous continuerons à publier de nouvelles versions de `electron-prebuilt` jusqu'à la fin 2016.
 
-The [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) repository will remain the canonical home of the `electron` npm package.
+Le dépôt [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) restera la maison canonique du paquet npm `electron`.
 
-## Many thanks
+## Un grand merci
 
-We owe a special thanks to [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), and many other [contributors](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) for creating and maintaining `electron-prebuilt`, and for their tireless service to the JavaScript, Node.js, and Electron communities.
+Nous devons un merci spécial à [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), et de nombreux autres [contributeurs](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) pour la création et la maintenance de `electron-prebuilt`, et pour leur service infatigable au JavaScript, Node. s, et communautés Electron.
 
-And thanks to [@logicalparadox](https://github.com/logicalparadox) for allowing us to take over the `electron` package on npm.
+Et merci à [@logicalparadoxox](https://github.com/logicalparadox) d'avoir permis à de prendre en charge le package `electron` sur npm.
 
-## Updating your projects
+## Mise à jour de vos projets
 
-We've worked with the community to update popular packages that are affected by this change. Packages like [electron-packager](https://github.com/electron-userland/electron-packager), [electron-rebuild](https://github.com/electron/electron-rebuild), and [electron-builder](https://github.com/electron-userland/electron-builder) have already been updated to work with the new name while continuing to support the old name.
+Nous avons travaillé avec la communauté pour mettre à jour les paquets populaires qui sont affectés par ce changement. Paquets comme [electron-packager](https://github.com/electron-userland/electron-packager), [electron-rebuild](https://github.com/electron/electron-rebuild), et [electron-builder](https://github.com/electron-userland/electron-builder) ont déjà été mis à jour pour fonctionner avec le nouveau nom tout en continuant à supporter l'ancien nom.
 
-If you encounter any problems installing this new package, please let us know by opening an issue on the [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) repository.
+Si vous rencontrez des problèmes pour installer ce nouveau paquet, veuillez nous le faire savoir en ouvrant un problème sur le dépôt [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) .
 
-For any other issues with Electron, please use the [electron/electron](https://github.com/electron/electron/issues) repository.
+Pour tout autre problème avec Electron, veuillez utiliser le dépôt [electron/electron](https://github.com/electron/electron/issues) .
 

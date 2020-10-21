@@ -15,7 +15,7 @@ O módulo `relp` fornece uma implementação de REPL que pode ser acessada usand
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Isso só cria um REPL para o processo principal. Você pode usar a aba de Console das Ferramentas de Desenvolvedor para obter um REPL para os processos de renderização.
 
 **Nota:** `electron --interactive` não está disponível no Windows.
 

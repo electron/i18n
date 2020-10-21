@@ -1,42 +1,42 @@
-# Quick Start Guide
+# クイックスタートガイド
 
 ## クイックスタート
 
-Electron is a framework that enables you to create desktop applications with JavaScript, HTML, and CSS. These applications can then be packaged to run directly on macOS, Windows, or Linux, or distributed via the Mac App Store or the Microsoft Store.
+Electron は、JavaScript、HTML、CSS でデスクトップアプリケーションを作成できるフレームワークです。 これらのアプリケーションは、macOS、Windows、Linux上で直接実行したり、Mac App StoreまたはMicrosoft Store経由で配布したりすることができます。
 
-Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
+通常、各オペレーティングシステム固有のネイティブアプリケーションフレームワークを使用して、オペレーティングシステム(OS)用のデスクトップアプリケーションを作成します。 Electron は、既に知っているテクノロジーを使用してアプリケーションを一度書くことを可能にします。
 
 ### 必要な環境
 
-Before proceeding with Electron you need to install [Node.js](https://nodejs.org/en/download/). We recommend that you install either the latest `LTS` or `Current` version available.
+Electron に進む前に、 [Node.js](https://nodejs.org/en/download/) をインストールする必要があります。 最新の `LTS` または `現在の` バージョンのいずれかをインストールすることをお勧めします。
 
-> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
+> お使いのプラットフォーム用にビルド済みのインストーラを使用して Node.js をインストールしてください。 それ以外の場合、異なる開発ツールとの互換性の問題が発生することがあります。
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Node.js が正しくインストールされていることを確認するには、次のコマンドをターミナルクライアントに入力します。
 
 ```sh
 node -v
 npm -v
 ```
 
-The commands should print the versions of Node.js and npm accordingly. If both commands succeeded, you are ready to install Electron.
+コマンドは、Node.js と npm のバージョンを表示する必要があります。 両方のコマンドが成功すると、Electron をインストールする準備ができます。
 
-### Create a basic application
+### 基本的なアプリケーションを作成
 
-From a development perspective, an Electron application is essentially a Node.js application. This means that the starting point of your Electron application will be a `package.json` file like in any other Node.js application. A minimal Electron application has the following structure:
+開発の観点からは、Electron アプリケーションは基本的に Node.js アプリケーションです。 つまり、Electron アプリケーションの出発点は、他の Node.js アプリケーションと同様に `package.json` ファイルになります。 Electron の最小限のアプリケーションには、次のような構造があります。
 
 ```plain
 my-electron-app/
 ├── package.json
 ├── main.js
-└── index.html
+Documentation
 ```
 
-Let's create a basic application based on the structure above.
+上記の構造に基づいて基本的なアプリケーションを作成しましょう。
 
 #### Install Electron
 
-Create a folder for your project and install Electron there:
+プロジェクト用のフォルダを作成し、そこに Electron をインストールします:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -44,11 +44,11 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Create the main script file
+#### メインスクリプトファイルを作成
 
-The main script specifies the entry point of your Electron application (in our case, the `main.js` file) that will run the Main process. Typically, the script that runs in the Main process controls the lifecycle of the application, displays the graphical user interface and its elements, performs native operating system interactions, and creates Renderer processes within web pages. An Electron application can have only one Main process.
+メインスクリプトは、メインプロセスを実行する Electron アプリケーションのエントリ ポイントを指定します (私たちの場合は `main.js` ファイル)。 通常、Main プロセスで実行されるスクリプトは、アプリケーションのライフサイクルを制御し、グラフィカルユーザーインターフェイスとその要素を表示します。 ネイティブのオペレーティングシステムの相互作用を実行し、Web ページ内で Renderer プロセスを作成します。 Electron アプリケーションには、メインプロセスが 1 つしかありません。
 
-The main script may look as follows:
+メインスクリプトは以下のようになります:
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -81,19 +81,19 @@ app.on('activate', () => {
 })
 ```
 
-##### What is going on above?
+##### 何が上に起こっていますか?
 
 1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
 2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 18: You add a new listener that tries to quit the application when it no longer has any open windows. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Line 24: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. For example, after launching the application for the first time, or re-launching the already running application.
+3. 16行目: Electron アプリケーション `` が初期化されると、 [createWindow](../api/app.md#appwhenready) 関数を呼び出すことで、新しいブラウザウィンドウを作成します。
+4. 18行目: ウィンドウが開いていない場合にアプリケーションを終了しようとする新しいリスナーを追加します。 このリスナーは、オペレーティングシステムの [ウィンドウ管理の動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) による、macOS には無制限です。
+5. 24行目: アプリケーションがアクティブ化された後に表示されるウィンドウがない場合にのみ、新しいブラウザウィンドウを作成する新しいリスナーを追加します。 たとえば、アプリケーションを初めて起動した後、または実行中のアプリケーションを再起動します。
 
-#### Create a web page
+#### Web ページを作成
 
-This is the web page you want to display once the application is initialized. This web page represents the Renderer process. You can create multiple browser windows, where each window uses its own independent Renderer. Each window can optionally be granted with full access to Node.js API through the `nodeIntegration` preference.
+これは、アプリケーションが初期化されたら表示したいWebページです。 このウェブページはレンダラープロセスを表します。 複数のブラウザウィンドウを作成することができ、各ウィンドウは独自のレンダラーを使用します。 必要に応じて、 `nodeIntegration` 環境設定から Node.js API へのフルアクセス権を付与することができます。
 
-The `index.html` page looks as follows:
+`index.html` ページは以下のようになります。
 
 ```html
 <!DOCTYPE html>
@@ -112,9 +112,9 @@ The `index.html` page looks as follows:
 </html>
 ```
 
-#### Modify your package.json file
+#### package.json ファイルの変更
 
-Your Electron application uses the `package.json` file as the main entry point (as any other Node.js application). The main script of your application is `main.js`, so modify the `package.json` file accordingly:
+Electron アプリケーションでは、(他のNode.js アプリケーションと同様に) メインエントリポイントとして `package.json` ファイルを使用します。 アプリケーションのメインスクリプトは `main.js`なので、 `package.json` ファイルをそれに応じて変更してください:
 
 ```json
 {
@@ -126,7 +126,7 @@ Your Electron application uses the `package.json` file as the main entry point (
 
 > NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
 
-By default, the `npm start` command will run the main script with Node.js. To run the script with Electron, you need to change it as such:
+デフォルトでは、 `npm start` コマンドは Node.js でメインスクリプトを実行します。 Electron でスクリプトを実行するには、以下のように変更する必要があります。
 
 ```json
 {
@@ -134,26 +134,26 @@ By default, the `npm start` command will run the main script with Node.js. To ru
     "version": "0.1.0",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron."
     }
 }
 ```
 
-#### Run your application
+#### アプリケーションの実行
 
 ```sh
 npm start
 ```
 
-Your running Electron app should look as follows:
+実行中の Electron アプリは次のようになります:
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![最もシンプルな Electron アプリ](../images/simplest-electron-app.png)
 
-### Package and distribute the application
+### アプリケーションのパッケージと配布
 
-The simplest and the fastest way to distribute your newly created app is using [Electron Forge](https://www.electronforge.io).
+新しく作成したアプリを配布する最もシンプルで最速の方法は、 [Electron Forge](https://www.electronforge.io) を使用することです。
 
-1. Import Electron Forge to your app folder:
+1. Electron Forge をアプリケーションフォルダにインポート:
 
     ```sh
     npx @electron-forge/cli import
@@ -167,10 +167,10 @@ The simplest and the fastest way to distribute your newly created app is using [
 
     We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
-    Thanks for using "electron-forge"!!!
+    "electron-forge"をご利用いただきありがとうございます!!!
     ```
 
-1. Create a distributable:
+1. 配布可能ファイルを作成:
 
     ```sh
     npm run make
@@ -188,90 +188,90 @@ The simplest and the fastest way to distribute your newly created app is using [
     ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
-    Electron-forge creates the `out` folder where your package will be located:
+    Electron フォージは、パッケージが見つかる `out` フォルダを作成します。
 
     ```plain
-    // Example for MacOS
+    // MacOS の例
     out/
     ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
     ├── ...
-    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    ├── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
-## Learning the basics
+## 基本を学ぶ
 
-This section guides you through the basics of how Electron works under the hood. It aims at strengthening knowledge about Electron and the application created earlier in the Quickstart section.
+このセクションでは、Electron がどのように動作するかの基本について説明します。 これは、Quickstart セクションで先に作成された Electron とアプリケーションに関する知識を強化することを目的としています。
 
-### Application architecture
+### アプリケーションのアーキテクチャ
 
-Electron consists of three main pillars:
+Electron は、3 つの柱で構成されています。
 
-* **Chromium** for displaying web content.
-* **Node.js** for working with the local filesystem and the operating system.
-* **Custom APIs** for working with often-needed OS native functions.
+* **Webコンテンツを表示するためのChromium**。
+* **ローカルファイルシステムとオペレーティングシステムを扱うNode.js**。
+* **頻繁に必要な OS ネイティブ関数を扱うためのカスタム API**。
 
-Developing an application with Electron is like building a Node.js app with a web interface or building web pages with seamless Node.js integration.
+Electron とアプリケーションを開発することは、Web インターフェイスを使用した Node.js アプリの構築や、シームレスな Node.js 統合による Web ページの構築と同じです。
 
 #### メインプロセスとレンダラープロセス
 
-As it was mentioned before, Electron has two types of processes: Main and Renderer.
+前述したように、Electron には、Main と Renderer という 2 種類のプロセスがあります。
 
-* The Main process **creates** web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its Renderer process. When a `BrowserWindow` instance is destroyed, the corresponding Renderer process gets terminated as well.
-* The Main process **manages** all web pages and their corresponding Renderer processes.
-
-----
-
-* The Renderer process **manages** only the corresponding web page. A crash in one Renderer process does not affect other Renderer processes.
-* The Renderer process **communicates** with the Main process via IPC to perform GUI operations in a web page. Calling native GUI-related APIs from the Renderer process directly is restricted due to security concerns and potential resource leakage.
+* メインプロセス **は、** BrowserWindow `インスタンスを作成することで` ウェブページを作成します。 各 `BrowserWindow` インスタンスはレンダラープロセスで Web ページを実行します。 `BrowserWindow` インスタンスが破壊されると、対応する Renderer プロセスも終了します。
+* メイン プロセス **は** すべての Web ページとそれに対応する Renderer プロセスを管理します。
 
 ----
 
-The communication between processes is possible via Inter-Process Communication (IPC) modules: [`ipcMain`](../api/ipc-main.md) and [`ipcRenderer`](../api/ipc-renderer.md).
+* レンダラープロセス **は** 対応するウェブページのみを管理します。 1つのレンダラープロセスでクラッシュした場合、他のレンダラープロセスには影響しません。
+* Renderer プロセス **は** と IPC 経由で Main プロセスと通信し、Web ページで GUI 操作を実行します。 レンダラープロセスからネイティブ GUI 関連の API を直接呼び出すことは、セキュリティ上の懸念と潜在的なリソースの漏洩が原因で制限されます。
 
-#### APIs
+----
+
+プロセス間の通信は、プロセス間通信 (IPC) モジュールを介して可能です: [`ipcMain`](../api/ipc-main.md) と [`ipcRenderer`](../api/ipc-renderer.md).
+
+#### API
 
 ##### Electron API
 
-Electron APIs are assigned based on the process type, meaning that some modules can be used from either the Main or Renderer process, and some from both. Electron's API documentation indicates which process each module can be used from.
+Electron API は、プロセスタイプに基づいて割り当てられます。 つまり、いくつかのモジュールは、MainプロセスまたはRendererプロセスのいずれかと、両方から使用することができます。 Electron の API ドキュメントには、各モジュールを使用できるプロセスが示されています。
 
-For example, to access the Electron API in both processes, require its included module:
+たとえば、両方のプロセスで Electron API にアクセスするには、その含まれているモジュールが必要です:
 
 ```js
 const electron = require('electron')
 ```
 
-To create a window, call the `BrowserWindow` class, which is only available in the Main process:
+ウィンドウを作成するには、メインプロセスでのみ使用可能な `BrowserWindow` クラスを呼び出します。
 
 ```js
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-To call the Main process from the Renderer, use the IPC module:
+レンダラーからメインプロセスを呼び出すには、IPCモジュールを使用します。
 
 ```js
-// In the Main process
+// メインプロセス
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+  // ... レンダラーに代わってアクションを行う
 })
 ```
 
 ```js
-// In the Renderer process
+// レンダラープロセス
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-> NOTE: Because Renderer processes may run untrusted code (especially from third parties), it is important to carefully validate the requests that come to the Main process.
+> 注意: レンダラープロセスは信頼できないコード(特に第三者から)を実行する可能性があるためです。 メインプロセスに来るリクエストを慎重に検証することが重要です。
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true`.
+> 注意: Renderer プロセスから Node.js API にアクセスするには、 `nodeIntegration` を `true` に設定する必要があります。
 
-Electron exposes full access to Node.js API and its modules both in the Main and the Renderer processes. For example, you can read all the files from the root directory:
+Electron は Node.js API とそのモジュールへのフルアクセスをメインおよびレンダラープロセスの両方で公開します。 たとえば、ルートディレクトリからすべてのファイルを読み込むことができます。
 
 ```js
 const fs = require('fs')
@@ -281,13 +281,13 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-To use a Node.js module, you first need to install it as a dependency:
+Node.js モジュールを使用するには、まず依存関係としてインストールする必要があります。
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron application, require the module:
+次に、Electron アプリケーションでは、モジュールが必要です:
 
 ```js
 const S3 = require('aws-sdk/clients/s3')

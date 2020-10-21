@@ -32,11 +32,11 @@ Windows でこの機能を使用できるようにするには、アプリケー
 
 ## macOS での注意
 
-### Adding the Recent Documents list to the application menu:
+### アプリケーション・メニューに「最近使用したドキュメント」リストを追加する:
 
-![macOS Recent Documents menu item][6]
+![macOS 最近使ったドキュメントメニュー項目][6]
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+メニューのテンプレートに次のコードスニペットを追加することで、メニュー項目にアクセスし、最近のドキュメントをクリアすることができます。
 
 ```json
 {

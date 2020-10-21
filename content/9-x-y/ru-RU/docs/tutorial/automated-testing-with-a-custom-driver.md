@@ -36,7 +36,7 @@ process.send({ my: 'message' })
 
 Теперь мы можем передавать данные из теста в приложению Electron, используя объект `appProcess`.
 
-Для удобства, вы можете обернуть `appProcess` в объект драйвера, который предоставляет более высокоуровневые функции. Here is an example of how you can do this:
+Для удобства, вы можете обернуть `appProcess` в объект драйвера, который предоставляет более высокоуровневые функции. Вот пример того, как вы можете это сделать:
 
 ```js
 class TestDriver {
@@ -84,32 +84,32 @@ class TestDriver {
 В приложении вам нужно будет написать простой обработчик для вызовов RPC:
 
 ```js
-if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+if (process.env.APP_TEST_DRIVER) { процесс
+  . n('сообщение', onMessage)
 }
 
-async function onMessage ({ msgId, cmd, args }) {
+асинхронная функция onMessage ({ msgId, cmd, args }) {
   let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+  if (! ethod) метод = () => new Error('Недопустимый метод: ' + cmd)
   try {
-    let resolve = await method(...args)
-    process.send({ msgId, resolve })
+    let resolve = await method(. ggs)
+    процесс. end({ msgId, resolve })
   } catch (err) {
-    let reject = {
+    позволить отклонить = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    процесс. end({ msgId, reject })
   }
 }
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // делаем любые установки, необходимые
     return true
   }
-  // define your RPC-able methods here
+  // определяем ваши RPC-доступные методы здесь
 }
 ```
 
@@ -121,7 +121,7 @@ const electronPath = require('electron')
 
 let app = new TestDriver({
   path: electronPath,
-  args: ['./app'],
+  args: ['. app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ let app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
+test. fter.always('cleanup', async t => {
   await app.stop()
 })
 ```

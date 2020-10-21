@@ -19,41 +19,41 @@ Usando gli [Strumenti Reazione Sviluppatore](https://chrome.google.com/webstore/
      * `~/.config/google-chrome-beta/Predefinito/Estensioni/`
      * `~config/google-chrome-canary/Predefinito/Estensioni/`
      * `~/.config/chromium/Default/Extensions/`
-   * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   * su macOS è `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+1. Passa la posizione dell'estensione a `BrowserWindow.addDevToolsExtension` API, per React Developer Tools, è qualcosa come:
    ```javascript
    const path = require('path')
    const os = require('os')
 
    BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+)
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Nota:** L'API `BrowserWindow.addDevToolsExtension` non può essere chiamata prima dell'emissione dell'evento pronto del modulo app.
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+L'estensione verrà ricordata in modo da è necessario chiamare questa API solo una volta per estensione . Se si tenta di aggiungere un'estensione che è già stata caricata, questo metodo non restituirà e invece registra un avviso alla console.
 
-### How to remove a DevTools Extension
+### Come rimuovere un'estensione DevTools
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+Puoi passare il nome dell'estensione all'API `BrowserWindow.removeDevToolsExtension` per rimuoverla. Il nome dell'estensione viene restituito da `BrowserWindow. ddDevToolsExtension` e puoi ottenere i nomi di tutte le estensioni installate DevTools utilizzando l'API `BrowserWindow.getDevToolsExtensions`.
 
-## Supported DevTools Extensions
+## Estensioni DevTools Supportate
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron supporta solo un insieme limitato di `chrome.*` API, quindi alcune estensioni usando il cromo `non supportato.` Le API per le funzionalità di estensione cromata potrebbero non funzionare. I seguenti Devtools Extensions sono testati e garantiti per funzionare in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-* [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
-* [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
+* [Debug Backbone](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
+* [jQuery debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Cerebral Debugger](https://cerebraljs.com/docs/introduction/devtools.html)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Debugger Cerebrale](https://cerebraljs.com/docs/introduction/devtools.html)
+* [Estensione DevTools Redux](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### Cosa devo fare se un'estensione DevTools non funziona?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Per prima cosa, assicurati che l'estensione sia ancora in corso, alcune estensioni non può nemmeno funzionare per le versioni recenti del browser Chrome, e non siamo in grado di fare nulla per loro.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Quindi file un bug nella lista dei problemi di Electron, e descrivere quale parte dell'estensione non funziona come previsto.

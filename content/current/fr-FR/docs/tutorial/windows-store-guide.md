@@ -29,25 +29,25 @@ Empaquetez l’application à l’aide de [electron-packager](https://github.com
 La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+── Ghost.exe
+── LICENSE
+── content_resources_200_percent.pak
+── content_shell.pak
+── d3dcompiler_47. l
+── ffmpeg.dll
+── icudtl.dat
+── libEGL.dll
+── libGLESv2.dll
+<unk> ── locales
+<unk> ── am. ak
+── ar.pak
+décesseur [...]
+── noeud. l
+── ressources
+Ω<unk> ─ app. sar
+── v8_context_snapshot.bin
+── squirrel.exe
+<unk> ─ ui_resources_200_percent.pak
 ```
 
 ## Étape 2: Exécuter electron-windows-store

@@ -1,12 +1,12 @@
-# Custom Linux Desktop Launcher Actions
+# Własne działania na pulpicie Linux
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+W wielu środowiskach systemu Linux możesz dodać własne wpisy do jego launchera modyfikując plik `.desktop`. Dokumentacja Unity Canonical's zobacz [Dodawanie skrótów do Launchera](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Więcej informacji na temat bardziej ogólnej implementacji, zobacz [Freesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-__Launcher shortcuts of Audacious:__
+__Skróty programu Audacious:__
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![nieśmiałe](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Ogólnie rzecz biorąc, skróty są dodawane poprzez podanie właściwości `Name` i `Exec` dla każdego wpisu w menu skrótów. Jednolity wykona pole `Exec` po kliknięciu przez użytkownika. Format jest następujący:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Preferowany przez jednostkę sposób na poinformowanie swojej aplikacji o tym, co zrobić, to użyć parametrów. Możesz je znaleźć w swojej aplikacji w zmiennej globalnej `process.argv`.

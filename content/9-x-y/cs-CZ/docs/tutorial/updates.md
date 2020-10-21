@@ -1,31 +1,31 @@
 # Aktualizace aplikací
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Existuje několik způsobů, jak aktualizovat Electron aplikaci. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
-## Using `update.electronjs.org`
+## Používá se `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+GitHub's Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. Služba je určena pro elektronové aplikace, které splňují tato kritéria:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
+- Aplikace běží na macOS nebo Windows
+- Aplikace má veřejný GitHub repositář
 - Builds are published to GitHub Releases
-- Builds are code-signed
+- Buildy jsou podepsány kódem
 
 The easiest way to use this service is by installing [update-electron-app][], a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+Instalovat modul:
 
 ```sh
-npm install update-electron-app
+npm nainstalovat update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Vypněte aktualizátor z hlavního souboru vašeho procesu:
 
 ```js
-require('update-electron-app')()
+vyžadováno ('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Ve výchozím nastavení bude tento modul kontrolovat aktualizace při spuštění aplikace a poté každých deset minut. Po nalezení aktualizace bude automaticky stažena na pozadí. Po dokončení stahování se zobrazí dialogové okno, které umožní uživateli restartovat aplikaci.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
 
@@ -33,28 +33,28 @@ If you need to customize your configuration, you can [pass options to `update-el
 
 If your app is packaged with [`electron-builder`][electron-builder-lib] you can use the [electron-updater][] module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
 
-## Deploying an Update Server
+## Publikování aktualizačního serveru
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Pokud vytváříte soukromou Electron aplikaci, nebo pokud nepublikujete vydání GitHub Releases, může být nutné spustit vlastní aktualizační server.
 
-Depending on your needs, you can choose from one of these:
+V závislosti na vašich potřebách si můžete vybrat:
 
 - [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Podporuje více aplikací a kanálů; používá statické úložiště souborů k vytěžování nákladů na server.
 
-## Implementing Updates in Your App
+## Provádění aktualizací ve vaší aplikaci
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Jakmile vložíte aktualizační server, pokračujte v importu požadovaných modulů do vašeho kódu. Následující kód se může u různých serverů lišit, ale funguje jako při použití [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Důležité:** Ujistěte se, že níže uvedený kód bude spuštěn pouze v vaší zabalené aplikaci, a nikoli ve vývoji. Můžete použít [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) ke kontrole životního prostředí.
 
 ```javascript
-const { app, autoUpdater, dialog } = require('electron')
+const { app, autoUpdater, dialog } = vyžadováno ('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Dále vytvořte URL aktualizačního serveru a řekněte [autoUpdater](../api/auto-updater.md) o tom:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Jako poslední krok se podívejte na aktualizace. Níže uvedený příklad zkontroluje každou minutu:
 
 ```javascript
 setInterval(() => {
@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Jakmile je vaše aplikace [zabalena](../tutorial/application-distribution.md), obdrží aktualizaci každé nové [vydání GitHub](https://help.github.com/articles/creating-releases/) , které jste publikovali.
 
-## Applying Updates
+## Aplikování aktualizací
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Nyní jste nakonfigurovali základní aktualizační mechanismus pro vaši aplikaci, je třeba zajistit, aby byl uživatel upozorněn, až bude aktualizován. Tohoto lze dosáhnout pomocí autoUpdater API [událostí](../api/auto-updater.md#events):
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'Byla stažena nová verze. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -93,11 +93,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Také se ujistěte, že chyby jsou zpracovávány [](../api/auto-updater.md#event-error). Zde je příklad pro logování do `bodu`:
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('Při aktualizaci aplikace došlo k chybě')
   console.error(message)
 })
 ```

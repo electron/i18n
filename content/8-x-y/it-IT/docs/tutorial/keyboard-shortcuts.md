@@ -1,8 +1,8 @@
 # Scorciatoie da tastiera
 
-> Configure local and global keyboard shortcuts
+> Configura i tasti scorciatoia locali e globali
 
-## Local Shortcuts
+## Scorciatoie Locali
 
 You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
 
@@ -17,15 +17,15 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+È possibile configurare diverse combinazioni di tasti in base al sistema operativo dell'utente.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Maiusc+I'
 }
 ```
 
-## Global Shortcuts
+## Scorciatoie Globali
 
 You can use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Scorciatoie all'interno di una Finestra di navigazione
 
 If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -47,9 +47,9 @@ If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use th
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Nota il terzo parametro `true` che significa che l'ascoltatore riceverà sempre le pressioni dei tasti prima di altri ascoltatori in modo che non possano avere `stopPropagation()` chiamato su di loro.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+L'evento [`before-input-event`](../api/web-contents.md#event-before-input-event) viene emesso prima di spedire `keydown` e `keyup` eventi nella pagina. Può essere usato per catturare e gestire scorciatoie personalizzate che non sono visibili nel menu.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 

@@ -2,7 +2,7 @@
 
 > Детализированный взгляд на политику версионирования и ее реализацию.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Начиная с версии 2.0.0, Electron следует [semver](#semver). Следующая команда установит последнюю стабильную сборку Electron:
 
 ```sh
 npm install --save-dev electron
@@ -16,67 +16,67 @@ npm install --save-dev electron@latest
 
 ## Версия 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron версии *< 2.* не соответствует [semver](http://semver.org) спецификации: основные версии соответствуют изменениям API для конечного пользователя, младшие версии соответствовали основным выпускам Chromium, а версии патча соответствовали новым функциям и исправлениям ошибок. Удобно для разработчиков при объединении возможностей, но это создает проблемы для разработчиков пользовательских приложений. Циклы тестирования QA основных приложений, таких как Slack, Stride, Teams, Skype, VS Code, Атомные и настольные компьютеры могут быть длительными, а стабильность является весьма желаемым результатом. Существует большой риск применения новых функций при использовании исправлений ошибок.
 
-Here is an example of the 1.x strategy:
+Вот пример стратегии 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Приложение разработанное с `1.8.1` не может взять `1. .3` исправление ошибок без поглощения `1. .2` особенность, или backporting the fix and maintenance of new release line.
 
 ## Версия 2.0 и выше
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Ниже приводится несколько важных изменений в нашей стратегии 1.x. Каждое изменение предназначено для удовлетворения потребностей и приоритетов разработчиков/сопровождающих и разработчиков приложений.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+1. Строгое использование семвера
+2. Введение в теги `-beta`
+3. Введение [обычных сообщений о коммитах](https://conventionalcommits.org/)
+4. Хорошо определенные ветви стабилизации
+5. Версия ветки `master` недоступна. Только стабилизирующие ветви содержат информацию о версии
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Мы подробно рассмотрим как работает ветка git, как работает npm тег, что разработчики должны видеть и как можно изменить backport.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+С 2.0, Electron будет следовать за семестром.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Ниже приведена таблица явного отображения типов изменений к соответствующей категории полутора (например, Майора, Малого или Патча).
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| Основные версии                    | Незначительные увеличения версии      | Увеличить версию патча          |
+| ---------------------------------- | ------------------------------------- | ------------------------------- |
+| Electron разрыв API изменения      | Изменения в Electron небезопасном API | Исправления ошибок Electron     |
+| Обновление основных версий Node.js | Node.js обновления младшей версии     | Обновления версии патча Node.js |
+| Обновления версии Chromium         |                                       | патчи с хромовым фиксированием  |
 
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Обратите внимание, что большинство обновлений Chromium будет считаться перерывом. Исправления, которые могут быть обратно будут выбраны в качестве патчей.
 
 # Стабильные ветки
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Стабилизационные ветви - это ветки, которые управляют параллельно с освоением, принимая только вишневые коммиты, связанные с безопасностью или стабильностью. Эти ветки никогда не сливаются с мастером.
 
 ![](../images/versioning-sketch-1.png)
 
 Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Мы позволяем многократным стабилизационным ветвям существовать одновременно, и намерена поддерживать как минимум два параллельных в любое время, при необходимости резервные исправления безопасности. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Более старые линии не будут поддерживаться GitHub, но другие группы могут самостоятельно брать на себя права собственности и backport стабильности и исправления безопасности. Мы не поощряем это, но понимаем, что это упрощает жизнь для многих разработчиков приложений.
 
 # Бета-релизы и исправление багов
 
-Developers want to know which releases are _safe_ to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Developers want to know which releases are _safe_ to use. Даже невинные характеристики могут привести к регрессии в сложных приложениях. В то же время, блокировка исправленной версии опасна, так как вы игнорируете патчи безопасности и исправления ошибок, которые могут появиться с момента окончания вашей версии. Наша цель - разрешить следующие стандартные диапазоны semver в `package.json`:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* Используйте `~2.0.0` для допущения исправления только стабильности или связанных с безопасностью исправлений к вашему релизу `2.0.0`.
+* Используйте `^2.0.0` для принятия неспокойной _разумно стабильной работы_ , а также исправлений безопасности и ошибок.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Во втором случае приложения, использующие `^` , все еще должны иметь возможность ожидать приемлемого уровня стабильности. Для этого semver позволяет _предварительный идентификатор_ указывать конкретную версию еще не _безопасная_ или _стабильная_.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Независимо от того, что вы выбрали, вам периодически придется загружать версию в `package.json` , так как нарушение изменений является фактом жизни Chromium.
 
-The process is as follows:
+Этот процесс является следующим:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
+1. Все новые строки основных и мелких релизов начинаются с бета-версии, обозначенной тегами пререлизов `бета-версии.`, например `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
@@ -85,9 +85,9 @@ The process is as follows:
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+1. Внесение не-breaking-API изменений перед 3-й неделей в бета-цикле нормально, даже если эти изменения могут вызвать умеренные побочные эффекты
+2. Внесение изменений в функционал, которые в противном случае не изменяют существующие пути кода, в большинстве точек в бета-цикле нормально. Пользователи могут явно включать эти флаги в своих приложениях.
+3. Добавляются возможности любого рода после 3-й недели в бета-цикле 👎 без очень хорошей причины.
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -102,10 +102,10 @@ For each major and minor bump, you should expect to see something like the follo
 
 An example lifecycle in pictures:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Создана новая ветка релиза, включающая в себя последний набор функций. Он опубликован как `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* Исправление ошибки входит в мастер, который может быть обращен в ветку выпуска. Патч применяется, и новая бета-версия опубликована как `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Позднее обнаруживается нулевой эксплойт и к мастеру применяется фиксация. Мы возвращаем исправление на линию `2-0-x` и релиз `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 A few examples of how various semver ranges will pick up new releases:
 
@@ -141,4 +141,4 @@ We seek to increase clarity at all levels of the update and releases process. St
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release branches are never merged back to master
 - Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+- Как только выпускная ветка будет перерезана на основной, мастер должен быть доставлен к следующему основному.  I.e. `master` is always versioned as the next theoretical release branch

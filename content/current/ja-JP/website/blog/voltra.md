@@ -61,7 +61,7 @@ Voltra をデザインするにあたって、ネイティブアプリやウェ�
 
 パフォーマンスを重視して、そこに時間をかけました。 最初はフレームワークから始めましたが、バニラ JavaScript に移行しました。 経験上、フレームワークが提供する一般的な抽象化は、導入することによるパフォーマンスの対価や儀式的な記述を上回ります。
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+私たちはこの時点で非常に大きなコレクションをかなりうまく扱います。 大きなコレクションは、おそらく数万の画像を意味します! ノードを持つ。 レンダリングプロセスから直接利用できるsのファイルシステムモジュールにより、DOM イベントに基づいて多くの画像をすばやく読み込むことが容易になりました。
 
 一般的に、*[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* と *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* は、UI の応答性を維持しながら多くの処理を実行するにあたってとてつもなく重要な道具です。 具体的には、CPU に依存するタスクを別のプロセスに分散させることで、ユーザーインターフェースの応答性を保つことができます。 たとえば、実際のオーディオコンテキストを別のプロセスに移動し、ビジーな UI による潜在的な中断を [IPC](https://electronjs.org/docs/glossary/#ipc) を介した通信で回避しました。
 
@@ -75,17 +75,17 @@ We handle very large collections pretty well at this point. Large collections me
 
 ## Electron の好きなところは何ですか?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: Node.js のネットワーキングスタックと Chromium のプレゼンテーションレイヤーをパッケージ化することは、物事を成し遂げるためのレシピです。
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**コンピテンシー**: Webスタックだけなので、文字通り我々のチームは実際に製品を作ることに携わっています。
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**コミュニティ**: 非常に組織化されたコミュニティがあり、本当によくコミュニケーションする方法を知っています。 このような支援を受けて開発することはとても素晴らしいことだと思います。
 
-## In what areas could Electron be improved?
+## Electronはどの分野で改善できますか?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+Electronが単一の包装会社を支持するのを見たいと思います。 パッケージマネージャーは Electron にとってパッケージマネージャーがNodeにとって重要です。 ユーザーランドには複数のパッケージがあり、それぞれに興味深い機能がありますが、それぞれにバグがあります。 コミュニティによるコンセンサスは、貢献者が費やすエネルギーを指示するのに役立ちます。
 
 ## 今後の予定は何ですか?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+私たちは現在、モバイルアプリを開発しており、アーティストやラベルと協力して、Voltraショップに音楽を追加しています。 やあ！ アーティストやラベルがあれば、 [今すぐサインアップ](https://admin.voltra.co/signup)! 1,000万曲という目標を達成したら開店を計画しています。
 

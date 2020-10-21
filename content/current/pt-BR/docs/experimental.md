@@ -1,17 +1,17 @@
-# Experimental APIs
+# APIs Experimentais
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Algumas das APIs do Electrons são marcadas com `_Experimental_` na documentação. Esta tag indica que a API pode não ser considerada estável e a API pode ser removida ou modificada com mais frequência do que outras APIs com menos aviso.
 
-## Conditions for an API to be tagged as Experimental
+## Condições para uma API ser marcada como Experimental
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Qualquer pessoa pode solicitar que uma API seja marcada como experimental em um recurso PR, desacordos sobre a natureza experimental de um recurso pode ser discutido na API WG se eles não puderem ser resolvidos no PR.
 
-## Process for removing the Experimental tag
+## Processo de remoção da Tag Experimental
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Uma vez que uma API esteja estável e em pelo menos duas principais linhas de versão estável, ela pode ser nomeada para ter a sua tag experimental removida.  Esta discussão ocorrerá em uma reunião de API WG.  Coisas a considerar ao discutir / nomear:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* A condição acima "duas grandes linhas de liberação de estábulos" deve ter sido atendida
+* Durante esse tempo, nenhum erro importante / issues deveria ter sido causado pela adoção deste recurso
+* A API é estável o suficiente e não foi fortemente afetada pelas atualizações do Chromium
+* Alguém está usando a API?
+* A API está a cumprir os casos de utilização originais propostos, tem alguma lacuna?

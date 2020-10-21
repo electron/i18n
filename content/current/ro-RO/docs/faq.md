@@ -12,7 +12,7 @@ Puteți încerca să descărcați Electron direct de pe [electron/electron/relea
 
 Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Se utilizează numai canalul stabil al Chrome. Dacă o reparație importantă este în canalul beta sau dev , o vom întoarce spre portare.
 
 Pentru mai multe informații, vă rugăm să consultați [introducerea de securitate](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Noile caracteristici ale Node.js sunt, de obicei, aduse de upgrade-urile V8, deo
 
 Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară cale este de a utiliza API-urile HTML5 care sunt deja disponibile în browsere. Candidații buni sunt [Stocarea API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), și [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternativ, poți folosi primitivele IPC furnizate de Electron. Pentru a partaja date între procesele principale și de redare, poți utiliza modulele [`ipcMain`](api/ipc-main.md) și [`ipcRenderer`](api/ipc-renderer.md). Pentru a comunica direct între paginile web, puteți trimite un [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) de la unul la altul, posibil prin procesul principal folosind [`ipcRenderer. Mesaj ()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Comunicările ulterioare cu privire la porturile de mesaje sunt directe și nu străbate prin procesul principal.
 
 ## Bara pentru aplicațiile mele a dispărut după câteva minute.
 
@@ -88,24 +88,24 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `Necesar ('electron').xxx` este nedefinit.
 
 Când utilizați modulul încorporat Electron este posibil să întâlniți o eroare ca aceasta:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Tip neprins: Imposibil de citit proprietatea 'setZoomLevel' de nedefinit
 ```
 
-It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Este foarte probabil să utilizați modulul într-un proces greșit. De exemplu `electron.app` poate fi utilizat numai în procesul principal, în timp ce `electron.webFrame` este disponibil numai în procesele de redare.
 
-## The font looks blurry, what is this and what can I do?
+## Fontul arată încețoșat, ce pot face și ce pot face?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplu:
+Dacă [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) este dezactivat, atunci fonturile de pe ecranele LCD pot arăta încețoșat. Exemplu:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![subpixel randare exemplu](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixelii anti-aliasing au nevoie de un fundal netransparent al stratului care conține fontul glicol. (Vezi [această problemă](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pentru mai multe informații).
 
 Pentru a atinge acest obiectiv, setează fundalul în constructor pentru [BrowserWindow](api/browser-window.md):
 
@@ -116,6 +116,6 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Efectul este vizibil doar pe ecranele LCD (câteva?). Chiar dacă nu vezi nicio diferență, unii dintre utilizatorii tăi ar putea să o facă. Cel mai bine este să setăm întotdeauna fundalul în acest mod, cu excepţia cazului în care există motive pentru a nu face acest lucru.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Observați că doar setarea fundalului în CSS nu are efectul dorit.

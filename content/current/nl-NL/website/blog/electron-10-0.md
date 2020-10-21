@@ -6,73 +6,73 @@ author:
 date: '2020-08-25'
 ---
 
-Electron 10.0.0 has been released! It includes upgrades to Chromium `85`, V8 `8.5`, and Node.js `12.16`. We've added several new API integrations and improvements. Read below for more details!
+Electron 10.0.0 is vrijgegeven! Het bevat upgrades naar Chromium `85`, V8 `8.5`en Node.js `12.16`. We hebben meerdere nieuwe API-integraties en verbeteringen toegevoegd. Lees hieronder voor meer details!
 
 ---
 
-The Electron team is excited to announce the release of Electron 10.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features.
+Het Electron team is enthousiast over de release van Electron 10.0.0! Je kunt het installeren met npm via `npm install electron@latest` of via onze [releases website](https://electronjs.org/releases/stable). De versie wordt verpakt met upgrades, reparaties en nieuwe functies.
 
-In the Electron 10 release, we also made a change to our release notes. To make it easier to tell what's brand new in Electron 10 and what may have changed between Electron 10 and past releases, we now also include changes that were introduced to Electron 10, but backported to previous releases. We hope this makes it easier to apps to find new features and bug fixes when upgrading Electron.
+In de Electron 10 release hebben we ook een wijziging aangebracht in onze release notes . Om het makkelijker te maken om te vertellen wat er nieuw is in Electron 10 en wat er mogelijk veranderd is tussen Electron 10 en verleden releases, We omvatten nu ook veranderingen die zijn ingevoerd bij Electron 10, maar teruggestuurd naar eerdere releases. We hopen dat dit het gemakkelijker maakt voor apps om nieuwe functies en bugfixes te vinden bij het upgraden van Electron.
 
-We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+We kunnen niet wachten om te zien wat je met hen bouwt! Ga door met het lezen van details over deze release en deel alle feedback die je hebt!
 
-## Notable Changes
+## Opmerkelijke wijzigingen
 
-### Stack Changes
+### Stack Wijzigingen
 
 * Chromium `85.0.4183.84`
-    * [New in Chrome 84](https://developers.google.com/web/updates/2020/07/nic84)
-    * [New in Chrome 85](https://chromereleases.googleblog.com/2020/08/stable-channel-update-for-desktop_25.html)
+    * [Nieuw in Chrome 84](https://developers.google.com/web/updates/2020/07/nic84)
+    * [Nieuw in Chrome 85](https://chromereleases.googleblog.com/2020/08/stable-channel-update-for-desktop_25.html)
 * Node.js `12.16.3`
-    * [Node 12.16.3 blog post](https://nodejs.org/en/blog/release/v12.16.3/)
+    * [Node 12.16,3 blogpost](https://nodejs.org/en/blog/release/v12.16.3/)
 * V8 `8.5`
-    * [V8 8.4 blog post](https://v8.dev/blog/v8-release-84)
-    * [V8 8.5 blog post](https://v8.dev/blog/v8-release-85)
+    * [V8 8.4 blogpost](https://v8.dev/blog/v8-release-84)
+    * [V8 8.5 blogpost](https://v8.dev/blog/v8-release-85)
 
-### Highlight Features
+### Kenmerken markeren
 
-* Added `contents.getBackgroundThrottling()` method and `contents.backgroundThrottling` property. [#21036]
-* Exposed the `desktopCapturer` module in the main process. [#23548](https://github.com/electron/electron/pull/23548)
-* Can now check if a given `session` is persistent by calling the `ses.isPersistent()` API. [#22622](https://github.com/electron/electron/pull/22622)
-* Resolve network issues that prevented RTC calls from being connected due to network IP address changes and ICE. (Chromium issue 1113227). [#24998](https://github.com/electron/electron/pull/24998)
+* `contents.getBackgroundThrottling()` methode en `contents.backgroundThrottling` eigenschap toegevoegd. [#21036]
+* De `desktopCapcher` module in het hoofdproces is blootgesteld. [#23548](https://github.com/electron/electron/pull/23548)
+* Kan nu controleren of een bepaalde `sessie` aanhoudt door de `ses.isPersistent()` API aan te roepen. [#22622](https://github.com/electron/electron/pull/22622)
+* Netwerkproblemen oplossen die beletten dat RTC gesprekken werden aangesloten door wijzigingen in het IP-adres van het netwerk en ICE. (Chromium issue 1113227). [#24998](https://github.com/electron/electron/pull/24998)
 
-See the [10.0.0 release notes](https://github.com/electron/electron/releases/tag/v10.0.0) for a full list of new features and changes.
+Zie de [10.0.0 release notes](https://github.com/electron/electron/releases/tag/v10.0.0) voor een volledige lijst met nieuwe functies en wijzigingen.
 
 ## Breaking Changes
 
-* Changed the default value of `enableRemoteModule` to `false`. [#22091](https://github.com/electron/electron/pull/22091)
-    * This is part of our plans for deprecating the `remote` module and moving it to userland. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
-* Changed the default value of `app.allowRendererProcessReuse` to `true`. [#22336](https://github.com/electron/electron/pull/22336) (Also in [Electron 9](https://github.com/electron/electron/pull/22401))
-   * This will prevent loading of non-context-aware native modules in renderer processes.
-   * You can read and follow [this issue](https://github.com/electron/electron/issues/18397) that details our reasons for this and includes a proposed timeline for deprecation.
-* Fixed the positioning of window buttons on macOS when the OS locale is set to an RTL language (like Arabic or Hebrew). Frameless window apps may have to account for this change while styling their windows. [#22016](https://github.com/electron/electron/pull/22016)
+* De standaardwaarde van `enableRemoteModule` veranderd naar `false`. [#22091](https://github.com/electron/electron/pull/22091)
+    * Dit is een onderdeel van onze plannen om de `externe` module af te breken en naar gebruiker te verplaatsen. U kunt [dit probleem](https://github.com/electron/electron/issues/21408) lezen en volgen die onze redenen hiervoor aangeeft en een voorgestelde tijdlijn voor afwikkeling bevat.
+* De standaard waarde van `app.allowRendererProcessReuse` naar `true`. [#22336](https://github.com/electron/electron/pull/22336) (Ook in [Electron 9](https://github.com/electron/electron/pull/22401))
+   * Dit voorkomt het laden van niet-context-bewust inheemse modules in renderer-processen.
+   * U kunt [dit probleem](https://github.com/electron/electron/issues/18397) lezen en volgen die onze redenen hiervoor aangeeft en een voorgestelde tijdlijn voor afwikkeling bevat.
+* De positionering van vensterknoppen op macOS is opgelost wanneer de lokalisatie van de OS is ingesteld op een RTL-taal (zoals het Arabisch of Hebrew). Framelloze venster-apps moeten rekening houden met deze wijziging tijdens het stylen van hun vensters. [#22016](https://github.com/electron/electron/pull/22016)
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Meer informatie over deze en toekomstige wijzigingen is te vinden op de [geplande Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) pagina.
 
-## API Changes
+## API wijzigingen
 
-* Session: Can now check if a given `session` is persistent by calling the `ses.isPersistent()` API. [#22622](https://github.com/electron/electron/pull/22622)
-* Contents: Added `contents.getBackgroundThrottling()` method and `contents.backgroundThrottling` property. [#21036](https://github.com/electron/electron/pull/21036)
+* Sessie: Kan nu controleren of een bepaalde `sessie` persistent is door de `ses.isPersistent()` API aan te roepen. [#22622](https://github.com/electron/electron/pull/22622)
+* Inhoud toegevoegd: `contents.getBackgroundThrottling()` methode en `contents.backgroundThrottling` property. [#21036](https://github.com/electron/electron/pull/21036)
 
-### Deprecated APIs
+### Afgekeurde API's
 
-The following APIs are now deprecated or removed:
+De volgende API's zijn nu verouderd of verwijderd:
 
-* Removed the deprecated `currentlyLoggingPath` property of `netLog`. Additionally, `netLog.stopLogging` no longer returns the path to the recorded log. [#22732](https://github.com/electron/electron/pull/22732)
-* Deprecated uncompressed crash uploads in `crashReporter`. [#23598](https://github.com/electron/electron/pull/23598)
+* De verouderde eigenschap `huidig LoggingPad` van `netlog` verwijderd. Bovendien, `netLog.stopLogging` geeft niet langer het pad terug naar de opgenomen log. [#22732](https://github.com/electron/electron/pull/22732)
+* Niet-gecomprimeerde crashuploads in `crashReporter`. [#23598](https://github.com/electron/electron/pull/23598)
 
-## End of Support for 7.x.y
+## Einde van de ondersteuning voor 7.x.y
 
-Electron 7.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 7.x.y heeft eind van ondersteuning bereikt als volgens het [ondersteuningsbeleid](https://electronjs.org/docs/tutorial/support#supported-versions) van het project. Ontwikkelaars en toepassingen worden aangemoedigd om te upgraden naar een nieuwere versie van Electron.
 
-## What's Next
+## Wat is volgende
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 11.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 11.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+In de korte termijn. je kan verwachten dat het team zich blijft concentreren op het bijhouden van de ontwikkeling van de belangrijkste onderdelen die Electron vormen, inclusief Chromium, Node en V8. Hoewel we ons ervoor hoeden om geen beloften te doen over releasedatums, ons plan is nieuwe grote versies van Electron vrij te geven met nieuwe versies van deze componenten ongeveer kwartaal. De [tentatieve 11.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) kaarten de belangrijkste data in de ontwikkelingslevenscyclus van Electron 11.0. Bekijk ook [ons versiedocument](https://electronjs.org/docs/tutorial/electron-versioning) voor meer gedetailleerde informatie over versiebeheer in Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+Voor informatie over geplande brekende wijzigingen in de aankomende versies van Electron, [zie onze geplande Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Continued Work for Deprecation of `remote` Module (in Electron 11)
-We started work to remove the remote module in [Electron 9](https://www.electronjs.org/blog/electron-9-0) and we're continuing plans to remove the `remote` module. In Electron 11, we plan to continue refactor work for implementing [WeakRef](https://v8.dev/features/weak-references) as we have done in Electron 10. Please read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
+### Voortdurend werk voor de afzetting van `externe` Module (in Electron 11)
+We zijn begonnen met het verwijderen van de externe module in [Electron 9](https://www.electronjs.org/blog/electron-9-0) en we gaan door met het verwijderen van de `externe` module. In Electron 11 zijn we van plan om de refactor te blijven gebruiken voor het implementeren van [WeakRef](https://v8.dev/features/weak-references) zoals we hebben gedaan in Electron 10. Lees en volg [dit probleem](https://github.com/electron/electron/issues/21408) voor de volledige plannen en details voor deprecation.
 
-### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 11)
-From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 11. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.
+### Laatste stap voor het verplicht maken van Native Node Modules om Context Aware of N-API te zijn (in Electron 11)
+Vanaf Electron 6 we hebben het grondwerk gelegd om [native Node modules](https://nodejs.org/api/addons.html) die in het renderer-proces zijn geladen te zijn [N-API](https://nodejs.org/api/n-api.html) of [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Het forceren van deze verandering zorgt voor een sterkere veiligheid, snellere prestaties en minder onderhoudswerk. De laatste stap van dit plan is het verwijderen van de mogelijkheid om het renderingsproces uit te schakelen voor hergebruik in Electron 11. Lees [dit probleem](https://github.com/electron/electron/issues/18397) voor volledige informatie, inclusief de voorgestelde tijdlijn.

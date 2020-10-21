@@ -20,8 +20,8 @@ menu.append(new MenuItem({
 你还可以在操作系统中配置不同的组合键。
 
 ```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+???????
+  加速器: process.platform === 'darwin' 'Alt+Cmd+I': 'Ctrl+Shift+I'
 }
 ```
 

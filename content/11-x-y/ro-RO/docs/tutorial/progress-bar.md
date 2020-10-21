@@ -1,18 +1,18 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# Bara de progres în bara de activități (Windows, macOS, Unitate)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Pe Windows un buton din bara de activități poate fi folosit pentru a afișa o bară de progres. Aceasta activează o fereastră pentru a oferi utilizatorului informații de progres fără ca utilizatorul să trebuie să comute la fereastra în sine.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Pe macOS bara de progres va fi afișată ca parte a iconiței de andocare.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DE are, de asemenea, o caracteristică similară care vă permite să specificați bara de progres în launcher.
 
-__Progress bar in taskbar button:__
+__Bara de progres în bara de activităţi:__
 
-![Taskbar Progress Bar][1]
+![Bara de progres a barei de activități][1]
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Toate cele trei cazuri sunt acoperite de acelaşi API - metoda `setProgressBar()` disponibilă pe instanţele `BrowserWindows`. Sună-l cu un număr între `0` şi `1` pentru a indica progresul tău. Dacă ai o sarcină lungă care este în prezent la 63% spre finalizare, o poți numi cu `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+În general, setarea parametrului la o valoare sub zero (ca `-1`) va elimina bara de progres în timp ce o va seta la o valoare mai mare de un (ca `2`) va comuta bara de progres în modul intermediar.
 
 See the [API documentation for more options and modes][setprogressbar].
 

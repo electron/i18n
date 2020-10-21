@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Інтернали Electron&#58; використання вузла в якості бібліотеки'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+Це другий пост у триваючій серії з поясненням інтерналів Electron. Спробуйте [перше повідомлення](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) про інтеграцію циклу подій , якщо ви ще цього не зробили.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+Більшість людей використовують [Node](https://nodejs.org) для застосунків на стороні сервера, але через багатого вузла API набір і процвітаючу спільноту, він також чудово підходить для вбудованої бібліотеки. Цей пост пояснює, як Node використовується в якості бібліотеки Electron.
 
 ---
 
-## Build system
+## Збірка
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+І вузол, і Electron використовують [`GYP`](https://gyp.gsrc.io) під час своїх будівельних систем. Якщо ви хочете вставити Node у ваш додаток, ви повинні використовувати його також як свою будівельну систему.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+Новий `GYP`? Прочитайте [це керівництво](https://gyp.gsrc.io/docs/UserDocumentation.md) перед продовженням в цьому повідомленні.
 
-## Node's flags
+## Позначки вузла
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+Вузол [`. yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) файл з вихідним кодом вузла описує як Node , разом з великою кількістю [`GYP`](https://gyp.gsrc.io) змінні, які контролюють, які частини Node, а також відкриті певні конфігурації.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+To change the build flags, you need to set the variables in the `.gypi` file of your project. Скрипт `налаштування` в Node може згенерувати деякі загальні конфігурації для вас, наприклад запущений `. налаштувати --shared` згенерує на `config.gypi` з змінними інструкцією Node для будівництва в якості спільної бібліотеки.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron не використовує `налаштований` скрипт, оскільки у нього є власні складські скрипти. Конфігурації для Node визначені в [`звичайній.gypi`](https://github.com/electron/electron/blob/master/common.gypi) файл в папці кореневого коду Electron.
 
-## Link Node with Electron
+## Посилання вузла з Electron
 
 In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. Це зроблено шляхом встановлення обох `node_use_v8_platform` і `node_use_bundled_v8` до `false`.
 
-## Shared library or static library
+## Бібліотека кубиків або статична бібліотека
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Під час зв'язку з вузлом існують два варіанти: ви можете побудувати вузол як статичну бібліотеку і включити її в останню чергу, або ви можете створити її у вигляді , спільної бібліотеки та поставлення її поруч з кінцевим виконанням.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+В Electron Node був побудований як статична бібліотека тривалий час. Це зробило простий інструмент, увімкнув найкращу оптимізацію компілятора, і дозволили Electron розподіляти без додаткового `файлу node.dll`.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+Тим не менш, це змінилося після переходу на Chrome використовувати [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL це форк [OpenSSL](https://www.openssl.org) , який видаляє декілька невикористаних API і змінює багато існуючих інтерфейсів. Оскільки вузол все ще використовує OpenSSL, компілятор створить численні посилання на помилки через конфліктуючі символи, якщо вони з'єднані разом.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron не зміг використовувати BoringSSL в Node, або використовувати OpenSSL в Chromium, таким чином єдиний параметр повинен був перемкнутися до будівлі Node як спільна бібліотека, і [приховати BoringSSL і OpenSSL символи](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) в компонентах кожного.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+Ця зміна принесла деякі позитивні побічні ефекти Electron. Перед зміною , не вдалося перейменувати виконуваний файл Electron для Windows, якщо ви використали нативні модулі, тому що ім'я виконуваного файлу було жорстко закодовано в бібліотеці імпорту. Після того, як вузол був побудований в якості спільної бібліотеки, це обмеження було прийнято тому що всі рідні модулі були об'єднані з `вузлом. ll`, чиї ім'я не треба бути змінені.
 
-## Supporting native modules
+## Підтримуються нативні модулі
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Нативні модулі](https://nodejs.org/api/addons.html) в вузла працюють шляхом визначення функції запису для завантаження Node, та після, яка шукає символи V8 та лібув з Node. Трохи непокоїть вбудовані об'єкти, тому що за замовчуванням символи V8 і libuv приховані, коли побудова Node як бібліотека, а нативні модулі не зможуть завантажити тому що вони не можуть знайти символи.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Таким чином, щоб зробити власні модулі працювали, символи V8 і libuv показані в Electron. Для V8 це зроблено [всі символи в файлі конфігурації Chromium повинні бути викриті на](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). Для лібу, його досягнуто за допомогою [встановлення `BUILDING_UV_SHARED=1` визначення](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## Початковий вузол у вашому додатку
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+Після всієї роботи будівлі та зв'язку з Node, останній крок виконується Node у вашому додатку.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+Вузол не забезпечує великий публічний API для вбудовування себе в інші застосунки. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. Однак, якщо ви створюєте комплексний додаток на основі вузла, ви повинні використовувати такі API як `вузол::CreateEnvironment` , щоб точно контролювати кожен крок.
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+В Electron, Node запущено в двох режимах: режим автономного, який виконується в основному процесі, який схожий на офіційні бінарні вузла і вбудований режим , який вставляє API вузла на веб-сторінки. Деталі цього буде пояснено у майбутньому повідомленні.
 

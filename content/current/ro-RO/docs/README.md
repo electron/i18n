@@ -4,7 +4,7 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt puse destul de des. Verifică asta înainte de a crea o problemă:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 
@@ -17,8 +17,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Alegerea unui editor](tutorial/development-environment.md#a-good-editor)
 * [Crearea primei tale aplicații](tutorial/quick-start.md)
   * [Cerințe preliminare](tutorial/quick-start.md#prerequisites)
-  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
-  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [Creați o aplicație de bază](tutorial/quick-start.md#create-a-basic-application)
+  * [Pachet și distribuire cerere](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -48,7 +48,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Activare manuală caracteristici de accesibilitate](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testare și depanare](tutorial/application-debugging.md)
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
   * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)

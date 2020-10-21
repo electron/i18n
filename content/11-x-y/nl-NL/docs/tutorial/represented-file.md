@@ -1,12 +1,12 @@
 # Representatief bestand voor macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Op macOS kan een venster een bestand instellen zodat het pictogram van het bestand kan worden weergegeven in de titelbalk en wanneer gebruikers commando-Klik of Control-Klik op de titel een pad popup zal tonen.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+U kunt ook de bewerkte status van een venster instellen zodat het pictogram van het bestand kan aangeven of het document in dit venster is gewijzigd.
 
-__Represented file popup menu:__
+__Representatief bestand popup menu:__
 
-![Represented File][1]
+![Representatief bestand][1]
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs:
 

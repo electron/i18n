@@ -4,18 +4,18 @@
 
 Ciertos tipos de aplicaciones que manipulan archivos podrían querer soportar la función nativa de arrastrar & soltar archivos del sistema operativo. Arrastrar archivos dentro de un web content es común y soportado por muchos sitios web. Adicionalmente Electron soporta arrastre de archivos fuera del web content dentro del mundo del sistema.
 
-To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
+Para implementar esta característica en tu aplicación, necesitas llamar a [`webContents. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API en respuesta al evento `ondragstart`.
 
 ## Ejemplo
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
+Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), agregue las siguientes líneas al archivo `index.html`:
 
 ```html
 <a href="#" id="drag">Arrastra me</a>
 <script src="renderer.js"></script>
 ```
 
-and add the following lines to the `renderer.js` file:
+y añadir las siguientes líneas al archivo `renderer.js`:
 
 ```js
 const { ipcRenderer } = require('electron')
@@ -26,9 +26,9 @@ document.getElementById('drag').ondragstart = (event) => {
 }
 ```
 
-The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+El código anterior indica al proceso de Renderer que maneje el evento `ondragstart` y reenvíe la información al proceso Principal.
 
-In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+En el proceso principal(`main. s` archivo), expande el evento recibido con una ruta al archivo que está siendo arrastrado y un icono:
 
 ```javascript
 const { ipcMain } = require('electron')
@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Después de lanzar la aplicación Electron, trata de arrastrar y soltar el elemento de la ventana a su escritorio. In this guide, the item is a Markdown file located in the root of the project:
+Después de lanzar la aplicación Electron, trata de arrastrar y soltar el elemento de la ventana a su escritorio. En esta guía, el elemento es un archivo Markdown ubicado en la raíz del proyecto:
 
-![Drag and drop](../images/drag-and-drop.gif)
+![Arrastre y suelte](../images/drag-and-drop.gif)

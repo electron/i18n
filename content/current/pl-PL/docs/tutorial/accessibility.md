@@ -1,16 +1,16 @@
 # Dostępność
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Udostępnianie aplikacji jest ważne i cieszymy się, że możemy zapewnić funkcjonalności [Devtron](https://electronjs.org/devtron) i [Spectron](https://electronjs.org/spectron) , który daje programistom możliwość poprawy ich aplikacji dla wszystkich.
 
 ---
 
 Obawy ułatwień dostępu w aplikacjach Electron'a są podobne do tych z stron internetowych, ponieważ są one tak samo ostatecznie w HTML'u. Aplikacje Electron'a jednak nie mogą używać zasobów online dla audytów dostępności, ponieważ Twoja aplikacja nie ma adresu URL, który by wskazywał dla biegłych rewidendów.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Zapoznaj się z podsumowaniem narzędzi.
+Te funkcje wprowadzają te narzędzia do Twojej aplikacji Electron. Możesz wybrać dodawanie audytów do testów za pomocą Spectron lub użyć ich w DevTools z Devtron. Zapoznaj się z podsumowaniem narzędzi.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Na przykład:
+W testach Framework Spectron możesz teraz kontrolować każde okno i `<webview>` tag w aplikacji. Na przykład:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,7 +24,7 @@ Możesz dowiedzieć się więcej o tej funkcjonalności w [Dokumentacji Spectron
 
 ## Devtron
 
-In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+W Devtron znajduje się zakładka ułatwień dostępu, która pozwoli Ci na kontrolowanie strony w aplikacji, sortowanie i filtrowanie wyników.
 
 ![devtron zrzut z ekranu](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,21 +32,21 @@ Obydwa te narzędzia używają [Accessibility Developer Tools](https://github.co
 
 Jeżeli znasz inne dobre narzędzia dostępne dla Electron, dodaj je do dokumentacji dostępności za pomocą pull request.
 
-## Manually enabling accessibility features
+## Ręczne włączanie funkcji ułatwień dostępu
 
-Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Aplikacje Electron automatycznie włączą funkcje ułatwień dostępu w obecności technologii wspomagającej (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) na Windows lub [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) na macOS). Zobacz [dokumentację dostępności dla Chrome](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) , aby uzyskać więcej informacji.
 
-You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
+Możesz również ręcznie przełączać te funkcje w aplikacji Electron lub ustawiając flagi w oprogramowaniu natywnym innych firm.
 
 ### Używanie API Electrona
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
+Używając [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API możesz ręcznie ujawnić drzewo dostępności Chrome użytkownikom w preferencjach aplikacji. Zauważ, że systemowe narzędzia wspomagające użytkownika mają pierwszeństwo przed tym ustawieniem i go nadpisze.
 
-### Within third-party software
+### W ramach oprogramowania firm trzecich
 
 #### macOS
 
-On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
+W macOS technologia wspomagania firm trzecich może przełączać funkcje dostępności wewnątrz aplikacji Electrona, ustawiając atrybut `AXManualAccessibility` programowo:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

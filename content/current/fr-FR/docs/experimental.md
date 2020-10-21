@@ -1,17 +1,17 @@
-# Experimental APIs
+# APIs expérimentaux
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Certaines des API Electrons sont taggées avec `_Experimental_` dans la documentation. Cette balise indique que l'API peut ne pas être considérée comme stable et que l'API peut être supprimée ou modifiée plus fréquemment que les autres API avec moins d'avertissement.
 
-## Conditions for an API to be tagged as Experimental
+## Conditions pour qu'une API soit taguée comme expérimentale
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+N'importe qui peut demander à une API d'être marqué comme expérimental dans une fonctionnalité PR, les désaccords sur la nature expérimentale d'une fonctionnalité peuvent être discutés dans l'API WG s'ils ne peuvent pas être résolus dans le PR.
 
-## Process for removing the Experimental tag
+## Processus pour supprimer le tag expérimental
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Une fois qu'une API a été stable et dans au moins deux lignes de version stable majeures, peut être nommé pour que sa balise expérimentale soit supprimée.  Cette discussion devrait avoir lieu lors d'une réunion de l'API WG.  Choses à considérer lors de la discussion / la nomination :
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* La condition ci-dessus "deux lignes de publication des écuries majeures" doit avoir été remplie
+* Pendant ce temps, aucun bug / problème majeur n'aurait dû être causé par l'adoption de cette fonctionnalité
+* L'API est assez stable et n'a pas été fortement impactée par les mises à jour de Chromium
+* Quelqu'un utilise-t-il l'API ?
+* L'API respecte-t-elle les usecases proposées initialement, a-t-elle des lacunes?

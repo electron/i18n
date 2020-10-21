@@ -1,30 +1,30 @@
-# Custom Linux Desktop Launcher Actions
+# إجراءات تشغيل سطح المكتب لـ Linux المخصصة
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+في العديد من بيئات Linux ، يمكنك إضافة إدخالات مخصصة إلى مشغل عن طريق تعديل ملف `سطح المكتب`. للحصول على وثائق وحدة كانونيكل، انظر [إضافة الاختصارات إلى مشغل](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). للحصول على تفاصيل حول تنفيذ أكثر عمومية، راجع [مواصفات esktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-__Launcher shortcuts of Audacious:__
+__إطلاق اختصارات مراجعة الحسابات:__
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![جريئة](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+بشكل عام، يتم إضافة الاختصارات عن طريق توفير `اسم` و `Exec` لكل إدخال في قائمة الاختصار. الوحدة ستنفذ الحقل `Exec` بمجرد النقر عليه من قبل المستخدم. والشكل كما يلي:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+الإجراءات=إيقاف التشغيل؛التالي؛
 
-[Desktop Action PlayPause]
-Name=Play-Pause
-Exec=audacious -t
-OnlyShowIn=Unity;
+السابق [إيقاف تشغيل سطح المكتب]
+Name=Playy-Pause
+Exec=audious -t
+فقط على ShowIn=Un;
 
-[Desktop Action Next]
+[إجراء سطح المكتب التالي]
 Name=Next
-Exec=audacious -f
-OnlyShowIn=Unity;
+Exec=audious -f
+OnlyShowIn=Unity؛
 
-[Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+[إجراء سطح المكتب السابق]
+Name=سابقا
+Exec=audious -r
+OnlyShowIn=Un;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+الطريقة المفضلة للوحدة لإخبار تطبيقك بما يجب فعله هي استخدام المعلمات. يمكنك العثور على هذه في التطبيق الخاص بك في المتغير العالمي `process.argv`.

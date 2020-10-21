@@ -4,7 +4,7 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 ## Perguntas Frequentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar uma issue:
 
 * [Perguntas Frequentes no Electron](faq.md)
 

@@ -58,13 +58,13 @@ ipcMain.on('online-status-changed', (event, status) => {
 _stato-online.html_
 
 ```html
-<!DOCTYPE html>
+<! OCTYPE html>
 <html>
 <body>
 <script>
   const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
+    ipcRenderer. end('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
   window.addEventListener('online',  updateOnlineStatus)

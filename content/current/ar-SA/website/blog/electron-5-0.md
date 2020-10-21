@@ -7,114 +7,114 @@ author:
 date: '2019-04-23'
 ---
 
-The Electron team is excited to announce the release of Electron 5.0.0! You can install it with npm via `npm install electron@latest` or download the tarballs from [our releases page](https://github.com/electron/electron/releases/tag/v5.0.0). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+فريق إلكترون متحمس للإعلان عن إصدار إلكترون 5.0.0! يمكنك تثبيته باستخدام npm عن طريق `npm تثبيت electron@latest` أو تحميل القطارات من [صفحة الإصدارات الخاصة بنا](https://github.com/electron/electron/releases/tag/v5.0.0). يتم تعبئة الإصدار مع الترقيات والإصلاحات والميزات الجديدة. لا يمكننا الانتظار لرؤية ما تبنيه معهم! واصل القراءة للحصول على تفاصيل حول هذا الإصدار، يرجى مشاركة أي ملاحظات لديك!
 
 ---
 
-## What's New?
+## ما الجديد؟
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
+وتوفر المكونات الأساسية لـ Chromium، و Node.js، و V8 جزءا كبيرا من وظيفة Electron. إلكترون يحافظ على تحديث هذه المشاريع لتزويد مستخدمينا بميزات جافا سكريبت الجديدة، وتحسين الأداء، والإصلاحات الأمنية. كل من هذه الحزم يحتوي على نسخة رئيسية في إلكترون 5:
 
 - Chromium `73.0.3683.119`
-  - [New in 70](https://developers.google.com/web/updates/2018/10/nic70)
-  - [New in 71](https://developers.google.com/web/updates/2018/12/nic71)
-  - [New in 72](https://developers.google.com/web/updates/2019/01/nic72)
-  - [New in 73](https://developers.google.com/web/updates/2019/03/nic73)
+  - [جديد في 70](https://developers.google.com/web/updates/2018/10/nic70)
+  - [جديد في 71](https://developers.google.com/web/updates/2018/12/nic71)
+  - [جديد في 72](https://developers.google.com/web/updates/2019/01/nic72)
+  - [جديد في 73](https://developers.google.com/web/updates/2019/03/nic73)
 - Node.js `12.0.0`
-  - [Node 12 Blog Post](https://nodejs.org/en/blog/release/v12.0.0/)
+  - [عقدة 12 مشاركة المدونة](https://nodejs.org/en/blog/release/v12.0.0/)
 - V8 `7.3.492.27`.
-  - [New JS Features](https://twitter.com/mathias/status/1120700101637353473)
+  - [ميزات JS جديدة](https://twitter.com/mathias/status/1120700101637353473)
 
-Electron 5 also includes improvements to Electron-specific APIs. A summary of the major changes is below; for the full list of changes, check out the [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
+ويشمل إلكترون 5 أيضاً تحسينات على API الخاصة بإلكترون. يوجد أدناه ملخص للتغييرات الرئيسية؛ للحصول على القائمة الكاملة للتغييرات، تحقق من [إلكترون v5.0.0 ملاحظات الإصدار](https://github.com/electron/electron/releases/tag/v5.0.0).
 
 ### Promisification
 
-Electron 5 continues [Promisification initiative](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiative to convert Electron's callback-based API to use Promises. These APIs were converted for Electron 5:
+إستمرار مبادرة إلكترون 5 [مبادرة التبشير](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) لتحويل واجهة برمجة تطبيقات إلكترون القائمة على رد المكالمات إلى استخدام الوعود. تم تحويل واجهات برمجة التطبيقات هذه إلى إلكترون 5:
 * `app.getFileIcon`
-* `contentTracing.getCategories`
-* `contentTracing.startRecording`
-* `contentTracing.stopRecording`
+* `تتبع المحتوى.getcategorories`
+* `contentTracing.startregisording`
+* `محتوىTracing.stopRecording`
 * `debugger.sendCommand`
-* Cookies API
+* ملفات تعريف الارتباط API
 * `shell.openExternal`
 * `webContents.loadFile`
 * `webContents.loadURL`
 * `webContents.zoomLevel`
 * `webContents.zoomFactor`
-* `win.capturePage`
+* `win.capturePpage`
 
-### System colors access for macOS
+### الوصول إلى ألوان النظام لـ macOS
 
-These functions were changed or added to `systemPreferences` to access macOS systems' colors:
-* `systemPreferences.getAccentColor`
-* `systemPreferences.getColor`
-* `systemPreferences.getSystemColor`
+تم تغيير أو إضافة هذه الوظائف إلى `نظام تفضيلات` للوصول إلى ألوان أنظمة ماكوس:
+* `نظام الأفضليات.getAccentColor`
+* `نظام الأفضليات.getColor`
+* `نظام الأفضليات.getSystemColor`
 
-### Process memory information
+### معالجة معلومات الذاكرة
 
-The function `process.getProcessMemoryInfo` has been added to get memory usage statistics about the current process.
+تمت إضافة الدالة `process.getProcessMemoryInfo` للحصول على إحصائيات استخدام الذاكرة حول العملية الحالية.
 
-### Additional filtering for remote APIs
+### عامل تصفية إضافي لAPIs البعيد
 
 To improve security in the `remote` API, new remote events have been added so that `remote.getBuiltin`, `remote.getCurrentWindow`, `remote.getCurrentWebContents` and `<webview>.getWebContents` can be [filtered](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
 
-### Multiple BrowserViews on BrowserWindow
+### مشاهدة متصفح متعددة على نافذة المتصفح
 
-BrowserWindow now supports managing multiple BrowserViews within the same BrowserWindow.
+يدعم نافذة المتصفح الآن إدارة العديد من وجهات نظر المتصفح داخل نفس نافذة المتصفح.
 
 ## كسر تغييرات API
 
-### Defaults for packaged apps
+### الافتراضي لتطبيقات الحزم
 
-Packaged apps will now behave the same as the default app: a default application menu will be created unless the app has one and the `window-all-closed` event will be automatically handled unless the app handles the event.
+سوف تتصرف التطبيقات المحزمة الآن بنفس الطريقة التي يعمل بها التطبيق الافتراضي: سيتم إنشاء قائمة التطبيق الافتراضية ما لم يكن للتطبيق واحد وسيتم التعامل مع الحدث `النافذة كلها` تلقائياً ما لم يتعامل التطبيق مع الحدث.
 
-### Mixed sandbox
+### صندوق رمل مختلط
 
-Mixed sandbox mode is now enabled by default. Renderers launched with `sandbox: true` will now be actually sandboxed, where previously they would only be sandboxed if mixed-sandbox mode was also enabled.
+تم الآن تمكين وضع صندوق الرمل المختلط بشكل افتراضي. المعرضون الذين تم تشغيلهم مع `صندوق الرمل: صحيح` سيتم الآن في الواقع في صندوق الرمال، حيث كان سيتم ربطهم في السابق فقط إذا تم تمكين وضع صندوق الرمل المختلط.
 
-### Security improvements
-The default values of `nodeIntegration` and `webviewTag` are now `false` to improve security.
+### التحسينات الأمنية
+القيم الافتراضية لـ `عقد التكامل` و `webviewtag` هي الآن `خاطئة` لتحسين الأمان.
 
-### Spellchecker now asynchronous
+### المدقق الإملائي الآن غير متزامن
 
-The SpellCheck API has been changed to provide [asynchronous results](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
+تم تغيير API للفحص الإملائي لتوفير [نتائج غير متزامنة](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
 
-## Deprecations
+## الإهانات
 
-The following APIs are newly deprecated in Electron 5.0.0 and planned for removal in 6.0.0:
+واجهات برمجة التطبيقات التالية مهملة حديثاً في إلكترون 5.0.0 ومن المقرر إزالتها في 6.0.0:
 
-### Mksnapshot binaries for arm and arm64
-Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
+### لقطة ثنائية للذراع و الذراع 64
+أما ثنائيات اللقطات المحلية للذراع والأسلحة 64 فهي مهملة وسيتم إزالتها في 6 أعوام. .0. يمكن إنشاء لقطات الذراع و الذراع 64 باستخدام ثنائيات x64.
 
-### ServiceWorker APIs on WebContents
-Deprecated ServiceWorker APIs on WebContents in preparation for their removal.
+### واجهة برمجة تطبيقات عمال الخدمة على محتويات الويب
+واجهة برمجة تطبيقات عمال الخدمة المهملين على محتويات الويب استعدادا لإزالتهم.
 * `webContents.hasServiceWorker`
 * `webContents.unregisterServiceWorker`
 
-### Automatic modules with sandboxed webContents
-In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
-* `electron.screen`
-* `child_process`
+### وحدات تلقائية مع محتويات ويب مربوطة
+من أجل تحسين الأمن، الوحدات التالية يتم إهمالها لاستخدامها مباشرة عبر `تتطلب` وسوف تحتاج بدلاً من ذلك إلى إدراجها عبر `جهاز التحكم البعيد. مساواة` في محتويات ويب مربعة:
+* `إلكتروني.شاشةformat@@0`
+* `عملية الطفل_`
 * `fs`
-* `os`
-* `path`
+* `الحواشي`
+* `المسار`
 
 ## webFrame Isolated World APIs
-`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` have been deprecated in favor of `webFrame.setIsolatedWorldInfo`.
+`webFrame.setIsolatedWorldContentSecurityPolicy`،`webFrame.setIsolatedWorldHumanReadableName`، `webFrame.setolatedWorldSecurityOrigin` تم تجاهلها لصالح `webFrame.setIsolatedWorldInfo`.
 
-### Mixed sandbox
-`enableMixedSandbox` and the `--enable-mixed-sandbox` command-line switch still exist for compatibility, but are deprecated and have no effect.
+### صندوق رمل مختلط
+`enableMixedSandbox` و `--enable-sandbox` مفتاح سطر الأوامر لا يزال موجودا لتحقيق التوافق، ولكنه مهمل وليس له أي تأثير.
 
-## End of support for 2.0.x
+## نهاية الدعم لـ 2.0.x
 
-Per our [supported versions policy](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x has reached end of life.
+في سياسة الإصدارات المدعومة [](https://electronjs.org/docs/tutorial/support#supported-versions)، وصلت 2.0.x إلى نهاية الحياة.
 
 ## برنامج ملاحظات بيتا
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+نحن نواصل استخدام [برنامج ملاحظات التطبيق](https://electronjs.org/blog/app-feedback-program) للاختبار. المشاريع التي تشارك في هذا البرنامج اختبار إلكترون بيتا في تطبيقاتها؛ وفي المقابل، يتم إعطاء الأولوية للأخطاء الجديدة التي يجدونها للإفراج المستقر. إذا كنت ترغب في المشاركة أو معرفة المزيد، [تحقق من مشاركة مدونتنا حول البرنامج](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## ما التالي
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 6.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) maps out key dates in the Electron 6 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+وفي الأجل القصير، يمكنك أن تتوقع من الفريق أن يستمر في التركيز على مواكبة تطوير المكونات الرئيسية التي تتكون منها الإلكترون، بما في ذلك Chromium، وNode، وV8. وعلى الرغم من أننا حريصون على عدم تقديم وعود بشأن تواريخ الإصدار، خطتنا هي إصدار إصدارات رئيسية جديدة من إلكترون مع إصدارات جديدة من تلك المكونات كل ثلاثة أشهر تقريبا. [جدول 6.0.0 المؤقت](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) يحدد التواريخ الرئيسية في دورة تطوير إلكترون 6. أيضًا، [راجع مستند الإصدار](https://electronjs.org/docs/tutorial/electron-versioning) للحصول على معلومات أكثر تفصيلاً حول الإصدار في إلكترون.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+للحصول على معلومات عن التغييرات المخططة في التكسير في الإصدارات القادمة من إلكترون، [راجع التغييرات المخطط لها الخاصة بنا](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

@@ -55,7 +55,7 @@ Sólo se proporcionan binarios de 64bit para macOS, y la versión mínima de mac
 
 Windows 7 y posteriores son soportados, sistemas operativos más viejos no lo son (y no funcionan).
 
-Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [Electron 6.0.8 y posteriormente añadir soporte nativo para Windows en dispositivos Arm (`arm64`)](windows-arm.md). Es posible ejecutar aplicaciones empaquetadas con versiones anteriores usando el binario ia32.
 
 ### Linux
 

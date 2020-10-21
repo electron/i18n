@@ -10,7 +10,7 @@ Se pueden usar dos modos de renderización y solo se pasa el área sucia en el e
 
 ### GPU acelerado
 
-La renderización acelerada por GPU significa que la GPU se usa para la composición. Debido a eso, el cuadro debe copiarse de la GPU, que requiere más rendimiento, por lo que este modo es bastante más lento que el otro. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+La renderización acelerada por GPU significa que la GPU se usa para la composición. Debido a eso, el cuadro debe copiarse de la GPU, que requiere más rendimiento, por lo que este modo es bastante más lento que el otro. El beneficio de este modo es que las animaciones WebGL y 3D CSS son compatibles.
 
 ### Dispositivo de salida de software
 
@@ -27,16 +27,16 @@ app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
+  gana. oadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    // updateBitmap(dirty, image. etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

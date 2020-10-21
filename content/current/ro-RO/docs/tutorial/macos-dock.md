@@ -1,30 +1,30 @@
-# macOS Dock
+# Dock macOS
 
 ## Overview
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron are API-uri pentru a configura pictograma aplicației în Docul macOS. Un macOS-only Există pentru a crea un meniu de andocare personalizat, dar Electron utilizează, de asemenea, pictograma de andocare a aplicației ca punct de intrare pentru caracteristici cross-platform ca [documente recente](./recent-documents.md) și [progresul aplicației](./progress-bar.md).
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Dock-ul personalizat este folosit în mod obișnuit pentru a adăuga comenzi rapide la sarcini pentru care utilizatorul nu ar dori să deschidă întreaga fereastră.
 
-__Dock menu of Terminal.app:__
+__Meniu de andocare din Terminal.app:__
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Meniu andocare](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+Pentru a seta meniul de andocare personalizat, trebuie să utilizaţi [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, care este disponibil numai pe macOS.
 
 ## Exemplu
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), actualizați fișierul `main.js` cu următoarele linii:
 
 ```javascript
 const { app, Menu } = require('electron')
 
-const dockMenu = Menu.buildFromTemplate([
+const dockMenu = Meniu. uildFromTemplate([
   {
     label: 'New Window',
-    click () { console.log('New Window') }
+    click () { consolă. og('Noua fereastră') }
   }, {
-    label: 'New Window with Settings',
+    eticheta: 'Fereastră nouă cu Setări',
     submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
@@ -33,11 +33,11 @@ const dockMenu = Menu.buildFromTemplate([
   { label: 'New Command...' }
 ])
 
-app.whenReady().then(() => {
+aplicație. henReady().then(() => {
   app.dock.setMenu(dockMenu)
 })
 ```
 
-After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+După lansarea aplicației Electron, click dreapta pe pictograma aplicației. Ar trebui să vezi meniul personalizat pe care tocmai l-ai definit:
 
-![macOS dock menu](../images/macos-dock-menu.png)
+![meniu de andocare macOS](../images/macos-dock-menu.png)

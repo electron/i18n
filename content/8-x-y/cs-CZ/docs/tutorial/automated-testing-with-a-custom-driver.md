@@ -1,8 +1,8 @@
-# Automated Testing with a Custom Driver
+# Automatizované testování s vlastním řidičem
 
-To write automated tests for your Electron app, you will need a way to "drive" your application. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Chcete-li psát automatické testy pro vaši Electron aplikaci, budete potřebovat způsob, jak "řídit" vaši aplikaci. [Spectron](https://electronjs.org/spectron) je běžně používané řešení, které umožňuje emulovat akce uživatele prostřednictvím [WebDriver](http://webdriver.io/). Nicméně, je také možné napsat vlastní ovladač pomocí vestavěného IPC-over-STDIO. Výhodou vlastního řidiče je, že má tendenci vyžadovat méně režijních nákladů než Spectron, a umožňuje vystavit vlastní metody vašemu testovacímu soupravě.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. The test suite will spawn the Electron process, then establish a simple messaging protocol:
+Pro vytvoření vlastního ovladače použijeme Node.js' [child_process](https://nodejs.org/api/child_process.html) API. Testovací sada spustí proces Electron a poté vytvoří jednoduchý protokol pro zasílání zpráv:
 
 ```js
 var childProcess = require('child_process')
@@ -18,25 +18,25 @@ appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// pošlete IPC zprávu do aplikace
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+V rámci Electron aplikace můžete poslouchat zprávy a posílat odpovědi pomocí Node.js [procesu](https://nodejs.org/api/process.html) API:
 
 ```js
-// listen for IPC messages from the test suite
-process.on('message', (msg) => {
+// poslouchejte zprávy IPC od testovací sady
+proces.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
-process.send({ my: 'message' })
+// pošlete IPC zprávu do testovací sady
+proces.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Nyní můžeme komunikovat z testovací sady do aplikace Electron pomocí objektu `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Pro pohodlí můžete zabalit `appProcess` do objektu řidiče, který poskytuje více funkcí na vysoké úrovni. Zde je příklad, jak to můžete udělat:
 
 ```js
 class TestDriver {
@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+V aplikaci je třeba napsat jednoduchý handler pro RPC hovory:
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Potom můžete ve svém testovacím balíku použít testovací ovladač takto:
 
 ```js
 var test = require('ava')

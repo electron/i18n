@@ -1,20 +1,20 @@
 ---
-title: Accessibility Tools
+title: Strumenti Di Accessibilità
 author: jlord
 date: '2016-08-23'
 ---
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Rendere le applicazioni accessibili è importante e siamo felici di introdurre nuove funzionalità per [Devtron](https://electronjs.org/devtron) e [Spectron](https://electronjs.org/spectron) che offre agli sviluppatori l'opportunità di migliorare le loro applicazioni per tutti.
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+I problemi di accessibilità nelle applicazioni Electron sono simili a quelli dei siti web perché sono entrambi in ultima analisi HTML. Con le app Electron, tuttavia, non è possibile utilizzare le risorse online per le verifiche di accessibilità perché la tua app non dispone di un URL a cui puntare l'auditor.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) for more information.
+Queste nuove funzionalità portano questi strumenti di controllo alla tua app Electron. Puoi scegliere di aggiungere audit ai tuoi test con Spectron o usarli all'interno di DevTools con Devtron. Continua a leggere per un riassunto degli strumenti o controlla la nostra [documentazione di accessibilità](https://electronjs.org/docs/tutorial/accessibility/) per ulteriori informazioni.
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Ad esempio:
+Nel framework di test Spectron, ora puoi controllare ogni finestra e `<webview>` tag nella tua applicazione. Ad esempio:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -28,11 +28,13 @@ Puoi leggere ulteriori informazioni su questa funzione nella [documentazione di 
 
 ### Devtron
 
-In Devtron there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+In Devtron c'è una nuova scheda di accessibilità che ti permetterà di controllare una pagina nella tua app, ordinare e filtrare i risultati.
 
 ![screenshot di devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Entrambi questi strumenti utilizzano la libreria [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) costruita da Google per Chrome. Puoi saperne di più sulle regole di controllo dell'accessibilità che questa libreria utilizza su quella wiki</a> del repository di
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) with a pull request.
+.</p> 
+
+Se conosci altri ottimi strumenti di accessibilità per Electron, aggiungili alla [documentazione di accessibilità](https://electronjs.org/docs/tutorial/accessibility/) con una pull request.
 

@@ -1,102 +1,102 @@
 ---
-title: "Electron's New Internationalized Website"
+title: "Site-ul nou Internaționalizat al Electron"
 author: zeke
 date: '2017-11-13'
 ---
 
-Electron has a new website at [electronjs.org](https://electronjs.org)! We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
+Electron are un nou site la [electronjs.org](https://electronjs.org)! Am înlocuit site-ul nostru static Jekyll cu un nod. s webserver, oferindu-ne flexibilitate internaționalizează site-ul și pregătind calea pentru funcții noi mai interesante.
 
 ---
 
-## 🌍 Translations
+## 🌍 Traduceri
 
-We've begun the process of internationalizing the website with the goal of making Electron app development accessible to a global audience of developers. We're using a localization platform called [Crowdin](https://crowdin.com/project/electron) that integrates with GitHub, opening and updating pull requests automatically as content is translated into different languages.
-
-<figure>
-  <a href="https://electronjs.org/languages">
-    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav in Simplified Chinese">
-    <figcaption>Electron's Nav in Simplified Chinese</figcaption>
-  </a>
-</figure>
-
-Though we've been working quietly on this effort so far, over 75 Electron community members have already discovered the project organically and joined in the effort to internationalize the website and translate Electron's docs into over 20 languages. We are seeing [daily contributions](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) from people all over the world, with translations for languages like French, Vietnamese, Indonesian, and Chinese leading the way.
-
-To choose your language and view translation progress, visit [electronjs.org/languages](https://electronjs.org/languages)
+Am început procesul de internaționalizare a website-ului cu scopul de a face dezvoltarea aplicației Electron accesibilă unui public global de dezvoltatori. Folosim o platformă de localizare numită [Crowdin](https://crowdin.com/project/electron) care integrează cu GitHub, deschiderea şi actualizarea automată a solicitărilor ca conţinut este tradus în limbi diferite.
 
 <figure>
   <a href="https://electronjs.org/languages">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Current target languages on Crowdin">
-    <figcaption>Translations in progress on Crowdin</figcaption>
+    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav în chineza simplificată">
+    <figcaption>Nav al Electron în chineză simplificată</figcaption>
   </a>
 </figure>
 
-If you're multilingual and interested in helping translate Electron's docs and website, visit the [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) repo, or jump right into translating on [Crowdin](https://crowdin.com/project/electron), where you can sign in using your GitHub account.
+Deşi am lucrat în tăcere la acest efort până acum, peste 75 de membri ai comunității Electron au descoperit deja proiectul în mod organic și s-au alăturat efortului de a internaționaliza site-ul și traduce documentele Electron în peste 20 de limbi. We are seeing [daily contributions](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) from people all over the world, with translations for languages like French, Vietnamese, Indonesian, and Chinese leading the way.
 
-There are currently 21 languages enabled for the Electron project on Crowdin. Adding support for more languages is easy, so if you're interested in helping translate but you don't see your language listed, [let us know](https://github.com/electron/electronjs.org/issues/new) and we'll enable it.
+Pentru a alege limba ta și a vedea progresul de traducere, vizitează [electronjs.org/languages](https://electronjs.org/languages)
 
-## Raw Translated Docs
+<figure>
+  <a href="https://electronjs.org/languages">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Limbi țintă actuale pe Crowdin">
+    <figcaption>Traduceri in curs pe Crowdin</figcaption>
+  </a>
+</figure>
 
-If you prefer to read documentation in raw markdown files, you can now do that in any language:
+Dacă sunteți multilingv și sunteți interesat să ajutați la traducerea documentelor Electron și a site-ului, vizitați repo-ul [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) ; sau săriți direct în traducând pe [Crowdin](https://crowdin.com/project/electron), unde vă puteți conecta folosind contul dvs GitHub.
+
+În prezent există 21 de limbi activate pentru proiectul Electron pe Crowdin. Este ușor să adaugi suport pentru mai multe limbi, așa că dacă ești interesat să ajuți traducerea, dar nu vezi limba afișată, [anunță-ne](https://github.com/electron/electronjs.org/issues/new) și vom activa.
+
+## Documente traduse crude
+
+Dacă preferați să citiți documentația în fișiere brute markdown, acum puteți face asta în orice limbă:
 
 ```sh
 git clone https://github.com/electron/electron-i18n
 ls electron-i18n/content
 ```
 
-## App Pages
+## Pagini Aplicații
 
-As of today, any Electron app can easily have its own page on the Electron site. For a few examples, check out [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), or [GraphQL Playground](https://electronjs.org/apps/graphql-playground), pictured here on the Japanese version of the site:
+Începând de astăzi, orice aplicație Electron poate avea cu ușurință propria pagină pe site-ul Electron . Pentru câteva exemple, vedeți [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), sau [GraphQL Playground](https://electronjs.org/apps/graphql-playground), imagine aici pe versiunea japoneză a site-ului:
 
 <figure>
   <a href="https://electronjs.org/apps/graphql-playground">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871096-f5043292-ca33-11e7-8d03-a6a157aa183d.png" alt="GraphQL Playground">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871096-f5043292-ca33-11e7-8d03-a6a157aa183d.png" alt="Playground GraphQL">
   </a>
 </figure>
 
-There are some incredible Electron apps out there, but they're not always easy to find, and not every developer has the time or resources to build a proper website to market and distribute their app.
+Există câteva aplicații Electron incredibile acolo, dar nu sunt întotdeauna ușor de găsit, și nu fiecare dezvoltator are timpul sau resursele pentru a construi un site web adecvat pentru a comercializa și distribui aplicația lor.
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. Using a color palette extracted from each app's icon, we can produce [bold and accessible colors](https://github.com/zeke/pick-a-good-color) to give each app page some visual distinction.
+Folosind doar un [fișier de pictogramă PNG și o cantitate mică de metadate ale aplicației](https://github.com/electron/electron-apps/blob/master/contributing.md), putem colecta o mulțime de informații despre o aplicație dată. Folosind datele colectate din GitHub, paginile aplicațiilor pot afișa capturi de ecran, link-uri de descărcare, versiuni, note de lansare și README-uri pentru fiecare aplicație care are un depozit public. Folosind o paletă de culori extrasă din pictograma fiecărei aplicații, putem produce [culori curajoase și accesibile](https://github.com/zeke/pick-a-good-color) pentru a oferi fiecărei pagini a aplicației o distincție vizuală.
 
-The [apps index page](https://electronjs.org/apps) now also has categories and a keyword filter to find interesting apps like [GraphQL GUIs](https://electronjs.org/apps?q=graphql) and [p2p tools](https://electronjs.org/apps?q=graphql).
+Pagina de indexare a aplicațiilor [](https://electronjs.org/apps) are acum categorii și un filtru de cuvinte cheie pentru a găsi aplicații interesante cum ar fi [GraphQL GUIs](https://electronjs.org/apps?q=graphql) și [p2p unelte](https://electronjs.org/apps?q=graphql).
 
-If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps](https://github.com/electron/electron-apps) repository.
+Dacă ai o aplicație Electron pe care ți-ar plăcea să o promovezi pe site, deschide o cerere pull in [depozitul](https://github.com/electron/electron-apps) pentru aplicații electron/electron.
 
-## One-line Installation with Homebrew
+## Instalare unică cu Homebrew
 
-The [Homebrew](https://brew.sh) package manager for macOS has a subcommand called [cask](https://caskroom.github.io) that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
+Managerul de pachete [Homebrew](https://brew.sh) pentru macOS are o sub-comandă numită [cask](https://caskroom.github.io) care facilitează instalarea aplicațiilor desktop folosind o singură comandă în terminalul , ca `brew cask install atom`.
 
-We've begun collecting Homebrew cask names for popular Electron apps and are now displaying the installation command (for macOS visitors) on every app page that has a cask:
+Am început să colectăm numele casetelor de Homebrew pentru aplicații Electron populare și acum afișăm comanda de instalare (pentru vizitatorii macOS) pe fiecare pagină a aplicației care are un cask:
 
 <figure>
   <a href="https://electronjs.org/apps/dat">
    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871246-c5ef6f2a-ca34-11e7-8eb4-3a5b93b91007.png">
-   <figcaption>Installation options tailored for your platform: macOS, Windows, Linux</figcaption>
+   <figcaption>Opțiuni de instalare adaptate pentru platformă: macOS, Windows, Linux</figcaption>
   </a>
 </figure>
 
-To view all the apps that have homebrew cask names, visit [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). If you know of other apps with casks that we haven't indexed yet, [please add them!](https://github.com/electron/electron-apps/blob/master/contributing.md)
+Pentru a vedea toate aplicațiile care au nume de casete de homebrew, accesați [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). Dacă cunoașteți alte aplicații cu butoaie pe care nu le-am indexat încă, [vă rugăm să le adăugați!](https://github.com/electron/electron-apps/blob/master/contributing.md)
 
-## 🌐 A New Domain
+## 🌐 Un domeniu nou
 
-We've moved the site from electron.atom.io to a new domain: [electronjs.org](https://electronjs.org).
+Am mutat site-ul de la electron.atom.io într-un domeniu nou: [electronjs.org](https://electronjs.org).
 
-The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron was originally called `atom-shell`. Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. When companies like Microsoft and Slack started to make use of `atom-shell`, it became clear that the project needed a new name.
+Proiectul Electron s-a născut în [Atom](https://atom.io), editorul de text open-source GitHub construit pe tehnologii web. Electron s-a numit inițial `atom-shell`. Atom a fost prima aplicație care l-a folosit, dar nu a durat mult pentru ca oamenii să realizeze că acest Chromium + Node runtime magic ar putea fi folosit pentru tot felul de aplicaţii diferite. Când companii precum Microsoft și Slack au început să folosească `atom-shell`, a devenit clar că proiectul avea nevoie de un nou nume.
 
-And so "Electron" was born. In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+Aşa că "Electron" s-a născut. La începutul anului 2016, GitHub a reunit o nouă echipă pentru a se concentra în mod specific pe dezvoltarea și întreținerea Electron, în afară de Atom. În de atunci, Electron a fost adoptat de mii de dezvoltatori de aplicații, și acum depindea de multe companii mari, multe dintre acestea având echipe Electron de proprii.
 
-Supporting GitHub's Electron projects like Atom and [GitHub Desktop](https://desktop.github.com) is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
+Sprijinirea proiectelor Electron GitHub precum Atom și [GitHub Desktop](https://desktop.github.com) este încă o prioritate pentru echipa noastră, dar trecând la un domeniu nou, sperăm să ajutăm să clarifice distincţia tehnică dintre Atom şi Electron.
 
-## 🐢🚀 Node.js Everywhere
+## 🐢🚀 Node.js Peste tot
 
-The previous Electron website was built with [Jekyll](https://jekyllrb.com), the popular Ruby-based static site generator. Jekyll is a great tool for building static websites, but the website had started to outgrow it. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js](https://nodejs.org) server was the obvious choice.
+Fostul site Electron a fost construit cu [Jekyll](https://jekyllrb.com), popularul generator Ruby-bazat pe static. Jekyll este o unealtă grozavă pentru construirea de site-uri statice, dar site-ul a început să îl depăşească. Am dorit capacități mai dinamice cum ar fi redirecționări adecvate și dinamici de redare a conținutului, astfel încât un server [Node.js](https://nodejs.org) a fost alegerea evidentă.
 
-The Electron ecosystem includes projects with components written in many different programming languages, from Python to C++ to Bash. But JavaScript is foundational to Electron, and it's the language used most in our community.
+Ecosistemul Electron include proiecte cu componente scrise în mai multe limbi de programare diferite, de la Python la C++ la Bash. Dar JavaScript este fundamental pentru Electron, și este limbajul cel mai folosit în comunitatea noastră.
 
-By migrating the website from Ruby to Node.js, we aim to lower the barrier to entry for people wishing to contribute to the website.
+Prin migrarea site-ului web de la Ruby la Node.js, dorim să reducem bariera intrării persoanelor care doresc să contribuie la site-ul web.
 
-## ⚡️ Easier Open-Source Participation
+## ⚡ Participare asier Open-Source
 
-If you've got [Node.js](https://nodejs.org) (8 or higher) and [git](https://git-scm.org) installed on your system, you can easily get the site running locally:
+Dacă ai [Nodul. s](https://nodejs.org) (8 sau mai mult) și [git](https://git-scm.org) instalate pe sistemul dvs., poți obține cu ușurință dacă site-ul rulează local:
 
 ```sh
 git clone https://github.com/electron/electronjs.org
@@ -105,11 +105,11 @@ npm install
 npm run dev
 ```
 
-The new website is hosted on Heroku. We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. This makes it easy for reviewers to view the actual effects of a pull request on a live copy of the site.
+Noul site este găzduit pe Heroku. Folosim conducte de implementare și [Funcția de Revizuire Aplicații](https://devcenter.heroku.com/articles/github-integration-review-apps) , care creează automat o copie în rulare a aplicației pentru fiecare solicitare de tip pull . Acest lucru facilitează vizualizarea efectelor reale ale unei cereri de tragere pe o copie live a site-ului.
 
-## 🙏 Thanks to Contributors
+## 🙏 Mulțumesc colaboratorilor
 
-We'd like to give special thanks to all the folks around the world who have contributed their own time and energy to help improve Electron. The passion of the open-source community has helped immeasurably in making Electron a success. Thank you!
+Am dori să le mulțumim în mod special tuturor oamenilor din lume care au contribuit cu timpul și energia lor proprie pentru a ajuta la îmbunătățirea Electron. Pasiunea comunității open-source a ajutat nemăsurabil să facă din Electron un succes. Vă mulţumesc!
 
 <figure>
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">

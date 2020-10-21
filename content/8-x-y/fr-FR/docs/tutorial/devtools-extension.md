@@ -20,7 +20,7 @@ En utilisant [React Developer Tools][react-devtools] comme exemple :
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+1. Passez l'emplacement de l'extension à l'API `BrowserWindow.addDevToolsExtension` pour les outils de développement de React, c'est quelque chose comme :
    ```javascript
    const path = require('path')
    const os = require('os')

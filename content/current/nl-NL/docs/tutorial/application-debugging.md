@@ -1,10 +1,10 @@
-# Application Debugging
+# Applicatie foutopsporing
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Wanneer je Electron applicatie zich niet gedraagt zoals je wilde, een reeks debugging tools zou je kunnen helpen coderingsfouten, prestaties bottlenecks of optimalisatie mogelijkheden te vinden.
 
-## Renderer Process
+## Renderer Proces
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+Het meest uitgebreide hulpmiddel om individuele renderer-processen te debuggen is de Chromium Developer Toolset. Het is beschikbaar voor alle spelerprocessen, inclusief instanties van `BrowserWindow`, `BrowserView`, en `WebView`. U kunt ze programmatisch openen door de `openDevTools()` API aan te roepen op de `webcontent` van de instantie:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,20 +13,20 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-công cụ tìm kiếm , bí mật thương mại We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+công cụ tìm kiếm , bí mật thương mại We raden je aan om jezelf vertrouwd te maken met hen - ze zijn meestal één van de krachtigste functies in de gereedschapsgordels van Electron Ontwikkelaar.
 
-## Main Process
+## Hoofd Proces
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Debuggen van het hoofdproces is een beetje lastiger, omdat je ontwikkelaarshulpmiddelen voor hen niet kunt openen. De Chromium Developer Tools kunnen [worden gebruikt om het hoofdproces van Electron's te debuggen](https://nodejs.org/en/docs/inspector/) dankzij een nauwere samenwerking tussen Google / Chrome en Node. , maar je kan vervelende dingen tegenkomen zoals `die` niet in de console aanwezig zijn.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Zie voor meer informatie de [Debugging van de documentatie van het hoofdproces](./debugging-main-process.md).
 
 ## V8 Crashes
 
-If the V8 context crashes, the DevTools will display this message.
+Als de V8 context crasht, dan toont de DevTools dit bericht.
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`DevTools is losgekoppeld van de pagina. Zodra pagina opnieuw is geladen, wordt DevTools automatisch opnieuw verbonden.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium logs kunnen worden ingeschakeld via de `ELECTRON_ENABLE_LOGGING` omgevingsvariabele. Zie voor meer informatie de [omgevingsvariabelen documentatie](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Als alternatief kan het opdrachtlijnargument `--enable-logging` worden doorgegeven. Meer informatie is beschikbaar in de [opdrachtregelschakelaars documentatie](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).

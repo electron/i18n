@@ -2,45 +2,45 @@
 
 ## النظرة عامة
 
-قد تحتاج أنواع معينة من التطبيقات التي تعالج الملفات إلى دعم سحب الملف الأصلي لنظام التشغيل & ميزة الإفلات. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+قد تحتاج أنواع معينة من التطبيقات التي تعالج الملفات إلى دعم سحب الملف الأصلي لنظام التشغيل & ميزة الإفلات. Dragging files into web content is common and supported by many websites. يدعم إلكترون بالإضافة إلى ذلك سحب الملفات والمحتوى من محتوى الويب إلى عالم نظام التشغيل .
 
-To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
+لتطبيق هذه الميزة في التطبيق الخاص بك، تحتاج إلى الاتصال بـ [`محتويات الويب. تارتنتنغن (تم)`](../api/web-contents.md#contentsstartdragitem) واجهة برمجة التطبيقات استجابة لحدث `اونتنيد`.
 
 ## مثال
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `index.html`:
 
 ```html
-<a href="#" id="drag">Drag me</a>
+<a href="#" id="drag">اسحب لي</a>
 <script src="renderer.js"></script>
 ```
 
-and add the following lines to the `renderer.js` file:
+وإضافة الأسطر التالية إلى ملف `renderer.js`:
 
 ```js
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
   event.preventDefault()
-  ipcRenderer.send('ondragstart', '/absolute/path/to/the/item')
+  ipcRenderer.send('ondragstart', '/مطلق/path/to/the/item')
 }
 ```
 
-The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+التعليمات البرمجية أعلاه توعز إلى عملية العارض للتعامل مع حدث `ondragstart` وإرسال المعلومات إلى العملية الرئيسية.
 
-In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+في العملية الرئيسية (`بشكل رئيسي. s` ملف ، قم بتوسيع الحدث المستلم مع مسار إلى الملف الذي يتم سحبه و أيقونة :
 
 ```javascript
 const { ipcMain } = require('electron')
 
-ipcMain.on('ondragstart', (event, filePath) => {
+ipcMain.on('ondragstart', (case, filePath) => {
   event.sender.startDrag({
-    file: filePath,
+    filePath,
     icon: '/path/to/icon.png'
   })
 })
 ```
 
-After launching the Electron application, try dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+بعد بدء تطبيق إلكترون، حاول سحب وإسقاط العنصر من نافذة BroswerWindow على سطح مكتبك. في هذا الدليل، العنصر هو ملف Markdown موجود في جذر المشروع:
 
-![Drag and drop](../images/drag-and-drop.gif)
+![سحب وإسقاط](../images/drag-and-drop.gif)

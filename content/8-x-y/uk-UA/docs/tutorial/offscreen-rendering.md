@@ -1,24 +1,24 @@
 # Закадровий Рендеринг
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. візуалізація offscreen в Electron використовує подібний підхід, ніж проект [Chromium вбудований фреймворк](https://bitbucket.org/chromiumembedded/cef) проекту.
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. Рендеринг можна зупинити, продовжити і встановити частоту кадрів заново. Зазначена частота кадрів є верхньою межею коли на веб-сторінці нічого не відбувається, кадри не генеруються. максимальна частота кадрів становить 60 років, оскільки вище, ніж немає користі, лише втрати продуктивності.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Примітка:** Вікно в автономному режимі завжди створюється як [Безграничне вікно](../api/frameless-window.md).
 
-## Rendering Modes
+## Режими візуалізації
 
-### GPU accelerated
+### GPU прискорено
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Відображення прискореного графічного процесора означає, що для композиції GPU використовується відеокарта. Через у кадрі повинен бути скопійований з відеопроцесора, який потребує більшої продуктивності, Таким чином, цей режим досить повільніший за інший. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
-### Software output device
+### Програмний пристрій
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Цей режим використовує пристрій програмного забезпечення для рендерингу процесора, отже генерація кадрів відбувається набагато швидше, Таким чином, цей режим є кращим через GPU один.
 
 To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
-## Usage
+## Використання
 
 ``` javascript
 const { app, BrowserWindow } = require('electron')

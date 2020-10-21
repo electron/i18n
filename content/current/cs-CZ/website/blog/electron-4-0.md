@@ -4,19 +4,19 @@ author: BinaryMuse
 date: '2018-12-20'
 ---
 
-The Electron team is excited to announce that the stable release of Electron 4 is now available! You can install it from [electronjs.org](https://electronjs.org/) or from npm via `npm install electron@latest`. The release is packed with upgrades, fixes, and new features, and we can't wait to see what you build with them. Read more for details about this release, and please share any feedback you have as you explore!
+Tým Electron je nadšený oznámit, že stabilní vydání Electronu 4 je nyní k dispozici! Můžete ji nainstalovat z [electronjs.org](https://electronjs.org/) nebo z npm pomocí `npm install electron@latest`. Vydání je plněno aktualizacemi, opravami a novými funkcemi a nemůžeme čekat na to, co s nimi vytvoříte. Přečtěte si více informací o této verzi a prosím sdílejte zpětnou vazbu, kterou máte při zkoumání!
 
 ---
 
-## What's New?
+## Co je nového?
 
-A large part of Electron's functionality is provided by Chromium, Node.js, and V8, the core components that make up Electron. As such, a key goal for the Electron team is to keep up with changes to these projects as much as possible, providing developers who build Electron apps access to new web and JavaScript features. To this end, Electron 4 features major version bumps to each of these components; Electron v4.0.0 includes Chromium `69.0.3497.106`, Node `10.11.0`, and V8 `6.9.427.24`.
+Velkou část funkce Electronu zajišťuje Chromium, Node.js a V8, základní komponenty, které tvoří Electron. Klíčovým cílem týmu Electronu je proto co nejvíce držet krok se změnami těchto projektů, poskytuje vývojářům, kteří vytvářejí Electron aplikace přístup k novým funkcím webu a JavaScriptu. Za tímto účelem Electron 4 obsahuje hlavní verze pro každou z těchto komponent; Electron v4.0.0 zahrnuje Chromium `69. .3497.106`, uzel `10.11.0`a V8 `6.9.427.24`.
 
-In addition, Electron 4 includes changes to Electron-specific APIs. You can find a summary of the major changes in Electron 4 below; for the full list of changes, check out the [Electron v4.0.0 release notes](https://github.com/electron/electron/releases/tag/v4.0.0).
+Elektron 4 navíc zahrnuje změny v API specifické pro elektroniku. Shrnutí hlavních změn v Electronu 4 můžete najít níže; pro úplný seznam změn se podívejte na [Electron v4. .0 poznámky k vydání](https://github.com/electron/electron/releases/tag/v4.0.0).
 
-### Disabling the `remote` Module
+### Vypínání `vzdáleného` modulu
 
-You now have the ability to disable the `remote` module for security reasons. The module can be disabled for `BrowserWindow`s and for `webview` tags:
+Nyní máte z bezpečnostních důvodů možnost zakázat modul `vzdálený`. Modul může být zakázán pro značky `BrowserWindow`a pro `webview`:
 
 ```javascript
 // BrowserWindow
@@ -30,116 +30,116 @@ new BrowserWindow({
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-See the [BrowserWindow](https://electronjs.org/docs/api/browser-window) and [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) documentation for more information.
+Pro více informací viz dokumentaci [BrowserWindow](https://electronjs.org/docs/api/browser-window) a [`<webview>` štítek](https://electronjs.org/docs/api/webview-tag).
 
-### Filtering `remote.require()` / `remote.getGlobal()` Requests
+### Filtrování `na dálku.require()` / `na dálku.getGlobal()` Žádosti
 
-This feature is useful if you don't want to completely disable the `remote` module in your renderer process or `webview` but would like additional control over which modules can be required via `remote.require`.
+Tato funkce je užitečná, pokud nechcete zcela vypnout vzdálený `` modul ve vašem procesu vykreslování nebo `webview` , ale chtěli byste další kontrolu nad tím, které moduly mohou být vyžadovány přes `dálkový ovladač. equire`.
 
-When a module is required via `remote.require` in a renderer process, a `remote-require` event is raised on the [`app` module](https://electronjs.org/docs/api/app). You can call `event.preventDefault()` on the the event (the first argument) to prevent the module from being loaded. The [`WebContents` instance](https://electronjs.org/docs/api/web-contents) where the require occurred is passed as the second argument, and the name of the module is passed as the third argument. The same event is also emitted on the `WebContents` instance, but in this case the only arguments are the event and the module name. In both cases, you can return a custom value by setting the value of `event.returnValue`.
+When a module is required via `remote.require` in a renderer process, a `remote-require` event is raised on the [`app` module](https://electronjs.org/docs/api/app). Můžete zavolat `event.preventDefault()` na událost (první argument), aby se zabránilo načítání modulu. [`WebContent` instance](https://electronjs.org/docs/api/web-contents) , kde došlo k vyžadování je předána jako druhý argument, a název modulu je předán jako třetí argument. Stejná událost je také emitována na instanci `WebContent` ale v tomto případě jsou pouze argumenty události a název modulu. V obou případech můžete vrátit vlastní hodnotu nastavením hodnoty `event.returnValue`.
 
 ```javascript
-// Control `remote.require` from all WebContents:
-app.on('remote-require', function (event, webContents, requestedModuleName) {
+// Ovládání `remote.require` ze všech WebContents:
+app.on('remote-require', funkce (event webContents, requestedModuleName) {
   // ...
 })
 
-// Control `remote.require` from a specific WebContents instance:
-browserWin.webContents.on('remote-require', function (event, requestedModuleName) {
+// Ovládání `remote.require` z konkrétní instance WebContents:
+browserWin.webContents.on('remote-require', funkce (event requestedModuleName) {
   // ...
 })
 ```
 
-In a similar fashion, when `remote.getGlobal(name)` is called, a `remote-get-global` event is raised. This works the same way as the `remote-require` event: call `preventDefault()` to prevent the global from being returned, and set `event.returnValue` to return a custom value.
+Podobným způsobem, když se nazývá `vzdálený.getGlobal(name)` , je zvýšena událost `dálkový-get-global`. Toto funguje stejným způsobem jako událost `dálkově vyžadované` : zavolat `preventivně výchozímu nastavení()` , aby se zabránilo návratu celého světa, a nastavit `událost. eturnValue` pro vrácení vlastní hodnoty.
 
 ```javascript
-// Control `remote.getGlobal` from all WebContents:
-app.on('remote-get-global', function (event, webContents, requrestedGlobalName) {
+// Ovládání `remote.getGlobal` ze všech WebContents:
+app.on('remote-get-global', funkce (event webContents, requrestedGlobalName) {
   // ...
 })
 
-// Control `remote.getGlobal` from a specific WebContents instance:
-browserWin.webContents.on('remote-get-global', function (event, requestedGlobalName) {
+// Ovládání `remote.getGlobal` z konkrétní instance WebContents:
+browserWin.webContents.on('remote-get-global', funkce (event requestedGlobalName) {
   // ...
 })
 ```
 
-For more information, see the following documentation:
+Další informace naleznete v této dokumentaci:
 
 * [`remote.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
-* [`remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
+* [`"remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`appka`](https://electronjs.org/docs/api/app)
-* [`WebContents`](https://electronjs.org/docs/api/web-contents)
+* [`Webový obsah`](https://electronjs.org/docs/api/web-contents)
 
-### JavaScript Access to the About Panel
+### Přístup JavaScriptu k panelu O aplikaci
 
-On macOS, you can now call `app.showAboutPanel()` to programmatically show the About panel, just like clicking the menu item created via `{role: 'about'}`. See the [`showAboutPanel` documentation](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) for more information
+Na macOS můžete nyní zavolat `aplikaci. howAboutPanel()` na programové zobrazení panelu O aplikaci, stejně jako kliknutí na položku nabídky vytvořenou prostřednictvím `{role: 'about'}`. See the [`showAboutPanel` documentation](https://electronjs.org/docs/api/app?query=show#appshowaboutpanel-macos) for more information
 
-### Controlling `WebContents` Background Throttling
+### Ovládání `WebContent` Probíhá na pozadí
 
-`WebContents` instances now have a method `setBackgroundThrottling(allowed)` to enable or disable throttling of timers and animations when the page is backgrounded.
+`WebContent` instance nyní mají metodu `setBackgroundThrottling(povoleno)` pro povolení nebo zakázání překlopení časovačů a animací, pokud je stránka pozadí.
 
 ```javascript
-let win = new BrowserWindow(...)
+let win = nový BrowserWindow(...)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 ```
 
-See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
+Více informací naleznete v [ `setBackgroundThrottling` dokumentaci](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed).
 
 ## Breaking Changes
 
-### No More macOS 10.9 Support
+### Žádná další podpora macOS 10.9
 
-Chromium no longer supports macOS 10.9 (OS X Mavericks), and as a result [Electron 4.0 and beyond does not support it either](https://github.com/electron/electron/pull/15357).
+Chromium již nepodporuje macOS 10.9 (OS X Mavericks), a proto [Electron 4.0 a další nepodporuje ani](https://github.com/electron/electron/pull/15357).
 
-### Single Instance Locking
+### Uzamčení jediné instance
 
-Previously, to make your app a Single Instance Application (ensuring that only one instance of your app is running at any given time), you could use the `app.makeSingleInstance()` method. Starting in Electron 4.0, you must use `app.requestSingleInstanceLock()` instead. The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Dříve uděláte aplikaci jednu instanci (zajišťuje, že v danou chvíli běží pouze jedna instance aplikace), můžete použít `aplikaci. Metoda akeSingleInstance()`. Počínaje Electron 4.0, musíte místo toho použít `app.requestSingleInstanceLock()`. Návratová hodnota této metody označuje, zda tato instance vaší aplikace byla úspěšně načtena. Pokud se nepodařilo uzamknout, můžete předpokládat, že jiná instance aplikace již běží s zámkem a okamžitě se ukončí.
 
-For an example of using `requestSingleInstanceLock()` and information on nuanced behavior on various platforms, [see the documentation for `app.requestSingleInstanceLock()` and related methods](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) and [the `second-instance` event](https://electronjs.org/docs/api/app#event-second-instance).
+Příklad používání `requestSingleInstanceLock()` a informací o nuancovaném chování na různých platformách, [viz dokumentaci pro `aplikaci. equestSingleInstanceLock()` a související metody](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) a [ `druhé instance` událost](https://electronjs.org/docs/api/app#event-second-instance).
 
 ### `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. [See the native module guide](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) for more information.
+Při vytváření nativních modulů pro okna musí být proměnná `win_delay_load_hook` v modulu `binding.gyp` pravdivá (což je výchozí). Pokud tento háček není přítomen, pak se původní modul nezdaří načíst v systému Windows, s chybovou zprávou, jako je `Nelze najít modul`. [Více informací naleznete v průvodci nativním modulem](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook).
 
-## Deprecations
+## Deprese
 
-The following breaking changes are planned for Electron 5.0, and thus are deprecated in Electron 4.0.
+Pro Electron 5.0 jsou plánovány následující zlomové změny, a proto jsou zastaralé v Electronu 4.0.
 
-### Node.js Integration Disabled for `nativeWindowOpen`-ed Windows
+### Node.js integrace zakázána pro `nativeWindowOpen`-ed Windows
 
-Starting in Electron 5.0, child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Počínaje Electron 5.0, dětská okna otevřená s možností `nativeWindowOpen` budou mít vždy vypnutou integraci Node.js.
 
-### `webPreferences` Default Values
+### `Nastavení webu` Výchozí hodnoty
 
-When creating a new `BrowserWindow` with the `webPreferences` option set, the following `webPreferences` option defaults are deprecated in favor of new defaults listed below:
+Při vytváření nové možnosti `BrowserWindow` s nastavenou volbou `webPreferences` , výchozí nastavení `webPreferences` je zastaralé ve prospěch nových výchozích nastavení:
 
 <div class="table table-ruled table-full-width">
 
-| Property | Deprecated Default | New Default |
-|----------|--------------------|-------------|
+| Vlastnost | Zastaralá výchozí | Nová výchozí |
+|----------|----------------------------|-------------|
 | `contextIsolation` | `false` | `true` |
 | `nodeIntegration` | `true` | `false` |
-| `webviewTag` | value of `nodeIntegration` if set, otherwise `true` | `false` |
+| `webviewTag` | hodnota `nodeIntegration` je-li nastavena, jinak `true` | `nepravda` |
 
 </div>
 
-Please note: there is currently [a known bug (#9736)](https://github.com/electron/electron/issues/9736) that prevents the `webview` tag from working if `contextIsolation` is on. Keep an eye on the GitHub issue for up-to-date information!
+Upozornění: v současné době existuje [známá chyba (#9736)](https://github.com/electron/electron/issues/9736) , která zabrání fungování tagu `webview` , pokud je zapnut `contextIsolation`. Sledujte problém GitHub pro aktuální informace!
 
-Learn more about context isolation, Node integration, and the `webview` tag in [the Electron security document](https://electronjs.org/docs/tutorial/security).
+Další informace o izolaci kontextu, integraci uzlu a značce `webview` v [Electron security document](https://electronjs.org/docs/tutorial/security).
 
-Electron 4.0 will still use the current defaults, but if you don't pass an explicit value for them, you'll see a deprecation warning. To prepare your app for Electron 5.0, use explicit values for these options. [See the `BrowserWindow` docs](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) for details on each of these options.
+Electron 4.0 bude stále používat aktuální výchozí nastavení, ale pokud pro ně nevyberete explicitní hodnotu, uvidíte upozornění na zastaralé. Chcete-li připravit vaši aplikaci pro Electron 5.0, použijte explicitní hodnoty pro tyto možnosti. [See the `BrowserWindow` docs](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) for details on each of these options.
 
-### `webContents.findInPage(text[, options])`
+### `webContents.findInPage(text[, možnosti])`
 
-The `medialCapitalAsWordStart` and `wordStart` options have been deprecated as they have been removed upstream.
+Možnosti `medialCapitalAsWordStart` a `wordStart` byly zastaralé, protože byly odstraněny proti streamu.
 
 ## App Feedback Program
 
-The [App Feedback Program](https://electronjs.org/blog/app-feedback-program) we instituted during the development of Electron 3.0 was successful, so we've continued it during the development of 4.0 as well. We'd like to extend a massive thank you to Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp, and the other program members for their involvement during the 4.0 beta cycle. To learn more about the App Feedback Program and to participate in future betas, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+[Program zpětné vazby v aplikacích](https://electronjs.org/blog/app-feedback-program) , který jsme zavedli během vývoje Electronu 3. byl úspěšný, takže jsme pokračovali i během vývoje 4.0. Rádi bychom rozšířili masivní poděkování Atlassian, Discord, MS Teams, OpenFin, Slack, Symphone, WhatsApp a další členové programu za jejich účast během 4. cyklus beta. Chcete-li se dozvědět více o App Feedback Programu a účastnit se budoucích betas, [podívejte se na náš blog příspěvek o programu](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co je další
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. [See our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Z krátkodobého hlediska můžete očekávat, že se tým bude nadále zaměřovat na udržení pokroku při vývoji hlavních komponentů, které tvoří Electron, včetně chromu, niklu a V8. I když jsme opatrní, abychom neslíbili data zveřejnění, Naším plánem je vydání nových hlavních verzí Electronu s novými verzemi těchto komponentů přibližně čtvrtletně. [Pro podrobnější informace o verzích v Electronu viz náš dokument](https://electronjs.org/docs/tutorial/electron-versioning).
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Informace o plánovaných zlomových změnách v nadcházejících verzích Electronu [naleznete v naší Plánované zlomení změn doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

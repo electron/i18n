@@ -4,7 +4,7 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt puse destul de des. Verifică asta înainte de a crea o problemă:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 
@@ -44,7 +44,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
   * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Încorporări web în Electron](tutorial/web-embeds.md)
 * [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

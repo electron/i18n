@@ -2,13 +2,13 @@
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
-## Prepare a Copy of Flash Plugin
+## Подготовить копию плагина Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+В macOS и Linux детали плагина Pepper Flash можно найти перейдя к `chrome://flash` в браузере Chrome. Его местоположение и версия полезны для поддержки Pepper Flash Electron. Вы также можете скопировать его в другое место .
 
-## Add Electron Switch
+## Добавить Electron Switch
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Вы можете напрямую добавить `--ppapi-flash-path` и `--ppapi-flash-версии` в командную строку Electron или используя приложение `. ommandLine.appendSwitch` метод перед подготовкой события. Также включите опцию `плагинов` для `BrowserWindow`.
 
 Например:
 
@@ -47,11 +47,11 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Вы также можете попробовать загрузить системный плагин Pepper Flash вместо доставки плагинов самостоятельно, его путь может быть получен по вызову `приложения. etPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Включить Flash плагин в `<webview>` тег
 
-Add `plugins` attribute to `<webview>` tag.
+Добавить атрибут `плагинов` к `<webview>` тег.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Устранение проблем
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Вы можете проверить, загружен ли плагин Pepper Flash, проверяя `навигатора. lugins` в консоли devtools (хотя вы не можете знать, правильно ли путь к плагину ).
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
 On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Для некоторых операций, таких как потоковое медиа с использованием RTMP, необходимо предоставить более широкие права доступа для файлов `.swf`. Одним из способов достижения этого является использование [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).

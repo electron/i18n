@@ -17,7 +17,7 @@ myNotification.onclick = () => {
 虽然操作系统的代码和用户体验相似，但依然存在微妙的差异。
 
 ## Windows
-* 在 Windows 10, 必须被添加您应用程序[ 应用程序用户模型ID ][app-user-model-id]的快捷方式到开始菜单上。 This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* 在 Windows 10, 必须被添加您应用程序[ 应用程序用户模型ID ][app-user-model-id]的快捷方式到开始菜单上。 这可能会在开发过程中被过度杀死，所以将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也能做到这一点。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要将行 `app.setAppUserModelId(process.execPath)` 添加到您的主进程以查看通知。
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）][app-user-model-id] 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 

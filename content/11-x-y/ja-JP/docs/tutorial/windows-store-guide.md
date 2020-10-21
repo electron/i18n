@@ -44,10 +44,10 @@ npm install -g electron-windows-store
 │   ├── [...]
 ├── node.dll
 ├── resources
-│   └── app.asar
+├── app.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
-└── ui_resources_200_percent.pak
+├── ui_resources_200_percent.pak
 ```
 
 ## ステップ2: electron-windows-storeを実行

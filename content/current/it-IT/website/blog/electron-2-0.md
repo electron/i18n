@@ -4,111 +4,111 @@ author: ckerr
 date: '2018-05-02'
 ---
 
-After more than four months of development, eight beta releases, and worldwide testing from many apps' staged rollouts, the release of Electron 2.0.0 is now available from [electronjs.org](https://electronjs.org/).
+Dopo più di quattro mesi di sviluppo, otto rilasci beta e test in tutto il mondo da molti rollout in fase di app, il rilascio di Electron 2. .0 è ora disponibile da [electronjs.org](https://electronjs.org/).
 
 ---
 
-## Release Process
+## Processo Di Rilascio
 
-Starting with 2.0.0, Electron's releases will follow [semantic versioning](https://electronjs.org/blog/electron-2-semantic-boogaloo). This means the major version will bump more often and will usually be a major update to Chromium. Patch releases should be more stable because they will contain only high-priority bug fixes.
+A partire da 2.0.0, le release di Electrons seguiranno [semantica versioning](https://electronjs.org/blog/electron-2-semantic-boogaloo). Ciò significa che la versione principale sarà urtare più spesso e di solito sarà un importante aggiornamento a Chromium. Le versioni di patch dovrebbero essere più stabili perché contengono solo correzioni di bug ad alta priorità.
 
-Electron 2.0.0 also represents an improvement to how Electron is stabilized before a major release. Several large scale Electron apps have included 2.0.0 betas in staged rollouts, providing the best feedback loop Electron's ever had for a beta series.
+Electron 2.0.0 rappresenta anche un miglioramento di come Electron è stabilizzato prima di una release importante. Diverse applicazioni Electron su larga scala hanno incluso 2.0.0 beta in staged rollout, fornendo il miglior loop feedback mai avuto per una serie beta.
 
-## Changes / New Features
+## Modifiche / Nuove Funzionalità
 
- * Major bumps to several important parts of Electron's toolchain, including Chrome 61, Node 8.9.3, V8 6.1.534.41, GTK+ 3 on Linux, updated spellchecker, and Squirrel.
- * [In-app purchases](https://electronjs.org/blog/in-app-purchases) are now supported on MacOS. [#11292](https://github.com/electron/electron/pull/11292)
- * New API for loading files. [#11565](https://github.com/electron/electron/pull/11565)
- * New API to enable/disable a window. [#11832](https://github.com/electron/electron/pull/11832)
+ * Grandi dossi per diverse parti importanti della catena di strumenti di Electron, tra cui Chrome 61, Nodo 8.9.3, V8 6.1.534.41, GTK+ 3 su Linux, correttore ortografico aggiornato e Squirrel.
+ * [Gli acquisti in-app](https://electronjs.org/blog/in-app-purchases) sono ora supportati su MacOS. [#11292](https://github.com/electron/electron/pull/11292)
+ * Nuova API per il caricamento dei file. [#11565](https://github.com/electron/electron/pull/11565)
+ * Nuova API per abilitare/disabilitare una finestra. [#11832](https://github.com/electron/electron/pull/11832)
  * New API app.setLocale(). [#11469](https://github.com/electron/electron/pull/11469)
- * New support for logging IPC messages. [#11880](https://github.com/electron/electron/pull/11880)
- * New menu events. [#11754](https://github.com/electron/electron/pull/11754)
- * Add a `shutdown` event to powerMonitor. [#11417](https://github.com/electron/electron/pull/11417)
- * Add `affinity` option for gathering several BrowserWindows into a single process. [#11501](https://github.com/electron/electron/pull/11501)
- * Add the ability for saveDialog to list available extensions. [#11873](https://github.com/electron/electron/pull/11873)
- * Support for additional notification actions [#11647](https://github.com/electron/electron/pull/11647)
- * The ability to set macOS notification close button title. [#11654](https://github.com/electron/electron/pull/11654)
- * Add conditional for menu.popup(window, callback)
- * Memory improvements in touchbar items. [#12527](https://github.com/electron/electron/pull/12527)
- * Improved security recommendation checklist.
- * Add App-Scoped Security scoped bookmarks. [#11711](https://github.com/electron/electron/pull/11711)
- * Add ability to set arbitrary arguments in a renderer process. [#11850](https://github.com/electron/electron/pull/11850)
- * Add accessory view for format picker. [#11873](https://github.com/electron/electron/pull/11873)
- * Fixed network delegate race condition. [#12053](https://github.com/electron/electron/pull/12053)
- * Drop support for the `mips64el` arch on Linux. Electron requires the C++14 toolchain, which was not available for that arch at the time of the release. We hope to re-add support in the future.
+ * Nuovo supporto per la registrazione dei messaggi IPC. [#11880](https://github.com/electron/electron/pull/11880)
+ * Nuovi eventi di menu. [#11754](https://github.com/electron/electron/pull/11754)
+ * Aggiungi un evento `shutdown` a powerMonitor. [#11417](https://github.com/electron/electron/pull/11417)
+ * Aggiungi l'opzione `affinity` per raccogliere diversi BrowserWindows in un singolo processo. [#11501](https://github.com/electron/electron/pull/11501)
+ * Aggiunge la possibilità di saveDialog per elencare le estensioni disponibili. [#11873](https://github.com/electron/electron/pull/11873)
+ * Supporto per ulteriori azioni di notifica [#11647](https://github.com/electron/electron/pull/11647)
+ * La capacità di impostare il titolo del pulsante di chiusura notifica macOS. [#11654](https://github.com/electron/electron/pull/11654)
+ * Aggiungi le condizioni per il menu.popup(finestra, callback)
+ * Miglioramenti della memoria negli elementi touchbar. [#12527](https://github.com/electron/electron/pull/12527)
+ * Checklist delle raccomandazioni di sicurezza migliorata.
+ * Aggiungi segnalibri Scopo di sicurezza App-Scoped. [#11711](https://github.com/electron/electron/pull/11711)
+ * Aggiungi la possibilità di impostare argomenti arbitrari in un processo di renderer. [#11850](https://github.com/electron/electron/pull/11850)
+ * Aggiungi vista accessoria per il selettore del formato. [#11873](https://github.com/electron/electron/pull/11873)
+ * Condizione di gara delegata rete fissa. [#12053](https://github.com/electron/electron/pull/12053)
+ * Rilascia il supporto per l'archetto `mips64el` su Linux. Electron richiede la toolchain C++14, che non era disponibile per quell'arco al momento del rilascio. Speriamo di reaggiungere il sostegno in futuro.
 
-## Breaking API changes
+## Interruzione delle modifiche API
 
- * Removed [deprecated APIs](https://github.com/electron/electron/blob/v2.0.0-beta.8/docs/tutorial/planned-breaking-changes.md), including:
-   * Changed `menu.popup` signature. [#11968](https://github.com/electron/electron/pull/11968)
-   * Removed deprecated `crashReporter.setExtraParameter` [#11972](https://github.com/electron/electron/pull/11972)
-   * Removed deprecated `webContents.setZoomLevelLimits` and `webFrame.setZoomLevelLimits`. [#11974](https://github.com/electron/electron/pull/11974)
-   * Removed deprecated `clipboard` methods. [#11973](https://github.com/electron/electron/pull/11973)
-   * Removed support for boolean parameters for `tray.setHighlightMode`. [#11981](https://github.com/electron/electron/pull/11981)
+ * Rimosso [API deprecate](https://github.com/electron/electron/blob/v2.0.0-beta.8/docs/tutorial/planned-breaking-changes.md), tra cui:
+   * Cambiato `menu.popup` firma. [#11968](https://github.com/electron/electron/pull/11968)
+   * Rimosso deprecato `crashReporter.setExtraParameter` [#11972](https://github.com/electron/electron/pull/11972)
+   * Rimosso deprecato `webContents.setZoomLevelLimits` e `webFrame.setZoomLevelLimits`. [#11974](https://github.com/electron/electron/pull/11974)
+   * Metodi `appunti` rimossi deprecati. [#11973](https://github.com/electron/electron/pull/11973)
+   * Rimosso il supporto per i parametri booleani per `tray.setHighlightMode`. [#11981](https://github.com/electron/electron/pull/11981)
 
-## Bug Fixes
+## Correzioni Bug
 
- * Changed to make sure `webContents.isOffscreen()` is always available. [#12531](https://github.com/electron/electron/pull/12531)
- * Fixed `BrowserWindow.getFocusedWindow()` when DevTools is undocked and focused. [#12554](https://github.com/electron/electron/pull/12554)
- * Fixed preload not loading in sandboxed render if preload path contains special chars. [#12643](https://github.com/electron/electron/pull/12643)
- * Correct the default of allowRunningInsecureContent as per docs. [#12629](https://github.com/electron/electron/pull/12629)
- * Fixed transparency on nativeImage. [#12683](https://github.com/electron/electron/pull/12683)
- * Fixed issue with `Menu.buildFromTemplate`. [#12703](https://github.com/electron/electron/pull/12703)
- * Confirmed menu.popup options are objects. [#12330](https://github.com/electron/electron/pull/12330)
- * Removed a race condition between new process creation and context release. [#12361](https://github.com/electron/electron/pull/12361)
- * Update draggable regions when changing BrowserView. [#12370](https://github.com/electron/electron/pull/12370)
- * Fixed menubar toggle alt key detection on focus. [#12235](https://github.com/electron/electron/pull/12235)
- * Fixed incorrect warnings in webviews. [#12236](https://github.com/electron/electron/pull/12236)
- * Fixed inheritance of 'show' option from parent windows. [#122444](https://github.com/electron/electron/pull/122444)
- * Ensure that `getLastCrashReport()` is actually the last crash report. [#12255](https://github.com/electron/electron/pull/12255)
- * Fixed require on network share path. [#12287](https://github.com/electron/electron/pull/12287)
- * Fixed context menu click callback. [#12170](https://github.com/electron/electron/pull/12170)
- * Fixed popup menu position. [#12181](https://github.com/electron/electron/pull/12181)
- * Improved libuv loop cleanup. [#11465](https://github.com/electron/electron/pull/11465)
- * Fixed `hexColorDWORDToRGBA` for transparent colors. [#11557](https://github.com/electron/electron/pull/11557)
- * Fixed null pointer dereference with getWebPreferences api. [#12245](https://github.com/electron/electron/pull/12245)
- * Fixed a cyclic reference in menu delegate. [#11967](https://github.com/electron/electron/pull/11967)
- * Fixed protocol filtering of net.request. [#11657](https://github.com/electron/electron/pull/11657)
- * WebFrame.setVisualZoomLevelLimits now sets user-agent scale constraints [#12510](https://github.com/electron/electron/pull/12510)
- * Set appropriate defaults for webview options. [#12292](https://github.com/electron/electron/pull/12292)
- * Improved vibrancy support. [#12157](https://github.com/electron/electron/pull/12157) [#12171](https://github.com/electron/electron/pull/12171) [#11886](https://github.com/electron/electron/pull/11886)
- * Fixed timing issue in singleton fixture.
- * Fixed broken production cache in NotifierSupportsActions()
- * Made MenuItem roles camelCase-compatible. [#11532](https://github.com/electron/electron/pull/11532)
- * Improved touch bar updates. [#11812](https://github.com/electron/electron/pull/11812), [#11761](https://github.com/electron/electron/pull/11761).
- * Removed extra menu separators. [#11827](https://github.com/electron/electron/pull/11827)
- * Fixed Bluetooth chooser bug. Closes [#11399](https://github.com/electron/electron/pull/11399).
- * Fixed macos Full Screen Toggle menu item label. [#11633](https://github.com/electron/electron/pull/11633)
- * Improved tooltip hiding when a window is deactivated. [#11644](https://github.com/electron/electron/pull/11644)
- * Migrated deprecated web-view method. [#11798](https://github.com/electron/electron/pull/11798)
- * Fixed closing a window opened from a browserview. [#11799](https://github.com/electron/electron/pull/11799)
- * Fixed Bluetooth chooser bug. [#11492](https://github.com/electron/electron/pull/11492)
- * Updated to use task scheduler for app.getFileIcon API. [#11595](https://github.com/electron/electron/pull/11595)
- * Changed to fire `console-message` event even when rendering offscreen. [#11921](https://github.com/electron/electron/pull/11921)
- * Fixed downloading from custom protocols using `WebContents.downloadURL`. [#11804](https://github.com/electron/electron/pull/11804)
- * Fixed transparent windows losing transparency when devtools detaches. [#11956](https://github.com/electron/electron/pull/11956)
- * Fixed Electron apps canceling restart or shutdown. [#11625](https://github.com/electron/electron/pull/11625)
+ * Modificato per assicurarsi che `webContents.isOffscreen()` sia sempre disponibile. [#12531](https://github.com/electron/electron/pull/12531)
+ * Corretto `BrowserWindow.getFocusedWindow()` quando DevTools è scollegato e messo a fuoco. [#12554](https://github.com/electron/electron/pull/12554)
+ * Precarico fisso non caricato in renderizzazione sandbox se il percorso di precarico contiene caratteri speciali. [#12643](https://github.com/electron/electron/pull/12643)
+ * Correggi il default di allowRunningInsecureContent come da docs. [#12629](https://github.com/electron/electron/pull/12629)
+ * Trasparenza fissa su nativeImage. [#12683](https://github.com/electron/electron/pull/12683)
+ * Risolto il problema con `Menu.buildFromTemplate`. [#12703](https://github.com/electron/electron/pull/12703)
+ * Le opzioni di menu confermato.popup sono oggetti. [#12330](https://github.com/electron/electron/pull/12330)
+ * Rimosso una condizione di gara tra la creazione di nuovo processo e il rilascio contestuale. [#12361](https://github.com/electron/electron/pull/12361)
+ * Aggiorna le regioni trascinabili quando si cambia BrowserView. [#12370](https://github.com/electron/electron/pull/12370)
+ * Risolto il rilevamento del tasto Alt della barra dei menu sul fuoco. [#12235](https://github.com/electron/electron/pull/12235)
+ * Corretto avvertimenti errati nelle viste web. [#12236](https://github.com/electron/electron/pull/12236)
+ * Corretto l'eredità dell'opzione 'show' dalle finestre padre. [#122444](https://github.com/electron/electron/pull/122444)
+ * Assicurati che `getLastCrashReport()` sia in realtà l'ultimo crash report. [#12255](https://github.com/electron/electron/pull/12255)
+ * Corretto richiede il percorso di condivisione della rete. [#12287](https://github.com/electron/electron/pull/12287)
+ * Risolto il clic del menu contestuale richiamata. [#12170](https://github.com/electron/electron/pull/12170)
+ * Posizione del menu a comparsa fissa. [#12181](https://github.com/electron/electron/pull/12181)
+ * Migliorata pulizia ciclo libuv . [#11465](https://github.com/electron/electron/pull/11465)
+ * Corretto `hexColorDWORDToRGBA` per i colori trasparenti. [#11557](https://github.com/electron/electron/pull/11557)
+ * Fissata la dereferenza del puntatore null con getWebPreferences api. [#12245](https://github.com/electron/electron/pull/12245)
+ * Corretto un riferimento ciclico nel delegato del menu. [#11967](https://github.com/electron/electron/pull/11967)
+ * Filtro di protocollo fisso di net.request. [#11657](https://github.com/electron/electron/pull/11657)
+ * WebFrame.setVisualZoomLevelLimits ora imposta i vincoli di scala utente [#12510](https://github.com/electron/electron/pull/12510)
+ * Imposta le impostazioni predefinite appropriate per le opzioni di visualizzazione web. [#12292](https://github.com/electron/electron/pull/12292)
+ * Migliorato il supporto di vibrazione. [#12157](https://github.com/electron/electron/pull/12157) [#12171](https://github.com/electron/electron/pull/12171) [#11886](https://github.com/electron/electron/pull/11886)
+ * Risolto problema di temporizzazione nel supporto singleton.
+ * Corretto cache di produzione rotto in NotifierSupportsActions()
+ * Made MenuItem ruoli camelCase-compatible. [#11532](https://github.com/electron/electron/pull/11532)
+ * Aggiornamenti touch bar migliorati. [#11812](https://github.com/electron/electron/pull/11812), [#11761](https://github.com/electron/electron/pull/11761).
+ * Separatori di menu extra rimossi. [#11827](https://github.com/electron/electron/pull/11827)
+ * Corretto bug selettore Bluetooth. Chiude [#11399](https://github.com/electron/electron/pull/11399).
+ * Corretto macos a schermo intero Attiva/disattiva etichetta della voce del menù. [#11633](https://github.com/electron/electron/pull/11633)
+ * Migliorato il nascondiglio del suggerimento quando una finestra è disattivata. [#11644](https://github.com/electron/electron/pull/11644)
+ * Metodo di visualizzazione web deprecato migrato. [#11798](https://github.com/electron/electron/pull/11798)
+ * Risolto chiudendo una finestra aperta da una vista del browser. [#11799](https://github.com/electron/electron/pull/11799)
+ * Corretto bug selettore Bluetooth. [#11492](https://github.com/electron/electron/pull/11492)
+ * Aggiornato per utilizzare lo scheduler delle attività per app.getFileIcon API. [#11595](https://github.com/electron/electron/pull/11595)
+ * Cambiato per sparare l'evento `conse-message` anche durante il rendering offscreen. [#11921](https://github.com/electron/electron/pull/11921)
+ * Risolto il download da protocolli personalizzati utilizzando `WebContents.downloadURL`. [#11804](https://github.com/electron/electron/pull/11804)
+ * Risolto le finestre trasparenti perdendo la trasparenza quando devtools si stacca. [#11956](https://github.com/electron/electron/pull/11956)
+ * Corretto il riavvio o l'arresto delle applicazioni Electron [#11625](https://github.com/electron/electron/pull/11625)
 
 ### macOS
- * Fixed event leak on reuse of touchbar item. [#12624](https://github.com/electron/electron/pull/12624)
- * Fixed tray highlight in darkmode. [#12398](https://github.com/electron/electron/pull/12398)
- * Fixed blocking main process for async dialog. [#12407](https://github.com/electron/electron/pull/12407)
- * Fixed `setTitle` tray crash. [#12356](https://github.com/electron/electron/pull/12356)
- * Fixed crash when setting dock menu. [#12087](https://github.com/electron/electron/pull/12087)
+ * Perdita di evento fissa sul riutilizzo dell'elemento touchbar. [#12624](https://github.com/electron/electron/pull/12624)
+ * Evidenziazione fissa del vassoio in modalità scura. [#12398](https://github.com/electron/electron/pull/12398)
+ * Corretto blocco processo principale per la finestra di dialogo asincrono. [#12407](https://github.com/electron/electron/pull/12407)
+ * Corretto `setTitle` tray crash. [#12356](https://github.com/electron/electron/pull/12356)
+ * Risolto il crash quando si imposta il menu di aggancio. [#12087](https://github.com/electron/electron/pull/12087)
 
 ### Linux
- * Better Linux desktop notifications. [#12229](https://github.com/electron/electron/pull/12229) [#12216](https://github.com/electron/electron/pull/12216) [#11965](https://github.com/electron/electron/pull/11965) [#11980](https://github.com/electron/electron/pull/11980)
- * Better GTK+ theme support for menus. [#12331](https://github.com/electron/electron/pull/12331)
- * Exit gracefully on linux. [#12139](https://github.com/electron/electron/pull/12139)
- * Use the app’s name as the tray icon's default tooltip. [#12393](https://github.com/electron/electron/pull/12393)
+ * Migliori notifiche desktop Linux. [#12229](https://github.com/electron/electron/pull/12229) [#12216](https://github.com/electron/electron/pull/12216) [#11965](https://github.com/electron/electron/pull/11965) [#11980](https://github.com/electron/electron/pull/11980)
+ * Migliore supporto al tema GTK+ per i menu. [#12331](https://github.com/electron/electron/pull/12331)
+ * Uscire con grazia su linux. [#12139](https://github.com/electron/electron/pull/12139)
+ * Usa il nome dell'app come suggerimento predefinito dell'icona del vassoio. [#12393](https://github.com/electron/electron/pull/12393)
 
 ### Windows
- * Added Visual Studio 2017 support. [#11656](https://github.com/electron/electron/pull/11656)
- * Fixed passing of exception to the system crash handler. [#12259](https://github.com/electron/electron/pull/12259)
- * Fixed hiding tooltip from minimized window. [#11644](https://github.com/electron/electron/pull/11644)
- * Fixed `desktopCapturer` to capture the correct screen. [#11664](https://github.com/electron/electron/pull/11664)
- * Fixed `disableHardwareAcceleration` with transparency. [#11704](https://github.com/electron/electron/pull/11704)
+ * Aggiunto Visual Studio 2017 supporto. [#11656](https://github.com/electron/electron/pull/11656)
+ * Corretto passaggio di eccezione al gestore di sistema. [#12259](https://github.com/electron/electron/pull/12259)
+ * Risolto il suggerimento di nascondimento dalla finestra minimizzata. [#11644](https://github.com/electron/electron/pull/11644)
+ * Risolto `desktopCapturer` per catturare lo schermo corretto. [#11664](https://github.com/electron/electron/pull/11664)
+ * Risolto `disableHardwareAcceleration` con trasparenza. [#11704](https://github.com/electron/electron/pull/11704)
 
-# What's Next
+# Cosa È Successivo
 
-The Electron team is hard at work to support newer versions of Chromium, Node, and v8. Expect 3.0.0-beta.1 soon!
+Il team Electron è al lavoro per supportare le versioni più recenti di Chromium, Node e V8. Aspettatevi 3.0.0-beta.1 presto!

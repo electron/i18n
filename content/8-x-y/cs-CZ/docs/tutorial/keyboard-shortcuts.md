@@ -1,31 +1,31 @@
 # Klávesové zkratky
 
-> Configure local and global keyboard shortcuts
+> Nastavit místní a globální klávesové zkratky
 
-## Local Shortcuts
+## Místní zkratky
 
 You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
 
 ```js
 const { Menu, MenuItem } = require('electron')
-const menu = new Menu()
+const menu = nové menu ()
 
-menu.append(new MenuItem({
+. ppend(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  klikněte: () => { console. og('time to print stuff') }
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Na základě operačního systému uživatele můžete konfigurovat různé kombinace klíčů.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  akcelerátor: proces.platforma === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
-## Global Shortcuts
+## Globální zkratky
 
 You can use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Zkratky v okně prohlížeče
 
 If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -47,9 +47,9 @@ If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use th
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Všimněte si třetího parametru `true` , což znamená, že posluchač bude vždy dostávat stisknutí tlačítek před ostatními posluchači, takže nemohou mít `stopPropagation()` na ně volané.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+[`před událostí`](../api/web-contents.md#event-before-input-event) událost je emitována před odesláním `klávesnice` a `klíče` událostí na stránce. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('up down left right b a enter', () => {
   console.log('konami code')
 })
 ```

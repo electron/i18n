@@ -1,70 +1,88 @@
-# Developer Environment
+# Mediu pentru dezvoltatori
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Dezvoltarea Electron este în esență dezvoltarea Node.js. Pentru a transforma sistemul de operare într-un mediu capabil să construiască aplicații desktop cu Electron, vei avea nevoie doar de Node. s, npm, un editor de cod ales de tine și un înțelegere rudimentară a clientului de comandă al sistemului tău de operare.
 
 ## Configurarea macOS
 
 > Electron suportă MacOS 10.10 (Yosemite) și mai nou. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud][macincloud] or [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Mai întâi, instalați o versiune recentă a Node.js. Vă recomandăm să instalați fie ultima `LTS` sau `Versiunea curentă` este disponibilă. Visit [the Node.js download page][node-download] and select the `macOS Installer`. În timp ce Homebrew este o opţiune oferită, dar vă recomandăm împotriva sa - multe unelte vor fi incompatibile cu modul în care Homebrew instalează Node.js.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Odată descărcat, executați instalatorul și lăsați ghidul de instalare prin instalare.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Odată instalat, confirmă că totul funcționează conform așteptărilor. Găsiți aplicația macOS `Terminal` în dosarul `/Aplicații/Utilități` (sau prin căutarea cuvântului `Terminal` în Spotlight). Deschideți `Terminal` sau un alt client de linie de comandă ales de dvs. și confirmați că ambele `node` și `npm` sunt disponibile:
 
 ```sh
-# This command should print the version of Node.js
+# Această comandă ar trebui să afișeze versiunea Node.js
 node -v
 
-# This command should print the version of npm
+# Această comandă ar trebui să afișeze versiunea npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Dacă ambele comenzi tipărite un număr de versiune, toate sunt setate! Înainte de a începe , poate doriţi să instalaţi un editor de cod</a>
+
+potrivit pentru dezvoltarea JavaScript.</p> 
+
+
 
 ## Configurarea Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+> Electron suportă Windows 7 și versiunile ulterioare – încercarea de a dezvolta aplicații Electron pe versiunile anterioare ale Windows nu va funcționa. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Mai întâi, instalați o versiune recentă a Node.js. Vă recomandăm să instalați fie ultima `LTS` sau `Versiunea curentă` este disponibilă. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Odată descărcat, executați instalatorul și lăsați ghidul de instalare prin instalare.
+
+Pe ecran care vă permite să configuraţi instalarea, asiguraţi-vă că selectaţi modulul `. s runtime`, `npm package manager`și `Adaugă la PATH` .
+
+Odată instalat, confirmă că totul funcționează conform așteptărilor. Găsește Windows PowerShell deschizând Meniul Start și tastând `PowerShell`. Deschideți până `PowerShell` sau un alt client de linie de comandă ales de dvs. și confirmați că ambele `node` și `npm` sunt disponibile:
+
+
 
 ```powershell
-# This command should print the version of Node.js
+# Această comandă ar trebui să afișeze versiunea Node.js
 node -v
 
-# This command should print the version of npm
+# Această comandă ar trebui să afișeze versiunea npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+
+Dacă ambele comenzi tipărite un număr de versiune, toate sunt setate! Înainte de a începe , poate doriţi să instalaţi un editor de cod</a> potrivit pentru dezvoltarea JavaScript.</p> 
+
+
 
 ## Configurarea Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+> În general, Electron suportă Ubuntu 12.04, Fedora 21, Debian 8 și mai târziu.
+
+Mai întâi, instalați o versiune recentă a Node.js. În funcție de distribuția Linux, pașii de instalare pot diferi. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
+
+Acum rulezi Linux, așa că este posibil să știi deja cum să operezi o linie de comandă client. Deschideți clientul dvs. preferat și confirmați că atât `nodul` cât și `npm` sunt disponibile la nivel global:
+
+
 
 ```sh
-# This command should print the version of Node.js
+# Această comandă ar trebui să afișeze versiunea Node.js
 node -v
 
-# This command should print the version of npm
+# Această comandă ar trebui să afișeze versiunea npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## A Good Editor
+Dacă ambele comenzi tipărite un număr de versiune, toate sunt setate! Înainte de a începe , poate doriţi să instalaţi un editor de cod</a> potrivit pentru dezvoltarea JavaScript.</p> 
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+
+## Un editor bun
+
+We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Ambele au suport JavaScript excelent.
+
+Dacă sunteţi unul dintre numeroşii dezvoltatori cu o preferinţă puternică, ştiţi că practic toţi editorii de cod şi IDE-urile din prezent suportă JavaScript.
 
 [macincloud]: https://www.macincloud.com/
 [node-download]: https://nodejs.org/en/download/

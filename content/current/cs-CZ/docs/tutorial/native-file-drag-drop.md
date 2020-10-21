@@ -1,21 +1,21 @@
-# Native File Drag & Drop
+# Nativní přetažení souborů & Zahodit
 
 ## Přehled
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Přetažení souborů do webového obsahu je běžné a podporováno mnoha webovými stránkami. Electron navíc podporuje přetahování souborů a obsahu z webového obsahu do světa operačního systému.
 
-To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
+Chcete-li implementovat tuto funkci ve vaší aplikaci, musíte zavolat [`webový obsah. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API v reakci na událost `ondragstart`.
 
 ## Ukázka
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `index.html` file:
+Začne fungující aplikací z [Rychlý startovací průvodce](quick-start.md), přidejte následující řádky do souboru `index.html`:
 
 ```html
-<a href="#" id="drag">Drag me</a>
+<a href="#" id="drag">Přetáhněte mě</a>
 <script src="renderer.js"></script>
 ```
 
-and add the following lines to the `renderer.js` file:
+a přidejte následující řádky do souboru `render.js`:
 
 ```js
 const { ipcRenderer } = require('electron')
@@ -26,21 +26,21 @@ document.getElementById('drag').ondragstart = (event) => {
 }
 ```
 
-The code above instructs the Renderer process to handle the `ondragstart` event and forward the information to the Main process.
+Výše uvedený kód dává Renderer pokyn k tomu, aby zvládl událost `ondragstart` a předal informace hlavnímu procesu.
 
-In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+V hlavním procesu(`hlavní. s` soubor), rozšíření přijaté události o cestu k souboru, který je přetažen a ikona:
 
 ```javascript
 const { ipcMain } = require('electron')
 
-ipcMain.on('ondragstart', (event, filePath) => {
+ipcMain.on('ondragstart', (event filePath) => {
   event.sender.startDrag({
-    file: filePath,
+    soubor: filePath,
     icon: '/path/to/icon.png'
   })
 })
 ```
 
-After launching the Electron application, try dragging and dropping the item from the BroswerWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
+Po spuštění Electron aplikace zkuste přetáhnout položku z BroswerWindow na vaši plochu. V této příručce je položka Markdown soubor umístěný v kořenovém adresáři projektu:
 
-![Drag and drop](../images/drag-and-drop.gif)
+![Přetažení](../images/drag-and-drop.gif)

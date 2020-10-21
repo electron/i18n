@@ -1,65 +1,65 @@
 ---
 title: Electron 1.0
-author: jlord
+author: Jlord
 date: '2016-05-11'
 ---
 
-For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. The release of Electron 1.0 is now available from [electronjs.org](https://electronjs.org).
+În ultimii doi ani, Electron a ajutat dezvoltatorii să construiască platforme încrucișate aplicații desktop folosind HTML, CSS și JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. Versiunea a Electron 1.0 este acum disponibilă de la [electronjs.org](https://electronjs.org).
 
 ---
 
 ![Electron 1.0](https://cloud.githubusercontent.com/assets/378023/15007352/315f5eea-1213-11e6-984e-21f5dab31267.png)
 
-Electron 1.0 represents a major milestone in API stability and maturity. This release allows you to build apps that act and feel truly native on Windows, Mac, and Linux. Building Electron apps is easier than ever with new docs, new tools, and a new app to walk you through the Electron APIs.
+Electron 1.0 reprezintă o piatră de hotar majoră în stabilitatea și maturitatea API. Această versiune îți permite să construiești aplicații care acționează și se simt cu adevărat native pe Windows, Mac și Linux. Construirea de aplicații Electron este mai ușoară ca oricând cu noi documente, unelte noi și o aplicație nouă care să te plimbe prin API-uri Electron.
 
-If you're ready to build your very first Electron app, here's a [quick start guide](https://electronjs.org/docs/tutorial/quick-start) to help you get started.
+Dacă sunteți gata să vă construiți prima aplicație Electron, iată un [ghid de început rapid](https://electronjs.org/docs/tutorial/quick-start) pentru a vă ajuta să începeți.
 
-We are excited to see what you build next with Electron.
+Suntem entuziasmați să vedem ce construiești în continuare cu Electron.
 
-## Electron's Path
+## Cale Electron
 
-We released Electron when we launched [Atom](https://atom.io) a little over two years ago. Electron, then known as Atom Shell, was the framework we'd built Atom on top of. In those days, Atom was the driving force behind the features and functionalities that Electron provided as we pushed to get the initial Atom release out.
+Am lansat Electron când am lansat [Atom](https://atom.io) cu puțin peste doi ani în urmă. Electron, cunoscut apoi sub numele de Atom Shell, era cadrul pe care îl construisem deasupra lui Atom În acele zile, Atom a fost forța motrice din spatele funcțiilor și funcționalităților pe care Electron le-a furnizat în timp ce împingem să eliberăm Atom inițial.
 
-Now driving Electron is a growing community of developers and companies building everything from [email](https://nylas.com), [chat](https://slack.com), and [Git apps](https://www.gitkraken.com) to [SQL analytics tools](https://www.wagonhq.com), [torrent clients](https://webtorrent.io/desktop), and [robots](https://www.jibo.com).
+Acum conducând Electron este o comunitate în creștere de dezvoltatori și companii care construiesc totul de la [e-mail](https://nylas.com), [chat-ul](https://slack.com), și [Aplicații Git](https://www.gitkraken.com) la [Unelte analitice SQL](https://www.wagonhq.com), [clienți torrent](https://webtorrent.io/desktop)și [roboți](https://www.jibo.com).
 
-In these last two years we've seen both companies and open source projects choose Electron as the foundation for their apps. Just in the past year, Electron has been downloaded over 1.2 million times. [Take a tour](https://electronjs.org/apps) of some of the amazing Electron apps and add your own if it isn't already there.
+În acești ultimi doi ani am văzut atât companii, cât și proiecte open source alegeți Electron ca fundament pentru aplicațiile lor. Chiar în ultimul an, Electron a fost descărcat de peste 1,2 milioane de ori. [Faceți un tur](https://electronjs.org/apps) al unor uimitoare aplicații Electron și adăugați-vă propriile aplicații dacă nu este deja acolo.
 
-![Electron downloads](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
+![Descărcări Electron](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
 
-## Electron API Demos
+## Demonstrații API Electron
 
-Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. The [Electron API Demos](https://github.com/electron/electron-api-demos) app contains code snippets to help you get your app started and tips on effectively using the Electron APIs.
+Alături de 1. lansat, lansăm o nouă aplicație pentru a te ajuta să explorezi API-urile Electron și să afli mai multe despre cum să faci aplicația ta Electron să se simtă nativă. Aplicația [Electron API Demos](https://github.com/electron/electron-api-demos) conține cod snippets pentru a-l ajuta să pornească aplicația și sfaturi pentru utilizarea eficientă a API-ului Electron.
 
-[![Electron API Demos](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Demonstrații API Electron](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
 
 ## Devtron
 
-We've also added a new extension to help you debug your Electron apps. [Devtron](https://electronjs.org/devtron) is an open-source extension to the [Chrome Developer Tools](https://developer.chrome.com/devtools) designed to help you inspect, debug, and troubleshoot your Electron app.
+De asemenea, am adăugat o nouă extensie pentru a te ajuta să depanezi aplicațiile tale Electron . [Devtron](https://electronjs.org/devtron) este o extensie open-source la [Chrome Developer Tools](https://developer.chrome.com/devtools) proiectată pentru a vă ajuta să inspectați, depanați și depanați aplicația dvs. Electron.
 
 [![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
 
-### Features
+### Caracteristici
 
-  * **Require graph** that helps you visualize your app's internal and external library dependencies in both the main and renderer processes
-  * **IPC monitor** that tracks and displays the messages sent and received between the processes in your app
-  * **Event inspector** that shows you the events and listeners that are registered in your app on the core Electron APIs such as the window, app, and processes
-  * **App Linter** that checks your apps for common mistakes and missing functionality
+  * **Este necesar un grafic** care să te ajute să vizualizezi dependențele interne și externe ale bibliotecii atât în procesele principale, cât și în cele de redare
+  * **monitor IPC** care trasează și afișează mesajele trimise și primite între procesele din aplicația ta
+  * **Inspectorul evenimentului** care vă arată evenimentele și ascultătorii care sunt înregistrați în aplicația dvs. pe API-urile Electron de bază cum ar fi fereastra, Aplicație și procese
+  * **App Linter** care verifică aplicațiile pentru greșeli comune și pentru funcționalitatea lipsă
 
 ## Spectron
 
-Finally, we're releasing a new version of [Spectron](https://electronjs.org/spectron), the integration testing framework for Electron apps.
+În cele din urmă, lansăm o nouă versiune a [Spectron](https://electronjs.org/spectron), cadrul de testare a integrării pentru aplicațiile Electron.
 
 [![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
 
-Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron is based on [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) and [WebDriverIO](http://webdriver.io) so it also has full APIs for page navigation, user input, and JavaScript execution.
+Spectron 3. are suport cuprinzător pentru întregul API Electron care îți permite să scrii mai rapid teste care să verifice comportamentul aplicației tale în diverse scenarii și medii. Spectron se bazează pe [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) și [WebDriverIO](http://webdriver.io) astfel încât are și API-uri complete pentru navigarea paginii, introducerea utilizatorului şi execuţia JavaScript.
 
 ## Comunitate
 
-Electron 1.0 is the result of a community effort by hundreds of developers. Outside of the core framework, there have been hundreds of libraries and tools released to make building, packaging, and deploying Electron apps easier.
+Electron 1.0 este rezultatul unui efort comunitar din partea a sute de dezvoltatori. În afara cadrului de bază, au fost lansate sute de biblioteci și unelte pentru a face construcția, ambalarea și implementarea mai ușoară a aplicațiilor Electron.
 
-There is now a new [community](https://electronjs.org/community) page that lists many of the awesome Electron tools, apps, libraries, and frameworks being developed. You can also check out the [Electron](https://github.com/electron) and [Electron Userland](https://github.com/electron-userland) organizations to see some of these fantastic projects.
+There is now a new [community](https://electronjs.org/community) page that lists many of the awesome Electron tools, apps, libraries, and frameworks being developed. De asemenea, poți verifica [organizațiile Electron](https://github.com/electron) și [Electron Userland](https://github.com/electron-userland) pentru a vedea unele dintre aceste proiecte fantastice.
 
-New to Electron? Watch the Electron 1.0 intro video:
+Nou pe Electron? Urmăriți videoclipul introductiv Electron 1.0 :
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
 

@@ -6,24 +6,24 @@ Diese Anleitung erklärt Ihnen, wie Sie Ihre Applikation mit Electron-APIs in di
 
 ## Benachrichtigungen
 
-See the [Notifications documentation](notifications.md).
+Sehen Sie sich die [Benachrichtigungsdokumentation](notifications.md) an.
 
 ## Kürzliche Dokumente
 
-See [Recent Documents documentation](recent-documents.md).
+Siehe [Aktuelle Dokumentendokumentation](recent-documents.md).
 
-## Progress Bar
+## Fortschrittsbalken
 
-See the [Progress Bar documentation](progress-bar.md).
+Sehen Sie sich die [Fortschrittsbalkendokumentation](progress-bar.md) an.
 
-## Unity Launcher
+## Einheitswerfer
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Siehe die [Unity Launcher Dokumentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## Repräsentierte Datei für MacOS Fenster
 
-See the [Represented File documentation](represented-file.md).
+Sehen Sie sich die [Repräsentierte Dateidokumentation](represented-file.md) an.
 
-## Dragging files out of the window
+## Dateien aus dem Fenster ziehen
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Siehe [Native File Drag & Drop Dokumentation](native-file-drag-drop.md).

@@ -1,6 +1,6 @@
 # 应用部署
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+要使用 Electron 分发您的应用，您需要打包并重命名它。 最简单的方法是使用下列第三方包装工具之一：
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,7 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 这些工具将覆盖发布一个Electron应用所需采取的所有步骤，例如，打包应用程序，重组可执行程序，设置图标和可配置的创建安装程序。
 
 ## 手动发布
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+您也可以选择手动让您的应用程序准备好分发。 为此所需采取的步骤概述如下。
 
 为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹Resources下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
 
@@ -107,9 +107,9 @@ MyApp.app/Contents
 2. 创建一个新的 S3 bucket 并按照以下结构创建文件夹：
 
     ```sh
-    - electron/
-      - symbols/
-      - dist/
+    - 电子/
+      - 符号/
+      - 距离/
     ```
 
 3. 设置以下环境变量：

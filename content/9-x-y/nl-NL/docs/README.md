@@ -4,7 +4,7 @@ Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electr
 
 ## Veelgestelde vragen (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Er zijn vragen die heel vaak worden gesteld. Bekijk dit voor het maken van een probleem:
 
 * [Electron FAQ](faq.md)
 
@@ -45,7 +45,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Drag & Drop Bestanden](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Webembeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

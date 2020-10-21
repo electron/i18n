@@ -1,85 +1,88 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: '每周的项目：Beaker 浏览器'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker是一个实验性的 点对点网页浏览器，它使用 Dat 协议来托管来自用户的 设备。
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## Beaker是什么，你为什么要创建它？
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+Beaker是一个参与式浏览器。 它是供indie 黑客使用的浏览器。
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+网络是封闭源. 如果你想要影响社交媒体的工作方式，你必须在 Facebook 或 Twitter 上工作。 搜索，Google。 控制权掌握在公司而不是用户自己手中。
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+通过Beaker，我们有一个新的 Web 协议： [分散存档传输](https://datprotocol.com)。 "数据." 它可以免费创建站点，然后从设备中共享。 无需服务器。 这是我们的创新。
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![贝克尔人协议](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+当你访问Beaker的Dat网站时，你会下载这些文件。 站点永远是你的。 您可以保存它，派生它，修改它，并免费分享您的新版本。 它都是开源的。
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+所以这是我们的目的：我们正在为开源网站制作一个浏览器。 我们希望它成为社会黑客的工具包。
 
-## Who should be using Beaker?
+## 谁应该使用Beaker？
 
-Hackers. Modders. Creative types. People who like to tinker.
+黑客。 调制解调器。 创意类型。 喜欢搭车的人。
 
-## How do I create a new project that uses Dat?
+## 如何创建一个使用数据的新项目？
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+我们有 [个命令行工具，叫做bkr](https://github.com/beakerbrowser/bkr) 这种类型就像git + npm。 下面正在创建站点：
 
 ```bash
-$ cd ~/my-site
-$ bkr init
-$ echo "Hello, world!" > index.html
-$ bkr publish
+$cd ~/my-site
+$bkr init
+$echo "Hello, world!" > index.html
+$bkr 发布
 ```
 
-And here's forking a site:
+下面是一个站点：
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+echo "我的叉不考虑上一个索引。 tml!" > index.html
+$ bkr 发布
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+然后这些网站从您的浏览器中托管。 这点就像BitTorren；你分享一个P2P网格中的网站。
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+如果你想要GUI，我们有一些基本的工具内置于浏览器中，但我们正在将这些工具推送到用户手中。 它都是可调用的用户应用程序。
 
-## Why did you choose to build Beaker on Electron?
+## 您为什么选择在 Electron 上建造Beaker？
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+对这个项目来说是显而易见的。 如果我自己派生了Chrome，我现在就写了 C++ ！ 没有人想要这样做。 我知道网页堆栈，我可以很快地与它合作。 它是一个没有脑海的人。
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+事实真相是，我不敢肯定我可以在没有Electron的情况下做任何这件事。 这是一部伟大的软件。
 
-## What are some challenges you've faced while building Beaker?
+## 构建Beaker时面临什么挑战？
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+其中一半人正在玩弄工具，并想出我能够解救多少人。
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+让浏览器本身非常容易。 Electron实际上是制作浏览器的一个工具包。 ...除了浏览器标签；这使我永远变得对了。 我终于打破僵局，学会了如何做特殊用途小武器小武器小武器小武器小武器小武器小武器。 看起来好得多，但是在我得到这个正确之前它需要经过三到四次迭代。
 
-## In what areas should Electron be improved?
+## 应在哪些领域改进Electron？
 
-It'd be really great if I could dock the devtools inside a webview.
+如果我可以在网页视图中停靠devtools，这真是很棒的。
 
-## What's coming next in Beaker?
+## Beaker下一步是什么？
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+Dat 站点的安全域名. 一个社交配置的 URL 方案，名为 ["应用方案"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) 更多Dat API。
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## 对于那些可能有兴趣为该项目作出贡献的民间团体来说，Beaker在哪些领域需要帮助？
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+我们有许多悬而未决的问题。 不要害怕我。 #beaker浏览器开启免费版。 我们为贡献者</a> 保留一个
+页，我们会将您添加到它。 如果你访问奥斯坦，我会买一只啤酒。</p> 
 
-## Any Electron tips that might be useful to other developers?
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+
+## 任何可能对其他开发者有用的 Electron 提示？
+
+1. 在那里使用构建配刀。 你不想用你自己的解决方案来挣扎，信任我。 使用 electron-builder。 使用一个锅炉仓库.
+2. 如果你需要在 Electron 仓库中打开一个问题，请花额外的英尺来让它更容易复制它。 您将更快地得到响应，团队将对此表示感谢。 甚至更好，试着自己修复它。 看到内核实际上很有趣。
+3. 至少一次阅读所有指南和高级文档。
+4. 不要建立浏览器，它是一个饱和的市场。
 

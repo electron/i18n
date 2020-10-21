@@ -2,45 +2,44 @@
 
 ## Visão Geral
 
-All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
+Todos os três sistemas operacionais fornecem meios para que os aplicativos enviem notificações para o usuário. A técnica de mostrar notificações é diferente para os processos Principal e Renderizador.
 
-For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Para o processo Renderer, o Electron permite convenientemente que os desenvolvedores enviem notificações com a API de notificação de [HTML5](https://notifications.spec.whatwg.org/), , usando as APIs de notificação nativas do sistema operacional em execução para exibi-la.
 
-To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
+Para mostrar notificações no processo principal, precisa usar o módulo [Notificação](../api/notification.md).
 
 ## Exemplo
 
-### Show notifications in the Renderer process
+### Mostrar notificações no processo de Renderização
 
-Assuming you have a working Electron application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+Assumindo que você tem um aplicativo Electron funcional do [Guia de início Rápido](quick-start.md), adicione a seguinte linha ao índice `. tml` arquivo antes do fechamento `</body>` etiqueta:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-and add the `renderer.js` file:
+e adicione o arquivo</code> de renderização do `renderers:</p>
 
-```js
-const myNotification = new Notification('Title', {
+<pre><code class="js">const myNotification = new Notification('Título', {
   body: 'Notification from the Renderer process'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('Notificação clicada')
 }
-```
+`</pre>
 
-After launching the Electron application, you should see the notification:
+Após iniciar o aplicativo Electron, você verá a notificação:
 
-![Notification in the Renderer process](../images/notification-renderer.png)
+![Notificação no processo de renderização](../images/notification-renderer.png)
 
-If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
+Se você abrir o Console e clicar na notificação, você verá a mensagem gerada depois de acionar o evento `onclick`:
 
-![Onclick message for the notification](../images/message-notification-renderer.png)
+![Mensagem Onclick para a notificação](../images/message-notification-renderer.png)
 
-### Show notifications in the Main process
+### Mostrar notificações no processo principal
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Começando com um aplicativo de trabalho do [Guia de Início Rápido](quick-start.md), atualize o arquivo `main.js` com as seguintes linhas:
 
 ```js
 const { Notification } = require('electron')
@@ -56,17 +55,17 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the notification:
+Após iniciar o aplicativo Electron, você verá a notificação:
 
-![Notification in the Main process](../images/notification-main.png)
+![Notificação no processo principal](../images/notification-main.png)
 
-## Additional information
+## Informação Adicional
 
 Enquanto o código e a experiência do usuário em sistemas operacionais sejam semelhantes, há algumas diferenças.
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navegue até o arquivo no Explorer, clique com o botão direito e "Fixar em Iniciar". You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
+* No Windows 10, um atalho para seu aplicativo com um [ID de usuário do modelo de aplicativo](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) deve ser instalado no menu Iniciar. Isto pode ser overkill durante o desenvolvimento, então adicionar `node_modules\electron\dist\electron.exe` no seu Menu Inicial também faz o truque. Navegue até o arquivo no Explorer, clique com o botão direito e "Fixar em Iniciar". Em seguida, você precisará adicionar a linha `app.setAppUserModelId(process.execPath)` ao seu processo principal para ver as notificações.
 * No Windows 8.1 e Windows 8, um atalho para o seu aplicativo, com um, [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) deve ser instalado na tela inicial. No entanto, ele não precisa ser fixado na a tela iniciar.
 * No Windows 7, notificações funcionam através de uma implementação personalizada que visualmente se assemelha aos sistemas mais novos.
 
@@ -78,13 +77,13 @@ Além disso, no Windows 8, o comprimento máximo para o corpo da notificação �
 
 Versões posteriores do Windows permitem notificações avançadas, com os modelos personalizados, imagens e outros elementos flexíveis. Para enviar essas notificações(tanto do processo principal, quanto do processo de renderização), use o módulo de userland [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), que usa addons nativos Node parar enviar `ToastNotification` e objetos `TileNotification`.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Enquanto as notificações incluindo botões trabalham com `o electron-windows-notifics`, manipular respostas requer o uso de [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), que ajuda a registrar os componentes COM necessários e chamar o seu aplicativo Electron com os dados de usuário inseridos.
 
 #### Modo Silêncio/ Apresentação
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Para detectar se você tem permissão para enviar uma notificação, use o módulo userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Isso permite que você determine antes do tempo se o Windows irá ou não silenciosamente lançar a notificação fora.
 
 ### macOS
 

@@ -1,14 +1,14 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
-author: groundwater
+title: 'Electron 2.0 及其他 - 语义版本'
+author: 地下水
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+Electron的新版本正在工作中，我们的版本策略也有一些改变。 从2.0.0版本起，Electron将严格遵守语义版本。
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+这个更改意味着你会看到更多的主要版本跳转，它通常是Chromium的重要更新。 补丁发布也将更加稳定，因为它们现在只包含没有新功能的错误修复。
 
 **Major 版本增量**
 
@@ -27,12 +27,12 @@ This change means you'll see the major version bump more often, and it will usua
 * 修复相关的 chromium 补丁
 * Electron bug 修复
 
-Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
+由于Electron的半程现在将更有意义，我们建议 使用 npm 的默认 `--save-dev` 标志安装 Electron ， 这将前缀 你的版本与 `^`, 让你安全地掌握最新的小和补丁 更新:
 
 ```sh
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+对于只对错误修复感兴趣的开发者来说，您应该使用 tilde semver 前缀，例如 `~2。 0`, 它永远不会引入新的功能, 仅修复以提高稳定性。
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+详情见 [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning)。

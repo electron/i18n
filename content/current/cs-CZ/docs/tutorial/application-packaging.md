@@ -1,36 +1,36 @@
 # Aplikace balení
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Pro zmírnění [úkolů](https://github.com/joyent/node/issues/6960) kolem dlouhých názvů cest na Windows, mírně urychlit `vyžaduje` a skrýt váš zdrojový kód před prohlížením kurzoru, můžete si vybrat balíček vaší aplikace do [asaru](https://github.com/electron/asar) archivu s malými změnami vašeho zdrojového kódu.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Většina uživatelů získá tuto funkci zdarma, protože je podporován mimo krabici [`elektronickým balíkem`](https://github.com/electron/electron-packager), [`elektronická forge`](https://github.com/electron-userland/electron-forge), a [`elektronický stavitel`](https://github.com/electron-userland/electron-builder). Pokud nepoužíváte žádný z těchto nástrojů, přečtěte si to.
 
-## Generating `asar` Archives
+## Generování `asar` Archivy
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) archiv je jednoduchý tar-like formát, který spojuje soubory do jednoho souboru. Electron může číst libovolné soubory bez rozbalování celého souboru.
 
-Steps to package your app into an `asar` archive:
+Kroky k balení vaší aplikace do archivu `asar`:
 
-### 1. Install the asar Utility
+### 1. Nainstalovat asar nástroj
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Balíček s `sadou asarů`
 
 ```sh
-$ asar pack your-app app.asar
+$ asar balíček tvoje aplikace
 ```
 
-## Using `asar` Archives
+## Použití `asar` Archivy
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+V Electronu jsou dva soubory API: API uzlu poskytuje Node.js a Web API, které poskytuje Chromium. Obě API podporují čtení souborů z `asar` archivů.
 
-### Node API
+### API uzlu
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Se speciálními záplatami v Electronu, Node API jako `fs. eadFile` a `vyžaduje` přistupovat k `asarů` archivům jako k virtuálním adresářům, a soubory v něm jako normální soubory v souborovém systému.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Předpokládejme například, že máme archiv `příklad.asar` pod `/cesta/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -42,27 +42,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Číst soubor v archivu `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Seznam všech souborů v kořenovém adresáři archivu:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Použít modul z archivu:
 
 ```javascript
-require('./path/to/example.asar/dir/module.js')
+vyžaduje('./cesta/do/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Můžete také zobrazit webovou stránku v `asaru,` archivu s `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Na webové stránce mohou být soubory v archivu požadovány pomocí `souboru:` protokolu. Stejně jako API uzlu jsou i archivy `asar` považovány za adresáře.
 
-For example, to get a file with `$.get`:
+Například, chcete-li získat soubor s `$.get`:
 
 ```html
 <script>
@@ -86,9 +86,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Nakládání s `asarem` Archivovat jako normální soubor
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+V některých případech, jako je ověření kontroly `asar` , archivu musíme si přečíst obsah asaru `` archivu jako soubor. Za tímto účelem můžete použít vestavěný modul `original-fs` , který poskytuje originální `fs` API bez `asar` : podpora:
 
 ```javascript
 const originalFs = require('original-fs')
@@ -103,49 +103,49 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Omezení Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+I když jsme se snažili udělat `asar` archivy v uzlu API co nejvíce fungují jako adresáře, stále existují omezení z důvodu nízké úrovně API.
 
-### Archives Are Read-only
+### Archivy jsou pouze pro čtení
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Archivy nelze upravit, takže všechny API, které mohou měnit soubory, nebudou fungovat s `asar` archivy.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Pracovní adresář nemůže být nastaven na adresáře v archivu
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Ačkoli `asar` archivy jsou považovány za adresáře, v souborovém systému neexistují žádné adresáře, takže nikdy nemůžete nastavit pracovní adresář na adresáře v archivech `asar`. Jejich předáním jako možnost `cwd` některých API také způsobí chyby.
 
-### Extra Unpacking on Some APIs
+### Extra rozbalit na některá API
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Většina `fs` API může číst soubor nebo získat informace o souboru z `asar` archivů bez rozbalení, ale pro některé API, které spoléhají na převedení skutečné cesty souboru na základní systémová volání, Electron rozbalí potřebný soubor do dočasného souboru a předá cestu dočasného souboru API, aby fungoval . Toto přidává trochu režijní náklady pro tato API.
 
-APIs that requires extra unpacking are:
+API, která vyžaduje další rozbalení:
 
-* `child_process.execFile`
-* `child_process.execFileSync`
+* `dět_proces.execFile`
+* `dítě_proces.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `proces.dlopen` - používá `vyžadovat` na nativních modulech
 
-### Fake Stat Information of `fs.stat`
+### Informace o falešných Stat `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+`Statistika` objekt vrácen `fs. tat` a jeho přátelé na souborech v `asar` archivy jsou generovány odhadem, protože tyto soubory v souborovém systému neexistují. Neměli byste tedy důvěřovat objektu `statistiky` kromě získání souboru velikosti a kontroly typu souboru.
 
-### Executing Binaries Inside `asar` Archive
+### Provádění binárních souborů uvnitř `asar` Archiv
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+Existují Node API, které mohou spouštět binární soubory jako `child_process.exec`, `child_process.spawn` a `child_process. xecFile`, ale pouze `execFile` je podporováno pro provádění binárních souborů uvnitř `asar` archivu.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Důvodem je to, že `exec` a `spawn` přijmout `příkaz` namísto `souboru` jako vstup, a `příkazy`s jsou prováděny pod skořápkou. Neexistuje žádný spolehlivý způsob, jak určit, zda příkaz používá soubor v archivu, a to i v případě, že ano, nemůžeme si být jisti, zda můžeme cestu nahradit bez vedlejších efektů.
 
-## Adding Unpacked Files to `asar` Archives
+## Přidávání nebalených souborů do `asar` archivů
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Jak bylo uvedeno výše, některé API uzlu odbalí soubor do souborového systému při volání. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Jako řešení můžete ponechat různé soubory rozbalené pomocí volby `--unpack`. V následujícím příkladu nebudou sdílené knihovny modulů nativní Node.js zabaleny:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+Po spuštění příkazu zjistíte, že složka s názvem `app.asar.unpacked` byla vytvořena společně s `, app.asar`. Obsahuje rozbalené soubory a měly by být odeslány společně s archivem `app.asar`.
 

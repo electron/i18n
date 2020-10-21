@@ -1,56 +1,56 @@
 # Programma's bijwerken
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Er zijn verschillende manieren om een Electron applicatie bij te werken. Het gemakkelijkste en officieel ondersteunde framework maakt gebruik van de ingebouwde [Squirrel](https://github.com/Squirrel) framework en Elektron's [autoUpdater](../api/auto-updater.md) module.
 
-## Using `update.electronjs.org`
+## Gebruikt `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+Het Electron team onderhoudt [update.electronjs.org](https://github.com/electron/update.electronjs.org), een gratis en open-source webservice die Electron apps kunnen gebruiken om zichzelf bij te werken. De service is ontworpen voor Electron apps die aan de volgende criteria voldoen:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- App wordt uitgevoerd op macOS of Windows
+- App heeft een openbare GitHub repository
+- Builds zijn gepubliceerd naar GitHub Releases
+- Builds zijn code-signed
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+De eenvoudigste manier om deze service te gebruiken is door [de update-electron-app](https://github.com/electron/update-electron-app)te installeren, een Node.js module vooraf geconfigureerd voor gebruik met update.electronjs.org.
 
-Install the module:
+Installeer de module:
 
 ```sh
-npm install update-electron-app
+npm installatie update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Indruk de updater uit het hoofdverwerkingsbestand van uw app:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Standaard zal deze module controleren op updates bij het opstarten van de app, en dan elke tien minuten. Wanneer een update wordt gevonden, zal het automatisch worden gedownload op de achtergrond. Wanneer de download voltooid is, wordt een dialoogvenster weergegeven waardoor de gebruiker de app kan herstarten.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Als u uw configuratie wilt aanpassen, u kunt [opties doorgeven voor `het bijwerken van de app`](https://github.com/electron/update-electron-app) of [de update service direct](https://github.com/electron/update.electronjs.org).
 
 ## Een Update Server implementeren
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Als je een persoonlijke Electron applicatie ontwikkelt, of als je niet releases publiceert naar GitHub Releases, het kan nodig zijn om je eigen updateserver te beheren.
 
-Depending on your needs, you can choose from one of these:
+Afhankelijk van uw behoeften kunt u kiezen uit een van deze:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – Update server voor privé of open-source apps die gratis kunnen worden ingezet op [Now](https://zeit.co/now). Het haalt van [GitHub Releases](https://help.github.com/articles/creating-releases/) en gebruikt de kracht van GitHub's CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) - ook gebruik [GitHub Releases](https://help.github.com/articles/creating-releases/), maar caches app update op schijf en ondersteunt privé repositories.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) - biedt een dashboard voor releases en hoeft geen releases te gebruiken om op GitHub te komen.
+- [Nucleus](https://github.com/atlassian/nucleus) – Een complete updateserver voor Electron apps onderhouden door Atlassian. Ondersteunt meerdere applicaties en kanalen; gebruikt een statische bestandsopslag om de serverkosten te minimaliseren.
 
 ## Updates implementeren in uw App
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Zodra je je updateserver hebt gebruikt, ga je verder met het importeren van de benodigde modules in je code. De volgende code kan variëren voor verschillende server software, maar het werkt zoals beschreven bij het gebruik van [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Belangrijk:** Zorg ervoor dat de onderstaande code alleen wordt uitgevoerd in uw verpakte app, en niet in ontwikkeling. Je kunt [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) gebruiken om te controleren op de omgeving.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Bouw vervolgens de URL van de updateserver en vertel [autoUpdater](../api/auto-updater.md) erover:
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Als laatste stap controleren op updates. Het voorbeeld hieronder controleert elke minuut:
 
 ```javascript
 setInterval(() => {
@@ -67,37 +67,37 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Zodra uw aanvraag [verpakt is](../tutorial/application-distribution.md), het zal voor elk nieuw [GitHub Release](https://help.github.com/articles/creating-releases/) die je publiceert een update ontvangen.
 
 ## Updates toepassen
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Nu je het basisupdatesysteem voor je sollicitatie hebt geconfigureerd, u moet ervoor zorgen dat de gebruiker een melding krijgt wanneer er een update is. Dit kan worden bereikt met de autoUpdater API [events](../api/auto-updater.md#events):
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+Automatische updater. n('update gedownload', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    knoppen: ['Herstarten', 'Later'],
+    titel: 'Toepassing bijwerken',
+    bericht: proces. latform === 'win32' ? releaseNotes : releaseName,
+    detail: 'Een nieuwe versie is gedownload. Herstart de applicatie om de updates toe te passen.
   }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+  dialoogvensterMessageBox(dialogOpts).then((retour nValue) => {
     if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Zorg er ook voor dat fouten [worden afgehandeld](../api/auto-updater.md#event-error). Hier is een voorbeeld voor het loggen van ze naar `stderr`:
 
 ```javascript
-autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+autoUpdater.on('error', bericht => {
+  console.error('Er was een probleem bij het bijwerken van de applicatie')
   console.error(message)
 })
 ```
 
-## Handling Updates Manually
+## Handmatig bijwerken verwerken
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Omdat de verzoeken van Auto Update niet onder uw directe controle vallen u vindt mogelijk situaties die moeilijk te verwerken zijn (bijvoorbeeld als de updateserver achter de authenticatie zitten). Het `url` veld ondersteunt bestanden, wat betekent dat je met enige inspanning het server-communicatieaspect van het proces kunt omzeilen. [Dit is een voorbeeld van hoe dit zou kunnen werken](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

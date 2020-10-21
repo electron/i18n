@@ -1,10 +1,10 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Snapcraft Guide (Ubuntu Software Center & Plus)
 
 Ce guide fournit des informations sur comment empaqueter votre application Electron pour n’importe quel environnement Snapcraft, y compris l’Ubuntu Software Center.
 
 ## Contexte et exigences
 
-Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Les Snaps sont des paquets logiciels conteneurs qui incluent les dépendances requises, la mise à jour automatique et fonctionnent sur toutes les distributions Linux majeures sans modification du système.
 
 Il existe trois méthodes pour créer un fichier `.snap` :
 
@@ -34,22 +34,22 @@ La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
 .
-└── dist
-    └── app-linux-x64
-        ├── LICENSE
-        ├── LICENSES.chromium.html
-        ├── content_shell.pak
-        ├── app
-        ├── icudtl.dat
-        ├── libgcrypt.so.11
-        ├── libnode.so
-        ├── locales
-        ├── resources
-        ├── v8_context_snapshot.bin
-        └── version
+<unk> ── dist
+    <unk> ── app-linux-x64
+        ── LICENSE
+        ── LICENSES. hromium.html
+        ── content_shell. ak
+        ── app
+        ── ─ icudtl. à
+        ── libgcrypt.so.11
+        ── libnode. o
+        ── locales
+        ── resources
+        Ω── v8_context_snapshot. dans
+        <unk> ─ version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Étape 2 : Exécution de `electron-installer-snap`
 
 Depuis un terminal qui a `snapcraft` dans son `PATH`, exécutez `electron-installer-snap` avec seulement `--src`, qui est l'emplacement de votre application Electron créée à la première étape.
 
@@ -129,7 +129,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativement, si vous construisez votre `snap` avec un confinement `strict` , vous pouvez utiliser la commande `desktop-launch`:
 
 ```yaml
 apps:

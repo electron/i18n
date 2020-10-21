@@ -1,10 +1,10 @@
 # اختصارات لوحة المفاتيح
 
-> Configure local and global keyboard shortcuts
+> تكوين اختصارات لوحة المفاتيح المحلية والعالمية
 
 ## اختصارات محلية
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+يمكنك استخدام وحدة [قائمة](../api/menu.md) لتكوين اختصارات لوحة المفاتيح التي سيتم تشغيلها فقط عند تركيز التطبيق. للقيام بذلك، حدد خاصية [`مسرع`] عند إنشاء [عنصر القائمة](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -17,64 +17,64 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+يمكنك تكوين مجموعات مفاتيح مختلفة استناداً إلى نظام تشغيل المستخدم.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  معجل: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
 ## الاختصارات العامة
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+يمكنك استخدام وحدة [globalShortcut](../api/global-shortcut.md) للكشف عن أحداث لوحة المفاتيح حتى عندما لا يحتوي التطبيق على تركيز لوحة المفاتيح.
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('commandOrControl+X', () => {
+    console.log('commandOrControl+X مضغوط')
   })
 })
 ```
 
 ## الإختصارات صمن الـBrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+إذا كنت ترغب في التعامل مع اختصارات لوحة المفاتيح لنافذة [المتصفح](../api/browser-window.md)، يمكنك استخدام `مفاتيح` و `مفاتيح` مستمع الحدث على عنصر النافذة داخل عملية العرض.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+لاحظ المعلمة الثالثة `true` مما يعني أن المستمع سيستقبل دوما ضغوطات المفاتيح قبل المستمعين الآخرين بحيث لا يمكنهم `إيقاف النشر ()` الاتصال بهم.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+حدث [`قبل إدخال`](../api/web-contents.md#event-before-input-event) الحدث ينبعث قبل إرسال `مفاتيح` و `مفاتيح` أحداث في الصفحة. يمكن استخدام لالتقاط ومعالجة الاختصارات المخصصة غير المرئية في القائمة.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+إذا كنت لا تريد إجراء تحليل اختصار يدوي هناك مكتبات تقوم باكتشاف مفاتيح متقدمة مثل [الفأرة](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => { console. og('إظهار الاختصار!') })
+Mousetrap.bind('esc', () => { console. og('escape') }, 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// تركيبات
+Mousetrap.bind('command+shift+k', () => { console. og('order shift k') })
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// خريطة مجموعات متعددة لنفس الاتصال
+فخ الفأر. ind(['command+k', 'ctrl+k'], () => {
+  . og('الأمر k أو التحكّم k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
+  // العودة خاطئة لمنع السلوك الافتراضي ووقف الحدث من فقاعة
+  العودة الخاطئة
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// gmail تسلسل
+فخ الفأر. ind('g i', () => { console.log('go to inbox') })
+Mousetrap. ind('* a', () => { console.log('selecall') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('صعودا لأسفل اليسار إلى اليسار اليسرى ب إدخال', () => {
   console.log('konami code')
 })
 ```

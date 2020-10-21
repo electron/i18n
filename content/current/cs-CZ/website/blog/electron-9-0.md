@@ -6,80 +6,80 @@ author:
 date: '2020-05-19'
 ---
 
-Electron 9.0.0 has been released! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
+Electron 9.0.0 byl vydán! Zahrnuje vylepšení na chrom `83`, V8 `8.3`a Node.js `12.14`. Přidali jsme několik nových API integrace pro naši funkci kontroly pravopisu, povolený prohlížeč PDF a mnoho dalšího!
 
 ---
 
-The Electron team is excited to announce the release of Electron 9.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Tým Electronu je nadšený oznámením vydání Electronu 9.0.0! Můžete ji nainstalovat pomocí npm přes `npm instalovat electron@latest` nebo stáhnout z našich [webových stránek](https://electronjs.org/releases/stable). Vydání je plněno aktualizacemi, opravami a novými funkcemi. Nemůžeme čekat, co s nimi buduješ! Pokračujte ve čtení podrobností o tomto vydání a prosím sdílejte zpětnou vazbu, kterou máte!
 
-## Notable Changes
+## Významné změny
 
-### Stack Changes
+### Změny zásobníku
 
-* Chromium `83.0.4103.64`
-    * [New in Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
-    * [Chrome 82 was skipped](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
-    * [New in Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
+* Chrom `83.0.4103.64`
+    * [Nově v Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
+    * [Chrome 82 byl přeskočen.](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
+    * [Novinky v Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
 * Node.js `12.14.1`
-    * [Node 12.14.1 blog post](https://nodejs.org/en/blog/release/v12.14.1/)
+    * [Uzel 12.14.1 blog post](https://nodejs.org/en/blog/release/v12.14.1/)
 * V8 `8.3`
-    * [V8 8.1 blog post](https://v8.dev/blog/v8-release-81)
-    * [V8 8.3 blog post](https://v8.dev/blog/v8-release-83)
+    * [V8 8.1 blogový příspěvek](https://v8.dev/blog/v8-release-81)
+    * [V8 8.3 blogový příspěvek](https://v8.dev/blog/v8-release-83)
 
-### Highlight Features
+### Zvýraznit funkce
 
-* Multiple improvements to the spellchecker feature. See more details in [#22128](https://github.com/electron/electron/pull/22128) and [#22368](https://github.com/electron/electron/pull/22368).
-* Improved window events handler efficiency on Linux. [#23260](https://github.com/electron/electron/pull/23260).
-* Enable PDF viewer. [#22131](https://github.com/electron/electron/pull/22131).
+* Více vylepšení funkce kontroly pravopisu. Viz další podrobnosti v [#22128](https://github.com/electron/electron/pull/22128) a [#22368](https://github.com/electron/electron/pull/22368).
+* Vylepšená účinnost zpracování oken na Linuxu. [#23260](https://github.com/electron/electron/pull/23260).
+* Povolit prohlížeč PDF. [#22131](https://github.com/electron/electron/pull/22131).
 
-See the [9.0.0 release notes](https://github.com/electron/electron/releases/tag/v9.0.0) for a full list of new features and changes.
+Kompletní seznam nových funkcí a změn naleznete v poznámkách [9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0).
 
 ## Breaking Changes
 
-* Deprecation warning when using `remote` without `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
-    * This is the first step in our plans for deprecating the `remote` module and moving it to userland. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
-* Set `app.enableRendererProcessReuse` to true by default. [#22336](https://github.com/electron/electron/pull/22336)
-    * This is continued work for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Full info and proposed timeline is detailed in [this issue](https://github.com/electron/electron/issues/18397).
-* Sending non-JavaScript objects over IPC now throws an exception. [#21560](https://github.com/electron/electron/pull/21560)
-    * This behavior was depreciated in Electron 8.0. In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+* Upozornění na zastaralé používání `vzdáleného` bez `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
+    * Toto je první krok v našich plánech pro zastaralý modul `vzdálený` a přesunutí do uživatelského území. Můžete si přečíst a sledovat [tento problém](https://github.com/electron/electron/issues/21408) , který podrobně popisuje naše důvody a obsahuje navrhovanou časovou osu pro zastaralost.
+* Ve výchozím nastavení nastavte `app.enableRenderProcessReuse` na true. [#22336](https://github.com/electron/electron/pull/22336)
+    * Toto pokračuje v práci pro budoucí požadavek, aby nativní moduly uzlu načtené v procesu vykreslování byly buď [N-API](https://nodejs.org/api/n-api.html) nebo [kontext Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Kompletní informace a navrhovaná časová osa jsou podrobně uvedeny v [tomto problému](https://github.com/electron/electron/issues/18397).
+* Odesílání neJavaScriptových objektů přes IPC nyní hodí výjimku. [#21560](https://github.com/electron/electron/pull/21560)
+    * Toto chování bylo devalvováno v Electronu 8.0. V Electronu 9.0 byl odstraněn starý serializační algoritmus a odeslání takovýchto neserializovatelných objektů nyní hodí "objekt nemohl být klonován" chybu.
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Více informací o těchto a budoucích změnách naleznete na stránce [Plánované změny zlomu](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-## API Changes
+## Změny API
 
-* `shell` API changes:
-   * The `shell.openItem` API has been replaced with an asynchronous `shell.openPath API`. [proposal](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
-* `session`API changes:
-   * Added `session.listWordsFromSpellCheckerDictionary` API to list custom words in the dictionary. [#22128](https://github.com/electron/electron/pull/22128)
-   * Added `session.removeWordFromSpellCheckerDictionary` API to remove custom words in the dictionary. [#22368](https://github.com/electron/electron/pull/22368)
-   * Added `session.serviceWorkerContext` API to access basic service worker info and receive console logs from service workers. [#22313](https://github.com/electron/electron/pull/22313)
-* `app` API changes:
-   * Added a new force parameter to `app.focus()` on macOS to allow apps to forcefully take focus. [#23447](https://github.com/electron/electron/pull/23447)
-* `BrowserWindow` API changes:
-   * Added support for property access to some getter/setter pairs on `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
+* `shell` změny APL:
+   * `shell.openItem` API bylo nahrazeno asynchronním `shell.openPath API`. [návrh](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
+* `relace`změny APL:
+   * Přidáno `session.listWordsFromSpellCheckerDictionary` API pro seznam vlastních slov ve slovníku. [#22128](https://github.com/electron/electron/pull/22128)
+   * Přidáno `session.removeWordFromSpellCheckerDictionary` API pro odstranění vlastních slov ve slovníku. [#22368](https://github.com/electron/electron/pull/22368)
+   * Přidáno `session.serviceWorkerContext` API pro přístup k základním informacím o pracujícím služby a příjem protokolů konzole od servisních pracovníků. [#22313](https://github.com/electron/electron/pull/22313)
+* `aplikace` změny APL:
+   * Přidán nový parametr síly do `app.focus()` na macOS umožňující aplikacím vynuceně se zaostřit. [#23447](https://github.com/electron/electron/pull/23447)
+* `BrowserWindow` změny APL:
+   * Přidána podpora pro přístup k vlastnostem některých párů getter/setter na `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
 
-### Deprecated APIs
+### Zastaralá API
 
-The following APIs are now deprecated or removed:
+Následující API jsou nyní zastaralé nebo odstraněny:
 
-* `shell.openItem` API is now depreciated, and replaced with an asynchronous `shell.openPath API`.
-* `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
-* `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
+* `shell.openItem` API je nyní devalvováno a nahrazeno asynchronní `shell.openPath API`.
+* `<webview>.getWebContents`, který byl zastaralý v Electron 8.0, je nyní odstraněn.
+* `webFrame.setLayoutZoomLevelLimits`, který byl zastaralý v Electron 8.0, je nyní odstraněn.
 
-## End of Support for 6.x.y
+## Konec podpory pro 6.x.y
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 6.x.y dosáhl konce podpory v rámci [politiky podpory](https://electronjs.org/docs/tutorial/support#supported-versions). Vývojáři a aplikace jsou vybízeny k aktualizaci na novější verzi Electronu.
 
-## What's Next
+## Co je další
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 10.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 10.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Z krátkodobého hlediska můžete očekávat, že se tým bude nadále zaměřovat na udržení pokroku při vývoji hlavních komponentů, které tvoří Electron, včetně chromu, niklu a V8. I když jsme opatrní, abychom neslíbili data zveřejnění, Naším plánem je vydání nových hlavních verzí Electronu s novými verzemi těchto komponentů přibližně čtvrtletně. [předběžný plán 10.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapuje klíčová data ve vývojovém životním cyklu Electronu 10.0. Také [viz náš dokument s verzemi](https://electronjs.org/docs/tutorial/electron-versioning) pro podrobnější informace o verzích v Electronu.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+Informace o plánovaných zlomových změnách v nadcházejících verzích Electronu [naleznete v naší Plánované zlomení změn doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Change the default of `contextIsolation` from `false` to `true` (Starting in Electron 10)
+### Změňte výchozí hodnotu `kontextIsolation` z `false` na `true` (Začíná v Electronu 10)
 
-Without contextIsolation, any code running in a renderer process can quite easily reach into Electron internals or an app's preload script. That code can then perform privileged actions that Electron wants to keep restricted.
+Bez kontextIsolation, libovolný kód běžící v procesu rendereru se může snadno dostat do interních Electronů nebo do přednaženého skriptu aplikace. Tento kód pak může provádět privilegované akce, které Electron chce i nadále omezovat.
 
-Changing this default improves the default security of Electron apps, so that apps will need to deliberately opt in to the insecure behaviour. Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
+Změna tohoto výchozího nastavení zvyšuje výchozí bezpečnost aplikací Electronu tak, aby se aplikace musely vědomě přihlásit k nejistému chování. Electron devalvuje aktuální výchozí hodnotu `kontextIsolation` v Electronu 10. , a přejít na novou výchozí hodnotu (`true`) v Electron 12.0.
 
-For more information on `contextIsolation`, how to enable it easily and it's security benefits please see our dedicated [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).
+Pro více informací o `contextIsolation`jak jej snadno povolit a jeho bezpečnostní výhody, podívejte se prosím na náš vyhrazený [kontextový dokument](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).

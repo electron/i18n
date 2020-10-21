@@ -2,50 +2,50 @@
 
 No Electron você pode usar a biblioteca Widevine CDM inclusa no navegador Chrome.
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Módulos de descriptografia de conteúdo Widevine (CDMs) são como os serviços de streaming protegem conteúdo usando vídeo HTML5 para navegadores da web sem depender de um plugin NPAPI como Flash ou Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. Isso permitirá que sites mostrem conteúdo de vídeo protegido por DRM no Firefox sem o uso de plugins NPAPI. O Widevine CDM é executado num sandbox de código aberto que oferece melhor segurança de usuário do que os plugins NPAPI.
 
-#### Note on VMP
+#### Nota sobre VMP
 
 As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
 
-Per [Widevine](https://www.widevine.com/):
+Por [Widevine](https://www.widevine.com/):
 
-> Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (e posterior) inclui suporte para Caminho de Mídia Verificada (VMP). O VMP fornece um método para verificar a autenticidade de uma plataforma do dispositivo. Para as implantações do navegador , isto irá fornecer um sinal adicional para determinar se uma implementação baseada no navegador é confiável e segura.
 > 
-> The proxy integration guide has been updated with information about VMP and how to issue licenses.
+> O guia de integração de proxy foi atualizado com informações sobre o VMP e como emitir licenças.
 > 
-> Widevine recommends our browser-based integrations (vendors and browser-based applications) add support for VMP.
+> O Widevine recomenda nossas integrações com navegadores (fornecedores e aplicativos baseados no navegador) adicionam suporte à VMP.
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+Para ativar a reprodução de vídeo com esta nova restrição, [castLabs](https://castlabs.com/open-source/downstream/) criou um [fork](https://github.com/castlabs/electron-releases) que implementou as mudanças necessárias para permitir que o Widevine seja jogado em uma aplicação Electron se tiver obtido as licenças necessárias de widevine.
 
-## Getting the library
+## Obtendo a biblioteca
 
-Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
+Abra `chrome://components/` no navegador Chrome, encontre `Módulo de descriptografia de conteúdo Widevine` e certifique-se de que está atualizado então você pode encontrar os arquivos de biblioteca a partir do diretório do aplicativo.
 
 ### No Windows
 
-The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
+O arquivo de biblioteca `widevinecdm.dll` estará abaixo de `Arquivos de programas(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_especific/win_(x86├x64)/` diretório.
 
 ### No macOS
 
-The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
+O arquivo de biblioteca `libwidevinecdm.dylib` estará sob `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86➤ x64)/` diretório.
 
-**Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
+**Nota:** Certifique-se de que a versão do chrome usada pelo Electron é maior ou igual ao valor `min_chrome_version` do componente do Chrome widevine cdm. O valor pode ser encontrado no `manifest.json` abaixo do diretório `WidevineCdm`.
 
-## Using the library
+## Usando a biblioteca
 
-After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+Depois de obter os arquivos da biblioteca, você deve passar o caminho para o arquivo com a opção `--widevine-cdm-path` linha de comando, e a versão da biblioteca com o interruptor `--widevine-cdm-version`. A linha de comando deve ser passada antes do `evento pronto` do módulo `aplicação` ser emitido.
 
-Example code:
+Exemplo de código:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// You have to pass the directory that contains widevine library here, it is
-// * `libwidevinecdm.dylib` on macOS,
-// * `widevinecdm.dll` on Windows.
+// Você tem que passar o diretório que contém a biblioteca widevine aqui, é
+// * `libwidevinecdm. ylib` no macOS,
+// * `widevinecdm.dll` no Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://components` page in Chrome.
+// A versão do plugin pode ser obtida a partir da página `chrome://components` no Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
@@ -55,9 +55,9 @@ app.whenReady().then(() => {
 })
 ```
 
-## Verifying Widevine CDM support
+## Verificando suporte Widevine CDM
 
-To verify whether widevine works, you can use following ways:
+Para verificar se o widevinine funciona, você pode usar as seguintes maneiras:
 
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Abra https://shaka-player-demo.appspot.com/ e carregar um manifesto que usa `Widevine`.
+* Abra http://www.dash-player.com/demo/drm-test-area/, verifique se a página diz `bitdash usa Widevine no seu navegador`, e então reproduza o vídeo.

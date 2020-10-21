@@ -1,17 +1,17 @@
-# Experimental APIs
+# APIs تجريبية
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+بعض تطبيقات إلكترون موسوم مع `_Experimental_` في الوثائق. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
 
-## Conditions for an API to be tagged as Experimental
+## شروط وضع علامة API كتجربة
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+يمكن لأي شخص أن يطلب وضع علامة على API كتجربة في ميزة PR، يمكن مناقشة الخلافات حول الطبيعة التجريبية للميزة في API WG إذا كان لا يمكن حلها في PR.
 
-## Process for removing the Experimental tag
+## عملية إزالة العلامة التجريبية
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+بمجرد أن يكون API مستقرا وعلى الأقل في خطي إصدار مستقرين رئيسيين، يمكن تسمية لإزالة وسمه التجريبي.  يجب أن تتم هذه المناقشة في اجتماع API للفريق العامل.  الأشياء التي يجب النظر فيها عند مناقشة/ترشيحها:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* يجب أن يكون شرط "خطي إطلاق الإسطبلات الرئيسيين" أعلاه قد استوفي
+* خلال تلك الفترة لم يكن من الممكن أن يتسبب اعتماد هذه الخاصية في أي مشكلة رئيسية
+* API مستقر بما فيه الكفاية ولم يتأثر بشدة بترقيات Chromium
+* هل أي شخص يستخدم API؟
+* هل يفي API بالاستخدامات الأصلية المقترحة، هل لديه أي ثغرات؟

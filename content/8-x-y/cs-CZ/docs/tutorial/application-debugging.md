@@ -1,23 +1,23 @@
-# Application Debugging
+# Ladění aplikace
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Kdykoli se vaše Electron aplikace nechová tak, jak jste chtěli, soubor nástrojů pro ladění může pomoci najít chyby kódování, výkon úzká místa nebo optimalizovat příležitosti.
 
-## Renderer Process
+## Proces vykreslování
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+Nejkomplexnějším nástrojem pro ladění jednotlivých procesů vykreslování je Nástroj vývojáře Chromia. Je k dispozici pro všechny procesy renderer, včetně instancí `BrowserWindow`, `BrowserView`a `WebView`. je můžete programicky otevřít voláním `openDevTools()` API na `webContents` instance:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
 let win = new BrowserWindow()
-win.webContents.openDevTools()
+win.webContents.openDevTools() )
 ```
 
-Google offers [excellent documentation for their developer tools][devtools]. We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google offers [excellent documentation for their developer tools][devtools]. Doporučujeme, abyste se s nimi seznámili - jsou obvykle jedním z nejsilnějších nástrojů v jakémkoliv nástrojovém pásu vývojáře Electronu.
 
-## Main Process
+## Hlavní proces
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process][node-inspect] thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Ladění hlavního procesu je trochu trickerové, protože pro ně nemůžete otevřít vývojářské nástroje. The Chromium Developer Tools can [be used to debug Electron's main process][node-inspect] thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
 
 For more information, see the [Debugging the Main Process documentation][main-debug].
 

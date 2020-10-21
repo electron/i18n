@@ -1,82 +1,82 @@
 ---
-title: What's New in Electron
-author: jlord
+title: Was ist neu in Electron
+author: jörn
 date: '2015-10-15'
 ---
 
-There have been some interesting updates and talks given on Electron recently, here's a roundup.
+Es gab einige interessante Aktualisierungen und Vorträge über Electron vor kurzem, hier ist eine Roundup.
 
 ---
 
-## Source
+## Quelle
 
-Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
+Electron ist jetzt aktuell mit Chrome 45 ab `v0.32.0`. Andere Updates beinhalten...
 
-### Better Documentation
+### Bessere Dokumentation
 
-![new docs](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
+![neue Dokumentation](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
 
-We have restructured and standardized the documentation to look better and read better. There are also community-contributed translations of the documentation, like Japanese and Korean.
+Wir haben die Dokumentation umstrukturiert und standardisiert, um besser zu schauen und besser lesen zu können. Es gibt auch von der Gemeinschaft beigetragene Übersetzungen der Dokumentation, wie Japanisch und Koreanisch.
 
-Related pull requests: [electron/electron#2028](https://github.com/electron/electron/pull/2028), [electron/electron#2533](https://github.com/electron/electron/pull/2533), [electron/electron#2557](https://github.com/electron/electron/pull/2557), [electron/electron#2709](https://github.com/electron/electron/pull/2709), [electron/electron#2725](https://github.com/electron/electron/pull/2725), [electron/electron#2698](https://github.com/electron/electron/pull/2698), [electron/electron#2649](https://github.com/electron/electron/pull/2649).
+Ähnliche Pull-Requests: [electron/electron#2028](https://github.com/electron/electron/pull/2028), [electron/electron#2533](https://github.com/electron/electron/pull/2533), [electron/electron#2557](https://github.com/electron/electron/pull/2557), [electron/electron#2709](https://github.com/electron/electron/pull/2709), [electron/electron#2725](https://github.com/electron/electron/pull/2725), [electron/electron#2698](https://github.com/electron/electron/pull/2698), [electron/electron#2649](https://github.com/electron/electron/pull/2649).
 
 ### Node.js 4.1.0
 
-Since `v0.33.0` Electron ships with Node.js 4.1.0.
+Seit `v0.33.0` wird Electron mit Node.js 4.1.0 ausgeliefert.
 
-Related pull request: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
+Ähnliche Pull-Anfrage: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
 
-### node-pre-gyp
+### node-pregyp
 
-Modules relying on `node-pre-gyp` can now be compiled against Electron when building from source.
+Module, die sich auf `Knoten-Pregyp` stützen, können jetzt gegen Electron kompiliert werden, wenn es aus dem Quellcode stammt.
 
-Related pull request: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
+Zugehörige Pull-Request: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
 
-### ARM Support
+### ARM-Unterstützung
 
-Electron now provides builds for Linux on ARMv7. It runs on popular platforms like Chromebook and Raspberry Pi 2.
+Electron stellt nun Builds für Linux auf ARMv7 bereit. Es läuft auf beliebten Plattformen wie Chromebook und Raspberry Pi 2.
 
-Related issues: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
+Ähnliche Probleme: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
 
-### Yosemite-style Frameless Window
+### Rahmenloses Fenster im Jugendstil
 
-![frameless window](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
+![framelloses Fenster](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
 
-A patch by [@jaanus](https://github.com/jaanus) has been merged that, like the other built-in OS X apps, allows creating frameless windows with system traffic lights integrated on OS X Yosemite and later.
+Ein Patch von [@jaanus](https://github.com/jaanus) wurde zusammengeführt, der, wie die anderen eingebauten OS X Apps, ermöglicht die Erstellung von rahmenlosen Fenstern mit integrierten Ampeln auf OS X Yosemite und später.
 
-Related pull request: [electron/electron#2776](https://github.com/electron/electron/pull/2776).
+Ähnliche Pull-Anfrage: [Elektronik/Elektronik/2776](https://github.com/electron/electron/pull/2776).
 
 ### Google Summer of Code Printing Support
 
-After the Google Summer of Code we have merged patches by [@hokein](https://github.com/hokein) to improve printing support, and add the ability to print the page into PDF files.
+Nach dem Google Summer of Code haben wir Patches von [@hokein](https://github.com/hokein) zusammengeführt, um die Druckunterstützung zu verbessern und fügen Sie die Möglichkeit hinzu, die Seite in PDF-Dateien zu drucken.
 
-Related issues: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
+Ähnliche Probleme: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
 
 ## Atom
 
-Atom has now upgraded to Electron `v0.30.6` running Chrome 44. An upgrade to `v0.33.0` is in progress on [atom/atom#8779](https://github.com/atom/atom/pull/8779).
+Atom wurde jetzt auf Electron `v0.30.6` mit Chrome 44 aktualisiert. Ein Upgrade auf `v0.33.0` läuft auf [atom/atom#8779](https://github.com/atom/atom/pull/8779).
 
-## Talks
+## Vorträge
 
-GitHubber [Amy Palamountain](https://github.com/ammeep) gave a great introduction to Electron in a talk at [Nordic.js](https://nordicjs2015.confetti.events). She also created the [electron-accelerator](https://github.com/ammeep/electron-accelerator) library.
+GitHubber [Amy Palamountain](https://github.com/ammeep) hat in einem Vortrag unter [Nordic.js](https://nordicjs2015.confetti.events) eine großartige Einführung in Electron gegeben. Sie hat auch die [Elektronenbeschleuniger](https://github.com/ammeep/electron-accelerator) Bibliothek erstellt.
 
-#### Building native applications with Electron by Amy Palomountain
+#### Erstelle native Anwendungen mit Electron von Amy Palomountain
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
-[Ben Ogle](https://github.com/benogle), also on the Atom team, gave an Electron talk at [YAPC Asia](http://yapcasia.org/2015/):
+[Ben Ogle](https://github.com/benogle), auch im Atom-Team, hielt einen Electron-Vortrag unter [YAPC Asia](http://yapcasia.org/2015/):
 
-#### Building Desktop Apps with Web Technologies by Ben Ogle
+#### Desktop-Apps mit Web-Technologien von Ben Ogle erstellen
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
-Atom team member [Kevin Sawicki](https://github.com/kevinsawicki) and others gave talks on Electron at the [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) meetup recently. The [videos](http://www.wagonhq.com/blog/electron-meetup) have been posted, here are a couple:
+Atom-Teammitglied [Kevin Sawicki](https://github.com/kevinsawicki) und andere hielten Vorträge über Electron beim [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) Treffen vor kurzem. Die [Videos](http://www.wagonhq.com/blog/electron-meetup) wurden gepostet, hier sind ein Paar:
 
-#### The History of Electron by Kevin Sawicki
+#### Die Geschichte von Electron von Kevin Sawicki
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
-#### Making a web app feel native by Ben Gotow
+#### Eine Web-App von Ben Gotow einheimisch machen
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

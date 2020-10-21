@@ -103,7 +103,7 @@ Para configurar el encubrimiento de un ícono para una ventana tiene que usar el
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Descripción para overlay')
 ```
 
 

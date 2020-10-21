@@ -1,35 +1,35 @@
 # Boilerplates and CLIs
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Vývoj Electronu je nepřipnutý - neexistuje žádná "jediná pravda" pro vývoj, stavbu, balíček nebo vydání aplikace Electron. Dodatečné vlastnosti pro Electron, a to jak pro běh, tak i pro běh, lze obvykle nalézt na [npm](https://www.npmjs.com/search?q=electron) v jednotlivých balíčcích, umožňuje vývojářům postavit aplikaci a postavit potřebné potrubí.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Tato úroveň modularity a rozšiřitelnosti zajišťuje, že všichni vývojáři pracují s Electronem, jak velkými, tak malými co do velikosti týmu, nejsou nikdy omezováni v tom, co mohou nebo nemohou dělat kdykoli během svého vývoje životního cyklu. Avšak pro mnoho vývojářů, jeden z komunitně poháněných kotlových desek nebo příkazové řádky může výrazně zjednodušit jejich kompilaci, balit a uvolnit aplikaci.
 
-## Boilerplate vs CLI
+## Plechovka vs. CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Kotelová deska je pouze výchozím bodem - plátno, abych tak řekl, ze kterého vytváříte svou aplikaci. Obvykle přicházejí ve formě repozitáře, který můžete klonovat a přizpůsobit obsahu Vašeho srdce.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Nástroj příkazové řádky vás na druhé straně nadále podporuje v průběhu vývoje a vydání . Jsou užitečnější a podporovanější, ale prosazují pokyny, jak by váš kód měl být strukturován a budován. *Zejména pro začátečníky, pomocí nástroje příkazové řádky bude pravděpodobně nápomocný*.
 
-## electron-forge
+## elektronická forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+"Kompletní nástroj pro budování moderních elektronových aplikací". Electron Forge sjednotí stávající (a dobře spravované) stavební nástroje pro vývoj Electronu do soudržného balíčku, aby každý mohl přeskočit přímo na vývoj Electronu .
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge přichází s [šablonou připravenou k použití](https://electronforge.io/templates) používající Webpack jako bundler. Obsahuje ukázkovou konfiguraci typů a poskytuje dva konfigurační soubory, které umožňují snadné přizpůsobení. Používá stejné základní moduly používané větší Electron komunitou (např. [`elektron-packager`](https://github.com/electron/electron-packager)) – změn provedených správci Electronu (jako Slack) ve prospěch uživatelů Forge, také.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Více informací a dokumentace naleznete na [electronforge.io](https://electronforge.io/).
 
-## electron-builder
+## elektronický stavitel
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+„Kompletní řešení pro balíček a sestavení aplikace připravené pro distribuci Electron“ , která se zaměřuje na integrovaný zážitek. [`elektronický tvůrce`](https://github.com/electron-userland/electron-builder) přidává jednu jednotnou závislost zaměřenou na jednoduchost a spravuje všechny další požadavky interně.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`elektronick-builder` nahrazuje funkce a moduly používané správci Electron (jako například automatický aktualizátor) vlastními. Obecně jsou integrovanější, ale budou mít méně společného s populárními Electron aplikacemi jako Atom, Visual Studio Code nebo Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Více informací a dokumentace naleznete v [repozitáři](https://github.com/electron-userland/electron-builder).
 
-## electron-react-boilerplate
+## elektronická reakční kotle
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Pokud nechcete žádné nástroje, ale pouze tuhý kotelní deska, ze které chcete stavět. CT linka [`elektronická reakční deska`](https://github.com/chentsulin/electron-react-boilerplate) může mít cenu vzhled. Je to velmi populární v komunitě a interně používá `elektroniku` .
 
-## Other Tools and Boilerplates
+## Ostatní nástroje a vařiče
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Seznam ["Awesome Electron"](https://github.com/sindresorhus/awesome-electron#boilerplates) obsahuje další nástroje a kotle pro výběr. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.

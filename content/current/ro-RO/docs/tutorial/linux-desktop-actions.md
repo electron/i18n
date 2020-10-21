@@ -1,30 +1,30 @@
-# Custom Linux Desktop Launcher Actions
+# Acțiuni Linux Desktop Launcher personalizate
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+În multe medii Linux, puteți adăuga intrări personalizate în launcherul modificând fișierul `.desktop`. Pentru documentația Unity a Canonicalului, a se vedea [Adăugând scurtături la Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Pentru detalii despre o implementare mai generică, a se vedea [specificația freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-__Launcher shortcuts of Audacious:__
+__Scurtături lansatoare Audaciou:__
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![îndrăzneț](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+În general vorbind, scurtăturile sunt adăugate prin furnizarea unei proprietăți `Nume` și `Exec` pentru fiecare intrare din meniul de comenzi rapide. Unitatea va executa câmpul `Exec` odată ce este apăsat de utilizator. Formatul este următorul:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Acțiuni=PlayPause;Înainte;Înainte
 
-[Desktop Action PlayPause]
-Name=Play-Pause
-Exec=audacious -t
-OnlyShowIn=Unity;
+[Acțiune Desktop PlayPause]
+Nume=Play-Pause
+Exec=audacos -t
+OnlyShowIn=Unitate;
 
-[Desktop Action Next]
-Name=Next
+[Acțiune Desktop Next]
+Nume=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+OnlyShowIn=Unitate;
 
-[Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+[Acțiune Desktop anterior]
+Nume=anterior
+Exec=îndrăzneț -r
+OnlyShowIn=Unitate;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Modul preferat de unitate pentru a spune aplicației ce să facă este să folosească parametrii . Poți găsi acestea în aplicația ta în variabila globală `process.argv`.

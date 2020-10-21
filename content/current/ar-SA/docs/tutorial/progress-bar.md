@@ -1,20 +1,20 @@
-# Progress Bar in Taskbar (Windows, macOS, Unity)
+# شريط التقدم في شريط المهام (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+على Windows يمكن استخدام زر شريط المهام لعرض شريط التقدم. هذا يمكّن نافذة لتوفير معلومات التقدم للمستخدم دون أن يضطر المستخدم إلى التبديل إلى النافذة نفسها.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+على macOS سيتم عرض شريط التقدم كجزء من أيقونة الإرساء.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+وحدة DE لديها أيضا ميزة مماثلة تسمح لك بتحديد شريط التقدم في المشغل.
 
-__Progress bar in taskbar button:__
+__شريط التقدم في زر شريط المهام:__
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![شريط تقدم شريط المهام](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+جميع الحالات الثلاث مشمولة بنفس API - طريقة `setProgressBar()` المتاحة على مثيلات `متصفح ويندوز`. اتصل به برقم بين `0` و `1` للإشارة إلى تقدمك. إذا كان لديك مهمة طويلة الأمد حاليا عند 63% نحو الاكتمال، فستتصل بها مع `setProgressBar(0.63)`.
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+بوجه عام، سيؤدي تعيين المعلمة إلى قيمة أقل من الصفر (مثل `-1` إلى إزالة شريط التقدم أثناء إعداده إلى قيمة أعلى من واحد (مثل `2`) إلى تبديل شريط التقدم إلى الوضع المتوسط.
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options).
+شاهد [وثائق API لمزيد من الخيارات والأوضاع](../api/browser-window.md#winsetprogressbarprogress-options).
 
 ```javascript
 const { BrowserWindow } = require('electron')

@@ -12,7 +12,7 @@ Puteți încerca să descărcați Electron direct de pe [electron/electron/relea
 
 Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Se utilizează numai canalul stabil al Chrome. Dacă o reparație importantă este în canalul beta sau dev , o vom întoarce spre portare.
 
 Pentru mai multe informații, vă rugăm să consultați [introducerea de securitate](tutorial/security.md).
 
@@ -106,13 +106,13 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `Necesar ('electron').xxx` este nedefinit.
 
 Când utilizați modulul încorporat Electron este posibil să întâlniți o eroare ca aceasta:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Tip neprins: Imposibil de citit proprietatea 'setZoomLevel' de nedefinit
 ```
 
 This is because you have the [npm `electron` module][electron-module] installed either locally or globally, which overrides Electron's built-in module.
@@ -136,15 +136,15 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. De exemplu `electron.app` poate fi utilizat numai în procesul principal, în timp ce `electron.webFrame` este disponibil numai în procesele de redare.
 
-## The font looks blurry, what is this and what can I do?
+## Fontul arată încețoșat, ce pot face și ce pot face?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplu:
+Dacă [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) este dezactivat, atunci fonturile de pe ecranele LCD pot arăta încețoșat. Exemplu:
 
 ![subpixel rendering example][]
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixelii anti-aliasing au nevoie de un fundal netransparent al stratului care conține fontul glicol. (Vezi [această problemă](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pentru mai multe informații).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
@@ -155,9 +155,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Chiar dacă nu vezi nicio diferență, unii dintre utilizatorii tăi ar putea să o facă. Cel mai bine este să setăm întotdeauna fundalul în acest mod, cu excepţia cazului în care există motive pentru a nu face acest lucru.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Observați că doar setarea fundalului în CSS nu are efectul dorit.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

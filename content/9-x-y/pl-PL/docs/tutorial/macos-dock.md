@@ -2,13 +2,13 @@
 
 Elektron posiada API, aby skonfigurować ikonę aplikacji w Docku MacOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Niestandardowy dock jest powszechnie używany do dodawania skrótów do zadań, dla których użytkownik nie chce otworzyć całego okna aplikacji.
 
-__Dock menu of Terminal.app:__
+__Menu stacji dokującej Terminal.app:__
 
-![Dock Menu][3]
+![Menu doku][3]
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Aby ustawić własne menu doc, możesz użyć API `app.dock.setMenu` , które jest dostępne tylko na macOS:
 
 ```javascript
 const { app, Menu } = require('electron')

@@ -4,7 +4,7 @@ Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachs
 
 ## Benutzt `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. Der Service ist für Electron-Apps, die die folgenden Kriterien erfüllen ausgelegt:
+Das Electron-Team unterhält [update.electronjs.org](https://github.com/electron/update.electronjs.org), einen kostenlosen und Open-Source- Webservice, den Electron-Apps zur Selbstaktualisierung nutzen können. Der Service ist für Electron-Apps, die die folgenden Kriterien erfüllen ausgelegt:
 
 - App läuft unter Mac OS oder Windows
 - App hat ein öffentliches GitHub Repository
@@ -25,20 +25,20 @@ Rufen Sie den Updater über die Hauptprozessdatei Ihrer App auf:
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Standardmäßig wird dieses Modul beim Start der App nach Updates suchen, dann alle zehn Minuten. Wenn ein Update gefunden wird, wird es automatisch im Hintergrund heruntergeladen. Wenn der Download abgeschlossen ist, wird ein Dialog angezeigt, der dem Benutzer erlaubt, die App neu zu starten.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Wenn Sie Ihre Konfiguration anpassen müssen, Sie können [Optionen an `update-electron-app übergeben`](https://github.com/electron/update-electron-app) oder [nutzen Sie den Update-Dienst direkt](https://github.com/electron/update.electronjs.org).
 
 ## Bereitstellung eines Update-Servers
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie keine Veröffentlichungen auf GitHub Releases veröffentlichen, es könnte notwendig sein, Ihren eigenen Update-Server auszuführen.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – Aktualisiere Server für private oder Open-Source-Apps, die kostenlos auf [Jetzt](https://zeit.co/now) freigegeben werden können. Es zieht von [GitHub Releases](https://help.github.com/articles/creating-releases/) und nutzt die Leistung von GitHub CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) – Verwendet auch [GitHub Releases](https://help.github.com/articles/creating-releases/), aber speichert die App aktualisiert auf der Festplatte und unterstützt private Repositories.
+- [Elektron-Release-Server](https://github.com/ArekSredzki/electron-release-server) – Stellt ein Dashboard zur Bearbeitung von Releases bereit und benötigt keine Releases, um auf GitHub zu starten.
+- [Nucleus](https://github.com/atlassian/nucleus) – Ein vollständiger Update-Server für Electron-Apps, betreut von Atlassian. Unterstützt mehrere Anwendungen und Kanäle; verwendet einen statischen Dateispeicher , um die Serverkosten zu senken.
 
 ## Implementieren von Updates in deiner App
 
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Überprüfen Sie als letzten Schritt nach Updates. Das folgende Beispiel wird jede Minute überprüfen:
 
 ```javascript
 setInterval(() => {
@@ -67,7 +67,7 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Sobald Ihre Anwendung [verpackt ist,](../tutorial/application-distribution.md), Es wird ein Update für jeden neuen [GitHub-Release](https://help.github.com/articles/creating-releases/) erhalten, das Sie veröffentlichen.
 
 ## Updates anwenden
 
@@ -80,7 +80,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
    buttons: ['Restart', 'Later'],
    title: 'Application Update',
    message: process.platform === 'win32' ? releaseNotes : releaseName,
-   detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+   detail: 'A new version has been downloaded. Starte die Anwendung neu, um die Updates anzuwenden.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Stellen Sie auch sicher, dass Fehler [behandelt werden](../api/auto-updater.md#event-error). Hier ist ein Beispiel zum Loggen an `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
@@ -98,6 +98,6 @@ autoUpdater.on('error', message => {
 })
 ```
 
-## Handling Updates Manually
+## Manuelle Bearbeitung von Updates
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Weil die Anfragen von Auto Update nicht unter Ihrer direkten Kontrolle stehen finden Sie möglicherweise Situationen, die schwer zu handhaben sind (z. B. wenn der Update-Server hinter der Authentifizierung steht). Das Feld `url` unterstützt Dateien, was bedeutet, dass Sie mit etwas Aufwand den Aspekt der Serverkommunikation umgehen können. [Hier ist ein Beispiel dafür, wie dies funktionieren könnte](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

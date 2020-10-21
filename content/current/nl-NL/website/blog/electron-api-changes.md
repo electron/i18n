@@ -1,56 +1,56 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: API wijzigingen die beschikbaar zijn in Electron 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+Sinds het begin van Electro, vanaf een stap terug toen dat vroeger Atom-Shell heette, we zijn aan het experimenteren met het bieden van een leuke cross-platform JavaScript API voor Chromium's inhoudsmodule en native GUI-componenten. De API's zijn zeer organisch van start gegaan en in de loop der tijd hebben wij verschillende wijzigingen aangebracht om de oorspronkelijke ontwerpen te verbeteren.
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+Nu Electron zich ontwikkelt voor een 1.0 release, willen we van de gelegenheid gebruik maken om te veranderen door in te gaan op de laatste niggling API details. De hieronder beschreven wijzigingen zijn opgenomen in **0,35.**, met de oude API's waarschuwingen, zodat je up to date kunt voor de toekomstige versie 1.0. Een Electron 1.0 zal enkele maanden niet meer leeg zijn, dus u heeft wat tijd voordat deze wijzigingen gaan vastlopen.
 
-## Deprecation warnings
+## Afscheidingswaarschuwingen
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+Standaard worden waarschuwingen weergegeven als je verouderde API's gebruikt. Om ze uit te zetten kun je `process.noDeprecation` instellen op `true`. Om de bronnen van verouderd API-gebruik te volgen, kunt u het proces `instellen. hrowDeprecation` to `true` to throw uitzonderingen in plaats van het printen van waarschuwingen, of stel `proces in. raceDeprecation` to `true` om de sporen van de afkeuringen af te drukken.
 
-## New way of using built-in modules
+## Nieuwe manier om ingebouwde modules te gebruiken
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+Ingebouwde modules zijn nu gegroepeerd in één module, in plaats van ingedeeld in onafhankelijke modules, dus je kunt ze gebruiken [zonder conflicten met andere modules](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+De oude manier van `require('app')` wordt nog steeds ondersteund voor achterwaartse compatibiliteit, maar je kunt ook uitzetten als je dit uitschakelt:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // throws error.
+require('app') // gooit fout.
 ```
 
-## An easier way to use the `remote` module
+## Een makkelijkere manier om de `externe` module te gebruiken
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+Vanwege de manier waarop het gebruik van ingebouwde modules is veranderd, hebben we het makkelijker gemaakt om hoofdprocess-side modules te gebruiken in het renderer-proces. U kunt nu enkel toegang krijgen tot `externe`attributen om ze te gebruiken:
 
 ```javascript
-// New way.
+// Nieuwe manier.
 var app = require('electron').remote.app
-var BrowserWindow = require('electron').remote.BrowserWindow
+var BrowserWindow = benodigd ('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+In plaats van een lange ketting te gebruiken:
 
 ```javascript
-// Old way.
+// Oude manier.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## Splitsen van de `ipc` module
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+De `ipc` module bestond zowel op het hoofdproces als op het renderer proces en de API was verschillend aan beide kanten. wat verwarrend is voor nieuwe gebruikers. We hebben de module hernoemd naar `ipcMain` in het hoofdproces, en `ipcRenderer` in het renderer proces om verwarring te voorkomen:
 
 ```javascript
 // In main process.
@@ -58,11 +58,11 @@ var ipcMain = require('electron').ipcMain
 ```
 
 ```javascript
-// In renderer process.
+// In het renderer-proces.
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+En voor de `ipcRenderer` module, is er een extra `gebeurtenis` object toegevoegd bij het ontvangen van berichten, om overeen te komen hoe berichten worden behandeld in `ipcMain` modules:
 
 ```javascript
 ipcRenderer.on('message', function (event) {
@@ -70,28 +70,28 @@ ipcRenderer.on('message', function (event) {
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## Opties `Browserwindow` standaardiseren
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+De `BrowserWindow` opties hadden verschillende stijlen gebaseerd op de opties van andere API's, en waren een beetje moeilijk te gebruiken in JavaScript vanwege de `-` in de namen. Ze zijn nu gestandaardiseerd naar de traditionele JavaScript-namen:
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## Volgt de DOM-conventies voor API-namen
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+De API-namen in Electron gebruiken om camelCase te verkiezen voor alle API-namen, zoals `Url` naar `URL`, maar het DOM heeft zijn eigen conventies, en ze geven de voorkeur aan `URL` boven `Url`, terwijl `Id` gebruikt in plaats van `ID`. We hebben de volgende API hernamen gedaan om te voldoen aan de DOM's stijlen:
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `URL` is hernoemd naar `URL`
+* `Csp` is hernoemd naar `CSP`
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+Als gevolg van deze wijzigingen zal je veel deprecations merken wanneer je Electron v0.35.0 voor je app gebruikt. Een eenvoudige manier om deze op te lossen is door alle exemplaren van `Url` te vervangen door `URL`.
 
-## Changes to `Tray`'s event names
+## Wijzigingen in `Tray`'s gebeurtenisnamen
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+De stijl van `Tray` event namen waren een beetje anders dan andere modules dus er is een hernoem gedaan om het overeen te laten komen met de anderen.
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `geklikt` is hernoemd naar `klik`
+* `dubbelklik` wordt hernoemd naar `dubbelklik`
+* `met de rechtermuisknop` wordt hernoemd naar `rechtsklik`
 

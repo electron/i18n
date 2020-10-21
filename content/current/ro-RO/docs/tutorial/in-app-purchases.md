@@ -1,65 +1,65 @@
-# In-App Purchase (macOS)
+# Achiziție în aplicație (macOS)
 
-## Preparing
+## Pregătire
 
-### Paid Applications Agreement
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+### Acord de cereri plătite
+Dacă nu ați semnat deja, va trebui să semnați Acordul de Aplicații Plătite și să vă configurați informațiile bancare și fiscale în iTunes Connect.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Help: Acorduri, impozite și servicii bancare](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+### Creează-ți cumpărăturile în aplicație
+Apoi, va trebui să configurați achizițiile în aplicație în iTunes Connect, și să includeți detalii cum ar fi numele, stabilirea prețurilor și descrierea care evidențiază caracteristicile și funcționalitatea achiziției în aplicație.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[iTunes Connect Developer Help: Creați o achiziție în aplicație](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### Schimbă CFBundleIdentifier
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+Pentru a testa Achiziția în aplicație cu Electron va trebui să schimbi `CFBundleIdentifier` în `node_modules/electron/dist/Electron.app/Contents/Info.plist`. Trebuie să înlocuiți `com.github.electron` cu un identificator de pachet al aplicației create cu iTunes Connect.
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## Exemplu de cod
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+Iată un exemplu care arată cum să folosești Achizițiile In-App în Electron. Va trebui să înlocuiești id-urile produsului cu identificatorii produselor create cu iTunes Connect (identificatorul lui `com. xample.app.product1` este `product1`). Țineți cont că trebuie să ascultați evenimentul `tranzacții actualizate` cât mai curând posibil în aplicația dvs.
 
 ```javascript
-// Main process
+// Procesul principal
 const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
-inAppPurchase.on('transactions-updated', (event, transactions) => {
+// Ascultați tranzacțiile cât mai curând posibil.
+inAppPurchase.on('transactions-updated', (event, tranzacții) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // Verificați fiecare tranzacție.
   transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+    const payment = tranzacție. Comutator
 
-    switch (transaction.transactionState) {
+    ayment (tranzacție. ransactionState) {
       case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
-        break
+        consolă. Câine(`Achiziționând ${payment.productIdentifier}... )
+        spart
 
       case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+        consolă. og(`${payment.productIdentifier} cumpărat.`)
 
-        // Get the receipt url.
+        // Obține url-ul de chitanță.
         const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // Trimiteți fișierul de chitanță la server și verificați dacă este valid.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // Dacă chitanța este validă, produsul este cumpărat
         // ...
 
-        // Finish the transaction.
+        // Finalizează tranzacția.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -70,55 +70,55 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
         // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        inAppPurchase.finishTransactionByDate(tranzacție). ransactionDate)
 
-        break
+        sparge
       case 'restored':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+        consolă. Câine(`Achiziția ${payment.productIdentifier} a fost restabilită. )
 
-        break
-      case 'deferred':
+        spargerea majusculei
+      „amânată”:
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
+        consolă. Câine(`Achiziția de ${payment.productIdentifier} a fost amânată. )
 
-        break
-      default:
-        break
+        pauză de
+      implicit:
+        pauză
     }
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
+// Verifică dacă utilizatorul are permisiunea de a efectua achiziții în aplicație.
+dacă (!inAppPurchase.canMakePayments()) {
+  console.log('Utilizatorul nu are permisiunea de a face cumpărături în aplicație.')
 }
 
-// Retrieve and display the product descriptions.
-inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
+// Recuperează și afișează descrierile produsului.
+inAppPurchase.getProducts(PRODUCT_IDS).then(produse => {
+  // Verificați parametrii.
+  if (!Array.isArray(produse) <unk> produse.length <= 0) {
+    console.log('Imposibil de preluat informațiile despre produs. )
+    returnează
   }
 
-  // Display the name and price of each product.
+  // Afișează numele și prețul fiecărui produs.
   products.forEach(product => {
-    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
+    console.log(`Prețul ${product.localizedTitle} este ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
-  const selectedProduct = products[0]
+  // Întreabă utilizatorul ce produs dorește să cumpere.
+  const produsa selectata = produsele[0]
   const selectedQuantity = 1
 
-  // Purchase the selected product.
+  // Achiziționați produsul selectat.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
-      console.log('The product is not valid.')
+      consolă. og('Produsul nu este valid.')
       return
     }
 
-    console.log('The payment has been added to the payment queue.')
+    consolă. og('Plata a fost adăugată în coada de aşteptare')
   })
 })
 ```

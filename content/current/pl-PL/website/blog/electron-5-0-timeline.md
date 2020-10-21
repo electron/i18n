@@ -4,19 +4,19 @@ author: sofianguy
 date: '2019-01-25'
 ---
 
-For the first time ever, Electron is excited to publicize our release schedule starting with v5.0.0. This is our first step in having a public, long-term timeline.
+Po raz pierwszy Electron jest podekscytowany do publikowania naszego harmonogramu wydań zaczynającego się od v5. .0. Jest to nasz pierwszy krok na drodze do publicznego i długoterminowego harmonogramu.
 
 ---
 
-As mentioned in our v4.0.0 stable release [blog post](https://electronjs.org/blog/electron-4-0#whats-next), we are planning to release approximately quarterly to maintain closer cadence with Chromium releases. Chromium releases a new version very quickly -- every 6 weeks.
+Jak wspomniano w naszym v4.0. stabilne wydanie [wpisu na blogu](https://electronjs.org/blog/electron-4-0#whats-next), planujemy opublikować około kwartału, aby zachować bliższe dopasowanie z wydaniami Chromium. Chromium wydaje nową wersję bardzo szybko -- co 6 tygodni.
 
-Take a look at progression in Electron versus Chromium side-by-side:
-<img src="https://user-images.githubusercontent.com/2138661/51714676-db167080-1fea-11e9-8f10-fab1aa51993e.png" alt="line graph comparing Electron versus Chromium versions" />
+Spójrzmy na postęp w Electronie w porównaniu z chromem obok siebie:
+<img src="https://user-images.githubusercontent.com/2138661/51714676-db167080-1fea-11e9-8f10-fab1aa51993e.png" alt="wykres linii porównujący Electron z wersjami Chromium" />
 
-In the last half of 2018, our top priority was releasing faster and catching up closer to Chromium. We succeeded by sticking to a predetermined timeline. Electron 3.0.0 and 4.0.0 were released in a 2-3 month timeline for each release. We are optimistic about continuing that pace in releasing 5.0.0 and beyond. With a major Electron release approximately every quarter, we're now keeping pace with Chromium's release cadence. Getting ahead of Chromium stable release is always a goal for us and we are taking steps towards that.
+W ostatniej połowie 2018 roku naszym najważniejszym priorytetem było szybsze uwalnianie i nadrabianie zaległości bliżej Chromium. Udało nam się trzymać z góry określonego harmonogramu. Electron 3.0.0 i 4.0.0 został wydany na 2-3 miesięcznej linii czasu dla każdej wersji. Jesteśmy optymistami, jeśli chodzi o kontynuację tego tempa uwalniania 5.0.0 i więcej. Dzięki dużej wydaniu Electrona w przybliżeniu co kwartał, nadążamy za tempem wydań Chromium. Przechodzenie przed stabilnym uwolnieniem chromu jest dla nas zawsze celem i podejmujemy kroki w tym kierunku.
 
-We would love to promise future dates like [Node.js](https://github.com/nodejs/Release) and [Chromium](https://chromiumdash.appspot.com/schedule) do, but we are not at that place _yet_. We are optimistic that we will reach a long-term timeline in the future.
+Chcielibyśmy obiecać przyszłe daty takie jak [Node. s](https://github.com/nodejs/Release) i [Chromium](https://chromiumdash.appspot.com/schedule) robią, ale nie jesteśmy w tym miejscu _jeszcze_. Jesteśmy optymistami, że w przyszłości osiągniemy długoterminowy harmonogram.
 
-With that in mind, we are taking first steps by publicly posting our release schedule for v5.0.0. You can find that [here](https://electronjs.org/docs/tutorial/electron-timelines).
+Mając to na uwadze, podejmujemy pierwsze kroki, publikując publicznie nasz harmonogram publikacji w wersji v5.0.0. Znajdziesz to [tutaj](https://electronjs.org/docs/tutorial/electron-timelines).
 
-To help us with testing our beta releases and stabilization, please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program).
+Aby pomóc nam przetestować nasze beta wersje i stabilizację, rozważ dołączenie do naszego [App Feedback Program](https://electronjs.org/blog/app-feedback-program).

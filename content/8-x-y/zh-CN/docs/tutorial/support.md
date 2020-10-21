@@ -26,9 +26,9 @@
 
 最新的 3 个*稳定的*的版本受 Electron 团队支持。 For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+最新的稳定释放单方面从 `master`收到所有修正， 以及此前的版本将在时间和带宽条件下收到这些修复中的绝大多数 。 最早支持的发布线将直接获得 个安全修复。
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+所有支持的发布行将接受外部拉取请求到背港 修复先前合并到 `主`， 但这可能是某些较老的支助线路的个案 基础。 围绕发布 返回线的所有有争议的决定将由 [释放工作组](https://github.com/electron/governance/tree/master/wg-releases) 作为一个议程项目解决，在他们每周的会议上提出了返回线返回线问题。
 
 ### 当前支持的版本
 - 7.x.y
@@ -41,7 +41,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 这些步骤是用于帮助应用开发者了解他们使用的分支不受支持，而不会过分打扰最终用户。
 
-如果一个应用有特殊情况并需要保持使用一个不受支持的Electron版本，开发者可以通过忽略来自应用的`package.json` `devDependencies`的最终版本以关闭结束支持警告。 For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+如果一个应用有特殊情况并需要保持使用一个不受支持的Electron版本，开发者可以通过忽略来自应用的`package.json` `devDependencies`的最终版本以关闭结束支持警告。 例如，自1-6-x 系列 结束以来，支持终点1.6。 8 次发布， 开发者可以选择 在 1-6-x 序列中停留，无需警告 `devDependency` of `"electron": 1。 0 - 1.6.17`
 
 ## 支持平台
 
@@ -55,7 +55,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 以及更高版本添加了对基于Arm (`arm64`) 架构的Windows设备的原生支持](windows-arm.md)。 Running apps packaged with previous versions is possible using the ia32 binary.
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 以及更高版本添加了对基于Arm (`arm64`) 架构的Windows设备的原生支持](windows-arm.md)。 可以使用 ia32 二进制程序打包前几个版本的应用程序。
 
 ### Linux
 

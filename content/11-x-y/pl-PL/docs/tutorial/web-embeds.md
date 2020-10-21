@@ -1,21 +1,21 @@
-# Web embeds in Electron
+# Web osadza się w Electron
 
-If you want to embed (third party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide will explain the differences and capabilities of each.
+Jeśli chcesz osadzić (osoby trzecie) zawartość strony w przeglądarce `Electron`, dostępne są trzy opcje: `<iframe>` tagów, `<webview>` tagów i `Przeglądarki`. Każdy z nich oferuje nieco inne funkcje i jest przydatny w różnych sytuacjach. Aby pomóc Ci wybrać między nimi, w niniejszym przewodniku wyjaśnione zostaną różnice i możliwości każdego z nich.
 
-## Iframes
+## Iramki
 
-Iframes in Electron behave like iframes in regular browsers. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Iframy w Electron zachowują się jak iframes w regularnych przeglądarkach. Element `<iframe>` na twojej stronie może pokazywać zewnętrzne strony internetowe, pod warunkiem że ich [Polityka bezpieczeństwa zawartości](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) na to pozwala. Aby ograniczyć możliwości witryny w znaczniku `<iframe>` , rekomendowane jest użycie atrybutu [`sandbox`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) i tylko zezwól na możliwości, które chcesz wspierać.
 
 ## WebViews
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[Widoki sieciowe](../api/webview-tag.md) opierają się na widokach sieciowych Chromium i nie są wyraźnie obsługiwane przez Electron. Nie gwarantujemy, że WebView API pozostanie dostępne w przyszłych wersjach Electrona. Dlatego jeśli chcesz użyć tagów `<webview>` , musisz ustawić `tag przeglądarki internetowej` na `true` w `webPreferences` z `BrowserWindow`.
 
-WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
+WebViews to niestandardowy element (`<webview>`), który będzie działać tylko wewnątrz Electron. Są one wdrażane jako „iframe” nieobjęte procesem. Oznacza to, że wszelka komunikacja z `<webview>` odbywa się asynchronicznie za pomocą IPC. Element `<webview>` ma wiele niestandardowych metod i zdarzeń, podobna do `zawartości webContents`, które umożliwiają znacznie większą kontrolę nad zawartościami.
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
+W porównaniu z `<iframe>`, `<webview>` zazwyczaj jest nieco wolniejszy, ale oferuje znacznie większą kontrolę nad wczytywaniem i komunikowaniem się z treściami stron trzecich oraz obsługą różnych wydarzeń.
 
-## BrowserViews
+## Widoki przeglądarek
 
-[BrowserViews](../api/browser-view.md) are not part of the DOM - instead, they are created in and controlled by your main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) nie jest częścią DOM - zamiast tego są one tworzone i kontrolowane przez Twój główny proces. Są one po prostu kolejną warstwą zawartości stron internetowych na Twoim istniejącym oknie. Oznacza to, że są one całkowicie oddzielone od twojej `BrowserWindow` i że ich pozycja nie jest kontrolowana przez DOM lub CSS, ale przez ustawienie granic w głównym procesie.
 
-BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
+Widoki przeglądarki oferują największą kontrolę nad ich treścią, ponieważ implementują `webContents` podobnie jak implementuje go `BrowserWindow`. Nie są one jednak częścią Twojego DOM, ale są nakładane na siebie, co oznacza, że będziesz musiał ręcznie zarządzać ich pozycją.

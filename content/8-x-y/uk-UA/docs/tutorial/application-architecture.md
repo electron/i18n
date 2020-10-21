@@ -18,9 +18,9 @@
 
 Виклик нативних API для GUI заборонений, оскільки керування нативними ресурсами на веб-сторінках є дуже небезпечним та може призвести то витоку ресурсів. Якщо вам потрібно виконувати GUI операції на веб-сторінці, процес рендерингу веб-сторінки повинен взаємодіяти з головним процесом та запитувати у останнього виконання таких операцій.
 
-> #### Aside: Communication Between Processes
+> #### Азія: спілкування між процесами
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages][share-data].
+> Для Electron ми маємо декілька способів спілкування між основними процесами та процесами рендерингу, наприклад, [`ipcRenderer`](../api/ipc-renderer.md) та [`ipcMain`](../api/ipc-main.md) modules для відправки повідомлень, і модуль [віддалено](../api/remote.md) для комунікації в стилі RPC. There is also an FAQ entry on [how to share data between web pages][share-data].
 
 ## Використання Electron API
 
@@ -30,9 +30,9 @@ Electron пропонує декілька API, котрі дозволяють 
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Всі API Electron призначені для процесу типу. Багато з них можуть бути використані лише в основному процесі, деякі з них є лише завдяки процесу рендерингу, деяким і тим самим. Документація для кожного окремого API стан, який можна використати з нього.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Вікно для Electron було створено наприклад за допомогою `BrowserWindow` класу. Воно доступне лише в головному процесі.
 
 ```javascript
 // Це буде працювати в main process, але буде `undefined` в 
@@ -42,11 +42,11 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Оскільки зв'язок між процесами можливий, процес рендерингу може викликати в основному процес виконання завдань. Electron постачається з модулем , що називається `пульт` , який надає API зазвичай доступний лише для основного процесу. Для того, щоб створити `BrowserWindow` з рендерингового процесу, ми будемо використовувати віддалений як середнього чоловіка:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Це буде працювати в процесі рендерингу, але будьте `undefined` в
+// головному процесі:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,9 +55,9 @@ const win = new BrowserWindow()
 
 ## Використання API Node.js
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron розкриває повний доступ до Node.js як в основному, так і в процесі рендерингу . Це має два важливі наслідки:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Всі API доступні в Node.js доступні в Electron. Виклик наступного коду з додатка Electron:
 
 ```javascript
 const fs = require('fs')
@@ -69,26 +69,26 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation][security].
+Так як ви вже можете здогадатися, це має важливі наслідки для безпеки , якщо ви спробуєте завантажити віддалений вміст. You can find more information and guidance on loading remote content in our [security documentation][security].
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Ви можете використовувати модулі Node.js у вашому додатку. Виберіть ваш улюблений npm модуль. npm пропонує найбільший в світі репозиторій з відкритим вихідним кодом коду - можливість використовувати добре визначений і тестований код, який раніше був зарезервований для серверних додатків є однією з ключових функцій Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Як приклад, щоб використовувати офіційний AWS SDK в вашому застосунку, ви встановити його в якості залежності:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Тоді, у вашому додатку Electron, вимагають і використовуйте модуль, як якщо б ви створити програму Node.js:
 
 ```javascript
 //Готове для використання S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Є одна важлива застереження: Native Node. s модулей (тобто, модулі, для яких потрібно компілювати вихідний код, щоб його використовувати) будуть скомпільовані з Electron.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Лише 400 з ~650 000 модулів є рідними. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

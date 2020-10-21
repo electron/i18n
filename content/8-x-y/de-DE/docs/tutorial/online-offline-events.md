@@ -1,6 +1,6 @@
 # Online/Offline Ereigniserkennung
 
-[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API. The `navigator.onLine` attribute returns `false` if any network requests are guaranteed to fail i.e. definitely offline (disconnected from the network). It returns `true` in all other cases. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+[Erkennung von Online- und Offline-Ereignis](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) kann im Renderer-Prozess mit dem [`Navigator implementiert werden. nZeile`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) Attribut, Teil der Standard HTML5 API. Das `navigator.onLine` Attribut gibt `false` zurück, wenn Netzwerkanfragen garantiert fehlschlagen, d.h. definitiv offline (getrennt vom Netzwerk). Es gibt `true` in allen anderen Fällen zurück. Da alle anderen Bedingungen `true`zurückgeben, muss man auf falsche Positive achten, da wir nicht annehmen können, dass `true` Wert notwendigerweise bedeutet, dass Electron auf das Internet zugreifen kann. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
 
 Beispiel:
 
@@ -28,16 +28,17 @@ _online-status.html_
     window.alert(navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
+  window.addEventListener('online', alertOnlineStatus)
+  window.addEventListener('offline', alertOnlineStatus)
 
   alertOnlineStatus()
 </script>
+
 </body>
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Es kann auch Instanzen geben, in denen Sie auf diese Ereignisse im Hauptprozess reagieren möchten. Der Hauptprozess hat jedoch kein `Navigator` Objekt und kann diese Ereignisse daher nicht direkt erkennen. Verwende die Kommunikationswerkzeuge von Electronic zwischen Prozessen die Ereignisse können an den Hauptprozess weitergeleitet und bei Bedarf bearbeitet werden, wie im folgenden Beispiel gezeigt.
 
 _main.js_
 
@@ -58,20 +59,21 @@ ipcMain.on('online-status-changed', (event, status) => {
 _online-status.html_
 
 ```html
-<!DOCTYPE html>
+<! OCTYPE html>
 <html>
 <body>
 <script>
   const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
+    ipcRenderer. end('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+  window.addEventListener('online', updateOnlineStatus)
+  window.addEventListener('offline', updateOnlineStatus)
 
   updateOnlineStatus()
 </script>
+
 </body>
 </html>
 ```

@@ -2,45 +2,45 @@
 
 Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
 
-## How to load a DevTools Extension
+## Wie man eine DevTools-Erweiterung lädt
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Dieses Dokument skizziert den Prozess zum manuellen Laden einer Erweiterung. Sie können auch [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), ein Drittanbieter-Tool ausprobieren, das Erweiterungen direkt aus dem Chrome WebStore herunterlädt.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Um eine Erweiterung in Electron zu laden, müssen Sie sie im Chrome-Browser herunterladen, findet den Pfad des Dateisystems und lädt ihn dann durch Aufruf des `BrowserWindows. ddDevToolsExtension(Erweiterung)` API.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Verwendung der [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) als Beispiel:
 
 1. Installiere den Chrome Browser.
-1. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Find out filesystem location used by Chrome for storing extensions:
-   * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-   * on Linux it could be:
+1. Navigieren Sie zu `chrome://extensions`und finden Sie seine Erweiterungs-ID, die ein Hash Zeichenkette ist wie `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Finde den Speicherort des Dateisystems, der von Chrome zum Speichern von Erweiterungen verwendet wird:
+   * unter Windows ist es `%LOCALAPPDATA%\Google\Chrome\Benutzerdaten\Default\Erweiterungen`;
+   * unter Linux könnte es sein:
      * `~/.config/google-chrome/Default/Extensions/`
      * `~/.config/google-chrome-beta/Default/Extensions/`
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+1. Übergeben Sie die Position der Erweiterung an `BrowserWindow.addDevToolsExtension` API, für die React Developer Tools, ist es so etwas wie :
    ```javascript
    const path = require('path')
    const os = require('os')
 
    BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+)
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Hinweis:** Die `BrowserWindow.addDevToolsExtension` API kann nicht aufgerufen werden, bevor das fertige Ereignis des App-Moduls emittiert wird.
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Die Erweiterung wird gespeichert, so dass Sie diese API nur einmal pro Erweiterung aufrufen müssen. Wenn Sie versuchen eine Erweiterung hinzuzufügen, die bereits geladen wurde, diese Methode gibt nicht zurück und protokolliert stattdessen eine Warnung an die Konsole.
 
-### How to remove a DevTools Extension
+### DevTools-Erweiterung entfernen
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+Sie können den Namen der Erweiterung an die `BrowserWindow.removeDevToolsExtension` übergeben, um sie zu entfernen. Der Name der Erweiterung wird von `BrowserFenster zurückgegeben. ddDevToolsExtension` und Sie können die Namen aller installierten DevTools Erweiterungen über die `BrowserWindow.getDevToolsExtensions` API abrufen.
 
 ## Unterstützte DevTools Extensions
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron unterstützt nur einen begrenzten Satz von `Chrome.*` APIs, also einige Erweiterungen die nicht unterstützt `Chrom.` APIs für Chrome-Erweiterungsfunktionen funktionieren möglicherweise nicht. Folgende Devtools Erweiterungen sind getestet und garantiert in elektronischer Form zu funktionieren:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -52,8 +52,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### Was soll ich tun, wenn eine DevTools Extension nicht funktioniert?
 
 First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Dann melden Sie einen Fehler auf der Liste der elektronischen Ausgaben und beschreiben Sie, welcher Teil der Erweiterung nicht wie erwartet funktioniert.

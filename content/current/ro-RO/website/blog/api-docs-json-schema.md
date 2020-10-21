@@ -1,47 +1,47 @@
 ---
-title: Electron's API Docs as Structured Data
+title: Documente API Electron ca Date Structurate
 author: zeke
 date: '2016-09-27'
 ---
 
-Today we're announcing some improvements to Electron's documentation. Every new release now includes a [JSON file](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) that describes all of Electron's public APIs in detail. We created this file to enable developers to use Electron's API documentation in interesting new ways.
+Astăzi anunțăm unele îmbunătățiri ale documentației lui Electron. Fiecare nouă versiune include acum un fișier [JSON](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) care descrie în detaliu toate API-urile publice ale Electron. Am creat acest fișier pentru a activa dezvoltatorii să folosească documentația API Electron în moduri noi interesante.
 
 ---
 
-## Schema overview
+## Prezentare schema
 
-Each API is an object with properties like name, description, type, etc. Classes such as `BrowserWindow` and `Menu` have additional properties describing their instance methods, instance properties, instance events, etc.
+Fiecare API este un obiect cu proprietăți precum numele, descrierea, tipul, etc. Clase cum ar fi `BrowserWindow` și `Meniu` au proprietăți adiționale descriind metodele lor de instanță, proprietățile instanței, evenimentele instanței, etc.
 
-Here's an excerpt from the schema that describes the `BrowserWindow` class:
+Aici este un extras din schema care descrie clasa `BrowserWindow`:
 
 ```js
 {
   name: 'BrowserWindow',
-  description: 'Create and control browser windows.',
-  process: {
+  descriere: 'Creați și controlați ferestrele browser-ului. ,
+  proces: {
     main: true,
     renderer: false
   },
-  type: 'Class',
+  tip: 'Clasă',
   instanceName: 'win',
   slug: 'browser-window',
-  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
-  staticMethods: [...],
-  instanceMethods: [...],
-  instanceProperties: [...],
-  instanceEvents: [...]
+  , siteUrl: 'https://electronjs. rg/docs/api/browser-window',
+  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window. d',
+  metode staticMetode: [...],
+  instanțMetode: [...],
+  instanţProprietăţi: [...],
+  instanţEvents: [...]
 }
 ```
 
-And here's an example of a method description, in this case the `apis.BrowserWindow.instanceMethods.setMaximumSize` instance method:
+Și iată un exemplu de descriere a metodei, în acest caz metoda `apis.BrowserWindow.instanceMethods.setMaximumSize` de instanță:
 
 ```js
 {
-  name: 'setMaximumSize',
-  signature: '(width, height)',
-  description: 'Sets the maximum size of window to width and height.',
-  parameters: [{
+  nume: 'setMaximumSize',
+  semnătură: '(lățime, înălțime)',
+  Descriere: 'Setează dimensiunea maximă a ferestrei la lățime și înălțime. ,
+  parametri: [{
     name: 'width',
     type: 'Integer'
   }, {
@@ -51,43 +51,43 @@ And here's an example of a method description, in this case the `apis.BrowserWin
 }
 ```
 
-## Using the new data
+## Utilizarea noilor date
 
-To make it easy for developers to use this structured data in their projects, we've created [electron-docs-api](https://www.npmjs.com/package/electron-api-docs), a small npm package that is published automatically whenever there's a new Electron release.
+Pentru a facilita utilizarea de către dezvoltatori a acestor date structurate în proiectele lor, am creat [electron-docs-api](https://www.npmjs.com/package/electron-api-docs), un pachet mic npm care este publicat automat de fiecare dată când există o nouă versiune Electron .
 
 ```sh
-npm install electron-api-docs --save
+npm instalare electron-api-docs --save
 ```
 
-For instant gratification, try out the module in your Node.js REPL:
+Pentru satisfacție instantă, încercați modulul în Node.js REPL:
 
 ```sh
 npm i -g trymodule && trymodule electron-api-docs=apis
 ```
 
-## How the data is collected
+## Cum sunt colectate datele
 
-Electron's API documentation adheres to [Electron Coding Style](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) and the [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme), so its content can be programmatically parsed.
+Documentația API a Electron aderă la [Stil de Codare Electron](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) și [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme), conţinutul său poate fi analizat programatic.
 
-The [electron-docs-linter](https://github.com/electron/electron-docs-linter) is a new development dependency of the `electron/electron` repository. It is a command-line tool that lints all the markdown files and enforces the rules of the styleguide. If errors are found, they are listed and the release process is halted. If the API docs are valid, the `electron-json.api` file is created and [uploaded to GitHub](https://github.com/electron/electron/releases/tag/v1.4.1) as part of the Electron release.
+[electronon-docs-linter](https://github.com/electron/electron-docs-linter) este o nouă dependență de dezvoltare a depozitului `electron/electron`. Este o unealtă de linie de comandă care lintează toate fișierele markdown și implementează regulile stiluidei. Dacă sunt găsite erori, acestea sunt listate și procesul de lansare este oprit. Dacă documentele API sunt valabile, `electronon-json. fișierul pi` este creat și [încărcat în GitHub](https://github.com/electron/electron/releases/tag/v1.4.1) ca parte a lansării Electron.
 
-## Standard Javascript and Standard Markdown
+## Javascript standard și Markdown Standard
 
-Earlier this year, Electron's codebase was updated to use the [`standard`](http://standardjs.com/) linter for all JavaScript. Standard's README sums up the reasoning behind this choice:
+La începutul acestui an, codul Electron a fost actualizat pentru a utiliza standardul [``](http://standardjs.com/) pentru toate JavaScript. Standardul README rezumă raționamentul care stă la baza acestei alegeri:
 
-> Adopting standard style means ranking the importance of code clarity and community conventions higher than personal style. This might not make sense for 100% of projects and development cultures, however open source can be a hostile place for newbies. Setting up clear, automated contributor expectations makes a project healthier.
+> Adoptarea stilului standard înseamnă o ierarhizare a importanţei codurilor şi a convenţiilor comunitare superioară stilului personal. Acest lucru ar putea să nu aibă sens pentru 100 % din proiecte și din culturile de dezvoltare, însă o sursă deschisă poate fi un loc ostil pentru nou-veniți. Crearea unor așteptări clare, automatizate pentru contribuabili face ca un proiect să fie mai sănătos.
 
-We also recently created [standard-markdown](https://github.com/zeke/standard-markdown) to verify that all the JavaScript code snippets in our documentation are valid and consistent with the style in the codebase itself.
+De asemenea, am creat [recent](https://github.com/zeke/standard-markdown) standard pentru a verifica că toate fragmentele de cod JavaScript din documentația noastră sunt valide și consistente cu stilul din însuși codebasul.
 
-Together these tools help us use continuous integration (CI) to automatically find errors in pull requests. This reduces the burden placed on humans doing code review, and gives us more confidence about the accuracy of our documentation.
+Împreună, aceste instrumente ne ajută să folosim integrarea continuă (IC) pentru a găsi automat erori în cererile pull requests. Acest lucru reduce povara pe care oamenii o fac pentru a revizui codul și ne oferă mai multă încredere în acuratețea documentației noastre.
 
-### A community effort
+### Un efort al comunității
 
-Electron's documentation is constantly improving, and we have our awesome open-source community to thank for it. As of this writing, nearly 300 people have contributed to the docs.
+Documentația Electron se îmbunătățește constant, și avem minunata noastră comunitate open-source care să o mulțumească. La începutul acestui scris, aproape 300 de oameni au contribuit la documente.
 
-We're excited to see what people do with this new structured data. Possible uses include:
+Suntem încântați să vedem ce fac oamenii cu aceste date structurate. Posibilele utilizări includ:
 
-- Improvements to [https://electronjs.org/docs/](https://electronjs.org/docs/)
-- A [TypeScript definition file](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions) for more streamlined Electron development in projects using TypeScript.
-- Searchable offline documentation for tools like [Dash.app](https://kapeli.com/dash) and [devdocs.io](http://devdocs.io/)
+- Îmbunătățiri la [https://electronjs.org/docs/](https://electronjs.org/docs/)
+- Un [fișier de definiție TypeScript](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions) pentru dezvoltare Electron mai raționalizată în proiecte folosind TypeScript.
+- Documentație căutabilă offline pentru instrumente precum [Dash.app](https://kapeli.com/dash) și [devdocs.io](http://devdocs.io/)
 

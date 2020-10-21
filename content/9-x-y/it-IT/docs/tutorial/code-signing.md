@@ -1,12 +1,12 @@
 # Firma Codice
 
-Code signing is a security technology that you use to certify that an app was created by you.
+La firma del codice è una tecnologia di sicurezza che usi per certificare che un'app è stata creata da te.
 
 Su macOS il sistema può rilevare ogni modifica all'app, che la modifica sia introdotta accidentalmente o da un codice maligno.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Su Windows il sistema assegna un livello di fiducia al certificato di firma del codice che se non hai, o se il livello di fiducia è basso farà apparire le finestre di sicurezza quando gli utenti iniziano a utilizzare l'applicazione.  Il livello di fiducia costruisce nel tempo quindi è meglio iniziare la firma del codice il prima possibile.
 
-While it is possible to distribute unsigned apps, it is not recommended. Sia Windows che macOS, per impostazione predefinita, preverranno o il download o l'esecuzione di applicazioni non firmate. Iniziando con macOS Catalina (versione 10.15), gli utenti devono passare per passaggi manuali multipli per aprire applicazioni non firmate.
+Mentre è possibile distribuire app non firmate, non è raccomandato. Sia Windows che macOS, per impostazione predefinita, preverranno o il download o l'esecuzione di applicazioni non firmate. Iniziando con macOS Catalina (versione 10.15), gli utenti devono passare per passaggi manuali multipli per aprire applicazioni non firmate.
 
 ![avviso del Gatekeeper di macOS Catalina: L'app non può essere aperta perché lo sviluppatore non può essere verificato](../images/gatekeeper.png)
 
@@ -14,7 +14,7 @@ Come puoi vedere, gli utenti hanno due opzioni: Spostare l'app direttamente al c
 
 Se stai creando un'app Electron che intendi impacchettare e distribuire, dovrebbe essere firmata nel codice. Gli app store di Mac e Windows non consentono app non firmate.
 
-# Signing macOS builds
+# Firma build macOS
 
 Prima di firmare le build macOS, devi fare quanto segue:
 
@@ -25,9 +25,9 @@ Prima di firmare le build macOS, devi fare quanto segue:
 Ci sono molti strumenti per firmare la tua app impacchettata:
 
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- [`electron-packager`][] bundles `electron-osx-sign`. Se stai usando `electron-packager`, passa il flag `--osx-sign=true` per firmare la tua costruzione.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Vedi [electron.build/code-signing](https://www.electron.build/code-signing)
 
 ## Notarizzazione
 
@@ -39,19 +39,19 @@ To automate this process, you can use the [`electron-notarize`][] module. Non de
 
 Vedi la [Guida Mac App Store][].
 
-# Signing Windows builds
+# Firma di build di Windows
 
 Prima di firmare le build di Windows, devi fare quanto segue:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Ottieni un certificato di firma del codice di Windows Authenticode (richiede una tassa annuale)
+2. Installare Visual Studio 2015/2017 (per ottenere l'utilità di firma)
 
 Puoi ottenere un certificato di firma del codice da molti rivenditori. I prezzi variano, quindi potrebbe valere la pena fare acquisti in giro. I rivenditori popolari includono:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Tra gli altri, si prega di fare acquisti in giro per trovare uno che si adatta alle vostre esigenze, Google è il vostro amico :)
 
 Ci sono molti strumenti per firmare la tua app impacchettata:
 
