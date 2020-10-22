@@ -1,10 +1,20 @@
 # Online/Offline Pagtukoy ng mga Kaganapan
 
-[ Ang pagtukoy ng mga kaganapan sa online at offline ](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) ay pwedeng ipatupad sa proseso ng tagasalin gamit ang [` navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) na katangian, bahagi ng pamantayang HTML5 API. Ang `navigator.onLine` na katangian ay nagbabalik ng `mali` kung kahit anong hinihinging network ay garantisadong mabibigo i.e. tiyak na offline (nadiskonek mula sa network).  Ito ay nagbabalik ng `/totoo` sa lahat ng iba pang kaso. Dahil lahat ng iba pang mga kondisyon ay bumalik `totoo`, ang isa ay dapat mmaalalahanin sa pagkuha ng mga maling positibo, dahil hindi natin maipagpapalagay `totoo` na kabuluhan ay nangangahulugan na ang Electron ay maaaring ma-access ang internet.  Tulad ng mga kaso kung saan ang kompyuter ay tumatakbo ng virtualization software na mayroong virtual ethernet adapters na palaging "konektado." Sa gayon, kung gusto mo talagang malaman ang katayauan sa internet access ng Electron, dapat kang gumawa ng karagdagang paraan para sa pagsusuri.
+## Overview
 
-Halimbawa:
+[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
 
-_main.js_
+The `navigator.onLine` attribute returns:
+* `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
+* `true` in all other cases.
+
+Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. For example, in cases when the computer is running a virtualization software that has virtual Ethernet adapters in "always connected" state. Therefore, if you want to determine the Internet access status of Electron, you should develop additional means for this check.
+
+## Mga halimbawa
+
+### Event detection in the Renderer process
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,29 +27,32 @@ app.whenReady().then(() => {
 })
 ```
 
-_online-status.html _
+create the `online-status.html` file and add the following line before the closing `</body>` tag:
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const alertOnlineStatus = () => {
-    window.alert(navigator.onLine ? 'online' : 'offline')
-  }
-
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
-
-  alertOnlineStatus()
-</script>
-</body>
-</html>
+<script src="renderer.js"></script>
 ```
 
-Maaaring may mga pagkakataon na kung saan nais mo ring tumugon sa mga pangyayari sa pangunahing proseso. Ang pangunahing proseso gayunpaman ay walang `navigator` na bagay kaya hindi nito matutukoy ang mga pangyayari ng direkta.  Gamit ang mga komunikasyong kagamitan ng Electron's inter-process, ang mga pangyayari ay maaaring ipasa sa pangunahing proseso at pangangasiwaan kung kailangan, gaya ng pinakita sa mga sumusunod na halimbawa.
+and add the `renderer.js` file:
 
-_main.js_
+```javascript
+const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', alertOnlineStatus)
+window.addEventListener('offline', alertOnlineStatus)
+
+alertOnlineStatus()
+```
+
+After launching the Electron application, you should see the notification:
+
+![Online-offline-event detection](../images/online-event-detection.png)
+
+### Event detection in the Main process
+
+There may be situations when you want to respond to online/offline events in the Main process as well. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,23 +68,31 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-_online-status.html _
+create the `online-status.html` file and add the following line before the closing `</body>` tag:
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const { ipcRenderer } = require('electron')
-  const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
-  }
+<script src="renderer.js"></script>
+```
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+and add the `renderer.js` file:
 
-  updateOnlineStatus()
-</script>
-</body>
-</html>
+```javascript
+const { ipcRenderer } = require('electron')
+const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', updateOnlineStatus)
+window.addEventListener('offline', updateOnlineStatus)
+
+updateOnlineStatus()
+```
+
+After launching the Electron application, you should see the notification in the Console:
+
+```sh
+npm start
+
+> electron@1.0.0 start /electron
+> electron .
+
+online
 ```

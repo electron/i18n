@@ -1,10 +1,20 @@
 # Online/Offline Event Detection
 
-يمكن تنفيذ الكشف عن الحدث [عبر الإنترنت أو دون اتصال](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) في عملية العارض باستخدام [`ملاح. nسطر`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) خاصية, جزء من HTML5 API القياسي. السمة `navigator.onLline` ترجع `خطأ` إذا كان من المؤكد أن أي طلبات شبكة غير متصل بالشبكة. إنها ترجع `حقيقة` في جميع الحالات الأخرى. بما أن جميع الشروط الأخرى تعود `صحيحة`، يجب أن يكون المرء مدركا للحصول على إيجابيات زائفة، نظرًا لأننا لا نستطيع أن نفترض `حقيقة` القيمة تعني بالضرورة أن إلكترون يمكنه الوصول إلى الإنترنت. كما هو الحال في الحالات التي يقوم فيها الحاسوب بتشغيل برنامج افتراضي يحتوي على مكيفات إينثرنت الافتراضية التي تكون دوماً "متصلة". لذلك، إذا كنت تريد حقاً تحديد حالة الوصول إلى الإنترنت لإلكترون، يجب عليك تطوير وسائل إضافية للتحقق.
+## النظرة عامة
 
-مثال:
+[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
 
-_main.js_
+The `navigator.onLine` attribute returns:
+* `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
+* `true` in all other cases.
+
+Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. For example, in cases when the computer is running a virtualization software that has virtual Ethernet adapters in "always connected" state. Therefore, if you want to determine the Internet access status of Electron, you should develop additional means for this check.
+
+## مثال
+
+### Event detection in the Renderer process
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,29 +27,32 @@ app.whenReady().then(() => {
 })
 ```
 
-_online-status.html_
+create the `online-status.html` file and add the following line before the closing `</body>` tag:
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const alertOnlineStatus = () => {
-    window.alert(navigator.onLine ? 'onlineStatus' : 'offline')
-  }
-
-  window.addEventListener('online', alertOnlineStatus)
-  window.addEventListener('offline', alertOnlineStatus)
-
-  alertOnlineStatus()
-</script>
-</body>
-</html>
+<script src="renderer.js"></script>
 ```
 
-قد تكون هناك حالات تريد فيها الرد على هذه الأحداث في العملية الرئيسية أيضًا. غير أن العملية الرئيسية لا تحتوي على كائن `متنقل` وبالتالي لا يمكن الكشف عن هذه الأحداث مباشرة. استخدام إلكترون مرافق الاتصالات المتبادلة يمكن نقل الأحداث إلى العملية الرئيسية والتعامل معها حسب الحاجة، كما هو مبين في المثال التالي.
+وإضافة ملف `renderer.js`:
 
-_main.js_
+```javascript
+const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', alertOnlineStatus)
+window.addEventListener('offline', alertOnlineStatus)
+
+alertOnlineStatus()
+```
+
+بعد إطلاق طلب إلكترون، يجب أن ترى الإشعار:
+
+![Online-offline-event detection](../images/online-event-detection.png)
+
+### Event detection in the Main process
+
+There may be situations when you want to respond to online/offline events in the Main process as well. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 عرض { app, BrowserWindow, ipcMain } = مطلوب('electron')
@@ -55,23 +68,31 @@ ipcMain.on('online-status-changed', (case, status) => {
 })
 ```
 
-_online-status.html_
+create the `online-status.html` file and add the following line before the closing `</body>` tag:
 
 ```html
-<! OCTYPE html>
-<html>
-<body>
-<script>
-  const { ipcRenderer } = require('electron')
-  const updateOnlineStatus = () => {
-    ipcRenderer. end('online-status-changed', navigator.onLine ? 'onlineStatus' : 'offline')
-  }
+<script src="renderer.js"></script>
+```
 
-  window.addEventListener('online', updateOnlineStatus)
-  window.addEventListener('offline', updateOnlineStatus)
+وإضافة ملف `renderer.js`:
 
-  updateOnlineStatus()
-</script>
-</body>
-</html>
+```javascript
+const { ipcRenderer } = require('electron')
+const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', updateOnlineStatus)
+window.addEventListener('offline', updateOnlineStatus)
+
+updateOnlineStatus()
+```
+
+After launching the Electron application, you should see the notification in the Console:
+
+```sh
+npm start
+
+> electron@1.0.0 start /electron
+> electron .
+
+online
 ```

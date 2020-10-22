@@ -1,6 +1,6 @@
 # Accessibility
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Vấn đề tạo ra những ứng dụng có khả năng sử dụng được là quan trọng với chúng tôi, do đó Devtron và Spectron được tạo ra nhằm mục đích hỗ trợ các nhà phát triển xây dựng phần mềm của họ được tốt hơn.
 
 ---
 

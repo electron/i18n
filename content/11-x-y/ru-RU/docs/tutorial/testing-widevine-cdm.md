@@ -36,6 +36,8 @@ The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chro
 
 После получения файлов библиотеки, вы должны передать путь к файлу с помощью командной строки `--widevine-cdm-path` , и библиотека с помощью переключателя `--widevine-cdm-version`. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
+Example code:
+
 ```javascript
 const { app, BrowserWindow } = require('electron')
 

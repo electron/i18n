@@ -1,21 +1,25 @@
-# Încorporări web în Electron
+# Web embeds
 
-Dacă vrei să încorporezi conținut web (în partea terță) într-o fereastră Electron `BrowserWin`, aveți la dispoziție trei opțiuni: `<iframe>` etichete, `<webview>` etichete, și `BrowserViews`. Fiecare oferă funcționalitate ușor diferită și este utilă în diferite situații. Pentru a vă ajuta să alegeți între acestea, acest ghid va explica diferențele și capacitățile fiecăruia.
+## Overview
 
-## Iframe
+If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
 
-Iframe-urile din Electron se comportă ca iframe-urile în browserele obișnuite. Un element `<iframe>` din pagina ta poate afișa pagini web externe, cu condiția ca [Politica de Securitate a Conținutului](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) să o permită. Pentru a limita numărul de capabilități un site într-un tag `<iframe>` , este recomandat să utilizați atributul [`de tip sandbox`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) și să permiteți doar capacitățile pe care doriți să le susținuți.
+### Iframe
 
-## WebViews
+Iframe-urile din Electron se comportă ca iframe-urile în browserele obișnuite. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the number of capabilities of a site in an `<iframe>` tag, it is recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
 
-[WebViews](../api/webview-tag.md) sunt bazate pe WebViews din Chromium și nu sunt acceptate în mod explicit de Electron. Nu garantăm că API-ul WebView va rămâne disponibil în versiunile viitoare ale Electron. De aceea, dacă doriţi să utilizaţi etichetele `<webview>` , va trebui să setați `webviewTag` ca `adevărat` în `Preferințe web` din `BrowserWindow`.
+### WebViews
 
-WebViews sunt un element personalizat (`<webview>`) care va funcţiona doar în Electron. Acestea sunt puse în aplicare ca un „cadru de neproces”. Asta înseamnă că toată comunicarea cu `<webview>` este făcută asincron folosind IPC. Elementul `<webview>` are multe metode şi evenimente personalizate, similar cu `webContent`, care vă permite un control mult mai mare asupra conținutului.
+> Important Note: [we do not recommend you to use use WebViews](https://www.electronjs.org/docs/api/webview-tag#warning), as this tag undergoes dramatic architectural changes that may affect stability of your application. Consider switching to alternatives, like `iframe` and Electron's `BrowserView`, or an architecture that avoids embedded content by design.
 
-Comparativ cu un `<iframe>`, `<webview>` tinde să fie uşor mai lent, dar oferă un control mult mai mare asupra încărcării şi comunicării cu partea terţă a conţinutului şi a manipulării diferitelor evenimente.
+[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. To use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
 
-## Vizualizări browser
+WebView is a custom element (`<webview>`) that will only work inside Electron. Acestea sunt puse în aplicare ca un „cadru de neproces”. This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that provide you with greater control over the content.
 
-[BrowserViews](../api/browser-view.md) nu fac parte din DOM - în schimb, sunt create și controlate de procesul principal. Acestea sunt doar un alt strat de conținut web de pe fereastra existentă. Asta înseamnă că sunt complet separate de conținutul tău `BrowserWindow` și că poziția lor nu este controlată de DOM sau CSS, ci prin setarea limitelor în procesul principal.
+Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third-party content and handling various events.
 
-BrowserViews oferă cel mai mare control asupra conținutului lor, deoarece implementează `conținutul web` similar cu modul în care `BrowserWindow` îl implementează. Cu toate acestea, ele nu fac parte din DOM, ci sunt suprasolicitate, ceea ce înseamnă că va trebui să le gestionaţi poziţia manual.
+### Vizualizări browser
+
+[BrowserViews](../api/browser-view.md) are not a part of the DOM - instead, they are created in and controlled by your Main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and their position is not controlled by the DOM or CSS. Instead, it is controlled by setting the bounds in the Main process.
+
+`BrowserViews` offer the greatest control over their contents, since they implement the `webContents` similarly to how the `BrowserWindow` does it. However, as `BrowserViews` are not a part of your DOM, but are rather overlaid on top of them, you will have to manage their position manually.

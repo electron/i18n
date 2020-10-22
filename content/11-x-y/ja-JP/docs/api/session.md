@@ -301,7 +301,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
-  * `permission` String - The type of requested permission.
+  * `permission` String - 要求されたパーミッションのタイプ。
     * `media` -  Request access to media devices such as camera, microphone and speakers.
     * `mediaKeySystem` - Request access to DRM protected content.
     * `geolocation` - Request access to user's current location.

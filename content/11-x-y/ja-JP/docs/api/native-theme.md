@@ -49,7 +49,7 @@ OS / Chromium で現在ダークモードが有効になっている、または
 
 ### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-contrast UI.
+OS / Chromium で現在ハイコントラストモードが有効になっている、またはハイコントラスト UI を表示するように指示されているかどうかの `Boolean`。
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _読み出し専用_
 
