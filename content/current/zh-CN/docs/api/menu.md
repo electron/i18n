@@ -16,19 +16,19 @@
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+在macOS上将 `menu`设置成应用内菜单 在windows和Linux上，`menu` 将会被设置成窗口顶部菜单
 
 在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 被绑定快捷键的字母将会以下划线标出。 `&`并不会在运行时显示
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
+**注释:**如果应用没有设置菜单的话，系统会生成一个默认菜单。 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
 
 #### `Menu.getApplicationMenu()`
 
 返回 `Menu | null` - 如果有设置, 则返回应用程序菜单， 如果没设置，则返回 ` null `。
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
+**注释:**返回的 `Menu`实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 

@@ -105,10 +105,10 @@ console.log(appIcon)
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` String - サムネイルを構築するためのファイルのパス。
+* `maxSize` [Size](structures/size.md) - 返されうるサムネイルの最大の幅と高さ (正の数)。 Windows の実装では、`maxSize.height` を無視し `maxSize.width` に従って高さを拡大縮小します。
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+戻り値 `Promise<NativeImage>` - これは [NativeImage](native-image.md) であるファイルのサムネイルプレビュー画像で解決されます。
 
 ### `nativeImage.createFromPath(path)`
 
@@ -242,7 +242,7 @@ console.log(image)
 
 戻り値 [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+`scaleFactor` が渡された場合、渡された値に最も近い画像表現に対応するサイズを返します。
 
 #### `image.setTemplateImage(option)`
 
@@ -277,11 +277,11 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 戻り値 `Float` - イメージのアスペクト比。
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+`scaleFactor` が渡された場合、渡された値に最も近い画像表現に対応するアスペクト比を返します。
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+戻り値 `Float[]` - この NativeImage の表現に対応するすべての拡大率の配列。
 
 #### `image.addRepresentation(options)`
 

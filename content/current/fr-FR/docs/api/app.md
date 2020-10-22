@@ -584,7 +584,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retourne `String` - La locale de l'application actuelle. Les valeurs de retour possibles sont documentées [ici](locales.md).
 
 Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -594,7 +594,7 @@ Pour définir la localisation, utilisez un paramètre de ligne de commande au d�
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Retourne `String` - Les deux lettres de la locale du système d'exploitation de l'utilisateur selon le codage [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) . La valeur est tirée des API natives d'OS.
 
 **Note:** Quand il est impossible de détecter le code du pays de la localisation, il renvoie une chaîne vide.
 
@@ -604,7 +604,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Ajoute le `path` à la liste des documents récents.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Cette liste est gérée par l'OS. Cette liste est gérée par l'Os. Sous Windows, vous pouvez scruter la liste à partir de la barre des tâches et sur macOS à partir du menu du dock.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 

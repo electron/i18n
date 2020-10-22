@@ -1,10 +1,20 @@
 # Détection des événements en ligne/hors ligne
 
-La détection des [événements en ligne et hors ligne](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) peut être implémentée dans le processus de rendu en utilisant l'attribut [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), faisant partie de l'API HTML5 standard. L'attribut `navigator.onLine` retourne `false` si n'importe quelle requêtes est garantie d'échouée. Par exemple, être complétement hors-ligne (déconnecté du réseau). Cela retourne `true` dans tous les autres cas. Puisque toutes les autres conditions retournent `true`, il faut s'attendre à obtenir de faux positifs, car nous ne pouvons pas supposer que la valeur `true` signifie nécessairement qu'Electron peut accéder à Internet. Par exemple, dans les cas où l'ordinateur exécute un logiciel de virtualisation qui a des adaptateurs ethernet virtuels qui sont toujours "connectés". Par conséquent, si vous voulez vraiment déterminer le statut d'accès à Internet d'Electron, vous devriez développer des moyens supplémentaires de vérification.
+## Vue d'ensemble
 
-Exemple :
+La détection des [événements Online et offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) peut être implémentée dans le processus de rendu en utilisant l'attribut [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), faisant partie de l'API HTML5 standard.
 
-_main.js_
+L'attribut `navigator.onLine` renvoie :
+* `false` si toute requête réseau est garantie vouée à l'échec (par exemple, lors de la déconnexion du réseau).
+* `true` dans tous les autres cas.
+
+Puisque de nombreux cas retournent `true`, vous devriez traiter avec précaution les cas pouvant être des faux positifs, car la valeur `true` ne signifie pas toujours qu'Electron puisse accéder à Internet. Par exemple, dans les cas où l'ordinateur exécute un logiciel de virtualisation qui a des adaptateurs Ethernet virtuels avec l'état « toujours connecté ». Par conséquent, si vous voulez déterminer le statut de l'accès à Internet d'Electron, vous devrez mettre en œuvre des moyens supplémentaires de vérification.
+
+## Example
+
+### Détection d'événements dans le processus de rendu
+
+Partez d'une application fonctionnelle à partir du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -17,29 +27,32 @@ app.whenReady().then(() => {
 })
 ```
 
-_online-status.html_
+créer le fichier `online-status.html` et ajouter la ligne suivante avant la balise fermeture :
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const alertOnlineStatus = () => {
-    window.alert(navigator.onLine ? 'online' : 'offline')
-  }
-
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
-
-  alertOnlineStatus()
-</script>
-</body>
-</html>
+<script src="renderer.js"></script>
 ```
 
-Il peut y avoir des cas où vous souhaitez avoir accès à ces événements dans le processus principal. Toutefois, le processus principal n'a pas d'objet `navigator` et donc ne peux pas détecter ces événement directement. À l'aide des utilitaires de communication interprocessus d'Electron, les événements peuvent être transmis au processus principal et être manipulés selon les besoins, comme illustré dans l'exemple suivant.
+et ajoutez le fichier `render.js`:
 
-_main.js_
+```javascript
+const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', alertOnlineStatus)
+window.addEventListener('offline', alertOnlineStatus)
+
+alertOnlineStatus()
+```
+
+Après avoir lancé l'application Electron, vous devriez voir la notification :
+
+![Online-offline-event detection](../images/online-event-detection.png)
+
+### Détection d'événements dans le processus principal
+
+Il peut y avoir des cas où vous souhaitez également pouvoir réagir aux événements online/offline depuis le processus principal. The Main process, however, does not have a `navigator` object and cannot detect these events directly. Dans ce cas, vous devez transférer les événements vers le processus principal en utilisant les utilitaires de communication interprocessus (IPC) d'Electron.
+
+Partez d'une application fonctionnelle à partir du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -55,23 +68,31 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-_online-status.html_
+créer le fichier `online-status.html` et ajouter la ligne suivante avant la balise fermeture :
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const { ipcRenderer } = require('electron')
-  const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
-  }
+<script src="renderer.js"></script>
+```
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+et ajoutez le fichier `render.js`:
 
-  updateOnlineStatus()
-</script>
-</body>
-</html>
+```javascript
+const { ipcRenderer } = require('electron')
+const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+
+window.addEventListener('online', updateOnlineStatus)
+window.addEventListener('offline', updateOnlineStatus)
+
+updateOnlineStatus()
+```
+
+Après avoir lancé l'application Electron, vous devriez voir la notification dans la console :
+
+```sh
+npm start
+
+> electron@1.0.0 start /electron
+> electron .
+
+online
 ```

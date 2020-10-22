@@ -1,21 +1,25 @@
-# Webové vložení do Electronu
+# Web embeds
 
-Pokud chcete vložit (třetí stranu) webový obsah do Electron `BrowserWindow`, jsou vám k dispozici tři možnosti: `<iframe>` tagy, `<webview>` tagy a `Prohlížeče`. Každý z nich nabízí mírně odlišné funkce a je užitečný v různých situacích. Abyste vám pomohli vybrat mezi nimi, tato příručka vysvětlí rozdíly a možnosti každého z nich.
+## Přehled
 
-## Ilomy
+If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
 
-Isnímky v Electronu se chovají jako iframy v běžných prohlížečích. Prvek `<iframe>` na vaší stránce může zobrazit externí webové stránky za předpokladu, že to umožňuje jejich [Zásady zabezpečení obsahu](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+### Ilomy
 
-## WebViews
+Isnímky v Electronu se chovají jako iframy v běžných prohlížečích. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the number of capabilities of a site in an `<iframe>` tag, it is recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
 
-[WebViews](../api/webview-tag.md) jsou založeny na WebViews Chromia a nejsou Electronem výslovně podporovány. Nezaručujeme, že WebView API zůstane k dispozici v budoucích verzích Electronu. Proto, pokud chcete použít značky `<webview>` , musíte nastavit `webviewTag` na `true` v nastavení `webPreferences` vašeho `BrowserWindow`.
+### WebViews
 
-Webová zobrazení jsou vlastním prvkem (`<webview>`), který bude fungovat pouze uvnitř Electronu. Jsou prováděny jako "mimoprocesní iframe". To znamená, že veškerá komunikace s `<webview>` probíhá asynchronně pomocí IPC. Prvek `<webview>` má mnoho vlastních metod a událostí, podobně jako `webContent`, který vám umožňuje mnohem větší kontrolu nad obsahem.
+> Important Note: [we do not recommend you to use use WebViews](https://www.electronjs.org/docs/api/webview-tag#warning), as this tag undergoes dramatic architectural changes that may affect stability of your application. Consider switching to alternatives, like `iframe` and Electron's `BrowserView`, or an architecture that avoids embedded content by design.
 
-Ve srovnání s `<iframe>` `<webview>` má tendenci být poněkud pomalejší, ale nabízí mnohem větší kontrolu při načítání a komunikaci s obsahem třetích stran a zvládání různých událostí.
+[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. To use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
 
-## Zobrazení prohlížeče
+WebView is a custom element (`<webview>`) that will only work inside Electron. Jsou prováděny jako "mimoprocesní iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that provide you with greater control over the content.
 
-[BrowserViews](../api/browser-view.md) nejsou součástí DOM - místo toho jsou vytvořeny a řízeny vaším hlavním procesem. Jsou pouze další vrstvou webového obsahu nad vaším existujícím oknem. To znamená, že jsou zcela oddělené od vašeho obsahu `BrowserWindow` a že jejich pozice není řízena DOM nebo CSS, ale nastavením mezí v hlavním procesu.
+Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third-party content and handling various events.
 
-BrowserViews nabízí největší kontrolu nad svým obsahem, protože implementují `webový obsah` , podobně jako jak jej `BrowserWindow` implementuje. Nejsou však součástí vašeho DOM, ale jsou překryty, což znamená, že budete muset svou pozici spravovat ručně.
+### Zobrazení prohlížeče
+
+[BrowserViews](../api/browser-view.md) are not a part of the DOM - instead, they are created in and controlled by your Main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and their position is not controlled by the DOM or CSS. Instead, it is controlled by setting the bounds in the Main process.
+
+`BrowserViews` offer the greatest control over their contents, since they implement the `webContents` similarly to how the `BrowserWindow` does it. However, as `BrowserViews` are not a part of your DOM, but are rather overlaid on top of them, you will have to manage their position manually.

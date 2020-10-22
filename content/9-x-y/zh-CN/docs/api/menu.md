@@ -16,7 +16,7 @@
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+在macOS上将 `menu`设置成应用内菜单 在windows和Linux上，`menu` 将会被设置成窗口顶部菜单
 
 在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 被绑定快捷键的字母将会以下划线标出。 `&`并不会在运行时显示
 
