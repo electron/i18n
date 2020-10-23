@@ -5,7 +5,12 @@
 セキュリティ上の相談がある場合は、[セキュリティドキュメント](https://github.com/electron/electron/tree/master/SECURITY.md) をご参照ください。
 
 プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
-- Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - Freenode の `#atom-shell` チャンネル
 - [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
 - [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*

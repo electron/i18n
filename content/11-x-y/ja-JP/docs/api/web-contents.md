@@ -226,7 +226,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 ナビゲーション後にサーバーサイドリダイレクトが発生すると発行されます。  302 リダイレクトなどがその例です。
 
-This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+このイベントを阻害することはできません。リダイレクトを防ぎたい場合は、上記の `will-redirect` イベントを確認してください。
 
 #### イベント: 'did-navigate'
 
@@ -631,7 +631,7 @@ win.loadURL('http://github.com')
 
 このイベントは、 `webContents` の `<webview>` が読み込まれる前に `webPreferences` を設定するのに使用でき、`<webview>` の属性を通して設定できない設定を、設定する機能を提供します。
 
-**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**注釈:** 指定された `preload` スクリプトオプションは、このイベントが発行された `webPreferences` オブジェクト内の、`preloadURL` (`preload` ではない) として現れます。
 
 #### イベント: 'did-attach-webview'
 
@@ -647,9 +647,9 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `level` Integer - 0 から 3 のログレベル。 順に `verbose`、`info`、`warning`、`error` に対応します。
 * `message` String - 実際のコンソールメッセージ
-* `line` Integer - The line number of the source that triggered this console message
+* `line` Integer - このコンソールメッセージのトリガーとなったソースの行番号
 * `sourceId` String
 
 関連付けられたウインドウがコンソールメッセージを出力すると発生します。
@@ -886,9 +886,9 @@ win.loadURL('http://github.com').then(() => {
 
 #### `contents.forcefullyCrashRenderer()`
 
-Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
+この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
 
-Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
 
 ```js
 contents.on('unresponsive', async () => {

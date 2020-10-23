@@ -5,7 +5,12 @@
 如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
-- [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` Freenode上的频道
 - `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
 - [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*

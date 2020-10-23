@@ -216,7 +216,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `title` String
 * `options` Object (任意)
-  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
+  * `fontType` String (任意) - 表示するフォントファミリのバリアント。 `monospaced` または `monospacedDigit` のどちらかです。 `monospaced` は macOS 10.15またはそれ以上で利用でき、 `monospacedDigit` は macOS 10.11またはそれ以上で利用できます。  空白の場合、タイトルにはデフォルトのシステムフォントを使用します。
 
 ステータスバー内の tray アイコンの隣に表示されるタイトル (ANSI カラーサポート) を設定します。
 

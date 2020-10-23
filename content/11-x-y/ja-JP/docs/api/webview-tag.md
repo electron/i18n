@@ -655,9 +655,9 @@ HTML API にトリガーされてページがフルスクリーンから抜け�
 
 戻り値:
 
-* `level` Integer - The log level, from 0 to 3. 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `level` Integer - 0 から 3 のログレベル。 順に `verbose`、`info`、`warning`、`error` に対応します。
 * `message` String - 実際のコンソールメッセージ
-* `line` Integer - The line number of the source that triggered this console message
+* `line` Integer - このコンソールメッセージのトリガーとなったソースの行番号
 * `sourceId` String
 
 ゲストウィンドウがコンソールメッセージをロギングすると発行されます。

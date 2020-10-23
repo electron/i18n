@@ -39,7 +39,7 @@
 
 #### `touchBarButton.iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  省略値は `overlay`。
+`String` - `left` または `right` または `overlay` のいずれか。  省略値は `overlay`。
 
 #### `touchBarButton.enabled`
 

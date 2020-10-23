@@ -80,6 +80,6 @@ Electron 6.x.y はプロジェクトの [サポートポリシー](https://elect
 
 contextIsolation がなければ、レンダラープロセスで実行されるコードは、Electron の内部またはアプリケーションのプリロードスクリプトに簡単にアクセスできます。 そのコードは、Electron が制限を維持したい特権アクションを実行できます。
 
-このデフォルトを変更すると、Electron アプリのデフォルトのセキュリティが向上し、アプリが意図的に安全でない動作を選択する必要があります。 Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
+このデフォルトを変更すると、Electron アプリのデフォルトのセキュリティが向上し、アプリが意図的に安全でない動作を選択する必要があります。 Electronは、Electron 10.0にある 現在のコンテキストのデフォルトの `contextIsolation` を、Electron 12.0の新しいデフォルト(`true`) に変更します。
 
-For more information on `contextIsolation`, how to enable it easily and it's security benefits please see our dedicated [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).
+`のcontextIsolationisolation`の詳細について、特に簡単に有効にする方法とセキュリティ上の利点を[コンテキスト分離文書](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md)を参照してください。

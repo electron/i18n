@@ -14,8 +14,8 @@
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarSpacer`:
+`TouchBarSpacer` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarSpacer.size`
 
-A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.
+このススペーサーのサイズを表す `String`。  `small`、`large`、`flexible` のいずれかにできます。
