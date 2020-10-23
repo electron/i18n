@@ -33,9 +33,10 @@
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### 非推奨: `crashReporter.start()` 関数の`companyName` 引数
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+`crashReporter.start()`の引数の`companyName` は以前は必須でしたが、省略可能になり、今後廃止することになりました。 非推奨ではない方法で以前と同じ動作を実現するには、 `globalExtra
+` に`companyName` の値を渡します。
 
 ```js
 // Deprecated in Electron 10

@@ -38,9 +38,9 @@ Userland はコアの対義語であり、ユーザーはElectronの機能を拡
 
 ## 結果のフィルタリング
 
-Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
+[アプリの依存関係](https://electronjs.org/userland/dependencies) やパッケージ、アプリ、リポジトリなどのリストアップした[おきにいりアプリ](https://electronjs.org/userland/starred_apps)のようなレポートは結果をフィルタするために使用するテキスト入力をもっています。
 
-この入力に入力すると、ページの URL が動的に更新されます。 この では、特定のスライスを表す URL をコピーして 他のユーザーと共有することができます。
+この入力に入力すると、ページの URL が動的に更新されます。 特定のスライスを表す URL をコピーして他のユーザーと共有できます。
 
 [![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 

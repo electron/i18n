@@ -20,7 +20,7 @@
 
 在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 被绑定快捷键的字母将会以下划线标出。 `&`并不会在运行时显示
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+传递 `null` 值可以禁用默认菜单。 在 Windows 和 Linux 上，使用此方法移除窗口上的菜单栏可能会有额外的效果。
 
 **注释:**如果应用没有设置菜单的话，系统会生成一个默认菜单。 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
 
@@ -28,7 +28,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 返回 `Menu | null` - 如果有设置, 则返回应用程序菜单， 如果没设置，则返回 ` null `。
 
-**注释:**返回的 `Menu`实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
+**注释:**返回的 `Menu`实例不支持动态添加或删除菜单项， 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -44,7 +44,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 返回 ` Menu `
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+一般来说， `template`是一个`options`类型的数组，用于构建[MenuItem](menu-item.md)。 使用方法可参考前文。
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
@@ -56,9 +56,9 @@ You can also attach other fields to the element of the `template` and they will 
 
 * `options` Object (可选)
   * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Number (可选) - 默认为当前鼠标的位置。 如果指定了`y`，则该选项必选。
+  * `y` Number (可选) - 默认为当前鼠标的位置。 如果指定了`x`，则该选项必选。
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. 默认值为 -1。
   * `callback` Function (optional) - 会在菜单关闭后被调用.
 
 将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
@@ -367,7 +367,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p spaces-before="0">
-  macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+  macOS 相比于 Windows 和 Linux 有着完全不同的应用程序菜单。 以下是一些有关使应用菜单更像原生应用菜单的注意事项。
 </p>
 
 
@@ -415,7 +415,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 
 
 <h2 spaces-before="0">
-  Setting Menu for Specific Browser Window (<em x-id="3">Linux</em> <em x-id="3">Windows</em>)
+  设置特定浏览器窗口的菜单 (<em x-id="3"> Linux </em> <em x-id="3"> Windows </em>)
 </h2>
 
 <p spaces-before="0">

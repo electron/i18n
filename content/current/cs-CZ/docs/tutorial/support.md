@@ -5,7 +5,12 @@
 Pokud máte obavy o bezpečnost, navštivte prosím [bezpečnostní dokument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Pokud hledáte pomoc při programování, pro odpovědi na otázky, nebo se připojit k diskuzi s ostatními vývojáři, kteří používají Electron, můžete komunikovat s komunitou na těchto místech:
-- [`elektroron`](https://discuss.atom.io/c/electron) kategorie na Atom fórech
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` kanál na Freenode
 - `#electron` kanál na [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 - [`elektron-ru`](https://telegram.me/electron_ru) *(Rusko)*

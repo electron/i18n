@@ -5,7 +5,12 @@
 Se você tiver um problema de segurança, consulte o [documento de segurança](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Se estiver procurando a ajuda da programação, para respostas a perguntas, ou para participar de discussões com outros desenvolvedores que usam o Electron, você pode interagir com a comunidade nesses locais:
-- [`electron`](https://discuss.atom.io/c/electron) categoria nos fóruns Atom
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `Canal #atom-shell` no Freenode
 - `canal #electron` no [Slack do Atom's](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 - [`electron-ru`](https://telegram.me/electron_ru) *(russo)*

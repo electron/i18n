@@ -79,7 +79,7 @@ menu に `menuItem` を追加します。
 
 * `id` String
 
-Returns `MenuItem | null` the item with the specified `id`
+戻り値 `MenuItem | null` - 指定した `id` のアイテム。
 
 #### `menu.insert(pos, menuItem)`
 

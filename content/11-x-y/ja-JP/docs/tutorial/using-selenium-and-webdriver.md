@@ -131,7 +131,7 @@ const options = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       binary: '/Path-to-Your-App/electron', // Electron バイナリへのパス.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* Cliの引数 */] // オプション、例えば 'app=' + /path/to/your/app/
     }
   }
 }

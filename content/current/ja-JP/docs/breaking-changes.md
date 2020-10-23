@@ -19,9 +19,9 @@
 非推奨の同期 `shell.moveItemToTrash()` API が削除されました。 代わりに の非同期 `shell.trashItem()` を使用してください。
 
 ```js
-// Removed in Electron 13
+// Electron 13 では削除されます。
 shell.moveItemToTrash(path)
-// Replace with
+// 以下と置き換えてください
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -29,7 +29,7 @@ shell.trashItem(path).then(/* ... */)
 
 ### 削除: Pepper(ペッパー)フラッシュ対応
 
-ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
 
 ### Default Changed: `contextIsolation` default to `true`
 
@@ -65,7 +65,7 @@ If your crash ingestion server does not support compressed payloads, you can tur
 `リモート` モジュールは Electron 12 で非推奨で、 Electron 14 で削除されます。 [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
 
 ```js
-// Deprecated in Electron 12:
+// Electron 12では非推奨:
 const { BrowserWindow } = require('electron').remote
 ```
 
@@ -82,9 +82,9 @@ require('@electron/remote/main').initialize()
 同期 `shell.moveItemToTrash()` が新しい 非同期 `shell.trashItem()` に置き換えられました。
 
 ```js
-// Deprecated in Electron 12
+// Electron 12 では非推奨
 shell.moveItemToTrash(path)
-// Replace with
+// 以下と置き換えてください。
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -94,9 +94,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### 非推奨: `crashReporter.start()` 関数の`companyName` 引数
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+`crashReporter.start()`の引数の`companyName` は以前は必須でしたが、省略可能になり、今後廃止することになりました。 非推奨ではない方法で以前と同じ動作を実現するには、 `globalExtra
+` に`companyName` の値を渡します。
 
 ```js
 // Deprecated in Electron 10
@@ -284,7 +285,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 ただし、`remote` モジュールをできる限り使用しないことを推奨します。
 
 ```js
-// main
+// メイン
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = (webContentsId, contents) => {
@@ -303,7 +304,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// レンダラー
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -618,20 +619,20 @@ const { memory } = metrics[0] // 非推奨なプロパティ
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置き換えてください
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// こちらに置き換えてください
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something

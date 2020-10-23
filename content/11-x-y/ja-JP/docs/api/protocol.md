@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. 機能を有効にするには、`true` の値で特権を指定します。
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API と video/audioのストリーミングをサポートします。 機能を有効にするには、`true` の値で特権を指定します。
 
 以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
 
