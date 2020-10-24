@@ -1181,8 +1181,8 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+    * `from` Number - 開始ページ。
+    * `to` Number - 終了ページ。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (任意) - 水平 DPI。

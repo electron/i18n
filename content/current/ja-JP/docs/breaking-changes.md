@@ -100,26 +100,26 @@ shell.trashItem(path).then(/* ... */)
 ` に`companyName` の値を渡します。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 で非推奨
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
+// 置き換え
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### 非推奨: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` メソッドは非推奨となりました。 `app.getPath('crashDumps)`に置き換える必要があります。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 では非推奨
 crashReporter.getCrashesDirectory()
-// Replace with
+// 置き換え
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### 非推奨: レンダラープロセス内での `crashReporter` メソッド
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+レンダラープロセスから以下の `crashReporter` メソッドを呼び出すことは非推奨になります。:
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -128,9 +128,9 @@ Calling the following `crashReporter` methods from the renderer process is depre
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+レンダラーの `crashReporter` モジュールに残っている非推奨ではないメソッドは、 `extraParameter`と `removeExtraParameter` と`getParameters`だけです。
 
-All above methods remain non-deprecated when called from the main process.
+上記のすべてのメソッドは、メインプロセスから呼び出されたときに非推奨のままです。
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 

@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Créer et contrôle des fenêtres navigateur.
+> Créer et gérer des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -22,7 +22,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Fenêtre sans bords (Frameless window)
 
-Pour créer une fenêtre sans chrome, ou une fenêtre transparente en forme arbitraire, vous pouvez utiliser l'API [Frameless Window](frameless-window.md).
+Pour créer une fenêtre sans chrome, ou une fenêtre transparente de forme arbitraire, vous pouvez utiliser l'API [Frameless Window](frameless-window.md).
 
 ## Afficher des fenêtres avec élégance
 
@@ -106,7 +106,7 @@ Il est recommandé de mettre en pause les opérations coûteuse lorsque l'état 
 
 ## Classe : BrowserWindow
 
-> Créer et contrôle des fenêtres navigateur.
+> Créer et gérer des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -1471,11 +1471,11 @@ Définit la disposition de la barre tactile pour la fenêtre actuelle. La spéci
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attache une `browserView` à `win`. Si d'autres `BrowserView`sont déjà attachées, elles seront supprimés de cette fenêtre.
 
 #### `win.getBrowserView()` _Expérimental_
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+Retourne `BrowserView | null` - La `BrowserView` attachée à `win`. Retourne `null` si aucune n'est attachée. Lance une erreur si plusieurs `BrowserView` sont attachées.
 
 #### `win.addBrowserView(browserView)` _Experimental_
 

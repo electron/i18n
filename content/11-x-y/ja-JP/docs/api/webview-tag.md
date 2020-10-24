@@ -502,8 +502,8 @@ webview.addEventListener('dom-ready', () => {
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。 and `width` in microns.
   * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - 印刷開始ページ。
+    * `to` Number - 印刷最後のページ (このページを含む)。
   * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。

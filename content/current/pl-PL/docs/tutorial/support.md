@@ -5,11 +5,11 @@
 Jeśli masz obawy o bezpieczeństwo, zobacz [dokument bezpieczeństwa](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Jeśli szukasz pomocy programowania, odpowiedzi na pytania, lub dołączysz do dyskusji z innymi programistami, którzy korzystają z Electrona, możesz współdziałać ze społecznością w tych lokalizacjach:
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
+- [`Discord Electrona`](https://discord.com/invite/electron) ma kanały dla:
+  - Uzyskiwanie pomocy
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   - Sharing ideas with other Electron app developers
-  - And more!
+  - i więcej!
 - [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` kanał na Freenode
 - `#electron` kanał na [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)

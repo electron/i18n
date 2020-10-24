@@ -1,20 +1,34 @@
 # 작업 표시줄 안의 프로그레스 바 (Windows, macOS, Unity)
 
-Windows에서는 작업 표시줄 버튼을 사용하여 진행 표시줄을 표시할 수 있습니다. 이를 통해 윈도우를 전환할 필요 없이 사용자에게 진행률 정보를 제공할 수 있습니다.
+## 개요
 
-macOS에선 프로그레스바가 dock 아이콘의 일부에 표시됩니다.
+A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
 
-또한 Unity DE도 런처에 프로그레스 바를 부착할 수 있습니다.
+On Windows, you can use a taskbar button to display a progress bar.
 
-__작업 표시줄 버튼의 프로그레스 바:__
+![Windows Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+On macOS, the progress bar will be displayed as a part of the dock icon.
 
-세가지 경우 모두 같은 API인 `BrowserWindows` 인스턴스의 `setProgressBar()` 메소드로 처리됩니다.  진행 상황을 나타내기 위해  `0`~`1` 사이의 매개 변수로 메소드를 호출하십시요. 현재 63%인 진행된 작업은 `setProgressBar(0.63)` 로 호출해야합니다.
+![macOS Progress Bar](../images/macos-progress-bar.png)
 
-일반적으로, 매개 변수를 0보다 작은 값(예:`-1`)으로 설정하면 진행 표시줄을 삭제하고, 1보다 큰 값(예:`2`)으로 설정하면 intermediate mode(미완료상태) 가 됩니다.
+On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+
+![Linux Progress Bar](../images/linux-progress-bar.png)
+
+> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+
+----
+
+All three cases are covered by the same API - the [`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
 
 자세한 것은 [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options) 을 확인하십시요
+
+## Example
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -22,3 +36,11 @@ const win = new BrowserWindow()
 
 win.setProgressBar(0.5)
 ```
+
+After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
+
+![macOS dock progress bar](../images/dock-progress-bar.png)
+
+For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+
+![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
