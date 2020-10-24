@@ -302,15 +302,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 要求されたパーミッションのタイプ。
-    * `media` -  Request access to media devices such as camera, microphone and speakers.
-    * `mediaKeySystem` - Request access to DRM protected content.
-    * `geolocation` - Request access to user's current location.
-    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
-    * `midi` - Request MIDI access in the `webmidi` API.
-    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
-    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
-    * `fullscreen` - Request for the app to enter fullscreen mode.
-    * `openExternal` - Request to open links in external applications.
+    * `media` - カメラ、マイク、スピーカーなどのメディアデバイスへのアクセスを要求する。
+    * `mediaKeySystem` - DRM で保護されたコンテンツへのアクセスを要求します。
+    * `geolocation` - ユーザーの現在地へのアクセスを要求する。
+    * `notifications` - 通知の作成とユーザーのシステムトレイに表示する機能を要求します。
+    * `midi` - `webmidi` API で MIDI アクセスを要求します。
+    * `midiSysex` - `webmidi` API でシステム専用メッセージの使用を要求する。
+    * `pointerLock` - 入力方法としてマウスの動きを直接解釈するよう要求する。 詳細は[こちら ](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) をクリックしてください。
+    * `fullscreen` - アプリがフルスクリーンモードになるよう要求する。
+    * `openExternal` - 外部アプリケーションでリンクを開くように要求する。
   * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
@@ -339,7 +339,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
-    * `securityOrigin` String - The security origin of the `media` check.
+    * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
     * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
@@ -452,7 +452,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。  このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。  この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。  この設定は再起動後も持続します。
 
-**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 

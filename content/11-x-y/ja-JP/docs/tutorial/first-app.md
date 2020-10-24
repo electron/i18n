@@ -33,7 +33,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 
 __注釈__: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+デフォルトでは、`npm start` はNode.js でメインのスクリプトを実行します。Electron で実行するために、`start` スクリプトを追加できます:
 
 ```json
 {

@@ -1,4 +1,4 @@
-# IpcMainEvent Object extends `Event`
+# Object IpcMainInvokeEvent hérite de `Event`
 
 * frameId Integer - L'ID du cadre de rendu qui a envoyé ce message
 * `returnValue` any - Définissez ceci à la valeur à retourner dans un message synchronisé

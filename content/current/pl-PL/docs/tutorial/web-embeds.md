@@ -2,7 +2,7 @@
 
 ## Przegląd
 
-If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
+If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. Aby ułatwić wybór między nimi, ten przewodnik wyjaśnia różnice i możliwości każdej opcji.
 
 ### Iramki
 
