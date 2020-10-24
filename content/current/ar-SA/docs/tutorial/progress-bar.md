@@ -1,20 +1,34 @@
 # شريط التقدم في شريط المهام (Windows, macOS, Unity)
 
-على Windows يمكن استخدام زر شريط المهام لعرض شريط التقدم. هذا يمكّن نافذة لتوفير معلومات التقدم للمستخدم دون أن يضطر المستخدم إلى التبديل إلى النافذة نفسها.
+## النظرة عامة
 
-على macOS سيتم عرض شريط التقدم كجزء من أيقونة الإرساء.
+A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
 
-وحدة DE لديها أيضا ميزة مماثلة تسمح لك بتحديد شريط التقدم في المشغل.
+On Windows, you can use a taskbar button to display a progress bar.
 
-__شريط التقدم في زر شريط المهام:__
+![Windows Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-![شريط تقدم شريط المهام](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+On macOS, the progress bar will be displayed as a part of the dock icon.
 
-جميع الحالات الثلاث مشمولة بنفس API - طريقة `setProgressBar()` المتاحة على مثيلات `متصفح ويندوز`. اتصل به برقم بين `0` و `1` للإشارة إلى تقدمك. إذا كان لديك مهمة طويلة الأمد حاليا عند 63% نحو الاكتمال، فستتصل بها مع `setProgressBar(0.63)`.
+![macOS Progress Bar](../images/macos-progress-bar.png)
 
-بوجه عام، سيؤدي تعيين المعلمة إلى قيمة أقل من الصفر (مثل `-1` إلى إزالة شريط التقدم أثناء إعداده إلى قيمة أعلى من واحد (مثل `2`) إلى تبديل شريط التقدم إلى الوضع المتوسط.
+On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
 
-شاهد [وثائق API لمزيد من الخيارات والأوضاع](../api/browser-window.md#winsetprogressbarprogress-options).
+![Linux Progress Bar](../images/linux-progress-bar.png)
+
+> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+
+----
+
+All three cases are covered by the same API - the [`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
+
+See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress-options).
+
+## مثال
+
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `main.js`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -22,3 +36,11 @@ const win = new BrowserWindow()
 
 win.setProgressBar(0.5)
 ```
+
+After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
+
+![macOS dock progress bar](../images/dock-progress-bar.png)
+
+For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+
+![Mission Control Progress Bar](../images/mission-control-progress-bar.png)

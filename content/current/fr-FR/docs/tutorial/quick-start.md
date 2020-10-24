@@ -15,7 +15,7 @@ Avant de continuer avec Electron, vous devez installer [Node.js](https://nodejs.
 Pour vérifier que Node.js a été installé correctement, tapez les commandes suivantes dans votre terminal client:
 
 ```sh
-noeud -v
+node -v
 npm -v
 ```
 
@@ -105,7 +105,7 @@ La page `index.html` ressemble à ceci:
 </head>
 <body>
     <h1>Bonjour le monde !</h1>
-    Nous utilisons le noeud <script>document. rite(process.versions.node)</script>,
+    Nous utilisons Node <script>document. rite(process.versions.node)</script>,
     Chrome <script>document.write(process.versions. hrome)</script>,
     et Electron <script>document.write(process.versions.electron)</script>.
 </body>
@@ -142,7 +142,7 @@ Par défaut, la commande `npm start` exécutera le script principal avec Node.js
 #### Exécuter votre application
 
 ```sh
-npm début
+npm start
 ```
 
 Votre application Electron en cours d'exécution devrait ressembler à ceci:

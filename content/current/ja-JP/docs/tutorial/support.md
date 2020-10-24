@@ -5,8 +5,8 @@
 セキュリティ上の相談がある場合は、[セキュリティドキュメント](https://github.com/electron/electron/tree/master/SECURITY.md) をご参照ください。
 
 プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
+- [`Electron の Discord`](https://discord.com/invite/electron) はこちら:
+  - ヘルプの表示
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   - Sharing ideas with other Electron app developers
   - And more!
