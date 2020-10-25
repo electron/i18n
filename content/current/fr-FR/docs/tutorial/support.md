@@ -10,7 +10,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
   - A propos d'applications de l'écosystème comme [Electron Forge](https://github.com/electron-userland/electron-forge) ou [Electron Fiddle](https://github.com/electron/fiddle)
   - Pour partager vos avec d’autres développeurs d’applications Electron
   - Et bien plus!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+- Catégories des forums Atom concernant [`electron`](https://discuss.atom.io/c/electron)
 - `#atom-shell` sur le channel Freenode
 - ``Electron[](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) sur le canal Slack d'Atom
 - [`electron-ru`](https://telegram.me/electron_ru) *(Russe)*

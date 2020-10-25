@@ -69,7 +69,7 @@ Pour plus d'informations, voir la documentation suivante :
 * [`Exiger`](https://electronjs.org/docs/api/remote#remoterequiremodule)
 * [`Obtenir Global`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`app`](https://electronjs.org/docs/api/app)
-* [`Contenus Web`](https://electronjs.org/docs/api/web-contents)
+* [`WebContents`](https://electronjs.org/docs/api/web-contents)
 
 ### Accès JavaScript au panneau À propos
 

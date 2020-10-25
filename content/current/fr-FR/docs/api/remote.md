@@ -72,7 +72,7 @@ Comme vous pouvez le voir, la valeur synchrone de la fonction de rappel du moteu
 
 Deuxièmement, les callbacks passés au processus principal persisteront jusqu'à ce que le processus principal les ramasse.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Par exemple, le code suivant semble innocent à première vue. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {

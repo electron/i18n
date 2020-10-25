@@ -199,9 +199,9 @@ Retourne :
 
 Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+Cet événement sera émis après `did-start-navigation` et pour la même navigation toujours avant l'événement `did-redirect-navigation` .
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+L'appel à `event.preventDefault()` empêchera la navigation (pas seulement la redirection).
 
 #### Event: 'did-redirect-navigation'
 
@@ -227,7 +227,7 @@ Retourne :
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a main frame navigation is done.
+Émis lorsque la navigation d'une fenêtre principale est terminée.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -238,12 +238,12 @@ Retourne :
 * `event` Événement
 * `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
+* `httpStatusText` String - vide pour les navigations non HTTP,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Émis lorsqu'une navigation est terminée.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -378,13 +378,13 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
-#### Event: 'zoom-changed'
+#### Événement : 'zoom-changed'
 
 Retourne :
 * `event` Événement
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Peut être `in` ou `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Émis lorsque l'utilisateur demande à changer le niveau de zoom en utilisant la molette de la souris.
 
 #### Événement : 'devtools-opened'
 
@@ -457,7 +457,7 @@ Retourne :
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `sélectionArea` Rectangle - Coordonnées de la région de la première correspondance.
   * `finalUpdate` Boolean
 
 Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
@@ -505,7 +505,7 @@ Retourne :
 
 Émis lorsque le type du curseur change. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si le paramètre `type` est `custom`, le paramètre `image` contiendra l'image du curseur personnalisé dans un [`NativeImage`](native-image.md), et `scale`, `size` et `hotspot` contiendront les informations complémentaires à propos du curseur personnalisé.
 
 #### Événement : 'context-menu'
 
@@ -526,7 +526,7 @@ Retourne :
   * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - Un tableau de mots suggérés à montrer à l'utilisateur pour remplacer le `misspelledWord`.  Uniquement disponible si un mot est mal orthographié et que le correcteur orthographique est activé.
   * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
   * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.

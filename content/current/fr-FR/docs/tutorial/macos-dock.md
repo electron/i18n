@@ -12,7 +12,7 @@ __Menu du Dock de Terminal.app :__
 
 Pour configurer votre menu de dock personnalisé, vous devez utiliser l'API [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) , qui n'est disponible que sur macOS.
 
-## Example
+## Exemple
 
 Commencer avec une application fonctionnelle à partir du [Guide de démarrage rapide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 

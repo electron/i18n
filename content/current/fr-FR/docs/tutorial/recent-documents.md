@@ -14,7 +14,7 @@ __Menu application du dock :__
 
 Pour ajouter un fichier aux documents récents, vous devez utiliser l'API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows).
 
-## Example
+## Exemple
 
 ### Ajouter un élément aux documents récents
 
