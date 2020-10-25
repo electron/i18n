@@ -8,7 +8,7 @@ Pour le processus de rendu Electron permet facilement aux développeurs d'envoye
 
 Pour afficher les notifications dans le processus principal, vous devez utiliser le module [Notification](../api/notification.md).
 
-## Example
+## Exemple
 
 ### Afficher les notifications dans le processus de rendu
 

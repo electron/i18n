@@ -6,7 +6,7 @@ Certains types d'applications manipulant des fichiers peuvent prendre en charge 
 
 Pour implémenter cette fonctionnalité dans votre application, vous devez appeler l'API [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) dans la réponse à l'événement `ondragstart`.
 
-## Example
+## Exemple
 
 Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajouter les lignes suivantes au fichier `index.html`:
 

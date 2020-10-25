@@ -2,31 +2,31 @@
 
 ## Vue d'ensemble
 
-A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
+Une barre de progression permet à une fenêtre de fournir une informations à l'utilisateur sur la progression sans avoir besoin de basculer sur cette même fenêtre.
 
-On Windows, you can use a taskbar button to display a progress bar.
+Sous Windows, vous pouvez utiliser un bouton de la barre des tâches pour afficher une barre de progression.
 
-![Windows Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Barre de progression sous Windows](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-On macOS, the progress bar will be displayed as a part of the dock icon.
+Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du dock.
 
-![macOS Progress Bar](../images/macos-progress-bar.png)
+![Barre de progression sous macOS](../images/macos-progress-bar.png)
 
-On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+Sur Linux, l’interface graphique Unity dispose également d’une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
 
-![Linux Progress Bar](../images/linux-progress-bar.png)
+![Barre de progression sous Linux](../images/linux-progress-bar.png)
 
-> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+> REMARQUE : sur Windows, chaque fenêtre peut avoir sa propre barre de progression, tandis que sur macOS et Linux (Unity) il ne peut y avoir qu’une seule barre de progression pour l’application.
 
 ----
 
-All three cases are covered by the same API - the [`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+Les trois cas sont couverts par la même API - la méthode [`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) disponible sur une instance de `BrowserWindows`. Pour indiquer l'état de la progression vous devez appeler cette méthode avec un nombre entre `0` et `1`. Par exemple: Si vous avez une tâche qui dure relativement longtemps et qui est en est actuellement à 63% avant sa finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
+Toute valeur négative (par ex. `-1`) supprimera la barre de progression alors qu'une valeur supérieures à `1` (e. . `2`) basculera la barre de progression en mode indéterminée (sauf pour Windows où elle plafonnera à 100 %). Dans ce mode, une barre de progression reste active mais n'affiche pas le pourcentage réel. Utilisez ce mode lorsque vous ne savez pas combien de temps prendra une opération pour s'effectuer.
 
 Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress-options).
 
-## Example
+## Exemple
 
 Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
 
@@ -37,10 +37,10 @@ const win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
+Après avoir lancé l'application Electron, vous devriez voir la barre dans le dock (macOS) ou la barre des tâches (Windows ou sous Unity) qui indique le pourcentage de progression défini précédemment.
 
-![macOS dock progress bar](../images/dock-progress-bar.png)
+![Barre de progression du dock macOS](../images/dock-progress-bar.png)
 
-For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+Pour macOS, la barre de progression de votre application sera également indiquée lors de l'utilisation de [Mission Control](https://support.apple.com/en-us/HT204100):
 
-![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
+![Barre de progression avec Mission Control](../images/mission-control-progress-bar.png)

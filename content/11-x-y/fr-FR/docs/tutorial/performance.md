@@ -17,7 +17,7 @@ Pour en savoir plus sur la façon de profiler le code de votre application, fami
 ### Lecture recommandée
 
  * [Commencer avec l'analyse des performances d'exécution][chrome-devtools-tutorial]
- * [Parlez: "Visual Studio Code - The First Second"][vscode-first-second]
+ * [Conférence: "Visual Studio Code - The First Second"][vscode-first-second]
 
 ## Liste de contrôle
 
@@ -64,7 +64,7 @@ L'exécution de cette commande aboutit à un fichier `.cpuprofile` et un fichier
 
 ![performance-heap-prof][]
 
-Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement de la requête `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
+Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement du module Request `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
 
 ## 2) Chargement et exécution du code trop tôt
 
@@ -160,7 +160,7 @@ Electron's powerful multi-process architecture stands ready to assist you with y
 
 2) Évitez d'utiliser l'IPC synchrone et le module `distant` autant que possible. Bien qu'il y ait des cas d'utilisation légitimes, il est beaucoup trop facile de bloquer inconsciemment le thread de l'interface en utilisant le module `distant`.
 
-3) Évitez d'utiliser les opérations de blocage d'E/S dans le processus principal. Bref, chaque fois que Noeud de base. s modules (comme `fs` ou `child_process`) offrent une version synchrone ou une version asynchrone vous devriez préférer la variante asynchrone et non-bloquant .
+3) Évitez d'utiliser les opérations de blocage d'E/S dans le processus principal. Bref, chaque fois que des modules coeur de Node.js (comme `fs` ou `child_process`) offrent une version synchrone ou une version asynchrone vous devriez préférer la variante asynchrone et non-bloquant .
 
 
 ## 4) Blocage du processus de rendu

@@ -13,7 +13,7 @@ Xpath:/p.
   $ npx @electron/Check-Python-TLS
   ```
 
-  Nếu kịch bản trả về cấu hình của bạn đang sử dụng giao thức bảo mật đã lỗi thời, hãy sử dụng trình quản lý gói của hệ thống để Cập Nhật Python lên phiên bản mới nhất trong nhánh 2.7. x. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  Nếu kịch bản trả về cấu hình của bạn đang sử dụng giao thức bảo mật đã lỗi thời, hãy sử dụng trình quản lý gói của hệ thống để Cập Nhật Python lên phiên bản mới nhất trong nhánh 2.7. x. File
 
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.

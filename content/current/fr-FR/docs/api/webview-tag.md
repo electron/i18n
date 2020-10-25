@@ -679,7 +679,7 @@ Retourne :
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `sélectionArea` Rectangle - Coordonnées de la région de la première correspondance.
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
