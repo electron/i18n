@@ -5,9 +5,9 @@
 Stat | Value
 ---- | -----
 total files | 278
-total words | 278930
-unique words | 12900
-average words per file | 1003
+total words | 279243
+unique words | 12909
+average words per file | 1004
 
 ## Blog English
 
@@ -23,6 +23,6 @@ average words per file | 700
 Stat | Value
 ---- | -----
 total files | 7421
-total words | 5573884
-unique words | 143833
+total words | 5574203
+unique words | 143843
 average words per file | 751
