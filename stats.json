@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "16303",
-    "translated": "12455",
+    "translated": "12459",
     "approved": "2613",
     "words": "189413",
-    "words_translated": "141779",
+    "words_translated": "141831",
     "words_approved": "24945",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 3636
+    "qa_issues": 3638
   },
   {
     "name": "German",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "16303",
-    "translated": "13280",
+    "translated": "13285",
     "approved": "3596",
     "words": "189413",
-    "words_translated": "151874",
+    "words_translated": "151916",
     "words_approved": "37170",
     "translated_progress": 80,
     "approved_progress": 19,
-    "qa_issues": 4818
+    "qa_issues": 4819
   },
   {
     "name": "Tagalog",
