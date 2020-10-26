@@ -1,4 +1,4 @@
-# KeyboardEvent Object
+# Objet KeyboardEvent
 
 * `ctrlKey` Boolean (facultatif) - si la touche Contrôle a été utilisée dans un accélérateur pour déclencher l’Événement
 * `metaKey` Boolean (facultatif) - si une touche meta a été  utilisée dans un accélérateur pour déclencher l'Événement
