@@ -319,7 +319,7 @@ Retourne :
 * `details` Object
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
-    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire

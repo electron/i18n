@@ -36,7 +36,7 @@ Quando un utente clicca su un file dalla JumpList, una nuova istanza della tua a
 
 ![voce del menu macOS Documenti recenti][6]
 
-È possibile aggiungere voci di menu per accedere e cancellare documenti recenti aggiungendo la seguente snippet di codice al modello del menù.
+È possibile aggiungere voci di menu per accedere e cancellare documenti recenti aggiungendo il seguente snippet di codice al tuo modello di menù.
 
 ```json
 {

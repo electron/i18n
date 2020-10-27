@@ -27,7 +27,8 @@ En la mayoría de los casos usted debe hacer todo desde el controlador del event
 
 Devuelve:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -105,7 +106,7 @@ Devuelve:
 
 Emitido cuando la aplicación está activada. Varias acciones puede activar este evento, como iniciar la aplicación por primera vez, intentar relanzar la aplicación cuando ya está corriendo, o hacer click en el dock de la aplicación o en el ícono de la barra de tareas.
 
-### Event: 'did-become-active' _macOS_
+### Evento: 'did-become-active' _macOS_
 
 Devuelve:
 

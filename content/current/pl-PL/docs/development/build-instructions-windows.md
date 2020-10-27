@@ -23,7 +23,11 @@ Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](http
 
 Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Uwaga:** Mimo tego, że Visual Studio nie jest używane do budowania, jest ono **potrzebne** ponieważ potrzebujemy narzędzi budowania, które dostarcza.
+
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
 ## Kompilowanie
 
@@ -75,7 +79,7 @@ Ten błąd może wystąpić, jeśli używasz Git Bash do budynku, zamiast tego n
 
 ### cannot create directory at '...': Filename too long
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Powinno to naprawić:
+node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
 
 ```sh
 $ git config --system core.longpaths true

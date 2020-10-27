@@ -15,23 +15,23 @@ Comme vous pouvez le voir, les utilisateurs ont deux options : déplacez l'appli
 
 Si vous développez une application Electron destinée à être empaquetée et distribuée, son code devra être signé.
 
-# Signature & notariage des versions macOS
+# Signature & certification des versions macOS
 
-La préparation correcte des applications macOS pour la publication nécessite deux étapes : tout d'abord, l'application doit être signée avec le code. Ensuite, l'application doit être téléchargée sur Apple pour un processus appelé "notariation", où les systèmes automatisés vérifieront davantage que votre application ne fait rien pour mettre en danger ses utilisateurs.
+Une bonne préparation des applications macOS pour la publication nécessite deux étapes : tout d'abord, l'application doit être signée. Ensuite, l'application doit être téléchargée sur Apple pour un processus appelé "notariation", où les systèmes automatisés vérifieront davantage que votre application ne fait rien pour mettre en danger ses utilisateurs.
 
-Pour démarrer le processus, assurez-vous que vous remplissez les conditions pour signer et notarier votre application :
+Pour démarrer le processus, assurez-vous que vous remplissez les conditions pour signer et certifier votre application :
 
 1. S'inscrire au [Programme de Développeurs Apple](https://developer.apple.com/programs/) (moyennant des frais annuels)
 2. Télécharger et installer [Xcode](https://developer.apple.com/xcode) - cela nécessite un ordinateur exécutant macOS
 3. Générer, télécharger et installer [des certificats de signature](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-L'écosystème d'Electron favorise la configuration et la liberté, donc il y a plusieurs moyens pour faire signer et notarier votre application.
+L'écosystème d'Electron donne priorité à la configuration et a la liberté et bien sur donc il y a plusieurs moyens de signer et certifier votre application.
 
 ## `electron-forge`
 
-Si vous utilisez l'outil de compilation préféré d'Electron, faire signer votre application et notarier nécessite quelques ajouts à votre configuration. [Forge](https://electronforge.io) est une collection d'outils officiels d'Electron, en utilisant [`electron-packager`], [`electron-osx-sign`], et [`electron-notarize`] sous le capot.
+Si vous utilisez l'outil de génération d'Electron vous devrez faire quelques ajouts à votre configuration pour signer et certifier votre application. [Forge](https://electronforge.io) est une collection d'outils officiels d'Electron, en utilisant [`electron-packager`], [`electron-osx-sign`], et [`electron-notarize`] sous le capot.
 
-Regardons un exemple de configuration avec tous les champs obligatoires. Tous les ne sont pas requis : les outils seront suffisamment intelligents pour trouver automatiquement une identité `appropriée`, par exemple, mais nous vous recommandons d'être explicite.
+Regardons un exemple de configuration comportant tous les champs obligatoires. Tous les ne sont pas requis : les outils seront suffisamment intelligents pour trouver automatiquement une identité `appropriée`, par exemple, mais nous vous recommandons d'être explicite.
 
 ```json
 {
@@ -57,7 +57,7 @@ Regardons un exemple de configuration avec tous les champs obligatoires. Tous le
 }
 ```
 
-Le fichier `plist` référencé ici a besoin des droits spécifiques à macOS suivants pour assurer les mécanismes de sécurité Apple que votre application fait ces choses sans aucun dommage :
+Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivants pour certifier aux mécanismes de sécurité d'Apple que votre application fait ces choses sans risque :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,9 +74,9 @@ Le fichier `plist` référencé ici a besoin des droits spécifiques à macOS su
 </plist>
 ```
 
-Pour voir tout cela en action, consultez le code source d'Electron Fiddle, [en particulier son `fichier de configuration` electron-forge ](https://github.com/electron/fiddle/blob/master/forge.config.js).
+Pour voir tout cela en action, consultez le code source d'Electron Fiddle, [en particulier son fichier de configuration pour `electron-forge` ](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
-Si vous prévoyez d'accéder au microphone ou à la caméra dans votre application à l'aide des API d'Electron, vous devrez également ajouter les droits suivants :
+Si vous prévoyez dans votre application d'accéder au microphone ou à la caméra à l'aide des API d'Electron, vous devrez également ajouter les droits suivants :
 
 ```xml
 <key>com.apple.security.device.audio-input</key>
@@ -101,9 +101,9 @@ Electron Builder est fourni avec une solution personnalisée pour signer votre a
 
 ## `electron-packager`
 
-Si vous n'utilisez pas de pipeline de construction intégré comme Forge ou Builder, vous utilisez probablement [`electron-packager`], qui comprend [`electron-osx-sign`] et [`electron-notarize`].
+Si vous n'utilisez pas de pipeline de génération intégré comme Forge ou Builder, vous utilisez probablement [`electron-packager`], qui inclut[`electron-osx-sign`] et [`electron-notarize`].
 
-Si vous utilisez l'API de Packager, vous pouvez passer [dans la configuration que les signes et notarient votre application ](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+Si vous utilisez l'API de Packager, vous pouvez fournit une[configuration](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
 
 ```js
 const packager = require('electron-packager')
@@ -124,7 +124,7 @@ packager({
 })
 ```
 
-Le fichier `plist` référencé ici a besoin des droits spécifiques à macOS suivants pour assurer les mécanismes de sécurité Apple que votre application fait ces choses sans aucun dommage :
+Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivants pour certifier aux mécanismes de sécurité d'Apple que votre application fait ces choses sans risque :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -152,12 +152,12 @@ Avant de signer les versions de Windows, vous devez faire ce qui suit :
 1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
 2. Installez Visual Studio pour obtenir l'utilitaire de signature (la [Community Edition gratuite](https://visualstudio.microsoft.com/vs/community/) est suffisante)
 
-Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il vaut peut-être la peine de faire vos achats dans les environs. Les revendeurs populaires comprennent :
+Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Les revendeurs populaires comprennent :
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Parmi d'autres, veuillez faire vos achats pour en trouver un qui correspond à vos besoins, Google est votre ami 😄
+* Et bien d'autres, veuillez comparer pour en trouver un qui correspond à vos besoins, Google est votre ami 😄
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 

@@ -1,12 +1,14 @@
 # Benutzerdefinierte Linux Desktop Launcher Aktionen
 
-Auf vielen Linux-Umgebungen können Sie eigene Einträge zum Launcher hinzufügen, indem Sie die `.desktop` Datei ändern. Für Canonicals Einheitsdokumentation siehe [Verknüpfungen zu einem Launcher hinzufügen](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Weitere Informationen zu einer generischen Implementierung finden Sie in der [Freedesktop.org Spezifikation](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+## Übersicht
 
-__Launcher Shortcuts von Audacious:__
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Im Allgemeinen werden Verknüpfungen hinzugefügt, indem für jeden Eintrag im Menü Verknüpfungen ein `Name` und `Exec` angegeben werden. Einheit wird das Feld `Exec` ausführen, sobald der Benutzer angeklickt hat. Das Format lautet wie folgt:
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
 Aktionen=PlayPause;Weiter;Vorheriges
@@ -27,4 +29,4 @@ Exec=audacious -r
 OnlyShowIn=Einheit,
 ```
 
-Die bevorzugte Methode, Ihre Anwendung zu informieren, ist die Verwendung von Parametern. Diese finden Sie in Ihrer App in der globalen Variable `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

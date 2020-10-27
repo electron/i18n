@@ -11,7 +11,7 @@ Urmați instrucțiunile de mai jos pentru a construi Electron pe Windows.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (replace `2019` and `Community` with your installed versions)
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 sau mai mare](http://www.python.org/download/releases/2.7/)
-  * Contrar instrucțiunilor de configurare `depot_tools` conectate mai jos, veți avea nevoie de pentru a utiliza Python instalat local, cu cel puțin versiunea 2.7.10 (cu sprijin pentru TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Chiar acum `depot_tools` încă vine cu Python 2.7.6, ceea ce va face ca comanda `gclient` să eșueze (vezi https://crbug.com/868864).
+  * Contrar instrucțiunilor de configurare `depot_tools` conectate mai jos, veți avea nevoie de pentru a utiliza Python instalat local, cu cel puțin versiunea 2.7.10 (cu sprijin pentru TLS 1.2). Pentru a face acest lucru, asigurați-vă că în **PATH**, Python-ul instalat local vine înainte de folderul `depot_tools`. Chiar acum `depot_tools` încă vine cu Python 2.7.6, ceea ce va face ca comanda `gclient` să eșueze (vezi https://crbug.com/868864).
   * [Extensiile Python pentru Windows (pywin32)](https://pypi.org/project/pywin32/#files) este, de asemenea, necesară pentru a executa procesul de compilare.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)

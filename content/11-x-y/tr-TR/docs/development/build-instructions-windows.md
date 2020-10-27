@@ -23,7 +23,7 @@ Hali hazırda Windows kurulumunuz mevcut değilse, [dev.microsoftedge.com](https
 
 Electron'u inşaa etmek tamamen komut satırı betikleri üzerinden yapılır. Visual Studio ile yapmak mümkün değildir. Electron'u herhangi bir editör ile geliştirebilirsiniz ama VisualStudio ile inşaa desteği ileride gelecek.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Not:** Visual Studio inşaa için kullanılmasa da **gerekli** çünkü Visual Studio ile gelen inşaa yardımcılarını kullanıyoruz.
 
 ## İnşaa
 

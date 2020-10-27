@@ -33,7 +33,7 @@ npm ti guiderà nella creazione di un file `package.json`. Lo script specificato
 
 __Nota__: Se il `main` field non è presente nel `package.json`, Electron proverà a caricare un file `index.js` (come Node.js).
 
-Per impostazione predefinita, `npm start` avrebbe eseguito lo script principale con Node.js. per far girare con Electron, puoi aggiungere uno script `start`:
+Per impostazione predefinita, `npm start` avrebbe eseguito lo script principale con Node.js. per farlo funzionare con Electron, puoi aggiungere uno script `start`:
 
 ```json
 {
@@ -114,7 +114,7 @@ function createWindow () {
 app.whenReady().then(createWindow)
 
 // Esci quando tutte le finestre sono chiuse, tranne su macOS. Lì, è comune
-// per le applicazioni e la loro barra dei menu rimanere attivo fino a quando l'utente esce
+// per le applicazioni e la loro barra dei menu rimanere attive fino a quando l'utente esce
 // esplicitamente con Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

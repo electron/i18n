@@ -11,7 +11,7 @@ Urmați instrucțiunile de mai jos pentru a construi Electron pe Windows.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, înlocuirea `2019` și `comunitar` cu versiunile instalate și înlocuirea `DRIVE:` cu unitatea pe care este pornit Studioul vizual. Adesea, acesta va fi `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Adesea, acesta va fi `C:`.
 * [Python 2.7.10 sau mai mare](http://www.python.org/download/releases/2.7/)
-  * Contrar instrucțiunilor de configurare `depot_tools` conectate mai jos, veți avea nevoie de pentru a utiliza Python instalat local, cu cel puțin versiunea 2.7.10 (cu sprijin pentru TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Chiar acum `depot_tools` încă vine cu Python 2.7.6, ceea ce va face ca comanda `gclient` să eșueze (vezi https://crbug.com/868864).
+  * Contrar instrucțiunilor de configurare `depot_tools` conectate mai jos, veți avea nevoie de pentru a utiliza Python instalat local, cu cel puțin versiunea 2.7.10 (cu sprijin pentru TLS 1.2). Pentru a face acest lucru, asigurați-vă că în **PATH**, Python-ul instalat local vine înainte de folderul `depot_tools`. Chiar acum `depot_tools` încă vine cu Python 2.7.6, ceea ce va face ca comanda `gclient` să eșueze (vezi https://crbug.com/868864).
   * [Extensiile Python pentru Windows (pywin32)](https://pypi.org/project/pywin32/#files) este, de asemenea, necesară pentru a executa procesul de compilare.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -24,6 +24,10 @@ Dacă nu aveți în prezent o instalare Windows, [dev.microsoftedge.com](https:/
 Construirea Electron se face în întregime cu script-uri de linie de comandă și nu se poate face cu Visual Studio. Puteți dezvolta Electron cu orice editor, dar suport pentru clădire cu Visual Studio va veni în viitor.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
 ## Building
 
