@@ -101,7 +101,7 @@
     "words_approved": "24945",
     "translated_progress": 75,
     "approved_progress": 13,
-    "qa_issues": 3652
+    "qa_issues": 3648
   },
   {
     "name": "German",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "16327",
-    "translated": "13302",
+    "translated": "13308",
     "approved": "3597",
     "words": "189725",
-    "words_translated": "152228",
+    "words_translated": "152291",
     "words_approved": "37185",
     "translated_progress": 80,
     "approved_progress": 19,
-    "qa_issues": 4830
+    "qa_issues": 4833
   },
   {
     "name": "Tagalog",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "16327",
-    "translated": "6198",
+    "translated": "6199",
     "approved": "2122",
     "words": "189725",
-    "words_translated": "58625",
+    "words_translated": "58639",
     "words_approved": "20620",
     "translated_progress": 30,
     "approved_progress": 10,
-    "qa_issues": 2345
+    "qa_issues": 2346
   },
   {
     "name": "Ukrainian",
