@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "16374",
-    "translated": "3347",
+    "translated": "3353",
     "approved": "986",
     "words": "190377",
-    "words_translated": "22244",
+    "words_translated": "22348",
     "words_approved": "5812",
     "translated_progress": 11,
     "approved_progress": 3,
-    "qa_issues": 70
+    "qa_issues": 72
   },
   {
     "name": "Czech",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "16374",
-    "translated": "12542",
+    "translated": "12547",
     "approved": "2616",
     "words": "190377",
-    "words_translated": "142944",
+    "words_translated": "143013",
     "words_approved": "24992",
     "translated_progress": 75,
     "approved_progress": 13,
-    "qa_issues": 3654
+    "qa_issues": 3656
   },
   {
     "name": "German",
