@@ -36,7 +36,7 @@ Créons une application de base basée sur la structure ci-dessus.
 
 #### Install Electron
 
-Créez un dossier pour votre projet et installez Electron là-bas:
+Créez un dossier pour votre projet et installez y Electron:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -56,26 +56,26 @@ const { app, BrowserWindow } = require('electron')
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    hauteur: 600,
+    height: 600,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  gagnez. oadFile('index.html')
+  win.loadFile('index.html')
   win.webContents.openDevTools()
 }
 
-application. henReady().then(createWindow)
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app. uit()
+    app.quit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow. etAllWindows().length === 0) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -84,14 +84,14 @@ app.on('activate', () => {
 ##### Que se passe-t-il ci-dessus?
 
 1. Ligne 1 : Tout d'abord, vous importez les modules `app` et `BrowserWindow` du package `electron` pour pouvoir gérer les événements du cycle de vie de votre application ainsi que créer et contrôler les fenêtres du navigateur.
-2. Ligne 3: Après cela, vous définissez une fonction qui crée une [nouvelle fenêtre de navigateur](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de nœud activée, Charge l'index `. tml` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard) et ouvre Developer Tools (ligne 13).
+2. Ligne 3: Après cela, vous définissez une fonction qui crée une [nouvelle fenêtre de navigateur](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis charge `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard) et ouvre les Developer Tools (ligne 13).
 3. Ligne 16 : Vous créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois que l'application Electron [est initialisée](../api/app.md#appwhenready).
-4. Ligne 18 : Vous ajoutez un nouvel auditeur qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Cet écouteur est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
+4. Ligne 18 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
 5. Ligne 24 : Vous ajoutez un nouvel auditeur qui crée une nouvelle fenêtre de navigateur uniquement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple, après avoir lancé l'application pour la première fois, ou relancé l'application déjà en cours d'exécution.
 
 #### Créer une page web
 
-Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Chaque fenêtre peut éventuellement être accordée avec un accès complet à l'API Node.js via la préférence `nodeIntegration`.
+Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Chaque fenêtre peut éventuellement avoir son accès complet à l'API Node.js autorisé via la préférence `nodeIntegration`.
 
 La page `index.html` ressemble à ceci:
 
@@ -114,7 +114,7 @@ La page `index.html` ressemble à ceci:
 
 #### Modifier votre fichier package.json
 
-Votre application Electron utilise le fichier `package.json` comme point d'entrée principal (comme n'importe quelle autre application Node.js). Le script principal de votre application est `main.js`, donc modifiez le fichier `package.json` en conséquence :
+Votre application Electron utilise le fichier `package.json` comme point d'entrée principal (comme n'importe quelle autre application Node.js). Le script principal de votre application étant `main.js`, modifiez le fichier `package.json` en conséquence :
 
 ```json
 {
@@ -124,7 +124,7 @@ Votre application Electron utilise le fichier `package.json` comme point d'entr�
 }
 ```
 
-> REMARQUE : Si le champ `principal` est omis, Electron tentera de charger un index `. s` fichier du répertoire contenant `package.json`.
+> REMARQUE : Si le champ `main` est omis, Electron tentera de charger le fichier `index.js` à partir du répertoire contenant `package.json`.
 
 Par défaut, la commande `npm start` exécutera le script principal avec Node.js. Pour exécuter le script avec Electron, vous devez le modifier comme suit:
 

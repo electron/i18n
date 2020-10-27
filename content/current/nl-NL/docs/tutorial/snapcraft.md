@@ -61,6 +61,78 @@ snap(options)
   .then(snapPath => console.log(`Gemaakte snap op ${snapPath}!`))
 ```
 
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## Met behulp van een bestaand Debian Pakket
 
 Snapcraft is in staat om een bestaand `.deb` bestand te gebruiken en het te veranderen in a `.snap` bestand. De aanmaak van een snap is geconfigureerd met behulp van een `snapcraft. aml` bestand dat de bronnen, afhankelijkheden, beschrijving en andere core bouwblokken beschrijft.
@@ -71,7 +143,7 @@ Als u nog geen `.deb` pakket hebt, kan het gebruik van `electron-installer-snap`
 
 ### Stap 2: Maak een snapcraft.yaml
 
-Voor meer informatie over de beschikbare configuratie-opties, zie de [documentatie over de snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 naam: myApp

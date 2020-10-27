@@ -23,9 +23,13 @@ Se al momento non hai un'installazione Windows, [dev.microsoftedge.com](https://
 
 La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. Puoi sviluppare Electron con qualsiasi editor, ma il supporto per la creazione con Visual Studio arriverà in futuro.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Nota:** Anche se Visual Studio non è usato per costruire, è comunque **richiesto** perché ci servono le catene di costruzione che fornisce.
 
-## Compilazione
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+## Costruzione
 
 Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 

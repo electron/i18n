@@ -1,62 +1,79 @@
 # Pasek zadań Windows
 
-Elektron posiada API, aby skonfigurować ikonę aplikacji na pasku zadań systemu Windows. Obsługiwane są [tworzenie `JumpList`](#jumplist), [niestandardowe miniatury i paski narzędzi](#thumbnail-toolbars), [ikony nakładki](#icon-overlays-in-taskbar) i tak zwany ["Flash Frame" effect](#flash-frame), ale Electron również używa ikony dokowania aplikacji do wdrożenia funkcji między-platformowej, takich jak [Ostatnie dokumenty](./recent-documents.md) i [postęp aplikacji](./progress-bar.md).
+## Przegląd
+
+Elektron posiada API, aby skonfigurować ikonę aplikacji na pasku zadań systemu Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 ## JumpList
 
-System Windows pozwala aplikacją na definiowanie menu kontekstowego, które pojawia się, gdy użytkownicy klikają prawym przyciskiem myszy na ikonę aplikacji w pasku zadań. Menu kontekstowe nazywa się `JumpList`. Określasz niestandardowe akcje w kategorii `Zadania` JumpList, zacytowane z MSDN:
+Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Menu kontekstowe nazywa się `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
 
 > Aplikacje definiują zadania na podstawie zarówno funkcji programu, jak i klucza rzeczy, które użytkownik ma z nimi zrobić. Zadania powinny być wolne od kontekstów, w że aplikacja nie musi działać, aby działać. powinny być również statystycznie najczęstszymi czynnościami, które normalny użytkownik wykonałby w aplikacji, np. skompresuj wiadomość e-mail lub otwórz kalendarz w programie pocztowym, utwórz nowy dokument w procesorze słów, uruchom aplikację w określonym trybie lub uruchom jedną z jej podpoleceń. Aplikacja nie powinna zaśmiecać menu zaawansowanymi funkcjami, których standardowi użytkownicy nie będą potrzebowali lub jednorazowe działania, takie jak rejestracja. Nie używaj zadań dla przedmiotów promocyjnych, takich jak ulepszenia lub oferty specjalne.
 > 
 > Zdecydowanie zaleca się, aby lista zadań była statyczna. Powinien pozostać taki sam niezależnie od stanu lub statusu aplikacji. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-__Zadania Internet Explorer:__
+![PT](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
+> NOTE: The screenshot above is an example of general tasks of Internet Explorer
 
-W przeciwieństwie do menu doku w macOS, które jest prawdziwym menu, zadania użytkownika w systemie Windows działają , takie jak skróty aplikacji, które kiedy użytkownik kliknie na zadanie, program zostanie wykonany z określonymi argumentami.
+Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
 
-Aby ustawić zadania użytkownika dla aplikacji, możesz użyć [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
+
+#### Przykłady
+
+##### Set user tasks
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app } = require('electron')
+
 app.setUserTasks([
   {
-    program: proces. xecŚcieżka
-    : argumenty: '--new-window',
-    ścieżka ikon: proces. xecPath,
-    ikonIndex: 0,
+    program: process.execPath,
+    arguments: '--new-window',
+    iconPath: process.execPath,
+    iconIndex: 0,
     title: 'New Window',
-    opis: 'Utwórz nowe okno'
+    description: 'Create a new window'
   }
 ])
 ```
 
-Aby wyczyścić listę zadań, wywołaj `app.setUserTasks` pustą tablicą:
+##### Clear tasks list
+
+To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
 
 ```javascript
 const { app } = require('electron')
+
 app.setUserTasks([])
 ```
 
-Zadania użytkownika będą nadal wyświetlane nawet po zamknięciu aplikacji, więc ikona i ścieżka programu określone dla zadania powinny istnieć do czasu odinstalowania aplikacji .
+> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
 
+### Thumbnail Toolbars
 
-## Thumbnail Toolbars
+On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
-W systemie Windows możesz dodać miniaturę paska narzędzi z określonymi przyciskami na pasku zadań układu okna aplikacji. Zapewnia użytkownikom możliwość dostępu do polecenia konkretnego okna bez przywracania lub aktywowania okna.
-
-Z MSDN, jest podświetlony:
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars):
 
 > Ten pasek narzędzi jest znanym standardowym paskiem narzędzi. Ma maksymalnie 7 przycisków. Identyfikator każdego przycisku, obraz, podpowiedź i stan są zdefiniowane w strukturze, która jest następnie przekazywana do paska zadań. Aplikacja może pokazać, włączone, wyłączone, lub ukryć przyciski na pasku miniatur zgodnie z wymaganiami bieżącego stanu.
 > 
 > Na przykład Windows Media Player może oferować standardowe funkcje przesyłania mediów , takie jak odtwarzanie, pauza, wyciszenie i zatrzymanie.
 
-__Pasek miniatur Windows Media Player:__
-
 ![gracz](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-Możesz użyć [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) , aby ustawić miniatury paska narzędzi w swojej aplikacji:
+> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
+
+To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
+
+#### Przykłady
+
+##### Set thumbnail toolbar
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -78,7 +95,9 @@ wygrywa. etThumbarButtons([
 ])
 ```
 
-Aby wyczyścić miniaturki przycisków paska narzędzi, po prostu zadzwoń do `BrowserWindow.setThumbarButtons` pustą tablicą:
+##### Clear thumbnail toolbar
+
+To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -87,39 +106,53 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+### Nakładki ikon na pasku zadań
 
-## Nakładki ikon na pasku zadań
+On Windows, a taskbar button can use a small overlay to display application status.
 
-W systemie Windows przycisk paska zadań może użyć małej nakładki do wyświetlania statusu aplikacji , zacytowanej z MSDN:
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays):
 
 > Nakładki ikon służą jako kontekstowe powiadomienie o statusie, i mają na celu negowanie potrzeby posiadania osobnej ikony statusu obszaru powiadomień, aby przekazać tę informację użytkownikowi. Na przykład nowy status poczty w programie Microsoft Outlook, obecnie wyświetlany w obszarze powiadomień, można teraz zaznaczyć za pomocą nakładki na pasku zadań. Ponownie musisz zdecydować podczas cyklu rozwoju, która metoda jest najlepsza dla Twojej aplikacji. Ikony nakładki są przeznaczone do dostarczania ważnych, długotrwałych powiadomień lub powiadomień takich jak status sieci, status komunikatora lub nowa poczta. Użytkownik nie powinien być prezentowany ze stale zmieniającymi się nakładkami lub animacjami.
 
-__Nakładka na pasku zadań:__
-
 ![Nakładka na przycisku paska zadań](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-Aby ustawić ikonę nakładki dla okna możesz użyć interfejsu API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows):
+> NOTE: The screenshot above is an example of overlay on a taskbar button
+
+To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
+
+#### Przykład
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
+
 const win = new BrowserWindow()
+
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
+### Flash Frame
 
-## Flash Frame
+On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-W systemie Windows możesz podświetlić przycisk paska zadań, aby zwrócić uwagę użytkownika. Jest to podobne do odbijania ikony doku na macOS. Na podstawie dokumentacji referencyjnej MSDN
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks):
 
 > Zazwyczaj okno jest wgrywane, aby poinformować użytkownika, że okno wymaga uwagi, ale nie ma obecnie ostrości klawiatury.
 
-Aby wgrać przycisk paska zadań BrowserWindow możesz użyć [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API.
+
+#### Przykład
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
+
 const win = new BrowserWindow()
+
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Nie zapomnij wywołać metody `flashFrame` z `false` aby wyłączyć flash. W powyższy przykład jest wywoływany kiedy okno wchodzi w ostrość, ale możesz użyć limitu czasu lub innego zdarzenia, aby go wyłączyć.
+> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.

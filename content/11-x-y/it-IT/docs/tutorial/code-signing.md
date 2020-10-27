@@ -22,14 +22,14 @@ Preparare correttamente le applicazioni macOS per il rilascio richiede due passa
 Per avviare il processo, assicurati di soddisfare i requisiti per la firma e notarizzare la tua app:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Scaricare e installare [Xcode][] - questo richiede un computer in esecuzione macOS
+2. Scarica e installa [Xcode][] - è richiesto un computer con macOS
 3. Genera, scarica ed installa [certificati di firma][]
 
 L'ecosistema di Electron's favorisce la configurazione e la libertà, quindi ci sono diversi modi per ottenere la tua applicazione firmata e notarile.
 
 ## `electron-forge`
 
-Se stai usando lo strumento di build preferito di Electron, ottenere la tua applicazione firmata e notarizzata richiede alcune aggiunte alla tua configurazione. [Forge](https://electronforge.io) è una collezione degli strumenti ufficiali di Electron, utilizzando [`electron-packager`][], [`electron-osx-sign`][]e [`electron-notarize`][] sotto il cofano.
+Se stai usando lo strumento di build preferito di Electron, ottenere la tua applicazione firmata e notarizzata richiede alcune aggiunte alla tua configurazione. [Forge](https://electronforge.io) è una collezione degli strumenti ufficiali di Electron, che utilizza [`electron-packager`][], [`electron-osx-sign`][]e [`electron-notarize`][] sotto il cofano.
 
 Diamo un'occhiata a una configurazione di esempio con tutti i campi richiesti. Non tutti di loro sono richiesti: gli strumenti saranno abbastanza intelligenti per trovare automaticamente una identità `adatta`, per esempio, ma vi raccomandiamo di essere espliciti.
 

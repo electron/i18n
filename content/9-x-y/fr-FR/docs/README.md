@@ -20,7 +20,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Installer Electron](tutorial/first-app.md#installing-electron)
   * [Le développement avec Electron en résumé](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Lancer votre Application](tutorial/first-app.md#running-your-app)
-* [Les standards et CLI (Command-line interface)](tutorial/boilerplates-and-clis.md)
+* [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)

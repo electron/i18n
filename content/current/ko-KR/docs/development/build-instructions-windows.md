@@ -23,7 +23,11 @@
 
 Electron은 모든 빌드를 command-line 스크립트를 통해 빌드하며, Visual Studio를 사용할 수 없습니다. 하지만 여전히 Electron을 개발할 땐 어떤 에디터든 사용이 가능합니다. 그리고 빠른 시일내에 Visual Studio를 이용한 빌드도 지원할 계획입니다.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**참고:** Visual Studio가 직접 빌드에 사용되지 않더라도 Ide와 같이 제공된 빌드 툴체인이 빌드에 **반드시** 사용되므로 여전히 필요합니다.
+
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
 ## 빌드하기
 

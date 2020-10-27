@@ -60,6 +60,78 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## En utilisant un package Debian existant
 
 Snapcraft est capable de prendre un fichier `.deb` existant et de le convertir en un fichier `.snap`. La création d'un snap est configurée via un fichier `snapcraft.yaml` qui décrit les sources, dépendances, descriptions, et d'autres blocs de construction cruciaux.
@@ -70,14 +142,15 @@ Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap
 
 ### Étape 2 : Créer un snapcraft.yaml
 
-Pour plus d'informations sur les options de configuration disponibles, voir la documentation [sur la syntaxe snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Examinons un exemple :
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: Une brève description de mon application.
+summary: Une breve description de mon apli.
 description: |
- You know what? Cette application est incroyable! Elle fait tout à votre place. D'aucuns disent que cela vous permet de rester jeune et peut-être même heureux.
+ You know what? This app is amazing! It does all the things
+ for you. Some say it keeps you young, maybe even happy.
 
 grade: stable
 confinement: classic
@@ -114,7 +187,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Comme vous pouvez le voir, le `snapcraft.yaml` demande au système d'exécuter le fichier nommé `electron-launch`. Dans cet exemple, il transmet des informations au code binaire de l'application :
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
@@ -122,7 +195,7 @@ Comme vous pouvez le voir, le `snapcraft.yaml` demande au système d'exécuter l
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternativement, si vous générez votre `snap` avec la restriction `strict` , vous pouvez utiliser la commande `desktop-launch`:
+Alternativement, si vous construisez votre `snap` avec un confinement `strict` , vous pouvez utiliser la commande `desktop-launch`:
 
 ```yaml
 apps:

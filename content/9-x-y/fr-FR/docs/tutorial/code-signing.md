@@ -46,12 +46,12 @@ Avant de signer les versions de Windows, vous devez faire ce qui suit :
 1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
 2. Installez Visual Studio 2015/2017 (pour obtenir l'utilitaire de signature)
 
-Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il vaut la peine que vous fassiez des achats. Les revendeurs populaires comprennent :
+Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Les revendeurs populaires comprennent :
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Entre autres, s'il vous plaît magasiner autour de vous pour en trouver un qui correspond à vos besoins, Google est votre ami :)
+* Et bien d'autres, veuillez comparer pour en trouver un qui correspond à vos besoins, Google est votre ami :)
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 

@@ -60,6 +60,78 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## 使用一个现有的 Debian 包
 
 Snapcraft 能够拿起现有的 `.deb` 文件并将其转换为 一个 `.snap` 文件。 创建吸附器使用 `快照配器。 aml` 文件描述了源、依赖、描述和其他核心 基础块。
@@ -70,9 +142,7 @@ Snapcraft 能够拿起现有的 `.deb` 文件并将其转换为 一个 `.snap` �
 
 ### 步骤 2: 创建一个 snapcraft.yaml
 
-关于可用配置选项的更多信息，请在快照语法</a> 上查看文档。 Let's look at an example:</p> 
-
-
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp
@@ -117,10 +187,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-
 As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
-
-
 
 ```sh
 #!/bin/sh
@@ -128,10 +195,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-
 或者，如果您正在构建您的 `吸附` 带有 `严格的` 封装，您 可以使用 `桌面启动` 命令：
-
-
 
 ```yaml
 apps:

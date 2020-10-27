@@ -30,9 +30,9 @@ The only way to load a native module safely for now, is to make sure the app loa
 
 ```javascript
 process.dlopen = () => {
-  выбрасывать новую ошибку('Загрузка родного модуля не безопасна')
+  throw new Error('Загрузка родного модуля не безопасна')
 }
-позволить рабочим = new Worker('script.js')
+let worker = new Worker('script.js')
 ```
 
 [web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

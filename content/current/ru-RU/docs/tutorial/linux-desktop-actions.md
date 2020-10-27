@@ -1,13 +1,14 @@
 # Пользовательские действия рабочего стола Linux
 
-Во многих средах Linux вы можете добавлять пользовательские записи в свою программу запуска путем изменения файла `.desktop </ 0>. Для документации по единству Canonical,
-см. <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher">Добавление ярлыков в лаунчер</a>. Для подробной информации про обобщенную реализацию смотрите: <a href="https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html">Спецификация freedesktop.org</a>.</p>
+## Обзор
 
-<p spaces-before="0"><strong x-id="2">Ярлыки программы проверки:</strong></p>
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-<p spaces-before="0"><img src="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png" alt="чудовищный" /></p>
+![чудовищный](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-<p spaces-before="0">Ярлыки добавляются путем предоставления свойств <code>Name` и `Exec` для каждой записи в меню ярлыков. Unity запустит поле `Exec` после нажатия пользователем. Они выглядят следующим образом:
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -28,4 +29,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Предпочтительный способ рассказать приложению что делать - это использовать параметры . Вы можете найти их в вашем приложении в глобальной переменной `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

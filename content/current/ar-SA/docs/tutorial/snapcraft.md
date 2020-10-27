@@ -60,6 +60,78 @@ snap(خيارات)
   .then(snapPath => console.log(`إنشاء لقطة في ${snapPath}!`))
 ```
 
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## استخدام حزمة Debian الحالية
 
 Snapcraft قادر على أخذ ملف `.deb` موجود وتحويله إلى ملف `.sscp`. تم تكوين إنشاء لقطة باستخدام `حرفة. ml` ملف يصف المصادر والتبعيات والوصف وغيرها من لبنات البناء الأساسية.
@@ -70,7 +142,7 @@ Snapcraft قادر على أخذ ملف `.deb` موجود وتحويله إلى 
 
 ### الخطوة 2: إنشاء snapcraft.yaml
 
-للحصول على مزيد من المعلومات عن خيارات التكوين المتوفرة، راجع التوثيق [على بناء بناء سناب الحرف](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 الاسم: إصدار myApp

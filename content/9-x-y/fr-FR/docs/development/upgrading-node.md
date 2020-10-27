@@ -2,15 +2,15 @@
 
 ## Discussion
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+Chromium et Node. s dépendent tous les deux de V8, et Electron ne contient qu'une seule copie de V8, donc il est important de s'assurer que la version de V8 choisie est compatible avec les version de des builds de Node.js et Chromium.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+La mise à jour de Node est beaucoup plus simple que celle de Chromium, afin de réduire les conflits il vaut mieux commencer en mettant à niveau Chromium en premier et de chercher la version de Node en remontant dont la version de V8 est la plus proche de celle que contient Chromium.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Electron a son propre [fork](https://github.com/electron/node) de Node avec des modifications liées aux détails de construction V8 mentionnés ci-dessus et pour exposer l'API requise par Electron. Une fois qu'une version amont de Node est choisie, elle est placée dans une branche du fork de Node d'Electron et tous les correctifs Node d'Electron Node y sont appliqués.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Un autre facteur est que le projet Node applique des corrections à sa version de V8. Comme mentionné ci-dessus, Electron génère tout avec une seule copie de V8, donc les correctifs V8 de Node doivent être portés sur cette copie.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Une fois que toutes les dépendances d’Electron se génère et utilise la même copie de V8, l’étape suivante consiste à résoudre tous les problèmes de code Electron causés par la mise à niveau de Node.
 
 [FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
 
@@ -18,23 +18,23 @@ En résumé, les principales étapes sont :
 
 1. Mettre à jour le fork Node d'Electron vers la version souhaitée
 2. Backporter les patches de Node V8 à notre copie de V8
-3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+3. Mettre à jour les fichiers de génération GN, en appliquant les modifications des fichiers GYP de Node
+4. Mettez à jour le DEPS d'Electron afin d'utiliser la nouvelle version de Node
 
 ## Mise à jour du [fork](https://github.com/electron/node) Node d'Electron
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
+1. Assurez-vous que `master` sur `electron/node` a les tags de publication de `nodejs/node` misent à jour
 2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
   - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range:
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+3. Réappliquer nos commits de la version précédente de Node que nous utilisions (`vY.Y.Y`) à `v.X.X.X`
+  - Vérifiez la tag release et sélectionnez la plage de commits que nous devons réappliquer
+  - Plage de commit cherry-pick :
+    1. Checkout de `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then:
+  - Résoudre les conflits de fusionnement dans chaque fichier rencontré, puis:
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. Répéter jusqu’à ce que ce soit terminé
 
 
 ## Updating [V8](https://github.com/electron/node/src/V8) Patches
@@ -78,7 +78,7 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
 - We update code such that we only use one copy of V8 across all of Electron
   - E.g Electron, Chromium, and Node.js
 - We don’t track upstream closely due to logistics:
-   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+   - Upstream utilise plusieurs repos et donc la fusion en un seul entraînerait une perte d'historique. Donc nous ne mettons à jour que lorsque nous planifions pour Electron un saut de version de Node.
 - Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project.

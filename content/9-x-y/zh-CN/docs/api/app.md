@@ -27,7 +27,8 @@ app.on('window-all-closed', () => {
 
 返回:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 当 Electron 完成初始化时，发出一次。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 

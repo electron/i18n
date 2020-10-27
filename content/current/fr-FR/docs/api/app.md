@@ -319,7 +319,7 @@ Retourne :
 * `details` Object
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
-    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
@@ -479,11 +479,11 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 ### `app.focus([options])`
 
 * `options` Object (optional)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sous Linux, donne le focus à la première fenêtre visible. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
-You should seek to use the `steal` option as sparingly as possible.
+Il vaut mieux utiliser l'option `steal` aussi parcimonieusement que possible.
 
 ### `app.hide()` _macOS_
 
@@ -491,11 +491,11 @@ Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Affiche les fenêtres de l'application après qu'elles aient été occultées. Ne leur pas automatiquement le focus. .
 
 ### `chemin app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (facultatif) - Un chemin personnalisé pour vos logs. Doit être absolu.
 
 Définit ou crée un répertoire qui peut être manipulé par `app.getPath()` ou `app.setPath(pathName, newPath)`.
 
@@ -507,9 +507,9 @@ Retourne `String` - Répertoire courant de l'application.
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String - Nom pour lequel vous pouvez demander le chemin nom:
   * `home` Répertoire d'accueil de l'utilisateur.
-  * `appData` Per-user application data directory, which by default points to:
+  * `appData` Répertoire de données par utilisateur de l'application, pointant par défaut sur:
     * `%APPDATA%` sur Windows
     * `$XDG_CONFIG_HOME` ou `~/.config` sur Linux
     * `~/Library/Application Support` sur macOS
@@ -529,7 +529,7 @@ Retourne `String` - Répertoire courant de l'application.
   * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
 
 Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appelé en premier, un répertoire de logs par défaut sera créé équivalent à un appel `app.setAppLogsPath()` sans paramètre `path`.
 
@@ -613,8 +613,8 @@ Efface la liste des documents récents.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`. Par exemple, si vous souhaitez que votre application gère les liens `electron://`, appelez cette méthode avec `electron` comme paramètre.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Par défaut, un tableau vide
+* `path` String (facultatif) _Windows_ -Chemin vers l'exécutable d'Electron. Par défaut `process.execPath`
+* `args` String[] (facultatif) _Windows_ - Arguments transmis à l'exécutable. Par défaut, un tableau vide
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -634,7 +634,7 @@ L'API utilise le registre Windows et `LSSetDefaultHandlerForURLScheme` en intern
 
 Returns `Boolean` - Si l'appel a réussi.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Cette méthode vérifie si l'exécutable courant est le gestionnaire par défaut pour un protocole (aka le schéma URI). Si c'est le cas, cela supprimera l'application comme gestionnaire par défaut.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 

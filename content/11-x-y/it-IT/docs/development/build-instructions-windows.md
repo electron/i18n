@@ -23,7 +23,7 @@ Se al momento non hai un'installazione Windows, [dev.microsoftedge.com](https://
 
 La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. Puoi sviluppare Electron con qualsiasi editor, ma il supporto per la creazione con Visual Studio arriverà in futuro.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Nota:** Anche se Visual Studio non è usato per costruire, è comunque **richiesto** perché ci servono le catene di costruzione che fornisce.
 
 ## Costruzione
 

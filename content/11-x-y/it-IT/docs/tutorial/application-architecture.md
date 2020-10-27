@@ -20,7 +20,7 @@ Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consent
 
 > #### A parte: Comunicazione Tra Processi
 > 
-> In Electron, la comunicazione tra il processo principale e i processi di renderer, è fatto attraverso i moduli [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md). C'è anche una voce FAQ su [come condividere i dati tra le pagine web][share-data].
+> In Electron, la comunicazione tra il processo principale e i processi di renderer, è fatto attraverso i moduli [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md). C'è anche una FAQ su [come condividere i dati tra le pagine web][share-data].
 
 
 ## Usare le API di Electron
