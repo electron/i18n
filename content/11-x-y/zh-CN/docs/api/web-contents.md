@@ -309,7 +309,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 当渲染进程崩溃或被结束时触发
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 

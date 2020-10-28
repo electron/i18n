@@ -2,11 +2,11 @@
 
 ## Vue d'ensemble
 
-Electron possède des APIs pour configurer l'icône de l'application dans la barre des tâches de Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron possède des APIs pour configurer l'icône de l'application dans la barre des tâches de Windows. Cette d’API prend en charge les fonctionnalités purement Windows comme [création d’une`Liste d'accès rapides `](#jumplist), [miniature personnalisées et barres d'outils](#thumbnail-toolbars), [overlays sur icones](#icon-overlays-in-taskbar), et l’effet dit [« Flash Frame »](#flash-frame), et des fonctionnalités multiplateformes comme [documents récents](./recent-documents.md) et ['application en progression](./progress-bar.md).
 
 ## JumpList 
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Ce menu contextuel est appelé `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
+Windows permet aux applications de définir un menu contextuel personnalisé s'affichant lorsque les utilisateurs effectuent un clic-droit sur l’icône de l’application dans la barre des tâches. Ce menu contextuel est appelé `JumpList`. Vous spécifiez des actions personnalisées dans la catégorie `Tasks` de JumpList, comme indiqué dans [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
 
 > Les applications définissent des tâches basées sur les caractéristiques du programme et les fonctionnalités clés que l'utilisateur est censé utiliser. Les tâches doivent être indépendantes du contexte, c'est à dire qu'elles n'ont pas besoin de s'exécuter pour fonctionner. Il devrait également il y avoir les actions statistiquement plus courantes qu'un utilisateur normal utiliserait dans une application, comme rédiger un message électronique ou ouvrir le calendrier dans un logiciel de messagerie, ou créer un nouveau document dans un traitement de texte, lancer une application dans un certain mode, ou lancer une des ses sous-commandes. Une application ne doit pas encombrer le menu avec des fonctions avancées que les utilisateurs standards n'auraient pas besoin ou des actions ponctuelles telles que l'inscription. Ne pas utiliser les tâches pour les articles promotionnels tels que les mises à niveau ou des offres spéciales.
 > 
@@ -14,17 +14,17 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-> NOTE: The screenshot above is an example of general tasks of Internet Explorer
+> REMARQUE : La capture d'écran ci-dessus est un exemple de tâches générales de Internet Explorer
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+Contrairement au menu du dock dans macOS, qui est un vrai menu, les tâches utilisateur dans Windows fonctionnent comme des raccourcis d'application. Par exemple, lorsqu'un utilisateur clique sur une tâche, le programme sera exécuté avec les arguments spécifiés.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
+Pour définir les tâches utilisateur de votre application, vous pouvez utiliser l'API [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) .
 
 #### Exemples
 
-##### Set user tasks
+##### Définir les tâches utilisateur
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { app } = require('electron')
@@ -41,9 +41,9 @@ app.setUserTasks([
 ])
 ```
 
-##### Clear tasks list
+##### Effacer la liste des tâches
 
-To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
+Pour effacer votre liste de tâches, vous devez appeler `app.setUserTasks` avec un tableau vide dans le fichier `main.js`.
 
 ```javascript
 const { app } = require('electron')
@@ -51,13 +51,13 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
+> Les tâches utilisateur seront visibles même après la fermeture de votre application, donc l'icône et le chemin d'accès du programme spécifié pour une tâche doivent exister jusqu'à ce que votre application soit désinstallée.
 
 ### Barres d’outils miniatures
 
-On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
+Sur Windows, vous pouvez ajouter à la barre des tâches d'une fenêtre d'une 'application une barre d'outils miniatures avec des boutons spécifiés. Cela donne aux utilisateurs un moyen d'accéder aux commandes particulières d'une fenêtre sans avoir à restaurer ou réactiver la fenêtre.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars):
+Comme cité dans [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars):
 
 > Cette barre d’outils est simplement le composant standard pour la barre d’outils. Il a un maximum de sept boutons. Chaque identifiant, image, info-bulle et état du bouton sont spécifiés dans une structure, qui est ensuite passée à la barre des tâches. L'application peut afficher, activer, désactiver ou masquer des boutons de la barre d'outils miniature comme requis par son état actuel.
 > 
@@ -65,15 +65,15 @@ As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskb
 
 ![lecteur](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
+> REMARQUE : La capture d'écran ci-dessus est un exemple de barre d'outils miniatures de Windows Media Player
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
+Pour définir la barre d'outils miniature de votre application, vous devez utiliser [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
 
 #### Exemples
 
-##### Set thumbnail toolbar
+##### Définir la barre d'outils miniatures
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -95,9 +95,9 @@ win.setThumbarButtons([
 ])
 ```
 
-##### Clear thumbnail toolbar
+##### Vider la barre d'outils miniatures
 
-To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
+Pour effacer les boutons de la barre d'outils miniatures, vous devez appeler `BrowserWindow.setThumbarButtons` avec un tableau vide dans le fichier `main.js`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -108,43 +108,43 @@ win.setThumbarButtons([])
 
 ### Superposition d'icône dans la barre des tâches
 
-On Windows, a taskbar button can use a small overlay to display application status.
+Sous Windows, un bouton de la barre des tâches peut utiliser un petit overlay pour afficher l'état de l'application.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays):
+Comme cité dans [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays):
 
 > Les superpositions d'icônes servent en tant que notification contextuelle du statut, et sont destinées à dénier la nécessité d'une zone de notification séparée pour communiquer cette information à l'utilisateur. Par exemple, le nouveau statut de messagerie de Microsoft Outlook, actuellement affiché dans la zone de notification, est maintenant indiqué par une superposition dans sur le bouton de la barre des tâches. Encore une fois, vous devez décider au cours de votre cycle de développement quelle méthode est la meilleure pour votre application. Les icônes de recouvrement sont destinées à fournir une information importante et de long terme, telle que l'état du réseau, un statut de messagerie ou de nouveaux messages. L'utilisateur ne devrait pas se retrouver face à des superpositions ou des animations en constante évolution.
 
 ![Overlay sur le bouton de la barre des tâches](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-> NOTE: The screenshot above is an example of overlay on a taskbar button
+> REMARQUE : La capture d'écran ci-dessus est un exemple d'overlay sur un bouton de la barre des tâches
 
-To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
+Pour définir l'icône d'overlay d'une fenêtre, vous pouvez utiliser l'API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) .
 
 #### Exemple
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon("path/to/overlay.png", "Description de l'overlay")
 ```
 
 ### Fenêtre clignotante
 
-On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
+Sur Windows vous pouvez mettre en valeur un bouton de la barre des tâches pour attirer l'attention de l'utilisateur. C'est similaire à l'effet de rebond des icônes dans le dock macOS.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks):
+Comme cité dans [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks):
 
 > En règle générale, une fenêtre clignote pour informer l'utilisateur que la fenêtre nécessite de l'attention alors qu'elle n'a pas le focus clavier.
 
-To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API.
+Pour faire clignoter un bouton de la barre des tâches de BrowserWindow, vous pouvez utiliser l'API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) .
 
 #### Exemple
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,4 +155,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+> NOTE : N'oubliez pas d'appeler `win.flashFrame(false)` pour désactiver le flash. Dans l'exemple ci-dessus, l'appel s'effectue quand la fenêtre est focalisée, mais vous pouvez utiliser une temporisation ou un autre événement pour désactiver.
