@@ -112,7 +112,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+当mac应用将要被激活时发出。 与 `activate` 事件的不同， 每次应用程序激活时都会触发 `did-become-active` ，而不仅仅在 Dock 图标被点击或应用程序被重新启动的时候。
 
 ### 事件: 'continue-activity' _macOS_
 
@@ -307,7 +307,7 @@ Emitted whenever there is a GPU info update.
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -319,7 +319,7 @@ Emitted whenever there is a GPU info update.
 
 当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 

@@ -20,11 +20,11 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Windows 設定
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
+> Electron 支援 Windows 7 和以後版本 – 嘗試開發 早期版本的 Windows 上的  Electron 應用程式將不起作用。 Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
 首先，安裝最新版本的 Node.js。 We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Linux設定
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## 好的編輯器
 
