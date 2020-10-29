@@ -21,7 +21,7 @@ Puede configurar diferentes combinaciones de teclas basadas en el sistema operat
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Mayús+I'
+  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 

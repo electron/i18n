@@ -10,8 +10,6 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
   * Jika Visual Studio Anda dipasang di direktori selain default, Anda harus setel beberapa variabel lingkungan untuk mengarahkan rantai alat ke jalur instalasi Anda.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, menggantilan `2019` dan `Community` dengan versi yang Anda instal dan menggantinya `DRIVE:` dengan pengandar tempat Visual Studio berada. Seringkali, akan menjadi `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Seringkali, akan menjadi `C:`.
-* [Python 2.7.10 atau lebih baru](http://www.python.org/download/releases/2.7/)
-  * Berkebalikan dengan instruksi pemasangan `depot_tools` yang ada di bawah ini, anda perlu untuk menggunakan Python dengan versi minimal 2.7.10 yang terpasang secara lokal (dengan dukungan untuk TLS 1.2). Untuk melakukan hal tersebut, pastikan bahwa dalam **PATH**, Python yang terpasang secara lokal berada di luar folder `depot_tools`. Saat ini `depot_tools` masih memerlukan Python 2.7.6, yang akan menyebabkan perintah ekstensi `gclient` akan gagal (lihat https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) juga diperlukan agar proses build dapat berlangsung.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)

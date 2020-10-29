@@ -10,8 +10,6 @@ Follow the guidelines below for building Electron on Windows.
   * ถ้า Visual Studio ของคุณติดตั้งอยู่ในไดเรกทอรีอื่นที่ไม่ใช่ค่าเริ่มต้น คุณจะต้อง ตั้งค่าตัวแปรสภาพแวดล้อมไม่กี่จุด toolchains ไปยังเส้นทางการติดตั้งของคุณ
     * `vs2019_install = ไดรฟ์: \ เส้นทาง\tแทนที่` `2019`และ`ชุมชน`ด้วยรุ่นที่คุณติดตั้ง และแทนที่`ไดรฟ์:`ด้วยไดรฟ์ที่ Visual Studio เปิด บ่อยครั้งนี้จะ`เป็น C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. บ่อยครั้งนี้จะ`เป็น C:`.
-* [งูหลาม 2.7.10 หรือสูงกว่า](http://www.python.org/download/releases/2.7/)
-  * ขัดกับคําแนะนําการติดตั้ง`depot_tools`เชื่อมโยงด้านล่างคุณจะต้อง ที่จะใช้ Python ที่ติดตั้งในประเทศของคุณกับรุ่นอย่างน้อย 2.7.10 (มี สําหรับ TLS 1.2) เมื่อต้องการทําเช่นนั้น ให้ตรวจสอบว่าใน**PATH**ภายในเครื่องของคุณ งูใหญ่ติดตั้งมาก่อนโฟลเดอร์`depot_tools` เดี๋ยวนี้ `depot_tools`ยังคงมาพร้อมกับหลาม 2.7.6 ซึ่งจะทําให้`gclient` คําสั่งล้มเหลว (ดู https://crbug.com/868864)
   * [งูหลามสําหรับ Windows (pywin32) ส่วนขยาย](https://pypi.org/project/pywin32/#files) นอกจากนี้ยังมีความจําเป็นเพื่อเรียกใช้กระบวนการสร้าง
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
