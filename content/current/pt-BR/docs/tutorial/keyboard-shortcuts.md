@@ -1,57 +1,102 @@
 # Atalhos do Teclado
 
-> Configure atalhos de teclado locais e globais
+## Visão Geral
 
-## Atalhos Locais
+This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-Você pode usar o módulo [Menu](../api/menu.md) para configurar os atalhos do teclado que serão acionados quando a aplicação estiver em foco. Para isso, especifique a propriedade [`accelerator`] quando criar um [MenuItem](../api/menu-item.md).
+## Exemplo
+
+### Atalhos Locais
+
+Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { Menu, MenuItem } = require('electron')
+
 const menu = new Menu()
-
 menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
-Você pode configurar diferentes combinações de teclas com base no sistema operacional do usuário.
+> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
 
-```js
-{
-  acelerador: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
-```
+After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
-## Atalhos Globais
+![Menu with a local shortcut](../images/local-shortcut.png)
 
-Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detectar os eventos do teclado mesmo quando o aplicativo não possuir foco no teclado.
+If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+
+### Atalhos Globais
+
+To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X é pressionado')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## Atalhos em uma janela do navegador
+> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
 
-Se você quiser lidar com os atalhos de teclado para um [BrowserWindow](../api/browser-window.md), você pode "observar" eventos `keyup` e `keydown` no objeto da janela dentro do processo de renderização.
+After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+
+### Atalhos em uma janela do navegador
+
+#### Using web APIs
+
+If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', fazerAlgumaCoisa, true)
 ```
 
-Observe o terceiro paramêtro `true`, significa que o "listener" irá receber o evento de pressionar teclas antes de outros "listeners", para que eles não tenham `stopPropagation()` chamado para eles.
+Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+#### Intercepting events in the main process
 
 O evento [`before-input-event`](../api/web-contents.md#event-before-input-event) é emitido antes enviar os eventos `keydown` e `keyup` na página. Ele pode ser usado para capturar e manipular atalhos personalizados que não estão visíveis no menu.
 
-Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem a detecção teclas avançadas, como a [mousetrap](https://github.com/ccampbell/mousetrap).
+##### Exemplo
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+#### Using third-party libraries
+
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

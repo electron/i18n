@@ -1,57 +1,102 @@
 # 키보드 단축키
 
-> 로컬 및 전역 키보드 단축키 설정
+## 개요
 
-## 로컬 단축키
+This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-애플리케이션이 포커스 되어 있을 때만 사용되는 키보드 단축키를 설정하려면 [Menu](../api/menu.md) 모듈을 사용해야 합니다. 사용하기 위해선 [MenuItem](../api/menu-item.md)이 만들어질 때 [`accelerator`] 프로퍼티를 명기합니다.
+## Example
+
+### 로컬 단축키
+
+Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { Menu, MenuItem } = require('electron')
+
 const menu = new Menu()
-
 menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
-아래와 같은 방법을 사용하여 유저의 운영체제에 따라 단축키를 다르게 등록할 수 있습니다.
+> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
 
-```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
-```
+After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
-## 전역 단축키
+![Menu with a local shortcut](../images/local-shortcut.png)
 
-애플리케이션이 키보드 포커스를 갖지 않을 때에도 키보드 이벤트를 감지하는 [globalShortcut](../api/global-shortcut.md) 모듈을 사용할 수 있습니다.
+If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+
+### 전역 단축키
+
+To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## BrowserWindow 간의 단축키
+> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
 
-만약 [BrowserWindow](../api/browser-window.md)에 사용될 키보드 단축키를 다루길 원한다면, 렌더러 프로세스 안에 있는 윈도우 오브젝트 상에 `keyup`과 `keydown` 이벤트 리스너를 사용해야 합니다.
+After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+
+### BrowserWindow 간의 단축키
+
+#### Using web APIs
+
+If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-세번째 파라미터 `true`에 유의하세요. 이는 다른 리스너가 키 입력을 수신하기 전에 해당 리스너가 항상 수신하겠다는 의미입니다. 그러므로 다른 리스너는 `stopPropagation()`을 호출할 수 없습니다.
+Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+#### Intercepting events in the main process
 
 [`before-input-event`](../api/web-contents.md#event-before-input-event) 이벤트는 페이지 안에서 `keydown`과 `keyup` 이벤트를 전달하기 전에 실행됩니다. 이는 메뉴 안에서 보이지 않는 사용자 정의 단축키를 캐치하여 처리할 것입니다.
 
-만약 수동으로 단축키 파싱 하는 것을 원하지 않는다면 [mousetrap](https://github.com/ccampbell/mousetrap)과 같은 진보된 키 감지 라이브러리들이 존재합니다.
+##### Example
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+#### Using third-party libraries
+
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

@@ -10,8 +10,6 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
   * Visual Studio がデフォルト以外のディレクトリにインストールされている場合は、いくつかの環境変数を設定してツールチェインがインストールパスを指すようにする必要があります。
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`、このうち `2019` と `Community` をインストールしたバージョンのものに、`DRIVE:` をVisual Studio があるドライブに置き換えます。 大抵、このドライブは `C:` です。
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`、このうち `DRIVE:` を Windows Kits があるドライブに置き換えます。 大抵、このドライブは `C:` です。
-* [Python 2.7.10 以上](http://www.python.org/download/releases/2.7/)
-  * 以下にリンクされている `depot_tools` の設定手順とは異なり、ローカルにインストールされた Python を少なくとも 2.7.10 (TLS 1.2 サポート) で使用する必要があります。 これをするには、**PATH** 内で、ローカルにインストールされた Python が `depot_tools`のフォルダより前に来るように指定してください。 現在、`depot_tools` にはまだ Python 2.7.6 が付属しているため、`gclient` コマンドが失敗します (https://crbug.com/868864 を参照)。
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) もビルドプロセスを実行するために必要です。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)

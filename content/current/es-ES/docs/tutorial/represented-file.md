@@ -29,4 +29,4 @@ app.whenReady().then(() => {
 
 After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
 
-![Represented file](../images/represented-file.png)
+![Archivo representado](../images/represented-file.png)

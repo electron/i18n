@@ -60,11 +60,11 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using `snapcraft` with `electron-packager`
+## Usar `snapcraft` con `electron-packager`
 
-### Step 1: Create Sample Snapcraft Project
+### Paso 1: Crear proyecto de Snapcraft de Ejemplo
 
-Create your project directory and add add the following to `snap/snapcraft.yaml`:
+Crea el directorio de tu proyecto y agrega lo siguiente a `snap/snapcraft.yaml`:
 
 ```yaml
 name: electron-packager-hello-world
@@ -106,12 +106,12 @@ parts:
     - libnspr4
 ```
 
-If you want to apply this example to an existing project:
+Si quiere aplicar este ejemplo a un proyecto existente:
 
-- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
-- Replace all instances of `electron-quick-start` with your project's name.
+- Reemplace `source: https://github.com/electron/electron-quick-start.git` con `source: .`.
+- Reemplace todas las instancias de `electron-quick-start` con el nombre de su proyecto.
 
-### Step 2: Build the snap
+### Paso 2: Construye el snap
 
 ```sh
 $ snapcraft
@@ -120,13 +120,13 @@ $ snapcraft
 Snapped electron-packager-hello-world_0.1_amd64.snap
 ```
 
-### Step 3: Install the snap
+### Paso 3: Instalar el snap
 
 ```sh
 sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
 ```
 
-### Step 4: Run the snap
+### Paso 4: Ejecutar el snap
 
 ```sh
 electron-packager-hello-world
@@ -142,7 +142,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para más información sobre las opciones de configuración disponible, vea la [documentación sobre la sintaxis de snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp

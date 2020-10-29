@@ -10,8 +10,6 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
   * Si tu Visual Studio está instalado en un directorio diferente que el predeterminado, necesitarás establecer unas pocas variables de entorno para apuntar las toolchains a tu ruta de instalación.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, sustituyendo `2019` y `Comunidad` por sus versiones instaladas y sustituyendo `DRIVE:` por la unidad en la que Visual Studio está activada. A menudo, esto será `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. A menudo, esto será `C:`.
-* [Python 2.7.10 o posterior](http://www.python.org/download/releases/2.7/)
-  * Contrariamente a las instrucciones de configuración de `depot_tools` enlazadas a continuación, necesitará usar su Python instalado localmente con, al menos, la versión 2.7.10 (con soporte para TLS 1.2). Para hacerlo, asegúrese de que en **PATH**, su Python instalado localmente viene antes de la carpeta `depot_tools`. Ahora mismo `depot_tools` todavía viene con Python 2.7.6, lo que causará que el comando `gclient` falle (ver https://crbug.com/868864).
   * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de compilación.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)

@@ -1,57 +1,102 @@
 # Scurtături tastatură
 
-> Configurați scurtăturile locale și globale ale tastaturii
+## Overview
 
-## Scurtături locale
+This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-Puteți utiliza modulul [Meniu](../api/menu.md) pentru a configura scurtăturile tastaturii care vor fi declanșate numai când aplicația este concentrată. Pentru a face acest lucru, specificați o proprietate de [`accelerator`] atunci când creați un [Element de meniu](../api/menu-item.md).
+## Exemplu
+
+### Scurtături locale
+
+Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { Menu, MenuItem } = require('electron')
-meniul de const = meniu nou()
 
-ppend(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { consolă. og ('timp pentru tipărire') }
+const menu = new Menu()
+menu.append(new MenuItem({
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
-Puteți configura diferite combinații de chei pe baza sistemului de operare al utilizatorului.
+> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
 
-```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
-```
+After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
-## Comenzi rapide globale
+![Menu with a local shortcut](../images/local-shortcut.png)
 
-Puteți utiliza modulul [GlobalShortcut](../api/global-shortcut.md) pentru a detecta evenimentele de la tastatură chiar și atunci când aplicația nu are focalizare tastatură.
+If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+
+### Comenzi rapide globale
+
+To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## Scurtături în fereastra Browser-ului
+> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
 
-Dacă vrei să te ocupi de tastatură pentru o [Fereastră Browser](../api/browser-window.md), poți utiliza `tastatura` și `tastatura` a ascultătorilor pe obiectul fereastră în interiorul procesului de redare.
+After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+
+### Scurtături în fereastra Browser-ului
+
+#### Using web APIs
+
+If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doceva, adevărat)
 ```
 
-Țineți cont de al treilea parametru `adevarat` ceea ce înseamnă că ascultătorul va primi întotdeauna apăsări cheie înaintea altor ascultători astfel încât aceștia nu pot avea `stopPropagation()` apelat pe ei.
+Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+#### Intercepting events in the main process
 
 Evenimentul [`before-input-event`](../api/web-contents.md#event-before-input-event) este emis înainte de dispatching `keydown` and `keyup` events in the page. Poate fi folosit pentru a prinde și gestiona scurtături personalizate care nu sunt vizibile în meniu.
 
-Dacă nu vrei să faci analiza manuală a scurtăturilor există biblioteci care fac detectarea avansată a tastelor, cum ar fi [mousetrap](https://github.com/ccampbell/mousetrap).
+##### Exemplu
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+#### Using third-party libraries
+
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

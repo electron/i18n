@@ -1,57 +1,102 @@
 # 鍵盤快速鍵
 
-> 設定局域及全域鍵盤快速鍵
+## 概述
 
-## 局域快速鍵
+This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-你可以使用 [Menu](../api/menu.md) 模組來設定鍵盤快速鍵，這些快速鍵只有在你的應用程式被 focus 到時才會觸發。 要這麼做，請在建立 [MenuItem](../api/menu-item.md) 時指定 [`accelerator`] 屬性。
+## 範例
+
+### 局域快速鍵
+
+Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { Menu, MenuItem } = require('electron')
+
 const menu = new Menu()
-
 menu.append(new MenuItem({
-  label: '列印',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('是時候印點東西了') }
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
-You can configure different key combinations based on the user's operating system.
+> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
 
-```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
-```
+After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
-## 全域快速鍵
+![Menu with a local shortcut](../images/local-shortcut.png)
 
-你可以使用 [globalShortcut](../api/global-shortcut.md) 模組來偵測鍵盤事件，就算目 focus 並不在你的應用程式中也能作用。
+If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+
+### 全域快速鍵
+
+To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## BrowserWindow 內的快速鍵
+> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
 
-如果你想要處理 [BrowserWindow](../api/browser-window.md) 裡的鍵盤快速鍵，可以在畫面轉譯處理序中的 windows 物件上監聽 `keyup` 及 `keydown` 事件。
+After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+
+### BrowserWindow 內的快速鍵
+
+#### Using web APIs
+
+If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-注意，第三個參數 `true` 代表這個監聽器會比其他監聽器先收到按鍵事件，因此別人不能先呼叫 `stopPropagation()`。
+Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+#### Intercepting events in the main process
 
 網頁中的 `keydown` 及 `keyup` 事件觸發前，會先送出 [`before-input-event`](../api/web-contents.md#event-before-input-event) 事件。 可用來攔截、處理沒出現在選單上的自訂快捷鍵。
 
-如果你不想要自己解析快速鍵，已經有程式庫能做進階按鍵偵測，例如 [mousetrap](https://github.com/ccampbell/mousetrap)。
+##### 範例
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+#### Using third-party libraries
+
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

@@ -1,57 +1,102 @@
 # Scorciatoie da tastiera
 
-> Configura i tasti scorciatoia locali e globali
+## Overview
 
-## Scorciatoie Locali
+This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-È possibile utilizzare il modulo [Menu](../api/menu.md) per configurare le scorciatoie da tastiera che saranno attivate solo quando l'app è attivata. Per farlo, specificare una proprietà [`accelerator`] quando si crea un [MenuItem](../api/menu-item.md).
+## Esempio
+
+### Scorciatoie Locali
+
+Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { Menu, MenuItem } = require('electron')
+
 const menu = new Menu()
-
 menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
-È possibile configurare diverse combinazioni di tasti in base al sistema operativo dell'utente.
+> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
 
-```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Maiusc+I'
-}
-```
+After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
-## Scorciatoie Globali
+![Menu with a local shortcut](../images/local-shortcut.png)
 
-È possibile utilizzare il modulo [globalShortcut](../api/global-shortcut.md) per rilevare gli eventi della tastiera anche quando l'applicazione non ha il fuoco della tastiera.
+If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+
+### Scorciatoie Globali
+
+To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## Scorciatoie all'interno di una Finestra di navigazione
+> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
 
-Se vuoi gestire le scorciatoie da tastiera per una [Finestra di navigazione](../api/browser-window.md), è possibile utilizzare i `keyup` e `keydown` ascoltatori evento sull'oggetto finestra all'interno del processo di renderer.
+After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+
+### Scorciatoie all'interno di una Finestra di navigazione
+
+#### Using web APIs
+
+If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Nota il terzo parametro `true` che significa che l'ascoltatore riceverà sempre le pressioni dei tasti prima di altri ascoltatori in modo che non possano avere `stopPropagation()` chiamato su di loro.
+Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+#### Intercepting events in the main process
 
 L'evento [`before-input-event`](../api/web-contents.md#event-before-input-event) viene emesso prima di spedire `keydown` e `keyup` eventi nella pagina. Può essere usato per catturare e gestire scorciatoie personalizzate che non sono visibili nel menu.
 
-Se non vuoi analizzare manualmente le scorciatoie ci sono librerie che fanno il rilevamento avanzato delle chiavi, come [mousetrap](https://github.com/ccampbell/mousetrap).
+##### Esempio
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+#### Using third-party libraries
+
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
