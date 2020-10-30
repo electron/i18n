@@ -495,8 +495,12 @@ Das Deaktivieren des `Remote-` Moduls entfernt diese Angriffsvektoren. Durch die
 ### Wie?
 
 ```js
-// Schlecht wenn der Renderer nicht vertrauenswürdige Inhalte ausführen kann
-const mainWindow = new BrowserWindow({})
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -508,8 +512,16 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html<!-- Schlecht wenn der Renderer nicht vertrauenswürdige Inhalte ausführen kann --><webview src="page.html"></webview><!-- Gut --><webview enableremotemodule="false" src="page.html"></webview>
+```html
+<!-- Bad if the renderer can run untrusted content  -->
+<webview enableremotemodule="true" src="page.html"></webview>
+
+<!-- Good -->
+<webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+
 
 ## 16) Filtern Sie das `Remote-` Modul
 

@@ -557,15 +557,19 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-La désactivation du module `distant` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques "prototype de pollution" de réussies.
+La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
 
 ### Comment ?
 
 
 
 ```js
-// Mauvais si le moteur de rendu peut exécuter du contenu non fiable
-const mainWindow = new BrowserWindow({})
+// Mauvais si le processus de rendu peut exécuter un contenu non fiable
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -583,9 +587,11 @@ const mainWindow = new BrowserWindow({
 
 
 
-```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview enableremotemodule="true" src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
+
+> **Remarque :** La valeur par défaut de `enableRemoteModule` est `false` à partir d'Electron 10. Pour les versions antérieures, vous devez désactiver explicitement le module `remote` par les moyens ci-dessus.
 
 ## 16) Filtrer le module `distant`
 

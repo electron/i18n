@@ -495,8 +495,12 @@ shell.openExternal('https://example.com/index.html')
 ### どうすればいいの？
 
 ```js
-// レンダラーが信頼できないコンテンツを実行する場合、危険
-const mainWindow = new BrowserWindow({})
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -508,8 +512,11 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html<!-- 信頼できないコンテンツをレンダラーが実行する場合は NG  --><webview src="page.html"></webview><!-- OK --><webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+
 
 ## 16) `remote` モジュールをフィルタ
 

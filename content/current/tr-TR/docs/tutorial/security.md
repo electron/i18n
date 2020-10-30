@@ -627,8 +627,12 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 
 ```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+// İşleyici güvenilmeyen içeriği çalıştırıyorsa sorun oluşturur
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -648,11 +652,16 @@ const mainWindow = new BrowserWindow({
 
 ```html
 <!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
+<webview enableremotemodule="true" src="page.html"></webview>
 
 <!-- Good -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+
+
+
+> **Not:** `enableRemoteModule`'ün varsayılan değeri Electron 10'dan beri  `false`dır. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
 
 

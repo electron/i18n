@@ -1,4 +1,4 @@
-# NewWindowEvent Object extends `Event`
+# L'Oggetto NewWindowEvent estende l'`Evento`
 
-* `newGuest` BrowserWindow (optional)
+* `newGuest` BrowserWindow (opzionale)
 
