@@ -530,7 +530,7 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-La désactivation du module `distant` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques "prototype de pollution" de réussies.
+La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
 
 ### Comment ?
 

@@ -14,7 +14,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` bir [EventEmitter][event-emitter]'dır.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
