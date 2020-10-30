@@ -27,7 +27,7 @@ require('@electron/fuses').flipFuses(
 
 ### The hard way
 
-#### Quick Glossary
+#### Szybki słowniczek
 
 * **Fuse Wire**: A sequence of bytes in the Electron binary used to control the fuses
 * **Sentinel**: A static known sequence of bytes you can use to locate the fuse wire

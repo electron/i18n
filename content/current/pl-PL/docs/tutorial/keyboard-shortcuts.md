@@ -58,7 +58,7 @@ After launching the Electron application, if you press the defined key combinati
 
 ### Skróty klawiszowe obiektu BrowserWindow
 
-#### Using web APIs
+#### Używanie web API
 
 If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 

@@ -494,8 +494,12 @@ shell.openExternal('https://example.com/index.html')
 ### 怎么做？
 
 ```js
-// 如果渲染器可以运行不信任的内容
-const mainwindow = 新的 BrowserWindow({})
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -508,9 +512,15 @@ const mainwindow = new BrowserWindow(
 ```
 
 ```html
-<！-- 如果渲染器能够运行不可信任的内容错误-->
-<webview src="page.html"></webview><!-- 良好--><webview enableremotemodule="false" src="page.html"></webview>
+<!-- Bad if the renderer can run untrusted content  -->
+<webview enableremotemodule="true" src="page.html"></webview>
+
+<!-- Good -->
+<webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+
 
 ## 16) 筛选 `远程` 模块
 
