@@ -15,7 +15,7 @@ Electron 是一个框架，可以让您使用 JavaScript, HTML 和 CSS 创建桌
 要检查Node.js安装是否正确，请在您的终端客户端输入以下命令：
 
 ```sh
-节点-v
+node -v
 npm -v
 ```
 
