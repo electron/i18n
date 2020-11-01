@@ -57,7 +57,7 @@ Regardons un exemple de configuration comportant tous les champs obligatoires. T
 }
 ```
 
-Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivants pour certifier aux mécanismes de sécurité d'Apple que votre application fait ces choses sans risque :
+Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivantes pour certifier aux mécanismes de sécurité d'Apple que votre application agit sans risque :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -103,7 +103,7 @@ Electron Builder est fourni avec une solution personnalisée pour signer votre a
 
 Si vous n'utilisez pas de pipeline de génération intégré comme Forge ou Builder, vous utilisez probablement [`electron-packager`], qui inclut[`electron-osx-sign`] et [`electron-notarize`].
 
-Si vous utilisez l'API de Packager, vous pouvez fournit une[configuration](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
+Si vous utilisez l'API de Packager, vous pouvez fournit une [configuration](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
 
 ```js
 const packager = require('electron-packager')
@@ -124,7 +124,7 @@ packager({
 })
 ```
 
-Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivants pour certifier aux mécanismes de sécurité d'Apple que votre application fait ces choses sans risque :
+Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivantes pour certifier aux mécanismes de sécurité d'Apple que votre application agit sans risque :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
