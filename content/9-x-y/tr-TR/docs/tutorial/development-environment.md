@@ -27,9 +27,10 @@ Her iki komut da bir sürüm numarası yazdırdıysa, artık hazırsın! Başlam
 
 İlk olarak, Node.js'in son sürümünü yükleyin. `LTS` veya `Mevcut` sürümünü indirmenizi tavsiye ederiz. [Node.js indirme sayfasını][node-download] ziyaret edin ve `Windows Installers`'ı seçin. İndirildiğinde, kurucuyu çalıştırın ve kurulum sihirbazının kurulum boyunca size rehberlik etmesine izin verin.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Yüklemeyi yapılandırmanızı sağlayan ekranda, </code>Node.js runtime </code>, `npm paket yöneticisi`, ve `Add to PATH</0>
+seçeneklerini seçtiğinizden emin olun.</p>
 
-Yüklenince, her şeyin beklendiği gibi çalıştığını onaylayın. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+<p spaces-before="0">Yüklenince, her şeyin beklendiği gibi çalıştığını onaylayın. Başlat menüsünü açıp <code> PowerShell ` yazarak Windows PowerShell'i bulun. `PowerShell` ya da başka bir komut satırı istemcisini açın ve hem `node` hem de `npm`'nin mevcut olduğuna emin olun:
 
 ```powershell
 #Bu komut Node.js sürümünü yazdırır 
@@ -42,11 +43,11 @@ Her iki komut da bir sürüm numarası yazdırdıysa, artık hazırsın! Başlam
 
 ## Linux İçin Kurulum
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Genel olarak konuşursak, Electron Ubuntu 12.04, Fedora 21, Debian 8 ve daha sonrasındaki sürümleri destekler.
 
-İlk olarak, Node.js'in son sürümünü yükleyin. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
+İlk olarak, Node.js'in son sürümünü yükleyin. Linux dağıtımınıza bağlı olarak yükleme adımları farklı olabilir. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Linux kullandığınıza göre komut satırını nasıl kullanacağınızı zaten biliyorsunuz. En sevdiğiniz istemciyi açın ve hem `node` hem de `npm`'in genel olarak kullanılabilir olduğunu onaylayın:
 
 ```sh
 #Bu komut Node.js sürümünü yazdırır 

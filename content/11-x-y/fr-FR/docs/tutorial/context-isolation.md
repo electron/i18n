@@ -2,7 +2,7 @@
 
 ## Qu'est-ce que c'est?
 
-L'isolement du contexte est une fonctionnalité qui garantit que vos scripts `précharger` et la logique interne d'Electron s'exécutent dans un contexte séparé du site Web que vous chargez dans un [`webContents`](../api/web-contents.md).  Ceci est important pour des raisons de sécurité car il aide à empêcher le site Web d'accéder aux internes d'Electron ou aux API puissantes auxquelles votre script de préchargement a accès.
+L'isolement du contexte est une fonctionnalité qui garantit l'exécution dans des contextes différents de vos scripts `preload` avec la logique interne d'Electron et du site Web que vous chargez dans un [`webContents`](../api/web-contents.md).  Ceci est important pour des raisons de sécurité car cela empêcher le site Web d'accéder aux fonctionalités d'Electron ou aux API puissantes auxquelles votre script preload accède.
 
 Cela signifie que l'objet `window` auquel votre script de préchargement a accès est un objet différent de celui auquel que le site Web a accès.  Par exemple, si vous définissez `window.hello = 'wave'` dans votre script de préchargement avec l'isolation de contexte activée, `window.hello` retournera undefined si le site tente d'y accéder.
 
@@ -38,13 +38,12 @@ window.myAPI = {
 
 ```javascript
 const { contextBridge } = require('electron')
-
 contextBridge.exposeInMainWorld('myAPI', {
   doAThing: () => {}
 })
 ```
 
-Le module [`contextBridge`](../api/context-bridge.md) peut être utilisé pour **exposer en toute sécurité** les APIs depuis le contexte isolé dans lequel votre script de préchargement s'exécute vers le contexte dans lequel le site est exécuté. L'API sera également accessible depuis le site web sur `window.myAPI` comme avant.
+Le module [`contextBridge`](../api/context-bridge.md) peut être utilisé pour exposer en toute sécurité les APIs depuis le contexte isolé dans lequel votre script de préchargement s'exécute vers le contexte dans lequel le site est exécuté. L'API sera également accessible depuis le site web sur `window.myAPI` comme avant.
 
 Vous devriez lire la documentation de `contextBridge` pour bien comprendre ses limitations.  Par exemple, vous ne pouvez pas envoyer des prototypes ou de symbols personnalisés sur le contextbridge.
 
