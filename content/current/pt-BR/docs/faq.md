@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
-Se [a anti-aliasing de sub-pixel](http://alienryderflex.com/sub_pixel/) estiver desativada, então as fontes nas telas LCD podem parecer borradas. Exemplo:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplo:
 
 ![Exemplo de renderização do subpixel](images/subpixel-rendering-screenshot.gif)
 

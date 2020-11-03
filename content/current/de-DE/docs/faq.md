@@ -102,7 +102,7 @@ Es ist sehr wahrscheinlich, dass das Modul im falschen Prozess verwendet wird. B
 
 ## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
-Wenn [Unterpixel Anti-Aliasing](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen verschwommen werden. Beispiel:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Beispiel:
 
 ![Subpixel Rendering Beispiel](images/subpixel-rendering-screenshot.gif)
 

@@ -104,7 +104,7 @@ Electron будує V8 як частину Chromium і потім вказує N
 
 Номери версій V8 завжди відповідають темам Google Chrome. Chrome 59 включає V8 5.9, Chrome 58 включає V8 5.8 і т. д.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [v8.dev](https://v8.dev/)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 

@@ -66,12 +66,10 @@ Windows 7 وما بعدها مدعوم، أنظمة التشغيل الأقدم 
 
 ### Linux
 
-تم بناء `ia32` (`i686`) و `x64` (`amd64`) ثنائيات إلكترون على Ubuntu 12. 4, `armv7l` ثنائي مبني ضد ARM v7 مع ABI عوامات صلبة و جسم قريب لـ Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[حتى إصدار إلكترون 2.](../breaking-changes.md#duplicate-arm-assets), سيواصل إلكترون أيضًا إطلاق `armv7l` ثنائي مع `ذراع بسيط` لاحقة. كلا الثنائيين متطابقين.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-إن ما إذا كان يمكن أن يعمل ثنائي مبني مسبقاً على التوزيع يعتمد على ما إذا كان التوزيع يشمل المكتبات التي يرتبط بها إلكترون على منصة المبنى ، لذا فقط أوبونتو 12. 4 مكفول للعمل، ولكن يتم التحقق أيضا من أن المنصات التالية قادرة على تشغيل ثنائية البناء المسبق لشركة Electron:
-
-* أوبونتو 12.04 والأحدث
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

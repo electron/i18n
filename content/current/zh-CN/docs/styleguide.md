@@ -45,7 +45,7 @@
 * 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
 * 行长度应该控制在80列内.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
-* 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](http://npm.im/standard-markdown).
+* 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## 用词选择
 

@@ -66,12 +66,10 @@ Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提
 
 ### Linux
 
-`ia32` (`i686`) と `x64` (`amd64`) のビルド済みバイナリは、Ubuntu 12.04上でビルドされ、 `armv7l` バイナリは、Debian Wheezy用のhard-float ABIとNEONのARM v7を対象にビルドしています。
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Electron 2.0 がリリースされるまで](../breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
+Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 18.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 
-Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
-
-* Ubuntu 12.04 以降
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 以降
+* Fedora 24 and newer
+* Debian 8 and newer

@@ -1,6 +1,6 @@
 # Automatyczne testowania z pomocą niestandardowego sterownika
 
-Aby zapisywać zautomatyzowane testy dla twojej aplikacji Electron, będziesz potrzebował sposobu na "dyskowanie" aplikacji. [Spectron](https://electronjs.org/spectron) to często używane rozwiązanie, które pozwala emulować działania użytkownika przez [WebDriver](http://webdriver.io/). Możliwe jest jednak również zapisanie własnego sterownika za pomocą wbudowanego IPC węzła poza STDIO. Zaletą niestandardowego sterownika jest to, że zazwyczaj wymaga on mniej uderzeń niż Spectron, i pozwala ujawnić niestandardowe metody swojemu zestawowi testowemu.
+Aby zapisywać zautomatyzowane testy dla twojej aplikacji Electron, będziesz potrzebował sposobu na "dyskowanie" aplikacji. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Możliwe jest jednak również zapisanie własnego sterownika za pomocą wbudowanego IPC węzła poza STDIO. Zaletą niestandardowego sterownika jest to, że zazwyczaj wymaga on mniej uderzeń niż Spectron, i pozwala ujawnić niestandardowe metody swojemu zestawowi testowemu.
 
 Aby utworzyć własny kierowcę, używamy API Node.js' [child_process](https://nodejs.org/api/child_process.html). Pakiet testowy pojawi się proces Electrona, a następnie ustanowi prosty protokół wiadomości:
 

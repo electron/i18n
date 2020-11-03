@@ -12,7 +12,7 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`、このうち `DRIVE:` を Windows Kits があるドライブに置き換えます。 大抵、このドライブは `C:` です。
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) もビルドプロセスを実行するために必要です。
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * 完全な頒布物を作成する予定があれば、Windows SDK 10.0.15063.468 の Windows 用デバッグツールで、`.pdb` ファイルからシンボルストアを作成するために `symstore.exe` を使用します。
   * 異なるバージョンのSDKを並行してインストールできます。 SDK をインストールするには、Visual Studio Installer を開いて `変更` → `個別のコンポーネント` を選択し、スクロールしてインストールする適切な Windows SDK を選択します。 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
   * SDK デバッグツールもインストールする必要があります。 Windows 10 SDK が Visual Studio インストーラーを介してインストールされた場合は、次のようにしてインストールできます。 `コントロールパネル` → `プログラム` → `プログラムと機能` → "Windows Software Development Kit" を選択 → `変更` → `変更` → "Debugging Tools For Windows" にチェック → `変更`。 または、スタンドアロンの SDK インストーラをダウンロードして、それを使ってデバッグツールをインストールすることができます。

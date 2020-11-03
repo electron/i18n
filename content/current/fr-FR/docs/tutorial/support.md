@@ -66,12 +66,10 @@ Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [
 
 ### Linux
 
-Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont compilés sur Ubuntu 12.04, le binaire `armv7l` est compilé sur ARM v7 avec l'ABI hard-float et NEON pour Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Jusqu'à la version 2.0 d'Electron](../breaking-changes.md#duplicate-arm-assets), Electron continuera également de sortir un binaire `armv7l` avec un simple suffix `arm`. Les deux binaires sont identiques.
+Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 18.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
-Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
-
-* Ubuntu 12.04 et supérieur
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 et supérieur
+* Fedora 24 and newer
+* Debian 8 and newer

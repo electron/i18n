@@ -98,5 +98,5 @@ Process 25244 stopped
 Apple's debugging documentation, for instance the <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2">LLDB Command Structure Reference</a>
 or the introduction to <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Using LLDB as a Standalone Debugger</a>.</p>
 
-<p spaces-before="0">You can also check out LLDB's fantastic <a href="http://lldb.llvm.org/tutorial.html">manual and tutorial</a>, which
+<p spaces-before="0">You can also check out LLDB's fantastic <a href="https://lldb.llvm.org/tutorial.html">manual and tutorial</a>, which
 will explain more complex debugging scenarios.</p>

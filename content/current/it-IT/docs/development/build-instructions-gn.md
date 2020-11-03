@@ -16,7 +16,7 @@ Check the build prerequisites for your platform before proceeding
 
 ## GN prerequisites
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Dovrai installare [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), il toolset usato per recuperare Chromium e le sue dipendenze.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  Questa impostazione comunica a `depot_tools` di utilizzare la versione attualmente installata di Visual Studio (per default `depot_tools` cercherà di scaricare una versione accessibile ai soli utenti interni di Google).

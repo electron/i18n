@@ -66,12 +66,10 @@ Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows
 
 ### Linux
 
-Die vorgebauten `ia32` (`i686`) und `x64` (`amd64`) Binärdateien von Electron sind auf Ubuntu 12. 4, die `armv7l` Binärdatei ist gegen ARM v7 mit hard-float ABI und NEON für Debian Wheezy gebaut.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Beide Binärdateien sind identisch.
+Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 18.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
 
-Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 12.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
-
-* Ubuntu 12.04 und neuer
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 und neuer
+* Fedora 24 and newer
+* Debian 8 and newer

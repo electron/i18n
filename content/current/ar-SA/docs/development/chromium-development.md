@@ -8,6 +8,6 @@
 - [رمز البحث](https://cs.chromium.org/)
 - [الشفرة المصدرية](https://cs.chromium.org/chromium/src/)
 - [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [مجموعات المناقشة](http://www.chromium.org/developers/discussion-groups)
+- [مجموعات المناقشة](https://www.chromium.org/developers/discussion-groups)
 
 اطلع أيضا على [تطوير V8](v8-development.md)

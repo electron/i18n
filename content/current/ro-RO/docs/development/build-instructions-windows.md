@@ -12,7 +12,7 @@ Urmați instrucțiunile de mai jos pentru a construi Electron pe Windows.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Adesea, acesta va fi `C:`.
   * [Extensiile Python pentru Windows (pywin32)](https://pypi.org/project/pywin32/#files) este, de asemenea, necesară pentru a executa procesul de compilare.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Diferite versiuni ale SDK pot fi instalate una lângă alta. Pentru a instala SDK, deschide Visual Studio Installer, selectaţi `Change` → `Individual Components`, defilează în jos şi selectează corespunzător Windows SDK pentru instalare. O altă opțiune ar fi să se uite la [Windows SDK și arhiva emulator](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) și pentru a descărca versiunea independentă a SDK, respectiv.
   * De asemenea, trebuie instalate instrumentele de depanare SDK. Dacă Windows 10 SDK a fost instalat prin programul de instalare Visual Studio, atunci acestea pot fi instalate accesând: `Panou de control` → `Programe` → `Programe și Caracteristici` → Selectați "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools for Windows" → `Change`. Sau puteți descărca instalatorul SDK și să-l folosiți pentru a instala instrumente de depanare.

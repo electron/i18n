@@ -12,7 +12,7 @@ Electron'u windows üzerinde inşaa etmek için aşağıdaki yönlendirmeleri ta
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Genellikle, bu `C:` olacaktır.
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * SDK'nın farklı sürümleri yan yana monte edilebilir. SDK'yı yüklemek için, Visual Studio Installer’ı açın, ` Değişim ` → ` Bireysel Bileşenler `, aşağı kaydırın ve uygun olanı seçin Windows SDK'yı yüklemek için. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
   * Ayrıca SDK(Yazılım Geliştirme Kiti) hata ayıklama araçları kurulmuş olmalıdır. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.

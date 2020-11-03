@@ -12,7 +12,7 @@
 
 通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+只使用 Chrome 的穩定版本。 如果其中一個重要的修復仍處於測試或開發階段，我們則將其修復作向後移植。
 
 詳情請參閱[安全性簡介](tutorial/security.md)。
 
@@ -26,7 +26,7 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 要在不同網頁 (畫面轉譯處理序) 之間共用資料，最簡單的方法就是使用瀏覽器早就提供的 HTML5 API。 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 以及 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 都是不錯的選擇。
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+或者你可以使用由 Electron 提供的跨處理序通訊 (IPC) 基元。 若要在主處理序及畫面轉譯處理序之間共用資料，可以使用 [`ipcMain`](api/ipc-main.md) 及 [`ipcRenderer`](api/ipc-renderer.md) 模組。 To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 我應用程式的視窗或工作列圖示幾分鐘後消失了。
 
@@ -102,7 +102,7 @@ It is very likely you are using the module in the wrong process. 例如 `electro
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 範例:
+若關掉[字體平滑](https://alienryderflex.com/sub_pixel/)功能，LCD螢幕上的字體則可能會看起來模糊不清。 範例:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

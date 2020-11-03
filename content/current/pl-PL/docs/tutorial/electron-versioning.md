@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Wersja 1.x
 
-Wersje Electrona *< 2.* nie był zgodny z specyfikacją [semver](http://semver.org) : główne wersje odpowiadały zmianom API użytkownika końcowego, wersje drugorzędne odpowiadają głównym wydaniom Chromium, a wersje aktualizacji odpowiadały nowym funkcjom i poprawkom błędów. Wygodny dla programistów łączących funkcje, ale stwarza problemy dla programistów aplikacji klienckich. Cykle testów QA głównych aplikacji, takich jak Slack, Stride, Teams, Skype, VS Code, Atak, komputer biurkowy może być długotrwały, a stabilność jest bardzo pożądanym rezultatem. Istnieje wysokie ryzyko przyjęcia nowych funkcji podczas próby wchłonięcia poprawek błędów.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Wygodny dla programistów łączących funkcje, ale stwarza problemy dla programistów aplikacji klienckich. Cykle testów QA głównych aplikacji, takich jak Slack, Stride, Teams, Skype, VS Code, Atak, komputer biurkowy może być długotrwały, a stabilność jest bardzo pożądanym rezultatem. Istnieje wysokie ryzyko przyjęcia nowych funkcji podczas próby wchłonięcia poprawek błędów.
 
 Oto przykład strategii 1.x:
 

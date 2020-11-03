@@ -6,7 +6,7 @@ Od [ChromeDriver – WebDriver pro Chrome](https://sites.google.com/a/chromium.o
 
 ## Nastavuji Spectron
 
-[Spectron](https://electronjs.org/spectron) je oficiálně podporovaný systém testování ChromeDriver pro Electron. Je postaven na vrcholu [WebdriverIO](http://webdriver.io/) a má pomocníky pro přístup k Electron API ve vašich testech a svazcích ChromeDriver.
+[Spectron](https://electronjs.org/spectron) je oficiálně podporovaný systém testování ChromeDriver pro Electron. It is built on top of [WebdriverIO](https://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Nastavení pomocí WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) poskytuje balíček Node pro testování pomocí webového ovladače, použijeme ho jako příklad.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) provides a Node package for testing with web driver, we will use it as an example.
 
 ### 1. Spustit ChromeDriver
 
@@ -99,7 +99,7 @@ driver.wait() => {
 
 ## Nastavení pomocí WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) poskytuje balíček Node pro testování pomocí web ovladače.
+[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
 
 ### 1. Spustit ChromeDriver
 

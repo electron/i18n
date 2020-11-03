@@ -95,4 +95,4 @@ Ora, se apri gli strumenti sviluppatore di Electron e chiami `setName`, colpirai
 ### Ulteriori Letture
 LLDB è un potente strumento con una grande documentazione. Per saperne di più, considera la documentazione di debug di Apple, per esempio la [Struttura di Riferimento Comando LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o l'introduzione all'[Utilizzo LLDB come un Debugger Standalone](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Puoi anche vedere il fantastico [manuale e tutorial](http://lldb.llvm.org/tutorial.html) di LLDB che spiegherà scenari di debug più complessi.
+Puoi anche vedere il fantastico [manuale e tutorial](https://lldb.llvm.org/tutorial.html) di LLDB che spiegherà scenari di debug più complessi.

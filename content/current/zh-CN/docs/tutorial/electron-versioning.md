@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron 版本 *<* 不符合 [semver](http://semver.org) 旁观：主要版本与最终用户API更改相对应。 次要版本与 Chromium 主要版本相对应，补丁版本与新功能和 bug 修复相对应。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 

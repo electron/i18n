@@ -8,6 +8,6 @@
 - [Paghahanap ng Code](https://cs.chromium.org/)
 - [Source Code](https://cs.chromium.org/chromium/src/)
 - [Pagpapaunlad ng Oras at Pagpapalabas ng Impormasyon](https://www.chromium.org/developers/calendar)
-- [Talakayan ng mga grupo](http://www.chromium.org/developers/discussion-groups)
+- [Talakayan ng mga grupo](https://www.chromium.org/developers/discussion-groups)
 
 Tingnan din ang[V8 Development](v8-development.md)

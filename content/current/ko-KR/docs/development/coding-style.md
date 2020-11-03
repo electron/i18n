@@ -36,7 +36,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 자바스크립트
 
-* [standard](https://npm.im/standard) JavaScript 코딩 스타일을 사용합니다.
+* [표준](https://www.npmjs.com/package/standard) JavaScript 코딩 스타일을 사용합니다.
 * 파일 이름의 공백은 `_`대신에 `-`을 사용하여야 합니다. 예를 들어 `file_name.js`를 `file-name.js`로 고쳐야 합니다. 왜냐하면 [github/atom](https://github.com/github/atom)에서 사용되는 모듈의 이름은 보통 `module-name` 형식이기 때문입니다. 이 규칙은 '`.js`' 파일에만 적용됩니다.
 * 적절한 곳에 새로운 ES6/ES2015 문법을 사용해도 됩니다.
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 는 <0>requires</0>와 다른 상수에 사용합니다.  값이 원시 타입인 경우 대문자로 이름을 지정하십시오 (예: `const NUMBER_OF_RETRIES = 5`).

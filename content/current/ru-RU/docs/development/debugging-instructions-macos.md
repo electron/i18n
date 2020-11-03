@@ -6,7 +6,7 @@
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). Вы конечно можете скачать обычную сборку Electron и подключиться для отладки к ней, но вы обнаружите, что она сильно оптимизирована, и это существенно затрудняет отладку: отладчик не сможет показать вам содержимое всех переменных, так же путь выполнения может казаться странным вследствие встраивания функций (inlining), хвостовых вызовов (trail calls) и других оптимизаций, выполненных компилятором.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. Они включают в себя LLDB, дебаггер по умолчанию в Xcode на macOS. Он поддерживает отладку C, Objective-C и C++ на настольных и iOS устройствах и симуляторах.
+* **Xcode**: В дополнение к Xcode, также установите утилиты командной строки Xcode. Они включают в себя LLDB, дебаггер по умолчанию в Xcode на macOS. Он поддерживает отладку C, Objective-C и C++ на настольных и iOS устройствах и симуляторах.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
    ```text
@@ -95,4 +95,4 @@ Now, if you open up Electron's developer tools and call `setName`, you will once
 ### Дальнейшее изучение
 LLDB это мощный инструмент с отличной документацией. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+You can also check out LLDB's fantastic [manual and tutorial](https://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.

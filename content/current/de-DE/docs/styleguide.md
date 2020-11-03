@@ -45,7 +45,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
 * Keine Schachtelungen sind mehr als 2 Ebenen (aufgrund des Markdown Renderers).
-* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](http://npm.im/standard-markdown).
+* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Wörter auswählen
 

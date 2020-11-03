@@ -16,7 +16,7 @@ npm installieren --save-dev electron@latest
 
 ## Version 1.x
 
-Electron-Versionen *< 2.* entsprach nicht der Gruppe [Sember](http://semver.org) : Hauptversionen entsprechen den Änderungen der API des Endbenutzers kleinere Versionen korrespondierten zu den Hauptversionen von Chromi, und Patchversionen korrespondierten mit neuen Funktionen und Bugfixes. Obwohl es für Entwickler praktisch ist, Funktionen zu verschmelzen, schafft es Probleme für Entwickler von Client-orientierten Anwendungen. Die QA-Testzyklen der wichtigsten Apps wie Slack, Stride, Teams, Skype, VS-Code, Atom, und Desktop kann lang sein, und Stabilität ist ein höchst gewünschtes Ergebnis. Es besteht ein hohes Risiko, neue Funktionen zu übernehmen und gleichzeitig zu versuchen, Fehlerkorrekturen zu absorbieren.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Obwohl es für Entwickler praktisch ist, Funktionen zu verschmelzen, schafft es Probleme für Entwickler von Client-orientierten Anwendungen. Die QA-Testzyklen der wichtigsten Apps wie Slack, Stride, Teams, Skype, VS-Code, Atom, und Desktop kann lang sein, und Stabilität ist ein höchst gewünschtes Ergebnis. Es besteht ein hohes Risiko, neue Funktionen zu übernehmen und gleichzeitig zu versuchen, Fehlerkorrekturen zu absorbieren.
 
 Hier ein Beispiel für die 1.x-Strategie:
 

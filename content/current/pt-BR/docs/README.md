@@ -43,7 +43,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Arquivo Representado para o macOS BrowserWindows](tutorial/represented-file.md)
   * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Incorporações da Web no Electron](tutorial/web-embeds.md)
 * [Acessibilidade](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -126,7 +126,8 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [Notificações](api/notification.md)
+* [nativeTheme](api/native-theme.md)
+* [Notificação](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -136,7 +137,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
-* [Principal(webFrame)](api/web-frame-main.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Módulos para o Processo de Renderização (Página Web):
 

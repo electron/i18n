@@ -66,12 +66,10 @@ Zarówno `ia32` (`x86`) i `x64` (`amd64`) pliki binarne są dostępne dla Window
 
 ### Linux
 
-Wstępnie zbudowane `ia32` (`i686`) i `x64` (`amd64`) pliki binarne Electron są zbudowane na Ubuntu 12. 4, plik binarny `armv7l` jest zbudowany przeciwko ARM v7 z hard-float ABI i NEON dla Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Aż do wydania Electrona 2.0](../breaking-changes.md#duplicate-arm-assets) Electron będzie również kontynuował wydanie pliku binarnego dla `armv7l` z przyrostek `arm`. Oba pliki binarne są identyczne.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-To, czy wstępnie zbudowany plik binarny może działać na dystrybucji, zależy od tego, czy dystrybucja zawiera biblioteki, z którymi Electron jest połączona na platformie , tak tylko Ubuntu 12. 4 ma gwarancję, że działa, ale następujące platformy są również weryfikowane, aby móc obsługiwać wstępnie wybudowane binary Electrona:
-
-* Ubuntu 12.04 i nowsze
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 i nowsze
+* Fedora 24 and newer
+* Debian 8 and newer

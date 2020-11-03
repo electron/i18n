@@ -66,12 +66,10 @@ Atât `ia32` (`x86`) cât şi `x64` (`amd64`) binare sunt furnizate pentru Windo
 
 ### Linux
 
-Fișierele preconstruite `ia32` (`i686`) și `x64` (`amd64`) ale Electron sunt construite pe Ubuntu 12. 4, binarul `armv7l` este construit împotriva ARM v7 cu hard-float ABI şi NEON pentru Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Până la lansarea Electron 2.](../breaking-changes.md#duplicate-arm-assets), Electron va continua, de asemenea, să elibereze fișierul binar `armv7l` cu un înlocuitor simplu `de braț`. Ambele binare sunt identice.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-Dacă binarul preconstruit poate rula pe o distribuție depinde de dacă distribuția include bibliotecile la care Electron este conectat pe platforma , doar Ubuntu 12. 4 este garantat că funcționează, dar următoarele platforme sunt verificate, de asemenea, pentru a putea rula binarele preconstruit al Electron:
-
-* Ubuntu 12.04 și mai nou
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

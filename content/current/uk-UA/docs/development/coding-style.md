@@ -36,7 +36,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 ## JavaScript
 
-* Write [standard](https://npm.im/standard) JavaScript style.
+* Write [standard](https://www.npmjs.com/package/standard) JavaScript style.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) для необхідних констант та інших.  Якщо значення є простим, використовуйте іменування у верхньому регісті (наприклад `const NUMBER_OF_RETRIES = 5`).

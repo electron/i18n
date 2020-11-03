@@ -6,7 +6,7 @@
 
 ## Spectron 설정
 
-[Spectron](https://electronjs.org/spectron)은 공식적으로 지원되는 Electron의 ChromeDriver 테스트 프레임 워크입니다. [WebdriverIO](http://webdriver.io/) 위에 구축되어 ChromeDriver 테스트 및 번들에서 Electron API에 액세스 할 수있는 도우미가 있습니다.
+[Spectron](https://electronjs.org/spectron)은 공식적으로 지원되는 Electron의 ChromeDriver 테스트 프레임 워크입니다. [WebdriverIO](https://webdriver.io/) 위에 구축되어 ChromeDriver 테스트 및 번들에서 Electron API에 액세스 할 수있는 도우미가 있습니다.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## WebDriverJs로 설정하기
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs)는 웹 드라이버 테스트를위한 Node 패키지를 제공하며 다음 예제처럼 사용합니다.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html)는 웹 드라이버 테스트를위한 Node 패키지를 제공하며 다음 예제처럼 사용합니다.
 
 ### 1. Start ChromeDriver
 
@@ -99,7 +99,7 @@ driver.quit()
 
 ## WebdriverIO 설정하기
 
-[WebdriverIO](http://webdriver.io/)는 웹 드라이버와 함께 테스트를 위해 제공되는 node 패키지입니다.
+[WebdriverIO](https://webdriver.io/)는 웹 드라이버와 함께 테스트를 위해 제공되는 node 패키지입니다.
 
 ### 1. Start ChromeDriver
 

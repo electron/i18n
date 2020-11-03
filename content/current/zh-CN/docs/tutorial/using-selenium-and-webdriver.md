@@ -6,7 +6,7 @@
 
 ## 配置 Spectron
 
-[Spectron](https://electronjs.org/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](http://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
+[Spectron](https://electronjs.org/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](https://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## 通过 WebDriverJs 配置
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) 是一个可以配合 WebDriver 做测试的 node 模块，我们会用它来做个演示。
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) 是一个可以配合 WebDriver 做测试的 node 模块，我们会用它来做个演示。
 
 ### 1. 启动 ChromeDriver
 
@@ -99,7 +99,7 @@ driver.quit()
 
 ## 通过 WebdriverIO 配置
 
-[WebdriverIO](http://webdriver.io/) 也是一个配合 WebDriver 用来测试的 node 模块.
+[WebdriverIO](https://webdriver.io/) 也是一个配合 WebDriver 用来测试的 node 模块.
 
 ### 1. 启动 ChromeDriver
 

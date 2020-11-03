@@ -6,7 +6,7 @@ De la [ChromeDriver - WebDriver pentru Chrom](https://sites.google.com/a/chromiu
 
 ## Configurarea Spectron
 
-[Spectron](https://electronjs.org/spectron) este suportat oficial de ChromeDriver framework pentru Electron. Este construit pe [WebdriverIO](http://webdriver.io/) și are ajutor pentru a accesa API-urile Electron în testele și pachetele ChromeDriver.
+[Spectron](https://electronjs.org/spectron) este suportat oficial de ChromeDriver framework pentru Electron. It is built on top of [WebdriverIO](https://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm instalare --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsbleWithTitle(myApp)
 
 ## Configurarea cu WebDriverJ
 
-[WebDriverJ](https://code.google.com/p/selenium/wiki/WebDriverJs) oferă un pachet Node pentru testarea pe web driver, îl vom folosi ca exemplu.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) provides a Node package for testing with web driver, we will use it as an example.
 
 ### 1. Pornește ChromeDriver
 
@@ -99,7 +99,7 @@ driver.wait(() => {
 
 ## Configurarea cu WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) oferă un pachet Node pentru testarea cu web driver.
+[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
 
 ### 1. Pornește ChromeDriver
 

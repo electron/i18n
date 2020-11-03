@@ -45,7 +45,7 @@ Para referencias à API, existem exceções a está regra.
 * Use `sh` ao invés de `cmd` nos blocos de código (devido ao destaque de sintaxe).
 * Linhas devem ser quebradas em 80 colunas.
 * No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* All `js` and `javascript` code blocks are linted with [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Picking words
 

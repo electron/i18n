@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-如果 [个子像素反锯齿](http://alienryderflex.com/sub_pixel/) 被禁用，那么LCD 屏幕上的字体看起来会变得模糊。 示例：
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例：
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 

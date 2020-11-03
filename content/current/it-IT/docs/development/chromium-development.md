@@ -8,6 +8,6 @@
 - [Ricerca Codice](https://cs.chromium.org/)
 - [Codice Sorgente](https://cs.chromium.org/chromium/src/)
 - [Sviluppo Calendario ed Informazione di Rilascio](https://www.chromium.org/developers/calendar)
-- [Gruppi di Discussione](http://www.chromium.org/developers/discussion-groups)
+- [Gruppi di Discussione](https://www.chromium.org/developers/discussion-groups)
 
 Vedi anche [Sviluppo V8](v8-development.md)

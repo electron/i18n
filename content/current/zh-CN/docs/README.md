@@ -43,7 +43,7 @@
   * [针对 macOS 系统 BrowserWindows 的展示文件](tutorial/represented-file.md)
   * [原生文件拖 & 放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
-  * [支持 macOS 深色模式](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [语言](tutorial/web-embeds.md)
 * [辅助功能](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -126,9 +126,10 @@
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [通知](api/notification.md)
-* [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
+* [电源监视器](api/power-monitor.md)
+* [省电拦截器 | powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
@@ -136,7 +137,7 @@
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
-* [webFramework](api/web-frame-main.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 渲染进程（网页）可用的模块:
 

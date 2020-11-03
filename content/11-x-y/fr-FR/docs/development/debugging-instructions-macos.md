@@ -8,7 +8,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur macOS. Il prend en charge le débogage en C, Objectif-C et Cm sur les appareils et simulateurs de bureau et d’iOS.
 
-* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+* **.lldbinit** : Créez ou éditez `~/.lldbinit` pour permettre au code Chromium d'être correctement source-mappé.
    ```text
    import du script de commande ~/electron/src/tools/lldb/lldbinit.py
    ```
@@ -86,7 +86,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**REMARQUE:** Si vous ne voyez pas le code source quand vous pensez que vous le devriez, vous n'avez peut-être pas ajouté le fichier `~/.lldbinit` ci-dessus.
 
 Pour terminer de déboguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
 

@@ -102,7 +102,7 @@ Je velmi pravděpodobné, že používáte modul ve špatném procesu. Napříkl
 
 ## Písmo vypadá rozmazaně, co je to a co mohu dělat?
 
-Pokud je deaktivováno [podpixelové antaliasování](http://alienryderflex.com/sub_pixel/) , pak mohou fonty na LCD obrazovkách vypadat černě. Ukázka:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ukázka:
 
 ![ukázka vykreslování subpixelů](images/subpixel-rendering-screenshot.gif)
 

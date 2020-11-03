@@ -1,6 +1,6 @@
 # Testare automată cu un driver personalizat
 
-Pentru a scrie teste automate pentru aplicația ta Electron vei avea nevoie de un mod de a "conduce" aplicația ta. [Spectron](https://electronjs.org/spectron) este o soluție utilizată frecvent, care vă permite să emulați acțiunile utilizatorului prin [WebDriver](http://webdriver.io/). Cu toate acestea, este de asemenea posibil să vă scrieți propriul șofer personalizat folosind nodul IPC-over-STDIO încorporat. Beneficiul unui șofer personalizat este că tinde să necesite cheltuieli mai mici decât în cazul spectrului radio, și vă permite să expuneți metode personalizate la grupul de teste.
+Pentru a scrie teste automate pentru aplicația ta Electron vei avea nevoie de un mod de a "conduce" aplicația ta. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Cu toate acestea, este de asemenea posibil să vă scrieți propriul șofer personalizat folosind nodul IPC-over-STDIO încorporat. Beneficiul unui șofer personalizat este că tinde să necesite cheltuieli mai mici decât în cazul spectrului radio, și vă permite să expuneți metode personalizate la grupul de teste.
 
 Pentru a crea un șofer personalizat, vom folosi API-ul [pentru copil_process](https://nodejs.org/api/child_process.html) Node.js. Suita de teste va genera procesul Electron, apoi va stabili un simplu protocol de mesagerie:
 

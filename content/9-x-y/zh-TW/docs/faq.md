@@ -12,7 +12,7 @@
 
 通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+只使用 Chrome 的穩定版本。 如果其中一個重要的修復仍處於測試或開發階段，我們則將其修復作向後移植。
 
 詳情請參閱[安全簡介](tutorial/security.md)。
 

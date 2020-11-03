@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## Шрифт виглядає розмитим, у чому причина і що я можу з цим зробити?
 
-Якщо [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) деактивовано, тоді шрифти на LCD екранах можуть виглядати розмитими. Приклад:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Приклад:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
