@@ -1,6 +1,6 @@
 # Testando Automatizado com um Driver Personalizado
 
-Para escrever testes automatizados para seu aplicativo Electron, você precisará de uma maneira de "conduzir" seu aplicativo. [Spectron](https://electronjs.org/spectron) é uma solução comumente usada que permite que você emule ações de usuário via [WebDriver](http://webdriver.io/). No entanto, também é possível escrever seu próprio driver personalizado usando o IPC-over STDIO do nó. O benefício de um driver personalizado é que ele tende a exigir menos sobrecarga que Spectron, e permite que você exponha métodos personalizados ao seu conjunto de testes.
+Para escrever testes automatizados para seu aplicativo Electron, você precisará de uma maneira de "conduzir" seu aplicativo. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). No entanto, também é possível escrever seu próprio driver personalizado usando o IPC-over STDIO do nó. O benefício de um driver personalizado é que ele tende a exigir menos sobrecarga que Spectron, e permite que você exponha métodos personalizados ao seu conjunto de testes.
 
 Para criar um driver personalizado, usaremos a API [child_process](https://nodejs.org/api/child_process.html) do Node.js. O conjunto de testes irá gerar o processo do Electron e, em seguida, estabelecer um simples protocolo de mensagens:
 

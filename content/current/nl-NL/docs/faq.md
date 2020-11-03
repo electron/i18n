@@ -102,7 +102,7 @@ Het is zeer waarschijnlijk dat u de module in het verkeerde proces gebruikt. Bij
 
 ## Het lettertype ziet er wazig, wat is dit en wat kan ik doen?
 
-Als [subpixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is gedeactiveerd, dan kunnen lettertypen op LCD-schermen er wazig uitzien. Voorbeeld:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Voorbeeld:
 
 ![subpixel rendering voorbeeld](images/subpixel-rendering-screenshot.gif)
 

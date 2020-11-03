@@ -36,7 +36,7 @@ Puteți rula `npm run lint-docs` pentru a vă asigura că modificările document
 
 ## JavaScript
 
-* Scrie [standard](https://npm.im/standard) stil JavaScript.
+* Scrie [standard](https://www.npmjs.com/package/standard) stil JavaScript.
 * Numele de fișiere ar trebui să fie concatenate cu `-` în loc de `_`, de exemplu, `file-name.js`, mai degrabă decât `file_name.js`, deoarece în [github/atom](https://github.com/github/atom) github /atom sunt, de obicei, în formularul `nume-modul`. Această regulă se aplică doar fișierelor `.js`.
 * Utilizați sintaxa ES6/ES2015 mai nouă, dacă este cazul
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pentru necesități și alte constante.  Dacă valoarea este primitivă, utilizați numele cu majuscule (de ex. `const NUMBER_OF_RETRIES = 5`).

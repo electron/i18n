@@ -16,7 +16,7 @@ npm instalare --save-dev electron@latest
 
 ## Versiunea 1.x
 
-Versiuni Electron *< 2.* nu s-a conformat specificațiilor [semiver](http://semver.org) : versiuni majore corespondente modificărilor API ale utilizatorului final, Versiunile minore au corespuns versiunilor majore Chromium, iar versiunile patch-ului au corespuns noilor caracteristici și remedierii erorilor. Deși este convenabil pentru dezvoltatori să fuzioneze caracteristici, creează probleme pentru dezvoltatorii aplicațiilor cu care se confruntă clienții. Ciclurile de testare a QA ale unor aplicații majore precum Slack, Stride, Teams, Skype, VS Code, Atom, și Desktop pot fi lungi, iar stabilitatea este un rezultat foarte dorit. Există un risc mare în adoptarea noilor caracteristici în timp ce se încearcă absorbirea remediilor erorilor.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Deși este convenabil pentru dezvoltatori să fuzioneze caracteristici, creează probleme pentru dezvoltatorii aplicațiilor cu care se confruntă clienții. Ciclurile de testare a QA ale unor aplicații majore precum Slack, Stride, Teams, Skype, VS Code, Atom, și Desktop pot fi lungi, iar stabilitatea este un rezultat foarte dorit. Există un risc mare în adoptarea noilor caracteristici în timp ce se încearcă absorbirea remediilor erorilor.
 
 Iată un exemplu de strategie 1.x:
 

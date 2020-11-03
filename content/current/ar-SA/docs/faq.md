@@ -103,7 +103,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 <h2 spaces-before="0">يبدو الخط غير واضح، ما هو هذا وماذا يمكنني أن أفعل؟</h2>
 
-<p spaces-before="0">إذا تم إلغاء تنشيط <a href="http://alienryderflex.com/sub_pixel/">منع الاستيفاء من الباطن بالبكسل</a> ، يمكن أن تبدو الخطوط على شاشات LCD غير واضحة. مثال:</p>
+<p spaces-before="0">If <a href="https://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. مثال:</p>
 
 <p spaces-before="0">!<a href="images/subpixel-rendering-screenshot.gif">subpixel يقدم المثال</a></p>
 

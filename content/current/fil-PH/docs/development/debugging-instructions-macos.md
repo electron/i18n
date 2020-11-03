@@ -95,4 +95,4 @@ Ngayon, kung iyong bubuksan ang mga kagamitan ng tagabuo ng Electron at tatawagi
 ### Karagdagang Pagbabasa
 Ang LLDB ay ang isang makapangyarihang kagamitan na may magandang dokumentasyon. Upang mas makaalam pa tungkol dito, isaalang-alang ang dokumentasyon sa pagde-debug ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Paggamit ng LLDB bilang isang Standalone na Taga-debug](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Maaari mo ring tingnan ang kamangha-manghang [manwal and tyutoryal](http://lldb.llvm.org/tutorial.html) ng LLDB, na mas magpapaliwanag sa mga mas komplikadong sitwasyon ng pagde-debug.
+Maaari mo ring tingnan ang kamangha-manghang [manwal and tyutoryal](https://lldb.llvm.org/tutorial.html) ng LLDB, na mas magpapaliwanag sa mga mas komplikadong sitwasyon ng pagde-debug.

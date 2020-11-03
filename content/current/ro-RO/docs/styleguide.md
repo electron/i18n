@@ -45,7 +45,7 @@ Pentru referințe API există excepții de la această regulă.
 * Folosește `sh` în loc de `cmd` în blocurile de cod (datorită marcatorului de sintaxă).
 * Liniile ar trebui să fie încadrate la 80 de coloane.
 * Fără liste indentate mai mult de 2 niveluri (din cauza redării de marcare).
-* Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](http://npm.im/standard-markdown).
+* Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Alegerea cuvintelor
 

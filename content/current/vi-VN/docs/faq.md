@@ -102,7 +102,7 @@ It is very likely you are using the module in the wrong process. Ví dụ `elect
 
 ## Các ký tự rất mờ, tại sao và tôi phải làm gì ?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ví dụ:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ví dụ:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

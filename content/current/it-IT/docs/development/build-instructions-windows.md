@@ -12,7 +12,7 @@ Segui le linee guida sotto per compilare Electron su Windows.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Spesso, questo sarà `C`.
   * [Python per Estensioni Windows /pywin32)](https://pypi.org/project/pywin32/#files) è anch'esso necessario per eseguire il processo di costruzione.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Differenti versioni di SDK possono essere installate fianco a fianco. Per installare SDK, apri Visual Studio Installer, seleziona `Modifica` → `Componenti Individuali`, scendi e seleziona l'appropriato SDK Windows per installare. Un'altra opzione sarebbe di guardare al [Windows SDK ed emulatore archivio](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) e scaricare la versione standalone del SDK rispettivamente.
   * Gli Strumenti di Debug SDK devono anch'essi essere installati. Se l'SDK di Windows 10 era installato tramite il Visual Studio Installer, allora possono essere installati andando a: `Pannello di Controllo` → `Programmi` → `Programmi e Funzionalità` → Seleziona il "Kit di Sviluppo Software Windows" → `Cambia` → `Modifica` → Spunta "Strumenti di Debug per Windows" → `Modifica`. Oppure, puoi scaricare l'installatore SDK standalone ed usarlo per installare gli Strumenti di Debug.

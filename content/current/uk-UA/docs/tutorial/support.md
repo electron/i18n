@@ -66,12 +66,10 @@ Windows 7 і пізніше підтримуються, старі операц�
 
 ### Linux
 
-Попередньо побудований `ia32` (`i686`та `x64` (`amd64`) двійкові файли Electron побудовані на Ubuntu 12. 4, `armv7l` двійковий файл ARM v7 з жорсткими плаваючими АБРІ та НЕОН для Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[До випуску Electron 2.](../breaking-changes.md#duplicate-arm-assets), Electron також продовжить вивільняти `armv7l` бінарним з простою `руки` суфіксом. Обидва двійки ідентичні.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
-
-* Ubuntu 12.04 та новіше
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

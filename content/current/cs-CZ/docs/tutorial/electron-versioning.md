@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Verze 1.x
 
-Elektronové verze *< 2.* se neshodovalo s proměnným [semver](http://semver.org) .: hlavní verze odpovídají změnám API pro koncového uživatele, menší verze odpovídaly hlavním verzím Chromium a verze patch odpovídaly novým funkcím a opravám chyb. I když je to výhodné pro vývojáře spojování funkcí, vytváří problémy pro vývojáře aplikací orientovaných na klienty. testovací cykly QA hlavních aplikací, jako je Slack, Stride, Teams, Skype, VS kód, A Desktop může být zdlouhavý a stabilita je vysoce žádoucí výsledek. Při přidávání nových funkcí při pohlcování oprav chyb existuje vysoké riziko.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. I když je to výhodné pro vývojáře spojování funkcí, vytváří problémy pro vývojáře aplikací orientovaných na klienty. testovací cykly QA hlavních aplikací, jako je Slack, Stride, Teams, Skype, VS kód, A Desktop může být zdlouhavý a stabilita je vysoce žádoucí výsledek. Při přidávání nových funkcí při pohlcování oprav chyb existuje vysoké riziko.
 
 Zde je příklad strategie 1.x:
 

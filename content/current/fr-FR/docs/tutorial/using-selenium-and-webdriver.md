@@ -6,7 +6,7 @@ De [ChromeDriver - WebDriver pour Chrome](https://sites.google.com/a/chromium.or
 
 ## Mise en place de Spectron
 
-[Spectron](https://electronjs.org/spectron) est le framework ChromeDriver de test officiel pour Electron. Il est basé sur [WebdriverIO](http://webdriver.io/) et a des helpers pour accéder aux APIS d'Electron dans vos tests et bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) est le framework ChromeDriver de test officiel pour Electron. Il est basé sur [WebdriverIO](https://webdriver.io/) et a des helpers pour accéder aux APIS d'Electron dans vos tests et bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -44,7 +44,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Mise en place avec WebdriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fournit un ensemble de package Node pour tester avec des pilotes web, nous l’utiliserons comme exemple.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) fournit un ensemble de package Node pour tester avec des pilotes web, nous l’utiliserons comme exemple.
 
 ### 1. Lancer ChromeDriver
 
@@ -98,7 +98,7 @@ driver.quit()
 
 ## Mise en place avec WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) fournit un package Node pour tester avec le pilote web.
+[WebdriverIO](https://webdriver.io/) fournit un package Node pour tester avec le pilote web.
 
 ### 1. Lancer ChromeDriver
 

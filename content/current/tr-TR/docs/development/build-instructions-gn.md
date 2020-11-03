@@ -16,7 +16,7 @@ Devam etmeden önce platformunuz için ön koşulları kontrol edin
 
 ## GN önkoşulları
 
-Chromium'u ve bağımlılıklarını almak için kullanılan araç seti [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)'u yüklemeniz gerekir.
+Chromium'u ve bağımlılıklarını almak için kullanılan araç seti [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)'u yüklemeniz gerekir.
 
 Ayrıca Windows'ta ortam değişkenini ayarlamanız gerekecek `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Bunun için, `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` açın ve sistem değişkenini `DEPOT_TOOLS_WIN_TOOLCHAIN` "`0`" değeriyle birlikte ekleyin.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).

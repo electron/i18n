@@ -38,7 +38,7 @@ Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](https://www.chromiu
 
 ## JavaScript
 
-* Napisz[standardowym](https://npm.im/standard) stylem JavaScript.
+* Napisz[standardowym](https://www.npmjs.com/package/standard) stylem JavaScript.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).

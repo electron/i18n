@@ -102,7 +102,7 @@ Kemungkinan besar Anda menggunakan modul dalam proses yang salah. Sebagai contoh
 
 ## Font terlihat kabur, apa ini dan apa yang dapat saya lakukan?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Contoh:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Contoh:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

@@ -102,7 +102,7 @@ Jest bardzo prawdopodobne, że używasz modułu w niewłaściwym procesie. Na pr
 
 ## Czcionka wygląda na rozmazaną, co to jest i jak to naprawić?
 
-Jeśli [antyaliasing podpikseli](http://alienryderflex.com/sub_pixel/) jest wyłączony, czcionki na ekranach LCD mogą wyglądać na rozmyte. Przykład:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Przykład:
 
 ![przykład renderowania subpikseli](images/subpixel-rendering-screenshot.gif)
 

@@ -99,4 +99,4 @@ Process 25244 stopped
 ### 进一步阅读
 LLDB是一个强大的工具，有一个庞大的文档。 要了解更多信息，请参考 Apple 的调试文档, 例如 [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) 或 [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-你也可以查看LLDB的 [manual and tutorial](http://lldb.llvm.org/tutorial.html) 这将解释更复杂的调试场景.
+你也可以查看LLDB的 [manual and tutorial](https://lldb.llvm.org/tutorial.html) 这将解释更复杂的调试场景.

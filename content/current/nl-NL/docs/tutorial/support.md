@@ -66,12 +66,10 @@ Zowel `ia32` (`x86`) en `x64` (`amd64`) binaries zijn beschikbaar voor Windows. 
 
 ### Linux
 
-De voorgebouwde `ia32` (`i686`) en `x64` (`amd64`) binaries van Electron zijn gebouwd op Ubuntu 12. 4, het `armv7l` binary is gebouwd tegen ARM v7 met harde float ABI en NEON voor Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Tot het vrijgeven van Electron 2.](../breaking-changes.md#duplicate-arm-assets), Electron zal ook doorgaan met het `armv7l` binary met een eenvoudige `arm` achtervoegsel. Beide binaries zijn identiek.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-Of de voorgebouwde binary kan draaien op een distributie hangt af van de distributie inclusief de bibliotheken waaraan Electron is gekoppeld op het gebouw platform, dus alleen Ubuntu 12. 4 is gegarandeerd te werken, maar de volgende platformen worden geverifieerd om de vooraf gebouwde binaries van Electron:
-
-* Ubuntu 12.04 en nieuwer
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

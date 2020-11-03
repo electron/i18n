@@ -45,7 +45,7 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 * Gebruik `sh` in plaats van `cmd` in codeblokken (vanwege de syntaxis highlighter).
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
-* Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
+* Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Het kiezen van woorden
 

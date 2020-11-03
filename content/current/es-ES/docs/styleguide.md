@@ -45,7 +45,7 @@ Para referencias API, hay excepciones para esta regla.
 * Usa `sh` en vez de `cmd` en code blocks (debido al resaltador de sintaxis).
 * Las líneas deben estar ajustadas a 80 columnas.
 * No anidar listas de más de 2 niveles (debido al renderizador markdown).
-* Todos los bloques de código `js` y `javascript` están analizados con [standard-markdown](http://npm.im/standard-markdown).
+* Todos los bloques de código `js` y `javascript` están analizados con [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Escoger palabras
 

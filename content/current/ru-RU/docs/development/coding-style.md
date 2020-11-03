@@ -36,7 +36,7 @@
 
 ## JavaScript
 
-* Пишите в стиле [стандартном](https://npm.im/standard) для JavaScript.
+* Пишите в стиле [стандартном](https://www.npmjs.com/package/standard) для JavaScript.
 * Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
 * Используйте новый синтаксис ES6/ES2015 там, где это уместно
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) для requires и прочих постоянных значений.  Если значение примитивно, используйте имя в верхнем регистре (например, `const NUMBER_OF_RETRIES = 5`).

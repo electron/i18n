@@ -1,6 +1,6 @@
 # Automatizované testování s vlastním řidičem
 
-Chcete-li psát automatické testy pro vaši Electron aplikaci, budete potřebovat způsob, jak "řídit" vaši aplikaci. [Spectron](https://electronjs.org/spectron) je běžně používané řešení, které umožňuje emulovat akce uživatele prostřednictvím [WebDriver](http://webdriver.io/). Nicméně, je také možné napsat vlastní ovladač pomocí vestavěného IPC-over-STDIO. Výhodou vlastního řidiče je, že má tendenci vyžadovat méně režijních nákladů než Spectron, a umožňuje vystavit vlastní metody vašemu testovacímu soupravě.
+Chcete-li psát automatické testy pro vaši Electron aplikaci, budete potřebovat způsob, jak "řídit" vaši aplikaci. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Nicméně, je také možné napsat vlastní ovladač pomocí vestavěného IPC-over-STDIO. Výhodou vlastního řidiče je, že má tendenci vyžadovat méně režijních nákladů než Spectron, a umožňuje vystavit vlastní metody vašemu testovacímu soupravě.
 
 Pro vytvoření vlastního ovladače použijeme Node.js' [child_process](https://nodejs.org/api/child_process.html) API. Testovací sada spustí proces Electron a poté vytvoří jednoduchý protokol pro zasílání zpráv:
 

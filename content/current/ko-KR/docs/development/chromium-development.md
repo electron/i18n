@@ -8,6 +8,6 @@
 - [코드 검색](https://cs.chromium.org/)
 - [소스 코드](https://cs.chromium.org/chromium/src/)
 - [개발 일정 및 출시 정보](https://www.chromium.org/developers/calendar)
-- [토론 그룹](http://www.chromium.org/developers/discussion-groups)
+- [토론 그룹](https://www.chromium.org/developers/discussion-groups)
 
 [V8 개발](v8-development.md) 참고

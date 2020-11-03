@@ -104,7 +104,7 @@ Electron は V8 を Chromium の一部としてビルドし、それからNode�
 
 V8 のバージョンは必ず Google Chrome のバージョンに対応しています。 例えば Chrome 59 には V8 5.9 が入っており、Chrome 58 には V8 5.8 が入っています。
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [v8.dev](https://v8.dev/)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 

@@ -97,4 +97,4 @@ Ahora, si abre las herramientas para desarrolladores y llama `setName`, alcanzar
 ### Leer más
 LLDB es una herramienta poderosa con una gran documentación. Para aprender más acerca de ella, tome en consideración la documentación sobre la depuración de Apple, La [La documentación sobre la estructura de referencia de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o la introducción a [usar LLDB como un depurador independiente](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-También puede consultar el fantástico [manual y tutorial](http://lldb.llvm.org/tutorial.html) de LLDB, que explicará escenarios de depuración más complejos.
+También puede consultar el fantástico [manual y tutorial](https://lldb.llvm.org/tutorial.html) de LLDB, que explicará escenarios de depuración más complejos.

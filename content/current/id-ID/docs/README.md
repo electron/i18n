@@ -49,7 +49,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [File yang direpresentasikan untuk BrowserWindows macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendering di luar layar](tutorial/offscreen-rendering.md)
-  * [Mendukung Mode Gelap macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Web penyemat elektron](tutorial/web-embeds.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
     * [Spectron](tutorial/accessibility.md#spectron)
@@ -142,6 +142,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [ItemMenu](api/menu-item.md)
 * [bersih](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Pemberitahuan](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -151,7 +152,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [preferensiSistem](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
 * [Nampan](api/tray.md)
-* [kontenWeb](api/web-contents.md)
+* [konten web](api/web-contents.md)
 * [webFrameMain](api/web-frame-main.md)
 
 

@@ -12,7 +12,7 @@ Follow the guidelines below for building Electron on Windows.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. บ่อยครั้งนี้จะ`เป็น C:`.
   * [งูหลามสําหรับ Windows (pywin32) ส่วนขยาย](https://pypi.org/project/pywin32/#files) นอกจากนี้ยังมีความจําเป็นเพื่อเรียกใช้กระบวนการสร้าง
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * SDK รุ่นต่างๆสามารถติดตั้งได้แบบเคียงข้างกัน การติดตั้ง SDK เปิดโปรแกรมติดตั้ง Visual Studio เลือก `เปลี่ยน`→`องค์ประกอบส่วนบุคคล`เลื่อนลงและเลือกที่เหมาะสม Windows SDK เพื่อติดตั้ง อีกทางเลือกหนึ่งคือการมองที่ [เก็บถาวรของ Windows SDK และจําลอง](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) และดาวน์โหลด SDK รุ่นสแตนด์อโลนตามลําดับ
   * เครื่องมือการดีบัก SDK ต้องถูกติดตั้ง ถ้ามีการติดตั้ง Windows 10 SDK ผ่านการติดตั้ง Visual Studio แล้วพวกเขาสามารถติดตั้งได้โดยไปที่: `แผงควบคุม`→`โปรแกรม`→`โปรแกรมและคุณสมบัติ`→ เลือก "Windows ชุดพัฒนาซอฟต์แวร์" → `เปลี่ยน`→`เปลี่ยน`→ตรวจสอบ "เครื่องมือแก้จุดบกพร่องสําหรับ Windows" →`เปลี่ยน` หรือ คุณสามารถดาวน์โหลดตัวติดตั้ง SDK แบบสแตนด์อโลน และใช้เพื่อติดตั้งเครื่องมือการดีบัก

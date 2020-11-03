@@ -95,4 +95,4 @@ Jetzt wenn du Electrons DevTools öffnest und `setName` aufrufst triffst du wied
 ### Weiterführende Informationen
 LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+You can also check out LLDB's fantastic [manual and tutorial](https://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.

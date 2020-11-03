@@ -1,6 +1,6 @@
 # 使用自定义驱动程序进行自动化测试
 
-为Electron应用编写自动测试, 你需要一种 "驱动" 应用程序的方法。 [ Spectron ](https://electronjs.org/spectron) 是一种常用的解决方案, 它允许您通过 [ WebDriver ](http://webdriver.io/) 模拟用户行为。 当然，也可以使用node的内建IPC STDIO来编写自己的自定义驱动。 自定义驱动的优势在于，它往往比Spectron需要更少的开销，并允许你向测试套件公开自定义方法。
+为Electron应用编写自动测试, 你需要一种 "驱动" 应用程序的方法。 [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). 当然，也可以使用node的内建IPC STDIO来编写自己的自定义驱动。 自定义驱动的优势在于，它往往比Spectron需要更少的开销，并允许你向测试套件公开自定义方法。
 
 我们将用 Node.js 的 [child_process](https://nodejs.org/api/child_process.html) API 来创建一个自定义驱动。 测试套件将生成 Electron 子进程，然后建立一个简单的消息传递协议。
 

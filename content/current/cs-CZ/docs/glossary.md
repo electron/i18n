@@ -104,7 +104,7 @@ Electron builds V8 as part of Chromium and then points Node to that V8 when buil
 
 Čísla verzí V8 vždy odpovídají číslům Google Chrome. Chrome 59 zahrnuje V8 5.9, Chrome 58 zahrnuje V8 5.8 atd.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [v8.dev](https://v8.dev/)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 

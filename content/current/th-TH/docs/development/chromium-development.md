@@ -8,6 +8,6 @@
 - [ค้นหาโค้ด](https://cs.chromium.org/)
 - [แหล่งที่มา](https://cs.chromium.org/chromium/src/)
 - [ปฏิทินการพัฒนาและข้อมูลการปล่อย](https://www.chromium.org/developers/calendar)
-- [กลุ่มการสนทนา](http://www.chromium.org/developers/discussion-groups)
+- [กลุ่มการสนทนา](https://www.chromium.org/developers/discussion-groups)
 
 ดู[V8 การพัฒนา](v8-development.md)

@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## フォントがぼやけます。これはどういうものでどうすればいいのですか?
 
-[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
+[サブピクセルアンチエイリアス](https://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
 ![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
 

@@ -102,7 +102,7 @@ It is very likely you are using the module in the wrong process. На приме
 
 ## 5256783105227699
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
 
 5256783105227699
 

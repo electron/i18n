@@ -1,6 +1,6 @@
 # Использование clang-format для кода на C++
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) это инструмент для автоматического форматирования кода на C/C++/Objective-C code, он используется для того, чтобы в процессе ревью разработчики не беспокоились о проблемах, связанных с форматированием.
+[`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) это инструмент для автоматического форматирования кода на C/C++/Objective-C code, он используется для того, чтобы в процессе ревью разработчики не беспокоились о проблемах, связанных с форматированием.
 
 Настоятельно рекомендуется форматировать измененный вами код C++ перед открытием пулл-реквестов, это сэкономят время вам и ревьюверам.
 
@@ -23,5 +23,5 @@ If you want to format the changed code on your latest git commit (HEAD), you can
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
   * [Atom](https://atom.io/packages/clang-format)
-  * [Vim и Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [Vim и Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
   * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

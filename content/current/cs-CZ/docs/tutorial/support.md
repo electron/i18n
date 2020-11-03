@@ -66,12 +66,10 @@ Pro systém `ia32` (`x86`) a `x64` (`amd64`jsou k dispozici binární soubory. [
 
 ### Linux
 
-Předpostavené binárky `ia32` (`i686`a `x64` (`amd64`) jsou postaveny na Ubuntu 12. 4 binární soubor `armv7l` je postaven proti ARM v7 s hard-float ABI a NEON pro Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Do vydání Electronu 2.](../breaking-changes.md#duplicate-arm-assets), Electron bude také pokračovat v uvolňování binárního souboru `armv7l` s jednoduchou `příponou`. Oba binární soubory jsou totožné.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-Zda předpostavený binární soubor může běžet na distribuci, závisí na tom, zda distribuce obsahuje knihovny, ke kterým je Electron připojen na platformě budovy , tak pouze Ubuntu 12. 4 má zaručeno fungování, ale následující platformy jsou také ověřeny, aby mohly spustit předpostavené binární soubory Electronu:
-
-* Ubuntu 12.04 a novější
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

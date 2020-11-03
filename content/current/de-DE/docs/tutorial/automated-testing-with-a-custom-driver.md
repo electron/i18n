@@ -1,6 +1,6 @@
 # Automatisiertes Testen mit einem benutzerdefinierten Treiber
 
-Um automatisierte Tests für Ihre Electron-App zu schreiben, benötigen Sie eine Möglichkeit, Ihre Anwendung zu "steuern". [Spektron](https://electronjs.org/spectron) ist eine gängige Lösung, mit der Sie Benutzeraktionen über [WebDriver](http://webdriver.io/) emulieren können. Es ist aber auch möglich, einen eigenen eigenen Treiber mit dem eingebauten IPC-over-STDIO zu schreiben. Der Vorteil eines benutzerdefinierten Treibers ist, dass er weniger Overhead benötigt als Spectron, und lässt Sie Ihre Testsuite mit benutzerdefinierten Methoden ausstatten.
+Um automatisierte Tests für Ihre Electron-App zu schreiben, benötigen Sie eine Möglichkeit, Ihre Anwendung zu "steuern". [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Es ist aber auch möglich, einen eigenen eigenen Treiber mit dem eingebauten IPC-over-STDIO zu schreiben. Der Vorteil eines benutzerdefinierten Treibers ist, dass er weniger Overhead benötigt als Spectron, und lässt Sie Ihre Testsuite mit benutzerdefinierten Methoden ausstatten.
 
 Um einen eigenen Treiber zu erstellen, verwenden wir die [child_process](https://nodejs.org/api/child_process.html) API. Die Testsuite wird den Electron-Prozess spawnen und dann ein einfaches Messaging-Protokoll erstellen:
 

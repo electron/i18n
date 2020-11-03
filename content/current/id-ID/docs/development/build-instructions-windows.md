@@ -12,7 +12,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Seringkali, akan menjadi `C:`.
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) juga diperlukan agar proses build dapat berlangsung.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Versi SDK yang berbeda dapat dipasang bersamaan. Untuk memasang SDK, buka Visual Studio Installer, pilih `Change` → `Individual Components`, gulir ke bawah dan pilih SDK yang sesuai untuk dipasang. Opsi lainnya dapat ditemukan di [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) dan unduh SDK versi standalone.
   * Peralatan Debugging SDK juga harus dipasang. Bila SDK WIndows 10 telah terpasang melalui Visual Stdio installer, lalu mereka dapat dipasang melalui: `Control Panel` → `Programs` → `Programs and Features` → pilih "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Atau, Anda dapat mengunduh penginstal SDK mandiri dan menggunakannya untuk menginstal Alat Debugging.

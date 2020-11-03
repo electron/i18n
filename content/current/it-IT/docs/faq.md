@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## Il carattere sembra sfocato, che cos'è e cosa posso fare?
 
-Se [l'anti-aliasing dei sub-pixel](http://alienryderflex.com/sub_pixel/) è disattivato, allora i font sugli schermi LCD possono sembrare sfocati. Esempio:
+Se l'[anti-aliasing del sub-pixel](https://alienryderflex.com/sub_pixel/) è disattivato, allora i caratteri sugli schermi LCD possono apparire sfocati. Esempio:
 
 ![modello di rendering dei sottopixel](images/subpixel-rendering-screenshot.gif)
 

@@ -101,7 +101,7 @@ Este foarte probabil să utilizați modulul într-un proces greșit. De exemplu 
 
 ## Fontul arată încețoșat, ce pot face și ce pot face?
 
-Dacă [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) este dezactivat, atunci fonturile de pe ecranele LCD pot arăta încețoșat. Exemplu:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplu:
 
 ![subpixel randare exemplu](images/subpixel-rendering-screenshot.gif)
 

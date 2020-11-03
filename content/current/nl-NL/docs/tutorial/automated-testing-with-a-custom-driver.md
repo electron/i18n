@@ -1,6 +1,6 @@
 # Geautomatiseerd testen met een aangepast stuurprogramma
 
-Om geautomatiseerde tests voor je Electron app te schrijven heb je een manier nodig om je applicatie te "schijven". [Spectron](https://electronjs.org/spectron) is een veelgebruikte oplossing waarmee u gebruikersacties kunt emuleren via [WebDriver](http://webdriver.io/). Het is echter ook mogelijk om uw eigen aangepaste stuurprogramma te schrijven met behulp van ingebouwde IPC-overSTDIO. Het voordeel van een custom driver is dat het minder overhead vereist dan Spectron, en laat je aangepaste methoden aan je testset blootstellen.
+Om geautomatiseerde tests voor je Electron app te schrijven heb je een manier nodig om je applicatie te "schijven". [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Het is echter ook mogelijk om uw eigen aangepaste stuurprogramma te schrijven met behulp van ingebouwde IPC-overSTDIO. Het voordeel van een custom driver is dat het minder overhead vereist dan Spectron, en laat je aangepaste methoden aan je testset blootstellen.
 
 Om een aangepast stuurprogramma te maken, gebruiken we Node.js' [child_process](https://nodejs.org/api/child_process.html) API. De test suite zal het Electron proces starten en vervolgens een eenvoudig berichtenprotocol instellen:
 

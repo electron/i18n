@@ -97,7 +97,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## Шрифт выглядит размытым, что это и что я могу с этим сделать?
 
-Если [подпиксельное сглаживание](http://alienryderflex.com/sub_pixel/) отключено, то шрифты на ЖК экранах могут выглядеть размытыми. Пример:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
 
 ![пример прорисовки подпикселя](images/subpixel-rendering-screenshot.gif)
 

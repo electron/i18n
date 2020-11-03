@@ -6,7 +6,7 @@
 
 ## وضع Spectron
 
-</> Spectron </ 0> هو إطار اختبار ChromeDriver المدعوم رسميًا للإلكترون. تم بناءه على [WebdriverIO](http://webdriver.io/) و لديه مساعدين للوصول إلى واجهة برمجة تطبيقات إلكترون في اختبارات وحزم ChromeDriver.
+</> Spectron </ 0> هو إطار اختبار ChromeDriver المدعوم رسميًا للإلكترون. It is built on top of [WebdriverIO](https://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## الإعداد مع WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) يوفر حزمة عقدة لاختبارها مع مشغل الويب، وسوف نستخدمها كمثال.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) provides a Node package for testing with web driver, we will use it as an example.
 
 ### 1. بدء تشغيل ChromeDriver
 
@@ -99,7 +99,7 @@ driver.wait(() => {
 
 ## الإعداد مع WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) يوفر حزمة عقدة لاختبار مع مشغل الويب .
+[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
 
 ### 1. بدء تشغيل ChromeDriver
 

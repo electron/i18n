@@ -95,4 +95,4 @@ Process 25244 stopped
 ### 参考リンク
 LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) や [LLDB をスタンドアロンデバッガとして使用する方法](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) などの Apple のデバッグドキュメントを参照してください。
 
-さらに複雑なデバッグシナリオについて説明されている、LLDB の素晴らしい [マニュアルとチュートリアル](http://lldb.llvm.org/tutorial.html) も参考にできます。
+さらに複雑なデバッグシナリオについて説明されている、LLDB の素晴らしい [マニュアルとチュートリアル](https://lldb.llvm.org/tutorial.html) も参考にできます。

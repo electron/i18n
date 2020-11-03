@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## संस्करण 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | स्लैक, टीम्स, स्काइप, वीएस कोड, एटम, और डेस्कटॉप जैसी मुख्य एप्प्स के क्युऐ परिक्षण चरण काफी लम्बे हो सकते हैं और स्थिरता बेहद आवश्यक निश्कर्ष है | त्रुटियों को सही करने के दौरान नयी सुविधायें को अपनाने में बहुत बड़ा खतरा है |
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | स्लैक, टीम्स, स्काइप, वीएस कोड, एटम, और डेस्कटॉप जैसी मुख्य एप्प्स के क्युऐ परिक्षण चरण काफी लम्बे हो सकते हैं और स्थिरता बेहद आवश्यक निश्कर्ष है | त्रुटियों को सही करने के दौरान नयी सुविधायें को अपनाने में बहुत बड़ा खतरा है |
 
 1.x रणनीति का एक उदाहरण:
 

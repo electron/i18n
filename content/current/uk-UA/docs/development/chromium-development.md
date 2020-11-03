@@ -8,6 +8,6 @@
 - [Пошук Коду](https://cs.chromium.org/)
 - [Вихідний Код](https://cs.chromium.org/chromium/src/)
 - [Календар Розробки та Релізна Інформація](https://www.chromium.org/developers/calendar)
-- [Групи Обговорення](http://www.chromium.org/developers/discussion-groups)
+- [Групи Обговорення](https://www.chromium.org/developers/discussion-groups)
 
 Дивіться також [Розробка V8](v8-development.md)

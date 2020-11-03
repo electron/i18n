@@ -45,7 +45,7 @@ Istnieją wyjątki od tej reguły dla odwołań do API.
 * Używaj `sh` zamiast `cmd` w blokach kodu (z powodu podświetlacza składni).
 * Linie powinny być zawinięte na 80 kolumnie.
 * Nie twórz więcej niż 2 poziomów listy. (ze względu na moduł renderujący markdown).
-* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](http://npm.im/standard-markdown).
+* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Wybieranie słów
 
