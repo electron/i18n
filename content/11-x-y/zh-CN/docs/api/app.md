@@ -106,13 +106,13 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。
 
-### Event: 'did-become-active' _macOS_
+### 事件: 'did-groupe-active' _macOS_
 
 返回:
 
 * `event` Event
 
-当mac应用将要被激活时发出。 与 `activate` 事件的不同， 每次应用程序激活时都会触发 `did-become-active` ，而不仅仅在 Dock 图标被点击或应用程序被重新启动的时候。
+当应用被激活时发出。 与 `activate` 事件的不同是应用，程序激活时都会触发 `did-become-active` ，而不仅仅在 Dock 图标被点击或应用程序被重新启动的时候。
 
 ### 事件: 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### 事件: 'gpu-process-crashed' _已废弃_
 
 返回:
 

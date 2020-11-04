@@ -27,16 +27,16 @@ app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady(). hen(() => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  ganha. oadURL('http://github.com')
+  win.loadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image etBitmap())
+    // updateBitmap(dirty, image.getBitmap())
   })
   win.webContents.setFrameRate(30)
 })
