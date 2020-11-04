@@ -5,7 +5,12 @@
 Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si vous avez besoin d’aide pour la programmation, de réponses à vos questions, ou pour rejoindre une discussion avec d’autres développeurs qui utilisent Electron, vous pouvez interagir avec la Communauté à ces adresses :
-- [`electron`](https://discuss.atom.io/c/electron) sur le forum de Atom
+- Sur les Canaux de [`Electron's Discord`](https://discord.com/invite/electron):
+  - Pour obtenir de l'aide
+  - A propos d'applications de l'écosystème comme [Electron Forge](https://github.com/electron-userland/electron-forge) ou [Electron Fiddle](https://github.com/electron/fiddle)
+  - Pour partager vos avec d’autres développeurs d’applications Electron
+  - Et bien plus!
+- Catégories des forums Atom concernant [`electron`](https://discuss.atom.io/c/electron)
 - `#atom-shell` sur le channel Freenode
 - ``Electron[](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) sur le canal Slack d'Atom
 - [`electron-ru`](https://telegram.me/electron_ru) *(Russe)*
@@ -24,20 +29,20 @@ Si vous découvrez une erreur dans une [version supportée](#supported-versions)
 
 ## Versions supportées
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+Les trois dernières versions majeures *stables* sont prises en charge par l'équipe Electron. Par exemple, si la dernière version est 6.1.x, alors les versions 5.0.x ainsi que de la série 4.2.x sont supportées.  Nous ne prenons en charge que la dernière version mineure pour chaque version stable.  Cela signifie que dans le cas d'une correction de sécurité 6.1. recevra la correction, mais nous ne publierons pas une nouvelle version de la version 6.0.x.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+La dernière version stable reçoit unilatéralement toutes les corrections de `master`, et la version antérieure qui reçoit la grande majorité de ces correctifs comme le temps et la bande passante le garantie. La plus ancienne ligne de version supportée recevra seulement des correctifs de sécurité directement.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Toutes les lignes de version supportées accepteront les demandes de fusion externes pour rétroporter corrections précédemment fusionnées à `master`, bien que cela puisse être au cas par cas pour certaines lignes plus anciennes supportées. Toutes les décisions contestées autour des rétroportages de la ligne de publication seront résolues par le [Groupe de travail sur les parutions](https://github.com/electron/governance/tree/master/wg-releases) en tant qu'élément de l'ordre du jour lors de leur réunion hebdomadaire la semaine où le RP de rétroport est levé.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+Lorsqu'une API est modifiée ou supprimée d'une manière qui casse les fonctionnalités existantes, la fonctionnalité précédente sera prise en charge pour un minimum de deux versions majeures lorsque est possible avant d'être supprimée. Par exemple, si une fonction prend trois arguments, et que ce nombre est réduit à deux dans la version majeure 10, la version à trois arguments continuerait à fonctionner jusqu'à la version 12, au minimum, majeure. Dépassé le seuil minimum de deux versions, nous tenterons de supporter la compatibilité ascendante au-delà de deux versions jusqu'à ce que les responsables estiment que la charge de maintenance est trop élevée pour continuer à le faire.
 
-### Currently supported versions
+### Versions actuellement supportées
 - 10.x.y
 - 9.x.y
 - 8.x.y
 
-### End-of-life
+### Fin de vie
 
 Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
@@ -57,16 +62,14 @@ Seul les binaires 64bit sont fournit pour macOs, et la version minimale de macOs
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Electron 6.0.8 et plus tard ajoutent le support natif pour Windows sur les périphériques Arm (`arm64`)](windows-arm.md). L'exécution d'applications empaquetées avec des versions précédentes est possible en utilisant le binaire ia32.
 
 ### Linux
 
-Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont compilés sur Ubuntu 12.04, le binaire `armv7l` est compilé sur ARM v7 avec l'ABI hard-float et NEON pour Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Jusqu'à la version 2.0 d'Electron](../breaking-changes.md#duplicate-arm-assets), Electron continuera également de sortir un binaire `armv7l` avec un simple suffix `arm`. Les deux binaires sont identiques.
+Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 18.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
-Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
-
-* Ubuntu 12.04 et supérieur
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 et supérieur
+* Fedora 24 and newer
+* Debian 8 and newer

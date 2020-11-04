@@ -1,57 +1,57 @@
 ---
-title: "Internationalization Updates"
+title: "Actualizări de internaționalizare"
 author: vanessayuenn
 date: '2018-06-20'
 ---
 
-Ever since the [launch](https://electronjs.org/blog/new-website) of the new internationalized Electron website, we have been working hard to make the Electron development experience even more accessible to developers outside of the English speaking world.
+De la [lansarea](https://electronjs.org/blog/new-website) a noului site Electron internaționalizat, Am muncit din greu pentru a face şi mai accesibilă dezvoltarea Electron dezvoltatorilor din afara lumii vorbitoare de engleză.
 
-So here we are with some exciting i18n updates!
+Iată câteva actualizări interesante pentru i18n!
 
 ---
 
-## 🌐 Language Toggle
+## 🌐 Limbă Comutare
 
-Did you know that many people who read translated documentation often cross reference that with the original English documentation? They do this to familiarize themselves with English docs, and to avoid outdated or inaccurate translations, which is one caveat of internationalized documentations.
-
-<figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Language toggle on Electron documentation">
-</figure>
-
-To make cross-referencing to English docs easier, we recently shipped a feature that allows you to seamlessly toggle a section of the Electron documentation between English and whatever language you're viewing the website in. The language toggle will show up as long as you have a non-English locale selected on the website.
-
-## ⚡️ Quick Access to Translation Page
+Știați că mulți oameni care au citit documentația au făcut adesea referire la documentația originală în limba engleză? Fac acest lucru pentru a se familiariza cu documentele englezeşti, şi pentru a evita traducerile învechite sau inexacte, care reprezintă un avertisment pentru documentaţii internaţionalizate.
 
 <figure>
-  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="New Electron documentation footer in Japanese">
-  <figcaption>Electron documentation footer in Japanese</figcaption>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/35578586-cae629e2-05e4-11e8-9431-0278f8c2b39f.gif" alt="Comutare limbă în documentația Electron">
 </figure>
 
-Notice a typo or an incorrect translation while you're reading the documentation? You no longer have to log in to Crowdin, pick your locale, find the file you'd like the fix, etc etc. Instead, you can just scroll down to the bottom of the said doc, and click "Translate this doc" (or the equivalent in your language). Voila! You are brought straight to the Crowdin translation page. Now apply your translation magic!
+Pentru a simplifica referințele încrucișate cu documentele englezești, recent am expediat o caracteristică care vă permite să comutați fără întreruperi o secțiune a documentației Electron între engleză și limba în care vizualizați site-ul. Comutatorul de limbă va apărea atâta timp cât aveți selectat un local non-englez pe site.
 
-## 📈 Some Statistics
+## ⚡ Acces rapid la pagina de traducere
 
-Ever since we have publicized the Electron documentation i18n effort, we have seen _huge_ growth in translation contributions from Electron community members from all around the world. To date, we have **1,719,029 strings translated, from 1,066 community translators, and in 25 languages**.
+<figure>
+  <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/36511386-c32e31fc-1766-11e8-8484-7466be6a5eb0.png" alt="Subsol cu documentație Electron nou în japoneză">
+  <figcaption>Subsol pentru documentație Electron în japoneză</figcaption>
+</figure>
+
+Observați o greșeală sau o traducere incorectă în timp ce citiți documentația? Nu mai trebuie să te autentifici în Crowdin, alege locația, găsește fișierul care ți-ar plăcea fixul, etc etc. În schimb, poți doar să derulezi în partea de jos a documentului și să apeși "Traduci acest document" (sau echivalentul în limba ta). Voila! Ai fost adus direct la pagina de traducere Crowdin. Acum aplică magia ta de traducere!
+
+## 📈 Unele statistici
+
+Încă de când am făcut publice efortul documentației Electron i18n, Am văzut _o creștere uriașă_ a contribuțiilor de traducere ale membrilor comunității Electron din întreaga lume. Până în prezent, avem **1,719,029 șiruri traduse, de la 1 066 traducători comunitari, și în 25 de limbi**.
 
 <figure>
   <a href="https://crowdin.com/project/electron/">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Translation Forecast provided by Crowdin">
-    <figcaption>Translation Forecast provided by Crowdin</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/6842965/41649826-ca26037c-747c-11e8-9594-5ce12d2978e2.png" alt="Previziuni de traducere furnizate de Crowdin">
+    <figcaption>Prognoza de traducere furnizată de Crowdin</figcaption>
   </a>
 </figure>
 
-Here is a fun graph showing the approximate amount of time needed to translate the project into each language if the existing tempo (based on the project activity during the last 14 days at the time of writing) is preserved.
+Aici este un grafic distractiv care arată o perioadă aproximativă de timp necesară pentru traducerea proiectului în fiecare limbă, dacă tempo-ul existent (bazat pe activitatea proiectului din ultimele 14 zile la momentul scrierii) este păstrat.
 
-## 📃 Translator Survey
+## :page_cu_curl: Chestionar de Traducător
 
-We would like to give a huge ❤️ thank you ❤️ to everyone who has contributed their time to help improving Electron! In order to properly acknowledge the hard work of our translator community, we have created a survey to collect some information (namely the mapping between their Crowdin and Github usernames) about our translators.
+Am dori să îi oferim un selector uriaș ❤️ mulțumim ❤️ tuturor celor care au contribuit la îmbunătățirea Electron cu timpul lor! Pentru a recunoaște corect munca asiduă a comunității noastre de traducători, am creat un sondaj pentru a colecta unele informații (și anume cartografierea dintre numele lor de utilizator Crowdin și Github) despre traducătorii noștri.
 
-If you are one of our incredible translators, please take a few minutes to fill this out: https://goo.gl/forms/b46sjdcHmlpV0GKT2.
+Dacă sunteți unul dintre traducătorii noștri incredibili, vă rugăm să completați acest lucru: https://goo.gl/forms/b46sjdcHmlpV0GKT2.
 
-## 🙌 Node's Internationalization Effort
+## 🙌 Efortul de Internaționalizare al Node
 
-Because of the success of Electron's i18n initiative, Node.js decided to model [their revamped i18n effort](https://github.com/nodejs/i18n) after the pattern we use as well! 🎉 The [Node.js i18n initiative](https://github.com/nodejs/i18n) has now been launched and gained great momentum, but you can stil read about the early proposal and reasoning behind it [here](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
+Din cauza succesului inițiativei i18n a Electron, Node.js a decis să modeleze [efortul lor i18n restructurat](https://github.com/nodejs/i18n) după modelul pe care îl folosim de asemenea! 🎉 Nodul [Inițiativa s i18n](https://github.com/nodejs/i18n) a fost lansată și a câștigat un avânt, dar poți citi încă despre propunerea timpurie și raționamentul din spatele ei [aici](https://medium.com/the-node-js-collection/internationalizing-node-js-fe7761798b0a).
 
-## 🔦 Contributing Guide
+## 🔦 Ghid de contribuție
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Happy internationalizing! 📚
+Dacă sunteți interesat să vă alăturați efortului nostru de a face Electron mai prietenos la nivel internațional, avem un ghid [colaborator la îndemână](https://github.com/electron/i18n/blob/master/contributing.md) pentru a vă ajuta să începeți. Internaţionalizare fericită! 📚

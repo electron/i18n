@@ -1,30 +1,32 @@
-# Custom Linux Desktop Launcher Actions
+# Acțiuni Linux Desktop Launcher personalizate
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+## Overview
 
-__Launcher shortcuts of Audacious:__
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![îndrăzneț](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Acțiuni=PlayPause;Înainte;Înainte
 
-[Desktop Action PlayPause]
-Name=Play-Pause
-Exec=audacious -t
-OnlyShowIn=Unity;
+[Acțiune Desktop PlayPause]
+Nume=Play-Pause
+Exec=audacos -t
+OnlyShowIn=Unitate;
 
-[Desktop Action Next]
-Name=Next
+[Acțiune Desktop Next]
+Nume=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+OnlyShowIn=Unitate;
 
-[Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+[Acțiune Desktop anterior]
+Nume=anterior
+Exec=îndrăzneț -r
+OnlyShowIn=Unitate;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

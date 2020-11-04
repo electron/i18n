@@ -1,27 +1,27 @@
-# Writing Your First Electron App
+# Scrie prima ta aplicație Electron
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron vă permite să creați aplicații desktop cu pure JavaScript, furnizând o rulare cu API-uri native (sistem de operare). Ați putut-o vedea ca o variantă a runtime Node.js care este concentrată pe aplicații desktop în loc de servere web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Asta nu înseamnă că Electron este o legare JavaScript la bibliotecile grafice de interfață utilizator (GUI). În schimb, Electron folosește paginile web ca GUI, așa că ai putea să o vezi ca un browser de Chromium minim, controlat de JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Notă**: Acest exemplu este disponibil și ca un repo poți [descărca și rula imediat](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+În ceea ce privește dezvoltarea, o aplicație Electron este în esență o aplicație Node.js. Punctul de plecare este un `pachet.json` care este identic cu cel al unui modul Node.js. O aplicație Electron de bază ar avea următoarea structură de dosare :
 
 ```plaintext
-your-app/
-├── package.json
-├── main.js
-└── index.html
+aplicația-ta/
+Ribavirin ─ pachete.json
+Ribavirin ─ main.js
+•─ index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Creați un dosar nou gol pentru noua dvs. aplicație Electron. Deschideți clientul de comandă și executați `npm init` din acel director.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm te va ghida prin crearea unui fișier `pachet.json`. Scriptul specificat de câmpul `principal` este script-ul de pornire al aplicației dvs., care va rula procesul principal. Un exemplu de pachetul `pachet.json` ar putea arăta în felul următor:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+__Note__: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). Dacă a fost de fapt o aplicație simplă Node, ați adăuga un `start` script care instruiește `nod` pentru a executa pachetul curent:
 
 ```json
 {
@@ -44,7 +44,7 @@ __Note__: If the `main` field is not present in `package.json`, Electron will at
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Transformarea acestei aplicații Node într-o aplicație Electron este destul de simplă - vom înlocui pur și simplu `terminalul` runtime cu `electronul` runtime.
 
 ```json
 {
@@ -59,29 +59,29 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## Instalarea Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+În acest moment, va trebui să instalezi `electronul` însuși. Modul recomandat de a face acest lucru este să îl instalezi ca o dependență de dezvoltare în aplicația ta, care vă permite să lucrați pe mai multe aplicații cu diferite versiuni Electron. Pentru a face acest lucru, execută următoarea comandă din directorul aplicației tale:
 
 ```sh
-npm install --save-dev electron
+npm instalare --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Alte mijloace pentru instalarea Electron există. Vă rugăm să consultaţi [ghidul de instalare](installation.md) pentru a afla despre utilizarea cu proxy-uri, oglinzi, şi geocutii personalizate.
 
 ## Dezvoltarea Electron într-un Nutshell
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Aplicațiile Electron sunt dezvoltate în JavaScript folosind aceleași principii și metode găsite în dezvoltarea Node.js. Toate API-urile și caracteristicile găsite în Electron sunt accesibile prin modulul `electron` , care poate fi solicitat ca orice alt modul . s modul:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+Modulul `electron` expune caracteristici în spații de nume. Ca exemple, ciclul de viață al aplicației este gestionat prin `electron. pp`, ferestrele pot fi create folosind clasa `electron.BrowserWindow`. Un fişier simplu `main.js` ar putea aştepta ca aplicaţia să fie pregătită şi să deschidă o fereastră:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Creați fereastra browser-ului.
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,14 +90,14 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // și încarcă index.html al aplicației.
   win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js` ar trebui să creeze ferestre şi să se ocupe de toate evenimentele de sistem pe care aplicaţia s-ar putea să le întâlnească. O versiune mai completă a exemplului de mai sus ar putea deschide unelte de dezvoltator, să gestioneze fereastra închisă, sau re-creați ferestre ferestre pe macOS dacă utilizatorul face clic pe pictograma aplicației în dock.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -119,7 +119,7 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Deschideți DevTools.
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
@@ -133,31 +133,31 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Unele API-uri pot fi utilizate numai după acest eveniment.
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
+  // Pe macOS este comun ca aplicațiile și bara lor de meniu
+  // să rămână active până când utilizatorul renunță în mod explicit la Cmd + Q
+  dacă (proces. latform !== 'darwin') {
+    app. uit()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+aplicație. n ('activat', () => {
+  // Pe macOS este comun să se recreeze o fereastră în aplicație atunci când se face clic pe pictograma de andocare
+  // și nu există alte ferestre deschise.
   if (win === null) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. De asemenea, le puteți pune în fișiere separate și le puteți cere aici.
 ```
 
-Finally the `index.html` is the web page you want to show:
+În final, indexul `index.html` este pagina web pe care doriți să o afișați:
 
 ```html
 <!DOCTYPE html>
@@ -179,22 +179,22 @@ Finally the `index.html` is the web page you want to show:
 
 ## Rularea primei tale aplicații
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Odată ce ați creat inițial `main.js`, `index.html`, și `pachetul. Fiu` fișiere, poți încerca aplicația rulând `npm pornește` din directorul al aplicației tale.
 
-## Trying this Example
+## Se încearcă acest exemplu
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`][quick-start] repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
+# Clonează depozitul
+$ git clona https://github. om/electron/electron-quick-start
+# Mergeți în depozitul
+$ cd electron-start
+# Instalare dependențe
+$ npm instalare
+# Rulează aplicația
 $ npm start
 ```
 

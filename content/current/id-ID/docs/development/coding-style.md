@@ -36,7 +36,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 ## JavaScript
 
-* Menulis [standar](https://npm.im/standard) gaya JavaScript.
+* Menulis [standar](https://www.npmjs.com/package/standard) gaya JavaScript.
 * Nama file harus dihubungkan dengan `-` bukan `_`, misalnya `nama-file.js` bukannya `nama_file.js`, karena di [github/atom](https://github.com/github/atom) nama-nama modul biasanya dalam bentuk berupa `nama-modul`. Aturan ini hanya berlaku untuk file-file `.js`.
 * Gunakan sintaks ES6 / ES2015 yang lebih baru yang tepat
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) untuk persyaratan dan konstanta lainnya.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).

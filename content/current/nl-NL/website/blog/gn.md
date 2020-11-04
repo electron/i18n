@@ -1,35 +1,35 @@
 ---
-title: "Using GN to Build Electron"
+title: "Gebruik GN om Electron te bouwen"
 author: nornagon
 date: '2018-09-05'
 ---
 
-Electron now uses GN to build itself. Here's a discussion of why.
+Electron gebruikt nu GN om zichzelf te bouwen. Dit is een discussie over de waarom.
 
 ---
 
-# GYP and GN
+# GYP en GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
+Toen Electron voor het eerst werd vrijgegeven in 2013, werd Chromium's build-configuratie geschreven met [GYP](https://gyp.gsrc.io/), kort voor "Genereer Je Projecten".
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN](https://gn.googlesource.com/gn/) (short for "Generate [Ninja](https://ninja-build.org/)") Chromium's build files were migrated to GN and GYP was removed from the source code.
+In 2014, het Chromium project introduceerde een nieuwe build configuratie tool genaamd [GN](https://gn.googlesource.com/gn/) (afkorting voor "Generate [Ninja](https://ninja-build.org/)") De Chromium's build bestanden werden gemigreerd naar GN en GYP werd uit de broncode verwijderd.
 
-Electron has historically kept a separation between the main [Electron code](https://github.com/electron/electron) and [libchromiumcontent](https://github.com/electron/libchromiumcontent), the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
+Electron heeft historisch gezien een scheiding gehouden tussen de hoofdcode [Electron code](https://github.com/electron/electron) en [libchromiumcontent](https://github.com/electron/libchromiumcontent), het deel van Electron dat Chromium's 'inhoud' submodule bevat. Electron heeft doorgaan met het gebruiken van GYP, terwijl libchromiumcontent -- als een onderset van Chromium -- is overgeschakeld naar GN als Chromium dat deed.
 
-Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
+Zoals gordijnen die niet zo gaafjes waren, was er wrijving tussen het gebruik van de twee bouwsystemen. Compatibiliteit behouden was foutloos, van compilervlaggen en `#definieer` die zorgvuldig gesynchroniseerd moet worden tussen Chromium, Node, V8 en Electron.
 
-To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
+Om dit aan te pakken, heeft het Electron team eraan gewerkt om alles naar het bni te verplaatsen. Vandaag, is de [commit](https://github.com/electron/electron/pull/14097) om de laatste van de GYP-code van Electron te verwijderen geland in de meester.
 
-# What this means for you
+# Wat betekent dit voor jou
 
-If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
+Als je zelf bijdraagt aan Electron, het proces om Electron te checken en te bouwen van `master` of 4. .0 is heel anders dan in 3.0.0 en eerder. Zie de [GN build instructies](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) voor details.
 
-If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
+Als je een app met Electron ontwikkelt, zijn er enkele kleine wijzigingen die je zou kunnen zien in de nieuwe Electron 4. .0-nightly; maar meer dan waarschijnlijk, zal de wijziging in het bouwsysteem van Electrons volledig transparant voor u zijn.
 
-# What this means for Electron
+# Wat betekent dit voor Electron
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
+GN is [sneller](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) dan de GYP en de bestanden ervan zijn leesbaarder en onderhoudsbaar. Bovendien hopen we dat het gebruik van een enkel build-configuratiesysteem het werk zal verminderen dat nodig is om Electron te upgraden naar nieuwe versies van Chromium.
 
- * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
+ * Het wordt de ontwikkeling op Electron 4.0.0 al geholpen omdat Chromium 67 de ondersteuning voor MSVC heeft verwijderd en is overgeschakeld naar bouwen met Clang op Windows. Met de GN build, erven we direct alle compiler commando's van Chromium, dus hebben we de Clang build op Windows gratis gekregen!
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * Het maakt het ook makkelijker voor Electron om [BoringSSL](https://boringssl.googlesource.com/boringssl/) te gebruiken in een verenigd bouwwerk over Electron, Chromium en node -- iets dat [problematisch was voor](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).

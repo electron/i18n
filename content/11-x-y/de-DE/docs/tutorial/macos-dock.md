@@ -1,12 +1,12 @@
 # macOS Dock
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron hat APIs zum Konfigurieren des App-Symbols im MacOS-Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Das benutzerdefinierte Dock wird häufig verwendet, um Verknüpfungen zu Aufgaben hinzuzufügen, für die der Benutzer nicht das gesamte App-Fenster öffnen möchte.
 
 __Dock Menu der Terminal.app:__
 
-![Dock Menu][3]
+![Dock-Menü][3]
 
 Um Ihr eigenes Dock Menu festzulegen, können Sie die `app.dock.setMenu` API nutzen. Diese ist nur unter macOS verfügbar:
 

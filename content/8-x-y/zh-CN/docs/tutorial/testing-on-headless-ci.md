@@ -36,7 +36,7 @@ Jenkins下, 有一个[可用的 Xvfb 插件](https://wiki.jenkins-ci.org/display
 
 ### Circle CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI 非常棒，并且有 Xvfb 和 `$DISPLAY` [已经设置，所以不需要更多配置](https://circleci.com/docs/environment#browsers)
 
 ### AppVeyor
 

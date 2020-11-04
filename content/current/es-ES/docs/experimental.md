@@ -1,17 +1,17 @@
-# Experimental APIs
+# API experimentales
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Algunas de las APIs de Electrons están etiquetadas con `_Experimental_` en la documentación. Esta etiqueta indica que la API no puede considerarse estable y la API puede ser eliminada o modificada más frecuentemente que otras APIs con menos advertencia.
 
-## Conditions for an API to be tagged as Experimental
+## Condiciones para una API a etiquetar como Experimental
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Cualquiera puede solicitar que una API sea etiquetada como experimental en una característica PR, los desacuerdos sobre la naturaleza experimental de una característica pueden ser discutidos en el API WG si no pueden ser resueltos en el PR.
 
-## Process for removing the Experimental tag
+## Proceso para eliminar la etiqueta Experimental
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Una vez que una API ha sido estable y en al menos dos grandes líneas de lanzamiento estable, puede ser nominado para que se borre su etiqueta experimental.  Esta discusión debería suceder en una reunión de API WG.  Cosas a considerar cuando se discute / nominando:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* La condición anterior de "dos grandes líneas de lanzamiento estables" debe haber sido cumplida
+* Durante ese tiempo no debería haber habido errores o problemas importantes debido a la adopción de esta característica
+* La API es suficientemente estable y no se ha visto afectada por las actualizaciones de Chromium
+* ¿Alguien está usando la API?
+* ¿Cumple la API los usos propuestos originalmente, tiene lagunas?

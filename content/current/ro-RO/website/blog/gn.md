@@ -1,35 +1,35 @@
 ---
-title: "Using GN to Build Electron"
+title: "Folosind GN pentru a construi Electron"
 author: nornagon
 date: '2018-09-05'
 ---
 
-Electron now uses GN to build itself. Here's a discussion of why.
+Electron folosește acum GN pentru a se construi. Iată o discuţie despre motivele acestei situaţii.
 
 ---
 
-# GYP and GN
+# GYP și GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
+Când Electron a fost lansat pentru prima dată în 2013, configurația de construcție a Chromium a fost scrisă cu [GYP](https://gyp.gsrc.io/), prescurtare pentru "Generați proiectele dvs.".
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN](https://gn.googlesource.com/gn/) (short for "Generate [Ninja](https://ninja-build.org/)") Chromium's build files were migrated to GN and GYP was removed from the source code.
+În 2014, proiectul Chromium a introdus o nouă unealtă de configurare a construcției numită [GN](https://gn.googlesource.com/gn/) (prescurtare pentru "Generați [Ninja](https://ninja-build.org/)") Fișierele de construcție ale Chromium au fost migrate la GN și GYP a fost eliminat din codul sursă.
 
-Electron has historically kept a separation between the main [Electron code](https://github.com/electron/electron) and [libchromiumcontent](https://github.com/electron/libchromiumcontent), the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
+Electron a păstrat de-a lungul istoriei o separare între codul principal [Electron](https://github.com/electron/electron) şi [libchromiumcontent](https://github.com/electron/libchromiumcontent), partea din submodulul Electron al lui Chromium. Electron a continuat folosind GYP, în timp ce libchromiumcontent -- ca subset de Chromium -- a trecut la GN atunci când a făcut Chromium.
 
-Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
+Ca uneltele care nu prea plesnesc, a existat fricţiune între folosirea celor două sisteme de construcţii. Menținerea compatibilității a fost predispusă la erori, de la compilator de steaguri și `#definește` care trebuia să fie păstrate meticulos sincronizat între Chromium, Node, V8 și Electron.
 
-To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
+Pentru a rezolva această problemă, echipa Electron a lucrat la mutarea tuturor la VNB. Astăzi, [se angajează](https://github.com/electron/electron/pull/14097) să elimine ultimul cod GYP din Electron a fost debarcat în stăpân.
 
-# What this means for you
+# Ce înseamnă asta pentru tine
 
-If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
+Dacă contribuiți la Electron în sine, procesul de verificare și construire a Electron de la `master` sau 4. .0 este foarte diferit decât era în 3.0.0 și mai devreme. Vezi [instrucţiunile de construcţie GN](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) pentru detalii.
 
-If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
+Dacă dezvoltați o aplicație cu Electron, există câteva modificări minore pe care le puteți observa în noul Electron 4. .0-noapte; dar mai mult decât probabil, schimbarea sistemului de construcții al Electron va fi complet transparentă pentru tine.
 
-# What this means for Electron
+# Ce înseamnă asta pentru Electron
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
+GN este [mai rapid](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) decât GYP şi fişierele sale sunt mai lizibile şi întreţinute. Mai mult decât atât, sperăm că utilizarea unui sistem unic de configurare va reduce munca necesară pentru a actualiza Electron la noi versiuni de Chromium.
 
- * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
+ * Deja ajută la dezvoltarea Electron 4.0.0 substanţial pentru că Chromium 67 a eliminat suportul pentru MSVC şi a trecut la construirea cu Clang pe Windows. Cu GN construit, moștenim toate comenzile compilatorului direct din Chromium, așa că am obținut Clang construit pe Windows gratuit!
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * De asemenea, este mai ușor pentru Electron să folosească [BoringSSL](https://boringssl.googlesource.com/boringssl/) într-o construcție unificată prin Electron, Chromium și Node -- ceva care a fost [problematic înainte de](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).

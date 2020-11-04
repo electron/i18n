@@ -1,31 +1,31 @@
 ---
-title: Website Hiccups
+title: Хикапы веб-сайта
 author: zeke
 date: '2018-02-12'
 ---
 
-Last week the [electronjs.org](https://electronjs.org) site had a few minutes of downtime. If you were affected by these brief outages, we're sorry for the inconvenience. After a bit of investigation today, we've diagnosed the root cause and have deployed a [fix](https://github.com/electron/electronjs.org/pull/1076).
+На прошлой неделе сайт [electronjs.org](https://electronjs.org) прошел несколько минут пропущенного времени. Если вы были затронуты этими краткими ошибками, мы сожалеем за неудобства. После некоторого исследования сегодня, мы обнаружили корневую причину и развернули [исправление](https://github.com/electron/electronjs.org/pull/1076).
 
 ---
 
-To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
+Чтобы предотвратить такие задержки в будущем, мы включили [пороговые оповещения Heroku](https://devcenter.heroku.com/articles/metrics#threshold-alerting) в нашем приложении. Каждый раз, когда наш веб-сервер накапливает неудачные запросы или медленные отклики сверх определенного порога, наша команда будет уведомлена, чтобы мы могли решить проблему быстро.
 
-## Offline Docs in Every Language
+## Автономная документация на каждом языке
 
-The next time you're developing an Electron app on a plane or in a subterranean coffee shop, you might want to have a copy of the docs for offline reference. Fortunately, Electron's docs are available as Markdown files in over 20 languages.
+В следующий раз, когда вы разрабатываете приложение Electron на самолёте или в подземном кафе, вы можете захотеть иметь копию документации для оффлайн ссылки. К счастью, документы Electron доступны как файлы Markdown более чем на 20 языках.
 
 ```sh
 git clone https://github.com/electron/electron-i18n
 ls electron-i18n/content
 ```
 
-## Offline Docs with a GUI
+## Автономная документация с GUI
 
-[devdocs.io/electron](https://devdocs.io/electron/) is a handy website that stores docs for offline use, not just for Electron but many other projects like JavaScript, TypeScript, Node.js, React, Angular, and many others. And of course there's an Electron app for that, too. Check out [devdocs-app](https://electronjs.org/apps/devdocs-app) on the Electron site.
+[devdocs. o/electron](https://devdocs.io/electron/) - это удобный веб-сайт, который хранит документацию для автономного использования, Не только для Electron, но и многие другие проекты, такие как JavaScript, TypeScript, Node. s, React, Angular, и многие другие. И, конечно, это тоже есть приложение Electron. Проверьте [devdocs-app](https://electronjs.org/apps/devdocs-app) на сайте Electron.
 
 [![](https://user-images.githubusercontent.com/8784712/27121730-11676ba8-511b-11e7-8c01-00444ee8501a.png)](https://electronjs.org/apps/devdocs-app)
 
-If you like to install apps without using your mouse or trackpad, give [Electron Forge](https://electronforge.io/)'s `install` command a try:
+Если вы хотите установить приложения без использования мыши или трекпада, дайте команду [Electron Forge](https://electronforge.io/) `установить` команду:
 
 ```sh
 npx electron-forge install egoist/devdocs-app

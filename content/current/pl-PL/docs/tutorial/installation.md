@@ -1,6 +1,6 @@
 # Instalacja
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Aby zainstalować wstępnie zbudowane pliki Electron, użyj [`npm`](https://docs.npmjs.com). Preferowaną metodą jest zainstalowanie Electron jako zależności deweloperskiej w twojej aplikacji :
 
 ```sh
 npm install electron --save-dev
@@ -32,82 +32,82 @@ npm install --platform=win32 electron
 
 ## Proxy
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Jeśli chcesz użyć proxy HTTP, musisz ustawić zmienną `ELECTRON_GET_USE_PROXY` na dowolną wartość, plus dodatkowe zmienne środowiskowe w zależności od wersji serwera hosta:
 
-* [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Węzeł 10 i powyżej](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [Przed węzłem 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Custom Mirrors and Caches
-During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. Wykona to poprzez skontaktowanie się stroną wydań w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
+podczas instalacji, moduł `electron` zadzwoni do [`@electron/get`](https://github.com/electron/get) aby pobrać wstępnie wbudowane binary Electron dla twojej platformy. Wykona to poprzez skontaktowanie się stroną wydań w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
 
 Jeśli nie masz dostępu do witryny GitHub lub wymagasz niestandardowej kompilacji, możesz to zrobić przez zapewnienie mirror lub istniejącego katalogu pamięci podręcznej.
 
 #### Mirror
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The URL used by `@electron/get` is composed as follows:
+Możesz użyć zmiennych środowiskowych do nadpisania bazowego adresu URL, ścieżki, na której szukaj binarów Electron i binarnych nazw plików. Adres URL użyty przez `@electron/get` składa się z następujących elementów:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China CDN mirror:
+Przykładowo, aby wykorzystać chińskie lusterko CDN:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+Domyślnie `ELECTRON_CUSTOM_DIR` jest ustawiony na `v$VERSION`. Aby zmienić format, użyj symbolu zastępczego `{{ version }}`. Na przykład, `wersja -{{ version }}` rozwiązuje `wersja 5.0.`, `{{ version }}` rozwiązuje `5.0.`i `v{{ version }}` jest równoważne wartości domyślnej. Jako bardziej konkretny przykład, aby użyć lusterka chińskiego innego niż CDN:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+Powyższa konfiguracja pobierze się z adresów URL takich jak `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
-Alternatywnie możesz nadpisać lokalną pamięć podręczną. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Możesz użyć tego katalogu pamięci podręcznej, aby przekazać niestandardowe kompilacje Electron'a lub uniknąć korzystania z połączenia internetowego.
+Alternatywnie możesz nadpisać lokalną pamięć podręczną. `@electron/get` będzie pamięci podręcznej pobranych plików binarnych w lokalnym katalogu, aby nie naciskać na twoją sieć. Możesz użyć tego katalogu pamięci podręcznej, aby przekazać niestandardowe kompilacje Electron'a lub uniknąć korzystania z połączenia internetowego.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+W środowiskach, które używały starszych wersji Electrona, możesz znaleźć pamięć podręczną również w `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+Możesz również nadpisać lokalną lokalizację pamięci podręcznej podając zmienną środowiskową `electron_config_cache` .
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Pamięć podręczna zawiera oficjalny plik zip wersji oraz sumę kontrolną, zapisaną jako pliku tekstowego. Typowa skrzynka może wyglądać tak:
 
 ```sh
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-│   └── electron-v1.7.9-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
-│   └── electron-v1.8.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-│   └── electron-v1.8.2-beta.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-│   └── electron-v1.8.2-beta.2-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
-│   └── electron-v1.8.2-beta.3-darwin-x64.zip
-└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
-    └── SHASUMS256.txt
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+<unk> <unk> <unk> <unk> electron-v1.7.9-darwin-x64.zip
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
+<unk> <unk> <unk> <unk> SHASUMS256.txt
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64. ip
+<unk> <unk> <unk> electron-v1.8.1-darwin-x64.zip
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
+<unk> <unk> <unk> <unk> SHASUMS256.txt
+<unk> <unk> httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+Ó electron-v1.8.2-beta.1-darwin-x64.zip
+¾ httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+<unk> <unk> SHASUMS256.txt
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
+Ž<unk> <unk> <unk> electron-v1.8.2-beta.2-darwin-x64.zip
+<unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta. SHASUMS256.txt
+<unk> <unk> <unk> SHASUMS256.txt
+<unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64. ip
+<unk> ◆ electron-v1.8.2-beta.3-darwin-x64.zip
+<unk> <unk> httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    <unk> <unk> SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Pomiń pobieranie binarne
+Podczas instalacji `electron` pakiet NPM automatycznie pobiera plik binarny elektron.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Czasami może to być niepotrzebne, np. w środowisku CI podczas badania innego elementu.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Np.:
+Aby zapobiec pobieraniu plików binarnych podczas instalacji wszystkich zależności npm można ustawić zmienną środowiskową `ELECTRON_SKIP_BINARY_DOWNLOAD`. Np.:
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm instalacja
 ```
 
 ## Rozwiązywanie problemów

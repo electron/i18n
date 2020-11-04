@@ -27,9 +27,10 @@ app.on('window-all-closed', () => {
 
 返回:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+当 Electron 完成初始化时，发出一次。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### 事件: 'window-all-closed'
 
@@ -43,7 +44,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+在程序关闭窗口前发信号。 Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 **注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
@@ -321,7 +322,7 @@ Emitted whenever there is a GPU info update.
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -446,7 +447,7 @@ Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `args` String[] (可选)
   * `execPath` String (可选)
 
@@ -477,7 +478,7 @@ app.exit(0)
 
 ### `app.focus([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -534,7 +535,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -842,7 +843,7 @@ Activation policy types:
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object
+* `选项` 对象
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
 * `callback` Function
@@ -928,7 +929,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -990,7 +991,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object
+* `选项` 对象
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
@@ -1041,7 +1042,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 

@@ -1,36 +1,36 @@
-# Application Packaging
+# Ambalajul aplicaţiei
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar][asar] archive with little changes to your source code.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. If you are not using any of these tools, read on.
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. Dacă nu folosești niciuna dintre aceste unelte, citește mai departe.
 
-## Generating `asar` Archives
+## Generând `asar` arhive
 
-An [asar][asar] archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+An [asar][asar] archive is a simple tar-like format that concatenates files into a single file. Electron poate citi fișiere arbitrare din el fără depachetarea întregului fișier.
 
-Steps to package your app into an `asar` archive:
+Pași pentru a împacheta aplicația ta într-o arhivă `asar`:
 
-### 1. Install the asar Utility
+### 1. Instalează utilitatea asar
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Pachet cu `pachetul asar`
 
 ```sh
-$ asar pack your-app app.asar
+$ asar pachet aplicaţie dvs. app.asar
 ```
 
-## Using `asar` Archives
+## Folosind arhive `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+În Electron există două seturi de API-uri: Node API-uri furnizate de Node.js și API-uri Web furnizate de Chromium. Ambele API-uri suportă citirea de fișiere din `asar` arhive.
 
-### Node API
+### Nod API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Cu patch-uri speciale în Electron, Node API-uri ca `fs. fișierul eadFile` și `necesită` trata `arhive` asar ca directoare virtuale, şi fişierele în el ca de obicei fişiere în sistemul de fişiere.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+De exemplu, să presupunem că avem o arhivă `exemple.asar` sub `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -42,27 +42,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Citește un fișier în arhiva `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Listează toate fişierele de sub rădăcina arhivei:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Foloseste un modul din arhiva:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+De asemenea, poți afișa o pagină web într-o arhivă `asar` cu `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Într-o pagină web, fișierele dintr-o arhivă pot fi solicitate cu `fișierul:` protocol. Ca API-ul Node, `asar` arhive sunt tratate ca directoare.
 
-For example, to get a file with `$.get`:
+De exemplu, pentru a obține un fișier cu `$.get`:
 
 ```html
 <script>
@@ -86,16 +86,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Tratând un `asar` Arhivă ca un fişier normal
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Pentru unele cazuri cum ar fi verificarea checksum-ului arhivei `asar` , trebuie să citim conținutul unei arhive `asar` ca fișier. În acest scop puteţi utiliza modulul `original-fs` care oferă versiunea originală `fs` API-uri fără `asar` suport:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+De asemenea, poți seta procesul `. oAsar` to `true` pentru a dezactiva suportul `asar` în modulul `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -103,51 +103,51 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Limitări ale Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Chiar dacă am încercat din greu să facem arhive `asar` în directorul Node API ca cât mai mult posibil, există încă limitări din cauza nivelului scăzut al API-ului Node.
 
-### Archives Are Read-only
+### Arhivele sunt numai pentru citire
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Arhivele nu pot fi modificate astfel încât toate API-urile Node care pot modifica fişierele să nu funcţioneze cu `asar` arhive.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Directorul de lucru nu poate fi setat în directoarele din arhivă
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Deşi arhivele `asar` sunt tratate ca directoare, nu există directoare reale în sistemul de fişiere, astfel încât să nu puteți seta niciodată directorul de lucru în directoare în `asar` arhive. Trecerea lor ca opțiune `cwd` pentru unele API va provoca de asemenea erori.
 
-### Extra Unpacking on Some APIs
+### Despachetare suplimentară pe unele API-uri
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Cele mai multe `fs` API-uri pot citi un fișier sau pot obține informațiile unui fișier din `asar` arhive fără dezpachetare, dar pentru unele API-uri care se bazează pe transmiterea căii de fișiere reale către apeluri din sistemul de bază, Electron va extrage fişierul necesar într-un fişier temporar şi va pasa calea fişierului temporar către API-uri pentru a le face să funcţioneze. Aceasta adaugă un pic de cheltuieli suplimentare pentru aceste API-uri.
 
-APIs that requires extra unpacking are:
+API-uri care necesită dezambalare suplimentară sunt:
 
-* `child_process.execFile`
+* `child_process.execută Fișier`
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - Folosit de `necesită` în module native
 
-### Fake Stat Information of `fs.stat`
+### Informații de statistică Fake pentru `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+Obiectul `Statistici` returnat de `fs. treabă` și prietenii săi în fișiere `asar` arhive sunt generate prin ghicire, pentru că aceste fişiere nu există pe sistemul de fişiere . Așa că nu ar trebui să ai încredere în obiectul `Statistici` cu excepția mărimii fișierului și a verificării tipului de fișier.
 
-### Executing Binaries Inside `asar` Archive
+### Executând Binare în interiorul `asar` Arhivă
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+Există API-uri Node care pot executa binare ca `child_process.exec`, `child_process.spawn` și `child_process. xecFile`, dar numai `execFile` este acceptat pentru a executa binare înăuntrul arhivei `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Acest lucru se datorează faptului că `exec` și `spawn` acceptă comanda `` în loc de `fișierul` ca intrare, Comanda și ``sunt executate sub shell. Nu există o modalitate sigură de a determina dacă o comandă folosește un fișier în arhiva asar, și chiar dacă o facem, nu putem fi siguri dacă putem înlocui calea de comandă fără efecte secundare.
 
-## Adding Unpacked Files to `asar` Archives
+## Adăugare fişiere despachetate la `asar` Arhive
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+După cum s-a menţionat mai sus, unele API-uri Node vor dezarhiva fişierul în sistemul de fişiere atunci când este apelat. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Ca o soluţie, puteţi lăsa diverse fişiere neambalate folosind opţiunea `--unpack`. În următorul exemplu, librăriile de module native Node.js nu vor fi ambalate:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+După ce rulați comanda, veți observa că un folder numit `app.asar.unpacked` a fost creat împreună cu fișierul `app.asar`. Conține fișierele neambalate și ar trebui expediate împreună cu arhiva `app.asar`.
 
 [asar]: https://github.com/electron/asar
 [electron-packager]: https://github.com/electron/electron-packager

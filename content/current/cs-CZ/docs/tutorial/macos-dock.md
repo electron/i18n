@@ -1,31 +1,43 @@
-# macOS Dock
+# makOS dok
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+## Přehled
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Electron má API ke konfiguraci ikony aplikace v doku macOS. Existuje pouze macOS API pro vytvoření vlastní nabídky doku, ale Electron používá také ikonu doku aplikace jako vstupní bod pro funkce na různých platformách, jako je [nedávné dokumenty](./recent-documents.md) a [postup aplikace](./progress-bar.md).
 
-__Dock menu of Terminal.app:__
+Vlastní dok se běžně používá k přidávání zástupců k úkolům, pro které by uživatel nechtěl otevřít celé okno aplikace.
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+__Nabídka Docku Terminal.app:__
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+![Nabídka doku](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+
+Chcete-li nastavit vlastní dok menu, musíte použít [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, , které je dostupné pouze na macOS.
+
+## Ukázka
+
+Začíná funkční aplikací z [Rychlé spuštění průvodce](quick-start.md), aktualizujte soubor `main.js` o následující řádky:
 
 ```javascript
 const { app, Menu } = require('electron')
 
-const dockMenu = Menu.buildFromTemplate([
+const dockMenu = Menu. uildFromTemplate([
   {
     label: 'New Window',
-    click () { console.log('New Window') }
+    click () { console. og('New Window') }
   }, {
-    label: 'New Window with Settings',
+    štítek: 'New Window with Settings',
     submenu: [
-      { label: 'Basic' },
+      { label: 'Basic' }
       { label: 'Pro' }
     ]
   },
   { label: 'New Command...' }
 ])
 
-app.dock.setMenu(dockMenu)
+aplikace. henReady().then() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
+
+Po spuštění Electron aplikace klikněte pravým tlačítkem myši na ikonu aplikace. Měli byste vidět vlastní nabídku, kterou jste právě definovali:
+
+![macOS dok menu](../images/macos-dock-menu.png)

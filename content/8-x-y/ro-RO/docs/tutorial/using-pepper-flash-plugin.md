@@ -2,15 +2,15 @@
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
-## Prepare a Copy of Flash Plugin
+## Pregătiți o copie a plugin-ului Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+Pe macOS și Linux, detaliile plugin-ului Pepper Flash pot fi găsite prin navigând la `chrome://flash` în browser-ul Chrome. Locația și versiunea sa sunt utile pentru suportul lui Pepper Flash. Îl poți copia și într-o altă locație .
 
-## Add Electron Switch
+## Adaugă Comutator Electron
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Poți adăuga direct `--ppapi-flash-path` și `--ppapi-flash-version` la linia de comandă Electron sau folosind aplicația `. ommandLine.appendSwitch` metoda înainte de evenimentul pregătit de aplicație. De asemenea, activați opțiunea `plugin-uri` a `BrowserWindow`.
 
-For example:
+De exemplu:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -47,11 +47,11 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Poți de asemenea să încerci să încarci plugin-ul Pepper Flash în loc să expediezi plugin-urile chiar tu, calea sa poate fi primită apelând aplicația`. etPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Activează Plugin Flash într-o etichetă `<webview>`
 
-Add `plugins` attribute to `<webview>` tag.
+Adaugă `plugin-uri` atribut la `<webview>` etichetă.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Depanare
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Puteți verifica dacă plugin-ul Pepper Flash a fost încărcat inspectând `navigatorul. lugin-uri` în consola devtools (deși nu poți ști dacă calea a plugin-ului este corectă).
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
 On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Pentru unele operațiuni, cum ar fi streaming-ul media folosind RTMP, este necesar să se acorde permisiuni mai mari fișierelor `.swf`. Un mod de a realiza acest lucru este de a utiliza [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).

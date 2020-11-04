@@ -7,94 +7,94 @@ author:
 date: '2018-06-21'
 ---
 
-The Electron website has a new search engine that delivers instant results for API docs, tutorials, Electron-related npm packages, and more.
+Die Electron-Website hat eine neue Suchmaschine, die sofortige Ergebnisse für API-docs, Tutorials, Electron-bezogene npm Pakete und mehr liefert.
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron Search Screenshot">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron Suche Screenshot">
   </a>
 </figure>
 
 ---
 
-Learning a new technology or framework like Electron can be intimidating. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. We want the Electron website to be a better tool for finding the resources you need to build apps faster and more easily.
+Das Lernen einer neuen Technologie oder eines Rahmens wie Electron kann einschüchternd sein. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. Wir wollen, dass die Electron-Website ein besseres Werkzeug ist, um die Ressourcen zu finden, die du brauchst, um Apps schneller und einfacher zu erstellen.
 
-Visit any page on [electronjs.org](https://electronjs.org) and you'll find the new search input at the top of the page.
+Besuche jede Seite auf [electronjs.org](https://electronjs.org) und du findest die neuen Sucheingaben oben auf der Seite.
 
-## The Search Engine
+## Die Suchmaschine
 
-When we first set about adding search to the website, we rolled our own search engine using GraphQL as a backend. GraphQL was fun to work with and the search engine was performant, but we quickly realized that building a search engine is not a trivial task. Things like multi-word search and typo detection require a lot of work to get right. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia](https://algolia.com).
+Als wir zum ersten Mal die Suche zur Webseite hinzufügen wollten, rollten wir unsere eigene Suchmaschine mit GraphQL als Backend. GraphQL hat Spaß bei der Arbeit gemacht und die Suchmaschine war leistungsfähig, aber wir haben schnell erkannt, dass der Aufbau einer Suchmaschine keine triviale Aufgabe ist. Dinge wie Mehrwort-Suche und Typoerkennung erfordern viel Arbeit, um richtig zu kommen. Anstatt das Rad neu zu erfinden, haben wir beschlossen, eine existierende Suchlösung zu verwenden: [Algolia](https://algolia.com).
 
-Algolia is a hosted search service that has quickly become the search engine of choice among popular open source projects like React, Vue, Bootstrap, Yarn, and [many others](https://community.algolia.com/docsearch/).
+Algolia ist ein gehosteter Suchdienst, der schnell zur Suchmaschine der Wahl unter den populären Open Source Projekten wie React, geworden ist Vue, Bootstrap, Yarn und [viele andere](https://community.algolia.com/docsearch/).
 
-Here are some of the features that made Algolia a good fit for the Electron project:
+Hier sind einige der Merkmale, die Algolia zu einer guten Passform für das Electron-Projekt gemacht haben:
 
-- [InstantSearch.js](https://community.algolia.com/instantsearch.js) provides results as you type, usually in about 1ms.
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`].
-- [Advanced query syntax](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) enables `"exact quoted matches"` and `-exclusion`.
-- [API clients](https://www.algolia.com/doc/api-client/javascript/getting-started/) are open source and with well-documented.
-- [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) tell us what people are searching for most, as well as what they're searching for but not finding. This will give us valuable insight into how Electron's documentation can be improved.
-- Algolia is [free for open source projects](https://www.algolia.com/for-open-source).
+- [InstantSearch.js](https://community.algolia.com/instantsearch.js) liefert Ergebnisse während der Eingabe in der Regel in etwa 1ms.
+- [Typo Toleranz](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) bedeutet, dass Sie immer noch Ergebnisse erhalten, auch wenn Sie [`Widget`].
+- [Erweiterte Abfragesyntax](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) ermöglicht `"exakte Zitiert Übereinstimmungen"` und `-exclusive`.
+- [API-Clients](https://www.algolia.com/doc/api-client/javascript/getting-started/) sind Open Source und gut dokumentiert.
+- [Analytik](https://www.algolia.com/doc/guides/analytics/analytics-overview/) teilt uns mit, nach welchen Personen am meisten gesucht werden und was sie suchen, aber nicht finden. Dies gibt uns einen wertvollen Einblick in die Verbesserung der elektronischen Dokumentation.
+- Algolia ist [kostenlos für Open-Source-Projekte](https://www.algolia.com/for-open-source).
 
 ## API Docs
 
-Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron has over 750 API methods, events, and properties. No human can easily remember all of them, but computers are good at this stuff. Using Electron's [JSON API docs](https://electronjs.org/blog/api-docs-json-schema), we indexed all of this data in Algolia, and now you can easily find the exact API you're looking for.
+Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron hat über 750 API-Methoden, Events und Eigenschaften. Kein Mensch kann sich leicht an alle erinnern, aber Computer sind gut in dieser Sache. Unter Verwendung der [JSON API Dokumentation](https://electronjs.org/blog/api-docs-json-schema), indizierten wir alle diese Daten in der Algolia, und nun können Sie einfach die genaue API finden, die Sie suchen.
 
-Trying to resize a window? Search for [`resize`] and jump straight to the method you need.
+Versucht ein Fenster zu verändern? Suche nach [`Größe`] und springe direkt zur gewünschten Methode.
 
 ## Anleitungen
 
-Electron has an ever-growing collection of tutorials to complement its API documentation. Now you can more easily find tutorials on a given topic, right alongside related API documentation.
+Electron verfügt über eine ständig wachsende Sammlung von Tutorials, die die API Dokumentation ergänzen. Jetzt können Sie leichter Tutorials zu einem bestimmten Thema finden, neben der zugehörigen API-Dokumentation.
 
-Looking for security best practices? Search for [`security`].
+Suchen Sie nach bewährten Sicherheitsmethoden? Suche nach [`Sicherheit`].
 
-## npm Packages
+## npm Pakete
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
+Es gibt jetzt über 700.000 Pakete in der npm Registry und es ist nicht immer leicht die benötigte Pakete zu finden. Um die Entdeckung dieser Module zu erleichtern: Wir haben [`Elektron-npm-Pakete`], eine Sammlung der 3400+ Module in der Registrierung, die speziell für den Einsatz mit Electron erstellt wurde.
 
-The folks at [Libraries.io](https://libraries.io) have created [SourceRank](https://docs.libraries.io/overview.html#sourcerank), a system for scoring software projects based on a combination of metrics like code, community, documentation, and usage. We created a [`sourceranks`] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
+Die Leute in [Bibliotheken. o](https://libraries.io) haben [SourceRank](https://docs.libraries.io/overview.html#sourcerank)erstellt , ein System zum Scoring von Software-Projekten basierend auf einer Kombination von Metriken wie Code, Community, Dokumentation und Nutzung. Wir haben ein [`Sourceranks`] Modul erstellt, das die Punktzahl jedes Moduls im npm Register beinhaltet. und wir verwenden diese Punktzahlen, um die Paketergebnisse zu sortieren.
 
-Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
+Möchten Sie Alternativen zu den integrierten IPC-Modulen von Electrone? Suche nach [`ist:package ipc`].
 
 ## Electron-Anwendungen
 
-It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
+Es ist [einfach Daten mit Algolia zu indizieren](https://github.com/electron/algolia-indices), also haben wir die vorhandene App-Liste von [electron/apps](https://github.com/electron/apps) hinzugefügt.
 
-Try a search for [`music`] or [`homebrew`].
+Versuchen Sie eine Suche nach [`Musik`] oder [`Homebrew`].
 
-## Filtering Results
+## Filter-Ergebnisse
 
-If you've used GitHub's [code search](https://github.com/search) before, you're probably aware of its colon-separated key-value filters like `extension:js` or `user:defunkt`. We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
+Wenn Sie GitHub [Codesuche](https://github.com/search) zuvor verwendet haben Sie kennen wahrscheinlich die durch Doppelschlüssel getrennten Filter wie `extension:js` oder `user:defunkt`. Wir denken, dass diese Filtertechnik ziemlich mächtig ist, so haben wir ein `hinzugefügt:` Stichwort zur elektronischen Suche mit dem Sie Ergebnisse filtern können, um nur einen einzigen Typ anzuzeigen:
 
-- [`is:api thumbnail`]
-- [`is:tutorial security`]
-- [`is:package ipc`]
-- [`is:app graphql`]
+- [`ist ein Vorschaubild`]
+- [`ist:tutoriale Sicherheit`]
+- [`ist:package ipc`]
+- [`ist:app graphql`]
 
-## Keyboard Navigation
+## Tastatur-Navigation
 
-People love keyboard shortcuts! The new search can be used without taking your fingers off the keyboard:
+Die Leute lieben Tastaturkürzel! Die neue Suche kann verwendet werden, ohne die Finger von der Tastatur zu entfernen:
 
-- <kbd>/</kbd> focuses the search input
-- <kbd>esc</kbd> focuses the search input and clears it
-- <kbd>down</kbd> moves to the next result
-- <kbd>up</kbd> moves to the previous result, or the search input
-- <kbd>enter</kbd> opens a result
+- <kbd>/</kbd> konzentriert die Sucheingabe
+- <kbd>esc</kbd> fokussiert die Sucheingabe und löscht sie
+- <kbd>runter</kbd> bewegt sich zum nächsten Ergebnis
+- <kbd>nach oben</kbd> bewegt sich zum vorherigen Ergebnis oder der Sucheingabe
+- <kbd>Enter</kbd> öffnet ein Ergebnis
 
-We also open-sourced the [module](https://github.com/electron/search-with-your-keyboard/) that enables this keyboard interaction. It's designed for use with Algolia InstantSearch, but is generalized to enable compatibility with different search implementations.
+Wir haben auch das [-Modul](https://github.com/electron/search-with-your-keyboard/) geöffnet, das diese Tastatur-Interaktion ermöglicht. Es wurde für die Verwendung mit Algolia InstantSearch, , aber es wird generalisiert, um die Kompatibilität mit verschiedenen Suchimplementierungen zu ermöglichen.
 
-## We want your feedback
+## Wir möchten Ihr Feedback
 
-If you encounter any issues with the new search tool, we want to hear about it!
+Wenn Sie Probleme mit dem neuen Suchwerkzeug haben, möchten wir davon hören!
 
-The best way to submit your feedback is by filing an issue on GitHub in the appropriate repository:
+Die beste Möglichkeit, Ihr Feedback einzureichen, ist ein Problem auf GitHub im entsprechenden Repository:
 
-- [electron/electronjs.org](https://github.com/electron/electronjs.org) is the Electron website. If you don't know where to file an issue, this your best bet.
-- [electron/algolia-indices](https://github.com/electron/algolia-indices) is where all the searchable Electron data is compiled.
-- [electron/search-with-your-keyboard](https://github.com/electron/search-with-your-keyboard) makes the search interface navigable by keyboard.
-- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
-- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
+- [electron/electronjs.org](https://github.com/electron/electronjs.org) ist die Electron-Website. Wenn Sie nicht wissen, wo Sie ein Problem abgeben sollen, dann setzen Sie das am besten.
+- [elektronische /algolia-Indizes](https://github.com/electron/algolia-indices) sind wo alle durchsuchbaren Electron-Daten kompiliert werden.
+- [Elektronik/Suche mit Ihrer Tastatur](https://github.com/electron/search-with-your-keyboard) macht die Suchschnittstelle per Tastatur navigierbar.
+- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) ist der browserseitige Client, der find-as-you-type Suche ermöglicht.
+- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) ist der Node.js Client zum Hochladen von Daten auf die Server der Algolia.
 
-## Thanks
+## Danke
 
-Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹
+Besonderer Dank an [Emily Jordan](https://github.com/echjordan) und [Vanessa Yuen](https://github.com/vanessayuenn) für den Aufbau dieser neuen Suchfunktionen, an [Bibliotheken. o](https://libraries.io) für die Bereitstellung von [SourceRank](https://docs.libraries.io/overview.html#sourcerank) Punkten, und an das Team bei Algolia, um uns beim Start zu helfen. 🍹

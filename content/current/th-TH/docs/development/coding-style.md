@@ -36,7 +36,7 @@
 
 ## จาวาสคริปต์
 
-* เขียนรูปแบบจาวาสคริปต์[มาตรฐาน](https://npm.im/standard)
+* เขียนรูปแบบจาวาสคริปต์[มาตรฐาน](https://www.npmjs.com/package/standard)
 * ชื่อไฟล์ควรต่อด้วย`-`แทน`_`เช่น `ไฟล์ name.js`มากกว่า`file_name.js`เพราะใน [ชื่อโมดูล github /อะตอม](https://github.com/github/atom)มักจะอยู่ใน ฟอร์ม`ชื่อโมดูล` กฎนี้ใช้กับแฟ้ม`.js`เท่านั้น
 * ใช้ไวยากรณ์ ES6/ES2015 ที่ใหม่กว่าตามความเหมาะสม
   * [`คอนสต์`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) สําหรับค่าคงที่ที่ต้องการและค่าคงที่อื่น ๆ  ถ้าค่าเป็นดั้งเดิม ให้ใช้การตั้งชื่อตัวพิมพ์ใหญ่ (เช่น`const NUMBER_OF_RETRIES = 5`)

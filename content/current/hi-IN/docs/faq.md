@@ -103,7 +103,7 @@ It is very likely you are using the module in the wrong process. उदाहर
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. उदाहरण:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. उदाहरण:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

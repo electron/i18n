@@ -1,63 +1,63 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'مشروع الأسبوع: سطح المكتب ووردبريس'
 author:
-  - mkaz
-  - johngodley
+  - مكاز
+  - جوهنغودلي
   - zeke
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+هذا الاسبوع نحن نلقي القبض على أشخاص في [تلقائيًا](https://automattic.com/) إلى نتحدث عن [ووردبريس سطح المكتب](https://apps.wordpress.com/desktop/)، عميل سطح المكتب مفتوح المصدر لإدارة محتوى ووردبريس.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![تطبيقات ووردبريس](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## الجميع يعرف عن WordPress، ولكن ما هو سطح المكتب الخاص بـ WordPress ؟
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[ووردبريس. يوفر تطبيق سطح المكتب](https://apps.wordpress.com/desktop/) تجربة سلسة عبر المنصة تسمح لك بالتركيز على المحتوى الخاص بك والتصميم بدون علامات تبويب المتصفح لتشتت انتباهك - أو لإبقاء مواقعك جانبية ولكن يمكن الوصول إليها. بالإضافة إلى دعم المتصفح الخاص بنا وتطبيق الجوال يمكنك بناء موقعك في أي مكان، بأي طريقة تساعدك على إنجاز عملك.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## لماذا بناء تطبيق سطح المكتب لإدارة مواقع ووردبرس؟ هل يمكن أن تكون جميعها مستندة إلى الإنترنت؟
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+إنه في الواقع يستخدم نفس التكنولوجيا التي تحصل عليها عند زيارة [WordPress.com](https://wordpress.com) في المتصفح الخاص بك. ومع ذلك، كلها مضيفة محليا، لذلك لديها الحد الأدنى من أوقات التحميل. مع الاستفادة من الميزات الأصلية مثل التواجد في حسابك والإشعارات وما إلى ذلك، يمكنك حقاً التركيز على مواقع ووردبريس ومدونتك.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## لماذا اخترت بناء سطح مكتب ووردبريس على إلكترون؟
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+في نهاية عام 2015 قمنا بإعادة بناء الكثير من WordPress.com في شكل [Calypso](https://github.com/automattic/wp-calypso)، تطبيق جافا سكريبت الحديث مفتوح المصدر باستخدام React. بدأنا النظر إلى إلكترون وبإدخال بعض التغييرات على كاليبسو تمكنا من تشغيلها محلياً. لقد كانت تجربة قاهرة وفكرنا أن هناك قيمة كبيرة في تطويرها أكثر.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+كان لدينا عدة فرق تعمل في كاليبسو وكان من الممكن أن يكون هناك المزيد من العمل من أجل إنشاء عميل متعدد المنصات يضاهي ذلك باستخدام تكنولوجيات الحاسوب المنضدي التقليدية. باستخدام إلكترون، فريق صغير مكون من 2-4 منا تمكن من الاستفادة من جهود الفريق الآخر وبناء تطبيق سطح المكتب في غضون شهرين.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## ما هي بعض التحديات التي واجهتها أثناء بناء سطح المكتب الخاص بـ "ووردبريس"؟
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+حصلنا على نسخة أولية من التطبيق تعمل بسرعة كبيرة، لكن ضبطها لكي تتصرف بشكل مثالي كتطبيق سطح المكتب استغرق الكثير من الوقت. أحد التحديات الكبيرة مع التطبيق هو أنك تقوم في الواقع بتشغيل نسخة من Calypso على جهازك الخاص - إنه واجهة واجهة واجهة برمجة التطبيقات بحتة. كان هناك الكثير من العمل لرأب الجسور في هذا وقد تم تغذية التغييرات إلى كاليبسو نفسها.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+إضافة إلى ذلك، بذل الكثير من الجهد لتغليف التطبيق لمنصات مختلفة - نحن نوفر ويندوز، إصدارات macOS و Linux - وهناك فروقات كافية لجعل هذا الأمر صعبا.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+في ذلك الوقت كانت إلكترون جديدة نسبياً واستمرنا في معالجة المشكلات التي تم حلها قريباً (أحياناً في نفس اليوم!)
 
-## In what areas should Electron be improved?
+## في أي مجالات ينبغي تحسين إلكترون؟
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+يوفر إلكترون بالفعل معظم ما نحتاجه لتطبيق سطح المكتب، ويتقدم بسرعة منذ بدأنا باستخدامه. ومع ذلك، هناك بعض المجالات التي تعتبر أمرا مسلما به في تطبيق حاسوب منضدي، مثل التدقيق الإملائي والعثور عليه/الاستبدال، التي يصعب تكرارها باستخدام إلكترون كما هي.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+نحن نحب أيضا أن نرى بعض تقنيات كروم الأحدث التي تقوم بالتصفية إلى إلكترون أيضا. نحن حريصون بشكل خاص على تجربة WebVR.
 
-## What are your favorite things about Electron?
+## ما هي الأشياء المفضلة لديك عن إلكترون؟
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+السبب الرئيسي الذي اخترنا إلكترون ، وهي أكبر قوة ، هو المجتمع النشط والمفتوح . أوتوماتيكي كان يؤمن دائما بالمصدر المفتوح. إنه أحد مبادئنا الأساسية، ومشروع إلكترون والمجتمع المحلي يتبعون الكثير من المعتقدات الأساسية بأن تكون منفتحة وإيجابية للغاية.
 
-## What's coming next in WordPress Desktop?
+## ما هو التالي في سطح المكتب ووردبرس؟
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+الشيء الرائع في نموذجنا هو أن تطبيق سطح المكتب يستفيد من أي ميزة كاليبسو جديدة - هناك تحسينات مستمرة. نأمل أن نتمكن من إضافة ميزات إضافية إلى التطبيق مثل الدعم دون اتصال، والذي سيأخذ التطبيق حقا إلى المنطقة الأصلية، وإشعارات نظام أفضل.
 
-## Are there any teams at Automattic working on other Electron apps?
+## هل هناك أي فرق في التشغيل التلقائي تعمل على تطبيقات إلكترون أخرى؟
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+نعم، بعد جهودنا على تطبيق سطح المكتب، قرر فريق سيموغوت استخدام إلكترون لبناء تطبيقات سطح المكتب لنظام ويندوز و لينكس (عميل ماك الأصلي موجود بالفعل). تطبيق [Simplenote Electron](https://github.com/Automattic/simplenote-electron) هو أيضا مفتوح المصدر ومتاح على Github.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+لدينا أيضا تكامل Raspberry Pi الوشيك الذي يستخدم إلكترون.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+إذا كان أي من ذلك يبدو مثيرا للاهتمام، فسنحب [أن نسمع منك](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## أي نصائح إلكترون قد تكون مفيدة للمطورين الآخرين؟
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+عملية شحن برمجيات الحواسيب المكتبية الموقعة جديدة نسبيا بالنسبة لنا، وخاصة بالنسبة لنظام ويندوز. كتبنا مقالا لـ [برمجة توقيع تطبيق ويندوز](https://mkaz.blog/code/code-signing-a-windows-application/) الذي يتضمن العملية وبعض العقبات التي واجهناها للقيام بها بشكل صحيح.
 

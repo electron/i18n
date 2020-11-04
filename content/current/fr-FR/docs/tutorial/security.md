@@ -12,11 +12,11 @@ Pour plus d’informations sur la façon de communiquer correctement une vulnér
 
 ## Problèmes de sécurité et mises à jour de Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se tient à jour avec les versions alternatives de Chromium. Pour plus d'informations, voir le blog [Electron Release Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La sécurité est la responsabilité de tous
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
+Il est important de se rappeler que la sécurité de votre application Electron dépend de la sécurité globalement de la fondation du framework (*Chromium*, *Node.js*), Electron lui-même, toutes les dépendances NPM et votre code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
 
 * **Gardez votre application à jour avec la dernière version de framework Electron. /0> Lorsque vous libérez votre produit, vous expédiez également un paquet composé d'Electron, bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)".</p></li>
 
@@ -86,13 +86,8 @@ browserWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Incorrect --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Correct --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -142,12 +137,7 @@ mainWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview nodeIntegration src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -175,9 +165,9 @@ L'électron utilise la même technologie que le chrome [Content Scripts](https:/
 
 Même lorsque vous utilisez `nodeIntegration: false` pour imposer une isolation forte et empêcher l'utilisation des primitives de Node, `contextIsolation` doit également être utilisé.
 
-### Why & How?
+### Pourquoi & Comment ?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Pour plus d'informations sur ce qu'est `contextIsolation` et comment l'activer, veuillez voir notre document dédié [Isolation de contexte](context-isolation.md).
 
 ## 4) Gérer les demandes d'autorisation de session à partir du contenu distant
 
@@ -250,12 +240,7 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview disablewebsecurity src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -353,7 +338,7 @@ Les utilisateurs avancés d'Electron peuvent activer les fonctionnalités expér
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales sont, comme le nom le suggère, expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron dans son ensemble n'a probablement pas été testé.
 
 Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
@@ -424,12 +409,7 @@ Si vous n'avez pas besoin de popups, il vaut mieux ne pas autoriser la création
 
 
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview allowpopups src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -472,7 +452,7 @@ app.on('web-contents-created', (event, contents) => {
 ```
 
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste ne fait que minimiser le risque, elle ne le supprime pas. Si votre objectif est d'afficher un site web, un navigateur sera une option plus sûre.
 
 ## 12) Désactiver ou limiter la navigation
 
@@ -540,11 +520,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) N'utilisez pas `openExternal` avec du contenu non fiable
 
-Le [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) de Shell permet d'ouvrir un URI de protocole donné avec les utilitaires natifs du bureau. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
+Shell [`openExternal`](../api/shell.md#shellopenexternalurl-options) permet d'ouvrir une URI de protocole donnée avec les utilitaires natifs du bureau. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
 
 ### Pourquoi ?
 
-L'utilisation incorrecte de [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) peut être utilisée pour compromettre l'hôte de l'utilisateur. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
+Une mauvaise utilisation de [`openExternal`](../api/shell.md#shellopenexternalurl-options) peut être utilisée pour compromettre l'hôte de l'utilisateur. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
 
 ### Comment ?
 
@@ -577,15 +557,19 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
 
 ### Comment ?
 
 
 
 ```js
-// Mauvais si le moteur de rendu peut exécuter du contenu non fiable
-const mainWindow = new BrowserWindow({})
+// Mauvais si le processus de rendu peut exécuter un contenu non fiable
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -603,14 +587,11 @@ const mainWindow = new BrowserWindow({
 
 
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview enableremotemodule="true" src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
+
+> **Remarque :** La valeur par défaut de `enableRemoteModule` est `false` à partir d'Electron 10. Pour les versions antérieures, vous devez désactiver explicitement le module `remote` par les moyens ci-dessus.
 
 ## 16) Filtrer le module `distant`
 
@@ -667,7 +648,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utiliser une version actuelle d'Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. Chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
 
 ### Pourquoi ?
 

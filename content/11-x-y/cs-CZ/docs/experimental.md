@@ -1,17 +1,17 @@
-# Experimental APIs
+# Experimentální API
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Některé z Electrons API jsou v dokumentaci označeny značkou `_Experimental_`. Tato značka označuje, že API nelze považovat za stabilní a API může být odstraněno nebo upraveno častěji než jiné API s menším varováním.
 
-## Conditions for an API to be tagged as Experimental
+## Podmínky pro označení API jako experimentální
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Každý může požádat o označení API jako experimentální ve funkci PR, Neshody týkající se experimentální povahy funkce mohou být diskutovány v API WG, pokud nelze vyřešit v PR.
 
-## Process for removing the Experimental tag
+## Proces odstranění experimentální značky
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Jakmile je API stabilní a alespoň ve dvou hlavních stabilních linkách release může být nominováno na odstranění experimentálního tagu.  Tato diskuse by se měla uskutečnit na schůzce API WG.  Věci, které je třeba vzít v úvahu při diskusi / jmenování:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Výše uvedená podmínka "dvou hlavních uvolňovacích linek" musí být splněna.
+* Během té doby neměly být přijetím této funkce způsobeny žádné velké chyby / problémy
+* API je dostatečně stabilní a nebylo silně ovlivněno aktualizacemi Chromium
+* Je někdo používající API?
+* Plní API původní navrhované využití, má nějaké mezery?

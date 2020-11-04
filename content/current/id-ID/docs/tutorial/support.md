@@ -5,7 +5,12 @@
 If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+- [`Electron's Discord`](https://discord.com/invite/electron) memiliki saluran untuk:
+  - Mendapatkan bantuan
+  - Aplikasi ekosistem seperti [Meniru Elektron](https://github.com/electron-userland/electron-forge) dan [Biola Elektron](https://github.com/electron/fiddle)
+  - Berbagi ide dengan pengembang aplikasi Elektron lainnya
+  - Dan banyak lagi!
+- [`kategori`](https://discuss.atom.io/c/electron)kategoru elektron di forum-forum Atom
 - `#atom-shell` channel on Freenode
 - `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 - [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
@@ -61,15 +66,10 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 ### Linux
 
-Berkas-berkas Elektron dibangun pada kode prebuilt  ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-<p spaces-before="0"><a href="../breaking-changes.md#duplicate-arm-assets"> Sampai rilis Electron 2.0 </a> , Elektron juga akan lanjutkan untuk melepaskan <code> armv7l </ code> biner dengan akhiran <code> lengan </ code> yang baru. Both binaries
-are identical.</p>
+Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 18.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :
 
-<p spaces-before="0">Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :</p>
-
-<ul>
-<li>Ubuntu 12.04 and newer</li>
-<li>Fedora 21</li>
-<li>Debian 8</li>
-</ul>
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

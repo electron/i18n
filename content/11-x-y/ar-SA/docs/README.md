@@ -1,14 +1,14 @@
-# الدليل الرسمي
+# الوثائق الرسمية
 
-رجاءا تأكد من أنك تستخدم الوثائق التي تطابق إصدارك من Electron. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
+الرجاء التأكد من استخدام المستندات التي تتطابق مع إصدار الالكترون الخاص بك. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدارك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرض دليل لا يتوافق مع اصدار الكترون الخاص بك وهناك احتمال بأن لا تتوافق التعليمات و API مع اصدار الكترون الذي لديك. لعرض الإصدارات القديمة من الوثائق، يمكنك [تصفح بواسطة العلامة](https://github.com/electron/electron/tree/v1.4.0) على كيت هاب بفتح قائمة "تبديل branch" واختيار التي تطابق الإصدار الخاص بك.
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+وهناك أسئلة تُطرح في كثير من الأحيان. تحقق من هذا قبل إنشاء مشكلة:
 
-* [Electron FAQ](faq.md)
+* [Electron  - الاسئلة الشائعة](faq.md)
 
-## الدليل الإرشادي والدروس
+## الإرشادات و الشروحات
 
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md)
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
@@ -41,7 +41,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
+  * [سحب الملف الأصلي & إسقاط](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)

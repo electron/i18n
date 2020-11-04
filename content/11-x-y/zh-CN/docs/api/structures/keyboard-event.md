@@ -1,4 +1,4 @@
-# KeyboardEvent Object
+# 键盘事件对象
 
 * `ctrlKey` 布尔值 (可选) - 是否使用ctrlKey触发事件
 * `metaKey` 布尔值 (可选) - 是否使用 metaKey触发事件

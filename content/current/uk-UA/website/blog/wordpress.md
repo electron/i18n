@@ -1,8 +1,8 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Проект Тижня: Робочий стіл WordPress'
 author:
-  - mkaz
-  - johngodley
+  - мказ
+  - джонгодлей
   - zeke
 date: '2017-02-28'
 ---
@@ -11,53 +11,53 @@ This week we caught up with folks at [Automattic](https://automattic.com/) to ta
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![Додатки WordPress](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Всі знають про WordPress, але що таке стільниця WordPress?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[WordPress. Ом застосунок](https://apps.wordpress.com/desktop/) надає безшовний крос-платформовий досвід, який дозволяє зосередитися на вашому контенту і дизайні без вкладок браузера для відволікання вас - або збереження ваших сайтів в стороні, але доступним. У поєднанні з нашою підтримкою браузера і мобільним додатком ви можете створити свій сайт де завгодно, будь-яким чином допоможе вам виконати свою роботу.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## Навіщо побудувати застосунок для робочого столу для управління сайтами WordPress? Хіба це все не на базі веб?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+Насправді ж використовувати ту саму технологію, яку ти отримаєш, коли відвідаєш [WordPress.com](https://wordpress.com) у браузері. Тим не менш, він все локально розміщений, так що він має мінімальні часи завантаження. З перевагою природних функцій, таких як док-станція, сповіщення тощо, ви дійсно можете зосередитися на ваших сайтах і блогах у WordPress.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Чому ви вирішили побудувати робочий стіл WordPress на Electron?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+Наприкінці 2015 року ми відновлюємо багато WordPress.com у вигляді [Calypso](https://github.com/automattic/wp-calypso)у сучасній JavaScript програмі з відкритим вихідним кодом, використовуючи React. Ми почали вивчати Electron і з деякими змінами в Calypso були здатні його використовувати локально. Це був переконливий досвід і ми думали, що у цьому є багато цінностей.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+У нас було декілька команд, що працювали над Каліпсо. Щоб зробити повнофункціональний GUI клієнт, який відповідає традиційній настільній технології, зайняв би більше роботи. Використовуючи Electron, невелика команда з 2-4 з нас змогла скористатися зусиллями іншої команди та створити застосунок для комп'ютера за кілька місяців.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Які певні виклики ви зіткнулися при побудові Майстерні WordPress?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+Ми отримали початкову версію програми, що працює дуже швидко, але для налаштування його оптимізації як настільної програми потрібно було набагато більше часу. Одним з великих проблем із додатком є те, що насправді ви використовуєте копію Каліпсо на власній машині, це суто керується API. Було задіяно багато роботи з мостами, і ці зміни перетворилися на саме Каліпсо.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+Крім того, було витрачено багато зусиль в упаковці програми для різних платформ - ми забезпечуємо Windows, macOS, а також версії Linux - і є достатньо відмінностей, щоб зробити цю хитрість.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+В той час, коли Electron був відносно новим і ми зберігали проблеми які були незабаром виправлені (іноді той же день!)
 
-## In what areas should Electron be improved?
+## В яких областях потрібно покращити Electron ?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron вже забезпечує більшу частину потреби у додатку для комп'ютера, і він відбувається швидко з тих пір, як ми почали його використовувати. Однак, існують сфери, які сприймаються як належне в додатку для настільних комп'ютерів, такі як перевірка правопису і отримання/заміна, які складніше повторити з Electron як є.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+Ми також любимо бачити деякі нові технології Chrome, що фільтруються на Electron теж. Ми особливо зацікавлені в експерименті з WebVR.
 
-## What are your favorite things about Electron?
+## Які ваші улюблені речі про Electron?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Основна причина, чому ми обрали Electron, та це найбільша сила, це дуже активна і відкрита спільнота. Автоматизація завжди вірила у відкрите джерело. Це один з наших основних десятків, і проект Electron та спільноти слід розуміти багато основних переконань щодо дуже відкритих та позитивних.
 
-## What's coming next in WordPress Desktop?
+## Що буде далі на робочому столі WordPress?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Можемо сказати про модель, що програма для ПК приносить користь від нової функції Каліпсо - є постійні покращення. Ми сподіваємося, що ми можемо додати додаткові можливості в додаток, наприклад, оффлайн підтримка, який дійсно використовував би додаток на рідну територію та кращі системні сповіщення.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Чи є команди в Автоматизації, які працюють з іншими застосунками Electron?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Так, після наших зусиль у додатку для комп'ютера, команда Simplenote вирішила використовувати Electron для створення настільних програм для Windows та Linux (рідний клієнт Mac вже існує). [Додаток Electron Simplenote](https://github.com/Automattic/simplenote-electron) також є доступним на Github.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+У нас також є майбутня інтеграція Raspberry Pi, яка використовує Electron.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Якщо вам це здається цікавим, то ми б [хотіли почути від вас](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## Будь-які поради Electron можуть бути корисними для інших розробників?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Процес доставки підписаного за допомогою настільного програмного забезпечення відносно новий для нас, особливо для Windows. ми написали статтю для [Кода підписування Windows](https://mkaz.blog/code/code-signing-a-windows-application/) , яка включає в себе процес і декілька перешкод, які ми пропустили для виконання яких правильно.
 

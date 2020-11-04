@@ -6,7 +6,7 @@
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+شواغل إمكانية الوصول في تطبيقات إلكترون مماثلة لشواغل مواقع الويب لأنها في نهاية المطاف كلتاهما HTML. مع تطبيقات إلكترون مع ذلك لا يمكنك استخدام الموارد عبر الإنترنت لمراجعة إمكانية الوصول لأن تطبيقك ليس لديه عنوان URL لتوجيه مراجع الحسابات إليه.
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. تابع القراءة لملخص الأدوات.
 
@@ -14,7 +14,7 @@ These new features bring those auditing tools to your Electron app. You can choo
 
 ## سبيكترون
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+في إطار اختبار Spectron، يمكنك الآن مراجعة كل نافذة و `<webview>` علامة في التطبيق الخاص بك. وعلى سبيل المثال:
 
 
 
@@ -33,47 +33,47 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+في Devtron، هناك علامة تبويب جديدة للوصول ستسمح لك بمراجعة صفحة في التطبيق الخاص بك وفرز وتصفية النتائج.
 
 ![لقطة الشاشة لـdevtron][1]
 
 Both of these tools are using the [Accessibility Developer Tools][a11y-devtools] library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki][a11y-devtools-wiki].
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+إذا كنت تعرف أدوات أخرى كبيرة للوصول إلى إلكترون، أضفها إلى وثائق الوصول مع طلب سحب.
 
 
 
 ## تمكين الوصول
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+تطبيقات إلكترون تبقي إمكانية الوصول معطلة بشكل افتراضي لأسباب الأداء ولكن هناك طرق متعددة لتفعيلها.
 
 
 
 ### داخل التطبيق
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. تتمتع المرافق المساعدة في نظام المستخدم بالأولوية على هذا الإعداد وسيقوم بتجاوزه.
 
 
 
 ### التكنولوجيات المساعدة
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). أنظر Chrome[إمكانية الوصول للوثائق][a11y-docs]للمزيد من التفاصيل.
+سيمكن تطبيق إلكترون الوصول تلقائياً عندما يكتشف التكنولوجيا المساعدة (Windows) أو VoiceOver (macOS). أنظر Chrome[إمكانية الوصول للوثائق][a11y-docs]للمزيد من التفاصيل.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+على macOS، يمكن للتكنولوجيا المساعدة من طرف ثالث تبديل إمكانية الوصول داخل تطبيقات إلكترون عن طريق تعيين السمة `AXManualAccess` برمجياً:
 
 
 
 ```objc
-CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
+CFStringRef kAXManualaccescessibility = CFSTR("AXManualAccessibility")؛
 
-+ (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
++ (void)enablecessibility:(BOL)تمكين inElectronApplication:(NSRunningApplication *)app
 {
-    AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);
-    if (appRef == nil)
-        return;
+    AXUIElementRef appRef = AXUIElementCreateApplication(التطبيق. معرف القرود)؛
+    إذا (appRef =nil)
+        العودة؛
 
-    CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
-    AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
+    قيمة CFBooleanRef = تمكين ? kCFBooleanTrue : kCFBooleanFalse;
+    AXUIElementSetAttributeValue(appRef, kAXManualaccessibility, value);
     CFRelease(appRef);
 }
 ```

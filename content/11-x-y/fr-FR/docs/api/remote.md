@@ -72,7 +72,7 @@ Comme vous pouvez le voir, la valeur synchrone de la fonction de rappel du moteu
 
 Deuxièmement, les callbacks passés au processus principal persisteront jusqu'à ce que le processus principal les ramasse.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Par exemple, le code suivant semble innocent à première vue. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -80,11 +80,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-Mais n'oubliez pas que le callback est référencé par le processus principal jusqu'à ce que vous le désinstallez explicitement explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
+Mais n'oubliez pas que la callback est référencée par le processus principal jusqu'à ce que vous la désinstalliez explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
 
-Pour empirer les choses, puisque le contexte des callbacks précédemment installés a été libéré, les exceptions seront levées dans le processus principal lorsque l'événement `close` est émis.
+Pour compliquer la situation, puisque le contexte des callbacks précédemment installées a été libéré, des exceptions seront levées dans le processus principal lorsque l'événement `close` sera émis.
 
-Pour éviter ce problème, assurez-vous de nettoyer toutes les références pour rendre les callbacks passés au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou en s'assurant que le processus principal est explicitement dit de déréférencer les callbacks qui sont venus d'un processus de rendu qui se termine.
+Pour éviter ce problème, assurez-vous de nettoyer toutes les références aux callbacks du processus de rendu transmises au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou de s'assurer que l'on a indiqué explicitement au processus principal de déréférencer les callbacks venant d'un processus de rendu se terminant.
 
 ## Accès aux modules intégrés dans le processus principal
 

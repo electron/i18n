@@ -4,7 +4,7 @@ Existem várias maneiras de atualizar uma aplicação em Electron. A maneira mai
 
 ## Usando `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+A equipe do Electron mantém [update.electronjs.org](https://github.com/electron/update.electronjs.org), um webservice gratuito e de código aberto que os aplicativos Electron podem usar para se auto-atualizar. O serviço é projetado para aplicativos Electron que atendem aos seguintes critérios:
 
 - O app roda no macOS ou no Windows
 - O app tem um repositório GitHub público
@@ -19,19 +19,19 @@ Instalando o módulo:
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Invocar o atualizador do arquivo de processo principal do aplicativo:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Por padrão, este módulo irá verificar atualizações na inicialização do aplicativo, e a cada dez minutos. Quando uma atualização for encontrada, ela será baixada automaticamente em segundo plano. Quando o download é concluído, uma caixa de diálogo é exibida permitindo que o usuário reinicie o aplicativo.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Se precisar personalizar sua configuração, você pode [passar opções para `update-electron-app`](https://github.com/electron/update-electron-app) ou [usar o serviço de atualização diretamente](https://github.com/electron/update.electronjs.org).
 
 ## Implementando um Servidor de Atualizações
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Se você estiver desenvolvendo um aplicativo particular do Electron, ou se não é publicado versões no GitHub Releases, pode ser necessário executar o seu próprio servidor de atualização .
 
 Dependendo de suas necessidades, você pode escolher um destes:
 
@@ -47,9 +47,9 @@ Dependendo de suas necessidades, você pode escolher um destes:
 
 ## Implementando Atualizações em Seu App
 
-Uma vez que implantou em seu servidor de atualização, continue com a importação dos módulos em seu código. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Uma vez que implantou em seu servidor de atualização, continue com a importação dos módulos em seu código. O código a seguir pode variar para diferentes servidores software, mas ele funciona como descrito ao usar um [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Importante:** Certifique-se de que o código abaixo só será executado no aplicativo empacotado e não em desenvolvimento. Você pode usar [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) para verificar o ambiente.
 
 
 
@@ -58,7 +58,7 @@ const { app, autoUpdater, dialog } = require('electron')
 ```
 
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Em seguida, construa a URL do servidor de atualização e diga a [autoUpdater](../api/auto-updater.md) sobre ele:
 
 
 
@@ -70,7 +70,7 @@ autoUpdater.setFeedURL({ url })
 ```
 
 
-As the final step, check for updates. The example below will check every minute:
+Como etapa final, verifique se há atualizações. O exemplo abaixo irá verificar a cada minuto:
 
 
 
@@ -81,24 +81,24 @@ setInterval(() => {
 ```
 
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Assim que sua aplicação for [empacotada](../tutorial/application-distribution.md), ele receberá uma atualização para cada novo [GitHub Release](https://help.github.com/articles/creating-releases/) que você publicar.
 
 
 
 ## Aplicando Atualizações
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Agora que você configurou o mecanismo de atualização básico para sua aplicação, você precisa garantir que o usuário será notificado quando houver uma atualização. Este pode ser alcançado usando os eventos API do AutoUpdater [](../api/auto-updater.md#events):
 
 
 
 ```javascript
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+Autoatualizador. n('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    botões: ['Reiniciar', 'Mais tarde'],
+    título: 'Atualização de Aplicativo',
+    mensagem: processo. latform === 'ganha32' ? releaseNotes : releaseName,
+    detail: 'Uma nova versão foi baixada. Reinicie o aplicativo para aplicar as atualizações.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -108,7 +108,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 ```
 
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Também tenha certeza de que os erros [estão sendo tratados por](../api/auto-updater.md#event-error). Aqui está um exemplo para registrar no `stderr`:
 
 
 
@@ -122,6 +122,6 @@ autoUpdater.on('error', message => {
 
 
 
-## Handling Updates Manually
+## Manipulando Atualizações Manualmente
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Porque as solicitações feitas pela atualização automática não estão sob seu controle direto, você pode achar situações que são difíceis de lidar (como se o servidor de atualização está atrás da autenticação). A `url` campo suporta arquivos, o que significa que, com algum esforço, você pode se esquivar do aspecto de comunicação do servidor do processo. [Aqui está um exemplo de como isso pode funcionar](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

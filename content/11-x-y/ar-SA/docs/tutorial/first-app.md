@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# كتابة أول تطبيق إلكترون
 
 يمكنك الكترون من إنشاء تطبيقات لأجهزة الحاسب المكتبي باستخدام الجافا سكريبت (JavaScript) بشكل خالص عن طريق تزويد المطور ببيئة تشغيلية غنية بمكونات أصلية (API) لكل نظام تشغيل. تستطيع اعتبار إلكترون كنكهة مختلفة من نود. جي اس (Node.js) تركز على انشاء تطبيقات سطح المكتب بدلاً من سيرفرات الويب. سيرفرات الويب هي من اختصاص نود. جي اس، بينما تطبيقات سطح المكتب هي من اختصاص إلكترون.
 
@@ -13,10 +13,10 @@
 
 
 ```plaintext
-your-app/
-├── package.json
-├── main.js
-└── index.html
+تطبيقك
+<unk> <unk> <unk> <unk> <unk> <unk> <unk> package.json
+<unk> <unk> <unk> ', main.js
+<unk> <unk> <unk> ', index.html
 ```
 
 
@@ -29,14 +29,14 @@ npm init
 ```
 
 
-سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. An example of your `package.json` might look like this:
+سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. مثال على `package.json` قد يبدو مثل هذا:
 
 
 
 ```json
 {
   "name": "your-app",
-  "version": "0.1.0",
+  "الإصدار": "0.1.0",
   "main": "main.js"
 }
 ```
@@ -44,7 +44,7 @@ npm init
 
 __ملاحظة__ : إذا كان `main` الحقل غير موجود في `package.json` ، سيحاول الإلكترون تحميل `index.js` (كما يفعل Node.js) .
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+بشكل افتراضي، سيقوم `npm start` بتشغيل البرنامج النصي الرئيسي باستخدام Node.js. من أجل جعل يعمل مع إلكترون، يمكنك إضافة `بدء` سكريبت:
 
 
 
@@ -84,7 +84,7 @@ npm install --save-dev electron
 
 
 ```javascript
-const electron = require('electron')
+إلكترون = مطلوبة ('electron')
 ```
 
 
@@ -97,15 +97,15 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  فوز = متصفح ويندوز جديد ({
+    عرض: 800,
+    ارتفاع 600,
+    تفضيلات الويب: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // وتحميل index.html من التطبيق.
   win.loadFile('index.html')
 }
 
@@ -121,44 +121,44 @@ app.whenReady().then(createWindow)
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  فوز = متصفح ويندوز جديد ({
+    عرض: 800,
+    ارتفاع 600,
+    تفضيلات الويب: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // وتحميل index.html من التطبيق.
   win.loadFile('index.html')
 
    // افتح DevTools.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// سيتم استدعاء هذه الطريقة عند انتهاء إلكترون
+// تهيئة وهي مستعدة لإنشاء نوافذ المتصفح.
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', () => {
+// إنهاء عند إغلاق جميع النوافذ، باستثناء macOS. هناك، من الشائع
+// أن تظل التطبيقات وشريط القوائم الخاص بها نشطة حتى يغادر المستخدم
+/ / صراحة مع Cmd + Q.
+app.on('window-all closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    التطبيق. uit()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
+تطبيق. n('تفعيل', () => {
+  // على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما يتم النقر على أيقونة
+  // ساعة ولا توجد نوافذ أخرى مفتوحة.
+  إذا (BrowserWindow.getAllWindows). ength === 0) {
     createWindow()
-  }
+
 })
 
-// In this file you can include the rest of your app's specific main process
+// في هذا الملف يمكنك تضمين بقية العملية الرئيسية الخاصة بتطبيقك
 // code. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
@@ -198,14 +198,14 @@ app.on('activate', () => {
 
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# استنساخ المستودع
+$ git نسخة https://github. om/electron/electron-quick-start
+# انتقل إلى المستودع
+$ cd electron-start
+# تثبيت الإعتمادات
+$ npm مثبت
+# تشغيل التطبيق
+$ npm
 ```
 
 

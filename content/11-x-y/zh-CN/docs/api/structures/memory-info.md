@@ -1,4 +1,4 @@
-# MemoryInfo 对象
+# ProcessMemoryInfo 对象
 
 * `workingSetSize` Integer- 当前占用的物理内存RAM总量
 * `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。

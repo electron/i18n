@@ -6,7 +6,7 @@ Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-For example:
+De exemplu:
 
 ```javascript
 const { session } = require('electron')

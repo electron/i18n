@@ -27,6 +27,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## 중단될 예정 API (12.0)
 
+### Removed: Pepper Flash support
+
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+
 ### Default Changed: `contextIsolation` defaults to `true`
 
 In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
@@ -152,6 +156,52 @@ const w = new BrowserWindow({
 ```
 
 우리는 [remote 모듈에서 벗어나길 권장합니다.](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)
+
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
+
+```javascript
+// 더이상 사용되지 않음
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// 다음으로 대체됨
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
+
+```javascript
+// 더이상 사용되지 않음
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// 다음으로 대체됨
+protocol.registerFileProtocol(scheme, handler)
+```
+
+등록되거나 인터셉트된 프로토콜은 탐색이 발생할 때까지 현재 페이지에 영향을 미치지 않습니다.
+
+### `protocol.isProtocolHandled`
+
+이 API는 더이상 사용되지 않고 사용자는 `protocol.isProtocolRegistered`와 `protocol.isProtocolIntercepted`를 대신 사용해야 합니다.
+
+```javascript
+// 더이상 사용되지 않음
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// 다음으로 대체됨
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
 
 ## 중단될 예정 API (9.0)
 

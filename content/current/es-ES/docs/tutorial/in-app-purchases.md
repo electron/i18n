@@ -38,29 +38,29 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // Verifica cada transacción.
   transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+    const payment = transacción. cambio de pago
 
-    switch (transaction.transactionState) {
+    (transacción. ransactionState) {
       case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
+        consola. og(`Comprando ${payment.productIdentifier}... )
         break
 
       case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+        consola. og(`${payment.productIdentifier} comprado.`)
 
-        // Get the receipt url.
+        // Obtener la url del recibo.
         const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // Envía el archivo de recibo al servidor y comprueba si es válido.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // Si el recibo es válido, el producto es comprado
         // ...
 
         // Acaba la transacción.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        inAppPurchase.finishTransactionByDate(transaction.transactionDis)
 
         break
       }
@@ -69,7 +69,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // Finaliza la transacción.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -111,7 +111,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
-  // Purchase the selected product.
+  // Compra el producto seleccionado.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('El producto no es válido.')

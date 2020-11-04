@@ -1,82 +1,84 @@
 ---
-title: What's New in Electron
-author: jlord
+title: Що нового в Electron
+author: молодший
 date: '2015-10-15'
 ---
 
-There have been some interesting updates and talks given on Electron recently, here's a roundup.
+Там були деякі цікаві оновлення та розмови, дані з Electron нещодавно, ось округлення.
 
 ---
 
-## Source
+## Джерело
 
-Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
+Electron тепер в актуальному стані з Chrome 45 як `v0.32.0`. До інших оновлень належать...
 
-### Better Documentation
+### Краща документація
 
-![new docs](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
+![нові документи](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
 
-We have restructured and standardized the documentation to look better and read better. There are also community-contributed translations of the documentation, like Japanese and Korean.
+Ми змінили структуру і стандартизували документацію так, щоб вона виглядала краще та краще читала. Існують також переклади, які сприяють громаді, як і японська та корейська мова.
 
 Відповідні запити на отримання: [electron/electron#2028](https://github.com/electron/electron/pull/2028), [electron/electron#2533](https://github.com/electron/electron/pull/2533), [electron/electron#2557](https://github.com/electron/electron/pull/2557), [electron/electron#2709](https://github.com/electron/electron/pull/2709), [electron/electron#2725](https://github.com/electron/electron/pull/2725), [electron/electron#2698](https://github.com/electron/electron/pull/2698), [electron/electron#2649](https://github.com/electron/electron/pull/2649).
 
 ### Node.js 4.1.0
 
-Since `v0.33.0` Electron ships with Node.js 4.1.0.
+Починаючи з `v0.33.0` Electron кораблі з Node.js 4.1.0.
 
-Related pull request: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
+Споріднений запит: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
 
-### node-pre-gyp
+### вузло-прегіп
 
-Modules relying on `node-pre-gyp` can now be compiled against Electron when building from source.
+Модулі покладаються на `node-pre-gyp` тепер можуть бути скомпільовані проти Electron під час створення з джерела.
 
-Related pull request: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
+Пов'язаний запит на злиття: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
 
-### ARM Support
+### Підтримка ARM
 
-Electron now provides builds for Linux on ARMv7. It runs on popular platforms like Chromebook and Raspberry Pi 2.
+Electron забезпечує збірки для Linux на ARMv7. Він працює на таких популярних платформах, як Chromebook і Raspberry Pi 2.
 
-Related issues: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
+Супутні проблеми: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
 
-### Yosemite-style Frameless Window
+### Вікно в стилі Yosemite-style
 
-![frameless window](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
+![вікно без фреймворку](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
 
-A patch by [@jaanus](https://github.com/jaanus) has been merged that, like the other built-in OS X apps, allows creating frameless windows with system traffic lights integrated on OS X Yosemite and later.
+Оновлення [@jaanus](https://github.com/jaanus) було об'єднано, як і інші вбудовані ОС X, дозволяє створювати вікна без використання frameless з системним трафіком та підсвічуванням на OS X Yosemite та пізніше.
 
-Related pull request: [electron/electron#2776](https://github.com/electron/electron/pull/2776).
+Супутниковий запит: [electron/electron#2776](https://github.com/electron/electron/pull/2776).
 
-### Google Summer of Code Printing Support
+### Служба підтримки друку коду Google
 
-After the Google Summer of Code we have merged patches by [@hokein](https://github.com/hokein) to improve printing support, and add the ability to print the page into PDF files.
+Після Google Літо коду ми об'єднали патчі [@hokein](https://github.com/hokein) для покращення друку підтримки, і додавання можливості друкувати сторінку в PDF-файли.
 
 Пов'язані задачі: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
 
 ## Atom
 
-Atom has now upgraded to Electron `v0.30.6` running Chrome 44. An upgrade to `v0.33.0` is in progress on [atom/atom#8779](https://github.com/atom/atom/pull/8779).
+Atom тепер оновлено до Electron `v0.30.6` під час роботи Chrome 44. Оновлення до `v0.33.0` в процесі [атомі/atom#8779](https://github.com/atom/atom/pull/8779).
 
-## Talks
+## Говори
 
-GitHubber [Amy Palamountain](https://github.com/ammeep) gave a great introduction to Electron in a talk at [Nordic.js](https://nordicjs2015.confetti.events). She also created the [electron-accelerator](https://github.com/ammeep/electron-accelerator) library.
+GitHubber [Amy Palamountain](https://github.com/ammeep) чудово вступив до Electron у розмові [Nordic.js](https://nordicjs2015.confetti.events). Вона також створила [електро-прискорювач](https://github.com/ammeep/electron-accelerator) бібліотеку.
 
-#### Building native applications with Electron by Amy Palomountain
+#### Побудова місцевих програм з Electron мовою Amy Palomountain
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
-[Ben Ogle](https://github.com/benogle), also on the Atom team, gave an Electron talk at [YAPC Asia](http://yapcasia.org/2015/):
+[Бен Огл](https://github.com/benogle), також у команді Atom, дали відгук Electron на [YAPC Asia](http://yapcasia.org/2015/):
 
-#### Building Desktop Apps with Web Technologies by Ben Ogle
+#### Побудова програм із Web Technologies від Ben Ogle
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
-Atom team member [Kevin Sawicki](https://github.com/kevinsawicki) and others gave talks on Electron at the [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) meetup recently. The [videos](http://www.wagonhq.com/blog/electron-meetup) have been posted, here are a couple:
+Член команди [Kevin Sawicki](https://github.com/kevinsawicki) та інші спільно виступали з Electron на конференціїBay [, це група Electron User](http://www.meetup.com/Bay-Area-Electron-User-Group/) останнім часом. [відео](http://www.wagonhq.com/blog/electron-meetup) було розміщено, ось пара:</p> 
 
-#### The History of Electron by Kevin Sawicki
+
+
+#### Історія Electron від Кевін Совіцького
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
-#### Making a web app feel native by Ben Gotow
+#### Створення веб-додатку відчуває себе носієм Бен Готоу
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

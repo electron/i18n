@@ -56,10 +56,10 @@ npm install -g electron-windows-store
 
 ```powershell
 electron-windows-store `
-    --input-directory C:\myelectronapp `
-    --output-directory C:\output\myelectronapp `
+    --input-directory C:\myelectronapp`
+    --output-directory C:\output\myelectronapp`
     --package-version 1.0.0.0 `
-    --package-name myelectronapp
+    --package-name myelectronelectronapp
 ```
 
 一旦执行，工具就开始工作：它接受您的 Electron 应用程序作为输入，展平 `node_modules`。 然后，它将应用程序归档为 `app.zip`。 使用安装程序和 Windows 容器，该工具创建一个“扩展的” AppX 包 - 包括 Windows 应用程序清单 (`AppXManifest.xml`)以及虚拟文件系统和输出文件夹中的虚拟注册表。

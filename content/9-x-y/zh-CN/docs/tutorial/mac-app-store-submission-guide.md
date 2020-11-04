@@ -1,6 +1,6 @@
 # Mac App Store 应用程序提交指南
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+从 v0.34.0 开始，Electron 允许将封装应用提交Mac App Store (MAS)。 本指南提供以下信息：如何提交您的应用程序和 MAS 构建的 限制。
 
 **注意：**提交一个应用到Mac应用商店需要加入[Apple Develpoer Program][developer-program]，这需要花钱。
 
@@ -122,7 +122,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### 原生模块签名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+您的应用中使用的本地模块也需要签名。 如果使用 electron-osx-sign, 请务必在 参数列表中包含内建二进制文件的路径：
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -178,7 +178,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
+<key>com.apple.security.files.users selected.read-only</key>
 <true/>
 ```
 
@@ -187,7 +187,7 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key>
+<key>com.apple.security.files.user-selected.write</key>
 <true/>
 ```
 

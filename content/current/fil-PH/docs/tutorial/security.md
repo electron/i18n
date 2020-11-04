@@ -81,13 +81,8 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Hindi Kaaya-aya --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Kaaya-aya --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -129,11 +124,9 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
@@ -225,11 +218,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
@@ -366,7 +357,7 @@ const mainWindow = new BrowserWindow()
 
 _Ang rekomendasyon ay default ng Electron_
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`](../api/browser-window.md) gamit ang `window.open()` na paraan. `<webview>` tags are otherwise not allowed to create new windows.
 
 ### Bakit?
 
@@ -374,11 +365,9 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 
 ### Paano?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
@@ -393,11 +382,11 @@ It is a good idea to control the creation of new [`<webview>`](../api/webview-ta
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. Sa karamihan ng mga kaso, hindi kailangan ng mga developer na huwag paganahin ang alinman sa mga tampok na iyon - at dapat mong hindi pinapayagan ang iba't ibang mga pagsasaayos para sa mga bagong nilikha [`<webview>`](../api/webview-tag.md) na mga tag.
 
 ### Paano?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Bago ang isang [`<webview>`](../api/webview-tag.md) tag ay naka-attach, Electron ay sunugin ang `will-attach-webview` kaganapan sa hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -479,11 +468,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Bakit?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 ### Paano?
 
@@ -516,7 +505,11 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 ```js
 // Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -528,13 +521,11 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Bad if the renderer can run untrusted content  --><webview enableremotemodule="true" src="page.html"></webview><!-- Good --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+
 
 ## 16) Filter the `remote` module
 

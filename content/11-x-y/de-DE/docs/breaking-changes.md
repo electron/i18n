@@ -2,25 +2,25 @@
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](tutorial/electron-versioning.md#semver) before the change is made.
 
-### Types of Breaking Changes
+### Typen von Bruchänderungen
 
-This document uses the following convention to categorize breaking changes:
+Dieses Dokument verwendet die folgende Konvention um die Änderungen zu kategorisieren:
 
-- **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-- **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-- **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-- **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-- **Removed:** An API or feature was removed, and is no longer supported by Electron.
+- **API geändert:** Eine API wurde so geändert, dass Code, der nicht aktualisiert wurde, garantiert eine Ausnahme wirft.
+- **Verhalten geändert:** Das Verhalten von Electron hat sich geändert, aber nicht so, dass eine Ausnahme unbedingt geworfen wird.
+- **Standard geändert:** Code abhängig von der alten Standardeinstellung kann kaputt gehen und wirft nicht notwendigerweise eine Ausnahme. Das alte Verhalten kann durch explizite Angabe des Wertes wiederhergestellt werden.
+- **Veraltet:** Eine API wurde als veraltet markiert. Die API wird weiterhin funktionieren, sendet aber eine Deprecation-Warnung aus und wird in einer zukünftigen Version entfernt.
+- **Entfernt:** Eine API oder Funktion wurde entfernt und wird von Electron nicht mehr unterstützt.
 
 ## Planned Breaking API Changes (12.0)
 
-### Default Changed: `contextIsolation` defaults to `true`
+### Standard geändert: `Kontext-Isolation` standardmäßig `true`
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+In Electron 12, `Kontext-Isolation` wird standardmäßig aktiviert.  Um das vorherige Verhalten wiederherzustellen, muss `contextIsolation: false` in WebPreferences angegeben werden.
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+Wir [empfehlen, Kontext-Isolation](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) für die Sicherheit Ihrer Anwendung zu aktivieren.
 
-For more details see: https://github.com/electron/electron/issues/23506
+Für weitere Details siehe https://github.com/electron/electron/issues/23506
 
 ### Removed: `crashReporter` methods in the renderer process
 
@@ -37,17 +37,17 @@ They should be called only from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### Standard geändert: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+Der Standardwert der `Komprimierung` Option zu `crashReporter.start` hat sich von `false` auf `true` geändert. Das bedeutet, dass Absturzdumps mit dem `Content-Encoding: gzip` Header auf den -Absturzserver hochgeladen werden und der Körper wird komprimiert.
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+Wenn Ihr Absturzeinnahme Server keine komprimierten Payloads unterstützt, Sie können die Komprimierung ausschalten, indem Sie `{ compress: false }` in den Absturzberichten Optionen angeben.
 
 ## Planned Breaking API Changes (11.0)
 
-There are no breaking changes planned for 11.0.
+Es sind keine Änderungen für 11.0 geplant.
 
-## Planned Breaking API Changes (10.0)
+## Geplante API-Änderungen (10.0)
 
 ### Veraltet: `companyName` Argument, um `crashReporter.start()`
 
@@ -88,69 +88,115 @@ All above methods remain non-deprecated when called from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
-### Deprecated: `crashReporter.start({ compress: false })`
+### Veraltet: `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+Setze `{ compress: false }` in `crashReporter.start` ist veraltet. Fast alle Absturzeinnahmeserver unterstützen gzip-Kompression. Diese Option wird in einer zukünftigen Version von Electron entfernt.
 
-### Removed: Browser Window Affinity
+### Entfernt: Browser-Fenster-Affinität
 
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+Die `Affinität` Option beim Erstellen eines neuen `BrowserWindow` wird als Teil unseres Plans entfernt, um das Chromium-Prozessmodell für Sicherheit besser auszurichten Leistung und Wartbarkeit.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Nähere Informationen finden Sie unter [#18397](https://github.com/electron/electron/issues/18397).
 
-### Default Changed: `enableRemoteModule` defaults to `false`
+### Standard geändert: `RemoteModule` standardmäßig auf `false`
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+In Electron 9 hat die Verwendung des Remote-Moduls ohne es explizit über die Option `aktiviertes RemoteModule` WebPreferences eine Warnung ausgelöst. Im Electron 10 ist das Remote-Modul nun standardmäßig deaktiviert. Um das Remote- -Modul verwenden zu können, muss `RemoteModule: true` in WebPreferences angegeben werden:
 
 ```js
 const w = new BrowserWindow({
-  webPreferences: {
+  webEinstellungen: {
     enableRemoteModule: true
   }
 })
 ```
 
-We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+Wir [empfehlen Ihnen, sich vom Remote- Modul](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31) zu entfernen.
 
-## Planned Breaking API Changes (9.0)
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
 
-### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
-As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+```javascript
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
+```
 
-If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
-### Removed: `<webview>.getWebContents()`
+```javascript
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
+```
+
+Das registrierte oder abgefangene Protokoll hat keine Auswirkungen auf die aktuelle Seite, bis eine Navigation stattfindet.
+
+### `protocol.isProtocolHandled`
+
+Diese Schnittstelle ist veraltet anstatt dessen sollten Benutzer `protocol.isProtocolRegistered` und `protocol.isProtocolIntercepted` nutzen.
+
+```javascript
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
+## Geplante API-Änderungen (9.0)
+
+### Standard geändert: Das Laden von nicht-kontextabhängigen nativen Modulen im Renderer-Prozess ist standardmäßig deaktiviert
+
+Ab Electron 9 erlauben wir das Laden von nicht kontextabhängigen nativen Modulen im Prozess nicht.  Dies ist zur Verbesserung der Sicherheit, Leistung und Wartbarkeit von Electron als Projekt.
+
+Wenn dies Sie betrifft, können Sie vorübergehend `app.allowRendererProcessReuse` auf `false` setzen, um zum alten Verhalten zurückzukehren.  Dieses Flag wird nur eine Option bis Electron 11 sein, so dass Sie planen sollten Ihre nativen Module zu aktualisieren, um den Kontext zu erkennen.
+
+Nähere Informationen finden Sie unter [#18397](https://github.com/electron/electron/issues/18397).
+
+### Entfernt: `<webview>.getWebContents()`
 
 Diese API, die seit Electron 8.0 veraltet ist, wird nun entfernt.
 
 ```js
-// Removed in Electron 9.0
+// In Electron 9.0 entfernt
 webview.getWebContents()
-// Replace with
+// Ersetzen durch
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-### Removed: `webFrame.setLayoutZoomLevelLimits()`
+### Entfernt: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Behavior Changed: Sending non-JS objects over IPC now throws an exception
+### Verhalten geändert: Das Senden von Nicht-JS-Objekten über IPC wirft jetzt eine Ausnahme
 
-In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing significant performance improvements. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+In Electron 8.0 wurde IPC geändert, um den strukturierten Clone Algorithmus zu verwenden, der erhebliche Leistungsverbesserungen bringt. Um den Übergang zu erleichtern, wurde der alte IPC-Serialisierungsalgorithmus beibehalten und für einige Objekte verwendet, die nicht serialisierbar mit strukturiertem Klon sind. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Wann immer der alte Algorithmus aufgerufen wurde, wurde eine -Veraltungswarnung ausgegeben.
 
-In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+In Electron 9. , der alte Serialisierungsalgorithmus wurde entfernt, und das Senden von solcher nicht serialisierbarer Objekte wird nun ein "Objekt konnte nicht geklont werden" Fehler werfen.
 
-### API Changed: `shell.openItem` is now `shell.openPath`
+### API geändert: `shell.openItem` ist jetzt `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+Die `shell.openItem` API wurde durch eine asynchrone `shell.openPath` API ersetzt. Sie können den ursprünglichen API-Vorschlag und die Argumentation [hier sehen](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
 
 ## Planned Breaking API Changes (8.0)
 
-### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
+### Verhalten geändert: Über IPC gesendete Werte werden nun serialisiert mit dem strukturierten Clone Algorithmus
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
@@ -178,7 +224,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### Deprecated: `<webview>.getWebContents()`
+### Veraltet: `<webview>.getWebContents()`
 
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
@@ -193,38 +239,38 @@ remote.webContents.fromId(webview.getWebContentsId())
 However, it is recommended to avoid using the `remote` module altogether.
 
 ```js
-// main
+// Haupt
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = (webContentsId, contents) => {
-  const guest = webContents.fromId(webContentsId)
-  if (!guest) {
-    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+  const guest = webContents. romId(webContentsId)
+  if (! uest) {
+    throw new Error(`Ungültige webContentsId: ${webContentsId}`)
   }
-  if (guest.hostWebContents !== contents) {
+  if (guest. ostWebcontent ! = contents) {
     throw new Error('Access denied to webContents')
   }
   return guest
 }
 
-ipcMain.handle('openDevTools', (event, webContentsId) => {
+ipcMain. andle('openDevTools', (event, webContentsId) => {
   const guest = getGuestForWebContents(webContentsId, event.sender)
-  guest.openDevTools()
+  guest. penDevTools()
 })
 
-// renderer
+// Renderer
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
+### Veraltet: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Planned Breaking API Changes (7.0)
 
-### Deprecated: Atom.io Node Headers URL
+### Veraltet: Atom.io Knoten-Header-URL
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
@@ -232,7 +278,7 @@ Deprecated: https://atom.io/download/electron
 
 Replace with: https://electronjs.org/headers
 
-### API Changed: `session.clearAuthCache()` no longer accepts options
+### API geändert: `session.clearAuthCache()` akzeptiert keine Optionen mehr
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
@@ -243,25 +289,25 @@ session.clearAuthCache({ type: 'password' })
 session.clearAuthCache()
 ```
 
-### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
+### API geändert: `powerMonitor.querySystemIdleState` ist jetzt `powerMonitor.getSystemIdleState`
 
 ```js
-// Removed in Electron 7.0
-powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
-const idleState = powerMonitor.getSystemIdleState(threshold)
+// In Electron 7.0 entfernt
+powerMonitor.querySystemIdleState(Schwelle, Rückruf)
+// Ersetzen mit synchroner API
+const idleState = powerMonitor.getSystemIdleState(Schwell)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API geändert: `powerMonitor.querySystemIdleTime` ist jetzt `powerMonitor.getSystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Entfernt in Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Ersetzen mit synchroner API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
+### API geändert: `webFrame.setIsolatedWorldInfo` ersetzt separate Methoden
 
 ```js
 // Removed in Electron 7.0
@@ -278,17 +324,17 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removed: `marked` property on `getBlinkMemoryInfo`
+### Entfernt: `markiert` Eigenschaft auf `getBlinkMemoryInfo`
 
 This property was removed in Chromium 77, and as such is no longer available.
 
-### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
+### Verhalten geändert: `webkitdirectory` Attribut für `<input type="file"/>` listet nun Verzeichnisinhalte auf
 
-The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+Die Eigenschaft `webkitdirectory` bei HTML-Datei-Eingaben erlaubt es ihnen, Ordner auszuwählen. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
-As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
+Ab Electron 7 ist `Dateiliste` jetzt eine Liste aller Dateien im Ordner ähnlich wie Chrome, Firefox und Edge ([Link zur MDN Dokumentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-As an illustration, take a folder with this structure:
+Nehmen Sie als Illustration einen Ordner mit dieser Struktur:
 ```console
 folder
 ├── file1
@@ -296,23 +342,23 @@ folder
 └── file3
 ```
 
-In Electron <=6, this would return a `FileList` with a `File` object for:
+In Electron <=6 würde dies eine `Dateiliste` mit einem `Datei` Objekt für:
 ```console
 path/to/folder
 ```
 
-In Electron 7, this now returns a `FileList` with a `File` object for:
+In Electron 7 liefert dies nun eine `Dateiliste` mit einem `Datei-` Objekt für:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Beachten Sie, dass `webkitdirectory` den Pfad nicht mehr dem ausgewählten Ordner anzeigt. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Planned Breaking API Changes (6.0)
 
-### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
+### API geändert: `win.setMenu(null)` ist jetzt `win.removeMenu()`
 
 ```js
 // Deprecated
@@ -321,7 +367,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-### API Changed: `contentTracing.getTraceBufferUsage()` is now a promise
+### API geändert: `contentTracing.getTraceBufferUsage()` ist jetzt ein Versprechen
 
 ```js
 // Deprecated
@@ -334,7 +380,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
+### API geändert: `electron.screen` im Renderer-Prozess sollte über `Remote` aufgerufen werden
 
 ```js
 // Deprecated
@@ -343,7 +389,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-### API Changed: `require()`ing node builtins in sandboxed renderers no longer implicitly loads the `remote` version
+### API geändert: `require()`eingebaute Knoten in Sandbox-Renderer laden nicht mehr implizit die `entfernte` Version
 
 ```js
 // Deprecated
@@ -367,25 +413,25 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
+### Veraltet: `powerMonitor.querySystemIdleState` ersetzt durch `powerMonitor.getSystemIdleState`
 
 ```js
-// Deprecated
-powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
-const idleState = powerMonitor.getSystemIdleState(threshold)
+// Veraltet
+powerMonitor.querySystemIdleState(Schwellenwert, Callback)
+// Ersetzen mit synchroner API
+const idleState = powerMonitor.getSystemIdleState(Schwellenwert)
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleTime` replaced with `powerMonitor.getSystemIdleTime`
+### Veraltet: `powerMonitor.querySystemIdleTime` ersetzt durch `powerMonitor.getSystemIdleTime`
 
 ```js
-// Deprecated
+// Veraltet
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Ersetzen mit synchroner API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### Deprecated: `app.enableMixedSandbox()` is no longer needed
+### Veraltet: `app.enableMixedSandbox()` wird nicht mehr benötigt
 
 ```js
 // Deprecated
@@ -394,7 +440,7 @@ app.enableMixedSandbox()
 
 Mixed-sandbox mode is now enabled by default.
 
-### Deprecated: `Tray.setHighlightMode`
+### Veraltet: `Tray.setHighlightMode`
 
 Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
@@ -406,7 +452,7 @@ tray.setHighlightMode(mode)
 
 ## Planned Breaking API Changes (5.0)
 
-### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
+### Standard geändert: `nodeIntegration` und `webviewTag` default to false, `contextIsolation` defaults to true
 
 The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
@@ -426,15 +472,15 @@ const w = new BrowserWindow({
 })
 ```
 
-### Behavior Changed: `nodeIntegration` in child windows opened via `nativeWindowOpen`
+### Verhalten geändert: `Knoten-Integration` in untergeordneten Fenstern, geöffnet über `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
+Kindfenster, die mit der Option `nativeWindowOpen` geöffnet wurden, werden die Node.js Integration immer deaktiviert, es sei denn, `nodeIntegrationInSubFrames` ist `true`.
 
-### API Changed: Registering privileged schemes must now be done before app ready
+### API geändert: Das Registrieren von privilegierten Schemas muss jetzt erledigt werden, bevor die App fertig ist
 
-Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Renderer Prozess-APIs `webFrame.registerURLSchemeAsPrivileged` und `webFrame.registerURLSchemeAsBypassingCSP` sowie Browser-Prozess-API `protocol.registerStandardSchemes` wurden entfernt. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
 
-### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
+### Veraltet: `webFrame.setIsolatedWorld*` ersetzt durch `webFrame.setIsolatedWorldInfo`
 
 ```js
 // Deprecated
@@ -451,7 +497,7 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
+### API geändert: `webFrame.setSpellCheckProvider` nimmt jetzt einen asynchronen Callback ein
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 ```js
 // Deprecated
@@ -527,23 +573,23 @@ const { memory } = metrics[0] // Deprecated property
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Veraltet
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Ersetzen durch
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
-window.on('app-command', (e, cmd) => {
+// Veraltet
+Fenster. n('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // etwas tun
   }
 })
-// Replace with
-window.on('app-command', (e, cmd) => {
+// Ersetzen durch
+Fenster. n('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // etwas tun
   }
 })
 ```
@@ -701,10 +747,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// Veraltet
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// Ersetzen durch
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
@@ -767,7 +813,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
+Die Datei _ohne das Präfix_ wird immer noch veröffentlicht, um zu vermeiden, dass Setups, die sie verbrauchen könnten, unterbrochen werden. Starting at 2.0, the unprefixed file will no longer be published.
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 

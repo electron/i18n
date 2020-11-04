@@ -4,13 +4,13 @@ Making accessible applications is important and we're happy to introduce new fun
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Preocupările legate de accesibilitate în aplicațiile Electron sunt similare cu cele din website-uri pentru că ambele sunt în cele din urmă HTML. Cu aplicațiile Electron totuși nu puteți utiliza resursele online pentru audituri de accesibilitate deoarece aplicația dvs. nu are un URL pentru a indica auditorul.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Citește pe scurt un rezumat al instrumentelor.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+În spectrul de teste pentru Spectron, poți audita acum fiecare fereastră și `<webview>` tag în aplicația ta. De exemplu:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,38 +24,38 @@ You can read more about this feature in [Spectron's documentation][spectron-a11y
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+În Devtron, există o nouă filă de accesibilitate care vă va permite să auditați o pagină din aplicație, sortați și filtrați rezultatele.
 
-![devtron screenshot][4]
+![captură ecran devtron][4]
 
 Both of these tools are using the [Accessibility Developer Tools][a11y-devtools] library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki][a11y-devtools-wiki].
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Dacă știi de alte instrumente de accesibilitate pentru Electron, adaugă-le la documentația de accesibilitate cu o cerere de tragere.
 
 ## Activarea accesibilității
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Aplicațiile Electron mențin accesibilitatea dezactivată implicit din motive de performanță dar există mai multe modalități de a o activa.
 
-### Inside Application
+### Aplicarea în interior
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled], you can expose accessibility switch to users in the application preferences. Serviciile de asistență de sistem ale utilizatorului au prioritate față de această setare și o vor suprascrie.
 
-### Assistive Technology
+### Tehnologie de asistență
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
+Aplicația Electron va activa accesibilitatea automat atunci când detectează tehnologia de asistență (Windows) sau VoiceOver (macOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Pe macOS, tehnologia de asistent terță parte poate schimba accesibilitatea înăuntrul Aplicațiile Electron prin setarea programului `AXManualAccessibility` :
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
 
-+ (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
++ (void)enableAccessibility:(BOOL)activează inElectronApplication:(NSRunningApplication *)app
 {
-    AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);
-    if (appRef == nil)
-        return;
+    AXUIElementRef appRef = AXUIElementCreateApplication(app. identificator rotundă);
+    dacă (appRef == nil)
+        returnează;
 
-    CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
+    Valoarea CFBooleanRef = activează? kCFBooleanTrue: kCFBooleanFalse;
     AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
     CFRelease(appRef);
 }

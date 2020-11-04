@@ -1,5 +1,5 @@
 ---
-title: Electron becomes an OpenJS Foundation Impact Project
+title: Electron стає OpenJS Foundation вплив проекту
 author:
   - VerteDinde
 date: '2020-06-23'
@@ -7,14 +7,14 @@ date: '2020-06-23'
 
 At [OpenJS World](https://events.linuxfoundation.org/openjs-world/) this morning, we announced that Electron has officially graduated from the [OpenJS Foundation's](https://openjsf.org/) incubation program, and is now an OpenJS Foundation Impact Project.
 
-Electron [entered incubation in December of 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), at the last OpenJS Foundation global conference in Montreal. We're excited to take a larger role in the JavaScript community as an Impact Project, and continue our partnership with the OpenJS Foundation.
+Electron [увійшов в інкубацію в грудні 2019 року](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/)під час останньої глобальної конференції в Монреалі. Ми із задоволенням відіграємо більшу роль у JavaScript спільноті у вигляді Вплив проекту і продовжимо наше партнерство з OpenJS Foundation.
 
 ---
 
-## Learning more
+## Вивчати більше
 
-You can read up on the foundation, its mission, and its members on the [OpenJSF website](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). The OpenJS Foundation is host to a number of open source JavaScript projects including jQuery, Node.js, and webpack. It's supported by 30 corporate and end-user members, including GoDaddy, Google, IBM, Intel, Joyent, and Microsoft.
+Ви можете прочитати про основу, його місію і її члени на [OpenJSF веб-сайті](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). Фонд OpenJS приймає ряд проектів з відкритим вихідним кодом JavaScript, у тому числі jQuery, Node.js та webpack. Він підтримується 30 корпоративними та кінцевими членами, включаючи GoDaddy, Google, IBM, Intel, Joyent та Microsoft.
 
-Electron is an open–source framework for building cross-platform desktop applications with web technologies. To learn more about the humans behind Electron and how they work together, take a look at our [Governance page](https://electronjs.org/governance).
+Electron це open–source фреймворк для створення крос-платформенних настільних застосунків з веб-технологіями. Щоб дізнатися більше про людей, що стоять за Electron і як вони працюють разом, погляньте на нашу сторінку управління [](https://electronjs.org/governance).
 
-To get started with Electron itself, take a peek at [our documentation](https://electronjs.org/docs).
+Щоб почати роботу з самим Electron, погляньте на [документацію](https://electronjs.org/docs).

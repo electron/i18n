@@ -1,52 +1,57 @@
-# Electron Application Architecture
+# Electron Applicatie Architectuur
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Voordat we in de API van Electron, kunnen duiken, moeten we de twee processen types die beschikbaar zijn in Electron bespreken. Ze zijn fundamenteel verschillend en belangrijk om te begrijpen.
 
 ## Hoofd en Renderer Processen
 
-In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+In Electron wordt het proces dat de `package.json`van het grootste</code> script `uitvoert
+<strong x-id="2">het hoofdproces</strong>. Het script dat in het hoofdproces wordt uitgevoerd kan een
+GUI weergeven door het maken van webpagina's. Een Electron app heeft altijd één hoofdproces, maar
+nooit meer.</p>
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called __the renderer process__.
+<p spaces-before="0">Omdat Electron Chromium gebruikt voor het weergeven van webpagina's, wordt de Chromium
+multi-procesarchitectuur ook gebruikt. Elke webpagina in Electron draait in
+zijn eigen proces, dat <strong x-id="2">het rendererproces</strong> wordt genoemd.</p>
 
-In normale browsers worden webpagina's meestal in een sandbox-omgeving uitgevoerd en hebben ze geen toegang tot inheemse bronnen. Electron-gebruikers hebben echter de macht om Node.js API's te gebruiken in webpagina's die interacties tussen lagere niveaus van het besturingssysteem mogelijk maken.
+<p spaces-before="0">In normale browsers worden webpagina's meestal in een sandbox-omgeving uitgevoerd en hebben ze geen toegang tot inheemse bronnen. Electron-gebruikers hebben echter de macht om Node.js API's te gebruiken in webpagina's die interacties tussen lagere niveaus van het besturingssysteem mogelijk maken.</p>
 
-### Differences Between Main Process and Renderer Process
+<h3 spaces-before="0">Verschillen tussen Main Proces en Renderer Proces</h3>
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+<p spaces-before="0">Het hoofdproces maakt webpagina's door het maken van <code>BrowserWindow` instanties. Elke `BrowserWindow` instantie voert de webpagina uit in zijn eigen renderer-proces. Wanneer een `BrowserWindow` instantie wordt vernietigd, wordt het bijbehorende renderer proces ook beëindigd.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Het hoofdproces beheert alle webpagina's en hun overeenkomstige renderer processen. Elke spelerproces is geïsoleerd en geeft alleen aandacht aan de webpagina die daarin wordt uitgevoerd.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+In webpagina's, het aanroepen van native GUI gerelateerde API's is niet toegestaan, omdat het beheren van native GUI bronnen in webpagina's zeer gevaarlijk is en het gemakkelijk is bronnen te lekken. Als u GUI bewerkingen wilt uitvoeren op een webpagina, het proces van de speler van de webpagina moet communiceren met het hoofdproces om te vragen dat het belangrijkste proces deze operaties uitvoert.
 
-> #### Aside: Communication Between Processes
+> #### Azië: Communicatie tussen processen
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages][share-data].
+> In Electron hebben we verschillende manieren om te communiceren tussen het hoofdproces en renderer processen, zoals [`ipcRenderer`](../api/ipc-renderer.md) en [`ipcMain`](../api/ipc-main.md) modules voor het verzenden van berichten, en de [externe](../api/remote.md) module voor RPC stijl communicatie. There is also an FAQ entry on [how to share data between web pages][share-data].
 
-## Using Electron APIs
+## Electron API's gebruiken
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron biedt een aantal API's die de ontwikkeling van een desktop- applicatie ondersteunen in zowel het hoofdproces als het renderer-proces. In beide processen zou u toegang krijgen tot de API's van Electron, door het vereisen van de bijbehorende module:
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Alle Electron API's hebben een procestype toegewezen. Veel van hen kunnen alleen worden gebruikt uit het hoofdproces, sommige alleen uit een rendererproces, sommige uit beide. De documentatie voor elke individuele API zal bepalen uit welk proces het kan worden gebruikt.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Een venster in Electron is bijvoorbeeld gemaakt met behulp van de `BrowserWindow` class. Het is alleen beschikbaar in het hoofdproces.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
+// Dit zal werken in het hoofdproces, maar wees `undefined` in een
 // renderer process:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Omdat communicatie tussen de processen mogelijk is, kan een renderer proces het hoofdproces starten om taken uit te voeren. Electron komt met een module genaamd `remote` die API's laat zien, meestal alleen beschikbaar op het hoofdproces. Om een `Browservenster` van een renderer proces te maken, gebruiken we de afstandsbediening als een tussenland:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Dit zal werken in een renderer proces. maar wees `undefined` in het
+// hoofdproces:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,40 +60,40 @@ const win = new BrowserWindow()
 
 ## Het gebruik maken van Node.js API's
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron geeft volledige toegang tot Node.js zowel in het hoofd- als het renderer-proces proces. Dit heeft twee belangrijke gevolgen:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Alle API's in Node.js zijn beschikbaar in Electron. Het aanroepen van de volgende code van een Electron app werkt:
 
 ```javascript
 const fs = require('fs')
 
-const root = fs.readdirSync('/')
+const root = fs. eaddirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Dit zal alle bestanden op het root-niveau van de schijf afdrukken,
+// hetzij '/' of 'C:\'.
 console.log(root)
 ```
 
-As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation][security].
+Zoals je misschien al kunt raden, heeft dit belangrijke veiligheidsgevolgen als je ooit probeert externe inhoud te laden. You can find more information and guidance on loading remote content in our [security documentation][security].
 
-2) You can use Node.js modules in your application. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) U kunt Node.js modules gebruiken in uw applicatie. Kies je favoriete npm module. npm biedt op dit moment 's werelds grootste repository van open-source code – de mogelijkheid om goed onderhouden en geteste code die gebruikt wordt gereserveerd voor servertoepassingen is een van de belangrijkste functies van Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Om de officiële AWS SDK te gebruiken in je applicatie, installeer je deze eerst als een afhankelijkheid:
 
 ```sh
-npm install --save aws-sdk
+npm installeren --opslaan aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Vervolgens vereist en gebruikt u in uw Electron app de module alsof u een Node.js applicatie bouwt:
 
 ```javascript
-// A ready-to-use S3 Client
+// Een kant-en-klaar S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Er is één belangrijke kanttekening: Native Node. s modules (dat wil zeggen, modules die compilatie van inheemse code vereisen voordat ze kunnen worden gebruikt) zullen moeten worden gecompileerd om te worden gebruikt met Electron.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Slechts 400 van de ~650.000 modules zijn natief. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

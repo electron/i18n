@@ -12,11 +12,11 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron随时更新交替释放Chromium。 欲了解更多信息， 请查看 [Electron 发布博客](https://electronjs.org/blog/12-week-cadence)。
 
 ## 安全是所有人的共同责任
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. 因此，你有责任遵循下列安全守则：
+需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
 
 * **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#17-use-a-current-version-of-electron)”以获取更多信息。
 
@@ -80,20 +80,15 @@ browserWindow.loadURL ('http://example.com')
 browserWindow.loadURL ('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- 不推荐 --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- 推荐 --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 
 ## 2) 不要为远程内容启用 Node.js 集成
 
-_This recommendation is the default behavior in Electron since 5.0.0._
+_此建议是 Electron 从 5.0.0 开始的默认行为。_
 
 加载远程内容时，不论使用的是哪一种渲染器（[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 或者 [`<webview>`](../api/webview-tag.md)），最重要的就是绝对不要启用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
@@ -128,12 +123,7 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 不推荐 --><webview nodeIntegration src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
 ```
 
 当禁用Node.js集成时，你依然可以暴露API给你的站点以使用Node.js的模块功能或特性。 预加载脚本依然可以使用`require`等Node.js特性， 以使开发者可以暴露自定义API给远程加载内容。
@@ -158,9 +148,9 @@ Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.
 
 即使您使用选项 `nodeIntegration: false` 进行强制隔离并防止其使用Node原语，`contextIsolation` 也必须被启用。
 
-### Why & How?
+### 为什么 & 如何?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+欲了解更多关于 `上下文隔离` 以及如何启用它的信息，请 查看我们专用的 [上下文隔离](context-isolation.md) 文档。
 
 
 ## 4) 处理来自远程内容的会话许可请求
@@ -224,12 +214,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 不推荐 --><webview disablewebsecurity src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
 ```
 
 
@@ -314,7 +299,7 @@ Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chr
 
 ### 为什么？
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+如名称所示，实验性功能是实验性的，尚未对所有Chromium用户启用 。 此外，它们对整个Electron的影响 很可能没有经过测试。
 
 尽管存在合理的使用场景，但是除非你知道你自己在干什么，否则你不应该开启这个属性。
 
@@ -373,12 +358,7 @@ _Electron的默认值就是建议值。_
 
 ### 怎么做？
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 不推荐 --><webview allowpopups src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
 ```
 
 
@@ -386,11 +366,11 @@ _Electron的默认值就是建议值。_
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
-It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
+控制主进程创建新的 [`<webview>`](../api/webview-tag.md) 标签 并验证他们的 web 首选项没有禁用 安全功能，这是一个好主意。
 
 ### 为什么？
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+从 `<webview>` 生活在DOM中 即使是节点也可以通过运行在您的 网站上的脚本创建它们。 s 集成被禁用。
 
 Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<webview>`](../api/webview-tag.md)标签
 
@@ -416,51 +396,51 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+同样，这个清单只是将风险降低到最低限度，没有将其消除。 如果您的目标 是显示一个网站，浏览器将是一个更安全的选项。
 
-## 12) Disable or limit navigation
+## 12) 禁用或限制导航
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+如果您的应用不需要导航或只需要导航到已知的页面， 将导航直接限制在已知范围内是一个好主意，将不允许 其他类型的导航。
 
 ### 为什么？
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+导航是一个常见的攻击矢量。 如果攻击者可以说服你的应用走出当前页面 他们可能会迫使您的应用在互联网上打开 个网站。 即使您的 `webcontent` 被配置为更多的 安全性(类似于 `节点集成` 已禁用或 `上下文隔离` 已启用)， 让您的应用打开一个随机的网站将使开发您的 应用的工作更加容易。
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+一种常见的攻击模式是，攻击者让你的应用用户相信你的应用可以与应用程序交互 ，它可以导航到攻击者的一个 页面。 这通常是通过链接、插件或其他用户生成的内容来完成。
 
 ### 怎么做？
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+如果您的应用不需要导航，您可以调用 `event.preventDefault()` 在 [`将导航`](../api/web-contents.md#event-will-navigate) 处理器。 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+我们建议您使用 Node的 URL 解析器。 Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
 
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-navigate', (event, navigationUrl) => {
+app.on('web-contents-created', (evidences, contents) => format@@
+  contents. n('will-navigate', (event, navigationUrl) => }
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://example.com') {
+    if (aparsedUrl) rigin !== 'https://example.com') *
       event.preventDefault()
     }
-  })
+  }
 })
 ```
 
 ## 13) 禁用或限制新窗口的创建
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+如果您有一组已知的窗口，最好是在您的应用程序中限制 个附加窗口的创建。
 
 ### 为什么？
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+就像导航一样，新的 `webContent` 是一个常见的攻击 矢量。 攻击者试图说服您的应用创建新的窗口、框架、 或其他渲染过程，拥有比以前更多的权限； 或 打开之前无法打开的页面。
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+如果您除了知道您需要创建窗口之外不需要创建窗口， 需要创建窗口， 禁用创建将免费购买额外的 安全性。 对于打开一个 `Browserwindow` 并且不需要在运行时打开任意数量的 窗口的应用来说，情况通常如此。
 
 ### 怎么做？
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContent`](../api/web-contents.md) 将在创建新窗口之前弹出 [`新窗口`](../api/web-contents.md#event-new-window) 事件 该事件将会通过，其中包括 个参数， `url` 请求打开窗口和用于 创建它的选项。 我们建议您使用该事件来检查 窗口的创建，将其限制在您需要的范围内。
 
 ```js
 const { shell } = require('electron')
@@ -471,56 +451,60 @@ app.on('web-contents-created', (event, contents) => {
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    await shell.openExternal(navigationUrl)
+    等待 shell.openExternal(navigationUrl)
   })
 })
 ```
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) 不要使用含有不可信任内容的 `openExterne`
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell 的 [`openExternal`](../api/shell.md#shellopenexternalurl-options) 允许使用 桌面的原生工具打开指定的协议 URI。 On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### 为什么？
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+错误使用 [`openExternal`](../api/shell.md#shellopenexternalurl-options) 可以影响用户的主机 当OpenExtern使用内容不受信任时，它可以使用 来执行任意命令。
 
 ### 怎么做？
 
 ```js
-//  Bad
+// 错误
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 ```js
-//  Good
+/ 好
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Disable the `remote` module
+## 15) 禁用 `远程` 模块
 
-The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+`远程` 模块为渲染器访问 的 API 提供了一种途径，通常只能在主流程中使用。 使用 渲染器可以调用一个主进程对象的方法，而不会明确发送 进程间信息。 如果您的桌面应用程序没有运行不信任的 内容 这可以是一个有用的方式，让您的渲染器进程访问和 只适用于主进程的模块。 例如： GUI相关模块(对话框、菜单等)。
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+然而，如果您的应用可以运行不受信任的内容，甚至您 [sandbox](../api/sandbox-option.md) 相应的渲染程序。 `远程` 模块 使得恶意代码很容易逃脱沙盒，并通过主进程的更高权限访问 系统资源。 因此， 应该在这种情况下禁用。
 
 ### 为什么？
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`远程` 使用内部IPC 通道与主进程进行通信。 “原型污染”攻击可以让恶意代码访问内部 IPC 通道， 然后可以通过模仿 `远程`来逃避沙盒。 IPC 消息并访问运行更高的 权限的主要流程模块。
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+此外，预加载脚本可能意外泄露模块到 沙盒渲染器。 跳跃 `遥控` 武器恶意代码，包含大量 的主进程模块来进行攻击。
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+禁用 `远程` 模块会消除这些攻击向量。 启用 上下文隔离也会阻止“原型污染”攻击成功 成功。
 
 ### 怎么做？
 
 ```js
 // Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({
+// 良好
+const mainwindow = new BrowserWindow(
   webPreferences: {
     enableRemoteModule: false
   }
@@ -529,21 +513,24 @@ const mainWindow = new BrowserWindow({
 
 ```html
 <!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
+<webview enableremotemodule="true" src="page.html"></webview>
 
 <!-- Good -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+
+## 16) 筛选 `远程` 模块
+
+如果您不能禁用 `远程` 模块，您应该筛选全局， 节点， 和 Electron 模块 (所谓内置) 可以通过 `远程` 访问您的应用程序不需要的。 This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
 
 ### 为什么？
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+由于主要过程的系统访问权限， 主流程模块提供的功能 可能在渲染过程中运行的 恶意代码手中具有危险性。 限制您的应用程序所需的 套可访问的模块以及 过滤其他模块。 您可以减少恶意代码 用于攻击系统的工具集。
 
-Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+请注意，最安全的选项是 [完全禁用远程模块](#15-disable-the-remote-module)。 If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
 
 ### 怎么做？
 
@@ -587,10 +574,10 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) 使用当前版本的 Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+您应该努力始终使用最新版本的 Electron。 每当发布新的主要版本时，您应该尝试尽快更新您的 应用。
 
 ### 为什么？
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+使用旧版本Electron、Chromium和节点构建的应用程序。 s 比使用较新版本的 这些组件的应用程序更容易成为目标。 一般来说，较旧的 版本的 Chromium 和 Node.js 的安全问题和开发范围更广。
 
-Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深刻的工程精英。 Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. 许多 这些研究人员 [负责任地披露脆弱性](https://en.wikipedia.org/wiki/Responsible_disclosure) 这通常意味着研究人员会给Chromium和节点。 s 一些时间 来解决发布前的问题。 如果 运行最新版本的 Electron (因而，Chromium 和 Node)，您的应用程序将更加安全。 对于那些潜在的安全问题不那么广为人知的 来说也是如此。

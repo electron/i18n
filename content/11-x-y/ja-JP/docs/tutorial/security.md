@@ -149,9 +149,9 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
 
-### Why & How?
+### なぜ & 方法を？
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+`contextIsolation` が何であるかと、有効にする方法については、 [コンテキストIsolation](context-isolation.md) ドキュメントを参照してください。
 
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
@@ -524,7 +524,7 @@ const mainWindow = new BrowserWindow({
 ### どうすればいいの？
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // ファイルの読み込み機能を公開
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])

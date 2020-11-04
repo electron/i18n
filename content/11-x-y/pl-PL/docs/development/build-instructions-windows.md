@@ -23,7 +23,7 @@ Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](http
 
 Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Uwaga:** Mimo tego, że Visual Studio nie jest używane do budowania, jest ono **potrzebne** ponieważ potrzebujemy narzędzi budowania, które dostarcza.
 
 ## Kompilowanie
 

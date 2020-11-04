@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Kap'
+title: 'Proiectul săptămânii: Kap'
 author:
   - skllcrn
-  - sindresorhus
+  - sinafină
   - zeke
 date: '2017-01-31'
 ---
 
-The Electron community is growing quickly, and people are creating powerful new apps and tools at an astounding rate. To celebrate this creative momentum and keep the community informed of some of these new projects, we've decided to start a weekly blog series featuring noteworthy Electron-related projects.
+Comunitatea Electron crește rapid și oamenii creează noi aplicații și unelte într-un ritm uluitor. Pentru a sărbători acest impuls creativ și a informa comunitatea cu privire la unele dintre aceste noi proiecte, Am decis să lansăm o serie săptămânală de bloguri cu proiecte remarcabile legate de Electron.
 
 ---
 
-This post is the first in the series, and features [Kap](https://getkap.co/), an open-source screen recording app built by [Wulkano](https://wulkano.com/), a geodistributed team of freelance designers and developers.
+Această postare este prima din serie, şi funcţionează [Kap](https://getkap.co/), o aplicație de înregistrare pe ecran open-source construită de [Wulkano](https://wulkano.com/), o echipă de designeri și dezvoltatori independenți.
 
-[![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
+[![Captură ecran Kap](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
-## What is Kap?
+## Ce este Kap?
 
-[Kap is an open-source screen recorder](https://getkap.co) built primarily for designers and developers to easily capture their work. People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap este un înregistrator de ecran open-source](https://getkap.co) construit în principal pentru designeri și dezvoltatori pentru a capta cu ușurință munca lor. Oamenii o folosesc pentru a partaja prototipuri, erori de documentare, pentru a crea GIF-uri prostești și totul între.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
+Am văzut oameni de toate vârstele și fundalurile folosindu-le în medii educaționale, screencasturi, tutoriale... lista continuă. Chiar și pentru a crea active de producție! Suntem complet aruncați în aer de cât de bine a primit micul nostru proiect lateral.
 
-## Why did you build it?
+## De ce l-ai construit?
 
-That's a very good question, it's not like there's a lack of screen recorders out there! We felt the alternatives were either too complex, too expensive or too limited. Nothing felt *just right* for our everyday needs. We also think it's great when the tools we use to do our work are open-source, that way everyone can help shape them. [Building Kap ended up being just as much about what we didn't do](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). It's all in the details, an accumulation of small improvements that became the outline of a tool we wanted to use.
+Asta e o întrebare foarte bună, nu e ca și cum ar fi o lipsă de înregistratori de ecran acolo! Am considerat că alternativele sunt fie prea complexe, prea scumpe, fie prea limitate. Nimic nu simte *corect* pentru nevoile noastre de zi cu zi. Credem, de asemenea, că este minunat când instrumentele pe care le folosim pentru a face munca noastră sunt open-source, astfel încât toată lumea poate ajuta la modelarea lor. [Construcția Kap a ajuns să fie la fel de mult despre ceea ce nu am făcut](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). Totul este în detalii, o acumulare de mici îmbunătățiri care au devenit schița unui instrument pe care am vrut să-l folosim.
 
-However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
+Totuşi, şi poate cel mai important, Kap a devenit un loc în care să ne lăsăm grijile la ușă și să ne distrăm construind ceva pentru noi și pentru oameni ca noi. Este atât de important să creezi un mediu în care să te jefuieşti, să încerci noi raţiuni şi să te bucuri de meşteşugul. Fără cerinţe, fără presiune, fără aşteptări. Ar trebui designerii și dezvoltatorii să facă parte din proiect? De ce, da. Da, ar trebui.
 
-## Why did you choose to build Kap on Electron?
+## De ce ai ales să construiești Kap pe Electron?
 
-There were a number of reasons:
+Au existat mai multe motive:
 
-* Web tech
-* Most of the team are web developers
-* We're invested in JavaScript
-* It opens the door for more people to contribute
-* Electron itself is open-source
-* The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* Tehnologie web
+* Majoritatea echipei sunt dezvoltatori web
+* Suntem investiți în JavaScript
+* Acesta deschide ușa pentru ca mai mulți oameni să contribuie
+* Electron însuși este open-source
+* Puterea și modularitatea ușor de întreținut a `node_module`
+* Posibilități de platforme comune
 
-We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
+Credem că viitorul aplicațiilor se află în browser, dar încă nu am ajuns acolo. Electron este un pas important în drumul spre acel viitor. Nu numai că face aplicațiile mai accesibile, dar și codul cu care sunt construite. Un gând interesant este să ne imaginăm un viitor în care sistemul de operare este un browser, iar filele sunt în esență aplicații Electron.
 
-Additionally, being primarily web developers, we're big fans of the isomorphic nature of JavaScript, in that you can run JS on the client, server, and now the desktop. With web tech (HTML, CSS and JS), many things are much simpler than native: Faster prototyping, less code, flexbox > auto-layout (macOS/iOS).
+În plus, fiind în principal dezvoltatori web, suntem mari fani ai naturii izomorfice a JavaScript, în asta poți rula JS pe client, server și acum pe desktop. Cu tehnologie web (HTML, CSS și JS), multe lucruri sunt mult mai simple decât native: prototip mai rapid, mai puțin cod, flexbox > auto-layout (macOS/iOS).
 
-## What are some challenges you've faced while building Kap?
+## Care sunt unele provocări cu care te confrunţi în timp ce construieşti Kap?
 
-Using the resources Electron has available to record the screen was the biggest challenge. They simply weren't performant enough to meet our requirements and would render the project a failure in our eyes. Though at no fault of Electron itself, there's still a gap between native development and building desktop apps with web tech.
+Utilizând resursele disponibile de Electron pentru a înregistra ecranul a fost cea mai mare provocare. Pur și simplu nu erau suficient de performante pentru a îndeplini cerințele noastre și ar face ca proiectul să fie un eșec în ochii noștri. Deși nu este vina lui Electron în sine, există încă un decalaj între dezvoltarea nativă și construirea de aplicații desktop cu web tech.
 
-We spent a lot of time trying to work around the poor performance of the `getUserMedia` API, an issue originating in Chromium. One of our main goals when we set out to make Kap was to build the entire app with web tech. After trying everything we could to get it working (the minimum requirement being 30 FPS on a Retina screen), we eventually had to find another solution.
+Am petrecut mult timp încercând să lucrăm în jurul performanțelor slabe ale API-ului `getUserMedia` , o problemă originară din Chromium. Unul dintre obiectivele noastre principale când ne-am propus să facem Kap a fost să construim întreaga aplicație cu web tech. După ce am încercat tot ce am putut pentru a-l face să funcţioneze (cerinţa minimă este 30 FPS pe un ecran Retina), în cele din urmă a trebuit să găsim o altă soluție.
 
-## I see some Swift code in the repo. What's that about?
+## Văd niște cod Swift în repo. Despre ce este vorba?
 
-Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. Problem? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
+Fiind forțați să caute alternative la `getUserMedia`, am început să experimentăm cu `ffmpeg`. Pe lângă faptul că este unul dintre cele mai bune instrumente pentru conversia audio și video, acesta are funcționalitatea de a înregistra ecranul în aproape orice sistem de operare, și am reușit să înregistrăm videoclipul crispy îndeplinind cerința minimă de 30 FPS pe un ecran Retina. Problemă? Performanţa a fost ":weary:", utilizarea procesorului a început să fie haywire. Aşa că ne-am întors la comitetul de elaborare, am discutat opţiunile noastre şi ne-am dat seama că trebuie să facem un compromis. Asta a dus la [Aperture](https://github.com/wulkano/aperture), propria noastră bibliotecă de înregistrare pe ecran pentru macOS scrisă în Swift.
 
-## In what areas should Electron be improved?
+## În ce domenii ar trebui îmbunătățit Electron?
 
-We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
+Știm cu toții că aplicațiile Electron pot avea un lucru pentru folosirea RAM, dar din nou, asta e o chestie de Chromium. Este o parte din modul în care funcționează și depinde cu adevărat de ceea ce faceți, De exemplu, Kap și Hyper utilizează, de obicei, mai puțin de 100 MB de memorie.
 
-One of the biggest areas of improvement that we see is payload, particularly how Electron distributes Chromium. One idea would be to have a shared Electron core and make app installers check if it's already present on the system.
+Unul dintre cele mai mari domenii de îmbunătăţire pe care le vedem este încărcătura, în special modul în care Electron distribuie Chromium. O idee ar fi să avem un nucleu Electron partajat și să facem aplicațiile de instalare să verifice dacă este deja prezent în sistem.
 
-Creating cross-platform Electron apps could be a better experience. Right now there are too many inconsistencies, platform-specific APIs, and missing features between platforms, making your codebase littered with if-else statements. For example, vibrancy is only supported on macOS, the auto-updater works differently on macOS and Windows, and is not even supported on Linux. Transparency is a hit or miss on Linux, usually miss.
+Crearea de aplicații Electron pe mai multe platforme ar putea fi o experiență mai bună. În acest moment există prea multe inconsecvenţe, API-uri specifice platformei şi caracteristici lipsă între platforme, făcând codebaza încărcată cu declaraţii. De exemplu, vibrația este suportată doar pe macOS, actualizarea automată funcționează diferit pe macOS și Windows, și nici măcar nu este suportată pe Linux. Transparenţa este o lovitură sau o ratează pe Linux, de obicei ratează.
 
-It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
+De asemenea, ar trebui să fie mai ușor să se numească API ale sistemului autohton. Electron vine cu un set foarte bun de API-uri, dar uneori ai nevoie de funcționalitate pe care nu o oferă. Crearea unui addon nativ Node.js este o opțiune, dar este dureros să lucrezi. Ideal, Electron ar livra cu un bun [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, ca [`apel rapid`](https://github.com/cmake-js/fastcall). Acest lucru ne-ar fi permis să scriem partea SWIFT în JavaScript.
 
-## What are your favorite things about Electron?
+## Care sunt lucrurile tale preferate despre Electron?
 
-Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
+Chestia noastră preferată este faptul că oricine știe să creeze pentru web poate construi și contribui la experiențele native pe mai multe platforme. Ca să nu mai vorbim de uşurinţa şi bucuria de a dezvolta documentaţia excelentă şi ecosistemul înfloritor.
 
-From a front-end perspective, building Kap felt no different than building a simple website using browser APIs. Electron does a really great job of making app development similar (basically identical) to web development. So simple in fact that there was no need for frameworks or similar to help us, just clean and modular JS and CSS.
+Dintr-o perspectivă de față, construirea Kap nu a făcut altceva decât să construiască un site simplu folosind API-uri de browser. Electron face o treabă foarte bună în a face dezvoltarea aplicațiilor similare (în mod identic) cu dezvoltarea web. De fapt atât de simplu încât nu a fost nevoie de cadre sau similare pentru a ne ajuta, doar JS și CSS curate și modulare.
 
-We are also huge fans of the team building it, their dedication and support, and the active and friendly community they maintain. Hugs to all of you!
+Suntem, de asemenea, imense fani ai construcției echipei, ai dedicării și sprijinului lor, precum și ai comunității active și prietenoase pe care o susțin. Ține cu tine toți!
 
-## What's coming next in Kap?
+## Ce urmează în Kap?
 
-The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
+Următorul pas pentru noi este să revizuim aplicația în pregătirea pentru programul nostru 2.0. piatra de hotar, care include o rescriere React în plus față de suport pentru plugin-uri, permițând dezvoltatorilor să extindă funcționalitatea Kap! Invităm pe toată lumea să urmeze proiectul și să contribuie la [GitHub](https://github.com/wulkano/kap). Ascultăm şi vrem să auzim de la cât mai mulţi dintre voi posibil, [Spune-ne cum putem face Kap cel mai bun instrument posibil pentru tine](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## Ce este Wulkano?
 
-[Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
+[Wulkano](https://wulkano.com) este un studio de design și un colectiv digital, o echipă de tehnologi de la distanţă care iubesc să lucreze împreună la ambele cadouri ale clienţilor şi la propriile noastre proiecte. Suntem un grup distribuit dar strâns legat de oameni din locuri și medii diferite, împărtășind cunoștințe, idei, experiențe, dar, cel mai important, GIF-uri și meme proaste, în biroul nostru virtual (care se întâmplă să fie slăbirea Electronului!).
 
-## Any Electron tips that might be useful to other developers?
+## Orice sfaturi Electron care ar putea fi utile altor dezvoltatori?
 
-Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
+Profitați de comunitatea [fantastică](https://discuss.atom.io/c/electron), vedeți [Electron Awesome](https://github.com/sindresorhus/awesome-electron), uită-te la [exemple](https://github.com/electron/electron-api-demos) şi foloseşti cele mai bune [documente](https://electronjs.org/docs/)!
 

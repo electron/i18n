@@ -30,7 +30,7 @@ A única maneira de carregar um módulo nativo, com segurança, por enquanto, é
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('Módulo nativo não é seguro')
 }
 const worker = new Worker('script.js')
 ```

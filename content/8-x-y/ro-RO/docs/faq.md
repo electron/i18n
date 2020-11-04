@@ -10,9 +10,9 @@ Puteți încerca să descărcați Electron direct de pe [electron/electron/relea
 
 ## Când va face upgrade Electron la cel mai recent Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
+Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Se utilizează numai canalul stabil al Chrome. Dacă o reparație importantă este în canalul beta sau dev , o vom întoarce spre portare.
 
 Pentru mai multe informații, vă rugăm să consultați [introducerea de securitate](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Noile caracteristici ale Node.js sunt, de obicei, aduse de upgrade-urile V8, deo
 
 Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară cale este de a utiliza API-urile HTML5 care sunt deja disponibile în browsere. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Sau poți folosi sistemul IPC, care este specific Electron, pentru a stoca obiecte în procesul principal ca variabilă globală, și apoi pentru a le accesa din dispozitive de redare prin `de la distanță` proprietatea `modulului de electroni`:
 
 ```javascript
 // În procesul principal-main.
@@ -49,12 +49,12 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Dacă întâmpinați această problemă, următoarele articole se pot dovedi utile:
 
-* [Memory Management][memory-management]
-* [Variable Scope][variable-scope]
+* [Gestionare memorie][memory-management]
+* [Domeniu variabil][variable-scope]
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Dacă vrei o rezolvare rapidă, poți face variabilele globale schimbând codul tău din asta:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+în acest sens:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Nu pot folosi jQuery/RequireJS/Meteor/AngularJS în Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Datorită integrării Node.js a Electron, există unele simboluri suplimentare inserate în DOM ca `module`, `exports`, `require`. Acest lucru cauzează probleme pentru unele biblioteci, deoarece vor să introducă simboluri cu aceleași nume.
 
-To solve this, you can turn off node integration in Electron:
+Pentru a rezolva acest lucru, puteți dezactiva integrarea nodurilor în Electron:
 
 ```javascript
 // În procesul principal-main.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Dar dacă doriți să păstrați abilitățile de a utiliza API-uri Node.js și Electron, trebui să redenumiți simbolurile din pagină înainte de a include alte biblioteci:
 
 ```html
 <head>
@@ -106,13 +106,13 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `Necesar ('electron').xxx` este nedefinit.
 
-When using Electron's built-in module you might encounter an error like this:
+Când utilizați modulul încorporat Electron este posibil să întâlniți o eroare ca aceasta:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Tip neprins: Imposibil de citit proprietatea 'setZoomLevel' de nedefinit
 ```
 
 This is because you have the [npm `electron` module][electron-module] installed either locally or globally, which overrides Electron's built-in module.
@@ -136,15 +136,15 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. De exemplu `electron.app` poate fi utilizat numai în procesul principal, în timp ce `electron.webFrame` este disponibil numai în procesele de redare.
 
-## The font looks blurry, what is this and what can I do?
+## Fontul arată încețoșat, ce pot face și ce pot face?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplu:
+Dacă [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) este dezactivat, atunci fonturile de pe ecranele LCD pot arăta încețoșat. Exemplu:
 
 ![subpixel rendering example][]
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixelii anti-aliasing au nevoie de un fundal netransparent al stratului care conține fontul glicol. (Vezi [această problemă](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pentru mai multe informații).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
@@ -155,9 +155,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Chiar dacă nu vezi nicio diferență, unii dintre utilizatorii tăi ar putea să o facă. Cel mai bine este să setăm întotdeauna fundalul în acest mod, cu excepţia cazului în care există motive pentru a nu face acest lucru.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Observați că doar setarea fundalului în CSS nu are efectul dorit.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

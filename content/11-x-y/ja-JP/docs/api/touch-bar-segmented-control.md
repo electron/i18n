@@ -44,4 +44,4 @@
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
+コントロールの、現在の選択モードを表す `String`です。  `single`、`multiple`、`buttons` のいずれかにできます。

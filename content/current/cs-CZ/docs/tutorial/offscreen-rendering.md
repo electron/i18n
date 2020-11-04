@@ -1,24 +1,24 @@
 # Offscreen vykreslování
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Offscreen rendering vám umožní získat obsah okna prohlížeče v bitmapě, aby to bylo možné vykreslit kdekoli, například na texturě ve 3D scéně. offscreen rendering v Electronu používá podobný přístup jako projekt [Chromium vložený Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+Lze použít dva režimy vykreslování a v události `'barva'` je procházena pouze špinavá plocha, aby byla efektivnější. Vykreslování může být zastaveno, pokračovat a nastavit frekvenci snímku. Zadaná frekvence snímků je nejvyšší limitní hodnota, když se na webové stránce nic neděje, nejsou vytvořeny žádné rámce. maximální frekvence snímků je 60, protože je vyšší, že neexistuje žádný prospěch, pouze ztráta výkonu.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Poznámka:** Okno vypnuté obrazovky je vždy vytvořeno jako [bezrámové okno](../api/frameless-window.md).
 
-## Rendering Modes
+## Režim vykreslování
 
-### GPU accelerated
+### Grafická akcelerace
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+Grafické zrychlené vykreslování znamená, že se GPU používá ke složení. Kvůli musí být snímek zkopírován z grafické karty, která vyžaduje větší výkonnost, proto je tento režim o něco pomalejší než ten druhý. Výhodou tohoto režimu je, že jsou podporovány WebGL a 3D CSS animace.
 
-### Software output device
+### Softwarové výstupní zařízení
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Tento režim používá softwarové výstupní zařízení pro vykreslování v CPU, takže generování rámu je mnohem rychlejší, proto je tento režim preferován před grafickou akcelerací .
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Pro povolení tohoto režimu musí být zrychlení GPU vypnuto voláním [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Usage
+## Využití
 
 ``` javascript
 const { app, BrowserWindow } = require('electron')
@@ -27,16 +27,16 @@ app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+  vyhraje. oadURL('http://github.com')
+  win.webContents.on('paint', (event dirty, image) => {
+    // updateBitmap(dirty, image. etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

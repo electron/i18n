@@ -20,7 +20,7 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为__主进程__�
 
 > #### 题外话：进程间通讯
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> 在 Electron 中，主要进程和渲染器进程之间的通信， 是通过 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 模块完成的。 There is also an FAQ entry on [how to share data between web pages][share-data].
 
 
 ## 使用Electron的API
@@ -42,23 +42,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+由于进程之间可以进行沟通，渲染器进程 可以通过IPC呼叫主进程执行任务。
 
 ```javascript
-// In the main process:
+// 在主进程中：
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('性能-动作', (evidence, ...args) => }
+  // ... 代表渲染器做一些事情...
 })
 
-// In the renderer process:
+// 在渲染过程中:
 const { ipcRenderer } = require('electron')
 
-ipcRenderer.invoke('perform-action', ...args)
+ipcRender.invoke('表演-操作', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+注意渲染器中的代码可能不可信， 所以重要的 在主进程请求中认真验证来自渲染器， 尤其是如果他们包含第三方内容。
 
 ## 使用 Node.js 的 API
 

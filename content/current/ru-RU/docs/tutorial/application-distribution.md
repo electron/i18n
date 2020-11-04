@@ -1,6 +1,6 @@
 # Распространение приложений
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Чтобы распространять приложение с помощью Electron, вам нужно его перегруппировать и перегруппировать. Самый простой способ сделать это - использовать один из следующих инструментов упаковки:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,7 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 Эти инструменты позаботятся обо всех шагах, которые вам нужно предпринять для того, чтобы в конечном итоге получить готовое к распространению приложения Electron, такие как упаковка вашего приложения, ребрендинг исполняемого файла, установка правильных значков и создание инсталляторов.
 
 ## Ручное распространение
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Вы также можете вручную сделать приложение готовым к распространению. Ниже приводится информация о шагах, которые необходимо предпринять.
 
 Для распространения вашего приложения с Electron, вам нужно скачать [предварительно собранные двоичные файлы](https://github.com/electron/electron/releases) Electron. Далее папку, содержащую ваше приложение следует назвать `app` и поместить в каталог ресурсов Electron, как показано в следующих примерах. Обратите внимание, что расположение двоичных файлов Electron в приведенных ниже примерах обозначается как `electron/`.
 
@@ -107,9 +107,9 @@ MyApp.app/Contents
 2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
 
     ```sh
-    - electron/
-      - symbols/
-      - dist/
+    - электронный/
+      - символы/
+      - расстояние/
     ```
 
 3. Установите следующие переменные среды:

@@ -4,35 +4,35 @@ author: sofianguy
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron travaille à rendre ses cycles de publication plus rapides et plus stables. Pour rendre cela possible, nous avons lancé le programme de rétroaction pour les applications Electron à grande échelle pour tester nos versions bêta et nous signaler les problèmes spécifiques à l'application. Cela nous aide à prioriser le travail qui fera passer les applications à notre prochaine version stable plus tôt.
 
-Edit (2020-05-21): This program has been retired.
+Modifier (2020-05-21): Ce programme a été retiré.
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## Qui peut rejoindre ?
+Nos critères et attentes pour les applications qui rejoignent ce programme incluent les éléments suivants :
+- Testez votre application pendant la période bêta pour plus de 10 000 heures d'utilisateurs
+- Ayez une seule personne en point qui vérifiera chaque semaine pour discuter des bogues d'Electron de votre application et des bloqueurs d'applications
+- Vous acceptez de respecter le [Code de conduite d'Electron](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+- Vous êtes prêt à partager les informations suivantes énumérées dans la question suivante
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## Quelles informations mon application Electron a-t-elle à partager ?
+- Total des heures d'utilisation de votre application avec n'importe quelle version bêta
+- Version d'Electron avec laquelle votre application teste (par exemple, 4.0.0-beta.3)
+- Tout bug empêchant votre application de passer à la ligne de publication en cours de test bêta
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## Heures de l'utilisateur
+Nous comprenons que tout le monde ne peut pas partager des numéros d'utilisateurs exacts, mais de meilleures données nous aident à décider de la stabilité d'une version particulière. Nous demandons que les applications s'engagent à tester un nombre minimum d'heures d'utilisation, actuellement 10 000 pour tout le cycle bêta.
+- 10 heures d'utilisation peuvent être de 10 personnes testant pendant une heure, ou une personne testant pendant 10 heures
+- Vous pouvez diviser les tests entre les versions bêta, par exemple les tests pour 5 000 heures d'utilisateurs sur la version 3.0.0-beta. puis testez 5 000 heures sur 3.0.0-beta.5. Plus c'est mieux, mais nous comprenons que certaines applications ne peuvent pas tester chaque version bêta
+- Les heures de CI ou de QA ne sont pas prises en compte dans le total; cependant, les versions internes comptent
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## Pourquoi mon application Electron devrait-elle rejoindre ?
+Les bogues de votre application seront suivis et seront sur le radar de l'équipe d'Electron. Vos commentaires aident l'équipe d'Electron à voir comment les nouvelles bêta font et ce qui doit être fait.
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## Les informations de ma candidature seront-elles partagées publiquement? Qui peut voir cette info?
+Non, les renseignements de votre candidature ne seront pas partagés avec le grand public. Les informations sont conservées dans un dépôt GitHub privé qui n'est visible que par les membres du programme de rétroaction de l'application et [Electron Governance](https://github.com/electron/governance). Tous les membres ont accepté de suivre le [Code de conduite](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md) d'Electron.
 
-## Sign up
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+## S'inscrire
+Nous acceptons actuellement un *nombre limité* d'inscriptions. Si vous êtes intéressé et êtes en mesure de remplir les conditions ci-dessus, veuillez remplir ce [formulaire](https://goo.gl/forms/OpMEKV75ScN6we7g1).

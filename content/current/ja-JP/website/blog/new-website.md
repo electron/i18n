@@ -14,7 +14,7 @@ Electron は [electronjs.org](https://electronjs.org)という新しいウェブ
 
 <figure>
   <a href="https://electronjs.org/languages">
-    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav in Simplified Chinese">
+    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="簡体字中国語で Electron Nav">
     <figcaption>簡体字中国語におけるElectronのナビゲーション</figcaption>
   </a>
 </figure>
@@ -25,7 +25,7 @@ Electron は [electronjs.org](https://electronjs.org)という新しいウェブ
 
 <figure>
   <a href="https://electronjs.org/languages">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Current target languages on Crowdin">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Crowdin の現在の翻訳先言語">
     <figcaption>Crowdinで見た翻訳の進捗</figcaption>
   </a>
 </figure>
@@ -55,44 +55,44 @@ ls electron-i18n/content
 
 そこにいくつかの信じられないほどの Electron アプリがありますが、これらはいつも簡単にみつけられるとは限りません。すべての開発者が市場に適切なウェブサイトを構築し、自分のアプリを配布するための時間やリソースを持っているわけではありません。
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. Using a color palette extracted from each app's icon, we can produce [bold and accessible colors](https://github.com/zeke/pick-a-good-color) to give each app page some visual distinction.
+Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. アプリのアイコンから抽出されたカラーパレットを使用する [太字でアクセス可能な色](https://github.com/zeke/pick-a-good-color) を生成して、各アプリのページに視覚的な区別を与えることができます。
 
-The [apps index page](https://electronjs.org/apps) now also has categories and a keyword filter to find interesting apps like [GraphQL GUIs](https://electronjs.org/apps?q=graphql) and [p2p tools](https://electronjs.org/apps?q=graphql).
+[アプリのインデックス ページ](https://electronjs.org/apps) にもカテゴリ とキーワードフィルターがあり、 [GraphQL GUI](https://electronjs.org/apps?q=graphql) や [p2p ツール](https://electronjs.org/apps?q=graphql) のような興味深いアプリを見つけることができます。
 
-If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps](https://github.com/electron/electron-apps) repository.
+サイトで Electron アプリを紹介したい場合は、 electron/electron-apps [リポジトリで](https://github.com/electron/electron-apps) プルリクエストを開いてください。
 
 ## Homebrew を使った、ワンラインインストール
 
 The [Homebrew](https://brew.sh) package manager for macOS has a subcommand called [cask](https://caskroom.github.io) that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
 
-We've begun collecting Homebrew cask names for popular Electron apps and are now displaying the installation command (for macOS visitors) on every app page that has a cask:
+一般的な Electron アプリの Homebrew Cask 名を収集し始め、 キャッシュを持つすべてのアプリページに インストールコマンドを表示するようになりました。
 
 <figure>
   <a href="https://electronjs.org/apps/dat">
    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871246-c5ef6f2a-ca34-11e7-8eb4-3a5b93b91007.png">
-   <figcaption>Installation options tailored for your platform: macOS, Windows, Linux</figcaption>
+   <figcaption>お使いのプラットフォームに合わせたインストールオプション: macOS, Windows, Linux</figcaption>
   </a>
 </figure>
 
-To view all the apps that have homebrew cask names, visit [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). If you know of other apps with casks that we haven't indexed yet, [please add them!](https://github.com/electron/electron-apps/blob/master/contributing.md)
+homebrew樽の名前を持つすべてのアプリを表示するには、 [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew) を参照してください。 インデックスを作成していない他のアプリがある場合、 [追加してください!](https://github.com/electron/electron-apps/blob/master/contributing.md)
 
 ## 🌐 新ドメイン
 
 このサイトを electron.atom.io から新しいドメインに移動しました: [electronjs.org](https://electronjs.org)。
 
-The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron was originally called `atom-shell`. Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. When companies like Microsoft and Slack started to make use of `atom-shell`, it became clear that the project needed a new name.
+The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron はもともと `atom-shell` と呼ばれていました。 Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. マイクロソフトやSlackのような企業が `atom-shell`を利用し始めたとき。 プロジェクトには新しい名前が必要であることが明らかになりました
 
-And so "Electron" was born. In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+「電子」が生まれました 2016年初頭、GitHubはAtomとは別に、Electronの開発とメンテナンスに特化した に焦点を当てた新しいチームを編成しました。 In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
 
 Supporting GitHub's Electron projects like Atom and [GitHub Desktop](https://desktop.github.com) is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
 
 ## 🐢🚀 どこでもNode.js
 
-The previous Electron website was built with [Jekyll](https://jekyllrb.com), the popular Ruby-based static site generator. Jekyll is a great tool for building static websites, but the website had started to outgrow it. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js](https://nodejs.org) server was the obvious choice.
+以前の Electron のウェブサイトは、Rubyベースの [静的サイトジェネレータである](https://jekyllrb.com)Jekyll で構築されていました。 Jekyllは静的なウェブサイトを構築するための素晴らしいツールですが、 ウェブサイトはそれを拡張し始めていました。 適切なリダイレクトや動的なコンテンツレンダリングのようなより多くの動的な機能が欲しかったので、 [Node.js](https://nodejs.org) サーバーは当然の選択でした。
 
-The Electron ecosystem includes projects with components written in many different programming languages, from Python to C++ to Bash. But JavaScript is foundational to Electron, and it's the language used most in our community.
+Electron エコシステムには、Python から C++ から Bash まで、多くの 異なるプログラミング言語で書かれたコンポーネントを含むプロジェクトが含まれています。 しかし、JavaScriptはElectronの基本であり、コミュニティで最も使用されている言語です。
 
-By migrating the website from Ruby to Node.js, we aim to lower the barrier to entry for people wishing to contribute to the website.
+ウェブサイトをRubyからNode.jsに移行することで、ウェブサイトに貢献したい人のための エントリへの障壁を下げることを目指しています。
 
 ## ⚡️ より簡単になったオープンソースへの参加
 
@@ -105,7 +105,7 @@ npm install
 npm run dev
 ```
 
-この新しいウェブサイトはHerokuでホストされています。 We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. This makes it easy for reviewers to view the actual effects of a pull request on a live copy of the site.
+この新しいウェブサイトはHerokuでホストされています。 We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. これにより、査読者はサイトのライブコピーに プルリクエストの実際の効果を見ることが容易になります。
 
 ## 🙏 貢献者への感謝
 

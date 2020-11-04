@@ -46,15 +46,15 @@ app.setUserTasks([])
 
 В Windows можно добавить панель эскизов с требуемыми кнопками на панели задач окна приложения. Она предоставляет пользователям доступ к команда конкретного окна без восстановления или активации окна.
 
-From MSDN, it's illustrated:
+Из MSDN, иллюстрирован:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Эта панель инструментов является обычным управлением стандартной панелью инструментов. У него максимум из семи кнопок. Идентификатор каждой кнопки, изображение, подсказка и состояние определены в структуре, которая затем передается на панель задач. Приложение может показать, включить, отключить или скрыть кнопки из панели инструментов эскизов, как это требуется текущего состояния.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Например, Windows Media Player может предлагать стандартные средства управления мультимедиа транспортом , такие как воспроизведение, пауза, приглушение и остановка.
 
-__Thumbnail toolbar of Windows Media Player:__
+__Эскиз панели инструментов Windows Media Player:__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![игрок](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons][setthumbarbuttons] to set thumbnail toolbar in your application:
 
@@ -88,28 +88,28 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## Наслоения значков в панели задач
 
 В Windows кнопка панели задач может использовать небольшое наложение для отображения состояния приложения, как указано в MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Наслоения иконок служат контекстуальным уведомлением о статусе, и предназначены для отказа от необходимости отдельной иконки статуса области уведомлений, чтобы сообщить пользователю эту информацию. Например, новый статус почты в Microsoft Outlook, в настоящее время отображается в области уведомлений, можно указывать через накладываемое изображение на кнопку панели задач. Опять же, вы должны решить в течение цикла разработки , какой метод лучше подходит для вашего приложения. Накладываемые иконки предназначены для предоставления важных, давно существующих статусов или уведомлений, таких как сетевой статус, статус сообщения или новая почта. Пользователь не должен быть с постоянно меняющимися наслоениями или анимацией.
 
-__Overlay on taskbar button:__
+__Наложение на кнопку панели задач:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Наложение на кнопку панели задач](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon][setoverlayicon] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Описание для наложения')
 ```
 
 
-## Flash Frame
+## Флэш-кадр
 
-В Windows вы можете выделить кнопку на панели задач, чтобы привлечь внимание пользователя. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+В Windows вы можете выделить кнопку на панели задач, чтобы привлечь внимание пользователя. Это похоже на отскакивание значка док-станции на macOS. Из справочной документации MSDN:
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
@@ -122,7 +122,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Не забудьте вызывать метод `flashFrame` с помощью `false` , чтобы выключить вспышку. В примере вызывается при входе окна в фокус, но вы можете использовать таймаут или другое событие, чтобы отключить его.
 
 [setthumbarbuttons]: ../api/browser-window.md#winsetthumbarbuttonsbuttons-windows
 [setusertaskstasks]: ../api/app.md#appsetusertaskstasks-windows

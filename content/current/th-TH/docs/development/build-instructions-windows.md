@@ -10,11 +10,9 @@ Follow the guidelines below for building Electron on Windows.
   * ถ้า Visual Studio ของคุณติดตั้งอยู่ในไดเรกทอรีอื่นที่ไม่ใช่ค่าเริ่มต้น คุณจะต้อง ตั้งค่าตัวแปรสภาพแวดล้อมไม่กี่จุด toolchains ไปยังเส้นทางการติดตั้งของคุณ
     * `vs2019_install = ไดรฟ์: \ เส้นทาง\tแทนที่` `2019`และ`ชุมชน`ด้วยรุ่นที่คุณติดตั้ง และแทนที่`ไดรฟ์:`ด้วยไดรฟ์ที่ Visual Studio เปิด บ่อยครั้งนี้จะ`เป็น C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. บ่อยครั้งนี้จะ`เป็น C:`.
-* [งูหลาม 2.7.10 หรือสูงกว่า](http://www.python.org/download/releases/2.7/)
-  * ขัดกับคําแนะนําการติดตั้ง`depot_tools`เชื่อมโยงด้านล่างคุณจะต้อง ที่จะใช้ Python ที่ติดตั้งในประเทศของคุณกับรุ่นอย่างน้อย 2.7.10 (มี สําหรับ TLS 1.2) To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. เดี๋ยวนี้ `depot_tools`ยังคงมาพร้อมกับหลาม 2.7.6 ซึ่งจะทําให้`gclient` คําสั่งล้มเหลว (ดู https://crbug.com/868864)
   * [งูหลามสําหรับ Windows (pywin32) ส่วนขยาย](https://pypi.org/project/pywin32/#files) นอกจากนี้ยังมีความจําเป็นเพื่อเรียกใช้กระบวนการสร้าง
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * SDK รุ่นต่างๆสามารถติดตั้งได้แบบเคียงข้างกัน การติดตั้ง SDK เปิดโปรแกรมติดตั้ง Visual Studio เลือก `เปลี่ยน`→`องค์ประกอบส่วนบุคคล`เลื่อนลงและเลือกที่เหมาะสม Windows SDK เพื่อติดตั้ง อีกทางเลือกหนึ่งคือการมองที่ [เก็บถาวรของ Windows SDK และจําลอง](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) และดาวน์โหลด SDK รุ่นสแตนด์อโลนตามลําดับ
   * เครื่องมือการดีบัก SDK ต้องถูกติดตั้ง ถ้ามีการติดตั้ง Windows 10 SDK ผ่านการติดตั้ง Visual Studio แล้วพวกเขาสามารถติดตั้งได้โดยไปที่: `แผงควบคุม`→`โปรแกรม`→`โปรแกรมและคุณสมบัติ`→ เลือก "Windows ชุดพัฒนาซอฟต์แวร์" → `เปลี่ยน`→`เปลี่ยน`→ตรวจสอบ "เครื่องมือแก้จุดบกพร่องสําหรับ Windows" →`เปลี่ยน` หรือ คุณสามารถดาวน์โหลดตัวติดตั้ง SDK แบบสแตนด์อโลน และใช้เพื่อติดตั้งเครื่องมือการดีบัก
@@ -23,9 +21,13 @@ Follow the guidelines below for building Electron on Windows.
 
 อาคารอิเล็กตรอนจะทําทั้งหมดด้วยสคริปต์บรรทัดคําสั่งและไม่สามารถทํา ด้วยสตูดิโอภาพ คุณสามารถพัฒนาอิเล็กตรอนกับบรรณาธิการใด ๆ แต่การสนับสนุนสําหรับ อาคารที่มี Visual Studio จะมาในอนาคต
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**หมายเหตุ: </</c0> แม้ว่า Visual Studio จะไม่ใช้สําหรับอาคาร ก็ยังคง** **ต้อง**เพราะเราต้องการเครื่องมือสร้างมันให้
 
-## สิ่งก่อสร้าง
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+## Building
 
 ดู [ คำแนะนำในการสร้าง: GN ](build-instructions-gn.md)
 

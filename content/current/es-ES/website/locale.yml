@@ -237,7 +237,7 @@ governance:
   wgs: Grupos de trabajo
   ecosystem:
     title: Ecosistema
-    description: Oversees the projects that make Electron app development easier.
+    description: Supervisa los proyectos que facilitan el desarrollo de aplicaciones Electron.
   outreach:
     title: Fuera
     description: Crece la comunidad Electron
@@ -258,7 +258,7 @@ governance:
     description: El Grupo de Trabajo Administrativo supervisa toda la gobernanza y el proyecto.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: Supervisa el diseño de la API publica basado en los principios del proyecto.
   global:
     overview: Descripción general
     associated_repos: Repositorios asociados

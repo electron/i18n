@@ -33,31 +33,32 @@
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### 非推奨: `crashReporter.start()` 関数の`companyName` 引数
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+`crashReporter.start()`の引数の`companyName` は以前は必須でしたが、省略可能になり、今後廃止することになりました。 非推奨ではない方法で以前と同じ動作を実現するには、 `globalExtra
+` に`companyName` の値を渡します。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 で非推奨
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
+// 置き換え
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### 非推奨: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` メソッドは非推奨となりました。 `app.getPath('crashDumps)`に置き換える必要があります。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 では非推奨
 crashReporter.getCrashesDirectory()
-// Replace with
+// 置き換え
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### 非推奨: レンダラープロセス内での `crashReporter` メソッド
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+レンダラープロセスから以下の `crashReporter` メソッドを呼び出すことは非推奨になります。:
 
 - `crashReporter.start`
 - `crashReporter.getLastCrashReport`
@@ -66,9 +67,9 @@ Calling the following `crashReporter` methods from the renderer process is depre
 - `crashReporter.setUploadToServer`
 - `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+レンダラーの `crashReporter` モジュールに残っている非推奨ではないメソッドは、 `extraParameter`と `removeExtraParameter` と`getParameters`だけです。
 
-All above methods remain non-deprecated when called from the main process.
+上記のすべてのメソッドは、メインプロセスから呼び出されたときに非推奨のままです。
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
@@ -91,6 +92,52 @@ const w = new BrowserWindow({
 ```
 
 私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
+
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// こちらに置換
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// こちらに置換
+protocol.registerFileProtocol(scheme, handler)
+```
+
+登録または干渉されたプロトコルは、ナビゲーションが発生するまで現在のページに影響しません。
+
+### `protocol.isProtocolHandled`
+
+この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
+
+```javascript
+// 非推奨
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// こちらに置換
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
 
 ## 予定されている破壊的なAPIの変更 (9.0)
 
@@ -116,7 +163,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### 削除: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は Electron 8.x で非推奨となり、Electron 9.x で削除されました。 レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように最小 0.25 から最大 5.0 に固定されました。
 
 ### 動作変更: IPC で非 JS オブジェクトを送信すると、例外が送出されるように
 
@@ -200,7 +247,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### 非推奨: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は Electron 8.x に警告を出力し、Electron 9.x に存在しなくなります。 レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように最小 0.25 から最大 5.0 に固定されました。
 
 ## 予定されている破壊的なAPIの変更 (7.0)
 

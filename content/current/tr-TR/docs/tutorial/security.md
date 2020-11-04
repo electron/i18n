@@ -81,13 +81,8 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Yanlış --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Doğru --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -129,12 +124,7 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview nodeIntegration src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
 
 Node.js entegrasyonunu devre dışı bırakırken, API'ları web sitenize hala gösterebilirsiniz. Node.js modüllerini veya özelliklerini tüketirler. Önceden yüklenmiş komut dosyalarına erişmeye devam etmek için `require` ve diğer Node.js özellikleri, geliştiricilerin bir özel Uzaktan içerik yüklemeleri için API.
@@ -251,12 +241,7 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview disablewebsecurity src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
 
 
@@ -444,7 +429,9 @@ const mainWindow = new BrowserWindow()
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. ` allowpopups </ 0> özniteliği
+kullanarak yeni <a href="../api/browser-window.md"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
+<code> window.open () </ 0>  <code><webview>` tags are otherwise not allowed to create new windows.
 
 
 
@@ -456,12 +443,7 @@ you know it needs that feature.</p>
 
 <h3 spaces-before="0">Nasıl?</h3>
 
-<pre><code class="html">
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+<pre><code class="html"><!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 `</pre> 
 
 
@@ -479,13 +461,14 @@ Node.js entegrasyonuna sahip olmayan bir oluşturucu işleminde oluşturulan bir
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. Çoğu durumda, geliştiricilerin hiçbirini devre dışı bırakmaları gerekmez. bu özellikler - ve dolayısıyla farklı yapılandırmalara izin vermemelisiniz yeni oluşturulan [`<webview>`](../api/webview-tag.md) etiketleri için.
 
 
 
 ### Nasıl?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Bir [`<webview>`](../api/webview-tag.md) etiketinin eklenmesinden önce, Elektron, ` web içeriği barındırma </ 1> 'nda will-attach-webview </ 1> etkinliği. Use the event to
+prevent the creation of <code>webViews` with possibly insecure options.
 
 
 
@@ -590,13 +573,13 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 
 
 ### Neden?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 
 
@@ -644,8 +627,12 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 
 ```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+// İşleyici güvenilmeyen içeriği çalıştırıyorsa sorun oluşturur
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -665,11 +652,16 @@ const mainWindow = new BrowserWindow({
 
 ```html
 <!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
+<webview enableremotemodule="true" src="page.html"></webview>
 
 <!-- Good -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+
+
+
+> **Not:** `enableRemoteModule`'ün varsayılan değeri Electron 10'dan beri  `false`dır. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
 
 

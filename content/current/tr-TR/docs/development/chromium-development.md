@@ -8,6 +8,6 @@
 - [Kod Arama](https://cs.chromium.org/)
 - [Kaynak Kodu](https://cs.chromium.org/chromium/src/)
 - [Geliştirme Takvimi ve Yayın Bilgisi](https://www.chromium.org/developers/calendar)
-- [Tartışma grupları](http://www.chromium.org/developers/discussion-groups)
+- [Tartışma grupları](https://www.chromium.org/developers/discussion-groups)
 
 Ayrıca bkz: [V8 geliştirme](v8-development.md)

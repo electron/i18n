@@ -1,51 +1,51 @@
 # Semnarea codului
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Semnarea codului este o tehnologie de securitate pe care o utilizați pentru a certifica faptul că o aplicație a fost creată de dvs.
 
 On macOS the system can detect any change to the  app, whether the change is introduced accidentally or by malicious code.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Pe Windows sistemul atribuie un nivel de încredere la certificatul de semnare a codului pe care nu îl ai, sau în cazul în care nivelul dvs. de încredere este scăzut va cauza ca dialogurile de securitate să apară atunci când utilizatorii încep să folosească aplicația dvs.  Nivelul de încredere construiește în timp astfel încât este mai bine să începi semnarea codului cât mai curând posibil.
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+Deşi este posibilă distribuirea aplicaţiilor nesemnate, aceasta nu este recomandată. For example, here's what macOS users see when attempting to start an unsigned app:
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
 > App can't be opened because it is from an unidentified developer
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+If you are building an Electron app that you intend to package and distribute, it should be code signed. Magazinele de aplicații Mac și Windows nu permit aplicații nesemnate.
 
-# Signing macOS builds
+# Semnarea versiunilor macOS
 
-Before signing macOS builds, you must do the following:
+Înainte de semnarea macOS construiește, trebuie să faceți următoarele:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
 2. Download and install [Xcode][]
 3. Generate, download, and install [signing certificates][]
 
-There are a number of tools for signing your packaged app:
+Există o serie de unelte pentru semnarea aplicației tale împachetate:
 
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- [`electron-packager`][] bundles `electron-osx-sign`. Dacă folosești `un ambalator electron-`, trece steagul `--osx-sign=true` pentru a semna construcția.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Vezi [electron.build/code-signing](https://www.electron.build/code-signing)
 
 For more info, see the [Mac App Store Submission Guide][].
 
-# Signing Windows builds
+# Versiuni de semnare Windows
 
-Before signing Windows builds, you must do the following:
+Înainte de a semna versiuni Windows, trebuie să faceți următoarele:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Obține un certificat de semnare a codului de autentificare Windows (necesită o taxă anuală)
+2. Instalați Visual Studio 2015/2017 (pentru a obține semnarea)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Poți obține un certificat de cod de la o mulțime de distribuitori. Preţurile variază, astfel încât poate merita timp să faci cumpărături. Revânzătorii populari includ:
 
-* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [digicerat](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Printre altele, vă rugăm să faceți cumpărături pentru a găsi unul care se potrivește nevoilor dvs., Google este prietenul dvs. :)
 
-There are a number of tools for signing your packaged app:
+Există o serie de unelte pentru semnarea aplicației tale împachetate:
 
 - [`electron-winstaller`][] will generate an installer for windows and sign it for you
 - [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.

@@ -23,7 +23,7 @@ If you don't currently have a Windows installation, [dev.microsoftedge.com](http
 
 Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+For example if you installed **clang** under **/usr/local/bin/clang**:
 
 ## Building
 

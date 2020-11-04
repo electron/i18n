@@ -7,114 +7,114 @@ author:
 date: '2019-04-23'
 ---
 
-The Electron team is excited to announce the release of Electron 5.0.0! You can install it with npm via `npm install electron@latest` or download the tarballs from [our releases page](https://github.com/electron/electron/releases/tag/v5.0.0). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Tým Electronu je nadšený oznámením vydání Electronu 5.0.0! Můžete si ji nainstalovat pomocí npm přes `npm install electron@latest` nebo stáhnout tarballs z [naší release page](https://github.com/electron/electron/releases/tag/v5.0.0). Vydání je plněno aktualizacemi, opravami a novými funkcemi. Nemůžeme čekat, co s nimi buduješ! Pokračujte ve čtení podrobností o tomto vydání a prosím sdílejte zpětnou vazbu, kterou máte!
 
 ---
 
-## What's New?
+## Co je nového?
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 5:
+Velkou část funkce Electronu poskytuje jádro Chromium, Node.js a V8. Electron průběžně aktualizuje tyto projekty, aby poskytoval našim uživatelům nové funkce JavaScriptu, vylepšení výkonu a bezpečnostní opravy. Každý z těchto balíčků má hlavní verzi pumpy v Electron 5:
 
-- Chromium `73.0.3683.119`
-  - [New in 70](https://developers.google.com/web/updates/2018/10/nic70)
-  - [New in 71](https://developers.google.com/web/updates/2018/12/nic71)
-  - [New in 72](https://developers.google.com/web/updates/2019/01/nic72)
-  - [New in 73](https://developers.google.com/web/updates/2019/03/nic73)
+- Chrom `73.0.3683.119`
+  - [Nový v 70](https://developers.google.com/web/updates/2018/10/nic70)
+  - [Nový v 71](https://developers.google.com/web/updates/2018/12/nic71)
+  - [Nově 72](https://developers.google.com/web/updates/2019/01/nic72)
+  - [Nové v 73](https://developers.google.com/web/updates/2019/03/nic73)
 - Node.js `12.0.0`
-  - [Node 12 Blog Post](https://nodejs.org/en/blog/release/v12.0.0/)
-- V8 `7.3.492.27`.
-  - [New JS Features](https://twitter.com/mathias/status/1120700101637353473)
+  - [Uzel 12 Blog Příspěvek](https://nodejs.org/en/blog/release/v12.0.0/)
+- V8 `7.3.492.27`
+  - [Nové JS funkce](https://twitter.com/mathias/status/1120700101637353473)
 
-Electron 5 also includes improvements to Electron-specific APIs. A summary of the major changes is below; for the full list of changes, check out the [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
+Elektron 5 rovněž zahrnuje vylepšení API specifických pro elektroniku. Shrnutí hlavních změn je níže; pro úplný seznam změn se podívejte na [Electron v5.0.0 release notes](https://github.com/electron/electron/releases/tag/v5.0.0).
 
 ### Promisification
 
-Electron 5 continues [Promisification initiative](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) initiative to convert Electron's callback-based API to use Promises. These APIs were converted for Electron 5:
+Electron 5 pokračuje v [iniciativě "Promisification Initiative,](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) pro převod API založené na volání Electronu pro použití Promises. Tyto API byly převedeny na Electron 5:
 * `app.getFileIcon`
-* `contentTracing.getCategories`
-* `contentTracing.startRecording`
-* `contentTracing.stopRecording`
+* `Kategorie obsahu`
+* `Spouštění nahrávání`
+* `Zastavit nahrávání`
 * `debugger.sendCommand`
-* Cookies API
-* `shell.openExternal`
+* API cookies
+* `shell.openExterní`
 * `webContents.loadFile`
-* `webContents.loadURL`
+* `webContents.loadURL (Automatic Copy)`
 * `webContents.zoomLevel`
 * `webContents.zoomFactor`
 * `win.capturePage`
 
-### System colors access for macOS
+### Přístup k systémovým barvám pro macOS
 
-These functions were changed or added to `systemPreferences` to access macOS systems' colors:
+Tyto funkce byly změněny nebo přidány do `systemPreferences` pro přístup k barvám systémů macOS:
 * `systemPreferences.getAccentColor`
 * `systemPreferences.getColor`
 * `systemPreferences.getSystemColor`
 
-### Process memory information
+### Zpracování informací o paměti
 
-The function `process.getProcessMemoryInfo` has been added to get memory usage statistics about the current process.
+Funkce `proces.getProcessMemoryInfo` byla přidána pro získání statistiky využití paměti o aktuálním procesu.
 
-### Additional filtering for remote APIs
+### Další filtrování pro vzdálené API
 
-To improve security in the `remote` API, new remote events have been added so that `remote.getBuiltin`, `remote.getCurrentWindow`, `remote.getCurrentWebContents` and `<webview>.getWebContents` can be [filtered](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
+Pro zvýšení bezpečnosti v `vzdálené` API byly přidány nové vzdálené události tak, aby `dálkové. etBuiltin`, `vzdálený. etCurrentWindow`, `remote.getCurrentWebContents` a `<webview>.getWebContents` může být [filtrováno](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#13-disable-or-limit-creation-of-new-windows).
 
-### Multiple BrowserViews on BrowserWindow
+### Více zobrazení prohlížeče v okně prohlížeče
 
-BrowserWindow now supports managing multiple BrowserViews within the same BrowserWindow.
+BrowserWindow nyní podporuje správu více prohlížečů v rámci stejného prohlížeče Window.
 
 ## Breaking Changes
 
-### Defaults for packaged apps
+### Výchozí nastavení pro zabalené aplikace
 
-Packaged apps will now behave the same as the default app: a default application menu will be created unless the app has one and the `window-all-closed` event will be automatically handled unless the app handles the event.
+Balené aplikace se budou chovat stejně jako výchozí aplikace: výchozí menu aplikace bude vytvořeno, pokud aplikace nebude mít jednu a událost `otevřená` bude automaticky zpracována, pokud aplikace nezvládne událost.
 
-### Mixed sandbox
+### Smíšené sandboxy
 
-Mixed sandbox mode is now enabled by default. Renderers launched with `sandbox: true` will now be actually sandboxed, where previously they would only be sandboxed if mixed-sandbox mode was also enabled.
+Režim smíšené sandboxy je nyní ve výchozím nastavení povolen. Renderery spuštěné s `pískovcem: true` nyní bude ve skutečnosti pískovcem, kde dříve by byly pouze pískovcové, pokud by byl také povolen smíšený režim písku.
 
-### Security improvements
-The default values of `nodeIntegration` and `webviewTag` are now `false` to improve security.
+### Zlepšení zabezpečení
+Výchozí hodnoty `nodeIntegration` a `webviewTag` jsou nyní `falešné` pro zvýšení bezpečnosti.
 
-### Spellchecker now asynchronous
+### Kontrola pravopisu je nyní asynchronní
 
-The SpellCheck API has been changed to provide [asynchronous results](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
+API kontroly pravopisu bylo změněno tak, aby poskytovalo [asynchronní výsledky](https://github.com/electron/electron/blob/5-0-x/docs/api/web-frame.md#webframesetspellcheckproviderlanguage-provider).
 
-## Deprecations
+## Deprese
 
-The following APIs are newly deprecated in Electron 5.0.0 and planned for removal in 6.0.0:
+Následující API jsou nově zastaralá v Electronu 5.0.0 a jsou naplánována na odstranění v 6.0.0:
 
-### Mksnapshot binaries for arm and arm64
-Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
+### Mksnapshot binární soubory pro paže a arm64
+Nativní binární soubory mksnapshot pro paže a arm64 jsou zastaralé a budou odstraněny v 6. .0. Snapshoty lze vytvořit pro paže a arm64 pomocí binárních souborů x64.
 
-### ServiceWorker APIs on WebContents
-Deprecated ServiceWorker APIs on WebContents in preparation for their removal.
+### API ServiceWorker na webovém obsahu
+Zastaralý serveWorker API na WebContents v přípravě na jejich odstranění.
 * `webContents.hasServiceWorker`
 * `webContents.unregisterServiceWorker`
 
-### Automatic modules with sandboxed webContents
-In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
-* `electron.screen`
-* `child_process`
+### Automatické moduly s pískovaným webovým obsahem
+Za účelem zlepšení bezpečnosti, následující moduly jsou zastaralé pro použití přímo přes `vyžadují` a místo toho je třeba je zahrnout přes `dálkový ovladač. equire` in sandboxed webcontents:
+* `elektronická obrazovka`
+* `proces_dítěte`
 * `fs`
-* `os`
-* `path`
+* `v:`
+* `cesta`
 
 ## webFrame Isolated World APIs
-`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` have been deprecated in favor of `webFrame.setIsolatedWorldInfo`.
+`webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` byly zastaralé ve prospěch `webFrame.setIsolatedWorldInfo`.
 
-### Mixed sandbox
-`enableMixedSandbox` and the `--enable-mixed-sandbox` command-line switch still exist for compatibility, but are deprecated and have no effect.
+### Smíšené sandboxy
+`enableMixedSandbox` a `--enable-mixed-sandbox` přepínač příkazové řádky stále existují pro kompatibilitu, ale jsou zastaralé a nemají žádný efekt.
 
-## End of support for 2.0.x
+## Konec podpory pro 2.0.x
 
-Per our [supported versions policy](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x has reached end of life.
+Na naše [podporované verze politiky](https://electronjs.org/docs/tutorial/support#supported-versions), 2.0.x dosáhl konce života.
 
 ## App Feedback Program
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Pokračujeme v používání našeho [programu zpětné vazby aplikací](https://electronjs.org/blog/app-feedback-program) pro testování. Projekty, které se účastní tohoto programu testování Electron betas na svých aplikacích; a na oplátku nové chyby mají prioritu pro stabilní vydání. Pokud byste se chtěli zúčastnit nebo se dozvědět více, [podívejte se na náš blog příspěvek o programu](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co je další
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 6.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) maps out key dates in the Electron 6 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Z krátkodobého hlediska můžete očekávat, že se tým bude nadále zaměřovat na udržení pokroku při vývoji hlavních komponentů, které tvoří Electron, včetně chromu, niklu a V8. I když jsme opatrní, abychom neslíbili data zveřejnění, Naším plánem je vydání nových hlavních verzí Electronu s novými verzemi těchto komponentů přibližně čtvrtletně. [předběžný plán 6.0.0](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) mapuje klíčová data ve vývojovém životním cyklu Electronu 6. Také [viz náš dokument s verzemi](https://electronjs.org/docs/tutorial/electron-versioning) pro podrobnější informace o verzích v Electronu.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Informace o plánovaných zlomových změnách v nadcházejících verzích Electronu [naleznete v naší Plánované zlomení změn doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

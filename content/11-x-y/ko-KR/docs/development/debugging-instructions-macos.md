@@ -86,7 +86,7 @@ Process 25244 stopped
    122 	  return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**참고:** 있어야 할 소스 코드가 보이지 않는다면, `~/.lldbinit` 파일을 추가했는지 확인해보세요.
 
 디버깅을 끝내려면, `process continue` 를 실행하세요. 또한 쓰레드에서 실행 줄 수를 지정할 수 있습니다 (`thread until 100`). 이 명령은 현재 프레임에서 100 줄에 도달하거나 현재 프레임을 나가려고 할 때 까지 쓰레드를 실행합니다.
 

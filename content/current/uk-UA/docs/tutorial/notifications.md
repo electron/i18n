@@ -1,58 +1,107 @@
 # Сповіщення (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+## Огляд
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+Всі три операційні системи забезпечують додатки для відправки повідомлень користувачеві. Техніка відображення сповіщень відрізняється в для процесів Головної та Рендерера.
 
-```javascript
-const myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
-})
+Для процесу рендерингу, Electron зручно дозволяє розробникам надсилати сповіщення з [HTML5 Нотифікацій API](https://notifications.spec.whatwg.org/), використовується в даний час запущена вбудований API сповіщень операційної системи , щоб відобразити його.
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
-}
+Щоб показувати сповіщення у Головному процесі, вам потрібно використати модуль [Повідомлень](../api/notification.md).
+
+## Приклад
+
+### Показувати сповіщення в процесі рендерингу
+
+Припускаючи, що ви працюєте програму Electron з [короткого посібника Start](quick-start.md)додати наступну рядок до індексу `. файл tml` перед закриттям `</body>` тег:
+
+```html
+<script src="renderer.js"></script>
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+і додайте файл `renderer.js`:
 
-## Windows
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+```js
+const myNotification = new Notification('Title', {
+  body: 'Notification from the Renderer process'
+})
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+myNotification.onclick => {
+  console.log('Сповіщення натиснуто')
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+```
 
-### Advanced Notifications
+Після запуску додатку Electron, ви повинні побачити сповіщення:
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+![Сповіщення в процесі рендерингу](../images/notification-renderer.png)
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+If you open the Console and then click the notification, you will see the message that was generated after triggering the `onclick` event:
 
-### Quiet Hours / Presentation Mode
+![Натисніть на повідомлення для панелі сповіщень](../images/message-notification-renderer.png)
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+### Показувати сповіщення в головному процесі
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Починаючи з робочого додатку [Короткий посібник](quick-start.md), оновіть `main.js` файл з наступними рядками:
 
-## macOS
+```js
+const { Notification } = require('electron')
+
+function showNotification () {
+  const notification = {
+    title: 'Basic Notification',
+    body: 'Notification from the Main process'
+  }
+  new Notification(notification).show()
+}
+
+app.whenReady().then(createWindow).then(showNotification)
+```
+
+Після запуску додатку Electron, ви повинні побачити сповіщення:
+
+![Сповіщення в головному процесі](../images/notification-main.png)
+
+## Додаткова інформація
+
+У той час як досвід використання коду та користувача між операційними системами схожі, існують тонкі відмінності.
+
+### Windows
+
+* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. Це може бути прокладено під час розвитку, тому додавання `node_modules\electron\dist\electron.exe` до вашого стартового меню також робить фокус . Перейдіть до файлу в Explorer, клацніть правою кнопкою миші та "Закріпити", щоб запустити меню". Потім вам потрібно буде додати рядок `app.setAppUserModelId(process.execPath)` до головного процесу, щоб побачити сповіщення.
+* Для Windows 8. та Windows 8, ярлик до програми з [користувачем моделі](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) повинен бути встановлений на екран запуску. Зверніть увагу на , однак, що це не потрібно прикріпити до екрана Початку.
+* На Windows 7 сповіщення працюють за допомогою користувальницької реалізації, яка візуально нагадує вбудовану в новіші системи.
+
+Спроби Electron автоматизувати роботу навколо ID моделі додатка. Коли Electron використовується разом з установкою і оновленням framework Squirrel, [ярлики будуть автоматично встановлені](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Крім того, Electron виявить, що Squirrel був використаний і автоматично викличе `app.setAppUserId()` з правильним значенням. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+
+Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Спроба відправити гігантські кількість тексту в API (тисячі символів) може призвести до нестабільності.
+
+#### Розширені сповіщення
+
+Пізніші версії Windows дозволяють додавати додаткові повідомлення з користувацькими шаблонами зображеннями та іншими гнучкими елементами. Щоб надіслати ці сповіщення (з сенсу головного процесу або процесу рендерингу), використовуйте модуль користувача [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) який використовує власні додатки вузла для відправлення `ToastNotification` та `TileNotification`.
+
+Під час надсилання сповіщень, включаючи кнопки, працюють з `electron-windows-notification`, Обробка відповідей вимагає використання [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) який допомагає з реєстрацією необхідних COM компонентів і викликаючи ваш додаток Electron з введеними даними користувача.
+
+#### Режим тихих годин / презентації
+
+Щоб визначити, чи дозволено вам надсилати повідомлення, використовуйте користувацький модуль [стан електрики](https://github.com/felixrieseberg/electron-notification-state).
+
+Це дозволить вам точно визначити час очікування, без звукового сигналу або ні вікна.
+
+### macOS
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Зверніть увагу, що повідомлення в розмірі до 256 байт будуть скорочені , якщо ви перевищите цю межу.
 
-### Advanced Notifications
+#### Розширені сповіщення
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+У пізніших версіях macOS дозволяються для сповіщення з введеним полем, що дозволяє користувачеві швидко відповідати на повідомлення. Для того, щоб надсилати сповіщення вхідним полем, скористайтеся модулем користувача [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+#### Не турбувати / стан сесії
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Щоб визначити, чи дозволено вам надсилати повідомлення, скористайтеся клієнтським модулем [станом електрики](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Це дозволить вам виявити заздалегідь, буде показано сповіщення чи ні.
 
-## Linux
+### Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Повідомлення надсилаються за допомогою `libnotify` , які можуть показувати повідомлення на будь-якому робочому середовищі, яке слідує [Сповіщення робочого столу специфікація](https://developer.gnome.org/notification-spec/)включаючи Cinnamon, Просвітництво, Unity, GNOME, KDE.

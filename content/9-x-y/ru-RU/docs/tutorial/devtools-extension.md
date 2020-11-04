@@ -22,24 +22,24 @@ Using the [React Developer Tools][react-devtools] as example:
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * в macOS это `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li>
-1 Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+1 Передайте расположение расширения `BrowserWindow.addDevToolsExtension` API, для React Developer Tools, это что-то вроде этого:
    ```javascript
    const path = require('path')
    const os = require('os')
 
    BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+
    ```
 </ol>
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Расширение будет запомнено, поэтому вам нужно вызвать этот API только один раз за расширение . Если вы пытаетесь добавить расширение, которое уже было загружено, этот метод не будет возвращен и вместо этого записывает предупреждение в консоль.
 
-### How to remove a DevTools Extension
+### Как удалить расширение DevTools
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+Вы можете передать имя расширения `BrowserWindow.removeDevToolsExtension` API для его удаления. Имя расширения возвращается `BrowserWindow. ddDevToolsExtension` и вы можете получить имена всех установленных расширений DevTools с помощью `BrowserWindow.getDevToolsExtensions` API.
 
 ## Поддерживаемые расширения DevTools
 
@@ -48,18 +48,18 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 * [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
-* [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
+* [jQuery Отладчик](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Cerebral Debugger](https://cerebraljs.com/docs/introduction/debugger.html)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+* [Церебральный отладчик](https://cerebraljs.com/docs/introduction/debugger.html)
+* [Расширение Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Инструменты разработчика MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### Что делать, если расширение DevTools не работает?
 
 Прежде всего, убедитесь, что расширение все еще поддерживается, некоторые расширения могут не работать даже в последних версиях браузера Chrome, и мы ничего не можем с этим сделать.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Затем сообщите об ошибке в списке проблем Electron, и опишите, какая часть расширения не работает как ожидалось.
 
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
 [react-devtools]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi

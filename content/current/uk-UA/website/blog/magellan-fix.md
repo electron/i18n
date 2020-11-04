@@ -1,34 +1,34 @@
 ---
-title: SQLite Vulnerability Fix
+title: Виправлення вразливості SQLite
 author: ckerr
 date: '2018-12-18'
 ---
 
-A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
+Уразливість віддаленого виконання коду,[Magellan](https://blade.tencent.com/magellan/index_en.html)", при використанні програми на основі SQLite або Chromium, з усіма версіями Electron.
 
 ---
 
-## Scope
+## Область використання
 
-Electron applications using Web SQL are impacted.
+Застосунки Electron, що використовують Web SQL, впливають на них.
 
 
-## Mitigation
+## Пом'якшення
 
-Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
+Вражені програми повинні припинити використовувати Web SQL або оновити до пропатченої версії Electron.
 
-We've published new versions of Electron which include fixes for this vulnerability:
-  * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
-  * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
+Ми опублікували нові версії Electron, які включають виправлення для цієї вразливості:
+  * [4,0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
+  * [3.1.0-бета.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-There are no reports of this in the wild; however, affected applications are urged to mitigate.
+Однак у дикій природі немає жодного повідомлення про це; постраждалих додатків закликають пом'якшити.
 
-## Further Information
+## Додаткова інформація
 
-This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
+Це виявлене командою Tencent Blade, яка опублікувала [пост в блозі, який обговорює вразливість](https://blade.tencent.com/magellan/index_en.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Щоб дізнатися більше про найкращі практики для збереження ваших програм Electron – перегляньте наш [підручник безпеки](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Якщо ви хочете повідомити про вразливість у Electron, напишіть про безпеку@electronjs.org.

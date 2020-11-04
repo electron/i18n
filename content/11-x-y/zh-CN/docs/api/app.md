@@ -27,7 +27,8 @@ app.on('window-all-closed', () => {
 
 返回:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 当 Electron 完成初始化时，发出一次。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -105,13 +106,13 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。
 
-### Event: 'did-become-active' _macOS_
+### 事件: 'did-groupe-active' _macOS_
 
 返回:
 
 * `event` Event
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+当应用被激活时发出。 与 `activate` 事件的不同是应用，程序激活时都会触发 `did-become-active` ，而不仅仅在 Dock 图标被点击或应用程序被重新启动的时候。
 
 ### 事件: 'continue-activity' _macOS_
 
@@ -297,7 +298,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### 事件: 'gpu-process-crashed' _已废弃_
 
 返回:
 
@@ -306,7 +307,7 @@ Emitted whenever there is a GPU info update.
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -318,7 +319,7 @@ Emitted whenever there is a GPU info update.
 
 当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 

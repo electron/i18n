@@ -1,60 +1,60 @@
 ---
-title: Webview Vulnerability Fix
+title: Виправлення вразливості веб-перегляду
 author: ckerr
 date: '2018-03-21'
 ---
 
-A vulnerability has been discovered which allows Node.js integration to be re-enabled in some Electron applications that disable it. This vulnerability has been assigned the CVE identifier [CVE-2018-1000136](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000136).
+Виявлено вразливість, яка дозволяє інтегрування Node.js бути ввімкнена в деяких програмах Electron, що їх відключають. Ця вразливість призначена ідентифікатор CVE [CVE-2018-1006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000136).
 
 ---
 
-## Affected Applications
+## Поражені додатки
 
-An application is affected if *all* of the following are true:
+Застосунок постраждає, якщо *всі* наступних вірні:
 
- 1. Runs on Electron 1.7, 1.8, or a 2.0.0-beta
- 2. Allows execution of arbitrary remote code
- 3. Disables Node.js integration
- 4. Does not explicitly declare `webviewTag: false` in its webPreferences
- 5. Does not enable the `nativeWindowOption` option
- 6. Does not intercept `new-window` events and manually override `event.newGuest` without using the supplied options tag
+ 1. Запускається на Electron 1.7, 1.8, або 2.0.0-beta
+ 2. Дозволяє виконання довільного віддаленого коду
+ 3. Відключає інтеграцію Node.js
+ 4. Не оголошує `webviewTag: false` у своєму webPreferences
+ 5. Не активує параметр `nativeWindowOption`
+ 6. Не перехоплювати `події нового вікна` події і вручну змінити `event.newguest` без використання тегу додаткових параметрів
 
-Although this appears to be a minority of Electron applicatons, we encourage all applications to be upgraded as a precaution.
+Хоча це схоже на меншість застосунків Electron, ми заохочуємо оновити всі додатки як запобіжні умови.
 
-## Mitigation
+## Пом'якшення
 
-This vulnerability is fixed in today's [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), and [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) releases.
+Ця вразливість зафіксована на сьогодні [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), і [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) релізів.
 
-Developers who are unable to upgrade their application's Electron version can mitigate the vulnerability with the following code:
+Розробники, які не в змозі оновити версію Electron можуть пом’якшити вразливість наступним кодом:
 
 ```js
 app.on('web-contents-created', (event, win) => {
-  win.on('new-window', (event, newURL, frameName, disposition,
-                        options, additionalFeatures) => {
-    if (!options.webPreferences) options.webPreferences = {};
-    options.webPreferences.nodeIntegration = false;
+  перемогти. n('new-window', (event, newURL, frameName, disposition,
+                        параметри, additionalFeatures) => {
+    якщо (! піки. параметри ebPreferences) = {};
+    options.webPrefertions. odeIntegration = false;
     options.webPreferences.nodeIntegrationInWorker = false;
-    options.webPreferences.webviewTag = false;
-    delete options.webPreferences.preload;
+    параметри. ebPreferences.webviewTag = false;
+    видалить options.webPrefertions. reload;
   })
 })
 
-// and *IF* you don't use WebViews at all,
-// you might also want
-app.on('web-contents-created', (event, win) => {
-  win.on('will-attach-webview', (event, webPreferences, params) => {
+// та *IF* ви взагалі не використовуєте WebViews,
+// Ви можете також хотіти
+програми. n('web-contents-created', (event, win) => {
+  перемоги. n('will-attach-webview', (event, webPreferences, params) => {
     event.preventDefault();
   })
 })
 ```
 
-## Further Information
+## Додаткова інформація
 
-This vulnerability was found and reported responsibly to the Electron project by Brendan Scarvell of [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
+Цю вразливість знайдено і повідомили відповідально до проекту Electron від Brendan Scarvell [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Щоб дізнатися більше про найкращі практики для збереження ваших програм Electron – перегляньте наш [підручник безпеки](https://electronjs.org/docs/tutorial/security).
 
-To report a vulnerability in Electron, please email security@electronjs.org.
+Щоб повідомити про вразливість у Electron, будь ласка, напишіть про безпеку@electronjs.org.
 
-Please join our [email list](https://groups.google.com/forum/#!forum/electronjs) to receive updates about releases and security updates.
+Будь ласка, приєднайтеся до нашого [списку контактів](https://groups.google.com/forum/#!forum/electronjs) , щоб отримати оновлення про релізи та рівень безпеки.
 

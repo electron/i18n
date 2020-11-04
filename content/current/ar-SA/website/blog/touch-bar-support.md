@@ -1,127 +1,127 @@
 ---
-title: Touch Bar Support
+title: دعم شريط اللمس
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+الإلكترون [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) الإصدار التجريبي يحتوي على دعم أولي لـ macOS [شريط اللمس](https://developer.apple.com/macos/touch-bar).
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+يسمح لك شريط اللمس الجديد API بإضافة الأزرار والعلامات والنوافذ المنبثقة و منتقي الألوان وشريط التمرير والمسافات. يمكن تحديث هذه العناصر بشكل ديناميكي و ينبعث أيضا الأحداث عندما يتم التفاعل معها.
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+هذه هي الإصدار الأول من واجهة برمجة التطبيقات هذه لذلك سوف تتطور خلال إصدارات إلكترون القليلة القادمة. الرجاء التحقق من ملاحظات الإصدار لمزيد من التحديثات وفتح [مشكلات](https://github.com/electron/electron/issues) لأي مشكلة أو وظائف مفقودة.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+يمكنك تثبيت هذا الإصدار عن طريق `npm تثبيت electron@beta` وتعلم المزيد عنه في [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) و [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) مستندات إلكترون.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+شكراً جزيلاً ل [@MarshallOfSound](https://github.com/MarshallOfSound) لمساهمته في إلكترون. :tada:
 
-## Touch Bar Example
+## مثال شريط اللمس
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![المس بار الغازي](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+فيما يلي مثال على إنشاء لعبة آلة فتحة بسيطة في شريط اللمس. يوضح كيفية إنشاء شريط لمس، نمط العناصر، ربطه مع نافذة ، التعامل مع أحداث الزر، وتحديث التسميات ديناميكية.
 
 ```js
-const {app, BrowserWindow, TouchBar} = require('electron')
+المؤخرة {app, BrowserWindow, TouchBar} = مطلوبة ('electron')
 
-const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
+ {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
-let spinning = false
+السماح بالدوران = خاطئ
 
-// Reel labels
-const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
-const reel3 = new TouchBarLabel()
+// Reel
+Reel1 = TouchBarLabel() جديدة
+Reel2 = TouchBarLabel() جديدة
+rest reel3 = TouchBarLabel() جديدة
 
-// Spin result label
-const result = new TouchBarLabel()
+// / Din نتيجة متزامنة = TouchBarLabel() جديدة
+نتيجة متزامنة = TouchBarLabel()
 
-// Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+// / تجوب
+const roin = TouchBarButton({
+  عنوان: '🎰 Spin',
+  الخلفية: '#7851A9',
+  نقطة: () => {
+    /// تجاهل النقرات إذا كانت تدور بالفعل
+    إذا (تأجير) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    تدوير = صحيح
+    النتيجة. abel = ''
 
-    let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    ترك المهلة = 10
+    const spinLong = 4 * 1000 // 4 ثانية
+    const startTime = التاريخ. ow()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now() - startTime) >= spinLength) {
+      if ((Date. ow() - startTime) >= spinLength) {
         finishSpin()
-      } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
-        setTimeout(spinReels, timeout)
+      } أخري {
+        // أبطأ قليلاً على كل تدوير
+        مهلة *= 1.
+        setTimeout(spinReels)، المهلة)
       }
-    }
+
 
     spinReels()
   }
 })
 
 const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', ':4_leaf_clover:']
+  قيمة العائد[الرياضيات. loor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel3. abel = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+  const uniqueValues = New Set([reel1. بايل، وسمة2.ملصقة، رينيل3.التسمية]). الحجم
+  إذا كانت (الفريدة من نوعها من القيم == 1) {
+    // جميع القيم 3 هي نفس النتيجة
+    . abel = '💰 جاكبوت!'
+    النتيجة. extColor = '#FDFF00'
+  } أخرى إذا (uniqueValues === 2) {
+    // 2 هي نفس النتيجة
+    . abel = '😍 الفائز!'
+    النتيجة. extColor = '#FDFF00'
+  } أخرى {
+    // لا توجد قيم هي نفس النتيجة
+    . abel = '🙁 تجور مرة أخرى'
+    نتيجة. extColor = null
   }
-  spinning = false
+  تدوير = false
 }
 
-const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({size: 'large'}),
+Const touchBar = TouchBar([
+  تدوير
+  TouchBarSpacer({size: 'large'}),
   reel1,
-  new TouchBarSpacer({size: 'small'}),
-  reel2,
-  new TouchBarSpacer({size: 'small'}),
+  New TouchBarSpacer({size: 'small'}),
+  رايل2,
+  جديدة TouchBarSpacer({size: 'small'}),
   reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
+  TouchBarSpacer({size: 'large'}),
+  نتيجة
 ])
 
-let window
+اترك نافذة
 
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
+التطبيق. nce('جاهز', () => {
+  النافذة = المتصفح الجديد ({
+    إطار: خاطئ،
     titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+    العرض: 200،
+    الطول: 200،
+    خلفية Color: '#000'
   })
-  window.loadURL('about:blank')
+  النافذة. oadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```

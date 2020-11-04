@@ -140,7 +140,7 @@ module.exports = { parser }
 
 In short, allocate resources "just in time" rather than allocating them all when your app starts.
 
-## 3) Blocking the main process
+## 3) 阻止主流程
 
 Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 

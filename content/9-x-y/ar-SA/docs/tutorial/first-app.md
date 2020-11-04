@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# كتابة أول تطبيق إلكترون
 
 يمكنك الكترون من إنشاء تطبيقات لأجهزة الحاسب المكتبي باستخدام الجافا سكريبت (JavaScript) بشكل خالص عن طريق تزويد المطور ببيئة تشغيلية غنية بمكونات أصلية (API) لكل نظام تشغيل. تستطيع اعتبار إلكترون كنكهة مختلفة من نود. جي اس (Node.js) تركز على انشاء تطبيقات سطح المكتب بدلاً من سيرفرات الويب. سيرفرات الويب هي من اختصاص نود. جي اس، بينما تطبيقات سطح المكتب هي من اختصاص إلكترون.
 
@@ -13,10 +13,10 @@
 
 
 ```plaintext
-your-app/
-├── package.json
-├── main.js
-└── index.html
+تطبيقك
+<unk> <unk> <unk> <unk> <unk> <unk> <unk> package.json
+<unk> <unk> <unk> ', main.js
+<unk> <unk> <unk> ', index.html
 ```
 
 
@@ -29,14 +29,14 @@ npm init
 ```
 
 
-سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. An example of your `package.json` might look like this:
+سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. مثال على `package.json` قد يبدو مثل هذا:
 
 
 
 ```json
 {
   "name": "your-app",
-  "version": "0.1.0",
+  "الإصدار": "0.1.0",
   "main": "main.js"
 }
 ```
@@ -98,7 +98,7 @@ npm install --save-dev electron
 
 
 ```javascript
-const electron = require('electron')
+إلكترون = مطلوبة ('electron')
 ```
 
 
@@ -111,15 +111,15 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  اسمح للفوز = متصفح ويندوز جديد ({
+    عرض: 800,
+    طول: 600,
+    تفضيلات الويب: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // وتحميل الفهرس .html من التطبيق.
   win.loadFile('index.html')
 }
 
@@ -135,27 +135,27 @@ app.whenReady().then(createWindow)
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+  فوز = متصفح ويندوز جديد ({
+    عرض: 800,
+    ارتفاع 600,
+    تفضيلات الويب: {
       nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
+  // وتحميل index.html من التطبيق.
   win.loadFile('index.html')
 
    // افتح DevTools.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// سيتم استدعاء هذه الطريقة عند انتهاء إلكترون
+// تهيئة وهي مستعدة لإنشاء نوافذ المتصفح.
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// إنهاء عند إغلاق جميع النوافذ.
 app.on('window-all-closed', () => {
 // على macOS من الشائع للتطبيقات وشريط القوائم
    // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
@@ -167,12 +167,12 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   //على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما
   //يتم النقر فوق رمز قفص الاتهام وليس هناك نوافذ أخرى مفتوحة.
-  if (BrowserWindow.getAllWindows().length === 0) {
+  إذا (BrowserWindow.getAllWindows). ength === 0) {
     createWindow()
-  }
+
 })
 
-// In this file you can include the rest of your app's specific main process
+// في هذا الملف يمكنك تضمين بقية العملية الرئيسية الخاصة بتطبيقك
 // code. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
@@ -212,14 +212,14 @@ app.on('activate', () => {
 
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# استنساخ المستودع
+$ git نسخة https://github. om/electron/electron-quick-start
+# انتقل إلى المستودع
+$ cd electron-start
+# تثبيت الإعتمادات
+$ npm مثبت
+# تشغيل التطبيق
+$ npm
 ```
 
 

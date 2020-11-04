@@ -1,17 +1,17 @@
-# Experimental APIs
+# API experimentale
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Unele API-uri Electrons sunt etichetate cu `_Experimental_` în documentație. Această etichetă indică faptul că API-ul nu poate fi considerat stabil, iar API poate fi eliminat sau modificat mai frecvent decât alte API-uri cu mai puțin avertisment.
 
-## Conditions for an API to be tagged as Experimental
+## Condiții pentru ca un API să fie etichetat ca experimental
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Oricine poate solicita un API să fie etichetat ca experimental într-o caracteristică PR, dezacordurile privind natura experimentală a unei caracteristici pot fi discutate în API WG dacă nu pot fi rezolvate în PR.
 
-## Process for removing the Experimental tag
+## Proces pentru eliminarea etichetei experimentale
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Odată ce un API a fost stabil și în cel puțin două linii majore de lansare stabile poate fi nominalizat pentru a avea eticheta sa experimentală eliminată.  Această discuție ar trebui să aibă loc la o ședință API WG.  Lucruri de luat în considerare la discutarea/nominalizarea:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Condiţia de mai sus "două linii majore de lansare" trebuie să fi fost îndeplinită
+* În acest timp, adoptarea acestei caracteristici nu ar fi trebuit să cauzeze probleme majore sau probleme
+* API este suficient de stabil și nu a fost influențat puternic de upgrade-urile Chromium
+* Utilizează cineva API?
+* Este API care îndeplinește dezordinele propuse inițial, are lacune?

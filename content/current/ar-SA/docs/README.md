@@ -4,7 +4,7 @@
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+وهناك أسئلة تُطرح في كثير من الأحيان. تحقق من هذا قبل إنشاء مشكلة:
 
 * [إلكترون - الاسئلة الشائعة](faq.md)
 
@@ -15,20 +15,20 @@ There are questions that are asked quite often. Check this out before creating a
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
   * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
-* [انشاء تطبيقك الأول](tutorial/first-app.md)
-  * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
-  * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [تشغيل تطبيقك](tutorial/first-app.md#running-your-app)
+* [انشاء تطبيقك الأول](tutorial/quick-start.md)
+  * [المتطلبات الأساسية](tutorial/quick-start.md#prerequisites)
+  * [إنشاء تطبيق أساسي](tutorial/quick-start.md#create-a-basic-application)
+  * [حزمة الطلب وتوزيعه](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [أدوات أخرى و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [معمارية التطبيق](tutorial/application-architecture.md)
-  * [العمليات الرئيسية والرابط](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [باستخدام إلكترون APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [باستخدام Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
+* [معمارية التطبيق](tutorial/quick-start.md#application-architecture)
+  * [العمليات الرئيسية والرابط](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
   * [باستخدام Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * إضافة ميزات إلى تطبيقك
@@ -43,12 +43,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [إمكانية الوصول](tutorial/accessibility.md)
   * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [تمكين ميزات إمكانية الوصول يدويا](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
   * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)
@@ -90,7 +90,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,6 +126,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notification (الإشعارات)](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)

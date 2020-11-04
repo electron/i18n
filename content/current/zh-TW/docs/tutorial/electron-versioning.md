@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 1.x 版
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 Slack, Stride, Teams, Skype, VS Code, Atom 及 Desktop 這些主流應用程式的 QA 測試可能曠日廢時，才能維持住高穩定性。 要同時套用新功能並取得錯誤修正的風險很高。
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 Slack, Stride, Teams, Skype, VS Code, Atom 及 Desktop 這些主流應用程式的 QA 測試可能曠日廢時，才能維持住高穩定性。 要同時套用新功能並取得錯誤修正的風險很高。
 
 這是個 1.x 版定版策略的例子:
 

@@ -1,70 +1,70 @@
 ---
-title: From native to JavaScript in Electron
+title: من الأم إلى جافا سكريبت في إلكترون
 author: codebytere
 date: '2019-03-19'
 ---
 
-How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
+كيف يمكن لمميزات Electron's المكتوبة في C++ أو Objective-C الوصول إلى JavaScript حتى تكون متاحة للمستخدم النهائي؟
 
 ---
 
-## Background
+## الخلفية
 
-[Electron](https://electronjs.org) is a JavaScript platform whose primary purpose is to lower the barrier to entry for developers to build robust desktop apps without worrying about platform-specific implementations. However, at its core, Electron itself still needs platform-specific functionality to be written in a given system language.
+[إلكترون](https://electronjs.org) هو منصة جافا سكريبت والغرض الأساسي منها هو تقليل الحاجز للدخول للمطورين لبناء تطبيقات قوية على سطح المكتب دون القلق بشأن التطبيقات الخاصة بالمنصة. غير أن إلكترون نفسه، في جوهره، لا يزال يحتاج إلى وظيفة خاصة بالمنصة لكي يكتب بلغة معينة من لغات النظام.
 
-In reality, Electron handles the native code for you so that you can focus on a single JavaScript API.
+في الواقع، يتعامل إلكترون مع الكود الأصلي لك حتى تتمكن من التركيز على واجهة برمجة تطبيقات جافا سكريبت واحدة.
 
-How does that work, though? How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
+كيف يعمل ذلك؟ كيف يمكن لمميزات Electron's المكتوبة في C++ أو Objective-C الوصول إلى JavaScript حتى تكون متاحة للمستخدم النهائي؟
 
-To trace this pathway, let's start with the [`app` module](https://electronjs.org/docs/api/app).
+لتعقب هذا المسار، دعونا نبدأ بوحدة التطبيق [``](https://electronjs.org/docs/api/app).
 
-By opening the [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) file inside our `lib/` directory, you'll find the following line of code towards the top:
+بفتح ملف [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) داخل دليل `lib/` الخاص بنا، ستجد السطر التالي من التعليمات البرمجية باتجاه الأعلى:
 
 ```js
-const binding = process.electronBinding('app')
+ربط الربط = process.electronBinding('app')
 ```
 
-This line points directly to Electron's mechanism for binding its C++/Objective-C modules to JavaScript for use by developers. This function is created by the header and [implementation file](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) for the `ElectronBindings` class.
+يشير هذا السطر مباشرة إلى آلية Electron's لربط وحدات C++/Objective-C بجافا سكريبت لاستخدامها من قبل المطورين. هذه الوظيفة تم إنشاؤها من قبل رأس و [ملف التنفيذ](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) لفصل `ElectronBindings`.
 
-## `process.electronBinding`
+## `العملية.electronBbinding`
 
-These files add the `process.electronBinding` function, which behaves like Node.js’ `process.binding`. `process.binding` is a lower-level implementation of Node.js' [`require()`](https://nodejs.org/api/modules.html#modules_require_id) method, except it allows users to `require` native code instead of other code written in JS. This custom `process.electronBinding` function confers the ability to load native code from Electron.
+هذه الملفات تضيف دالة `process.electronBbinding` ، التي تتصرف مثل Node.js' `process.binding`. `process.binding` هو تنفيذ أدنى مستوى من العقدة. [`أسلوب المتطلب ()`](https://nodejs.org/api/modules.html#modules_require_id) ، باستثناء أنه يسمح للمستخدمين `أن يطلبوا` الكود الأصلي بدلاً من الكود المكتوب في JS. هذه الدالة `process.electronBund` المخصصة تمنح القدرة على تحميل الرمز الأصلي من Electron.
 
-When a top-level JavaScript module (like `app`) requires this native code, how is the state of that native code determined and set? Where are the methods exposed up to JavaScript? What about the properties?
+عندما تتطلب وحدة جافا سكريبت عالية المستوى (مثل تطبيق ``) هذه التعليمات البرمجية الأصلية، كيف يتم تحديد وضبط حالة تلك التعليمات البرمجية الأصلية؟ أين الطرق معرضة لجافا سكريب؟ ماذا عن الخاصيات؟
 
-## `native_mate`
+## `الأصل_المتزوج`
 
-At present, answers to this question can be found in `native_mate`:  a fork of Chromium's [`gin` library](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) that makes it easier to marshal types between C++ and JavaScript.
+في الوقت الحاضر يمكن العثور على إجابات على هذا السؤال في `native_mate`: شوكة من مكتبة Chromium's [`هامش`](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) التي تجعل من الأسهل حشد أنواع بين C++ و JavaScript.
 
-Inside `native_mate/native_mate` there's a header and implementation file for `object_template_builder`. This is what allow us to form modules in native code whose shape conforms to what JavaScript developers would expect.
+في داخل `الأصلي _mate/native_mate` هناك رأس وملف تنفيذ لـ `object_template_buildder`. هذا ما يسمح لنا بتكوين وحدات في التعليمات البرمجية الأصلية التي يتوافق شكلها مع ما يتوقعه مطورو جافا سكريبت.
 
-### `mate::ObjectTemplateBuilder`
+### `زميل:ObjectTemplateBuilding`
 
-If we look at every Electron module as an `object`, it becomes easier to see why we would want to use `object_template_builder` to construct them. This class is built on top of a class exposed by V8, which is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++. V8 implements the JavaScript (ECMAScript) specification, so its native functionality implementations can be directly correlated to implementations in JavaScript. For example, [`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) gives us JavaScript objects without a dedicated constructor function and prototype. It uses `Object[.prototype]`, and in JavaScript would be equivalent to [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
+إذا نظرنا إلى كل وحدة إلكترون ككائن ``، من الأسهل أن نرى لماذا نريد استخدام `object_template_buildder` لبنائها. هذا الصف مبني على رأس صف يفتحه V8، والذي هو محرك جافا سكريبت مفتوح المصدر لجوجل و WebAssembl، المكتوب في C+++. V8 ينفذ مواصفات جافا سكريبت (ECMAScript)، بحيث يمكن ربط تطبيقات وظائفها الأصلية مباشرة بالتطبيقات في جافا سكريبت. على سبيل المثال، [`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) يعطينا كائنات جافا سكريبت بدون وظيفة بناء ونموذج أولي مخصص. إنه يستخدم `كائن[.prototype]`، وفي جافا سكريبت سيكون مكافئ [`object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
 
-To see this in action, look to the implementation file for the app module, [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc). At the bottom is the following:
+لمشاهدة هذا في العمل، إبحث عن ملف التنفيذ لوحدة التطبيق، [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc). وفيما يلي في الأسفل:
 
 ```cpp
-mate::ObjectTemplateBuilder(isolate, prototype->PrototypeTemplate())
+mate:ObjectTemplateBuilder(عازل، ابتدائي ->PrototypeTemplate())
     .SetMethod("getGPUInfo", &App::GetGPUInfo)
 ```
 
-In the above line, `.SetMethod` is called on `mate::ObjectTemplateBuilder`. `.SetMethod` can be called on any instance of the `ObjectTemplateBuilder` class to set methods on the [Object prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) in JavaScript, with the following syntax:
+في السطر الأعلى، `.SetMethod` مطلوب في `زميل:ObjectTemplateBuilder`. `. etMethod` يمكن استدعاءه في أي مثيل من فئة `ObjectTemplateBuilder` لتعيين طرق على [نموذج الكائن المبدئي](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) في جافا سكريبت، مع الجملة التالية:
 
 ```cpp
 .SetMethod("method_name", &function_to_bind)
 ```
 
-This is the JavaScript equivalent of:
+هذا هو مكافئ جافا سكريبت من:
 
 ```js
-function App{}
+وظيفة تطبيق{}
 App.prototype.getGPUInfo = function () {
-  // implementation here
+  // التنفيذ هنا
 }
 ```
 
-This class also contains functions to set properties on a module:
+يحتوي هذا الصف أيضًا على دوال لتعيين الخصائص على الوحدة:
 
 ```cpp
 .SetProperty("property_name", &getter_function_to_bind)
@@ -76,22 +76,22 @@ This class also contains functions to set properties on a module:
 .SetProperty("property_name", &getter_function_to_bind, &setter_function_to_bind)
 ```
 
-These would in turn be the JavaScript implementations of [Object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty):
+هذه بدورها ستكون تطبيقات جافا سكريبت لـ [object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty):
 
 ```js
-function App {}
-Object.defineProperty(App.prototype, 'myProperty', {
+وظيفة التطبيق {}
+object.defineProperty(App.prototype, 'myProperty', {
   get() {
     return _myProperty
   }
 })
 ```
 
-and
+و
 
 ```js
-function App {}
-Object.defineProperty(App.prototype, 'myProperty', {
+وظيفة التطبيق {}
+object.defineProperty(App.prototype, 'myProperty', {
   get() {
     return _myProperty
   }
@@ -101,6 +101,6 @@ Object.defineProperty(App.prototype, 'myProperty', {
 })
 ```
 
-It’s possible to create JavaScript objects formed with prototypes and properties as developers expect them, and more clearly reason about functions and properties implemented at this lower system level!
+من الممكن إنشاء كائنات جافا سكريبت التي تكونت مع النماذج والخصائص الأولية كما يتوقعها المطورون، ولسبب أكثر وضوحا عن الوظائف والممتلكات المنفذة على مستوى النظام الأدنى هذا!
 
-The decision around where to implement any given module method is itself a complex and oft-nondeterministic one, which we'll cover in a future post.
+القرار حول مكان تنفيذ أي طريقة وحدة نمطية معينة هو في حد ذاته قرار معقد وغير حتمي في كثير من الأحيان، والذي سنستوعبه في وظيفة في المستقبل.

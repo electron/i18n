@@ -16,7 +16,7 @@ Comprueba los pre-requisitos de tu plataforma para la compilación antes de avan
 
 ## Pre-requisitos de GN
 
-Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas usadas para consumir Chromium y sus dependencias.
+Necesitaras instalar [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas usadas para consumir Chromium y sus dependencias.
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
@@ -210,8 +210,24 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Problemas
 
-### Bloqueos anticuados en la caché de git
-Si `gclient sync` se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para quitar el bloqueo, pase el argumento `--ignore_locks` a `gclient sync`.
+### gclient sync se queja sobre rebase
+
+Si `gclient sync` es interrumpido el arbol de git puede quedar en mal estado, lo que conduce a un mensaje críptico cuando se ejecuta `gclient sync` en el futuro:
+
+```plaintext
+2> Conflicto mietras se hace rebase de esta rama.
+2> Corrija el conflicto y ejecute gclient de nuevo.
+2> Consulte man git-rebase para más detalles.
+```
+
+Si no hay conflictos de git o rebases en `src/electron`, puede necesitar abortar un `git am` en `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
 
 ### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
 Si ve un prompt para `Username for 'https://chrome-internal.googlesource.com':` cuando corre `gclient sync` en Windows, es probable que la variable de entorno `DEPOT_TOOLS_WIN_TOOLCHAIN` no esta establecida a 0. Abra `Control Panel` → `System and Security` → `System` → `Advanced system settings` y agregue un variable de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` con valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).

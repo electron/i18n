@@ -25,7 +25,7 @@ Rufen Sie den Updater über die Hauptprozessdatei Ihrer App auf:
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Standardmäßig wird dieses Modul beim Start der App nach Updates suchen, dann alle zehn Minuten. Wenn ein Update gefunden wird, wird es automatisch im Hintergrund heruntergeladen. Wenn der Download abgeschlossen ist, wird ein Dialog angezeigt, der dem Benutzer erlaubt, die App neu zu starten.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
 
@@ -35,14 +35,14 @@ If your app is packaged with [`electron-builder`][electron-builder-lib] you can 
 
 ## Bereitstellung eines Update-Servers
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie keine Veröffentlichungen auf GitHub Releases veröffentlichen, es könnte notwendig sein, Ihren eigenen Update-Server auszuführen.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
 - [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Unterstützt mehrere Anwendungen und Kanäle; verwendet einen statischen Dateispeicher , um die Serverkosten zu senken.
 
 ## Implementieren von Updates in deiner App
 
@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Überprüfen Sie als letzten Schritt nach Updates. Das folgende Beispiel wird jede Minute überprüfen:
 
 ```javascript
 setInterval(() => {
@@ -71,7 +71,7 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Sobald Ihre Anwendung [verpackt ist,](../tutorial/application-distribution.md), Es wird ein Update für jeden neuen [GitHub-Release](https://help.github.com/articles/creating-releases/) erhalten, das Sie veröffentlichen.
 
 ## Updates anwenden
 
@@ -93,7 +93,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Stellen Sie auch sicher, dass Fehler [behandelt werden](../api/auto-updater.md#event-error). Hier ist ein Beispiel zum Loggen an `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

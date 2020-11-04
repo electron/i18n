@@ -1,35 +1,35 @@
 ---
-title: "Using GN to Build Electron"
+title: "Usando GN para construir Electron"
 author: nornagon
 date: '05-09-2018'
 ---
 
-Electron now uses GN to build itself. Here's a discussion of why.
+Electron ahora usa GN para construirse a sí mismo. He aquí una discusión sobre el porqué.
 
 ---
 
-# GYP and GN
+# GYP y GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
+Cuando Electron fue lanzado por primera vez en 2013, la configuración de compilación de Chromium fue escrita con [GYP](https://gyp.gsrc.io/), abreviando "Generar proyectos".
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN](https://gn.googlesource.com/gn/) (short for "Generate [Ninja](https://ninja-build.org/)") Chromium's build files were migrated to GN and GYP was removed from the source code.
+En 2014, el proyecto Chromium introdujo una nueva herramienta de configuración de construcción llamada [GN](https://gn.googlesource.com/gn/) (abreviatura de "Generar [Ninja](https://ninja-build.org/)") los archivos de construcción de Chromium fueron migrados a GN y GYP fue eliminado del código fuente.
 
-Electron has historically kept a separation between the main [Electron code](https://github.com/electron/electron) and [libchromiumcontent](https://github.com/electron/libchromiumcontent), the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
+Históricamente, Electron ha mantenido una separación entre el código principal [de Electron](https://github.com/electron/electron) y [libchromiumcontent](https://github.com/electron/libchromiumcontent), la parte de Electron que envuelve el 'contenido' de Chromium. Electron ha seguido usando GYP, mientras que libchromiumcontent -- como un subconjunto de Chromium -- cambió a GN cuando Chromium lo hizo.
 
-Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
+Al igual que los engranajes que no son malla hubo fricción entre el uso de los dos sistemas de construcción. Mantener la compatibilidad era propenso a errores, desde banderas del compilador y `#define` que debían mantenerse meticulosamente sincronizados entre Chromium, Node, V8 y Electron.
 
-To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
+Para hacer frente a esto, el equipo Electron ha estado trabajando en mover todo a GN. Hoy, el [commit](https://github.com/electron/electron/pull/14097) para eliminar el último del código GYP de Electron fue aterrizado en maestro.
 
-# What this means for you
+# Lo que esto significa para ti
 
-If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
+Si estás contribuyendo a Electron mismo, el proceso de revisar y construir Electron desde `master` o 4. .0 es muy diferente de lo que era en 3.0.0 y anterior. Consulte las [instrucciones de compilación de GN](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) para más detalles.
 
-If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
+Si estás desarrollando una aplicación con Electron, hay algunos cambios menores que podrías notar en el nuevo Electron 4. .0-noche; pero más que probable, el cambio de Electron en el sistema de construcción será totalmente transparente para usted.
 
-# What this means for Electron
+# Lo que esto significa para Electron
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
+GN es [más rápido](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) que GYP y sus archivos son más legibles y mantenibles. Además, esperamos que el uso de un único sistema de configuración de compilación reduzca el trabajo necesario para actualizar Electron a nuevas versiones de Chromium.
 
- * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
+ * Ya se ha ayudado al desarrollo en Electron 4.0.0 sustancialmente porque Chromium 67 eliminó el soporte para MSVC y cambió para construir con Clang en Windows. Con la construcción del GN, heredamos directamente todos los comandos del compilador de Chromium, así que tenemos el Clang build en Windows gratis!
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * También está hecho más fácil para Electron usar [BoringSSL](https://boringssl.googlesource.com/boringssl/) en una compilación unificada a través de Electron, Chromium, y Node, algo que era [problemático antes](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).

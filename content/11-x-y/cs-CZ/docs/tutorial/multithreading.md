@@ -1,10 +1,10 @@
-# Multithreading
+# Vícenásobné čtení
 
 With [Web Workers][web-workers], it is possible to run JavaScript in OS-level threads.
 
-## Multi-threaded Node.js
+## Vícezávitové uzly
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Je možné použít uzel. s funkce ve webových pracovnících Electronu, udělat tak, aby volba `nodeIntegrationInWorker` měla být nastavena na `true` v `webPreferences`.
 
 ```javascript
 const win = new BrowserWindow({
@@ -14,25 +14,25 @@ const win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker` může být použit nezávisle na `nodeIntegration`, ale `sandbox` nesmí být nastaven na `true`.
 
-## Available APIs
+## Dostupná API
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Všechny vestavěné moduly Node.js jsou podporovány ve webových pracovnících, a `asar` archivy lze stále číst pomocí Node.js API. Žádný z vestavěných modulů Electronu však nemůže být použit v prostředí více závitů.
 
-## Native Node.js modules
+## Nativní Node.js moduly
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Jakýkoliv nativní modul Node.js může být načten přímo ve webových pracovnících, ale je důrazně doporučeno tak neučinit. Většina stávajících nativních modulů byla napsána za předpokladu, že prostředí s jedním závitem bude používáno ve Web Workers povede k pádům a poškození paměti.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Všimněte si, že i v případě nativního uzlu. s modul je bezpečný vlákna, stále není bezpečný načíst jej ve webovém Workeru, protože `proces. funkce lopen` není vlákno bezpečná.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Jediný způsob, jak pro tuto chvíli bezpečně načíst nativní modul. ujistěte se, že se aplikace nenačte žádné nativní moduly po spuštění webových pracovníků.
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  hodit novou chybu ('Load native modul není bezpečný')
 }
-const worker = new Worker('script.js')
+Spolupracovník = nový Worker('script.js')
 ```
 
 [web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

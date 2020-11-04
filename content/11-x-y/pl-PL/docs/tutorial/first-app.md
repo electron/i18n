@@ -6,7 +6,7 @@ To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficzn
 
 **Uwaga**: Ten przykład jest dostępny także jako repozytorium przez co możesz [go pobrać i uruchomić od razu](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. Punktem wyjścia jest `package.json`, który jest identyczny z modułem Node.js. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
+Jeśli chodzi o rozwój, aplikacja Electron jest zasadniczo aplikacją Node.js. Punktem wyjścia jest `package.json`, który jest identyczny z modułem Node.js. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
 
 ```plaintext
 twoja-aplikacja
@@ -48,23 +48,23 @@ By default, `npm start` would run the main script with Node.js. in order to make
 
 ## Instalowanie Electrona
 
-Teraz musisz zainstalować sam `electron`. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+Teraz musisz zainstalować sam `electron`. Zalecany sposób to zainstalowanie go jako zależności deweloperskiej w Twojej aplikacji, który pozwala na pracę w wielu aplikacjach z różnymi wersjami Electrona. Aby to zrobić, uruchom następujące polecenie z katalogu aplikacji:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Istnieją inne sposoby na instalację Electrona. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Istnieją inne sposoby na instalację Electrona. Zapoznaj się z [instrukcją instalacji](installation.md) , aby dowiedzieć się o użytkowaniu z proxy, lustrami, i niestandardowymi skrytkami.
 
 ## Rozwój Electrona w pigułce
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Aplikacje Electron są rozwijane w JavaScript przy użyciu tych samych zasad i metod znajdujących się w rozwoju Node.js. Wszystkie API i funkcje znalezione w Electronie są dostępne za pośrednictwem modułu `electron` co może być wymagane jak każdy inny Node. s moduł:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+Moduł `electron` wyświetla funkcje w przestrzeni nazw. Jako przykłady, cykl życia aplikacji jest zarządzany przez `elektron. pp`, okna mogą być tworzone za pomocą klasy `electron.BrowserWindow`. Prosty plik `main.js` może czekać aż aplikacja będzie gotowa i otworzy okno:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -79,14 +79,14 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // i załaduj index.html aplikacji.
   win.loadFile('index.html')
 }
 
 app.whenReady().then(createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+`main.js` powinien tworzyć okna i obsługiwać wszystkie zdarzenia systemowe jakie może napotkać aplikacja . Bardziej kompletna wersja powyższego przykładu może otworzyć narzędzia deweloperskie, obsłużyć zamknięte okno, lub ponownie utwórz okna na macOS, jeśli użytkownik kliknie ikonę aplikacji w doku.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -101,40 +101,40 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // i załaduj index.html aplikacji.
   win.loadFile('index.html')
 
   // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Ta metoda zostanie wywołana po zakończeniu
+// inicjalizacji i jest gotowa do tworzenia okien przeglądarki.
+// Niektóre API mogą być używane tylko po wystąpieniu tego zdarzenia.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Zakończ, gdy wszystkie okna są zamknięte, z wyjątkiem macOS. W tym miejscu jest często
+// dla aplikacji i ich paska menu aby pozostać aktywny, dopóki użytkownik nie opuści
+// wyraźnie z Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app. aplikacja()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
+n('aktywuj', () => {
+  // Na macOS często tworzy się okno w aplikacji, gdy ikona
+  // dock jest kliknięta i nie ma żadnych innych okien otwartych.
+  jeżeli (BrowserWindow.getAllWindows(). ength === 0) {
     createWindow()
-  }
+
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// W tym pliku możesz dołączyć pozostałą część głównego procesu aplikacji
+// kod. Możesz również umieścić je w osobnych plikach i wymagać ich tutaj.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Na koniec `index.html` jest stroną internetową, którą chcesz wyświetlić:
 
 ```html
 <!DOCTYPE html>
@@ -156,7 +156,7 @@ Finally the `index.html` is the web page you want to show:
 
 ## Uruchamianie Twojej aplikacji
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Po utworzeniu pakietu początkowego `main.js`, `index.html`i `. syn` plików, możesz wypróbować aplikację uruchamiając `npm start` z katalogu aplikacji.
 
 ## Spróbuj wykonać ten przykład
 
@@ -165,13 +165,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Sklonuj repozytorium
+$ klon git https://github. om/electron/electron-quick-start
+# Przejdź do repozytorium
 $ cd electron-quick-start
-# Install dependencies
+# Zainstaluj zależności
 $ npm install
-# Run the app
+# Uruchom aplikację
 $ npm start
 ```
 

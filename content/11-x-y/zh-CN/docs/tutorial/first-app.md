@@ -33,7 +33,7 @@ npm 会帮助你创建一个基本的 `package.json` 文件。 其中的 `main` 
 
 __注意__：如果 `main` 字段没有在 `package.json` 中出现，那么 Electron 将会尝试加载 `index.js` 文件（就像 Node.js 自身那样）。
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+默认情况下， `npm start` 将使用 Node.js 运行主脚本。 为了使用 Electron 运行 它，您可以添加 `开始` 脚本：
 
 ```json
 {
@@ -110,9 +110,9 @@ function createWindow () {
 
 // Electron会在初始化完成并且准备好创建浏览器窗口时调用这个方法
 // 部分 API 在 ready 事件触发后才能使用。
-app.whenReady().then(createWindow)
+应用程序.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
+// 关闭所有窗口时退出，但macOS除外。 There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {

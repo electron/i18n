@@ -33,7 +33,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 
 __注釈__: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+デフォルトでは、`npm start` はNode.js でメインのスクリプトを実行します。Electron で実行するために、`start` スクリプトを追加できます:
 
 ```json
 {
@@ -113,7 +113,7 @@ function createWindow () {
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
+// macOS を除くすべてのウィンドウが閉じられたときに終了します。 There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {

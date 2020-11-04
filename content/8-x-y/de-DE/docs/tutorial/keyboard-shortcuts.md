@@ -1,8 +1,8 @@
 # Tastenkürzel
 
-> Configure local and global keyboard shortcuts
+> Lokale und globale Tastaturkürzel konfigurieren
 
-## Local Shortcuts
+## Lokale Verknüpfungen
 
 You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
 
@@ -10,22 +10,22 @@ You can use the [Menu][] module to configure keyboard shortcuts that will be tri
 const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
-menu.append(new MenuItem({
+Menü. ppend(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console. og('Zeit zum Ausdrucken') }
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Sie können verschiedene Tastenkombinationen basierend auf dem Betriebssystem des Benutzers konfigurieren.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  Beschleuniger: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Strg+Umschalt+I'
 }
 ```
 
-## Global Shortcuts
+## Globale Verknüpfungen
 
 You can use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Verknüpfungen innerhalb eines Browserfensters
 
 If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -47,9 +47,9 @@ If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use th
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Beachten Sie den dritten Parameter `true` was bedeutet, dass der Listener immer Tastendrucke vor anderen Zuhörern erhält, so dass er nicht `stopPropagation()` aufgerufen hat.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+Das [`vor dem Input-Event`](../api/web-contents.md#event-before-input-event) Ereignis wird vor dem Versenden von `Tastendruck` und `Tastendruck` Ereignisse auf der Seite abgesendet. Es kann verwendet werden, um benutzerdefinierte Verknüpfungen zu fangen und zu verwalten, die im Menü nicht sichtbar sind.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('oben links unten rechts rechts ein enter', () => {
   console.log('konami code')
 })
 ```

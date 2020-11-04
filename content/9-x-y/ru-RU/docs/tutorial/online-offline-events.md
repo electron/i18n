@@ -37,7 +37,7 @@ _online-status.html_
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Могут быть случаи, когда вы хотите ответить на эти события в основном процессе. Однако основной процесс не имеет объекта `навигатора` и поэтому не может обнаружить эти события напрямую. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
 
 _main.js_
 
@@ -45,9 +45,9 @@ _main.js_
 const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+app.whenReady(). hen(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, показывать: false, настройки веб-сайтов: { nodeIntegration: true } })
+  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
 })
 
 ipcMain.on('online-status-changed', (event, status) => {

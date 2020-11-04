@@ -11,7 +11,7 @@
 * `options` Object
   * `click` Function (任意) - メニューアイテムがクリックされたとき、 `click(menuItem, browserWindow, event)` で呼び出されます。
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
+    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - ウインドウが開かれていないときは undefined になります。
     * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (任意) - `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` のいずれかにできます。メニューアイテムのアクションを定義します。指定すると `click` プロパティは無視されます。 [役割 (roles)](#roles) を参照してください。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。

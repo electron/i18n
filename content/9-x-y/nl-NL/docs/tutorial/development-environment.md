@@ -1,70 +1,71 @@
-# Developer Environment
+# Ontwikkelaar Omgeving
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Electron ontwikkeling is voornamelijk Node.js ontwikkeling. Om je besturingssysteem in een omgeving te veranderen die in staat is desktopapps te bouwen met Electron, heb je alleen Node. s, npm, een code editor van jouw keuze en een rudimentaire kennis van de command line client van je besturingssysteem
 
 ## MacOS instellen
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud][macincloud] or [xcloud](https://xcloud.me)).
+> Electron ondersteunt macOS 10.10 (Yosemite) en hoger. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud][macincloud] or [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Installeer eerst een recente versie van Node.js. We raden u aan om de nieuwste `LTS` of `Huidige` versie beschikbaar te installeren. Visit [the Node.js download page][node-download] and select the `macOS Installer`. Hoewel Homebrew een aangeboden optie is, raden we aan - veel tools zullen niet compatibel zijn met de manier waarop Homebrew installeert Node.js.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Eenmaal gedownload, voer het installatieprogramma uit en laat u de installatiehandleiding door de installatie.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Eenmaal geïnstalleerd, bevestig dat alles werkt zoals verwacht. Zoek de macOS `Terminal` applicatie in uw `/Applications/Utilities` map (of door te zoeken naar het woord `Terminal` in Spotlight). Open `Terminal` of een andere opdrachtregelclient naar uw keuze en bevestig dat zowel `node` als `npm` beschikbaar zijn:
 
 ```sh
-# This command should print the version of Node.js
+# Deze opdracht moet de versie van Node.js
 node -v
 
-# This command should print the version of npm
+# Deze opdracht moet de versie van npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Als beide commando's een versienummer laten drukken, ben je helemaal klaar! Voordat je begint, wil je misschien een [code editor installeren](#a-good-editor) geschikt voor JavaScript-ontwikkeling.
 
 ## Windows instellen
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
+> Electron ondersteunt Windows 7 en latere versies – het proberen van Electron applicaties op eerdere versies van Windows zal niet werken. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Installeer eerst een recente versie van Node.js. We raden u aan om de nieuwste `LTS` of `Huidige` versie beschikbaar te installeren. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Eenmaal gedownload, voer het installatieprogramma uit en laat u de installatiehandleiding door de installatie.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Op het scherm waarmee u de installatie kunt configureren, zorg ervoor dat u de `node
+selecteert. s runtime`, `npm package manager`en `Add to PATH` opties.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Eenmaal geïnstalleerd, bevestig dat alles werkt zoals verwacht. Vind de Windows PowerShell door het Start Menu te openen en `PowerShell` te typen. Open op `PowerShell` of een andere opdrachtregelclient naar uw keuze en bevestig dat zowel `knooppunt` als `npm` beschikbaar zijn:
 
 ```powershell
-# This command should print the version of Node.js
+# Deze opdracht moet de versie van Node.js
 node -v
 
-# This command should print the version of npm
+# Deze opdracht moet de versie van npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Als beide commando's een versienummer laten drukken, ben je helemaal klaar! Voordat je begint, wil je misschien een [code editor installeren](#a-good-editor) geschikt voor JavaScript-ontwikkeling.
 
 ## Linux instellen
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Over het algemeen ondersteunt Electron Ubuntu 12.04, Fedora 21, Debian 8 en hoger.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
+Installeer eerst een recente versie van Node.js. Afhankelijk van uw Linux -distributie, kunnen de installatiestappen verschillen. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Je gebruikt Linux, dus je weet waarschijnlijk al hoe een opdrachtregel client moet werken. Open uw favoriete client en bevestig dat zowel `node` en `npm` wereldwijd beschikbaar zijn:
 
 ```sh
-# This command should print the version of Node.js
+# Deze opdracht moet de versie van Node.js
 node -v
 
-# This command should print the version of npm
+# Deze opdracht moet de versie van npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Als beide commando's een versienummer laten drukken, ben je helemaal klaar! Voordat je begint, wil je misschien een [code editor installeren](#a-good-editor) geschikt voor JavaScript-ontwikkeling.
 
-## A Good Editor
+## Een goede editor
 
 We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Als je een van de vele ontwikkelaars bent met een sterke voorkeur, weet dan dat vrijwel alle code editors en IDE's tegenwoordig JavaScript ondersteunen.
 
 [macincloud]: https://www.macincloud.com/
 [node-download]: https://nodejs.org/en/download/

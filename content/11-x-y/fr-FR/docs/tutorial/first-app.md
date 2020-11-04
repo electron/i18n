@@ -113,18 +113,18 @@ function createWindow () {
 // Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
 app.whenReady().then(createWindow)
 
-// Quitter lorsque toutes les fenêtres sont fermées, sauf sur macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Quitter lorsque toutes les fenêtres sont fermées, sauf sur macOS. Là, il est courant
+// que les applications et leur barre de menu restent actives jusqu'à ce que l'utilisateur quitte
+// explicitement avec Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    application. uit()
   }
 })
 
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+app. n('activez', () => {
+  // Sur macOS, il est courant de recréer une fenêtre dans l'application lorsque l'icône du dock
+  // est cliquée et qu'il n'y a aucune autre fenêtre ouverte.
   if (win === null) {
     createWindow()
   }

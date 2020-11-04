@@ -1,3 +1,3 @@
-# InputEvent Object
+# InputEvent
 
-* `modifiers` String[] (optional) - An array of modifiers of the event, can be `shift`, `control`, `ctrl`, `alt`, `meta`, `command`, `cmd`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+* `modifiers` String[] (optional) -O serie de modificatori ai evenimentului, poate fi `shift`, `control`, `ctrl`, `alt`, `meta`, comanda ``, `cmd`, `isKeypad`, `isAutoRepetat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.

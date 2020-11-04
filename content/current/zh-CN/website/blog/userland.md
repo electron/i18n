@@ -1,61 +1,61 @@
 ---
-title: Electron Userland
+title: Electron 用户名
 author: zeke
 date: '2016-12-20'
 ---
 
-We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
+我们已经在 Electron 网站上添加了一个新的 [用户](https://electronjs.org/userland) 部分，以帮助用户发现他人。 我们正在蓬勃发展的开放源码生态系统的软件包和组成 的应用。
 
 ---
 
 [![github-contributors](https://cloud.githubusercontent.com/assets/2289/21205352/a873f86c-c210-11e6-9a92-1ef37dfc986b.png)](https://electronjs.org/userland)
 
-## Origins of Userland
+## 使用土地的来源
 
-Userland is where people in software communities come together to share tools and ideas. The term originated in the Unix community, where it referred to any program that ran outside of the kernel, but today it means something more. When people in today's Javascript community refer to userland, they're usually talking about the [npm package registry](http://npm.im). This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
+使用土地是软件界的人聚集在一起分享工具和想法的地方。 该词源自Unix社区。 当它提到 时，它会在内核之外运行的任何程序，但今天它意味着更多。 当今天的 Javascript 社区的人提到用户时，他们通常是 讨论的 [npm 软件包注册表](http://npm.im)。 This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
 
-## Node and Electron
+## 节点和 Electron
 
-Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. 这个设计理念让 Electron 能够保持灵活而不被过多的规定有关于如何应该被使用。
+像节点一样，Electron拥有一组少量的核心API。 这些提供了开发多平台桌面应用程序所需的 基本功能。 这个设计理念让 Electron 能够保持灵活而不被过多的规定有关于如何应该被使用。
 
-Userland is the counterpart to "core", enabling users to create and share tools that extend Electron's functionality.
+用户名是“核心”对应的，使用户能够 创建和分享扩展Electron功能的工具。
 
-## Collecting data
+## 收集数据
 
-To better understand the trends in our ecosystem, we analyzed metadata from 15,000 public GitHub repositories that depend on `electron` or `electron-prebuilt`
+为了更好地了解我们生态系统中的趋势，我们 分析了15个元数据。 00 公开的 GitHub 仓库 依赖 `electron` 或 `electron-prebuilded`
 
-We used the [GitHub API](https://developer.github.com/v3/), the [libraries.io API](https://libraries.io/api), and the npm registry to gather info about dependencies, development dependencies, dependents, package authors, repo contributors, download counts, fork counts, stargazer counts, etc.
+我们使用了 [GitHub API](https://developer.github.com/v3/), [库。 o API](https://libraries.io/api), 和 npm 注册表来收集依赖信息, 开发依赖关系, 依赖者、软件包作者、 Repo 贡献者、下载计数、叉计数、stergazer 计数等。
 
-We then used this data to generate the following reports:
+然后我们使用此数据生成以下报告：
 
-- [App Development Dependencies](https://electronjs.org/userland/dev_dependencies): Packages most often listed as `devDependencies` in Electron apps.
-- [GitHub Contributors](https://electronjs.org/userland/github_contributors): GitHub users who have contributed to numerous Electron-related GitHub repositories.
-- [Package Dependencies](https://electronjs.org/userland/package_dependencies): Electron-related npm packages that are frequently depended on by other npm packages.
-- [Starred Apps](https://electronjs.org/userland/starred_apps): Electron apps (that are not npm packages) with numerous stargazers.
-- [Most Downloaded Packages](https://electronjs.org/userland/most_downloaded_packages): Electron-related npm packages that are downloaded a lot.
-- [App Dependencies](https://electronjs.org/userland/dependencies): Packages most often listed as `dependencies` in Electron apps.
-- [Package Authors](https://electronjs.org/userland/package_authors): The most prolific authors of Electron-related npm packages.
+- [应用开发依赖关系](https://electronjs.org/userland/dev_dependencies): 在Electron应用中最常被列为 `依赖关系` 的包裹。
+- [GitHub 贡献者](https://electronjs.org/userland/github_contributors): GitHub 用户已经为许多与 Electron 相关的 GitHub 仓库贡献了力量。
+- [软件包依赖于](https://electronjs.org/userland/package_dependencies): 与Electron 相关的 npm 软件包，这些软件包常常依赖于其他 npm 软件包。
+- [星标应用](https://electronjs.org/userland/starred_apps): 拥有众多星星星的 Electron 应用 (不是npm 软件包)
+- [大多数下载的软件包](https://electronjs.org/userland/most_downloaded_packages): 与Electron-related npm 软件包已经下载了很多.
+- [应用程序依赖关系](https://electronjs.org/userland/dependencies): 在 Electron 应用程序中最常列为 `依赖关系` 的包。
+- [软件包作者](https://electronjs.org/userland/package_authors): 与Electron相关的 npm 软件包最丰富的作者。
 
-## Filtering Results
+## 过滤结果
 
-Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
+报告如 [应用程序依赖性](https://electronjs.org/userland/dependencies) 和 [已加星标应用](https://electronjs.org/userland/starred_apps) 列出包， 应用程序和仓库有一个可以用于 过滤结果的文本输入.
 
-As you type into this input, the URL of the page is updated dynamically. This allows you to copy a URL representing a particular slice of userland data, then share it with others.
+当您输入此输入时，页面的 URL 将被动态更新。 这个 允许您复制一个代表特定分割的用户群数据的 URL。 然后与他人共享。
 
-[![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
+[![巴别尔](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 
-## More to come
+## 更多更多
 
-This first set of reports is just the beginning. We will continue to collect data about how the community is building Electron, and will be adding new reports to the website.
+第一套报告只是开始。 我们将继续收集关于社区如何构建Electron的 个数据，并将向网站添加 个新报告。
 
-All of the tools used to collect and display this data are open-source:
+所有用于收集和显示此数据的工具都是开放源码：
 
-- [electron/electronjs.org](https://github.com/electron/electron.atom): The Electron website.
+- [electron/electronjs.org](https://github.com/electron/electron.atom): Electron 网站。
 - [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repos, and users in Electron userland.
-- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): All public repositories on GitHub that depend on `electron` or `electron-prebuilt`
-- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): All npm packages that mention `electron` in their `package.json` file.
+- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): GitHub 上所有依赖 `electron` 或 `electron-prebuilded`
+- [electron-npm-packages](https://github.com/zeke/electron-npm-packages): 提到 `electron` 的所有npm packages in their `package.json` files.
 
-If you have ideas about how to improve these reports, please let us know [opening an issue on the website repository](https://github.com/electron/electronjs.org/issues/new) or any of the above-mentioned repos.
+如果你有关于如何改进这些报告的想法， 请告诉我们 [在网站存储库](https://github.com/electron/electronjs.org/issues/new) 或上述任何一个仓库中打开一个问题。
 
-Thanks to you, the Electron community, for making userland what it is today!
+感谢您，Electron社区让用户土地成为今天的用户！
 

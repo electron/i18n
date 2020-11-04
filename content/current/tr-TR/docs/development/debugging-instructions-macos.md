@@ -95,4 +95,4 @@ Ardından, Electron'un geliştirici araçlarını açar ve `setName` komutunu ç
 ### Daha fazla bilgi
 LLDB harika bir dokümantasyona sahip güçlü bir araçtır. Bunun hakkında daha fazla bilgi edinmek için Apple'ın debug dökümantasyonuna göz atmayı düşünün, mesela [LLDB Komut Dizilimi Referansı](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) veya [LLDB'yi başlı başına debugger olarak kullanma](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Aynı zamanda LLDB'nin fantastik ve daha komplex debug senaryolarını içeren [rehberlerine ve kılavuzlarına](http://lldb.llvm.org/tutorial.html) göz atabilirsiniz.
+Aynı zamanda LLDB'nin fantastik ve daha komplex debug senaryolarını içeren [rehberlerine ve kılavuzlarına](https://lldb.llvm.org/tutorial.html) göz atabilirsiniz.

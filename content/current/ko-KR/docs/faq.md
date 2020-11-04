@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## 서체가 흐릿해 보입니다, 이것은 무엇이고 어떻게 해결할 수 있나요?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 예시:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 예시:
 
 ![subpixel 렌더링 예시](images/subpixel-rendering-screenshot.gif)
 

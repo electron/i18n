@@ -21,7 +21,7 @@ Você pode configurar diferentes combinações de teclas com base no sistema ope
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  acelerador: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X é pressionado')
   })
 })
 ```

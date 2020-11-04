@@ -10,7 +10,7 @@
 
 Після завершення завантаження, запустіть встановлювач та дозвольте майстру встановлення пройти через встановлення.
 
-Після встановлення, підтвердіть, що все працює, як очікувалося. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Після встановлення, підтвердіть, що все працює, як очікувалося. Знайдіть додаток macOS `Термінал` в вашій папці `/Applications/Utilities` (або за допомогою пошуку слово `Термінал` в Spotlight). Відкрийте `термінал` або інший командний клієнт на вибір і підтвердіть, що обидва `вузол` і `npm` доступні:
 
 ```sh
 # Ця команда повинна вивести версію Node.js
@@ -20,17 +20,17 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Якщо обидва команди надрукували номер версії, то все готово! Перед початком роботи ви можете встановити [редактор коду](#a-good-editor) для розвитку JavaScript.
 
 ## Налаштовування Windows
 
-> Electron підтримує Windows 7 і вище - спроби розробки програм Electron на старіших версіях не увінчаються успіхом. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron підтримує Windows 7 і вище - спроби розробки програм Electron на старіших версіях не увінчаються успіхом. Microsoft надає безкоштовні [віртуальні машинні зображення з Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) для розробників.
 
-Спочатку встановіть останню версію Node.js. Ми рекомендуємо встановити останню версію `LTS` або `поточну` доступну версію. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Після завершення завантаження, запустіть встановлювач та дозвольте майстру встановлення пройти через встановлення.
+Спочатку встановіть останню версію Node.js. Ми рекомендуємо встановити останню версію `LTS` або `поточну` доступну версію. Відвідайте [сторінку завантаження Node.js](https://nodejs.org/en/download/) і виберіть `інсталятор Windows`. Після завершення завантаження, запустіть встановлювач та дозвольте майстру встановлення пройти через встановлення.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+На екрані, яке дозволяє налаштувати установку, переконайтеся, що виберіть `Ні. s runtime`, `npm менеджер`і `Додати до PATH` параметри.
 
-Після встановлення, підтвердіть, що все працює, як очікувалося. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Після встановлення, підтвердіть, що все працює, як очікувалося. Віднайди Windows PowerShell відкривши Пуск і надрукувавши `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
 # Ця команда повинна вивести версію Node.js
@@ -40,15 +40,15 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Якщо обидва команди надрукували номер версії, то все готово! Перед початком роботи ви можете встановити [редактор коду](#a-good-editor) для розвитку JavaScript.
 
 ## Налаштовування Linux
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
-Спочатку встановіть останню версію Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Спочатку встановіть останню версію Node.js. Залежно від вашого дистрибутива , встановлення може відрізнятися. Припустимо, що ви зазвичай встановити програмне забезпечення з менеджером таких пакетів як `apt` or `pacman`використовувати офіційний [вузол. s guidance при встановленні на Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Ви використовуєте Linux, тому, ви, швидше за все, знаєте, як працювати з командним рядком клієнтом. Відкрийте улюблений клієнт і підтвердіть, що і `вузол` і `npm` доступні глобально:
 
 ```sh
 # Ця команда повинна вивести версію Node.js
@@ -58,9 +58,9 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Якщо обидва команди надрукували номер версії, то все готово! Перед початком роботи ви можете встановити [редактор коду](#a-good-editor) для розвитку JavaScript.
 
-## A Good Editor
+## Гарний редактор
 
 Найкраще підійдуть два популярних редактори: [Atom](https://atom.io/) від GitHub та [VS Code](https://code.visualstudio.com/) від Microsoft. Обидва мають чудову підтримку JavaScript.
 

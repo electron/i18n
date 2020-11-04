@@ -5,7 +5,12 @@
 만약 보안이 걱정되신다면 [보안 문서](https://github.com/electron/electron/tree/master/SECURITY.md)를 참고해주세요.
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
-- Atom 포럼의 [`electron`](https://discuss.atom.io/c/electron) 카테고리
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - Freenode의 `#atom-shell` 채널
 - [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
 - [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
@@ -61,12 +66,10 @@ Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니�
 
 ### Linux
 
-Prebuilt `ia32` (`i686`) 과 `x64` (`amd64`) Electron 바이너리는 Ubuntu 12.04에서 빌드 되었으며, `armv7l`바이너리는 hard-float ABI가 있는 ARM v7 및 Debian Wheezy의 NEON 용으로 제작되었습니다.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Electron 2.0의 릴리스까지](../breaking-changes.md#duplicate-arm-assets) Electron은 `arm`접미사가 있는 `armv7l` 바이너리를 릴리스를 계속하게 됩니다. 두 바이너리는 동일합니다.
+사전 빌드 된 바이너리가 배포판에서 실행될 수 있는지 여부는 배포판에 Electron이 빌드중인 플랫폼에서 링크된 라이브러리가 포함되어 있는지 여부에 따라 달라지므로, Ubuntu 18.04에서 작동하도록 보장될 뿐만 아니라, 다음 플랫폼 또한 Electron의 사전 작성된 바이너리를 실행할 수 있음을 검증했습니다:
 
-사전 빌드 된 바이너리가 배포판에서 실행될 수 있는지 여부는 배포판에 Electron이 빌드중인 플랫폼에서 링크된 라이브러리가 포함되어 있는지 여부에 따라 달라지므로, Ubuntu 12.04에서 작동하도록 보장될 뿐만 아니라, 다음 플랫폼 또한 Electron의 사전 작성된 바이너리를 실행할 수 있음을 검증했습니다:
-
-* Ubuntu 12.04 이후
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 이후
+* Fedora 24 and newer
+* Debian 8 and newer

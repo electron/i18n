@@ -101,9 +101,9 @@ spécifiée n'a pas pu être trouvée`, cela peut signifier que le module que vo
 
 En particulier, il est important que :
 
-- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+- vous faites un lien avec `node.lib` depuis _Electron_ et non pas Node. Si vous faites un lien avec le mauvais `node.lib` vous obtiendrez des erreurs de temps de chargement lorsque vous aurez besoin du module dans Electron.
 - vous incluez le drapeau `/DELAYLOAD:node.exe`. Si le `noeud. Le lien xe` n'est pas retardé, alors le crochet de chargement de temps n'aura pas de chance de tirer et les symboles du noeud ne seront pas correctement résolus.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- `win_delay_load_hook.obj` est directement lié au DLL final. Si le crochet est configuré dans une DLL dépendante, il ne se déclenchera pas au bon moment.
 
 Voir [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) pour un exemple de Hook de chargement à retardement si vous implémentez le vôtre.
 

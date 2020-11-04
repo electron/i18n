@@ -16,34 +16,34 @@ Par exemple :
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Spécifie le chemin flash, Si elle est placée dans le même répertoire avec main. s.
 let pluginName
 switch (process.platform) {
   case 'win32':
-    pluginName = 'pepflashplayer.dll'
-    break
-  case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
+    pluginName = 'pepflashplayer. ll'
+    casser
+  cas 'darwin' :
+    pluginName = 'PepperFlashPlayer. lugin'
     break
   case 'linux':
-    pluginName = 'libpepflashplayer.so'
+    pluginName = 'libpepflashplay'. o'
     break
 }
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+app. ommandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
-app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+// Optionnel: Spécifier la version flash, par exemple, v17.0.169
+app.commandLine.appendSwitch('ppapi-flash-version', '17.0.169')
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    hauteur: 600,
     webPreferences: {
       plugins: true
     }
   })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  gagnez. oadURL(`file://${__dirname}/index.html`)
+  // Quelque chose d'autre
 })
 ```
 

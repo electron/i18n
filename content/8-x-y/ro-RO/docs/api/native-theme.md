@@ -12,7 +12,7 @@ The `nativeTheme` module emits the following events:
 
 Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
 
-## Properties
+## Proprietăți
 
 The `nativeTheme` module has the following properties:
 

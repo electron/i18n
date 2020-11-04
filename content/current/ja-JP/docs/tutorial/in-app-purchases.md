@@ -26,11 +26,11 @@ Electron での開発で App 内課金をテストするには、`node_modules/e
 以下は、Electron でアプリ内課金を使用する方法を示した例です。 製品 ID を iTunes Connect で作成された製品の識別子で置き換える必要があります (`com.example.app.product1` の識別子は `product1` です)。 アプリ内で `transactions-updated` イベントをできる限り早くリッスンする必要があることに注意してください。
 
 ```javascript
-// Main process
+// メインプロセス
 const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// できるだけ早くトランザクションをListen
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
@@ -53,7 +53,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // 領収書ファイルをサーバーに送信し、有効かどうかを確認します。
         // こちらを参照 https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 領収書が有効であれば、プロダクトは購入されます
@@ -69,7 +69,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // トランザクションを終了します。
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -111,7 +111,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
-  // Purchase the selected product.
+  // 選択したproductを購入します。
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Certaines questions sont souvent posées. Vérifiez ceci avant de créer un problème :
 
 * [FAQ Electron](faq.md)
 
@@ -15,20 +15,20 @@ There are questions that are asked quite often. Check this out before creating a
   * [Mise en place sur Windows](tutorial/development-environment.md#setting-up-windows)
   * [Mise en place sur Linux](tutorial/development-environment.md#setting-up-linux)
   * [Choisir un éditeur](tutorial/development-environment.md#a-good-editor)
-* [Créer votre première App](tutorial/first-app.md)
-  * [Installer Electron](tutorial/first-app.md#installing-electron)
-  * [Le développement avec Electron en résumé](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Lancer votre App](tutorial/first-app.md#running-your-app)
+* [Créer votre première App](tutorial/quick-start.md)
+  * [Prerequisites](tutorial/quick-start.md#prerequisites)
+  * [Créer une application élémentaire](tutorial/quick-start.md#create-a-basic-application)
+  * [Préparer l'application pour la distribuer](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Autres outils et boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Architecture d'une application](tutorial/application-architecture.md)
-  * [Processus Principal et de Rendu](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Utilisation des APIs Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Utilisation des APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+* [Architecture d'une application](tutorial/quick-start.md#application-architecture)
+  * [Processus Principal et de Rendu](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
   * [Utilisation des Modules Natifs de Node.js](tutorial/using-native-node-modules.md)
   * [Stratégies de performance](tutorial/performance.md)
 * Ajouter des fonctionnalités à votre App
@@ -43,7 +43,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
-  * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Les web embeds dans Electron](tutorial/web-embeds.md)
 * [Accessibilité](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -90,7 +90,6 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ajouter des fichiers non empaquetés dans des archives asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
-* [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,6 +126,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)

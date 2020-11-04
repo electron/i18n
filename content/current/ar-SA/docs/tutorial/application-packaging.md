@@ -8,11 +8,11 @@
 
 
 
-## Generating `asar` Archives
+## إنشاء `asar` أرشيف
 
 أرشيف Asar هو عبارة عن تنسيق بسيط يمكنك من جمع ملفات في ملف واحد. في مقدور Electron قراءة الملفات التعسفية منه دون تفريغ الملف بأكمله.
 
-Steps to package your app into an `asar` archive:
+خطوات لحزم التطبيق الخاص بك في أرشيف `asar`:
 
 
 
@@ -27,7 +27,7 @@ $ npm install -g asar
 
 
 
-### 2. Package with `asar pack`
+### 2. حزمة مع `باقة عز`
 
 
 
@@ -40,15 +40,15 @@ $ asar pack your-app app.asar
 
 ## إستعمل ارشيفات `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+في Electron هناك مجموعتان من APIs: Node APIs مقدمة من Node.js و Web APIs مقدمة من Chromium. يدعم كل من APIs قراءة الملفات من أرشيف `asar`.
 
 
 
 ### Node واجهة التطبيق البرمجية (API)
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+مع بعض التصحيحات الخاصة في إلكترون، تطبيقات العقدة مثل `fs. ملف eadFile` و `مطلوب` يتعامل مع `asar` كأدلة افتراضية، والملفات الموجودة فيه كملفات عادية في نظام الملفات.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+على سبيل المثال، افترض أن لدينا أرشيف `مثال.asar` تحت `/path/to`:
 
 
 
@@ -73,7 +73,7 @@ fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
 
-List all files under the root of the archive:
+قائمة جميع الملفات تحت جذر الأرشيف:
 
 
 
@@ -83,16 +83,16 @@ fs.readdirSync('/path/to/example.asar')
 ```
 
 
-Use a module from the archive:
+استخدام وحدة من الأرشيف:
 
 
 
 ```javascript
-require('./path/to/example.asar/dir/module.js')
+مطلوب ('./path/to/example.asar/dir/module.js')
 ```
 
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+يمكنك أيضا عرض صفحة ويب في أرشيف `asar` مع `BrowserWindow`:
 
 
 
@@ -108,9 +108,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### واجهة تطبيقات الرمجية للويب (API)
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+في صفحة ويب، يمكن طلب الملفات الموجودة في أرشيف مع ملف `:` بروتوكول. مثل API ، يتم التعامل مع أرشيف `asar` كدليل.
 
-For example, to get a file with `$.get`:
+على سبيل المثال، للحصول على ملف مع `$.get`:
 
 
 
@@ -126,9 +126,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 
 
-### Treating an `asar` Archive as a Normal File
+### التعامل مع `asar` الأرشيف كملف عادي
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+لبعض الحالات مثل التحقق من ملخص اختبار أرشيف `asar` ، نحن بحاجة إلى قراءة محتوى أرشيف `asar` كملف. لهذا الغرض، يمكنك استخدام الوحدة النمطية المدمجة `الأصلية fs` التي توفر `fs الأصلي` APIs بدون `asar` support:
 
 
 
@@ -138,7 +138,7 @@ originalFs.readFileSync('/path/to/example.asar')
 ```
 
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+يمكنك أيضًا تعيين عملية `oAsar` إلى `true` لتعطيل الدعم لـ `asar` في وحدة `fs`:
 
 
 
@@ -153,55 +153,55 @@ fs.readFileSync('/path/to/example.asar')
 
 ## محدودية Node واجهة التطبيق البرمجية (API)
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+على الرغم من أننا حاولنا جاهدين أن نجعل أرشيف `asar` في API يعمل مثل الدلائل قدر الإمكان. لا تزال هناك قيود بسبب مستوى المستوى المنخفض لواجهة برمجة التطبيقات الخاصة بالعقدة.
 
 
 
 ### أرشيف للقراءة فقط
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+لا يمكن تعديل الأرشيف بحيث أن جميع تطبيقات العقدة التي يمكنها تعديل الملفات لن تعمل مع `asar` أرشيف.
 
 
 
-### Working Directory Can Not Be Set to Directories in Archive
+### دليل العمل لا يمكن تعيينه إلى الدلائل في الأرشيف
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+على الرغم من أن أرشيف `asar` يعامل كدليل، لا يوجد أدلة فعلية في نظام الملفات، حتى لا يمكنك أبدا تعيين دليل العمل إلى أدلة في `asar` أرشيف. نقلهم كخيار `cwd` لبعض واجهات برمجة التطبيقات سيسبب أيضا أخطاء.
 
 
 
-### Extra Unpacking on Some APIs
+### فك التعبئة الإضافية على بعض واجهات التطبيقات
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+معظم `fs` APIs يمكن قراءة ملف أو الحصول على معلومات الملف من `أرشيف` أرشيف دون فك التغليف، ولكن لبعض واجهات برمجة التطبيقات التي تعتمد على تمرير مسار الملف الحقيقي إلى مكالمات النظام الأساسية، سيقوم إلكترون باستخراج الملف المطلوب في ملف مؤقت وتمرير مسار الملف المؤقت إلى واجهات برمجة التطبيقات لجعلها تعمل . هذا يضيف بعض المصروفات العامة لآلات API تلك.
 
-APIs that requires extra unpacking are:
+APIs التي تتطلب فك التعبئة الإضافية هي:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - مستخدم من قبل `يتطلب` على الوحدات الأصلية
 
 
 
-### Fake Stat Information of `fs.stat`
+### معلومات المحطة الوهمية من `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
-
-
-
-### Executing Binaries Inside `asar` Archive
-
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
-
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+`إحصائيات` الكائن عاد بواسطة `fs. tat` وأصدقائه على الملفات في `asar` أرشيف يتم إنشاؤها عن طريق التخمين, لأن هذه الملفات غير موجودة على نظام الملفات . لذلك يجب ألا تثق في كائن `إحصائيات` باستثناء الحصول على حجم الملف والتحقق من نوع الملف.
 
 
 
-## Adding Unpacked Files to `asar` Archives
+### تنفيذ Binaries داخل `asar` الأرشيف
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+هناك برامج برمجة تطبيقات العقدة التي يمكنها تنفيذ ثنائيات مثل `child_process.exec`، `child_process.spawn` و `child_process. ملف xecFile`، ولكن `الملف المنفي` فقط هو مدعوم لتنفيذ ثنائيات داخل `asar` أرشيف.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+هذا لأن `exec` و `spawn` قبل `الأمر` بدلا من `الملف` كمدخل، و `الأمر`s يتم تنفيذها تحت القذف. لا توجد طريقة موثوقة لتحديد ما إذا كان الأمر يستخدم ملف في أرشيف الأرشيف، وحتى إذا قمنا بذلك، لا يمكننا أن نكون متأكدين مما إذا كان بإمكاننا استبدال المسار في الأمر بدون تأثيرات جانبية.
+
+
+
+## إضافة ملفات غير معبأة إلى `asar` أرشيف
+
+كما ذكر أعلاه، فإن بعض واجهات برمجة تطبيقات العقدة ستقوم بفك حزمة الملف إلى نظام الملفات عند استدعاء وبصرف النظر عن مشاكل الأداء، فإن العديد من أجهزة المسح المضاد للفيروسات قد يتم تشغيلها بهذا السلوك.
+
+كعمل حوله، يمكنك ترك ملفات مختلفة مفصولة باستخدام خيار `--إلغاء الحزمة`. في المثال التالي، المكتبات المشتركة من وحدات Node.js الأصلية لن تكون حزمة:
 
 
 
@@ -210,5 +210,5 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+بعد تشغيل الأمر، ستلاحظ أنه تم إنشاء مجلد يسمى `app.asar.unpack` مع ملف `app.asar`. It contains the unpacked files and should be shipped together with the `app.asar` archive.
 

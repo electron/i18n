@@ -625,7 +625,7 @@ Borra la lista de documentos recientes.
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Sets the current executable as the default handler for a protocol (aka URI scheme). Te permite integrar tu app aún más en el sistema operativo. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. Vea la [Apple's documentation][CFBundleURLTypes] para mas información.
 

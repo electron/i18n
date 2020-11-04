@@ -1,51 +1,51 @@
 ---
-title: "Electron's New Internationalized Website"
+title: "Новый интернационализированный сайт Electron"
 author: zeke
 date: '2017-11-13'
 ---
 
-Electron has a new website at [electronjs.org](https://electronjs.org)! We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
+У Electron новый сайт на [electronjs.org](https://electronjs.org)! Мы заменили наш статический сайт Jekyll узлом. s webserver, давая нам гибкость интернационализации сайта и открывая путь для более захватывающих новых функций.
 
 ---
 
-## 🌍 Translations
+## 🌍 Переводы
 
-We've begun the process of internationalizing the website with the goal of making Electron app development accessible to a global audience of developers. We're using a localization platform called [Crowdin](https://crowdin.com/project/electron) that integrates with GitHub, opening and updating pull requests automatically as content is translated into different languages.
-
-<figure>
-  <a href="https://electronjs.org/languages">
-    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav in Simplified Chinese">
-    <figcaption>Electron's Nav in Simplified Chinese</figcaption>
-  </a>
-</figure>
-
-Though we've been working quietly on this effort so far, over 75 Electron community members have already discovered the project organically and joined in the effort to internationalize the website and translate Electron's docs into over 20 languages. We are seeing [daily contributions](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) from people all over the world, with translations for languages like French, Vietnamese, Indonesian, and Chinese leading the way.
-
-To choose your language and view translation progress, visit [electronjs.org/languages](https://electronjs.org/languages)
+Мы начали процесс интернационализации веб-сайта с целью сделать развитие Electron приложения доступным для глобальной аудитории разработчиков. Мы используем локализационную платформу под названием [Crowdin](https://crowdin.com/project/electron) , которая интегрирует в GitHub, открытие и обновление Pull Request'ов автоматически по мере перевода контента на другие языки.
 
 <figure>
   <a href="https://electronjs.org/languages">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Current target languages on Crowdin">
-    <figcaption>Translations in progress on Crowdin</figcaption>
+    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav в упрощенном китайском">
+    <figcaption>Nav Electron в упрощенном китайском</figcaption>
   </a>
 </figure>
 
-If you're multilingual and interested in helping translate Electron's docs and website, visit the [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) repo, or jump right into translating on [Crowdin](https://crowdin.com/project/electron), where you can sign in using your GitHub account.
+Хотя мы до сих пор работали спокойно над этими усилиями. более 75 членов сообщества Electron уже открыли проект органично и присоединились к усилиям по интернационализации веб-сайта и переводу документации Electron на более чем 20 языков. Мы видим [ежедневных пожертвований](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) от людей по всему миру, с переводами на французский, вьетнамский, индонезийский и китайский языки.
 
-There are currently 21 languages enabled for the Electron project on Crowdin. Adding support for more languages is easy, so if you're interested in helping translate but you don't see your language listed, [let us know](https://github.com/electron/electronjs.org/issues/new) and we'll enable it.
+Чтобы выбрать свой язык и просмотреть прогресс перевода, посетите [electronjs.org/languages](https://electronjs.org/languages)
 
-## Raw Translated Docs
+<figure>
+  <a href="https://electronjs.org/languages">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Текущие целевые языки на Crowdin">
+    <figcaption>Переводы в процессе работы на Crowdin</figcaption>
+  </a>
+</figure>
 
-If you prefer to read documentation in raw markdown files, you can now do that in any language:
+Если вы многоязычный и заинтересованы в помощи в переводе документов Electron и веб-сайта, посетите [электронные/электронные/электронные i18n](https://github.com/electron/electron-i18n#readme) репо, или прыгните прямо на перевод на [Crowdin](https://crowdin.com/project/electron), где вы можете войти с помощью учетной записи GitHub.
+
+В настоящее время для проекта Electron доступно 21 язык. Добавление поддержки для большего количества языков просто, так что если вы заинтересованы в помощи в переводе, но вы не видите ваш список языков, [Дайте нам знать](https://github.com/electron/electronjs.org/issues/new) и мы включим его.
+
+## Сырой перевод
+
+Если вы предпочитаете читать документацию в raw markdown файлах, вы теперь можете сделать это на любом языке:
 
 ```sh
 git clone https://github.com/electron/electron-i18n
 ls electron-i18n/content
 ```
 
-## App Pages
+## Страницы приложений
 
-As of today, any Electron app can easily have its own page on the Electron site. For a few examples, check out [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), or [GraphQL Playground](https://electronjs.org/apps/graphql-playground), pictured here on the Japanese version of the site:
+На сегодняшний день любое приложение Electron может легко иметь свою собственную страницу на сайте . For a few examples, check out [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), or [GraphQL Playground](https://electronjs.org/apps/graphql-playground), pictured here on the Japanese version of the site:
 
 <figure>
   <a href="https://electronjs.org/apps/graphql-playground">
@@ -53,50 +53,50 @@ As of today, any Electron app can easily have its own page on the Electron site.
   </a>
 </figure>
 
-There are some incredible Electron apps out there, but they're not always easy to find, and not every developer has the time or resources to build a proper website to market and distribute their app.
+Есть невероятные приложения Electron, но они не всегда легко найти, и не каждый разработчик имеет время или ресурсы для создания соответствующего веб-сайта на рынке и распространения своего приложения.
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. Using a color palette extracted from each app's icon, we can produce [bold and accessible colors](https://github.com/zeke/pick-a-good-color) to give each app page some visual distinction.
+Используя только [файл значка PNG и небольшое количество метаданных приложения](https://github.com/electron/electron-apps/blob/master/contributing.md), мы можем собрать много информации о данном приложении. Используя данные, собранные с GitHub, страницы приложений теперь могут отображать скриншоты, ссылки для скачивания, версии, примечания к выпуску и README для каждого приложения имеет публичный репозиторий. Используя цветовую палитру из значка каждого приложения, мы можем создать [жирные и доступные цвета](https://github.com/zeke/pick-a-good-color) для каждой страницы приложения некоторые отличия.
 
-The [apps index page](https://electronjs.org/apps) now also has categories and a keyword filter to find interesting apps like [GraphQL GUIs](https://electronjs.org/apps?q=graphql) and [p2p tools](https://electronjs.org/apps?q=graphql).
+Индексная страница [приложений](https://electronjs.org/apps) теперь также имеет категории и фильтр ключевых слов, чтобы найти такие интересные приложения, как [GraphQL GUIs](https://electronjs.org/apps?q=graphql) и [p2p инструменты](https://electronjs.org/apps?q=graphql).
 
-If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps](https://github.com/electron/electron-apps) repository.
+Если у вас есть приложение Electron, которое вы хотели бы разместить на сайте, откройте запрос на слияние в репозитории [электронных/электронных приложений](https://github.com/electron/electron-apps).
 
-## One-line Installation with Homebrew
+## Установка в одну строку с Homebrew
 
-The [Homebrew](https://brew.sh) package manager for macOS has a subcommand called [cask](https://caskroom.github.io) that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
+[Homebrew](https://brew.sh) пакетного менеджера для macOS имеет субкоманду под названием [cask](https://caskroom.github.io) , которая позволяет легко установить настольные приложения с помощью одной команды в вашем терминале, как `brew cask install atom`.
 
-We've begun collecting Homebrew cask names for popular Electron apps and are now displaying the installation command (for macOS visitors) on every app page that has a cask:
+Мы начали собирать названия Homebrew cask для популярных приложений Electron и теперь показывают команду установки (для посетителей macOS) на каждой странице приложения с казино:
 
 <figure>
   <a href="https://electronjs.org/apps/dat">
    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871246-c5ef6f2a-ca34-11e7-8eb4-3a5b93b91007.png">
-   <figcaption>Installation options tailored for your platform: macOS, Windows, Linux</figcaption>
+   <figcaption>Параметры установки, адаптированные для вашей платформы: macOS, Windows, Linux</figcaption>
   </a>
 </figure>
 
-To view all the apps that have homebrew cask names, visit [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). If you know of other apps with casks that we haven't indexed yet, [please add them!](https://github.com/electron/electron-apps/blob/master/contributing.md)
+Чтобы просмотреть все приложения с именами homebrew посетите [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). Если вы знаете о других приложениях, которые мы еще не индексировали, [пожалуйста, добавьте их!](https://github.com/electron/electron-apps/blob/master/contributing.md)
 
-## 🌐 A New Domain
+## 🌐 Новый домен
 
-We've moved the site from electron.atom.io to a new domain: [electronjs.org](https://electronjs.org).
+Мы переместили сайт с electron.atom.io в новый домен: [electronjs.org](https://electronjs.org).
 
-The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron was originally called `atom-shell`. Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. When companies like Microsoft and Slack started to make use of `atom-shell`, it became clear that the project needed a new name.
+Проект Electron родился внутри [Atom](https://atom.io), текстовый редактор GitHub построенный на веб-технологиях. Electron изначально назывался `атомарным оболочкой`. Atom был первым приложением для его использования, но людям не понадобилось много времени, чтобы понять, что этот волшебный Chromium + Node runtime может быть использован для различных приложений. Когда такие компании, как Microsoft и Slack начали использовать `атомарную оболочку`, стало ясно, что проект требует нового имени.
 
-And so "Electron" was born. In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+И так родился "Electron". В начале 2016 года GitHub собрал новую команду, которая сосредоточила специально на разработке и обслуживании Electron, кроме Атома. Через раз, когда Electron был принят тысячами разработчиков приложений, и в настоящее время зависит от многих крупных компаний, многие из которых имеют команды Electron самостоятельно.
 
-Supporting GitHub's Electron projects like Atom and [GitHub Desktop](https://desktop.github.com) is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
+Поддержка проектов Electron GitHub, таких как Atom и [GitHub Desktop](https://desktop.github.com) , все еще является приоритетом для нашей команды, но перейдя на новый домен, мы надеемся, что мы поможем уточнить техническое различие между Atom и Electron.
 
-## 🐢🚀 Node.js Everywhere
+## 🐢🚀 Node.js везде
 
-The previous Electron website was built with [Jekyll](https://jekyllrb.com), the popular Ruby-based static site generator. Jekyll is a great tool for building static websites, but the website had started to outgrow it. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js](https://nodejs.org) server was the obvious choice.
+Предыдущий сайт Electron был построен с [Jekyll](https://jekyllrb.com), популярным статическим генератором сайта Ruby. Jekyll - отличный инструмент для создания статических сайтов, но сайт начал превзойти его. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js](https://nodejs.org) server was the obvious choice.
 
-The Electron ecosystem includes projects with components written in many different programming languages, from Python to C++ to Bash. But JavaScript is foundational to Electron, and it's the language used most in our community.
+экосистема Electron включает проекты с компонентами, написанными на многих различных языках программирования, от Python до C++ до Bash. Но JavaScript является основой для Electron, и это язык, который больше всего используется в нашем сообществе.
 
-By migrating the website from Ruby to Node.js, we aim to lower the barrier to entry for people wishing to contribute to the website.
+Переходя на сайт из Ruby в Node.js, мы стремимся уменьшить барьер для людей, желающих внести свой вклад в работу сайта.
 
-## ⚡️ Easier Open-Source Participation
+## ⚡ более легкое участие с открытым исходным кодом
 
-If you've got [Node.js](https://nodejs.org) (8 or higher) and [git](https://git-scm.org) installed on your system, you can easily get the site running locally:
+Если у вас есть [узел. s](https://nodejs.org) (8 или выше) и [git](https://git-scm.org) установлен в вашей системе, вы можете легко запустить сайт локально:
 
 ```sh
 git clone https://github.com/electron/electronjs.org
@@ -105,11 +105,11 @@ npm install
 npm run dev
 ```
 
-The new website is hosted on Heroku. We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. This makes it easy for reviewers to view the actual effects of a pull request on a live copy of the site.
+Новый сайт размещен на Heroku. Мы используем трубопроводы развертывания и функцию [обзора приложений](https://devcenter.heroku.com/articles/github-integration-review-apps) , которая автоматически создает запущенную копию приложения для каждого запроса запроса. Это облегчает просмотр рецензентами реальных эффектов запроса на слияние на живой копии сайта.
 
-## 🙏 Thanks to Contributors
+## 🙏 Спасибо авторам
 
-We'd like to give special thanks to all the folks around the world who have contributed their own time and energy to help improve Electron. The passion of the open-source community has helped immeasurably in making Electron a success. Thank you!
+Мы хотели бы выразить особую благодарность всем людям, которые поделились своим временем и энергией, чтобы помочь улучшить Electron. Страсть сообщества с открытым исходным кодом помогла добиться успеха Electron. Спасибо!
 
 <figure>
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">

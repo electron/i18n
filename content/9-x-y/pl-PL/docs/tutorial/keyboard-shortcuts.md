@@ -21,7 +21,7 @@ Możesz skonfigurować inne kombinacje klawiszy bazując na systemie operacyjnym
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  akcelerator: process.platform == 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 

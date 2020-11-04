@@ -1,26 +1,26 @@
 ---
-title: Protocol Handler Vulnerability Fix
+title: Correzione Di Vulnerabilità Del Gestore Protocollo
 author: zeke
 date: '2018-01-22'
 ---
 
-A remote code execution vulnerability has been discovered affecting Electron apps that use custom protocol handlers. This vulnerability has been assigned the CVE identifier [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
+È stata scoperta una vulnerabilità nell'esecuzione di codice remoto che colpisce le applicazioni Electron che utilizzano i gestori di protocollo personalizzati. A questa vulnerabilità è stato assegnato l'identificatore CVE [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
 
 ---
 
-## Affected Platforms
+## Piattaforme Interessate
 
-Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
+Le app Electron progettate per funzionare su Windows che si registrano come gestore predefinito per un protocollo, come `myapp://`, sono vulnerabili.
 
-Such apps can be affected regardless of how the protocol is registered, e.g. using native code, the Windows registry, or Electron's [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API.
+Tali applicazioni possono essere influenzate indipendentemente da come il protocollo è registrato, ad es. utilizzando il codice nativo, il registro di Windows o l'app [di Electron.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API.
 
-macOS and Linux are **not vulnerable** to this issue.
+macOS e Linux non sono **vulnerabili** a questo problema.
 
-## Mitigation
+## Mitigazione
 
-We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
+Abbiamo pubblicato nuove versioni di Electron che includono correzioni per questa vulnerabilità: [`1.8.2-beta.`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7. 2`](https://github.com/electron/electron/releases/tag/v1.7.12), e [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). Esortiamo tutti gli sviluppatori di Electron ad aggiornare immediatamente le loro app all'ultima versione stabile.
 
-If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
+Se per qualche motivo non sei in grado di aggiornare la versione di Electron, puoi aggiungere `--` come ultimo argomento quando chiami l'app [. etAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), che impedisce al cromo di analizzare ulteriori opzioni. Il doppio trattino `--` indica la fine delle opzioni di comando, dopo di che sono accettati solo i parametri di posizione.
 
 ```js
 app.setAsDefaultProtocolClient(protocol, process.execPath, [
@@ -29,8 +29,8 @@ app.setAsDefaultProtocolClient(protocol, process.execPath, [
 ])
 ```
 
-See the [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API for more details.
+Vedi l'API [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) per maggiori dettagli.
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Per saperne di più sulle migliori pratiche per mantenere al sicuro le tue app Electron, consulta il nostro [tutorial per la sicurezza](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Se si desidera segnalare una vulnerabilità in Electron, e-mail security@electronjs.org.

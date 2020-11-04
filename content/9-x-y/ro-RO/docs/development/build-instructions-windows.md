@@ -1,27 +1,27 @@
-# Build Instructions (Windows)
+# Instrucțiuni de generare (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Urmați instrucțiunile de mai jos pentru a construi Electron pe Windows.
 
-## Prerequisites
+## Cerințe preliminare
 
-* Windows 10 / Server 2012 R2 or higher
+* Windows 10 / Server 2012 R2 sau o versiune ulterioară
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
-  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path.
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-* [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/)
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * Vezi [documentaţia de construcţie Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) pentru mai multe detalii despre componentele Visual Studio care sunt necesare.
+  * Dacă Visual Studio este instalat într-un alt director decât cel implicit, va trebui să setați câteva variabile de mediu pentru a indica înlănțuirea instrumentului către calea de instalare.
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, înlocuirea `2019` și `comunitar` cu versiunile instalate și înlocuirea `DRIVE:` cu unitatea pe care este pornit Studioul vizual. Adesea, acesta va fi `C:`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Adesea, acesta va fi `C:`.
+* [Python 2.7.10 sau mai mare](http://www.python.org/download/releases/2.7/)
+  * Contrar instrucțiunilor de configurare `depot_tools` conectate mai jos, veți avea nevoie de pentru a utiliza Python instalat local, cu cel puțin versiunea 2.7.10 (cu sprijin pentru TLS 1.2). Pentru a face acest lucru, asigurați-vă că în **PATH**, Python-ul instalat local vine înainte de folderul `depot_tools`. Chiar acum `depot_tools` încă vine cu Python 2.7.6, ceea ce va face ca comanda `gclient` să eșueze (vezi https://crbug.com/868864).
+  * [Extensiile Python pentru Windows (pywin32)](https://pypi.org/project/pywin32/#files) este, de asemenea, necesară pentru a executa procesul de compilare.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * Diferite versiuni ale SDK pot fi instalate una lângă alta. Pentru a instala SDK, deschide Visual Studio Installer, selectaţi `Change` → `Individual Components`, defilează în jos şi selectează corespunzător Windows SDK pentru instalare. O altă opțiune ar fi să se uite la [Windows SDK și arhiva emulator](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) și pentru a descărca versiunea independentă a SDK, respectiv.
+  * De asemenea, trebuie instalate instrumentele de depanare SDK. Dacă Windows 10 SDK a fost instalat prin programul de instalare Visual Studio, atunci acestea pot fi instalate accesând: `Panou de control` → `Programe` → `Programe și Caracteristici` → Selectați "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools for Windows" → `Change`. Sau puteți descărca instalatorul SDK și să-l folosiți pentru a instala instrumente de depanare.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Dacă nu aveți în prezent o instalare Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) are versiuni de Windows cu bombă temporală pe care le puteți utiliza pentru a construi Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Construirea Electron se face în întregime cu script-uri de linie de comandă și nu se poate face cu Visual Studio. Puteți dezvolta Electron cu orice editor, dar suport pentru clădire cu Visual Studio va veni în viitor.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
@@ -29,19 +29,19 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
-## 32bit Build
+## Construcție pe 32 de biți
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+Pentru a construi pentru ținta de 32 de biți, trebuie să treceți `target_cpu = "x86"` peste argumentul GN. Puteți construi ținta pe 32 de biți alături de ținta pe 64 de biți utilizând un director de ieșire diferit pentru GN, de exemplu. `out/Release-x86`, cu diferite argumente.
 
 ```powershell
-$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
+$ gn gen out/releasease-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
-The other building steps are exactly the same.
+Celelalte trepte de construcție sunt exact la fel.
 
-## Visual Studio project
+## Proiect Visual Studio
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+Pentru a genera un proiect Visual Studio, puteți trece parametrul `--ide=vs2017` la `gn gen`:
 
 ```powershell
 $ gn gen out/Testing --ide=vs2017
@@ -49,39 +49,39 @@ $ gn gen out/Testing --ide=vs2017
 
 ## Depanare
 
-### Command xxxx not found
+### Comanda xxxx nu a fost găsită
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Dacă ați întâlnit o eroare ca `Comanda xxxx nu a fost găsită`, puteți încerca să utilizați comanda `VS2015` pentru a executa scripturile de construcții.
 
-### Fatal internal compiler error: C1001
+### Eroare fatală internă de compilator: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Asigurați-vă că aveți instalată cea mai recentă actualizare Visual Studio.
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: nu se poate deschide fișierul de intrare 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Încercați să reinstalați Node.js pe 32 de biți.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Eroare: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Crearea acelui director [ar trebui să rezolve problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### eroare: "node-gyp is not recognized as an internal or external command"
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Este posibil să primiți această eroare dacă utilizați Git Bash pentru construcție, ar trebui să utilizați În schimb, promptul de comandă PowerShell sau VS2015.
 
-### cannot create directory at '...': Filename too long
+### nu se poate crea directorul la '...': numele fișierului este prea lung
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js are câteva [căi de acces extrem de lungi](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish) și, în mod implicit, git pe Windows nu gestionează corect căile de acces lungi (chiar dacă Windows le acceptă). Aceasta ar trebui să o remedieze:
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### eroare: utilizarea identificatorului nedeclarat 'DefaultDelegateCheckMode'
 
 This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 

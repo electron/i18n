@@ -27,23 +27,23 @@ Il existe un certain nombre d’outils pour la signature de votre application em
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
 - [`electron-packager`][] bundles `electron-osx-sign`. Si vous utilisez `electron-packager`, passez le drapeau `--osx-sign=true` pour signer votre build.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Voir [electron.build/code-signing](https://www.electron.build/code-signing)
 
 For more info, see the [Mac App Store Submission Guide][].
 
-# Signing Windows builds
+# Signature des versions Windows
 
-Before signing Windows builds, you must do the following:
+Avant de signer les versions de Windows, vous devez faire ce qui suit :
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
+2. Installez Visual Studio 2015/2017 (pour obtenir l'utilitaire de signature)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Les revendeurs populaires comprennent :
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Et bien d'autres, veuillez comparer pour en trouver un qui correspond à vos besoins, Google est votre ami :)
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 

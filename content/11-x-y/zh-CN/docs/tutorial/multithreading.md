@@ -7,7 +7,7 @@
 可以在Electron的Web Workers里使用Node.js的特性。要用的话，需把`webPreferences`中的`nodeIntegrationInWorker`选项设置为`true`
 
 ```javascript
-const win = new BrowserWindow({
+const win = new BrowserWindow(format@@
   webPreferences: {
     nodeIntegrationInWorker: true
   }

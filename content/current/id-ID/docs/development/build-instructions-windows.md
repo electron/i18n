@@ -10,11 +10,9 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
   * Jika Visual Studio Anda dipasang di direktori selain default, Anda harus setel beberapa variabel lingkungan untuk mengarahkan rantai alat ke jalur instalasi Anda.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, menggantilan `2019` dan `Community` dengan versi yang Anda instal dan menggantinya `DRIVE:` dengan pengandar tempat Visual Studio berada. Seringkali, akan menjadi `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Seringkali, akan menjadi `C:`.
-* [Python 2.7.10 atau lebih baru](http://www.python.org/download/releases/2.7/)
-  * Berkebalikan dengan instruksi pemasangan `depot_tools` yang ada di bawah ini, anda perlu untuk menggunakan Python dengan versi minimal 2.7.10 yang terpasang secara lokal (dengan dukungan untuk TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Saat ini `depot_tools` masih memerlukan Python 2.7.6, yang akan menyebabkan perintah ekstensi `gclient` akan gagal (lihat https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) juga diperlukan agar proses build dapat berlangsung.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Versi SDK yang berbeda dapat dipasang bersamaan. Untuk memasang SDK, buka Visual Studio Installer, pilih `Change` → `Individual Components`, gulir ke bawah dan pilih SDK yang sesuai untuk dipasang. Opsi lainnya dapat ditemukan di [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) dan unduh SDK versi standalone.
   * Peralatan Debugging SDK juga harus dipasang. Bila SDK WIndows 10 telah terpasang melalui Visual Stdio installer, lalu mereka dapat dipasang melalui: `Control Panel` → `Programs` → `Programs and Features` → pilih "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Atau, Anda dapat mengunduh penginstal SDK mandiri dan menggunakannya untuk menginstal Alat Debugging.
@@ -23,7 +21,11 @@ Jika saat ini Anda tidak memiliki instalasi Windows, [dev.microsoftedge.com](htt
 
 Bangunan Electron dilakukan sepenuhnya dengan script baris perintah dan tidak dapat dilakukan dengan Visual Studio. Anda bisa mengembangkan electron dengan editor tapi dukungan untuk bangunan dengan Visual Studio akan datang di masa depan.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Catatan:** Walaupun Visual Studio tidak digunakan untuk membangun, hal ini masih **diperlukan** karena kita perlu membangun toolchains yang menyediakan.
+
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
 ## Bangunan
 

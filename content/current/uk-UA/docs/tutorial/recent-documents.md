@@ -1,49 +1,65 @@
-# Recent Documents (Windows & macOS)
+# Останні Документи (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+## Огляд
+
+Windows and macOS надають доступ до списку останніх документів, відкритих користувачем додаток через JumpList або нижнє меню, відповідно.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Файли JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__Application dock menu:__
+__Застосування меню док-станції:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![меню macOS Dock](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Щоб додати файл до останніх документів, використовуйте [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+
+## Приклад
+
+### Додати елемент до останніх документів
+
+Починаючи з робочого додатку з [Короткого Путівника](quick-start.md), додайте наступні рядки у файл `main.js`:
 
 ```javascript
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+Після запуску програми Electron, клацніть правою кнопкою миші значок програми. Ви повинні побачити елемент, який ви щойно додавали. У цьому посібнику товар є файлом Markdown , розташований в корені проекту:
+
+![Останні документи](../images/recent-documents.png)
+
+### Очистити список останніх документів
+
+Щоб очистити список останніх документів, вам потрібно використовувати [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API в `main.js` файл:
 
 ```javascript
 const { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Додаткова інформація
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+### Нотатки Windows
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Щоб використовувати цю функцію на Windows, ваш додаток повинен бути зареєстрований як обробник типу файлу документу, інакше файл не з'явиться в JumpList навіть після його додавання. Ви можете знайти все при реєстрації вашого додатку на [Заявці](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-## macOS Notes
+Коли користувач натискає файл з JumpList, новий екземпляр вашого додатку буде запущений шляхом додавання до файлу в якості аргументу командного рядка.
 
-### Adding the Recent Documents list to the application menu:
+### macOS нотатки
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+#### Додати останній список документів до меню програми
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Ви можете додати пункти меню для доступу і очищення останніх документів, додавши наступний фрагмент коду до шаблону меню:
 
 ```json
 {
   "submenu":[
     {
       "label":"Open Recent",
-      "role":"recentdocuments",
+      "роль":"recents",
       "submenu":[
         {
           "label":"Clear Recent",
@@ -51,8 +67,11 @@ You can add menu items to access and clear recent documents by adding the follow
         }
       ]
     }
-  ]
+  ] 
+ ]
 }
 ```
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+![пункт меню macOS Останні Документи](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+
+Коли файл запитано з останнього меню, модуль `відкритий файл` з `додатку` буде викликатися для нього.

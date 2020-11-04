@@ -1,32 +1,32 @@
-# Context Isolation
+# Izolace kontextů
 
-## What is it?
+## Co to je?
 
-Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
+Kontextová izolace je funkce, která zajišťuje, že jak vaše `přednačítání` skriptů, tak vnitřní logika Electronu běží v samostatném kontextu na webovou stránku, kterou načítáte v [`webContents`](../api/web-contents.md).  To je důležité z bezpečnostních důvodů, protože to pomáhá zabránit přístupu k Electron interálům nebo k výkonným API má přístup váš preload skript.
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+To znamená, že objekt `okno` , ke kterému má váš přednažený skript přístup, je **jiný** objekt než webová stránka by k němu měla přístup.  Například, pokud nastavíte `window.hello = 'wave'` ve vašem preload skriptu a kontextová izolace je povolena `okno. ello` nebude definováno, pokud se k němu webová stránka pokouší přistupovat.
 
-Every single application should have context isolation enabled and from Electron 12 it will be enabled by default.
+Každá jednotlivá aplikace by měla mít povolenou izolaci kontextu, a z Electronu 12 bude ve výchozím nastavení povolena.
 
-## How do I enable it?
+## Jak to mohu povolit?
 
-From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
+Od Electronu 12 bude ve výchozím nastavení povoleno. Pro nižší verze je to možnost v `webPreferences` při vytváření `nového BrowserWindow`'s.
 
 ```javascript
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+const mainWindow = nový BrowserWindow({
+  webPreference: {
     contextIsolation: true
   }
 })
 ```
 
-## Migration
+## Migrace
 
-> I used to provide APIs from my preload script using `window.X = apiObject` now what?
+> Použil jsem k poskytnutí API z mého přednaženého skriptu pomocí `window.X = apiObject` , co právě teď?
 
-Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
+Vystavení API z vašeho preload skriptu na načtenou webovou stránku je běžným využitím a v Electronu je vyhrazený modul, který vám pomůže bezbolestným způsobem to udělat.
 
-**Before: With context isolation disabled**
+**Pozoru: S vypnutou izolací kontextů**
 
 ```javascript
 window.myAPI = {
@@ -34,7 +34,7 @@ window.myAPI = {
 }
 ```
 
-**After: With context isolation enabled**
+**Poté je povolena izolace kontextů**
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -44,22 +44,22 @@ contextBridge.exposeInMainWorld('myAPI', {
 })
 ```
 
-The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+Modul [`contextBridge`](../api/context-bridge.md) lze použít pro **bezpečně** vystavit API z izolovaného kontextu, který běží v kontextu, v němž je webová stránka spuštěna. API bude také přístupné z webu na `window.myAPI` stejně jako dříve.
 
-You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
+Měli byste si přečíst dokumentaci `contextBridge` propojenou výše, abyste plně pochopili její omezení.  Například nemůžete posílat vlastní prototypy nebo symboly přes most.
 
-## Security Considerations
+## Bezpečnostní úvahy
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
+Pouhé povolení `contextIsolation` a používání `contextBridge` automaticky neznamená, že vše, co děláte, je v bezpečí.  Například tento kód je **nebezpečný**.
 
 ```javascript
-// ❌ Bad code
+// ❌ Špatný kód
 contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+Přímo vystavuje mocné API bez jakéhokoli způsobu filtrování argumentů. Umožnilo by to všem webovým stránkám odesílat libovolné IPC zprávy, které nechcete být možné. Správným způsobem, jak odhalit API založené na IPC, by místo toho bylo poskytnout jednu metodu pro zprávu IPC.
 
 ```javascript
 // ✅ Good code

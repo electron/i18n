@@ -1,43 +1,43 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# اختبار على أنظمة CI بدون عنوان (Travis CI, Jenkins)
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+وبما أن إلكترون مبني على Chromium، فإنه يحتاج إلى مشغل عرض ليقوم بوظيفته. إذا لم يتمكن Chromium من العثور على مشغل عرض، فسيفشل إلكترون في تشغيله - وبالتالي لن ينفذ أي من اختباراتك، بغض النظر عن كيفية تشغيلك لهم. اختبار التطبيقات القائمة على الإلكترون على Travis, Circle, Jenkins أو أنظمة مماثلة يتطلب قليلا من التكوين. في الأساس، نحن بحاجة إلى استخدام مشغل عرض افتراضي.
 
-## Configuring the Virtual Display Server
+## تكوين خادم العرض الظاهري
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+أولاً، قم بتثبيت [Xvfb](https://en.wikipedia.org/wiki/Xvfb). إنه مخزن افتراضي مؤقت، تنفيذ بروتوكول خادم عرض X11 - يؤدي جميع العمليات الرسومية في الذاكرة دون إظهار أي إخراج الشاشة، الذي هو بالضبط ما نحتاجه.
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+ثم قم بإنشاء شاشة Xvfb افتراضية وتصدير متغير البيئة يسمى DISPLAY الذي يشير إليه. سيبحث Chromium في Electron تلقائيًا مقابل `$DISPLAY`، لذا لا يتطلب الأمر المزيد من الإعدادات لتطبيقك. يمكن أن تكون هذه الخطوة تلقائيًا مع Anai<unk> s Betts [xvfb-ربما](https://github.com/anaisbetts/xvfb-maybe): إلحاق إختبارك بأوامر مع `xvfb-ربما` والأداة الصغيرة ستشكل تلقائيًا Xvfb, إذا طلب النظام الحالي ذلك. على Windows أو macOS، لن يفعل شيئا.
 
 ```sh
-## On Windows or macOS, this invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
+## على Windows أو macOS، هذه الإلكترون - موتشا
+## على لينوكس، إذا كنا في بيئة بلا رأس، سيكون هذا مكافئ
+## لـ xvfb-electron-mocha. اختبار/*.js
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
-### Travis CI
+### تريفيس سي
 
-On Travis, your `.travis.yml` should look roughly like this:
+على Travis، يجب أن تبدو `.travis.yml` مثل هذا:
 
 ```yml
-addons:
+الإضافات:
   apt:
-    packages:
+    حزمة:
       - xvfb
 
-install:
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+مثبت:
+  - تصدير DISPLAY=':99. '
+  - Xvfb :99 - الشاشة 0 1024x768x24 > /dev/null 2>&1 &
 ```
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+بالنسبة لـ Jenkins، يتوفر [Xvfb plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
-### Circle CI
+### دائرة CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+دائرة CI رائعة ولها Xvfb و `$DISPLAY` [تم إعدادها مسبقا، لذلك لا حاجة إلى مزيد من الإعدادات](https://circleci.com/docs/environment#browsers)
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+يعمل AppVeyor على ويندوز، يدعم السيلينيوم، كروميوم، إلكترون وأدوات مشابهة خارج المربع - لا حاجة إلى أي تكوين.

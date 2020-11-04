@@ -1,73 +1,73 @@
-# Electron Support
+# Podpora Electronu
 
-## Finding Support
+## Hledání podpory
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+Pokud máte obavy o bezpečnost, navštivte prosím [bezpečnostní dokument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` channel on Freenode
-- `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+Pokud hledáte pomoc při programování, pro odpovědi na otázky, nebo se připojit k diskuzi s ostatními vývojáři, kteří používají Electron, můžete komunikovat s komunitou na těchto místech:
+- [`elektroron`](https://discuss.atom.io/c/electron) kategorie na Atom fórech
+- `#atom-shell` kanál na Freenode
+- `#electron` kanál na [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+- [`elektron-ru`](https://telegram.me/electron_ru) *(Rusko)*
+- [`elektron-br`](https://electron-br.slack.com) *(Brazilské portugalštiny)*
+- [`elektron-kr`](https://electron-kr.github.io/electron-kr) *(korejský)*
+- [`elektron-jp`](https://electron-jp.slack.com) *(Japonsko)*
+- [`elektron-tr`](https://electron-tr.herokuapp.com) *(turečtina)*
+- [`elektron-id`](https://electron-id.slack.com) *(Indonésie)*
+- [`elektron-pl`](https://electronpl.github.io) *(Polsko)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Pokud chcete přispět do Electronu, podívejte se na [přispívající dokument](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Pokud jste našli chybu v [podporované verzi](#supported-versions) Electronu, ji prosím nahlaste pomocí [systému úkolů](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) je komunitně vedený seznam užitečných příkladů aplikací, nástrojů a zdrojů.
 
-## Supported Versions
+## Podporované verze
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+Poslední tři *stabilní* hlavní verze jsou podporovány týmem Electron. Například, pokud je poslední vydání 6.1.x, pak je podporováno 5.0.x i série 4.2.x.  Podporujeme pouze poslední méně významné vydání pro každou stabilní verzi seriálu.  To znamená, že v případě opravy zabezpečení 6.1. obdrží opravu, ale nevydáme novou verzi 6.0.x.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+Poslední stabilní vydání jednostranně přijímá všechny opravy od `master`, a verze před tím, než obdrží převážnou většinu těchto opravných položek , jak je čas a šířka pásma zárukou. Nejstarší podporovaný release řádek obdrží pouze opravy zabezpečení.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Všechny podporované řádky release budou přijímat externí požadavky na natažení pro backport oprav dříve sloučené s `master`, i když to může být případ od případu u některých starších podporovaných tratí. Všechna napadená rozhodnutí týkající se zpětné vazby k vydání vyřeší pracovní skupina [uvolňuje](https://github.com/electron/governance/tree/master/wg-releases) jako bod pořadu jednání na jejich týdenním zasedání v týdnu, kdy je podklad PR zvýšen.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+Pokud je API změněno nebo odebráno způsobem, který narušuje existující funkci, předchozí funkce bude podporována minimálně pro dvě hlavní verze, pokud je možné před odstraněním. Například, pokud má funkce tři argumenty, a toto číslo je v hlavní verzi 10 sníženo na dvě, verze tří argumentů by pokračovala v práci minimálně do velké verze 12. minimální práh pro dvě verze , pokusíme se podpořit zpětnou kompatibilitu nad dva verze , dokud správci necítí udržovací zátěž je příliš vysoká, než aby v tom mohli pokračovat.
 
-### Currently supported versions
+### Aktuálně podporované verze
 - 10.x.y
 - 9.x.y
 - 8.x.y
 
-### End-of-life
+### Konec životnosti
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Jakmile uvolněná větev dosáhne konce svého podpůrného cyklu, série bude v NPM zastaralá a konečné vydání na konci podpory bude učiněno . Toto vydání přidá upozornění, že používá nepodporovanou verzi Electronu.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+Tyto kroky pomáhají vývojářům aplikací naučit se, když větev používá, přestane být podporovaná, ale aniž by byli příliš rušiví pro koncové uživatele.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Pokud má žádost výjimečné okolnosti a musí zůstat v nepodporované sérii elektřiny, vývojáři mohou umlčet varování na konci podpory vynecháním konečného vydání z balíčku `. syn` `devDependencies`. Například od doby, kdy série 1-6-x skončila podporou 1.6. 8 vydání, vývojáři by mohli zvolit zůstat v sérii 1-6-x bez varování s `devDependency` z `"electron": 1. .0 - 1.6.17`.
 
 ## Podporované platformy
 
-Following platforms are supported by Electron:
+Následující platformy jsou podporovány Electronem:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+Pro macOS jsou k dispozici pouze 64bitové binární soubory a minimální podporovaná macOS verze je macOS 10.10 (Yosemite).
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 a novější jsou podporovány, starší operační systémy nejsou podporovány (a nefungují).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Pro systém `ia32` (`x86`) a `x64` (`amd64`jsou k dispozici binární soubory. [Electron 6.0.8 a později přidejte podporu pro Windows on Arm (`arm64`) zařízení](windows-arm.md). Spuštěné aplikace zabalené s předchozími verzemi jsou možné pomocí binárního souboru ia32.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Předpostavené binárky `ia32` (`i686`a `x64` (`amd64`) jsou postaveny na Ubuntu 12. 4 binární soubor `armv7l` je postaven proti ARM v7 s hard-float ABI a NEON pro Debian Wheezy.
 
-[Until the release of Electron 2.0][arm-breaking-change], Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0][arm-breaking-change], Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Oba binární soubory jsou totožné.
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+Zda předpostavený binární soubor může běžet na distribuci, závisí na tom, zda distribuce obsahuje knihovny, ke kterým je Electron připojen na platformě budovy , tak pouze Ubuntu 12. 4 má zaručeno fungování, ale následující platformy jsou také ověřeny, aby mohly spustit předpostavené binární soubory Electronu:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 a novější
 * Fedora 21
 * Debian 8
 

@@ -1,61 +1,61 @@
 ---
-title: Electron Simple Samples
+title: Electron 简单示例
 author: zeke
 date: '2017-01-19'
 ---
 
-We recently hosted an Electron hackathon at GitHub HQ for members of [Hackbright Academy](https://hackbrightacademy.com), a coding school for women founded in San Francisco. To help attendees get a head start on their projects, our own [Kevin Sawicki](https://github.com/kevinsawicki) created a few sample Electron applications.
+我们最近在GitHub 总部为 [Hackbright Academy](https://hackbrightacademy.com)的成员主办了Electron hackathon 在旧金山为妇女建立了一个校园。 为了帮助参与者开始他们的项目，我们自己的 [Kevin Sawicki](https://github.com/kevinsawicki) 创建了一些Electron 的示例。
 
 ---
 
-If you're new to Electron development or haven't yet tried it out, these sample applications are a great place to start. They are small, easy to read, and the code is heavily commented to explain how everything works.
+如果你是Electron开发者或尚未尝试过，那么 样本应用程序是一个很好的地方。 它们很小，容易阅读， 并且代码被详细评论以解释所有的运作方式。
 
-To get started, clone this repository:
+要启动，请克隆此仓库：
 
 ```sh
 git clone https://github.com/electron/simple-samples
 ```
 
-To run any of the apps below, change into the app's directory, install dependencies, then start:
+要运行下面的任何应用，请切换到应用目录， 安装依赖，然后启动：
 
 ```sh
-cd activity-monitor
+cd 活动监视器
 npm install
 npm start
 ```
 
-## Activity Monitor
+## 活动监视器
 
-Shows a doughnut chart of the CPU system, user, and idle activity time.
+显示 CPU 系统、 用户和闲置活动时间的坚固图表。
 
-[![Screenshot](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
+[![屏幕截图](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
 
-## Hash
+## 哈希
 
-Shows the hash values of entered text using different algorithms.
+使用不同的算法显示输入文本的散列值。
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
+[![屏幕截图](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
 
 ## 镜像
 
-Plays a video of the computer's camera at a maximized size like looking into a mirror. Includes an optional rainbow filter effect that uses CSS animations.
+播放计算机摄像机的视频，最大尺寸，比如看镜像。 包括一个使用 CSS 动画的可选彩虹过滤器效果。
 
-## Prices
+## 价格
 
-Shows the current price of oil, gold, and silver using the Yahoo Finance API.
+使用雅虎金融API显示石油、黄金和银的当前价格。
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
+[![屏幕截图](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
 
-## URL
+## 网址
 
-Loads a URL passed on the command line in a window.
+在窗口中加载命令行传递的 URL。
 
-## Other Resources
+## 其他资源
 
-We hope these apps help you get started using Electron. Here are a handful other resources for learning more:
+我们希望这些应用帮助您开始使用 Electron。 以下是用于学习更多的其他资源：
 
-- [electron-quick-start](https://github.com/electron/electron-quick-start): A minimal Electron application boilerplate.
-- [Electron API Demos](https://github.com/electron/electron-api-demos): An interactive app that demonstrates the core features of the Electron API
-- [electronjs.org/docs/all](https://electronjs.org/docs/all/): All of the Electron documentation together on a single searchable page.
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Another collection of sample applications for Electron, compiled by Electron maintainer [Haojian Wu](https://github.com/hokein).
-- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - A GitHub repository that collects the latest and greatest Electron-related tutorials, books, videos, etc.
+- [电子快速启动](https://github.com/electron/electron-quick-start): 最小的 Electron 应用程序锅炉。
+- [Electron API Demos](https://github.com/electron/electron-api-demos): 一个演示Electron API 核心特性的交互式应用程序
+- [electronjs.org/docs/all](https://electronjs.org/docs/all/): 所有Electron 文档都放在一个单一可搜索的页面上。
+- [钩子/电子采样应用程序](https://github.com/hokein/electron-sample-apps): 由Electron维护者 [Haojian Wu 编译的另一套Electron样本应用程序](https://github.com/hokein)
+- [超棒的electron](https://github.com/sindresorhus/awesome-electron) - 一个GitHub 存储库，它收集最新和最大的 Electron-related 教程、书籍、视频等。

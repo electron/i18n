@@ -45,7 +45,7 @@
 * Използване на `sh` вместо `cmd` в блокове от код (поради синтактичните подчертавания).
 * Редовете трябва да са завършени в 80 колони.
 * Без вложени списъци с повече от 2 нива (поради рендерирането на Markdown).
-* Всички `js` и `javascript` блокове от код са ограничени с [standard-markdown](http://npm.im/standard-markdown).
+* Всички `js` и `javascript` блокове от код са ограничени с [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Използване на думи
 

@@ -13,27 +13,27 @@ Estas são as diretrizes para escrever a documentação do Electron.
 Usado o `Inicio Rápido` como exemplo:
 
 ```markdown
-# Quick Start
+# Início rápido
 
 ...
 
-## Main process
+## Processo principal
 
 ...
 
-## Renderer process
+## Processo de renderização
 
 ...
 
-## Run your app
+## Execute seu aplicativo
 
 ...
 
-### Run as a distribution
+### Executar como um
 
-...
+ de distribuição...
 
-### Manually downloaded Electron binary
+### Binário do Electron baixado manualmente
 
 ...
 ```
@@ -45,7 +45,7 @@ Para referencias à API, existem exceções a está regra.
 * Use `sh` ao invés de `cmd` nos blocos de código (devido ao destaque de sintaxe).
 * Linhas devem ser quebradas em 80 colunas.
 * No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* All `js` and `javascript` code blocks are linted with [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Picking words
 
@@ -95,10 +95,10 @@ Using `autoUpdater` as an example:
 * Constructors must be listed with `###`-level titles.
 * [Métodos estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devem ser listados sob um capítulo `### Métodos estáticos`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Todos os métodos que têm um valor de retorno devem começar sua descrição com "Retorna `[TYPE]` - Descrição do retorno"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* As Propriedades da Instância devem ser listadas abaixo de um `### Propriedades de Instância` capítulo.
   * Propriedades da instância devem começar com "A [Tipo de Propriedade]..."
 
 Usando as classes `Session` e `Cookies` como exemplo:
@@ -142,15 +142,15 @@ O capítulo de métodos deve estar no seguinte formato:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Uma descrição de parâmetro.
+* `optional` Integer (opcional) - Outra descrição do parâmetro.
 
 ...
 ```
 
 O título pode ser `###` ou `###`-levels dependendo do caso de ser um método de um módulo ou de uma classe.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para módulos, o `objectName` é o nome do módulo. Para classes, deve ser o nome da instância da classe, e não deve ser o mesmo que o nome do módulo .
 
 Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
@@ -160,7 +160,7 @@ Os argumentos opcionais são indicados por colchetes `[]` em torno do argumento 
 obrigatório[, opcional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Abaixo do método, há informações mais detalhadas sobre cada um dos argumentos. O tipo de argumento é anotado por qualquer um dos tipos comuns:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Número`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

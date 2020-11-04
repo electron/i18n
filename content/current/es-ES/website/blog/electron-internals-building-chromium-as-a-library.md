@@ -1,84 +1,84 @@
 ---
-title: 'Electron Internals: Building Chromium as a Library'
+title: 'Internacionales de electrón: Construir cromo como una biblioteca'
 author: zcbenz
 date: '2017-03-03'
 ---
 
-Electron is based on Google's open-source Chromium, a project that is not necessarily designed to be used by other projects. This post introduces how Chromium is built as a library for Electron's use, and how the build system has evolved over the years.
+Electron se basa en el cromo de código abierto de Google, un proyecto que no está necesariamente diseñado para ser utilizado por otros proyectos. Esta publicación presenta cómo se construye Chromium como una biblioteca para uso de Electron y cómo el sistema de compilación ha evolucionado a lo largo de los años.
 
 ---
 
-## Using CEF
+## Usando CEF
 
-The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
+El Chromium Embedded Framework (CEF) es un proyecto que convierte Chromium en una biblioteca, y proporciona APIs estables basadas en el código base de Chromium. Versiones muy tempranas del editor Atom y NW.js usaron CEF.
 
-To maintain a stable API, CEF hides all the details of Chromium and wraps Chromium's APIs with its own interface. So when we needed to access underlying Chromium APIs, like integrating Node.js into web pages, the advantages of CEF became blockers.
+Para mantener una API estable, CEF oculta todos los detalles de Chromium y envuelve las APIs de Chromium con su propia interfaz. Así que cuando necesitábamos acceder a las API de Chromium subyacentes, como integrar Node.js en páginas web, las ventajas del CEF se convirtieron en bloqueadores.
 
-So in the end both Electron and NW.js switched to using Chromium's APIs directly.
+Así que al final tanto Electron como NW.js cambiaron a usar las APIs de Chromium directamente.
 
-## Building as part of Chromium
+## Construyendo como parte del cromo
 
-Even though Chromium does not officially support outside projects, the codebase is modular and it is easy to build a minimal browser based on Chromium. The core module providing the browser interface is called Content Module.
+A pesar de que Chromium no apoya oficialmente proyectos externos, el código base es modular y es fácil construir un navegador mínimo basado en Chromium. El módulo núcleo que proporciona la interfaz del navegador se llama Content Module.
 
-To develop a project with Content Module, the easiest way is to build the project as part of Chromium. This can be done by first checking out Chromium's source code, and then adding the project to Chromium's `DEPS` file.
+Para desarrollar un proyecto con el Módulo de Contenido, la forma más fácil es construir el proyecto como parte de Chromium. Esto se puede hacer primero revisando el código fuente de Chromium y luego agregando el proyecto al archivo `DEPS` de Chromium.
 
-NW.js and very early versions of Electron are using this way for building.
+NW.js y versiones muy tempranas de Electron están utilizando de esta manera para la construcción.
 
-The downside is, Chromium is a very large codebase and requires very powerful machines to build. For normal laptops, that can take more than 5 hours. So this greatly impacts the number of developers that can contribute to the project, and it also makes development slower.
+El inconveniente es que el cromo es una base de código muy grande y requiere máquinas muy potentes para construir. Para portatiles normales, esto puede tardar más de 5 horas. Así que esto tiene un gran impacto en el número de desarrolladores que pueden contribuir al proyecto , y también hace que el desarrollo sea más lento.
 
-## Building Chromium as a single shared library
+## Creando cromo como una sola biblioteca compartida
 
-As a user of Content Module, Electron does not need to modify Chromium's code under most cases, so an obvious way to improve the building of Electron is to build Chromium as a shared library, and then link with it in Electron. In this way developers no longer need to build all off Chromium when contributing to Electron.
+Como usuario del Módulo de Contenido, Electron no necesita modificar el código de Chromium en la mayoría de los casos, tan una manera obvia de mejorar la construcción de Electron es construir Chromium como una biblioteca compartida, y luego enlazar con él en Electron. De esta forma los desarrolladores ya no necesitan construir todo Chromium cuando contribuyen a Electron.
 
-The [libchromiumcontent](https://github.com/electron/libchromiumcontent) project was created by [@aroben](https://github.com/aroben) for this purpose. It builds the Content Module of Chromium as a shared library, and then provides Chromium's headers and prebuilt binaries for download. The code of the initial version of libchromiumcontent can be found [in this link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+El proyecto [libchromiumcontent](https://github.com/electron/libchromiumcontent) fue creado por [@aroben](https://github.com/aroben) para este propósito. Construye el Módulo de Contenido de Chromium como una biblioteca compartida, y luego proporciona cabeceras de Chromium y binarios preconstruidos para su descarga. El código de la versión inicial de libchromiumcontent puede encontrarse [en este enlace](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
 
-The [brightray](https://github.com/electron/brightray) project was also born as part of libchromiumcontent, which provides a thin layer around Content Module.
+El proyecto [brightray](https://github.com/electron/brightray) también nació como parte de libchromiumcontent, que proporciona una capa fina alrededor del Módulo de Contenido.
 
-By using libchromiumcontent and brightray together, developers can quickly build a browser without getting into the details of building Chromium. And it removes the requirement of a fast network and powerful machine for building the project.
+Al utilizar juntos libchromiumcontent y brightray, los desarrolladores pueden construir rápidamente un navegador sin entrar en los detalles de construir Chromium. Y elimina el requisito de una red rápida y una máquina potente para construir el proyecto.
 
-Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
+Aparte de Electron, también hubo otros proyectos basados en Chromium construidos de esta forma , como el navegador [Breach](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
 ## Filtrando símbolos exportados
 
-On Windows there is a limitation of how many symbols one shared library can export. As the codebase of Chromium grew, the number of symbols exported in libchromiumcontent soon exceeded the limitation.
+En Windows hay una limitación de cuántos símbolos una biblioteca compartida puede exportar. A medida que creció el código base de Chromium, el número de símbolos exportados en libchromiumcontent excedió pronto la limitación.
 
-The solution was to filter out unneeded symbols when generating the DLL file. It worked by [providing a `.def` file to the linker](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), and then using a script to [judge whether symbols under a namespace should be exported](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
+La solución era filtrar los símbolos innecesarios al generar el archivo DLL. Funcionó por [proporcionando un `. archivo ef` al enlazador](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), y luego usando un script para [juzgar si los símbolos bajo un espacio de nombres deben ser exportados](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
 
-By taking this approach, though Chromium kept adding new exported symbols, libchromiumcontent could still generate shared library files by stripping more symbols.
+Al adoptar este enfoque, aunque Chromium seguía agregando nuevos símbolos exportados, libchromiumcontent todavía podría generar archivos de librería compartidos despojando más símbolos .
 
-## Component build
+## Componente compilado
 
-Before talking about the next steps taken in libchromiumcontent, it is important to introduce the concept of component build in Chromium first.
+Antes de hablar de los siguientes pasos dados en libchromiumcontent, es importante introducir primero el concepto de compilación de componentes en Chromium.
 
-As a huge project, the linking step takes very long in Chromium when building. Normally when a developer makes a small change, it can take 10 minutes to see the final output. To solve this, Chromium introduced component build, which builds each module in Chromium as separated shared libraries, so the time spent in the final linking step becomes unnoticeable.
+Como un proyecto enorme, el paso de enlace lleva mucho tiempo en Chromium cuando se construye. Normalmente cuando un desarrollador realiza un pequeño cambio, puede tardar 10 minutos en ver la salida final . Para resolver esto, Chromium introdujo la compilación de componentes, que construye cada módulo en Chromium como librerías compartidas separadas, así que el tiempo que pasa en el paso final de enlace se hace invisible.
 
-## Shipping raw binaries
+## Envío de binarios sin procesar
 
-With Chromium continuing to grow, there were so many exported symbols in Chromium that even the symbols of Content Module and Webkit were more than the limitation. It was impossible to generate a usable shared library by simply stripping symbols.
+Con el cromo continuando creciendo, había tantos símbolos exportados en Chromium que incluso los símbolos del Módulo de Contenido y Webkit eran más que la limitación. Era imposible generar una biblioteca compartida utilizable con simplemente símbolos de desguace.
 
-In the end, we had to [ship the raw binaries of Chromium](https://github.com/electron/libchromiumcontent/pull/98) instead of generating a single shared library.
+Al final, tuvimos que [enviar los binarios crudos de Chromium](https://github.com/electron/libchromiumcontent/pull/98) en lugar de generar una sola biblioteca compartida.
 
-As introduced earlier there are two build modes in Chromium. As a result of shipping raw binaries, we have to ship two different distributions of binaries in libchromiumcontent. One is called `static_library` build, which includes all static libraries of each module generated by the normal build of Chromium. The other is `shared_library`, which includes all shared libraries of each module generated by the component build.
+Como se ha introducido anteriormente, hay dos modos de construcción en Chromium. Como resultado de enviar binarios crudos, tenemos que enviar dos distribuciones diferentes de binarios en libchromiumcontent. Una se llama build `static_library` , que incluye todas las librerías estáticas de cada módulo generado por la compilación normal de Chromium. El otro es `shared_library`, que incluye todas las librerías compartidas de cada módulo generado por la compilación de componentes.
 
-In Electron, the Debug version is linked with the `shared_library` version of libchromiumcontent, because it is small to download and takes little time when linking the final executable. And the Release version of Electron is linked with the `static_library` version of libchromiumcontent, so the compiler can generate full symbols which are important for debugging, and the linker can do much better optimization since it knows which object files are needed and which are not.
+En Electron, la versión de depuración está enlazada con la versión de `shared_library` de libchromiumcontent, porque es pequeño para descargar y toma poco tiempo al enlazar el ejecutable final. Y la versión de lanzamiento de Electron está enlazada con la versión `static_library` de libchromiumcontent, para que el compilador pueda generar símbolos completos que son importantes para la depuración, y el enlazador puede hacer una optimización mucho mejor, ya que sabe qué archivos de objeto son necesarios y cuáles no.
 
-So for normal development, developers only need to build the Debug version, which does not require a good network or powerful machine. Though the Release version then requires much better hardware to build, it can generate better optimized binaries.
+Así que para el desarrollo normal, los desarrolladores sólo necesitan construir la versión de depuración, que no requiere una buena red o una máquina potente. Aunque la versión de lanzamiento requiere un hardware mucho mejor para construir, puede generar mejores binarios optimizados.
 
-## The `gn` update
+## La actualización de `gn`
 
-Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
+Siendo uno de los proyectos más grandes del mundo, la mayoría de los sistemas normales no son aptos para construir Chromium, y el equipo de Chromium desarrolla sus propias herramientas de construcción .
 
-Earlier versions of Chromium were using `gyp` as a build system, but it suffers from being slow, and its configuration file becomes hard to understand for complex projects. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
+Las versiones anteriores de Chromium usaban `gyp` como un sistema de compilación, pero sufre de ser lento, y su archivo de configuración se vuelve difícil de entender para proyectos complejos. Después de años de desarrollo, Chromium cambió a `gn` como un sistema de construcción , el cual es mucho más rápido y tiene una arquitectura clara.
 
-One of the improvements of `gn` is to introduce `source_set`, which represents a group of object files. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. By using `gn`, each module now only generates a bunch of object files, and the final executable just links all the object files together, so the intermediate static library files are no longer generated.
+Una de las mejoras de `gn` es introducir `source_set`, que representa un grupo de archivos de objeto. En `gyp`, cada módulo fue representado por `static_library` o `shared_library`, y para la compilación normal de Chromium, cada módulo generó una biblioteca estática y fueron enlazados juntos en el ejecutable final. Al usar `gn`, cada módulo ahora solo genera un puñado de archivos de objeto, y el ejecutable final enlaza todos los archivos objeto juntos, para que los archivos estáticos intermedios ya no se generen.
 
-This improvement however made great trouble to libchromiumcontent, because the intermediate static library files were actually needed by libchromiumcontent.
+Sin embargo, esta mejora hizo grandes problemas a libchromiumcontent, porque los archivos intermedios de librería estática eran realmente necesarios por libchromiumcontent.
 
-The first try to solve this was to [patch `gn` to generate static library files](https://github.com/electron/libchromiumcontent/pull/239), which solved the problem, but was far from a decent solution.
+El primer intento de resolver esto fue [parche `gn` para generar librerías estáticas archivos](https://github.com/electron/libchromiumcontent/pull/239), que resolvió el problema, pero estaba lejos de una solución decente.
 
-The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
+El segundo intento fue realizado por [@alespergl](https://github.com/alespergl) a [produce librerías estáticas personalizadas de la lista de archivos de objetos](https://github.com/electron/libchromiumcontent/pull/249). Usó un truco para ejecutar primero una construcción tonta para recolectar una lista de archivos de objetos generados, y luego construye las librerías estáticas alimentando `gn` con la lista. Solo hizo cambios mínimos en el código fuente de Chromium, y mantuvo la arquitectura de construcción de Electron.
 
 ## Summary
 
-As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
+Como puede ver, comparado con la construcción de Electron como parte de Chromium, la construcción de Chromium como biblioteca toma mayores esfuerzos y requiere mantenimiento continuo . Sin embargo, este último elimina el requerimiento de hardware poderoso para construir Electron, por lo tanto, permitiendo que una gama mucho mayor de desarrolladores para construir y contribuir a Electron. El esfuerzo merece la pena completamente.
 

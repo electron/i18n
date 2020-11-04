@@ -4,7 +4,7 @@ With [Web Workers][web-workers], it is possible to run JavaScript in OS-level th
 
 ## معالجات متعددة Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+من الممكن استخدام العقدة. s ميزات في العاملين في شبكة Electrons، لفعل هكذا يجب تعيين خيار `nodeIntegrationInWorker` إلى `true` in `webPreferences`.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,19 +14,19 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker` يمكن استخدامه بشكل مستقل عن `عقد التكامل`، لكن `خانة الرمل` يجب عدم تعيينها إلى `صحيح`.
 
 ## واجهات تطبيقات البرمجية المتاحة
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+جميع الوحدات المدمجة من Node.js مدعومة في عمال الويب، و `asar` يمكن قراءة الأرشيف مع Node.js APIs. ومع ذلك، لا يمكن استخدام أي وحدة من وحدات Electron's المدمجة في بيئة متعددة الخيوط.
 
 ## وحدات Node.js الأصلية
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+يمكن تحميل أي وحدة Node.js الأصلية مباشرة في عمال الويب، ولكن يوصى بشدة بعدم القيام بذلك. معظم الوحدات الأصلية الموجودة مكتوبة بافتراض بيئة ذات حلق واحد، واستخدامها في عمال الشبكة سوف تؤدي إلى حوادث وفساد الذاكرة.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+لاحظ ذلك حتى لو كانت عقدة أصلية. الوحدة النمطية آمنة في المواضيع لا تزال غير آمنة لتحميلها في عامل ويب لأن العملية `فتح` دالة ليست موضوع آمن.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+الطريقة الوحيدة لتحميل الوحدة المحلية بأمان في الوقت الحاضر، هو التأكد من أن التطبيق لا يحمّل أي وحدات أصلية بعد أن يبدأ عمال الويب.
 
 ```javascript
 process.dlopen = () => {

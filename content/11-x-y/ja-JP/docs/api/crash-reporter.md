@@ -107,7 +107,7 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 
 * `key` String - パラメータキー。39 バイト未満でなければなりません。
 
-Remove an extra parameter from the current set of parameters. 今後のクラッシュにこのパラメータは含まれなくなります。
+現在のパラメータセットから追加パラメータを削除します。 今後のクラッシュにこのパラメータは含まれなくなります。
 
 ### `crashReporter.getParameters()`
 

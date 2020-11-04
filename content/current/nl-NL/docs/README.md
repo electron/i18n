@@ -4,7 +4,7 @@ Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electr
 
 ## Veelgestelde vragen (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Er zijn vragen die heel vaak worden gesteld. Bekijk dit voor het maken van een probleem:
 
 * [Electron FAQ](faq.md)
 
@@ -15,20 +15,20 @@ There are questions that are asked quite often. Check this out before creating a
   * [Windows instellen](tutorial/development-environment.md#setting-up-windows)
   * [Linux instellen](tutorial/development-environment.md#setting-up-linux)
   * [Een tekstbewerker kiezen](tutorial/development-environment.md#a-good-editor)
-* [Maak je eerste App](tutorial/first-app.md)
-  * [Electron installeren](tutorial/first-app.md#installing-electron)
-  * [Electron Development in een notendop](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Je App starten](tutorial/first-app.md#running-your-app)
+* [Maak je eerste App](tutorial/quick-start.md)
+  * [Prerequisites](tutorial/quick-start.md#prerequisites)
+  * [Basistoepassing aanmaken](tutorial/quick-start.md#create-a-basic-application)
+  * [Pakket en verdeel de applicatie](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates en CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools en Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Applicatie architectuur](tutorial/application-architecture.md)
-  * [Hoofd en Renderer Processen](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Het gebruik maken van Electron's API's](tutorial/application-architecture.md#using-electron-apis)
-  * [Het gebruik maken van Node.js API's](tutorial/application-architecture.md#using-nodejs-apis)
+* [Applicatie architectuur](tutorial/quick-start.md#application-architecture)
+  * [Hoofd en Renderer Processen](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
   * [Het gebruik maken van Native Node.js Modules](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Toevoegen van functionaliteit aan uw App
@@ -43,12 +43,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [Representatief bestand voor macOS BrowserWindows](tutorial/represented-file.md)
   * [Drag & Drop Bestanden](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Dark Mode](tutorial/dark-mode.md)
+  * [Webembeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Toegankelijkheidsfuncties handmatig inschakelen](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testen en Debuggen](tutorial/application-debugging.md)
   * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
   * [Debuggen van het hoofdproces met Visual Studio Code](tutorial/debugging-main-process-vscode.md)
@@ -90,7 +90,6 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
   * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Voeg uitgepakte bestanden toe aan asar archieven](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
-* [Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,13 +126,14 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocool](api/protocol.md)
 * [scherm](api/screen.md)
 * [sessie](api/session.md)
-* [systeemVoorkeuren](api/system-preferences.md)
+* [systemPreferences](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)

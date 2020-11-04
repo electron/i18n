@@ -1,33 +1,33 @@
-# Custom Linux Desktop Launcher Actions
+# Vlastní akce Linuxového Launcheru
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+V mnoha linuxových prostředích můžete přidat vlastní položky do svého launcheru úpravou souboru `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
-__Launcher shortcuts of Audacious:__
+__Spouštěč zkratek Audaciou:__
 
-![audacious][3]
+![smělé][3]
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+Obecně řečeno, zkratky jsou přidány zadáním vlastnosti `Name` a `Exec` pro každý záznam v nabídce zástupců. Jednota spustí pole `Exec` po kliknutí uživatele. Formát je následující:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Akce=PlayPause;Další;Předchozí
 
-[Desktop Action PlayPause]
+[[Desktop Action PlayPause]
 Name=Play-Pause
 Exec=audacious -t
-OnlyShowIn=Unity;
+Pouze ShowIn=Jednotka;
 
-[Desktop Action Next]
+[Akce plochy]
 Name=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+OnlyShowIn=Jednota;
 
-[Desktop Action Previous]
-Name=Previous
+[Předchozí akce plochy]
+Name=Předchozí
 Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+Upřednostňovaný způsob, jak vaší aplikaci sdělit, co má udělat, je použít parametry. Ty můžete najít ve své aplikaci v globální proměnné `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 

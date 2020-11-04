@@ -4,7 +4,7 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt puse destul de des. Verifică asta înainte de a crea o problemă:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 
@@ -15,20 +15,20 @@ There are questions that are asked quite often. Check this out before creating a
   * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
   * [Configurarea Linux](tutorial/development-environment.md#setting-up-linux)
   * [Alegerea unui editor](tutorial/development-environment.md#a-good-editor)
-* [Crearea primei tale aplicații](tutorial/first-app.md)
-  * [Instalarea Electron](tutorial/first-app.md#installing-electron)
-  * [Dezvoltarea Electron într-un Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Rularea primei tale aplicații](tutorial/first-app.md#running-your-app)
+* [Crearea primei tale aplicații](tutorial/quick-start.md)
+  * [Cerințe preliminare](tutorial/quick-start.md#prerequisites)
+  * [Creați o aplicație de bază](tutorial/quick-start.md#create-a-basic-application)
+  * [Pachet și distribuire cerere](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alte instrumente și Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arhitectură aplicație](tutorial/application-architecture.md)
-  * [Procese principale și de redare](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Utilizarea API-ului Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Utilizarea API-ului Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+* [Arhitectură aplicație](tutorial/quick-start.md#application-architecture)
+  * [Procese principale și de redare](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
   * [Utilizarea modulelor native Node.js](tutorial/using-native-node-modules.md)
   * [Strategii de Performanță](tutorial/performance.md)
 * Adăugarea funcționalităților în aplicația ta
@@ -43,12 +43,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [Fișier reprezentant pentru macOS BrowserWindows](tutorial/represented-file.md)
   * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
-  * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Încorporări web în Electron](tutorial/web-embeds.md)
 * [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Activare manuală caracteristici de accesibilitate](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testare și depanare](tutorial/application-debugging.md)
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
   * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
@@ -90,7 +90,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
   * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Utilizarea pluginului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,6 +126,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notificare](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)

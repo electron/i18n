@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Dat'
+title: '每周项目：Dat'
 author:
   - karissa
   - yoshuawuyts
@@ -8,86 +8,86 @@ author:
 date: '2017-02-21'
 ---
 
-This week's featured project is [Dat](https://datproject.org/), a [grant-funded](https://changelog.com/rfc/6), open source, decentralized tool for distributing data sets. Dat is built and maintained by a [geodistributed team](https://datproject.org/team), many of whom helped write this post.
+本周的精选项目是 [Dat](https://datproject.org/), a [赠款供资的](https://changelog.com/rfc/6), 开源, 分散化工具 用于发布数据集。 奶牛由一个 [地理分布式团队](https://datproject.org/team)建造和维护，其中许多人帮助 写此文章。
 
 ---
 
-[![A screenshot of the main view of dat-desktop, showing a few rows of shared
-dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
+[![数据-桌面主视图的截图，显示一些共享的
+秒数](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
 
-## First off what is Dat?
+## 首先关闭什么是日期？
 
-We wanted to bring the best parts of peer to peer and distributed systems to data sharing. We started with scientific data sharing and then began branching out into research institutions, government, public service, and open source teams as well.
+我们希望将同侪的最佳部分带给同侪和分布式的数据共享系统。 我们首先是分享科学数据，然后开始分成研究机构、政府、公共服务和开放源码小组。
 
-Another way to think about it is a sync and upload app like Dropbox or BitTorrent Sync, except Dat is [open source](https://github.com/datproject). Our goal is to be a a powerful, open source, non-profit data sharing software for big, small, medium, small-batch and big-batch data.
+另一种思考方法是 Dropbox 或 BitTorrent Sync 等同步和上传应用程序，但Dat 是 [开源](https://github.com/datproject)。 我们的目标是成为一个强大、开放源码、非营利的数据共享软件，用于大、中、小批和大批数据。
 
-To use the `dat` CLI tool, all you have to type is:
+要使用 `dat` CLI 工具，您必须输入的只能是：
 
 ```sh
-dat share path/to/my/folder
+dat共享路径/到/my/文件夹
 ```
 
-And dat will create a link that you can use to send that folder to someone else -- no central servers or third parties get access to your data. Unlike BitTorrent, it's also impossible to sniff who is sharing what ([see the Dat Paper draft for more details](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)).
+而且dat 会创建一个链接，您可以用来将该文件夹发送给他人—— 没有中央服务器或第三方可以访问您的数据。 与 BitTorrent不同的是，也不可能断开谁在分享什么([查看Dat Paper 草稿了解更多详情](https://github.com/datproject/docs/blob/master/papers/dat-paper.md))。
 
-## Now we know what Dat is. How does Dat Desktop fit in?
+## 现在我们知道什么是Dat。 Dat 桌面如何适合？
 
-[Dat Desktop](https://github.com/datproject/dat-desktop) is a way to make Dat accessible to people who can't or don't want to use the command line. You can host multiple dats on your machine and serve the data over your network.
+[Dat Desktop](https://github.com/datproject/dat-desktop) 是一种让无法或不想使用命令行的人可以访问Dat的方式。 您可以在您的机器上托管多个秒，并通过您的网络提供数据。
 
-## Can you share some cool use cases?
+## 您能分享一些酷的使用案例吗？
 
-### DataRefuge + Project Svalbard
+### DataRefuge + 项目 Svalbard
 
-We're working on a thing codenamed [Project Svalbard](https://github.com/datproject/svalbard) that is related to [DataRefuge](http://www.ppehlab.org/datarefuge), a group working to back up government climate data at risk of disappearing. Svalbard is named after the Svalbard Global Seed Vault in the Arctic which has a big underground backup library of plant DNA. Our version of it is a big version controlled collection of public scientific datasets. Once we know and can trust the metadata, we can build other cool projects like a [distributed volunteer data storage network](https://github.com/datproject/datasilo/).
+我们正在处理一个被编解码的 [项目 Svalbard](https://github.com/datproject/svalbard) 与 [DataRefuge](http://www.ppehlab.org/datarefuge)有关， 一个致力于备份有消失危险的政府气候数据的小组。 斯瓦尔巴德以北极的斯瓦尔巴全球种子库命名，该库有一个大型地下备份的DNA工厂库。 我们的版本是一个大型的、有控制的公共科学数据集收集。 一旦我们知道并可以信任元数据，我们就可以建立其他酷的项目，例如 [分布式志愿数据存储网络](https://github.com/datproject/datasilo/)。
 
-### California Civic Data Coalition
+### 加利福尼亚公民数据联盟
 
-[CACivicData](http://www.californiacivicdata.org/) is an open-source archive serving up daily downloads from CAL-ACCESS, California's database tracking money in politics. They do [daily releases](http://calaccess.californiacivicdata.org/downloads/0), which means hosting a lot of duplicate data across their zip files. We're working on hosting their data as a Dat repository which will reduce the amount of hassle and bandwidth needed to refer to specific version or update to a newer version.
+[CACivicData](http://www.californiacivicdata.org/) 是一个开放源码档，每天从加利福尼亚的CAL-ACCESS数据库中下载，追踪政治中的资金。 他们真的 [个每日版本](http://calaccess.californiacivicdata.org/downloads/0)，这意味着在他们的 zip 文件中托管大量重复的数据。 我们正在将他们的数据托管为一个Dat存储库，它将减少用于引用特定版本或更新到更新版本所需的哈希和带宽数量。
 
-## Electron Updates
+## Electron 更新
 
-This one isn't concrete yet, but we think a fun use case would be putting a compiled Electron app in a Dat repository, then using a Dat client in Electron to pull the latest deltas of the built app binary, to save on download time but also to reduce bandwidth costs for the server.
+这个还不是具体的，但我们认为一个有趣的使用案例会把编译后的 Electron 应用程序放入一个Dat 仓库， 然后使用 Electron 的 Dat 客户端来拉取已建应用程序二进制的最新三角形， 节省下载时间，但也可以降低服务器的带宽成本。
 
-## Who should be using Dat Desktop?
+## 谁应该使用 Dat 桌面？
 
-Anyone who wants to share and update data over a p2p network. Data scientists, open data hackers, researchers, developers. We're super receptive to feedback if anyone has a cool use case we haven't thought of yet. You can drop by our [Gitter Chat](https://gitter.im/datproject/discussions) and ask us anything!
+任何想要通过p2p 网络分享和更新数据的人。 数据科学家、开放数据黑客、研究人员、开发人员。 如果任何人都有我们尚未想到的很酷的使用情况，我们完全愿意接受反馈。 你可以掉落我们的 [Gitter 聊天](https://gitter.im/datproject/discussions) 并问我们任何东西！
 
-## What's coming next in Dat and Dat Desktop?
+## Dat和Dat 桌面下一步是什么？
 
-User accounts and metadata publishing. We are working on a Dat registry web app to be deployed at [datproject.org](https://datproject.org/) which will basically be an 'NPM for datasets', except the caveat being we are just going to be a metadata directory and the data can live anywhere online (as opposed to NPM or GitHub where all the data is centrally hosted, because source code is small enough you can fit it all in one system). Since many datasets are huge, we need a federated registry (similar to how BitTorrent trackers work). We want to make it easy for people to find or publish datasets with the registry from Dat Desktop, to make the data sharing process frictionless.
+用户帐户和元数据发布。 我们正在开发一个 Dat 注册表网络应用，部署在 [datitproject。 rg](https://datproject.org/) 基本上是数据集的“NPM”， 除了告诫，我们只是一个元数据目录，数据可以在任何地方在线存放(而不是NPM 或 GitHub 则是在中央存放的数据) 因为源代码太小，你可以在一个系统中适应它)。 由于许多数据集是巨大的，我们需要一个联邦注册表(类似于BitTorrent 追踪器如何工作)。 我们想让人们更容易从Dat Desktop找到或发布注册表中的数据集， 使数据共享过程变得没有摩擦。
 
-Another feature is multi-writer/collaborative folders. We have big plans to do collaborative workflows, maybe with branches, similar to git, except designed around dataset collaboration. But we're still working on overall stability and standardizing our protocols right now!
+另一个功能是多作者/协作文件夹。 我们有开展协作工作流的大计划，或许与分支相似，只是围绕数据集协作设计的。 但我们仍在努力实现总体稳定并使我们的协议标准化！
 
-## Why did you choose to build Dat Desktop on Electron?
+## 您为什么选择在 Electron 上构建Dat 桌面？
 
-Dat is built using Node.js, so it was a natural fit for our integration. Beyond this, our users use a variety of machines since scientists, researchers and government officials may be forced to use certain setups for their institutions -- this means we need to be able to target Windows and Linux as well as Mac. Dat Desktop gives us that quite easily.
+Dat是使用Node.js建造的，所以它自然适合于我们的一体化。 除此之外，我们的用户使用各种机器 作为科学家， 研究人员和政府官员可能被迫为其机构使用某些设置——这意味着我们需要能够瞄准Windows和Linux以及Mac。 Dat Desktop 让我们很容易做到这一点。
 
-## What are some challenges you've faced while building Dat and Dat Desktop?
+## 建造Dat和Dat 桌面时你面临什么挑战？
 
-Figuring out what people want. We started with tabular datasets, but we realized that it was a bit of a complicated problem to solve and that most people don't use databases. So half way through the project, we redesigned everything from scratch to use a filesystem and haven't looked back.
+图示人们想要什么。 我们从表格数据集开始， 但我们认识到，解决这个问题有点复杂，而且大多数人不使用数据库。 因此我们从零开始重新设计了所有的文件系统，并且没有回头看。
 
-We also ran into some general Electron infrastructure problems, including:
+我们还遇到了一些一般的Electron基础设施问题，包括：
 
-- Telemetry - how to capture anonymous usage statistics
-- Updates - It's kind of piecemeal and magic to set up automatic updates
-- Releases - XCode signing, building releases on Travis, doing beta builds, all were challenges.
+- 远程-如何捕获匿名使用统计
+- 更新 - 设置自动更新是零星和魔法的
+- 发布-XCode 签署、在 Travis上的建筑发布，做beta 构建，所有这些都是挑战。
 
-We also use Browserify and some cool Browserify Transforms on the 'front end' code in Dat Desktop (which is kind of weird because we still bundle even though we have native `require` -- but it's because we want the Transforms). To better help manage our CSS we switched from Sass to using [sheetify](https://github.com/stackcss/sheetify). It's greatly helped us modularize our CSS and made it easier to move our UI to a component oriented architecture with shared dependencies. For example [dat-colors](https://github.com/Kriesse/dat-colors) contains all of our colors and is shared between all our projects.
+我们也使用 Browserify 和 Dat Desktop 中的 '前端' 代码上的一些酷的 Browserify 变换(这种变异是一种怪异，因为我们仍然捆绑着，尽管我们原生的 `需要` — 但因为我们想要转换)。 为了更好地帮助管理我们的 CSS ，我们已经切换到使用 [Sheetify](https://github.com/stackcss/sheetify)。 它极大地帮助我们将我们的 CSS 模块化，并使我们更容易将我们的 UI 移动到一个具有共享依赖性的面向组件的结构。 例如， [dat-colors](https://github.com/Kriesse/dat-colors) 包含我们所有的颜色，并且共享于我们所有的项目。
 
-We've always been a big fan of standards and minimal abstractions. Our whole interface is built using regular DOM nodes with just a few helper libraries. We've started to move some of these components into [base-elements](https://base.choo.io), a library of low-level reusable components. As with most of our technology we keep iterating on it until we get it right, but as a team we have a feeling we're heading in the right direction here.
+我们一向是标准和最起码的抽象的很大的粉丝。 我们的整个接口是使用普通的DOM节点建立的，只有几个助手库。 我们已经开始将这些组件中的一些移动到 [基本元素](https://base.choo.io), 这是一个低级可重复使用组件的库。 如同我们大部分技术一样，我们一直在重复，直到我们做得对。 但作为一个团队，我们有一种感觉，我们正朝着正确的方向前进。
 
-## In what areas should Electron be improved?
+## 应在哪些领域改进Electron？
 
-We think the biggest pain point is native modules. Having to rebuild your modules for Electron with npm adds complexity to the workflow. Our team developed a module called [`prebuild`](http://npmjs.org/prebuild) which handles pre-built binaries, which worked well for Node, but Electron workflows still required a custom step after installing, usually `npm run rebuild`. It was annoying. To address this we recently switched to a strategy where we bundle all compiled binary versions of all platforms inside the npm tarball. This means tarballs get larger (though this can be optimized with `.so` files - shared libraries), this approach avoids having to run post-install scripts and also avoids the `npm run rebuild` pattern completely. It means `npm install` does the right thing for Electron the first time.
+我们认为，最大的痛苦点是本土模块。 使用 npm 来重建您的 Electron 模块，使工作流程更加复杂。 我们的团队开发了一个叫做 [`prebuild`](http://npmjs.org/prebuild) 的模块，它处理预构建的二进制二进制。 对于节点来说运行良好，但Electron 工作流仍然需要安装后的自定义步骤。通常 `npm 运行重建` 这是令人烦恼的。 为了解决这个问题，我们最近转向了一个策略，将所有编译的平台都捆绑在了npm tarball中。 这意味着tarballs会变得更大(尽管可以通过 `来优化)。 o` 个文件-共享的图书馆， 此方法可以避免运行安装后脚本，同时也可以完全避免 `npm 运行重建` 模式。 这意味着 `npm install` 是第一次为 Electron 做了正确的事情。
 
-## What are your favorite things about Electron?
+## 您最喜欢的 Electron？
 
-The APIs seem fairly well thought out, it's relatively stable, and it does a pretty good job at keeping up to date with upstream Node releases, not much else we can ask for!
+API似乎相当深思熟虑，它相对稳定。 并且它做了相当好的工作，以跟上上上游节点版本的最新版本，我们还不会有太多的其他要求！
 
-## Any Electron tips that might be useful to other developers?
+## 任何可能对其他开发者有用的 Electron 提示？
 
-If you use native modules, give [prebuild](https://www.npmjs.com/package/prebuild) a shot!
+如果你使用本机模块，给 [个预构建](https://www.npmjs.com/package/prebuild) 个shot！
 
-## What's the best way to follow Dat developments?
+## 跟随达特发展的最佳方式是什么？
 
-Follow [@dat_project](https://twitter.com/dat_project) on Twitter, or subscribe to our [email newsletter](https://tinyletter.com/datdata).
+在 Twitter 上关注 [@dat_project](https://twitter.com/dat_project) 或者 订阅我们的 [电子邮件通讯](https://tinyletter.com/datdata)。
 

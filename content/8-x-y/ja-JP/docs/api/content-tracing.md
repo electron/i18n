@@ -34,7 +34,7 @@ app.on('ready', () => {
 
 カテゴリグループの集合を取得します。 新しいコードパスに到達したら、カテゴリグループは変更できます。 詳しくは [組み込みトレースカテゴリのリスト](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) を参照してください。
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **注意:** Electron は `"electron"` という非デフォルトのトレースカテゴリを追加します。 このカテゴリは、Electron 固有のトレースイベントのキャプチャに使用できます。
 
 ### `contentTracing.startRecording(options)`
 

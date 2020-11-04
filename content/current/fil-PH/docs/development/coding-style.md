@@ -36,7 +36,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 ## JavaScript
 
-* Isulat ang istilo ng JavaScript na [standard](https://npm.im/standard).
+* Isulat ang istilo ng JavaScript na [standard](https://www.npmjs.com/package/standard).
 * Ang mga pangalan ng file ay dapat na nakadugtong sa `-` sa halip sa `_`, hal. ang paggamit ng `file-name.js` kaysa sa `file_name.js`, dahil ang mga pangalan ng [github/atom](https://github.com/github/atom) na modyul ay madalas na nasa anyo ng `module-name`. Ang patakaran na ito ay ginagamit lamang sa mga file na `.js`.
 * Gumamit ng mas bagong ES6/ES2015 syntax kung saan ito'y naaangkop
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) para sa mga kinailangan at iba pang mga constant.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).

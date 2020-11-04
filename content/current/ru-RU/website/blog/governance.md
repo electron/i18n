@@ -2,37 +2,37 @@
 title: Управление Electron
 author:
   - ckerr
-  - sofianguy
+  - вежливость
 date: '2019-03-18'
 ---
 
-As Electron grows in popularity for desktop applications, the team working on it has also grown: we have more fulltime maintainers who work for different companies, live in different timezones, and have different interests. We're introducing a governance structure so we can keep growing smoothly.
+По мере роста популярности Electron для настольных приложений, команда также выросла: у нас есть более полномасштабные сопровождающие, работающие для разных компаний, жить в разных часовых поясах и иметь разные интересы. Мы внедряем структуру управления, чтобы мы могли плавно продолжать расти.
 
 ---
 
-## Why are things changing?
+## Почему происходит изменение?
 
-People in the Electron project coordinate in timezones around the world with volunteers, with full-time maintainers, and with several companies who all rely on Electron. Until now, we've been successful with informal coordination; but as the team has grown, we've found that the approach doesn't scale. We also want to make it easier for new contributors to find a place to call home in the project.
+Люди в проекте Electron координируют работу в часовых поясах по всему миру, с добровольцами, с постоянными сопровождающими и несколькими компаниями, которые все полагаются на Electron. До сих пор мы успешно провели неформальную координацию, но по мере роста команды мы обнаружили, что этот подход не масштабируется. Мы также хотим облегчить новым участникам поиск места для звонка домой в проекте.
 
 ## Рабочие группы
 
-Electron governance includes working groups that are responsible for different parts of the project. We're starting out with seven groups:
- * Community & Safety: Handles [Code of Conduct](https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md) issues.
- * Docs & Tooling: Oversees externally-focused tooling (e.g. [Fiddle](https://electronjs.org/fiddle), [Forge](https://electronforge.io/)) and the Electron [documentation](https://electronjs.org/docs).
- * Outreach: Helps grow the Electron community.
- * Releases: Ensures releases are stable and on schedule.
- * Security: Performs security testing and responds to security issues.
- * Upgrades: Integrates upstream upgrades, such as new versions of V8, Chromium, and Node.
- * Website: Maintains and improves [the Electron website](https://electronjs.org/).
+Управление Electron включает в себя рабочие группы, ответственные за различные части проекта. Мы начинаем с семи групп:
+ * Сообщество & Безопасность: обрабатывает вопросы [Кодекса поведения](https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md).
+ * Документ & Инструменты: Наложение инструментов с внешней стороны (например, [Задние](https://electronjs.org/fiddle), [Forge](https://electronforge.io/)) и Документация Electron [](https://electronjs.org/docs).
+ * Outreach: Помогает в развитии сообщества Electron.
+ * Религи: Гарантированные релизы стабильны и по расписанию.
+ * Безопасность: проводит тестирование безопасности и реагирует на вопросы безопасности.
+ * Обновления: Интегрирует обновления, такие как новые версии V8, Chromium и Node.
+ * Веб-сайт: Поддержка и улучшение [сайта Electron](https://electronjs.org/).
 
-These groups will coordinate with each other, but each has their own meeting schedules and agendas to be productive on their own. More details on these groups are available at the [governance repository](https://github.com/electron/governance/blob/master/README.md).
+Эти группы будут координировать друг с другом, однако каждый из них будет иметь свои собственные графики проведения заседаний и повестки дня для того, чтобы быть продуктивными сами по себе. Более подробная информация об этих группах доступна в [репозитории управления](https://github.com/electron/governance/blob/master/README.md).
 
-## Does this change the Electron project's direction?
+## Изменяет ли это направление проекта Electron?
 
-This shouldn't have any direct effect on Electron's direction. If our strategy is successful, working groups will make it easier for new contributors to find topics that interest them, and make maintainers' lives simpler by moving discussion unrelated to their day-to-day work to other groups. If that happens, it may indirectly affect things by having more unblocked people working together.
+Это не должно иметь прямого эффекта на направление Electron. Если наша стратегия будет успешной, рабочие группы облегчат новым участникам поиск интересующих их тем, и сделать жизнь сопровождающих проще, перейдя обсуждение, не связанное с их повседневной работой с другими группами. Если это произойдет, то это может косвенно повлиять на вещи, привлекая больше незаблокированных людей, работающих вместе.
 
-## Where can I learn more?
+## Где я могу узнать больше?
 
- * The governance [repo](https://github.com/electron/governance/) and [charter](https://github.com/electron/governance/tree/master/charter) have information about the new governance structure.
- * Each working group has its own page: [Community](https://github.com/electron/governance/tree/master/wg-community-safety), [Docs & Tools](https://github.com/electron/governance/tree/master/wg-docs-tools), [Outreach](https://github.com/electron/governance/tree/master/wg-outreach), [Releases](https://github.com/electron/governance/tree/master/wg-releases), [Security](https://github.com/electron/governance/tree/master/wg-security), [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades), and [Website](https://github.com/electron/governance/tree/master/wg-website).
- * You can contact the maintainers by [opening an issue](https://github.com/electron/governance/issues) or mailing us at [info@electronjs.org](mailto:info@electronjs.org).
+ * Управление [репозиторий](https://github.com/electron/governance/) и [устав](https://github.com/electron/governance/tree/master/charter) имеют информацию о новой структуре управления.
+ * Каждая рабочая группа имеет свою собственную страницу: [Сообщество](https://github.com/electron/governance/tree/master/wg-community-safety), [Документация & Инструменты](https://github.com/electron/governance/tree/master/wg-docs-tools), [Информационный](https://github.com/electron/governance/tree/master/wg-outreach), [Релизы](https://github.com/electron/governance/tree/master/wg-releases), [Безопасность](https://github.com/electron/governance/tree/master/wg-security), [Улучшение](https://github.com/electron/governance/tree/master/wg-upgrades), и [Веб-сайт](https://github.com/electron/governance/tree/master/wg-website).
+ * Вы можете связаться с сопровождающими [, открыв проблему](https://github.com/electron/governance/issues) или выслав нам по адресу [info@electronjs.org](mailto:info@electronjs.org).

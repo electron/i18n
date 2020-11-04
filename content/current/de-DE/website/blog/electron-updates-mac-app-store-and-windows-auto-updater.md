@@ -1,29 +1,29 @@
 ---
-title: Mac App Store and Windows Auto Updater on Electron
-author: jlord
+title: Mac App Store und Windows Auto Updater auf Electron
+author: jörn
 date: '2015-11-05'
 ---
 
-Recently Electron added two exciting features: a Mac App Store compatible build and a built-in Windows auto updater.
+Vor kurzem hat Electron zwei aufregende Funktionen hinzugefügt: einen Mac App Store kompatiblen Build und ein integriertes Windows Auto Updater.
 
 ---
 
-## Mac App Store Support
+## Mac App Store Unterstützung
 
 <img src='https://cloud.githubusercontent.com/assets/1305617/10928574/a301640c-825e-11e5-918e-a06b7a55dcb4.png' width="300" />
 
-As of `v0.34.0` each Electron release includes a build compatible with the Mac App Store. Previously an application built on Electron would not comply with Apple's requirements for the Mac App Store. Most of these requirements are related to the use of private APIs. In order to sandbox Electron in such a way that it complies with the requirements two modules needed to be removed:
+Ab `v0.34.0` enthält jede Electron-Version ein Build, das mit dem Mac App Store kompatibel ist. Zuvor entsprach eine Anwendung auf Electron nicht den Apple-Anforderungen für den Mac App Store. Die meisten dieser Anforderungen beziehen sich auf den Einsatz privater APIs. Um die Sandbox Electron so zu gestalten, dass sie die Anforderungen erfüllt, mussten zwei Module entfernt werden:
 
-- `crash-reporter`
+- `crash-melder`
 - `auto-updater`
 
-Additionally some behaviors have changed with respect to detecting DNS changes, video capture and accessibility features. You can read more about the changes and [submitting your app to the Mac App store](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) in the documentation. The distributions can be found on the [Electron releases page](https://github.com/electron/electron/releases), prefixed with `mas-`.
+Zusätzlich haben sich einige Verhaltensweisen im Hinblick auf die Erkennung von DNS-Änderungen, Videoaufnahme und Barrierefreiheit geändert. Sie können mehr über die Änderungen erfahren und [Ihre App im Mac App Store](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) in der Dokumentation einreichen. Die Distributionen sind auf der [Electron-Release-Seite](https://github.com/electron/electron/releases)zu finden, die mit `mas-` vorangestellt ist.
 
-Related Pull Requests: [electron/electron#3108](https://github.com/electron/electron/pull/3108), [electron/electron#2920](https://github.com/electron/electron/pull/2920)
+Ähnliche Pull-Requests: [elektronisch/elektronisch #3108](https://github.com/electron/electron/pull/3108), [elektronisch/elektronisch #2920](https://github.com/electron/electron/pull/2920)
 
 ## Windows Auto Updater
 
-In Electron `v0.34.1` the `auto-updater` module was improved in order to work with [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). This means that Electron ships with easy ways for auto updating your app on both OS X and Windows. You can read more on [setting up your app for auto updating on Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) in the documentation.
+In Electron `v0.34.1` wurde das `Auto-Updater` Modul verbessert, um mit [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows) zu arbeiten. Das bedeutet, dass Electron mit einfachen Möglichkeiten zur automatischen Aktualisierung Ihrer App sowohl unter OS X als auch unter Windows ausgeliefert wird. Weitere Informationen finden Sie unter [Einrichten Ihrer App für das automatische Aktualisieren unter Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) in der Dokumentation.
 
-Related Pull Request: [electron/electron#1984](https://github.com/electron/electron/pull/1984)
+Verwandte Pull-Request: [elektronisch/elektronisch#1984](https://github.com/electron/electron/pull/1984)
 

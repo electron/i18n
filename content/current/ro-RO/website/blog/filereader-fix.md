@@ -1,38 +1,38 @@
 ---
-title: Chromium FileReader Vulnerability Fix
-author: marshallofsound
+title: Fix de vulnerabilitate Chromium FileReader
+author: marshallofsunet
 date: '2019-03-07'
 ---
 
-A High severity vulnerability has been discovered in Chrome which affects all software based on Chromium, including Electron.
+O vulnerabilitate de grad înalt de severitate a fost descoperită în Chrome, care afectează toate programele bazate pe crom, inclusiv Electron.
 
-This vulnerability has been assigned `CVE-2019-5786`.  You can read more about it in the [Chrome Blog Post](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
+Această vulnerabilitate a fost atribuită `CVE-2019-5786`.  Poți citi mai multe despre asta în [Postul de blog Chrome](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-Please note that Chrome has reports of this vulnerability being used in the wild so it is strongly recommended you upgrade Electron ASAP.
+Vă rugăm să reţineţi că Chrome are rapoarte despre această vulnerabilitate folosită în sălbăticie astfel încât este recomandat să faceţi upgrade la Electron ASAP.
 
 ---
 
-## Scope
+## Domeniu
 
-This affects any Electron application that may run third-party or untrusted JavaScript.
+Acest lucru afectează orice aplicație Electron care poate rula terțe părți sau JavaScript neacreditat.
 
-## Mitigation
+## Atenuare
 
-Affected apps should upgrade to a patched version of Electron.
+Aplicațiile afectate ar trebui să facă upgrade la o versiune modificată de Electron.
 
-We've published new versions of Electron which include fixes for this vulnerability:
+Am publicat noi versiuni de Electron care includ remedii pentru această vulnerabilitate:
   * [4.0.8](https://github.com/electron/electron/releases/tag/v4.0.8)
   * [3.1.6](https://github.com/electron/electron/releases/tag/v3.1.6)
   * [3.0.16](https://github.com/electron/electron/releases/tag/v3.0.16)
   * [2.0.18](https://github.com/electron/electron/releases/tag/v2.0.18)
 
-The latest beta of Electron 5 was tracking Chromium 73 and therefore is already patched:
-  * [5.0.0-beta.5](https://github.com/electron/electron/releases/tag/v5.0.0-beta.5)
+Cea mai recentă versiune beta a Electron 5 a urmărit Chromium 73 şi, prin urmare, este deja patrată:
+  * [5,0,0-beta5](https://github.com/electron/electron/releases/tag/v5.0.0-beta.5)
 
-## Further Information
+## Informații suplimentare
 
-This vulnerability was discovered by Clement Lecigne of Google's Threat Analysis Group and reported to the Chrome team.  The Chrome blog post can be found [here](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
+Această vulnerabilitate a fost descoperită de Clement Lecigne de la Google Threat Analysis Group și a raportat echipei Chrome.  Postarea pe blog Chrome poate fi găsită [aici](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Pentru a afla mai multe despre cele mai bune practici pentru a vă păstra aplicațiile Electron în siguranță, consultați tutorialul nostru de securitate [](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Dacă doriți să raportați o vulnerabilitate în Electron, trimiteți un e-mail security@electronjs.org.

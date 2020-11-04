@@ -1,25 +1,34 @@
-# Windows Taskbar
+# Barra Delle Applicazioni Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+## Overview
+
+Electron dispone di API per configurare l'icona dell'app nella barra delle applicazioni di Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Quel menu contestuale è chiamato `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Le applicazioni definiscono le attività in base sia alle caratteristiche del programma che alle cose che un utente dovrebbe fare con loro. Le attività dovrebbero essere prive di contesto, in che l'applicazione non ha bisogno di essere in esecuzione per il loro lavoro. Essi dovrebbero anche essere le azioni statisticamente più comuni che un utente normale dovrebbe eseguire in un'applicazione, come comporre un messaggio di posta elettronica o aprire il calendario in un programma di posta, creare un nuovo documento in un word processor, avviare un'applicazione in una determinata modalità, o lanciare uno dei suoi sottocomandi. Un'applicazione non dovrebbe ingombrare il menu con funzionalità avanzate che gli utenti standard non avranno bisogno o azioni una tantum come la registrazione. Non utilizzare attività per articoli promozionali come aggiornamenti o offerte speciali.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
-
-__Tasks of Internet Explorer:__
+> Si raccomanda vivamente che l'elenco dei compiti sia statico. Dovrebbe rimanere lo stesso indipendentemente dallo stato o dallo stato della domanda. Mentre è possibile variare la lista dinamicamente, si dovrebbe considerare che questo potrebbe confondere l'utente che non si aspetta che quella parte della lista di destinazione cambiare.
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+> NOTE: The screenshot above is an example of general tasks of Internet Explorer
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+
+To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
+
+#### Esempi
+
+##### Set user tasks
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app } = require('electron')
+
 app.setUserTasks([
   {
     program: process.execPath,
@@ -32,31 +41,39 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+##### Clear tasks list
+
+To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
 
 ```javascript
 const { app } = require('electron')
+
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
 
+### Thumbnail Toolbars
 
-## Thumbnail Toolbars
+On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars):
 
-From MSDN, it's illustrated:
-
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Questa barra degli strumenti è il controllo comune della barra degli strumenti standard. Ha un massimo di di sette pulsanti. L'ID, l'immagine, il suggerimento degli strumenti e lo stato di ogni pulsante sono definiti in una struttura, che viene poi passata alla barra delle applicazioni. L'applicazione può mostrare, abilitare, disabilitare o nascondere i pulsanti dalla barra delle miniature come richiesto dal suo stato corrente .
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Ad esempio, Windows Media Player potrebbe offrire controlli standard per il trasporto multimediale come riproduzione, pausa, silenzio, e fermati.
 
-__Thumbnail toolbar of Windows Media Player:__
+![giocatore](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
+
+#### Esempi
+
+##### Set thumbnail toolbar
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -64,21 +81,23 @@ const path = require('path')
 
 const win = new BrowserWindow()
 
-win.setThumbarButtons([
+win. etThumbarButtons([
   {
     tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    icona: path. oin(__dirname, 'button1.png'),
+    click () { console. og('button1 clicked') }
   }, {
     tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
+    icona: path.join(__dirname, 'button2. ng'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    clicca () { console. og('button2 cliccato.') }
   }
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+##### Clear thumbnail toolbar
+
+To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -87,39 +106,53 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
+### Sovrapposizioni icone nella barra delle applicazioni
 
-## Icon Overlays in Taskbar
+On Windows, a taskbar button can use a small overlay to display application status.
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays):
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Le sovrapposizioni delle icone servono come notifica contestuale dello stato, e sono destinati a negare la necessità di un'icona di stato dell'area di notifica separata per comunicare tali informazioni all'utente. Per esempio, il nuovo stato della posta in Microsoft Outlook, attualmente mostrato nell'area di notifica, ora può essere indicato attraverso una sovrapposizione sul pulsante della barra delle applicazioni. Ancora una volta, è necessario decidere durante il ciclo di sviluppo quale metodo è migliore per la vostra applicazione. Le icone sovrapposte sono destinate a fornire uno stato importante o notifiche di lunga data, come lo stato della rete, lo stato del messaggero o la nuova posta. L'utente non dovrebbe essere presentato con sovrapposizioni o animazioni in continuo cambiamento.
 
-__Overlay on taskbar button:__
+![Sovrapponi al pulsante della barra delle applicazioni](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+> NOTE: The screenshot above is an example of overlay on a taskbar button
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
+
+#### Esempio
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
+
 const win = new BrowserWindow()
+
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
+### Frame Flash
 
-## Flash Frame
+On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks):
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Tipicamente, una finestra viene flashata per informare l'utente che la finestra richiede attenzione, ma che attualmente non ha il fuoco della tastiera.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API.
+
+#### Esempio
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
+
 const win = new BrowserWindow()
+
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.

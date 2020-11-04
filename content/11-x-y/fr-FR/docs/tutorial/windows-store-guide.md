@@ -42,12 +42,12 @@ La sortie devrait ressembler à peu près à ceci :
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+── node.dll
+── resources
+文<unk> ─ app.asar
+── v8_context_snapshot.bin
+── squirrel.exe
+<unk> ─ ui_resources_200_percent.pak
 ```
 
 ## Étape 2: Exécuter electron-windows-store

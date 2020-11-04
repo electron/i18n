@@ -1,12 +1,14 @@
 # カスタム Linux デスクトップランチャーアクション
 
-多くの Linux 環境では、`.desktop` ファイルを変更することでランチャーにカスタムエントリを追加できます。 Canonical の Unity ドキュメントについては、[ランチャーにショートカットを追加する](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) を参照してください。 より一般的な実装については、[freedesktop.org 仕様](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) を参照してください。
+## 概要
 
-__以下は Audacious のランチャーショートカットです。__
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-一般的に、ショートカットメニューのそれぞれのエントリーには、`Name` と `Exec` のプロパティを追加することで、シュートカットを追加できます。 Unity はユーザーにクリックされたときにその `Exec` フィールドを実行します。 このフォーマットは以下のとおりです。
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -27,4 +29,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity がアプリケーションに何をするのか伝達する好ましい方法は、引数を使用することです。 これらはアプリのグローバル変数 `process.argv` 内にあります。
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js native Addons a Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Pokud máte potíže s používáním nativního Node.js addon s Electron 5. , je tu šance, že je třeba aktualizovat pro práci s nejnovější verzí V8.
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## Sbohem `v8:::Handle`, Ahoj `v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+V roce 2014 tým V8 ztroskotal `v8:::Handle` ve prospěch `v8::Local` pro místní manipulace. Electron 5.0 obsahuje verzi V8, která nakonec odstranila `v8::Handle` pro dobré, a nativní uzel. s doplňky, které je stále používají, budou muset být aktualizovány dříve, než je bude možné použít s Electron 5.0.
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+Požadovaná změna kódu je minimální, ale *každý* nativní Node modul, který stále používá `v8::Handle` nebude sestaven s Electron 5. a bude muset být upraven. Dobrou zprávou je, že Node. s v12 zahrne také tuto změnu V8, aby všechny moduly, které používají `v8:::Handle` , musely být přesto aktualizovány ** pro práci s nadcházející verzí Node.
 
-## I maintain a native addon, how can I help?
+## Mám vlastní doplněk, jak mohu pomoci?
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+Pokud udržujete původní doplněk pro Node.js, ujistěte se, že nahradíte všechny výskyty `v8:::Handle` `v8:Local`. První z nich byl jen přezdívkou druhého, takže není třeba provádět žádné další změny, které by řešily tento konkrétní problém.
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+Můžete se také zajímat o zkoumání [N-API](https://nodejs.org/api/n-api.html), které je udržováno odděleně od V8 jako součást Node. Sám a jeho cílem je izolovat nativní doplňky od změn v základním JavaScriptovém enginu. Více informací [naleznete v dokumentaci N-API na webu Node.js](https://nodejs.org/api/n-api.html#n_api_n_api).
 
-## Help! I use a native addon in my app and it won't work!
+## Nápověda! Používám v mé aplikaci doplněk a nebude to fungovat!
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+Pokud konzumujete nativní doplněk pro Node. s ve vaší aplikaci a původní doplněk se kvůli tomuto problému nebude vytvářet, zkontrolujte autora doplňku a zjistěte, zda uvolnili novou verzi, která problém opraví. Pokud ne, oslovení autora (nebo [otevření Pull Request!](https://help.github.com/articles/about-pull-requests/)je pravděpodobně vaše nejlepší sázka.

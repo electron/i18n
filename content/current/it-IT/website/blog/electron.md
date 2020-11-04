@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: Atom Shell è ora Electron
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Atom Shell è ora chiamato Electron. Puoi saperne di più su Electron e su cosa le persone stanno costruendo con esso nella sua nuova casa [electronjs.org](https://electronjs.org).
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron è la shell dell'applicazione multi-piattaforma che abbiamo originariamente costruito per l'editor [Atom](https://atom.io) per gestire l'integrazione dell'evento Chromium/Node.js e le API native.
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+Quando siamo iniziati, il nostro obiettivo non era solo quello di supportare le esigenze di un editor di testo. Volevamo anche creare un quadro semplice che permettesse alle persone di utilizzare le tecnologie web per costruire app desktop cross-platform con tutte le guarnizioni native.
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+In due anni, Electron è cresciuto immensamente. Ora include aggiornamenti automatici delle app, installatori di Windows, crash reporting, notifiche e altre utili funzionalità native app &mdash; tutto esposto attraverso API JavaScript. E abbiamo di più nelle opere. Abbiamo intenzione di estrarre ancora più librerie da Atom per rendere la costruzione di un'app nativa con le tecnologie web il più facile possibile.
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+Finora, singoli sviluppatori, startup in fase iniziale e grandi aziende hanno costruito app su Electron. Hanno creato una vasta gamma di applicazioni &mdash; tra cui applicazioni di chat, esploratori di database, designer di mappe, strumenti di progettazione collaborativa e applicazioni di prototipazione mobile.
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+Scopri i nuovi [electronjs. rg](https://electronjs.org) per vedere più applicazioni che le persone hanno costruito su Electron o dare un'occhiata ai [documenti](https://github.com/electron/electron/tree/master/docs#readme) per saperne di più su cosa puoi fare.
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+Se hai già iniziato, ci piacerebbe chattare con te sulle app che stai costruendo su Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) per dirci di più. Puoi anche seguire il nuovo account [@ElectronJS](https://twitter.com/electronjs) Twitter per rimanere connesso al progetto.
 
 :zap: :blue_heart: :electric_plug:
 

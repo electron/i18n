@@ -1,6 +1,6 @@
 # Veröffentlichung der Anwendung
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Um Ihre App mit Electron zu verteilen, müssen Sie sie paketieren und neu markieren. Am einfachsten ist es, eines der folgenden Verpackungswerkzeuge von Drittanbietern zu verwenden:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,7 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 Diese Tools werden sich um alle Schritte kümmern, die benötigt werden um am Ende eine verbreitbare Electron Anwendung zu Haben.
 
 ## Manuelle Verteilung
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Sie können Ihre App auch manuell für den Vertrieb vorbereiten. Die hierfür erforderlichen Schritte sind unten aufgeführt.
 
 Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
@@ -107,8 +107,8 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
 
     ```sh
-    - electron/
-      - symbols/
+    - elektronisch /
+      - Symbole/
       - dist/
     ```
 
@@ -116,7 +116,7 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 
   * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+  * `ELECTRON_RELEASE` - Setze auf `true` und das Upload-Teil wird ausgeführt, lassen Sie unset und `Surf-Build` führt CI-Prüfungen durch, die für jeden Pull-Request geeignet sind.
   * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
   * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
   * `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen

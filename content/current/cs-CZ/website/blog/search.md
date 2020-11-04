@@ -7,94 +7,94 @@ author:
 date: '2018-06-21'
 ---
 
-The Electron website has a new search engine that delivers instant results for API docs, tutorials, Electron-related npm packages, and more.
+Webová stránka Electron má nový vyhledávač, který přináší okamžité výsledky pro API dokumentů, tutoriálů, elektronických npm balíčků a dalších.
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron Search Screenshot">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron vyhledávací snímek obrazovky">
   </a>
 </figure>
 
 ---
 
-Learning a new technology or framework like Electron can be intimidating. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. We want the Electron website to be a better tool for finding the resources you need to build apps faster and more easily.
+Učení nové technologie nebo frameworku jako Electron může být zastrašující. Jakmile se dostanete do fáze [rychlého startu](https://github.com/electron/electron-quick-start) , může být obtížné naučit se nejlepší postupy, najděte správná API nebo objevte nástroje , které vám pomohou vytvořit aplikaci Vašich snů. Chceme, aby webové stránky Electronu byly lepším nástrojem pro nalezení zdrojů, které potřebujete k rychlejšímu vytváření aplikací, a snadněji.
 
-Visit any page on [electronjs.org](https://electronjs.org) and you'll find the new search input at the top of the page.
+Navštivte libovolnou stránku na [electronjs.org](https://electronjs.org) a najdete nový vyhledávací vstup v horní části stránky.
 
-## The Search Engine
+## Vyhledávač
 
-When we first set about adding search to the website, we rolled our own search engine using GraphQL as a backend. GraphQL was fun to work with and the search engine was performant, but we quickly realized that building a search engine is not a trivial task. Things like multi-word search and typo detection require a lot of work to get right. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia](https://algolia.com).
+Když jsme poprvé nastavili hledání na webovou stránku, získali jsme vlastní vyhledávač pomocí GraphQL jako backend. GraphQL byl zábavný pro práci s vyhledávačem a byl výkonný, ale rychle jsme si uvědomili, že vytvoření vyhledávače není triviální úkol. Věci jako hledání ve více slovech a detekce typo vyžadují spoustu práce, aby bylo možné správně dosáhnout. Místo opětovného objevování kola, jsme se rozhodli použít existující řešení vyhledávání: [Algolia](https://algolia.com).
 
-Algolia is a hosted search service that has quickly become the search engine of choice among popular open source projects like React, Vue, Bootstrap, Yarn, and [many others](https://community.algolia.com/docsearch/).
+Algolia je hostovaná vyhledávací služba, která se rychle stala vyhledávačem dle volby mezi populárními open source projekty, jako je React, Vue, Bootstrap, Yarn a [mnoho dalších](https://community.algolia.com/docsearch/).
 
-Here are some of the features that made Algolia a good fit for the Electron project:
+Zde jsou některé z funkcí, které učinily Algolia dobrou hodnost pro Electronový projekt:
 
-- [InstantSearch.js](https://community.algolia.com/instantsearch.js) provides results as you type, usually in about 1ms.
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`].
-- [Advanced query syntax](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) enables `"exact quoted matches"` and `-exclusion`.
-- [API clients](https://www.algolia.com/doc/api-client/javascript/getting-started/) are open source and with well-documented.
-- [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) tell us what people are searching for most, as well as what they're searching for but not finding. This will give us valuable insight into how Electron's documentation can be improved.
-- Algolia is [free for open source projects](https://www.algolia.com/for-open-source).
+- [InstantSearch.js](https://community.algolia.com/instantsearch.js) poskytuje výsledky při psaní, obvykle v asi 1 ms.
+- [Tolerance Typo](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) znamená, že dostanete výsledky, i když napíšete [`widnow`].
+- [Pokročilá syntaxe dotazů](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) umožňuje `"přesné citované zápasy"` a `-exception`.
+- [API klienti](https://www.algolia.com/doc/api-client/javascript/getting-started/) jsou open source a dobře zdokumentováni.
+- [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) nám řekne, co lidé hledají většinu a co hledají, ale ne hledají. To nám poskytne cenný přehled o tom, jak lze zlepšit dokumentaci Electronu.
+- Algolia je [zdarma pro projekty open source](https://www.algolia.com/for-open-source).
 
 ## API Docs
 
-Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron has over 750 API methods, events, and properties. No human can easily remember all of them, but computers are good at this stuff. Using Electron's [JSON API docs](https://electronjs.org/blog/api-docs-json-schema), we indexed all of this data in Algolia, and now you can easily find the exact API you're looking for.
+Někdy víte *co* chcete udělat, ale nevíte přesně *jak to dělat*. Electron má více než 750 API metod, událostí a vlastností. Žádný člověk si je nemůže snadno pamatovat, ale počítače jsou v této věci dobré. Pomocí [JSON API dokumentace Electronu](https://electronjs.org/blog/api-docs-json-schema) jsme indexovali všechna tato data v Algolia, a nyní můžete snadno najít přesné API, které hledáte.
 
-Trying to resize a window? Search for [`resize`] and jump straight to the method you need.
+Pokoušíte se změnit velikost okna? Vyhledejte [`velikost`] a přejděte přímo na požadovanou metodu.
 
 ## Návody
 
-Electron has an ever-growing collection of tutorials to complement its API documentation. Now you can more easily find tutorials on a given topic, right alongside related API documentation.
+Electron má neustále rostoucí kolekci výukových kurzů, které doplňují svou dokumentaci API . Nyní můžete snadněji najít výukové programy na daném tématu, přímo vedle související API dokumentace.
 
-Looking for security best practices? Search for [`security`].
+Hledáte osvědčené bezpečnostní postupy? Hledat [`security`].
 
-## npm Packages
+## npm balíčky
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
+V npm registru jsou nyní více než 700,000 balíčků a není to , co potřebujete. Pro snazší objevení těchto modulů jsme vytvořili [`elektronických npm-balíčků`], kolekce 3400+ modulů v rejstříku, který je postaven speciálně pro použití s Electronem.
 
-The folks at [Libraries.io](https://libraries.io) have created [SourceRank](https://docs.libraries.io/overview.html#sourcerank), a system for scoring software projects based on a combination of metrics like code, community, documentation, and usage. We created a [`sourceranks`] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
+Lidi na [knihovnách. o](https://libraries.io) vytvořili [SourceRank](https://docs.libraries.io/overview.html#sourcerank), systém pro bodování softwarových projektů založený na kombinaci metriky, jako je , kód, komunita, dokumentace a používání. Vytvořili jsme modul [`sourceranks`] , který obsahuje skóre každého modulu v registru npm, a my používáme toto skóre k řazení výsledků balíčku.
 
-Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
+Chcete alternativy k vestavěným IPC modulům Electronu? Hledat [`is:package ipc`].
 
 ## Electron aplikace
 
-It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
+Je [snadné indexovat data s Algolia](https://github.com/electron/algolia-indices), , takže jsme přidali stávající seznam aplikací z [elektroniky/aplikací](https://github.com/electron/apps).
 
-Try a search for [`music`] or [`homebrew`].
+Zkuste hledat [`hudbu`] nebo [`homebrew`].
 
-## Filtering Results
+## Filtrování výsledků
 
-If you've used GitHub's [code search](https://github.com/search) before, you're probably aware of its colon-separated key-value filters like `extension:js` or `user:defunkt`. We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
+Pokud jste předtím použili vyhledávání kódu [GitHubu,](https://github.com/search) , pravděpodobně jste si vědomi dvojtečně oddělených filtrů s klíčovými hodnotami, jako je `rozšíření:js` nebo `user:defunkt`. Myslíme si, že tato filtrační technika je poměrně silná takže jsme přidali `je:` klíčové slovo k Electronovu vyhledávání, které vám umožní filtrovat výsledky pouze pro jeden typ:
 
-- [`is:api thumbnail`]
-- [`is:tutorial security`]
+- [`je:api náhled`]
+- [`je:tutoriální bezpečnost`]
 - [`is:package ipc`]
 - [`is:app graphql`]
 
-## Keyboard Navigation
+## Navigace klávesnice
 
-People love keyboard shortcuts! The new search can be used without taking your fingers off the keyboard:
+Lidé milují klávesové zkratky! Nové hledání může být použito bez vyjmutí prstů z klávesnice:
 
-- <kbd>/</kbd> focuses the search input
-- <kbd>esc</kbd> focuses the search input and clears it
-- <kbd>down</kbd> moves to the next result
-- <kbd>up</kbd> moves to the previous result, or the search input
-- <kbd>enter</kbd> opens a result
+- <kbd>/</kbd> zaostřuje vyhledávací vstup
+- <kbd>esc</kbd> zaměří vyhledávání a vymaže ho
+- <kbd>dolů</kbd> se přesune k dalšímu výsledku
+- <kbd>nahoru</kbd> posune k předchozímu výsledku, nebo hledaný vstup
+- <kbd>enter</kbd> otevře výsledek
 
-We also open-sourced the [module](https://github.com/electron/search-with-your-keyboard/) that enables this keyboard interaction. It's designed for use with Algolia InstantSearch, but is generalized to enable compatibility with different search implementations.
+Také jsme open-sourcovali [modul](https://github.com/electron/search-with-your-keyboard/) , který umožňuje interakci s klávesnicí. Je určen pro použití s Algolia InstantSearch, , ale je zobecněn pro povolení kompatibility s různými implementacemi vyhledávání.
 
-## We want your feedback
+## Chceme vaši zpětnou vazbu
 
-If you encounter any issues with the new search tool, we want to hear about it!
+Pokud narazíte na nějaké problémy s novým vyhledávacím nástrojem, chceme o tom slyšet!
 
-The best way to submit your feedback is by filing an issue on GitHub in the appropriate repository:
+Nejlepším způsobem, jak odeslat vaši zpětnou vazbu, je vyplnění problému na GitHub v příslušném úložišti :
 
-- [electron/electronjs.org](https://github.com/electron/electronjs.org) is the Electron website. If you don't know where to file an issue, this your best bet.
-- [electron/algolia-indices](https://github.com/electron/algolia-indices) is where all the searchable Electron data is compiled.
-- [electron/search-with-your-keyboard](https://github.com/electron/search-with-your-keyboard) makes the search interface navigable by keyboard.
-- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
-- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
+- [electron/electronjs.org](https://github.com/electron/electronjs.org) je Electron webová stránka. Pokud nevíte, kde nahlásit problém, je to nejlepší sázka.
+- [elektronické/algolia-indexy](https://github.com/electron/algolia-indices) je místo, kde se sestavují všechna data Electronu, která lze vyhledávat.
+- [electron/search-with-your-klávesnice](https://github.com/electron/search-with-your-keyboard) umožňuje navigaci vyhledávacího rozhraní pomocí klávesnice.
+- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) je klient na straně prohlížeče, který umožňuje vyhledávání typu hledání.
+- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) je klient Node.js pro nahrávání dat na Algolia servery.
 
-## Thanks
+## Děkujeme
 
-Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹
+Zvláštní poděkování patří [Emily Jordan](https://github.com/echjordan) a [Vanessa Yuen](https://github.com/vanessayuenn) za vybudování těchto nových možností vyhledávání, až [knihovny. o](https://libraries.io) za poskytnutí [SourceRank](https://docs.libraries.io/overview.html#sourcerank) skóre a týmu v Algolii, který nám pomohl začít. 🍹

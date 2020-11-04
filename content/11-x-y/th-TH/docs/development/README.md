@@ -20,5 +20,5 @@
 * [ทดสอบ](testing.md)
 * [แก้จุดบกพร่อง บน Windows](debug-instructions-windows.md)
 * [แก้จุดบกพร่อง บน macOS](debugging-instructions-macos.md)
-* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [การตั้งค่าเซิร์ฟเวอร์สัญลักษณ์ในดีบักเกอร์](setting-up-symbol-server.md)
 * [Patches](patches.md)

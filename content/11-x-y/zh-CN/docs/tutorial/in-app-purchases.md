@@ -36,23 +36,23 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   }
 
   // 检查每一笔交易.
-  transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+  transactions.forEach(function (transaction) }
+    const pay = transactions. ayment
 
-    switch (transaction.transactionState) {
-      case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
-        break
+    开关(交易)。 赎金动作状态(
+      案例'购买'：
+        控制台。 og(正在购买 ${payment.productIdentifier}... ()
+        休息
 
-      case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+      案例'购买'：□
+        console. og(`${payment.productIdentifier} 购买.`)
 
-        // Get the receipt url.
-        const receiptURL = inAppPurchase.getReceiptURL()
+        // 获取收据URL。
+        const receivtURL = inApppurase.getreceiptURL()
 
-        console.log(`Receipt URL: ${receiptURL}`)
+        console.log(`receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // 将收到文件提交服务器并检查它是否有效。
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 如果收据通过校验，说明产品已经被购买了
@@ -61,14 +61,14 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
-        break
+        断开
       }
 
-      case 'failed':
+      案例'失败':
 
-        console.log(`Failed to purchase ${payment.productIdentifier}.`)
+        console.log(`无法购买 ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // 完成交易。
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -107,10 +107,10 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   })
 
   // 询问用户需要购买哪个产品.
-  const selectedProduct = products[0]
-  const selectedQuantity = 1
+  const selected Product = 产品[0]
+  选定数量= 1
 
-  // Purchase the selected product.
+  // 购买选定的产品
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

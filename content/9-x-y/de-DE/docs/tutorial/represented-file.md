@@ -1,12 +1,12 @@
 # Repräsentative Datei für macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Auf macOS kann ein Fenster seine repräsentierte Datei festlegen damit das Dateisymbol in die Titelleiste anzeigen kann und wenn Benutzer Befehlsklick oder Strg-Klick auf den Titel anzeigen, wird ein Pfad Popup angezeigt.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Sie können auch den Bearbeitungsstatus eines Fensters so einstellen, dass das Dateisymbol angeben kann, ob das Dokument in diesem Fenster geändert wurde.
 
-__Represented file popup menu:__
+__Repräsentiertes Datei-Popup-Menü:__
 
-![Represented File][1]
+![Repräsentierte Datei][1]
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs:
 

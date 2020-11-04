@@ -1,6 +1,6 @@
 # اختصارات لوحة المفاتيح
 
-> Configure local and global keyboard shortcuts
+> تكوين اختصارات لوحة المفاتيح المحلية والعالمية
 
 ## اختصارات محلية
 
@@ -17,11 +17,11 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+يمكنك تكوين مجموعات مفاتيح مختلفة استناداً إلى نظام تشغيل المستخدم.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  معجل: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -47,9 +47,9 @@ If you want to handle keyboard shortcuts for a [BrowserWindow][], you can use th
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+لاحظ المعلمة الثالثة `true` مما يعني أن المستمع سيستقبل دوما ضغوطات المفاتيح قبل المستمعين الآخرين بحيث لا يمكنهم `إيقاف النشر ()` الاتصال بهم.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+حدث [`قبل إدخال`](../api/web-contents.md#event-before-input-event) الحدث ينبعث قبل إرسال `مفاتيح` و `مفاتيح` أحداث في الصفحة. يمكن استخدام لالتقاط ومعالجة الاختصارات المخصصة غير المرئية في القائمة.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('صعودا لأسفل اليسار إلى اليسار اليسرى ب إدخال', () => {
   console.log('konami code')
 })
 ```

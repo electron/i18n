@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# Obiect CertificatePrincipal
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* `commonName` String - Nume comun.
+* `organizations` String[] - Nume organizație.
+* `organizationUnits` String[] - Numele unității organizației.
+* `locality` String - Localitate.
+* `staet` String - Stat sau provincie.
+* `country` String - Țară sau regiune.

@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. 機能を有効にするには、`true` の値で特権を指定します。
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API と video/audioのストリーミングをサポートします。 機能を有効にするには、`true` の値で特権を指定します。
 
 以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
 
@@ -80,7 +80,7 @@ protocol.registerSchemesAsPrivileged([
 
 デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
-Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
+(http やストリームプロトコルなどの、) ストリームを使用するプロトコルは、 `stream: true` を設定する必要があります。 `<video>` と `<audio>` HTML 要素はプロトコルがデフォルトで レスポンスをバッファすることを期待します。 `stream` フラグは、ストリーミング応答を期待する これらの要素を正しく設定します。
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 

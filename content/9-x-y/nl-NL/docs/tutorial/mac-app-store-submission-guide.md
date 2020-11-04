@@ -1,26 +1,26 @@
 # Mac App Store indiening gids
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Sinds v0.34.0 kan Electron verpakte apps indienen in de Mac App Store (MAS). Deze handleiding biedt informatie op: hoe uw app en de beperkingen van de MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
-## How to Submit Your App
+## Hoe verstuur je app
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+De volgende stappen introduceren een eenvoudige manier om uw app te verzenden naar de Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### Certificaat verkrijgen
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides][nwjs-guide] on web.
+Om je app in de Mac App Store te kunnen plaatsen, moet je eerst een certificaat krijgen van Apple. You can follow these [existing guides][nwjs-guide] on web.
 
-### Get Team ID
+### Verkrijg Team ID
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Voordat je je app tekent, moet je het Team ID van je account kennen. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Je team-ID verschijnt in het Lidmaatschap Informatiegedeelte onder de naam van het team.
 
-### Sign Your App
+### Onderteken je app
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Na het voltooien van het voorbereidingswerk, kunt u uw app verpakken met het volgende [Applicatie Distributie](application-distribution.md), en ga vervolgens naar het ondertekenen van uw app.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+Eerst moet u een `ElectronTeamID` sleutel toevoegen aan de `Info. lijst`, welke uw Team ID als waarde heeft:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Vervolgens moeten er drie bestanden over rechten worden opgesteld.
 
 `child.plist`:
 
@@ -70,18 +70,18 @@ Then, you need to prepare three entitlements files.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-/Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0. td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
   </dict>
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Je moet `TEAM_ID` vervangen door je Team ID, en `jouw.bundle.id` vervangen door de Bundle ID van je app.
 
-And then sign your app with the following script:
+En teken vervolgens je app met het volgende script:
 
 ```sh
 #!/bin/bash
@@ -89,13 +89,13 @@ And then sign your app with the following script:
 # Name of your app.
 APP="YourApp"
 # The path of your app to sign.
-APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+APP_PATH="/path/naar/YourApp.app"
+# Het pad naar de locatie dat u het ondertekende pakket wilt plaatsen.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# De naam van de certificaten die u heeft aangevraagd.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Het pad van uw plist bestanden.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -120,53 +120,53 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
-#### Sign Native Modules
+#### Oorspronkelijke modules ondertekenen
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Moederlijke modules die gebruikt worden in uw app moeten ook ondertekend worden. Als u electron-osx-sign, zorg er dan voor dat u het pad naar de gebouwde binaries in de argumentenlijst opneemt:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+Houd er ook rekening mee dat inheemse modules tussentijdse bestanden geproduceerd kunnen hebben die niet moeten worden opgenomen (omdat ze ook moeten worden ondertekend). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versies 8.1.0 en later kunnen deze bestanden standaard negeren.
 
-### Upload Your App
+### Upload je app
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
-### Submit Your App for Review
+### Dien uw app ter beoordeling in
 
 After these steps, you can [submit your app for review][submit-for-review].
 
-## Limitations of MAS Build
+## Beperkingen van MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Om te voldoen aan alle vereisten voor app sandboxing, zijn de volgende modules uitgeschakeld in de MAS build:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+en de volgende gedragingen zijn gewijzigd:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Video-opname werkt mogelijk niet voor sommige machines.
+* Bepaalde toegankelijkheidsfuncties werken mogelijk niet.
+* Apps zullen niet op de hoogte zijn van DNS-wijzigingen.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
-### Additional Entitlements
+### Extra titels
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Afhankelijk van welke Electron API's je app gebruikt, moet je mogelijk extra rechten toevoegen aan je `ouder. lijst van` bestand om deze API's te kunnen gebruiken uit de Mac App Store versie van uw app.
 
-#### Network Access
+#### Netwerk toegang
 
-Enable outgoing network connections to allow your app to connect to a server:
+Schakel uitgaande netwerkverbindingen in zodat uw app verbinding kan maken met een server:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Inkomende netwerkverbindingen inschakelen zodat uw app een netwerk kan openen met socket luistert:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -175,7 +175,7 @@ Enable incoming network connections to allow your app to open a network listenin
 
 See the [Enabling Network Access documentation][network-access] for more details.
 
-#### dialog.showOpenDialog
+#### dialog.showOpenDialoogvenster
 
 ```xml
 <key>com.apple.security.files.user-selected.read-only</key>
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 
 See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
-#### dialog.showSaveDialog
+#### dialoog.showOpslaandialoogvenster
 
 ```xml
 <key>com.apple.security.files.user-selected.read-write</key>
@@ -193,11 +193,11 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 
 See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
-## Cryptographic Algorithms Used by Electron
+## Cryptografische algoritmen gebruikt door Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs][export-compliance] for more information.
+Afhankelijk van de landen waarin u uw app publiceert, u kunt verplicht zijn om informatie te verstrekken over de cryptografische algoritmen die worden gebruikt in uw software. See the [encryption export compliance docs][export-compliance] for more information.
 
-Electron uses following cryptographic algorithms:
+Electron gebruikt cryptografische algoritmes:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -213,7 +213,7 @@ Electron uses following cryptographic algorithms:
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - "Op het ontwerp en de beveiliging van Blok Ciphers" boek door X. Lai
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)

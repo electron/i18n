@@ -103,7 +103,7 @@ It is very likely you are using the module in the wrong process. Halimbawa`elect
 
 ## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Halimbawa:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Halimbawa:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

@@ -1,6 +1,6 @@
-# Online/Offline Event Detection
+# Detectare eveniment online/offline
 
-[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API. The `navigator.onLine` attribute returns `false` if any network requests are guaranteed to fail i.e. definitely offline (disconnected from the network). It returns `true` in all other cases. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+[Detectarea evenimentelor online și offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) poate fi implementată în procesul de redare folosind navigatorul [`. nLinia`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) atribut, parte a API-ului HTML5 standard. Atributul `navigator.onLine` returnează `false` dacă orice cerere de rețea este garantată pentru a eșua, adică în mod categoric offline (deconectat de la rețea). Returnează `adevărat` în toate celelalte cazuri. Deoarece toate celelalte condiții returnează `adevărat`, trebuie să fii atent să obții rezultate pozitive false, pentru că nu putem presupune că `adevărata valoare` înseamnă că Electron poate accesa internetul. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
 
 Exemplu:
 
@@ -12,7 +12,7 @@ const { app, BrowserWindow } = require('electron')
 let onlineStatusWindow
 
 app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+  onlineStatusWindow = noul BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 ```
@@ -28,8 +28,8 @@ _online-status.html_
     window.alert(navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
+  window.addEventListener('online', alertOnlineStatus)
+  window.addEventListener('offline', alertOnlineStatus)
 
   alertOnlineStatus()
 </script>
@@ -37,7 +37,7 @@ _online-status.html_
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Pot exista cazuri în care doriţi să răspundeţi la aceste evenimente în procesul principal, de asemenea. Cu toate acestea, procesul principal nu are un obiect `navigator` și, prin urmare, nu poate detecta aceste evenimente direct. Folosind utilități de comunicare interprocesare a electronului, evenimentele pot fi transmise procesului principal și pot fi gestionate după cum este necesar, după cum se arată în următorul exemplu.
 
 _main.js_
 
@@ -45,12 +45,12 @@ _main.js_
 const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+app.whenReady(). hen() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, arată: fals, webPreferens: { nodeIntegration: true } })
+  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
 })
 
-ipcMain.on('online-status-changed', (event, status) => {
+ipcMain.on('online-status-changed', (eveniment, status) => {
   console.log(status)
 })
 ```
@@ -58,17 +58,17 @@ ipcMain.on('online-status-changed', (event, status) => {
 _online-status.html_
 
 ```html
-<!DOCTYPE html>
+<! OCTYPE html>
 <html>
 <body>
 <script>
   const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
+    ipcRenderer. end('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+  window.addEventListener('online', updateOnlineStatus)
+  window.addEventListener('offline', updateOnlineStatus)
 
   updateOnlineStatus()
 </script>

@@ -1,6 +1,6 @@
 # Guide de Soumission Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Depuis la v0.34.0, Electron permet d'envoyer des applications empaquetées sur l'App Store Mac (MAS). Ce guide fournit des informations sur la façon de soumettre votre application et les limitations de la compilation MAS.
 
 **Note:** Pour soumettre une application au Mac App Store, il faut s'inscrire dans le [Apple Developer Programme](https://developer.apple.com/support/compare-memberships/), qui coûte de l'argent.
 
@@ -70,10 +70,10 @@ Ensuite, vous devez préparer les trois fichiers suivant.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0. td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
   </dict>
 </plist>
@@ -122,7 +122,7 @@ Au lieu de signer manuellement votre application, vous pouvez également choisir
 
 #### Signer des modules natifs
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Les modules natifs utilisés dans votre application doivent également être signés. Si vous utilisez electron-osx-sign, assurez-vous d'inclure le chemin vers les binaires compilés dans la liste d'arguments :
 
 ```sh
 electron-osx-sign VotreApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -205,14 +205,14 @@ Electron utilise ces algorithmes de chiffrement suivants :
 * ECDH - ANS X9.63–2001
 * HKDF - [NIST SP 800-56C](https://csrc.nist.gov/publications/nistpubs/800-56C/SP-800-56C.pdf)
 * PBKDF2 - [RFC 2898](https://tools.ietf.org/html/rfc2898)
-* RSA - [RFC 3447](http://www.ietf.org/rfc/rfc3447)
+* RSA - [RFC 3447](https://www.ietf.org/rfc/rfc3447)
 * SHA - [FIPS 180-4](https://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
 * Blowfish - https://www.schneier.com/cryptography/blowfish/
 * CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144), [RFC 2612](https://tools.ietf.org/html/rfc2612)
 * DES - [FIPS 46-3](https://csrc.nist.gov/publications/fips/fips46-3/fips46-3.pdf)
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
-* EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
+* EC - [SEC 1](https://www.secg.org/sec1-v2.pdf)
 * IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
@@ -220,5 +220,5 @@ Electron utilise ces algorithmes de chiffrement suivants :
 * MDC2 - [ISO/IEC 10118-2](https://wiki.openssl.org/index.php/Manual:Mdc2(3))
 * RC2 - [RFC 2268](https://tools.ietf.org/html/rfc2268)
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
-* RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
+* RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)

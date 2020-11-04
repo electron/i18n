@@ -2,61 +2,61 @@
 
 Electron supports the [Chrome DevTools Extension][devtools-extension], which can be used to extend the ability of devtools for debugging popular web frameworks.
 
-## How to load a DevTools Extension
+## Jak načíst rozšíření DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Tento dokument nastiňuje proces pro ruční načtení rozšíření. Můžete také zkusit [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), nástroj třetí strany, který stahuje rozšíření přímo z Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Chcete-li nahrát rozšíření v Electronu, musíte jej stáhnout v prohlížeči Chrome, najděte cestu k souborovému systému a poté ho nahrajte voláním `BrowserWindow. dDevToolsExtension(extension)` API.
 
 Using the [React Developer Tools][react-devtools] as example:
 
-1. Install it in Chrome browser.
-1. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Find out filesystem location used by Chrome for storing extensions:
-   * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-   * on Linux it could be:
+1. Nainstalujte ji do prohlížeče Chrome.
+1. Přejděte na `chrome://extensions`a najděte její ID rozšíření, což je hash řetězec jako `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Zjistěte umístění souborového systému, které používá Chrome pro ukládání rozšíření:
+   * na Windows je `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * na Linuxu může být:
      * `~/.config/google-chrome/Default/Extensions/`
      * `~/.config/google-chrome-beta/Default/Extensions/`
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
-   * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   * na macOS je `~/Library/Podpora aplikací/Google/Chrome/Default/Extensions`.
+1. Umístěte umístění rozšíření do `BrowserWindow.addDevToolsExtension` API, pro nástroje vývojáře React je to něco jako:
    ```javascript
-   const path = require('path')
+   cesta ke const = require('path')
    const os = require('os')
 
    BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Poznámka:** `BrowserWindow.addDevToolsExtension` nelze volat před vypnutím připravené události modulu aplikace.
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Rozšíření bude pamatováno, takže toto API budete muset volat pouze jednou na rozšíření . Pokud se pokoušíte přidat rozšíření, které již bylo načteno, tato metoda se nevrátí a místo toho zaznamená varování do konzoly.
 
-### How to remove a DevTools Extension
+### Jak odstranit rozšíření DevTools
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+Název rozšíření můžete předat `BrowserWindow.removeDevToolsExtension` pro jeho odstranění. Název rozšíření je vrácen `BrowserWindow. ddDevToolsExtension` a můžete získat názvy všech nainstalovaných Rozšíření DevTools pomocí `BrowserWindow.getDevToolsExtensions` API.
 
-## Supported DevTools Extensions
+## Podporované rozšíření DevTools
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron podporuje pouze omezenou sadu `chrome.*` API, takže některá rozšíření používají nepodporovaný `chrome.` API pro funkce rozšíření chrome nemusí fungovat. Následující Devtools rozšíření jsou testovány a zaručeny pro práci v Electronu:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-* [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-* [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
+* [Reagovat nástroje vývojáře](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+* [Ladící páteř](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
 * [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Cerebral Debugger](https://cerebraljs.com/docs/introduction/devtools.html)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+* [Redukovat rozšíření nástrojů DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Nástroje vývojáře MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### Co mám dělat, pokud rozšíření DevTools nefunguje?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Nejprve se ujistěte, že rozšíření je stále zachováno, některá rozšíření nemohou fungovat ani pro nedávné verze prohlížeče Chrome a nejsme schopni udělat pro ně nic.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Pak nahlaste chybu do seznamu problémů Electronu a popište, která část rozšíření nefunguje podle očekávání.
 
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
 [react-devtools]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi

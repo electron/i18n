@@ -1,85 +1,85 @@
 ---
 title: Electron 9.0.0
 author:
-  - sofianguy
+  - sofianguie
   - VerteDinde
 date: '2020-05-19'
 ---
 
-Electron 9.0.0 has been released! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
+Electron 9.0.0 a fost lansat! Acesta include upgrade-uri la Chromium `83`, V8 `8.3`, şi Node.js `12.14`. Am adăugat câteva noi integrări API pentru caracteristica noastră de verificator de detalii, am activat vizualizatorul PDF și multe altele!
 
 ---
 
-The Electron team is excited to announce the release of Electron 9.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Echipa Electron este încântată să anunțe lansarea Electron 9.0.0! Îl puteți instala cu npm prin intermediul `npm instalați electron@latest` sau descărcat-o de pe [eliberează site-ul nostru](https://electronjs.org/releases/stable). Versiunea este împachetată cu upgrade-uri, reparaţii şi noi caracteristici. Abia așteptăm să vedem ce construiești cu ei! Continuă să citești pentru detalii despre această lansare și împărtășește-ți feedback-ul pe care îl ai!
 
-## Notable Changes
+## Modificări notabile
 
-### Stack Changes
+### Schimbări stivă
 
-* Chromium `83.0.4103.64`
-    * [New in Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
-    * [Chrome 82 was skipped](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
-    * [New in Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
+* Crom `83.0.4103.64`
+    * [Nou în Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
+    * [Chrome 82 a fost omis](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
+    * [Nou în Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
 * Node.js `12.14.1`
-    * [Node 12.14.1 blog post](https://nodejs.org/en/blog/release/v12.14.1/)
+    * [Postare pe blog Node 12.14.1](https://nodejs.org/en/blog/release/v12.14.1/)
 * V8 `8.3`
-    * [V8 8.1 blog post](https://v8.dev/blog/v8-release-81)
-    * [V8 8.3 blog post](https://v8.dev/blog/v8-release-83)
+    * [Postare pe blog V8 8.1](https://v8.dev/blog/v8-release-81)
+    * [V8 8.3 postare pe blog](https://v8.dev/blog/v8-release-83)
 
-### Highlight Features
+### Evidențiere caracteristici
 
-* Multiple improvements to the spellchecker feature. See more details in [#22128](https://github.com/electron/electron/pull/22128) and [#22368](https://github.com/electron/electron/pull/22368).
-* Improved window events handler efficiency on Linux. [#23260](https://github.com/electron/electron/pull/23260).
-* Enable PDF viewer. [#22131](https://github.com/electron/electron/pull/22131).
+* Îmbunătățiri multiple ale funcției de verificare a ortografiei. Vezi mai multe detalii în [#22128](https://github.com/electron/electron/pull/22128) şi [#22368](https://github.com/electron/electron/pull/22368).
+* Gestionar îmbunătățit de evenimente pe Linux. [#23260](https://github.com/electron/electron/pull/23260).
+* Activare vizualizator PDF. [#22131](https://github.com/electron/electron/pull/22131).
 
-See the [9.0.0 release notes](https://github.com/electron/electron/releases/tag/v9.0.0) for a full list of new features and changes.
+Vezi [notele de lansare 9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0) pentru o listă completă de caracteristici noi și modificări.
 
 ## Ruperea modificărilor
 
-* Deprecation warning when using `remote` without `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
-    * This is the first step in our plans for deprecating the `remote` module and moving it to userland. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
-* Set `app.enableRendererProcessReuse` to true by default. [#22336](https://github.com/electron/electron/pull/22336)
-    * This is continued work for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Full info and proposed timeline is detailed in [this issue](https://github.com/electron/electron/issues/18397).
-* Sending non-JavaScript objects over IPC now throws an exception. [#21560](https://github.com/electron/electron/pull/21560)
-    * This behavior was depreciated in Electron 8.0. In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+* Avertisment de dezaburire atunci când utilizați `remote` fără `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
+    * Acesta este primul pas în planurile noastre pentru a descuraja modulul `remote` și a-l muta către utilizatori. Puteți citi și urmări [această problemă](https://github.com/electron/electron/issues/21408) care detaliază motivele noastre pentru acest lucru și include o propunere de cronologie pentru descurajare.
+* Setați `app.enableRendererProcessReuse` la adevărat implicit. [#22336](https://github.com/electron/electron/pull/22336)
+    * Acest lucru este în continuare de lucru pentru o cerință viitoare ca modulele native Node încărcate în procesul de redare să fie [N-API](https://nodejs.org/api/n-api.html) sau [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Informațiile complete și calendarul propus sunt detaliate în [această problemă](https://github.com/electron/electron/issues/18397).
+* Trimiterea de obiecte non-JavaScript peste IPC aruncă acum o excepție. [#21560](https://github.com/electron/electron/pull/21560)
+    * Acest comportament a fost depreciat în Electron 8.0. În Electron 9.0, vechiul algoritm de serializare a fost eliminat, iar trimiterea unor astfel de obiecte neserializabile va arunca o eroare de tipul "obiectul nu a putut fi clonat".
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Mai multe informații despre acestea și schimbările viitoare pot fi găsite pe pagina [Schimbări de rupere planificate](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-## API Changes
+## Modificări API
 
-* `shell` API changes:
-   * The `shell.openItem` API has been replaced with an asynchronous `shell.openPath API`. [proposal](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
-* `session`API changes:
-   * Added `session.listWordsFromSpellCheckerDictionary` API to list custom words in the dictionary. [#22128](https://github.com/electron/electron/pull/22128)
-   * Added `session.removeWordFromSpellCheckerDictionary` API to remove custom words in the dictionary. [#22368](https://github.com/electron/electron/pull/22368)
-   * Added `session.serviceWorkerContext` API to access basic service worker info and receive console logs from service workers. [#22313](https://github.com/electron/electron/pull/22313)
-* `app` API changes:
-   * Added a new force parameter to `app.focus()` on macOS to allow apps to forcefully take focus. [#23447](https://github.com/electron/electron/pull/23447)
-* `BrowserWindow` API changes:
-   * Added support for property access to some getter/setter pairs on `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
+* `shell` Se schimbă API:
+   * API `shell.openItem` a fost înlocuit cu o `shell.openPath API`. [propunere](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
+* `Sesiunea`Se schimbă API:
+   * Adăugat `session.listWordsFromSpellCheckerDictionary` API pentru a afișa cuvinte personalizate în dicționar. [#22128](https://github.com/electron/electron/pull/22128)
+   * Adăugat `session.removeWordFromSpellCheckerDictionary` API pentru a elimina cuvinte personalizate din dicționar. [#22368](https://github.com/electron/electron/pull/22368)
+   * A adăugat `session.serviceWorkerContext` API pentru a accesa informațiile de bază ale lucrătorului serviciu și pentru a primi jurnale de consolă de la lucrătorii de servicii. [#22313](https://github.com/electron/electron/pull/22313)
+* `app` API modificări:
+   * Adăugat un nou parametru de forță la `app.focus()` pe macOS pentru a permite aplicațiilor să se focalizeze forțat. [#23447](https://github.com/electron/electron/pull/23447)
+* `BrowserWindow` se modifică API:
+   * Suport adăugat pentru accesul proprietății la unele perechi getter/setter pe `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
 
-### Deprecated APIs
+### API învechite
 
-The following APIs are now deprecated or removed:
+Următoarele API sunt acum învechite sau eliminate:
 
-* `shell.openItem` API is now depreciated, and replaced with an asynchronous `shell.openPath API`.
-* `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
-* `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
+* `shell.openItem` API este depreciat și înlocuit cu o `shell.openPath API`.
+* `<webview>.getWebContent`, care a fost învechit în Electron 8.0, este acum eliminat.
+* `webFrame.setLayoutZoomLevelLimits`, care a fost învechit în Electron 8.0, este acum eliminat.
 
-## End of Support for 6.x.y
+## Sfârșit de suport pentru 6.x.y
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 6.x.y a ajuns la finalul suportului conform politicii [a proiectului,](https://electronjs.org/docs/tutorial/support#supported-versions). Dezvoltatorii și aplicațiile sunt încurajate să actualizeze la o versiune mai nouă a Electron.
 
-## What's Next
+## Ce urmează
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 10.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 10.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Pe termen scurt, vă puteţi aştepta ca echipa să continue să se concentreze pe a ţine pasul cu dezvoltarea componentelor majore care formează Electron, inclusiv crom, nod și V8. Deşi suntem atenţi să nu facem promisiuni cu privire la data eliberării, planul nostru este să lansăm noi versiuni majore ale Electron cu versiuni noi ale acestor componente aproximativ trimestrial. Programul [10.0.0 provizoriu](https://electronjs.org/docs/tutorial/electron-timelines) cartografiază datele cheie din ciclul de dezvoltare Electron 10.0. De asemenea, [consultaţi documentul nostru de versionare](https://electronjs.org/docs/tutorial/electron-versioning) pentru informaţii mai detaliate despre versionare în Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+Pentru informații despre schimbările planificate de rupere în versiunile viitoare de Electron, [a se vedea documentul nostru Planificat Breaking Change](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Change the default of `contextIsolation` from `false` to `true` (Starting in Electron 10)
+### Schimbă contextul implicit `contextIsolation` de la `false` la `true` (Pornind în Electron 10)
 
-Without contextIsolation, any code running in a renderer process can quite easily reach into Electron internals or an app's preload script. That code can then perform privileged actions that Electron wants to keep restricted.
+Fără contextIsolare, orice cod care rulează într-un dispozitiv de redare poate ajunge foarte ușor în Electron internals sau în scriptul de preîncărcare al aplicației. Acest cod poate efectua acțiuni privilegiate pe care Electron vrea să le mențină restricționat.
 
-Changing this default improves the default security of Electron apps, so that apps will need to deliberately opt in to the insecure behaviour. Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
+Schimbarea implicită îmbunătățește securitatea implicită a aplicațiilor Electron, astfel încât aplicațiile vor trebui să opteze în mod deliberat pentru un comportament nesigur. Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
 
-For more information on `contextIsolation`, how to enable it easily and it's security benefits please see our dedicated [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).
+Pentru mai multe informații despre contextul `Isolation`, cum să îl activezi cu uşurinţă şi este un beneficiu de securitate, vă rugăm să consultaţi [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).

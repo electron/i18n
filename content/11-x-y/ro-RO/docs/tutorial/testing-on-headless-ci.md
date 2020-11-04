@@ -1,43 +1,43 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# Testare pe sisteme CI cu capul fără cap (Travis CI, Jenkins)
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Fiind bazat pe Chromium, Electron are nevoie de un șofer de afișaj pentru a funcționa. Dacă Chromium nu poate găsi un șofer de afișaj, Electron nu va putea lansa - și, prin urmare, nu va executa niciunul dintre teste, indiferent de modul în care le executați . Testarea aplicațiilor pe bază de Electron pe Travis, Circle, Jenkins sau alte sisteme similare necesită, prin urmare, un pic de configurare. În esență, trebuie să folosim un motor virtual de afișare.
 
-## Configuring the Virtual Display Server
+## Configurarea serverului de afişare Virtual
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+În primul rând, instalați [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Este un framework virtual, implementând protocolul serverului de afișare X11 - efectuează toate operațiunile grafice în memorie fără a afișa ieșirea ecranului, de care avem nevoie exact.
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Apoi, creați un ecran Xvfb virtual și exportați o variabilă de mediu numită DISPLAY care indică în el. Chromium din Electron va căuta în mod automat `$DISPLAY`, astfel încât nu mai este necesară nicio configurare a aplicației tale. Acest pas poate fi automatizat cu [xvfb-poate](https://github.com/anaisbetts/xvfb-maybe): Prefixează-ți comenzile cu `xvfb-maybe` și mica unealtă va configura automat Xvfb, dacă sistemul actual cere acest lucru. Pe Windows sau macOS, nu va face nimic.
 
 ```sh
-## On Windows or macOS, this invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## Pe Windows sau macOS, aceasta invocă electron-mocha
+## Pe Linux, dacă suntem într-un mediu fără cap, acesta va fi echivalent
+## cu xvfb-run electron-mocha . test/*.js
+xvfb-poate electron-mocha ./test/*.js
 ```
 
-### Travis CI
+### CI Travis
 
 On Travis, your `.travis.yml` should look roughly like this:
 
 ```yml
 addons:
   apt:
-    packages:
+    pachete:
       - xvfb
 
 install:
-  - export DISPLAY=':99.0'
+  - export DISPLAY=':99. '
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Pentru Jenkins, este disponibil un [plugin Xvfb](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
-### Circle CI
+### Cerc CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Cercul CI este minunat și are Xvfb și `$DISPLAY` [deja configurat, astfel încât nu mai este necesară nicio configurare suplimentară](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor rulează pe Windows, sprijinind Selenium, Chromium, Electron și unelte similare din cutie - nu este necesară nici o configurație.

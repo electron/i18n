@@ -27,7 +27,8 @@ app.on('window-all-closed', () => {
 
 戻り値:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 Electron が一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合に `launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持します。 また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
 
@@ -308,23 +309,23 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
+    * `clean-exit` - 終了コード 0 でプロセスが終了した
+    * `clean-exit` - 終了コードが非 0 でプロセスが終了した
+    * `killed` - プロセスに SIGTERM シグナルが送信されたなどの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failed` - プロセスが正常に起動されなかった
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+レンダラープロセスが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -478,11 +479,11 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 ### `app.focus([options])`
 
 * `options` Object (任意)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、レシーバをアクティブにします。
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
-You should seek to use the `steal` option as sparingly as possible.
+できるだけ慎重に `steal` オプションを使用してください。
 
 ### `app.hide()` _macOS_
 

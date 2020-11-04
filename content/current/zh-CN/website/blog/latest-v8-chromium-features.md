@@ -1,33 +1,33 @@
 ---
-title: Use V8 and Chromium Features in Electron
-author: jlord
+title: 在 Electron 中使用 V8 和 Chromium 功能
+author: 吉尔福德
 date: '2016-01-07'
 ---
 
-Building an Electron application means you only need to create one codebase and design for one browser, which is pretty handy. But because Electron stays up to date with [Node.js](http://nodejs.org) and [Chromium](https://www.chromium.org) as they release, you also get to make use of the great features they ship with. In some cases this eliminates dependencies you might have previously needed to include in a web app.
+构建一个 Electron 应用程序意味着您只需要为一个浏览器创建一个代码库和设计，这很方便。 但因为Electron使用 [节点保持最新状态。 s](http://nodejs.org) and [Chromium](https://www.chromium.org) 当他们发布时，你也可以利用他们所运送的伟大功能。 在某些情况下，这会消除您以前可能需要在 web 应用程序中包含的依赖关系。
 
 ---
 
-There are many features and we'll cover some here as examples, but if you're interested in learning about all features you can keep an eye on the [Google Chromium blog](http://blog.chromium.org) and [Node.js changelogs](https://nodejs.org/en/download/releases). You can see what versions of Node.js, Chromium and V8 Electron is using at [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions).
+有许多功能，我们会在这里作为示例来涵盖一些功能， 但如果您有兴趣了解所有功能，您可以关注 [Google Chromium 博客](http://blog.chromium.org) 和 [节点。 s 更新日志](https://nodejs.org/en/download/releases) 您可以在 [electronjs.org/#electron-version](https://electronjs.org/#electron-versions) 查看什么版本的 Node.js, Chromium 和 V8 Electron 。
 
-## ES6 Support through V8
+## ES6 通过 V8 支持
 
-Electron combines Chromium's rendering library with Node.js. The two share the same JavaScript engine, [V8](https://developers.google.com/v8). Many ECMAScript 2015 (ES6) features are already built into V8 which means you can use them in your Electron application without any compilers.
+Electron 将 Chromium 的渲染库与 Node.js 结合起来。 这两个人共享相同的 JavaScript 引擎， [V8](https://developers.google.com/v8)。 许多ECMAScript 2015 (ES-6)功能已经被编译成V8，这意味着您可以在您的 Electron 应用程序中使用它们，而没有任何编译器。
 
-Below are a few examples but you can also get classes (in strict mode), block scoping, promises, typed arrays and more. Check out [this list](https://nodejs.org/en/docs/es6/) for more information on ES6 features in V8.
+下面是几个示例，但你也可以获得类(严格模式)、块范围、 许诺、键入数组等等。 查看 [这个邮件列表](https://nodejs.org/en/docs/es6/) 以获取V8中ES6功能的更多信息。
 
-**Arrow Functions**
+**箭头函数**
 
 ```js
-findTime () => {
+findTime () => P
   console.log(new Date())
 }
 ```
-**String Interpolation**
+**字符串内插值**
 
 ```js
 var octocat = "Mona Lisa";
-console.log(`The octocat's name is ${octocat}`);
+console.log(`octocat的名称是 ${octocat}`);
 ```
 
 **New Target**
@@ -44,33 +44,33 @@ Octocat();
 new Octocat();
 ```
 
-**Array Includes**
+**数组包含**
 
 ```js
- // Returns true
-[1, 2].includes(2);
+ // 返回
+[1, 2]。包括(2)；
 ```
 
-**Rest Parameters**
+**调用参数**
 
 ```js
-// Represent indefinite number of arguments as an array
-(o, c, ...args) => {
+// 将无限期的参数数表示为数组
+(a, c, ...args) => @un.org
   console.log(args.length)
 }
 ```
 
-## Chromium Features
+## 铬功能
 
-Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
+感谢谷歌和贡献者为Chromium付出的艰苦努力， 当你构建Electron应用程序时，你也可以使用像(但不限于):
 
 - [MouseEvent.getModifierState()](https://googlechrome.github.io/samples/mouseevent-get-modifier-state/index.html)
 - [CSS.escape()](https://googlechrome.github.io/samples/css-escape/index.html)
-- [Fetch API Streaming](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
+- [获取 API 流](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
 
-Follow along with the [Google Chromium blog](http://blog.chromium.org) to learn about features as new versions ship and again, you can check the version of Chromium that Electron uses [here](https://electronjs.org/#electron-versions).
+和 [Google Chromium 博客](http://blog.chromium.org) 一起学习作为新版本船的功能。 您可以查看Electron在这里使用的 Chromium 版本 [](https://electronjs.org/#electron-versions)
 
-## What are you excited about?
+## 您感到兴奋的是什么？
 
-Tweet to us [@ElectronJS](https://twitter.com/electronjs) with your favorite features built into V8 or Chromium.
+向我们推荐 [@ElectronJS](https://twitter.com/electronjs) 你最喜欢的功能已经被植入V8 或 Chromium。
 

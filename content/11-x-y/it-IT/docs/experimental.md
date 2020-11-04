@@ -1,17 +1,17 @@
-# Experimental APIs
+# API Sperimentali
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Alcune API di Electrons sono taggate con `_Experimental_` nella documentazione. Questo tag indica che l'API non può essere considerata stabile e l'API può essere rimossa o modificata più frequentemente rispetto ad altre API con meno preavviso.
 
-## Conditions for an API to be tagged as Experimental
+## Condizioni per un'API da contrassegnare come sperimentale
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Chiunque può richiedere un'API essere etichettato come sperimentale in una funzione PR, i disaccordi sulla natura sperimentale di una funzione possono essere discussi nell'API WG se non possono essere risolti nella PR.
 
-## Process for removing the Experimental tag
+## Processo per la rimozione del tag sperimentale
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Una volta che un'API è stata stabile e in almeno due principali linee di rilascio stabili può essere nominata per avere il suo tag sperimentale rimosso.  Questa discussione dovrebbe accadere in una riunione del WG API.  Cose da considerare quando si discute / nomina:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* La condizione di "due principali linee di sgancio delle stalle" di cui sopra deve essere stata soddisfatta
+* Durante quel periodo nessun bug / problemi principali avrebbe dovuto essere causato dall'adozione di questa funzione
+* L'API è abbastanza stabile e non è stata pesantemente influenzata dagli aggiornamenti di Chromium
+* Qualcuno sta usando l'API?
+* L'API soddisfa le usecase proposte originali, ha qualche lacuna?

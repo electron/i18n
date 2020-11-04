@@ -30,7 +30,7 @@ shell.openExternal('https://github.com')
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+戻り値 `Promise<String>` - 障害が発生した場合、その障害に対応するエラーメッセージを含む文字列で解決します。それ以外では "" になります。
 
 指定したファイルをデスクトップの既定の方法で開きます。
 

@@ -1,17 +1,17 @@
-# Experimental APIs
+# API Eksperimental
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Beberapa API Electrons ditandai dengan `_Experimental_` dalam dokumentasi. Tandai ini menunjukkan bahwa API mungkin tidak dianggap stabil dan API mungkin dihapus atau dimodifikasi lebih sering daripada API lainnya dengan peringatan yang lebih sedikit.
 
-## Conditions for an API to be tagged as Experimental
+## Kondisi agar API ditandai sebagai Eksperimental
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Siapa pun dapat meminta API ditandai sebagai eksperimental dalam PR fitur, ketidaksepakatan tentang sifat eksperimental fitur dapat dibahas di API WG jika tidak dapat diselesaikan di PR.
 
-## Process for removing the Experimental tag
+## Proses untuk menghapus tandai Eksperimental
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Setelah API stabil dan setidaknya dalam dua garis rilis stabil utama dapat dinominasikan untuk menghapus tandai eksperimentalnya.  Diskusi ini harus terjadi pada pertemuan WG API.  Hal-hal yang perlu dipertimbangkan ketika membahas / mencalonkan:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Kondisi "dua jalur rilis di kandang utama" di atas kondisi pasti terpenuhi
+* Selama waktu itu tidak ada perbaikan / masalah utama yang seharusnya disebabkan oleh adopsi fitur ini
+* API cukup stabil dan belum terlalu terpengaruh oleh peningkatan kromosium
+* Apakah ada yang menggunakan API?
+* Apakah API memenuhi pengguna asli yang diusulkan, apakah ia memiliki celah?

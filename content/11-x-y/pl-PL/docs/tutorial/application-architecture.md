@@ -20,7 +20,7 @@ W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, poniew
 
 > #### Notatka: Komunikacja pomiędzy procesami
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> W Electronie, komunikacja między głównym procesem a procesami renderowania, jest wykonywany przez moduły [`ipcRenderer`](../api/ipc-renderer.md) i [`ipcMain`](../api/ipc-main.md) Istnieje również wpis FAQ w [jak udostępniać dane pomiędzy stronami internetowymi][share-data].
 
 
 ## Używanie Electron API
@@ -43,23 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Ponieważ komunikacja między procesami jest możliwa, proces renderowania może wywołać główny proces do wykonywania zadań przez IPC.
 
 ```javascript
-// In the main process:
+// W głównym procesie:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. świeca ('perform-action', (zdarzenie...args) => {
+  // ... wykonaj coś w imieniu renderowa...
 })
 
-// In the renderer process:
+// W procesie renderowania:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Zauważ, że kod w renderowaniu może nie być wiarygodny, więc ważne jest uważnej weryfikacji w głównym procesie żądań, które pochodzą od renderowców, szczególnie jeśli przechowują treści innych firm.
 
 ## Używanie API Node.js
 

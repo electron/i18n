@@ -13,27 +13,27 @@
 Используйте `Быстрый старт` как пример:
 
 ```markdown
-# Quick Start
+# Быстрый старт
 
 ...
 
-## Main process
+## Основной процесс
 
 ...
 
-## Renderer process
+## Процесс визуализации
 
 ...
 
-## Run your app
+## Запустите приложение
 
 ...
 
-### Run as a distribution
+### Запустите как дистрибутив
 
 ...
 
-### Manually downloaded Electron binary
+### Ручная загрузка файла Electron
 
 ...
 ```
@@ -45,7 +45,7 @@
 * Используйте `sh` вместо `cmd` в блоках кода (из-за синтаксической подсветки).
 * Строки должны быть ограничены в 80 столбцов.
 * Не делать вложенные списки более чем 2 уровня (из-за markdown отображения).
-* Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](http://npm.im/standard-markdown).
+* Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Выбор слов
 
@@ -95,10 +95,10 @@
 * Конструкторы должны быть перечислены с `###`-уровнем названия.
 * [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
 * [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Все методы, имеющие значение возврата, должны начинать описание с "Возвращает `[TYPE]` - Возвращающее описание"
   * Если метод возвращает `Object`, его структуру можно указать с помощью двоеточия, следующие строки в виде неупорядоченного списка свойств в том же стиле параметров функции.
 * События экземпляров, должны быть перечислены под главой `### События экземпляра`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Свойства экземпляра должны быть перечислены в разделе `### Свойства экземпляра`.
   * Свойства экземпляра должно начинаться с "[Тип Свойства] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
@@ -140,17 +140,17 @@
 Методы главы должны быть в следующем виде:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Описание параметра.
+* `optional` Integer (необязательно) - Описание другого параметра.
 
 ...
 ```
 
 Название может быть`###` или`####`-уровня в зависимости от того, является ли этот метод модуля или класса.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулей `objectName` является именем модуля. Для классов оно должно быть именем экземпляра класса, и не должно совпадать с именем модуля .
 
 Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
@@ -160,7 +160,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Ниже приведена более подробная информация по каждому из аргументов. Тип аргумента обозначается либо обычными типами:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

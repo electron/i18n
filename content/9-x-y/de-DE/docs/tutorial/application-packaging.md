@@ -2,15 +2,15 @@
 
 Um [Probleme](https://github.com/joyent/node/issues/6960) mit langen Pfadnamen unter Windows zu entschärfen, `require` etwas zu beschleunigen und ihren Quellcode vor flüchtigen Blicken zu verstecken, können Sie Ihre App in ein [asar][asar]-Archiv mit kleinen Änderungen am Code packen.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. If you are not using any of these tools, read on.
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`][electron-packager], [`electron-forge`][electron-forge], and [`electron-builder`][electron-builder]. Wenn Sie keine dieser Tools verwenden, lesen Sie weiter.
 
-## Generating `asar` Archives
+## `asar` Archive generieren
 
 Ein [asar][asar]-Archiv ist ein simples tar-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
 Schritte um Ihre App in ein `asar`-Archiv zu packen:
 
-### 1. Install the asar Utility
+### 1. asar Utility installieren
 
 ```sh
 $ npm install -g asar
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Verwenden von `asar` Archiven
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+In Electron gibt es zwei APIs-Sätze: Knoten-APIs von Node.js und Web- -APIs von Chromium. Beide APIs unterstützen das Lesen von Dateien aus `asar` Archiven.
 
 ### Node API
 
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+In einer Webseite können Dateien in einem Archiv mit der `-Datei angefordert werden:` Protokoll. Wie die Node API werden `asar` Archive als Verzeichnisse behandelt.
 
 Zum Beispiel, Holen einer Datei mit `$.get`:
 
@@ -137,17 +137,17 @@ Es gibt Node APIs, die Binärdateien wie `child_process.exec`, `child_process.sp
 
 Das rührt daher, dass `exec` und `spawn` `command` an Stelle von `file` als Eingabe akzeptieren, und `command`s in der Shell ausgeführt werden. Es existiert kein verlässlicher Weg herauszufinden, ob ein Command eine Datei in einem asar-Archiv nutzt. Und selbst wenn, kann man nicht sicher sein, ob man den Pfad im Command ohne Nebeneffekte austauschen kann.
 
-## Adding Unpacked Files to `asar` Archives
+## Füge entpackte Dateien zu `asar` Archiven hinzu
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Wie oben erwähnt, werden einige Knoten-APIs die Datei im Dateisystem entpacken, wenn aufgerufen wird. Abgesehen von den Performance-Problemen könnten verschiedene Antiviren-Scanner durch dieses Verhalten ausgelöst werden.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Als Problemumgehung können Sie verschiedene Dateien mit der Option `--unpack` entpacken. Im folgenden Beispiel werden freigegebene Bibliotheken mit nativen Node.js Modulen nicht gepackt:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+Nachdem Sie den Befehl ausgeführt haben, werden Sie feststellen, dass ein Ordner namens `app.asar.unpackt` zusammen mit der Datei `app.asar` erstellt wurde. Es enthält die entpackten Dateien und sollte zusammen mit dem `app.asar` Archiv ausgeliefert werden.
 
 [asar]: https://github.com/electron/asar
 [electron-packager]: https://github.com/electron/electron-packager

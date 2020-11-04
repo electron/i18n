@@ -1,8 +1,8 @@
 # Mac App Store 应用程序提交指南
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+从 v0.34.0 开始，Electron 允许将封装应用提交Mac App Store (MAS)。 本指南提供以下信息：如何提交您的应用程序和 MAS 构建的 限制。
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意：** 将一个应用程序提交给Mac App Store需要注册 [Apple Developer 程序](https://developer.apple.com/support/compare-memberships/), 这需要资金。
 
 ## 如何提交你的应用
 
@@ -53,14 +53,14 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www. ple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
-    <key>com.apple.security.application-groups</key>
+    <key>com.apple.security。 pplication-groups</key>
     <array>
-      <string>TEAM_ID.your.bundle.id</string>
+      <string>TEAM_ID。 our.bundle.id</string>
     </array>
   </dict>
 </plist>
@@ -70,10 +70,10 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0。 td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security. pp-sandbox</key>
     <true/>
   </dict>
 </plist>
@@ -122,7 +122,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 
 #### 原生模块签名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+您的应用中使用的本地模块也需要签名。 如果使用 electron-osx-sign, 请务必在 参数列表中包含内建二进制文件的路径：
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -178,7 +178,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
+<key>com.apple.security.files.users selected.read-only</key>
 <true/>
 ```
 
@@ -187,7 +187,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key>
+<key>com.apple.security.files.user-selected.write</key>
 <true/>
 ```
 
@@ -205,14 +205,14 @@ Electron 使用下列加密算法：
 * ECDH - ANS X9.63–2001
 * HKDF - [NIST SP 800-56C](https://csrc.nist.gov/publications/nistpubs/800-56C/SP-800-56C.pdf)
 * PBKDF2 - [RFC 2898](https://tools.ietf.org/html/rfc2898)
-* RSA - [RFC 3447](http://www.ietf.org/rfc/rfc3447)
+* RSA - [RFC 3447](https://www.ietf.org/rfc/rfc3447)
 * SHA - [FIPS 180-4](https://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
 * Blowfish - https://www.schneier.com/cryptography/blowfish/
 * CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144), [RFC 2612](https://tools.ietf.org/html/rfc2612)
 * DES - [FIPS 46-3](https://csrc.nist.gov/publications/fips/fips46-3/fips46-3.pdf)
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
-* EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
+* EC - [SEC 1](https://www.secg.org/sec1-v2.pdf)
 * IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
@@ -220,5 +220,5 @@ Electron 使用下列加密算法：
 * MDC2 - [ISO/IEC 10118-2](https://wiki.openssl.org/index.php/Manual:Mdc2(3))
 * RC2 - [RFC 2268](https://tools.ietf.org/html/rfc2268)
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
-* RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
+* RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)

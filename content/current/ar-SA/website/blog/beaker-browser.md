@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: 'مشروع الأسبوع: متصفح بيكر'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+هذا الأسبوع عثرنا على [بول فرازي](http://pfrazee.github.io/)، منشئ من [متصفح بيكر](https://beakerbrowser.com/). Beaker هو متصفح ويب تجريبي من النظير إلى النظير الذي يستخدم بروتوكول Dat لاستضافة المواقع من أجهزة المستخدمين .
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## ما هو بيكر ولماذا قمت بإنشائه؟
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+البياكر هو متصفح تشاركي. إنه متصفح للقرصنة الميتين.
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+موقع الويب مغلق. إذا كنت ترغب في التأثير على كيفية عمل وسائل الإعلام الإجتماعية، فيجب عليك العمل في الفيس بوك أو تويتر. للبحث، جوجل. فالسيطرة هي في أيدي الشركات، وليس في أيدي المستخدمين أنفسهم.
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+مع Beaker، لدينا بروتوكول ويب جديد: [نقل الأرشيف اللامركزي](https://datprotocol.com). "البيانات". إنها تنشئ مواقع بناء على الطلب، مجاناً، ثم تشاركها من الجهاز. لا توجد خوادم مطلوبة. هذا هو ابتكاراتنا.
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![بروتوكولات المنارة](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+عندما تزور موقع Dat في Beaker، تقوم بتنزيل الملفات. الموقع هو موقعك إلى الأبد. يمكنك حفظه ، قم بتعديله ، ومشاركة الإصدار الجديد مجانًا. كل ذلك مفتوح المصدر.
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+إذاً هذا ما يدور حوله: نحن نصنع متصفحًا للمواقع المفتوحة المصدر. نريد أن تكون مجموعة أدوات للقرصنة الإجتماعية.
 
-## Who should be using Beaker?
+## من يجب أن يستخدم بيكر؟
 
-Hackers. Modders. Creative types. People who like to tinker.
+مخترقين. المواليد. أنواع إبداعية. الناس الذين يحبون التلاعب
 
-## How do I create a new project that uses Dat?
+## كيف يمكنني إنشاء مشروع جديد يستخدم البيانات؟
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+لدينا [أداة سطر الأوامر تسمى bkr](https://github.com/beakerbrowser/bkr) التي تشبه git + npm. إليك إنشاء موقع:
 
 ```bash
 $ cd ~/my-site
 $ bkr init
-$ echo "Hello, world!" > index.html
-$ bkr publish
+$ أكرر "مرحبا، عالمي!" > index.html
+$ bkr نشر
 ```
 
-And here's forking a site:
+وهنا يشكون في موقع:
 
 ```bash
-$ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
+$ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+$ "لا يحب شوكي الفهرس السابق. tml!" > index.html
+$ bkr نشر
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+ثم يتم استضافة هذه المواقع خارج المتصفح الخاص بك. إنه يشبه نوعا ما BitTorrent، أنت تشارك المواقع في شبكة P2P.
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+إذا كنت تريد واجهة المستخدم ، لدينا بعض الأدوات الأساسية التي تم بناؤها في المتصفح، لكننا ندفع تلك الأدوات إلى أرض المستخدم. كل ذلك سيكون تطبيقات المستخدم القابلة للتحويل.
 
-## Why did you choose to build Beaker on Electron?
+## لماذا اخترت بناء بيكر على إلكترون؟
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+وكان من الواضح لهذا المشروع. إذا قمت بفكر كروم بنفسي، سأكتب C++ الآن! لا أحد يريد أن يفعل ذلك. أنا أعرف مكدس الويب، ويمكنني العمل معه بسرعة. إنها خالية من الأدمغة.
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+الحقيقة هي أنني لست متأكدا من أنني أستطيع القيام بأي من هذا دون إلكترون إنها قطعة رائعة من البرمجيات.
 
-## What are some challenges you've faced while building Beaker?
+## ما هي بعض التحديات التي واجهتها أثناء بناء البياكر؟
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+نصف هذا يتحدث عن الأدوات ويعرفون كم يمكنني أن أفلت منها.
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+كان جعل المتصفح نفسه سهلا جدا. إلكترون هو عمليا مجموعة أدوات لصنع المتصفحات. ...باستثناء علامات تبويب المتصفح؛ هذا استغرق مني إلى الأبد لأحسن صوابا. أخيرا تحطمت و تعلمت كيف أفعل SVG. انها تبدو افضل بكثير، لكنها استغرقت 3 أو 4 تكرارات قبل ان اصح
 
-## In what areas should Electron be improved?
+## في أي مجالات ينبغي تحسين إلكترون؟
 
-It'd be really great if I could dock the devtools inside a webview.
+سيكون من الرائع أن أتمكن من وضع الأدوات داخل عرض ويب.
 
-## What's coming next in Beaker?
+## ما التالي في بيكر؟
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+أسماء DNS آمنة لمواقع Dat. مخطط URL قابل للتكوين اجتماعياً، يسمى ["مخطط التطبيقات"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) المزيد من APIs.
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## بالنسبة للأشخاص الذين قد يكونون مهتمين بالمساهمة في المشروع، في أي مجالات يحتاج بيكر إلى مساعدة؟
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+لدينا الكثير من المسائل المفتوحة. لا تخشى أن تربطني. #beakerbrowser على freenode. نحن نحتفظ بصفحة [للمساهمين](https://beakerbrowser.com/docs/team.html) وسوف نضيفك إليها. وإذا قمت بزيارة أوستن، سأشتري لك جعة.
 
-## Any Electron tips that might be useful to other developers?
+## أي نصائح إلكترون قد تكون مفيدة للمطورين الآخرين؟
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+1. استخدام أداة البناء الموجودة هناك. لا تريد أن تتصارع مع الحلول الخاصة بك، ثقوا بي. استخدام منشئ الإلكترون. استخدام مستودع الغليان.
+2. إذا كنت بحاجة إلى فتح مشكلة في مستودع إلكترون، اذهب إلى الميل الإضافي لتجعل من السهل إعادة التكاثر. ستحصل على استجابة أسرع بكثير، وسيقدر الفريق ذلك. حتى الأفضل، حاول إصلاحه بنفسك. في الواقع من المثير للاهتمام أن نرى الأبعاد.
+3. اقرأ من خلال جميع الأدلة والمستندات المتقدمة مرة واحدة على الأقل.
+4. لا تقم ببناء متصفح، إنها سوق مشبعة.
 

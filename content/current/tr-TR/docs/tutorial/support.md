@@ -5,6 +5,11 @@
 If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
 - [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` channel on Freenode
 - `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
@@ -61,12 +66,10 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 ### Linux
 
-Electron'un önceden hazırlanmış `ia32` (`i686`) ve `x64` (`amd64`) ikilileri Ubuntu 12.04 üzerine kurulmuştur, `armv7l` ikili ARM v7'e karşı hard-float ABI ve NEON Debian Wheezy için yapılmıştır.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron, basit bir `arm` sonekiyle birlikte `armv7l` ikili sürümünü de serbest bırakmaya devam edecek. Both binaries are identical.
+Önceden derlenmiş sürümün normal olarak çalışıp çalışamayacağı, derleme platformunun bağlantı kitaplığının eklenip eklenmediğine bağlıdır. Dolayısıyla yalnızca Ubuntu 18.04'ün çalışması garanti edilir ve aşağıdaki platformların Electron'un önceden derlenmiş sürümleriyle çalıştığı kanıtlanmıştır:
 
-Önceden derlenmiş sürümün normal olarak çalışıp çalışamayacağı, derleme platformunun bağlantı kitaplığının eklenip eklenmediğine bağlıdır. Dolayısıyla yalnızca Ubuntu 12.04'ün çalışması garanti edilir ve aşağıdaki platformların Electron'un önceden derlenmiş sürümleriyle çalıştığı kanıtlanmıştır:
-
-* Ubuntu 12.04 and newer
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

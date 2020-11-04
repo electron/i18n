@@ -1,56 +1,56 @@
 # Coding Style
 
-These are the style guidelines for coding in Electron.
+Acestea sunt regulile de stil pentru codificare în Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Puteți rula `npm run lint` pentru a afișa orice probleme de stil detectate de `cpplint` și `eslint`.
 
-## General Code
+## Cod general
 
-* End files with a newline.
-* Place requires in the following order:
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order:
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code:
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Terminați fișierele cu o linie nouă.
+* Locul necesită în următoarea ordine:
+  * Construit în modulele Node (precum `calea`)
+  * Construit în module Electron (cum ar fi `ipc`, `app`)
+  * Module locale (folosind căi relative)
+* Plasați proprietățile clasei în următoarea ordine:
+  * Metode și proprietăți ale clasei (metode care încep cu `@`)
+  * Metode și proprietăți de instanță
+* Evitați codul dependent de platformă:
+  * Folosiți `path.join()` pentru a concatena nume de fișiere.
+  * Folosiți `os.tmpdir()` mai degrabă decât `/tmp` când aveți nevoie să faceți referire la directorul temporar.
 * Using a plain `return` when returning explicitly at the end of a function.
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * Nu `returnează null`, `return undefined`, `null` sau `undefined`
 
-## C++ and Python
+## C++ și Piton
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Pentru C++ și Python, vom urmări [stilul de codare a Chromium](https://www.chromium.org/developers/coding-style). Poți să folosești [clang-format](clang-format.md) pentru a formata automat codul C ++. Există de asemenea, un script, precum `script/cpplint.py` pentru a verifica dacă toate fișierele sunt conforme.
 
-The Python version we are using now is Python 2.7.
+Versiunea Python pe care o folosim acum este Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Codul C ++ folosește o mulțime de abstracții și tipuri de Chromium, așa că este recomandat să vă familiarizați cu ei. Un loc bun de început este documentul Chromium de [Abstracții importante și Structuri de date](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures). Documentul menționează unele tipuri speciale, tipuri de scope-uri (care își eliberează automat memoria atunci când ies din scope), mecanisme de logging etc.
 
 ## Documentație
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Scrie [remarca](https://github.com/remarkjs/remark) al stilului markdown.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Puteți rula `npm run lint-docs` pentru a vă asigura că modificările documentației dvs. sunt formatat corect.
 
 ## JavaScript
 
-* Write [standard](https://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* Scrie [standard](https://www.npmjs.com/package/standard) stil JavaScript.
+* Numele de fișiere ar trebui să fie concatenate cu `-` în loc de `_`, de exemplu, `file-name.js`, mai degrabă decât `file_name.js`, deoarece în [github/atom](https://github.com/github/atom) github /atom sunt, de obicei, în formularul `nume-modul`. Această regulă se aplică doar fișierelor `.js`.
+* Utilizați sintaxa ES6/ES2015 mai nouă, dacă este cazul
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pentru necesități și alte constante.  Dacă valoarea este primitivă, utilizați numele cu majuscule (de ex. `const NUMBER_OF_RETRIES = 5`).
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) pentru definirea variabilelor
+  * [Funcții săgeată](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) în loc de `funcție () { }`
+  * [Format Literații](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) în loc de text concatenare folosind `+`
 
-## Naming Things
+## Denumirea obiectelor
 
-Electron APIs uses the same capitalization scheme as Node.js:
+API-urile Electron utilizează aceeași schemă de capitalizare ca și Node.js:
 
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
+- Când modulul în sine este o clasă ca `BrowserWindow`, utilizaţi `PascalCase`.
+- Atunci cand modulul este un set de API-uri, cum ar fi `globalShortcut`, utilizați `camelCase`.
+- Când API-ul este o proprietate a obiectului, și este suficient de complex pentru a fi într-un capitol separat ca `win.webContents`, utilizați `mixedCase`.
 - For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
 When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.

@@ -1,17 +1,17 @@
-# Experimental APIs
+# Экспериментальные API
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Некоторые Electrons API отмечены символом `_Experimental_` в документации. Этот тег указывает, что API не может считаться стабильным, и API может быть удален или изменен чаще, чем другие API с меньшим предупреждением.
 
-## Conditions for an API to be tagged as Experimental
+## Условия для того, чтобы API был помечен как экспериментальные
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Каждый может запросить API как экспериментальную функцию PR, disagreements о экспериментальной природе функции можно обсудить в API WG, если они не могут быть разрешены в PR.
 
-## Process for removing the Experimental tag
+## Процесс удаления экспериментальной метки
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  Эта дискуссия должна произойти на встрече WG API.  Что нужно учитывать при обсуждении/выдвижении кандидатов:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Должно быть соблюдено вышеуказанное условие "две основные конюшни для высвобождения"
+* За это время никаких серьезных ошибок / проблем было вызвано принятием этой функции
+* API достаточно стабилен и не сильно пострадал от обновлений Chromium
+* Кто-нибудь использует API?
+* Является ли API, выполняющий оригинальные предложенные usecases, имеет ли он какие-либо пробелы?

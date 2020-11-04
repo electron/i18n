@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Kap'
+title: 'Project van de week: Kap'
 author:
   - skllcrn
   - sindresorhus
@@ -7,79 +7,79 @@ author:
 date: '2017-01-31'
 ---
 
-The Electron community is growing quickly, and people are creating powerful new apps and tools at an astounding rate. To celebrate this creative momentum and keep the community informed of some of these new projects, we've decided to start a weekly blog series featuring noteworthy Electron-related projects.
+De Electron gemeenschap groeit snel, en mensen maken krachtige nieuwe apps en gereedschappen op een verbazingwekkend tempo. Om dit creatieve momentum te vieren en de gemeenschap op de hoogte te houden van sommige van deze nieuwe projecten we hebben besloten om een wekelijkse blog serie te starten met opmerkelijke Electron-gerelateerde projecten.
 
 ---
 
-This post is the first in the series, and features [Kap](https://getkap.co/), an open-source screen recording app built by [Wulkano](https://wulkano.com/), a geodistributed team of freelance designers and developers.
+Dit bericht is de eerste in de serie en functies [Kap](https://getkap.co/), een open-source schermopname app gemaakt door [Wulkano](https://wulkano.com/), een gedistribueerd team van freelance ontwerpers en ontwikkelaars.
 
-[![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
+[![Kap Schermopname](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
-## What is Kap?
+## Wat is Kap?
 
-[Kap is an open-source screen recorder](https://getkap.co) built primarily for designers and developers to easily capture their work. People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap is een open-source schermrecorder](https://getkap.co) gebouwd voor ontwerpers en ontwikkelaars om hun werk gemakkelijk vast te leggen. Mensen gebruiken het om geanimeerde prototypes, documentbugs te delen, maak gek GIF's en alles ertussenin.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
+We hebben mensen van alle leeftijden en achtergronden gezien die het gebruiken in onderwijsinstellingen, screencasts, tutorials... De lijst gaat verder. Zelfs om productiefaciliteiten te creëren! We zijn helemaal weggeblazen door hoe goed ons kleine nevenproject is ontvangen.
 
-## Why did you build it?
+## Waarom heb je het gebouwd?
 
-That's a very good question, it's not like there's a lack of screen recorders out there! We felt the alternatives were either too complex, too expensive or too limited. Nothing felt *just right* for our everyday needs. We also think it's great when the tools we use to do our work are open-source, that way everyone can help shape them. [Building Kap ended up being just as much about what we didn't do](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). It's all in the details, an accumulation of small improvements that became the outline of a tool we wanted to use.
+Dat is een heel goede vraag, het lijkt er niet op dat er een gebrek aan schermopnames is! Wij vonden dat de alternatieven ofwel te ingewikkeld, te duur of te beperkt waren. Niets voelde *net goed* voor onze dagelijkse behoeften. We vinden het ook geweldig wanneer de hulpmiddelen die we gebruiken om ons werk te doen open source zijn, die manier kan iedereen helpen ze vorm te geven. [Bouw Kap kwam uiteindelijk net zoveel te staan over wat we niet hebben gedaan](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). Het is allemaal in de details, een opeenstapeling van kleine verbeteringen die de contouren werden van een instrument dat we wilden gebruiken.
 
-However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
+Echter en misschien wel het belangrijkste, Kap is voor ons een plek geworden om onze zorgen aan de deur te laten staan en alleen maar plezier te hebben met het bouwen van iets voor onszelf en mensen zoals wij. Het is zo belangrijk om een omgeving te creëren waar je net een spil kunt vinden, nieuwe duimen kunt genieten van je vliegtuig. Geen vereisten, geen druk, geen verwachtingen. Moeten ontwerpers en ontwikkelaars naast project werken? Waarom, ja. Ja, dat zou moeten.
 
-## Why did you choose to build Kap on Electron?
+## Waarom heb je ervoor gekozen om Kap op Electrono te bouwen?
 
-There were a number of reasons:
+Er waren een aantal redenen:
 
 * Web tech
-* Most of the team are web developers
-* We're invested in JavaScript
-* It opens the door for more people to contribute
-* Electron itself is open-source
-* The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* De meeste van het team zijn webontwikkelaars
+* We hebben in JavaScript geïnvesteerd
+* Het opent de deur voor meer mensen om bij te dragen
+* Electron is zelf open-source
+* De kracht en makkelijk te behouden modulariteit van `node_modules`
+* Multiplatform mogelijkheden
 
-We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
+We denken dat de toekomst van apps in de browser is, maar we zijn er nog niet helemaal. Electron is een belangrijke stap op weg naar die toekomst. Het maakt niet alleen de apps zelf toegankelijker, maar ook de code waarmee ze zijn opgebouwd. Een interessant idee is een toekomst voor te stellen waar het OS een browser is, en de tabbladen zijn voornamelijk Electron apps.
 
-Additionally, being primarily web developers, we're big fans of the isomorphic nature of JavaScript, in that you can run JS on the client, server, and now the desktop. With web tech (HTML, CSS and JS), many things are much simpler than native: Faster prototyping, less code, flexbox > auto-layout (macOS/iOS).
+Bovendien, omdat we voornamelijk webontwikkelaars zijn, zijn we grote fans van de isomorfe aard van JavaScript, in dat u JS kunt uitvoeren op de cliënt, server en nu het bureaublad. Met web tech (HTML, CSS en JS), zijn veel dingen veel eenvoudiger dan niets: Sneller prototypen, minder code, flexbox > auto-lay-out (macOS/iOS).
 
-## What are some challenges you've faced while building Kap?
+## Wat zijn enkele uitdagingen waarmee je wordt geconfronteerd tijdens het bouwen van Kap?
 
-Using the resources Electron has available to record the screen was the biggest challenge. They simply weren't performant enough to meet our requirements and would render the project a failure in our eyes. Though at no fault of Electron itself, there's still a gap between native development and building desktop apps with web tech.
+Het gebruik van de middelen die Electron beschikbaar heeft om het scherm op te nemen was de grootste uitdaging. Ze waren gewoon onvoldoende prematuur om aan onze eisen te voldoen en zouden het project in onze ogen een mislukking maken. Hoewel Electron zelf geen schuld heeft, is er nog steeds een kloof tussen inheemse ontwikkeling en het bouwen van desktopapps met web tech.
 
-We spent a lot of time trying to work around the poor performance of the `getUserMedia` API, an issue originating in Chromium. One of our main goals when we set out to make Kap was to build the entire app with web tech. After trying everything we could to get it working (the minimum requirement being 30 FPS on a Retina screen), we eventually had to find another solution.
+We hebben veel tijd besteed aan het proberen te werken rond de slechte prestaties van de `getUserMedia` API, een probleem dat afkomstig is uit Chromium. Een van onze belangrijkste doelen toen we Kap wilden maken, was het bouwen van de hele app met web technologie. Na het proberen van alles wat we konden doen om het te laten werken (de minimum vereiste is 30 FPS op een Retina scherm) Uiteindelijk moesten we een andere oplossing vinden.
 
-## I see some Swift code in the repo. What's that about?
+## Ik zie wat Swift code in de repo. Waar gaat het om?
 
-Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. Problem? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
+Omdat we gedwongen zijn om alternatieven te zoeken voor `getUserMedia`, beginnen we te experimenteren met `ffmpeg`. Naast het feit dat het een van de beste tools is voor audio- en videoconversie heeft het de functionaliteit om het scherm op te nemen in bijna alle OS, en we hebben op een Retina-scherm aan onze minimumeisen van 30 FPS kunnen voldoen. Probleem? De prestatie was ":weary:", het CPU-gebruik ging naar haywire. We gingen dus terug naar de tekentafel, discussieerden over onze opties en beseften dat we een compromis moesten sluiten. Dat resulteerde in [Aperture](https://github.com/wulkano/aperture), onze eigen schermopnamebibliotheek voor macOS geschreven in Swift.
 
-## In what areas should Electron be improved?
+## Op welke gebieden moet Electron worden verbeterd?
 
-We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
+We weten allemaal dat Electron apps iets kunnen hebben om RAM, maar nogmaals, dat is echt een Chromium ding. Het is onderdeel van hoe het werkt en het hangt echt af van wat je runt. bijvoorbeeld Kap en Hyper gebruiken meestal minder dan 100 MB geheugen.
 
-One of the biggest areas of improvement that we see is payload, particularly how Electron distributes Chromium. One idea would be to have a shared Electron core and make app installers check if it's already present on the system.
+Een van de grootste verbeteringsgebieden die we zien is de betaling, met name hoe Electron Chromium distribueert. Een idee zou zijn om een gedeelde Electron core te hebben en app installateurs te laten controleren of deze al aanwezig is op het systeem.
 
-Creating cross-platform Electron apps could be a better experience. Right now there are too many inconsistencies, platform-specific APIs, and missing features between platforms, making your codebase littered with if-else statements. For example, vibrancy is only supported on macOS, the auto-updater works differently on macOS and Windows, and is not even supported on Linux. Transparency is a hit or miss on Linux, usually miss.
+Het maken van cross-platform Electron apps zou een betere ervaring kunnen zijn. Op dit moment zijn er te veel inconsistenties, platform-specifieke API's en ontbrekende functies tussen platforms, waardoor je codebase bezaaid is met als-anders-verklaringen. Bijvoorbeeld, vibrancy wordt alleen ondersteund op macOS, de auto-updater werkt anders op macOS en Windows, en wordt niet eens ondersteund op Linux. Transparantie is een hit of mis op Linux, meestal niet.
 
-It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
+Het moet ook gemakkelijker zijn om native system API's te noemen. Electron komt met een zeer goede set API's, maar soms heb je functionaliteit niet nodig. Het creëren van een native Node.js addon is een optie, maar het is pijnlijk om mee te werken. Electron zou het liefst met een goede [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, zoals [`fastcall`](https://github.com/cmake-js/fastcall). Dit zou ons in staat hebben gesteld om in plaats daarvan het Swift-deel in JavaScript te schrijven.
 
-## What are your favorite things about Electron?
+## Wat zijn jouw lievelingsdingen over Electron?
 
-Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
+Ons lievelingsvermogen is het feit dat iedereen met kennis van het maken voor het web kan bouwen en bijdragen aan multi-platform native ervaringen. En dan heb ik het nog niet eens over het gemak en de vreugde van de ontwikkeling ervan, de uitstekende documentatie en het bloeiende ecosysteem.
 
-From a front-end perspective, building Kap felt no different than building a simple website using browser APIs. Electron does a really great job of making app development similar (basically identical) to web development. So simple in fact that there was no need for frameworks or similar to help us, just clean and modular JS and CSS.
+Vanuit een front-end perspectief, voelde het bouwen van Kap niet anders dan het bouwen van een eenvoudige website met behulp van browserAPI's. Electron doet er echt goed aan om app ontwikkeling vergelijkbaar te maken met web ontwikkeling. Zo simpel was het zelfs dat er geen behoefte was aan kaders of iets dergelijks om ons te helpen, alleen maar schoon en modulair JS en CSS.
 
-We are also huge fans of the team building it, their dedication and support, and the active and friendly community they maintain. Hugs to all of you!
+Wij zijn ook grote fans van het team dat het bouwt, hun toewijding en hun steun, en de actieve en vriendelijke gemeenschap die zij onderhouden. Knuffelt je allemaal!
 
-## What's coming next in Kap?
+## Wat komt er volgende in Kap?
 
-The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
+De volgende stap voor ons is het beoordelen van de app in voorbereiding op onze 2.0. mijlpaal, die een React herschrijf bevat als aanvulling op het ondersteunen van plugins, waardoor ontwikkelaars de functionaliteit van Kap! We nodigen iedereen uit om te volgen voor het project en bij te dragen aan onze [GitHub repository](https://github.com/wulkano/kap). We luisteren en willen zo veel mogelijk van u horen. [Laat ons weten hoe we Kap het best mogelijke hulpmiddel voor jou kunnen maken](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## Wat is Wulkano?
 
-[Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
+[Wulkano](https://wulkano.com) is een studio en digitale collectief, een team van remote wetenschappers die graag samenwerken aan zowel onze client gigs als onze eigen projecten. We zijn een verspreide maar strakke groep van mensen van verschillende plekken en achtergronden, het delen van kennis, ideeën, ervaringen, maar het allerbelangrijkst zijn domme GIF's en memes, in onze virtuele kantoor (het op Electron gebaseerde Slack!).
 
-## Any Electron tips that might be useful to other developers?
+## Heb je Electron tips die nuttig kunnen zijn voor andere ontwikkelaars?
 
-Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
+Profiteer van en doe mee in de fantastische [gemeenschap](https://discuss.atom.io/c/electron), bekijk [Geweldige Electron](https://github.com/sindresorhus/awesome-electron), bekijk [voorbeelden](https://github.com/electron/electron-api-demos) en maak gebruik van de geweldige [docs](https://electronjs.org/docs/)!
 

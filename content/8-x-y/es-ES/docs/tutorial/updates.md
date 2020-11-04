@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Como paso final, compruebe si hay actualizaciones. El siguiente ejemplo comprobará cada minuto:
 
 ```javascript
 setInterval(() => {
@@ -93,7 +93,7 @@ Detalles: Una nueva versión ha sido descargada. Restart the application to appl
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+También asegúrate de que los errores están [siendo manejados](../api/auto-updater.md#event-error). Aquí hay un ejemplo para registrarlos en `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {

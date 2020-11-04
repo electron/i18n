@@ -34,9 +34,10 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X está presionado')
   })
-})
+ }) 
+ })
 ```
 
 ## Accesos directos en una ventana de buscador

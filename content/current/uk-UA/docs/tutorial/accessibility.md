@@ -1,16 +1,16 @@
 # Доступність
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Створення доступу до доступних програм дуже важливе, і ми з радістю надаємо функціональність [Devtron](https://electronjs.org/devtron) і [Spectron](https://electronjs.org/spectron) , що дає розробникам можливість покращити їх програмам для всіх.
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Проблеми з доступністю для Electron додатків схожі на сайти через те, що вони врешті HTML. Однак, із додатками Electron Ви не можете використовувати онлайн-ресурси для аудиту доступності тому що ваш додаток не має URL для вказівника.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools.
+Ці функції надають ці інструменти для контролю до вашого застосунку Electron. Ви можете додати аудити до своїх тестів за допомогою Spectron або використовувати їх в інструментах DevTools з Devtron. Читайте про резюме інструментів.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Наприклад:
+При тестуванні специфікації фреймворку ви можете тепер перевіряти кожне вікно і тег `<webview>` у вашому додатку. Наприклад:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,33 +20,33 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Ви можете прочитати більше про цю функцію в документації [Spectron's](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
-In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+У Devtron присутня вкладка Спец. можливостей, що дозволить вам аутувати сторінку у вашому додатку, сортувати і фільтрувати результати.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![Скріншот розробника](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Обидві ці інструменти використовують [Інструменти розробника спеціальних можливостей](https://github.com/GoogleChrome/accessibility-developer-tools) бібліотеку, побудовану Google для Chrome. Ви можете дізнатися більше про доступність аудиту правил, які використовує ця бібліотека на [вікі](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+Якщо ви знаєте про інші чудові інструменти для доступності для Electron, додайте їх до в документацію доступності за допомогою pull request.
 
-## Manually enabling accessibility features
+## Вручну вмикає спеціальні можливості
 
-Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Програми Electron автоматично увімкнуть функції доступності в присутність допоміжної технології (наприклад . [JAWS](https://www.freedomscientific.com/products/software/jaws/) на Windows або [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) на macOS). Дивіться [спеціальні можливості](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) для подробиць.
 
-You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
+Ви також можете вручну ввімкнути ці функції в вашому додатку Electron або помістивши прапори в системному програмному забезпеченні.
 
-### Using Electron's API
+### Використання API Electron
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
+Використовуючи [`app.setAccessibilitySupportd(увімкнений)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, ви можете вручну відобразити дерево доступності Chrome до користувачів у налаштуваннях програми. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-### Within third-party software
+### В межах сторонніх програм
 
 #### macOS
 
-On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
+На macOS, новітня технологія може ввімкнути спеціальні можливості в Electron applics, встановивши `AXManualAccess,` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
@@ -60,5 +60,5 @@ CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
     CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
     AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
     CFRelease(appRef);
-}
+
 ```

@@ -14,7 +14,7 @@ Un moteur de rendu en bac à sable n'a pas d'environnement Node.js en cours d'ex
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Par conséquent, certaines API telles que `window.open` fonctionneront car elles font dans Chromium (c'est-à-dire qu'ils ne renvoient pas un [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Example
+## Exemple
 
 Pour créer une fenêtre en bac à sable, passez `bac à sable : true` à `webPreferences`:
 

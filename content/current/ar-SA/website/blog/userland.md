@@ -1,61 +1,61 @@
 ---
-title: Electron Userland
+title: مستخدم إلكترون
 author: zeke
 date: '2016-12-20'
 ---
 
-We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
+لقد أضفنا قسم [مستخدم](https://electronjs.org/userland) جديد إلى موقع إلكترون لمساعدة المستخدمين على اكتشاف الناس، الحزم والتطبيقات التي تصنع نظام إيكولوجي مزدهر مفتوح المصدر.
 
 ---
 
 [![github-contributors](https://cloud.githubusercontent.com/assets/2289/21205352/a873f86c-c210-11e6-9a92-1ef37dfc986b.png)](https://electronjs.org/userland)
 
-## Origins of Userland
+## أصول المستعملين
 
-Userland is where people in software communities come together to share tools and ideas. The term originated in the Unix community, where it referred to any program that ran outside of the kernel, but today it means something more. When people in today's Javascript community refer to userland, they're usually talking about the [npm package registry](http://npm.im). This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
+المستخدم هو المكان الذي يجتمع فيه الناس في مجتمعات البرمجيات لتبادل الأدوات والأفكار. هذا المصطلح منشأ في مجتمع يونكس، حيث أشار إلى أي برنامج كان خارج النار، ولكن اليوم يعني شيئا أكثر. عندما يشير الناس في مجتمع جافا سكريبت اليوم إلى المستخدم، فإنهم عادة يتحدثون عن سجل حزمة [npm](http://npm.im). هذا هو المكان الذي تحدث فيه أغلبية التجارب و الإبتكار، في حين تحتفظ العقدة ولغة جافا سكريبت (مثل نواة يونيكس) بمجموعة صغيرة ومستقرة نسبيا من الميزات الأساسية.
 
-## Node and Electron
+## العقدة والإلكترون
 
-Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. فلسفة التصميم هذه تسمح للإلكترون لتبقى أداة مرنة دون إفراط في وصف كيفية استخدامها.
+مثل العقدة، يحتوي إلكترون على مجموعة صغيرة من API الأساسية. هذه توفر الميزات الأساسية اللازمة لتطوير تطبيقات سطح المكتب متعددة المنصات. فلسفة التصميم هذه تسمح للإلكترون لتبقى أداة مرنة دون إفراط في وصف كيفية استخدامها.
 
-Userland is the counterpart to "core", enabling users to create and share tools that extend Electron's functionality.
+المستخدم هو نظير "الأساسية"، تمكين المستخدمين من إنشاء ومشاركة الأدوات التي توسع وظائف إلكترون.
 
-## Collecting data
+## جمع البيانات
 
-To better understand the trends in our ecosystem, we analyzed metadata from 15,000 public GitHub repositories that depend on `electron` or `electron-prebuilt`
+لفهم أفضل للاتجاهات في نظامنا الإيكولوجي، قمنا بتحليل البيانات الوصفية من 15، 00 مستودعات GitHub العامة التي تعتمد على `إلكترون` أو `إلكترون تم بناؤه مسبقاً`
 
-We used the [GitHub API](https://developer.github.com/v3/), the [libraries.io API](https://libraries.io/api), and the npm registry to gather info about dependencies, development dependencies, dependents, package authors, repo contributors, download counts, fork counts, stargazer counts, etc.
+استخدمنا [GitHub API](https://developer.github.com/v3/)، المكتبات [. o API](https://libraries.io/api)، وسجل npm لجمع معلومات عن التبعيات، التبعيات الإنمائية، المعالون، مؤلفو الحزمة، المساهمون بالرد، إحصائيات التنزيل، إحصائيات الشوك، النجارة إحصاء، إلخ.
 
-We then used this data to generate the following reports:
+ثم استخدمنا هذه البيانات لإعداد التقارير التالية:
 
-- [App Development Dependencies](https://electronjs.org/userland/dev_dependencies): Packages most often listed as `devDependencies` in Electron apps.
-- [GitHub Contributors](https://electronjs.org/userland/github_contributors): GitHub users who have contributed to numerous Electron-related GitHub repositories.
-- [Package Dependencies](https://electronjs.org/userland/package_dependencies): Electron-related npm packages that are frequently depended on by other npm packages.
-- [Starred Apps](https://electronjs.org/userland/starred_apps): Electron apps (that are not npm packages) with numerous stargazers.
-- [Most Downloaded Packages](https://electronjs.org/userland/most_downloaded_packages): Electron-related npm packages that are downloaded a lot.
-- [App Dependencies](https://electronjs.org/userland/dependencies): Packages most often listed as `dependencies` in Electron apps.
-- [Package Authors](https://electronjs.org/userland/package_authors): The most prolific authors of Electron-related npm packages.
+- [الإعتمادات على تطوير التطبيق](https://electronjs.org/userland/dev_dependencies): الحزم المدرجة في أغلب الأحيان ك `إيرديتونات` في تطبيقات إلكترون.
+- [المساهمون في GitHub](https://electronjs.org/userland/github_contributors): مستخدمو GitHub الذين ساهموا في العديد من مستودعات GitHub ذات الصلة بالإلكترون.
+- [تبعيات الحزمة](https://electronjs.org/userland/package_dependencies): حزم npm المتصلة بإلكترون والتي تعتمد في كثير من الأحيان على حزم أخرى npm.
+- [تطبيقات مميزة](https://electronjs.org/userland/starred_apps): تطبيقات إلكترون (والتي ليست حزم npm ) مع العديد من نجرات النجوم.
+- [الحزم الأكثر تنزيلا](https://electronjs.org/userland/most_downloaded_packages): الحزم npm المتصلة بإلكترون والتي يتم تنزيلها كثيرا.
+- [تبعيات التطبيق](https://electronjs.org/userland/dependencies): الحزم المدرجة في أغلب الأحيان كـ `تبعيات` في تطبيقات إلكترون.
+- [مؤلفو الحزمة](https://electronjs.org/userland/package_authors): اكثر مؤلفي الحزم المتصلة بإلكترون npm .
 
 ## فلترة النتائج
 
-Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
+تقارير مثل [تبعيات التطبيق](https://electronjs.org/userland/dependencies) و [تطبيقات مميزة](https://electronjs.org/userland/starred_apps) أي حزم، التطبيقات والمستودعات لديها مدخل نصي يمكن استخدامه في تصفية النتائج.
 
-As you type into this input, the URL of the page is updated dynamically. This allows you to copy a URL representing a particular slice of userland data, then share it with others.
+عند كتابة هذا الإدخال، يتم تحديث عنوان URL للصفحة بشكل ديناميكي. هذا يسمح لك بنسخ عنوان URL يمثل شريحة معينة من بيانات المستخدم، ثم مشاركته مع الآخرين.
 
-[![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
+[![بابل](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 
-## More to come
+## المزيد ليأتي
 
-This first set of reports is just the beginning. We will continue to collect data about how the community is building Electron, and will be adding new reports to the website.
+وهذه المجموعة الأولى من التقارير ليست سوى البداية. سوف نواصل جمع بيانات حول كيفية بناء المجتمع إلكترون، وسوف نضيف تقارير جديدة إلى الموقع.
 
-All of the tools used to collect and display this data are open-source:
+جميع الأدوات المستخدمة لجمع وعرض هذه البيانات مفتوحة المصدر:
 
-- [electron/electronjs.org](https://github.com/electron/electron.atom): The Electron website.
-- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repos, and users in Electron userland.
-- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): All public repositories on GitHub that depend on `electron` or `electron-prebuilt`
-- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): All npm packages that mention `electron` in their `package.json` file.
+- [electron/electronjs.org](https://github.com/electron/electron.atom): موقع إلكترون.
+- [التقارير الإلكترونية/electron-userland-userland-](https://github.com/electron/electron-userland-reports): شرائح من البيانات حول الحزم، إعادة الاستدعاء، والمستخدمين في إلكترون المستخدم.
+- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): جميع المستودعات العامة على GitHub التي تعتمد على `إلكترون` أو `إلكترون تم بناؤه مسبقاً`
+- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): جميع الحزم npm التي تذكر `Electron` في ملفها `package.json`.
 
-If you have ideas about how to improve these reports, please let us know [opening an issue on the website repository](https://github.com/electron/electronjs.org/issues/new) or any of the above-mentioned repos.
+إذا كانت لديكم أفكار بشأن كيفية تحسين هذه التقارير، يرجى إبلاغنا [بفتح مشكلة في مستودع الموقع](https://github.com/electron/electronjs.org/issues/new) أو أي من المستودع المذكور أعلاه.
 
-Thanks to you, the Electron community, for making userland what it is today!
+شكرًا لك، مجتمع إلكترون لصنع أرض المستخدم ما هو اليوم!
 

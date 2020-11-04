@@ -149,9 +149,9 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
 
-### Why & How?
+### なぜ & 方法を？
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+`contextIsolation` が何であるかと、有効にする方法については、 [コンテキストIsolation](context-isolation.md) ドキュメントを参照してください。
 
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
@@ -459,11 +459,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) 信用されないコンテンツで `openExternal` を使用しない
 
-Shellの [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) はデスクトップのネィティブユーティリティの指定した protocol URI で開けるようにします。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
+シェルの [`openExternal`](../api/shell.md#shellopenexternalurl-options) は、指定されたプロトコル URI を デスクトップのネイティブユーティリティで開くことができます。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
 
 ### なぜ？
 
-[`openExternal`](../api/shell.md#shellopenexternalurl-options-callback)の不適切な利用によって、そのユーザーホストを危険に曝すことがありえます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
+[`openExternal`](../api/shell.md#shellopenexternalurl-options) を不適切に使用することで、ユーザのホスト を危険にさらすことができます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
 
 ### どうすればいいの？
 
@@ -495,8 +495,12 @@ shell.openExternal('https://example.com/index.html')
 ### どうすればいいの？
 
 ```js
-// レンダラーが信頼できないコンテンツを実行する場合、危険
-const mainWindow = new BrowserWindow({})
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -508,8 +512,11 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html<!-- 信頼できないコンテンツをレンダラーが実行する場合は NG  --><webview src="page.html"></webview><!-- OK --><webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+
 
 ## 16) `remote` モジュールをフィルタ
 

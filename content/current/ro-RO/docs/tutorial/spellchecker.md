@@ -1,10 +1,10 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron are suport încorporat pentru verificatorul de vrajitor de Chromium, de la Electron 8.  Pe Windows și Linux acest lucru este alimentat de dicționare Hunspell, iar pe macOS folosește API-uri native spellchecker.
 
-## How to enable the spellchecker?
+## Cum să activezi vânzătorul?
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+Pentru Electron 9 și mai mare, distribuitorul este activat în mod implicit.  Pentru Electron 8 trebuie să îl activezi în `webPreferences`.
 
 ```js
 const myWindow = new BrowserWindow({
@@ -14,46 +14,46 @@ const myWindow = new BrowserWindow({
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## Cum se setează limbile pe care le folosește distribuitorul?
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+Pe macOS pe măsură ce folosim API-urile native nu există nicio modalitate de a seta limba pe care o folosește distribuitorul. În mod implicit, pe macOS verificatorul nativ va detecta automat limba folosită pentru dumneavoastră.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+Pentru Windows și Linux există câteva API-uri Electron pe care ar trebui să le folosiți pentru a seta limbile pentru distribuitor.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// Setează ortograful pentru a verifica
+myWindow.session în Anglia și Franța. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
-const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
+// O serie de toate codurile lingvistice disponibile
+const possible Languages = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+În mod implicit, verificatorul de ortograf va activa limba care se potrivește cu actualul sistem de operare local.
 
-## How do I put the results of the spellchecker in my context menu?
+## Cum pot pune rezultatele ortografului în meniul meu de context?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+Toate informaţiile necesare pentru a genera un meniu de context sunt furnizate în [`evenimentul din meniul contex-`](../api/web-contents.md#event-context-menu) la fiecare `instanţă WebContent`.  Un mic exemplu de cum să faci un meniu contextual cu aceste informaţii este furnizat mai jos.
 
 ```js
 const { Menu, MenuItem } = require('electron')
 
-myWindow.webContents.on('context-menu', (event, params) => {
-  const menu = new Menu()
+myWindow.webContents. n ('context-menu', (eveniment), params) => {
+  meniul de anticipare = noul Menu()
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
-      label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
+  // Adăugaţi fiecare sugestie de ortografie
+  pentru (const Sugestie de params. ictionarySuggestions) {
+    meniu. ppend(nou MenuItem({
+      etichetă: sugestie,
+      click: () => mainWindow.webContents. eplaceMisspelling(suggestion)
     }))
   }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
-      new MenuItem({
+  // Permite utilizatorilor să adauge cuvântul scris greșit în dicționar
+  dacă (params. isspelledWord) {
+    menu. ppend(
+      nou MenuItem({
         label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
+        click: () => mainWindow. ebConținut. ession.addToSpellCheckerDictionary(params.misspelledWord)
       })
     )
   }
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## Distribuitorul utilizează servicii Google?
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+Deși vânzătorul nu trimite nici un tip de înregistrare, cuvinte sau introducere de utilizator în serviciile Google fişierele de dicţionare hunspell sunt descărcate în mod implicit de pe un CDN Google.  Dacă doriți să evitați acest lucru, puteți oferi un URL alternativ din care să descărcați dicționarele.
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Vezi documentele pentru [`sesiune. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) pentru mai multe informații despre unde să obțineți fișierele dicționarului și cum trebuie să le găzduiți.

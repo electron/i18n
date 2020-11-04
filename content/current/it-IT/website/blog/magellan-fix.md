@@ -1,34 +1,34 @@
 ---
-title: SQLite Vulnerability Fix
+title: Correzione Di Vulnerabilità Sqlite
 author: ckerr
 date: '2018-12-18'
 ---
 
-A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
+Una vulnerabilità di esecuzione di codice remoto, "[Magellan](https://blade.tencent.com/magellan/index_en.html)", è stato scoperto che colpisce software basato su SQLite o Chromium, comprese tutte le versioni di Electron.
 
 ---
 
-## Scope
+## Ambito
 
-Electron applications using Web SQL are impacted.
+Le applicazioni Electron che utilizzano Web SQL sono impattate.
 
 
-## Mitigation
+## Mitigazione
 
-Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
+Le applicazioni interessate dovrebbero smettere di utilizzare Web SQL o aggiornare a una versione patched di Electron.
 
-We've published new versions of Electron which include fixes for this vulnerability:
-  * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
+Abbiamo pubblicato nuove versioni di Electron che includono correzioni per questa vulnerabilità:
+  * [4,0,0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-There are no reports of this in the wild; however, affected applications are urged to mitigate.
+Non ci sono notizie di questo in selvaggio; tuttavia, le applicazioni interessate sono esortate a mitigare.
 
-## Further Information
+## Ulteriori Informazioni
 
-This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
+Questa vulnerabilità è stata scoperta dal team di Tencent Blade, che hanno pubblicato [un post sul blog che discute la vulnerabilità](https://blade.tencent.com/magellan/index_en.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Per saperne di più sulle migliori pratiche per mantenere al sicuro le tue app Electron, consulta il nostro [tutorial per la sicurezza](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Se si desidera segnalare una vulnerabilità in Electron, e-mail security@electronjs.org.

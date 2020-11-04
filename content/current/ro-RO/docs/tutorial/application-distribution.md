@@ -1,129 +1,129 @@
-# Application Distribution
+# Distribuția aplicației
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Pentru a distribui aplicația ta cu Electron, trebuie să o împachetezi și să-l redenumești. Cel mai simplu mod de a face acest lucru este de a utiliza unul dintre următoarele instrumente terțe de ambalare:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron/electron-packager)
+* [ambalator de electroni](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Aceste instrumente vor avea grijă de toți pașii pe care trebuie să îi faceți pentru a ajunge la o aplicație Electron distribuabilă, cum ar fi împachetarea aplicației, remarcarea executabilului, setarea pictogramelor corecte și, opțional, crearea de instalatori.
 
-## Manual distribution
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+## Distribuție manuală
+Puteți, de asemenea, să alegeți manual ca aplicația să fie pregătită pentru distribuție. Măsurile necesare în acest sens sunt prezentate mai jos.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Pentru a distribui aplicația ta cu Electron, trebuie să descarci binariile [preconstruite de Electron,](https://github.com/electron/electron/releases). Apoi, dosarul care conține aplicația dvs. ar trebui să fie numit `aplicația` și plasat în directorul de resurse Electron așa cum se arată în următoarele exemple. Țineți cont că locația binarelor preconstruite de Electron este indicată cu `electron/` în exemplele de mai jos.
 
-On macOS:
+Pe macOS:
 
 ```plaintext
-electron/Electron.app/Contents/Resources/app/
-├── package.json
-├── main.js
-└── index.html
+electron/Electron.app/Contents/Resurse/app/
+• pachete.json
+<unk> · ─ main.js
+• ─ index.html
 ```
 
-On Windows and Linux:
+Pe Windows și Linux:
 
 ```plaintext
 electron/resources/app
-├── package.json
-├── main.js
-└── index.html
+<unk> • ─ package.json
+<unk> • ─ main.js
+• ─ index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Apoi execută `Electron.app` (sau `electron` pe Linux, `electron. xe` pe Windows), și Electron vor începe ca aplicație. Directorul de electroni `` va fi apoi distribuția ta către utilizatorii finali.
 
-## Packaging Your App into a File
+## Ambalarea aplicației într-un fișier
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+În afară de expedierea aplicației tale prin copierea tuturor fișierelor sursă, poți împacheta aplicația ta într-o arhivă [asar](https://github.com/electron/asar) pentru a evita expunerea codului sursă al aplicației tale către utilizatori.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Pentru a folosi o arhivă `asar` pentru a înlocui folderul `app` , trebuie să redenumești arhiva în `aplicație. sar`, și pune-l în directorul de resurse Electron ca dedesubt, și Electron va încerca să citească arhiva și să înceapă de la ea.
 
-On macOS:
+Pe macOS:
 
 ```plaintext
-electron/Electron.app/Contents/Resources/
-└── app.asar
+electron/Electron.app/Conținut/Resurse/
+Ribavirin ─ app.asar
 ```
 
-On Windows and Linux:
+Pe Windows și Linux:
 
 ```plaintext
 electron/resources/
-└── app.asar
+<unk> ─ app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Mai multe detalii pot fi găsite în [ambalajul aplicației](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Rebranding cu Binare Descărcate
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+După ce ați împachetat aplicația în Electron, veți dori să remarcați Electron înainte de a o distribui utilizatorilor.
 
-### Windows
+### Ferestre
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/electron/rcedit).
+Poți să redenumești `electron. xe` pentru orice nume dorești și editează icoana și alte informații cu instrumente ca [rcedit](https://github.com/electron/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Poți redenumi `Electron. pp` la orice nume dorești și trebuie de asemenea să redenumești `CFBundleDisplayName`, `CFBundleIdentifier` și `CFBundleName` în următoarele fișiere:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+De asemenea, poți redenumi aplicația de ajutor pentru a evita afișarea `Electron Helper` în Monitorizarea Activității dar asigură-te că ai redenumit numele executabil al fișierului al aplicației ajutătoare.
 
-The structure of a renamed app would be like:
+Structura unei aplicații redenumite ar fi:
 
 ```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+         └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Poți redenumi `electronul` executabil cu orice nume dorești.
 
-## Rebranding by Rebuilding Electron from Source
+## Rebranding prin reconstruirea Electron de la sursă
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+De asemenea, este posibil să remarcați Electron schimbând numele produsului și construindu-l din sursă. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
-### Creating a Custom Electron Fork
+### Crearea unei forcuri Electron Personalizate
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Crearea unei forcuri personalizate de Electron nu este aproape sigur ceva ce va trebui să faci pentru a-ți construi aplicația, chiar și pentru aplicațiile de nivel de producție. Folosind o unealtă precum `electron-packer` sau `electron-forge` îți va permite să "Rebrand" Electron fără să fie nevoie să faci acești pași.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Trebuie să forjezi Electron când ai codul C++ personalizat pe care l-ai modificat direct în Electron, care fie nu pot fi inaintate, fie a fost respinsa din versiunea oficiala. În calitate de susținători ai Electron, am dori foarte mult să vă facem scenariul să funcționeze. așa că vă rugăm să încercați cât mai greu posibil pentru a obține schimbările în versiunea oficială a Electron, îți va fi mult mai ușor și îți apreciem ajutorul.
 
-#### Creating a Custom Release with surf-build
+#### Crearea unei versiuni personalizate cu surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Instalează [Navighează](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Creați o nouă găleată S3 și creați următoarea structură goală a directorului:
 
     ```sh
     - electron/
-      - symbols/
-      - dist/
+      - simboluri/
+      - distanță/
     ```
 
-3. Set the following Environment Variables:
+3. Setați următoarele variabile de mediu:
 
-  * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` - Set to `true` or else it will fail
-  * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+  * `ELECTRON_GITHUB_TOKEN` - un token care poate crea versiuni pe GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - locul unde vei încărca headers Node.js precum și simboluri
+  * `ELECTRON_ELIBERARE` - Setat la `adevărat` și partea de încărcare va rula, lasă nestabilit și `surf-build` va efectua verificări de tip CI, adecvate pentru a rula pentru fiecare pull request.
+  * `CI` - Setat la `true` sau va eșua
+  * `GITHUB_TOKEN` - setează-l la `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - setat la `C:\Temp` pe Windows pentru a preveni probleme prea lungi
+  * `TARGET_ARCH` - setat la `ia32` sau `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
 5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-6. Wait a very, very long time for the build to complete.
+6. Așteaptă foarte, foarte mult timp pentru finalizarea construcției.

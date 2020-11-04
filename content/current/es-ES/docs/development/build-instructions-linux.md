@@ -47,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Otras distribuciones pueden ofrecer paquetes similares para la instalación mediante administradores de de paquetes como pacman. O se puede compilar a partir del código fuente.
 
 ### Compilación cruzada
 
@@ -79,7 +79,7 @@ Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ### Error al cargar las bibliotecas compartidas: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+El `clang` precompilado intentará crear una liga a `libtinfo.so.5`. Dependiendo de la arquitectura del host, haz symlink a `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -87,7 +87,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tópicos Avanzados
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+La configuración de construcción predeterminada está destinada a las principales distribuciones de de Linux de escritorio. Para compilar para una distribución o dispositivo específico, la siguiente información puede ayudarte.
 
 ### Usando el sistema `clang` en vez del binario descarado `clang`
 

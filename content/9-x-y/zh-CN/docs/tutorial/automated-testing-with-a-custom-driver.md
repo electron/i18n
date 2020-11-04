@@ -117,11 +117,11 @@ const METHODS = {
 
 ```js
 const test = require('ava')
-const electronPath = require('electron')
+const electronic Path = require('electron')
 
-let app = new TestDriver({
-  path: electronPath,
-  args: ['./app'],
+let app = new TestDriver(~
+  path: electronth,
+  args: ['。 app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ let app = new TestDriver({
 test.before(async t => {
   await app.isReady
 })
-test.after.always('cleanup', async t => {
-  await app.stop()
+测试。 fter.always('cleanup', async t => *
+  等待app.stop()
 })
 ```

@@ -209,9 +209,9 @@ Retourne :
 
 Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+Cet événement sera émis après `did-start-navigation` et pour la même navigation toujours avant l'événement `did-redirect-navigation` .
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+L'appel à `event.preventDefault()` empêchera la navigation (pas seulement la redirection).
 
 #### Event: 'did-redirect-navigation'
 
@@ -237,7 +237,7 @@ Retourne :
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a main frame navigation is done.
+Émis lorsque la navigation d'une fenêtre principale est terminée.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -248,12 +248,12 @@ Retourne :
 * `event` Événement
 * `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
+* `httpStatusText` String - vide pour les navigations non HTTP,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Émis lorsqu'une navigation est terminée.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -317,16 +317,16 @@ Retourne :
 
 * `event` Événement
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Valeurs possibles :
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
+    * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
+    * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
+    * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
+    * `crashed` - Processus s'est planté
+    * `oom` - Le processus est tombé à cours de mémoire
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Émis lorsque le processus de rendu disparait de façon inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 #### Événement : 'unresponsive'
 
@@ -390,13 +390,13 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
-#### Event: 'zoom-changed'
+#### Événement : 'zoom-changed'
 
 Retourne :
 * `event` Événement
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Peut être `in` ou `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Émis lorsque l'utilisateur demande à changer le niveau de zoom en utilisant la molette de la souris.
 
 #### Événement : 'devtools-opened'
 
@@ -469,7 +469,7 @@ Retourne :
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `sélectionArea` Rectangle - Coordonnées de la région de la première correspondance.
   * `finalUpdate` Boolean
 
 Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
@@ -517,7 +517,7 @@ Retourne :
 
 Émis lorsque le type du curseur change. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si le paramètre `type` est `custom`, le paramètre `image` contiendra l'image du curseur personnalisé dans un [`NativeImage`](native-image.md), et `scale`, `size` et `hotspot` contiendront les informations complémentaires à propos du curseur personnalisé.
 
 #### Événement : 'context-menu'
 
@@ -538,7 +538,7 @@ Retourne :
   * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - Un tableau de mots suggérés à montrer à l'utilisateur pour remplacer le `misspelledWord`.  Uniquement disponible si un mot est mal orthographié et que le correcteur orthographique est activé.
   * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
   * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -690,7 +690,7 @@ Retourne :
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
 #### Événement : 'remote-require'
 
@@ -902,7 +902,7 @@ Returns `String` - The user agent for this web page.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Injecte du CSS dans la page Web actuelle et renvoie une clé unique pour la feuille de style insérée .
 
 ```js
 contents.on('did-finish-load', () => {
@@ -936,7 +936,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
-Code execution will be suspended until web page stop loading.
+L'exécution du code sera suspendue jusqu'à la fin du chargement de la page web.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -979,9 +979,9 @@ Returns `Boolean` - Whether audio is currently playing.
 
 * `factor` Double - Zoom factor; default is 1.0.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Modifie le facteur de zoom en utilisant le facteur spécifié. Le Zoom factor est égal à la valeur du zoom exprimée en pourcent divisée par 100, donc 300% = 3.0.
 
-The factor must be greater than 0.0.
+Le rapport doit être supérieur à 0.0.
 
 #### `contents.getZoomFactor()`
 
@@ -991,7 +991,7 @@ Returns `Number` - the current zoom factor.
 
 * `level` Number - Niveau de zoom.
 
-Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. La formule pour cela est `'scale:= 1,2 ^ level`.
 
 #### `contents.getZoomLevel()`
 
@@ -1006,7 +1006,7 @@ Retourne `Promise<void>`
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
 > `js
   contents.setVisualZoomLevelLimits(1, 3)`
@@ -1078,7 +1078,7 @@ Insère le `text` à l'élément ciblé.
 
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean (facultatif) - Rechercher soit en avant soit en arrière, la valeur par défaut est `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
@@ -1086,7 +1086,7 @@ Insère le `text` à l'élément ciblé.
 
 Returns `Integer` - The request id used for the request.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page. Le résultat de la requête peut être obtenu en s'abonnant à l'événement [`found-in-page`](web-contents.md#event-found-in-page).
 
 #### `contents.stopFindInPage(action)`
 
@@ -1253,7 +1253,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Ajoute le chemin spécifié à l'espace de travail des DevTools. Doit être utilisé après la création des DevTools :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1390,7 +1390,7 @@ Opens the developer tools for the service worker context.
 
 Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+> **NOTE**: L'envoi de types non standards en Javascript tels que des objets DOM ou des objets spéciaux Electron est déprécié, et lancera une exception à partir d'Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1431,7 +1431,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+> **NOTE**: L'envoi de types non standards en Javascript tels que des objets DOM ou des objets spéciaux Electron est déprécié, et lancera une exception à partir d'Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 

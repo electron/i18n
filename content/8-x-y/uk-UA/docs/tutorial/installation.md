@@ -1,6 +1,6 @@
 # Встановлення
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. Рекомендований метод - встановити Electron як залежність від розробки в вашому додатку:
 
 ```sh
 npm install electron --save-dev
@@ -18,13 +18,13 @@ npm install electron -g
 
 ## Кастомізація
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Якщо ви хочете змінити архітектуру, що завантажується (наприклад, `ia32` на машині `x64` ), ви можете використовувати прапор `--arch` з встановленим npm або встановити `npm_config_arch` змінною середовища:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+На додаток до зміни архітектури, ви можете також вказати платформу (наприклад, `win32`, `linux`, і т.п.) використовуючи прапор `--platform`:
 
 ```shell
 npm install --platform=win32 electron
@@ -32,18 +32,18 @@ npm install --platform=win32 electron
 
 ## Проксі
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Якщо вам потрібно використовувати HTTP-проксі, вам потрібно встановити `змінну ELECTRON_GET_USE_PROXY` будь-якому значенні плюс додаткові змінні оточення в залежності від версії вузла системи хоста:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Вузол 10 і вище][proxy-env-10]
+* [До вузла 10][proxy-env]
 
 ## Користувацькі Дзеркала та Кеш
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Це буде так, звернувшись до сторінки завантаження релізів GitHub, (`https://github. om/electron/electron/releases/tag/v$VERSION` , де `$VERSION` - це точна версія Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Якщо ви не можете отримати доступ до GitHub, або ви повинні надати користувацьку збірку, ви можете зробити це або шляхом надання дзеркала, або існуючої папки кешу.
 
 #### Дзеркало
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+Ви можете використовувати змінні середовища для перевизначення базової URL-адреси, шляху, за яким шукати двійкові файли Electron та бінарне ім'я файлу. The url used by `@electron/get` is composed as follows:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -56,17 +56,17 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### Кеш
-Крім того, можна перевизначити локальний кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Крім того, можна перевизначити локальний кеш. `@electron/get` кешуватиме завантажені файли в локальному каталозі, щоб не підкреслити вашу мережу. Ви можете використовувати цю кеш-папку для надання користувальницьких збірок Electron або щоб уникнути створення контакту з мережею взагалі.
 
 * Linux: `$XDG_CACHE_HOME` або `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+На середовищах, які використовують старіші версії Electron, ви можете також знайти кеш `~/.electron`.
 
 You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Кеш містить офіційний zip-файл версії та контрольну суму, що зберігається як текстовий файл. Типовий кеш може виглядати наступним чином:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -91,14 +91,14 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Пропустити двійкове завантаження
+Під час встановлення `електронного пакету` NPM він автоматично завантажує електронний двійковий.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Іноді це може бути необов'язково, наприклад, в середовищі CI, при тестуванні іншого компонента.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Щоб після завантаження бінарного файлу ви можете встановити всі параметри npm, ви можете встановити змінну середовища `ELECTRON_SKIP_BINARY_DOWNLOAD`. Наприклад:
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+Освітлення пропускної здатності при встановленні npm
 ```
 
 ## Виправлення Неполадок
@@ -117,13 +117,13 @@ If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be 
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Щоб використовувати позначку `--verbose` для відображення прогресу завантаження:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Якщо вам потрібно примусово завантажити актив і файл SHASUM встановити `force_no_cache` змінну оточення на `true`.
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md

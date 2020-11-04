@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Есть вопросы, которые довольно часто задаваются. Проверьте это перед созданием задачи:
 
 * [FAQ по Electron](faq.md)
 
@@ -15,20 +15,20 @@ There are questions that are asked quite often. Check this out before creating a
   * [Настройка Windows](tutorial/development-environment.md#setting-up-windows)
   * [Настройка Linux](tutorial/development-environment.md#setting-up-linux)
   * [Выбор редактора](tutorial/development-environment.md#a-good-editor)
-* [Создание Вашего первого приложения](tutorial/first-app.md)
-  * [Установка Electron](tutorial/first-app.md#installing-electron)
-  * [Разработка Electron в двух словах](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Запуск Вашего приложения](tutorial/first-app.md#running-your-app)
+* [Создание Вашего первого приложения](tutorial/quick-start.md)
+  * [Требования](tutorial/quick-start.md#prerequisites)
+  * [Создать базовое приложение](tutorial/quick-start.md#create-a-basic-application)
+  * [Пакет и распространение приложения](tutorial/quick-start.md#package-and-distribute-the-application)
 * [Макеты и CLI](tutorial/boilerplates-and-clis.md)
   * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Другие инструменты и макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Архитектура приложения](tutorial/application-architecture.md)
-  * [Основной( Main ) и графический( Renderer ) процессы](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Использование API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+* [Архитектура приложения](tutorial/quick-start.md#application-architecture)
+  * [Основной( Main ) и графический( Renderer ) процессы](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Добавление функционала в Ваше приложение
@@ -43,12 +43,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативное перемещение файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
-  * [Поддержка Темного режима macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Встраивание веб в Electron](tutorial/web-embeds.md)
 * [Доступность](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка основного( main ) процесса](tutorial/debugging-main-process.md)
   * [Отладка главного процесса с кодом Visual Studio](tutorial/debugging-main-process-vscode.md)
@@ -90,7 +90,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,13 +126,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme (Родная тема)](api/native-theme.md)
 * [Notification (Оповещения)](api/notification.md)
-* [powerMonitor](api/power-monitor.md)
+* [powerMonitor (Мониторинг питания)](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
-* [systemPreferences](api/system-preferences.md)
+* [системные настройки](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)

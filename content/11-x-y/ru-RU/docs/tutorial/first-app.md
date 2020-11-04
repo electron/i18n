@@ -33,7 +33,7 @@ npm будет вести вас на протяжении создания ба
 
 __Примечание__: Если в `package.json` отсутствует поле `main`, тогда Electron сделает попытку загрузить `index.js` (так же, как и Node.js).
 
-By default, `npm start` would run the main script with Node.js. in order to make it run with Electron, you can add a `start` script:
+По умолчанию, `npm start` запустит основной скрипт с Node.js. для того, чтобы запустить с Electron, вы можете добавить `стартовый скрипт:`
 
 ```json
 {
@@ -113,7 +113,7 @@ function createWindow () {
 // Некоторые API могут использоваться только после возникновения этого события.
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed, except on macOS. There, it's common
+// Выход, когда все окна закрыты, кроме macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {

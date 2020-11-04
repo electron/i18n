@@ -299,24 +299,24 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `render-process-gone` イベントに置き換えられます。そのイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
+    * `clean-exit` - 終了コード 0 でプロセスが終了した
+    * `clean-exit` - 終了コードが非 0 でプロセスが終了した
+    * `killed` - プロセスに SIGTERM シグナルが送信されたなどの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failed` - プロセスが正常に起動されなかった
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+レンダラープロセスが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -1150,8 +1150,8 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+    * `from` Number - 開始ページ。
+    * `to` Number - 終了ページ。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (任意) - 水平 DPI。
@@ -1188,8 +1188,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
   * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - 印刷開始ページ。
+    * `to` Number - 印刷最後のページ (このページを含む)。
   * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。

@@ -1,38 +1,38 @@
 ---
-title: Electron App Feedback Program
-author: sofianguy
+title: Program de feedback al aplicațiilor Electron
+author: sofianguie
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron lucrează la a face ciclurile sale de lansare mai rapide și mai stabile. Pentru a face acest lucru posibil, am început Programul de Feedback al Aplicațiilor Electron la scară largă pentru a testa versiunile beta și a raporta probleme specifice pentru noi. Acest lucru ne ajută să prioritizăm munca care va aduce aplicațiile îmbunătățite la următoarea noastră versiune stabilă mai devreme.
 
-Edit (2020-05-21): This program has been retired.
+Editare (2020-05-21): Acest program a fost pensionat.
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## Cine se poate alătura?
+Criteriile și așteptările noastre pentru aplicațiile care se alătură acestui program includ următoarele elemente:
+- Testează-ți aplicația în timpul perioadei beta pentru 10.000+ ore utilizatori
+- Desemnează o singură persoană care va verifica săptămânal pentru a discuta despre bug-urile Electron ale aplicației tale și blocantele aplicației
+- Sunteți de acord să respectați codul [de conduită al Electron](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+- Sunteți dispus să partajați următoarele informații listate în următoarea întrebare
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## Ce informații are aplicația mea Electron să partajeze?
+- Total ore utilizator aplicația ta a rulat cu orice versiune beta
+- Versiunea Electron cu care aplicația ta este testată (de ex. 4.0.0-beta.3)
+- Orice bug-uri care împiedică aplicarea ta să evolueze la linia de lansare care este testată beta
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## Ore utilizator
+Nu înțelegem că toată lumea poate partaja numere exacte de utilizator, cu toate acestea, date mai bune ne ajută să decidem cât de stabilă este o anumită versiune. Solicităm aplicațiilor să se angajeze să testeze un număr minim de ore de utilizator, în prezent 10.000 în ciclul beta.
+- 10 ore de utilizare ar putea fi 10 persoane care testează timp de o oră, sau o persoană care testează 10 ore
+- Poți împărți testarea pe versiuni beta, de exemplu test pentru 5000 ore de utilizator pe 3.0.0-beta. și apoi testați pentru 5000 de ore de utilizator pe 3.0.0-beta.5. Mai mult este mai bine, dar înțelegem că unele aplicații nu pot testa fiecare versiune beta
+- Orele CI sau AC nu sunt luate în considerare pentru total; cu toate acestea, versiunile interne chiar contează
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## De ce ar trebui să se alăture aplicația mea Electron?
+bug-urile aplicației tale vor fi urmărite și vor fi pe radarul echipei Electron de bază. Feedback-ul tău ajută echipa Electron să vadă cum fac pariurile noi și ce muncă trebuie făcută.
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## Informațiile aplicației mele vor fi partajate în mod public? Cine poate vedea aceste informații?
+Nu, informațiile aplicației dvs. nu vor fi împărtășite publicului larg. Informațiile sunt păstrate într-un repo GitHub privat care este vizibil doar membrilor Programului de Feedback al aplicației și [Guvernanță Electron](https://github.com/electron/governance). Toți membrii au fost de acord să urmeze Codul de conduită [al Electronului](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
-## Sign up
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+## Înscrie-te
+În prezent acceptăm un *număr limitat* de înscrieri. Dacă ești interesat și poți îndeplini cerințele de mai sus, te rugăm să completezi acest formular [](https://goo.gl/forms/OpMEKV75ScN6we7g1).

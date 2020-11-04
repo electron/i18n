@@ -12,7 +12,7 @@ Pour plus d’informations sur la façon de communiquer correctement une vulnér
 
 ## Problèmes de sécurité et mises à jour de Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se tient à jour avec les versions alternatives de Chromium. Pour plus d'informations, voir le blog [Electron Release Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La sécurité est la responsabilité de tous
 
@@ -251,12 +251,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview disablewebsecurity src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -341,7 +336,7 @@ Les utilisateurs avancés d'Electron peuvent activer les fonctionnalités expér
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales sont, comme le nom le suggère, expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron dans son ensemble n'a probablement pas été testé.
 
 Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
@@ -400,12 +395,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ### Comment ?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- Incorrect --><webview allowpopups src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
 ```
 
 
@@ -445,7 +435,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste ne fait que minimiser le risque, elle ne le supprime pas. Si votre objectif est d'afficher un site web, un navigateur sera une option plus sûre.
 
 ## 12) Désactiver ou limiter la navigation
 
@@ -538,7 +528,7 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
 
 ### Comment ?
 
@@ -559,15 +549,15 @@ const mainWindow = new BrowserWindow({
 ```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filtrer le module `distant`
+## 16) Filtrer le module `remote`
 
-Si vous ne pouvez pas désactiver le module `distant`, vous devez filtrer les globales, Node, et les modules Electron (dits intégrés) accessibles via `distance` que votre application ne requiert pas. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
+Si vous ne pouvez pas désactiver le module `remote`, vous devez filtrer les modules globaux, ceux de Node, et les modules Electron (dits intégrés) accessibles via `remote` dont votre application n'a pas besoin. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
 
 ### Pourquoi ?
 
-En raison des privilèges d'accès au système du processus principal, la fonctionnalité fournie par les modules du processus principal peut être dangereuse entre les mains de code malveillant exécuté dans un processus de rendu compromis. En limitant l'ensemble de modules accessibles au minimum dont votre application a besoin et en filtrant les autres, vous réduisez le jeu d'outils que le code malveillant peut utiliser pour attaquer le système.
+En raison des privilèges d'accès au système du processus principal, une fonctionnalité fournie par les modules du processus principal peut être dangereusement manipulée par du code malveillant exécuté dans un processus de rendu corrompu. En limitant au minimum nécessaire à votre application l'ensemble des modules accessibles et en filtrant les autres, vous réduisez les outils qu'un code malveillant puisse utiliser pour attaquer le système.
 
-Notez que l'option la plus sûre est de [désactiver complètement le module distant](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent pour vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à dépasser le filtre.
+Notez que l'option la plus sûre est de [désactiver complètement le module remote](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent et vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à passer au travers du filtre.
 
 ### Comment ?
 
@@ -611,13 +601,13 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utiliser une version actuelle d'Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. Chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
 
 ### Pourquoi ?
 
-Une application construite avec une ancienne version d'Electron, Chromium et Node. s est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composantes. De manière générale, les problèmes de sécurité et les exploits pour les anciennes versions de Chromium et de Node.js sont plus largement disponibles.
+Une application construite avec une ancienne version d'Electron, de Chromium ou de Node.js est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composants. De manière générale, les problèmes de sécurité et les exploitation de failles pour les anciennes versions de Chromium et de Node.js sont plus fréquentes.
 
-Chromium et Node.js sont des prouesses impressionnantes d'ingénierie construites par milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node. s) pour quels problèmes de sécurité potentiels ne sont pas aussi connus.
+Chromium et Node.js représentent des prouesses impressionnantes d'ingénierie produites par des milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node.js) dont les problèmes de sécurité potentiels ne sont pas aussi connus.
 
 
 [browser-window]: ../api/browser-window.md

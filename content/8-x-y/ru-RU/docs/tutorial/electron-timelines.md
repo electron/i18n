@@ -1,9 +1,9 @@
 # Графики выпуска Electron
 
-* The `-beta.1` and `stable` dates are our solid release dates.
+* Даты `-beta.1` и `стабильных` являются датами выпуска нашего твердого выпуска.
 * Мы стремимся к еженедельным бета-релизам, однако мы часто выпускаем больше бета-версий, чем запланировано.
 * Все даты являются нашими целями, но могут быть причины для корректировки стабильного срока, например, ошибки безопасности.
-* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+* Взгляните на пост блога [5.0.0 Timeline](https://electronjs.org/blog/electron-5-0-timeline) для получения информации о датах публикации нашего выпуска.
 
 | Версия | -beta.1    | Стабильная | Chrome | Node |
 | ------ | ---------- | ---------- | ------ | ---- |

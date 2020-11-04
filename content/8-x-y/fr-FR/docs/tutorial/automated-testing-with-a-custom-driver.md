@@ -2,7 +2,7 @@
 
 Afin d'écrire des tests automatisés pour votre application Electron, vous aurez besoin d'un moyen de "piloter" votre application. [Spectron](https://electronjs.org/spectron) est une solution usuelle, qui vous laisse émuler des actions utilisateur avec [WebDriver](http://webdriver.io/). Toutefois, il est également possible d'écrire votre propre driver personnalisé avec l'IPC-over-STDIO intégré à node.js. L'avantage d'un driver personnalisé est qu'il demande moins de ressources que Spectron, et qu'il vous laisse éprouver des méthodes personnalisées à votre suite de tests.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. La suite de tests fera apparaître le processus Electron, puis établira un protocole de messagerie basique :
+Pour créer un pilote personnalisé, nous utiliserons l'API [child_process](https://nodejs.org/api/child_process.html) de Node.js. La suite de tests fera apparaître le processus Electron, puis établira un protocole de messagerie basique :
 
 ```js
 var childProcess = require('child_process')
@@ -22,7 +22,7 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+Depuis l'application Electron, vous pouvez écouter des messages et envoyer des réponses en utilisant l'API Node.js [process](https://nodejs.org/api/process.html):
 
 ```js
 // listen for IPC messages from the test suite
@@ -34,9 +34,9 @@ process.on('message', (msg) => {
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Nous pouvons maintenant communiquer de la suite de tests à l'application Electron en utilisant l'objet `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Pour plus de commodité, vous voudrez peut-être envelopper `appProcess` dans un objet pilote qui fournit plus de fonctions de haut niveau. Voici un exemple de la façon dont vous pouvez faire ceci :
 
 ```js
 class TestDriver {
@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+Dans l'application, vous devrez écrire un gestionnaire simple pour les appels RPC :
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Ensuite, dans votre suite de test, vous pouvez utiliser votre pilote de test comme suit:
 
 ```js
 var test = require('ava')

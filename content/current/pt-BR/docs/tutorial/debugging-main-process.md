@@ -8,7 +8,7 @@ Use uma das seguintes opções de linha de comando para habilitar a depuração 
 
 ### `--inspect=[porta]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+O Electron ouvirá mensagens do protocolo V8 inspector na `porta especificada`, , um depurador externo precisará se conectar nesta porta. A porta `padrão` é `5858`.
 
 ```shell
 electron --inspect=5858 seu/app

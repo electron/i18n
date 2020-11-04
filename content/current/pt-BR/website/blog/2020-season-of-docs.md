@@ -1,35 +1,35 @@
 ---
-title: Google Season of Docs
+title: Temporada Google de Docs
 author:
-  - erickzhao
+  - erupção
 date: '2020-05-21'
 ---
 
-Electron is proud to be participating in the second edition of Google's Season of Docs initiative, which pairs mentors from open source organizations with technical writers to improve project documentation.
+O Electron tem orgulho de participar da segunda edição da iniciativa Temporada de Docs do Google, que compara mentores de organizações de código aberto com escritores técnicos para melhorar a documentação do projeto.
 
 ---
 
-# What is Season of Docs?
+# O que é Temporada de Doces?
 
-![Season of Docs logo](https://user-images.githubusercontent.com/16010076/82606204-8c8bce80-9b6b-11ea-9847-6a4b28a0761d.png)
+![Logo da Temporada da Docs](https://user-images.githubusercontent.com/16010076/82606204-8c8bce80-9b6b-11ea-9847-6a4b28a0761d.png)
 
-Season of Docs is a program that fosters collaboration between technical writers and open source communities to the benefit of both parties. Open source maintainers utilize the writer's technical writing expertise to improve the structure and content of their documentation, while the technical writer is introduced to an open-source community under the guidance of its mentors. Learn more about it on the Google's [Season of Docs website](https://developers.google.com/season-of-docs).
+A Temporada de Docs é um programa que promove a colaboração entre autores técnicos e comunidades de código aberto em benefício de ambas as partes. Mantenedores de código aberto utilizam os conhecimentos técnicos de escrita do escritor para melhorar a estrutura e o conteúdo de sua documentação, enquanto o escritor técnico é introduzido a uma comunidade de código aberto sob a orientação de seus mentores. Saiba mais sobre isso no site da [Temporada de Docs do Google](https://developers.google.com/season-of-docs).
 
-For our first time participating in the program, we'll be mentoring a single technical writer who will be working alongside Electron's [Ecosystem Working Group](https://github.com/electron/governance/tree/master/wg-ecosystem) to reshape large parts of our documentation. You can learn more about the timeline of the whole project [here](https://developers.google.com/season-of-docs/docs/timeline).
+Pela nossa primeira vez participando do programa, Vamos formar um único escritor técnico que trabalhará juntamente com o [Grupo de Trabalho Ecossistema do Electron](https://github.com/electron/governance/tree/master/wg-ecosystem) para reformular grandes partes da nossa documentação. Você pode aprender mais sobre a linha do tempo de todo o projeto [aqui](https://developers.google.com/season-of-docs/docs/timeline).
 
-# How do I sign up?
+# Como faço para me cadastrar?
 
-Are you interested in collaborating with us as a technical writer? First, get familiar with Google's [tech writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide) for this year's program, and check out the two [project idea drafts](https://github.com/electron/season-of-docs-2020/blob/master/project-ideas.md) that we have prepared.
+Você está interessado em colaborar conosco como escritor técnico? Primeiro, familiarize-se com o guia de escritor de tecnologia [do Google](https://developers.google.com/season-of-docs/docs/tech-writer-guide) para o programa deste ano, e confira os dois [rascunhos de ideia do projeto](https://github.com/electron/season-of-docs-2020/blob/master/project-ideas.md) que estamos preparados.
 
-In order to be selected as Electron's technical writer for Season of Docs, candidates will need to apply on the Google Season of Docs website during the Technical Writer Application phase that is running from June 8 to July 9..
+Para ser escolhido como escritor técnico do Electron para a Temporada de Documentos, Os candidatos terão de se candidatar no site da Temporada Google de Docs durante a fase de Aplicação do Escritor Técnico que vai decorrer entre 8 de junho e 9 de julho.
 
-Your application should include a proposal, which is a written document that describes in detail what you plan to achieve on the Electron docs over the course of 3 months. This proposal can either develop on one of the starting points mentioned in our Project Idea doc, or can be something entirely new. Don't know where to start? You can check out last year's [list of accepted proposals](https://developers.google.com/season-of-docs/docs/2019/participants) for inspiration.
+Sua solicitação deve incluir uma proposta, que é um documento escrito que descreve em detalhe o que pretende alcançar na documentação do Electron ao longo de 3 meses. Esta proposta pode ou desenvolver-se sobre um dos pontos de partida mencionados na nossa proposta de ideia do projecto, ou pode ser algo inteiramente novo. Não sei por onde começar? Você pode conferir a lista de [propostas aceitas do ano passado](https://developers.google.com/season-of-docs/docs/2019/participants) para inspiração.
 
-Aside from the proposal, we'll also be looking at your background as a technical writer. Please include a copy of your resume with an emphasis on relevant writing experience, as well as technical writing samples (these samples could be existing documentation, tutorial, blog posts, etc.)
+Além da proposta, também estaremos a olhar para seu fundo como escritor técnico. Por favor inclua uma cópia de seu currículo com ênfase na experiência de escrita relevante assim como amostras de escrita técnica (estas amostras podem ser documentação existente, tutorial, publicações de blog, etc.)
 
-If you want to discuss project proposals, shoot us an email at [season-of-docs@electronjs.org](mailto:season-of-docs@electronjs.org) and we can chat from there!
+Se você quiser discutir propostas de projeto, nos envie um e-mail em [season-of-docs@electronjs.org](mailto:season-of-docs@electronjs.org) e nós podemos conversar por lá!
 
-# References
-* [Electron documentation](electronjs.org/docs)
-* [Project ideas document](https://github.com/electron/season-of-docs-2020/blob/master/project-ideas.md)
-* [Season of Docs tech writer guide](https://developers.google.com/season-of-docs/docs/tech-writer-guide)
+# Referências
+* [Documentação do Electron](electronjs.org/docs)
+* [Documento idéias do projeto](https://github.com/electron/season-of-docs-2020/blob/master/project-ideas.md)
+* [Guia de escritor da Temporada de Docs](https://developers.google.com/season-of-docs/docs/tech-writer-guide)

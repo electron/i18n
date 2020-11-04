@@ -6,13 +6,13 @@ author:
 date: '2020-08-25'
 ---
 
-Electron 10.0.0 がリリースされました! It includes upgrades to Chromium `85`, V8 `8.5`, and Node.js `12.16`. We've added several new API integrations and improvements. Read below for more details!
+Electron 10.0.0 がリリースされました! Chromium `85`, V8 `8.5`, および Node.js `12.16` へのアップグレードが含まれます。 いくつかの新しいAPI統合と改善を追加しました。 詳細は以下をご覧ください!
 
 ---
 
 Electron チームは、Electron 10.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が入っています。
 
-In the Electron 10 release, we also made a change to our release notes. To make it easier to tell what's brand new in Electron 10 and what may have changed between Electron 10 and past releases, we now also include changes that were introduced to Electron 10, but backported to previous releases. We hope this makes it easier to apps to find new features and bug fixes when upgrading Electron.
+Electron 10 リリースでは、リリースノートにも変更を加えました。 Electron 10 の新機能と、Electron 10 と過去のリリースの間に何が変更された可能性があるかを簡単に把握できるようにします。 これには、Electron 10 に導入された変更も含まれますが、以前のリリースにバックポートされました。 これにより、Electron をアップグレードする際に新機能やバグ修正を簡単に見つけられるようになることを願っています。
 
 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
@@ -31,39 +31,39 @@ In the Electron 10 release, we also made a change to our release notes. To make 
 
 ### 注目の機能
 
-* Added `contents.getBackgroundThrottling()` method and `contents.backgroundThrottling` property. [#21036]
-* Exposed the `desktopCapturer` module in the main process. [#23548](https://github.com/electron/electron/pull/23548)
-* Can now check if a given `session` is persistent by calling the `ses.isPersistent()` API. [#22622](https://github.com/electron/electron/pull/22622)
-* Resolve network issues that prevented RTC calls from being connected due to network IP address changes and ICE. (Chromium issue 1113227). [#24998](https://github.com/electron/electron/pull/24998)
+* `contents.getBackgroundThrottling()` メソッドと `contents.backgroundThrottling` プロパティを追加しました。 [#21036]
+* メインプロセスの `desktopCapturer` モジュールを公開。 [#23548](https://github.com/electron/electron/pull/23548)
+* 指定された `セッション` が `ses.isPersistent()` API を呼び出すことで永続的かどうかを確認できるようになりました。 [#22622](https://github.com/electron/electron/pull/22622)
+* ネットワークIPアドレスの変更とICEによりRTC呼び出しが接続されないネットワークの問題を解決します。 (Chromium 問題 1113227)。 [#24998](https://github.com/electron/electron/pull/24998)
 
 新機能と変更の完全なリストは、[10.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v10.0.0) を参照してください。
 
 ## 破壊的変更
 
-* Changed the default value of `enableRemoteModule` to `false`. [#22091](https://github.com/electron/electron/pull/22091)
-    * This is part of our plans for deprecating the `remote` module and moving it to userland. [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
-* Changed the default value of `app.allowRendererProcessReuse` to `true`. [#22336](https://github.com/electron/electron/pull/22336) (Also in [Electron 9](https://github.com/electron/electron/pull/22401))
-   * This will prevent loading of non-context-aware native modules in renderer processes.
+* `enableRemoteModule` のデフォルト値を `false` に変更しました。 [#22091](https://github.com/electron/electron/pull/22091)
+    * これは、 `リモート` モジュールを非推奨にしてユーザーランドに移動するための私たちの計画の一部です。 [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
+* `app.allowRendererProcessReuse` のデフォルト値を `true` に変更しました。 [#22336](https://github.com/electron/electron/pull/22336) ( [Electron 9](https://github.com/electron/electron/pull/22401) でも)
+   * これにより、レンダラープロセスで非コンテキスト認識ネイティブモジュールが読み込まれるのを防ぎます。
    * [この Issue](https://github.com/electron/electron/issues/18397) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
-* Fixed the positioning of window buttons on macOS when the OS locale is set to an RTL language (like Arabic or Hebrew). Frameless window apps may have to account for this change while styling their windows. [#22016](https://github.com/electron/electron/pull/22016)
+* OS ロケールが RTL 言語(アラビア語やヘブライ語など)に設定されている場合の、macOS 上のウィンドウボタンの配置を修正しました。 フレームレスウィンドウアプリは、ウィンドウのスタイリング中にこの変更を考慮する必要があります。 [#22016](https://github.com/electron/electron/pull/22016)
 
 これらの変更と将来の変更の詳細については、[予定されている破壊的な変更](https://github.com/electron/electron/electron/blob/master/docs/breaking-changes.md) のページを参照してください。
 
 ## API の変更
 
-* Session: Can now check if a given `session` is persistent by calling the `ses.isPersistent()` API. [#22622](https://github.com/electron/electron/pull/22622)
-* Contents: Added `contents.getBackgroundThrottling()` method and `contents.backgroundThrottling` property. [#21036](https://github.com/electron/electron/pull/21036)
+* セッション: 指定された `セッション` が `ses.isPersistent()` API を呼び出して永続的であるかどうかを確認できるようになりました。 [#22622](https://github.com/electron/electron/pull/22622)
+* Contents: `contents.getBackgroundThrottling()` メソッドと `contents.backgroundThrottling` プロパティを追加しました。 [#21036](https://github.com/electron/electron/pull/21036)
 
 ### 非推奨となった API
 
-The following APIs are now deprecated or removed:
+次の API が非推奨または削除されました:
 
-* Removed the deprecated `currentlyLoggingPath` property of `netLog`. Additionally, `netLog.stopLogging` no longer returns the path to the recorded log. [#22732](https://github.com/electron/electron/pull/22732)
-* Deprecated uncompressed crash uploads in `crashReporter`. [#23598](https://github.com/electron/electron/pull/23598)
+* `netLog` の `currentlyLoggingPath` プロパティを廃止しました。 さらに、 `netLog.stopLogging` が記録されたログへのパスを返さないようにしました。 [#22732](https://github.com/electron/electron/pull/22732)
+* `crashReporter` に非圧縮のクラッシュアップロードがあります。 [#23598](https://github.com/electron/electron/pull/23598)
 
 ## 7.x.y サポートの終了
 
-Electron 7.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
+Electron 7.x.y は、プロジェクトの [サポート ポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に従ってサポート終了に達しました。 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
 
 ## 次回予告
 
@@ -71,8 +71,8 @@ Electron 7.x.y has reached end-of-support as per the project's [support policy](
 
 今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
 
-### Continued Work for Deprecation of `remote` Module (in Electron 11)
-We started work to remove the remote module in [Electron 9](https://www.electronjs.org/blog/electron-9-0) and we're continuing plans to remove the `remote` module. In Electron 11, we plan to continue refactor work for implementing [WeakRef](https://v8.dev/features/weak-references) as we have done in Electron 10. Please read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
+### `リモート` モジュールの非推奨作業を継続する (Electron 11)
+[Electron 9](https://www.electronjs.org/blog/electron-9-0) でリモートモジュールを削除する作業を開始し、 `リモート` モジュールを削除する計画を続けています。 Electron 11 では、Electron 10 で行ったように、 [WeakRef](https://v8.dev/features/weak-references) を実装するためのリファクタ作業を継続する予定です。 廃止予定の全計画と詳細については、 [この問題](https://github.com/electron/electron/issues/21408) をお読みいただき、従ってください。
 
-### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 11)
-From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 11. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.
+### ネイティブノードモジュールをContext AwareまたはN-API(Electron 11) にすることを要求する最終ステップ
+Electron 6 以降から レンダラープロセスにロードされた [ネイティブノードモジュール](https://nodejs.org/api/addons.html) を [N-API](https://nodejs.org/api/n-api.html) または [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons)のいずれかにするための基盤を構築してきました。 この変更を有効にすると、セキュリティの強化、パフォーマンスの高速化、メンテナンス作業の負荷の低減が可能になります。 この計画の最後のステップは、Electron 11 でレンダリングプロセスの再利用を無効にする機能を削除することです。 提案されたタイムラインを含む詳細については、この問題 [](https://github.com/electron/electron/issues/18397) を参照してください。

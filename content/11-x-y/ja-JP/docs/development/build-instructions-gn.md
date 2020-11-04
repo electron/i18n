@@ -10,7 +10,7 @@ Electron のビルドについては、以下のガイドラインに従って�
   * [Linux](build-instructions-linux.md#prerequisites)
   * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## ビルドツール
 
 [Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
 

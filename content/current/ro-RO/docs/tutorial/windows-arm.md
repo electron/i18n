@@ -1,43 +1,43 @@
-# Windows 10 on Arm
+# Windows 10 pe Arme
 
-If your app runs with Electron 6.0.8 or later, you can now build it for Windows 10 on Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Dacă aplicația ta rulează cu Electron 6.0.8 sau mai târziu, o poți construi acum pentru Windows 10 pe Arm. Acest lucru îmbunătățește considerabil performanța, dar necesită recompilarea oricăror module native folosite în aplicația dvs. De asemenea, ar putea avea nevoie de mici reparații pentru construcția ta și scripturile de ambalare.
 
-## Running a basic app
-If your app doesn't use any native modules, then it's really easy to create an Arm version of your app.
+## Rularea unei aplicații de bază
+Dacă aplicația ta nu folosește niciun modul nativ, atunci este foarte ușor să creezi o versiune Arm a aplicației tale.
 
-1. Make sure that your app's `node_modules` directory is empty.
-2. Using a _Command Prompt_, run `set npm_config_arch=arm64` before running `npm install`/`yarn install` as usual.
-3. [If you have electron installed as a development dependency](first-app.md), npm will download and unpack the arm64 version. You can then package and distribute your app as normal.
+1. Asigurați-vă că directorul `node_module` al aplicației dvs. este gol.
+2. Folosind _Prompt de comandă_, execută `setează npm_config_arch=arm64` înainte de a rula `npm install`/`yarn install` ca de obicei.
+3. [Dacă aveți Electron instalat ca o dependență de dezvoltare](quick-start.md#prerequisites), npm va descărca și dezpacheta versiunea arm64. Poți apoi să ambalezi și să distribui aplicația ca de obicei.
 
-## General considerations
+## Consideraţii generale
 
-### Architecture-specific code
+### Cod specific arhitecturii
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+Multe coduri specifice ferestrei conțin dacă... altă logică care selectează între arhitecturile x64 sau x86.
 
 ```js
 if (process.arch === 'x64') {
-  // Do 64-bit thing...
-} else {
-  // Do 32-bit thing...
+  // Do 64-bit...
+} altceva {
+  // Fă lucru de 32 biți...
 }
 ```
 
-If you want to target arm64, logic like this will typically select the wrong architecture, so carefully check your application and build scripts for conditions like this. In custom build and packaging scripts, you should always check the value of `npm_config_arch` in the environment, rather than relying on the current process arch.
+Daca doriti sa tintiti arm64, logica de genul acesta va selecta arhitectura gresita, așa verificați cu atenție aplicația și construiți scripturi pentru astfel de condiții. În scripturi personalizate pentru construcții și ambalaje, ar trebui să verifici întotdeauna valoarea arch-ului `npm_config_` în mediu, în loc să se bazeze pe arcul actual al procesului.
 
-### Native modules
-If you use native modules, you must make sure that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+### Module native
+Dacă utilizați module native, trebuie să vă asigurați că acestea se compilează împotriva v142 al compilatorului MSVC (furnizat în studiul vizual 2017). De asemenea, trebuie să verificați dacă orice versiune pre-construită `.dll` sau `. ib` fişiere furnizate sau citate de modulul nativ sunt disponibile pentru Windows pe Arm.
 
-### Testing your app
-To test your app, use a Windows on Arm device running Windows 10 (version 1903 or later). Make sure that you copy your application over to the target device - Chromium's sandbox will not work correctly when loading your application assets from a network location.
+### Testarea aplicației tale
+Pentru a testa aplicația, folosiți Windows pe un dispozitiv Arm care rulează Windows 10 (versiunea 1903 sau mai târziu). Asigurați-vă că copiați aplicația pe dispozitivul țintă - sandbox-ul Chromium nu va funcționa corect la încărcarea activelor aplicației dintr-o locație a rețelei.
 
-## Development prerequisites
-### Node.js/node-gyp
+## Cerințe privind dezvoltarea
+### Node.js/gyp
 
-[Node.js v12.9.0 or later is recommended.](https://nodejs.org/en/) If updating to a new version of Node is  undesirable, you can instead [update npm's copy of node-gyp manually](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) to version 5.0.2 or later, which contains the required changes to compile native modules for Arm.
+[Se recomandă Node.js v12.9.0 sau mai târziu.](https://nodejs.org/en/) Dacă actualizarea la o nouă versiune de nod nu este de dorit, poți [actualiza npm copia node-gyp manual](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) la versiunea 5. .2 sau mai târziu, care conține modificările necesare pentru a compila module native pentru Arm.
 
-### Visual Studio 2017
-Visual Studio 2017 (any edition) is required for cross-compiling native modules. You can download Visual Studio Community 2017 via Microsoft's [Visual Studio Dev Essentials program](https://visualstudio.microsoft.com/dev-essentials/). After installation, you can add the Arm-specific components by running the following from a _Command Prompt_:
+### Studio vizual 2017
+Studioul vizual 2017 (orice ediție) este necesar pentru compilarea modulelor native. Poți descărca Visual Studio Community 2017 prin intermediul Microsoft [Programul Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/). După instalare, puteți adăuga componentele specifice Arm-ului, executând următoarele de la un _Prompt de Comandă_:
 
 ```powershell
 vs_installer.exe ^
@@ -48,48 +48,48 @@ vs_installer.exe ^
 --includeRecommended
 ```
 
-#### Creating a cross-compilation command prompt
-Setting `npm_config_arch=arm64` in the environment creates the correct arm64 `.obj` files, but the standard _Developer Command Prompt for VS 2017_ will use the x64 linker. To fix this:
+#### Crearea unei comenzi de compilare încrucișată
+Setarea `npm_config_arch=arm64` în mediu creează brațul corect 64 `. bj` fișiere, dar versiunea standard _pentru comanda dezvoltatorului pentru VS 2017_ va utiliza linkerul x64. Pentru a remedia acest lucru:
 
-1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
-2. Right click the new shortcut and choose _Properties_.
-3. Change the _Target_ field to read `vcvarsamd64_arm64.bat` at the end instead of `vcvarsamd64_x86.bat`.
+1. Duplică comanda rapidă _x64_x86 Cross Tools Command Prompt pentru VS 2017_ (de ex. localizându-l în meniul de pornire, apăsând pe _Deschide Locația Fișierelor_, copiind și lipind-o undeva convenabil.
+2. Faceți clic dreapta pe noua scurtătură și alegeți _Proprietăți_.
+3. Schimbă câmpul _Ținte_ pentru a citi `vcvarsamd64_arm64.bat` la sfârșit în loc de `vcvarsamd64_x86.bat`.
 
-If done successfully, the command prompt should print something similar to this on startup:
+Dacă ați reușit cu succes, solicitarea comenzii ar trebui să afișeze ceva similar cu acesta la pornire:
 
 ```bat
-**********************************************************************
-** Visual Studio 2017 Developer Command Prompt v15.9.15
+**************************************************************************
+** Comanda Dezvoltatorului Studio 2017 Prompt v15.9.15
 ** Copyright (c) 2017 Microsoft Corporation
-**********************************************************************
-[vcvarsall.bat] Environment initialized for: 'x64_arm64'
+**************************************************************************************************
+[vcvarsall.bat] Mediu inițiat pentru: 'x64_arm64'
 ```
 
-If you want to develop your application directly on a Windows on Arm device, substitute `vcvarsx86_arm64.bat` in _Target_ so that cross-compilation can happen with the device's x86 emulation.
+Dacă doriți să vă dezvoltați aplicația direct pe un dispozitiv Arm, înlocuiți `vcvarsx86_arm64. la` în _Ținta_ astfel încât compilarea încrucișată să se întâmple cu emulația x86 a dispozitivului.
 
-### Linking against the correct `node.lib`
+### Conectare împotriva `node.lib` corect
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) To fix this:
+În mod implicit, `node-gyp` dezpachetează antetele nodului Electron și descarcă versiunile x86 și x64 ale `nodului. ib` în `%APPDATA%\. \Local\node-gyp\Cache`, dar nu descarca versiunea arm64 ([este in dezvoltare](https://github.com/nodejs/node-gyp/pull/1875). Pentru a remedia acest lucru:
 
-1. Download the arm64 `node.lib` from https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
-2. Move it to `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
+1. Descarcă arm64 `node.lib` de la https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
+2. Mută-l în `%APPDATA%\..\Local\node-gyp\6.0.0.9\arm64\node.lib`
 
-Substitute `6.0.9` for the version you're using.
+Substituie `6.0.9` pentru versiunea pe care o folosești.
 
 
-## Cross-compiling native modules
-After completing all of the above, open your cross-compilation command prompt and run `set npm_config_arch=arm64`. Then use `npm install` to build your project as normal. As with cross-compiling x86 modules, you may need to remove `node_modules` to force recompilation of native modules if they were previously compiled for another architecture.
+## Colectare module native
+După completarea celor de mai sus, deschideți fereastra de comenzi de compilare încrucișată și executați `setați npm_config_arch=arm64`. Apoi folosește `npm install` pentru a construi proiectul tău ca de obicei. La fel ca în cazul compilării modulelor x86, poate fi necesar să eliminați `node_module` pentru a forța recompilarea modulelor native dacă acestea au fost compilate anterior pentru o altă arhitectură.
 
-## Debugging native modules
+## Depanare module native
 
-Debugging native modules can be done with Visual Studio 2017 (running on your development machine) and corresponding [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) running on the target device. To debug:
+Modulele native de depanare pot fi realizate cu Visual Studio 2017 (rulând pe calculatorul de dezvoltare) și cu [Depanare Vizuală de Telecomanda Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) rulând pe dispozitivul țintă. Pentru a depana:
 
-1. Launch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
-2. Launch Visual Studio 2017 on your development machine.
-3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
-4. Click _Refresh_ and select the [appropriate Electron process to attach](../development/debug-instructions-windows.md).
-5. You may need to make sure that any symbols for native modules in your app are loaded correctly. To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
-5. Once attached, set any appropriate breakpoints and resume JavaScript execution using Chrome's [remote tools for Node](debugging-main-process.md).
+1. Lansează aplicația ta `. xe` pe dispozitivul ţintă prin _Comandă_ (pasând `--inspect-brk` pentru a-l întrerupe înainte ca orice module native să fie încărcate).
+2. Lansați Visual Studio 2017 pe calculatorul dvs. de dezvoltare.
+3. Conectează-te la dispozitivul țintă selectând _Depanare > Atașează la Proces..._ și introduceți adresa IP a dispozitivului și numărul de port afișat de instrumentul de depanare Visual Studio Remote Debugger.
+4. Faceți clic pe _Reîmprospătare_ și selectați [procesul Electron corespunzător pentru a atașa](../development/debug-instructions-windows.md).
+5. Este posibil să fie necesar să vă asigurați că orice simboluri pentru modulele native din aplicație sunt încărcate corect. Pentru a configura acest lucru, mergeți la _Depanare > Opțiuni..._ în Visual Studio 2017 și adăugați folderele care conțin `. db` simboluri sub _Depanare > Simboluri_.
+5. Odată atașat, setați orice puncte de întrerupere corespunzătoare și reluați execuția JavaScript folosind [uneltele la distanță pentru Node](debugging-main-process.md).
 
-## Getting additional help
-If you encounter a problem with this documentation, or if your app works when compiled for x86 but not for arm64, please [file an issue](../development/issues.md) with "Windows on Arm" in the title.
+## Obținerea de ajutor suplimentar
+Dacă întâmpinați o problemă cu această documentație sau dacă aplicația dvs. funcționează atunci când este compilată pentru x86 dar nu pentru arm64, vă rugăm să [înregistrați o problemă](../development/issues.md) cu "Windows on Arme" în titlu.

@@ -6,7 +6,7 @@ Electron有API来配置macOS Dock中的应用程序图标。 可以使用API用�
 
 __Terminal.app 的 Dock 菜单:__
 
-![Dock Menu][3]
+![基座菜单][3]
 
 若要设置自定义的dock菜单, 可以使用 ` app.dock.setMenu ` API, 它仅在 macOS 上可用:
 

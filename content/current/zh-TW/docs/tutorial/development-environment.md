@@ -4,7 +4,7 @@ Electron 開發環境為Node.js。 使你的作業系統能開始建立Electron�
 
 ## macOS 設定
 
-> Electron 支援 macOS 10.10(Yosemite) 和之後的版本 Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron 支援 macOS 10.10(Yosemite) 和之後的版本 Apple 不允許在虛擬機器中運行 macOS，除非主機已經是 Apple 電腦，因此如果您發現自己需要 Mac，請考慮 使用租用 Mac（如 [MacInCloud](https://www.macincloud.com/) 或 [xcloud](https://xcloud.me)）的雲服務。
 
 首先，安裝最新版本的 Node.js。 We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
@@ -20,13 +20,13 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Windows 設定
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron 支援 Windows 7 和以後版本 – 嘗試開發 早期版本的 Windows 上的  Electron 應用程式將不起作用。 Microsoft為開發人員提供 [Windows 10 ](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) 虛擬機器映射。
 
-首先，安裝最新版本的 Node.js。 We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+首先，安裝最新版本的 Node.js。 We recommend that you install either the latest `LTS` or `Current` version available. 瀏覽 [Node.js的下載頁](https://nodejs.org/en/download/)及選擇 `Windows 安裝程式`。 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## Linux 設定
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+如果兩個命令都列印了版本號，則全部設置好！ Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## 好的編輯器
 

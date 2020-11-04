@@ -2,15 +2,15 @@
 
 ## Подготовка
 
-### Paid Applications Agreement
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+### Соглашение об оплаченных заявках
+Если вы еще не подписали Соглашение об оплате заявок и настроили свою банковскую и налоговую информацию в iTunes Connect.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Help: Соглашения, обзор по налогам и банкам](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+### Создавайте покупки в приложении
+Затем, вам нужно настроить покупки в приложениях в iTunes Connect, и включить такие сведения, как имя, Цены и описание, которое выделяет возможности и функциональность вашей покупки в приложении.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[iTunes Connect Developer Help: Создать покупку в приложении](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
 ### Изменить CFBundleIdentifier
 
@@ -23,42 +23,42 @@ Then, you'll need to configure your in-app purchases in iTunes Connect, and incl
 
 ## Пример кода
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+Вот пример, который показывает, как использовать покупки в приложении Electron. Вы должны заменить идентификаторы продукта на идентификаторы продуктов, созданных с помощью iTunes Connect (идентификатор `ком. xample.app.product1` это `product1`). Обратите внимание, что вы должны как можно скорее прослушать `обновленные транзакции` события.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// Слушайте транзакции как можно скорее.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // Проверять каждую транзакцию.
   transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+    const payment = transaction. ayment
 
-    switch (transaction.transactionState) {
+    переключатель (транзакция). ransactionState) {
       case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
+        консоль. г(`Покупка ${payment.productIdentifier}... )
         break
 
       case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+        консоль. og(`${payment.productIdentifier} приобретен.`)
 
-        // Get the receipt url.
+        // Получить ссылку на квитанцию.
         const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // Передайте файл чека серверу и проверьте, является ли он действительным.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // Если квитанция действительна, продукт приобретается
         // ...
 
-        // Finish the transaction.
+        // Завершение операции.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -68,34 +68,34 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // Завершение транзакции.
+        inAppPurchase.finishTransactionByDate(транзакция). ransactionDate)
 
         break
       case 'restored':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+        консоль. og(`Покупка ${payment.productIdentifier} была восстановлена. )
 
         break
-      case 'deferred':
+      регистр 'deferred':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
+        консоль. og(`Куплено ${payment.productIdentifier} было отложено. )
 
-        break
-      default:
-        break
+        перерыв
+      по умолчанию:
+        перерыв
     }
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// Проверьте, разрешено ли пользователю совершать покупку внутри приложения.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
 // Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // Проверьте параметры.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
@@ -103,14 +103,14 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
 
   // Display the name and price of each product.
   products.forEach(product => {
-    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
+    console.log(`Цена ${product.localizedTitle} составляет ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // Спросите пользователя, какой продукт он/она хочет купить.
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
-  // Purchase the selected product.
+  // Купить выбранный продукт.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

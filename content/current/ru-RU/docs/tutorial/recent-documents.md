@@ -1,42 +1,58 @@
 # Недавние документы (Windows & macOS)
 
+## Обзор
+
 Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Список последних файлов](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 __Dock меню приложения:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS панель меню](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-Чтобы добавить файл в недавние документы, можно использовать [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Для добавления файла в последние документы необходимо использовать [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
+
+## Пример
+
+### Добавить элемент в последние документы
+
+Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
 
 ```javascript
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-И вы можете использовать [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API, чтобы очистить список последних документов:
+После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. Вы должны увидеть добавленный предмет. В этом руководстве элемент является файлом Markdown , находящимся в корне проекта:
+
+![Недавний документ](../images/recent-documents.png)
+
+### Очистить список последних документов
+
+Чтобы очистить список последних документов, используйте [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API в файле `main.js`:
 
 ```javascript
 const { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
-## Windows примечания
+## Дополнительная информация
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Вы можете найти все о регистрации вашего приложения в [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+### Windows примечания
+
+Чтобы использовать эту функцию в Windows, ваше приложение должно быть зарегистрировано как обработчик типа файла документа, иначе файл не будет отображаться в JumpList даже после его добавления. Вы можете найти все о регистрации вашего приложения в [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Когда пользователь щелкает файл из JumpList, новый экземпляр приложения будет запущен с добавленного пути файла, как аргумент командной строки.
 
-## macOS примечания
+### macOS примечания
 
-### Adding the Recent Documents list to the application menu:
+#### Добавить список последних документов в меню приложения
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
-
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Вы можете добавить пункты меню для доступа к недавним документам и очистить их, добавив следующий код в шаблон меню:
 
 ```json
 {
@@ -47,7 +63,7 @@ You can add menu items to access and clear recent documents by adding the follow
       "submenu":[
         {
           "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "роль":"clearrecentdocuments"
         }
       ]
     }
@@ -55,4 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+![Элемент меню macOS последних документов](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+
+Когда файл запрашивается из меню последних документов, будет эмулировано событие `open-file` из `приложения` для него.

@@ -20,7 +20,7 @@ Dans les pages web, l'appel aux GUI natifs associés aux APIs n'est pas autoris�
 
 > #### Aparté : Communication entre processus
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> Dans Electron, communication entre le processus principal et les processus de rendu, se fait à travers le [`ipcRender`](../api/ipc-renderer.md) et [`ipcMain`](../api/ipc-main.md) modules. Il y a aussi une entrée dans la FAQ sur [comment partager des données entre les pages web][share-data].
 
 
 ## Utilisation des APIs Electron
@@ -43,23 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Comme la communication entre les processus est possible, un processus de rendu peut faire appel au processus principal pour effectuer des tâches via IPC.
 
 ```javascript
-// In the main process:
+// Dans le processus principal :
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('perform-action', (event, ...args) => {
+  // ... faire quelque chose au nom du rendu ...
 })
 
-// In the renderer process:
+// Dans le processus de rendu :
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Notez que le code dans le moteur de rendu peut ne pas être digne de confiance, donc il est important de valider soigneusement dans les demandes de processus principaux provenant de rendus, surtout s'ils hébergent du contenu tiers.
 
 ## Utilisation des APIs de Node.js
 

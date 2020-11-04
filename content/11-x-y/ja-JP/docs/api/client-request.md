@@ -132,7 +132,7 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 別の HTTP ヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま出力されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
 
-Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+特定のヘッダーはアプリによって設定されないように制限されています。 これらのヘッダは以下にリストアップしています。 制限付きヘッダーの詳細は、[Chromium のヘッダー ユーティリティ](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22) を参照してください。
 
 * `Content-Length`
 * `ホスト`

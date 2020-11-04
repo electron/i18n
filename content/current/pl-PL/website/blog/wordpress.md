@@ -7,57 +7,57 @@ author:
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+W tym tygodniu dotarliśmy do ludzi w [Automattic](https://automattic.com/) , aby porozmawiać o [Pulpicie WordPress](https://apps.wordpress.com/desktop/), klienta open-source do zarządzania zawartością WordPress.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![Aplikacje WordPress](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Wszyscy wiedzą o WordPress, ale co to jest komputer WordPress?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[WordPress. Aplikacja om desktopowa](https://apps.wordpress.com/desktop/) zapewnia płynne i międzyplatformowe doświadczenie, które pozwala skupić się na treści i projekcie bez zakładek przeglądarki, aby rozpraszać Cię - lub aby twoje strony były na boku, ale dostępne. W połączeniu z obsługą przeglądarki i aplikacją mobilną możesz zbudować swoją stronę gdziekolwiek, w jakikolwiek sposób, który pomoże Ci wykonać swoją pracę.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## Dlaczego warto zbudować aplikację desktopową do zarządzania stronami WordPress? Nie można tego wszystkiego oprzeć na Internecie?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+W rzeczywistości używa dokładnie tej samej technologii, którą otrzymujesz podczas odwiedzania [WordPress.com](https://wordpress.com) w przeglądarce. Jednak wszystko jest lokalnie hostowane, więc ma minimalny czas ładowania. Z korzyścią dla natywnych funkcji, takich jak bycie w Twoim doku, powiadomienia itp., naprawdę możesz skupić się na swoich stronach WordPress i blogu.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Dlaczego zdecydowałeś się budować pulpit WordPress na Electron?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+Pod koniec 2015 roku przebudowaliśmy znaczną część WordPress.com w formie [Calypso](https://github.com/automattic/wp-calypso), nowoczesnej aplikacji JavaScript open source z użyciem React. Zaczęliśmy przyglądać się Electronowi i wraz z pewnymi zmianami w Calypso mogliśmy uruchomić go lokalnie. Było to miarodajne doświadczenie i sądziliśmy, że jego dalszy rozwój jest bardzo cenny.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+Mieliśmy kilka zespołów pracujących nad Calypso. Stworzenie pełnoprawnego wieloplatformowego klienta GUI, który pasuje do tego przy użyciu tradycyjnych technologii komputerowych, wymagałoby większej pracy. Używając Electrona, mały zespół liczący 2-4 z nas był w stanie wykorzystać wysiłki drugiego zespołu i zbudować aplikację desktopową w ciągu kilku miesięcy.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Jakie wyzwania stoją przed Tobą podczas budowy komputera WordPress?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+Otrzymaliśmy bardzo szybką wstępną wersję aplikacji, ale dostrojenie, aby zachować się optymalnie jako aplikacja desktopowa zajęło dużo więcej czasu. Jednym z wielkich wyzwań związanych z aplikacją jest to, że faktycznie używasz kopii Calypso na swoim własnym komputerze - jest to interfejs użytkownika oparty wyłącznie na API. W ten sposób zaangażowano wiele prac pomostowych, a zmiany zostały wprowadzone z powrotem do samego Calypso.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+Ponadto wiele wysiłku poświęcono na zapakowanie aplikacji na różne platformy - oferujemy Windows, wersje macOS i Linux - i istnieją wystarczające różnice, aby uczynić ten trudny.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+W tym czasie Electron był stosunkowo nowy i ciągle poruszaliśmy kwestie, które zostały wkrótce rozwiązane (czasami tego samego dnia!)
 
-## In what areas should Electron be improved?
+## W jakich obszarach należy ulepszyć Electron?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron zapewnia już większość tego, czego potrzebujemy dla aplikacji komputerowej, i jest szybko rozwijany od czasu rozpoczęcia korzystania z niej. Niemniej jednak w aplikacji komputerowej uwzględniono pewne obszary, które są uznawane za oczywiste, Takie jak sprawdzanie pisowni i odkrycie/zastąpienie, które są trudniejsze do replikacji przy użyciu Electron jako.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+Cieszymy się również widzieć niektóre z nowszych technologii Chrome również w Electron. Jesteśmy szczególnie zainteresowani eksperymentami z WebVR.
 
-## What are your favorite things about Electron?
+## Jakie są twoje ulubione rzeczy o Electron?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Głównym powodem, dla którego wybraliśmy Electron, i jest to największa siła, jest bardzo aktywna i otwarta społeczność. Automattic zawsze wierzył w open source. Jest to jeden z naszych podstawowych tenetów, oraz projekt i społeczność Electron podąża za wieloma podstawowymi przekonaniami co do tego, że są bardzo otwarte i pozytywne.
 
-## What's coming next in WordPress Desktop?
+## Co będzie następne na pulpicie WordPress?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Doskonała rzecz o naszym modelu polega na tym, że aplikacja desktopowa korzysta z każdej nowej funkcji Calypso - istnieją ciągłe ulepszenia. Mamy nadzieję, że możemy dodać do aplikacji dodatkowe funkcje, takie jak obsługa offline, które naprawdę przeniosłyby aplikację na natywne terytorium i lepsze powiadomienia systemowe.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Czy są jakieś zespoły w Automattic pracujące nad innymi aplikacjami Electron?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Tak, po naszych wysiłkach w aplikacji komputerowej, zespół Simplenote postanowił użyć Electrona do budowania aplikacji desktopowych dla Windows i Linux (natywny klient Mac już istnieje). [Aplikacja Simplenote Electron](https://github.com/Automattic/simplenote-electron) jest również otwartym źródłem i dostępna na Githubie.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+Mamy również zbliżającą się integrację Raspberry Pi, która korzysta z Electron.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Jeśli którakolwiek z tych informacji brzmi interesująco, to [chcielibyśmy usłyszeć od Ciebie](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## Jakiekolwiek wskazówki dla Electrona, które mogą być przydatne dla innych programistów?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Proces wysyłania podpisanego oprogramowania komputerowego jest dla nas stosunkowo nowy, zwłaszcza dla Windows. napisaliśmy artykuł dla [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) , który zawiera ten proces, a kilka przeszkód, które przebyliśmy, aby to zrobić.
 

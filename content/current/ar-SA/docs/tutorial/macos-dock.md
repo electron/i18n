@@ -1,31 +1,43 @@
-# macOS Dock
+# منصة macOS
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+## النظرة عامة
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+إلكترون لديه واجهة برمجة التطبيقات لتهيئة أيقونة التطبيق في ماكوس. ماكوس-فقط API موجود لإنشاء قائمة الإرساء المخصصة، لكن إلكترون يستخدم أيضًا رصيف التطبيق كنقطة دخول لميزات عبر المنصة مثل [المستندات الأخيرة](./recent-documents.md) و [تقدم التطبيق](./progress-bar.md).
 
-__Dock menu of Terminal.app:__
+يتم استخدام قاعدة الإرساء المخصصة عادة لإضافة الاختصارات إلى المهام التي لن يتمكن المستخدم من فتح نافذة التطبيق بأكملها.
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+__قائمة الإرساء من Terminal.app:__
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+![قائمة الإرساء](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+
+لتعيين قائمة الإرساء المخصصة الخاصة بك، تحتاج إلى استخدام [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API المتاح فقط على macOS.
+
+## مثال
+
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، قم بتحديث ملف `main.js` مع الأسطر التالية:
 
 ```javascript
-const { app, Menu } = require('electron')
+متجر { app, Menu } = مطلوبة ('electron')
 
-const dockMenu = Menu.buildFromTemplate([
+dockMenu = القائمة. uildFromTemplate([
   {
-    label: 'New Window',
-    click () { console.log('New Window') }
+    التسمية: 'Window',
+    انقر فوق () { console. og('New Window') }
   }, {
-    label: 'New Window with Settings',
-    submenu: [
-      { label: 'Basic' },
+    namel: 'New Window with Settings',
+    القائمة الفرعية: [
+      { label: 'Basic' }،
       { label: 'Pro' }
     ]
-  },
+  }،
   { label: 'New Command...' }
 ])
 
-app.dock.setMenu(dockMenu)
+تطبيق. henReady().then(() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
+
+بعد بدء تطبيق إلكترون، انقر بزر الماوس الأيمن على رمز التطبيق. يجب أن ترى القائمة المخصصة التي عرفتها للتو:
+
+![قائمة الإرساء لـ macOS](../images/macos-dock-menu.png)

@@ -1,92 +1,92 @@
 ---
 title: Documentație Electron
-author: jlord
+author: Jlord
 date: '2015-06-04'
 ---
 
-This week we've given Electron's documentation a home on [electronjs.org](https://electronjs.org). You can visit [/docs/latest](https://electronjs.org/docs/latest) for the latest set of docs. We'll keep versions of older docs, too, so you're able to visit [/docs/vX.XX.X](https://electronjs.org/docs/v0.26.0) for the docs that correlate to the version you're using.
+Săptămâna aceasta am oferit documentaţia lui Electron o casă pe [electronjs.org](https://electronjs.org). Puteți vizita [/documente/ultima](https://electronjs.org/docs/latest) pentru cel mai recent set de documente. Vom păstra versiunile de documente mai vechi, de asemenea, așa că puteți vizita [/documente/vX.XX.X](https://electronjs.org/docs/v0.26.0) pentru documentele care se corelează cu versiunea pe care o folosiți.
 
 ---
 
-You can visit [/docs](https://electronjs.org/docs) to see what versions are available or [/docs/all](https://electronjs.org/docs/all) to see the latest version of docs all on one page (nice for `cmd` + `f` searches).
+Puteți vizita [/docs](https://electronjs.org/docs) pentru a vedea ce versiuni sunt disponibile sau [/documente/toate/](https://electronjs.org/docs/all) pentru a vedea ultima versiune de documente toate pe o singură pagină (pe un loc pentru `cmd` + `f` căutări).
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/master/docs), where the docs are fetched from. We fetch them for each minor release and add them to the [Electron site repository](http://github.com/electron/electronjs.org), which is made with [Jekyll](http://jekyllrb.com).
+Dacă doriţi să contribuiţi la conţinutul documentelor, puteți face acest lucru în [Depozitul Electron](https://github.com/electron/electron/tree/master/docs), de unde sunt preluate documentele. Le luăm pentru fiecare versiune minoră și le adăugăm în [depozitul site-ului Electron](http://github.com/electron/electronjs.org), care este făcut cu [Jekyll](http://jekyllrb.com).
 
-If you're interested in learning more about how we pull the docs from one repository to another continue reading below. Otherwise, enjoy the [docs](https://electronjs.org/latest)!
+Dacă sunteți interesat să aflați mai multe despre cum tragem documentele dintr-un depozit în altul continuând să citească mai jos. Altfel, bucură-te de [documentele](https://electronjs.org/latest)!
 
-## The Technical Bits
+## Biți tehnici
 
-We're preserving the documentation within the Electron core repository as is. This means that [electron/electron](http://github.com/electron/electron) will always have the latest version of the docs. When new versions of Electron are released, we duplicate them over on the Electron website repository, [electron/electronjs.org](http://github.com/electron/electronjs.org).
+Păstrăm documentația în depozitul de bază Electron cum este. Asta înseamnă că [electron/electron](http://github.com/electron/electron) va avea întotdeauna cea mai recentă versiune de documente. Când noi versiuni de Electron sunt lansate, le duplicăm pe site-ul Electron , [electron/electronjs.org](http://github.com/electron/electronjs.org).
 
 ### script/docs
 
-To fetch the docs we run a [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) with a command line interface of `script/docs vX.XX.X` with or without the `--latest` option (depending on if the version you're importing is the latest version). Our [script for fetching docs](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) uses a few interesting Node modules:
+Pentru a prelua documentele vom rula un [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) cu o interfață de linie de comandă de `script/docs vX.XX.` cu sau fără opțiunea `--ultimul` (în funcție de dacă versiunea pe care o imporți este ultima versiune). Scriptul nostru [pentru preluarea documentelor](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js) foloseşte câteva module node interesante:
 
-- [`nugget`](http://npmjs.com/nugget) for [getting the release tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) and saving it to a temporay directory.
+- [`nugget`](http://npmjs.com/nugget) pentru [obținerea tarbului de lansare](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) și salvarea lui într-un director temporar.
 - [`gunzip-maybe`](http://npmsjs.com/gunzip-maybe) to [unzip the tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
-- [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
+- [`tar-fs`](http://npmjs.com/tar-fs) pentru [streaming doar directorul `/docs`](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) din tarball şi [filtrarea şi procesarea fişierelor](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (cu ajutorul a [`prin 2`](http://npmjs.com/through2)) astfel încât acestea să funcţioneze frumos cu site-ul nostru Jekyll (mai multe pe acesta de mai jos).
 
-[Tests](https://github.com/electron/electronjs.org/tree/gh-pages/spec) help us know that all the bits and pieces landed as expected.
+[Testele](https://github.com/electron/electronjs.org/tree/gh-pages/spec) ne ajută să știm că toate bițile și piesele au fost debarcate conform așteptărilor.
 
-### Jekyll
+### Ecran
 
-The Electron website is a Jekyll site and we make use of the [Collections](http://jekyllrb.com/docs/collections/) feature for the docs with a structure like this:
+Site-ul Electron este un site Jekyll și folosim funcția [Colecții](http://jekyllrb.com/docs/collections/) pentru documentele cu o structură ca aceasta:
 
 ```bash
 electron.atom.io
-└── _docs
-    ├── latest
-    ├── v0.27.0
-    ├── v0.26.0
-    ├── so on
-    └── so forth
+<unk> ● ─ _docs
+    Ribavirin ─ cele mai recente
+    • ─ v0.27.0
+    <unk> ─ v0.26.0
+    <unk> US, deci pe
+    <unk> ─ așa mai departe
 ```
 
-#### Front matter
+#### Materie frontală
 
-For Jekyll to render each page it needs at least empty front matter. We're going to make use of front matter on all of our pages so while we're streaming out the `/docs` directory we check to see if a file is the `README.md` file (in which case it receives one front matter configuration) or if it is any other file with a markdown extension (in which case it receives slightly different front matter).
+Pentru ca Jekyll să redea fiecare pagină, are nevoie de cel puţin materia goală. Vom folosi materia frontală pe toate paginile noastre, astfel încât în timp ce transmitem folderul `/docs` pe care îl verificăm pentru a vedea dacă un fișier este `README. d` fișier (în cazul în care primește o configurație a materiei din față) sau dacă este orice alt fișier cu o extensie markdown (în care primește o problemă ușor diferită în față).
 
-Each page receives this set of front matter variables:
+Fiecare pagină primește acest set de variabile de materie frontală:
 
 ```yaml
 ---
-version: v0.27.0
-category: Tutorial
-title: 'Quick Start'
+versiunea: v0.27.0
+categorie: Tutorial
+titlu: 'Quick Start'
 source_url: 'https://github.com/electron/electron/blob/master/docs/tutorial/quick-start.md'
 ---
 ```
 
-The `README.md` gets an additional `permalink` so that has a URL has a common root of `index.html` rather than an awkward `/readme/`.
+`README. d` primește un `permalink` în plus pentru ca adresa URL să aibă o rădăcină comună de `index. tml` în loc de un ciudat `/readme/`.
 
 ```yaml
-permalink: /docs/v0.27.0/index.html
+permalink: /ro_RO/docs/v0.27.0/index.html
 ```
 
-#### Config and Redirects
+#### Config și Redirecționări
 
-In the site's `_config.yml` file a variable `latest_version` is set every time the `--latest` flag is used when fetching docs. We also add a list of all the versions that have been added to the site as well as the permalink we'd like for the entire docs collection.
+În secțiunea `_config a site-ului. ml` fișier o variabilă `latest_version` este setată de fiecare dată când se folosește `--last` steag la preluarea documentelor. De asemenea, adăugăm o listă cu toate versiunile care au fost adăugate pe site, precum și permalink pe care ni le-am dori pentru întreaga colecție de documente.
 
 ```yaml
-latest_version: v0.27.0
+latest_versiune: v0.27.0
 available_versions:
     - v0.27.0
-collections:
-    docs: {output: true, permalink: '/docs/:path/'}
+colecții:
+    documente: {output: true, permalink: '/docs/:path/'}
 ```
 
-The file `latest.md` in our site root is empty except for this front matter which allows users to see the index (aka `README`) of the latest version of docs by visiting this URL, [electron.atom.io/docs/latest](https://electronjs.org/docs/latest), rather than using the latest version number specifically (though you can do that, too).
+Fișierul `este cel mai recent. d` în rădăcina site-ului nostru este goală, cu excepția acestei materii din față, care permite utilizatorilor să vadă indexul (aka `README`) celei mai recente versiuni de documente vizitând acest URL, [electron. tom.io/documente/ultimul](https://electronjs.org/docs/latest), mai degrabă decât să folosești cel mai recent număr de versiune specific (chiar dacă poți face și asta).
 
 ```yaml
 ---
-permalink: /docs/latest/
-redirect_to: /docs/{{ site.data.releases[0].version }}
+permalink: /documente/latest/
+redirecționare_to: /documente/{{ site.data.releases[0].version }}
 ---
 ```
 
-#### Layouts
+#### Aranjări
 
-In the `docs.html` layout template we use conditionals to either show or hide information in the header and breadcrumb.
+În șablonul de layout `docs.html` vom folosi condiții pentru a afișa sau ascunde informații în antet și breadcrumb.
 
 ```html
 {% raw %}
@@ -97,7 +97,7 @@ In the `docs.html` layout template we use conditionals to either show or hide in
 {% endraw %}
 ```
 
-To create a page showing the versions that are available we just loop through the list in our config on a file, `versions.md`, in the site's root. Also we give this page a permalink: `/docs/`
+Pentru a crea o pagină care să afișeze versiunile disponibile, noi doar facem o buclă prin listă în configurația noastră a unui fișier, `versiuni. d`, în rădăcina site-ului. Dăm această pagină un permalink: `/docs/`
 
 ```html
 {% raw %}
@@ -107,5 +107,5 @@ To create a page showing the versions that are available we just loop through th
 {% endraw %}
 ```
 
-Hope you enjoyed these technical bits! If you're interested in more information on using Jekyll for documentation sites, checkout how GitHub's docs team publishes [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
+Sperăm că ți-a plăcut acești biți tehnici! Dacă sunteți interesat de mai multe informații despre utilizarea Jekyll pentru site-urile de documentație, finalizați comanda cum echipa de documente GitHub publică [documentele GitHub pe Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github).
 

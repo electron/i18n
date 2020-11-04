@@ -102,7 +102,7 @@ Büyük ihtimalle modülü yanlış proseste kullanıyorsunuz. Örneğin ` elect
 
 ## Yazı tipi bulanık görünüyor, bu nedir ve ne yapabilirim?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Örneğin:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Örneğin:
 
 ![alt piksel oluşturma örneği](images/subpixel-rendering-screenshot.gif)
 

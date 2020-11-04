@@ -32,7 +32,7 @@ Jedynym sposobem bezpiecznego załadowania natywnego modułu na teraz jest upewn
 process.dlopen = () => {
   throw new Error('Load native module is not safe')
 }
-const worker = new Worker('script.js')
+const staff = new Worker('script.js')
 ```
 
 [web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

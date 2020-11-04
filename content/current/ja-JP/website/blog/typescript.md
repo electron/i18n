@@ -40,41 +40,41 @@ yarn add electron --dev --exact
 
 ## 使い方
 
-For a summary of how to install and use Electron's new TypeScript annotations, watch this short demo screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+Electron の新しい TypeScript 注釈をインストールして使用する方法の概要については、 デモ用スクリーンキャストをご覧ください。 <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/), you've already got TypeScript support built in. There are also community-maintained plugins for [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), and [other editors](https://www.typescriptlang.org/index.html#download-links).
+[Visual Studio Code](https://code.visualstudio.com/)を使用している場合、これはすでにTypeScript をサポートしています。 [Atom](https://atom.io/packages/atom-typescript)、[Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin)、[vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim)や[その他のエディタ](https://www.typescriptlang.org/index.html#download-links)にはコミュニティがメンテナンスしているプラグインがあります。
 
-Once your editor is configured for TypeScript, you'll start to see more context-aware behavior like autocomplete suggestions, inline method reference, argument checking, and more.
+エディターを TypeScript にあわせて設定すると、オートコンプリートサジェスト、インラインメソッド参照、引数チェックなど、コンテキストに対応して動作します。
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Method autocompletion">
-  <figcaption>Method autcompletion</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="メソッドの自動補完">
+  <figcaption>メソッドの自動補完</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="Method reference">
-  <figcaption>Inline method reference</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="メソッドの参照">
+  <figcaption>インラインメソッド参照</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="Argument checking">
-  <figcaption>Argument checking</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="引数の確認">
+  <figcaption>引数の確認</figcaption>
 </figure>
 
-## Getting started with TypeScript
+## TypeScriptを始める
 
-If you're new to TypeScript and want to learn more, this [introductory video from Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) provides a nice overview of why the language was created, how it works, how to use it, and where it's headed.
+もしあなたが、TypeScript に詳しくなくかつ学びたいと考えているならこの[Microsoftの導入ビデオ](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) をご覧ください。なぜTypeScriptが作られたか、TypeScriptの動作、使用方法などが説明されます。
 
-There's also a [handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html) and a [playground](https://www.typescriptlang.org/play/index.html) on the official TypeScript website.
+公式TypeScriptウェブサイトには [ハンドブック](https://www.typescriptlang.org/docs/handbook/basic-types.html) と [遊び場](https://www.typescriptlang.org/play/index.html) もあります。
 
-Because TypeScript is a superset of JavaScript, your existing JavaScript code is already valid TypeScript. This means you can gradually transition an existing JavaScript project to TypeScript, sprinkling in new language features as needed.
+TypeScript は JavaScript のスーパーセットであるため、既存の JavaScript コードは すでに有効な TypeScript です。 つまり、既存の JavaScript プロジェクトを TypeScript に徐々に移行し、必要に応じて新しい言語機能を振りかけることができます。
 
 ## 謝辞
 
-This project would not have been possible without the help of Electron's community of open-source maintainers. Thanks to [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), and many others for their bug fixes, documentation improvements, and technical guidance.
+このプロジェクトは、Electron の オープンソースメンテナのコミュニティの助けを借りなければ実現できなかったでしょう。 [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), また、その他のバグの修正、文書の改善、技術ガイダンスの作成にたずさわっっていただいた多くのメンバーに感謝します。
 
 ## サポート
 
-If you encounter any issues using Electron's new TypeScript definition files, please file an issue on the [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues) repository.
+Electronの新しいTypeScript定義ファイルを使用して問題が発生した場合、 [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues) リポジトリにイシューを提出してください。
 
-Happy TypeScripting!
+ハッピーTypeScripting!

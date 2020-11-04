@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Certaines questions sont souvent posées. Vérifiez ceci avant de créer un problème :
 
 * [FAQ Electron](faq.md)
 
@@ -20,7 +20,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Installer Electron](tutorial/first-app.md#installing-electron)
   * [Le développement avec Electron en résumé](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Lancer votre Application](tutorial/first-app.md#running-your-app)
-* [Les standards et CLI (Command-line interface)](tutorial/boilerplates-and-clis.md)
+* [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
@@ -86,7 +86,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Calendrier de release99](tutorial/electron-timelines.md)
   * [Programme de feedback](tutorial/app-feedback-program.md)
-* [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md)
+* [Packaging du code source de l'App avec asar](tutorial/application-packaging.md)
   * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)

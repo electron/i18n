@@ -1,20 +1,20 @@
-# Windows Taskbar
+# Panel úkolů Windows
 
-Electron has APIs to configure the app's icon in the Windows taskbar. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron má API pro konfiguraci ikony aplikace v panelu úkolů Windows. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows umožňuje aplikacím definovat vlastní kontextové menu, které se zobrazí když uživatelé klepnou pravým tlačítkem myši na ikonu aplikace v panelu úloh. Toto kontextové menu se nazývá `JumpList`. V `Úkolách` kategorie JumpList, specifikujete vlastní akce podle MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Aplikace definují úkoly založené jak na funkcích programu, tak na klíčových věcech, které má uživatel s nimi dělat. Úkoly by měly být bez kontextu, v , že aplikace nemusí být spuštěna, aby fungovala. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. aplikace by neměla zatěžovat menu s pokročilými funkcemi, které standardní uživatelé nebudou potřebovat nebo jednorázové akce, jako je registrace. Nepoužívejte úkoly pro propagační předměty, jako jsou vylepšení nebo speciální nabídky.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Důrazně se doporučuje, aby byl seznam úkolů statický. Měla by zůstat stejná bez ohledu na stav nebo stav žádosti. I když je možné seznam dynamicky změnit, měli byste zvážit, že by to mohlo zmást uživatele, který neočekává změnu části cílového seznamu .
 
-__Tasks of Internet Explorer:__
+__Úkoly aplikace Internet Explorer:__
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Na rozdíl od dokového menu v macOS což je skutečné menu, úkoly uživatelů v systému Windows fungují jako zástupce aplikací, když uživatel klikne na úlohu, program bude spuštěn s zadanými argumenty.
 
 To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API:
 
@@ -22,39 +22,39 @@ To set user tasks for your application, you can use [app.setUserTasks][setuserta
 const { app } = require('electron')
 app.setUserTasks([
   {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
-    iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    program: proces. xecPath,
+    argumenty: '--new-window',
+    iconPath: process. xecPath,
+    ikonový index: 0,
+    název: 'New Window',
+    popis: 'Vytvořit nové okno'
   }
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Chcete-li vymazat váš seznam úkolů, zavolejte `app.setUserTasks` s prázdným polem:
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Uživatelské úkoly se budou zobrazovat i po uzavření aplikace, takže ikona a cesta programu by měla existovat, dokud nebude aplikace odinstalována.
 
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+V systému Windows můžete přidat náhledovou lištu se zadanými tlačítky v hlavním panelu rozvržení okna. Umožňuje uživatelům přístup k příkazu bez obnovení nebo aktivace okna.
 
-From MSDN, it's illustrated:
+Z MSDN je ilustrativní:
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Tento panel nástrojů je známým běžným ovládáním standardního panelu nástrojů. Má maximálně sedm tlačítek. ID každého tlačítka, obrázek, popisek nástrojů a stav jsou definovány ve struktuře, která je poté předána do panelu úkolů. Aplikace může zobrazit, povolit, zakázat nebo skrýt tlačítka na náhledové liště podle potřeby podle aktuálního stavu .
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Windows Media Player může například nabízet standardní mediální dopravní prvky , jako je přehrávání, pozastavení, ztlumit a zastavit.
 
-__Thumbnail toolbar of Windows Media Player:__
+__Panel nástrojů náhledu Windows Media Player:__
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![hráč](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons][setthumbarbuttons] to set thumbnail toolbar in your application:
 
@@ -78,7 +78,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Chcete-li vyčistit miniatury tlačítek, stačí zavolat `BrowserWindow.setThumbarButtons` s prázdným polem:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,30 +88,30 @@ win.setThumbarButtons([])
 ```
 
 
-## Icon Overlays in Taskbar
+## Ikona překrytí v hlavním panelu
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+V systému Windows může tlačítko na hlavní liště použít malý překryv pro zobrazení aplikace podle seznamu z MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Překrytí ikony slouží jako kontextové oznámení o stavu a jsou určeny k popření potřeby samostatné ikony stavu oznamovací oblasti sdělit tyto informace uživateli. Například nový stav e-mailu ve společnosti Microsoft Outlook, který se v současné době zobrazuje v oblasti oznámení, nyní lze indikovat pomocí překrytí na tlačítku hlavního panelu. Opět musíte během svého vývojového cyklu rozhodnout, která metoda je nejlepší pro vaši aplikaci. Ikony potahů jsou určeny k poskytování důležitého, dlouhodobého stavu nebo oznámení, jako je stav sítě, stav messenger nebo nový e-mail. Uživatel by neměl být prezentován s neustále se měnícími potahy nebo animacemi.
 
-__Overlay on taskbar button:__
+__Překrytí na tlačítku hlavního panelu:__
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Překrytí tlačítkem na hlavní liště](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon][setoverlayicon] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Popis pro potahy')
 ```
 
 
-## Flash Frame
+## Blesk
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+V systému Windows můžete zvýraznit tlačítko na hlavní liště pro pozornost uživatele. To se podobá odsunutí ikony doku na macOS. Z referenční dokumentace MSDN
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Obvykle je okno nainstalováno tak, aby uživatel informoval, že okno vyžaduje pozornost, ale že v současné době nemá zaměření na klávesnici.
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame][flashframe] API:
 
@@ -122,7 +122,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Nezapomeňte zavolat metodu `flashFrame` s `falešnou` , abyste vypnuli flash. V výše uvedeném příkladu se volá, když se okno zaostří, ale můžete použít časový limit nebo jinou událost k jeho vypnutí.
 
 [setthumbarbuttons]: ../api/browser-window.md#winsetthumbarbuttonsbuttons-windows
 [setusertaskstasks]: ../api/app.md#appsetusertaskstasks-windows

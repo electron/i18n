@@ -1,32 +1,32 @@
 ---
-title: Electron Podcasts
-author: jlord
+title: إلكترون بودكاست
+author: سيد
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+هل تبحث عن مقدمة لإلكترون؟ وقد تم للتو نشر قضيتين جديدتين تعطيان نظرة عامة كبيرة على ما هو، لماذا تم بناءها، وكيف يتم استخدامها.
 
 ---
 
-**Out now:**
+**خارج الآن:**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
-### [Hanselminutes: Creating cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
+### [Hanselminutes: إنشاء تطبيقات إلكترون عبر المنصة](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
 
-> Is Electron "just Chrome in a frame" or is it so much more? Jessica sets Scott on the right path and explains exactly where the Electron platform fits into your development world.
+> هل الإلكترون "مجرد كروم في إطار" أم أنه أكثر بكثير؟ تقوم جيسيكا بوضع سكوت على المسار الصحيح وتشرح بالضبط أين تتواءم منصة إلكترون مع عالم التطوير.
 
 <br>
 
 <a href="https://javascriptair.com/episodes/2016-07-06"><img src="https://raw.githubusercontent.com/javascriptair/site/master/resources/logo.png" width="200"></a>
 
-### [JavaScript Air: Electron Apps](https://javascriptair.com/episodes/2016-07-06)
+### [هواء جافا سكريبت: تطبيقات إلكترون](https://javascriptair.com/episodes/2016-07-06)
 
-> Electron is becoming more and more of a relevant and popular way of building multi-platform desktop apps with web technologies. Let's get a dive into this awesome tech and see how we can use it to enhance our own experience and our user's experience on the desktop.
+> أصبح إلكترون أكثر فأكثر طريقة ذات صلة وشائعة لبناء تطبيقات سطح المكتب متعددة المنصات مع تكنولوجيات الويب. دعونا نحصل على غوص في هذه التقنية الرائعة ونرى كيف يمكننا استخدامها لتعزيز تجربتنا الخاصة وتجربة مستخدمنا على سطح المكتب.
 
 <br>
 
-If you're looking for an introduction to Electron, give the first a listen. The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+إذا كنت تبحث عن مقدمة لإلكترون ، أعطِ أول استماع. وتذهب الثانية إلى المزيد من التفاصيل حول بناء التطبيقات مع نصائح عظيمة من [Evan Morikawa الخاص بـ Nylas](https://twitter.com/E0M).
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+ونحن نعمل حاليا على إصدار قضيتين أخريين، سيصدران في الشهر القادم، ابق على حساب تويتر [@ElectronJS](https://twitter.com/ElectronJS) للحصول على تحديثات.
 

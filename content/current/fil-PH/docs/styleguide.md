@@ -45,7 +45,7 @@ Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
 * Gamitin ang `sh` sa halip ng `cmd` sa mga bloke ng code (dahil sa syntax highlighter).
 * Ang mga linya dapat naka balot sa 80 ng mga hanay.
 * Walang nesting na nangangahulugang mahigit 2 antas (dahil sa mga tagatanghal ng markdown).
-* Lahat ng bloke ng code sa `js` at `javascript` ay linted sa [pamantayan-markdown](http://npm.im/standard-markdown).
+* Lahat ng bloke ng code sa `js` at `javascript` ay linted sa [pamantayan-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## Pagpili ng mga salita
 

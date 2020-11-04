@@ -1,57 +1,100 @@
 # Raccourcis clavier
 
-> Configurer des raccourcis clavier locaux et globaux
+## Vue d'ensemble
 
-## Raccourcis Locaux
+Cette fonctionnalité vous permet de configurer les raccourcis clavier locaux et globaux de votre application Electron.
 
-Vous pouvez utiliser le module [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclencheront uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d'un [MenuItem](../api/menu-item.md).
+## Exemple
+
+### Raccourcis Locaux
+
+Les raccourcis clavier locaux ne sont déclenchés que lorsque l'application a le focus. Afin de configurer un raccourci clavier local, vous devez spécifier une propriété [`accelerator`] lors de la création d'un [MenuItem](../api/menu-item.md) du module [Menu](../api/menu.md).
+
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```js
 const { Menu, MenuItem } = require('electron')
-const menu = new Menu()
 
+const menu = new Menu()
 menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
+  }]
 }))
 ```
 
-Vous pouvez configurer différentes combinaisons de touches basées sur le système d’exploitation de l’utilisateur.
+> REMARQUE : Dans le code ci-dessus, vous pouvez voir que l'accélérateur diffère selon le système d'exploitation de l'utilisateur . Pour MacOS, c'est `Alt+Cmd+I`, alors que pour Linux et Windows, c'est `Alt+Shift+I`.
 
-```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
-```
+Après avoir lancé l'application Electron, vous devriez voir le menu de l'application avec le raccourci local que vous venez de définir:
 
-## Raccourcis globaux
+![Menu avec un raccourci local](../images/local-shortcut.png)
 
-Vous pouvez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements de clavier, même lorsque l'application n’a pas le focus clavier.
+Si vous cliquez sur `Aide` ou appuyez sur l'accélérateur défini, puis ouvrez le terminal depuis lequel vous avez exécuté votre application Electron, vous verrez le message qui a été généré après avoir déclenché l'événement `click` : "Electron rocks!".
+
+### Raccourcis globaux
+
+Pour configurer un raccourci clavier global, vous devez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements du clavier même si l'application n'a pas le focus.
+
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```js
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Electron loves global shortcuts!')
   })
-})
+}).then(createWindow)
 ```
 
-## Raccourcis dans un BrowserWindow
+> NOTE: Dans le code ci-dessus, la combinaison `CommandOrControl` utilise `Command` sur macOS et `Control` sur Windows/Linux.
 
-Si vous souhaitez gérer les raccourcis clavier pour un [BrowserWindow](../api/browser-window.md), vous pouvez utiliser les écouteurs d'événements `keyup` et `keydown` sur l'objet window dans le processus de rendu.
+Après avoir lancé l'application Electron, si vous appuyez sur la combinaison de touches définie puis que vous ouvrez le terminal depuis lequel vous avez exécuté votre application Electron, vous verrez Electron loves global shortcuts!
+
+### Raccourcis dans un BrowserWindow
+
+#### Utilisation des API web
+
+Si vous voulez gérer les raccourcis clavier dans une [BrowserWindow](../api/browser-window.md), vous pouvez écouter les `keyup` et `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) dans le processus de rendu en utilisant l'API [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Notez que le troisième paramètre `true` qui signifie que l'écouteur recevra toujours les pressions de touches avant les autres écouteurs d'événement, ainsi ils ne peuvent pas appeler eux-même `stopPropagation()`.
+Notez que le troisième paramètre `true` indique que le listener sera toujours prévenu des différentes touches enfoncées avant les autres listeners d'événement, afin que celles ci ne puissent pas être masquées par `stopPropagation()`.
+
+#### Interception des événements dans le processus principal
 
 L’événement [`before-input-event`](../api/web-contents.md#event-before-input-event) est émis avant d’envoyer les événements `keydown` et `keyup` dans la page. Il peut être utilisé pour intercepter et gérer des raccourcis personnalisés qui ne sont pas visibles dans le menu.
 
-Si vous ne voulez pas analyser manuellement les raccourcis, il existe des bibliothèque qui font de la détection avancée comme par exemple [mousetrap](https://github.com/ccampbell/mousetrap).
+##### Exemple
+
+Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
+
+```js
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+
+  win.loadFile('index.html')
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.key.toLowerCase() === 'i') {
+      console.log('Pressed Control+I')
+      event.preventDefault()
+    }
+  })
+})
+```
+
+Après avoir lancé l'application Electron, si vous ouvrez le terminal depuis lequel vous avez exécuté votre application Electron et appuyez sur la combinaison de touches `Ctrl+I` , vous allez voir que cette combinaison de touches a été interceptée avec succès.
+
+#### Utilisation de bibliothèques tierces
+
+Si vous ne voulez pas analyser manuellement les raccourcis, il existe des bibliothèque qui font de la détection avancée comme par exemple [mousetrap](https://github.com/ccampbell/mousetrap). Voici des exemples d’utilisation de `mousetrap` s'exécutant dans le processus Renderer :
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

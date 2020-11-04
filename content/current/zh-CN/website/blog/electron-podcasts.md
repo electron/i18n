@@ -1,32 +1,32 @@
 ---
-title: Electron Podcasts
-author: jlord
+title: Electron Podcast
+author: 吉尔福德
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+寻找Electron介绍吗？ 刚刚释放了两起新的播客，对其内容作了大致的概述。 为什么它是建立的，以及它是如何使用的。
 
 ---
 
-**Out now:**
+**现在退出：**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
-### [Hanselminutes: Creating cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
+### [Hanselminutes：创建跨平台的 Electron 应用](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
 
-> Is Electron "just Chrome in a frame" or is it so much more? Jessica sets Scott on the right path and explains exactly where the Electron platform fits into your development world.
+> Electron “只是Chrome在一个帧中”还是更多？ Jessica将Scott设置在正确的路径上，并准确地解释了Electron平台在哪里适合您的发展世界。
 
 <br>
 
 <a href="https://javascriptair.com/episodes/2016-07-06"><img src="https://raw.githubusercontent.com/javascriptair/site/master/resources/logo.png" width="200"></a>
 
-### [JavaScript Air: Electron Apps](https://javascriptair.com/episodes/2016-07-06)
+### [JavaScript 空气：Electron 应用程序](https://javascriptair.com/episodes/2016-07-06)
 
-> Electron is becoming more and more of a relevant and popular way of building multi-platform desktop apps with web technologies. Let's get a dive into this awesome tech and see how we can use it to enhance our own experience and our user's experience on the desktop.
+> Electron正在越来越多地成为使用网络技术构建多平台桌面应用程序的相关和流行方式。 让我们潜入这个很棒的技术，看看我们如何能够使用它来提高我们自己的体验和我们的用户在桌面上的体验。
 
 <br>
 
-If you're looking for an introduction to Electron, give the first a listen. The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+如果您正在寻找Electron的导言，请给第一个监听。 第二个步骤是详细介绍来自Nylas's [Evan Morikawa](https://twitter.com/E0M) 的带有极大提示的构建应用。
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+我们目前正在进行另外两次播客，这两次播客将于下个月推出。 保持对 [@ElectronJS](https://twitter.com/ElectronJS) Twitter 帐户的关注以获取更新。
 

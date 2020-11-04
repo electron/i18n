@@ -8,6 +8,6 @@
 - [代码搜索](https://cs.chromium.org/)
 - [源代码](https://cs.chromium.org/chromium/src/)
 - [开发日历和版本信息](https://www.chromium.org/developers/calendar)
-- [讨论组](http://www.chromium.org/developers/discussion-groups)
+- [讨论组](https://www.chromium.org/developers/discussion-groups)
 
 参阅 [V8 开发](v8-development.md)

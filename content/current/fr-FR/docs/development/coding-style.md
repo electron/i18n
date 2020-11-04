@@ -36,7 +36,7 @@ Vous pouvez exécuter `npm run lint-docs` pour vous assurer que vos modification
 
 ## JavaScript
 
-* Écrire [standard](https://npm.im/standard) style JavaScript.
+* Écrire [standard](https://www.npmjs.com/package/standard) style JavaScript.
 * Les noms des fichiers doivent être liés avec `–` au lieu de `_`, par exemple : `fichier-name.js` plutôt que `file_name.js`, parce que dans [github/atome](https://github.com/github/atom) les noms de modules sont généralement sous la forme `nom-du-module`. Cette règle s’applique uniquement aux fichiers `.js`.
 * Utilisez la nouvelle syntaxe ES6/ES2015, le cas écheant
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pour les exigences et d'autres constantes.  Si la valeur est une primitive, utilisez un nom en majuscules (par ex. `const NUMBER_OF_RETRIES = 5`).

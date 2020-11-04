@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'Проект Недели: Вольтра'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+На этой неделе мы встретились с [апреля Эльцича](https://twitter.com/aprileelcich) и [Паоло Франомени](https://twitter.com/0x00A) , чтобы поговорить о "Voltra" - музыкальном проигрывателе с электропитанием.
 
 ---
 
-## What is Voltra?
+## Что такое Voltra?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Вольтра](https://voltra.co/) это музыкальный плеер для людей, которые хотят владеть своей музыкой. Это также магазин, где вы можете найти и купить новую музыку, основанную на том, что уже у вас есть. Это бесплатная кросс-платформа для настольных и мобильных устройств. Он также не шпионил за вами.
 
 [![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Кто вольтра за кого?
 
-Anyone who listens to music.
+Любой, кто слушает музыку.
 
-## What motivated you to create Voltra?
+## Что побудило вас создать Voltra?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+Радио всегда имело большую долю слушателей. Он вылетает с воздушных волн и на интернет. Теперь вы можете взять в аренду музыку по требованию — это радиооживление! Из-за этого появилось много новых продуктов и услуг, но потоковое радио все еще оставляет кого-то другого в управлении вашей музыкой и тем, как вы ее используете.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+Мы хотели, чтобы продукт, который был полностью ориентирован на вашу музыку. То, что облегчило обнаружение и покупку новой музыки непосредственно у исполнителей или лейблов.
 
-## Is there a free version?
+## Есть ли бесплатная версия?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+Плеер для настольных компьютеров совершенно бесплатный. [Продажа вашей музыки также бесплатна!](https://voltra.co/artists) Мы не поддерживаем.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+Поскольку приложение бесплатно, мы можем открыть его позднее. Сейчас у нас нет полосы пропускания для этого. У нас также есть специфические идеи по особенностям и направлению, которое мы хотим предпринять. У нас есть активное сообщество бета-версий и мы принимаем наши отзывы к сердцу.
 
-## How do you make money?
+## Как вы зарабатываете деньги?
 
-We have premium features!
+У нас есть премиум-функции!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+Наш [Voltra Audio Archive](https://voltra.co/premium/) является облачным сервисом резервного копирования, разработанным специально для музыки. Мы не сжимаем и не делимся блоками данных. Ваша коллекция музыки физически составлена для вас.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+Для художников и этикеток наше членство [Pro](https://voltra.co/artists/pro) предлагает инструменты, чтобы помочь им достичь более релевантной аудитории, такой как аналитика и профессиональные страницы художников.
 
-## What makes Voltra different?
+## Что отличает Вольтра?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+Для нас очень важны дизайн и удобство. Мы хотим дать слушателям удовольствие, не отвлекающее слушание! Здесь есть несколько интересных музыкальных плееров и магазинов. Но многие из них более продвинуты и труднее использовать, чем их создатели. Мы хотим сделать Voltra доступным как можно большему количеству людей.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+Мы также не берем отрезок от художника или этикетки. Это ключевой дифференциатор для нас. Это действительно важно, потому что снижает барьер для исполнителей, чтобы их музыка попала на рынок.
 
-## What are some design & technical decisions you made?
+## Какой дизайн & технические решения вы приняли?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+При проектировании Voltra, мы рассмотрели UI конвенции от родных приложений и веб, мы также подумали о том, что мы могли бы удалить. У нас есть активная частная группа бета-тестирования, которая дала нам критические отзывы за последние несколько месяцев.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+Мы обнаружили, что обложка и фотография действительно важны для людей. Многие игроки являются только списками файлов. Одним из прохладных вещей о владении физическими альбомами является обложка альбома, и мы хотели сделать акцент на этом в приложении для рабочего стола Voltra.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+Мы также убедились не путать с файлами людей. Мы используем просмотр файлов, чтобы вы могли помещать файлы везде, где вы хотите, и мы не переименовываем их или не перемещаем их за вас. У нас есть встроенная база данных, чтобы отслеживать состояние наблюдаемых каталогов, чтобы мы могли отслеживать что новое, даже когда процесс не запущен.
 
-## What are some challenges you've faced while building Voltra?
+## Каковы вызовы, с которыми вы столкнулись при строительстве Voltra?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+Мы тратим много времени на производительность. Мы начали с фреймворков, но переехали на ванильный Javascript. По нашему опыту, обобщенные абстракции дают перевешивание исполнения штрафных санкций и церемонии, которую они вводят.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+Мы занимаемся очень большими коллекциями довольно хорошо. Большие коллекции означают, возможно, десятки тысяч изображений! Имеет узел. Модуль файловой системы непосредственно доступный из процесса рендеринга облегчил загрузку и выгрузку множества образов супер быстро на основе DOM-событий.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+В целом *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* и *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* были супер важными инструментами для выполнения большого количества обработки, сохраняя пользовательский интерфейс. Если говорить конкретно, то распределение задач, связанных с процессором, в отдельных процессах действительно помогает поддерживать гибкость пользовательского интерфейса. Например, мы переместили контекст аудио в отдельный процесс, общаться с ним через [IPC](https://electronjs.org/docs/glossary/#ipc) , чтобы избежать потенциальных прерываний с занятого пользовательского интерфейса.
 
-## Why did you choose to build Voltra on Electron?
+## Почему вы решили построить Voltra на Electron?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+Песочница браузера слишком ограничены для нашего приложения. Но мы также разрабатываем веб-плеер. Так что это огромная победа, что мы можем поделиться почти 100% кода между двумя реализациями.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+На самом деле мы начали с создания родного приложения с помощью Swift. Главная проблема, которую мы обнаружили, заключается в том, что мы заново изобрели много вещей. Веб имеет самую большую в мире экосистему с открытым исходным кодом. Поэтому мы очень быстро переключились на Electron.
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+Кроме того, и самое главное, с Electron вы когда-то развивались и должны просто WorkTM на всех основных платформах. Это не гарантировано, но стоимость кодирования изначально для каждой платформы определенно перевешивает любые другие затраты, связанные с внедрением электронов.
 
-## What are your favorite things about Electron?
+## Каковы ваши любимые вещи в Electron?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: сетевой стек Node.js и упакованный презентационный слой Chromium - это рецепт для того, чтобы сделать вещи.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**Компетентность**: Это просто веб-стек, так что вся наша команда участвует в создании продукта.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**Сообщество**: существует высокоорганизованное сообщество, знающее как общаться по-настоящему хорошо! Мы очень ценим развитие с такой поддержкой.
 
-## In what areas could Electron be improved?
+## В каких областях компания Electron могла бы улучшить?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+Мы хотели бы, чтобы Electron одобрил один пакет. Менеджер пакетов для Electron столь же важен для того, что и для Node. В пользовательской земле существует несколько пакетов, каждая из которых имеет интересные особенности, но каждая из которых имеет ошибки. Консенсус общин поможет направить энергию, которую расходуют вкладчики.
 
-## What's coming next?
+## Что будет дальше?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+В настоящее время мы разрабатываем мобильное приложение и работаем с исполнителями и этикетками, чтобы добавить свою музыку в магазин Voltra. Эй! Если вы артист или лейбл, [зарегистрируйтесь](https://admin.voltra.co/signup)! Мы планируем открыть магазин, когда достигнем нашей цели 10 миллионов направлений.
 

@@ -1,14 +1,14 @@
-# macOS Dock
+# Dock macOS
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron are API-uri pentru a configura pictograma aplicației în Docul macOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Dock-ul personalizat este folosit în mod obișnuit pentru a adăuga comenzi rapide la sarcini pentru care utilizatorul nu ar dori să deschidă întreaga fereastră.
 
-__Dock menu of Terminal.app:__
+__Meniu de andocare din Terminal.app:__
 
-![Dock Menu][3]
+![Meniu andocare][3]
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Pentru a seta meniul de andocare personalizat, puteţi utiliza `app.dock.setMenu` API, care este disponibil numai pe macOS:
 
 ```javascript
 const { app, Menu } = require('electron')

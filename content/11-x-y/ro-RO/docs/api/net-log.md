@@ -38,7 +38,7 @@ Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 Stops recording network events. If not called, net logging will automatically end when app quits.
 
-## Properties
+## Proprietăți
 
 ### `netLog.currentlyLogging` _Readonly_
 

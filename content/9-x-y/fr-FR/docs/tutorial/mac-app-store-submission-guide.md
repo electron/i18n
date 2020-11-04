@@ -1,6 +1,6 @@
 # Guide de Soumission Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Depuis la v0.34.0, Electron permet d'envoyer des applications empaquetées sur l'App Store Mac (MAS). Ce guide fournit des informations sur la façon de soumettre votre application et les limitations de la compilation MAS.
 
 **Note:** Pour soumettre une application au Mac App Store, il faut s'inscrire dans le [Apple Developer Programme][developer-program], qui coûte de l'argent.
 
@@ -122,7 +122,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### Signer des modules natifs
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Les modules natifs utilisés dans votre application doivent également être signés. Si vous utilisez electron-osx-sign, assurez-vous d'inclure le chemin vers les binaires compilés dans la liste d'arguments :
 
 ```sh
 electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule

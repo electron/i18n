@@ -1,51 +1,51 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Efectuați operațiuni de copiere și lipire în clipboard-ul de sistem.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+Pe Linux, există, de asemenea, o `selecție ` de clipboard. Pentru a-l manipula trebuie să treceți `selecție` la fiecare metodă:
 
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Exemplu de String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Metode
 
-The `clipboard` module has the following methods:
+Modulul `clipboard` are următoarele metode:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Notă:** API-urile experimentale sunt marcate ca atare și ar putea fi eliminate în viitor.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Poate fi `selecţie` sau `clipboard`; implicit este 'clipboard'. selecția `selection` este disponibilă doar pe Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Returns `String` - Conținutul din clipboard ca text simplu.
 
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeText('hello i am a bit of text!')
+clipboard.writeText('salut sunt un pic de text!')
 
 const text = clipboard.readText()
 console.log(text)
-// hello i am a bit of text!'
+// salut sunt un pic de text!'
 ```
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Poate fi `selecţie` sau `clipboard`; în mod implicit este 'clipboard'. selecția `selection` este disponibilă doar pe Linux.
 
-Writes the `text` into the clipboard as plain text.
+Scrie textul `text` în clipboard ca text simplu.
 
 ```js
 const { clipboard } = require('electron')
 
-const text = 'hello i am a bit of text!'
+const text = 'hello i sînt as a pic of text!'
 clipboard.writeText(text)
 ```
 

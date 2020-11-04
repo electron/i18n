@@ -6,7 +6,7 @@
 
 ## Spectron'u Ayarlama
 
-[Spectron](https://electronjs.org/spectron), Electron için resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
+[Spectron](https://electronjs.org/spectron), Electron için resmi olarak desteklenen test çatısıdır. [WebdriverIO](https://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## WebDriverjs'yi Ayarlama
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) Web driver kullanarak test yapmanıza yarayan bir Node paketidir, biz de örnek olarak kullanacağız.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) Web driver kullanarak test yapmanıza yarayan bir Node paketidir, biz de örnek olarak kullanacağız.
 
 ### 1. Start ChromeDriver
 
@@ -101,7 +101,7 @@ Context | Request Context
 
 ## WebdriverIO'yu Ayarlama
 
-[WebdriverIO](http://webdriver.io/), web sürücüsü ile test etmek için bir Node paketi sağlar.
+[WebdriverIO](https://webdriver.io/), web sürücüsü ile test etmek için bir Node paketi sağlar.
 
 ### 1. Start ChromeDriver
 

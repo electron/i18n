@@ -11,18 +11,18 @@ $ code electron-quick-start
 
 ```json
 {
-  "version": "0.2.0",
+  "version": "0.2. ",
   "configurations": [
     {
-      "name": "Debug Main Process",
+      "name": "Depurar processo principal",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/. in/electron",
       "windows": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron. md"
       },
-      "args" : ["."],
+      "args" : [". ],
       "outputCapture": "std"
     }
   ]
@@ -32,6 +32,6 @@ $ code electron-quick-start
 
 ### 3. Depuração
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Defina alguns pontos de interrupção no `main.js`, e inicie a depuração no [Debug View](https://code.visualstudio.com/docs/editor/debugging). Você deveria ser capaz de bater nos pontos de interrupção.
 
 Aqui está um projeto pré-configurado que você pode baixar e depurar diretamente no VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

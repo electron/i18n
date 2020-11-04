@@ -13,27 +13,27 @@ Queste sono le linee guida per scrivere la documentazione di Electron.
 Usando `Avvio Rapido` come esempio:
 
 ```markdown
-# Quick Start
+# Avvio rapido
 
 ...
 
-## Main process
+## Processo principale
 
 ...
 
-## Renderer process
+## Processo di rendering
 
 ...
 
-## Run your app
+## Esegui la tua app
 
 ...
 
-### Run as a distribution
+### Esegui come distribuzione
 
 ...
 
-### Manually downloaded Electron binary
+### Binario di Electron scaricato manualmente
 
 ...
 ```
@@ -45,7 +45,7 @@ Per le referenze API, ci sono eccezioni a questa regola.
 * Usa `sh` invece di `cmd` nei blocchi di codice (a causa dell'evidenziatore della sintassi).
 * Le linee dovrebbero essere fissate ad 80 colonne.
 * Nessun elenco di nidificazione più di 2 livelli (a causa del renderizzatore di riduzione).
-* Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](http://npm.im/standard-markdown).
+* Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](https://www.npmjs.com/package/standard-markdown).
 
 ## Ortografia
 
@@ -95,10 +95,10 @@ Usando `autoUpdatet` come esempio:
 * I costruttori devono essere elencati con i titoli livello-`###`.
 * I [Metodi Statici](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devono essere elencati sotto ad un capitolo `### Metodi Statici`.
 * I [Metodi Istanza](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) devono essere elencati sotto ad un capitolo `### Metodi Istanza.</li>
-<li>All methods that have a return value must start their description with "Returns <code>[TYPE]` - Return description"
+<li>Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Restituisce <code>[TYPE]` - Descrizione reso"
   * Se il metodo restituisxe un `Oggetto`, la sua struttura può essere specificata usando una colonna seguita da una nuova riga, quindi una lista disordinata di proprietà nello stesso stile come parametri funzione.
 * Gli eventi Istanza devono essere elencati sotto ad un capitoli `### Eventi Istanza`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Le proprietà dell'istanza devono essere elencate sotto un capitolo `### Proprietà dell'istanza`.
   * Le proprietà istanza devono essere avviati con "Un [Tipo Proprietà] ..."
 
 Usando le classi `Sessione` e `Cookie` come esempio:
@@ -142,15 +142,15 @@ Il capitolo dei metodi deve essere nella seguente forma:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Una descrizione dei parametri.
+* `optional` Integer (opzionale) - Un altro parametro descrizione.
 
 ...
 ```
 
 Il titolo può essere `###` o `####` in base al fatto che si tratti do un metodo di un modulo o di una classe.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Per i moduli, il `objectName` è il nome del modulo. Per le classi, deve essere il nome dell'istanza della classe, e non deve essere lo stesso del nome del modulo.
 
 Per esempio, i metodi della classe `Sessione` sotto il modulo `sessione` devono usare `ses` come `Nomeoggetto`.
 
@@ -160,7 +160,7 @@ Gli argomenti opzionali sono notati da parentesi quadre `[]` circondanti l'argom
 richiesto[, opzionale]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Di seguito il metodo contiene informazioni più dettagliate su ciascuno degli argomenti. Il tipo di argomento è annotato dai tipi comuni:
 
 * [`Stringa`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Numero`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

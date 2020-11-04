@@ -12,7 +12,7 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se mantiene actualizado con versiones alternativas de Chromium. Para más información, vea la [publicación del blog de Electron Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La seguridad es la responsabilidad de Todos
 
@@ -93,7 +93,7 @@ _Esta recomendación es el comportamiento por defecto desde Electron 5.0.0._
 
 Es primordial que no active la integración Node.js en ningún renderizador ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], o [`<webview>`][webview-tag]) que carga contenido remote. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
-Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si está abriendo una ventana de navegador apunta a `https://example. om/`, puedes dar a ese sitio web exactamente las habilidades que necesita, pero no más.
 
 ### ¿Por qué?
 
@@ -149,9 +149,9 @@ Electron usa la misma tecnología que los [Content Scripts](https://developer.ch
 
 Incluso cuando usas `nodeIntegration: false` para forzar el fuerte aislamiento y prevenir el uso de Node primitivos, `contextIsolation` también se debe usar.
 
-### Why & How?
+### ¿Por qué & cómo?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Para más información sobre lo que es `contextIsolation` y cómo activarlo, por favor vea nuestro documento dedicado [Aislación de Contexto](context-isolation.md).
 
 
 ## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
@@ -300,7 +300,7 @@ Usuarios avanzados de Electron pueden habilitar las características experimenta
 
 ### ¿Por qué?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Las funciones experimentales son, como sugiere su nombre, experimentales y no han sido habilitadas para todos los usuarios de Chromium. Además, es probable que su impacto sobre Electron en su conjunto no haya sido probado.
 
 Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
@@ -397,7 +397,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Una vez más, esta lista simplemente minimiza el riesgo, no lo elimina. Si su objetivo es mostrar un sitio web, un navegador será una opción más segura.
 
 ## 12) Deshabilitar o limitar la navegación
 
@@ -490,7 +490,7 @@ Sin embargo, su su aplicación puede ejecutar contenido inseguro e incluso si en
 
 Adicionalmente, es posible que los scripts de precarga filtren accidentalmente módulos a un renderizador sandboxed. Fuga de `remoto` arma código malicioso con una multitud de los principales módulos de proceso con los que realizar un ataque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+Deshabilitar el módulo `remoto` elimina estos vectores de ataque. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
 ### ¿Cómo?
 
@@ -563,7 +563,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utilizar una versión actual de Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Debe esforzarse por utilizar siempre la última versión disponible de Electron. Cada vez que se lanza una nueva versión principal, deberías intentar actualizar tu aplicación lo antes posible.
 
 ### ¿Por qué?
 

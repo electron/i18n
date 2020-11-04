@@ -8,7 +8,7 @@ macOS 系统能通过代码签名检测对app的任何修改，包括意外修�
 
 即使开发者可以发布一个未签名的应用程序，但是我们并不建议这样做。 默认情况下，Windows和macOS都会禁止未签名的应用下载或运行。 从macOS Catalina（10.15版本）开始，用户需要操作数个步骤来运行一个未签名的应用。
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper 警告：无法打开应用程序，因为开发者无法验证](../images/gatekeeper.png)
 
 如你所见，用户有两个选择：直接删除应用或者取消运行。 你不会想让用户看见该对话框。
 
@@ -29,11 +29,11 @@ macOS 系统能通过代码签名检测对app的任何修改，包括意外修�
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`][] has built-in code-signing capabilities. 可参考[electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## 公证化
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+从 macOS 加泰罗尼亚开始，苹果需要应用程序进行公证。 "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. 您 不一定需要完成您每次建造的这一步——只需要 个您打算运送给用户的构建。
 
 ## Mac App Store
 
@@ -43,10 +43,10 @@ See the [Mac App Store Guide][].
 
 在签署Windows应用程序前，你需要完成以下事项：
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
+1. 获取一个 Windows 身份验证码签名证书 (需要年度费用)
 2. 安装Visual Studio 2015/2017(来获取签名功能)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+您可以从许多转售商获得代码签名证书。 价格各异，因此您可以花时间购物。 热门转销商包括：
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)

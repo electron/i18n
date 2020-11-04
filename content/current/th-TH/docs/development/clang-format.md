@@ -1,6 +1,6 @@
 # การใช้รูปแบบ clang ในโค้ด C++
 
-[`รูปแบบ clang`](http://clang.llvm.org/docs/ClangFormat.html)เป็นเครื่องมือในการ โดยอัตโนมัติจัดรูปแบบ C / C ++ / รหัสวัตถุประสงค์ C เพื่อให้นักพัฒนาไม่จําเป็นต้อง กังวลเกี่ยวกับปัญหาสไตล์ในระหว่างการแสดงความคิดเห็นรหัส
+[`รูปแบบ clang`](https://clang.llvm.org/docs/ClangFormat.html)เป็นเครื่องมือในการ โดยอัตโนมัติจัดรูปแบบ C / C ++ / รหัสวัตถุประสงค์ C เพื่อให้นักพัฒนาไม่จําเป็นต้อง กังวลเกี่ยวกับปัญหาสไตล์ในระหว่างการแสดงความคิดเห็นรหัส
 
 ขอแนะนําให้ใช้รหัส C++ ที่เปลี่ยนแปลงก่อนเปิดการดึง ซึ่งจะช่วยให้คุณและเวลาของผู้ตรวจทาน
 
@@ -23,5 +23,5 @@ If you want to format the changed code on your latest git commit (HEAD), you can
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
   * [อะตอม (Automatic Translation)](https://atom.io/packages/clang-format)
-  * [วิม & เอเมคส์](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+  * [วิม & เอเมคส์](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
   * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

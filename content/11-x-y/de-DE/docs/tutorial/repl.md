@@ -2,20 +2,20 @@
 
 Eine Read-Eval-Print-Loop (REPL) ist eine einfache, interaktive Computer Programmier Umgebung, die einzelne Nutzereingaben entgegennimmt (sprich einzelne Ausdrücke), diese auswertet und anschließend dem Nutzer das Ergebnis anzeigt.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+Das `repl` Modul bietet eine REPL Implementierung, auf die zugegriffen werden kann:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Angenommen, Sie haben `Elektron` oder `Elektron vorkompiliert` als lokale Projekt-Abhängigkeit installiert:
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* Angenommen, Sie haben `Elektron` oder `Elektron vorkonfiguriert` global installiert:
 
   ```sh
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Dies erzeugt nur eine REPL für den Hauptprozess. Sie können die Konsole Registerkarte der Dev Tools verwenden, um eine REPL für die Renderer-Prozesse zu erhalten.
 
 **Hinweis:** `electron --interactive` ist nicht verfügbar auf Windows.
 

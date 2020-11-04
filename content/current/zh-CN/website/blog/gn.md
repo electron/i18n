@@ -1,35 +1,35 @@
 ---
-title: "Using GN to Build Electron"
+title: "使用 GN 构建Electron"
 author: nornagon
 date: '2018-09-05'
 ---
 
-Electron now uses GN to build itself. Here's a discussion of why.
+Electron 现在使用GN来构建自己。 这里是为什么要讨论的。
 
 ---
 
-# GYP and GN
+# GYP 和 GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
+当Electron于2013年首次发布时，Chromium的构建配置是用 [GYP](https://gyp.gsrc.io/)编写的，短于“生成你的项目”。
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN](https://gn.googlesource.com/gn/) (short for "Generate [Ninja](https://ninja-build.org/)") Chromium's build files were migrated to GN and GYP was removed from the source code.
+2014年， Chromium项目引入了一个新的构建配置工具，叫做 [GN](https://gn.googlesource.com/gn/) (简称“生成 [Ninja](https://ninja-build.org/)”)，Chromium的构建文件被迁移到GN ，GYP 被从源代码中删除。
 
-Electron has historically kept a separation between the main [Electron code](https://github.com/electron/electron) and [libchromiumcontent](https://github.com/electron/libchromiumcontent), the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
+Electron 历史上一直保持主 [Electron 代码](https://github.com/electron/electron) 和 [libchromiumcontent](https://github.com/electron/libchromiumcontent)之间的分离， 对 Chromium 的 'content' 子模块的 Electron 部分。 Electron 已经继续使用 GYP, 而libchromiumcontent -- 作为Chromium 的子集--则在Chromium 的确切时间切换到GN
 
-Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
+像不很网格的渔具一样，使用两种构建系统之间存在摩擦。 维护兼容性是错误的，来自编译器的标志和 `#定义了需要仔细保持Chromium、节点、V8和Electron之间同步的`
 
-To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
+为了解决这个问题，Electron团队一直在努力将一切移动到GN。 今天， [提交](https://github.com/electron/electron/pull/14097) 从Electron中移除最后一个 GYP 代码已经登陆大师。
 
-# What this means for you
+# 这对您意味着什么
 
-If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
+如果您正在对 Electron 本身做出贡献，请先从 `master` 或 4 查看和构建Electron 的过程。 0 与 3.0.0 及更早的版本非常不同。 详情请参阅 [GN build指令](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md)。
 
-If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
+如果您正在使用 Electron 开发一个应用程序，您可能会在新的 Electron 4 中注意到一些小的更改。 每晚0次；但很可能，Electron对构建系统的改变将对您完全透明。
 
-# What this means for Electron
+# 这对 Electron 意味着什么
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
+GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. 此外，我们希望使用单一的构建配置系统将减少Electron升级到新版本Chromium所需的工作。
 
- * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
+ * 它已经有助于在 Electron 4.0.0 上的开发，因为Chromium 67 已经移除了对 MSVC 的支持，并且已经切换到 Clang 在 Windows 上的建筑。 通过 GN 构建，我们直接继承了Chromium 的所有编译器命令，所以我们可以免费在 Windows 上的 Clang 构建！
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * 它也使Electron更容易在整个Electron的一个统一构建中使用 [BoringSSL](https://boringssl.googlesource.com/boringssl/) 。 Chromium, and Node -</a> 之前有问题 </p></li> </ul>

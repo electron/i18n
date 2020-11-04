@@ -12,7 +12,7 @@
 
 通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+只使用 Chrome 的穩定版本。 如果其中一個重要的修復仍處於測試或開發階段，我們則將其修復作向後移植。
 
 詳情請參閱[安全性簡介](tutorial/security.md)。
 

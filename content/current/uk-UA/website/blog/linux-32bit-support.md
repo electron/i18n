@@ -1,29 +1,29 @@
 ---
-title: Discontinuing support for 32-bit Linux
-author: felixrieseberg
+title: Відключення підтримки 32-bit Linux
+author: фелікризеберг
 date: '2019-03-04'
 ---
 
-The Electron team will discontinue support for 32-bit Linux (ia32 / i386) starting with Electron v4.0. The last version of Electron that supports 32-bit based installations of Linux is Electron v3.1, which will receive support releases until Electron v6 is released. Support for 64-bit based Linux and `armv7l` will continue unchanged.
+Команда Electron припинить підтримку 32-розрядного Лінукс (ia32 / i386), починаючи з Electron v4.0. Остання версія Electron, яка підтримує 32-розрядні інсталяції на основі Linux, це Electron v3.1, які будуть отримувати підтримкові релізи, поки Electron v6 не не буде випуслено. Підтримка 64-розрядної версії Linux і `armv7l` продовжить змінюватися.
 
 ---
 
-## What exactly is Electron no longer supporting?
+## Що саме Electron більше не підтримується?
 
-You may have seen the description "64-bit" and "32-bit" as stickers on your computer or as options for downloading software. The term is used to describe a specific computer architecture. Most computers made in the 1990s and early 2000s were made with CPUs that were based on the 32-bit architecture, while most computers made later were based on the newer and more powerful 64-bit architecture. The Nintendo 64 (get it?) and the PlayStation 2 were the first widely available consumer devices with the new architecture, computers sold after 2010 contained almost exclusively 64-bit processors. As a result, support has been shrinking: Google stopped releasing Chrome for 32-bit Linux in March 2016, Canonical stopped providing 32-bit desktop images in 2017 and dropped support for 32-bit altogether with Ubuntu 18.10. Arch Linux, elementary OS, and other prominent Linux distributions have already dropped support for the aging processor architecture.
+Опис використання 32-розрядних стікерів на комп'ютері або використання програмного забезпечення для завантаження флакону (64-bit). Цей термін використовується для опису конкретної комп'ютерної архітектури. Більшість комп'ютерів, виготовлених у 1990-х, і на початку 2000-х років були зроблені з ЦП, які базувалися на 32-х сторінках архітектури, в той час, як більшість комп'ютерів, зроблені пізніше, базувалися на новішій і потужнішій 64-бітній архітектурі. Нінтендо 64 (отримати її? і PlayStation 2 стали першими широко доступними споживчими пристроями з новою архітектурою, комп'ютери, що продавалися після того, як 2010 рік містилися майже 64-бітні процесори. Як результат, підтримка стискається: Google припинив реліз Chrome для 32-розрядного Лінукса в березні 2016 року, Каноніка припинила розробку 32-розрядних зображень у 2017 році і втратила підтримку 32-біт разом з Ubuntu 18.10. Арк Linux, елементарні ОС та інші видатні дистрибуції Linux вже видалили підтримку архітектури обробки застарілості.
 
-Until now, Electron has provided and supported builds that run on the older 32-bit architecture. From release v4.0 onwards, the Electron team will no longer be able to provide binaries or support for 32-bit Linux.
+До цих пір Electron забезпечив і підтримував збірки, які працюють на старшій 32-розрядній архітектурі. Від релізу v4.0 он-лайн команда Electron більше не зможе надавати двійки чи підтримувати 32-розрядний Linux.
 
-Electron has always been a vibrant open source project and we continue to support and encourage developers interested in building Electron for exotic architectures.
+Electron завжди був активним проектом з відкритим вихідним кодом, і ми продовжуємо підтримувати і заохочувати розробників, зацікавлених в побудові Electron для екзотичних архітекторів.
 
-## What does that mean for developers?
+## Що це означає для розробників?
 
-If you are not currently providing 32-bit distributions of your app for Linux, no action is required.
+Якщо Ви на даний момент не надаєте 32-бітний дистрибутив вашої програми для Linux, то жодна дія не потрібна.
 
-Projects which ship 32-bit Linux Electron applications will need to decide how to proceed. 32-bit Linux will be supported on Electron 3 [until](https://electronjs.org/docs/tutorial/support#supported-versions) the release of Electron 6, which gives some time to make decisions and plans.
+Проекти, які поставляють 32-розрядні додатки Linux Electron повинні буде вирішити, як продовжити роботу. 32-розрядна Лінукс буде підтримувати Electron 3 [доки](https://electronjs.org/docs/tutorial/support#supported-versions) реліз Electron 6, що дає певний час для прийняття рішень та планів.
 
-## What does that mean for users?
+## Що це означає для користувачів?
 
-If you are a Linux user and not sure whether or not you're running a 64-bit based system, you are likely running on a 64-bit based architecture. To make sure, you can run the `lscpu` or `uname -m` commands in your terminal. Either one will print your current architecture.
+Якщо ви користувач Linux, і не впевнені, чи ви використовуєте систему на базі 64-розрядно, ви, швидше за все, запустите 64-бітну архітектуру на базі. Щоб переконатися, що ви можете виконати `lscpu` або `без змін -m` команд у вашому терміналі. Або один надрукує вашу поточну архітектуру.
 
-If you are using Linux on a 32-bit processor, you have likely already encountered difficulties finding recently released software for your operating system. The Electron team joins other prominent members in the Linux community by recommending that you upgrade to a 64-bit based architecture.
+Якщо ви використовуєте Linux на 32-розрядному процесорі, ви, ймовірно, вже стикалися з труднощами у пошуку нещодавно опублікованого програмного забезпечення для вашої операційної системи. Команда Electron приєднується до інших видатних членів спільноти Лінукса, рекомендуючи оновити програму до 64-розрядної архітектури.

@@ -1,32 +1,32 @@
 ---
-title: Electron Podcasts
-author: jlord
+title: Podcasturi Electron
+author: Jlord
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+Cauți o introducere la Electron? Două podcasturi noi tocmai au fost lansate care oferă o imagine de ansamblu a ceea ce este, motivul pentru care a fost construit și modul în care este utilizat.
 
 ---
 
-**Out now:**
+**Iesi acum:**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
-### [Hanselminutes: Creating cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
+### [Hanselminutes: Crearea de aplicații Electron cross-platform](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
 
-> Is Electron "just Chrome in a frame" or is it so much more? Jessica sets Scott on the right path and explains exactly where the Electron platform fits into your development world.
+> Este Electron "just Chrome intr-un cadru" sau este atât de mult? Jessica îl stabilește pe Scott pe drumul cel bun și explică exact unde se potrivește platforma Electron în lumea dezvoltării.
 
 <br>
 
 <a href="https://javascriptair.com/episodes/2016-07-06"><img src="https://raw.githubusercontent.com/javascriptair/site/master/resources/logo.png" width="200"></a>
 
-### [JavaScript Air: Electron Apps](https://javascriptair.com/episodes/2016-07-06)
+### [JavaScript Air: Aplicații Electron](https://javascriptair.com/episodes/2016-07-06)
 
-> Electron is becoming more and more of a relevant and popular way of building multi-platform desktop apps with web technologies. Let's get a dive into this awesome tech and see how we can use it to enhance our own experience and our user's experience on the desktop.
+> Electron devine din ce în ce mai mult un mod relevant și popular de a construi aplicații desktop pe mai multe platforme cu tehnologii web. Hai să ne scufundăm în această tehnologie minunată și să vedem cum o putem folosi pentru a ne îmbunătăți experiența și experiența utilizatorului nostru pe desktop.
 
 <br>
 
-If you're looking for an introduction to Electron, give the first a listen. The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+Dacă sunteţi în căutarea unei introduceri la Electron, daţi prima ascultare. Al doilea intră în detalii despre construirea de aplicații cu sfaturi grozave din [Evan Morikawa](https://twitter.com/E0M).
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+În prezent, lucrăm la alte două podcasturi care ar trebui să apară luna viitoare, fii atent la contul de Twitter [@ElectronJS](https://twitter.com/ElectronJS) pentru actualizări.
 

@@ -1,6 +1,6 @@
 # Установка
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
 
 ```sh
 npm install electron --save-dev
@@ -32,10 +32,10 @@ npm install --platform=win32 electron
 
 ## Прокси
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Если вам нужно использовать HTTP-прокси, необходимо установить переменную `ELECTRON_GET_USE_PROXY` в любое значение , плюс дополнительные переменные окружения в зависимости от версии узла вашей системы:
 
-* [Node 10 and above][proxy-env-10]
-* [Before Node 10][proxy-env]
+* [Узел 10 и выше][proxy-env-10]
+* [До узла 10][proxy-env]
 
 ## Пользовательские зеркала и кэши
 During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### Кеш
-Кроме того, можно заменить локальный кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
+Кроме того, можно заменить локальный кеш. `@electron/get` кэширует загруженных бинарных файлов в локальном каталоге, чтобы не стрессовать по сети. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -66,7 +66,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 Также можно переопределить место кеша с помощью переменной окружения `ELECTRON_CACHE`.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Кэш содержит официальный zip-файл версии и контрольную сумму, хранящуюся как текстовый файл. Типичный кэш может выглядеть следующим образом:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -91,14 +91,14 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Пропустить загрузку бинарных файлов
+При установке `Электрона` пакета NPM автоматически загружается двоичный файл электрона.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Иногда это может быть ненужным, например, в среде CI при тестировании другого компонента.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Чтобы предотвратить загрузку бинарного файла при установке всех зависимостей npm, вы можете установить переменную окружения `ELECTRON_SKIP_BINARY_DOWNLOAD`. Например:
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DESCRIPTION
 ```
 
 ## Устранение проблем

@@ -1,22 +1,22 @@
 # توقيع الكود
 
-Code signing is a security technology that you use to certify that an app was created by you.
+توقيع الكود هو تقنية أمان تستعملها للتحقق من أن التطبيق تم إنشاؤه من قبلك.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+في نظام macOS يمكن أن يكتشف النظام أي تغيير في التطبيق، سواء كان التغيير مقدماً عن طريق الخطأ أو بواسطة الكود الخبيث.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  مستوى الثقة يبني مع مرور الوقت لذا من الأفضل بدء توقيع التعليمات البرمجية في أقرب وقت ممكن.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+وفي حين أنه من الممكن توزيع التطبيقات غير الموقعة، فإنه لا يوصى بها. كل من Windows و macOS سيمنعان، بشكل افتراضي، إما تحميل أو تنفيذ التطبيقات غير الموقعة. يبدأ بـ macOS Catalina (الإصدار 10.15)، يجب على المستخدمين الذهاب عبر خطوات يدوية متعددة لفتح التطبيقات غير الموقعة.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![تحذير كاتالينا كاتالينا: لا يمكن فتح التطبيق لأنه لا يمكن التحقق من المطور](../images/gatekeeper.png)
 
 كما ترى، يحصل المستخدمين على خيارين: نقل التطبيق مباشرة إلى سلة المهملات أو إلغاء تشغيله. لا تريد مستخدميك رؤية علبة الحوار هذه.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
+إذا كنت تقوم ببناء تطبيق إلكترون الذي تنوي حزمه وتوزيعه، يجب أن يتم التوقيع على الرموز. مخزن تطبيقات Mac و Windows لا يسمح بالتطبيقات غير الموقعة.
 
-# Signing macOS builds
+# توقيع إصدارات macOS
 
-Before signing macOS builds, you must do the following:
+قبل توقيع بنايات macOS، يجب عليك القيام بما يلي:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
 2. Download and install [Xcode][]
@@ -25,33 +25,33 @@ Before signing macOS builds, you must do the following:
 يوجد رقم للأداة لأجل توقيع حزمة تطبيقك:
 
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- [`electron-packager`][] bundles `electron-osx-sign`. إذا كنت تستخدم `electron-packager`، اجتاز `--osx-sign=true` لتوقيع بناءك.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. شاهد [electron.build/code-signat](https://www.electron.build/code-signing)
 
 ## التوثيق
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+ابتداءً من كاتالينا macOS، تحتاج Apple إلى توثيق للتطبيقات. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. أنت لست بحاجة بالضرورة إلى إكمال هذه الخطوة لكل بناء تقوم به - فقط البناء الذي تنوي شحنه للمستخدمين.
 
 ## Mac App ore
 
 انظر الى [ دليل متجر التطبيقات Mac][].
 
-# Signing Windows builds
+# توقيع إنشاء Windows
 
 قبل التوقيع بناءات Windows، يجب عليك القيام بما يلي:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. احصل على شهادة توقيع رمز مصادقة Windows (يتطلب رسم سنوي)
+2. تثبيت Visual Studio 2015/2017 (للحصول على أداة التوقيع)
 
 يمكنك أخذ كود مصادقة موقعة من الكثير من الموزعين. الأسعار متفاوتة، لذا ربما يستحق لتأخذ وقتك لتجوال في التسوق. تحتوي على البائعين الشائعين:
 
-* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [رقمي](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* من بين الآخرين، يرجى التسوق للعثور على واحد يناسب احتياجاتك، جوجل هو صديقك :)
 
 يوجد رقم للأداة لأجل توقيع حزمة تطبيقك:
 

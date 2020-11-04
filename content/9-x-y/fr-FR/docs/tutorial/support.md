@@ -24,18 +24,18 @@ Si vous découvrez une erreur dans une [version supportée](#supported-versions)
 
 ## Versions supportées
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+Les trois dernières versions majeures *stables* sont prises en charge par l'équipe Electron. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+La dernière version stable reçoit unilatéralement toutes les corrections de `master`, et la version antérieure qui reçoit la grande majorité de ces correctifs comme le temps et la bande passante le garantie. La plus ancienne ligne de version supportée recevra seulement des correctifs de sécurité directement.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Toutes les lignes de version supportées accepteront les demandes de fusion externes pour rétroporter corrections précédemment fusionnées à `master`, bien que cela puisse être au cas par cas pour certaines lignes plus anciennes supportées. Toutes les décisions contestées autour des rétroportages de la ligne de publication seront résolues par le [Groupe de travail sur les parutions](https://github.com/electron/governance/tree/master/wg-releases) en tant qu'élément de l'ordre du jour lors de leur réunion hebdomadaire la semaine où le RP de rétroport est levé.
 
-### Currently supported versions
+### Versions actuellement supportées
 - 8.x.y
 - 7.x.y
 - 6.x.y
 
-### End-of-life
+### Fin de vie
 
 Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
@@ -55,7 +55,7 @@ Seul les binaires 64bit sont fournit pour macOs, et la version minimale de macOs
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Electron 6.0.8 et plus tard ajoutent le support natif pour Windows sur les périphériques Arm (`arm64`)](windows-arm.md). L'exécution d'applications empaquetées avec des versions précédentes est possible en utilisant le binaire ia32.
 
 ### Linux
 

@@ -1,26 +1,26 @@
 # Dodawanie aplikacji do Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Od v0.34.0, Electron pozwala na przesyłanie spakowanych aplikacji do Mac App Store (MAS). Ten przewodnik zawiera informacje na temat: jak przesłać aplikację i ograniczeń wersji MAS.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
-## How to Submit Your App
+## Jak przesłać aplikację
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+Poniższe kroki wprowadzają prosty sposób na przesłanie aplikacji do Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### Pobierz certyfikat
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides][nwjs-guide] on web.
+Aby przesłać aplikację do Mac App Store, najpierw musisz uzyskać certyfikat z Apple. You can follow these [existing guides][nwjs-guide] on web.
 
-### Get Team ID
+### Pobierz ID Drużyny
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Przed podpisaniem aplikacji musisz znać Drużynowy ID swojego konta. Aby zlokalizować swojego Drużynowego ID, zaloguj się do [Centrum programisty Apple](https://developer.apple.com/account/), i kliknij członkostwo na pasku bocznym. Twój Team ID pojawia się w sekcji Informacje pod nazwą zespołu.
 
 ### Zarejestruj Swoją Aplikację
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Po zakończeniu prac przygotowawczych możesz spakować swoją aplikację obserwując [Dystrybucję aplikacji](application-distribution.md), a następnie przejdź do podpisywania aplikacji.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+Najpierw musisz dodać klucz `ElectronTeamID` do informacji `aplikacji. lista`, która ma Twój identyfikator zespołu jako swoją wartość:
 
 ```xml
 <plist version="1.0">
@@ -34,16 +34,16 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 
 Potem, musisz przygotować drzewo plików uprawnień.
 
-`child.plist`:
+`pedi.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com. pple.security.app-sandbox</key>
     <true/>
-    <key>com.apple.security.inherit</key>
+    <key>com.jabłko. ecurity.inherit</key>
     <true/>
   </dict>
 </plist>
@@ -53,14 +53,14 @@ Potem, musisz przygotować drzewo plików uprawnień.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security pp-sandbox</key>
     <true/>
-    <key>com.apple.security.application-groups</key>
+    <key>com.apple.security grupy pplication-groups</key>
     <array>
-      <string>TEAM_ID.your.bundle.id</string>
+      <string>TEAM_ID. our.bundle.id</string>
     </array>
   </dict>
 </plist>
@@ -70,18 +70,18 @@ Potem, musisz przygotować drzewo plików uprawnień.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0. td">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com.apple.security pp-sandbox</key>
     <true/>
   </dict>
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Musisz zastąpić `TEAM_ID` swoim identyfikatorem zespołu i zastąpić `twój.bundle.id` pakietem ID aplikacji.
 
-And then sign your app with the following script:
+A następnie podpisz swoją aplikację za pomocą następującego skryptu:
 
 ```sh
 #!/bin/bash
@@ -90,28 +90,28 @@ And then sign your app with the following script:
 APP="YourApp"
 # The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# Ścieżka do miejsca, w którym chcesz umieścić podpisany pakiet.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Nazwa żądanych certyfikatów.
+APP_KEY="Aplikacja programistów Mac: Nazwa firmy (APPIDENTITY)"
+INSTALLER_KEY="Instalator programisty Mac: Nazwa firmy (APPIDENTITY)"
+# Ścieżka twoich plików.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework. framework/Versions/A/Electron Framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST"$FRAMEWORKS_PATH/Electron Framework. ramework/Versions/A/Libraries/libffmpeg.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode. ylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework. ramework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST"$FRAMEWORKS_PATH/$APP Helper. pp/Contents/MacOS/$APP Helper"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST"$FRAMEWORKS_PATH/$APP Helper. pp/"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST"$APP_PATH/Contents/Library/LoginItems/$APP Login Helper. pp/Contents/MacOS/$APP Helper"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST"$APP_PATH/Contents/Library/LoginItems/$APP Helper. pp/"
+ekoprojekt -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
+ekoprojektu -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
@@ -120,53 +120,53 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
-#### Sign Native Modules
+#### Podpisz natywne moduły
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Moduły natywne używane w aplikacji również muszą być podpisane. Jeśli używasz electron-osx-sign, upewnij się, że ścieżka do wbudowanych binariów znajduje się na liście argumentów :
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Wersje 8.1.0 i później ignorują te pliki domyślnie.
 
-### Upload Your App
+### Prześlij swoją aplikację
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
-### Submit Your App for Review
+### Prześlij swoją aplikację do sprawdzenia
 
 After these steps, you can [submit your app for review][submit-for-review].
 
-## Limitations of MAS Build
+## Ograniczenia budowy MAS
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Aby spełnić wszystkie wymagania dla piaskownicy aplikacji, następujące moduły zostały wyłączone w kompilacji MAS:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+i następujące zachowania zostały zmienione:
 
 * Nagrywanie może nie działać na dla niektórych urządzeń.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Niektóre funkcje dostępności mogą nie działać.
+* Aplikacje nie będą świadome zmian DNS.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
-### Additional Entitlements
+### Dodatkowe uprawnienia
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+W zależności od tego, z jakich API Electron korzysta twoja aplikacja, być może będziesz musiał dodać dodatkowe uprawnienia do swojego `rodzica. lista` plików, aby móc korzystać z tych API z aplikacji w wersji Mac App Store.
 
-#### Network Access
+#### Dostęp do sieci
 
-Enable outgoing network connections to allow your app to connect to a server:
+Włącz połączenia sieciowe wychodzące, aby umożliwić aplikacji łączenie się z serwerem:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Włącz przychodzące połączenia sieciowe, aby umożliwić aplikacji otwarcie sieci gniazda słuchania:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -178,7 +178,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
+<key>com.apple.security.files.user-selected.only</key>
 <true/>
 ```
 
@@ -193,9 +193,9 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 
 See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
-## Cryptographic Algorithms Used by Electron
+## Algorytmy kryptograficzne używane przez Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs][export-compliance] for more information.
+W zależności od krajów, w których udostępniasz aplikację, możesz być wymagany do dostarczenia informacji o algorytmach kryptograficznych używanych w Twoim oprogramowaniu . See the [encryption export compliance docs][export-compliance] for more information.
 
 Electron używa poniższych algorytmów kryptograficznych:
 
@@ -213,7 +213,7 @@ Electron używa poniższych algorytmów kryptograficznych:
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - książka „Design and Security of Block Ciphers” autorstwa X. Lai
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)

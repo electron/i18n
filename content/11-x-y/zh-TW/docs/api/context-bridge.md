@@ -79,7 +79,7 @@ contextBridge.exposeInMainWorld(
 )
 ```
 
-### API Functions
+### API 函數
 
 `Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
 
@@ -87,7 +87,7 @@ contextBridge.exposeInMainWorld(
 
 Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
 
-| Type                                                                                                           | Complexity | Parameter Support | Return Value Support | 限制                                                                                                                                                                                                             |
+| 類型                                                                                                             | Complexity | Parameter Support | Return Value Support | 限制                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `String`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
 | `Number`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |

@@ -10,7 +10,7 @@ Hay tres maneras de crear un archivo `.snap`:
 
 1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) o  [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas herramientas que vienen con soporte para `snap` incluido. Esta es la opción más fácil. 2) Usando `electron-installer-snap`, que toma el resultado de `electron-packager`. 3) Usando un paquete `.deb` ya creado.
 
-En algunos casos, deberás tener instalada la herramienta `Snapcraft`. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
+En algunos casos, deberás tener instalada la herramienta `Snapcraft`. Las instrucciones para instalar `snapcraft` para tu distribución particular están disponibles [aquí](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Usando `electron-installer-snap`
 
@@ -60,6 +60,78 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
+## Usar `snapcraft` con `electron-packager`
+
+### Paso 1: Crear proyecto de Snapcraft de Ejemplo
+
+Crea el directorio de tu proyecto y agrega lo siguiente a `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+Si quiere aplicar este ejemplo a un proyecto existente:
+
+- Reemplace `source: https://github.com/electron/electron-quick-start.git` con `source: .`.
+- Reemplace todas las instancias de `electron-quick-start` con el nombre de su proyecto.
+
+### Paso 2: Construye el snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Paso 3: Instalar el snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Paso 4: Ejecutar el snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## Usando un paquete de Debian existente
 
 Snapcraft es capaz de tomar un archivo `.deb` existente y convertirlo en un archivo `.snap`. La creación de un a snap es configurado usando un archivo `snapcraft.yaml` que describe las fuentes, dependencias, descripción y otros bloques de construcción.
@@ -70,7 +142,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para más información sobre las opciones de configuración disponible, vea la [documentación sobre la sintaxis de snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 name: myApp

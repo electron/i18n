@@ -1,26 +1,26 @@
 ---
-title: Touch Bar Support
+title: Підтримка Touch Bar
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+Бета-реліз Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) містить початкову підтримку macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+Новий сенсорний рядок API дозволяє додавати кнопки, мітки, спливаючі вікна, колір тих, повзунків і пробілів. Ці елементи можуть бути динамічно оновлені і і також випромінювати події під час їх взаємодії.
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+Це перша версія цього API, тому він буде розвиватися над наступними кількома релізами Electron. Будь ласка, перевірте примітки до випуску для подальших оновлень і відкрийте [задачі](https://github.com/electron/electron/issues) з будь-якими проблемами чи відсутню функціональність.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+Ви можете встановити цю версію за допомогою `npm встановити electron@beta` і дізнатися більше про це в [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) і [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Документації Electron.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
+Велика подяка [@MarshallOfSound](https://github.com/MarshallOfSound) за сприяння цьому Electron. :tada:
 
-## Touch Bar Example
+## Приклад панелі дотику
 
-![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![Натискання на панель навігації](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+Нижче наводиться приклад створення простої гри для ігрової машини на сенсорній панелі. Це демонструє, як створити сенсорну панель, стилізувати елементи, асоціювати її за допомогою вікна , обробляти події натисненням на кнопку і оновлювати мітки динамічно.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -31,37 +31,37 @@ let spinning = false
 
 // Reel labels
 const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
+const reel2 = new BarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
-const result = new TouchBarLabel()
+// Spin result
+const result = new BarLabel()
 
 // Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+const spst in = new TouchBarButton({
+  'label:slot_e: Spin', machinin',
+  фоновий колір: '#7851A9',
+  клацання: () => {
+    // Ігноруйте кліки, якщо вже обертаються
+    , якщо (шпигунування) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    обертається = true
+    результат. abel = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    const spinLength = 4 * 1000 // 1000 // 4 секунди
+    const startTime = Date. ow()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now() - startTime) >= spinLength) {
+      якщо ((Date. ow() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
+        // Повільне зниження трохи відносно кожного Spin
+        timeout *= 1.
         setTimeout(spinReels, timeout)
       }
     }
@@ -70,58 +70,58 @@ const spin = new TouchBarButton({
   }
 })
 
-const getRandomValue = () => {
+конст getRandomValue = () => {
   const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  повертає числа[Math. loor(Math.random() * values.length)]
 }
 
-const updateReels = () => {
-  reel1.label = getRandomValue()
+const updateReels => {
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel3. abel = getRandomValue()
 }
 
-const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
+const finishSpin => {
+  const uniqueValues = new Set([reel1. абелем, reel2.label, reel3.label]). змініть
+  якщо (uniqueValues === 1) {
+    // Всі 3 значення однакові
+    результатів. abel = '💰 Джекпот!'
+    результат. extColor = '#FDFF00'
+  } else якщо (uniqueValues === 2) {
+    // 2 значення мають однаковий
+    результат. abel = '😍 Переможець!'
+    результат. extColor = '#FDFF00'
   } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+    // Ніяких значень не є одним
+    результатом. abel = '🙁 поверніть знову'
+    результат. extColor = null
   }
-  spinning = false
+  обертінг = false
 }
 
 const touchBar = new TouchBar([
   spin,
-  new TouchBarSpacer({size: 'large'}),
+  новий TouchBarSpacer({size: 'large'}),
   reel1,
-  new TouchBarSpacer({size: 'small'}),
+  нові TouchBarSpacer({size: 'small'}),
   reel2,
   new TouchBarSpacer({size: 'small'}),
   reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
+  нових TouchBarSpacer({size: 'large'}),
+  результат
 ])
 
-let window
+видає вікно
 
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
+програм. nce('ready', () => {
+  вікно = new BrowserWindow({
+    кадрів: false,
     titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+    ширина: 200,
+    висот: 200,
+    фоновий колір: '#000'
   })
-  window.loadURL('about:blank')
+  вікно. oadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```

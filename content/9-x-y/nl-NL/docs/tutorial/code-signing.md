@@ -2,58 +2,58 @@
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Op macOS kan het systeem wijzigingen in de app detecteren, of de wijziging nu per ongeluk of door kwaadwillende code is geïntroduceerd.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+In Windows wijst het systeem een vertrouwensniveau toe aan uw code die certificaat tekent die als u dat niet hebt, of als uw trust level laag is, zullen er beveiligingsdialogen verschijnen wanneer gebruikers uw applicatie beginnen te gebruiken.  Vertrouw level bouwt na verloop van tijd zodat het beter is om zo vroeg mogelijk te beginnen met code-ondertekening.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Hoewel het mogelijk is niet-ondertekende apps te verspreiden, wordt het niet aanbevolen. Zowel Windows als macOS zal standaard de download of de uitvoering van niet-ondertekende applicaties verhinderen. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper waarschuwing: de app kan niet worden geopend omdat de ontwikkelaar niet kan worden geverifieerd](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Zoals je kunt zien, krijgen gebruikers twee opties: de app direct naar de prullenbak verplaatsen of het uitvoeren ervan annuleren. U wilt niet dat uw gebruikers dat dialoogvenster zien.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
+Als je een Electron app aan het maken bent die je van plan bent te verpakken en te verspreiden, het moet code-signed zijn. De Mac en Windows app opslag staat niet niet-ondertekende apps toe.
 
-# Signing macOS builds
+# MacOS builds ondertekenen
 
-Before signing macOS builds, you must do the following:
+Voordat je macOS-versies tekent, moet je het volgende doen:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
 2. Download and install [Xcode][]
 3. Generate, download, and install [signing certificates][]
 
-There are a number of tools for signing your packaged app:
+Er zijn een aantal tools voor het ondertekenen van je verpakte app:
 
 - [`electron-osx-sign`][] is a standalone tool for signing macOS packages.
-- [`electron-packager`][] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build.
+- [`electron-packager`][] bundles `electron-osx-sign`. Als je `electron-packager`gebruikt, geef dan de `--osx-sign=true` vlag om je bouwwerk te ondertekenen.
   - [`electron-forge`][] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
-- [`electron-builder`][] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`][] has built-in code-signing capabilities. Zie [electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## Notarificatie
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
+Vanaf macOS Catalina vereist Apple dat applicaties worden genoteerd. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification _before_ distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`][] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+To automate this process, you can use the [`electron-notarize`][] module. Je hoeft niet noodzakelijk deze stap te voltooien voor elke constructie die je maakt - alleen de builds die je van plan bent te verzenden naar gebruikers.
 
 ## Mac App Store
 
 See the [Mac App Store Guide][].
 
-# Signing Windows builds
+# Windows-versies worden ondertekend
 
-Before signing Windows builds, you must do the following:
+Voordat u Windows-versies tekent, moet u het volgende doen:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Een Windows Authenticode code ondertekeningscertificaat (jaarlijkse kosten vereist)
+2. Installeer Visual Studio 2015/2017 (om de ondertekening te krijgen)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Je kunt een code krijgen die een certificaat tekent van veel resellers. Prijzen variëren, dus het kan de moeite waard zijn om te winkelen. Populaire resellers zijn:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+* Koop er onder andere één om er één te vinden die bij u past. Google is uw vriend :)
 
-There are a number of tools for signing your packaged app:
+Er zijn een aantal tools voor het ondertekenen van je verpakte app:
 
 - [`electron-winstaller`][] will generate an installer for windows and sign it for you
 - [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.

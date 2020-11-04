@@ -16,7 +16,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 ## 보안은 모두의 책무
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. 그에 있어 다음 몇 가지 중요한 사항들을 따르는 것이 여러분의 책무입니다.
+Electron으로 만들어진 애플리케이션의 보안은 프레임워크 기반 (*Chromium*, *Node.js*), Electron 자체, 모든 NPM 의존성, 그리고 당신의 코드의 결과라는 것을 명심하세요. 그에 있어 다음 몇 가지 중요한 사항들을 따르는 것이 여러분의 책무입니다.
 
 * **최신 Electron 프레임워크로 애플리케이션을 최신 버전으로 유지하기.** 제품을 공개하는 것은 Electron, Chromium 공유 라이브러리, 그리고 Node.js로 구성된 묶음도 포함합니다. 이러한 구성요소들의 취약점은 애플리케이션의 보안에도 영향을 미칠 수 있습니다. Electron을 최신 버전으로 업데이트하는 것으로, 심각한 취약점 (*nodeIntegration 건너뛰기* 등) 들이 이미 패치되어 여러분의 애플리케이션에서 실행될 수 없는 것을 보장할 수 있습니다. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
@@ -93,13 +93,8 @@ browserWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- 나쁜 예 --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- 좋은 예 --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -156,12 +151,7 @@ mainWindow.loadURL('https://example.com')
 
 
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 나쁜 예 --><webview nodeIntegration src="page.html"></webview><!-- 좋은 예 --><webview src="page.html"></webview>
 ```
 
 
@@ -283,12 +273,7 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 나쁜 예 --><webview disablewebsecurity src="page.html"></webview><!-- 좋은 예 --><webview src="page.html"></webview>
 ```
 
 
@@ -494,12 +479,7 @@ If you are using [`<webview>`](../api/webview-tag.md), you might need the pages 
 
 
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- 나쁜 예 --><webview allowpopups src="page.html"></webview><!-- 좋은 예 --><webview src="page.html"></webview>
 ```
 
 
@@ -629,13 +609,13 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) 신뢰되지 않은 내용으로 `openExternal` 사용하지 않기
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 
 
 ### 왜냐구요?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 
 
@@ -683,8 +663,12 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 
 ```js
-// 렌더러가 신뢰되지 않은 내용을 실행할 수 있으면 나쁜 예입니다.
-const mainWindow = new BrowserWindow({})
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -702,13 +686,13 @@ const mainWindow = new BrowserWindow({
 
 
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- 렌더러가 신뢰되지 않은 내용을 실행할 수 있으면 나쁜 예입니다.  --><webview enableremotemodule="true" src="page.html"></webview><!-- 좋은 예 --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+
+
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
 
 

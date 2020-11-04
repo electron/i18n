@@ -13,27 +13,27 @@
 举一个`Quick Start`的例子:
 
 ```markdown
-# Quick Start
+# 快速启动
 
 ...
 
-## Main process
+## 主要进程
 
 ...
 
-## Renderer process
+## 渲染进程
 
 ...
 
-## Run your app
+## 运行您的应用程序
 
 ...
 
-### Run as a distribution
+### 以发行版
 
-...
+ 运行...
 
-### Manually downloaded Electron binary
+### 手动下载 Electron 二进制文件
 
 ...
 ```
@@ -45,7 +45,7 @@
 * 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
 * 行长度应该控制在80列内.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
-* 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](http://npm.im/standard-markdown).
+* 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](https://www.npmjs.com/package/standard-markdown).
 
 ## 用词选择
 
@@ -95,10 +95,10 @@
 * 构造函数必须用 `###` 级标题列出.
 * [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
 * [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* 所有具有返回值的方法必须以“返回 `[TYPE]` - 返回描述”
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* 实例属性必须列在 `### 实例属性` 章节下。
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
@@ -140,17 +140,17 @@
 方法章节必须采用以下形式：
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `requird` String - A 参数描述。
+* `optional` 整数(可选) - 另一个参数描述。
 
 ...
 ```
 
 标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+对于模块， `对象名称` 是模块的名称。 对于类，它必须是类实例的 个名称，不能与模块的 个名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
@@ -160,7 +160,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+以下是关于每一个论据的更详细的资料。 参数类型 是由常见类型表示的：
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

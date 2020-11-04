@@ -1,68 +1,68 @@
 ---
-title: 'Project of the Week: Ghost'
+title: 'Projekt týdne: Duch'
 author:
   - felixrieseberg
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+Tento týden jsme chatovali s [Felix Rieseberg](https://felixrieseberg.com/), desktopový inženýr na [Slack](https://slack.com/) a správce [Ghost Desktop](https://ghost.org/downloads/), Electron klient pro vydavatelskou platformu [Ghost](https://ghost.org/).
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Snímek obrazovky Ghost"> 
 </div>
 
-## What is Ghost?
+## Co je to duch?
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Ghost je plně otevřený zdroj, hackable platforma pro budování a provozování moderní online publikace. Dáváme moc blogům, časopisům a novinářům od Zappos po Sky News.
 
-## What makes it different from other publishing platforms?
+## Co ji odlišuje od ostatních vydavatelských platforem?
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+Ghost byl založen v dubnu 2013, po velmi úspěšné kampani Kickstarter s cílem vytvořit novou platformu zaměřenou výhradně na profesionální vydání. Naším úkolem je vytvořit nejlepší open source nástroje pro nezávislé novináře a spisovatele po celém světě, a mají skutečný dopad na budoucnost on-line médií. Nabízí jednodušší a zaměřenější zkušenosti: náš editor je navržen výhradně tak, aby poskytoval nejlepší možný zážitek ze psaní.
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+Ve srovnání s rekordním klasickým WordPressem nabízí jednodušší a efektivnější zážitek - je snazší nastavení a údržba, přichází se všemi důležitými funkcemi mimo domov a je výrazně rychlejší. Ve srovnání s jinými on-line platformami dává duch spisovatelům plné vlastnictví a kontrolu nad jejich obsahem, umožňuje plnou adaptaci a umožňuje autorům vytvářet obchody kolem jejich publikace.
 
-## Is Ghost a for-profit company?
+## Je duch neziskovou společností?
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+Ta je pro nás důležitá: Ghost je nezávislá nezisková organizace. Vytváříme vydavatelské nástroje pro moderní žurnalistiku & blogování, protože jsme přesvědčeni, že svoboda projevu je důležitá. Náš software je vydáván pod [svobodnou licencí s otevřeným zdrojovým kódem](https://github.com/TryGhost/Ghost), náš obchodní model je [zcela transparentní](https://blog.ghost.org/year-3/). a naše právní struktura znamená, že 100 % peněz, které vyděláme, je reinvestováno do lepšího zlepšování Ghost.
 
-## What is Ghost Desktop?
+## Co je to hra Ghost?
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost Desktop umožňuje spisovatelům spravovat více blogů najednou - a zaměřit se na jejich psaní. Jednoduché věci jako běžné klávesové zkratky nelze realizovat v prohlížeči, ale jsou k dispozici v naší desktopové aplikaci. Umožňuje ostatním aplikacím přímo komunikovat [s blogem přes deepplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
-## What is Ghost for Journalism?
+## Co je duch pro žurnalistiku?
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+V letošním roce jsme velmi rádi, že jsme věnovali celému našemu týmu Ghost na plný úvazek na pomoc růstu tří nezávislých publikací, společně se 45 tisíci dolarů prostředků na jejich úsilí. Nazýváme to [Duch pro žurnalistiku](https://ghost.org/journalism/).
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+Budujeme Ghost jako další skvělá platforma pro nezávislé vydavatele již asi tři a půl roku, a nyní jsme dosáhli opravdu zajímavého inflexního bodu. Začali jsme na této cestě vytvořit jednoduchou, dobře navrženou blogovací platformu, která by mohla být použita jen asi kdokoli. Vždy to mělo být krok.
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+Dlouhodobě chceme, aby Ghost byl neuvěřitelnou platformou pro nejlepší žurnalistiku na světě, a to znamená, že musíme budovat vlastnosti, abychom přilákali přesně tyto lidi. Letos jsme se velmi vědomě rozhodli zaměřit se právě na to.
 
-## Why did you choose to build Ghost Desktop on Electron?
+## Proč jste se rozhodli postavit Ghost Desktop na Electronu?
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+Ghost používá JavaScript a uzel. s jak na pozadí, tak na frontendu, takže možnost využívat stejné technologie a soubor dovedností umožňuje našemu týmu rychlejší pohyb, více budovat a v konečném důsledku přinášet lepší zkušenosti. Kromě toho je schopen sdílet více než 95% kódu mezi macOS, Windows, a Linux verze aplikace nám umožňuje zaměřit se na vytváření skvělého základního uživatelského zážitku, bez nutnosti udržovat jednu základnu kódu pro každou platformu.
 
-## What are some challenges you've faced while building Ghost Desktop?
+## Jaké jsou některé výzvy, kterým jste čelili při budování Ghost Desktopu?
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+Kontrola pravopisu je pravděpodobně stále jednou z nejobtížnějších nabízených služeb - mohli bychom snadno využít jednu z mnoha online služeb, ale správně označovat kontrolu textu ve více jazycích při ochraně soukromí a autonomie našich uživatelů není snadný úkol.
 
-## In what areas should Electron be improved?
+## V jakých oblastech by měl být Electron vylepšen?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Rádi bychom, kdyby Electron přinesl možnosti kontroly pravopisu operačního systému do jejich aplikací. Sníme o světě, ve kterém pole `<input>` přijímá stejné služby jako `NSTextView`ale jsme si také vědomi toho, jak obtížné to je.
 
-## What are your favorite things about Electron?
+## Co jsou vaše oblíbené věci o Electronu?
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+JavaScript je známý tím, že je obrovským ekosystémem, který zahrnuje bezpočet nástrojů a rámců - ale pohodlí, které nám poskytuje, je těžké zveličit. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
 
-## Is Ghost done? If not, what's coming next?
+## Je duch hotov? Pokud ne, co přijde dál?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+Ghost Desktop je také probíhající projekt - jsme od toho dost daleko. Mluvili jsme nějakou dobu o tom, že poskytujeme našim uživatelům plný offline režim a dostáváme se docela blízko. Dalšími pozoruhodnými pracovními oblastmi jsou rozšíření a integrace s ostatními textovými aplikacemi (jako Word nebo Atom), nakonec umožní lidem psát příspěvky pomocí svých oblíbených nástrojů. Obecně platí, že jakmile jsme odeslali funkci offline režimu, hledáme hlubší integraci s operačním systémem. Pokud vám to zní zajímavě, [připojte se k námi](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## Co jsou některé z vašich oblíbených aplikací Electro?
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+Jsem velký fanoušek [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony)a [Visual Studio Code](https://code.visualstudio.com).
 
 👻
 

@@ -1,41 +1,41 @@
-# In-App Purchase (macOS)
+# Покупка в додатку (macOS)
 
-## Preparing
+## Підготовка
 
-### Paid Applications Agreement
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+### Платна угода про додатки
+Якщо цього ще немає, вам потрібно буде підписати Платну Угоду про додатки, а також налаштувати банківську та податкову інформацію в iTunes Connect.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Help: Угода, податки й банківський огляд](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+### Створіть свої покупки в додатку
+Потім потрібно налаштувати покупки у додатку iTunes Connect, та включити такі деталі, як ім'я, ціни, а також опис того, що виділяє функції і функціональність Вашої покупки в додатку.
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[iTunes Connect Developer Help: Створити покупку в додатку](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### Зміна CFBundleIdentifier
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+Щоб перевірити In-App покупки в розробці з Electron вам доведеться змінити `CFBundleIdentifier` в `node_modules/electron/dist/Electron.app/Contents/Info.plist`. Вам потрібно замінити `com.github.electron` на свій спільний ідентифікатор програми, створений iTunes Connect.
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## Приклад коду
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+Ось приклад, який показує, як використовувати покупки в програмі в Electron. Вам доведеться замінити ідентифікатори товару ідентифікаторами товарів, створених за допомогою iTunes Connect (ідентифікатор `com. xapp.app.product1` є `продуктом 1`). Зверніть увагу, що ви повинні послухати подію `під час транзакції` якомога швидше в вашому додатку.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// Вислуховуйте транзакції якомога швидше.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // Перевірте кожну транзакцію.
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -50,51 +50,51 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // Get the receipt url.
         let receiptURL = inAppPurchase.getReceiptURL()
 
-        console.log(`Receipt URL: ${receiptURL}`)
+        console.log(`URL чека: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // Надіслати файл чеків на сервер і перевірте, чи він дійсний.
         // @перегляньте
 https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // Якщо чек дійсний, продукт придбаний
         // ...
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // Завершити транзакцію.
+        inAppPurchase.finishTransactionByDate(transaction.Date)
 
-        break
-      case 'failed':
+        розірвати
+      випадок 'не вдалося:
 
-        console.log(`Failed to purchase ${payment.productIdentifier}.`)
+        console.log(`Помилка при придбанні ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // Закінчить транзакцію.
+        inAppPurchase.finishTransactionByDate(транзакція. ransactionDate)
 
-        break
-      case 'restored':
+        розірвати
+      випадок 'restored':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+        консоль. og(`Придбання ${payment.productIdentifier} відновлено. )
 
-        break
-      case 'deferred':
+        розірвати
+      випадок 'deferred':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
+        консоль. og(`Придбання ${payment.productIdentifier} було відкладено. )
 
-        break
-      default:
-        break
+        розрив
+      за замовчуванням:
+        перерва
     }
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// Перевірте, чи дозволено користувачу покупку в додатку.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
 // Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // Перевірте параметри.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
@@ -102,14 +102,14 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
 
   // Display the name and price of each product.
   products.forEach(product => {
-    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
+    console.log(`Ціна ${product.localizedTitle} це ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // Запитайте користувача, який продукт він/вона хоче придбати.
   let selectedProduct = products[0]
-  let selectedQuantity = 1
+  let selectedquantity = 1
 
-  // Purchase the selected product.
+  // Придбати обраний продукт.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

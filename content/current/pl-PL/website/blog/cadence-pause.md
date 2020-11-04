@@ -1,21 +1,21 @@
 ---
-title: Upcoming Electron Releases
+title: Nadchodzące wydania Electrona
 author: codebytere
 date: '2020-03-19'
 ---
 
-Electron is temporarily pausing major releases
+Electron tymczasowo wstrzymuje główne wydania
 
 ---
 
-## What's Happening?
+## Co jest zgięte?
 
-Our [major release cadence schedule](https://www.electronjs.org/blog/12-week-cadence) moves in lockstep with that of Chromium, and the Chromium project has made the recent decision to [pause its releases](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) due to adjusted work schedules. This means that for the duration of Chromium's altered cadence, Electron will also temporarily pause new major releases.
+Nasz [główny harmonogram kadencji wydania](https://www.electronjs.org/blog/12-week-cadence) porusza się w kroku blokady z blokadą Chromu, a projekt Chromium podjął ostatnią decyzję o [wstrzymaniu jego uwolnień](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) ze względu na dostosowane harmonogramy pracy. Oznacza to, że przez czas trwania zmienionej kadencji Chromium, Electron będzie również tymczasowo wstrzymał nowe ważne wydania.
 
-We feel that our best choice is to follow in Chromium's footsteps, and so in the interim the Electron team will shift to full-time work on bugfixes, security, performance, and stability.
+Uważamy, że naszym najlepszym wyborem jest podążanie w śladach Chromium, i tak w okresie przejściowym zespół Electron przejdzie do pracy w pełnym wymiarze czasu pracy nad poprawkami błędów, bezpieczeństwem, wydajnością i stabilnością.
 
-We want to ensure that both our maintainers and our consumers' wellbeing is prioritized during this time, so we welcome your feedback and look forward to returning to our regular release schedule.
+Chcemy zagwarantować, że zarówno nasi opiekunowie jak i dobrobyt naszych konsumentów będą w tym czasie traktowani priorytetowo, więc z zadowoleniem przyjmujemy Twoją opinię i czekamy na powrót do naszego regularnego harmonogramu wydań.
 
-For more updates, please follow our [Twitter account](https://twitter.com/electronjs).
+Aby uzyskać więcej aktualizacji, przejdź do naszego [konta Twitter](https://twitter.com/electronjs).
 
-Edit (2020-03-30): Electron 9 stable will target Chromium M83 and be released on May 19, 2020, in response to [Chromium's announcement](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) of skipping the M82 stable date and adjusting the M83 stable date.
+Edycja (2020-03-30): Electron 9 stabilny będzie ukierunkowany na Chromium M83 i zostanie opublikowany 19 maja 2020 r., w odpowiedzi na [zapowiedź Chromium](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) o pominięciu daty stabilnej M82 i dostosowaniu daty stabilnej M83.

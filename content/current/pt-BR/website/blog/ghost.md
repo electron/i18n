@@ -1,68 +1,68 @@
 ---
-title: 'Project of the Week: Ghost'
+title: 'Projeto da Semana: Fantasma'
 author:
-  - felixrieseberg
+  - revestimento
   - zeke
 date: '2017-02-14'
 ---
 
-This week we chatted with [Felix Rieseberg](https://felixrieseberg.com/), desktop engineer at [Slack](https://slack.com/) and maintainer of [Ghost Desktop](https://ghost.org/downloads/), an Electron client for the [Ghost](https://ghost.org/) publishing platform.
+Esta semana conversamos com [Felix Rieseberg](https://felixrieseberg.com/), engenheiro do computador na [Slack](https://slack.com/) e mantenedor do [Ghost Desktop](https://ghost.org/downloads/), um cliente Electron para a plataforma de publicação [Ghost](https://ghost.org/).
 
 ---
 
 <div class="pt-5">
-  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Ghost Desktop Screenshot"> 
+  <img src="https://cloud.githubusercontent.com/assets/2289/22913898/7396b0de-f222-11e6-8e5d-147a7ced37a9.png" alt="Screenshot do desktop fantasma"> 
 </div>
 
-## What is Ghost?
+## O que é Ghost?
 
-Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.
+Ghost é uma plataforma totalmente aberta, hackable para construir e executar uma publicação on-line moderna. Poderíamos blogs, revistas e jornalistas de Zappos a Sky News.
 
-## What makes it different from other publishing platforms?
+## O que o torna diferente de outras plataformas de publicação?
 
-Ghost was founded in April 2013, after a very successful Kickstarter campaign to create a new platform focused solely on professional publishing. Our mission is to create the best open source tools for independent journalists and writers across the world, and have a real impact on the future of online media. It offers a simpler, more focussed experience: Our editor is designed solely around providing the best possible writing experience.
+O Ghost foi fundado em Abril de 2013, após uma campanha muito bem-sucedida do Kickstarter para criar uma nova plataforma focada exclusivamente na publicação profissional. Nossa missão é criar as melhores ferramentas de código aberto para jornalistas e escritores independentes em todo o mundo e têm um impacto real no futuro dos meios de comunicação on-line. Ele oferece uma experiência mais simples e mais focada: Nosso editor é projetado apenas em torno do fornecimento da melhor experiência de escrita possível.
 
-Compared to the all-time classic WordPress, it offers a simpler, more streamlined experience - it is easier to setup and maintain, comes with all important features out-of-the-box, and is dramatically faster. Compared to other online platforms, Ghost gives writers full ownership and control over their content, allows full customization, and enables authors to build a business around their publication.
+Comparado com o WordPress clássico de sempre, ele oferece uma experiência mais simples e simplificada - é mais fácil de configurar e manter, vem com todos os recursos importantes fora da caixa, e é dramaticamente mais rápido. Comparado a outras plataformas online, o Ghost dá aos escritores total propriedade e controle sobre o seu conteúdo, permite plena personalização e permite que autores criem um negócio em torno de sua publicação.
 
-## Is Ghost a for-profit company?
+## A Ghost é uma empresa com fins lucrativos?
 
-This one is important to us: Ghost is an independent non-profit organisation. We build publishing tools for modern journalism & blogging because we believe freedom of speech is important. Our software is released under a [free open source license](https://github.com/TryGhost/Ghost), our business model is [completely transparent](https://blog.ghost.org/year-3/), and our legal structure means that 100% of the money we make is reinvested into making Ghost better.
+Esta é importante para nós: o Ghost é uma organização independente sem fins lucrativos. Nós construímos ferramentas de publicação para o moderno jornalismo & blogar porque acreditamos que a liberdade de expressão é importante. Nosso software é lançado sob uma [licença de código aberto gratuita](https://github.com/TryGhost/Ghost), nosso modelo de negócios é [completamente transparente,](https://blog.ghost.org/year-3/), e a nossa estrutura jurídica significa que 100% do dinheiro que ganhamos é reinvestido para tornar o fantasma melhor.
 
-## What is Ghost Desktop?
+## O que é o Ghost Desktop?
 
-Ghost Desktop allows writers to manage multiple blogs at once - and to focus on their writing. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+O Ghost Desktop permite que os escritores gerenciem vários blogs de uma só vez - e se concentrem em seus escritos. Coisas simples, como os atalhos comuns de escrita não podem ser realizados em um navegador, mas estão disponíveis em nosso aplicativo para desktop. Ele permite que outras aplicações se comuniquem diretamente [com o blog através do deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
-## What is Ghost for Journalism?
+## O que é Ghost para o Journalismo?
 
-This year we're very excited to be dedicating our entire 10 person full-time Ghost team to helping grow three independent publications, along with $45,000 in resources toward their efforts. We're calling it [Ghost for Journalism](https://ghost.org/journalism/).
+Este ano, estamos muito animados em dedicar todo o nosso grupo de 10 pessoas em período integral a ajudar a desenvolver três publicações independentes, juntamente com $45.000 em recursos para seus esforços. Estamos chamando de [Ghost for Journalismo](https://ghost.org/journalism/).
 
-We've been building Ghost as the web's next great platform for independent publishers for about three and half years now, and we've now reached a really interesting inflection point. We started this journey to create a simple, well designed blogging platform which could be used by just about anyone. That was always going to be step one.
+Nós temos construído o Ghost como a próxima ótima plataforma da web para editores independentes há cerca de três anos e meio agora, e agora chegamos a um ponto de inflexão muito interessante. Começamos esta jornada para criar uma plataforma de blogging simples e bem projetada que poderia ser usada por qualquer pessoa. Isso seria sempre um passo.
 
-Long term, we want Ghost to be an incredible platform for the world's best journalism, and that means we need to build features to attract exactly those people. This year we're making a very conscious decision to focus on just that.
+A longo prazo, queremos que o Ghost seja uma plataforma incrível para o melhor jornalismo do mundo. e isso significa que precisamos de criar características para atrair precisamente essas pessoas. Este ano estamos tomando uma decisão muito consciente de focar exatamente nisso.
 
-## Why did you choose to build Ghost Desktop on Electron?
+## Por que você escolheu construir um Ghost Desktop no Electron?
 
-Ghost uses JavaScript and Node.js on both the backend and frontend, so being able to utilize the same technology and skillset enables our team to move faster, build more, and ultimately deliver a better experience. In addition, being able to share more than 95% of code between the macOS, Windows, and Linux version of the app allows us to focus on building a great core user experience, without having to maintain one code base for each platform.
+Fantasma usa JavaScript e Node. s tanto no back-end quanto no frontend, então ser capaz de utilizar a mesma tecnologia e conjunto de habilidades permite que nossa equipe se mova mais rápido, crie mais e finalmente ofereça uma experiência melhor. Além disso, sendo capaz de compartilhar mais de 95% do código entre o macOS, Windows, e a versão Linux do aplicativo nos permite focar na construção de uma ótima experiência do usuário sem ter que manter uma base de código para cada plataforma.
 
-## What are some challenges you've faced while building Ghost Desktop?
+## Quais são os desafios que você enfrentou ao construir uma Área de Trabalho Fantasma?
 
-Spellchecking is likely still one of the most difficult services offered - we could easily utilize one of the many online services, but correctly spellchecking text in multiple languages while guarding the privacy and autonomy of our users is not an easy task.
+O Spellchecking é provavelmente ainda um dos serviços mais difíceis oferecidos - poderíamos facilmente utilizar um dos muitos serviços em linha. mas a verificação ortográfica correta em vários idiomas, enquanto protege a privacidade e a autonomia de nossos usuários, não é uma tarefa fácil.
 
-## In what areas should Electron be improved?
+## Em que áreas o Electron deve ser melhorado?
 
-We would love to see Electron bring the operating system's native spellchecking capabilities to their apps. We're dreaming about a world in which an `<input>` field receives the same services as a `NSTextView`, but we are also intimately aware how difficult that is.
+Nós adoraríamos ver Electron trazer os recursos de verificação de ortografia nativos do sistema operacional para seus aplicativos. Estamos sonhando com um mundo em que um campo `<input>` recebe os mesmos serviços que um `NSTextView`, mas também estamos perfeitamente conscientes da dificuldade que isso representa.
 
-## What are your favorite things about Electron?
+## Quais são as suas coisas favoritas sobre o Electron?
 
-JavaScript is famous for being a vast ecosystem, involving countless tools and frameworks - but the convenience it affords us is hard to overstate. Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
+O JavaScript é famoso por ser um vasto ecossistema, envolvendo inúmeras ferramentas e frameworks - mas a conveniência que ele nos oferece é difícil de exagerar. Construir um aplicativo com Electron é apenas _um pouco_ mais difícil do que construir um aplicativo web, o que é um feito incrível.
 
-## Is Ghost done? If not, what's coming next?
+## O fantasma está pronto? Se não, o que virá a seguir?
 
-Ghost Desktop is also an ongoing project - we're pretty far from being done. We have been talking for a while about bringing a full offline mode to our users, and we're getting fairly close. Other notable work areas are the extension and integration with other text editing apps (like Word or Atom), ultimately allowing people to write posts using their favorite tools. In general, once we've shipped the offline mode feature, we're looking for deeper integration with the operating system. If that sounds interesting to you, [join us](https://github.com/tryghost/ghost-desktop)!
+O Fantasma Desktop também é um projeto em andamento - estamos bem longe de ser feito. Estamos conversando há algum tempo sobre trazer um modo offline completo para nossos usuários, e estamos chegando bem perto. Outras áreas de trabalho notáveis são a extensão e a integração com outros aplicativos de edição de texto (como Word ou Atom), em última análise, permitindo que as pessoas escrevam publicações usando suas ferramentas favoritas. Em geral, uma vez que enviamos o recurso de modo offline, estamos procurando uma integração mais profunda com o sistema operacional. Se isso parece interessante para você, [se junte a nós](https://github.com/tryghost/ghost-desktop)!
 
-## What are some of your favorite Electron apps?
+## Quais são alguns dos seus aplicativos de Electron favoritos?
 
-I'm a big fan of [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), and [Visual Studio Code](https://code.visualstudio.com).
+Sou um grande fã de [Kap](https://getkap.co/), [Felony](https://github.com/henryboldi/felony), e [Visual Studio Code](https://code.visualstudio.com).
 
 👻
 

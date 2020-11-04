@@ -4,7 +4,7 @@ Assicuratevi di usare la documentazione corrispondente alla versione in uso di E
 
 ## FAQ (Domande frequenti)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ci sono domande che vengono poste abbastanza spesso. Check this out before creating an issue:
 
 * [Domande frequenti su Electron](faq.md)
 

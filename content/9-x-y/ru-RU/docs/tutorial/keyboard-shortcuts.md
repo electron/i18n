@@ -21,7 +21,7 @@ menu.append(new MenuItem({
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  ускоритель: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X pressed')
   })
 })
 ```
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('Вверх вниз слева справа b enter', () => {
   console.log('konami code')
 })
 ```

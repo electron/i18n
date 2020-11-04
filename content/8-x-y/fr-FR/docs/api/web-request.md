@@ -1,6 +1,6 @@
 ## Classe : WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> Intercepte et modifie le contenu d'une requête à différents stades de son existence.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -10,11 +10,11 @@ Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels.
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+L'objet `filter` a une propriété `url` qui est un tableau de modèles d'URL qui seront utilisés pour filtrer les requêtes qui ne satisfont pas aux modèles. . Si `filter` est omis, toutes les requêtes seront jugées comme conformes.
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+Pour certains événements, le `listener` est passé accompagné d'une `callback`, qui devrait être appelée avec un objet `response`lorsque le `listener` a fini son travail.
 
-An example of adding `User-Agent` header for requests:
+Un exemple d'ajout de l'en-tête `User-Agent` pour les requêtes :
 
 ```javascript
 const { session } = require('electron')
@@ -37,13 +37,13 @@ Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -51,13 +51,13 @@ Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
   * `callback` Function
     * `response` Object
       * `cancel` Boolean)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `redirectURL` String (facultatif) - Empêche la requête originale d'être envoyée ou complétée et à la place celle ci est redirigée vers l'URL donnée.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+Le `listener` sera appelé avec `listener(détails, callback)` lorsqu'une requête est sur le point de se produire.
 
-The `uploadData` is an array of `UploadData` objects.
+Le `uploadData` est un tableau d'objets `UploadData`.
 
-The `callback` has to be called with an `response` object.
+La `callback` doit être appelé avec un objet `response`.
 
 Some examples of valid `urls`:
 
@@ -77,13 +77,13 @@ Some examples of valid `urls`:
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -100,13 +100,13 @@ The `callback` has to be called with a `response` object.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -117,13 +117,13 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -144,13 +144,13 @@ The `callback` has to be called with a `response` object.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -164,13 +164,13 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -186,13 +186,13 @@ The `listener` will be called with `listener(details)` when a server initiated r
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -207,13 +207,13 @@ The `listener` will be called with `listener(details)` when a request is complet
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
 * `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (facultatif)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double

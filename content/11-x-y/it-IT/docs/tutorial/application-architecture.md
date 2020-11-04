@@ -20,7 +20,7 @@ Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consent
 
 > #### A parte: Comunicazione Tra Processi
 > 
-> In Electron, communicating between the main process and renderer processes, is done through the [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules. There is also an FAQ entry on [how to share data between web pages][share-data].
+> In Electron, la comunicazione tra il processo principale e i processi di renderer, è fatto attraverso i moduli [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md). C'è anche una FAQ su [come condividere i dati tra le pagine web][share-data].
 
 
 ## Usare le API di Electron
@@ -43,23 +43,23 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks through IPC.
+Poiché la comunicazione tra i processi è possibile, un processo di renderer può richiedere il processo principale per eseguire le attività tramite IPC.
 
 ```javascript
-// In the main process:
+// Nel processo principale:
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do something on behalf of the renderer ...
+ipcMain. andle('perform-action', (event, ...args) => {
+  // ... fare qualcosa per conto del renderer ...
 })
 
-// In the renderer process:
+// Nel processo di renderizzazione:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+Si noti che il codice nel renderer potrebbe non essere affidabile, quindi è importante convalidare attentamente nelle richieste di processo principali che provengono da renderer, soprattutto se ospitano contenuti di terze parti.
 
 ## Usare API Node.js
 
@@ -81,22 +81,22 @@ Come potresti indovinare, questo ha implicazioni di sicurezza importanti se mai 
 
 2) Puoi usare i moduli di Node.js nella tua applicazione. Scegli il tuo modulo npm preferito. npm offre la repository correntemente più grande al mondo di codice open source - l'abilità di usare del codice testato e ben mantenuto che era riservato alle applicazioni dei serve è una delle funzionalità chiave di Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Ad esempio, per utilizzare l'SDK ufficiale AWS nella tua applicazione, dovresti prima installarlo come dipendenza:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Poi, nella tua app Electron, richiede e utilizza il modulo come se stavi costruendo un'applicazione Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
+// Un client S3 pronto all'uso
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+C'è una avvertenza importante: Nativo Nodo. s moduli (cioè, i moduli che richiedono la compilazione di codice nativo prima di poter essere usati) dovranno essere compilati per essere utilizzati con Electron.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Solo 400 su ~ 650.000 moduli sono nativi. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md
