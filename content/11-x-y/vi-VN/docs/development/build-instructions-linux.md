@@ -22,11 +22,11 @@ Xpath:/p.
 Trên Ubuntu, cài đặt các thư viện sau đây:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+$ sudo apt-get cài đặt xây dựng-cần thiết clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock openjdk-8-jre
+                       gperf bò rừng bison python-dbusmock openjdk-8-jre
 ```
 
 Trên RHEL / CentOS, cài đặt các thư viện sau đây:

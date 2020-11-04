@@ -2,7 +2,7 @@
 
 ## 概览
 
-### Automatically update the native interfaces
+### 自动更新原生界面
 
 "Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
 
@@ -16,9 +16,9 @@ If you want to manually switch between light/dark modes, you can do this by sett
 
 ## macOS settings
 
-在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式][system-wide-dark-mode]。 If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
+在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式][system-wide-dark-mode]。 如果您的 Electron 应用具有深色模式，您可以 使用"本机 api" [应用 `应用`](../api/native-theme.md)。
 
-In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to use Electron `>=7.0.0`, or set `NSRequiresAquaSystemAppearance` to `false` in your `Info.plist` file for older versions. Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
+In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. 为了让API `isDarkMode` 和 `Tray` 在这个模式中正常工作，你需要在 `Info.plist` 文件里把 `NSRequiresAquaSystemAppearance` 设置为 `false` ，或者使用 `>=7.0.0` 的Electron。 Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
 
 If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
@@ -26,7 +26,7 @@ If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequ
 
 We'll start with a working application from the [Quick Start Guide](quick-start.md) and add functionality gradually.
 
-First, let's edit our interface so users can toggle between light and dark modes.  This basic UI contains buttons to change the `nativeTheme.themeSource` setting and a text element indicating which `themeSource` value is selected. By default, Electron follows the system's dark mode preference, so we will hardcode the theme source as "System".
+首先，让我们编辑我们的接口，以便用户可以在光线和暗色的 模式之间切换。  这个基本的界面包含更改 `原生主题源` 设置的按钮，并且包含一个文本元素，指明了哪些 `主题源` 值被选中。 By default, Electron follows the system's dark mode preference, so we will hardcode the theme source as "System".
 
 Add the following lines to the `index.html` file:
 
@@ -54,17 +54,17 @@ Add the following lines to the `index.html` file:
 
 Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) that listen for `click` events on the toggle buttons. Because the `nativeTheme` module only exposed in the Main process, you need to set up each listener's callback to use IPC to send messages to and handle responses from the Main process:
 
-* when the "Toggle Dark Mode" button is clicked, we send the `dark-mode:toggle` message (event) to tell the Main process to trigger a theme change, and update the "Current Theme Source" label in the UI based on the response from the Main process.
-* when the "Reset to System Theme" button is clicked, we send the `dark-mode:system` message (event) to tell the Main process to use the system color scheme, and update the "Current Theme Source" label to `System`.
+* when the "Toggle Dark Mode" button is clicked, we send the `dark-mode:toggle` message (event) to tell the Main process to trigger a themek change, and update the "Current Theme Source" label in the UI based on the response from the Main process.
+* 单击"重置系统主题"按钮时，我们会发送 `暗模式：系统` 消息（事件），告诉主进程使用系统 配色方案，并更新"当前主题源"标签到 `系统`。
 
 To add listeners and handlers, add the following lines to the `renderer.js` file:
 
 ```js
-const { ipcRenderer } = require('electron')
+const { ipcRenderer } = 需要 （'电子'）
 
-document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
-  const isDarkMode = await ipcRenderer.invoke('dark-mode:toggle')
-  document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
+文档. getelementbyid （'切换- 暗模式'）. 添加事件列表器 （'点击'， 异步 （） => =
+  const 是黑暗模式 = 等待 ipcrenderer. 调用 （'黑暗模式：切换'）
+  文档. getelementbyid （'主题源'） 'Dark' : 'Light'
 })
 
 document.getElementById('reset-to-system').addEventListener('click', async () => {
