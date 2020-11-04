@@ -8,11 +8,11 @@
 
 `autoUpdater` is an [EventEmitter][event-emitter].
 
-## Platform Notices
+## إشعارات المنصة
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-In addition, there are some subtle differences on each platform:
+وبالإضافة إلى ذلك، هناك بعض الاختلافات الدقيقة في كل منصة على النحو التالي:
 
 ### نظام macOS
 

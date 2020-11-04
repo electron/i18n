@@ -1,6 +1,6 @@
 # pelacakan konten
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Kumpulkan data pelacakan dari modul konten Chromium untuk menemukan kemacetan kinerja dan operasi yang lambat.
 
 Proses: [Main](../glossary.md#main-process)
 
