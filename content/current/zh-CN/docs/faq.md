@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例：
+如果 [次级像素反锯齿](https://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如： 示例：
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
