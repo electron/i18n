@@ -15,7 +15,7 @@ Bevor Sie mit Electron fortfahren, müssen Sie [Node.js](https://nodejs.org/en/d
 Um zu überprüfen, ob Node.js korrekt installiert wurde, geben Sie die folgenden Befehle in Ihrem Terminal-Client ein:
 
 ```sh
-knode -v
+node -v
 npm -v
 ```
 
