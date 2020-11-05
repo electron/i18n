@@ -83,7 +83,7 @@ app.on('activate', () => {
 
 ##### 上面发生了什么情况？
 
-1. 第1行：第一行 您导入了 `个应用程序` 和 `浏览器窗口` 个模块 `electron` 软件包可以管理您应用程序的生命周期事件。 以及创建和控制浏览器窗口。
+1. 第1行：为了管理您应用程序的生命周期事件，以及创建和控制浏览器窗口，您从 `electron` 软件包导入了 `app` 和 `BrowserWindow`模块 。
 2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
 3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
 4. 行18：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是一个禁门。

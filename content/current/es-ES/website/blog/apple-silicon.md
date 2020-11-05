@@ -28,7 +28,7 @@ Como está apuntando a una nueva arquitectura, necesitará actualizar varias dep
 
 | Dependencia         | Requisitos de la versión |
 | ------------------- | ------------------------ |
-| Xcode               | `>=12.0.0`            |
+| Xcode               | `>=12.2.0`            |
 | `node-gyp`          | `>=7.1.0`             |
 | `electron-rebuild`  | `>=1.12.0`            |
 | `electron-packager` | `>=15.1.0`            |

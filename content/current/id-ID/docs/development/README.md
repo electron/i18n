@@ -10,6 +10,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Struktur direktori sumber kode](source-code-directory-structure.md)
 * [Model coding](coding-style.md)
 * [Menggunakan dentang-format pada kode C++ Code](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [Membangun sistem Tinjauan](build-system-overview.md)
 * [Membangun petunjuk (macOS)](build-instructions-macos.md)
 * [Membangun petunjuk (Windows)](build-instructions-windows.md)

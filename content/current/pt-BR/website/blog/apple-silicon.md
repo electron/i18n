@@ -28,7 +28,7 @@ Como você está direcionando para uma nova arquitetura, você precisará atuali
 
 | Dependência         | Requisito da Versão |
 | ------------------- | ------------------- |
-| Xcode               | `>=12.0.0`       |
+| Xcode               | `>=12.2.0`       |
 | `node-gyp`          | `>=7.1.0`        |
 | `Reconstruir`       | `>=1.12.0`       |
 | `electron-packager` | `>=15.1.0`       |

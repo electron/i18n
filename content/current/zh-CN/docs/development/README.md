@@ -10,6 +10,7 @@
 * [源码目录结构](source-code-directory-structure.md)
 * [编码风格](coding-style.md)
 * [在 C++ 代码中使用 clang-format 工具](clang-format.md)
+* [在 C++ 代码中使用clang-tidy](clang-tidy.md)
 * [构建系统概览](build-system-overview.md)
 * [构建步骤（macOS）](build-instructions-macos.md)
 * [构建步骤（Windows）](build-instructions-windows.md)

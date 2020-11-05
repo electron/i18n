@@ -10,6 +10,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Ang Direktoryo ng Istraktura ng "Source Code"](source-code-directory-structure.md)
 * [Paraan sa pagkukudigo](coding-style.md)
 * [Paggamit ng kumakalat na-format C++ Code](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [Pagbuo ng Buod ng Sistema](build-system-overview.md)
 * [Pagbuo ng mga tagubilin (macOS)](build-instructions-macos.md)
 * ["Build Instructions" (Windows)](build-instructions-windows.md)

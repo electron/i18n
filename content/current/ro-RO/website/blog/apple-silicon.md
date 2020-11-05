@@ -28,7 +28,7 @@ Pe măsură ce țintești o nouă arhitectură, va trebui să actualizezi mai mu
 
 | Dependenţă                  | Cerința Versiunii |
 | --------------------------- | ----------------- |
-| Xcode                       | `>=12.0.0`     |
+| Xcode                       | `>=12.2.0`     |
 | `ciupă`                     | `>=7.1.0`      |
 | `reconstruire de electroni` | `>=1.12.0`     |
 | `ambalator de electroni`    | `>=15.1.0`     |

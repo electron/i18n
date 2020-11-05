@@ -10,6 +10,7 @@
 * [Структура Каталогу з Вихідним Кодом](source-code-directory-structure.md)
 * [Стиль Коду](coding-style.md)
 * [Використання clang-format в C++ Коді](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [Огляд Системи Збірки](build-system-overview.md)
 * [Інструкція Збірки (macOS)](build-instructions-macos.md)
 * [Інструкція Збірки (Windows)](build-instructions-windows.md)
