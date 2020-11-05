@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "16496",
-    "translated": "11650",
+    "translated": "11692",
     "approved": "2624",
     "words": "192516",
-    "words_translated": "131704",
+    "words_translated": "132405",
     "words_approved": "26519",
     "translated_progress": 68,
     "approved_progress": 13,
-    "qa_issues": 336
+    "qa_issues": 338
   },
   {
     "name": "Chinese Traditional",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "16496",
-    "translated": "1601",
+    "translated": "1608",
     "approved": "444",
     "words": "192516",
-    "words_translated": "12201",
+    "words_translated": "12315",
     "words_approved": "2660",
     "translated_progress": 6,
     "approved_progress": 1,
-    "qa_issues": 706
+    "qa_issues": 712
   }
 ]
