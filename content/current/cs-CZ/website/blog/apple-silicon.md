@@ -28,7 +28,7 @@ Při zaměřování na novou architekturu budete muset aktualizovat několik zá
 
 | Závislost                   | Požadavek na verzi |
 | --------------------------- | ------------------ |
-| Xcode                       | `>=12.0.0`      |
+| Xcode                       | `>=12.2.0`      |
 | `uzlová tělíska`            | `>=7.1.0`       |
 | `elektronická rekonstrukce` | `>=1.12.0`      |
 | `elektronický balík`        | `>=15.1.0`      |

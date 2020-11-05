@@ -10,6 +10,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Структура на проекта](source-code-directory-structure.md)
 * [Стандарти за писане на код](coding-style.md)
 * [Как да използваме clang форматиране при работа със C++ код](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [Обзор на системата за изграждане](build-system-overview.md)
 * [Инструкции за изграждане (macOS)](build-instructions-macos.md)
 * [Инструкции за изграждане (Windows)](build-instructions-windows.md)

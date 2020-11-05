@@ -28,7 +28,7 @@ Electron 11 では、Intel Mac および Apple Silicon Mac 向けに別バージ
 
 | 依存関係                | バージョン要件       |
 | ------------------- | ------------- |
-| Xcode               | `>=12.0.0` |
+| Xcode               | `>=12.2.0` |
 | `node-gyp`          | `>=7.1.0`  |
 | `electron-rebuild`  | `>=1.12.0` |
 | `electron-packager` | `>=15.1.0` |

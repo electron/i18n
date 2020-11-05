@@ -28,7 +28,7 @@ Ponieważ atakujesz nową architekturę, musisz zaktualizować kilka zależnośc
 
 | Zależność           | Wymagana wersja |
 | ------------------- | --------------- |
-| XCode               | `>=12.0.0`   |
+| XCode               | `>=12.2.0`   |
 | `node-gyp`          | `>=7.1.0`    |
 | `electron-rebuild`  | `>=1.12.0`   |
 | `electron-packager` | `>=15.1.0`   |

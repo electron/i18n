@@ -10,6 +10,7 @@ Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. E
 * [Kaynak Kodu Dizin Yapısı](source-code-directory-structure.md)
 * [Kodlama Stili](coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [Sistem Genel Bakışı Oluşturma](build-system-overview.md)
 * [İnşaa Talimatları (macOS)](build-instructions-macos.md)
 * [İnşaa Talimatları (Windows)](build-instructions-windows.md)

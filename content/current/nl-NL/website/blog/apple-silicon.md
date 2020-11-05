@@ -28,7 +28,7 @@ Aangezien je een nieuwe architectuur nastreeft, moet je meerdere afhankelijkhede
 
 | Afhankelijkheid      | Versie Vereisten |
 | -------------------- | ---------------- |
-| Xcode                | `>=12.0.0`    |
+| Xcode                | `>=12.2.0`    |
 | `non-gyp`            | `>=7.1.0`     |
 | `Elektron-herbouwen` | `>=1.12.0`    |
 | `Elektron-verpakker` | `>=15.1.0`    |

@@ -10,6 +10,7 @@ These guides are intended for people working on the Electron project itself. For
 * [स्रोत कोड निर्देशिका संरचना](source-code-directory-structure.md)
 * [कोडिंग शैली](coding-style.md)
 * [सी++ कोड पर क्लैंग-फॉर्मेट इस्तेमाल करना](clang-format.md)
+* [Using clang-tidy on C++ Code](clang-tidy.md)
 * [सिस्टम अवलोकन बिल्ड](build-system-overview.md)
 * [बिल्ड निर्देश (मैकओएस)](build-instructions-macos.md)
 * [बिल्ड निर्देश (विंडोज)](build-instructions-windows.md)
