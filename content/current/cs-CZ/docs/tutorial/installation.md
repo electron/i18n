@@ -38,11 +38,13 @@ Pokud potřebujete použít HTTP proxy, musíte nastavit proměnnou `ELECTRON_GE
 * [Před uzlem 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Vlastní zrcátka a keše
+
 Během instalace, modul `elektronron` zavolá na [`@electron/get`](https://github.com/electron/get) ke stažení předsestavených binárních souborů Electron pro vaši platformu. Učiní tak tím, že kontaktuje stránku ke stažení na GitHubu (`https://github. om/electron/electron/releases/tag/v$VERSION`, kde `$VERSION` je přesná verze Electronu).
 
 Pokud nejste schopni získat přístup k GitHub nebo musíte poskytnout vlastní sestavení, můžete tak učinit buď poskytnutím zrcadla nebo existující adresáře keší.
 
 #### Zrcadlení
+
 Můžete použít proměnné prostředí k přepsání základní URL, cestu k hledání binárních souborů Electronu a binárního jména. URL adresa používaná `@electron/get` se skládá takto:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 Výše uvedená konfigurace stáhne z URL, jako je `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Mezipaměť
+
 Případně můžete přepsat místní mezipaměť. `@electron/get` uloží do mezipaměti stažené binární soubory v lokálním adresáři, abyste nenechali zdůraznit vaši síť. Můžete použít tuto složku keše, abyste poskytli vlastní sestavení Electronu nebo aby vůbec nenavázali kontakt se sítí.
 
 * Linux: `$XDG_CACHE_HOME` nebo `~/.cache/electron/`
@@ -101,11 +104,13 @@ Mezipaměť obsahuje oficiální zip soubor verze stejně jako kontrolní sousta
 ```
 
 ## Přeskočit binární stahování
+
 Při instalaci balíčku `elektronů` NPM automaticky stáhne binární soubor elektronů.
 
 To může být někdy zbytečné, např. v prostředí CI při zkoušení jiné složky.
 
 Aby se zabránilo stažení binárního souboru, když nainstalujete všechny závislosti npm, můžete nastavit proměnnou prostředí `ELECTRON_SKIP_BINARY_DOWNLOAD`. Např.:
+
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm instalace
 ```

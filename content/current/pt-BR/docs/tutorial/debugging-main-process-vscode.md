@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Depuração
 
 Defina alguns pontos de interrupção no `main.js`, e inicie a depuração no [Debug View](https://code.visualstudio.com/docs/editor/debugging). Você deveria ser capaz de bater nos pontos de interrupção.

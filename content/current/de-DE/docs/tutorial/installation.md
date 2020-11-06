@@ -38,11 +38,13 @@ Wenn Sie einen HTTP-Proxy verwenden möchten, müssen Sie die `ELECTRON_GET_USE_
 * [Vor Knoten 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Benutzerdefinierte Mirrors und Caches
+
 Während der Installation das `Elektron` Modul ruft [`@electron/get`](https://github.com/electron/get) auf, um vorkompilierte Binärdateien von Electron für Ihre Plattform herunterzuladen. Sie wird dies tun, indem Sie GitHubs Release-Download-Seite (`https://github. om/electron/releases/tag/v$VERSION`, wobei `$VERSION` die exakte Version von Electronic ist).
 
 Wenn du nicht auf GitHub zugreifen kannst oder eine benutzerdefinierte Version bereitstellen musst, du kannst das tun, indem du entweder einen Mirror oder ein existierendes Cache-Verzeichnis bereitstellst.
 
 #### Spiegeln
+
 Sie können Umgebungsvariablen verwenden, um die Basis-URL zu überschreiben, den Pfad, mit dem Sie nach Electron-Binärdateien suchen und den Binärdateinamen überschreiben. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 Die obige Konfiguration wird von URLs wie `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip` heruntergeladen.
 
 #### Cache
+
 Alternativ können Sie den lokalen Cache überschreiben. `@electron/get` speichert heruntergeladene Binärdateien in einem lokalen Verzeichnis, um Ihr Netzwerk nicht zu belasten. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` oder `~/.cache/electron/`
@@ -101,11 +104,13 @@ Der Cache enthält die offizielle Zip-Datei der Version sowie eine Prüfsumme, d
 ```
 
 ## Binärdownload überspringen
+
 Beim Installieren des `Elektron` NPM-Pakets wird das Elektron Programm automatisch heruntergeladen.
 
 Dies kann manchmal unnötig sein, z.B. in einer CI-Umgebung, wenn eine andere Komponente getestet wird.
 
 Um zu verhindern, dass das Programm heruntergeladen wird, wenn Sie alle npm Abhängigkeiten installieren, können Sie die Umgebungsvariable `ELECTRON_SKIP_BINARY_DOWNLOAD` setzen. Z.B.:
+
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm Installation
 ```

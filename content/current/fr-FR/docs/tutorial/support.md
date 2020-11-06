@@ -5,6 +5,7 @@
 Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si vous avez besoin d’aide pour la programmation, de réponses à vos questions, ou pour rejoindre une discussion avec d’autres développeurs qui utilisent Electron, vous pouvez interagir avec la Communauté à ces adresses :
+
 - Sur les Canaux de [`Electron's Discord`](https://discord.com/invite/electron):
   - Pour obtenir de l'aide
   - A propos d'applications de l'écosystème comme [Electron Forge](https://github.com/electron-userland/electron-forge) ou [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Toutes les lignes de version supportées accepteront les demandes de fusion exte
 Lorsqu'une API est modifiée ou supprimée d'une manière qui casse les fonctionnalités existantes, la fonctionnalité précédente sera prise en charge pour un minimum de deux versions majeures lorsque est possible avant d'être supprimée. Par exemple, si une fonction prend trois arguments, et que ce nombre est réduit à deux dans la version majeure 10, la version à trois arguments continuerait à fonctionner jusqu'à la version 12, au minimum, majeure. Dépassé le seuil minimum de deux versions, nous tenterons de supporter la compatibilité ascendante au-delà de deux versions jusqu'à ce que les responsables estiment que la charge de maintenance est trop élevée pour continuer à le faire.
 
 ### Versions actuellement supportées
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

@@ -12,7 +12,7 @@ Comprueba los pre-requisitos de tu plataforma para la compilación antes de avan
 
 ## Build Tools
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. Si deseas configurar el entorno de forma manual, las instrucciones se enumeran a continuación.
 
 ## Pre-requisitos de GN
 
@@ -20,9 +20,9 @@ Necesitaras instalar [`depot_tools`][depot-tools], el conjunto de herramientas u
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-### Setting up the git cache
+### Configurar el cache de Git
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener múltiples directorios paralelos verificados en diferentes ramas), el uso del cache git acelerará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno `GIT_CACHE_PATH`:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"

@@ -3,11 +3,13 @@
 ## Pregătire
 
 ### Acord de cereri plătite
+
 Dacă nu ați semnat deja, va trebui să semnați Acordul de Aplicații Plătite și să vă configurați informațiile bancare și fiscale în iTunes Connect.
 
 [iTunes Connect Developer Help: Acorduri, impozite și servicii bancare](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Creează-ți cumpărăturile în aplicație
+
 Apoi, va trebui să configurați achizițiile în aplicație în iTunes Connect, și să includeți detalii cum ar fi numele, stabilirea prețurilor și descrierea care evidențiază caracteristicile și funcționalitatea achiziției în aplicație.
 
 [iTunes Connect Developer Help: Creați o achiziție în aplicație](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

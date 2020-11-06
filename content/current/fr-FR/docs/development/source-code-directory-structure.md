@@ -84,6 +84,7 @@ Electron
 * **npm** - Logique pour l'installation d'Electron via npm.
 * **out** - Dossier de sortie temporaire de `ninja`.
 * **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
+
 ```diff
 script/ - L'ensemble de tous les scripts que Electron exécute pour une variété de fonctions.
 ── codesign/ - Codesign Fakes pour les applications Electron ; utilisé pour les tests.
@@ -92,8 +93,8 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
     ── notes/ - Génère des notes de publication pour les nouvelles versions d'Electron.
     <unk> ─ ─ uploaders/ - Envoie divers fichiers liés à la version pendant la sortie.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Les scripts mis ici ne devraient jamais être invoqués par les utilisateurs directement, contrairement à ceux de `script`.
 * **typings** - Types TypeScript pour le code interne d'Electron.
 * **vendor** - Source code for some third party dependencies.
-

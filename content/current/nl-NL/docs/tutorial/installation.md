@@ -38,11 +38,13 @@ Als u een HTTP-proxy wilt gebruiken, moet u de `ELECTRON_GET_USE_PROXY` variabel
 * [Voor Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Custom Mirrors en Caches
+
 Tijdens de installatie, de `electron` module zal oproepen tot [`@electron/get`](https://github.com/electron/get) om vooraf gebouwde binaries van Electron voor je platform te downloaden. Het zal dit doen door contact op te nemen met GitHub's release download pagina (`https://github. om/electron/releases/tag/v$VERSION`, waarbij `$VERSION` de exacte versie van Electron) is.
 
 Als je geen toegang hebt tot GitHub of je moet een aangepaste versie aanleveren, je kan dit doen door het aanbieden van een kopie of een bestaande cachemap.
 
 #### Spiegel
+
 Je kunt omgevingsvariabelen gebruiken om de basis-URL te vervangen, het pad waarnaar te zoeken naar Electron binaries en de binaire bestandsnaam. De URL die gebruikt wordt door `@electron/get` is als volgt samengesteld:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 De bovenstaande configuratie zal downloaden uit URL's zoals `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cachegeheugen
+
 Je kunt ook de lokale cache overschrijven. `@electron/get` zal gedownloade binaries in een lokale map cachen om uw netwerk niet te stress geven. Je kunt die cachemap gebruiken om aangepaste builds van Electron aan te bieden of om te voorkomen dat er contact wordt met met het netwerk.
 
 * Linux: `$XDG_CACHE_HOME` of `~/.cache/electron/`
@@ -102,11 +105,13 @@ github.comelectronelectronelectronreleasesdownload 1.8.2-beta.3SHASUMS256.txt
 ```
 
 ## Overslaan binaire download
+
 Bij het installeren van het `electron` NPM pakket, downloadt het automatisch de electron binary.
 
 Dit kan soms onnodig, bijvoorbeeld in een CI-omgeving, bij het testen van een ander component.
 
 Om te voorkomen dat het binary wordt gedownload wanneer je alle npm afhankelijkheden installeert, kun je de omgevingsvariabele `ELECTRON_SKIP_BINARY_DOWNLOAD` instellen. Bijv.:
+
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm installatie
 ```

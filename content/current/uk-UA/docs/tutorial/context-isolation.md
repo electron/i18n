@@ -67,4 +67,3 @@ contextBridge.exposeInMainWorld('myAPI', {
   Налаштування: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

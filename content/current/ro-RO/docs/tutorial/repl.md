@@ -9,6 +9,7 @@ Modulul `repl` oferă o implementare REPL care poate fi accesată folosind:
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Presupunând că aveți `electron` sau `electron-preconstruit` instalat la nivel global:
 
   ```sh

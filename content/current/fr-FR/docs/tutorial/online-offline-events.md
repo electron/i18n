@@ -5,6 +5,7 @@
 La détection des [événements Online et offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) peut être implémentée dans le processus de rendu en utilisant l'attribut [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), faisant partie de l'API HTML5 standard.
 
 L'attribut `navigator.onLine` renvoie :
+
 * `false` si toute requête réseau est garantie vouée à l'échec (par exemple, lors de la déconnexion du réseau).
 * `true` dans tous les autres cas.
 

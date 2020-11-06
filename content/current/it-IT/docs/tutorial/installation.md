@@ -38,11 +38,13 @@ Se ti serve usare un HTTP proxy, devi impostare `ELECTRON_GET_USE_PROXY` variabl
 * [Prima Del Nodo 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Personalizza Specchi e Cache
+
 Durante l'installazione, il modulo `electron` chiamerà [`@electron/get`](https://github.com/electron/get) per scaricare i binari precostruiti di Electron per la tua piattaforma. Lo farà contattanto la pagina di rilascio download di GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, dove `$VERSION` è l'esatta versione di Electron).
 
 Se non puoi accedere a GitHub o necessiti di fornire una build personalizzata, puoi farla o fornendo uno specchio o una directory della cache esistente.
 
 #### Specchio
+
 Puoi usare le variabili ambiente per annullare l'URL base, il percorso a cui si guarda per i binari Electron e per i nomi dei file binari. L'URL utilizzato da `@electron/get` è composto come segue:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 La configurazione sopra descritta scaricherà da URL come `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
+
 Alternativamente, puoi annullare la cache locale. `@electron/get` inserirà nella cache i binari scaricati in una directory locale per non stressare la rete. Puoi usare la cartella della cache per fornire build personalizzate di Electron o per evitare di entrare totalmente a contatto con la rete.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
@@ -101,11 +104,13 @@ La cache contiene il file zip ufficiale della versione e un checksum, memorizzat
 ```
 
 ## Salta download binario
+
 Quando si installa il pacchetto NPM `electron` , si scarica automaticamente il binario elettronico.
 
 A volte ciò può risultare inutile, ad esempio in un ambiente IC, durante la prova di un altro componente.
 
 Per evitare che il binario venga scaricato quando si installa tutte le dipendenze npm è possibile impostare la variabile di ambiente `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ad esempio:
+
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

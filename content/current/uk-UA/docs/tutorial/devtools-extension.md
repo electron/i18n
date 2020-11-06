@@ -21,6 +21,7 @@ Electron підтримує [розширення Chrome DevTools](https://devel
      * `~/.config/chromium/Default/Extensions/`
    * на macOS це `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Передайте розташування розширення на `BrowserWindow.addDevToolsExtension` API, для інструментів розробника React - це щось на зразок:
+
    ```javascript
    const path = require('path')
    const os = require('os')

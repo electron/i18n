@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Отладка
 
 Установите некоторые точки останова в `main.js`и начните отладку в [Виде отладки](https://code.visualstudio.com/docs/editor/debugging). Вы должны иметь возможность попасть в точки останова.

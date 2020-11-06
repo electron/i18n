@@ -9,6 +9,7 @@ O módulo `relp` fornece uma implementação de REPL que pode ser acessada usand
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Supondo que você tenha o `electron` ou `electron-prebuilt` instalado globalmente:
 
   ```sh

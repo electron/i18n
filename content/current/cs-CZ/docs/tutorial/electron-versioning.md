@@ -48,7 +48,6 @@ Níže je tabulka výslovně mapovající typy změn odpovídající kategorie s
 | Aktualizace hlavních verzí Node.js | Aktualizace menších verzí Node.js | Aktualizace novější verze Node.js |
 | Aktualizace verze Chromium         |                                   | fixní chromozómové náplasti       |
 
-
 Všimněte si, že většina aktualizací Chromium bude považována za zlomovou. Opravy, které lze podpořit, budou pravděpodobně vybrány jako patche.
 
 # Stabilizační větve
@@ -112,6 +111,7 @@ Několik příkladů toho, jak různé rozsahy počtů získají nové vydání:
 ![](../images/versioning-sketch-7.png)
 
 # Chybějící funkce: Alphas
+
 Naše strategie má několik kompromisů, což považujeme za vhodné. Nejdůležitější je, že nové funkce v master může chvíli trvat, než dosáhnou stabilní linie uvolnění. Pokud chcete vyzkoušet novou funkci okamžitě, budete muset postavit Electron sami.
 
 Jako budoucí úvahy můžeme zavést jednu nebo obě z následujících možností:
@@ -119,6 +119,7 @@ Jako budoucí úvahy můžeme zavést jednu nebo obě z následujících možnos
 * uvolňování alfa látek s volitelnými vazbami stability na beta; například by bylo možné připustit nové funkce, když je stabilizační kanál v _alpha_
 
 # Vlajky funkcí
+
 Příznaky jsou běžnou praxí v Chromu a jsou dobře zavedené v ekosystému rozvoje webových stránek. V kontextu Electronu musí mít vlajka prvku nebo **měkká větev** tyto vlastnosti:
 
 * je aktivováno/deaktivována buď při běhu, nebo při stavění; nepodporujeme koncept parametru funkce definovaného požadavkem

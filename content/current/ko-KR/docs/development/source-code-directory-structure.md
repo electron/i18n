@@ -83,6 +83,7 @@ Www.goooglepay.com
 * **npm** - Logic for installation of Electron via npm.
 * **out** - ninja의 임시 출력 디렉터리.
 * **script** - 개발목적으로 사용되는 빌드, 패키징, 테스트, 기타등을 실행하는 스크립트.
+
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -91,8 +92,8 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies.
-

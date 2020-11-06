@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. 디버깅
 
 Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.

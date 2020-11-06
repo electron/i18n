@@ -211,4 +211,3 @@ $ asar pack app app.asar --unpack *.node
 
 
 بعد تشغيل الأمر، ستلاحظ أنه تم إنشاء مجلد يسمى `app.asar.unpack` مع ملف `app.asar`. It contains the unpacked files and should be shipped together with the `app.asar` archive.
-

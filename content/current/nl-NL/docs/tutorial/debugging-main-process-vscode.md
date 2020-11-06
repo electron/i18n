@@ -29,7 +29,6 @@ $ code electron-quick-start
  } }
 ```
 
-
 ### 3. Foutopsporing
 
 Stel wat breekpunten in `main.js`in en start debugging in de [Debug View](https://code.visualstudio.com/docs/editor/debugging). Je zou de breekpunten moeten kunnen bereiken.

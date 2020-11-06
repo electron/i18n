@@ -3,11 +3,13 @@
 ## Préparation en cours
 
 ### Accord sur les applications payantes
+
 Si vous ne l'avez pas déjà fait, vous devrez signer l'accord d'application payante et configurer vos informations bancaires et fiscales dans iTunes Connect.
 
 [Aide pour le développeur iTunes Connect : Accords, taxes et aperçu bancaire](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Créez vos achats In-App
+
 Ensuite, vous devrez configurer vos achats in-app dans iTunes Connect, et inclure des détails tels que le nom, la tarification et la description qui mettent en évidence les fonctionnalités et les fonctionnalités de votre achat in-app.
 
 [Aide pour le développeur iTunes Connect : Créez un achat in-app](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

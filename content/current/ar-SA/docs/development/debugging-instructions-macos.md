@@ -9,6 +9,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+
    ```text
    command script import ~/electron/src/tools/lldb/lldbinit.py
    ```

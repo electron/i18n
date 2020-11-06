@@ -5,6 +5,7 @@
 Dacă aveți o preocupare de securitate, consultați [documentul de securitate](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Dacă căutați ajutor de programare, pentru răspunsuri la întrebări, sau pentru a te alătura discuțiilor cu alți dezvoltatori care folosesc Electron, poți interacționa cu comunitatea în aceste locații:
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Toate liniile de lansare acceptate vor accepta cereri externe de tragere pentru 
 Când un API este modificat sau eliminat într-un mod care întrerupe funcţionalitatea existentă, funcționalitatea anterioară va fi acceptată pentru un minim de două versiuni majore atunci când este posibil înainte de a fi eliminat. De exemplu, dacă o funcție ia trei argumente, și acel număr este redus la două în versiunea majoră 10, versiunea cu trei argumente ar continua să lucreze până cel puțin la versiunea majoră 12. Treceți pragul minim de două versiuni vom încerca să sprijinim compatibilitate în back-down peste două versiuni până când susținătorii vor simți că sarcina de întreținere este prea mare pentru a continua să facă acest lucru.
 
 ### Versiuni acceptate în prezent
+
 - 10,x.y
 - 9,x.y
 - 8,x.y

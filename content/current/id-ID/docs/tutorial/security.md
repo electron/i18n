@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -82,7 +81,6 @@ Buruk browserWindow.loadURL ('http://example.com') / / baik browserWindow.loadUR
 ```html<!--buruk--><script crossorigin src="http://example.com/react.js"></script> <link rel="stylesheet" href="http://example.com/style.css"><!--baik--><script crossorigin src="https://example.com/react.js"></script> <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Do not enable Node.js Integration for Remote Content
 
 _This recommendation is the default behavior in Electron since 5.0.0._
@@ -137,7 +135,6 @@ window.bacaConfig = fungsi () {
 }
 ```
 
-
 ## 3) Aktifkan Isolasi Konteks untuk Konten Jarak Jauh
 
 Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjalankan kode di script preload dan API Electron dalam konteks JavaScript yang berdedikasi. Di praktek itu berarti itu global benda seperti `Array.prototype.push`  atau`JSON.parse` tidak dapat dimodifikasi oleh skrip berjalan dalam renderer proses.
@@ -149,7 +146,6 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Menangani permintaan izin sesi dari konten jauh
 
@@ -184,7 +180,6 @@ session
   })
 ```
 
-
 ## 5) Jangan Nonaktifkan Keamanan Web
 
 _Recommendation is Electron's default_
@@ -198,6 +193,7 @@ Tidak menonaktifkan `webSecurity` dalam aplikasi produksi.
 Menonaktifkan `webSecurity` akan menonaktifkan kebijakan asal yang sama dan mengatur properti `allowRunningInsecureContent` ke `true`. Dengan kata lain, hal ini memungkinkan eksekusi kode yang tidak aman dari domain yang berbeda.
 
 ### Bagaimana?
+
 ```js
 Buruk const mainWindow = BrowserWindow baru ({webPreferences: {
     webSecurity: false
@@ -211,7 +207,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!--buruk--><webview disablewebsecurity src="page.html"></webview><!--baik--><webview src="page.html"></webview>
 ```
-
 
 ## 6) Tentukan Kebijakan Keamanan Konten
 
@@ -256,7 +251,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Recommendation is Electron's default_
@@ -284,7 +278,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Tidak Mengaktifkan Fitur Eksperimental
 
@@ -314,7 +307,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Recommendation is Electron's default_
@@ -326,6 +318,7 @@ Blink is the name of the rendering engine behind Chromium. As with `experimental
 Secara umum, ada kemungkinan alasan yang baik jika fitur ini tidak diaktifkan secara default. Legitimate use cases for enabling specific features exist. Sebagai pengembang, anda harus tahu persis mengapa anda perlu mengaktifkan fitur ini, apa percabangannya, dan bagaimana pengaruhnya terhadap keamanan dari aplikasi anda. Dalam keadaan apa pun harus Anda mengaktifkan fitur speculatively.
 
 ### Bagaimana?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -338,7 +331,6 @@ const mainWindow = new BrowserWindow({
 ```js
 Baik const mainWindow = BrowserWindow() baru
 ```
-
 
 ## 10) Jangan Gunakan ` allowpopups </ code></h2>
 
@@ -354,7 +346,6 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 
 ```html<!--buruk--><webview allowpopups src="page.html"></webview><!--baik--><webview src="page.html"></webview>
 ```
-
 
 ## 11) Verifikasi Pilihan WebView Sebelum Penciptaan
 
@@ -465,6 +456,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) c
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -512,7 +504,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filter the `remote` module
 

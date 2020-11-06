@@ -21,6 +21,7 @@ Folosind [React Developer Tools](https://chrome.google.com/webstore/detail/react
      * `~/.config/chromium/Implicit/Extensii/`
    * pe macOS este `~/Librărie/Asistență aplicație/Google/Chrome/Default/Extensions`.
 1. Transmite locația extensiei la `BrowserWindow.addDevToolsExtension` API, pentru React Developer Tools, este de genul:
+
    ```javascript
    calea const = require('path')
    const os = require('os')

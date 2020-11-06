@@ -9,6 +9,7 @@ Para distribuir tu aplicación con Electron, necesitas empaquetarla y remarcarla
 Estas herramientas tendrán en consideración todos los pasos que se necesitan para finalizar con una aplicación Electron lista para ser distribuida, a saber: empaquetado de su aplicación, identificar el ejecutable, configurar los íconos apropiados y opcionalmente crear los instaladores.
 
 ## Distribución manual
+
 También puedes elegir entre preparar tu aplicación manualmente para su distribución. Los pasos necesarios para hacerlo se describen a continuación.
 
 Para distribuir su aplicación con Electron, debe descargar los [binarios precompilados](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `app` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos. Tenga en cuenta que la ubicación de los binarios precompilados de Electron se indican con `electron/` en los ejemplos siguientes.
@@ -142,13 +143,16 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 3 Establezca las siguientes variables de entorno:</ol> 
 
-  * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde pondrá las cabeceras Node.js headers tanto como los símbolos
-  * `ELECTRON_RELEASE` - Establece a `true` y la parte cargada se ejecutará, deja intacto y `surf-build` hará las comprobaciones de tipo CI apropiadas para correr por cada pull request.
-  * `CI` - Configurar a `true` o algo distinto hará que falle
-  * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+   * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde pondrá las cabeceras Node.js headers tanto como los símbolos
+
+   * `ELECTRON_RELEASE` - Establece a `true` y la parte cargada se ejecutará, deja intacto y `surf-build` hará las comprobaciones de tipo CI apropiadas para correr por cada pull request.
+
+   * `CI` - Configurar a `true` o algo distinto hará que falle
+
+   * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas
+   * `TARGET_ARCH` - set to `ia32` or `x64`
 
 4. En `script/upload.py`, se _debe_ configurar `ELECTRON_REPO` a la bifurcación (`MYORG/electron`), especialmente si eres un contribuidor formal de Electron.
 

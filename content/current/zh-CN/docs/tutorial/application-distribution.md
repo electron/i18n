@@ -9,6 +9,7 @@
 这些工具将覆盖发布一个Electron应用所需采取的所有步骤，例如，打包应用程序，重组可执行程序，设置图标和可配置的创建安装程序。
 
 ## 手动发布
+
 您也可以选择手动让您的应用程序准备好分发。 为此所需采取的步骤概述如下。
 
 为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹Resources下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
@@ -114,13 +115,13 @@ MyApp.app/Contents
 
 3. 设置以下环境变量：
 
-  * `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将要上传的 Node.js 的 headers 以及 symbols 的位置
-  * `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，它只在每次发起拉取请求时运行。
-  * `CI` - 设置为 `true` ，否则无效
-  * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
-  * `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题
-  * `TARGET_ARCH` - 设置为 `ia32` 或 `x64`
+   * `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将要上传的 Node.js 的 headers 以及 symbols 的位置
+   * `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，它只在每次发起拉取请求时运行。
+   * `CI` - 设置为 `true` ，否则无效
+   * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
+   * `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题
+   * `TARGET_ARCH` - 设置为 `ia32` 或 `x64`
 
 4. 在 `script/upload.py`，你 _必须_ 为你的分支(`MYORG/electron`)设置 `ELECTRON_REPO`， 尤其如果你本身是一个 Electron 贡献者。
 

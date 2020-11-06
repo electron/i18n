@@ -78,6 +78,7 @@ Se esegui il tuo codice a questo punto, vedrai che i tuoi pulsanti non fanno anc
 Ora che abbiamo finito di cablare l'IPC dal lato del Renderer, il prossimo passaggio è di caricare il file `main.js` per gestire gli eventi dal processo del Renderer.
 
 In base all'evento ricevuto, aggiorniamo la proprietà [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) per applicare il tema desiderato sugli elementi dell'UI nativa del sistema (es. menu di contesto) e propagare lo schema del colore preferito al processo del Renderer:
+
 * Dopo aver ricevuto `dark-mode:toggle`, controlliamo se il tema scuro è correntemente attivo usando la proprietà `nativeTheme.shouldUseDarkColors` e impostare `themeSource` al tema opposto.
 * Dopo aver ricevuto `dark-mode:system`, ripristiniamo `themeSource` al `system`.
 

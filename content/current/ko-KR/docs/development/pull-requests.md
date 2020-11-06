@@ -33,6 +33,7 @@ $ git fetch upstream
 ### 2 단계: 빌드
 
 운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
+
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [리눅스에서 빌드하기](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows에서 빌드하기](https://electronjs.org/docs/development/build-instructions-windows)
@@ -82,16 +83,16 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 자주 사용하는 접두사:
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+- fix: A bug fix
+- feat: A new feature
+- docs: Documentation changes
+- test: Adding missing tests or correcting existing tests
+- build: Changes that affect the build system
+- ci: Changes to our CI configuration files and scripts
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- style: Changes that do not affect the meaning of the code (linting)
+- vendor: Bumping a dependency like libchromiumcontent or node
 
 그 밖의 커밋 메시지 작성 시 주의 사항은 다음과 같습니다:
 
@@ -196,4 +197,3 @@ Electron에서 지원하는 모든 플랫폼에서 동작하는 것을 확인하
 Pull request가 모든 CI 플랫폼에서 통과("그린 표시") 하는 것이 가장 이상적일 것입니다. 이것은 모든 테스트를 통과했으며 linting 오류도 없다는 것을 의미합니다. 하지만, CI 인프라 자체에서 특정 플랫폼의 테스트가 실패하거나 "flaky" 테스트는 실패("레드 표시") 하는 경우가 자주 발생합니다. 각 CI의 실패 원인을 파악하려면 수동으로 점검해야 합니다.
 
 pull request를 제출하면 CI 가 자동으로 시작되고 핵심 관리자만 CI를 재시작할 수 있습니다. CI의 결과가 잘못되었다고 판단된다면 관리자에게 테스트 재시작을 요청하시길 바랍니다.
-

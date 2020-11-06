@@ -24,7 +24,6 @@ Je důležité mít na paměti, že bezpečnost vaší Electron aplikace je výs
 
 * **Přijmout bezpečné postupy kódování.** První obranná linka pro vaši aplikaci je tvůj vlastní kód. společné slabé stránky jako například Cross-Site Scripting (XSS), mají větší vliv na bezpečnost aplikací Electron, proto je velmi doporučeno přijmout osvědčené postupy vývoje bezpečného softwaru a provádět bezpečnostní testy.
 
-
 ## Izolace pro nedůvěryhodný obsah
 
 Bezpečnostní problém existuje vždy, když obdržíte kód z nedůvěryhodného zdroje (např. vzdáleného serveru) a proveďte jej lokálně. Jako příklad zvažte zobrazení vzdálené webové stránky ve výchozím okně [`prohlížeče`](../api/browser-window.md). Pokud útočník nějakým způsobem změní zmíněný obsah (buď útokem na zdroj, nebo tím, že sedí mezi vaší aplikací a skutečným cílem) budou moci spustit nativní kód na počítači uživatele.
@@ -89,7 +88,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Nepovolovat integraci Node.js pro vzdálený obsah
 
 _Toto doporučení je výchozí chování v Electronu od 5.0.0._
@@ -143,7 +141,6 @@ window.readConfig = funkce () {
 }
 ```
 
-
 ## 3) Povolit kontextovou izolaci pro vzdálený obsah
 
 Kontextová izolace je funkce Electron, která umožňuje vývojářům spustit kód v přednažených skriptech a v Electron API v vyhrazeném kontextu JavaScriptu. V praxi to znamená, že globální objekty jako `Array.prototype. ush` nebo `JSON.parse` nemůže být upraven skripty běžícími v procesu renderer.
@@ -155,7 +152,6 @@ I když používáte `nodeIntegration: false` k prosazování silné izolace a z
 ### Proč & Jak?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Zpracovávat žádosti o oprávnění relace z vzdáleného obsahu
 
@@ -190,7 +186,6 @@ session
 })
 ```
 
-
 ## 5) Zakázat WebSecurity
 
 _Doporučení je výchozí_
@@ -204,6 +199,7 @@ Ve produkčních aplikacích nevypínejte `webSecurity`.
 Zakázáním `webSecurity` zakážete politiku stejného původu a nastavíte `allowRunningInsecureContent` na `true`. Jinými slovy, umožňuje provedení nezabezpečeného kódu z různých domén.
 
 ### Jak?
+
 ```js
 // Špatné
 const mainWindow = nový BrowserWindow({
@@ -220,7 +216,6 @@ const mainWindow = nový prohlížeč Window()
 
 ```html<!-- Špatné --><webview disablewebsecurity src="page.html"></webview><!-- Dobré --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Definujte bezpečnostní politiku obsahu
 
@@ -265,7 +260,6 @@ Upřednostňovaným dodacím mechanismem ověřovatele je HTTP hlavička, však 
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Nenastavujte `allowRunningInsecureContent` na `true`
 
 _Doporučení je výchozí_
@@ -293,7 +287,6 @@ const mainWindow = nový BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Nezapínejte experimentální funkce
 
@@ -323,7 +316,6 @@ const mainWindow = nový BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Nepoužívat `enableBlinkFeatures`
 
 _Doporučení je výchozí_
@@ -335,6 +327,7 @@ Blink je název vykreslujícího motoru za Chromiem. Stejně jako v `experimenta
 Obecně řečeno, existují pravděpodobně dobré důvody, pokud funkce nebyla ve výchozím nastavení povolena . Existují případy oprávněného použití pro povolení určitých funkcí. Jako vývojář byste měli přesně vědět, proč potřebujete povolit funkci, jaké dopady jsou a jak to ovlivňuje bezpečnost vaší žádosti. Za žádné okolnosti byste neměli povolit funkce spekulativně.
 
 ### Jak?
+
 ```js
 // Špatné
 const mainWindow = nový BrowserWindow({
@@ -348,7 +341,6 @@ const mainWindow = nový BrowserWindow({
 // Good
 const mainWindow = nový prohlížeč Window()
 ```
-
 
 ## 10) Nepoužívat `povolené vyskakovací okna`
 
@@ -364,7 +356,6 @@ Pokud nepotřebujete vyskakovací okna, máte lepší ve výchozím nastavení n
 
 ```html<!-- Špatné --><webview allowpopups src="page.html"></webview><!-- Dobré --><webview src="page.html"></webview>
 ```
-
 
 ## 11) Ověřit možnosti WebView před vytvořením
 
@@ -475,6 +466,7 @@ Nesprávné používání [`openExteru`](../api/shell.md#shellopenexternalurl-op
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 // Good
 const { shell } = require('electron')
@@ -524,7 +516,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filtrovat `vzdálený` modul
 

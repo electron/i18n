@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 명령을 실행하면 ` app.asar.unpacked ` 폴더가 ` app.asar ` 파일과 함께 만들어 졌음을 알 수 있습니다. 이 폴더에는 압축을 푼 파일이 들어 있고,  ` app.asar ` 아카이브와 함께 제공해야합니다.
-

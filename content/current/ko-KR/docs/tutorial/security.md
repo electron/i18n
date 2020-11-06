@@ -24,7 +24,6 @@ Electron으로 만들어진 애플리케이션의 보안은 프레임워크 기�
 
 * **안전한 코딩 사례 채택하기.** 애플리케이션 방어의 첫 줄은 여러분의 코드입니다. 교차 사이트 스크립팅 (XSS) 같은 흔한 웹 취약점은 Electron 애플리케이션에 높은 보안 영향을 미칩니다. 그러므로, 안전한 소프트웨어 개발 사례를 채택하고 보안 테스트를 수행하기를 매우 권장합니다.
 
-
 ## 신뢰할 수 없는 콘텐츠의 격리
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -101,7 +100,6 @@ browserWindow.loadURL('https://example.com')
 
 
 
-
 ## 2) 원격 콘텐츠에 Node.js 통합을 활성화하지 않기
 
 _This recommendation is the default behavior in Electron since 5.0.0._
@@ -173,7 +171,6 @@ window.readConfig = function () {
 
 
 
-
 ## 3) 원격 콘텐츠에 대한 콘텍스트 격리 활성화
 
 컨텍스트 격리는 개발자가 전용 JavaScript 컨텍스트에서 사전로드 스크립트 및 Electron API에서 코드를 실행할 수있게 해주는 Electron 기능입니다. 실제로, `Array.prototype.push` 또는 `JSON.parse`와 같은 전역 객체는 렌더러 프로세스에서 실행되는 스크립트로 수정할 수 없습니다.
@@ -187,7 +184,6 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 
 
@@ -233,7 +229,6 @@ session
 
 
 
-
 ## 5) WebSecurity를 비활성화 하지 마세요.
 
 _추천 값은 Electron의 기본값입니다._
@@ -251,6 +246,7 @@ You may have already guessed that disabling the `webSecurity` property on a rend
 
 
 ### 어떻게 하나요?
+
 
 
 ```js
@@ -275,7 +271,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- 나쁜 예 --><webview disablewebsecurity src="page.html"></webview><!-- 좋은 예 --><webview src="page.html"></webview>
 ```
-
 
 
 
@@ -340,7 +335,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 
 
-
 ## 7) `allowRunningInsecureContent`를 `true`로 설정하지 마세요.
 
 _추천 값은 Electron의 기본값입니다._
@@ -377,7 +371,6 @@ const mainWindow = new BrowserWindow({
 // 좋은 예
 const mainWindow = new BrowserWindow({})
 ```
-
 
 
 
@@ -422,7 +415,6 @@ const mainWindow = new BrowserWindow({})
 
 
 
-
 ## 9) `enableBlinkFeatures`을 사용하지 마세요
 
 _추천 값은 Electron의 기본값입니다._
@@ -438,6 +430,7 @@ Blink는 Chromium의 렌더링 엔진 이름입니다. `experimentalFeatures`와
 
 
 ### 어떻게 하나요?
+
 
 
 ```js
@@ -456,7 +449,6 @@ const mainWindow = new BrowserWindow({
 // 좋은 예
 const mainWindow = new BrowserWindow()
 ```
-
 
 
 
@@ -481,7 +473,6 @@ If you are using [`<webview>`](../api/webview-tag.md), you might need the pages 
 
 ```html<!-- 나쁜 예 --><webview allowpopups src="page.html"></webview><!-- 좋은 예 --><webview src="page.html"></webview>
 ```
-
 
 
 
@@ -631,6 +622,7 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 
 
 
+
 ```js
 //  좋은 예
 const { shell } = require('electron')
@@ -693,7 +685,6 @@ const mainWindow = new BrowserWindow({
 
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 
 

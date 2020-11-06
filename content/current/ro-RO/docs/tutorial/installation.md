@@ -38,11 +38,13 @@ Dacă ai nevoie să folosești un proxy HTTP, trebuie să setezi variabila `ELEC
 * [Înainte de modulul 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Oglinzi și cacheuri personalizate
+
 În timpul instalării, modulul `electron` va fi disponibil în [`@electron/get`](https://github.com/electron/get) pentru a descărca dispozitive binare preconstruite de Electron pentru platforma ta. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
 Dacă nu puteți accesa GitHub sau trebuie să furnizați un build personalizat, puteţi face acest lucru fie furnizând o oglindă sau un director existent.
 
 #### Oglindă
+
 You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. URL-ul folosit de `@electron/get` este compus după cum urmează:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 Configurarea de mai sus va fi descărcată din URL-uri precum `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Geocutie
+
 Alternativ, poți suprascrie cache-ul local. `@electron/get` va cacheaza binare descărcate într-un director local pentru a nu bloca rețeaua dvs. Puteţi utiliza acest dosar pentru a oferi compilări personalizate de Electron sau pentru a evita contactul cu reţeaua.
 
 * Linux: `$XDG_CACHE_HOME` sau `~/.cache/electron/`
@@ -101,11 +104,13 @@ Geocutia conţine fişierul zip oficial al versiunii precum şi o sumă de verif
 ```
 
 ## Omite descărcarea binară
+
 Atunci când instalează pachetul NPM `electron` se descarcă automat binarul electronic.
 
 Acest lucru poate fi uneori inutil, de exemplu într-un mediu CI atunci când se testează o altă componentă.
 
 Pentru a preveni descărcarea binarului când instalați toate dependențele npm puteți seta variabila de mediu `ELECTRON_SKIP_BINARY_DOWNLOAD`. De exemplu:
+
 ```sh
 Instalare ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm
 ```

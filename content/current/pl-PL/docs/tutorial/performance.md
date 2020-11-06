@@ -16,8 +16,8 @@ Aby dowiedzieć się więcej na temat profilowania kodu aplikacji, zapoznaj się
 
 ### Polecane czytanie
 
- * [Zacznij od analizy wydajności Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Zacznij od analizy wydajności Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Talk: "Visual Studio Code - First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@ Krótko mówiąc, pozornie doskonały moduł napisany głównie na serwery Node.
 
 Rozważając moduł, zalecamy sprawdzenie:
 
-1. rozmiar zależności uwzględnionych 2) zasoby wymagane do załadowania (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. zasoby wymagane do wykonania akcji, którą jesteś zainteresowany
 
 Generowanie profilu CPU i profilu pamięci heap do ładowania modułu można wykonać za pomocą pojedynczej komendy w wierszu poleceń. W poniższym przykładzie patrzymy na żądanie popularnego modułu ``.
@@ -162,7 +163,6 @@ Potężna architektura wieloprocesowa Electron jest gotowa do pomocy w twoich d�
 
 3) Unikać blokowania operacji we/we/Wy w głównym procesie. Krótko mówiąc, ilekroć główny węzeł. s moduły (takie jak `fs` lub `child_process`) oferują wersję synchroniczną lub asynchroniczną, powinieneś preferować wariant asynchroniczny i nieblokujący .
 
-
 ## 4) Blokowanie procesu renderowania
 
 Od Electron pływa z aktualną wersją Chrome, możesz korzystać z najnowszych i największych funkcji, które oferuje platforma internetowa do odroczenia lub odciążenia operacji w taki sposób, aby aplikacja działała płynnie i reagowała.
@@ -180,7 +180,6 @@ Ogólnie rzecz biorąc, wszystkie porady dotyczące budowania wydajnych aplikacj
 *`requestIdleCallback()`* pozwala deweloperom na kolejkowanie funkcji wykonanej natychmiast po wejściu procesu w okres bezczynności. Pozwala wykonywać pracę o niskim priorytecie lub w tle bez wpływu na doświadczenie użytkownika. Aby uzyskać więcej informacji o tym, jak z niego korzystać, [sprawdź dokumentację na MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Pracownicy sieci* są potężnym narzędziem do uruchamiania kodu w osobnym wątku. Istnieją zastrzeżeń do rozważenia – sprawdź dokumentację [wielowątkową](./multithreading.md) i [dokumentację MDN dla pracowników sieciowych](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Są one idealnym rozwiązaniem dla każdej operacji, która wymaga dużej mocy procesora przez okres czasu.
-
 
 ## 5) Niepotrzebne włókna polipropylenowe
 
@@ -201,7 +200,6 @@ Działaj przy założeniu, że poliwypełnienia w obecnych wersjach Electron są
 Ponadto uważnie przeanalizuj używane biblioteki. Czy są one naprawdę konieczne? `jQuery`na przykład Sukces był taki, że wiele z jego funkcji jest obecnie z [dostępnego zestawu funkcji JavaScript](http://youmightnotneedjquery.com/).
 
 Jeśli używasz transpilera/kompilatora takiego jak TypeScript, sprawdź jego konfigurację i upewnij się, że kierujesz najnowszą wersję ECMAScript obsługiwaną przez Electron.
-
 
 ## 6) Niepotrzebne lub blokowanie żądań sieciowych
 

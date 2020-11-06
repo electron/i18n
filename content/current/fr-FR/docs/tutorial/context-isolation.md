@@ -66,4 +66,3 @@ contextBridge.exposeInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

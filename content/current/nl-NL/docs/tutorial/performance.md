@@ -16,8 +16,8 @@ Voor meer informatie over hoe je de code van je app kunt profiteren, ken je de C
 
 ### Aanbevolen Lezing
 
- * [Beginnen met het analyseren van Runtime Prestaties](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Praatje: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Beginnen met het analyseren van Runtime Prestaties](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Praatje: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@ Kortom, een schijnbaar uitstekende module die voornamelijk geschreven is voor de
 
 Bij het overwegen van een module, raden we u aan te controleren:
 
-1. de grootte van de afhankelijkheden inclusief 2) de middelen benodigd om te laden (`require()`) het
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. de bronnen die nodig zijn om de actie uit te voeren waarin je geïnteresseerd bent
 
 Het genereren van een CPU-profiel en een geheugenprofiel voor het laden van een module kan gedaan worden met een enkel commando op de opdrachtregel. In het onderstaande voorbeeld kijken we naar de populaire module `request`.
@@ -162,7 +163,6 @@ Elektronische krachtige multi-proces-architectuur staat klaar om u te helpen met
 
 3) Vermijd het blokkeren van I/O operaties in het hoofdproces. Kortom: altijd kern node. s modules (zoals `fs` of `child_process`) bieden een synchroon of een asynchrone versie, u geeft de voorkeur aan de asynchrone en niet-blokkerende variant.
 
-
 ## 4) Het renderer proces blokkeren
 
 Sinds Electron verzendt met een huidige versie van Chrome, je kunt gebruik maken van de nieuwste en beste functies van het webplatform van om zware operaties uit te stellen of uit te laden, op een manier die je app soepel en responsief houdt.
@@ -180,7 +180,6 @@ Over het algemeen zijn alle adviezen voor het bouwen van performant web apps voo
 *`requestIdleCallback()`* stelt ontwikkelaars in staat om een functie op te nemen die wordt uitgevoerd zodra het proces een inactieve periode is ingevoerd. Het stelt u in staat laag prioritair of achtergrondwerk uit te voeren zonder de gebruikerservaring te beïnvloeden. Voor meer informatie over hoe je het moet gebruiken, [bekijk de documentatie over MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* zijn een krachtig hulpmiddel om code op een aparte thread uit te voeren. Er zijn enkele voorbehouden om te overwegen – raadpleeg Electron's [multithreading documentatie](./multithreading.md) en de [MDN documentatie voor Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Ze zijn een ideale oplossing voor elke bewerking die voor een langere periode van tijd veel CPU-vermogen vereist.
-
 
 ## 5) Onnodige polyfillen
 
@@ -201,7 +200,6 @@ Voer de veronderstelling uit dat polyvillen in de huidige versies van Electron n
 Daarnaast onderzoeken we zorgvuldig de bibliotheken die u gebruikt. Zijn ze echt nodig? `jQuery`, bijvoorbeeld was zo'n succes dat veel van de functies nu deel uitmaken van van de [standaard JavaScript set beschikbaar](http://youmightnotneedjquery.com/).
 
 Als je een transpiler/compiler zoals TypeScript gebruikt, bekijk dan de configuratie en zorg ervoor dat je de nieuwste ECMAScript versie nastreeft, die door Electron wordt ondersteund.
-
 
 ## 6) netwerkverzoeken niet nodig of blokkeren
 

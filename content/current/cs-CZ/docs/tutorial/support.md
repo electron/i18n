@@ -5,6 +5,7 @@
 Pokud máte obavy o bezpečnost, navštivte prosím [bezpečnostní dokument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Pokud hledáte pomoc při programování, pro odpovědi na otázky, nebo se připojit k diskuzi s ostatními vývojáři, kteří používají Electron, můžete komunikovat s komunitou na těchto místech:
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Všechny podporované řádky release budou přijímat externí požadavky na na
 Pokud je API změněno nebo odebráno způsobem, který narušuje existující funkci, předchozí funkce bude podporována minimálně pro dvě hlavní verze, pokud je možné před odstraněním. Například, pokud má funkce tři argumenty, a toto číslo je v hlavní verzi 10 sníženo na dvě, verze tří argumentů by pokračovala v práci minimálně do velké verze 12. minimální práh pro dvě verze , pokusíme se podpořit zpětnou kompatibilitu nad dva verze , dokud správci necítí udržovací zátěž je příliš vysoká, než aby v tom mohli pokračovat.
 
 ### Aktuálně podporované verze
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

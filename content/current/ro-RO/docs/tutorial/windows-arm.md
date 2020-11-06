@@ -3,6 +3,7 @@
 Dacă aplicația ta rulează cu Electron 6.0.8 sau mai târziu, o poți construi acum pentru Windows 10 pe Arm. Acest lucru îmbunătățește considerabil performanța, dar necesită recompilarea oricăror module native folosite în aplicația dvs. De asemenea, ar putea avea nevoie de mici reparații pentru construcția ta și scripturile de ambalare.
 
 ## Rularea unei aplicații de bază
+
 Dacă aplicația ta nu folosește niciun modul nativ, atunci este foarte ușor să creezi o versiune Arm a aplicației tale.
 
 1. Asigurați-vă că directorul `node_module` al aplicației dvs. este gol.
@@ -26,17 +27,21 @@ if (process.arch === 'x64') {
 Daca doriti sa tintiti arm64, logica de genul acesta va selecta arhitectura gresita, așa verificați cu atenție aplicația și construiți scripturi pentru astfel de condiții. În scripturi personalizate pentru construcții și ambalaje, ar trebui să verifici întotdeauna valoarea arch-ului `npm_config_` în mediu, în loc să se bazeze pe arcul actual al procesului.
 
 ### Module native
+
 Dacă utilizați module native, trebuie să vă asigurați că acestea se compilează împotriva v142 al compilatorului MSVC (furnizat în studiul vizual 2017). De asemenea, trebuie să verificați dacă orice versiune pre-construită `.dll` sau `. ib` fişiere furnizate sau citate de modulul nativ sunt disponibile pentru Windows pe Arm.
 
 ### Testarea aplicației tale
+
 Pentru a testa aplicația, folosiți Windows pe un dispozitiv Arm care rulează Windows 10 (versiunea 1903 sau mai târziu). Asigurați-vă că copiați aplicația pe dispozitivul țintă - sandbox-ul Chromium nu va funcționa corect la încărcarea activelor aplicației dintr-o locație a rețelei.
 
 ## Cerințe privind dezvoltarea
+
 ### Node.js/gyp
 
 [Se recomandă Node.js v12.9.0 sau mai târziu.](https://nodejs.org/en/) Dacă actualizarea la o nouă versiune de nod nu este de dorit, poți [actualiza npm copia node-gyp manual](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) la versiunea 5. .2 sau mai târziu, care conține modificările necesare pentru a compila module native pentru Arm.
 
 ### Studio vizual 2017
+
 Studioul vizual 2017 (orice ediție) este necesar pentru compilarea modulelor native. Poți descărca Visual Studio Community 2017 prin intermediul Microsoft [Programul Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/). După instalare, puteți adăuga componentele specifice Arm-ului, executând următoarele de la un _Prompt de Comandă_:
 
 ```powershell
@@ -49,6 +54,7 @@ vs_installer.exe ^
 ```
 
 #### Crearea unei comenzi de compilare încrucișată
+
 Setarea `npm_config_arch=arm64` în mediu creează brațul corect 64 `. bj` fișiere, dar versiunea standard _pentru comanda dezvoltatorului pentru VS 2017_ va utiliza linkerul x64. Pentru a remedia acest lucru:
 
 1. Duplică comanda rapidă _x64_x86 Cross Tools Command Prompt pentru VS 2017_ (de ex. localizându-l în meniul de pornire, apăsând pe _Deschide Locația Fișierelor_, copiind și lipind-o undeva convenabil.
@@ -76,8 +82,8 @@ Dacă doriți să vă dezvoltați aplicația direct pe un dispozitiv Arm, înloc
 
 Substituie `6.0.9` pentru versiunea pe care o folosești.
 
-
 ## Colectare module native
+
 După completarea celor de mai sus, deschideți fereastra de comenzi de compilare încrucișată și executați `setați npm_config_arch=arm64`. Apoi folosește `npm install` pentru a construi proiectul tău ca de obicei. La fel ca în cazul compilării modulelor x86, poate fi necesar să eliminați `node_module` pentru a forța recompilarea modulelor native dacă acestea au fost compilate anterior pentru o altă arhitectură.
 
 ## Depanare module native
@@ -89,7 +95,8 @@ Modulele native de depanare pot fi realizate cu Visual Studio 2017 (rulând pe c
 3. Conectează-te la dispozitivul țintă selectând _Depanare > Atașează la Proces..._ și introduceți adresa IP a dispozitivului și numărul de port afișat de instrumentul de depanare Visual Studio Remote Debugger.
 4. Faceți clic pe _Reîmprospătare_ și selectați [procesul Electron corespunzător pentru a atașa](../development/debug-instructions-windows.md).
 5. Este posibil să fie necesar să vă asigurați că orice simboluri pentru modulele native din aplicație sunt încărcate corect. Pentru a configura acest lucru, mergeți la _Depanare > Opțiuni..._ în Visual Studio 2017 și adăugați folderele care conțin `. db` simboluri sub _Depanare > Simboluri_.
-5. Odată atașat, setați orice puncte de întrerupere corespunzătoare și reluați execuția JavaScript folosind [uneltele la distanță pentru Node](debugging-main-process.md).
+6. Odată atașat, setați orice puncte de întrerupere corespunzătoare și reluați execuția JavaScript folosind [uneltele la distanță pentru Node](debugging-main-process.md).
 
 ## Obținerea de ajutor suplimentar
+
 Dacă întâmpinați o problemă cu această documentație sau dacă aplicația dvs. funcționează atunci când este compilată pentru x86 dar nu pentru arm64, vă rugăm să [înregistrați o problemă](../development/issues.md) cu "Windows on Arme" în titlu.

@@ -27,7 +27,6 @@ $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-c
 }
 `</pre>
 
-
 ### 3. Debugging
 
 Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.

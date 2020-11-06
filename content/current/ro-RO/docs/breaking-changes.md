@@ -347,6 +347,7 @@ The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 
+
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -373,6 +374,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
 
 - Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
 
 
 ```js
@@ -533,6 +535,7 @@ Proprietatea `webkitdirectory` în intrările de fișiere HTML le permite să se
 Ca o ilustrare, faceți un dosar cu această structură:
 
 
+
 ```console
 folder
 ├── file1
@@ -544,12 +547,14 @@ folder
 În Electron <=6, aceasta va returna `FileList` cu un `Fișier` pentru:
 
 
+
 ```console
 path/to/folder
 ```
 
 
 În Electron 7, acum returnează un `FileList` cu un `Fișier` pentru:
+
 
 
 ```console
@@ -763,6 +768,7 @@ webFrame.setIsolatedWorldInfo(
 ### API modificat: `webFrame.setSpellCheckProvider` acum ia un callback asincron
 
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
 
 
 ```js

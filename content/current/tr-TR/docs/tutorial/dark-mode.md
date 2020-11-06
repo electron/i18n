@@ -78,6 +78,7 @@ If you run your code at this point, you'll see that your buttons don't do anythi
 Now that we're done wiring the IPC from the Renderer's side, the next step is to update the `main.js` file to handle events from the Renderer process.
 
 Depending on the received event, we update the [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) property to apply the desired theme on the system's native UI elements (e.g. context menus) and propagate the preferred color scheme to the Renderer process:
+
 * Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
 * Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
 

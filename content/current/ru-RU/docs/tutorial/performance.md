@@ -16,8 +16,8 @@
 
 ### Рекомендуемое чтение
 
- * [Начните с анализа производительности Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Говорить: "Визуальный код студии - первая секунда"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Начните с анализа производительности Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Говорить: "Визуальный код студии - первая секунда"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@
 
 При рассмотрении модуля мы рекомендуем проверить:
 
-1. размер зависимостей включает 2) ресурсы, необходимые для загрузки (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. ресурсы, необходимые для выполнения интересующих вас действий
 
 Создание профиля ЦП и профиля памяти кучи для загрузки модуля может быть сделано с помощью одной команды в командной строке. В приведенном ниже примере мы рассмотрим популярный модуль `запрос`.
@@ -163,7 +164,6 @@ Electron и Chromium осторожно помещают операции вво
 <p spaces-before="0">3) Не использовать блокирование операций ввода-вывода в основном процессе. In short, whenever
 core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
 
-
 ## 4) Блокирование процесса рендерера
 
 С Electron корабли с текущей версией Chrome, вы можете использовать последние и наибольшие возможности, которые веб-платформа предлагает отложить или выгрузить тяжелые операции таким образом, чтобы ваше приложение было легко и быстро.
@@ -181,7 +181,6 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 *`requestIdleCallback()`* позволяет разработчикам выставить функцию в очередь на выполнение сразу же после входа процесса в период простоя. Это позволяет выполнять низкоприоритетную или фоновую работу без ущерба для пользовательского опыта. Для получения дополнительной информации о том, как его использовать, [ознакомьтесь с документацией по MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* является мощным инструментом для запуска кода в отдельном потоке. Есть некоторые предостережения для рассмотрения – обратитесь к документации Electron [многопоточности](./multithreading.md) и [MDN документации для Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Они являются идеальным решением для любой операции, требующей большой мощности процессора в течение длительного периода времени.
-
 
 ## 5) Ненужные polyfills
 
@@ -202,7 +201,6 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 Кроме того, внимательно изучите используемые вами библиотеки. Действительно ли они необходимы? Например, `jQuery`, был настолько успешным, что многие его функции теперь являются частью [стандартного набора возможностей JavaScript](http://youmightnotneedjquery.com/).
 
 Если вы используете транспонлер/компилятор, например TypeScript, изучите его конфигурацию и убедитесь, что вы ориентируетесь на последнюю версию ECMAScript, поддерживаемую Electron.
-
 
 ## 6) Не требуется или блокирует сетевые запросы
 

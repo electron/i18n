@@ -3,11 +3,13 @@
 ## Preparando
 
 ### Contrato de aplicativos pagos
+
 Se você ainda não o fez, precisará assinar o Contrato de aplicativos pagos e configurar suas informações bancárias e fiscais no iTunes Connect.
 
 [Ajuda do desenvolvedor do iTunes Connect: Visão geral de contratos, impostos e serviços bancários](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Crie suas compras no aplicativo
+
 Então, você precisará configurar suas compras no app no iTunes Connect, e incluir detalhes como nome, preços e descrição que destaca os recursos e funcionalidade de sua compra no aplicativo.
 
 [Ajuda para Desenvolvedores do iTunes: Crie uma compra dentro do aplicativo](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

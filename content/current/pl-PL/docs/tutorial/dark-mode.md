@@ -14,7 +14,7 @@ If your app has its own dark mode, you should toggle it on and off in sync with 
 
 If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
 
-## macOS settings
+## ustawienia macOS
 
 In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode][system-wide-dark-mode] for all macOS computers. If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
 
@@ -78,6 +78,7 @@ If you run your code at this point, you'll see that your buttons don't do anythi
 Now that we're done wiring the IPC from the Renderer's side, the next step is to update the `main.js` file to handle events from the Renderer process.
 
 Depending on the received event, we update the [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) property to apply the desired theme on the system's native UI elements (e.g. context menus) and propagate the preferred color scheme to the Renderer process:
+
 * Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
 * Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
 

@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -91,7 +90,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Do not enable Node.js Integration for Remote Content
 
 _This recommendation is the default behavior in Electron since 5.0.0._
@@ -150,7 +148,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Enable Context Isolation for Remote Content
 
 Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
@@ -162,7 +159,6 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Handle Session Permission Requests From Remote Content
 
@@ -197,7 +193,6 @@ session
   })
 ```
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Recommendation is Electron's default_
@@ -211,6 +206,7 @@ Do not disable `webSecurity` in production applications.
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
 ### How?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -232,7 +228,6 @@ const mainWindow = new BrowserWindow()
 <!-- Good -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 6) Define a Content Security Policy
 
@@ -277,7 +272,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Recommendation is Electron's default_
@@ -305,7 +299,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Do Not Enable Experimental Features
 
@@ -335,7 +328,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Recommendation is Electron's default_
@@ -347,6 +339,7 @@ Blink is the name of the rendering engine behind Chromium. As with `experimental
 Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
 ### How?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -360,7 +353,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) Do Not Use `allowpopups`
 
@@ -381,7 +373,6 @@ If you do not need popups, you are better off not allowing the creation of new [
 <!-- Good -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 11) Verify WebView Options Before Creation
 
@@ -492,6 +483,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) c
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -541,7 +533,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filter the `remote` module
 

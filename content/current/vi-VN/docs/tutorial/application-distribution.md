@@ -9,6 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 Các công cụ này sẽ đảm nhiệm tất cả các bước bạn cần thực hiện để kết thúc với các ứng dụng Electron có thể xây dựng ứng dụng, chẳng hạn như đóng gói ứng dụng của bạn, đặt lại thương hiệu thực thi, đặt biểu tượng phù hợp và tùy chọn tạo trình cài đặt.
 
 ## Phân phối thủ công
+
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Để phân phối ứng dụng của bạn với Electron, bạn cần tải xuống [ Electron](https://github.com/electron/electron/releases). Tiếp theo, thư mục chứa ứng dụng của bạn nên đặt tên là `app` và được đặt trong thư mục của Electron's như ví dụ dưới. Lưu ý rằng vị trí của bản dựng sẵn của Electron được biểu thị bằng ` electron / ` trong ví dụ phía dưới.
@@ -114,13 +115,13 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 3. Thiết lập các biến môi trường sau đây:
 
-  * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` - Set to `true` or else it will fail
-  * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+   * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+   * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+   * `CI` - Set to `true` or else it will fail
+   * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
+   * `TARGET_ARCH` - set to `ia32` or `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

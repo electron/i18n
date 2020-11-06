@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Depanare
 
 Setează niște puncte de întrerupere în `main.js`, și începe depanarea în [Debug View](https://code.visualstudio.com/docs/editor/debugging). Ar trebui să puteți să atingeți punctele de pauză.

@@ -5,6 +5,7 @@
 Wenn Sie Sicherheitsbedenken haben, lesen Sie bitte das [Sicherheitsdokument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Wenn du nach Programmierhilfe suchst, für Antworten auf Fragen oder um mit anderen Entwicklern zu diskutieren, die Electron verwenden, können Sie an diesen Orten mit der Community interagieren:
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Alle unterstützten Freigabelinien akzeptieren externe Pull-Requests zum Backpor
 Wenn eine API in einer Weise geändert oder entfernt wird, die bestehende Funktionalität kaputt macht die vorherige Funktionalität wird für mindestens zwei Hauptversionen unterstützt, wenn möglich ist, bevor sie entfernt werden. Zum Beispiel, wenn eine Funktion drei Argumente benötigt: und diese Zahl ist in Hauptversion 10 auf zwei reduziert die Version mit drei Argumenten würde weiter funktionieren, bis mindestens die Hauptversion 12 funktioniert. Vorher den Mindestwert für zwei Versionen werden wir versuchen, die Rückwärtskompatibilität über zwei Versionen hinaus zu unterstützen, bis die Betreuer das Gefühl haben, dass die Wartungslast zu hoch ist, um dies weiterhin tun zu können.
 
 ### Derzeit unterstützte Versionen
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

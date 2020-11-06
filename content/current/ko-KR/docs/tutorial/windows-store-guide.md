@@ -75,6 +75,7 @@ electron-windows-store `
 또 다른 중요한 한계는 컴파일 된 AppX 패키지에 여전히 win32 실행 파일이 포함되어 있으므로 Xbox, HoloLens 또는 Phones에서 실행되지 않습니다.
 
 ## Optional : BackgroundTask를 사용하여 UWP 기능 추가
+
 Electron 앱을 푸시 알림, Cortana 통합 또는 라이브 타일과 같은 Windows 10 기능을 최대한 활용하는 보이지 않는 UWP 백그라운드 작업과 페어링 할 수 있습니다.
 
 백그라운드 작업을 사용하여 토스트 알림 및 라이브 타일을 보내는 Electron 앱을 확인하려면 [Microsoft 제공 샘플](https://github.com/felixrieseberg/electron-uwp-background)을 확인하십시오.

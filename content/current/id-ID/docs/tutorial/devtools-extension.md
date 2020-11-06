@@ -21,6 +21,7 @@ Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/deta
      * `~/.config/chromium/Default/Extensions/`
    * pada macOS berada di `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+
    ```javascript
    const path = require('path')
    const os = require('os')

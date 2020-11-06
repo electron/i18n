@@ -75,6 +75,7 @@ Spre deosebire de aplicațiile UWP tradiționale, aplicațiile împachetate treb
 O altă limitare importantă este că pachetul AppX compilat încă conține un executabil win32 - și, prin urmare, nu va rula pe Xbox, HoloLens, sau telefoane.
 
 ## Opțional: Adaugă caracteristici UWP folosind o activitate de fundal
+
 Poți împerechea aplicația ta Electron cu o sarcină de fundal UWP invizibilă, care poate folosi pe deplin funcțiile Windows 10 - cum ar fi notificările push, Integrarea Cortana, sau dale live.
 
 Pentru a afla cum o aplicație Electron care folosește o sarcină de fundal pentru a trimite notificări toast și dale live, [verifică eșantionul](https://github.com/felixrieseberg/electron-uwp-background) furnizat de Microsoft.

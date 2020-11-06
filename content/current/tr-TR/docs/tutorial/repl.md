@@ -9,6 +9,7 @@ Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı t
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Global olarak `electron` veya `electron-prebuilt` yüklendiği varsayılır:
 
   ```sh

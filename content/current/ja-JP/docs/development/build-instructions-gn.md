@@ -6,9 +6,9 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 続行する前に、以下から各プラットフォームのビルド要件を確認してください。
 
-  * [macOS](build-instructions-macos.md#prerequisites)
-  * [Linux](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+* [macOS](build-instructions-macos.md#prerequisites)
+* [Linux](build-instructions-linux.md#prerequisites)
+* [Windows](build-instructions-windows.md#prerequisites)
 
 ## ビルドツール
 
@@ -41,7 +41,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
 
-#### プル/プッシュ時の注意
+### プル/プッシュ時の注意
 
 もし将来公式の `electron` レポジトリから `git pull` や `git push` をする予定であれば、現在はそれぞれのフォルダの origin URL を更新する必要があります。
 
@@ -57,6 +57,7 @@ $ cd -
 :memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
 なので、プルするには、以下のコマンドを実行するとよいでしょう。
+
 ```sh
 $ cd src/electron
 $ git pull
@@ -74,6 +75,7 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 ```
 
 Windows 上(任意の引数はなし):
+
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
@@ -99,11 +101,13 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 **ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
 テスト構成は以下のとおりです。
+
 ```sh
 $ ninja -C out/Testing electron
 ```
 
 リリース構成は以下のとおりです。
+
 ```sh
 $ ninja -C out/Release electron
 ```
@@ -125,11 +129,13 @@ $ ./out/Testing/electron
 ### パッケージ化
 
 Linuxの場合、デバッグ情報やシンボル情報を削除します。
+
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
 配布可能なzipファイルとしてこのエレクトロンビルドをパッケージするには、次のようにする。
+
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
@@ -156,6 +162,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許可されている値については、 GN リファレンスを参照してください。
 
 #### Arm 上で Windows (実験的)
+
 Arm 上の Windows 用にクロスコンパイルするには、[Chromium のガイドに従って](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) 必要な依存関係、SDK およびライブラリを取得し、`gclient sync` を実行する前に環境内で `ELECTRON_BUILDING_WOA=1` でビルドします。
 
 ```bat
@@ -164,13 +171,13 @@ gclient sync -f --with_branch_heads --with_tags
 ```
 
 もしくは (PowerShell を用いる場合) こうします。
+
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
 それから、上記のように `target_cpu="arm64"` で `gn gen` を実行します。
-
 
 ## テスト
 
@@ -229,4 +236,5 @@ $ gclient sync -f
 ```
 
 ### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
+
 Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。

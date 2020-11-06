@@ -9,6 +9,7 @@ Um Ihre App mit Electron zu verteilen, müssen Sie sie paketieren und neu markie
 Diese Tools werden sich um alle Schritte kümmern, die benötigt werden um am Ende eine verbreitbare Electron Anwendung zu Haben.
 
 ## Manuelle Verteilung
+
 Sie können Ihre App auch manuell für den Vertrieb vorbereiten. Die hierfür erforderlichen Schritte sind unten aufgeführt.
 
 Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
@@ -114,13 +115,13 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 
 3. Setzen Sie die folgenden Umgebungsvariablen:
 
-  * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
-  * `ELECTRON_RELEASE` - Setze auf `true` und das Upload-Teil wird ausgeführt, lassen Sie unset und `Surf-Build` führt CI-Prüfungen durch, die für jeden Pull-Request geeignet sind.
-  * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
-  * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
-  * `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
-  * `TARGET_ARCH` - auf `ia32` oder `x64` setzen
+   * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
+   * `ELECTRON_RELEASE` - Setze auf `true` und das Upload-Teil wird ausgeführt, lassen Sie unset und `Surf-Build` führt CI-Prüfungen durch, die für jeden Pull-Request geeignet sind.
+   * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
+   * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
+   * `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
+   * `TARGET_ARCH` - auf `ia32` oder `x64` setzen
 
 4. In der `script/upload.py` _müssen_ Sie `ELECTRON_REPO` in Ihren Fork (z.B. `MYORG/electron`) ändern, vor allem, wenn sie ein Mitwirkender am Electron-Eigentum sind.
 

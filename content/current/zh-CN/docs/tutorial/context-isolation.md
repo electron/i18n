@@ -67,4 +67,3 @@ contextBridge.exposeInMainWorld('myAPI', own
   loadPreferences: () => ipcRender.lotke('load-pass')
 })
 ```
-

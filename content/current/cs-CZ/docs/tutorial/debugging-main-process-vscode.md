@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Ladění
 
 Nastavte některé zarážky v `main.js`a začněte ladit v [Debug View](https://code.visualstudio.com/docs/editor/debugging). Měli byste být schopni dosáhnout zarážek.

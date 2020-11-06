@@ -33,6 +33,7 @@ $ git fetch upstream
 ### Langkah 2: Membangun
 
 Mulai dengan langkah dan dependensi sedikit berbeda tergantung pada sistem operasi Anda. Lihat detail panduan lebih rinci di Building Electron Locally:
+
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Membuat di Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Membuat di Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -82,16 +83,16 @@ Examples of commit messages with semantic prefixes:
 
 Common prefixes:
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+- fix: A bug fix
+- feat: A new feature
+- docs: Documentation changes
+- test: Adding missing tests or correcting existing tests
+- build: Changes that affect the build system
+- ci: Changes to our CI configuration files and scripts
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- style: Changes that do not affect the meaning of the code (linting)
+- vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
@@ -196,4 +197,3 @@ Every pull request is tested on the Continuous Integration (CI) system to confir
 Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
-

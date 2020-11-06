@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Po spuštění příkazu zjistíte, že složka s názvem `app.asar.unpacked` byla vytvořena společně s `, app.asar`. Obsahuje rozbalené soubory a měly by být odeslány společně s archivem `app.asar`.
-

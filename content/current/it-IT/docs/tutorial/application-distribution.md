@@ -9,6 +9,7 @@ Per distribuire la tua app con Electron, devi imballarla e riprenderla. Il modo 
 Questi strumenti si occuperanno di tutti i passi necessari per finire con applicazioni Electron distribuibili, come il confezionamento dell'applicazione, il rebranding dell'eseguibile, l'impostazione delle icone giuste e la creazione di installatori opzionali.
 
 ## Distribuzione manuale
+
 Puoi anche scegliere di preparare manualmente la tua app per la distribuzione. Le misure necessarie a tal fine sono illustrate qui di seguito.
 
 Per distribuire la tua app con Electron, devi scaricare i [binari precostruiti di Electron](https://github.com/electron/electron/releases). Successivamente, la cartella contenente la tua app dovrebbe essere chiamata `app` e posizionata nella directory delle risorse di Electron come mostrato negli esempi seguenti. Nota che la posizione dei binari precostruiti di Electron's è indicata con `electron/` negli esempi qui sotto.
@@ -114,13 +115,13 @@ Devi effettuare il fork di Electron quando hai un codice C++ personalizzato che 
 
 3. Imposta le seguenti variabili di ambiente:
 
-  * `ELECTRON_GITHUB_TOKEN` - un token che può creare versioni su GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - il luogo dove caricherai le intestazioni Node.js e i simboli
-  * `ELECTRON_RELEASE` - Impostare a `true` e la parte di caricamento verrà eseguita, leave unset and `surf-build` effettuerà controlli di tipo IC, appropriati per eseguire ogni pull request.
-  * `CI` - Impostare a `true` altrimenti fallirà
-  * `GITHUB_TOKEN` - impostalo come `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - impostato su `C:\Temp` su Windows per evitare problemi di percorso troppo lunghi
-  * `TARGET_ARCH` - impostato a `ia32` o `x64`
+   * `ELECTRON_GITHUB_TOKEN` - un token che può creare versioni su GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - il luogo dove caricherai le intestazioni Node.js e i simboli
+   * `ELECTRON_RELEASE` - Impostare a `true` e la parte di caricamento verrà eseguita, leave unset and `surf-build` effettuerà controlli di tipo IC, appropriati per eseguire ogni pull request.
+   * `CI` - Impostare a `true` altrimenti fallirà
+   * `GITHUB_TOKEN` - impostalo come `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - impostato su `C:\Temp` su Windows per evitare problemi di percorso troppo lunghi
+   * `TARGET_ARCH` - impostato a `ia32` o `x64`
 
 4. In `script/upload. y`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), specialmente se sei un collaboratore di Electron corretto.
 

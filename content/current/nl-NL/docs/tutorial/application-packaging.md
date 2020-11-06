@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Na het uitvoeren van het commando, zal je merken dat een map met de naam `app.asar.unpacked` samen met het `app.asar` bestand is gemaakt. Het bevat de uitgepakte bestanden en moet samen met het `app.asar` archief worden verzonden.
-

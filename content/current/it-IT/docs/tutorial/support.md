@@ -5,6 +5,7 @@
 Se hai un problema di sicurezza, vedi il [documento di sicurezza](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussione con altri sviluppatori che usano Electron, puoi interagirci in queste posizioni:
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Tutte le linee di rilascio supportate accetteranno richieste di pull esterne al 
 Quando un'API viene modificata o rimossa in un modo che interrompe le funzionalità esistenti, la funzionalità precedente sarà supportata per un minimo di due versioni principali quando possibile prima di essere rimossa. Per esempio, se una funzione richiede tre argomenti, e quel numero è ridotto a due nella versione principale 10, la versione a tre argomenti continuerà a funzionare fino a quando, come minimo, la versione principale 12. Superata la soglia minima di due versioni , cercheremo di supportare la compatibilità indietro oltre due versioni fino a quando i manutentori ritengono che l'onere di manutenzione sia troppo alto per continuare a farlo.
 
 ### Versioni attualmente supportate
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

@@ -75,6 +75,7 @@ W przeciwieństwie do tradycyjnych aplikacji UWP, spakowane aplikacje muszą obe
 Innym ważnym ograniczeniem jest to, że skompilowany pakiet AppX nadal zawiera win32 wykonywalny - i dlatego nie będzie działać na Xbox, HoloLen lub telefony.
 
 ## Opcjonalnie: Dodaj funkcje UWP za pomocą zadania w tle
+
 Możesz sparować swoją aplikację Electron z niewidzialnym zadaniem w tle UWP, które korzysta w pełni z funkcji Windows 10 - takich jak powiadomienia push, Integracja z Cortaną, lub żywe kafelki.
 
 Aby sprawdzić, jak aplikacja Electrona, która używa zadania w tle do wysyłania powiadomień o dymku i na żywo przełącznikach, [sprawdź próbkę dostarczoną przez Microsoft](https://github.com/felixrieseberg/electron-uwp-background).

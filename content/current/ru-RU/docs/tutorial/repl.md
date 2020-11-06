@@ -9,6 +9,7 @@ Read-Eval-Print-Loop (REPL) - это простая интерактивная �
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Если у вас `electron` или `electron-prebuilt` установлен глобально:
 
   ```sh

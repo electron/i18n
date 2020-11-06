@@ -21,6 +21,7 @@ Electron支持[Chrome  DevTools 扩展程序](https://developer.chrome.com/exten
      * `~/.config/chromium/Default/Extensions/`
    * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
 1. 将扩展的位置传递到 `BrowserWindow.addDevToolsExtension` API，用于React开发者工具，这样做很好：
+
    ```javascript
    const path = require('path')
    const os = require('os')

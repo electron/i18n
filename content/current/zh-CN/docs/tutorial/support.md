@@ -5,6 +5,7 @@
 如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@
 当一个API的改动或移除会导致某个现有功能被破坏时，这个现有功能在被移除之前，仍然会在至少两个主要版本号内得到尽可能的支持。 比如，某个函数需要三个参数，而在主要版本10中，它被修改为需要两个参数，那么这个函数的三参数版本仍然会被支持，至少持续到主要版本12。 经过两个主要版本后，我们仍会尝试支持后向兼容，直到维护成本高得难以承受而无法继续支持。
 
 ### 当前支持的版本
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

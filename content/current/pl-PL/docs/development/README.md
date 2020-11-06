@@ -10,7 +10,7 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Struktura Ścieżki Kodu Źródłowego](source-code-directory-structure.md)
 * [Styl Kodowania](coding-style.md)
 * [Używanie formatu clang w kodzie C++](clang-format.md)
-* [Using clang-tidy on C++ Code](clang-tidy.md)
+* [Używanie clang-tidy w kodzie C++](clang-tidy.md)
 * [Przegląd Systemu Budowania](build-system-overview.md)
 * [Instrukcje Budowania (macOS)](build-instructions-macos.md)
 * [Instrukcje Budowania (Windows)](build-instructions-windows.md)

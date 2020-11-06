@@ -29,10 +29,13 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 
 1. Visual Studio 2019 must be installed.
 2. Node headers have to be compiled for your configuration.
+
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
    ```
+
 3. The electron.lib has to be copied as node.lib.
+
    ```powershell
    cd out\Testing
    mkdir gen\node_headers\Release
@@ -42,6 +45,7 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 #### Missing fonts
 
 [一些 Windows 10 设备](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list)上没有默认安装Meriryo字体，这会导致字体回退测试的失败。 要安装Meiryo字体：
+
 1. 按下Windows key并搜索 _管理可选功能_。
 2. 单击_添加功能_
 3. 选择_Japanese Supplemental Fonts_并单击 _安装_
@@ -51,5 +55,6 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 由于浮点数精度误差，某些依赖于精确像素测量的测试可能无法正常在Hi-DPI屏幕的设备上工作。 为了使这些测试能正常运行，请确保设备的缩放比为100%。
 
 要配置缩放比：
+
 1. 按下Windows key并搜索_显示设置_.
 2. 在_Scale and layout_下，确保缩放比为100%。

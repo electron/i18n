@@ -21,6 +21,7 @@ Použití jako příklad nástroje [React Developer](https://chrome.google.com/w
      * `~/.config/chromium/Default/Extensions/`
    * na macOS je `~/Library/Podpora aplikací/Google/Chrome/Default/Extensions`.
 1. Umístěte umístění rozšíření do `BrowserWindow.addDevToolsExtension` API, pro nástroje vývojáře React je to něco jako:
+
    ```javascript
    cesta ke const = require('path')
    const os = require('os')

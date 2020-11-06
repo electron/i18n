@@ -9,6 +9,7 @@ Modul `repl` poskytuje REPL implementaci, ke které lze přistupovat pomocí:
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Předpokládejme, že máte `elektronický` nebo `elektron-prebuilt` nainstalovaný globálně:
 
   ```sh

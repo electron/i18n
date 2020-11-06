@@ -9,6 +9,7 @@ Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すな
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * グローバルに`electron`または`electron-prebuilt`がインストールされている場合:
 
   ```sh

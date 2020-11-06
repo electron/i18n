@@ -6,9 +6,9 @@
 
 各个平台所对应的构建要求如下：
 
-  * [macOS](build-instructions-macos.md#prerequisites)
-  * [Linux](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+* [macOS](build-instructions-macos.md#prerequisites)
+* [Linux](build-instructions-linux.md#prerequisites)
+* [Windows](build-instructions-windows.md#prerequisites)
 
 ## Build Tools
 
@@ -42,7 +42,7 @@ $ gclient sync --with_branch_head--with_tags
 
 > 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-#### 拉/推的注意事项
+### A note on pulling/pushing
 
 如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
@@ -58,6 +58,7 @@ $ cd -
 :memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
 
 运行以下命令拉取源码：
+
 ```sh
 $ cd src/electron
 $ git pull
@@ -75,6 +76,7 @@ $ gn gen out/testing --args="import(\"//electron/build/args/testing. n\") $GN_EX
 ```
 
 若在 Windows 上 (没有可选参数)：
+
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
@@ -101,11 +103,13 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 **To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
 
 For the testing configuration:
+
 ```sh
 $ ninja -C out/Testing electron
 ```
 
 For the release configuration:
+
 ```sh
 $ ninja -C out/Release electron
 ```
@@ -127,11 +131,13 @@ $ ./out/Testing/electron
 ### 打包
 
 On linux, first strip the debugging and symbol information:
+
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
 To package the electron build as a distributable zip file:
+
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
@@ -158,6 +164,7 @@ If you test other combinations and find them to work, please update this documen
 See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).
 
 #### Windows on Arm (experimental)
+
 To cross-compile for Windows on Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) to get the necessary dependencies, SDK and libraries, then build with `ELECTRON_BUILDING_WOA=1` in your environment before running `gclient sync`.
 
 ```bat
@@ -166,13 +173,13 @@ gclient sync -f --with_branch_heads --with_tags
 ```
 
 Or (if using PowerShell):
+
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
 Next, run `gn gen` as above with `target_cpu="arm64"`.
-
 
 ## 测试
 
@@ -231,4 +238,5 @@ $ gclient sync -f
 ```
 
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
+
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。

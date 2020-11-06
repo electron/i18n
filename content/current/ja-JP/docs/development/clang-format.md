@@ -22,6 +22,6 @@ Electron C++ コードスタイルに従ってファイルを自動的にフォ�
 
 あなたの好きなエディタに直接 `clang-format` を統合することもできます。 エディタ統合の設定に関する詳細は、以下のページを参照してください。
 
-  * [Atom](https://atom.io/packages/clang-format)
-  * [Vim & Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+* [Atom](https://atom.io/packages/clang-format)
+* [Vim & Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

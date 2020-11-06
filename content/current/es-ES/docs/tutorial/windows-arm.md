@@ -3,6 +3,7 @@
 Si tu aplicación se ejecuta con Electron 6.0.8 o posterior, ahora puedes construirla para Windows 10 en Arm. Esto mejora considerablemente el rendimiento, pero requiere la recompilación de cualquier módulo nativo usado en su aplicación. También puede requerir pequeños arreglos para sus scripts de compilación y empaquetamiento.
 
 ## Ejecutar una aplicación básica
+
 Si tu aplicación no utiliza ningún módulo nativo, entonces es muy fácil crear una versión de armamento de tu aplicación.
 
 1. Asegúrate de que el directorio `node_modules` de tu aplicación está vacío.
@@ -26,17 +27,21 @@ if (process.arch === 'x64') {
 Si quieres apuntar a arm64, la lógica como esta normalmente seleccionará la arquitectura equivocada, tan cuidadosamente compruebe su aplicación y construya scripts para condiciones como esta. En scripts de compilación y empaquetado personalizados, siempre debería comprobar el valor de `npm_config_arch` en el entorno, en lugar de depender de la arquitectura de proceso actual.
 
 ### Módulos nativos
+
 Si utiliza módulos nativos, debe asegurarse de que compilan contra v142 del compilador MSVC (proporcionado en Visual Studio 2017). También debe verificar que cualquier pre-compilado `.dll` o `. ib` archivos proporcionados o referenciados por el módulo nativo están disponibles para Windows en Arm.
 
 ### Probando tu aplicación
+
 Para probar su aplicación, utilice un dispositivo Windows en Arm con Windows 10 (versión 1903 o superior). Asegúrese de copiar su aplicación al dispositivo de destino - el sandbox de Chromium no funcionará correctamente al cargar los activos de su aplicación desde una ubicación de red.
 
 ## Prerrequisitos para el desarrollo
+
 ### Node.js/node-gyp
 
 [Se recomienda Node.js v12.9.0 o posterior.](https://nodejs.org/en/) Si actualizar a una nueva versión del nodo no es posible puedes [actualizar manualmente la copia de node-gyp de npm](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) a la versión 5. .2 o posterior, que contiene los cambios necesarios para compilar módulos nativos para Arm.
 
 ### Visual Studio 2017
+
 Visual Studio 2017 (cualquier edición) es necesario para compilar módulos nativos. Puede descargar Visual Studio Community 2017 a través del [programa Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) de Microsoft. Después de la instalación, puede añadir los componentes específicos de la armadura ejecutando lo siguiente desde un _Prompt de comando_:
 
 ```powershell
@@ -49,6 +54,7 @@ vs_installer.exe ^
 ```
 
 #### Crear un símbolo de comando de compilación cruzada
+
 Establecer `npm_config_arch=arm64` en el entorno crea el arm64 correcto `. bj` archivos, pero el estándar _Developer Command Prompt for VS 2017_ usará el enlazador x64. Para arreglar esto:
 
 1. Duplicar el _comando de herramientas cruzadas x64_x86 para VS 2017_ (p. ej. ubicándolo en el menú de inicio, haciendo clic con el botón derecho, seleccionando _Abrir ubicación de archivo_, copiando y pegando en algún lugar conveniente.
@@ -76,8 +82,8 @@ Por defecto, `node-gyp` descomprime las cabeceras de nodos de Electron y descarg
 
 Sustituye `6.0.9` para la versión que estás usando.
 
-
 ## Módulos nativos multicompiladores
+
 Después de completar todo lo anterior, abre el símbolo del comando de compilación cruzada y ejecuta `set npm_config_arch=arm64`. Luego usa `npm install` para compilar tu proyecto de forma normal. Como con la compilación cruzada de módulos x86, puede necesitar eliminar `node_modules` para forzar la recompilación de módulos nativos si fueron compilados previamente para otra arquitectura.
 
 ## Depurando módulos nativos
@@ -89,7 +95,8 @@ La depuración de módulos nativos puede hacerse con Visual Studio 2017 (ejecut�
 3. Conéctate al dispositivo de destino seleccionando _Depurar > Adjuntar al proceso..._ e introduzca la dirección IP del dispositivo y el número de puerto mostrado por la herramienta de debugger remoto de Visual Studio.
 4. Haga clic en _Actualizar_ y seleccione el [proceso de Electron apropiado para adjuntar](../development/debug-instructions-windows.md).
 5. Puede que necesite asegurarse de que cualquier símbolo para los módulos nativos de su aplicación se carga correctamente. Para configurar esto, dirígete a _Debug > Opciones..._ en Visual Studio 2017, y añadir las carpetas que contienen su `. símbolos db` bajo _Debugging > Symbols_.
-5. Una vez adjunto, establezca cualquier punto de interrupción apropiado y reanude la ejecución de JavaScript usando las [herramientas remotas de Chrome para Node](debugging-main-process.md).
+6. Una vez adjunto, establezca cualquier punto de interrupción apropiado y reanude la ejecución de JavaScript usando las [herramientas remotas de Chrome para Node](debugging-main-process.md).
 
 ## Obteniendo ayuda adicional
+
 Si encuentra un problema con esta documentación, o si su aplicación funciona cuando se compila para x86 pero no para arm64, por favor [presente un problema](../development/issues.md) con "Windows on Arm" en el título.

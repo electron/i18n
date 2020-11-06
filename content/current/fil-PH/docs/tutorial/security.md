@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Do not enable Node.js Integration for Remote Content
 
 _This recommendation is the default behavior in Electron since 5.0.0._
@@ -143,7 +141,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Enable Context Isolation for Remote Content
 
 Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong  JavaScript na conteksto. Sa pagsasanay, ibig sabihin nito ay ang pandaigdigang mga bagay gaya ng `Array.prototype.push` o `JSON.parse` ay hindi na maaaring baguhin ng mga manuskritong pinatakbo sa proseso ng renderer.
@@ -155,7 +152,6 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Handle Session Permission Requests From Remote Content
 
@@ -190,7 +186,6 @@ session
   })
 ```
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Ang rekomendasyon ay default ng Electron_
@@ -204,6 +199,7 @@ Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
 Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
 
 ### Paano?
+
 ```js
 // Masama
 const mainWindow = new BrowserWindow({
@@ -223,7 +219,6 @@ const mainWindow = new BrowserWindow()
 <! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 6) Define a Content Security Policy
 
@@ -268,7 +263,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Ang rekomendasyon ay default ng Electron_
@@ -296,7 +290,6 @@ const mainWindow = new BrowserWindow({
 // Mabuti
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Do Not Enable Experimental Features
 
@@ -326,7 +319,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Ang rekomendasyon ay default ng Electron_
@@ -338,6 +330,7 @@ Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. As with `exp
 Sa pangkalahatan, malamang na may mga dahilan kung ang isang tampok ay hindi pinagana bilang default. Ang mga lehitimong kaso ng paggamit para sa pagpapagana ng mga partikular na tampok ay umiiral. Bilang isang developer, dapat mong malaman eksakto kung bakit kailangan mong paganahin ang isang tampok, kung ano ang Ang mga resulta ay, at kung paano ito nakakaapekto sa seguridad ng iyong aplikasyon. Sa ilalim walang mga pangyayari na dapat mong paganahin ang mga tampok na speculatively.
 
 ### Paano?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -351,7 +344,6 @@ const mainWindow = new BrowserWindow({
 // Mabuti
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) Do Not Use `allowpopups`
 
@@ -370,7 +362,6 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 <! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 11) Verify WebView Options Before Creation
 
@@ -481,6 +472,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) c
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -525,7 +517,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filter the `remote` module
 

@@ -146,4 +146,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Después de ejecutar el comando, notará que una carpeta llamada `app.asar.unpacked` fue creada en conjunto con el archivo `app.asar`. Este contiene los archivos desempaquetados y debe ser enviado en conjunto con el archivo `app.asar`.
-

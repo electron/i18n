@@ -4,7 +4,7 @@
 
 コンテキスト分離は、 `` スクリプトと Electron の内部ロジックの両方が、 [`webContents`](../api/web-contents.md) でロードしたウェブサイトに対して別のコンテキストで実行されることを保証する機能です。  これは、ウェブサイトが Electron の内部にアクセスできないようにするためのセキュリティ目的や、プリロードスクリプトがアクセスできる強力な API を防ぐために重要です。
 
-つまり、preload スクリプトがアクセスできる `window` オブジェクトは、ウェブサイトがアクセスできるオブジェクトとは実際には **異なる** オブジェクトであることを意味します。  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+つまり、preload スクリプトがアクセスできる `window` オブジェクトは、ウェブサイトがアクセスできるオブジェクトとは実際には **異なる** オブジェクトであることを意味します。  例えば、もしあなたが `window.hello = 'wave'` とプリロードスクリプトで設定し、コンテキスト分離が有効だった場合、`window.hello` は、Web サイトがアクセスしようとすると未定義になります。
 
 すべてのアプリケーションはコンテキスト分離を有効にし、Electron 12 からはデフォルトで有効になります。
 
@@ -67,4 +67,3 @@ contextBridge.exposeInMainWorld('myAPI, {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

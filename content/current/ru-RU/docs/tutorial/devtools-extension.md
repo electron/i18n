@@ -23,6 +23,7 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
      * `~/.config/chromium/Default/Extensions/`
    * в macOS это `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li>
 1 Передайте расположение расширения `BrowserWindow.addDevToolsExtension` API, для React Developer Tools, это что-то вроде этого:
+
    ```javascript
    const path = require('path')
    const os = require('os')

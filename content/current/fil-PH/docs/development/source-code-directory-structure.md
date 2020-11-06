@@ -84,6 +84,7 @@ Electron
 * **npm** - Logic for installation of Electron via npm.
 * **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
 * **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
+
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -92,8 +93,8 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies.
-

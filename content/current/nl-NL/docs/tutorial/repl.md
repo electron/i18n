@@ -9,6 +9,7 @@ De `repl` module biedt een REPL implementatie die kan worden gebruikt met:
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Ervan uitgaande dat u `electron` of `elektron-prebuilt` wereldwijd hebt geïnstalleerd:
 
   ```sh

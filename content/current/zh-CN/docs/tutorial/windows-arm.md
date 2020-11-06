@@ -3,6 +3,7 @@
 如果您的应用与 Electron 6.0.8 或更高版本运行，您现在可以在Arm 上构建Windows10。 这大大提高了性能，但需要重新编译应用中使用的任何原生模块。 它还可能需要小修理你的构建和包装脚本。
 
 ## 运行基本应用
+
 如果您的应用没有使用任何本地模块，那么创建您的应用的Arm 版本就非常容易。
 
 1. 请确保您的应用的 `node_modules` 目录是空的。
@@ -26,17 +27,21 @@ if (process.arch === 'x64') {
 如果你想要瞄准arm64，那么这种逻辑通常会选择错误的架构， 如此仔细地检查您的应用程序并为这样的条件生成脚本。 在自定义构建和包装脚本中，您应该始终检查环境中 `npm_config_arch` 的值。 而不是依靠目前的程序轮廓。
 
 ### 原生模块
+
 如果您使用本机模块，您必须确保他们编译与 MSVC 编译器的 v142 (在 Visual Studio 2017中提供)。 您还必须检查任何预建的 `.dll` 或 `。 ib` 本地模块提供或引用的文件可用于Windows在军备上。
 
 ### 测试您的应用
+
 要测试您的应用，请在运行Windows 10的Arm 设备上使用 Windows (版本1903或更晚)。 请确保您将应用程序复制到目标设备 - Chromium的沙盒在从网络位置加载您的应用程序资产时无法正常工作。
 
 ## 发展的前提条件
+
 ### Node.js/node-gyp
 
 [推荐Node.js v12.9.0或更高版本。](https://nodejs.org/en/) 如果更新到新的节点版本是不可取的。 您可以 [手动更新npm的node-gyp 的副本](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) 到第5版。 2 或更高版本，包含编译原生军备模块所需的更改。
 
 ### Visual Studio 2017
+
 需要的 Visual Studio 2017 (任何版本) 来交叉编译本机模块。 您可以通过 Microsoft 的 [Visual Studio Dev Essentials程序](https://visualstudio.microsoft.com/dev-essentials/) 下载Visual Studio Community 2017 安装后，您可以通过从 _命令提示_ 运行以下内容来添加特定的武器组件：
 
 ```powershell
@@ -49,6 +54,7 @@ vs_installer.exe ^
 ```
 
 #### 创建交叉编译命令提示
+
 在环境中设置 `npm_config_arch=arm64` 可以创建正确的arm64 `bj` 文件，但标准 _VS 2017 的开发者命令提示_ 将使用x64链接。 要解决这个问题：
 
 1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
@@ -76,8 +82,8 @@ If you want to develop your application directly on a Windows on Arm device, sub
 
 为您正在使用的版本替换 `6.0.9`
 
-
 ## 交叉编译本地模块
+
 完成上述所有后，打开您的交叉编译命令提示符并运行 `设置 npm_config_arch=arm64`。 然后使用 `npm 安装` 来构建您的项目正常。 如同交叉编纂的x86单元， 您可能需要删除 `node_modules` 来强制重新编译原生模块，如果它们以前是为另一个架构编译的。
 
 ## 调试本机模块
@@ -89,7 +95,8 @@ If you want to develop your application directly on a Windows on Arm device, sub
 3. 选择 _调试 > 附加到进程以连接到目标设备..._ 并输入设备的 IP 地址和端口号由 Visual Studio 远程调试工具显示。
 4. 点击 _刷新_ 并选择 [相应的 Electron 进程以附加](../development/debug-instructions-windows.md)。
 5. 您可能需要确保在您的应用中本地模块的任何符号都正确加载。 要配置这个配置，请头到 _调试 > 选项..._ 在 Visual Studio 2017 中，并添加包含您 `的文件夹。 db` 符号在 _调试 > 符号_
-5. 一旦附加，设置任何相应的断点，并使用 Chrome 的 [远程工具来恢复 JavaScript 执行节点](debugging-main-process.md)。
+6. 一旦附加，设置任何相应的断点，并使用 Chrome 的 [远程工具来恢复 JavaScript 执行节点](debugging-main-process.md)。
 
 ## 正在获取额外帮助
+
 如果您遇到此文档的问题，或者您的应用在编译后使用 x86 而不是arm64， 请 [在标题中使用"Windowson Arm"填写一个问题](../development/issues.md)。

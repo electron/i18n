@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 运行命令后，您将会看到 `app.asar.unpacked` 文件夹与 `app.asar` 文件一起被创建了。 没有被打包的文件和 `app.asar` 会一起存档发布。
-

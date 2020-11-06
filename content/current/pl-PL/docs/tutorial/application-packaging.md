@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Po uruchomieniu polecenia zauważysz, że folder o nazwie `app.asar.unpacked` został utworzony razem z plikiem `app.asar`. Zawiera rozpakowane pliki i powinny być dostarczane razem z archiwum `app.asar`.
-

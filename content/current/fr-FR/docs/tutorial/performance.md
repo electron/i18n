@@ -16,8 +16,8 @@ Pour en savoir plus sur la façon de profiler le code de votre application, fami
 
 ### Lecture recommandée
 
- * [Commencer avec l'analyse des performances d'exécution](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Conférence: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Commencer avec l'analyse des performances d'exécution](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Conférence: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Liste de contrôle
 
@@ -49,7 +49,8 @@ En bref, un module apparemment excellent écrit principalement pour les serveurs
 
 Lorsque vous envisagez un module, nous vous recommandons de vérifier :
 
-1. la taille des dépendances incluses 2) les ressources requises pour le charger (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. les ressources nécessaires pour effectuer l'action qui vous intéresse
 
 La génération d'un profil CPU et d'un profil de mémoire de tas pour le chargement d'un module peut être effectuée avec une seule commande sur la ligne de commande. Dans l'exemple ci-dessous, nous regardons la demande populaire `du module`.
@@ -162,7 +163,6 @@ Electron's powerful multi-process architecture stands ready to assist you with y
 
 3) Évitez d'utiliser les opérations de blocage d'E/S dans le processus principal. Bref, chaque fois que des modules coeur de Node.js (comme `fs` ou `child_process`) offrent une version synchrone ou une version asynchrone vous devriez préférer la variante asynchrone et non-bloquant .
 
-
 ## 4) Blocage du processus de rendu
 
 Puisque Electron est livré avec une version actuelle de Chrome, vous pouvez utiliser les dernières fonctionnalités et les meilleures de la plateforme Web pour différer ou décharger des opérations lourdes de manière à garder votre application en douceur et réactive.
@@ -180,7 +180,6 @@ De manière générale, tous les conseils pour créer des applications web perfo
 *`requestIdleCallback()`* permet aux développeurs de mettre en file d'attente une fonction à exécuter dès que le processus entre une période d'inactivité. Il vous permet de effectuer des tâches de faible priorité ou en arrière-plan sans affecter l'expérience utilisateur. Pour plus d'informations sur la façon de l'utiliser, [consultez sa documentation sur MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Les Web Workers* sont un outil puissant pour exécuter du code sur un fil de discussion séparé. Il y a des avertissements à considérer – consulter la documentation [multithreading d'Electron](./multithreading.md) et la documentation [MDN pour les WebWorkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Ils sont une solution idéale pour toute opération qui nécessite beaucoup de puissance CPU pendant une période prolongée de temps.
-
 
 ## 5) Remplissage inutile
 
@@ -201,7 +200,6 @@ Opère en supposant que les polyfills dans les versions actuelles d'Electron ne 
 En outre, examinez attentivement les bibliothèques que vous utilisez. Sont-ils vraiment nécessaires? `jQuery`, par exemple, a été un tel succès que beaucoup de ses fonctionnalités font maintenant partie du [jeu de fonctionnalités JavaScript standard disponible](http://youmightnotneedjquery.com/).
 
 Si vous utilisez un transpiler/compilateur comme TypeScript, vérifiez sa configuration et assurez-vous que vous visez la dernière version de ECMAScript supportée par Electron.
-
 
 ## 6) Innécessaire ou blocage des requêtes réseau
 

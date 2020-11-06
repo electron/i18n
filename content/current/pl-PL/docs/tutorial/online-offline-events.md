@@ -5,6 +5,7 @@
 [Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
 
 The `navigator.onLine` attribute returns:
+
 * `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
 * `true` we wszystkich innych przypadkach.
 

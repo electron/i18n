@@ -3,11 +3,13 @@
 ## Voorbereiden
 
 ### Betaalde aanvragen overeenkomst
+
 Als u dat nog niet gedaan hebt, moet u de Paid Applications Agreement ondertekenen en uw bank- en belastinginformatie instellen in iTunes Connect.
 
 [iTunes Connect Developer Help: Overeenkomsten, belastingen, en bank-overzicht](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Maak je in-app-aankopen
+
 Vervolgens moet u uw in-app aankopen configureren in iTunes Connect, en details zoals naam vermelden, prijzen en een beschrijving van de functies en functionaliteit van uw in-app aankoop.
 
 [iTunes Connect ontwikkelaar Help: Maak een in-app aankoop](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

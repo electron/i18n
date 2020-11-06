@@ -16,8 +16,8 @@ Pentru a afla mai multe despre cum să profilezi codul aplicației tale, familia
 
 ### Lectură recomandată
 
- * [Începeți cu analiza performanțelor Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Vorbire: "Codul Studio vizual - Prima Secundă"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Începeți cu analiza performanțelor Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Vorbire: "Codul Studio vizual - Prima Secundă"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@ Pe scurt, un modul aparent excelent scris în principal pentru serverele Node.js
 
 Cand analizezi un modul, iti recomandam sa verifici:
 
-1. dimensiunea dependențelor incluse la 2) resursele necesare pentru a încărca (`Necesar()`
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. resursele necesare pentru a efectua acțiunea de care sunteți interesați
 
 Generarea unui profil CPU și a unui profil de memorie heap pentru încărcarea unui modul poate fi făcută cu o singură comandă pe linia de comandă. În exemplul de mai jos, ne uităm la modulul popular `cererea`.
@@ -162,7 +163,6 @@ Arhitectura puternică multi-proces a Electron este gata să te ajute cu sarcini
 
 3) Evitați să utilizați operațiunile I/O în procesul principal. Pe scurt, de fiecare dată când nodul de nucleu. s module (ca `fs` sau `child_process`) oferă o versiune sincron sau asincron, ar trebui să preferați varianta asincron și non-blocare .
 
-
 ## 4) Blocarea procesului de redare
 
 De vreme ce Electron navighează cu o versiune curentă a Chrome, puteți folosi cele mai recente și cele mai bune caracteristici pe care Platforma Web le oferă pentru defrișarea sau offload grel într-un mod care vă menține aplicația la un nivel ușor și reactiv.
@@ -180,7 +180,6 @@ Orchestrarea fluxului de operațiuni din codul dispozitivului de redare este uti
 *`requestIdleCallback()`* permite dezvoltatorilor să stea la coadă o funcție pentru a fi executată imediat ce procesul intră în perioada de inactivitate. Vă permite să efectuați o activitate cu prioritate scăzută sau de fundal fără a avea impact asupra experienței utilizatorului. Pentru mai multe informații despre cum să o utilizați, [consultați documentația sa pe MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Works* sunt o unealtă puternică pentru a rula codul pe o temă separată. Există câteva avertismente pentru a lua în considerare – consultă [documentaţia pentru mai multe lecturi](./multithreading.md) şi [documentaţia MDN pentru Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Sunt o soluție ideală pentru orice operațiune care necesită multă putere CPU pentru o perioadă lungă de timp.
-
 
 ## 5) Polifilări inutile.
 
@@ -201,7 +200,6 @@ Funcționează în ipoteza că poliliniile versiunii curente a Electron nu sunt 
 În plus, examinați cu atenție bibliotecile pe care le folosiți. Sunt ele cu adevărat necesare? `jQuery`, de exemplu a fost un succes atât de mare încât multe dintre caracteristicile sale sunt acum parte din [setul standard JavaScript disponibil](http://youmightnotneedjquery.com/).
 
 Dacă utilizați un transpiler/compilator ca TypeScript, examinați configurația sa și asigurați-vă că vizați ultima versiune ECMAScript suportată de Electron.
-
 
 ## 6) Solicitări de rețea inutile sau blocate
 

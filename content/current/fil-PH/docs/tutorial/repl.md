@@ -9,6 +9,7 @@ Ang `repl` modyul na ito ay nagbibigay ng isang REPL implementasyon na maaaring 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Ipagpalagay na mayroon kang `elektron` o `elektron-prebuilt` naka-install pangkalahatan:
 
   ```sh

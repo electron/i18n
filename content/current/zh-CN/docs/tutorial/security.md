@@ -24,7 +24,6 @@ Electron随时更新交替释放Chromium。 欲了解更多信息， 请查看 [
 
 * **遵循安全编码实践**你的代码是你的程序安全的第一道防线。 一般的网络漏洞，例如跨站脚本攻击(Cross-Site Scripting, XSS)，对Electron将造成更大的影响，因此非常建议你遵循安全软件开发最佳实践并进行安全性测试。
 
-
 ## 隔离不信任的内容
 
 每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
@@ -85,7 +84,6 @@ browserWindow.loadURL ('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) 不要为远程内容启用 Node.js 集成
 
 _此建议是 Electron 从 5.0.0 开始的默认行为。_
@@ -139,7 +137,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) 为远程内容开启上下文隔离
 
 上下文隔离是Electron的一个特性，它允许开发者在预加载脚本里运行代码，里面包含Electron API和专用的JavaScript上下文。 实际上，这意味全局对象如 `Array.prototype.push` 或 `JSON.parse`等无法被渲染进程里的运行脚本修改。
@@ -151,7 +148,6 @@ Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.
 ### 为什么 & 如何?
 
 欲了解更多关于 `上下文隔离` 以及如何启用它的信息，请 查看我们专用的 [上下文隔离](context-isolation.md) 文档。
-
 
 ## 4) 处理来自远程内容的会话许可请求
 
@@ -186,7 +182,6 @@ session
   })
 ```
 
-
 ## 5) 不要禁用WebSecurity
 
 _Electron的默认值就是建议值。_
@@ -200,6 +195,7 @@ _Electron的默认值就是建议值。_
 禁用 `webSecurity` 将会禁止同源策略并且将 `allowRunningInsecureContent` 属性置 `true`。 换句话说，这将使得来自其他站点的非安全代码被执行。
 
 ### 怎么做？
+
 ```js
 // 不推荐
 const mainWindow = new BrowserWindow({
@@ -216,7 +212,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- 不推荐 --><webview disablewebsecurity src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
 ```
-
 
 ## 6) 定义一个内容安全策略
 
@@ -261,7 +256,6 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
 _Electron的默认值就是建议值。_
@@ -289,7 +283,6 @@ const mainWindow = new BrowserWindow({
 // 推荐
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) 不要开启实验室特性
 
@@ -319,7 +312,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) 不要使用`enableBlinkFeatures`
 
 _Electron的默认值就是建议值。_
@@ -331,6 +323,7 @@ Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样�
 通常来说，某个特性默认不被开启肯定有其合理的原因。 针对特定特性的合理使用场景是存在的。 作为开发者，你应该非常明白你为何要开启它，有什么后果，以及对你应用安全性的影响。 在任何情况下都不应该推测性的开启特性。
 
 ### 怎么做？
+
 ```js
 // 不推荐
 const mainWindow = new BrowserWindow({
@@ -344,7 +337,6 @@ const mainWindow = new BrowserWindow({
 // 推荐
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) 不要使用`allowpopups`
 
@@ -360,7 +352,6 @@ _Electron的默认值就是建议值。_
 
 ```html<!-- 不推荐 --><webview allowpopups src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
 ```
-
 
 ## 11) 创建WebView前确认其选项
 
@@ -471,6 +462,7 @@ Shell 的 [`openExternal`](../api/shell.md#shellopenexternalurl-options) 允许�
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 / 好
 const { shell } = require('electron')
@@ -520,7 +512,6 @@ const mainwindow = new BrowserWindow(
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) 筛选 `远程` 模块
 

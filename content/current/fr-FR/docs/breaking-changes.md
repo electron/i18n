@@ -246,6 +246,7 @@ L'API `shell.openItem` a été remplacée par une API `shell.openPath` asynchron
 L'algorithme utilisé pour sérialiser les objets envoyés par IPC (via `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents. les méthodes de fin` et associées) est passé d'un algorithme personnalisé à l'algorithme intégré de V8 [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) qui est déja utilisé pour sérialiser les messages dans `postMessage`. Cela entraîne une amélioration dans un rapport 2 des performances en ce qui concerne les messages de grande taille, mais apporte également quelques changements de rupture dans le comportement.
 
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -255,6 +256,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
+
 - `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
 - Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
 - `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
@@ -263,6 +265,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
 - Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
 - Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -380,6 +383,7 @@ La propriété `webkitdirectory` sur les entrées de fichiers HTML leur permet d
 Depuis Electron 7, ce `FileList` est maintenant la liste de tous les fichiers contenus dans le dossier, de la même manière que Chrome, Firefox et Edge ([lien vers les docs MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
 En guise d'illustration, considérez un dossier avec cette structure :
+
 ```console
 dossier
 ├── fichier1
@@ -388,11 +392,13 @@ dossier
 ```
 
 Dans Electron < 6, cela renverrait une` FileList` avec un objet` File `pour :
+
 ```console
 chemin/vers/dossier
 ```
 
 Dans Electron 7, cela renvoie maintenant une` FileList` avec un objet` File `pour :
+
 ```console
 /chemin/vers/dossier/fichier3
 /chemin/vers/dossier/fichier2
@@ -543,7 +549,9 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API modifiée : `webFrame.setSpellCheckProvider` prend maintenant un callback asynchrone
+
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
 ```js
 // Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {

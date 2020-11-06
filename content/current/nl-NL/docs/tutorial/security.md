@@ -24,7 +24,6 @@ Het is belangrijk om te onthouden dat de veiligheid van uw Electron applicatie h
 
 * **Geef veilige coderingspraktijken aan.** De eerste regel van verdediging voor uw applicatie is uw eigen code. Gewone web-kwetsbaarheden, zoals Cross-Site Scripting (XSS), heeft een hogere beveiligingsimpact op Electron applicaties, daarom is het sterk aanbevolen om veilige software ontwikkelingspraktijken aan te nemen en beveiligingstests uit te voeren.
 
-
 ## Isolatie voor niet-vertrouwde inhoud
 
 Er bestaat een beveiligingsprobleem wanneer u code ontvangt van een niet-vertrouwde bron (bijvoorbeeld een externe server) en deze lokaal uitvoert. Overweeg bijvoorbeeld een externe website die wordt weergegeven in een standaard [`BrowserWindow`](../api/browser-window.md). Als een aanvaller op de een of andere manier de genoemde inhoud kan veranderen (hetzij door de bron rechtstreeks aan te vallen, of door te zitten tussen je app en de eigenlijke bestemming), ze kunnen native code uitvoeren op de machine van de gebruiker.
@@ -91,7 +90,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Node.js integratie voor externe inhoud niet inschakelen
 
 _Deze aanbeveling is het standaardgedrag in Electron sinds 5.0.0._
@@ -145,7 +143,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Context Isolation inschakelen voor externe inhoud
 
 Context isolatie is een Electron functie waarmee ontwikkelaars code kunnen uitvoeren in preload scripts en in Electron API's in een speciale JavaScript context. In practice betekent dat dat globale objecten zoals `Array.prototype. ush` of `JSON.parse` kan niet worden gewijzigd door scripts die in het renderer-proces worden uitgevoerd.
@@ -157,7 +154,6 @@ Zelfs wanneer u `nodeIntegration: false` gebruikt om sterk geïsoleerd te worden
 ### Waarom & Hoe?
 
 Voor meer informatie over wat `contextIsolatie` is en hoe je het kunt inschakelen, kijk bij ons toegewijde [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Sessie-toestemmingsverzoeken behandelen van externe inhoud
 
@@ -192,7 +188,6 @@ sessie
 })
 ```
 
-
 ## 5) Schakel de webbeveiliging niet uit
 
 _Aanbeveling is de standaard van Electron's_
@@ -206,6 +201,7 @@ Schakel `webSecurity` niet uit in productie applicaties.
 Het uitschakelen van `webSecurity` schakelt het zelfde oorsprongbeleid uit en zet `Toestaan Onveilige Inhoud` eigenschap op `waar`. In andere woorden, het staat toe om onveilige code uit te voeren vanuit verschillende domeinen.
 
 ### Hoe?
+
 ```js
 // Slecht
 const mainwindow = new BrowserWindow({
@@ -222,7 +218,6 @@ const mainwindow = new BrowserWindow()
 
 ```html<!-- Slecht --><webview disablewebsecurity src="page.html"></webview><!-- Goed --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Een inhoudsveiligheidsbeleid definiëren
 
@@ -267,7 +262,6 @@ Het gewenste uitleveringsmechanisme van CSS is een HTTP header, Het is echter ni
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Stel `niet toe om RunningInsecureContent` toe te staan op `true`
 
 _Aanbeveling is de standaard van Electron's_
@@ -295,7 +289,6 @@ const mainwindow = new BrowserWindow({
 // Goed
 const hoofdvenster = new BrowserWindow({})
 ```
-
 
 ## 8) Experimentele functies niet inschakelen
 
@@ -325,7 +318,6 @@ const mainwindow = new BrowserWindow({
 const hoofdvenster = new BrowserWindow({})
 ```
 
-
 ## 9) Gebruik niet `enableBlinkFeatures`
 
 _Aanbeveling is de standaard van Electron's_
@@ -337,6 +329,7 @@ Knipperen is de naam van de rendering-engine achter Chromium. Net als met `exper
 Over het algemeen zijn er waarschijnlijk goede redenen als een functie niet standaard is ingeschakeld. Legitieme gebruik van gevallen voor het inschakelen van specifieke functies bestaan al. Als een ontwikkelaar, moet u precies weten waarom u een functie moet inschakelen, wat de consequenties zijn en hoe het de veiligheid van uw applicatie beïnvloedt. Onder geen omstandigheden mag je speculatieve functies inschakelen.
 
 ### Hoe?
+
 ```js
 // Slecht
 const mainwindow = new BrowserWindow({
@@ -350,7 +343,6 @@ const mainwindow = new BrowserWindow({
 // Goed
 const mainwindow = new BrowserWindow()
 ```
-
 
 ## 10) Gebruik `allowpopups` niet
 
@@ -366,7 +358,6 @@ Als je geen popups nodig hebt, staat je standaard het nieuwe [`BrowserWindows`](
 
 ```html<!-- Slecht --><webview allowpopups src="page.html"></webview><!-- Goed --><webview src="page.html"></webview>
 ```
-
 
 ## 11) Controleer de WebView-opties voor de aanmaak
 
@@ -478,6 +469,7 @@ Onjuist gebruik van [`openExtern`](../api/shell.md#shellopenexternalurl-options)
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLED_DATA_HERE)
 ```
+
 ```js
 // Goed
 const { shell } = require('electron')
@@ -527,7 +519,6 @@ const mainwindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filter de `externe` module
 
