@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 コマンドを実行すると、`app.asar.unpacked` という名前のフォルダが `app.asar` ファイルとともに作成されていることがわかります。 それには解凍されたファイルが含まれており、`app.asar` アーカイブと共に送られる必要があります。
-

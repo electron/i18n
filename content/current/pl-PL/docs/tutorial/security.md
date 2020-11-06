@@ -24,7 +24,6 @@ Należy pamiętać, że bezpieczeństwo Twojej aplikacji Electron jest wynikiem 
 
 * **Przyjęcie bezpiecznych praktyk kodowania.** Pierwsza linia obrony aplikacji to twój własny kod. powszechne luki w sieciach, takie jak Skryptowanie Cross-Site (XSS), ma większy wpływ na bezpieczeństwo aplikacji Electron, dlatego też zaleca się przyjęcie bezpiecznych najlepszych praktyk w zakresie opracowywania oprogramowania i przeprowadzanie testów bezpieczeństwa.
 
-
 ## Izolacja dla niezaufanych treści
 
 Problem bezpieczeństwa istnieje za każdym razem, gdy otrzymasz kod z niezaufanego źródła (np. zdalnego serwera) i wykonaj go lokalnie. Jako przykład weź pod uwagę zdalną stronę internetową wyświetlaną domyślnie [`BrowserWindow`](../api/browser-window.md). Jeśli atakujący w jakiś sposób potrafi zmienić wspomnianą zawartość (albo poprzez bezpośrednie atakowanie źródła , lub siedząc pomiędzy aplikacją a rzeczywistym miejscem docelowym), będzie mógł wykonać natywny kod na komputerze użytkownika.
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Nie włączaj integracji Node.js dla zdalnej zawartości
 
 _Ta rekomendacja jest domyślnym zachowaniem Electron od 5.0.0._
@@ -140,7 +138,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Włącz izolację kontekstową dla zawartości zdalnej
 
 Izolacja kontekstowa jest funkcją Electron, która pozwala programistom na uruchamianie kodu w skryptach wstępnego ładowania oraz w API Electron w dedykowanym kontekście JavaScript. W praktyce oznacza to, że globalne obiekty takie jak `Array.prototype. push` lub `JSON.parse` nie może być modyfikowany przez skrypty działające w procesie renderowania.
@@ -152,7 +149,6 @@ Nawet gdy używasz `nodeIntegration: false` aby wymusić silną izolację i zapo
 ### Czemu & Jak?
 
 Aby uzyskać więcej informacji na temat `izolacji kontekstu` i jak ją włączyć, zobacz nasz dedykowany [izolacja kontekstowa](context-isolation.md) dokument.
-
 
 ## 4) Obsługa wniosków o uprawnienia sesji ze zdalnej zawartości
 
@@ -187,7 +183,6 @@ session
 })
 ```
 
-
 ## 5) Nie wyłączaj WebSecurity
 
 _Rekomendacja jest domyślna Electrona_
@@ -201,6 +196,7 @@ Nie wyłączaj `WebSecurity` w aplikacjach produkcyjnych.
 Wyłączenie `webSecurity` wyłączy politykę tego samego pochodzenia i ustaw `zezwalajRunningInsecureContent` na `true`. Innymi słowy, umożliwia wykonywanie niezabezpieczonego kodu z różnych domen.
 
 ### Jak?
+
 ```js
 // Źle
 const mainWindow = new BrowserWindow({
@@ -217,7 +213,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- Źle --><webview disablewebsecurity src="page.html"></webview><!-- Dobrze --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Zdefiniowanie polityki bezpieczeństwa treści
 
@@ -262,7 +257,6 @@ Preferowanym mechanizmem dostawy CSP jest nagłówek HTTP, jednak nie jest możl
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Nie ustawiaj `zezwalajRunningInsecureContent` na `true`
 
 _Rekomendacja jest domyślna Electrona_
@@ -290,7 +284,6 @@ const mainWindow = new BrowserWindow({
 // Dobrze
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Nie włączaj funkcji eksperymentalnych
 
@@ -320,7 +313,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Nie używaj `enableBlinkFeatures`
 
 _Rekomendacja jest domyślna Electrona_
@@ -332,6 +324,7 @@ Miganie jest nazwą silnika renderowania za pomocą Chromium. Podobnie jak w `ex
 Ogólnie rzecz biorąc, prawdopodobnie istnieją uzasadnione powody, dla których funkcja nie została domyślnie włączona . Aby włączyć określone funkcje, należy korzystać z uzasadnionych przypadków. Jako deweloper, powinieneś dokładnie wiedzieć, dlaczego chcesz włączyć funkcję, jakie są skutki i jak ma to wpływ na bezpieczeństwo Twojej aplikacji. W nie powinieneś włączać funkcji spekulacyjnie.
 
 ### Jak?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -345,7 +338,6 @@ const mainWindow = new BrowserWindow({
 // Dobrze
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) Nie używaj `dozwolonych okienek`
 
@@ -361,7 +353,6 @@ Jeśli nie potrzebujesz wyskakujących okienek, lepiej nie pozwalasz na domyśln
 
 ```html<!-- Źle --><webview allowpopups src="page.html"></webview><!-- Dobrze --><webview src="page.html"></webview>
 ```
-
 
 ## 11) Zweryfikuj opcje WebView przed utworzeniem
 
@@ -472,6 +463,7 @@ Niewłaściwe użycie [`openExternal`](../api/shell.md#shellopenexternalurl-opti
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 // Dobry
 const { shell } = require('electron')
@@ -521,7 +513,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filtruj moduł `zdalne`
 

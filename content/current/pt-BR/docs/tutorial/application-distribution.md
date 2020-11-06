@@ -9,6 +9,7 @@ Para distribuir seu aplicativo com o Electron, você precisa empacotar e remarc�
 Essas ferramentas cuidarão de todos os passos que você precisa tomar para obter aplicações Electron distribuíveis; como empacotar a aplicação, converter o executável, configurar os ícones corretos e, opcionalmente, criar instaladores.
 
 ## Distribuição manual
+
 Você também pode optar por preparar seu aplicativo manualmente para a distribuição. Os passos necessários para o fazer estão descritos abaixo.
 
 Para distribuir seu aplicativo com Electron, você precisa baixar os [binários pré-compilados](https://github.com/electron/electron/releases) do Electron. Depois disso, a pasta contendo seu aplicativo deve ser renomeada para `app` e colocada dentro do diretório de recursos (resources) do Electron como mostrado nos seguintes exemplos. Note que a localização dos binários pré-compilados do Electron está indicada com `electron/` nos exemplos abaixo.
@@ -114,13 +115,13 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 3. Defina as seguintes Variáveis de Ambiente:
 
-  * `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
-  * `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
-  * `CI` - definer como `true` ou então ele vai falhar
-  * `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
-  * `TARGET_ARCH` - escolha `ie32` ou `x64`
+   * `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
+   * `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
+   * `CI` - definer como `true` ou então ele vai falhar
+   * `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
+   * `TARGET_ARCH` - escolha `ie32` ou `x64`
 
 4. Em `script/upload.py`, você _deve_ definir `ELECTRON_REPO` para o seu fork (`MYORG/electron`), especialmente se você é um contribuinte para o Electro apropriado.
 

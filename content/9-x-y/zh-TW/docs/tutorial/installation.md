@@ -1,6 +1,6 @@
 # 安裝
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. 建議的方式是將其在你的應用程式中以開發相依套件安裝：
 
 ```sh
 npm install electron --save-dev

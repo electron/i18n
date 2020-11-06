@@ -9,6 +9,7 @@ Read-Eval-Print-Loop (REPL)은 단일 사용자 입력 (i.e. 단일 표현식)�
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * `electron` 또는 `electron-prebuilt`가 전역으로 설치되어 있다고 가정하는 경우:
 
   ```sh

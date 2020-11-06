@@ -48,7 +48,6 @@ Mai jos este un tabel care mapează în mod explicit tipurile de modificări la 
 | Actualizări majore ale versiunii Node.js | Actualizări minore ale versiunii Node.js | Actualizare versiune patch Node.js |
 | Actualizări versiune Chromium            |                                          | plasturi cu crom fix               |
 
-
 Țineți cont că majoritatea actualizărilor de Chromium vor fi considerate spargere. Rezolvările care pot fi backportate vor fi probabil selectate ca patch-uri.
 
 # Stabilizarea ramurilor
@@ -112,6 +111,7 @@ Câteva exemple privind modul în care diferite serii de semiversuri vor prelua 
 ![](../images/versioning-sketch-7.png)
 
 # Caracteristici lipsă: Alphas
+
 Strategia noastră are câteva compromisuri pe care le considerăm adecvate. Cel mai important lucru este că noile caracteristici ale maestrului pot dura o vreme înainte de a ajunge la o linie de eliberare stabilă. Dacă vrei să încerci o caracteristică nouă imediat, va trebui să construiești singur Electron.
 
 Ca o perspectivă viitoare, putem introduce una sau ambele dintre următoarele:
@@ -119,6 +119,7 @@ Ca o perspectivă viitoare, putem introduce una sau ambele dintre următoarele:
 * eliberarea de alfa care au constrângeri mai laxe de stabilitate pe pariuri; de exemplu, ar fi permis să admit funcții noi în timp ce un canal de stabilitate este în _alpha_
 
 # Marcaje caracteristici
+
 Steagurile caracteristice sunt o practică obişnuită în Chromium şi sunt bine stabilite în ecosistemul de dezvoltare pe internet. În contextul Electron, un steag al unei funcții sau **ramură soft** trebuie să aibă următoarele proprietăți:
 
 * este activat/dezactivat fie la ora de rulare, fie la timpul de construcție; nu suportăm conceptul de steag al caracteristicilor ajustate la cerere

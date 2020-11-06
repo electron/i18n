@@ -9,6 +9,7 @@
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * 假設您已將 `electron` 或 `electron-prebuild` 安裝為全域元件:
 
   ```sh

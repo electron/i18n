@@ -706,7 +706,7 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
   * `path` String  - installation path of the app handling the protocol.
   * `name` String - display name of the app handling the protocol.
 
-This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+Este método devuelve una promesa que contiene el nombre, ícono y ruta de la aplicación del manejador predeterminado para el protocolo (esquema URI) de una URL.
 
 ### `app.setUserTasks(tasks)` _Windows_
 

@@ -5,6 +5,7 @@
 Als u een veiligheidsprobleem heeft, bekijk dan het [beveiligingsdocument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Als je op zoek bent naar programmeerhulp, voor antwoorden op de vragen of om deel te nemen aan discussie met andere ontwikkelaars die Electron gebruiken, je kunt communiceren met de community op deze locaties:
+
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   - Getting help
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Alle ondersteunde release lijnen accepteren externe pull requests tot backport f
 Wanneer een API wordt gewijzigd of verwijderd op een manier die bestaande functionaliteit breekt de eerdere functionaliteit zal worden ondersteund voor een minimum van twee grote versies wanneer mogelijk is voordat deze verwijderd wordt. Bijvoorbeeld, als een functie drie argumenten nodig heeft, en dat nummer wordt teruggebracht tot twee in de grote versie 10, de drie argumentenversie zal blijven werken totdat op zijn minst de grote versie 12 werkt. Verleden de minimum twee-versie drempelwaarde, we zullen proberen de compatibiliteit met achterwaarts te steunen na twee versies totdat de onderhouders de onderhoudslast te hoog achten om dit te blijven doen.
 
 ### Huidige ondersteunde versies
+
 - 10.x.y
 - 9.x.y
 - 8.x.y

@@ -48,7 +48,6 @@ There are several major changes from our 1.x strategy outlined below. Each chang
 | Node.js major version updates      | Node.js minor version updates          | Node.js patch version updates |
 | क्रोमियम संस्करण अपडेटस            |                                        | त्रुटी-सुधार क्रोमियम पैच     |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # स्थिरीकरण शाखायें
@@ -112,6 +111,7 @@ For each major and minor bump, you should expect to see something like the follo
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 हमारी रणनीति की भी कुछ खामियाँ है, पर हम समझते हैं कि फिलहाल उनसे कोई फर्क नहीं पड़ता | ख़ासकर यह कि मास्टर में नयी सुविधायें शामिल करने में कुछ समय लग सकता है, इससे पहले कि वह एक स्थिर रिलीज़ पंक्ति तक पहुंचे | अगर आप नयी सुविधाओं को तुरंत ही इस्तेमाल करना चाहते हैं, तो आप को खुद ही इलेक्ट्रॉन का निर्माण करना होगा |
 
 भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
@@ -119,6 +119,7 @@ For each major and minor bump, you should expect to see something like the follo
 * अल्फा रिलीज़िस जिनके पास बीटा से ज्यादा लचीले स्थिरता तत्व हैं; जैसे कि इस बात की अनुमति होगी कि जब एक स्थिरता चैनल _अल्फा_ में मौज़ूद हो, तब भी नयी सुविधाओं को शामिल किया जा सके |
 
 # फीचर ध्वज
+
 फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag

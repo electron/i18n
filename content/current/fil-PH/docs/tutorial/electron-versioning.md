@@ -48,7 +48,6 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
 | Node.js major version updates                             | Node.js minor version updates                    | Node.js patch version updates                    |
 | Mga updates sa Chromium version                           |                                                  | pagsasaayos ng may kaugnayan sa chromium patches |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Pagpapapanatag ng mga Branch
@@ -112,6 +111,7 @@ Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha 
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. Kung gusto mong subukan kaagad ang bagong tampok, dapat mong i-build ang Electron ng iyong sarili.
 
 Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
@@ -119,6 +119,7 @@ Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho 
 * inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa _alpha_
 
 # Mga tampok na Bandila
+
 Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag

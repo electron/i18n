@@ -38,11 +38,13 @@ Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_
 * [Avant le nœud 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Mirroirs et Caches personnalisés
+
 Lors de l'installation, le module `electron` appellera à [`@electron/get`](https://github.com/electron/get) pour télécharger les binaires précompilés de Electron pour votre plate-forme. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).
 
 Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de fournir un binaire personnalisé, vous pouvez aussi le faire en mettant à disposition un miroir ou un répertoire de cache existant.
 
 #### Miroir
+
 Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. L'URL utilisée par `@electron/get` est composée comme suit:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 La configuration ci-dessus sera téléchargée à partir d'URL telles que `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
+
 Egalement vous pouvez, surcharger le cache local. `@electron/get` mettra en cache les binaires téléchargés dans un répertoire local pour ne pas mettre votre réseau en évidence. Vous pouvez utiliser ce répertoire de cache pour fournir des binaires personnalisés d'Electron ou pour éviter d'utiliser le réseau.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
@@ -101,11 +104,13 @@ Le cache contient le fichier zip officiel de la version ainsi qu'une somme de co
 ```
 
 ## Désactiver le téléchargement des binaires
+
 Lorsque vous installer le packet `electron`, npm va automatiquement télécharger le fichier binaire associé.
 
 Ceci peut poser problème avec l'utilisation d'une CI par exemple, où on voudrait éviter de télécharger les binaires à chaque fois que la CI lance un build.
 
 Pour empêcher le binaire d'être téléchargé lorsque vous installez toutes les dépendances npm, vous pouvez définir la variable d'environnement `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ex. :
+
 ```sh
 format@@0 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

@@ -16,8 +16,8 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ### 推薦図書
 
- * [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## チェックリスト
 
@@ -49,7 +49,8 @@ Node.js モジュールをアプリケーションに追加する前に、その
 
 モジュールを検討するときは、以下を確認することを推奨します。
 
-1. 依存関係のサイズ。2) のロードに必要なリソース (` require()`) も含まれます。
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. 関心のあるアクションを実行するために必要なリソース
 
 モジュールをロードするときの CPU プロファイルとヒープメモリプロファイルの生成は、コマンドライン上の 1 つのコマンドで実行できます。 以下の例では、人気のあるモジュール `request` を見ていきます。
@@ -162,7 +163,6 @@ Electron の強力なマルチプロセスアーキテクチャは、長時間�
 
 3) メインプロセスでブロックする I/O 操作の使用を避けてください。 要するに、コア Node.js モジュール (`fs` や `child_process` など) が同期バージョンと非同期バージョンを提供している場合は、常に非同期および非ブロッキングのものを選択するべきです。
 
-
 ## 4) レンダラープロセスをブロックしている
 
 Electron には Chrome の最新バージョンが同梱されているため、Web Platform が提供する最新で最良の機能を利用して、アプリをスムーズかつ応答性の良いように維持する手法で重い操作を後回しまたはオフロードできます。
@@ -180,7 +180,6 @@ Electron には Chrome の最新バージョンが同梱されているため、
 *`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
 *Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
-
 
 ## 5) 不要な polyfill
 
@@ -201,7 +200,6 @@ Electron の現在のバージョンへの ployfill は不要であるという�
 さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット](http://youmightnotneedjquery.com/) の一部になりました。
 
 TypeScript などのトランスパイラー/コンパイラを使用している場合は、その構成を調べて、Electron でサポートされている最新の ECMAScript バージョンをターゲットにしていることを確認してください。
-
 
 ## 6) 不要またはブロックしているネットワークリクエスト
 

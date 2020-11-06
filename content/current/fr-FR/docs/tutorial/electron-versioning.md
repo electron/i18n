@@ -48,7 +48,6 @@ Ci-dessous, une table explicitant les types de changement avec leur catégorie c
 | Mises à jour de la version majeure de Node.js | Mises à jour mineure de la version de Node.js | Mises à jour des correctifs de Node.js |
 | mises à jour de version Chromium              |                                               | mises à jour de correctifs Chromium    |
 
-
 Notez que la plupart des mises à jour Chromium seront considérées comme cassantes. Les corrections qui peuvent être rétroportées seront probablement sélectionnées comme correctifs.
 
 # Branches de stabilisation
@@ -112,6 +111,7 @@ Quelques exemples de la façon dont différentes gammes de semver vont ramasser 
 ![](../images/versioning-sketch-7.png)
 
 # Caractéristiques manquantes : Alphas
+
 Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent appropriés. Le plus important est que les nouvelles fonctionnalités dans master peuvent prendre un certain temps avant d'atteindre une ligne de publication stable. Si vous voulez essayer une nouvelle fonctionnalité immédiatement, vous devrez construire Electron vous-même.
 
 À l'avenir, nous pourrions introduire l'un ou l'autre des éléments suivants:
@@ -119,6 +119,7 @@ Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent 
 * les versions alpha qui ont des contraintes de stabilité plus lâches aux bêta; par exemple, il serait permis d'admettre de nouvelles fonctionnalités alors qu'un canal de stabilité est en _alpha_
 
 # Indicateurs de fonctionnalités
+
 Les drapeaux de fonctionnalités sont une pratique courante dans Chromium, et sont bien établis dans l'écosystème de développement Web. Dans le contexte d'Electron, une fonctionnalité ou une **branche soft** doit avoir les propriétés suivantes :
 
 * il est activé/désactivé soit au moment de l'exécution, soit au moment de la construction ; nous ne prenons pas en charge le concept d'une fonctionnalité à portée de requête

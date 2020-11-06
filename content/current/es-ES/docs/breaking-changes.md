@@ -233,7 +233,7 @@ Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del 
 
 En Electron 8.0, el IPC se cambió para que utilizara el algoritmo de clon estructurado, con importantes mejoras de rendimiento. Para ayudar a facilitar la transición, el algoritmo de serialización antiguo de IPC fue mantenido y utilizado para algunos objetos que no son serializables con Clone Estructuralizado. En particular, objetos DOM (por ejemplo, `Elemento`, `Ubicación` y `DOMMatrimox`), Nodo. s objetos respaldados por clases C++ (por ejemplo, proceso `. nv`, algunos miembros de `Stream`), y objetos Electron respaldados por C++ clases (e.g. `WebContents`, `BrowserWindow` y `WebFrame`) no son serializables con un Clon Estructuralizado. Siempre que se invoca el antiguo algoritmo, se imprimió una advertencia de desaprobación .
 
-In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+En Electron 9,0, se eliminó el algoritmo de serialización anterior, y enviar tales objetos no serializables ahora lanzará un error "no se pudo clonar el objeto".
 
 ### API Modificada: `shell.openItem` ahora es `shell.openPath`
 
@@ -246,6 +246,7 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
 ```js
 // Anteriormente:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -255,6 +256,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
+
 - `NaN`, `Infinity` y `-Infinity` Ahora serán correctamente serializados en lugar de ser convertidos a `null`.
 - Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
 - `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
@@ -263,6 +265,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
 - Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
 - Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -380,6 +383,7 @@ La propiedad `webkitdirectory` en las entradas de archivos HTML les permite sele
 A partir de Electron 7, esa `Lista de archivos` ahora es la lista de todos los archivos contenidos dentro de la carpeta, similar a Chrome, Firefox, and Edge ([enlace a los documentos MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
 Como una ilustración, toma una carpeta con esta estructura:
+
 ```console
 direcotrio
 ├── archivo1
@@ -388,11 +392,13 @@ direcotrio
 ```
 
 En Electron <=6, esto debería retornar un `FileList` con un objeto `File` para:
+
 ```console
 rata/al/directorio
 ```
 
 En Electron 7, esto ahora retorna un `FileList` con un objeto `File` para:
+
 ```console
 /ruta/a/directorio/archivo3
 /ruta/a/directorio/archivo2
@@ -543,7 +549,9 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API cambiada: `webFrame.setSpellCheckProvider` ahora toma un callback asincrónico
+
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
 ```js
 // Obsoleto
 webFrame.setSpellCheckProvider('en-US', true, {

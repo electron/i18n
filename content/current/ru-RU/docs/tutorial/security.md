@@ -24,7 +24,6 @@ Electron обновляется с чередованием релизов Chrom
 
 * **Принять безопасные методы программирования** Первая линия защиты вашей заявки — ваш собственный код. Общие веб-уязвимости, такие как Cross-Site Scripting (XSS), имеют повышенное влияние на безопасность приложений Electron, поэтому настоятельно рекомендуется применять передовые методы разработки безопасного программного обеспечения и проводить тестирование безопасности.
 
-
 ## Изоляция ненадежного контента
 
 Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. В качестве примера можно считать отображение удаленного сайта внутри по умолчанию [`BrowserWindow`](../api/browser-window.md). Если злоумышленник каким-то образом удается изменить указанное содержимое (либо напрямую атакуя исходный код, или сидя между вашим приложением и фактическим пунктом назначения), они смогут выполнить родной код на машине пользователя.
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Не включать интеграцию Node.js для удаленного контента
 
 _Эта рекомендация является поведением по умолчанию в Electron начиная с 5.0.0._
@@ -145,7 +143,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Включите контекстную изоляцию для удаленного содержимого
 
 Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
@@ -157,7 +154,6 @@ Electron uses the same technology as Chromium's [Content Scripts](https://develo
 ### Почему & Как?
 
 Для получения дополнительной информации о том, какие `контекстные` и как их включить, пожалуйста, смотрите наш специальный [Изоляция контекста](context-isolation.md) документ.
-
 
 ## 4) Handle Session Permission Requests From Remote Content
 
@@ -192,7 +188,6 @@ const { session } = require('electron')
 })
 ```
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Recommendation is Electron's default_
@@ -206,6 +201,7 @@ Do not disable `webSecurity` in production applications.
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
 ### Как?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -227,7 +223,6 @@ const mainWindow = new BrowserWindow()
 <!-- Good -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 6) Define a Content Security Policy
 
@@ -272,7 +267,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Recommendation is Electron's default_
@@ -300,7 +294,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Do Not Enable Experimental Features
 
@@ -330,7 +323,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Не использовать `enableBlinkFeatures`
 
 _Recommendation is Electron's default_
@@ -342,6 +334,7 @@ Blink - это имя движка рендеринга за Chromium. Как и
 Как правило, есть веские причины, если функция по умолчанию не включена . Есть законные варианты использования для включения определенных функций. Как разработчик, вы должны точно знать, почему вам нужно включить функцию, что такое последствия и как они влияют на безопасность вашего приложения. При ни при каких обстоятельствах вы не должны включать возможности спекулятивно.
 
 ### Как?
+
 ```js
 // Плохая
 const mainWindow = new BrowserWindow({
@@ -355,7 +348,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) Не использовать `разрешать всплывающие окна`
 
@@ -376,7 +368,6 @@ _Recommendation is Electron's default_
 <!-- Good -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 11) Проверьте настройки WebView перед созданием
 
@@ -487,6 +478,7 @@ Shell [`openExternal`](../api/shell.md#shellopenexternalurl-options) позво�
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 // Хороший
 const { shell } = require('electron')
@@ -536,7 +528,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Фильтровать `удаленный` модуль
 

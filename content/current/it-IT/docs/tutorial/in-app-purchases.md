@@ -3,11 +3,13 @@
 ## Preparazione
 
 ### Accordo Pagato Per Le Domande
+
 Se non l'hai già fatto, dovrai firmare il Contratto di Applicazioni a Pagamento e impostare le informazioni bancarie e fiscali in iTunes Connect.
 
 [iTunes Connect Developer Help: Accordi, tasse e panoramica bancaria](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Crea I Tuoi Acquisti In-App
+
 Poi, avrai bisogno di configurare i tuoi acquisti in-app in iTunes Connect, e includere dettagli come il nome, prezzi e descrizione che mette in evidenza le caratteristiche e le funzionalità del tuo acquisto in-app.
 
 [iTunes Connect Developer Help: Crea un acquisto in-app](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

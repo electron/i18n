@@ -3,11 +3,13 @@
 ## Vorbereitung
 
 ### Bezahlte Nutzungsbedingungen
+
 Wenn Sie es noch nicht getan haben, müssen Sie den kostenpflichtigen Applikationsvertrag unterzeichnen und Ihre Bank- und Steuerinformationen in iTunes Connect einrichten.
 
 [iTunes Connect Entwickler Hilfe: Vereinbarungen, Steuern und Bankübersicht](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Erstellen Sie Ihre In-App-Käufe
+
 Dann müssen Sie Ihre In-App-Käufe in iTunes Connect konfigurieren und Details wie Name, hinzufügen Preisgestaltung und Beschreibung, die die Funktionen und Funktionen Ihres In-App-Kauf hervorhebt.
 
 [iTunes Connect Developer Hilfe: Erstellen Sie einen In-App-Kauf](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

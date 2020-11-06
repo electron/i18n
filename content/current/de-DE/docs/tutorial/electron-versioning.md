@@ -48,7 +48,6 @@ Unten ist eine Tabelle mit expliziten Zuordnungen von Änderungen in ihrer zugeh
 | Node.js Hauptversion Updates   | Node.js kleinere Version Updates           | Node.js Patch Version Updates |
 | Chromium-Versionsupdates       |                                            | fix-relevante Chrom-Patches   |
 
-
 Beachten Sie, dass die meisten Chromium-Updates als defekt angesehen werden. Korrekturen, die rückportiert werden können, werden wahrscheinlich als Patches ausgewählt.
 
 # Stabillisations Branches
@@ -112,6 +111,7 @@ Ein paar Beispiele, wie verschiedene Semberbereiche neue Versionen aufnehmen wer
 ![](../images/versioning-sketch-7.png)
 
 # Fehlende Features: Alphas
+
 Unsere Strategie hat einige Kompromisse, die wir für angemessen halten. Am wichtigsten ist, dass neue Funktionen im Master eine Weile dauern können, bevor sie eine stabile Release-Zeile erreichen. Wenn Sie eine neue Funktion sofort ausprobieren möchten, müssen Sie Electron selbst bauen.
 
 In Zukunft können wir eine oder beide der folgenden Punkte einführen:
@@ -119,6 +119,7 @@ In Zukunft können wir eine oder beide der folgenden Punkte einführen:
 * alpha-Releases mit lockeren Stabilitätsbeschränkungen für die Betas; zum Beispiel wäre es möglich, neue Funktionen zuzulassen, während sich ein Stabilitätskanal in _Alpha befindet_
 
 # Merkmal Flags
+
 Feature Flags sind eine gängige Praxis in Chromium, und sind gut etabliert in der Web-Entwicklung Ökosystem. Im Kontext von Electron muss eine Merkmalflagge oder **weiche Zweige** die folgenden Eigenschaften haben:
 
 * es ist entweder zur Laufzeit oder zur Build-Time aktiviert/deaktiviert; wir unterstützen das Konzept eines anfrage-scoped Feature Flags nicht

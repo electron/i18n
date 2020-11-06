@@ -9,6 +9,7 @@
 * **Xcode**: В дополнение к Xcode, также установите утилиты командной строки Xcode. Они включают в себя LLDB, дебаггер по умолчанию в Xcode на macOS. Он поддерживает отладку C, Objective-C и C++ на настольных и iOS устройствах и симуляторах.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+
    ```text
    скрипт команды импортирует ~/electron/src/tools/lldb/lldbinit.py. 07gf
    ```
@@ -93,6 +94,7 @@ To finish debugging at this point, run `process continue`. You can also continue
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
 ### Дальнейшее изучение
+
 LLDB это мощный инструмент с отличной документацией. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 You can also check out LLDB's fantastic [manual and tutorial](https://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.

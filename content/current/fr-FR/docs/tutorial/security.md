@@ -24,7 +24,6 @@ Il est important de se rappeler que la sécurité de votre application Electron 
 
 * **Adoptez des pratiques de codage sécurisées.** La première ligne de défense pour votre application est votre propre code. Des vulnérabilités web courantes, telles que le script intersite (XSS), ont un impact de sécurité plus élevé sur les applications Electron, c'est pourquoi il est fortement recommandé d'adopter des meilleures pratiques de développement logiciel sécurisé et d'effectuer des tests de sécurité.</ul>
 
-
 ## Isolation pour les contenus non approuvés
 
 Un problème de sécurité existe chaque fois que vous recevez du code d'une source non fiable (par exemple, un serveur distant) et que vous l'exécutez localement. À titre d'exemple, considérez qu'un site Web distant est affiché à l'intérieur d'un [`BrowserWindow`](../api/browser-window.md)par défaut. Si un attaquant parvient d'une manière ou d'une autre à modifier ledit contenu (soit en attaquant le directement, ou en se plaçant entre votre application et la destination réelle), ils sera en mesure d'exécuter le code natif sur la machine de l'utilisateur.
@@ -220,6 +219,7 @@ Désactiver `webSecurity` désactivera la politique de même origine et définir
 ### Comment ?
 
 
+
 ```js
 // Incorrect
 const mainWindow = new BrowserWindow({
@@ -375,6 +375,7 @@ Blink est le nom du moteur de rendu derrière Chromium. Comme pour `experimental
 De manière générale, il y a probablement de bonnes raisons si une fonctionnalité n'était pas activée par défaut. Il existe des cas d'utilisation légitime pour l'activation de fonctionnalités spécifiques. En tant que développeur , vous devriez savoir exactement pourquoi vous avez besoin d'activer une fonctionnalité, quelles sont les ramifications et comment elles ont un impact sur la sécurité de votre application. En aucune circonstance ne devrait vous permettre d'activer des fonctionnalités de manière spéculative.
 
 ### Comment ?
+
 
 
 ```js
@@ -535,6 +536,7 @@ Une mauvaise utilisation de [`openExternal`](../api/shell.md#shellopenexternalur
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 
 
 

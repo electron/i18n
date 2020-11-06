@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Debugging
 
 Legen Sie einige Haltepunkte in `main.js`fest und starten Sie das Debugging in der [Debug View](https://code.visualstudio.com/docs/editor/debugging). Du solltest in der Lage sein, die Haltepunkte zu treffen.

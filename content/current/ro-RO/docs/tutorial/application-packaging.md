@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 După ce rulați comanda, veți observa că un folder numit `app.asar.unpacked` a fost creat împreună cu fișierul `app.asar`. Conține fișierele neambalate și ar trebui expediate împreună cu arhiva `app.asar`.
-

@@ -48,7 +48,6 @@ Di seguito è riportata una tabella che mappa esplicitamente i tipi di modifiche
 | Aggiornamenti della versione principale di Node.js | Aggiornamenti della versione minore di Node.js | Aggiornamenti della versione della patch di Node.js |
 | Aggiornamenti versione cromo                       |                                                | cerotti di cromo fissi,                             |
 
-
 Si noti che la maggior parte degli aggiornamenti di cromo sarà considerata rottura. Correzioni che possono essere backportati saranno probabilmente cherry-picked come patch.
 
 # Branche di Stabilizzazione
@@ -112,6 +111,7 @@ Alcuni esempi di come varie gamme semver raccoglieranno nuove versioni:
 ![](../images/versioning-sketch-7.png)
 
 # Caratteristiche Mancanti: Alphas
+
 La nostra strategia presenta alcuni compromessi, che per ora ci sembrano appropriati. Soprattutto che le nuove funzionalità nel master possono richiedere un po' di tempo prima di raggiungere una linea di rilascio stabile. Se vuoi provare immediatamente una nuova funzionalità, dovrai costruire Electron da solo.
 
 Come considerazione futura, possiamo introdurre uno o entrambi i seguenti elementi:
@@ -119,6 +119,7 @@ Come considerazione futura, possiamo introdurre uno o entrambi i seguenti elemen
 * rilasci alfa che hanno vincoli di stabilità più allentati alla betas; ad esempio sarebbe consentito ammettere nuove funzionalità mentre un canale di stabilità è in _alfa_
 
 # Bandiere Caratteristica
+
 Le bandiere delle caratteristiche sono una pratica comune in cromo e sono consolidate nell'ecosistema dello sviluppo del web. Nel contesto di Electron, un flag di elementi o **soft branch** deve avere le seguenti proprietà:
 
 * è abilitato/disabilitato sia in runtime, sia in build-time; non supportiamo il concetto di un flag di funzionalità su richiesta

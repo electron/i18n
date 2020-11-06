@@ -9,6 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
 ## Manual distribution
+
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuiltbinaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör `app` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde `electron /` ile altında gösterilir.
@@ -142,13 +143,16 @@ Doğrudan Electron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 
 3. Aşağıdaki Ortam Değişkenlerini ayarlayın:
 
-  * `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-  * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-  * `CI` ' ı `true` olarak değiştirin yoksa başarısız olur
-  * `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
-  * `TARGET_ARCH` - set to `ia32` or `x64`
+   * `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+
+   * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+
+   * `CI` ' ı `true` olarak değiştirin yoksa başarısız olur
+
+   * `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
+   * `TARGET_ARCH` - set to `ia32` or `x64`
 
 4. Özellikle elektron katkıda bulunan biriyseniz `script/upload.py` içinde _gerekir_ `ELECTRON_REPO` çatal (`MYORG/elektron`) ayarlayın.
 

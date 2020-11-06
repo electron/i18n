@@ -9,6 +9,7 @@ Module `repl` cung cấp một REPL đã được xây dựng, để chạy nó 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Giả sử như bạn đã cài đặt `electron` hoặc `electron-prebuilt` trên global rồi:
 
   ```sh

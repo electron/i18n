@@ -9,6 +9,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur macOS. Il prend en charge le débogage en C, Objectif-C et Cm sur les appareils et simulateurs de bureau et d’iOS.
 
 * **.lldbinit** : Créez ou éditez `~/.lldbinit` pour permettre au code Chromium d'être correctement source-mappé.
+
    ```text
    import du script de commande ~/electron/src/tools/lldb/lldbinit.py
    ```
@@ -93,6 +94,7 @@ Pour terminer de déboguer à ce stade, exécutez : `process continue`. Vous pou
 Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `setName`, vous frapperez une fois de plus le point d’arrêt.
 
 ### Lectures additionnelles
+
 LLDB est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examinez la documentation de débogage d'Apple, par exemple, la [Structure de référence des commandes de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) ou l’introduction de [Utiliser LLDB à l'aide d'un débogueur autonome](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Vous pouvez également consulter les fantastiques [manuel et didacticiel](https://lldb.llvm.org/tutorial.html) pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.

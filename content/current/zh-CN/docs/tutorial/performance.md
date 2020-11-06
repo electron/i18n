@@ -16,8 +16,8 @@
 
 ### 推荐阅读
 
- * [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 检查列表
 
@@ -49,7 +49,8 @@
 
 当考虑一个模块时，我们建议你做以下检查：
 
-1. 依赖包含的大小 2) 加载(`require()`) 所需要的资源
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. 你所加载的资源能够执行你关心的操作
 
 可以使用命令行上的单个命令生成用于加载模块的 CPU 配置文件和堆内存配置文件 在下面的示例中，我们看一下受欢迎的模块 `request`。
@@ -166,7 +167,6 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 3) 避免在主进程中使用阻止I/O操作。 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
-
 ## 4) 阻塞渲染进程
 
 自从 Electron 使用了当前版本的 Chrome，你可以使用Web 平台提供的最新和最优秀的功能来推迟或卸载繁重的操作，以使你的应用保持流畅和迅速的反应。
@@ -184,7 +184,6 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 *`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
 *Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
-
 
 ## 5) 不必要的polyfills
 
@@ -205,7 +204,6 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
 
 如果您正在使用 TypeScript 这样的编译器，检查它的配置并确保你的目标是Electron 支持的最新 ECMAScript 版本。
-
 
 ## 6) 不必要或阻塞的网络请求
 

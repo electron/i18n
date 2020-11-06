@@ -163,4 +163,3 @@ $ asar paket app app.asar--membongkar *.node
 
 
 After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
-

@@ -24,7 +24,6 @@ Electron si tiene aggiornato con alternando rilasci di cromo. Per ulteriori info
 
 * **Adotta pratiche di codifica sicure.** La prima linea di difesa per la tua applicazione è il tuo codice. Vulnerabilità web comuni, come Scripting Cross-Site (XSS), hanno un maggiore impatto sulla sicurezza delle applicazioni Electron quindi è altamente raccomandato di adottare buone pratiche di sviluppo software sicure ed eseguire test di sicurezza.
 
-
 ## Isolamento Per Contenuto Non Fiduciato
 
 Esiste un problema di sicurezza ogni volta che ricevi un codice da una sorgente non attendibile (ad esempio un server remoto) ed eseguirlo localmente. Ad esempio, considera che un sito remoto sia visualizzato all'interno di una finestra di navigazione predefinita [``](../api/browser-window.md). Se un attaccante riesce in qualche modo a modificare detto contenuto (attaccando direttamente la sorgente , o seduti tra la tua app e la destinazione effettiva), essi saranno in grado di eseguire codice nativo sulla macchina dell'utente.
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Non abilitare l'integrazione di Node.js per i contenuti remoti
 
 _Questa raccomandazione è il comportamento predefinito in Electron dal 5.0.0._
@@ -140,7 +138,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Abilita l'isolamento contestuale per i contenuti remoti
 
 L'isolamento del contesto è una funzione Electron che permette agli sviluppatori di eseguire il codice negli script precaricati e nelle API Electron in un contesto JavaScript dedicato. In pratica, questo significa che oggetti globali come `Array.prototype. ush` o `JSON.parse` non può essere modificato dagli script in esecuzione nel processo di renderer.
@@ -152,7 +149,6 @@ Anche quando si utilizza `nodeIntegration: false` per imporre un forte isolament
 ### Perché & Come?
 
 Per ulteriori informazioni su ciò che è `contextIsolation` e su come attivarlo si prega di vedere il nostro documento dedicato [Context Isolation](context-isolation.md).
-
 
 ## 4) Gestisci Richieste Di Permesso Sessione Dal Contenuto Remoto
 
@@ -187,7 +183,6 @@ session
   })
 ```
 
-
 ## 5) Non Disattivare WebSecurity
 
 _La raccomandazione è predefinita di ElectronName_
@@ -201,6 +196,7 @@ Non disabilitare `webSecurity` nelle applicazioni di produzione.
 Disabilitare `webSecurity` disabiliterà la stessa politica di origine e imposterà la proprietà `allowRunningInsecureContent` a `true`. In altre parole, permette l'esecuzione di codice non sicuro da diversi domini.
 
 ### Come?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -217,7 +213,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- Cattivo --><webview disablewebsecurity src="page.html"></webview><!-- Buono --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Definire una politica di sicurezza dei contenuti
 
@@ -262,7 +257,6 @@ Il meccanismo di consegna preferito del CSP è un'intestazione HTTP, tuttavia no
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Non impostare `allowRunningInsecureContent` a `true`
 
 _La raccomandazione è predefinita di ElectronName_
@@ -290,7 +284,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Non Abilitare Funzionalità Sperimentali
 
@@ -320,7 +313,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Non utilizzare `enableBlinkFeatures`
 
 _La raccomandazione è predefinita di ElectronName_
@@ -332,6 +324,7 @@ Blink è il nome del motore di rendering dietro Chromium. Come con `experimental
 In generale, ci sono probabilmente buoni motivi se una funzione non è stata abilitata per impostazione predefinita. Esistono casi d'uso legittimi per l'attivazione di caratteristiche specifiche. Come sviluppatore , dovresti sapere esattamente perché devi abilitare una funzione, quali sono le ramificazioni e come influiscono sulla sicurezza della tua applicazione. In nessuna circostanza dovresti abilitare le funzioni speculativamente.
 
 ### Come?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -345,7 +338,6 @@ const mainWindow = new BrowserWindow({
 // Good
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) Non utilizzare `allowpopups`
 
@@ -361,7 +353,6 @@ Se non hai bisogno di popup, è meglio non consentire la creazione di nuovo [`Br
 
 ```html<!-- Cattivo --><webview allowpopups src="page.html"></webview><!-- Buono --><webview src="page.html"></webview>
 ```
-
 
 ## 11) Verifica Le Opzioni Di WebView Prima Della Creazione
 
@@ -472,6 +463,7 @@ L'uso improprio di [`openExternal`](../api/shell.md#shellopenexternalurl-options
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -521,7 +513,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filtra il modulo `remoto`
 

@@ -75,6 +75,7 @@ Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuel
 Eine weitere wichtige Beschränkung ist, dass das kompilierte AppX-Paket noch eine win32 Programmdatei beinhaltet. Somit wird es nicht auf der Xbox, HoloLens oder Mobiltelefonen ausführbar sein.
 
 ## Optional: Hinzufügen von UWP-Funktionen mittels eines Hintergrundprozesses
+
 Sie können Ihre Electron-App mit einer unsichtbaren UWP-Hintergrund-Aufgabe koppeln, die die Funktionen von Windows 10 voll nutzen wird - wie Push-Benachrichtigungen, Cortana Integration oder Live-Fliesen.
 
 Um herauszufinden, wie eine Electron-App, die eine Hintergrundaufgabe verwendet, um Toast Benachrichtigungen und Live-Kacheln zu senden [checken Sie sich das von Microsoft bereitgestellte Beispiel](https://github.com/felixrieseberg/electron-uwp-background) an.

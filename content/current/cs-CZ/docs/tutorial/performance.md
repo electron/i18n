@@ -16,8 +16,8 @@ Chcete-li se dozvědět více o profilování vašeho kódu aplikace, seznámte 
 
 ### Doporučené čtení
 
- * [Začněte s analýzou výkonu Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - první sekunda"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Začněte s analýzou výkonu Runtime](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Talk: "Visual Studio Code - první sekunda"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@ Stručně řečeno, zdánlivě vynikající modul určený především pro Node
 
 Při zvažování modulu doporučujeme zkontrolovat:
 
-1. velikost závislostí včetně 2) zdroje potřebné k načtení (`vyžaduje()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. zdroje potřebné k provedení akce, o kterou máte zájem
 
 Generování profilu CPU a heap paměťového profilu pro načítání modulu lze provést jedním příkazem na příkazové řádce. V příkladu níže se podíváme na populární modul `požadavek`.
@@ -162,7 +163,6 @@ Výkonná víceprocesorová architektura Electronu je připravena vám pomoci s 
 
 3) Vyhněte se blokování I/O operací v hlavním procesu. Stručně řečeno, kdykoliv jádro uzlu. s moduly (jako `fs` nebo `child_process`) nabízejí synchronní nebo asynchronní verzi, měli byste preferovat asynchronní i neblokující variantu .
 
-
 ## 4) Blokování procesu vykreslování
 
 Od Electron lodí s aktuální verzí Chrome, můžete využít nejnovějších a největších funkcí, které webová platforma nabízí k odložení nebo odpojení těžkých operací tak, aby vaše aplikace byla hladká a reagovala.
@@ -180,7 +180,6 @@ Obecně řečeno, všechna doporučení pro vytváření výkonných webových a
 *`requestIdleCallback()`* umožňuje vývojářům přidat do fronty funkci k spuštěné, jakmile proces vstoupí do období nečinnosti. Umožňuje vám provádět práci s nízkou prioritou nebo na pozadí, aniž by to mělo dopad na uživatelský zážitek. Další informace o tom, jak ji používat, [naleznete v dokumentaci k MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* je výkonný nástroj pro spuštění kódu na samostatném vlákně. Existuje doporučení, která je třeba zvážit – konzultujte Electron's [vícejazyčnou dokumentaci](./multithreading.md) a [dokumentaci MDN pro webové pracovníky](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Jsou ideálním řešením pro každou operaci, která vyžaduje hodně výkonu procesoru po delší dobu .
-
 
 ## 5) Nepotřebné polyplnění
 
@@ -201,7 +200,6 @@ Pracují za předpokladu, že v současných verzích Electronu není nutné pol
 Kromě toho pečlivě prozkoumejte knihovny, které používáte. Jsou skutečně nezbytné? `jQuery`například, byl tak úspěšný, že mnoho jeho funkcí je nyní součástí sady [standardních JavaScriptů dostupných](http://youmightnotneedjquery.com/).
 
 Pokud používáte transpil/kompilátor jako TypeScript, prozkoumejte jeho konfiguraci a ujistěte se, že cílíte nejnovější verzi ECMAScript podporovanou Electronem.
-
 
 ## 6) Nezbytné nebo blokující síťové požadavky
 

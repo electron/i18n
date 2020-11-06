@@ -9,6 +9,7 @@ Om de app te distribueren met Electro, moet je hem verpakken en opnieuw branden.
 Deze hulpmiddelen zorgen voor alle stappen die je moet nemen om te eindigen met een distributable Electron applicaties, zoals verpakking van uw applicatie, herbranding van de uitvoerbaarheid, het instellen van de juiste pictogrammen en eventueel installateurs.
 
 ## Handmatige distributie
+
 Je kunt er ook voor kiezen om je app handmatig klaar te maken voor verspreiding. De stappen die hiervoor nodig zijn, zijn hieronder beschreven.
 
 Om je app te distribueren met Electro, moet je de [vooraf gebouwde binaries van Electron](https://github.com/electron/electron/releases) downloaden. Vervolgens moet de map met de naam `app` worden geplaatst in de Electron's resources map zoals weergegeven in de volgende voorbeelden. Merk op dat de locatie van de voorgebouwde -binaries met `elektron/` wordt aangegeven in de voorbeelden hieronder.
@@ -114,13 +115,13 @@ Je moet Electron forken als je aangepaste C++ code hebt die je direct naar Elect
 
 3. De volgende omgevingsvariabelen instellen:
 
-  * `ELECTRON_GITHUB_TOKEN` - een token die releases kan maken op GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - de plaats waar je Node.js headers en symbolen uploadt
-  * `ELECTRON_RELEASE` - Zet op `true` en het upload deel wordt uitgevoerd, laat en `surf-build` los van CI-type controles, geschikt om voor elke pull request uit te voeren.
-  * `CI` - Zet op `waar` of anders zal het mislukken
-  * `GITHUB_TOKEN` - zet het op hetzelfde als `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - ingesteld op `C:\Temp` op Windows om te voorkomen dat pad te lang is
-  * `TARGET_ARCH` - ingesteld op `ia32` of `x64`
+   * `ELECTRON_GITHUB_TOKEN` - een token die releases kan maken op GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - de plaats waar je Node.js headers en symbolen uploadt
+   * `ELECTRON_RELEASE` - Zet op `true` en het upload deel wordt uitgevoerd, laat en `surf-build` los van CI-type controles, geschikt om voor elke pull request uit te voeren.
+   * `CI` - Zet op `waar` of anders zal het mislukken
+   * `GITHUB_TOKEN` - zet het op hetzelfde als `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - ingesteld op `C:\Temp` op Windows om te voorkomen dat pad te lang is
+   * `TARGET_ARCH` - ingesteld op `ia32` of `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

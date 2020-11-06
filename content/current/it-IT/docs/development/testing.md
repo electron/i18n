@@ -29,10 +29,13 @@ To run only specific tests matching a pattern, run `npm run test --
 
 1. Visual Studio 2019 deve essere installato.
 2. Node headers have to be compiled for your configuration.
+
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
    ```
+
 3. The electron.lib has to be copied as node.lib.
+
    ```powershell
    cd out\Testing
    mkdir gen\node_headers\Release

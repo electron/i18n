@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Debugowanie
 
 Ustaw punkty wstrzymania w `main.js`i rozpocznij debugowanie w [Widoku debugowania](https://code.visualstudio.com/docs/editor/debugging). Powinieneś być w stanie uderzyć w punkty przerwania.

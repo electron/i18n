@@ -9,6 +9,7 @@ Pentru a distribui aplicația ta cu Electron, trebuie să o împachetezi și să
 Aceste instrumente vor avea grijă de toți pașii pe care trebuie să îi faceți pentru a ajunge la o aplicație Electron distribuabilă, cum ar fi împachetarea aplicației, remarcarea executabilului, setarea pictogramelor corecte și, opțional, crearea de instalatori.
 
 ## Distribuție manuală
+
 Puteți, de asemenea, să alegeți manual ca aplicația să fie pregătită pentru distribuție. Măsurile necesare în acest sens sunt prezentate mai jos.
 
 Pentru a distribui aplicația ta cu Electron, trebuie să descarci binariile [preconstruite de Electron,](https://github.com/electron/electron/releases). Apoi, dosarul care conține aplicația dvs. ar trebui să fie numit `aplicația` și plasat în directorul de resurse Electron așa cum se arată în următoarele exemple. Țineți cont că locația binarelor preconstruite de Electron este indicată cu `electron/` în exemplele de mai jos.
@@ -114,13 +115,13 @@ Trebuie să forjezi Electron când ai codul C++ personalizat pe care l-ai modifi
 
 3. Setați următoarele variabile de mediu:
 
-  * `ELECTRON_GITHUB_TOKEN` - un token care poate crea versiuni pe GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - locul unde vei încărca headers Node.js precum și simboluri
-  * `ELECTRON_ELIBERARE` - Setat la `adevărat` și partea de încărcare va rula, lasă nestabilit și `surf-build` va efectua verificări de tip CI, adecvate pentru a rula pentru fiecare pull request.
-  * `CI` - Setat la `true` sau va eșua
-  * `GITHUB_TOKEN` - setează-l la `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - setat la `C:\Temp` pe Windows pentru a preveni probleme prea lungi
-  * `TARGET_ARCH` - setat la `ia32` sau `x64`
+   * `ELECTRON_GITHUB_TOKEN` - un token care poate crea versiuni pe GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - locul unde vei încărca headers Node.js precum și simboluri
+   * `ELECTRON_ELIBERARE` - Setat la `adevărat` și partea de încărcare va rula, lasă nestabilit și `surf-build` va efectua verificări de tip CI, adecvate pentru a rula pentru fiecare pull request.
+   * `CI` - Setat la `true` sau va eșua
+   * `GITHUB_TOKEN` - setează-l la `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - setat la `C:\Temp` pe Windows pentru a preveni probleme prea lungi
+   * `TARGET_ARCH` - setat la `ia32` sau `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

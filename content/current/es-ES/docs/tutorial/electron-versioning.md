@@ -48,7 +48,6 @@ A continuación hay una tabla relacionado explícitamente los tipos de cambios c
 | Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
 | Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-
 Tenga en cuenta que la mayoría de las actualizaciones de Chromium se considerarán rupturas. Las correcciones que pueden ser portadas en backported probablemente serán seleccionadas como parches.
 
 # Ramas de estabilización
@@ -112,6 +111,7 @@ Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 ![](../images/versioning-sketch-7.png)
 
 # Funciones faltantes: Alfas
+
 Nuestra estrategia tiene algunas compensaciones, que por ahora sentimos que son apropiadas. Más importante que las nuevas características en la maestra pueden tomar un tiempo antes de alcanzar una linea de lanzamiento estable. Si quiere tratar nuevas características inmediatamente, tendrá que construir Electron usted mismo.
 
 Como consideración futura, podemos introducir uno o ambos de los siguientes:
@@ -119,6 +119,7 @@ Como consideración futura, podemos introducir uno o ambos de los siguientes:
 * lanzamientos alpha que tiene perdida de estabilidad se vuelven beta; por ejemplo, le permitiría admitir nuevas características mientras un canal de estabilidad está en _alpha_
 
 # Señales de característica
+
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
 * está habilitado/deshabilitado en tiempo de ejecución o en tiempo de construcción, no soportamos el concepto de una bandera de característica alcance por solicitud

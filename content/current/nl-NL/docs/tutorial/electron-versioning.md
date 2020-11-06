@@ -48,7 +48,6 @@ Hieronder staat een tabel met wijzigingen expliciet in hun overeenkomstige categ
 | Node.js grote versie updates      | minor version updates Node.js          | Node.js patch versie updates      |
 | Chromium versie updates           |                                        | vast-gerelateerde chroom ladingen |
 
-
 Houd er rekening mee dat de meeste Chromium updates als breker zullen worden beschouwd. Fixes die terug kunnen worden gezet zullen waarschijnlijk de kersen zijn uitgekozen als patches.
 
 # Stabilisatie branches
@@ -112,6 +111,7 @@ Enkele voorbeelden van hoe verschillende semver nieuwe releases zullen ophalen:
 ![](../images/versioning-sketch-7.png)
 
 # Ontbrekende functies: Alpha's
+
 Onze strategie heeft een aantal afspraken, die wij vooralsnog gepast achten. Het belangrijkste is dat nieuwe functies in de master een tijdje kunnen duren voordat we een stabiele releaselijn bereiken. Als je onmiddellijk een nieuwe functie wilt uitproberen, moet je zelf Electron bouwen.
 
 Als toekomstige overweging kunnen we een of twee van het volgende introduceren:
@@ -119,6 +119,7 @@ Als toekomstige overweging kunnen we een of twee van het volgende introduceren:
 * alpha laat ruimte voor minder stabiele beperkingen; bijvoorbeeld is het toegestaan om nieuwe functies toe te voegen terwijl een stabiliteitskanaal zich in _alpha_ bevindt
 
 # Feature vlaggen
+
 Kennisvlaggen zijn een gangbare praktijk in Chromium en zijn goed gevestigd in het webontwikkelingecosysteem. In de context van Electro, moet een feature flag of **soft branch** de volgende eigenschappen hebben:
 
 * het is ingeschakeld/uitgeschakeld tijdens de runtime of build-time; we ondersteunen het concept van een aangevraagde functie vlag

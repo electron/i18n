@@ -38,7 +38,7 @@ Si necesita utilizar un proxy HTTP, necesita establecer la variable `ELECTRON_GE
 * [Antes del Nodo 10][proxy-env]
 
 ## Espejos y cachés personalizados
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
+Durante la instalación, el módulo `electron` llamara a [`electron-download`][electron-get] para descargar binarios precompilados de Electron para tu plataforma. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
 
 Si no puede acceder a GitHub o necesita proporcionar una compilación personalizada, puede hacerlo proporcionando un espejo o un directorio de caché existente.
 

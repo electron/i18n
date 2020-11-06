@@ -246,6 +246,7 @@ API `shell.openItem` был заменен асинхронной командо
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
 ```js
 // Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -255,6 +256,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
+
 - `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
 - Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
 - `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
@@ -263,6 +265,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
 - Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
 - Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -380,6 +383,7 @@ webFrame.setIsolatedWorldInfo(
 Начиная с Electron 7, этот `FileList` теперь список всех файлов, содержащихся в папке, подобно Chrome, Firefox и Edge ([ссылка на документацию MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
 В качестве примера возьмите папку с этой структурой:
+
 ```console
 folder
 ├── file1
@@ -388,11 +392,13 @@ folder
 ```
 
 В Electron <=6, это возвращает `FileList` с объектом `File` для:
+
 ```console
 path/to/folder
 ```
 
 В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
@@ -543,7 +549,9 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API изменен: `webFrame.setSpellCheckProvider` теперь принимает асинхронный обратный вызов
+
 Параметр `spellCheck` теперь асинхронный, а параметр `autoCorrectWord` был удален.
+
 ```js
 // Устаревшее
 webFrame.setSpellCheckProvider('en-US', true, {

@@ -21,6 +21,7 @@ Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/
      * `~/.config/chromium/Default/Extensions/`
    * trên macOS thì nó là `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+
    ```javascript
    const path = require('path')
    const os = require('os')

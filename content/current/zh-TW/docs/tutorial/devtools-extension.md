@@ -21,6 +21,7 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
      * `~/.config/chromium/Default/Extensions/`
    * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
 1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+
    ```javascript
    const path = require('path')
    const os = require('os')

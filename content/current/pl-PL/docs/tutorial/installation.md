@@ -38,11 +38,13 @@ Jeśli chcesz użyć proxy HTTP, musisz ustawić zmienną `ELECTRON_GET_USE_PROX
 * [Przed węzłem 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Custom Mirrors and Caches
+
 podczas instalacji, moduł `electron` zadzwoni do [`@electron/get`](https://github.com/electron/get) aby pobrać wstępnie wbudowane binary Electron dla twojej platformy. Wykona to poprzez skontaktowanie się stroną wydań w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
 
 Jeśli nie masz dostępu do witryny GitHub lub wymagasz niestandardowej kompilacji, możesz to zrobić przez zapewnienie mirror lub istniejącego katalogu pamięci podręcznej.
 
 #### Mirror
+
 Możesz użyć zmiennych środowiskowych do nadpisania bazowego adresu URL, ścieżki, na której szukaj binarów Electron i binarnych nazw plików. Adres URL użyty przez `@electron/get` składa się z następujących elementów:
 
 ```javascript
@@ -65,6 +67,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 Powyższa konfiguracja pobierze się z adresów URL takich jak `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
+
 Alternatywnie możesz nadpisać lokalną pamięć podręczną. `@electron/get` będzie pamięci podręcznej pobranych plików binarnych w lokalnym katalogu, aby nie naciskać na twoją sieć. Możesz użyć tego katalogu pamięci podręcznej, aby przekazać niestandardowe kompilacje Electron'a lub uniknąć korzystania z połączenia internetowego.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
@@ -101,11 +104,13 @@ Pamięć podręczna zawiera oficjalny plik zip wersji oraz sumę kontrolną, zap
 ```
 
 ## Pomiń pobieranie binarne
+
 Podczas instalacji `electron` pakiet NPM automatycznie pobiera plik binarny elektron.
 
 Czasami może to być niepotrzebne, np. w środowisku CI podczas badania innego elementu.
 
 Aby zapobiec pobieraniu plików binarnych podczas instalacji wszystkich zależności npm można ustawić zmienną środowiskową `ELECTRON_SKIP_BINARY_DOWNLOAD`. Np.:
+
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm instalacja
 ```

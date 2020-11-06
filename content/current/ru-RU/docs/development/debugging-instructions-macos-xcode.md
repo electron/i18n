@@ -1,10 +1,13 @@
 ## Debugging with XCode
 
 ### Генерировать xcode проект для отладки исходников (невозможно собрать код из xcode)
+
 Run `gn gen` with the --ide=xcode argument.
+
 ```sh
 $ gn gen out/Testing --ide=xcode
 ```
+
 Это будет генерировать electron.ninja.xcworkspace. Вам придётся открыть этот проект для установки точек останова и проверки.
 
 Смотрите `gn help gen` для получения дополнительной информации о генерации проектов IDE с помощью GN.

@@ -29,10 +29,13 @@ To run only specific tests matching a pattern, run `npm run test --
 
 1. Musí být nainstalováno Visual Studio 2019.
 2. Node headers have to be compiled for your configuration.
+
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
    ```
+
 3. electron.lib musí být zkopírován jako node.lib.
+
    ```powershell
    cd out\Testing
    mkdir gen\node_headers\Release
@@ -42,6 +45,7 @@ To run only specific tests matching a pattern, run `npm run test --
 #### Chybějící písma
 
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
+
 1. Stiskněte klávesu Windows a vyhledejte _Správa volitelných funkcí_.
 2. Klikněte na _Přidat funkci_.
 3. Vyberte _Japonská doplňkové písma_ a klikněte na _Instalovat_.
@@ -51,5 +55,6 @@ To run only specific tests matching a pattern, run `npm run test --
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 
 To configure display scaling:
+
 1. Stiskněte klávesu Windows a vyhledejte _Nastavení zobrazení_.
 2. Under _Scale and layout_, make sure that the device is set to 100%.

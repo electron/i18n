@@ -21,6 +21,7 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
      * `~/.config/chromium/Default/Extensions/`
    * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Passez l'emplacement de l'extension à l'API `BrowserWindow.addDevToolsExtension` pour les outils de développement de React, c'est quelque chose comme :
+
    ```javascript
    const path = require('path')
    const os = require('os')

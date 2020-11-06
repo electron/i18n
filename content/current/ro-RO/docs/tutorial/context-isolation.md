@@ -67,4 +67,3 @@ contextBridge.ExpseInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

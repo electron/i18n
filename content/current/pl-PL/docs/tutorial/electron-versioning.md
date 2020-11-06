@@ -48,7 +48,6 @@ Poniżej znajduje się tabela wyraźnie mapująca rodzaje zmian do odpowiadając
 | Node.js główne aktualizacje wersji | Aktualizacje wersji Node.js      | Aktualizacje wersji Node.js |
 | Aktualizacje wersji Chromium       |                                  | stałe plastry chromowane    |
 
-
 Zauważ, że większość aktualizacji Chromium będzie uważana za niszczącą. Naprawy które mogą być podparte będą prawdopodobnie wybierane jako plamy wiśni.
 
 # Stabilizacja gałęzi
@@ -112,6 +111,7 @@ Kilka przykładów jak różne zakresy semver będą odbierać nowe wersje:
 ![](../images/versioning-sketch-7.png)
 
 # Brakujące funkcje: Alphas
+
 Nasza strategia ma kilka kompromisów, które na razie uważamy za właściwe. Najważniejsze, że nowe funkcje w głównej mogą zająć trochę zanim osiągnie stabilną linię wydania. Jeśli chcesz natychmiast wypróbować nową funkcję, będziesz musiał sama zbudować Electron.
 
 W przyszłości możemy wprowadzić jeden lub oba z poniższych elementów:
@@ -119,6 +119,7 @@ W przyszłości możemy wprowadzić jeden lub oba z poniższych elementów:
 * uwalniania alfa, które mają ograniczenia stabilności luźnej w stosunku do wartości beta; na przykład dopuszczalne byłoby dopuszczenie nowych funkcji, podczas gdy kanał stabilności znajduje się w _alfa_
 
 # Flagi funkcji
+
 Flagi funkcji są powszechną praktyką w Chromie i są ugruntowane w ekosystemie rozwoju sieci. W kontekście Electron znacznik funkcji lub **miękka gałąź** musi mieć następujące właściwości:
 
 * jest włączona/wyłączona w czasie pracy lub w czasie budowy; nie obsługujemy koncepcji flagi funkcji przeskalowanej na żądanie

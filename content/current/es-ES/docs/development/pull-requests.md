@@ -33,6 +33,7 @@ $ git fetch upstream
 ### Paso 2: Compilado
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
+
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
@@ -82,16 +83,16 @@ Ejemplos de mensajes de confirmación con prefijos semánticos:
 
 Prefijos usuales:
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+- fix: A bug fix
+- feat: A new feature
+- docs: Documentation changes
+- test: Adding missing tests or correcting existing tests
+- build: Changes that affect the build system
+- ci: Changes to our CI configuration files and scripts
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- style: Changes that do not affect the meaning of the code (linting)
+- vendor: Bumping a dependency like libchromiumcontent or node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
@@ -196,4 +197,3 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
-

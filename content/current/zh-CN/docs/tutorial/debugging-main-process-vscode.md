@@ -28,7 +28,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. 调试
 
 在 `main.js`中设置一些断点，并在 [调试视图](https://code.visualstudio.com/docs/editor/debugging) 中开始调试. 您应该能够击中断点。

@@ -247,6 +247,7 @@ Electron 9.0 では、旧シリアライズアルゴリズムが削除されま�
 IPC を介して (`ipcRenderer.send`、`ipcRenderer.sendSync`、`WebContents.send` 及び関連メソッドから) オブジェクトを送信できます。このオブジェクトのシリアライズに使用されるアルゴリズムが、カスタムアルゴリズムから V8 組み込みの [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) に切り替わります。これは `postMessage` のメッセージのシリアライズに使用されるものと同じアルゴリズムです。 これにより、大きなメッセージに対するパフォーマンスが 2 倍向上しますが、動作に重大な変更が加えられます。
 
 - 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
+
 ```js
 // 以前:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -256,6 +257,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => Error("() => {} could not be cloned.") を投げる
 ```
+
 - `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
 - 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
 - `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
@@ -264,6 +266,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
 - 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
 - Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
+
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -381,6 +384,7 @@ webFrame.setIsolatedWorldInfo(
 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。
 
 例として、以下の構造のフォルダーを使用します。
+
 ```console
 folder
 ├── file1
@@ -389,11 +393,13 @@ folder
 ```
 
 Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
+
 ```console
 path/to/folder
 ```
 
 Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
+
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
@@ -544,7 +550,9 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API 変更: `webFrame.setSpellCheckProvider` が非同期コールバックを取るように
+
 `spellCheck` コールバックは非同期になり、`autoCorrectWord` パラメーターは削除されました。
+
 ```js
 // 非推奨
 webFrame.setSpellCheckProvider('en-US', true, {

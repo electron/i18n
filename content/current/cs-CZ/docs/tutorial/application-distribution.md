@@ -9,6 +9,7 @@ Chcete-li aplikaci distribuovat pomocí Electronu, musíte ji balit a znovu zna�
 Tyto nástroje se postarají o všechny kroky, které potřebujete k tomu, abyste skončili s distribuovatelnými aplikacemi Electron. např. balení vaší aplikace, nové označení spustitelného souboru, nastavení správných ikon a volitelně vytváření instalátorů.
 
 ## Ruční distribuce
+
 Můžete si také vybrat manuální přípravu vaší aplikace k distribuci. Kroky potřebné k tomu jsou nastíněny níže.
 
 Chcete-li aplikaci distribuovat pomocí Electronu, musíte stáhnout [předkompilované binárky Electronu](https://github.com/electron/electron/releases). Dále, složka obsahující vaši aplikaci by měla být pojmenována `aplikace` a umístěna do adresáře Electronu , jak je zobrazeno v následujících příkladech. Všimněte si, že umístění Předsestavených binárních souborů Electronu je v příkladech uvedeno `elektronickou/` níže.
@@ -114,13 +115,13 @@ Musíte rozštěpit Electron, když máte vlastní C++ kód, který jste upravil
 
 3. Nastavte následující proměnné prostředí:
 
-  * `ELECTRON_GITHUB_TOKEN` - token, který může vytvářet vydání na GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - místo, kde nahrajete hlavičky Node.js i symboly
-  * `ELECTRON_RELEASE` - Nastavte na `true` a bude spuštěna část nahrávání, ponechte odstavení a `surf-build` bude provádět kontroly typu CI, které jsou vhodné pro každý požadavek na natažení .
-  * `CI` - Nastavte na `true` nebo jinak selže
-  * `GITHUB_TOKEN` - nastavte ho na stejnou úroveň jako `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - nastavit na `C:\Temp` v systému Windows, aby se zabránilo příliš dlouhým problémům
-  * `TARGET_ARCH` - nastaveno na `ia32` nebo `x64`
+   * `ELECTRON_GITHUB_TOKEN` - token, který může vytvářet vydání na GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - místo, kde nahrajete hlavičky Node.js i symboly
+   * `ELECTRON_RELEASE` - Nastavte na `true` a bude spuštěna část nahrávání, ponechte odstavení a `surf-build` bude provádět kontroly typu CI, které jsou vhodné pro každý požadavek na natažení .
+   * `CI` - Nastavte na `true` nebo jinak selže
+   * `GITHUB_TOKEN` - nastavte ho na stejnou úroveň jako `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - nastavit na `C:\Temp` v systému Windows, aby se zabránilo příliš dlouhým problémům
+   * `TARGET_ARCH` - nastaveno na `ia32` nebo `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

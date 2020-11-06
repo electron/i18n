@@ -9,6 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 이 도구는 응용 프로그램 패키징, 실행 파일 브랜딩, 올바른 아이콘 설정 및 선택적으로 설치 프로그램 생성과 같은 배포 가능한 Electron 응용 프로그램을 끝내기 위해 수행해야하는 모든 단계를 처리합니다.
 
 ## 수동 배포
+
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 Electron으로 만든 우리의 앱을 배포하기 위해서는, Electron의 [prebuilt binaries](https://github.com/electron/electron/releases)를 다운로드 해야 합니다. 먼저, 예제에서 보이는것처럼 폴더 이름을 `app`로 지정한 후 Electron의 리소스 디렉터리에 폴더를 통째로 집어넣기만 하면 됩니다. 아래의 예제에서는 `electron/` 에서 가리키는 Electron's prebuilt binaries 위치를 언급해줍니다.
@@ -115,13 +116,13 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 
 3. 다음의 환경 변수들을 설정합니다:
 
-  * `ELECTRON_GITHUB_TOKEN` - GitHub에 릴리즈를 만들 수 있는 토큰.
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Node.js 헤더와 심볼을 업로드 할 장소
-  * `ELECTRON_RELEASE` - `true`로 설정하면 업로드 부분이 실행되고 설정되지 않은 상태로 유지되며 `surf-build`는 모든 pull request에 대해 실행하기에 적합한 CI 유형 검사를 수행합니다.
-  * `CI` -`true`또는 다른 것을 지정하면 실패합니다.
-  * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN`과 같게 설정
-  * `SURF_TEMP` - Windows에서는 `C:\Temp`로 설정하면 긴 경로 문제를 해결할 수 있습니다.
-  * `TARGET_ARCH` - `ia32` 또는 `x64`를 지정.
+   * `ELECTRON_GITHUB_TOKEN` - GitHub에 릴리즈를 만들 수 있는 토큰.
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Node.js 헤더와 심볼을 업로드 할 장소
+   * `ELECTRON_RELEASE` - `true`로 설정하면 업로드 부분이 실행되고 설정되지 않은 상태로 유지되며 `surf-build`는 모든 pull request에 대해 실행하기에 적합한 CI 유형 검사를 수행합니다.
+   * `CI` -`true`또는 다른 것을 지정하면 실패합니다.
+   * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN`과 같게 설정
+   * `SURF_TEMP` - Windows에서는 `C:\Temp`로 설정하면 긴 경로 문제를 해결할 수 있습니다.
+   * `TARGET_ARCH` - `ia32` 또는 `x64`를 지정.
 
 4. Electron에 기여를 하는 기여자라면, _반드시_ `script/upload.py`에서 포크를 위해 `ELECTRON_REPO`를 설정해야 합니다. (`MYORG/electron`)
 

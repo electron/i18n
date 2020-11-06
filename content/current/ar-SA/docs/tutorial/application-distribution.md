@@ -9,6 +9,7 @@
 هذه الأدوات ستعالج جميع الخطوات التي تحتاج إلى اتخاذها في نهاية المطاف مع تطبيقات إلكترون قابلة للتوزيع ، مثل تغليف التطبيق الخاص بك، وإعادة تسمية الجهاز التنفيذي، وتعيين الأيقونات الصحيحة وإنشاء مثبتات اختيارية.
 
 ## التوزيعة اليدوية
+
 يمكنك أيضًا اختيار الحصول يدويًا على تطبيقك جاهز للتوزيع. ويرد أدناه بيان بالخطوات اللازمة للقيام بذلك.
 
 لتوزيع تطبيقك مع إلكترون، تحتاج إلى تحميل إلكترون [الذي تم بناؤه مسبقاً Binaries](https://github.com/electron/electron/releases). بعد ذلك، يجب أن يكون المجلد الذي يحتوي على التطبيق الخاص بك مسمى `التطبيق` وأن يتم وضعه في دليل موارد Electron's كما هو مبين في الأمثلة التالية. لاحظ أن موقع Electron's Binaries التي تم بناؤها مسبقاً هو مشار إليه مع `electron/` في الأمثلة أدناه.
@@ -113,13 +114,13 @@ MyApp.app/Contents
 
 3. تعيين المتغيرات البيئية التالية:
 
-  * `ELECTRON_GITHUB_TOKEN` - رمز يمكن أن ينشئ إصدارات على GitHub
-  * `ELECTRON_S3_ACCESS_KEY`، `ELECTRON_S3_BUCKET`، `ELECTRON_S3_SECRET_KEY` - المكان الذي ستقوم بتحميل ترويسات Node.js وكذلك الرموز
-  * `ELECTRON_RELEASE` - تعيين إلى `true` وسيتم تشغيل جزء التحميل، اترك بدون تعيين و `بناء` سيقوم بفحص من نوع CI، مناسب للتشغيل لكل طلب سحب.
-  * `CI` - تعيين إلى `true` أو أنها ستفشل
-  * `GITHUB_TOKEN` - إضبطه على نفس`ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - تعيين إلى `C:\T` على ويندوز لمنع مشكلات طويلة جداً
-  * `TARGET_ARCH` - تعيين إلى `ia32` أو `x64`
+   * `ELECTRON_GITHUB_TOKEN` - رمز يمكن أن ينشئ إصدارات على GitHub
+   * `ELECTRON_S3_ACCESS_KEY`، `ELECTRON_S3_BUCKET`، `ELECTRON_S3_SECRET_KEY` - المكان الذي ستقوم بتحميل ترويسات Node.js وكذلك الرموز
+   * `ELECTRON_RELEASE` - تعيين إلى `true` وسيتم تشغيل جزء التحميل، اترك بدون تعيين و `بناء` سيقوم بفحص من نوع CI، مناسب للتشغيل لكل طلب سحب.
+   * `CI` - تعيين إلى `true` أو أنها ستفشل
+   * `GITHUB_TOKEN` - إضبطه على نفس`ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - تعيين إلى `C:\T` على ويندوز لمنع مشكلات طويلة جداً
+   * `TARGET_ARCH` - تعيين إلى `ia32` أو `x64`
 
 4. In `script/upload.py`, you _must_ set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

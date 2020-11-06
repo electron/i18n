@@ -75,6 +75,7 @@ V protikladu k tradičním UWP aplikacím musí být v současné době zabalen�
 Dalším důležitým omezením je, že kompilovaný balíček AppX stále obsahuje Win32 spustitelný soubor - a proto nebude spuštěn na Xboxu, HoloLens nebo telefony.
 
 ## Volitelné: Přidat funkce UWP pomocí BackgroundTask
+
 Můžete spárovat vaši Electron aplikaci s neviditelným UWP úlohou na pozadí, kterou získáte k plnému využití funkcí Windows 10 - například push notifikace, Cortana integrace, nebo živé dlaždice.
 
 Chcete-li zjistit, jak Electron aplikace využívající úkol na pozadí odesílat upozornění a živé dlaždice, [podívejte se na vzorek poskytnutý Microsoftem](https://github.com/felixrieseberg/electron-uwp-background).

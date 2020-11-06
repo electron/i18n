@@ -1,10 +1,13 @@
 ## Xcodeでのデバッグ
 
 ### ソースデバッグ用 Xcode プロジェクトの生成 (Xcode からはコードをビルドできない)
+
 `gn gen` に --ide=xcode 引数を加えて実行します。
+
 ```sh
 $ gn gen out/Testing --ide=xcode
 ```
+
 これで、electron.ninja.xcworkspace を生成します。 このワークスペースを開いて、ブレークポイントをセットしてインスペクトしなければなりません。
 
 GNでIDEプロジェクトの生成についての情報を見るには、`gn help gen`を見てください。

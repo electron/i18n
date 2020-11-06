@@ -16,8 +16,8 @@ Um mehr darüber zu erfahren, wie Sie den Code Ihrer App profitieren, machen Sie
 
 ### Empfohlenes Lesen
 
- * [Beginnen Sie mit der Analyse der Laufzeitleistung](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Vortrag: "Visual Studio Code - Die erste Sekunde"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Beginnen Sie mit der Analyse der Laufzeitleistung](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Vortrag: "Visual Studio Code - Die erste Sekunde"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Checklist
 
@@ -49,7 +49,8 @@ Kurz gesagt, ein scheinbar hervorragendes Modul, das primär für Node.js-Server
 
 Wenn Sie ein Modul in Betracht ziehen, empfehlen wir, dass Sie es prüfen:
 
-1. die Größe der Abhängigkeiten beinhaltet 2) die Ressourcen, die zum Laden benötigt werden (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. die Ressourcen, die benötigt werden, um die Aktion auszuführen, die Sie interessieren
 
 Die Erzeugung eines CPU-Profils und eines Heap-Speicherprofils für das Laden eines Moduls kann mit einem einzigen Befehl auf der Befehlszeile durchgeführt werden. Im folgenden Beispiel sehen wir das beliebte Modul `Request` an.
@@ -162,7 +163,6 @@ Electron's powerful multi-process architecture stands ready to assist you with y
 
 3) Vermeiden Sie die Blockierung von I/O-Operationen im Hauptprozess. Kurzum, wann immer Kernknoten. s Module (wie `fs` oder `child_process`) bieten eine synchrone oder eine asynchrone Version an Sie sollten die asynchrone und nicht-blockierende Variante bevorzugen.
 
-
 ## 4) Blockieren des Renderer-Prozesses
 
 Da Electron mit einer aktuellen Chrome-Version ausgeliefert wird, Sie können die neuesten und großartigsten Funktionen der Web-Plattform nutzen, um schwere Operationen so zu verschieben oder abzuschalten, dass Ihre App reibungslos und flexibel bleibt.
@@ -180,7 +180,6 @@ Generell gelten alle Ratschläge für die Erstellung leistungsfähiger Web-Apps 
 *`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. Es ermöglicht Ihnen, mit niedriger Priorität oder Hintergrundarbeit durchzuführen, ohne die Benutzererfahrung zu beeinträchtigen. Für weitere Informationen, wie Sie es verwenden können, lesen Sie [die Dokumentation auf MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Webworkers* sind ein leistungsfähiges Werkzeug, um Code auf einem separaten Thread auszuführen. Es gibt einige Vorbehalte zu beachten – konsultieren Sie die elektronische [Multithreading-Dokumentation](./multithreading.md) und die [MDN-Dokumentation für Webworkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Sie sind eine ideale Lösung für jede Operation, die eine hohe CPU-Leistung für einen längeren Zeitraum von erfordert.
-
 
 ## 5) Unnötige Polyfelle
 
@@ -201,7 +200,6 @@ Operieren unter der Annahme, dass Polyfillments in aktuellen Versionen von Elect
 Außerdem sollten Sie die von Ihnen verwendeten Bibliotheken sorgfältig prüfen. Sind sie wirklich notwendig? `jQuery`, zum Beispiel war so ein Erfolg, dass viele seiner Funktionen nun Teil des [Standard JavaScript-Feature-Sets verfügbar](http://youmightnotneedjquery.com/) sind.
 
 Wenn Sie einen Transpiler/Compiler wie TypeScript verwenden, überprüfen Sie die Konfiguration und stellen Sie sicher, dass Sie die aktuellste ECMAScript-Version auswählen, die von Electron unterstützt wird.
-
 
 ## 6) Unnötige oder Sperrung von Netzwerkanfragen
 

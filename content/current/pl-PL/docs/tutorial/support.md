@@ -5,6 +5,7 @@
 Jeśli masz obawy o bezpieczeństwo, zobacz [dokument bezpieczeństwa](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Jeśli szukasz pomocy programowania, odpowiedzi na pytania, lub dołączysz do dyskusji z innymi programistami, którzy korzystają z Electrona, możesz współdziałać ze społecznością w tych lokalizacjach:
+
 - [`Discord Electrona`](https://discord.com/invite/electron) ma kanały dla:
   - Uzyskiwanie pomocy
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
@@ -38,6 +39,7 @@ Wszystkie obsługiwane linie wydania zaakceptują zewnętrzne żądania ściągn
 Gdy API zostanie zmienione lub usunięte w sposób, który narusza istniejące funkcje, poprzednia funkcjonalność będzie obsługiwana przez co najmniej dwie główne wersje jeśli jest możliwe przed usunięciem. Na przykład, jeśli funkcja przyjmuje trzy argumenty, i liczba ta jest zredukowana do dwóch w głównej wersji 10, wersja trzyargumentowa nadal działałaby aż do co najmniej ważnej wersji 12. Przekroczono minimalny próg dwóch wersji , postaramy się wspierać wsteczną kompatybilność poza dwiema wersjami dopóki opiekunowie nie poczują, że obciążenie związane z utrzymaniem jest zbyt wysokie, aby tak się stało.
 
 ### Aktualnie wspierane wersje
+
 - 10.x.y
 - 9.x.y
 - 8.x.y
@@ -72,4 +74,4 @@ Whether the prebuilt binary can run on a distribution depends on whether the dis
 
 * Ubuntu 14.04 i nowsze
 * Fedora 24 and newer
-* Debian 8 and newer
+* Debian 8 i nowsze

@@ -48,7 +48,6 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
 | Node.js major version updates  | Node.js minor version updates       | Node.js patch version updates     |
 | Pembaruan versi kromium        |                                     | memperbaiki kromium terkait patch |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Cabang Stabilisasi
@@ -112,6 +111,7 @@ Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa sesuai. Yang paling penting bahwa fitur baru di master mungkin memerlukan beberapa saat sebelum mencapai garis rilis yang stabil. Jika Anda ingin segera mencoba fitur baru, Anda harus membangun Elektron sendiri.
 
 Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua hal berikut:
@@ -119,6 +119,7 @@ Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua ha
 * rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk _alpha_
 
 # Bendera fitur
+
 Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. Dalam konteks Elektron, bendera fitur atau **soft branch** harus memiliki sifat berikut:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag

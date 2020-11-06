@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Do not enable Node.js Integration for Remote Content
 
 _This recommendation is the default behavior in Electron since 5.0.0._
@@ -139,7 +137,6 @@ window.readConfig = function () {
 }
 `</pre>
 
-
 ## 3) Enable Context Isolation for Remote Content
 
 Bağlam izolasyonu, geliştiricilerin önceden yüklenmiş komut dosyalarında ve Electron API'lerinde özel bir JavaScript bağlamında kod çalıştırmasına olanak sağlayan bir Elektron özelliğidir. Pratikte, `Array.prototype.push` veya `JSON.parse` gibi genel nesnelerin, oluşturucu işleminde çalışan komutlarla değiştirilemediği anlamına gelir.
@@ -155,7 +152,6 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 
 
@@ -201,7 +197,6 @@ session
 
 
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -219,6 +214,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 
 
 ### Nasıl?
+
 
 
 ```js
@@ -243,7 +239,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- İyi--><webview disablewebsecurity src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
-
 
 
 
@@ -304,7 +299,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -341,7 +335,6 @@ const mainWindow = new BrowserWindow({
 // Doğru
 const mainWindow = new BrowserWindow ({})
 ```
-
 
 
 
@@ -386,7 +379,6 @@ const mainWindow = new BrowserWindow ({})
 
 
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -402,6 +394,7 @@ Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı s
 
 
 ### Nasıl?
+
 
 
 ```js
@@ -420,7 +413,6 @@ const mainWindow = new BrowserWindow({
 // Doğru 
 const mainWindow = new BrowserWindow()
 ```
-
 
 
 
@@ -445,7 +437,6 @@ you know it needs that feature.</p>
 
 <pre><code class="html"><!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 `</pre> 
-
 
 
 
@@ -595,6 +586,7 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 
 
 
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -662,7 +654,6 @@ const mainWindow = new BrowserWindow({
 
 
 > **Not:** `enableRemoteModule`'ün varsayılan değeri Electron 10'dan beri  `false`dır. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 
 

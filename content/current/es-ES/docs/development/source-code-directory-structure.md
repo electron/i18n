@@ -80,6 +80,7 @@ Electron
 * **npm** - Lógica para la instalación de Electron via npm.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
+
 ```diff
 script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad de propósitos.
 ├── codesign/ - Falsifica la firma de código para aplicaciones Electron; usado para pruebas.
@@ -88,8 +89,8 @@ script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad
     ├── notes/ - Genera notas de lanzamiento para las nuevas versiones de Electron.
     └── uploaders/ - Sube varios archivos relacionados con la nueva versión durante el lanzamiento.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Los Scripts puestos aquí nunca deberían ser invocados directamente por los usuarios, a diferencia de los de `script`.
 * **typings** - Tipos de TypeScript para el código interno de Electron.
 * **vendor** - Source code for some third party dependencies.
-

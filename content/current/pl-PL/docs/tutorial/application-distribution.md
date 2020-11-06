@@ -9,6 +9,7 @@ Aby rozpowszechniać swoją aplikację za pomocą Electrona, musisz ją zapakowa
 Narzędzia te będą obejmować wszystkie kroki, które należy podjąć, aby ostatecznie doprowadzić do rozproszonych aplikacji Electrona, na przykład zapakowanie aplikacji, przeredagowanie pliku wykonywalnego, ustawienie prawych ikon i opcjonalnie tworzenie instalatorów.
 
 ## Ręczna dystrybucja
+
 Możesz również wybrać ręcznie przygotować swoją aplikację do dystrybucji. Działania niezbędne do tego celu przedstawiono poniżej.
 
 Aby rozpowszechniać swoją aplikację za pomocą Electrona, musisz pobrać [wstępnie zbudowane pliki binarne Electrona](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Zauważ, że lokalizacja wstępnie wbudowanych binariuszy Electrona jest wskazana `electron/` w przykładach poniżej.
@@ -114,13 +115,13 @@ Musisz rozwidlić Electron, gdy masz niestandardowy kod C++, który naklejono be
 
 3. Ustaw następujące zmienne środowiskowe:
 
-  * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - miejsca, w którym wgrasz nagłówki Node.js oraz symbole
-  * `ELECTRON_RELEASE` - Ustaw `true` a część przesyłania zostanie uruchomiona, pozostaw nieustawione i `kompilacja operacyjna` wykona kontrole typu CI, odpowiednie do uruchomienia każdego pull requesta.
-  * `CI` - Ustaw na `true` lub w przeciwnym razie nie uda się
-  * `GITHUB_TOKEN` - ustaw to samo co `ELECTRON_GITHUB_TOKEN`
-  * `SURF_TEMP` - ustaw `C:\Temp` w systemie Windows, aby zapobiec zbyt długim problemom ze ścieżką
-  * `TARGET_ARCH` - ustaw na `ia32` lub `x64`
+   * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - miejsca, w którym wgrasz nagłówki Node.js oraz symbole
+   * `ELECTRON_RELEASE` - Ustaw `true` a część przesyłania zostanie uruchomiona, pozostaw nieustawione i `kompilacja operacyjna` wykona kontrole typu CI, odpowiednie do uruchomienia każdego pull requesta.
+   * `CI` - Ustaw na `true` lub w przeciwnym razie nie uda się
+   * `GITHUB_TOKEN` - ustaw to samo co `ELECTRON_GITHUB_TOKEN`
+   * `SURF_TEMP` - ustaw `C:\Temp` w systemie Windows, aby zapobiec zbyt długim problemom ze ścieżką
+   * `TARGET_ARCH` - ustaw na `ia32` lub `x64`
 
 4. W `skrypt/upload. y`, _musisz_ ustawić `ELECTRON_REPO` na fork (`MYORG/electron`), zwłaszcza, jeśli jesteś współtwórcą Electrona.
 

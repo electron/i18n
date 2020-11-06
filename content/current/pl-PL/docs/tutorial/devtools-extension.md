@@ -21,6 +21,7 @@ Używanie [Narzędzi dla programistów React](https://chrome.google.com/webstore
      * `~/.config/chromium/Domyślne/Extensions/`
    * na macOS jest `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Przekaż lokalizację rozszerzenia do `BrowserWindow.addDevToolsExtension` API, dla narzędzi dla programistów React to coś takiego:
+
    ```javascript
    const path = require('path')
    const os = require('os')

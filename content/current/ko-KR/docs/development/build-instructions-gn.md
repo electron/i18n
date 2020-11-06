@@ -6,9 +6,9 @@
 
 우선, 빌드를 진행할 플랫폼의 기본 요건을 확인하세요.
 
-  * [macOS](build-instructions-macos.md#prerequisites)
-  * [리눅스](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+* [macOS](build-instructions-macos.md#prerequisites)
+* [리눅스](build-instructions-linux.md#prerequisites)
+* [Windows](build-instructions-windows.md#prerequisites)
 
 ## Build Tools
 
@@ -41,7 +41,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 > `https://github.com/electron/electron` 대신, 자신이 소유한 fork저장소를 사용할 수도 있습니다. (저장소 url은 아래와 같은 형태일 것입니다. `https://github.com/<username>/electron`).
 
-#### pulling/pushing 관련 참고 사항
+### pulling/pushing 관련 참고 사항
 
 향후 공식 `electron` 저장소에 대해 `git pull` 또는 `git push`를 할 계획이라면 각 폴더의 origin URL을 업데이트해야 합니다.
 
@@ -57,6 +57,7 @@ $ cd -
 :memo: `gclient` 는 의존성 (Chromium 이나 Node.js 같은)을 확인하기 위해 `src/electron` 폴더 안에 있는 `DEPS`라는 파일을 확인합니다. `gclient sync -f`는 Electron 빌드를 위해 필요한 모든 의존성이 DEPS 파일과 일치하는지 확인하는 명령어입니다.
 
 따라서, pull을 하려면 다음 명령어를 입력하세요:
+
 ```sh
 $ cd src/electron
 $ git pull
@@ -74,6 +75,7 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 ```
 
 Windows 환경이라면 (추가적인 인자는 없음):
+
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
@@ -100,11 +102,13 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 **빌드하고 `electron` 타켓과 함께 `ninja`를 실행하려면:** 주의하세요: 이 작업은 시간이 좀 걸릴 수 있습니다.
 
 For the testing configuration:
+
 ```sh
 $ ninja -C out/Testing electron
 ```
 
 release 설정:
+
 ```sh
 $ ninja -C out/Release electron
 ```
@@ -126,11 +130,13 @@ $ ./out/Testing/electron
 ### 패키징
 
 리눅스에서는 우선 아래 명령으로 디버깅 및 심볼 정보를 제거합니다:
+
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
 electron 빌드를 배포 가능한 zip 파일로 패키지하려면:
+
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
@@ -157,6 +163,7 @@ If you test other combinations and find them to work, please update this documen
 See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).
 
 #### Windows on Arm (experimental)
+
 To cross-compile for Windows on Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) to get the necessary dependencies, SDK and libraries, then build with `ELECTRON_BUILDING_WOA=1` in your environment before running `gclient sync`.
 
 ```bat
@@ -165,13 +172,13 @@ gclient sync -f --with_branch_heads --with_tags
 ```
 
 Or (if using PowerShell):
+
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
 Next, run `gn gen` as above with `target_cpu="arm64"`.
-
 
 ## 테스트
 
@@ -230,4 +237,5 @@ $ gclient sync -f
 ```
 
 ### chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
+
 Windows에서 `gclient sync`를 실행했을 때 `'https://chrome-internal.googlesource.com':에 대한 사용자 이름` 을 요청하는 창이 나타났다면, `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다.  이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).

@@ -3,11 +3,13 @@
 ## Příprava
 
 ### Dohoda o platbách
+
 Pokud již nemáte, budete muset podepsat dohodu o platbách a vytvořit Vaše bankovní a daňové informace v iTunes Connect.
 
 [Nápověda vývojáře iTunes Connect: dohody, daně a bankovní přehled](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Vytvořte si své nákupy v aplikaci
+
 Poté budete muset nakonfigurovat vaše nákupy v aplikaci iTunes Connect, včetně podrobností, jako je jméno, ceny a popis, který upozorňuje na funkce a funkčnost vašeho nákupu v aplikaci.
 
 [Nápověda pro vývojáře iTunes: Vytvořit nákup v aplikaci](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

@@ -24,7 +24,6 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 * **セキュアコーディングプラクティスの採用。** あなたのアプリケーションの防衛の第一歩はあなたのコードです。 クロスサイトスクリプティング(XSS) のような共通WEB脆弱性は、Electronアプリケーション上でセキュリティの影響度が高くなります。そのため、セキュアなソフトウェア開発のベストプラクティスの採用やセキュリティテストの実施が強く求められます。
 
-
 ## 信用されないコンテンツの隔離
 
 信用されていないソース (例えばリモートサーバー) からコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトがデフォルト [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって) 得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) リモートコンテンツで、Node.js integration を有効にしない
 
 _この推奨は、Electron 5.0.0 からデフォルトの振舞いです。_
@@ -140,7 +138,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) リモートコンテンツで、コンテキストイソレーションを有効にする
 
 コンテキストイソレーションは、開発者が専用の JavaScript コンテキストで、プリロードスクリプトと Electron API でコードを実行できるようにする Electron の機能です。 つまり、`Array.prototype.push` や `JSON.parse` などのグローバルオブジェクトは、レンダラープロセスで実行されているスクリプトでは変更できません。
@@ -152,7 +149,6 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 ### なぜ & 方法を？
 
 `contextIsolation` が何であるかと、有効にする方法については、 [コンテキストIsolation](context-isolation.md) ドキュメントを参照してください。
-
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
 
@@ -187,7 +183,6 @@ session
   })
 ```
 
-
 ## 5) webSecurity を無効にしない
 
 _Electron のデフォルトを推奨しています_
@@ -201,6 +196,7 @@ _Electron のデフォルトを推奨しています_
 ` webSecurity` を無効にすると、同一オリジンポリシーが無効になり、`allowRunningInsecureContent` プロパティが `true` に設定されます。 つまり、異なるドメインからの安全でないコードの実行を可能にしてしまいます。
 
 ### どうすればいいの？
+
 ```js
 // NG
 const mainWindow = new BrowserWindow({
@@ -217,7 +213,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- NG --><webview disablewebsecurity src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Content-Security-Policy を定義する
 
@@ -262,7 +257,6 @@ CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロ
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) `allowRunningInsecureContent` を `true` にしない
 
 _Electron のデフォルトを推奨しています_
@@ -290,7 +284,6 @@ const mainWindow = new BrowserWindow({
 // OK
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) 実験的な機能を有効にしない
 
@@ -320,7 +313,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) `enableBlinkFeatures` を使用しない
 
 _Electron のデフォルトを推奨しています_
@@ -332,6 +324,7 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 その機能を有効にするための、正しい使用方法は存在します。 開発者は、機能を有効にする必要がある理由、影響の内容、アプリケーションのセキュリティにどのように影響するかを正確に把握する必要があります。 どのような場合においても、機能を推論的に有効にするべきではありません。
 
 ### どうすればいいの？
+
 ```js
 // 悪例
 const mainWindow = new BrowserWindow({
@@ -345,7 +338,6 @@ const mainWindow = new BrowserWindow({
 // OK
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) `allowpopups` を使用しない
 
@@ -361,7 +353,6 @@ _Electron のデフォルトを推奨しています_
 
 ```html<!-- NG --><webview allowpopups src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
 ```
-
 
 ## 11) 作成前に WebView のオプションを確認する
 
@@ -472,6 +463,7 @@ app.on('web-contents-created', (event, contents) => {
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -516,7 +508,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) `remote` モジュールをフィルタ
 

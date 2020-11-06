@@ -21,6 +21,7 @@
      * `~/.config/chromium/Default/Extensions/`
    * على macOS هو `~/Library/Application Support/Google/Chrome/Default/Exextent`.
 1. اجتياز موقع الملحق إلى `BrowserWindow.addDevToolsExexten` API، لأدوات React المطور، إنه شيء مثل:
+
    ```javascript
    المسار = المطلوب('path')
    const os = require('os')

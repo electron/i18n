@@ -16,8 +16,8 @@ Para aprender más sobre cómo perfilar el código de tu aplicación, familiariz
 
 ### Lectura Recomendada
 
- * [Comience con el análisis del rendimiento del tiempo de ejecución](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - El Primer Segundo"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Comience con el análisis del rendimiento del tiempo de ejecución](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Talk: "Visual Studio Code - El Primer Segundo"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Lista de verificación
 
@@ -49,7 +49,8 @@ En resumen, un módulo aparentemente excelente escrito principalmente para servi
 
 Al considerar un módulo, le recomendamos que verifique:
 
-1. el tamaño de las dependencias incluidas 2) los recursos necesarios para cargar (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. los recursos necesarios para realizar la acción en la que estás interesado
 
 Generar un perfil de CPU y un perfil de memoria acumulada para cargar un módulo puede hacerse con un solo comando en la línea de comandos. En el ejemplo de abajo, estamos mirando la popular solicitud de módulo ``.
@@ -162,7 +163,6 @@ La poderosa arquitectura multiproceso de Electron está lista para ayudarte con 
 
 3) Evitar el uso de bloquear operaciones de E/S en el proceso principal. En resumen, siempre que nodos centrales. Los módulos s (como `fs` o `child_process`) ofrecen una versión sincrónica o una asincrónica, prefiere la variante asíncrona y no bloqueadora.
 
-
 ## 4) Bloquear el proceso de procesamiento
 
 Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
@@ -180,7 +180,6 @@ Generalmente, todos los consejos para construir aplicaciones web con rendimiento
 *`requestIdleCallback()`* permite a los desarrolladores hacer cola una función ejecutada tan pronto como el proceso esté entrando en un período inactivo. Le permite realizar trabajos de baja prioridad o en segundo plano sin afectar a la experiencia del usuario. Para más información sobre cómo usarlo, [consulte su documentación sobre MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* son una herramienta poderosa para correr código en un hilo separado. Hay algunas advertencias a tener en cuenta: consulte la documentación multihilo [de Electron](./multithreading.md) y la [documentación MDN para Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Son una solución ideal para cualquier operación que requiera mucha potencia de CPU durante un período extendido de tiempo.
-
 
 ## 5) Polyfills innecesarios
 
@@ -201,7 +200,6 @@ Operar bajo la suposición de que los polirellenos en las versiones actuales de 
 Además, examine cuidadosamente las bibliotecas que utiliza. ¿Son realmente necesarias? `jQuery`, por ejemplo, fue un éxito tal que muchas de sus características ahora son parte del [conjunto de características estándar de JavaScript disponible](http://youmightnotneedjquery.com/).
 
 Si está utilizando un transpilador/compilador como TypeScript, examine su configuración y asegúrese de que está dirigiendo a la última versión de ECMAScript soportada por Electron.
-
 
 ## 6) Solicitudes de red innecesarias o bloqueadas
 

@@ -33,6 +33,7 @@ $ git fetch upstream
 ### 步骤2: 构建
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
+
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [在 Linux 上构建](https://electronjs.org/docs/development/build-instructions-linux)
 * [在 Windows 上构建](https://electronjs.org/docs/development/build-instructions-windows)
@@ -82,16 +83,16 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 常见前缀：
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+- fix: A bug fix
+- feat: A new feature
+- docs: Documentation changes
+- test: Adding missing tests or correcting existing tests
+- build: Changes that affect the build system
+- ci: Changes to our CI configuration files and scripts
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- style: Changes that do not affect the meaning of the code (linting)
+- vendor: Bumping a dependency like libchromiumcontent or node
 
 其他在写提交信息时需要留意的事情：
 
@@ -196,4 +197,3 @@ All pull requests require approval from a [Code Owner](https://github.com/electr
 理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 然而，CI 自身的基础设施在特定的平台上或者在"不可靠"的测试下会失败("变红") 的情况并不少见。 必须手动检查每个 CI 故障以确定原因。
 
 CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
-

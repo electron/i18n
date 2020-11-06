@@ -9,6 +9,7 @@ Das `repl` Modul bietet eine REPL Implementierung, auf die zugegriffen werden ka
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Angenommen, Sie haben `Elektron` oder `Elektron vorkonfiguriert` global installiert:
 
   ```sh

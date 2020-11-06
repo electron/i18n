@@ -24,7 +24,6 @@ Este important să rețineți că securitatea aplicației tale Electron este rez
 
 * **Folosirea practicilor de codificare securizată** Prima linie de apărare pentru aplicația ta este propriul tău cod. Vulnerabilități web comune, cum ar fi Scripting Cross-Site (XSS), are un impact mai mare asupra securității aplicațiilor Electron și, prin urmare, este foarte recomandat să se adopte cele mai bune practici de dezvoltare a software-ului și să se efectueze teste de securitate.
 
-
 ## Izolare pentru conținut neacreditat
 
 Există o problemă de securitate ori de câte ori primiți cod dintr-o sursă neacreditată (de ex. un server de la distanță) și executați-l local. De exemplu, considerați că un site la distanță este afișat în interiorul unei [`BrowserWindow`](../api/browser-window.md). Dacă un atacator reușește cumva să schimbe conținutul menționat (fie atacând sursa direct, sau stând între aplicația dvs. și destinația propriu-zisă), ei vor putea executa codul nativ pe mașina utilizatorului.
@@ -86,7 +85,6 @@ Window.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) Nu activa integrarea Node.js pentru conţinutul Remote
 
 _Această recomandare este comportamentul implicit în Electron de la 5.0.0._
@@ -140,7 +138,6 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Activează izolarea contextului pentru conținutul la distanță
 
 Izolarea contextului este o caracteristică Electron care permite dezvoltatorilor să execute codul în scripturi preîncărcate și în API-uri Electron într-un context JavaScript dedicat. În practică, asta înseamnă că obiecte globale precum `Array.prototype. ush` or `JSON.parse` nu poate fi modificat de scripturile care rulează în procesul de redare.
@@ -152,7 +149,6 @@ Chiar și atunci când folosești `nodeIntegrare: fals` pentru a impune o izolar
 ### De ce & Cum?
 
 Pentru mai multe informații despre ce este `context Isolation` și cum să îl activezi, vă rugăm să consultați [Izolarea contextului](context-isolation.md) a documentului.
-
 
 ## 4) Gestionați solicitările de permisiuni pentru sesiune de la conținutul la distanță
 
@@ -187,7 +183,6 @@ session
 })
 ```
 
-
 ## 5) Nu dezactiva WebSecurity
 
 _Recomandarea este cea implicită a Electron_
@@ -201,6 +196,7 @@ Nu dezactiva `webSecurity` în aplicațiile de producție.
 Dezactivarea `webSecurity` va dezactiva politica de aceeași origine și va seta `allowRunningInsecureContent` proprietatea la `true`. Cu alte cuvinte, permite executarea unui cod nesigur din diferite domenii.
 
 ### Cum?
+
 ```js
 //
 const mainWindow = new BrowserWindow({
@@ -217,7 +213,6 @@ const mainFdow = Nou BrowserWindow()
 
 ```html<!-- Incorect --><webview disablewebsecurity src="page.html"></webview><!-- Bun --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Definiți o politică de securitate a conținutului
 
@@ -262,7 +257,6 @@ Mecanismul de livrare preferat al CSP este un antet HTTP, totuși nu este posibi
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Nu seta `allowRunningInsecureContent` la `true`
 
 _Recomandarea este cea implicită a Electron_
@@ -290,7 +284,6 @@ const mainWindow = new BrowserWindow({
 // Bun
 const mainFdow = noua BrowserWindow({})
 ```
-
 
 ## 8) Nu activați funcțiile experimentale
 
@@ -320,7 +313,6 @@ const mainWindow = new BrowserWindow({
 const mainFdow = noua BrowserWindow({})
 ```
 
-
 ## 9) Nu utiliza `activeBlinkFeatures`
 
 _Recomandarea este cea implicită a Electron_
@@ -332,6 +324,7 @@ Clipirea este numele motorului de redare din spatele Chromium. Ca și în cazul 
 În general, există motive foarte bune dacă o caracteristică nu a fost activată în mod implicit. Există cazuri de utilizare legitimă pentru a permite anumite caracteristici. Ca dezvoltator, ar trebui să știi exact de ce trebuie să activezi o caracteristică, care sunt ramificațiile și care este impactul asupra securității aplicației tale. În nicio circumstanță nu ar trebui să activați caracteristicile speculative.
 
 ### Cum?
+
 ```js
 //
 const mainWindow = new BrowserWindow({
@@ -345,7 +338,6 @@ const mainWindow = new BrowserWindow({
 // Bun
 const mainFdow = Nou BrowserWindow()
 ```
-
 
 ## 10) Nu utiliza `allowpopups`
 
@@ -361,7 +353,6 @@ Dacă nu aveți nevoie de ferestre popups, nu permiteți crearea nou [`BrowserWi
 
 ```html<!-- Incorect --><webview allowpopups src="page.html"></webview><!-- Bun --><webview src="page.html"></webview>
 ```
-
 
 ## 11) Verifică opțiunile WebView înainte de creare
 
@@ -472,6 +463,7 @@ Utilizarea incorectă a [`openExtern`](../api/shell.md#shellopenexternalurl-opti
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 // Bune
 const { shell } = require('electron')
@@ -521,7 +513,6 @@ const mainWindow = new BrowserWindow({
 ```
 
 > **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
 
 ## 16) Filtrează modulul `la distanță`
 

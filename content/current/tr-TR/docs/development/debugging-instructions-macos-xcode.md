@@ -1,10 +1,13 @@
 ## XCode ile Hata Ayıklama
 
 ### Hata ayıklama kaynakları için XCode projesi oluşturmak (XCode'dan derlenemez)
+
 Run `gn gen` with the --ide=xcode argument.
+
 ```sh
 $ gn gen out/Testing --ide=xcode
 ```
+
 Bu "electron.ninja.xcworkspace"i oluşturacaktır. Hata noktalarını bulmak ve incelemek için bu workspace'i açmanız gerekecek.
 
 See `gn help gen` for more information on generating IDE projects with GN.

@@ -3,11 +3,13 @@
 ## Przygotowanie
 
 ### Umowa dotycząca płatnych aplikacji
+
 Jeśli jeszcze tego nie zrobiłeś, musisz podpisać umowę płatnych aplikacji i skonfigurować swoje dane bankowe i podatkowe w iTunes Connect.
 
 [Pomoc dla programistów iTunes Connect: umowy, podatki i przegląd bankowy](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Utwórz zakupy w aplikacji
+
 Następnie musisz skonfigurować zakupy w aplikacji w iTunes Connect, a także podać szczegóły, takie jak nazwa, cennik i opis, które podkreślają funkcje i funkcjonalność zakupu w aplikacji.
 
 [Pomoc dla programistów iTunes Connect: Utwórz zakupy w aplikacji](https://help.apple.com/itunes-connect/developer/#/devae49fb316)

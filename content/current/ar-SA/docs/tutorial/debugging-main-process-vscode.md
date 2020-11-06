@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. التنقيح
 
 عيّن بعض نقاط التوقف في `main.js`، وابدأ تصحيح الأخطاء في [عرض التصحيح](https://code.visualstudio.com/docs/editor/debugging). يجب أن تكون قادراً على الوصول إلى نقاط التوقف

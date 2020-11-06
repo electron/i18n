@@ -48,7 +48,6 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 | Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
 | Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 안정화 브랜치
@@ -112,6 +111,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 ![](../images/versioning-sketch-7.png)
 
 # 누락된 기능: 알파
+
 우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
 향후에는 아래의 사항들을 도입할 수도 있습니다:
@@ -119,6 +119,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 * 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 _알파_에 유지하면서 새로운 기능을 허락할 수 있음.
 
 # 기능 플래그(Feature Flags)
+
 기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
 * 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음

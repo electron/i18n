@@ -33,6 +33,7 @@ $ git fetch upstream
 ### ステップ2: ビルド
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
+
 * [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
 * [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
@@ -82,16 +83,16 @@ $ git commit
 
 プレフィックスの例:
 
-  - fix: バグ修正
-  - feat: 新機能
-  - docs: ドキュメントの変更
-  - test: 足りないテストの追加や既存のテストの訂正
-  - build: ビルドシステムに影響する変更
-  - ci: CI の設定ファイルとスクリプトへの変更
-  - perf: パフォーマンスを改善するコード変更
-  - refactor: バグ修正や機能追加の無いコード変更
-  - style: コードの意味を変えない変更 (lint)
-  - vendor: libchromiumcontent や node のような依存関係の更新
+- fix: バグ修正
+- feat: 新機能
+- docs: ドキュメントの変更
+- test: 足りないテストの追加や既存のテストの訂正
+- build: ビルドシステムに影響する変更
+- ci: CI の設定ファイルとスクリプトへの変更
+- perf: パフォーマンスを改善するコード変更
+- refactor: バグ修正や機能追加の無いコード変更
+- style: コードの意味を変えない変更 (lint)
+- vendor: libchromiumcontent や node のような依存関係の更新
 
 その他、コミットメッセージを作成するときに留意すること:
 
@@ -195,4 +196,3 @@ $ git push origin my-branch
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
 プルリクエストを開くと、CI が自動的に開始されますが、メンテナーだけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、メンテナーにテストをリスタートするよう依頼してください。
-

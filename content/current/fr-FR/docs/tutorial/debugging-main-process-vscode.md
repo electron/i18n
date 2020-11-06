@@ -29,7 +29,6 @@ $ code electron-quick-start
 }
 ```
 
-
 ### 3. Débogage
 
 Définissez quelques points d'arrêt dans `main.js`, et commencez à déboguer dans la [vue débogage](https://code.visualstudio.com/docs/editor/debugging). Vous devriez être en mesure de toucher les points d'arrêt.

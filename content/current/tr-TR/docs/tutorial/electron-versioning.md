@@ -49,7 +49,6 @@ Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, 
 | Node.js major version updates     | Node.js minor version updates        | Node.js patch version updates |
 | Chromium sürümü güncellemeleri    |                                      | fix-related chromium yamaları |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Dengeleme Dalları
@@ -115,6 +114,7 @@ Resimlerdeki bir yaşam döngüsü:
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı içeriyor. En önemlisi, master'daki yeni özelliklerin kararlı bir sürüm hattına erişmeden önce biraz zaman alması. Hemen yeni bir özellik denemek isterseniz, Electron'u kendiniz kurmanız gerekecek.
 
 Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:
@@ -122,6 +122,7 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 * beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; örneğin, bir denge kanalı _alpha_ da ise, yeni özellikleri kabul etmek için izin verir
 
 # Özellik bayrakları
+
 Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. Elektron bağlamında, özellik bayrağı veya ** soft branch </ 0> aşağıdaki özelliklere sahip olmalıdır:</p>
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag

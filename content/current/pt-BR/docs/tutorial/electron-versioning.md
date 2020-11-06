@@ -48,7 +48,6 @@ Abaixo está uma tabela explicitamente mapeando os tipos de alterações corresp
 | Atualizações principais da versão do Node.js | Atualizações de versão menor do Node.js | Atualizações da versão do Node.js patch |
 | Atualizações da versão do Chromium           |                                         | correção de crómio                      |
 
-
 Observe que a maioria das atualizações do Chromium serão consideradas quebras. Correções que podem ser devolvidas provavelmente serão escolhidas como patches como patches.
 
 # Estabilizando Branches
@@ -112,6 +111,7 @@ Alguns exemplos de como vários intervalos de sementes escolherão novos lançam
 ![](../images/versioning-sketch-7.png)
 
 # Características faltando: Alfa
+
 A nossa estratégia tem alguns compromissos que, por agora, nos parecem adequados. O mais importante é que novos recursos em master possam demorar um pouco antes de atingir uma linha de lançamento estável. Se você quiser tentar um novo recurso imediatamente, você terá que construir o Electron você mesmo.
 
 Como reflexão futura, podemos introduzir um ou ambos os seguintes:
@@ -119,6 +119,7 @@ Como reflexão futura, podemos introduzir um ou ambos os seguintes:
 * versões alfa que têm restrições de estabilidade mais estreitas para apostas; por exemplo, seria permitido admitir novos recursos enquanto um canal de estabilidade está em _alpha_
 
 # Feature flag
+
 As bandeiras de recursos são uma prática comum no Chromium, e estão bem estabelecidas no ecossistema de desenvolvimento web. No contexto do Electron, uma feature flag ou um **soft branch** devem ter as seguintes propriedades:
 
 * está habilitado/desativado no tempo de execução, ou no tempo de construção; não suportamos o conceito de sinalizador de recurso com escopo de solicitação

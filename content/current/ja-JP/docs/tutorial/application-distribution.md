@@ -9,6 +9,7 @@ Electron アプリを配布するには、パッケージ化してアイコン�
 これらのツールは、配布可能なあなたのElectronアプリケーションに行う必要のある全ての手順をカバーします。その手順には、あなたのアプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定、インストーラーの作成(オプション)が含まれます。
 
 ## マニュアル配布
+
 手動でアプリの配布準備をすることもできます。 これに必要なステップを以下に示します。
 
 Electron でアプリを配布する際は、Electron の [プレビルドバイナリ](https://github.com/electron/electron/releases) をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を `app` に変更し、Electron のリソースディレクトリに以下に示すように配置します。 Electron のプレビルドバイナリの場所は、以下の例では `electron/` と示されていることに注意してください。
@@ -114,13 +115,13 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 
 3. 以下の環境変数を設定します。
 
-  * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
-  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように Node.js ヘッダをアップロードする場所
-  * `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
-  * `CI` - `true` に設定しないと失敗します。
-  * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
-  * `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
-  * `TARGET_ARCH` - `ia32` か `x64` に設定します。
+   * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
+   * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように Node.js ヘッダをアップロードする場所
+   * `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
+   * `CI` - `true` に設定しないと失敗します。
+   * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
+   * `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
+   * `TARGET_ARCH` - `ia32` か `x64` に設定します。
 
 4. `script/upload.py` で、特にあなたが Electron proper のコントリビュータである場合、`ELECTRON_REPO` をあなたのフォーク (`MYORG/electron`) に設定_しなければなりません_。
 

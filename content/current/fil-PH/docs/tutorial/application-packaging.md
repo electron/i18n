@@ -148,4 +148,3 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 Pagkatapos paganahin ang utos, mapapansin mo na ang isang folder na pinangalanang `app.asar.unpacked` ay nailikha kasama ang `app.asar` na file. Naglalaman ito ng mga naka-unpack na mga file at dapat ipinadala kasabay ang `app.asar` na archive.
-
