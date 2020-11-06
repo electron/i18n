@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "16513",
-    "translated": "8718",
+    "translated": "8725",
     "approved": "1872",
     "words": "192841",
-    "words_translated": "94815",
+    "words_translated": "94858",
     "words_approved": "11572",
     "translated_progress": 49,
     "approved_progress": 6,
-    "qa_issues": 3051
+    "qa_issues": 3052
   },
   {
     "name": "Portuguese, Brazilian",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "16513",
-    "translated": "8880",
+    "translated": "8881",
     "approved": "1598",
     "words": "192841",
-    "words_translated": "100651",
+    "words_translated": "100664",
     "words_approved": "14442",
     "translated_progress": 52,
     "approved_progress": 7,
-    "qa_issues": 2132
+    "qa_issues": 2133
   },
   {
     "name": "Vietnamese",
