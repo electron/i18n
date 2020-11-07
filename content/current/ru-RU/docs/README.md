@@ -51,7 +51,7 @@
   * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка основного( main ) процесса](tutorial/debugging-main-process.md)
-  * [Отладка главного процесса с кодом Visual Studio](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)

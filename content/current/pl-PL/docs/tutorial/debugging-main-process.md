@@ -23,4 +23,4 @@ Podobnie jak `--inspect` , ale wstrzymuje wykonanie w pierwszej linii JavaScript
 Musisz użyć debugera, który obsługuje protokół inspektora V8.
 
 - Połącz Chrome odwiedzając `chrome://check` i wybierając aby sprawdzić uruchomioną tam aplikację Electron.
-- [Debugowanie głównego procesu w VSCode](debugging-main-process-vscode.md)
+- [Debugowanie w VSCode](debugging-vscode.md)

@@ -23,4 +23,4 @@ Like `--inspect` , ale pauses exekuce na prvním řádku JavaScript.
 Budete muset použít debugger, který podporuje protokol inspektora V8.
 
 - Připojte Chrome navštěvováním `chrome://inspect` a výběrem zkontrolovat spuštěnou aplikaci Electron přítomnou.
-- [Ladění hlavního procesu ve VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

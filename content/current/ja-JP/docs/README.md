@@ -51,7 +51,7 @@
   * [アクセシビリティ機能を手動で有効にする](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [テストとデバッグ](tutorial/application-debugging.md)
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
-  * [VS Code におけるメインプロセスのデバッグ](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)

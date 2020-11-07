@@ -23,4 +23,4 @@ electron --inspect=5858 your/app
 V8 디버거 프로토콜을 지원하는 디버거가 필요합니다. 다음 가이드들이 도움이 됩니다:
 
 - 크롬의 `chrome://inspect` 를 방문하고, 현재의  거기에 있는  Electron app 을 찾아보고 선정하여 설치하기
-- [VSCode 에서 메인 프로세스 디버깅하기](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

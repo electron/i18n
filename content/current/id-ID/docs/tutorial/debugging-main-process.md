@@ -23,4 +23,4 @@ Seperti `--periksa` tapi jeda eksekusi pada baris pertama JavaScript.
 Anda perlu menggunakan debugger yang mendukung protokol inspektur V8.
 
 - Sambungkan Chrome dengan mengunjungi `chrome://periksa` dan pilih untuk memeriksa meluncurkan aplikasi Elektron hadir di sana.
-- [Debugging Proses Utama di VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

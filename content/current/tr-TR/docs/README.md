@@ -51,7 +51,7 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test ve Hata Ayıklama](tutorial/application-debugging.md)
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
-  * [Ana işlemi Visual Studio Code ile debuglamak](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)

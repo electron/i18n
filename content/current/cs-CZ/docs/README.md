@@ -51,7 +51,7 @@ Existují otázky, které se kladou poměrně často. Před vytvořením problé
   * [Ručně povolit funkce usnadnění přístupu](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testing and Debugging](tutorial/application-debugging.md)
   * [Ladění hlavního procesu](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)

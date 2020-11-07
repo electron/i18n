@@ -51,7 +51,7 @@ To są pytania, które są zadawane dość często. Sprawdź to przed utworzenie
   * [Ręczne włączanie funkcji ułatwień dostępu](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testowania i debugowanie](tutorial/application-debugging.md)
   * [Debugowanie w Procesie Głównym](tutorial/debugging-main-process.md)
-  * [Debugowanie Głównego Wątku przy użyciu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugowanie z Visual Studio Code](tutorial/debugging-vscode.md)
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)

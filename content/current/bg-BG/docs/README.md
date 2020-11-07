@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [5256783105227699](tutorial/application-debugging.md)
   * [Отстраняване на грешк](tutorial/debugging-main-process.md)
-  * [5256783105227699](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)

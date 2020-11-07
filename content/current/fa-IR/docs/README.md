@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [تست و اشکال زدایی](tutorial/application-debugging.md)
   * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [استفاده از Selenium و WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [تست سیستم های  CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
   * [افزونه DevTools](tutorial/devtools-extension.md)

@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [การทดสอบและการดีบัก](tutorial/application-debugging.md)
   * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Codeo](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)

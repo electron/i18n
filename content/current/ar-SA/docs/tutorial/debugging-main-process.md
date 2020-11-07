@@ -23,4 +23,4 @@ electron --inspect=5858 your/app
 سوف تحتاج إلى استخدام مصحح يدعم بروتوكول مفتشي V8.
 
 - قم بتوصيل Chrome عن طريق زيارة `chrome://inspect` واختيار لتفتيش تطبيق إلكترون الذي تم إطلاقه موجود هناك.
-- [تنقيح عملية الرئيسية في VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

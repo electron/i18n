@@ -51,7 +51,7 @@ Er zijn vragen die heel vaak worden gesteld. Bekijk dit voor het maken van een p
   * [Toegankelijkheidsfuncties handmatig inschakelen](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testen en Debuggen](tutorial/application-debugging.md)
   * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
-  * [Debuggen van het hoofdproces met Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Het gebruik maken van Selenium en WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools extensie](tutorial/devtools-extension.md)

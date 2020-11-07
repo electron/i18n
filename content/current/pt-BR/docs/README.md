@@ -51,7 +51,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)

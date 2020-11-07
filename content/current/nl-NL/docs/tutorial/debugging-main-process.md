@@ -23,4 +23,4 @@ Zoals `--inspect` pauzeert de uitvoering op de eerste regel van JavaScript.
 U moet een debugger gebruiken die het V8 inspectieprotocol ondersteunt.
 
 - Verbind Chrome door `chrome://inspect` te bezoeken en te selecteren om de Electron app daar te inspecteren.
-- [Debuggen van het hoofdproces in VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

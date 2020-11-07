@@ -23,4 +23,4 @@ Ca `--inspectt` dar pune capăt execuției pe prima linie a JavaScript.
 Va trebui să utilizați un depanator care acceptă protocolul de inspector V8.
 
 - Conectați Chrome vizitând `chrome://inspectt` și selectând pentru a inspecta a lansat aplicația Electron prezentă acolo.
-- [Depanarea procesului principal în VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

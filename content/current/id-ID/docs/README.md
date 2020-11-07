@@ -57,7 +57,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pengujian dan Debugging](tutorial/application-debugging.md) 
     * [Debugging Proses Utama](tutorial/debugging-main-process.md)
-  * [Debuging Proses Utama dengan Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)

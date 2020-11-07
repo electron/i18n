@@ -49,7 +49,7 @@ Krótko mówiąc, pozornie doskonały moduł napisany głównie na serwery Node.
 
 Rozważając moduł, zalecamy sprawdzenie:
 
-1. the size of dependencies included
+1. rozmiar zależności uwzględniony
 2. the resources required to load (`require()`) it
 3. zasoby wymagane do wykonania akcji, którą jesteś zainteresowany
 
