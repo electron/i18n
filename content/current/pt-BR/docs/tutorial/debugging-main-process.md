@@ -23,4 +23,4 @@ Como o `--inspect` mas pausa a execução na primeira linha de JavaScript.
 Você precisá usar um depurador que suporta o protocolo de inspeção do V8.
 
 - Conecte com o Chrome visitando `chrome://inspect` e selecionando para inspecionar o Electron app.
-- [Depuração do Processo Principal em VSCode](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)

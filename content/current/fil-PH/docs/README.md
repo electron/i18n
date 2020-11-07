@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testing and Debugging](tutorial/application-debugging.md)
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)

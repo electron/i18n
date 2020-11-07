@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
   * [Debugging tiến trình chính](tutorial/debugging-main-process.md)
-  * [Debugging tiến trình chính với Visual studio code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Sử dụng Selenium và WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Phần mở rộng DevTools](tutorial/devtools-extension.md)

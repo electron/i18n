@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testing and Debugging](tutorial/application-debugging.md)
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [सेलेनियम और वेबड्राईवर का इस्तेमाल](tutorial/using-selenium-and-webdriver.md)
   * [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
   * [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)

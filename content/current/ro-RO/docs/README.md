@@ -51,7 +51,7 @@ Există întrebări care sunt puse destul de des. Verifică asta înainte de a c
   * [Activare manuală caracteristici de accesibilitate](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testare și depanare](tutorial/application-debugging.md)
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
-  * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Utilizarea Selenium și WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testarea pe sistemele Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensia DevTools](tutorial/devtools-extension.md)

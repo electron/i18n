@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [בדיקה ואיתור באגים](tutorial/application-debugging.md)
   * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [שימוש ב-Selenium ו-WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)

@@ -51,7 +51,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [記錄與除錯](tutorial/application-debugging.md)
   * [Debug 主處理序](tutorial/debugging-main-process.md)
-  * [使用 Visual Studio Code debug 主處理序](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools 擴充](tutorial/devtools-extension.md)

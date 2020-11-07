@@ -23,4 +23,4 @@ electron --inspect=5858 uygu/laman
 V8 denetçi protokolünü destekleyen bir hata ayıklayıcı kullanmanız gerekecektir.
 
 - `chrome://inspect` burayı ziyaret ederek chroma baglanmayı seçin ve piyasaya sürülen Electron uygulamasını inceleyin.
-- [VSCode da ki Ana Sürecin Hata Ayıklaması](debugging-main-process-vscode.md)
+- [Debugging in VSCode](debugging-vscode.md)
