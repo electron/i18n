@@ -478,8 +478,8 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - zero-based index of the first page to print.
-    * `to` Number - zero-based index of the last page to print (inclusive).
+    * `from` Número - índice cero de la primera página a imprimir.
+    * `to` Number - índice cero de la última página a imprimir (inclusivo).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -655,9 +655,9 @@ Disparado cuando la página deja la pantalla completa activada por HTML API.
 
 Devuelve:
 
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
-* `line` Integer - The line number of the source that triggered this console message
+* `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
 Disparado cuando la ventana invitada entra un mensaje de consola.
