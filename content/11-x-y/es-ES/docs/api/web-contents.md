@@ -226,7 +226,7 @@ Devuelve:
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+Este evento no puede ser prevenir. Si quieres prevenir redirecciones deber ver el evento `will-redirect` arriba.
 
 #### Evento: 'did-navigate'
 
@@ -376,8 +376,8 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // Por ejemplo, solo habilita atajos de teclado del menú de la aplicación cuando
+  // Ctrl/Cmd están presionados.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -592,7 +592,6 @@ app.whenReady().then(() => {
       callback(result.deviceId)
     }
   })
-})
 ```
 
 #### Evento: 'paint'
@@ -631,7 +630,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 Este evento puede utilizarse para configurar `webPreferences` para la `webContents` de un `<webview>`antes de que se carga y proporciona la capacidad de configuración que no se puede establecer a través de atributos `<webview>`.
 
-**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**Nota:** La opción específica de `preload` aparecerá como `preloadURL` (no `preload`) en el objeto `webPreferences` emitido con este evento.
 
 #### Event: 'did-attach-webview'
 
@@ -647,9 +646,9 @@ Emitido cuando se ha adjuntado un `<webview>` a este contenido web.
 Devuelve:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
-* `line` Integer - The line number of the source that triggered this console message
+* `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
 Emitted when the associated window logs a console message.
@@ -1143,7 +1142,7 @@ Devuelve `Boolean` - Si esta página está siendo capturada. Devuelve true cuand
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `size` [Tamaño](structures/size.md) (opcional) - El tamaño preferido para el capturador.
 * `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
 Incrementa el recuento del capturador en uno. La página se considera visible cuando su ventana de navegador está oculta y el recuento de captadores no es cero. Si desea que la página quede oculta, debería asegurarse que `stayHidden` está establecida a true.
@@ -1226,8 +1225,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - zero-based index of the first page to print.
-    * `to` Number - zero-based index of the last page to print (inclusive).
+    * `from` Número - índice cero de la primera página a imprimir.
+    * `to` Number - índice cero de la última página a imprimir (inclusivo).
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
