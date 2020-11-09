@@ -51,7 +51,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Activation manuelle des fonctionnalités d’accessibilité](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test et débogage](tutorial/application-debugging.md)
   * [Débogguer le Main Process](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Débogage avec Visual Studio Code](tutorial/debugging-vscode.md)
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)

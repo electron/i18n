@@ -216,7 +216,7 @@ Emitted when the mouse clicks the tray icon.
 
 * `title` String
 * `options` Object (опционально)
-  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
+  * `fontType` String (опционально) - Вариант семейства шрифтов для отображения, может быть `моноширинным` или `цифро-моноширинным`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  По умолчанию используют системный шрифт по умолчанию.
 
 Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 

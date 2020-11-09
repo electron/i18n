@@ -1,6 +1,6 @@
-# Debugging in VSCode
+# Débogage dans VSCode
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+Ce guide explique comment configurer le débogage de VSCode pour votre propre projet Electron ainsi que pour la base de code natif d'Electron.
 
 ## Debugging your Electron app
 

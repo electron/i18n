@@ -27,9 +27,9 @@ npm -v
 
 ```plain
 my-electron-app/
-- - package.json
-- --main.js
----index.html
+├── package.json
+├── main.js
+└── index.html
 ```
 
 让我们根据上面的结构创建一个基本的应用程序。
@@ -84,10 +84,10 @@ app.on('activate', () => {
 ##### 上面发生了什么情况？
 
 1. 第1行：为了管理您应用程序的生命周期事件，以及创建和控制浏览器窗口，您从 `electron` 软件包导入了 `app` 和 `BrowserWindow`模块 。
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. Line 16: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. 行18：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是一个禁门。
-5. 第24行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后，或重新启动已在运行的应用程序。
+2. 第 3 行：在此之后，您定义一个函数，该函数创建一个 [新的浏览窗口](../api/browser-window.md#new-browserwindowoptions) 启用了节点集成，将 `index.html` 文件加载到此窗口中（第 12 行，稍后我们将讨论该文件），并打开开发人员工具（第 13 行）。
+3. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
+4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是一个禁门。
+5. 第 24 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后，或重新启动已在运行的应用程序。
 
 #### 创建网页
 
@@ -129,11 +129,11 @@ app.on('activate', () => {
 默认情况下， `npm start` 命令将以 Node.js 运行主脚本。 要使用 Electron 运行脚本，您需要将其更改为这样：
 
 ```json
-主席:
+{
     "name": "my-electron-app",
     "version": "0.1.0",
     "main": "main.js",
-    "scripts":
+    "scripts": {
         "start": "electron ."
     }
 }
@@ -142,7 +142,7 @@ app.on('activate', () => {
 #### 运行您的应用程序
 
 ```sh
-npm 开始
+npm start
 ```
 
 您正在运行的 Electron 应用程序应该如下所示：
@@ -156,51 +156,51 @@ npm 开始
 1. 导入 Electron Forge 到您的应用文件夹：
 
     ```sh
-    npx @electron-forge/cli imate
+    npx @electron-forge/cli import
 
-    :very_check_mark: 检查你的系统
-    :verby_check_mark: 初始化Git 存储库
-    :verby_check_mark: 写入修改过的软件包。 son file
-    :very_check_mark: 安装依赖项
-    :versiy_check_mark: 写入修改过的包 son 文件
-    :very_check_mark: 修复. 从简化
+    ✔ Checking your system
+    ✔ Initializing Git Repository
+    ✔ Writing modified package.json file
+    ✔ Installing dependencies
+    ✔ Writing modified package.json file
+    ✔ Fixing .gitignore
 
-    我们已经注意将您的应用转换成一种能够理解电子编程的格式。
+    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
-    感谢使用 "electron-forge"!!!
+    Thanks for using "electron-forge"!!!
     ```
 
-1. 创建一个分布式：
+1. 创建一个分发版本：
 
     ```sh
-    npm 运行会使
+    npm run make
 
-    > my-gsod-electron-app@1.0。 制作/my-electron-app
-    > electron-full make
+    > my-gsod-electron-app@1.0.0 make /my-electron-app
+    > electron-forge make
 
-    :very_check_mark: 检查您的系统
-    :very_check_mark: 解析Forge Config
-    我们需要先打包你的应用程序
-    :reasy_check_mark: 正在准备包应用程序获取arch: x64
-    :reasy_check_mark: 正在准备本机依赖关系
-    :reasy_check_mark: Packaging 应用程序
-    为以下目标制作: zip
-    :savy_check_mark: making for tat: zip - On platform: darwin - for arch: x64
+    ✔ Checking your system
+    ✔ Resolving Forge Config
+    We need to package your application before we can make it
+    ✔ Preparing to Package Application for arch: x64
+    ✔ Preparing native dependencies
+    ✔ Packaging Application
+    Making for the following targets: zip
+    ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
     Electron-forge 创建 `out` 文件夹，您的软件包将在那里找到：
 
     ```plain
-    // MacOS
+    // MacOS 示例
     out/
-    - --out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.zip
-/
-    约束： - 退出/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
+    ├── ...
+    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
 ## 学习基础知识
 
-本节指导您了解Electron如何在立体下工作的基本知识。 其目的是加强关于Electron和早些时候在Quickstart 部分创建的应用程序的知识。
+本节指导您了解 Electron 如何在内部工作的基本知识。 其目的是加强关于Electron和早些时候在Quickstart 部分创建的应用程序的知识。
 
 ### 应用程序结构
 
@@ -269,7 +269,7 @@ ipcRender.invotrake('exper-action', ...args)
 
 ##### Node.js API
 
-> 注意：要从渲染过程中访问Node.js API，您需要设置 `节点集成` 首选项为 `true`。
+> 注意：要从渲染过程中访问Node.js API，您需要设置 ` nodeIntegration ` 选项为 `true`。
 
 Electron 在主流程和渲染流程中显示对 Node.js API及其模块的完全访问权限。 例如，您可以从根目录读取所有文件：
 

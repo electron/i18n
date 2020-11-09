@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
+> Aktivieren Sie Apps, um sich automatisch selbst zu aktualisieren.
 
 Prozess: [Main](../glossary.md#main-process)
 

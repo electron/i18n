@@ -23,4 +23,4 @@ Comme `--inspect` mais interrompt l'exécution sur la première ligne de JavaScr
 Vous devrez utiliser un débogueur supportant le protocole de l'inspecteur V8.
 
 - Connectez Chrome en visitant `chrome://inspect` et sélectionnez inspecter l'application Electron lancé présente ici.
-- [Debugging in VSCode](debugging-vscode.md)
+- [Débogage dans VSCode](debugging-vscode.md)

@@ -226,7 +226,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+Это событие не может быть предотвращено, если вы хотите предотвратить перенаправления, то должны проверить событие`will-redirect` выше.
 
 #### Событие: 'did-navigate'
 
@@ -376,8 +376,8 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // Например, включать сочетания клавиш меню приложения
+  // Только когда Ctrl/Cmd нажаты.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```

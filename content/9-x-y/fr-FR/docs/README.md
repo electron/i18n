@@ -51,7 +51,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activer l'accessibilité](tutorial/accessibility.md#enabling-accessibility)
 * [Test et débogage](tutorial/application-debugging.md)
-  * [Débogguer le Main Process](tutorial/debugging-main-process.md)
+  * [Débogguer le Processus Principal](tutorial/debugging-main-process.md)
   * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)

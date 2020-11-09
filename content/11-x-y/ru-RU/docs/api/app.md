@@ -307,7 +307,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Возникает, когда процесс GPU аварийно завершает работу или завершается принудительно.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Устарело:** Это событие заменяется событием `child-process-gone`, которое содержит больше информации о том, почему дочерний процесс исчез. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -339,7 +339,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-#### Event: 'child-process-gone'
+#### Событие 'child-process-gone'
 
 Возвращает:
 
@@ -353,7 +353,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `Pepper Plugin`
     * `Pepper Plugin Broker`
     * `Unknown`
-  * `reason` String - The reason the child process is gone. Возможные значения:
+  * `reason` String - Причина исчезновения дочернего процесса. Возможные значения:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
