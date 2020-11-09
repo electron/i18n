@@ -106,7 +106,7 @@ Restituisce:
 
 Emesso quando l'applicazione è attivata. Varie azioni possono generare questo evento, come il lancio dell'applicazione per la prima volta, provare a rilanciarla quando è già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
-### Event: 'did-become-active' _macOS_
+### Evento: 'did-become e-active' _macOS_
 
 Restituisce:
 
