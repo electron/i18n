@@ -13,7 +13,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Tổng qua về Hệ thống cần thiết để Build](build-system-overview.md)
 * [Hướng dẫn build (macOS)](build-instructions-macos.md)
 * [Hướng dẫn build (Windows)](build-instructions-windows.md)
-* [Hướng dẫn build (Linux)](build-instructions-linux.md)
+* [Build Instructions (Linux)](build-instructions-linux.md)
 * [Chromium Development](chromium-development.md)
 * [V8 Development](v8-development.md)
 * [Kiểm thử](testing.md)

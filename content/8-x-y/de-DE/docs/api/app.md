@@ -500,7 +500,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
-You should seek to use the `steal` option as sparingly as possible.
+Du solltest versuchen, die `steal` Option so selten wie möglich zu verwenden.
 
 ### `app.hide()` _macOS_
 

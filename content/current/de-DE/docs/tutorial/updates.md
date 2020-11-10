@@ -27,11 +27,11 @@ require('update-electron-app')()
 
 Standardmäßig wird dieses Modul beim Start der App nach Updates suchen, dann alle zehn Minuten. Wenn ein Update gefunden wird, wird es automatisch im Hintergrund heruntergeladen. Wenn der Download abgeschlossen ist, wird ein Dialog angezeigt, der dem Benutzer erlaubt, die App neu zu starten.
 
-Wenn Sie Ihre Konfiguration anpassen müssen, Sie können [Optionen an `update-electron-app übergeben`](https://github.com/electron/update-electron-app) oder [nutzen Sie den Update-Dienst direkt](https://github.com/electron/update.electronjs.org).
+Wenn Sie Ihre Konfiguration anpassen müssen, [übergeben Sie Optionen an `update-electron-app`](https://github.com/electron/update-electron-app) oder [nutzen Sie den Update-Dienst direkt](https://github.com/electron/update.electronjs.org).
 
 ## Bereitstellung eines Update-Servers
 
-Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie keine Veröffentlichungen auf GitHub Releases veröffentlichen, es könnte notwendig sein, Ihren eigenen Update-Server auszuführen.
+Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie sie nicht auf GitHub Releases veröffentlichen, könnte notwendig sein, Ihren eigenen Update-Server bereitzustellen.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 

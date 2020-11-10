@@ -106,7 +106,7 @@ Retorna:
 
 Emitido quando a aplicação é ativada. Várias ações podem disparar esse evento, tais como iniciando o aplicativo pela primeira vez, a tentativa de re-iniciar o aplicativo quando ele já está sendo executado, ou clicando no ícone de barra de tarefas ou doca do aplicativo.
 
-### Event: 'did-become-active' _macOS_
+### Evento: 'did-become-active' _macOS_
 
 Retorna:
 

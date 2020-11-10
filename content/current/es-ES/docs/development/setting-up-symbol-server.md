@@ -22,8 +22,7 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Usando el servidor de símbolos en Visual Studio
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
-<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 ## Solución de problemas: los símbolos no se cargarán
 

@@ -1,6 +1,6 @@
 # Objeto JumpListCategory
 
-* `type` String (optional) - One of the following:
+* `type` String (opcional) - Um dos seguintes:
   * `tarefas` - itens nesta categoria serão colocados na categoria de `tarefas` padrão. Só pode existir um de cada categoria, e sempre será mostrado no final da Jump List.
   * `frequente` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome da categoria e seus itens são definidos pelo Windows.
   * `recent` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome e a categoria de seus itens são definidos pelo Windows. Itens podem ser adicionados indiretamente a esta categoria usando `app.addRecentDocument(path)`.

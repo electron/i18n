@@ -1,4 +1,4 @@
-# Hướng dẫn build (Linux)
+# Build Instructions (Linux)
 
 Xpath:/p.
 
