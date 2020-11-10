@@ -151,12 +151,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium.
 
-<table>
-<tr><th>Host</th><th>Objetivo</th><th>Estado</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automáticamente probado</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automáticamente probado</td></tr>
-</table>
+| Host        | Objetivo      | Estado                  |
+| ----------- | ------------- | ----------------------- |
+| Windows x64 | Windows arm64 | Experimental            |
+| Windows x64 | Windows x86   | Automáticamente probado |
+| Linux x64   | Linux x86     | Automáticamente probado |
+
 
 Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
 

@@ -35,7 +35,7 @@ If your app is packaged with [`electron-builder`][electron-builder-lib] you can 
 
 ## Bereitstellung eines Update-Servers
 
-Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie keine Veröffentlichungen auf GitHub Releases veröffentlichen, es könnte notwendig sein, Ihren eigenen Update-Server auszuführen.
+Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie sie nicht auf GitHub Releases veröffentlichen, könnte notwendig sein, Ihren eigenen Update-Server bereitzustellen.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 

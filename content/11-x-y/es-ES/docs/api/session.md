@@ -302,6 +302,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - The type of requested permission.
+    * `clipboard-read` - Request access to read from the clipboard.
     * `media` -  Request access to media devices such as camera, microphone and speakers.
     * `mediaKeySystem` - Request access to DRM protected content.
     * `geolocation` - Request access to user's current location.

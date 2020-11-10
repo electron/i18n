@@ -16,7 +16,7 @@
 
 Valores possíveis:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+* `disabled_software` - Apenas software. Aceleração de hardware desabilitada (amarelo)
 * `disabled_off` - Desativado (vermelho)
 * `disabled_off_ok` - Desativado (amarelo)
 * `unavailable_software` - Apenas aceleração de software. Não está disponível a de hardware (amarelo)
