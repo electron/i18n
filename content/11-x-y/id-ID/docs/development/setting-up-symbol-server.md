@@ -22,9 +22,7 @@ Tetapkan string ini sebagai ` _NT_SYMBOL_PATH </ 0> di lingkungan, dengan menggu
 
 ## Menggunakan server simbol dalam Visual Studio
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
-
-<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 
 

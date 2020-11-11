@@ -80,7 +80,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

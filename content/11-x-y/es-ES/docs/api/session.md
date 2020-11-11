@@ -335,7 +335,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - Enumeración de 'media'.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos

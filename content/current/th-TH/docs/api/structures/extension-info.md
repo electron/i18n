@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 * `version` String

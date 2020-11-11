@@ -331,7 +331,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Returns:
 
 * `event` Event
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 * `version` String
 
 Emitted when a plugin process has crashed.

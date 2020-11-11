@@ -80,7 +80,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

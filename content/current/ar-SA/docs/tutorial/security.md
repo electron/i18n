@@ -432,18 +432,25 @@ Much like navigation, the creation of new `webContents` is a common attack vecto
 
 ### كيف؟
 
-[`محتويات الويب`](../api/web-contents.md) سوف تصدر [`نافذة جديدة`](../api/web-contents.md#event-new-window) الحدث قبل إنشاء نوافذ جديدة. سيتم تمرير هذا الحدث، ضمن معلمات أخرى ، عنوان url `` المطلوب من النافذة فتحه والخيارات المستخدمة لإنشائه. نوصي بأن تستخدم الحدث لتمحيص إنشاء نوافذ، وتقصره على ما تحتاجه فقط.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created'، (الحدث، المحتويات) => {
-  المحتويات. n('new-window', async (الحدث, avigationUrl) => {
-    // في هذا المثال سوف نطلب من نظام التشغيل
-    // فتح عنوان URL لهذا الحدث في المتصفح الافتراضي.
-    event.preventDefault()
+app.on('web-contents-created', (event, contents) => {
+  contents.setWindowOpenHandler(({ url }) => {
+    // In this example, we'll ask the operating system
+    // to open this event's url in the default browser.
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    انتظار shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```
