@@ -1042,7 +1042,7 @@ stopAccessingSecurityScopedResource()
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (任意)
-  * `conflictHandler` Function<Boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。
+  * `conflictHandler` Function\<Boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。
     * `conflictType` String - ハンドラーが遭遇した移動で起こった競合の種類。`exists` か `existsAndRunning` になります。`exists` は同じ名前のアプリがアプリケーションディレクトリに存在し、`existsAndRunning` は存在し且つ現在実行されていることを意味します。
 
 戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。

@@ -517,7 +517,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 
 Remove a Chrome extension by name.
 
@@ -549,7 +549,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 
 Remove a DevTools extension by name.
 

@@ -432,18 +432,25 @@ Dacă nu ai nevoie să creezi ferestre în plus față de cele pe care știi că
 
 ### Cum?
 
-[`webContent`](../api/web-contents.md) va emite evenimentul [`noua fereastră`](../api/web-contents.md#event-new-window) înainte de a crea ferestre noi. Acest eveniment va fi trecut, printre alţi parametri; `url` fereastra a fost solicitată să o deschidă și opțiunile folosite pentru a crea ea. Îți recomandăm să folosești evenimentul pentru a verifica crearea ferestrelor, limitându-l doar la ce ai nevoie.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created', (event, conținuturi) => {
-  conținut. n('new-window', async (event, navigationUrl) => {
-    // În acest exemplu, Vom solicita sistemului de operare
-    // să deschidă URL-ul acestui eveniment în browser-ul implicit.
-    event.preventDefault()
+app.on('web-contents-created', (event, contents) => {
+  contents.setWindowOpenHandler(({ url }) => {
+    // In this example, we'll ask the operating system
+    // to open this event's url in the default browser.
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    așteaptă shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```

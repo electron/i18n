@@ -1179,9 +1179,9 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1204,11 +1204,11 @@ Ejemlo de uso:
 ```js
 const options = {
   silent: true,
-  deviceName: 'Mi-Impresora',
-  pageRanges: {
+  deviceName: 'My-Printer',
+  pageRanges: [{
     from: 0,
     to: 1
-  }
+  }]
 }
 win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
@@ -1225,8 +1225,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Número - índice cero de la primera página a imprimir.
-    * `to` Number - índice cero de la última página a imprimir (inclusivo).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.

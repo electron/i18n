@@ -144,7 +144,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 

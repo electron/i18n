@@ -437,18 +437,25 @@ app.on('web-contents-created', (event, contents) =>
 
 ### Як?
 
-[`webContents`](../api/web-contents.md) викине [`new-Window`](../api/web-contents.md#event-new-window) подія перед створенням нових вікон. Ця подія буде продана, серед інших параметрів, посилання `на` було запропоновано відкрити вікно і параметри, використані для створення його. Рекомендуємо використовувати подію для ретельного створення вікон, обмежуючи її лише тим, що вам потрібно.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  вмісту. n('new-window', async (event, navigationUrl) => {
-    // В даному прикладі ми будемо запитувати операційну систему
-    // щоб відкрити URL-адресу цієї події у браузері за замовчуванням.
-    event.preventDefault()
+  contents.setWindowOpenHandler(({ url }) => {
+    // In this example, we'll ask the operating system
+    // to open this event's url in the default browser.
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    очікує shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```

@@ -554,7 +554,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -575,7 +575,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 
 Overrides the current application's name.
 
@@ -1042,7 +1042,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.

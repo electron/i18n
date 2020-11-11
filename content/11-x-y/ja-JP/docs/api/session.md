@@ -335,7 +335,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL

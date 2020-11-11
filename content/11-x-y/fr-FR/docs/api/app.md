@@ -1104,7 +1104,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - Le type de conflit de déplacement rencontré par le gestionnaire ; peut être `exists` ou `existsAndRunning`, où `existe` signifie qu'une application du même nom est présente dans le répertoire Applications et `existsAndRunning` signifie à la fois qu'elle existe et qu'elle est actuellement en cours d'exécution.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
