@@ -88,7 +88,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+Eğer mesaja cevap vermek zorunda değilseniz [`ipcRenderer.send`](#ipcrenderersendchannel-args). kullanmayı düşününün.
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
