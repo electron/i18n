@@ -36,7 +36,7 @@
     "words_approved": "26519",
     "translated_progress": 68,
     "approved_progress": 13,
-    "qa_issues": 336
+    "qa_issues": 337
   },
   {
     "name": "Chinese Traditional",
@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "16545",
-    "translated": "423",
+    "translated": "424",
     "approved": "60",
     "words": "193238",
-    "words_translated": "3373",
+    "words_translated": "3377",
     "words_approved": "450",
     "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": 158
+    "qa_issues": 159
   },
   {
     "name": "Hindi",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "16545",
-    "translated": "5555",
+    "translated": "5556",
     "approved": "1658",
     "words": "193238",
-    "words_translated": "61975",
+    "words_translated": "61980",
     "words_approved": "16979",
     "translated_progress": 32,
     "approved_progress": 8,
-    "qa_issues": 2648
+    "qa_issues": 2649
   },
   {
     "name": "Persian",
