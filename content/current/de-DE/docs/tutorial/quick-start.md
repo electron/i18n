@@ -27,14 +27,14 @@ Aus der Entwicklungsperspektive ist eine Electron-Anwendung im Wesentlichen eine
 
 ```plain
 my-electron-app/
-<unk> 文<unk> package.json
-<unk> 本<unk> main.js
-<unk> 本<unk> index.html
+├── package.json
+├── main.js
+└── index.html
 ```
 
 Erstellen wir eine Basisanwendung basierend auf der obigen Struktur.
 
-#### Install Electron
+#### Electron Installieren
 
 Erstellen Sie einen Ordner für Ihr Projekt und installieren Sie dort Electron:
 
@@ -83,20 +83,20 @@ app.on('activate', () => {
 
 ##### Was geschieht oben?
 
-1. Zeile 1: Zuerst du die `-App` und `BrowserWindow` Module des `electron` Pakets importierst, um den Lebenszyklus deiner Anwendung verwalten zu können sowie Browserfenster erstellen und steuern.
-2. Zeile 3: Danach definieren Sie eine Funktion, die ein [neues Browserfenster](../api/browser-window.md#new-browserwindowoptions) mit aktivierter Knotenintegration erzeugt, lade `Index. tml` Datei in diesem Fenster (Zeile 12, wir werden die Datei später besprechen) und öffnet Entwicklerwerkzeuge (Zeile 13).
-3. Zeile 16: Sie erstellen ein neues Browserfenster, indem Sie die `createWindow` Funktion aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
-4. Zeile 18: Sie fügen einen neuen Zuhörer hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. This listener is a no-op on macOS due to the operating system's [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+1. Zeile 1: Zuerst weden die Module `app` und `BrowserWindow` des Pakets `electron` importiert, um den Lebenszyklus deiner Anwendung verwalten zu können sowie Browserfenster zu erstellen und zu steuern.
+2. Zeile 3: Danach definieren Sie eine Funktion, die ein [neues Browserfenster](../api/browser-window.md#new-browserwindowoptions) mit aktivierter node-integration erzeugt, die Datei `index.html` in diesem Fenster lädt (Zeile 12, wir werden die Datei später besprechen) und die Entwicklerwerkzeuge öffnet (Zeile 13).
+3. Zeile 16: Sie erstellen ein neues Browserfenster, indem Sie die Funktion `createWindow` aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
+4. Zeile 18: Sie fügen einen neuen "listener" hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
 5. Zeile 24: Sie fügen einen neuen Listener hinzu, der ein neues Browserfenster nur dann erzeugt, wenn die Anwendung nach der Aktivierung keine sichtbaren Fenster hat. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
 
 #### Webseite erstellen
 
-Dies ist die Webseite, die nach der Initialisierung der Anwendung angezeigt werden soll. Diese Webseite repräsentiert den Renderer-Prozess. Sie können mehrere Browserfenster erstellen, in denen jedes Fenster seinen eigenen, unabhängigen Renderer verwendet. Jedes Fenster kann optional mit vollem Zugriff auf die Node.js API durch die `Knoten-Integration` bevorzugt werden.
+Dies ist die Webseite, die nach der Initialisierung der Anwendung angezeigt werden soll. Diese Webseite repräsentiert den Renderer-Prozess. Sie können mehrere Browserfenster erstellen, in denen jedes Fenster seinen eigenen, unabhängigen Renderer verwendet. Jedes Fenster kann optional durch die Einstellung `nodeIntegration` mit vollem Zugriff auf die Node.js API befugt werden.
 
 Die `index.html` Seite sieht wie folgt aus:
 
 ```html
-<! OCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -105,7 +105,7 @@ Die `index.html` Seite sieht wie folgt aus:
 </head>
 <body>
     <h1>Hallo Welt!</h1>
-    Wir verwenden node <script>Dokument. rite(process.versions.node)</script>,
+    Wir verwenden node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions. hrome)</script>,
     und Electron <script>document.write(process.versions.electron)</script>.
 </body>
