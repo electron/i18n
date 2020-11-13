@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitido después que la ventana se haya redimensionada.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Devuelve:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Aparece cuando la ventana se mueve a una nueva posición.
 
-__Note__: En macOS este evento es un alias de `moved`.
-
-#### Evento: "moved" _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Aparece solo una vez cuando la ventana se mueve a una nueva posición.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Evento: "enter-full-screen"
 
@@ -448,7 +454,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. El último evento emitido sobra un gesto de rotación siempre será el valor de `0`. Los valores de rotación en sentido contrario a las agujas del reloj son positivos, mientras que los del sentido de las agujas del reloj son Negativo.
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -489,7 +495,7 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 * `webContents` [WebContents](web-contents.md)
 
-Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `null` si los contenidos no son propiedad de una ventana.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -527,7 +533,7 @@ Elimina una extensión de Chrome por su nombre.
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-Devuelve `Record<String, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -559,7 +565,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Devuelve `Record<string, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
@@ -593,13 +599,13 @@ Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eve
 
 #### `win.id` _Readonly_
 
-Una propiedad `Integer` representando el identificador único de la ventana. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-Si el menu bar ya está visible, estableciendo esta propiedad a `true` no lo ocultará inmediatamente.
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
 #### `win.simpleFullScreen`
 
@@ -647,7 +653,7 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
+A `Boolean` property that determines whether the window can be manually minimized by user.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
@@ -1003,7 +1009,7 @@ En Linux siempre devuelve `true`.
 * `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
 * `relativeLevel` Integer (opcional) _macOS_ - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es `0`. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
-Sets whether the window should show always on top of other windows. Después de configurar esto, la ventana seguirá siendo una ventana normal, y no una ventana de herramientas que no puede enfocarse.
+Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
 #### `win.isAlwaysOnTop()`
 
@@ -1078,7 +1084,7 @@ Hace que la ventana no se muestre en la barra de tareas.
 
 * `flag` Boolean
 
-Entra / sale del modo Kiosko.
+Enters or leaves kiosk mode.
 
 #### `win.isKiosk()`
 
@@ -1227,7 +1233,7 @@ Establece el valor del progreso en el progress bar. Rango valido es [0, 1.0].
 
 Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, será asumido `{app.name}.desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. By default, it will assume `{app.name}.desktop`.
 
 En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
@@ -1468,7 +1474,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `undefined` elimina la barra táctil. Este método solo es efectivo si la máquina tiene una barra táctil y si se está ejecutando en macOS 10.12.1+.
 
-**Nota:** Actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

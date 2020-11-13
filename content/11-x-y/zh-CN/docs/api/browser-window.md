@@ -344,6 +344,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 调整窗口大小后触发。
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 返回:
@@ -359,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 窗口移动到新位置时触发
 
-__注意__: 在 macOS 上，此事件是` moved `的别名.
-
-#### 事件: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 当窗口移动到新位置时触发一次
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### 事件: 'enter-full-screen'
 
@@ -1467,7 +1473,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _实验_
 

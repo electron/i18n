@@ -22,32 +22,9 @@
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown<!--
-谢谢您提出问题！ 请记住以下几点：
-
-- 问题跟踪器只能用于漏洞和功能的提出。
-- 在提出问题之前，请尝试使用最新版本的Electron让您提出的问题重现。
-如果您需要一般的问题，请参与我们的Slack: http://atom-slack.herokuapp.com
--->* Electron版本: 
-* 操作系统: 
-
-### 你希望得到的结果<!-- 你觉得应该发生什么？ -->### 实际结果<!-- 实际发生了什么？ -->### How to reproduce<!--
-
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
-
-你可以克隆 https://github.com/electron/electron-quick-start 并包含一个到含有你更改的分支的链接。
-
-如果您提供了一个URL，请列出克隆/设置/运行您的仓库所需要的命令，例如
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->```
-
-如果你确信你发现了Electron中的漏洞，请尽力填这份表单。
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 It is easier to fix a bug if it can be reproduced.
 

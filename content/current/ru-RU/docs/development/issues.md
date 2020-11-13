@@ -22,40 +22,9 @@
 
 Чтобы сообщить об ошибке:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown<!--
-Спасибо за открытие проблемы! Имейте в виду:
-
-- Трекер отслеживания ошибок предназначен только для ошибок и запросов функций.
-- Прежде чем сообщать об ошибке, попробуйте повторить вашу проблему на
-  последней версии Electron.
-- Если вам нужен общий совет, присоединяйтесь к нашему Slack: http://atom-slack.herokuapp.сom
--->* Версия Electron:
-* Операционная система:
-
-### Ожидаемое поведение
-
-<! - Как вы думаете, что должно произойти? -->
-
-### Фактическое поведение<!-- Что на самом деле происходит? -->### Как воспроизвести
-
-<! -
-
-Ваш лучший шанс быстро увидеть эту ошибку - это клонировать РЕПОЗИТОРИЙ и запустить.
-
-Вы можете сделать форк https://github.com/electron/electron-quick-start и включить ссылку на ветку с вашими изменениями.
-
-Если вы указали URL, пожалуйста, перечислите команды, необходимые для клонирования/настройки/запуска вашего репозитория и т.д.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->
-```
-
-Если вы считаете, что обнаружили ошибку в Electron, пожалуйста, заполните эту форму в меру ваших возможностей.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 Двумя наиболее важными частями информации, необходимой для оценки отчета, являются описание ошибки и простой тестовый случай для его создания. Легче исправить ошибку, если она может быть воспроизведена.
 

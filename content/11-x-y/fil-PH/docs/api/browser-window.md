@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Pagbabalik:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Ay lalabas kung ang window ay inilipat sa bagong posisyon.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Kaganapan: 'inilipat' _ macOS _
+#### Event: 'moved' _macOS_ _Windows_
 
 Ay lalabas kapag ang window ay inilipat sa bagong posisyon.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Kaganapan: 'enter-full-screen'
 
@@ -1470,7 +1476,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
-**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa  panghinaharap na pag-release ng Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

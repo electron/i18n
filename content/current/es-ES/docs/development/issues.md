@@ -22,43 +22,9 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
-
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
--->
-
-* Electron version:
-* Operating system:
-
-### Expected behavior
-
-<!-- What do you think should happen? -->
-
-### Actual comportamiento<!-- ¿Qué está ocurriendo? -->### How to reproduce
-
-<!--
-
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
-
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
-
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->
-```
-
-Si cree que ha encontrado un fallo en Electron, por favor rellene este formulario lo mejor posible.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. It is easier to fix a bug if it can be reproduced.
 
@@ -70,7 +36,7 @@ Es común que los problemas abiertos se acompañen con un debate. Algunos contri
 
 Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentras un fallo que crees que es inválido o que contiene información errónea, explica *por qué* crees eso añadiendo contexto adicional y estando dispuesto a convencerse de que puedes estar equivocado. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
 
 ## Resolviendo un informe de error
 

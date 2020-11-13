@@ -344,6 +344,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 반환:
@@ -359,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -1467,7 +1473,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
