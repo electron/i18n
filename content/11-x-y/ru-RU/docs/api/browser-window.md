@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Происходит после того, как изменился размер окна.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Возвращает:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Вызывается, когда окно перемещено на новое место.
 
-__Примечание__: На macOS это событие является псевдонимом `moved`.
-
-#### Событие: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Вызывается единожды, когда окно перемещается в новое положение.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Событие: 'enter-full-screen'
 
@@ -489,7 +495,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 * `webContents` [WebContents](web-contents.md)
 
-Возвращает `BrowserWindow | null` - окно, которое владеет объектом `webContents`, или имеет `null` если не содержит контент.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -679,7 +685,7 @@ A `String` property that determines the title of the native window.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. По умолчанию `false`.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -1468,7 +1474,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
-**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Экспериментально_
 

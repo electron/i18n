@@ -345,6 +345,12 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### イベント: 'will-move' _macOS_ _Windows_
 
 戻り値:
@@ -360,11 +366,11 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-__注__: macOSでは、このイベントは `moved` のエイリアスです。
-
-#### イベント: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 ウインドウが新しい位置に移動されるときに一回だけ、発生します。
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### イベント: 'enter-full-screen'
 
@@ -880,7 +886,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-戻り値 `Boolean` - ウインドウが有効かどうか。
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 

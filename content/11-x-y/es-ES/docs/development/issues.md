@@ -70,7 +70,7 @@ Es común que los problemas abiertos se acompañen con un debate. Algunos contri
 
 Respuestas bruscas que no proveen contexto adiciona o detalles de apoyo, no son útiles o profesionales. Para muchos, tales respuestas son molestas y dañinas.
 
-Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
+Los contribuyentes están animados a resolver problemas de manera colaborativa y ayudarse mutuamente a progresar. Si encuentras un fallo que crees que es inválido o que contiene información errónea, explica *por qué* crees eso añadiendo contexto adicional y estando dispuesto a convencerse de que puedes estar equivocado. Al hacerlo, podemos a menudo alcanzar la solución correcta de manera rápida.
 
 ## Resolviendo un informe de error
 

@@ -468,6 +468,14 @@ Emitted after the window has been resized.
 
 
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
+
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Mengembalikan:
@@ -485,13 +493,13 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted saat jendela sedang dipindahkan ke posisi baru.
 
-__Note__: On macOS this event is an alias of `moved`.
 
 
-
-#### Acara : 'pindah' _ macOS </ 0></h4> 
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted sekali saat jendela dipindahkan ke posisi baru.
+
+__Note__: On macOS this event is an alias of `move`.
 
 
 
@@ -1901,7 +1909,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 
 

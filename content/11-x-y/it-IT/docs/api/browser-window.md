@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Restituisce:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emesso quando la finestra viene mossa verso una nuova posizione.
 
-__Nota__: Su macOS questo evento è un alias di `moved`.
-
-#### Evento: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emesso una volta quando la finestra è stata spostata in una nuova posizione.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Evento: 'enter-full-screen'
 
