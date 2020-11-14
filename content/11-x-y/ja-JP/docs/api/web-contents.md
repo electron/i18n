@@ -136,7 +136,7 @@ console.log(webContents)
 * `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
-* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+* `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 Only defined when the window is being created by a form that set `target=_blank`.
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 

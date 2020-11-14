@@ -8,20 +8,20 @@ Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-pro
 
 ```diff
 Electron
-├── build/ - Build configuration files needed to build with GN.
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── build/ - Costruisci i file di configurazione necessari per costruire con GN.
+├── buildflags/ - Determina la serie di funzionalità che si possono costruire condizionalmente.
+├── chromium_src/ - Il codice sorgente copiato da Chromium che non è parte del livello del contenuto.
 ├── default_app/ - A default app run when Electron is started without
 |                  providing a consumer app.
-├── docs/ - Electron's documentation.
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
-|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── docs/ - La documentazione di Electron.
+|   ├── api/ - La documentazione per i moduli e le API esterni di Electron.
+|   ├── development/ - La documentazione per aiutare nello sviluppo per e con Electron.
+|   ├── fiddles/ - Una serie di frammenti di codice che si possono eseguire in Electron Fiddle.
+|   ├── images/ - Immagini usate nella documentazione.
+|   └── tutorial/ - I documenti del tutorial per vari aspetti di Electron.
 ├── lib/ - JavaScript/TypeScript source code.
-|   ├── browser/ - Main process initialization code.
-|   |   ├── api/ - API implementation for main process modules.
+|   ├── browser/ - Il codice di inizializzazione del processo principale.
+|   |   ├── api/ - L'implementazione dell'API per i moduli del processo principale.
 |   |   └── remote/ - Code related to the remote module as it is
 |   |                 used in the main process.
 |   ├── common/ - Relating to logic needed by both main and renderer processes.

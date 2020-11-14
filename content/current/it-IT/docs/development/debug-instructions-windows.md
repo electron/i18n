@@ -24,7 +24,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 Poi, apri Visual Studio. Electron non è costruito con Visual Studio e non contiene un file di progetto - puoi comunque aprire il file di codice sorgente "Come File", il che vuol dire che Visual Studio li aprirà da loro stessi. È ancora possibile impostare i punti di interruzione: Visual Studio rileva automaticamente che il codice sorgente corrisponde al codice in esecuzione nel processo allegato e si interrompe di conseguenza.
 
-Relevant code files can be found in `./shell/`.
+I file di codice rilevanti si possono trovare in `./shell/`.
 
 ### Allegare
 

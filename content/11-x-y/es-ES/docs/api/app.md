@@ -1212,6 +1212,12 @@ Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene
 
 La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/

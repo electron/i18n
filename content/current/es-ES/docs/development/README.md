@@ -10,7 +10,7 @@ Estas guías están pensadas para gente que trabaja en el proyecto Electron. Par
 * [Estructura del directorio de código fuente](source-code-directory-structure.md)
 * [Estilo de código](coding-style.md)
 * [Usar clang-format en código C++](clang-format.md)
-* [Using clang-tidy on C++ Code](clang-tidy.md)
+* [Usar Clang-Tidy en el código de C++](clang-tidy.md)
 * [Compilación de sistemas](build-system-overview.md)
 * [Instrucciones para compilación (macOS)](build-instructions-macos.md)
 * [Instrucciones para compilación (Windows)](build-instructions-windows.md)

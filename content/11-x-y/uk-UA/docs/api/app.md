@@ -1211,6 +1211,12 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 Призначення цих перевизначень бути вимкненими за замовчуванням і в подальшому ця властивість буде усунута.  Ця властивість визначає, які нативні модулі ви можете використовувати в рендер процесі.  Для детальнішої інформації куди рухається Electron з перезавантаженням рендер процесу та використанням нативних модулів у рендер процесі, буль ласка, перегляньте це [відстежуване питання](https://github.com/electron/electron/issues/18397).
 
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/

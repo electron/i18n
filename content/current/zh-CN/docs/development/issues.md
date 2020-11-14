@@ -24,7 +24,7 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+如果你确信自己发现了Electron的bug，请尽可能详细的填写一份表单。
 
 要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 It is easier to fix a bug if it can be reproduced.
 
