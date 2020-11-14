@@ -345,7 +345,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'resized' _macOS_ _Windows_
+#### Zdarzenie: 'resized' _macOS_ _Windows_
 
 Emitted once when the window has finished being resized.
 
@@ -468,7 +468,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-#### Event: 'system-context-menu' _Windows_
+#### Zdarzenie: 'system-context-menu' _Windows_
 
 Zwraca:
 

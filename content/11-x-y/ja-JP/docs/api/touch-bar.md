@@ -56,7 +56,7 @@
 
 #### `TouchBarOtherItemsProxy`
 
-A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
+[`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) であり、`TouchBarOtherItemsProxy` クラスの参照です。
 
 ### インスタンスプロパティ
 

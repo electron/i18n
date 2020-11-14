@@ -1072,7 +1072,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on macOS. Vedi i [documenti Apple][about-panel-options] per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
+Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on macOS. Vedi i [documenti Apple][about-panel-options] per altri dettagli. Su Linux, i valori devono essere impostati per essere mostrati; non ci sono predefiniti.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1217,6 +1217,12 @@ This is the user agent that will be used when no user agent is set at the `webCo
 A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+Un `Booleano` che quando `true` indica che l'app è attualmente in esecuzione sotto l'[Ambiente di Traduzione Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+Puoi usare questa proprietà per chiedere agli utenti di scaricare la versione di arm64 della tua applicazione quando stanno eseguendo scorrettamente la versione x64 sotto Rosetta.
 
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx

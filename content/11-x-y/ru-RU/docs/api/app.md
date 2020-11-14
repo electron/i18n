@@ -1211,6 +1211,12 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 Цель заключается в том, чтобы эти переопределения были отключены по умолчанию, а затем, в некоторой точке в будущем, это свойство будет удалено.  Это свойство влияет на то, какие нативные модули можно использовать в графическом процессе.  Для большей информации о том, как Electron перезапускает графический процесс и использует нативные модули в графическом процессе, пожалуйста, проверьте этот [отслеживаемый вопрос](https://github.com/electron/electron/issues/18397).
 
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/

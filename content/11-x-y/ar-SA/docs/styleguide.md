@@ -167,21 +167,33 @@ required[, optional]
 * [`الكائنات`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* أو نوع مخصص مثل</code></a>webContent
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+`إلكترون</li>
+</ul>
+
+<p spaces-before="0">If an argument or a method is unique to certain platforms, those platforms are
+denoted using a space-delimited italicized list following the datatype. Values
+can be <code>macOS`, `Windows` or `Linux`.</p> 
+  
+  
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
+
 `Array` type arguments must specify what elements the array may include in the description below.
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
+
+
 ### أحداث
 
 The events chapter must be in following form:
+
+
 
 ```markdown
 ### Event: 'wake-up'
@@ -193,13 +205,18 @@ Returns:
 ...
 ```
 
+
 The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
 
 The arguments of an event follow the same rules as methods.
 
+
+
 ### الخصائص
 
 The properties chapter must be in following form:
+
+
 
 ```markdown
 ### session.defaultSession
@@ -207,7 +224,10 @@ The properties chapter must be in following form:
 ...
 ```
 
+
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+
+
 
 ## Documentation Translations
 

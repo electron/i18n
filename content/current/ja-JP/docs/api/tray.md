@@ -42,10 +42,10 @@ app.whenReady().then(() => {
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
+  // コンテキストメニューを変更する
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Linux ではコンテキストメニューを変更したのでこれを呼び出し直します
   appIcon.setContextMenu(contextMenu)
 })
 ```
@@ -57,7 +57,7 @@ app.whenReady().then(() => {
 ### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (optional) _Windows_ - tray アイコンに割り当てる GUID。 実行形式が署名されていて署名の主体者が組織である場合は、GUID がその署名に恒久的に関連付けられます。 システム tray の tray アイコンの位置など OS レベルの設定は、実行ファイルのパスが変わっても維持されます。 実行形式がコード署名されていない場合は、GUID が実行形式のパスへ永続的に関連付けられます。 実行形式のパスを変更すると、tray アイコンの作成は破棄され、新しい GUID を使用する必要があります。 ただし、この GUID 引数はコード署名された実行形式のみと組み合わせて使用することを強く推奨します。 アプリが複数の tray アイコンを定義している場合は、それぞれのアイコンで別々の GUID を使用する必要があります。
 
 `image` に関連する新しい tray アイコンを作成します。
 
@@ -139,25 +139,25 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
 
-#### Event: 'mouse-up' _macOS_
+#### イベント: 'mouse-up' _macOS_
 
 戻り値:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse is released from clicking the tray icon.
+tray アイコンをクリックしてマウスを離したときに発生します。
 
-Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+注意: macOS レベルの制約によるもので、`tray.setContextMenu` を使って tray にコンテキストメニューを設定するとこれは発生しません。
 
-#### Event: 'mouse-down' _macOS_
+#### イベント: 'mouse-down' _macOS_
 
 戻り値:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse clicks the tray icon.
+tray アイコンをマウスクリックしたときに発生します。
 
 #### イベント: 'mouse-enter' _macOS_
 
@@ -266,7 +266,7 @@ tray アイコンのコンテキストメニューをポップアップ表示し
 
 #### `tray.closeContextMenu()` _macOS_ _Windows_
 
-Closes an open context menu, as set by `tray.setContextMenu()`.
+`tray.setContextMenu()` でセットすることで、開かれたコンテキストメニューを閉じます。
 
 #### `tray.setContextMenu(menu)`
 

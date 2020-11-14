@@ -309,7 +309,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `notifications` - Request notification creation and the ability to display them in the user's system tray.
     * `midi` - Request MIDI access in the `webmidi` API.
     * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
-    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Kliknij [tutaj](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) , aby dowiedzieć się więcej.
     * `fullscreen` - Request for the app to enter fullscreen mode.
     * `openExternal` - Request to open links in external applications.
   * `callback` Function

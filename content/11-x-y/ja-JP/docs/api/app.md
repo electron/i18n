@@ -1211,6 +1211,12 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
 
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
