@@ -1,6 +1,6 @@
 # カスタムドライバを使った自動テスト
 
-Electron アプリの自動テストを作成するには、アプリケーションを「ドライブ」する方法が必要になります。 [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). ただし、Node に組み込まれている IPC 越し標準入出力を使用して独自のカスタムドライバを書くことも可能です。 カスタムドライバの利点は、Spectron よりもオーバーヘッドが少なくて済むことです。また、カスタムメソッドをあなたのテストスイートに公開できます。
+Electron アプリの自動テストを作成するには、アプリケーションを「ドライブ」する方法が必要になります。 [Spectron](https://electronjs.org/spectron) は、[WebDriver](https://webdriver.io/) を介してユーザの操作をエミュレートする、一般的な解決方法です。 ただし、Node に組み込まれている IPC 越し標準入出力を使用して独自のカスタムドライバを書くことも可能です。 カスタムドライバの利点は、Spectron よりもオーバーヘッドが少なくて済むことです。また、カスタムメソッドをあなたのテストスイートに公開できます。
 
 カスタムドライバを作成するには、Node.js の [child_process](https://nodejs.org/api/child_process.html) API を使用します。 テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
 
@@ -43,13 +43,13 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // 子プロセスを開始します
+    env.APP_TEST_DRIVER = 1 // アプリにメッセージをリッスンする必要があると知らせます
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
+    // RPC レスポンスをハンドリングします
     this.process.on('message', (message) => {
-      // pop the handler
+      // ハンドラを削除します
       const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
@@ -58,7 +58,7 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // wait for ready
+    // ready まで待ちます
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,10 +66,10 @@ class TestDriver {
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
+  // 単純な RPC 呼び出し
+  // driver.rpc('method', 1, 2, 3).then(...) のように使用します
   async rpc (cmd, ...args) {
-    // send rpc request
+    // RPC リクエストを送信します
     const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // ここで必要なセットアップをします
     return true
   }
-  // define your RPC-able methods here
+  // ここで RPC 可能なメソッドを定義します
 }
 ```
 

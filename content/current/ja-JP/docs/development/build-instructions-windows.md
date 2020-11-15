@@ -23,9 +23,9 @@ Electron のビルドは完全にコマンドラインスクリプトで行わ�
 
 **注釈:** Visual Studio はビルドに使用されていませんが、それが提供するビルドツールチェーンが必要なため、まだ **必要** です。
 
-## Exclude source tree from Windows Security
+## Windows Security からソースのツリーを除外する
 
-Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+Windows Security は Chromium ソースコード内のファイルを良く思わないようで (https://crbug.com/441184 を参照)、常にある特定のファイルを削除してしまい、`gclient sync` の問題を引き起こします。 [こちらの手順に従う](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26) ことで、ソースのツリーを Windows Security の監視から除外できます。
 
 ## ビルド
 

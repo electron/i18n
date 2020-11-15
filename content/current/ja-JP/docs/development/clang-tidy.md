@@ -1,11 +1,11 @@
-# Using clang-tidy on C++ Code
+# C++ コードに clang-tidy を使用する
 
-[`clang-tidy`](https://clang.llvm.org/extra/clang-tidy/) is a tool to automatically check C/C++/Objective-C code for style violations, programming errors, and best practices.
+[`clang-tidy`](https://clang.llvm.org/extra/clang-tidy/) は C/C++/Objective-C コードのスタイル違反、プログラミングエラー、ベストプラクティスを自動でチェックするツールです。
 
-Electron's `clang-tidy` integration is provided as a linter script which can be run with `npm run lint:clang-tidy`. While `clang-tidy` checks your on-disk files, you need to have built Electron so that it knows which compiler flags were used. There is one required option for the script `--output-dir`, which tells the script which build directory to pull the compilation information from. A typical usage would be: `npm run lint:clang-tiy --out-dir ../out/Testing`
+Electron の `clang-tidy` インテグレーションは、`npm run lint:clang-tidy` で実行できるリンタースクリプトとして提供しています。 `clang-tidy` でディスク上のファイルをチェックするには、使用するコンパイラーフラグが分かるように Electron をビルドしておく必要があります。 このスクリプトには、コンパイル情報を取得するビルドディレクトリを指定するオプション `--output-dir` があります。 典型的な使用方法としては `npm run lint:clang-tiy --out-dir ../out/Testing` のようになります。
 
-With no filenames provided, all C/C++/Objective-C files will be checked. You can provide a list of files to be checked by passing the filenames after the options: `npm run lint:clang-tiy --out-dir ../out/Testing shell/browser/api/electron_api_app.cc`
+ファイル名を指定しない場合、すべての C/C++/Objective-C ファイルがチェックされます。 チェックするファイルのリストを指定するには、`npm run lint:clang-tiy --out-dir ../out/testing shell/browser/api/electron_api_app.cc` のようにオプションの後にそのファイル名を渡すとできます。
 
-While `clang-tidy` has a [long list](https://clang.llvm.org/extra/clang-tidy/checks/list.html) of possible checks, in Electron only a few are enabled by default. At the moment Electron doesn't have a `.clang-tidy` config, so `clang-tidy` will find the one from Chromium at `src/.clang-tidy` and use the checks which Chromium has enabled. You can change which checks are run by using the `--checks=` option. This is passed straight through to `clang-tidy`, so see its documentation for full details. Wildcards can be used, and checks can be disabled by prefixing a `-`. By default any checks listed are added to those in `.clang-tidy`, so if you'd like to limit the checks to specific ones you should first exclude all checks then add back what you want, like `--checks=-*,performance*`.
+`clang-tidy` では [こちらの長いリスト](https://clang.llvm.org/extra/clang-tidy/checks/list.html) がチェック可能な項目ですが、Electron のデフォルトではこのうちいくつかのチェックしか有効になっていません。 現時点の Electron には `.clang-tidy` の設定が無いので、`clang-tidy` は Chromium 内の `src/.clang-tidy` にあるものを見つけ、Chromium が有効にしているチェックを使用します。 実行するチェックは `--checks=` オプションで変更できます。 これはそのまま `clang-tidy` に渡されるので、この詳細は clang-tidy のドキュメントを参照してください。 ワイルドカードが使用でき、`-` を頭に付けるとそのチェックを無効にできます。 デフォルトでは、リストしたチェックはすべて `.clang-tidy` のチェックに追加されます。そのため、特定のチェックを制限したい場合は、最初にすべてのチェックを除外してから `--checks=-*,performance*` のように必要なものを追加してください。
 
-Running `clang-tidy` is rather slow - internally it compiles each file and then runs the checks so it will always be some factor slower than compilation. While you can use parallel runs to speed it up using the `--jobs|-j` option, `clang-tidy` also uses a lot of memory during its checks, so it can easily run into out-of-memory errors. As such the default number of jobs is one.
+`clang-tidy` の実行はかなり遅いです。内部的には各ファイルをコンパイルしてからチェックするので、何らかの要因でコンパイルよりも常に遅くなります。 `--jobs|-j` オプションで並列実行して高速化できますが、`clang-tidy` もチェック中に多くのメモリを使用するので、メモリ不足エラーに陥りやすくなります。 このため、デフォルトのジョブ数は 1 です。

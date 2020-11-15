@@ -22,9 +22,9 @@
 
 バグレポートを送信するには:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
+[`electron/electron` の Issue トラッカー](https://github.com/electron/electron/issues/new/choose) で新しい Issue を開くと、記入すべき [テンプレート](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) が表示されます。
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+Electron のバグを発見したと思われる方は、できるだけテンプレートの記入にご協力ください。
 
 レポートを評価するために必要な、2つの最も重要な情報は、バグの説明とそれを再現するための簡単なテストケースです。 再現できる場合は、バグを修正することがより簡単になります。
 

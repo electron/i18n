@@ -10,7 +10,7 @@
 * [ソースコードのディレクトリ構造](source-code-directory-structure.md)
 * [コーディング スタイル](coding-style.md)
 * [C++のコードにclang-formatを使用する](clang-format.md)
-* [Using clang-tidy on C++ Code](clang-tidy.md)
+* [C++ コードに clang-tidy を使用する](clang-tidy.md)
 * [ビルドシステムの概要](build-system-overview.md)
 * [ビルド手順 (macOS)](build-instructions-macos.md)
 * [ビルド手順 (Windows)](build-instructions-windows.md)

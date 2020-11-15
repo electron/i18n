@@ -59,7 +59,7 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-Note that code in the renderer may not be trustworthy, so it's important to carefully validate in the main process requests that come from renderers, especially if they host third-party content.
+レンダラーのコードは信頼できない可能性があるので、特にサードパーティコンテンツをホストする場合は、レンダラーから送られてくるメインプロセスへのリクエストを慎重に検証することが重要です。
 
 ## Node.js API を使用する
 
