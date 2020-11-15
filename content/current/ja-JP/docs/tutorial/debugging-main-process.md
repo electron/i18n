@@ -23,4 +23,4 @@ electron --inspect=5858 your/app
 V8 インスペクタープロトコルをサポートするデバッガを使用する必要があります。
 
 - `chrome://inspect` を開いて Chrome に接続し、起動した Electron アプリのインスペクトをそこから選択します。
-- [Debugging in VSCode](debugging-vscode.md)
+- [VS Code でデバッグする](debugging-vscode.md)

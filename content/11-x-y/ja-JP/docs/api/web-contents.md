@@ -136,7 +136,7 @@ console.log(webContents)
 * `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
-* `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 Only defined when the window is being created by a form that set `target=_blank`.
+* `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -148,7 +148,7 @@ console.log(webContents)
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
   event.preventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
+    webContents: options.webContents, // あれば既存の webContents を使用する
     show: false
   })
   win.once('ready-to-show', () => win.show())
@@ -162,7 +162,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
       loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
     }
 
-    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
+    win.loadURL(url, loadOptions) // 自動で既存の webContents をナビゲーションする
   }
   event.newGuest = win
 })
@@ -300,7 +300,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### イベント: 'crashed' _非推奨_
 
 戻り値:
 
@@ -1180,21 +1180,21 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageRanges` Object[] (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
-  * `dpi` Record<string, number> (optional)
+  * `dpi` Record<string, number> (任意)
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
   * `header` String (任意) - ページヘッダーとして印刷される文字列。
   * `footer` String (任意) - ページフッターとして印刷される文字列。
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `pageSize` String | Size (任意) - 印刷するドキュメントのページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid` のいずれかにするか、`height` を含む Object にできます。
 * `callback` Function (任意)
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1219,16 +1219,16 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
+  * `headerFooter` Record<string, string> (任意) - PDF のヘッダーとフッター。
+    * `title` String - PDF ヘッダーのタイトル。
+    * `url` String - PDF フッターの URL。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
-  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 0 から 100 の範囲にできます。
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `height` と `width` を含む Object にできます。
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
 
@@ -1486,17 +1486,17 @@ ipcMain.on('ping', (event) => {
 * `message` any
 * `transfer` MessagePortMain[] (任意)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+レンダラープロセスにメッセージを送信し、任意で 0 個以上の [`MessagePortMain`][] オブジェクトの所有権を転送します。
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
 
 例:
 ```js
-// Main process
+// メインプロセス
 const { port1, port2 } = new MessageChannelMain()
 webContents.postMessage('port', { message: 'hello' }, [port1])
 
-// Renderer process
+// レンダラープロセス
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
@@ -1645,7 +1645,7 @@ V8 ヒープのスナップショットを撮り、それを `filePath` に保�
 
 #### `contents.getBackgroundThrottling()`
 
-Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. これは Page Visibility API にも影響を与えます。
+戻り値 `Boolean` - ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうか。 これは Page Visibility API にも影響を与えます。
 
 #### `contents.setBackgroundThrottling(allowed)`
 
@@ -1709,7 +1709,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. これは Page Visibility API にも影響を与えます。
+`Boolean` 型のプロパティです。ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうかを決定します。 これは Page Visibility API にも影響を与えます。
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

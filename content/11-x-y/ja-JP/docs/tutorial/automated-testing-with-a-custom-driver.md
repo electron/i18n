@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // ここで必要なセットアップをします
     return true
   }
-  // define your RPC-able methods here
+  // ここで RPC 可能なメソッドを定義します
 }
 ```
 

@@ -1,8 +1,8 @@
-# Debugging in VSCode
+# VS Code でデバッグする
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+このガイドでは、自作の Electron プロジェクトとネイティブの Electron コードベース両方の VSCode デバッグを設定する方法について説明します。
 
-## Debugging your Electron app
+## Electron アプリをデバッグする
 
 ### メインプロセス
 
@@ -42,11 +42,11 @@ $ code electron-quick-start
 
 ここではダウンロードして直接 VSCode 内でデバッグできる構成済みのプロジェクトを用意しています: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Electron コードベースをデバッグする
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+ソースから Electron をビルドしてネイティブの Electron コードベースを変更したい場合は、このセクションを参照してください。
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+このコードの入手方法やビルド方法がわからない方のために、[Electron のビルドツール](https://github.com/electron/build-tools) がこのプロセスのほとんどを自動化して説明します。 手動で環境を設定したい場合は、代わりに以下の [ビルド手順](https://www.electronjs.org/docs/development/build-instructions-gn) も使用できます。
 
 ### Windows (C++)
 
@@ -84,14 +84,14 @@ $ code electron-quick-start
   ]
 }
 ```
-**Configuration Notes**
+**設定メモ**
 
-- `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
-- `${workspaceFolder}` is the full path to Chromium's `src` directory.
-- `your-executable-location` will be one of the following depending on a few items:
-  -  `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  -  `Release`: If you built a Release build rather than a Testing build.
-  -  `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
+- `cppvsdbg` は [組み込み C/C++ 拡張](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) が有効である必要があります。
+- `${workspaceFolder}` Chromium の `src` ディレクトリのフルパスです。
+- `your-executable-location` はいくつかの項目に応じて以下のいずれかになります。
+  -  `Testing`: [Electron のビルドツール](https://github.com/electron/build-tools) のデフォルト設定や、[ソースからビルド](https://www.electronjs.org/docs/development/build-instructions-gn#building) でのデフォルト指定を使用している場合。
+  -  `Release`: Testing ビルドではなく Release ビルドで構築した場合。
+  -  `your-directory-name`: ビルド処理中にこれをデフォルトから変更した場合は、指定したものがそのまま適用されます。
 - The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
 
 

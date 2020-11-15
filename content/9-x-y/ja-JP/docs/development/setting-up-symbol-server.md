@@ -22,7 +22,7 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Visual Studio 内でシンボルサーバを使用する
 
-![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
+![ツール -> 設定](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![シンボル設定](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 ## トラブルシューティング: シンボルが読み込めない
 
