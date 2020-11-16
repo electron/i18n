@@ -2,7 +2,7 @@
 
 [`Clang-Tidy`](https://clang.llvm.org/extra/clang-tidy/) es una herramienta para comprobar automáticamente el código C/C++/Objective-C para las infracciones de estilo, la programación los errores y las mejores prácticas.
 
-La integración de `Clang-Tidy` de Electron se proporciona como un script de Linter que se puede ejecutar con `NPM Run Lint: Clang-Tidy`. Mientras `` Clang-Tidy verifica tus archivos en el disco, debes tener un electrón integrado para que sepa qué banderas del compilador se utilizaron . Hay una opción obligatoria para el script `--output-dir`, que le dice al script qué directorio de construcción para extraer la información de compilación desde. Un uso típico sería: `NPM Run Lint: Clang-Tiy--out-dir.. /out/Testing`
+La integración de `clang-tidy` de Electron se proporciona como un script de Linter que se puede ejecutar con `npm run lint: clang-tidy`. Mientras `` Clang-Tidy verifica tus archivos en el disco, debes tener un electrón integrado para que sepa qué banderas del compilador se utilizaron . Hay una opción obligatoria para el script `--output-dir`, que le dice al script qué directorio de construcción para extraer la información de compilación desde. Un uso típico sería: `NPM Run Lint: Clang-Tiy--out-dir.. /out/Testing`
 
 Sin nombres de archivo proporcionados, se comprobarán todos los archivos C/C++/Objective-C. Puedes proporcionar una lista de archivos que se comprobarán pasando los nombres de archivo después de las opciones: `NPM Run Lint: Clang-Tiy--out-dir.. /out/Testing Shell/Browser/API/electron_api_app. CC`
 
