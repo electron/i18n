@@ -115,11 +115,11 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
+* `callback` Function (任意) - スクリプトの実行後に呼び出されます。 フレームがサスペンド (モーダルアラートの表示など) されない限り、実行は同期的に行われ、メソッドから戻る前にコールバックが呼び出されます。 このメソッドは古いバージョンとの互換性のため、エラーが第 2 引数です。
   * `result` Any
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
 
 ページ内の `code` を評価します。
 
@@ -127,14 +127,14 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
+* `worldId` Integer - `0` は (コンテンツを実行する) デフォルトのメインワールド、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 1..536870911 の範囲の値を受け付けます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
+* `callback` Function (任意) - スクリプトの実行後に呼び出されます。 フレームがサスペンド (モーダルアラートの表示など) されない限り、実行は同期的に行われ、メソッドから戻る前にコールバックが呼び出されます。  このメソッドは古いバージョンとの互換性のため、エラーが第 2 引数です。
   * `result` Any
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
+戻り値 `Promise<any>` - コードの実行結果で resolve するか、実行を開始できなかった場合に reject される Promise。
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 

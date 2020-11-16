@@ -102,7 +102,7 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <h3 spaces-before="0"><code>ipcMain.handle(channel, listener)`</h3> 
   * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise\<void> | any> 
     * `event` IpcMainInvokeEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>
@@ -135,7 +135,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise\<void> | any> 
     * `event` IpcMainInvokeEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>

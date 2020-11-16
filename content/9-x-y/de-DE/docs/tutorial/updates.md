@@ -1,8 +1,8 @@
 # Anwendungen aktualisieren
 
-Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachste und offiziell unterstützte ist, die Vorteile des eingebauten [Squirrel](https://github.com/Squirrel)-Frameworks und Electrons [autoUpdater](../api/auto-updater.md)-Modul zu nutzen.
+Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachste und offiziell unterstützte ist, die Vorteile des eingebauten [Squirrel](https://github.com/Squirrel)-Frameworks und Electrons [autoUpdater](../api/auto-updater.md)-Moduls zu nutzen.
 
-## Benutzt `update.electronjs.org`
+## Nutzung von `update.electronjs.org`
 
 GitHub's Electron Team verwaltet [update.electronjs.org][], Ein kostenloser open-source Web Dienst, welchen Electron Apps für automatische updates benutzen können. Der Service ist für Electron-Apps, die die folgenden Kriterien erfüllen ausgelegt:
 
@@ -35,7 +35,7 @@ If your app is packaged with [`electron-builder`][electron-builder-lib] you can 
 
 ## Bereitstellung eines Update-Servers
 
-Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie keine Veröffentlichungen auf GitHub Releases veröffentlichen, es könnte notwendig sein, Ihren eigenen Update-Server auszuführen.
+Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie sie nicht auf GitHub Releases veröffentlichen, könnte notwendig sein, Ihren eigenen Update-Server bereitzustellen.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 

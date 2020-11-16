@@ -6,7 +6,7 @@ Se si verificano arresti anomali o problemi in Electron che si ritiene non siano
 
 * **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando gli strumenti ed i prerequisiti elencati nelle [istruzioni di costruzione per macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. Includono LLDB, il debugger predefinito in Xcode su macOS. Supporta il debugging in C, Objective-C e C++ su dispositivi e simulatori desktop e iOS.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
 
@@ -28,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDB è un potente strumento e supporta multiple strategie per l'ispezione del codice. Per questa introduzione di base, supponiamo che si stia chiamando un comando da JavaScript che non si sta comportando correttamente - quindi vorresti rompere sulla controparte di questo comando C++ all'interno della sorgente di Electron.
 
-Relevant code files can be found in `./shell/`.
+I file di codice rilevanti si possono trovare in `./shell/`.
 
 Supponiamo si voglia fare il debug di `app.setName()`, che è definito in `browser.cc` come `Browser::SetName()`. Imposta il breakpoint usando il comando `breakpoint`, specificando file e riga da rompere:
 

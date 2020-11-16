@@ -6,15 +6,15 @@ Electron has a deployment of a custom Goma Backend that we make available to all
 
 ## Enabling Goma
 
-Currently Electron Goma supports Windows, Linux, and macOS.  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
+يدعم إلكترون غوما حاليا ويندوز ولينكس وماكوس.  إذا كنت على منصة مدعومة يمكنك تمكين جوما عن طريق استيراد `جوما. n` ملف الضبط عند استخدام `gn`.
 
 ```bash
-gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
+gn gen out/Ttestting --args="استيراد (\"//electron/build/args/testing.gn\") استيراد (\"///electron/build/args/goma.gn\")"
 ```
 
-You must ensure that you do not have `cc_wrapper` configured, this means you can't use `sccache` or similar technology.
+Deberías asegurarte que no tengas configurado `cc_wrapper`, esto significa que no puedes usar `sccache` o alguna tecnología similar.
 
-Before you can use goma to build Electron you need to authenticate against the Goma service.  You only need to do this once per-machine.
+قبل أن تتمكن من استخدام غوما لبناء الإلكترون تحتاج إلى المصادقة ضد خدمة غوما.  تحتاج فقط إلى القيام بذلك مرة واحدة لكل آلة.
 
 ```bash
 cd electron/external_binaries/goma

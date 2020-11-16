@@ -22,8 +22,7 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## 在 Visual Studio 中使用 symbol 服务器
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
-<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 ## 故障排除：symbol 未加载
 

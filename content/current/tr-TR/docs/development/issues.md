@@ -25,32 +25,9 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
 
 <p spaces-before="0">To submit a bug report:</p>
 
-<p spaces-before="0">When opening a new issue in the <a href="https://github.com/electron/electron/issues/new/choose"><code>electron/electron` issue tracker</a>, users will be presented with a template that should be filled in.
+<p spaces-before="0">When opening a new issue in the <a href="https://github.com/electron/electron/issues/new/choose"><code>electron/electron` issue tracker</a>, users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown<!--
-Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken birkaç şey: 
-
-- Sorun izleyici yalnızca hatalar ve özellik istekleri içindir.
-- Bir hata bildirmeden önce lütfen Electron'un en son sürümünde sorununuzu tekrar deneyin.
-- Genel bir tavsiyeye ihtiyacınız varsa, Slack'e katılın: http://atom-slack.herokuapp.com
--->* Elektron versiyonu:
-* İşletim sistemi:
-
-### Beklenti<!-- Sizce ne olmalı? -->### Gerçek davranış<!-- Aslında ne oluyor? -->### Nasıl yeniden üretilir?<!--
-
-Bu hatayı hızlı bir şekilde gözden geçirmek için en doğru yöntem, klonlanıp çalıştırılabilecek bir REPOSITORY sağlamaktır.
-
-Https://github.com/electron/electron-quick-start'u forklayabilir ve değişliklerinizle şubeye bir bağlantı ekleyebilirsiniz.
-
-Bir URL girerseniz, lütfen repo örneğinizi kopyalamak / ayarlamak / çalıştırmak için gerekli komutları listeleyin. Örneğin,
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron.
-
--->```
-
-Elektron'da bir hata bulduğunuzu düşünüyorsanız, lütfen bu formu en iyi şekilde doldurun.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. It is easier to fix a bug if it can be reproduced.
 

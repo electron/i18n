@@ -80,7 +80,7 @@ Supprime tous les écouteurs du `channel` spécifié.
 ### `ipcMain.handle(canal, écouteur)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -109,7 +109,7 @@ Le `event` qui est passé comme premier argument au gestionnaire est le même qu
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 

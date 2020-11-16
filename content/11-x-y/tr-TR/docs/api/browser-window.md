@@ -346,6 +346,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Dönüşler:
@@ -361,11 +367,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Pencere yeni bir konuma getirildiği zaman ortaya çıkmaktadır.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Etkinlik: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Pencere yeni bir konuma taşındığında bir kez yayılmış.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Etkinlik: 'enter-full-screen'
 
@@ -1471,7 +1477,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. Bu metod sadece macOS 10.12.1+ üzerinde çalışıyorsa ve makinanın dokunmatiği varsa etkilidir.
 
-**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

@@ -12,7 +12,7 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 ## ビルドツール
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron ビルドツール](https://github.com/electron/build-tools) は、さまざまな設定やビルドターゲットを使ってソースから Electron をコンパイルするためのセットアップの多くを自動化します。 手動で環境構築する場合の手順は以下の通りです。
 
 ## GN 要件
 
@@ -20,9 +20,9 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
-### Setting up the git cache
+### git キャッシュのセットアップ
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Electron を複数回チェックアウトする予定がある場合 (例えば複数の並列ディレクトリを異なるブランチにチェックアウトさせるなど)、git キャッシュを使用することでその後の `gclient` 呼び出しを高速化できます。 これをするには `GIT_CACHE_PATH` 環境変数を以下のように設定する必要があります。
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -33,10 +33,10 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 ## コードを取得
 
 ```sh
-$ mkdir electron && cd electron
+$ mkdir electron-gn && cd electron-gn
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# これはしばらくかかります。コーヒーでも飲みに行きましょう。
 ```
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
@@ -150,12 +150,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。
 
-<table>
-<tr><th>ホスト</th><th>ターゲット</th><th>状況</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>実験的</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>自動テスト済み</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>自動テスト済み</td></tr>
-</table>
+| ホスト         | ターゲット         | 状況      |
+| ----------- | ------------- | ------- |
+| Windows x64 | Windows arm64 | 実験的     |
+| Windows x64 | Windows x86   | 自動テスト済み |
+| Linux x64   | Linux x86     | 自動テスト済み |
+
 
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
@@ -216,9 +216,9 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## トラブルシューティング
 
-### gclient sync complains about rebase
+### gclient sync が rebase に関する問題を報告する
 
-If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+`gclient sync` が中断されると、git ツリーが不正な状態のままになってしまい、将来 `gclient sync` を実行したときに不可解なメッセージが表示されます。
 
 ```plaintext
 2> Conflict while rebasing this branch.
@@ -226,7 +226,7 @@ If `gclient sync` is interrupted the git tree may be left in a bad state, leadin
 2> See man git-rebase for details.
 ```
 
-If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+`src/electron` に git のコンフリクトやリベースがない場合は、`src` の `git am` を abort する必要があります。
 
 ```sh
 $ cd ../

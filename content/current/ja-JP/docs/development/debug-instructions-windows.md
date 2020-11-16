@@ -34,7 +34,7 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 ### どのプロセスにアタッチするべきか
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
+メインプロセス内から実行するコード (すなわちメイン JavaScript ファイル内から見られるコードまたは最終的に実行するコード) はメインプロセスで実行され、その他のコードはそれぞれのレンダラープロセスで実行されます。
 
 デバッグ中は複数のプログラムにアタッチすることができますが、随時1つのプログラムだけがデバッガでアクティブになります。 `デバッグの場所` ツールバーか `プロセスウインドウ` 内でアクティブなプログラムをセットできます。
 

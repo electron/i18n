@@ -1,8 +1,8 @@
-## Class: TouchBarOtherItemsProxy
+## クラス: TouchBarOtherItemsProxy
 
-> Instantiates a special "other items proxy", which nests TouchBar elements inherited from Chromium at the space indicated by the proxy. By default, this proxy is added to each TouchBar at the end of the input. For more information, see the AppKit docs on [NSTouchBarItemIdentifierOtherItemsProxy](https://developer.apple.com/documentation/appkit/nstouchbaritemidentifierotheritemsproxy)
+> 特別な「その他のアイテムのプロキシ」をインスタンス化します。これは、プロキシが指定するスペースに、Chromiumから継承された TouchBar の要素を含有します。 既定では、入力の最後のそれぞれの TouchBar にプロキシを追加します。 詳細は、AppKit ドキュメントの [NSTouchBarItemIdentifierOtherItemsProxy](https://developer.apple.com/documentation/appkit/nstouchbaritemidentifierotheritemsproxy) を参照してください。
 > 
-> Note: Only one instance of this class can be added per TouchBar.
+> 注意: TouchBar 1 つあたりに追加できるのは、このクラスのインスタンス 1 つだけです。
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 

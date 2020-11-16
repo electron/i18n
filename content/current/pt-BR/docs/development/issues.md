@@ -22,36 +22,9 @@ Para qualquer problema, existem fundamentalmente três maneiras que alguém pode
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown<!--
-Obrigado por abrir um problema! Algumas coisas para levar em consideração:
-
-- O rastreador de problemas é apenas para bugs e requisição de novas funcionalidades.
-- Antes de reportar um bug, por favor, tente reproduzir o problema com a versão mais recente do Electron.
-- Se você precisa de uma ajuda em geral, entre no nosso Slack: http://atom-slack.herokuapp.com
--->* Versão do Electron:
-* Sistema Operacional:
-
-### Comportamento Esperado<!-- O que você acha que deveria acontecer? -->### Comportamento Atual
-
-<-- O que realmente acontece? -->
-
-### Como reproduzir<!--
-
-A sua melhor chance de ter esse bug verificado rapidamente é provendo um REPOSITÓRIO que possa ser clonado e executado.
-
-Você pode fazer o fork do https://github.com/electron/electron-quick-start e incluir um link para o branch com suas alterações.
-
-Se você prover uma URL, por favor liste os comandos necessários para clonar/instalar/rodar o seu repositório. Por exemplo:
-
-  $ git clone $SUA_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->```
-
-Se você acredita ter encontrado um bug no Electron, por favor preencha este formulário da melhor forma que você conseguir.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. It is easier to fix a bug if it can be reproduced.
 

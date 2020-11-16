@@ -435,18 +435,25 @@ Pokud nepotřebujete vytvářet okna navíc k těm, které víte, budete muset v
 
 ### Jak?
 
-[`webObsah`](../api/web-contents.md) vypne [`nové okno`](../api/web-contents.md#event-new-window) událost před vytvořením nových oken. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. Doporučujeme použít událost ke kontrole vytváření oken a omezit ji pouze na to, co potřebujete.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created', (událost, obsah) => {
-  obsah. n('new-window', async (event navigationUrl) => {
-    // V tomto příkladu požádáme operační systém
-    // o otevření url této události ve výchozím prohlížeči.
-    event.preventDefault()
+app.on('web-contents-created', (event, contents) => {
+  contents.setWindowOpenHandler(({ url }) => {
+    // In this example, we'll ask the operating system
+    // to open this event's url in the default browser.
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    čeká na shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```

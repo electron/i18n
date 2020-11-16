@@ -2,33 +2,33 @@
 
 ## 概要
 
-### Automatically update the native interfaces
+### ネイティブインターフェースの自動更新
 
-"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
+"ネイティブインターフェース" は、ファイルピッカー、ウィンドウの境界線、ダイアログ、コンテキストメニューなどの、アプリではなく OS 由来の UI のことです。 デフォルトでは OS からこの自動テーマ設定をオプトインする動作です。
 
-### Automatically update your own interfaces
+### 自作インターフェイスの自動更新
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by using the [prefer-color-scheme][] CSS media query.
+アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これは、[prefer-color-scheme][] CSS メディアクエリを使用するとできます。
 
-### Manually update your own interfaces
+### 自作インターフェイスの手動更新
 
-If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
+ライト/ダークモードを手動で切り替えたい場合は、`nativeTheme` モジュールの [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) プロパティで希望するモードを設定するとできます。 このプロパティの値はレンダラープロセスに伝播します。 `prefers-color-scheme` に関連する CSS ルールは、それに応じて更新されます。
 
-## macOS settings
+## macOS での設定
 
-macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード][system-wide-dark-mode] を全ての macOS コンピュータに導入しました。 If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
+macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード][system-wide-dark-mode] を全ての macOS コンピュータに導入しました。 あなたの Electron アプリにダークモードがある場合、[`nativeTheme` API](../api/native-theme.md) を使用してシステム全体のダークモード設定に従うようにできます。
 
-In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to use Electron `>=7.0.0`, or set `NSRequiresAquaSystemAppearance` to `false` in your `Info.plist` file for older versions. Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
+macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオプションを全ての macOS コンピュータに導入しました。 Catalina 上のこのモードで `nativeTheme.shouldUseDarkColors` と `Tray` API を正しく動作させるには、Electron `>=7.0.0` を使用するか、古いバージョンの場合は `Info.plist` ファイルの `NSRequiresAquaSystemAppearance` を `false` に設定する必要があります。 [Electron Packager][electron-packager] と [Electron Forge][electron-forge] の両方には [`darwinDarkModeSupport` オプション][packager-darwindarkmode-api] があり、アプリビルド時の `Info.plist` の変更を自動化します。
 
-If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
+Electron &gt; 8.0.0 を使用中でオプトアウトしたい場合は、`Info.plist` ファイルの `NSRequiresAquaSystemAppearance` キーを `true` に設定する必要があります。 Electron 8.0.0 以降では macOS 10.14 SDK を使用するため、このテーマ設定をオプトアウトすることはできません。ご注意ください。
 
 ## サンプル
 
-We'll start with a working application from the [Quick Start Guide](quick-start.md) and add functionality gradually.
+[クイックスタートガイド](quick-start.md) 内の作業用アプリケーションから始め、徐々に機能を追加してくことにします。
 
-First, let's edit our interface so users can toggle between light and dark modes.  This basic UI contains buttons to change the `nativeTheme.themeSource` setting and a text element indicating which `themeSource` value is selected. By default, Electron follows the system's dark mode preference, so we will hardcode the theme source as "System".
+まず、ユーザーがライトモードとダークモードを切り替えられるようにインターフェイスを編集してみましょう。  この基本的な UI には、`nativeTheme.themeSource` の設定を変更するボタンと、選択している `themeSource` の値を示すテキスト要素を含めます。 デフォルトでは Electron はシステムのダークモード設定に従うので、テーマソースを "System"とハードコーディングします。
 
-Add the following lines to the `index.html` file:
+`index.html` ファイルに以下のコードを追加します。
 
 ```html
 <!DOCTYPE html>
@@ -52,12 +52,12 @@ Add the following lines to the `index.html` file:
 </html>
 ```
 
-Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) that listen for `click` events on the toggle buttons. Because the `nativeTheme` module only exposed in the Main process, you need to set up each listener's callback to use IPC to send messages to and handle responses from the Main process:
+次に、[イベントリスナー](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) を追加して切り替えボタンの `click` イベントをリッスンします。 `nativeTheme` モジュールはメインプロセスでのみ公開されているため、IPC を使用してメインプロセスにメッセージを送信したりメインプロセスからの応答をハンドリングしたりするために、各リスナーのコールバックを設定する必要があります。
 
-* when the "Toggle Dark Mode" button is clicked, we send the `dark-mode:toggle` message (event) to tell the Main process to trigger a theme change, and update the "Current Theme Source" label in the UI based on the response from the Main process.
-* when the "Reset to System Theme" button is clicked, we send the `dark-mode:system` message (event) to tell the Main process to use the system color scheme, and update the "Current Theme Source" label to `System`.
+* "Toggle Dark Mode" ボタンをクリックすると、`dark-mode:toggle` メッセージ (イベント) を送信してメインプロセスにテーマ変更のトリガーを伝え、メインプロセスからのレスポンスに基づいて UI 内の "Current Theme Source" ラベルを更新します。
+* "Reset to System Theme" ボタンがクリックされると、メインプロセスにシステムの配色を使用するように指示するために `dark-mode:system` メッセージ (イベント) を送信し、"Current Theme Source" ラベルを`System` に更新します。
 
-To add listeners and handlers, add the following lines to the `renderer.js` file:
+リスナーとハンドラーを追加するため、`renderer.js` ファイルに以下のコードを追加します。
 
 ```js
 const { ipcRenderer } = require('electron')
@@ -73,14 +73,14 @@ document.getElementById('reset-to-system').addEventListener('click', async () =>
 })
 ```
 
-If you run your code at this point, you'll see that your buttons don't do anything just yet, and your Main process will output an error like this when you click on your buttons: `Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` This is expected — we haven't actually touched any `nativeTheme` code yet.
+この時点でコードを実行しても、ボタンがまだ何もしないことがわかるでしょう。さらに、ボタンをクリックするとメインプロセスはこのようなエラーを出力します。`Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` これは想定内です。実際にはまだ `nativeTheme` のコードに触れていません。
 
-Now that we're done wiring the IPC from the Renderer's side, the next step is to update the `main.js` file to handle events from the Renderer process.
+これでレンダラー側からの IPC への接続は完了したので、次はレンダラープロセスからのイベントを処理するように `main.js` ファイルを更新します。
 
-Depending on the received event, we update the [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) property to apply the desired theme on the system's native UI elements (e.g. context menus) and propagate the preferred color scheme to the Renderer process:
+受信したイベントに応じて [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) プロパティを更新して、システムのネイティブ UI 要素 (コンテキストメニューなど) に希望のテーマを適用し、設定のカラースキームをレンダラープロセスに伝播します。
 
-* Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
-* Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
+* `dark-mode:toggle` を受信したときに、`nativeTheme.shouldUseDarkColors` プロパティを使って、現在ダークテーマが有効かどうかを確認し `themeSource` を逆のテーマに設定します。
+* `dark-mode:system` を受信したときに、`themeSource` を `system` にリセットします。
 
 ```js
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
@@ -125,9 +125,9 @@ app.on('activate', () => {
 })
 ```
 
-The final step is to add a bit of styling to enable dark mode for the web parts of the UI by leveraging the [`prefers-color-scheme`][prefer-color-scheme] CSS attribute. The value of `prefers-color-scheme` will follow your `nativeTheme.themeSource` setting.
+最後のステップとして、[`prefers-color-scheme`][prefer-color-scheme] CSS 属性を利用して、UI のウェブ部分でダークモードが有効になるようにスタイルを少し追加します。 `prefers-color-scheme` の値は `nativeTheme.themeSource` の設定に従います。
 
-Create a `styles.css` file and add the following lines:
+`styles.css` ファイルを作成して以下の行を追加します。
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -139,7 +139,7 @@ Create a `styles.css` file and add the following lines:
 }
 ```
 
-After launching the Electron application, you can change modes or reset the theme to system default by clicking corresponding buttons:
+これで、Electron アプリケーションを起動した後に、対応するボタンをクリックしてモードを変更したり、テーマをシステムデフォルトにリセットしたりできます。
 
 ![Dark Mode](../images/dark_mode.gif)
 

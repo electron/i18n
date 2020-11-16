@@ -152,12 +152,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Nicht alle Kombinationen von Quell- und Ziel-Prozessor/Betriebssystem werden von Chromium unterstützt.
 
-<table>
-<tr><th>Host</th><th>Ziel</th><th>Status</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimentell</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatisch getestet</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatisch getestet</td></tr>
-</table>
+| Host        | Ziel          | Status               |
+| ----------- | ------------- | -------------------- |
+| Windows x64 | Windows arm64 | Experimentell        |
+| Windows x64 | Windows x86   | Automatisch getestet |
+| Linux x64   | Linux x86     | Automatisch getestet |
+
 
 Wenn Sie andere Kombinationen testen und diese funktionieren aktualisieren Sie bitte dieses Dokument :)
 

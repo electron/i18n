@@ -22,47 +22,9 @@
 
 バグレポートを送信するには:
 
-[`electron/electron` Issue トラッカー](https://github.com/electron/electron/issues/new/choose) 内で新しい Issue を開くとき、ユーザには記入するべきテンプレートが表示されます。
+[`electron/electron` の Issue トラッカー](https://github.com/electron/electron/issues/new/choose) で新しい Issue を開くと、記入すべき [テンプレート](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) が表示されます。
 
-```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
-
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
--->
-
-* Electron version:
-* Operating system:
-
-### Expected behavior
-
-<!-- What do you think should happen? -->
-
-### Actual behavior
-
-<!-- What actually happens? -->
-
-### How to reproduce
-
-<!--
-
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
-
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
-
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->
-```
-
-Electron にバグが見つかったと思われる場合は、できる限りこのフォームを埋めてください。
+Electron のバグを発見したと思われる方は、できるだけテンプレートの記入にご協力ください。
 
 レポートを評価するために必要な、2つの最も重要な情報は、バグの説明とそれを再現するための簡単なテストケースです。 再現できる場合は、バグを修正することがより簡単になります。
 

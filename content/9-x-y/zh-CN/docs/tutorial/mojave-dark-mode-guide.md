@@ -18,7 +18,7 @@
 ```javascript
 const { nativeTheme } = require('electron')
 
-nativeTheme.on('updated, function theThemeHasChanged () format@@
+nativeTheme.on('updated', function theThemeHasChanged() {
   upateMyAppTheme(nativeTheme.shouldUseDarkColors)
 })
 ```

@@ -804,7 +804,7 @@ Fired when the renderer process is crashed.
 
 Returns:
 
-* `name` String ชื่อ
+* ชื่อ`` สตริง ณัฐกานต์ กุณะ natkantkuna3521200002393
 * `version` String
 
 Fired when a plugin process is crashed.

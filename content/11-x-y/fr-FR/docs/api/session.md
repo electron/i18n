@@ -302,14 +302,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - The type of requested permission.
-    * `media` -  Request access to media devices such as camera, microphone and speakers.
-    * `mediaKeySystem` - Request access to DRM protected content.
-    * `geolocation` - Request access to user's current location.
+    * `clipboard-read` - Demande d'accès à la lecture depuis le presse-papiers.
+    * `média` - Demande l'accès à des périphériques multimédia tels que la caméra, le microphone et les haut-parleurs.
+    * `mediaKeysystem` - Demande d’accès au contenu protégé par DRM.
+    * `geolocation` - Demande d'accès à l'emplacement actuel de l'utilisateur.
     * `notifications` - Request notification creation and the ability to display them in the user's system tray.
     * `midi` - Request MIDI access in the `webmidi` API.
     * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
-    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
-    * `fullscreen` - Request for the app to enter fullscreen mode.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Cliquez [ici](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) pour en savoir plus.
+    * `fullscreen` - Demande de l'application pour passer en mode plein écran.
     * `openExternal` - Request to open links in external applications.
   * `callback` Function
     * `permissionGranted` Boolean - Allow or deny the permission.
@@ -334,7 +335,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check

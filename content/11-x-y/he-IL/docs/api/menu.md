@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+צור תפריט חדש
 
 ### Static Methods
 

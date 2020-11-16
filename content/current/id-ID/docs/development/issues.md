@@ -22,31 +22,9 @@ Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkont
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown<!-- 
-Terimakasih karena telah membuka isu! Beberapa hal yang perlu di perhatikan:
-
-- Pelacak isu hanya untuk Bug dan fitur permintaan.
-- Sebelum melaporkan Bug, silahkan coba mereproduksi masalah anda terhadap versi terbaru dari electron.
--Jika anda membutuhkan saran secara umum, gabung di Slack kami: http://atom-slack.herokuapp.com 
--->*Versi Electron
-*Sistem Operasi
-
-### Kebiasaan yang diharapkan<!--Apa menurut anda yang akan terjadi? -->### Perilaku Aktual<!-- Apa yang sebenarnya terjadi? -->### Bagaimana cara memproduksi<!--
-Kesempatan terbaik anda untuk menemukan Bug ini secara cepat adalah dengan menyediakan REPOSITORI yang bisa di klon dan berfungsi.
-
-Kamu dapat menarik file di https://github.com/electron/electron-quick-start dan termasuk link untuk cabang dengan perubahan yang telah anda buat.
-
-Jika anda menyediakan URL, mohon masukkan perintah yang dibutuhkan untuk mengklon/pengaturan/jalankan repo anda, contoh
-
-$ git clone $YOUR_URL -b $BRANCH   
-$ npm install   
-$ npm start || electron .
-
--->```
-
-Jika anda yakin bahwa anda telah menemukan Bug di electron, mohon isi formulir ini sesuai kemampuan terbaik anda.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 Dua hal yang paling penting dari informasi yang dibutuhkan untuk mengevaluasi laporan adalah Sebuah penjelasan tentang Bug dan sebuah tes kasus yang simpel untuk membuatnya kembali. It is easier to fix a bug if it can be reproduced.
 

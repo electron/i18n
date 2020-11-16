@@ -432,18 +432,25 @@ If you have no need to create windows in addition to the ones you know you'll ne
 
 ### Come?
 
-[`webContents`](../api/web-contents.md) emetterà l'evento [`nuova finestra`](../api/web-contents.md#event-new-window) prima di creare nuove finestre. Tale evento sarà passato, tra gli altri parametri, l'url `` la finestra è stata richiesta per aprire e le opzioni utilizzate per crearla. Si consiglia di utilizzare l'evento per esaminare la creazione di finestre, limitandolo a quello che ti serve.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
+  contents.setWindowOpenHandler(({ url }) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
-    event.preventDefault()
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    await shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```

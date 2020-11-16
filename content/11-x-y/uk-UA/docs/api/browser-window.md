@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Викликається коли вікно змінює розмір.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Повертає:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Викликається коли вікно переміщується в нове місце.
 
-__Примітка__: На macOS ця подія є іншою назвою `moved`.
-
-#### Подія: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Викликається один раз коли вікно переміщується в нове місце.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Подія: 'enter-full-screen'
 
@@ -1468,7 +1474,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Встановлює шаблон touchBar для почотного вікна. Зазначення `null` чи `undefined` очищує панель дотиків. Цей метод має ефект тільки, якщо машина має панель дотиків та запущена на macOS 10.12.1+.
 
-**Примітка:** TouchBar API наразі експериментальне і може бути видалене в майбутніх версіях Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Експериментальний_
 

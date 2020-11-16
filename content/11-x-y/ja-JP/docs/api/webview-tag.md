@@ -477,16 +477,16 @@ webview.addEventListener('dom-ready', () => {
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - zero-based index of the first page to print.
-    * `to` Number - zero-based index of the last page to print (inclusive).
+  * `pageRanges` Object[] (任意) - 印刷するページ範囲。
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
-  * `dpi` Record<string, number> (optional)
+  * `dpi` Record<string, number> (任意)
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
   * `header` String (任意) - ページヘッダーとして印刷される文字列。
   * `footer` String (任意) - ページフッターとして印刷される文字列。
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `pageSize` String | Size (任意) - 印刷するドキュメントのページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid` のいずれかにするか、`height` を含む Object にできます。
 
 戻り値 `Promise<void>`
 
@@ -495,16 +495,16 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
+  * `headerFooter` Record<string, string> (任意) - PDF のヘッダーとフッター。
+    * `title` String - PDF ヘッダーのタイトル。
+    * `url` String - PDF フッターの URL。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
-  * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。 and `width` in microns.
-  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
+  * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。 `width` はミクロン単位です。
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 0 から 100 の範囲にできます。
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - 印刷開始ページ。
-    * `to` Number - 印刷最後のページ (このページを含む)。
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid` のいずれかにするか、`height` を含む Object にできます。
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
 
