@@ -159,27 +159,27 @@
     "name": "Italian",
     "code": "it",
     "phrases": "16556",
-    "translated": "9146",
+    "translated": "9152",
     "approved": "1432",
     "words": "193391",
-    "words_translated": "108965",
+    "words_translated": "109049",
     "words_approved": "14701",
     "translated_progress": 56,
     "approved_progress": 7,
-    "qa_issues": 3467
+    "qa_issues": 3482
   },
   {
     "name": "Japanese",
     "code": "ja",
     "phrases": "16556",
-    "translated": "15997",
+    "translated": "16175",
     "approved": "4447",
     "words": "193391",
-    "words_translated": "183741",
+    "words_translated": "187005",
     "words_approved": "46723",
-    "translated_progress": 95,
+    "translated_progress": 96,
     "approved_progress": 24,
-    "qa_issues": 424
+    "qa_issues": 434
   },
   {
     "name": "Korean",
@@ -198,14 +198,14 @@
     "name": "Persian",
     "code": "fa",
     "phrases": "16556",
-    "translated": "878",
+    "translated": "880",
     "approved": "71",
     "words": "193391",
-    "words_translated": "4788",
+    "words_translated": "4821",
     "words_approved": "363",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 39
+    "qa_issues": 40
   },
   {
     "name": "Polish",
@@ -231,7 +231,7 @@
     "words_approved": "11410",
     "translated_progress": 52,
     "approved_progress": 5,
-    "qa_issues": 2395
+    "qa_issues": 2406
   },
   {
     "name": "Romanian",
@@ -257,7 +257,7 @@
     "words_approved": "37337",
     "translated_progress": 70,
     "approved_progress": 19,
-    "qa_issues": 3864
+    "qa_issues": 3863
   },
   {
     "name": "Spanish",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "16556",
-    "translated": "1610",
+    "translated": "1611",
     "approved": "445",
     "words": "193391",
-    "words_translated": "12324",
+    "words_translated": "12362",
     "words_approved": "2661",
     "translated_progress": 6,
     "approved_progress": 1,
-    "qa_issues": 712
+    "qa_issues": 713
   }
 ]
