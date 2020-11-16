@@ -1,6 +1,6 @@
 # Developer Environment
 
-Phát triển electron về cơ bản là phát triển Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Phát triển electron về cơ bản là phát triển Node.js. Để biến hệ thống của bạn trở thành một môi trường có khả năng xây dựng các ứng dụng máy tính với Electron, bạn chỉ cần cài đặt Node.js, npm, một trình soạn thảo code tuỳ ý, và kiến thức cơ bản về command line của hệ điều hành bạn dùng.
 
 ## Thiết lập trên macOS
 
