@@ -91,7 +91,7 @@ Removes listeners of the specified `channel`.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -123,7 +123,7 @@ WebContents is the source of the invoke request.
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -148,4 +148,4 @@ found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md)
 structure docs.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
-[web-contents-send]: web-contents.md#contentssendchannel-arg1-arg2-
+[web-contents-send]: web-contents.md#contentssendchannel-args
