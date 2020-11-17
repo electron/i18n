@@ -2,8 +2,32 @@ import { Entry as WalkEntry } from 'walk-sync'
 
 export type $TSFixMe = any
 
+export interface File {
+  locale: string
+  slug: string
+  href: string
+}
+
+export interface DocsFile extends File {
+  category: string
+  categoryFancy: string
+  isTutorial: boolean
+  isApiDoc: boolean
+  isDevTutorial: boolean
+  isApiStructureDoc: boolean
+  crowdinFileId: string
+  githubUrl: string
+  ignore?: boolean
+  sections?: Array<ISection>
+  title?: string
+  description?: string
+}
+
+export interface BlogFile extends File {
+  content: string
+}
+
 export interface IParseFile extends WalkEntry {
-  fullyPath?: string
   locale?: string
   slug?: string
   category?: string

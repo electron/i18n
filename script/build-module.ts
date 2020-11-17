@@ -8,8 +8,8 @@ import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile, parseNav } from '../lib/parsers'
-import { IParseFile } from '../lib/interfaces'
-import locales, { IResult as ILocalesResult } from '../lib/locales'
+import { BlogFile, DocsFile } from '../lib/interfaces'
+import locales from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
 import {
   parseElectronGlossary,
@@ -21,7 +21,7 @@ const contentDir = path.join(__dirname, '../content/current')
 
 let ids: Record<string, string> = {}
 
-async function parseDocs(): Promise<Partial<IParseFile>[]> {
+async function parseDocs(): Promise<DocsFile[]> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
@@ -71,13 +71,12 @@ async function main() {
       .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug!.localeCompare(b.slug!))
       .reduce((allDocs, doc) => {
-        // @ts-ignore
         allDocs[doc.href] = doc
         return allDocs
-      }, {})
+      }, {} as Record<string, DocsFile>)
 
     return acc
-  }, {} as Record<string, Partial<ILocalesResult>>)
+  }, {} as Record<string, Record<string, DocsFile>>)
 
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = blogs
@@ -86,10 +85,10 @@ async function main() {
       .reduce((allBlogs, blog) => {
         allBlogs[blog.href] = blog
         return allBlogs
-      }, {})
+      }, {} as Record<string, BlogFile>)
 
     return acc
-  }, {} as Record<string, IParseFile>)
+  }, {} as Record<string, Record<string, BlogFile>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/current/${locale}/website/locale.yml`)

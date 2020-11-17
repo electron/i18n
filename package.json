@@ -20,7 +20,7 @@
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "clean-deep": "^3.0.2",
+    "clean-deep": "^3.4.0",
     "crowdin-glossary": "^1.2.0",
     "del": "^6.0.0",
     "dotenv-safe": "^8.1.0",
