@@ -4,25 +4,25 @@
 
 Stat | Value
 ---- | -----
-total files | 280
-total words | 287332
-unique words | 13808
-average words per file | 1026
+total files | 281
+total words | 288253
+unique words | 13833
+average words per file | 1025
 
 ## Blog English
 
 Stat | Value
 ---- | -----
-total files | 72
-total words | 50438
-unique words | 6215
-average words per file | 700
+total files | 73
+total words | 51322
+unique words | 6251
+average words per file | 703
 
 ## All Languages
 
 Stat | Value
 ---- | -----
-total files | 7475
-total words | 5653689
-unique words | 144136
-average words per file | 756
+total files | 7476
+total words | 5684843
+unique words | 144205
+average words per file | 760
