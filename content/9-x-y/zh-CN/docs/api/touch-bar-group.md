@@ -6,5 +6,5 @@
 
 ### `new TouchBarGroup(可选)` _ 实验功能 _
 
-* `options` Object
+* `选项` 对象
   * `items` [TouchBar](touch-bar.md) - 以分组的方式显示元素.

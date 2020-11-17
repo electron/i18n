@@ -13,10 +13,10 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Load a remote URL
+// Загрузка удаленного URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или загрузка локального HTML файла
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -117,23 +117,23 @@ child.once('ready-to-show', () = > {
 ### `new BrowserWindow([options])`
 
 * `options` Object (опционально)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `width` Integer (опционально) - ширина окна в пикселях. По умолчанию `800`.
+  * `height` Integer (опционально) - высота окна в пикселях. По умолчанию `600`.
+  * `x` Integer (опционально) - (**обязателен**, если используется y) отступ окна слева от экрана. Значение по умолчанию центрирует окно.
+  * `y` Integer (опционально) - (**обязателен**, если используется x) отступ окна сверху от экрана. Значение по умолчанию центрирует окно.
   * `useContentSize` Boolean (опционально) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
   * `center` Boolean (опционально) - показывает окно в центре экрана.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. По умолчанию - `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. По умолчанию - `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. По умолчанию - `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. По умолчанию - `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. По умолчанию - `true`.
+  * `minWidth` Integer (опционально) - минимальная ширина окна. По умолчанию `0`.
+  * `minHeight` Integer (опционально) - минимальная высота окна. По умолчанию `0`.
+  * `maxWidth` Integer (опционально) - максимальная ширина окна. По умолчанию нет ограничения.
+  * `maxHeight` Integer (опционально) - максимальная высота окна. По умолчанию нет ограничения.
+  * `resizable` Boolean (опционально) - будет ли окно изменять размеры. По умолчанию - `true`.
+  * `movable` Boolean (optional) - можно ли будет перемещать окно. Не реализовано в Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. Не реализовано в Linux. По умолчанию - `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. Не реализовано в Linux. По умолчанию - `true`.
+  * `closable` Boolean (optional) - Whether window is closable. Не реализовано в Linux. По умолчанию - `true`.
   * `focusable` Boolean (опционально) - может ли быть окно в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. На Linux настройка `focusable: false` прекращает взаимодействие окна с оконным менеджером, на Windows же всегда остается поверх всех рабочих областей.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. По умолчанию - `false`.
+  * `alwaysOnTop` Boolean (опционально) - будет ли окно всегда оставаться поверх других окон. По умолчанию - `false`.
   * `fullscreen` Boolean (опционально) - будет ли окно показываться во весь экран. Когда явно установлено `false`, на macOS кнопка полноэкранного режима будет скрыта или отключена. По умолчанию - `false`.
   * `fullscreenable` Boolean (опционально) - может ли окно быть в полноэкранном режиме. На macOS также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. По умолчанию - `false`.
@@ -141,7 +141,7 @@ child.once('ready-to-show', () = > {
   * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. По умолчанию - `false`.
   * `title` String (опционально) - заголовок окна по умолчанию. По умолчанию `"Electron"`. Если HTML-тег `<title>` определен в HTML-файле, загруженном с помощью `loadURL()`, то это свойство будет игнорироваться.
   * `icon` ([NativeImage](native-image.md) | String) (опционально) - иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
-  * `show` Boolean (optional) - Whether window should be shown when created. По умолчанию - `true`.
+  * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
   * `paintWhenInitiallyHidden` Boolean (опционально) - Должен ли рендерер быть активным, когда `show` равен `false` и он только что создан.  Для `document.visibilityState` для корректной работы при первой загрузке с `show: false` необходимо установить значение `false`.  Установка этого в `false` приведёт к тому, что события `ready-to-show` не будут запускаться.  По умолчанию - `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). По умолчанию - `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
@@ -1293,7 +1293,7 @@ Sets the opacity of the window. On Linux, does nothing. Out of bound number valu
 * `options` Object
   * `appId` String (опционально) - [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) окна. Это должно быть установлено, иначе остальные параметры не будут иметь никакого эффекта.
   * `appIconPath` String (опционально) - [иконка перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) окна.
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. По умолчанию `0`.
   * `relaunchCommand` String (опционально) - [команда перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) окна.
   * `relaunchDisplayName` String (опционально) - [отображаемое имя перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) окна.
 

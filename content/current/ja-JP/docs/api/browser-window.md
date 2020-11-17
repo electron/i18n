@@ -34,7 +34,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ win.once('ready-to-show', () => {
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ top.show()
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,6 +345,12 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### イベント: 'will-move' _macOS_ _Windows_
 
 戻り値:
@@ -360,11 +366,11 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-__注__: macOSでは、このイベントは `moved` のエイリアスです。
-
-#### イベント: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 ウインドウが新しい位置に移動されるときに一回だけ、発生します。
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### イベント: 'enter-full-screen'
 
@@ -404,9 +410,9 @@ __注__: macOSでは、このイベントは `moved` のエイリアスです。
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // ユーザがマウスの戻るボタンをクリックしたとき、ウインドウに対して戻るように操作する
+  // ユーザーがマウスで戻るボタンを押下したときにナビゲートする
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -462,6 +468,17 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 ネイティブの新規タブボタンがクリックされるときに発生します。
 
+#### イベント: 'system-context-menu' _Windows_
+
+戻り値:
+
+* `event` Event
+* `point` [Point](structures/point.md) - コンテキストメニューがトリガーされた画面の座標。
+
+システムコンテキストメニューがウィンドウ上でトリガーされたときに発生します。 通常ユーザーがウィンドウのクライアントエリア以外を右クリックしたときにトリガーされます。  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### 静的メソッド
 
 `BrowserWindow` クラスには、次の静的メソッドがあります。
@@ -490,7 +507,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 * `id` Integer
 
-戻り値 `BrowserWindow` - 指定された `id` のウインドウ。
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _非推奨_
 
@@ -555,7 +572,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -569,8 +586,8 @@ console.log(installed)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// この例では、`win` がインスタンス
-let win = new BrowserWindow({ width: 800, height: 600 })
+// この例では、 `win` がインスタンス
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -668,7 +685,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -869,7 +886,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-戻り値 `Boolean` - ウインドウが有効かどうか。
+Returns `Boolean` - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -1044,9 +1061,9 @@ macOS においてシートを設置する位置を変更します。 既定で�
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1158,7 +1175,7 @@ win.setSheetOffset(toolbarRect.height)
 ファイルのURLが正しく構成されているようにするため、Nodeの [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) メソッドを使用することを推奨します。
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')

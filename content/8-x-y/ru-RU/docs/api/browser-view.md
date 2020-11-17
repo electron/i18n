@@ -73,10 +73,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` _Экспериментально_
 
 * `options` Object
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. По умолчанию `false`.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. По умолчанию `false`.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. По умолчанию `false`.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. По умолчанию `false`.
 
 #### `view.setBounds(bounds)` _Экспериментально_
 

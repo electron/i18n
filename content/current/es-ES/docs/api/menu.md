@@ -22,13 +22,13 @@ Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel s
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
+**Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
 #### `Menu.getApplicationMenu()`
 
 Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso contrario.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
+**Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -79,7 +79,7 @@ Anexa el `menuItem` al menú.
 
 * `id` Cadena
 
-Devuelve `MenuItem` el item con el `id` especificado
+Returns `MenuItem | null` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -174,8 +174,8 @@ const template = [
         {
           label: 'Speech',
           submenu: [
-            { role: 'startspeaking' },
-            { role: 'stopspeaking' }
+            { role: 'startSpeaking' },
+            { role: 'stopSpeaking' }
           ]
         }
       ] : [
@@ -190,12 +190,12 @@ const template = [
     label: 'View',
     submenu: [
       { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]

@@ -36,32 +36,6 @@ view.webContents.loadURL('https://electronjs.org')
 
 
 
-### Métodos estáticos
-
-
-
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - Uma array of todos os BrowserViews abertos.
-
-
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Retorna `BrowserView | null` - O BrowserView que possui o `webContents` ou `null` se um BrowserView não é o dono.
-
-
-
-#### `BrowserView.fromId(id)`
-
-* `id` Inteiro
-
-Retorna `BrowserView` - A view com o `id` passado.
-
-
-
 ### Propriedades de Instância
 
 Objectos criados com `new BrowserView` posuem as seguintes propriedades:
@@ -74,27 +48,9 @@ Um objeto [`WebContents`](web-contents.md) que pertence à esta vizualização.
 
 
 
-#### `view.id` _Experimental_
-
-Um `Integer` representanto o único ID da visualização.
-
-
-
 ### Métodos de Instância
 
 Objectos criados com `new BrowserView` possuem os seguintes métodos de instâncias:
-
-
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-
-
-#### `view.isDestroyed()`
-
-Returns `Boolean` - Whether the view is destroyed.
 
 
 

@@ -35,12 +35,12 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
+    * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
+    * `promptToCreate` _Windows_ - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Devuelve `String[] | undefined`, la ruta del archivo elegido por el usuario, si el diálogo es cancelado devuelve `undefined`.
@@ -62,7 +62,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Los `extensions` arreglos deberían contener extensiones sin comodines o puntos (e.g. `'png'` es bueno, pero `'.png'` y `'*.png'` son malos). Para mostrar todos los archivos, usa el `'*'` comodín (ningún otro comodín es compatible).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota:** En Windows y Linux, un diálogo abierto no puede ser un selector de archivo y un selector de directorio a la vez, así que si estableces `properties` a el `['openFile', 'openDirectory']` en estas plataformas, un selector de directorio.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -83,19 +83,19 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
+    * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
+    * `promptToCreate` _Windows_ - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` debe estar activado para ser poblado. (For return values, see [table here](#bookmarks-array).)
+* `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario. If the dialog is cancelled this will be an empty array.
+* `bookmarks` String[] (opcional) _macOS_ _mas_ - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado. (For return values, see [table here](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -114,7 +114,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Los `extensions` arreglos deberían contener extensiones sin comodines o puntos (e.g. `'png'` es bueno, pero `'.png'` y `'*.png'` son malos). Para mostrar todos los archivos, usa el `'*'` comodín (ningún otro comodín es compatible).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota:** En Windows y Linux, un diálogo abierto no puede ser un selector de archivo y un selector de directorio a la vez, así que si estableces `properties` a el `['openFile', 'openDirectory']` en estas plataformas, un selector de directorio.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -135,16 +135,16 @@ dialog.showOpenDialog(mainWindow, {
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
+  * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
+  * `showsTagField` Boolean (opcional) _macOS_ - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
+    * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
-  * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
+  * `securityScopedBookmarks` Boolean (opcional) _macOS_ _mas_ - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
 Devuelve `String | undefined`, la ruta del archivo elegido por el usuario; si el cuadro de dialogo es cancelado retorna `undefined`.
 
@@ -160,27 +160,27 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
+  * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
+  * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
+    * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
-  * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
+  * `securityScopedBookmarks` Boolean (opcional) _macOS_ _mas_ - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
   * `canceled` Boolean - si el diálogo fue o no cancelado.
   * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
+  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` deben estar activados para estar presentes. (For return values, see [table here](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
 Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mostrados, ver `dialog.showOpenDialog` por un ejemplo.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Nota:** En macOS, se recomienda usar la versión asincrona para evitar problemas cuando expanda y colapsa el diálogo.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
@@ -203,7 +203,7 @@ Devuelve `Integer` - el índice del botón pulsado.
 
 Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. It returns the index of the clicked button.
 
-El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

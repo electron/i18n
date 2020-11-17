@@ -101,7 +101,7 @@ Injects CSS into the current web page and returns a unique key for the inserted 
 
 * `llave` Cadena
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(texto)`
 

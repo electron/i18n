@@ -8,7 +8,7 @@ Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')

@@ -34,7 +34,7 @@ Das `ready-to-show` Ereignis wird während des Ladens der Seite ausgelöst, fall
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Bei umfangreichen Apps könnte das `ready-to-show` Ereignis zu spät ausgelöst 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ Mithilfe der `parent` Option können Sie untergeordnete Fenster erstellen:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ Ein modales Fenster ist ein untergeordnetes Fenster, das das übergeordnete Fens
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -347,6 +347,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Rückgabewert:
@@ -362,11 +368,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -406,7 +412,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
@@ -464,6 +470,17 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
+#### Event: 'system-context-menu' _Windows_
+
+Rückgabewert:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Static Methods
 
 Die `BrowserWindow` Klasse hat folgende statische Methoden:
@@ -492,7 +509,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -557,7 +574,7 @@ To check if a DevTools extension is installed you can run the following:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -572,7 +589,7 @@ Objects created with `new BrowserWindow` have the following properties:
 ```javascript
 const { BrowserWindow } = require('electron')
 // In this example `win` is our instance
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1047,9 +1064,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1144,8 +1161,8 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `win.loadURL(url[, options])`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Object (optional)
+* `url` String
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -1161,7 +1178,7 @@ The `url` can be a remote address (e.g. `http://`) or a path to a local HTML fil
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')

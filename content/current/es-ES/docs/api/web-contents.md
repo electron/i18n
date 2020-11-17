@@ -9,10 +9,10 @@ Proceso: [principal](../glossary.md#main-process)</0>
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 1500 })
+const win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
-let contents = win.webContents
+const contents = win.webContents
 console.log(contents)
 ```
 
@@ -226,7 +226,7 @@ Devuelve:
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-Este evento no puede ser evitado, si usted quiere evitar las redirecciones debe revisar el evento `will-redirect` anterior.
+Este evento no puede ser prevenir. Si quieres prevenir redirecciones deber ver el evento `will-redirect` arriba.
 
 #### Evento: 'did-navigate'
 
@@ -309,7 +309,7 @@ Devuelve:
 
 Emitido cuando el proceso se crashea o es terminado.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -326,7 +326,7 @@ Devuelve:
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Evento: "unresponsive"
 
@@ -373,11 +373,11 @@ Para evitar sólo los accesos directos del menú, use [`setignoreMenuShortcuts`]
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // Por ejemplo, solo habilita atajos de teclado del menú de la aplicación cuando
+  // Ctrl/Cmd están presionados.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -583,7 +583,7 @@ app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    let result = deviceList.find((device) => {
+    const result = deviceList.find((device) => {
       return device.deviceName === 'test'
     })
     if (!result) {
@@ -592,7 +592,6 @@ app.whenReady().then(() => {
       callback(result.deviceId)
     }
   })
-})
 ```
 
 #### Evento: 'paint'
@@ -608,7 +607,7 @@ Emitted when a new frame is generated. Only the dirty area is passed in the buff
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ webPreferences: { offscreen: true } })
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -631,7 +630,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 Este evento puede utilizarse para configurar `webPreferences` para la `webContents` de un `<webview>`antes de que se carga y proporciona la capacidad de configuración que no se puede establecer a través de atributos `<webview>`.
 
-**Nota:** La opción del script especificado `precarga` aparecerá como `preloadURL` (no como `preload`) en el objeto `webPreferences` emitido con este evento.
+**Nota:** La opción específica de `preload` aparecerá como `preloadURL` (no `preload`) en el objeto `webPreferences` emitido con este evento.
 
 #### Event: 'did-attach-webview'
 
@@ -647,9 +646,9 @@ Emitido cuando se ha adjuntado un `<webview>` a este contenido web.
 Devuelve:
 
 * `event` Event
-* `level` Íntegro
-* `message` String
-* `line` Íntegro
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
+* `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
 Emitted when the associated window logs a console message.
@@ -795,7 +794,7 @@ Devuelve `String` - El URL de la página web actual.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com').then(() => {
   const currentURL = win.webContents.getURL()
   console.log(currentURL)
@@ -884,6 +883,27 @@ Navega a la compensación especifica desde la "entrada actual".
 
 Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
+#### `contents.forcefullyCrashRenderer()`
+
+Forzosamente termina el renderer process que actualmente aloja este `webContents`. Esto hará que sea emitido el evento `render-process-gone` con el `reason=killed || reason=crashed`. Tenga en cuenta que algunos webContents comparten el renderer process y por lo tanto llamar a este método puede causar que se bloque el proceso también para otros wevContents.
+
+Llamar a `reload()` inmediatamente después de llamar a este método forzará que la recarga ocurra en un nuevo proceso. Esto debería ser usado cuando el proceso es inestable o inutilizable, por ejemplo parar recuperar del evento `unresponsive`.
+
+```js
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: '¿Quieres intentar volver a cargar la aplicación a la fuerza?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
+```
+
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` cadena
@@ -900,9 +920,9 @@ Devuelve `String` - El agente usuario para esta página web.
 * `options` Object (opcional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser usado más tarde prar quitar el CSS vía `contents.removeInsertedCSS(key)`.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Inyecta CSS en la página web actual y devuelve una llave única para la hoja de estilo insertada.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', () => {
@@ -914,9 +934,9 @@ contents.on('did-finish-load', () => {
 
 * `llave` Cadena
 
-Devuelve `Promise<void>` - Se resuelve si la eliminación fue exitosa.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, el cual es devuelto desde `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -936,7 +956,7 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-La ejecución del código se suspenderá hasta que la página web deje de cargarse.
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -979,9 +999,9 @@ Devuelve `Boolean` - Si el audio se esta reproduciendo actualmente.
 
 * `factor` Double - Zoom factor; default is 1.0.
 
-Cambia el nivel de zoom al nivel especificado. Factor de zoom es porcentaje de zoom dividido entre 100, así que 300% = 3.0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-El factor debe ser mayor que 0.0.
+The factor must be greater than 0.0.
 
 #### `contents.getZoomFactor()`
 
@@ -1117,22 +1137,22 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 #### `contents.isBeingCaptured()`
 
-Devuelve `Boolean` - Si esta página está siendo capturada. Devuelve true cuando el recuento de capturadores es mas grande que 0.
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `size` [Tamaño](structures/size.md) (opcional) - El tamaño preferido para el capturador.
 * `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-Incrementa el recuento del capturador en uno. La página se considera visible cuando su ventana de navegador está oculta y el recuento de captadores no es cero. Si desea que la página quede oculta, debería asegurarse que `stayHidden` está establecida a true.
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
-Esto también afecta a la API de visibilidad de página.
+This also affects the Page Visibility API.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
 * `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
 
-Disminuye el numero de de contador en uno. La página se establecerá al estado oculto u ocluido cuando la ventana de su navegador está oculta u ocluida y el recuento del capturador llegue a cero. Si quiere disminuir el contador de capturador en su lugar debería establecer `stayHidden` a true.
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
 #### `contents.getPrinters()`
 
@@ -1172,16 +1192,23 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `success` Boolean - Indica el éxito de la llamada impresa.
   * `failureReason` String - Descripción del error llamada de nuevo si la impresión falla.
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Ambos anchura y altura deben ser mínimamente 353 microns, pero puede ser más grande en algunos sistemas operativos.
+Cuando es pasado un `pageSize` personalizado, Chromium intenta validar los valores mínimos específicos de la plataforma para `width_microns` y `height_microns`. Ambos anchura y altura deben ser mínimamente 353 microns, pero puede ser más grande en algunos sistemas operativos.
 
-Imprime la página web de la ventana. Cuando `silent` está establecido a `true`, Electron tomará la impresora predeterminada del sistema si `deviceName` está vacío y las configuraciones por defecto para imprimir.
+Imprime la página web de la ventana. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
 Ejemlo de uso:
 
 ```js
-const options = { silent: true, deviceName: 'My-Printer' }
+const options = {
+  silent: true,
+  deviceName: 'My-Printer',
+  pageRanges: [{
+    from: 0,
+    to: 1
+  }]
+}
 win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
 })
@@ -1232,7 +1259,7 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
@@ -1241,10 +1268,10 @@ win.webContents.on('did-finish-load', () => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
     fs.writeFile(pdfPath, data, (error) => {
       if (error) throw error
-      console.log(`Wrote PDF successfully to ${pdfPath}`)
+      console.log(`PDF escrito con éxito en  ${pdfPath}`)
     })
   }).catch(error => {
-    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+    console.log(`Falla al escibir el PDF en ${pdfPath}: `, error)
   })
 })
 ```
@@ -1253,11 +1280,11 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Agrega la ruta especificada al workspace de DevTools. Debe ser usado después de la creación de DevTools:
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
 })
@@ -1373,11 +1400,11 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 * Cadena `workerId`
 
-Inspecciona el worker compartido basado en su ID.
+Inspects the shared worker based on its ID.
 
 #### `contents.getAllSharedWorkers()`
 
-Devuelve [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Información acerca de todos los Workers Compartidos.
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1388,7 +1415,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al render process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
@@ -1416,7 +1443,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Imprime '¡Suuuuuuuuuuuuuu!'
+      console.log(message) // Prints 'whoooooooh!'
     })
   </script>
 </body>
@@ -1429,13 +1456,13 @@ app.whenReady().then(() => {
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-Si quieres obtener el `frameId` de un renderer context dado deberías usar el valor `webFrame.routingId`.  Por ejemplo.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Por ejemplo.
 
 ```js
 // En un proceso renderizador
@@ -1535,7 +1562,7 @@ Devuelve `Promise<void>` - resuelve si la pagina se guardo.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
@@ -1572,7 +1599,7 @@ Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que e
 
 * `fps` Integer
 
-Si *offscreen rendering* está activada establece el radio del frame al número especificado. Sólo se aceptan valores entre 1 y 60.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
 #### `contents.getFrameRate()`
 
@@ -1596,7 +1623,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-La configuración de política de manejo WebRTC IP, le permite controlar cuales IPs son expuestas a través de WebRTC. Vea [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
@@ -1616,13 +1643,13 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. Esto también afecta a la API de visibilidad de página.
+Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. This also affects the Page Visibility API.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Controla si este WebContents acelerará o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de página.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
@@ -1632,29 +1659,29 @@ Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`,
 
 #### `contents.audioMuted`
 
-Una propiedad `Boolean` que determina si la página está silenciada.
+A `Boolean` property that determines whether this page is muted.
 
 #### `contents.userAgent`
 
-Una propiedad `String` que determina el user agent para esta página web.
+A `String` property that determines the user agent for this web page.
 
 #### `contents.zoomLevel`
 
-Una propiedad `Number` que determina el nivel de zoom de este contenido web.
+A `Number` property that determines the zoom level for this web contents.
 
-El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La formula para esto es `scale := 1.2 ^ level`.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-Una propiedad `Number` que determina el facto del zoom para este contenido web.
+A `Number` property that determines the zoom factor for this web contents.
 
-El factor de zoom es el porcentaje de zoom dividido entre 100, por lo que 300% = 3.0.
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-Una propiedad `Integer` que establece el ratio del frame del contenido web al número especificado. Sólo se aceptan valores entre 1 y 60.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
 
-Solo aplicable si *offscreen rendering* está habilitado.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
@@ -1676,8 +1703,8 @@ Una propiedad `WebContents | null` que representa el `WebContents` de la DevTool
 
 #### `contents.debugger` _Readonly_
 
-Una instancia [`Debugger`](debugger.md) para este webContents.
+A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de página.
+Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. This also affects the Page Visibility API.

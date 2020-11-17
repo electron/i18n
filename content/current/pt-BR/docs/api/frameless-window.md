@@ -11,7 +11,7 @@ Para criar uma frameless window, você precisa definir `frame` como `false` nas 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ Resultando em uma janela com a barra do título escondida e o conteúdo ocupando
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,7 +35,7 @@ Resulta em uma barra de título escondida com uma aparência alternativa, onde o
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ Uses custom drawn close, and miniaturize buttons that display when hovering in t
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ Definindo a opção `transparent` como `true` você também pode fazer a framele
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ To create a click-through window, i.e. making the window ignore all mouse events
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,8 +83,8 @@ win.setIgnoreMouseEvents(true)
 Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

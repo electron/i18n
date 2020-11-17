@@ -840,7 +840,7 @@ Marks the current [Handoff][handoff] user activity as inactive without invalidat
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object
+* `选项` 对象
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
 * `callback` Function
@@ -988,7 +988,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object
+* `选项` 对象
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息

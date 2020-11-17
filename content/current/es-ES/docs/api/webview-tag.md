@@ -325,7 +325,7 @@ Injects CSS into the current web page and returns a unique key for the inserted 
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -478,7 +478,7 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only the first range is honored.
+  * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
@@ -656,9 +656,9 @@ Disparado cuando la página deja la pantalla completa activada por HTML API.
 
 Devuelve:
 
-* `level` Íntegro
-* `message` String
-* `line` Íntegro
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
+* `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
 Disparado cuando la ventana invitada entra un mensaje de consola.
@@ -713,7 +713,7 @@ const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', async (e) => {
-  const protocol = require('url').parse(e.url).protocol
+  const protocol = (new URL(e.url)).protocol
   if (protocol === 'http:' || protocol === 'https:') {
     await shell.openExternal(e.url)
   }

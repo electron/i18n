@@ -34,7 +34,7 @@ Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el pr
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tard
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ Al usar la opción `parent`, se pueden crean ventanas secundarias:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ Una ventana modal es una ventana secundaria que deshabilita la ventana principal
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitido después que la ventana se haya redimensionada.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Devuelve:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Aparece cuando la ventana se mueve a una nueva posición.
 
-__Note__: En macOS este evento es un alias de `moved`.
-
-#### Evento: "moved" _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Aparece solo una vez cuando la ventana se mueve a una nueva posición.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Evento: "enter-full-screen"
 
@@ -404,9 +410,9 @@ Los comandos están en minuscula, los guiones bajos son remplazados por guiones,
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // La ventana retrocede cuando el usuario hace clic sobre el botón de atrás
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -448,7 +454,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. El último evento emitido sobra un gesto de rotación siempre será el valor de `0`. Los valores de rotación en sentido contrario a las agujas del reloj son positivos, mientras que los del sentido de las agujas del reloj son Negativo.
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -461,6 +467,17 @@ Aparece cuando la ventana cierra una hoja.
 #### Evento: 'new-window-for-tab' _macOS_
 
 Aparece cuando se hace clic al botón de nueva pestaña nativa.
+
+#### Evento: 'system-context-menu' _Windows_
+
+Devuelve:
+
+* `event` Event
+* `point` [Point](structures/point.md) - Las coordenadas de la pantalla del menú contextual que fue activado en
+
+Emitido cuando el menú contextual del sistema es activado en la ventana, esto normalmente solo es activado cuando el usuario hace click derecho en el área que no es del cliente de la ventana.  Esto es la barra de titulo de la ventana o cualquier área que haya declarado como `-webkit-app-region: drag` en una ventana sin marco.
+
+Llamando a `event.preventDefault()` evitara que el menú sea mostrado.
 
 ### Métodos Estáticos
 
@@ -476,9 +493,9 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
-Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `null` si los contenidos no son propiedad de una ventana.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -490,7 +507,7 @@ Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si
 
 * `id` Íntegro
 
-Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
+Devuelve `BrowserWindow | null` -La ventana con la `id` especificada.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -516,7 +533,7 @@ Elimina una extensión de Chrome por su nombre.
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-Devuelve `Record<String, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -548,14 +565,14 @@ Elimina una extensión de Devtools mediante su nombre.
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Devuelve `Record<string, ExtensionInfo>` - Las llaves son los nombres de la extensión y cada valor es un Objeto conteniendo las propiedades `name` y `version`.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -569,8 +586,8 @@ Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// En este ejemplo "win" es nuestra instancia
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -582,13 +599,13 @@ Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eve
 
 #### `win.id` _Readonly_
 
-Una propiedad `Integer` representando el identificador único de la ventana. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-Si el menu bar ya está visible, estableciendo esta propiedad a `true` no lo ocultará inmediatamente.
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
 #### `win.simpleFullScreen`
 
@@ -636,7 +653,7 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
+A `Boolean` property that determines whether the window can be manually minimized by user.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
@@ -1026,7 +1043,7 @@ Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` Cadena
+* `title` String
 
 Cambia el título de la ventana nativa a `title`.
 
@@ -1045,9 +1062,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1159,7 +1176,7 @@ El `url` puede ser una dirección remota (por ejemplo `http://`) o una de un arc
 Para garantizar que los URLs del archivo estén adecuadamente formateados, se recomienda utilizar el método [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) del Nodo:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1216,7 +1233,7 @@ Establece el valor del progreso en el progress bar. Rango valido es [0, 1.0].
 
 Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, será asumido `{app.name}.desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. By default, it will assume `{app.name}.desktop`.
 
 En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
@@ -1457,7 +1474,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `undefined` elimina la barra táctil. Este método solo es efectivo si la máquina tiene una barra táctil y si se está ejecutando en macOS 10.12.1+.
 
-**Nota:** Actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

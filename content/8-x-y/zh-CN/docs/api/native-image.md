@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` Object
+* `选项` 对象
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -251,7 +251,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* `options` Object
+* `选项` 对象
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (可选) - 默认值为图片高度.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -266,7 +266,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object
+* `选项` 对象
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.

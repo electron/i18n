@@ -6,7 +6,7 @@
 
 ### `new TouchBarLabel(options)`
 
-* `options` Object
+* `选项` 对象
   * `label` String (可选) - 显示的文本.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。

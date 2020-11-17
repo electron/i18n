@@ -33,9 +33,11 @@ Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı gör�
 Sayfayı yüklerken, pencerenin henüz gösterilmemesi durumunda, oluşturucu işlemi sayfayı ilk kez işlediğinde, ` hazır göster ` olayı yayımlanacaktır. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
-const { BrowserWindow } = require ('electron');
-let win = new BrowserWindow ({ show: false });
-win.once ('ready to show', () => {win.show () })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ show: false })
+win.once('ready-to-show', () => {
+  win.show()
+})
 ```
 
 Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uzak kaynağa sahip sayfalar için `did-finish-load` olayından önce yayınlanabilir.
@@ -47,9 +49,10 @@ Please note that using this event implies that the renderer will be considered "
 Karmaşık bir uygulama için, `ready-to-show` etkinliği çok geç yayınlanarak uygulamanın yavaşlamasına neden olabilir. Bu durumda, pencereyi derhal göstermeniz ve uygulamanızın arka planına yakın bir `backgroundColor` kullanmanız önerilir:
 
 ```javascript
-const { BrowserWindow } = require ('electron') 
+const { BrowserWindow } = require('electron')
 
- let win = new BrowserWindow({ backgroundColor: '#2e2c29' }) win.loadURL ( 'https://github.com')
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+win.loadURL('https://github.com')
 ```
 
 ` hazır göster </ 0>  etkinliğine sahip olan uygulamalar için bile, uygulamanın daha doğal hissetmesini sağlamak için <code>arka plan rengi </ 0> ayarlamanız önerilir .</p>
@@ -59,12 +62,12 @@ const { BrowserWindow } = require ('electron')
 <p spaces-before="0"><code>parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
-const { BrowserWindow } = require ('electron') 
+const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow ({ parent: top })
- child.show ()
- top.show ()
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
+child.show()
+top.show()
 ```
 
 `child` penceresi daima `top` penceresinin üstünde gösterilir.
@@ -74,12 +77,12 @@ let child = new BrowserWindow ({ parent: top })
 Modal bir pencere, üst pencereyi devre dışı bırakan ve bir kalıcı pencere oluşturmak için kullanılan alt penceredir, hem `parent` hem de `modal` seçeneklerini ayarlamanız gerekir:
 
 ```javascript
-const { BrowserWindow } = require ('electron')
+const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
- ('ready to show', () => {
-child.show ()
+child.once('ready-to-show', () => {
+  child.show()
 })
 ```
 
@@ -343,6 +346,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Dönüşler:
@@ -358,11 +367,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Pencere yeni bir konuma getirildiği zaman ortaya çıkmaktadır.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Etkinlik: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Pencere yeni bir konuma taşındığında bir kez yayılmış.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Etkinlik: 'enter-full-screen'
 
@@ -402,7 +411,7 @@ Tire ve `APPCOMMAND_` ön adıyla değişen küçük harfli, altı çizili komut
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
@@ -460,6 +469,17 @@ Windows'un bir sayfa yaprağını kapattığını ifade eder.
 
 Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
+#### Event: 'system-context-menu' _Windows_
+
+Dönüşler:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Statik Metodlar
 
 `BrowserWindow` sınıfı aşağıdaki sabit yöntemlere sahiptir:
@@ -488,11 +508,11 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` tamsayı
 
-`BrowserWindow` 'u geri getirir - `id` verilmiş olan pencere.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* dizi `yolu`
+* `path` Dizgi
 
 `yola` Chrome eklentisini ekler ve uzantının adını döndürür.
 
@@ -504,7 +524,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` Dizi
+* `name` String
 
 İsme göre bir Chrome eklentisi kaldır.
 
@@ -522,7 +542,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* dizi `yolu`
+* `path` Dizgi
 
 DevTools uzantısını belirtilen lokasyona `yol` ekler ve uzantı adına döner.
 
@@ -536,7 +556,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` Dizi
+* `name` String
 
 İsme göre bir DevTools eklentisi kaldır.
 
@@ -553,7 +573,7 @@ DevTools uzantısının yüklenmiş olup olmadığını kontrol etmek için aşa
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -567,8 +587,8 @@ console.log(installed)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// bu örnekte örnek sınıfımız "win"
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1045,9 +1065,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1088,7 +1108,7 @@ Yerel türü Windows' ta `HWND`, macOS' ta `NSView*`, ve Linux' ta `Window` (`un
 #### `win.hookWindowMessage(message, callback)` _Windows_
 
 * `message` Integer
-* `callback` Function
+* `callback` Fonksiyon
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
@@ -1142,7 +1162,7 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 #### `win.loadURL(url[, options])`
 
-* `url` Dize
+* `url` String
 * `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
@@ -1159,7 +1179,7 @@ The `url` uzak bir adres olabilir (e.g. `http://`) or a path to a local HTML fil
 Dosya URL lelerin düzgün formatlandığından emin olmak için, [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) düğümlerini kullanmanız önerilmektedir:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1457,7 +1477,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. Bu metod sadece macOS 10.12.1+ üzerinde çalışıyorsa ve makinanın dokunmatiği varsa etkilidir.
 
-**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

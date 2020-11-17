@@ -6,7 +6,7 @@
 
 ### `new BrowserView(可选)` _实验功能_
 
-* `options` Object
+* `选项` 对象
   * `size` String (optional) - Size of spacer, possible values are:
     * ` small `-项之间的留较小间距。 Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * ` large `-项之间的留较大间距。 Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.

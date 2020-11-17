@@ -39,7 +39,7 @@ Le module `dialog` dispose des méthodes suivantes :
     * `promptToCreate` _Windows_ - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
+    * `dontAddToRecent` _Windows_ - N'ajoutez pas l'élément en cours d'ouverture à la liste des documents récents.
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez [signets à portée de sécurité](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) lorsqu'ils sont empaquetés pour le Mac App Store.
 
@@ -78,7 +78,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `properties` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue doit utiliser. The following values are supported:
+  * `properties` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue doit utiliser. Les valeurs suivantes sont prises en charge :
     * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
@@ -167,7 +167,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
-    * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `showOverwriteConfirmation` _Linux_ - Définit si une boîte de dialogue de confirmation sera affichée lorsque l’utilisateur tape un nom de fichier déjà existant.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 

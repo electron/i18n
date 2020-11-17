@@ -86,14 +86,14 @@
   <td>2020-08-27</td>
   <td>2020-11-17</td>
   <td>M87</td>
-  <td>v12.x</td>
+  <td>v12.18</td>
 </tr>
 <tr>
   <td>12.0.0</td>
-  <td>TBD</td>
-  <td>TBD</td>
-  <td>TBD</td>
-  <td>TBD</td>
+  <td>2020-11-19</td>
+  <td>2021-03-02</td>
+  <td>M89</td>
+  <td>v14.x</td>
 </tr>
 </tbody>
 </table>

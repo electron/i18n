@@ -9,9 +9,9 @@
 ```javascript
 // メインプロセス
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Electronが保存ダイアログを表示しないようにするために、保存先のパスを設定します。
+  // 保存パスを設定して、Electronに保存ダイアログを出さないようにします。
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {

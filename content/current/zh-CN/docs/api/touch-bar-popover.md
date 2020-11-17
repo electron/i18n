@@ -6,7 +6,7 @@
 
 ### `new TouchBarPopover(options)`
 
-* `options` Object
+* `选项` 对象
   * ` label `String (可选) 弹出按钮文本。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.

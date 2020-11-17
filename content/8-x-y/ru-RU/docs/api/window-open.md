@@ -4,9 +4,9 @@
 
 When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Прокси имеет ограниченный набор стандартных функций для совместимости с традиционными веб-страницами. Для полного контроля над новым окном вы должны создать `BrowserWindow` напрямую.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Только что созданный `BrowserWindow` будет по умолчанию наследовать свойства родительского окна. Для переопределения наследованных параметров вы можете установить их в параметре `features`.
 
 ### `window.open(url[, frameName][, features])`
 

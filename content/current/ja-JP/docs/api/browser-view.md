@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (任意)
   * `webPreferences` Object (任意) - [BrowserWindow](browser-window.md) を参照してください。
 
-### 静的メソッド
-
-#### `BrowserView.getAllViews()`
-
-戻り値 `BrowserView[]` - 開かれたすべてのBrowserViewの配列。
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-戻り値 `BrowserView | null` - 指定された `webContents` を保持しているBrowserViewまたはコンテンツがBrowserViewによって保持されていない場合、`null`。
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-戻り値 `BrowserView` - 指定された `id` のビュー。
-
 ### インスタンスプロパティ
 
 `new BrowserView` で作成されたオブジェクトは、以下のプロパティを持っています。
@@ -51,21 +33,9 @@ view.webContents.loadURL('https://electronjs.org')
 
 このビューによって保持されている [`WebContents`](web-contents.md) オブジェクト。
 
-#### `view.id` _実験的_
-
-ビューの一意のIDを表す `Integer`。
-
 ### インスタンスメソッド
 
 `new BrowserView` で作成されたオブジェクトは、次のインスタンスメソッドを持っています。
-
-#### `view.destroy()`
-
-強制的にビューを閉じます。`unload` と `beforeunload` イベントは、Webページで発生しません。 ビューでやることが終わった後、メモリや他のリソースを解放するため、できるだけ早くこのファンクションを呼び出してください。
-
-#### `view.isDestroyed()`
-
-戻り値 `Boolean` - ビューが破棄されているかどうか。
 
 #### `view.setAutoResize(options)` _実験的_
 

@@ -57,5 +57,7 @@ const mainWindow = new BrowserWindow ({width: 800, height: 600, webPreferences: 
 ```
 
 ```javascript
-// renderer process (mainWindow) biarkan modal = window.open ('', 'modal') modal.document.write('<h1>Halo</h1>')
+// renderer process (mainWindow)
+const modal = window.open('', 'modal')
+modal.document.write('<h1>Hello</h1>')
 ```

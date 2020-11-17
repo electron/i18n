@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
 **注意.** 此方法只能在 `app` 的 `ready` 事件触发前调用，且只能调用一次
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify a privilege with the value of `true` to enable the capability.
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
 
 An example of registering a privileged scheme, that bypasses Content Security Policy:
 
@@ -79,6 +79,8 @@ Registering a scheme as standard allows relative and absolute resources to be re
 注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+
+Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 

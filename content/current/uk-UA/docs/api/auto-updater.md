@@ -85,7 +85,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 * `options` Object
   * `url` String
   * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (опціонально) _macOS_ - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Встановлює `url` та ініціалізує автоновлення.
 

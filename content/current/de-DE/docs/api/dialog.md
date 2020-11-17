@@ -35,7 +35,7 @@ Das `dialog` module hat die folgenden Methoden:
     * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
     * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -83,7 +83,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
     * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -140,7 +140,7 @@ dialog.showOpenDialog(mainWindow, {
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
@@ -165,7 +165,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
@@ -203,7 +203,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

@@ -8,3 +8,4 @@
   * `allowServiceWorkers` Boolean (任意) - 省略値は false。
   * `supportFetchAPI` Boolean (任意) - 省略値は false。
   * `corsEnabled` Boolean (任意) - 省略値は false。
+  * `stream` Boolean (任意) - 省略値は false。

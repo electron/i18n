@@ -34,7 +34,7 @@ Habang ikinakarga ang pahina, ang `mag-handa na upang ipakita` Ang kaganapan ay 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Ang isangkumplikado na app, ang `handa na upang ipakita` Ang okasyon ay pweding 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ Sa pamamagitan ng pag-gamit `ang magulang` opsyon, pwedi kang gumawa ng mga wind
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ Ang isang modal na window ay isang window ng bata na hindi pinapagana ang window
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,9 +345,15 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Ay lalabas kung ang window ay inilipat sa bagong posisyon.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Kaganapan: 'inilipat' _ macOS _
+#### Event: 'moved' _macOS_ _Windows_
 
 Ay lalabas kapag ang window ay inilipat sa bagong posisyon.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Kaganapan: 'enter-full-screen'
 
@@ -393,7 +399,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `command` String
@@ -404,9 +410,9 @@ Ang mga atas ay lowercase, ang mga underscore ay binabago ang mga gitling, at an
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Mag-navigate sa window pabalik kapag pinindot ng gumagamit ang kanilang pindutan ng back button
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -432,7 +438,7 @@ Ay lalabas kung ang scroll event na bahagi ng kaganapan sa pag-abot sa gilid ng 
 
 #### Kaganapan: 'swipe' _macOS_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `direction` String
@@ -443,7 +449,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `rotation` Float
@@ -462,6 +468,17 @@ Ay lalabas kapag nakasara ang isang sheet ng window.
 
 Ay lalabas kung ang native ng pindutan ng bagong tab ay na-click.
 
+#### Event: 'system-context-menu' _Windows_
+
+Pagbabalik:
+
+* `event` na Kaganapan
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Mga istatikong pamamaraan
 
 Ang `BrowserWindow`: klas na ito ay mayroong sumusunod na static na pamamaraan:
@@ -476,7 +493,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `webContents` na [WebContents](web-contents.md)
 
 Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
@@ -490,15 +507,15 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Ibinabalik `BrowserWindow` - Ang window na may ibinigay na `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* `path` String
+* `path` na String
 
 Nagdadagdag ng extension ng Chrome na matatagpuan sa `path`, at nagbalik ng pangalan ng extension.
 
-Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
+Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
@@ -524,13 +541,13 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* `path` String
+* `path` na String
 
 Nagdaragdag ng extension ng DevTools na matatagpuan sa `path`, at nagbalik ng pangalan ng extension.
 
 Ang ekstensyon ay maaalala kaya kinakailangan mo lamang tumawag ng isang beses sa API na ito, ito Ang API ay hindi magagamit sa programming. Kung susubukin mong magdagdag ng ekstensyon na pweding mayroon na Na-ikarga, ang paraan na ito ay hindi mai-babalik at sa halip mag-log ng babala sa console.
 
-Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
+Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
 
 **noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
@@ -555,7 +572,7 @@ Upang masuri kung naka-install ang extension ng DevTools maaari mong patakbuhin 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-Hayaan ma install ang = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -568,9 +585,9 @@ console.log(installed)
 Ang mga bagay na nilikha gamit ang `new BrowserWindow` ay may mga sumusunod na katangian:
 
 ```javascript
-const { BrowserWindow } = kinakailangan('electron')
-// Sa halimbawa na ito `panalo` ay ating halimbawa
-let win = new BrowserWindow({ width: 800, height: 600 })
+const { BrowserWindow } = require('electron')
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1047,9 +1064,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1161,11 +1178,12 @@ Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang 
 Upang matiyak na ang mga URL ng file ay maayos na nai-format, inirerekomendang gamitin ito Node's [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) na paraan:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
 })
+
 win.loadURL(url)
 ```
 
@@ -1458,7 +1476,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
-**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa  panghinaharap na pag-release ng Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

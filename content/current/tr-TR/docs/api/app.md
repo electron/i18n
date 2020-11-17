@@ -27,7 +27,8 @@ Genellikle `ready` event handler durumunda kullanmalısınız.
 
 Dönüşler:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -105,12 +106,20 @@ Dönüşler:
 
 Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
 
+### Event: 'did-become-active' _macOS_
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+
 ### Olay: 'continue-activity' _macOS_
 
 Dönüşler:
 
 * `event` Olay
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
@@ -122,7 +131,7 @@ Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı ge
 Dönüşler:
 
 * `event` Olay
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 
 Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o esnada ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
@@ -150,8 +159,8 @@ Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://deve
 
 Dönüşler:
 
-* `event` Olay
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `event` Etkinlik
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
@@ -160,7 +169,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Etkinlik
+* `event` Olay
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
@@ -206,10 +215,10 @@ Dönüşler:
 
 * `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
-* `url` Dize
+* `url` String
 * `error` Dizi - Hata Kodu
 * `certificate` [sertifika](structures/certificate.md)
-* `callback` Function
+* `callback` Fonksiyon
   * `isTrusted` Boolean - Sertifikanın güvenilir olup olmadığını göz önünde bulundur
 
 Çıkarıldığında `url` için `certificate` doğrulama hatası oluştu, sertifikaya güvenmek için temel davranışın oluşmasını `event.preventDefault()` ile engelleyin ve `callback(true)` arayın.
@@ -262,11 +271,11 @@ Dönüşler:
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
-* `callback` Function
+* `callback` Fonksiyon
   * `username` String (optional)
   * `password` String (optional)
 
@@ -289,7 +298,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Olay: 'gpu-process-crashed'
+### Event: 'gpu-process-crashed' _Deprecated_
 
 Dönüşler:
 
@@ -297,6 +306,8 @@ Dönüşler:
 * `killed` Boolean
 
 Emitted when the GPU process crashes or is killed.
+
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -308,7 +319,7 @@ Dönüşler:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -326,7 +337,34 @@ Dönüşler:
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+
+#### Event: 'child-process-gone'
+
+Dönüşler:
+
+* `event` Event
+* `details` Object
+  * `type` String - Process type. One of the following values:
+    * `Utility`
+    * `Zygote`
+    * `Sandbox helper`
+    * `GPU`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - The reason the child process is gone. Olası değerler:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+
+Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
 ### Etkinlik: 'erişilebilir-destek-değişti' _macOS_ _Windows_
 
@@ -414,7 +452,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -423,7 +461,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -456,7 +494,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 Yürürlükteki oluşum tamamlandığında uygulamayı yeniden başlatır (relaunch).
 
-Varsayılan olarak, yeni örnek aynı çalışma dizinini ve hali hazırdaki örneğin komut satırı argümanlarını kullanacaktır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
+By default, the new instance will use the same working directory and command line arguments with current instance. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
 
 Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, uygulamayı yeniden başlatmak (restart) için `app.relaunch`'u çağırdıktan sonra `app.quit`'i veya `app.exit`'ı çağırmanız mecburidir.
 
@@ -538,7 +576,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* dizi `yolu`
+* `path` Dizgi
 * `options` Object (optional)
   * `size` String
     * `küçük` - 16x16
@@ -558,8 +596,8 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(isim, yol)`
 
-* `name` Dizi
-* dizi `yolu`
+* `name` String
+* `path` Dizgi
 
 `name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
@@ -580,7 +618,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` Dizi
+* `name` String
 
 Mevcut uygulamanın ismini geçersiz kılar.
 
@@ -604,7 +642,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(yol)` _macOS_ _Windows_
 
-* dizi `yolu`
+* `path` Dizgi
 
 Son dokümanlar listesine `yol` ekler.
 
@@ -660,6 +698,17 @@ Returns `String` - Name of the application handling the protocol, or an empty st
 
 This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
+### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `Promise<Object>` - Resolve with an object containing the following:
+  * `icon` NativeImage - the display icon of the app handling the protocol.
+  * `path` String  - installation path of the app handling the protocol.
+  * `name` String - display name of the app handling the protocol.
+
+This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `görevler<code> <a href="structures/task.md">Görev []</a> - <0>Görev` nesnelerinin dizisi
@@ -693,7 +742,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 
 `kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
 
-**Not:** Eğer bir `JumpListCategory` nesnesinin ne `type` ne de `name` özelliği ayarlanmamışsa `type` ının `tasks` olduğu varsayılır. Eğer `name` özelliği ayarlanmış fakat `type` göz ardı edilmişse yine `type` ın `custom` olduğu varsayılır.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Eğer `name` özelliği ayarlanmış fakat `type` göz ardı edilmişse yine `type` ın `custom` olduğu varsayılır.
 
 **Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. Bu kaldırılan öğelerin listesini `app.getJumpListSettings()`. kullanarak elde edebilirsiniz.
 
@@ -788,6 +837,7 @@ if (!gotTheLock) {
 
   // Create myWindow, load the rest of the app, etc...
   app.whenReady().then(() => {
+    myWindow = createWindow()
   })
 }
 ```
@@ -804,7 +854,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
-* `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
@@ -824,7 +874,7 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 ### `systemPapp.updateCurrentActivity(type, userInfo)` _macOS_
 
-* `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` any - App-specific state to store for use by another device.
 
 Türü `type` ile eşleşiyorsa geçerli etkinliği günceller, y`userInfo`'den girişleri geçerli `userInfo` sözlüğe birleştirir.
@@ -851,7 +901,7 @@ Activation policy types:
 * `options` Object
   * `sertifika` Dize - pkcs12 dosyasının yolunu girin.
   * `şifre` Dize - sertifika için parola.
-* `callback` Function
+* `callback` Fonksiyon
   * `sonuç` Tamsayı - sonuç alma
 
 Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -892,8 +942,10 @@ For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing f
 
 
 ```js
-{ auxAttributes:
-   { amdSwitchable: true,
+{
+  auxAttributes:
+   {
+     amdSwitchable: true,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -906,12 +958,14 @@ For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing f
      sandboxed: false,
      softwareRendering: false,
      supportsOverlays: false,
-     videoDecodeAcceleratorFlags: 0 },
-gpuDevice:
-   [ { active: true, deviceId: 26657, vendorId: 4098 },
-     { active: false, deviceId: 3366, vendorId: 32902 } ],
-machineModelName: 'MacBookPro',
-machineModelVersion: '11.5' }
+     videoDecodeAcceleratorFlags: 0
+   },
+  gpuDevice:
+   [{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 }],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5'
+}
 ```
 
 
@@ -962,6 +1016,15 @@ If you provided `path` and `args` options to `app.setLoginItemSettings`, then yo
 
 * `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Bu, uygulama, uygulamanın son başlatılışında açık olan pencereleri geri yükleme kapalı. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+
+* `launchItems` Object[] _Windows_ 
+    * `name` String _Windows_ - name value of a registry entry.
+  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
+  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
+  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+
 
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
@@ -971,8 +1034,8 @@ If you provided `path` and `args` options to `app.setLoginItemSettings`, then yo
   * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Varsayılan olarak değer `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-
-Uygulamanın giriş seçeneklerini ayarlayın.
+  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Varsayılanı `true` olarak belirler.
+  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Uygulamanın giriş seçeneklerini ayarlayın.
 
 [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örneğin:
 
@@ -1030,7 +1093,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (optional) _Linux_ - List of app authors.
   * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on macOS. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için. On Linux, values must be set in order to be shown; there are no defaults.
 
@@ -1089,7 +1152,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional) 
-    * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure. 
         * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1098,7 +1161,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
 Örneğin:
 
@@ -1218,3 +1281,11 @@ This is the user agent that will be used when no user agent is set at the `webCo
 A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+
+
+
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.

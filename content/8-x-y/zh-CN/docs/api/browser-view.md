@@ -72,7 +72,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.setAutoResize(options)` _实验功能_
 
-* `options` Object
+* `选项` 对象
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.

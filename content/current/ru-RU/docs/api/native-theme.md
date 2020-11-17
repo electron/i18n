@@ -49,7 +49,7 @@
 
 ### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Только чтение_
 
-`Boolean` - в данный момент для текущей OS / Chromium включен режим отбражения с высокой контрастностью или дается указание отображать пользовательский интерфейс с высокой контрастностью.
+A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-contrast UI.
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Только чтение_
 

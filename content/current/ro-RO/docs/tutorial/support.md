@@ -40,9 +40,9 @@ Când un API este modificat sau eliminat într-un mod care întrerupe funcţiona
 
 ### Versiuni acceptate în prezent
 
+- 11.x.y
 - 10,x.y
 - 9,x.y
-- 8,x.y
 
 ### Sfârșit de viață
 

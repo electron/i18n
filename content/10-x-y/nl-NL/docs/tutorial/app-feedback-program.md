@@ -1,0 +1,3 @@
+# Electron App Feedback Programma
+
+Electron werkt aan het bouwen van een gestroomlijnd release-proces en heeft snellere releases. Om hierbij te helpen. we hebben het App Feedback Programma voor grote Electron apps om onze beta releases te testen en app-specifieke problemen te melden aan het Electron team. We gebruiken dit programma om ons te helpen prioriteit te geven aan werk en applicaties zo snel mogelijk naar de volgende stabiele release te laten upgraden. Er zijn een paar vereisten die we van de deelnemers verwachten, zoals het aanwezig zijn bij korte, online wekelijkse controle-ins. Bezoek [blog post](https://electronjs.org/blog/app-feedback-program) voor details en inschrijving.

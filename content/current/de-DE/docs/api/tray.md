@@ -212,9 +212,11 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Legt den Hover-Text für dieses Tray-Symbol fest.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (optional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Legt den Titel fest, der neben dem Tray Icon in der Statusleiste angezeigt wird (Unterstütz ANSI-Farben).
 

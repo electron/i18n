@@ -192,18 +192,18 @@ Eğer [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
-let browserOptions = { width: 1000, height: 800 }
+const browserOptions = { width: 1000, height: 800 }
 
-// Pencereyi sadece platform destekliyorsa şeffaf yapın.
+// Make the window transparent only if the platform supports it.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
 // Pencere yaratın.
-let win = new BrowserWindow(browserOptions)
+const win = new BrowserWindow(browserOptions)
 
-// Yönlendirme.
+// Navigate.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -368,7 +368,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 })
 ```
 
-This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
 
 **NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 

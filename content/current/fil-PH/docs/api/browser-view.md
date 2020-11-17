@@ -25,25 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
-### Mga istatikong pamamaraan
-
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - An array of all opened BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
-
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
@@ -51,21 +33,9 @@ Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
 Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
 
-#### `view.id` _Experimental_
-
-Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
-
-### Mga Paraan ng Halimbawa
+### Mga Halimbawa ng Sistematikong Paraan
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-#### `view.isDestroyed()`
-
-Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` _Experimental_
 

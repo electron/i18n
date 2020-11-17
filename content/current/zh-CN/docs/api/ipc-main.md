@@ -8,7 +8,7 @@
 
 ## 发送消息
 
-也可以从主进程向渲染进程发送消息，查阅[ebContents.send](web-contents.md#contentssendchannel-arg1-arg2-)获取更多信息。
+也可以从主进程向渲染进程发送消息，查阅[ebContents.send](web-contents.md#contentssendchannel-args)获取更多信息。
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
@@ -80,7 +80,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

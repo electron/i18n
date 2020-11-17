@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Диалоговое окно открывается из основного потока Electron. If you want to use the dialog object from a renderer process, remember to access it using the remote:
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -193,7 +193,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `message` String - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. По умолчанию `false`.
   * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
   * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
@@ -216,7 +216,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `message` String - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. По умолчанию `false`.
   * `icon` [NativeImage](native-image.md) (опционально)
   * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
   * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.

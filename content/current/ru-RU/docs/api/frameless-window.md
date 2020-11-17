@@ -11,7 +11,7 @@
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,7 +35,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,8 +83,8 @@ win.setIgnoreMouseEvents(true)
 Игнорирование сообщений мыши заставляет веб-страницу забыть о движении мыши, что означает, что события движения мыши не будут вырабатываться. В операционных системах Windows дополнительный параметр может быть использован для передачи сообщений о перемещении мыши на веб-странице, что позволяют такие события как `mouseleave`:
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

@@ -8,7 +8,7 @@ Las herramientas para desarrolladores de Chrome tiene un [special binding](https
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')

@@ -1,4 +1,4 @@
-# KeyboardEvent Object estende `Event`
+# Oggetto EventoTastiera
 
 * `ctrlKey` Booleano (opzionale) - se il tasto Control era usato in un acceleratore per innescare l'Evento
 * `metaKey` Booleano (opzionale) - se un tasto meta era usato in un acceleratore per innescare l'Evento

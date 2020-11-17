@@ -34,7 +34,7 @@ While loading the page, the `ready-to-show` event will be emitted when the rende
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ For a complex app, the `ready-to-show` event could be emitted too late, making t
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ By using `parent` option, you can create child windows:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ A modal window is a child window that disables parent window, to create a modal 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,9 +345,15 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -393,7 +399,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `command` String
@@ -404,7 +410,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
@@ -432,7 +438,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `direction` String
@@ -443,44 +449,53 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### Event: 'rotate-gesture' _macOS_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `rotation` Float
 
-المنبعث/ـة على إيماءة دوران لوحة التتبع. تنبعث باستمرار حتى لفتة التناوب انتهت. قيمة كل انبعاث هي الزاوية بدرجات دوارة منذ الانبعاثات الأخيرة. الحدث الأخير المنبعث على إيماءة التناوب سيكون دائما من قيمة `0/0> . قيم الدوران المعاكسة في اتجاه عقارب الساعة موجبة، في حين أن قيم عقارب الساعة هي السلبيه.</p>
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
-<h4 spaces-before="0">Event: 'sheet-begin' <em x-id="4">macOS</em></h4>
+#### Event: 'sheet-begin' _macOS_
 
-<p spaces-before="0">تنبعث عندما تفتح النافذة ورقة.</p>
+Emitted when the window opens a sheet.
 
-<h4 spaces-before="0">Event: 'sheet-end' <em x-id="4">macOS</em></h4>
+#### Event: 'sheet-end' _macOS_
 
-<p spaces-before="0">تنبعث عندما تكون النافذة قد أغلقت ورقة.</p>
+Emitted when the window has closed a sheet.
 
-<h4 spaces-before="0">Event: 'new-window-for-tab' <em x-id="4">macOS</em></h4>
+#### Event: 'new-window-for-tab' _macOS_
 
-<p spaces-before="0">تنبعث عند النقر فوق زر علامة التبويب الجديدة الأصلية.
-</p>
+Emitted when the native new tab button is clicked.
 
-<h3 spaces-before="0">Static Methods</h3>
+#### Event: 'system-context-menu' _Windows_
 
-<p spaces-before="0">تحتوي فئة BrowserWindow على الأساليب الثابتة التالية:
-</p>
+Returns:
 
-<h4 spaces-before="0"><code>BrowserWindow.getAllWindows()`</h4>
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
 
-إرجاع `المتصفح ويندوز[]` - مجموعة من جميع نوافذ المتصفح المفتوحة.
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
+### Static Methods
+
+The `BrowserWindow` class has the following static methods:
+
+#### `BrowserWindow.getAllWindows()`
+
+Returns `BrowserWindow[]` - An array of all opened browser windows.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-إرجاع `BrowserWindow | فارغة` - الإطار الذي يركز في هذا التطبيق، وإلا إرجاع `فارغة`.
+Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-إرجاع `BrowserWindow | فارغة` - النافذة التي تمتلك `webContents معين` أو `فارغة` إذا لم تكن المحتويات مملوكة من قبل إطار.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -492,25 +507,25 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 * </code>
 
-إرجاع نافذة المتصفح | فارغة - النافذة التي تمتلك عرض المستعرض المعطى.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
-يضيف ملحق Chrome الموجود في `المسار`، ويعيد اسم الإضافة.
+Adds Chrome extension located at `path`, and returns extension's name.
 
-لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
+The method will also not return if the extension's manifest is missing or incomplete.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `الإسم`String
+* `name` سلسلة نصية
 
-إزالة ملحق كروم بالاسم.
+Remove a Chrome extension by name.
 
 **ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
@@ -518,7 +533,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-إرجاع `تسجيل<String, ExtensionInfo>` - المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على `اسم` و `إصدار ` خواص.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
@@ -528,11 +543,11 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 * `path` String
 
-يضيف ملحق DevTools الموجود في `المسار`، وإرجاع اسم الملحق.
+Adds DevTools extension located at `path`, and returns extension's name.
 
-سيتم تذكر التمديد لذلك تحتاج فقط إلى استدعاء هذا API مرة واحدة، وهذا واجهة برمجة التطبيقات ليست للاستخدام البرمجي. إذا حاولت إضافة ملحق يحتوي بالفعل تم تحميل، لن ترجع هذه الطريقة وبدلاً من ذلك تسجيل تحذير إلى وحده التحكم.
+The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
+The method will also not return if the extension's manifest is missing or incomplete.
 
 **ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
@@ -540,9 +555,9 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `الإسم`String
+* `name` سلسلة نصية
 
-إزالة ملحق DevTools بالاسم.
+Remove a DevTools extension by name.
 
 **ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
@@ -550,14 +565,14 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-إرجاع تسجيل المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على اسم و إصدار خواص.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-للتحقق مما إذا تم تثبيت ملحق DevTools يمكنك تشغيل ما يلي:
+To check if a DevTools extension is installed you can run the following:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -567,12 +582,12 @@ console.log(installed)
 
 ### Instance Properties
 
-الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
+Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 // In this example `win` is our instance
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -580,17 +595,17 @@ win.loadURL('https://github.com')
 
 كائن المحتويات يملكه هذا النافذة. جميع الأحداث المتعلقة بصفحة الويب و سيتم إجراء العمليات عبرذلك.
 
-راجع وثائق محتويات الويب للاطلاع على الأساليب و الأحداث.
+See the [`webContents` documentation](web-contents.md) for its methods and events.
 
 #### `win.id` _Readonly_
 
-خاصية عدد صحيح تمثل المعرف الفريد للإطار. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا. بمجرد الضبط، سيظهر شريط القائمة فقط عند الضغط على مفتاح `Alt` واحد.
 
-إذا كان شريط القائمة مرئيًا بالفعل، فلن يؤدي تعيين هذه الخاصية إلى `صواب` إخفائه على الفور.
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
 #### `win.simpleFullScreen`
 
@@ -638,35 +653,35 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
+A `Boolean` property that determines whether the window can be manually minimized by user.
 
-على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
+On Linux the setter is a no-op, although the getter returns `true`.
 
 #### `win.maximizable`
 
-خاصية منطقية تحدد ما إذا كان يجب أن يخفي شريط قائمة الإطار نفسه تلقائيًا.
+A `Boolean` property that determines whether the window can be manually maximized by user.
 
-على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
+On Linux the setter is a no-op, although the getter returns `true`.
 
 #### `win.fullScreenable`
 
-خاصية منطقية تحدد ما إذا كان زر نافذة التكبير /التصغير الأقصى تبديل وضع ملء الشاشة أو يزيد من النافذة.
+A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
 #### `win.resizable`
 
-خاصية منطقية تحدد ما إذا كان يمكن تغيير حجم الإطار يدويًا بواسطة المستخدم.
+A `Boolean` property that determines whether the window can be manually resized by user.
 
 #### `win.closable`
 
-خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
+A `Boolean` property that determines whether the window can be manually closed by user.
 
-على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
+On Linux the setter is a no-op, although the getter returns `true`.
 
 #### `win.movable`
 
-خاصية منطقية تحدد ما إذا كان يمكن إغلاق الإطار يدويًا من قبل المستخدم.
+A `Boolean` property that determines Whether the window can be moved by user.
 
-على لينوكس، واضع هو "لا" عملية, على الرغم من أن المصراع يعود صحيحاً.
+On Linux the setter is a no-op, although the getter returns `true`.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
@@ -693,13 +708,13 @@ Menu.setApplicationMenu(menu)
 
 ### Instance Methods
 
-الكائنات التي تم إنشاؤها مع متصفح جديد لها الخصائص التالية:
+Objects created with `new BrowserWindow` have the following instance methods:
 
 ملاحظة: تتوفر بعض الطرق فقط على أنظمة تشغيل محددة ويتم تصنيفها على هذا النحو.
 
 #### `win.destroy()`
 
-فرض إغلاق النافذة، لن يتم إصدار الحدث إلغاء التحميل وقبل إلغاء التفريغ لصفحة الويب، ولن يتم أيضًا إصدار حدث الإغلاق لهذه النافذة، ولكنه يضمن أن الحدث المغلق سيتم انبعاثه.
+Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
 
 #### `win.close()`
 
@@ -841,7 +856,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-إرجاع المستطيل حدود الإطار ككائن.
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.getBackgroundColor()`
 
@@ -852,23 +867,23 @@ Returns `String` - Gets the background color of the window. See [Setting `backgr
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) _macOS_
 
-تغيير حجم منطقة عميل النافذة ونقلها (مثل صفحة الويب) إلى الحدود المتوفرة.
+Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-إرجاع المستطيل حدود الإطار ككائن.
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 
-إرجاع المستطيل - يحتوي على حدود الإطار للحالة العادية
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
 
-ملاحظة: مهما كانت الحالة الحالية للإطار: تكبير أو تصغير أو في ملء الشاشة، تقوم هذه الوظيفة دائمًا بإرجاع موضع وحجم الإطار في الحالة العادية. في الحالة العادية، الحصول على حدود والحصول على حدود عادي إرجاع نفس المستطيل.
+ملاحظة: مهما كانت الحالة الحالية للإطار: تكبير أو تصغير أو في ملء الشاشة، تقوم هذه الوظيفة دائمًا بإرجاع موضع وحجم الإطار في الحالة العادية. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
 
-تعطيل أو تمكين النافذة.
+Disable or enable the window.
 
 #### `win.isEnabled()`
 
@@ -884,7 +899,7 @@ Returns `Boolean` - whether the window is enabled.
 
 #### `win.getSize()`
 
-إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
+Returns `Integer[]` - Contains the window's width and height.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -892,33 +907,33 @@ Returns `Boolean` - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (optional) _macOS_
 
-تغيير حجم منطقة عميل الإطار (مثل صفحة الويب) إلى العرض والارتفاع.
+Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
-إرجاع [عدد صحيح] - يحتوي على عرض الإطار وارتفاعه.
+Returns `Integer[]` - Contains the window's client area's width and height.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
+Sets the minimum size of window to `width` and `height`.
 
 #### `win.getMinimumSize()`
 
-[إرجاع عدد صحيح] : يحتوي على الحد الأدنى لعرض الإطار وارتفاعه.
+Returns `Integer[]` - Contains the window's minimum width and height.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-تعيين الحد الأدنى لحجم الإطار إلى العرض والارتفاع.
+Sets the maximum size of window to `width` and `height`.
 
 #### `win.getMaximumSize()`
 
-إرجاع ` عدد صحيح []` - يحتوي على أقصى عرض وطول للنوافذ.
+Returns `Integer[]` - Contains the window's maximum width and height.
 
 #### `win.setResizable(resizable)`
 
@@ -1047,9 +1062,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1161,7 +1176,7 @@ The `url` can be a remote address (e.g. `http://`) or a path to a local HTML fil
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')

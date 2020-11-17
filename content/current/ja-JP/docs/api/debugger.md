@@ -8,7 +8,7 @@ Chromeの開発者ツールは、ページと相互にやり取りをしたり�
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')

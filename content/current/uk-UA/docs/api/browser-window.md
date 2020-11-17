@@ -34,7 +34,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Please note that using this event implies that the renderer will be considered "
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ top.show()
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Викликається коли вікно змінює розмір.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Повертає:
@@ -360,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Викликається коли вікно переміщується в нове місце.
 
-__Примітка__: На macOS ця подія є іншою назвою `moved`.
-
-#### Подія: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Викликається один раз коли вікно переміщується в нове місце.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Подія: 'enter-full-screen'
 
@@ -404,9 +410,9 @@ __Примітка__: На macOS ця подія є іншою назвою `mov
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Переходить назад коли юзер натискає кнопку назад
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -462,6 +468,17 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 Викликається коли під час натискання нативної кнопки створення нової вкладки.
 
+#### Event: 'system-context-menu' _Windows_
+
+Повертає:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Статичні Методи
 
 Клас `BrowserWindow` має наступні статичні методи:
@@ -490,7 +507,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Повертає `BrowserWindow` - Вікно з переданим `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -555,7 +572,7 @@ Returns `Record<string, ExtensionInfo>` - The keys are the extension names and e
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -569,8 +586,8 @@ console.log(installed)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// В цьому прикладі `win` наш екземпляр
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1045,9 +1062,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1159,7 +1176,7 @@ Hooks a windows message. The `callback` is called when the message is received i
 Щоб переконатися, що посилання на файли правильно відформатовані, рекомендовано використовувати метод Node [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1457,7 +1474,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Встановлює шаблон touchBar для почотного вікна. Зазначення `null` чи `undefined` очищує панель дотиків. Цей метод має ефект тільки, якщо машина має панель дотиків та запущена на macOS 10.12.1+.
 
-**Примітка:** TouchBar API наразі експериментальне і може бути видалене в майбутніх версіях Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Експериментальний_
 

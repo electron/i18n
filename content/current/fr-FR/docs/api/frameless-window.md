@@ -11,7 +11,7 @@ Pour créer une fenêtre sans cadre, vous devez définir `frame` à `false` dans
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ Résultats dans une barre de titre cachée et une fenêtre de contenu en taille 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,7 +35,7 @@ Résultats dans une barre de titre cachée avec un aspect alternatif où les bou
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les bo
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ En définissant l'option `transparente` à `true`, vous pouvez également rendre
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fen�
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,10 +83,10 @@ win.setIgnoreMouseEvents(true)
 Ignorer les messages de la souris rend la page Web inaccessible au mouvement de la souris, ce qui signifie que les événements de déplacement de la souris ne seront pas émis. Sur les systèmes d'exploitation Windows, un paramètre optionnel peut être utilisé pour déplacer les messages de la souris vers la page web, permettant d'émettre des événements tels que `souris` :
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  gagner. etIgnoreMouseEvents(true, { forward: true })
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)

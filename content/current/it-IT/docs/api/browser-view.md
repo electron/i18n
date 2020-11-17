@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Object (opzionale) - Vedi [BrowserWindow](browser-window.md).
 
-### Metodi Statici
-
-#### `BrowserView.getAllViews()`
-
-Restituisce `BrowserView[]` - una array di tutti i BrowserViews aperti.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
-
-Restituisce `BrowserView | null`-The BrowserView che possiede il dato `webContents` o `null` se il contenuto non è di proprietà di un BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Numero Intero
-
-Restituisce `VistaBrowser` - La vista con l'`id` dato.
-
 ### Proprietà Istanza
 
 Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
@@ -51,21 +33,9 @@ Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
 Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
-#### `vista.id` _Sperimentale_
-
-Un numero `Intero` rappresentante l'unico ID di visualizzazione.
-
 ### Metodi Istanza
 
 Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
-
-#### `view.destroy()`
-
-Forza la chiusura della vista, gli enventi `unload` e `beforeunload` non verranno emessi per la pagina web. Dopo che hai finito con una vista, chiama questa funzione per liberare memoria e altre risorse il prima possibile.
-
-#### `view.isDestroyed()`
-
-Restituisce `Boolean` - Se la vista viene distrutta.
 
 #### `vedi.impostaRidimensionaAutomaticamente(opzioni` _Sperimentale_
 
@@ -83,7 +53,7 @@ Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
 #### `view.getBounds()` _Experimental_
 
-Restituisce [`Rectangle`](structures/rectangle.md)
+Ritorna [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 

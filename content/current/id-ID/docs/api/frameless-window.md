@@ -11,8 +11,8 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki
 <p spaces-before="0">Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const { BrowserWindow } = membutuhkan ('elektron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 `</pre> 
 
@@ -29,8 +29,8 @@ Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judu
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -44,8 +44,8 @@ Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu la
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -59,8 +59,8 @@ Uses custom drawn close, and miniaturize buttons that display when hovering in t
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -71,7 +71,9 @@ win.show()
 
 Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda juga dapat membuat jendela tanpa bingkai transparan:</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require ('electron') misalkan win = new BrowserWindow ( { transparent: true, frame: false } ) win.show ()
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ transparent: true, frame: false })
+win.show()
 `</pre> 
 
 
@@ -97,7 +99,9 @@ Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peris
 
 
 ```javascript
-const { BrowserWindow } = require ('electron') biarkan menang = new BrowserWindow () win.setIgnoreMouseEvents (true)
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.setIgnoreMouseEvents(true)
 ```
 
 
@@ -110,8 +114,8 @@ Ignoring mouse messages makes the web page oblivious to mouse movement, meaning 
 
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

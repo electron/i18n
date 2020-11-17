@@ -1,4 +1,4 @@
-# Об'єкт KeyboardEvent наслідує `Event`
+# KeyboardEvent Object
 
 * `ctrlKey` Boolean (опціонально) - чи використовувалась клавіша Control в акселераторі при провокуванні Event
 * `metaKey` Boolean (опціонально) - чи використовувалась мета клавіша в акселераторі при провокуванні Event

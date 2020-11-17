@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+这个对话框从Electron主线程打开。 如果你想要从一个渲染线程使用对话框对象，记得通过remote去访问它。
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -25,19 +25,19 @@ console.log(dialog)
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[](可选)-包括对话框应当使用的特性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` promptToCreate ` _Windows_-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_-禁用自动的别名路径(符号链接) 解析。 所选别名现在将会返回别名路径而非其目标路径。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
   * `message` String (可选) _ macOS _-显示在输入框上方的消息。
@@ -73,19 +73,19 @@ dialog.showOpenDialogSync(mainWindow, {
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[](可选)-包括对话框应当使用的特性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` promptToCreate ` _Windows_-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_-禁用自动的别名路径(符号链接) 解析。 所选别名现在将会返回别名路径而非其目标路径。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
   * `message` String (可选) _ macOS _-显示在输入框上方的消息。
@@ -130,7 +130,7 @@ dialog.showOpenDialog(mainWindow, {
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
@@ -155,7 +155,7 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `title` String (可选) - 对话框窗口的标题
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
@@ -185,7 +185,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
@@ -208,7 +208,7 @@ Shows a message box, it will block the process until the message box is closed. 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
@@ -242,7 +242,7 @@ Shows a message box, it will block the process until the message box is closed.
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object
+* `选项` 对象
   * `certificate` [Certificate](structures/certificate.md) - 信任/导入的证书
   * `message` String - 要向用户显示的消息
 

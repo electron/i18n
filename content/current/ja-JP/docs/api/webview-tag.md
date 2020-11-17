@@ -477,7 +477,7 @@ webview.addEventListener('dom-ready', () => {
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[] (任意) - 印刷するページ範囲。 macOS では最初の範囲のみが使用されます。
+  * `pageRanges` Object[] (任意) - 印刷するページ範囲。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
@@ -655,9 +655,9 @@ HTML API にトリガーされてページがフルスクリーンから抜け�
 
 戻り値:
 
-* `level` Integer
-* `message` String
-* `line` Integer
+* `level` Integer - 0 から 3 のログレベル。 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `message` String - 実際のコンソールメッセージ
+* `line` Integer - このコンソールメッセージのトリガーとなったソースの行番号
 * `sourceId` String
 
 ゲストウィンドウがコンソールメッセージをロギングすると発行されます。
@@ -712,7 +712,7 @@ const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', async (e) => {
-  const protocol = require('url').parse(e.url).protocol
+  const protocol = (new URL(e.url)).protocol
   if (protocol === 'http:' || protocol === 'https:') {
     await shell.openExternal(e.url)
   }

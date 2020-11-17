@@ -4,7 +4,7 @@
 
 Процесс: [Главный](../glossary.md#main-process)
 
-Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), доступного по адресу `chrome://tracing` в Chrome.
+Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), доступного по адресу `chrome://tracing` в Chrome.
 
 **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` модуля app не произошло.
 

@@ -11,7 +11,7 @@
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -285,7 +285,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
   const { hostname } = request
@@ -301,7 +301,17 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
-  * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
+  * `permission` String - 要求されたパーミッションのタイプ。
+    * `clipboard-read` - Request access to read from the clipboard.
+    * `media` - カメラ、マイク、スピーカーなどのメディアデバイスへのアクセスを要求する。
+    * `mediaKeySystem` - DRM で保護されたコンテンツへのアクセスを要求します。
+    * `geolocation` - ユーザーの現在地へのアクセスを要求する。
+    * `notifications` - 通知の作成とユーザーのシステムトレイに表示する機能を要求します。
+    * `midi` - `webmidi` API で MIDI アクセスを要求します。
+    * `midiSysex` - `webmidi` API でシステム専用メッセージの使用を要求する。
+    * `pointerLock` - 入力方法としてマウスの動きを直接解釈するよう要求する。 詳細は[こちら ](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) をクリックしてください。
+    * `fullscreen` - アプリがフルスクリーンモードになるよう要求する。
+    * `openExternal` - 外部アプリケーションでリンクを開くように要求する。
   * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
@@ -325,7 +335,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL
@@ -557,7 +567,7 @@ const path = require('path')
 app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', (request, callback) => {
-    let url = request.url.substr(7)
+    const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')

@@ -34,7 +34,7 @@ Pendant le chargement de la page, l'événement `ready-to-show` sera émis lorsq
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Pour une application complexe, l’événement `ready-to-show` pourrait être é
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ En utilisant l'option `parent`, vous pouvez créer une fenêtre enfant:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ Une fenêtre modale est une fenêtre enfant qui désactive la fenêtre parent. P
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -344,6 +344,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis après que la fenêtre soit redimensionnée.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Retourne :
@@ -359,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-__Note__ : Sous macOS, cet événement est un alias de `moved`.
-
-#### Événement : 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Événement : 'enter-full-screen'
 
@@ -403,10 +409,10 @@ Les commandes sont en minuscules, les traits de soulignement sont remplacés par
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-gagne. n('commande app', (e, cmd) => {
-  // Naviguez dans la fenêtre lorsque l'utilisateur clique sur le bouton retour de la souris
-  if (cmd === 'browser-backward' && gagne. ebContents.canGoBack()) {
+const win = new BrowserWindow()
+win.on('app-command', (e, cmd) => {
+  // Navigate the window back when the user hits their mouse back button
+  if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
@@ -461,6 +467,17 @@ Retourne :
 
 Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
+#### Event: 'system-context-menu' _Windows_
+
+Retourne :
+
+* `event` Événement
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Méthodes statiques
 
 La classe `BrowserWindow` a les méthodes statiques suivantes :
@@ -489,7 +506,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Retourne `BrowserWindow` - La fenêtre avec l'`id` donné.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -554,7 +571,7 @@ Pour vérifier si une extension DevTools est installée, vous pouvez exécuter c
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -568,8 +585,8 @@ Les objets créés avec `nouveau BrowserWindow` ont les propriétés suivantes :
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// Dans cet exemple `win` est notre instance
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1044,9 +1061,10 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win.setSheetOffset(toolbarRect.height)
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+win.setSheetOffset(toolbarRect.height)
 ```
 
 #### `win.flashFrame(flag)`
@@ -1157,7 +1175,7 @@ L'`url` peut être une adresse distante (par exemple `http://`) ou un chemin ver
 Pour s'assurer que les URL de fichier sont correctement formatées, il est recommandé d'utiliser la méthode Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) :
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1455,7 +1473,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Définit la disposition de la barre tactile pour la fenêtre actuelle. La spécification `null` ou `undefined` efface la barre de contact. Cette méthode n'a d'effet que si la machine a une barre tactile et est en cours d'exécution sur macOS 10.12.1+.
 
-**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

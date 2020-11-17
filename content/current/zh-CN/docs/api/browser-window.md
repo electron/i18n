@@ -34,7 +34,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,7 +51,7 @@ Please note that using this event implies that the renderer will be considered "
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ top.show()
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -344,6 +344,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 调整窗口大小后触发。
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 返回:
@@ -359,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 窗口移动到新位置时触发
 
-__注意__: 在 macOS 上，此事件是` moved `的别名.
-
-#### 事件: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 当窗口移动到新位置时触发一次
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### 事件: 'enter-full-screen'
 
@@ -403,9 +409,9 @@ __注意__: 在 macOS 上，此事件是` moved `的别名.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // 当用户点击鼠标返回按钮时，导航窗口会后退
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -461,6 +467,17 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 当点击了系统的新标签按钮时触发
 
+#### Event: 'system-context-menu' _Windows_
+
+返回:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### 静态方法
 
 `BrowserWindow` 类有以下方法:
@@ -489,7 +506,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-返回 `BrowserWindow` -拥有给定 `id` 的窗口.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -505,7 +522,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` 字符串
+* `name` String
 
 根据名字删除一个 Chrome 的扩展。
 
@@ -537,7 +554,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` 字符串
+* `name` String
 
 根据名字删除一个 DevTools 的扩展。
 
@@ -554,7 +571,7 @@ Returns `Record<string, ExtensionInfo>` - The keys are the extension names and e
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -568,8 +585,8 @@ console.log(installed)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// 在这个例子中,`win` 是我们的实例
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1044,9 +1061,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1158,7 +1175,7 @@ Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlu
 为了确保文件网址格式正确, 建议使用Node的 [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) 方法:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1293,7 +1310,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* `选项` 对象
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 默认值为 `0`
@@ -1456,7 +1473,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _实验_
 

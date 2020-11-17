@@ -8,16 +8,16 @@ As ferramentas de desenvolvedor do Chrome possuem [special binding](https://chro
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Falha ao anexar o Debugger: ', err)
+  console.log('Debugger attach failed : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger desanexado devido a : ', reason)
+  console.log('Debugger detached due to : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {

@@ -8,3 +8,4 @@
   * `allowServiceWorkers` Boolean (optional) - ค่าเริ่มต้นเป็น false.
   * `supportFetchAPI` Boolean (optional) - ค่าเริ่มต้นเป็น false.
   * `corsEnabled` Boolean (optional) - ค่าเริ่มต้นเป็น false.
+  * `stream` Boolean (optional) - Default false.

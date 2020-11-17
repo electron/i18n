@@ -9,10 +9,10 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 1500 })
+const win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
-let contents = win.webContents
+const contents = win.webContents
 console.log(contents)
 ```
 
@@ -226,7 +226,7 @@ Ibinabalik:
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
 #### Kaganapan: 'ginawa-navigate'
 
@@ -309,7 +309,7 @@ Ibinabalik ang:
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -326,7 +326,7 @@ Ibinabalik ang:
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Kaganapan: 'hindi tumutugon'
 
@@ -373,7 +373,7 @@ Upang mapigilan lamang ang mga shortcut sa menu, gamitin ang [`setIgnoreMenuShor
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
   // For example, only enable application menu keyboard shortcuts when
@@ -583,7 +583,7 @@ app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    let result = deviceList.find((device) => {
+    const result = deviceList.find((device) => {
       return device.deviceName === 'test'
     })
     if (!result) {
@@ -608,7 +608,7 @@ Emitted when a new frame is generated. Only the dirty area is passed in the buff
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ webPreferences: { offscreen: true } })
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -631,7 +631,7 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 
 Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para sa `webContents` ng isang `<webview>` bago ang load nito, at nagbibigay ng kakayahang magtakda upang itakda ang mga setting na hindi maaaring itakda sa pamamagitan ng `<webview>` mga katangian.
 
-**Tandaan:** Ang tinutukoy na `preload` Ang opsyon ng script ay lilitaw bilang `preloadURL` (hindi `preload`) nasa `webPreferences` bagay na inilalabas sa kaganapang ito.
+**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
 #### Kaganapan: 'ginawa-ilakip-webview'
 
@@ -647,9 +647,9 @@ Naipalalabas kapag ang isang `<webview>` ay naka-attach sa mga nilalaman ng web 
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `level` Integer
-* `message` String
-* `line` Integer
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
 Emitted when the associated window logs a console message.
@@ -795,7 +795,7 @@ Ibinabalik `Pisi` - Ang URL ng kasalukuyang web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com').then(() => {
   const currentURL = win.webContents.getURL()
   console.log(currentURL)
@@ -883,6 +883,27 @@ Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
 #### `mga nilalaman.isCrashed()`
 
 Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
+
+#### `contents.forcefullyCrashRenderer()`
+
+Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
+
+Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+
+```js
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
+```
 
 #### `mga nilalaman.setUserAgent(userAgent)`
 
@@ -1122,7 +1143,7 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
 * `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
 Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
@@ -1173,7 +1194,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Error description called back if the print fails.
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
 Nagpiprint ng pahina ng web sa mga window. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -1182,7 +1203,14 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 Example usage:
 
 ```js
-const options = { silent: true, deviceName: 'My-Printer' }
+const options = {
+  silent: true,
+  deviceName: 'My-Printer',
+  pageRanges: [{
+    from: 0,
+    to: 1
+  }]
+}
 win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
 })
@@ -1233,7 +1261,7 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
@@ -1257,10 +1285,10 @@ win.webContents.on('did-finish-load', () => {
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
-const { BrowserWindow } = nangangailangan('elektron')
-hayaan ang panalo = bagong BrowserWindow()
-manalo.webContents.on('devtools-binuksan', () = > {
-  manalo.webContents.addWorkSpace(__ dirname)
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.webContents.on('devtools-opened', () => {
+  win.webContents.addWorkSpace(__dirname)
 })
 ```
 
@@ -1398,7 +1426,7 @@ The renderer process can handle the message by listening to `channel` with the [
 Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tagapag-render ng proseso:
 
 ```javascript
-// Sa mga pangunahing proseso.
+// Ang pangunahing pag-proseso.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1536,7 +1564,7 @@ Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 

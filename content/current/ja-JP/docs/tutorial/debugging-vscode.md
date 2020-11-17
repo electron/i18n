@@ -92,9 +92,9 @@ $ code electron-quick-start
   -  `Testing`: [Electron のビルドツール](https://github.com/electron/build-tools) のデフォルト設定や、[ソースからビルド](https://www.electronjs.org/docs/development/build-instructions-gn#building) でのデフォルト指定を使用している場合。
   -  `Release`: Testing ビルドではなく Release ビルドで構築した場合。
   -  `your-directory-name`: ビルド処理中にこれをデフォルトから変更した場合は、指定したものがそのまま適用されます。
-- The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
+- `args` 配列文字列内の `"your-electron-project-path"` は、テストに用する Electron プロジェクトのディレクトリまたは `main.js` ファイルへの絶対パスでなければなりません。 このサンプルでは、 `electron-quick-start` へのパスである必要があります。
 
 
 #### 3. デバッグする
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+ネイティブの Electron C++ コード内の任意の .cc ファイルにブレークポイントを設定し、[デバッグビュー](https://code.visualstudio.com/docs/editor/debugging) でデバッグを開始しましょう。

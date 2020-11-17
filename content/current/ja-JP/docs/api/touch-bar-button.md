@@ -37,6 +37,10 @@
 
 ボタンの現在のアイコンを表す `NativeImage`。 この値を変更すると、タッチバー内のボタンがすぐに更新されます。
 
+#### `touchBarButton.iconPosition`
+
+`String` - `left` または `right` または `overlay` のいずれか。  省略値は `overlay`。
+
 #### `touchBarButton.enabled`
 
 ボタンが有効な状態かどうかを表す `Boolean`。

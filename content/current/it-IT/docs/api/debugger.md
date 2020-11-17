@@ -8,7 +8,7 @@ Chrome Developer Tools ha un [legame speciale](https://chromedevtools.github.io/
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')

@@ -25,25 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
-### Statik Metodlar
-
-#### `BrowserView.getAllViews()`
-
-`BrowserView[]` - açılan tüm BrowserViews dizisinin değerini gönderir.
-
-#### `BrowserWiew.fromWebContents(webContents)`
-
-* `webContents` [webİçerikleri](web-contents.md)
-
-Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView ait sahip olmayan, verilen `webContents` veya `null` sahip.
-
-#### `BrowserView.fromId(id)`
-
-* `id` tamsayı
-
-`BrowserView` döner - `id` ile birlikte girilen view.
-
-### Örnek Özellikleri
+### Örnek özellikleri
 
 `new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
@@ -51,21 +33,9 @@ Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView a
 
 Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
-#### `view.id` _Deneysel_
-
-View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
-
-### Örnek Metodlar
+### Örnek yöntemleri
 
 `new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-#### `view.isDestroyed()`
-
-`Boolean` Döndürür - Görünümün yok olup olmadığını.
 
 #### `view.setAutoResize(options)` _Deneysel_
 

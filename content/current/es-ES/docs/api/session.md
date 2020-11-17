@@ -11,7 +11,7 @@ También puede acceder el `session` de las páginas existentes utilizando la pro
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -285,7 +285,7 @@ Llamando `setCertificateVerifyProc(null)` se reveritrá la verificación de cert
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
   const { hostname } = request
@@ -301,7 +301,17 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 * `handler` Function | null
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
-  * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
+  * `permission` String - The type of requested permission.
+    * `clipboard-read` - Request access to read from the clipboard.
+    * `media` -  Request access to media devices such as camera, microphone and speakers.
+    * `mediaKeySystem` - Request access to DRM protected content.
+    * `geolocation` - Request access to user's current location.
+    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
+    * `midi` - Request MIDI access in the `webmidi` API.
+    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
+    * `fullscreen` - Request for the app to enter fullscreen mode.
+    * `openExternal` - Request to open links in external applications.
   * `callback` Función
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Some properties are only available on certain permission types.
@@ -325,12 +335,12 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - Enumeración de 'media'.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos
   * `details` Object - Some properties are only available on certain permission types.
-    * `securityOrigin` String - El origen de seguridad de la comprobación `media`.
+    * `securityOrigin` String - The security origin of the `media` check.
     * `mediaType` String - El tipo de acceso a los medios que se solicita, puede ser `video`, `audio` o `unknown`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
@@ -443,7 +453,7 @@ El corrector ortográfico integrado no detecta automáticamente en que idioma un
 
 Devuelve `String[]` - Un array de códigos de idiomas para los que el corrector ortográfico esta habilitado.  Si esta lista está vacía, el corrector ortográfico volverá a usar `en-US`.  Por defecto al iniciar si esta lista de opción es una lista vacía Electron tratará de llenar esta opción con el locale actual del sistema operativo.  Este configuración es persistente entre reinicios.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
@@ -557,7 +567,7 @@ const path = require('path')
 app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', (request, callback) => {
-    let url = request.url.substr(7)
+    const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')

@@ -4,7 +4,7 @@
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
 
 **Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
 

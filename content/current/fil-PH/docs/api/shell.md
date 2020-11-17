@@ -30,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
