@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Object (không bắt buộc) - Xem [BrowserWindow](browser-window.md).
 
-### Các phương thức chung
-
-#### `BrowserView.getAllViews()`
-
-Trả về `BrowserView[]` - Một array các BrowserView đã mở.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Trả về `BrowserView ` đang sở hữu `webContents` hoặc trả về `null` nếu webContent không được sở hữu bởi BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Số nguyên
-
-Trả về `BrowserView` với `id` đã cho.
-
 ### Các Thuộc Tính
 
 Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
@@ -51,21 +33,9 @@ Object được tạo bằng `new BrowserView` có các thuộc tính sau đây:
 
 [`WebContents`](web-contents.md) object sở hữu bởi view này.
 
-#### `view.id` _Đang thử nghiệm_
-
-Một `số thực` đại diện cho ID độc nhất của View đó.
-
 ### Các phương thức riêng
 
 Object được tạo bằng `new BrowserView` các các phương thức riêng sau đây:
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-#### `view.isDestroyed()`
-
-Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` _Đang thử nghiệm_
 

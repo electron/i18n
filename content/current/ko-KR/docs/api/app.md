@@ -27,7 +27,8 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 Returns:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
 Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -105,9 +106,17 @@ Returns:
 
 애플리케이션이 활성화될 때 발생합니다. 여러 가지 행동이 이 이벤트를 발생시킬 수 있습니다. 예를 들어, 처음 애플리케이션을 실행할 때, 애플리케이션을 실행 중이지만 또 다시 실행할 때, 또는 애플리케이션의 독이나 작업표시줄 아이콘을 클릭할 때 등이 있습니다.
 
-### 이벤트: 'continue-activity' _macOS_
+### Event: 'did-become-active' _macOS_
 
 Returns:
+
+* `event` Event
+
+Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+
+### 이벤트: 'continue-activity' _macOS_
+
+반환:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -230,7 +239,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### 이벤트: 'select-client-certificate'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -252,9 +261,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### 이벤트: 'login'
+### Event: 'login'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -289,7 +298,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 GPU 정보 업데이트가 있을 때마다 발생합니다.
 
-### 이벤트: 'gpu-process-crashed'
+### Event: 'gpu-process-crashed' _Deprecated_
 
 Returns:
 
@@ -298,9 +307,11 @@ Returns:
 
 GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
 ### Event: 'renderer-process-crashed' _Deprecated_
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -308,7 +319,7 @@ Returns:
 
 `webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -326,7 +337,34 @@ Returns:
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+
+#### Event: 'child-process-gone'
+
+반환:
+
+* `event` Event
+* `details` Object
+  * `type` String - 프로세스의 종류. 다음 값들 중 하나를 가짐:
+    * `Utility`
+    * `Zygote`
+    * `Sandbox helper`
+    * `GPU`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - The reason the child process is gone. 가능한 값:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+
+Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
 ### 이벤트: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -373,7 +411,7 @@ app.on('session-created', (session) => {
 
 ### 이벤트: 'desktop-capturer-get-sources'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -382,7 +420,7 @@ Returns:
 
 ### 이벤트: 'remote-require'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -392,7 +430,7 @@ Returns:
 
 ### 이벤트: 'remote-get-global'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -402,7 +440,7 @@ Returns:
 
 ### 이벤트 'remote-get-builtin'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -412,7 +450,7 @@ Returns:
 
 ### 이벤트: 'remote-get-current-window'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -536,7 +574,7 @@ Returns `String` - `name`과 연관된 디렉토리 또는 파일에 대한 경�
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
-### `app.getFileIcon(path[, options])`
+### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
 * `options` Object (optional)
@@ -558,28 +596,28 @@ _Linux_와 _macOS_에서 아이콘은 mime type과 관련된 어플리케이션�
 
 ### `app.setPath(name, path)`
 
-* PrinterInfo Object
+* `name` String
 * `path` String
 
-`name`과 연결된 정의된 디렉터리 또는 파일로 `path` override 합니다. 해당 경로가 존재하지 않으면, `Error`를 throw 합니다. 이 경우 디렉터리(directory)는 `fs.mkdirSync` 또는 이와 유사하게 작성해야 합니다.
+Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
-`app.getPath에`정의된 `name`으로만 경로만 재정의할 수 있습니다.
+You can only override paths of a `name` defined in `app.getPath`.
 
-기본적으로 웹 페이지의 쿠키와 캐시는 사용자 데이터 아래에 `userData` 디렉터리에 저장됩니다. 이 위치를 변경하려면, `app` 모듈의 `ready` 이벤트가 발생되기 전의 `userData` 경로를 override 해야 합니다.
+By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
-Returns `String` - 로딩된 어플리케이션의 버젼 어플리케이션의 `package.json`에 버전이 없는 경우 실행 파일 또는 현재 번들의 버전이 반환됩니다.
+Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
 ### `app.getName()`
 
-Returns `String` - `package.json `파일에 정의된 현재 어플리케이션의 이름.
+Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
 `package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.setName(name)`
 
-* PrinterInfo Object
+* `name` String
 
 현재 애플리케이션의 이름을 덮어씁니다.
 
@@ -659,6 +697,17 @@ Returns `String` - Name of the application handling the protocol, or an empty st
 
 This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
+### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `Promise<Object>` - Resolve with an object containing the following:
+  * `icon` NativeImage - the display icon of the app handling the protocol.
+  * `path` String  - installation path of the app handling the protocol.
+  * `name` String - display name of the app handling the protocol.
+
+This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
@@ -692,7 +741,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**참고:** `JumpListCategory` 객체가 `type`, `name` 속성 둘 다 없다면, `type`은 `tasks`로 가정합니다.  `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -787,6 +836,7 @@ if (!gotTheLock) {
 
   // myWindow를 만들고 나머지 과정을 처리한다.
   app.whenReady().then(() => {
+    myWindow = createWindow()
   })
 }
 ```
@@ -887,8 +937,10 @@ For `infoType` equal to `complete`: Promise is fulfilled with `Object` containin
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
 ```js
-{ auxAttributes:
-   { amdSwitchable: true,
+{
+  auxAttributes:
+   {
+     amdSwitchable: true,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -901,12 +953,14 @@ For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing f
      sandboxed: false,
      softwareRendering: false,
      supportsOverlays: false,
-     videoDecodeAcceleratorFlags: 0 },
-gpuDevice:
-   [ { active: true, deviceId: 26657, vendorId: 4098 },
-     { active: false, deviceId: 3366, vendorId: 32902 } ],
-machineModelName: 'MacBookPro',
-machineModelVersion: '11.5' }
+     videoDecodeAcceleratorFlags: 0
+   },
+  gpuDevice:
+   [{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 }],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5'
+}
 ```
 
 `basic` 값은 `vendorId` 나 `driverId` 와 같은 기본적인 정보가 필요할 때 만 사용하세요.
@@ -946,6 +1000,13 @@ Returns `Object`:
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `launchItems` Object[] _Windows_
+  * `name` String _Windows_ - name value of a registry entry.
+  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
+  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
+  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
@@ -954,8 +1015,8 @@ Returns `Object`:
   * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-
-Set the app's login item settings.
+  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
+  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Set the app's login item settings.
 
 To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 예시:
 
@@ -1002,7 +1063,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (optional) _Linux_ - List of app authors.
   * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
@@ -1046,7 +1107,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1055,7 +1116,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
 예시:
 
@@ -1149,3 +1210,9 @@ This is the user agent that will be used when no user agent is set at the `webCo
 A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.

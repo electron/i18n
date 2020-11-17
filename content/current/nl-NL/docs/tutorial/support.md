@@ -40,9 +40,9 @@ Wanneer een API wordt gewijzigd of verwijderd op een manier die bestaande functi
 
 ### Huidige ondersteunde versies
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### Eind-van-leven
 

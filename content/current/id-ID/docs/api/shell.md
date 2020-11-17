@@ -29,7 +29,7 @@ Show the given file in a file manager. If possible, select the file.
 * ` path </ 0>  String</li>
 </ul>
 
-<p spaces-before="0">Returns <code>Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".</p>
+<p spaces-before="0">Returns <code>Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".</p>
 
 Buka file yang diberikan dengan cara default desktop.
 

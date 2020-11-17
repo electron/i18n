@@ -40,9 +40,9 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 ### 현재 지원되는 버전
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### 생애 종료
 

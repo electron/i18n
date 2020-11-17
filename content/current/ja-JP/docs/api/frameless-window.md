@@ -11,7 +11,7 @@
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,7 +35,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,8 +83,8 @@ win.setIgnoreMouseEvents(true)
 マウスのメッセージを無視すると、Webページでマウスの移動が検出されなくなり、マウスの移動イベントが発生しません。 Windowsオペレーティングシステムでは、`mouseleave` のようなイベントを発生させられるよう、マウスの移動メッセージをWebページに転送するのに、オプションパラメーターが使用されます。
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

@@ -36,7 +36,7 @@ crashReporter.start({
 
 ### `crashReporter.start(options)`
 
-* `options` Object
+* `选项` 对象
   * `compannyame` 字符串
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` String (optional) - Defaults to `app.name`.

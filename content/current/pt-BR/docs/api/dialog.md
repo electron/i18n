@@ -40,7 +40,7 @@ O módulo `dialog` possúi os seguintes métodos:
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` String (opcional) _macOS_ - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -62,7 +62,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -88,13 +88,13 @@ dialog.showOpenDialogSync(mainWindow, {
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `message` String (opcional) _macOS_ - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - Um array de caminhos de arquivos selecionados pelo usuário. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
@@ -114,7 +114,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -135,9 +135,9 @@ dialog.showOpenDialog(mainWindow, {
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `message` String (opcional) _macOS_ - Mensagem a ser exibida acima de campos de texto.
+  * `nameFieldLabel` String (opcional) _macOS_ - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
+  * `showsTagField` Boolean (opcional) _macOS_ - apresenta a tag do campo de entrada, por padrão `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
     * `createDirectory` _macOS_ - Allow creating new directories from dialog.
@@ -160,8 +160,8 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
+  * `message` String (opcional) _macOS_ - Mensagem a ser exibida acima de campos de texto.
+  * `nameFieldLabel` String (opcional) _macOS_ - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
@@ -203,7 +203,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

@@ -1,4 +1,4 @@
-# Objeto KeyboardEvent que extiende de `Event`
+# Objeto KeyboardEvent
 
 * `ctrlKey` Boolean (opcional) - si la tecla Control fue usado o no en un acelerado para activar el Evento
 * `metaKey` Boolean (opcional) - si una tecla meta se uso o no en un acelerador para lanzar el Evento

@@ -477,7 +477,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[] (facultatif) - La plage de page à imprimer. On macOS, only the first range is honored.
+  * `pageRanges` Object[] (facultatif) - La plage de page à imprimer.
     * `from` Number - Index de la première page à imprimer (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
@@ -655,9 +655,9 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 Retourne :
 
-* `level` Integer
-* `message` String
-* `line` Integer
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
 Fired when the guest window logs a console message.
@@ -712,7 +712,7 @@ const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', async (e) => {
-  const protocol = require('url').parse(e.url).protocol
+  const protocol = (new URL(e.url)).protocol
   if (protocol === 'http:' || protocol === 'https:') {
     await shell.openExternal(e.url)
   }

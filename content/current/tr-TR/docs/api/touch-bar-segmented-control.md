@@ -41,3 +41,7 @@ Denetimdeki segmentleri temsil eden bir `SegmentedControlSegment[]` dizisi. Bu d
 #### `touchBarSegmentedControl.selectedIndex`
 
 O anda seçili olan segmenti temsil eden bir `Integer`. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. Dokunmatik bar ile olan kullanıcı etkileşimi bu değeri hemen güncelleştirecek.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

@@ -34,7 +34,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,9 +51,8 @@ Please note that using this event implies that the renderer will be considered "
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
-
 ```
 
 앱이 `ready-to-show`이벤트를 사용하고 있더라도,  여전히 app이 native에 가깝게 보이도록 하기 위해서 `backgroundColor`을 설정하기를 권장한다.
@@ -65,8 +64,8 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -80,7 +79,7 @@ modal 윈도우는 비활성화 가능한 부모 윈도우의 자식 윈도우�
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -345,9 +344,15 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -360,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -393,7 +398,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Returns:
+반환:
 
 * `event` Event
 * `command` String
@@ -404,9 +409,9 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // 사용자가 마우스 뒤로 가기 버튼을 누르면 뒤로 돌아갑니다.
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -432,7 +437,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `direction` String
@@ -443,7 +448,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `rotation` Float
@@ -461,6 +466,17 @@ Emitted when the window has closed a sheet.
 #### 이벤트: 'new-window-for-tab' _macOS_
 
 Emitted when the native new tab button is clicked.
+
+#### Event: 'system-context-menu' _Windows_
+
+반환:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 ### 정적 메서드
 
@@ -490,7 +506,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -506,7 +522,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a Chrome extension by name.
 
@@ -538,7 +554,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a DevTools extension by name.
 
@@ -555,7 +571,7 @@ To check if a DevTools extension is installed you can run the following:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -569,8 +585,8 @@ Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// 이 예제에서는 `win`이 인스턴스입니다.
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1045,9 +1061,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1159,7 +1175,7 @@ The `url` can be a remote address (e.g. `http://`) or a path to a local HTML fil
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1457,7 +1473,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

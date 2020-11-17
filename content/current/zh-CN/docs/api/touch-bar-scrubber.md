@@ -6,7 +6,7 @@
 
 ### `new TouchBarScrubber(options)`
 
-* `options` Object
+* `选项` 对象
   * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
   * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - 用户选中项排序。

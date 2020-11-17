@@ -132,6 +132,18 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 添加一个额外的 HTTP 头。 The header name will be issued as-is without lowercasing. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
 
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+
+* `Content-Length`
+* `Host`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
+
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+
 #### `request.getHeader(name)`
 
 * `name` String - 指定一个额外的头名称.

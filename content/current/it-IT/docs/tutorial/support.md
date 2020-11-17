@@ -40,9 +40,9 @@ Quando un'API viene modificata o rimossa in un modo che interrompe le funzionali
 
 ### Versioni attualmente supportate
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### Fine vita
 

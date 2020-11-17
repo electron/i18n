@@ -82,7 +82,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 ### `autoUpdater.setFeedURL(选项)`
 
-* `options` Object
+* `选项` 对象
   * `url` String
   * `headers` Record<String, String> (可选) _macOS_ - HTTP 请求头。
   * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.

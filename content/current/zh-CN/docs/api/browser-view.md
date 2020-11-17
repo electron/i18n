@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (可选)
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
-### 静态方法
-
-#### `BrowserView.getAllViews()`
-
-返回 `BrowserView[]` - 所有打开的 BrowserViews 的数组。
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-返回 `BrowserView | null` - 如果内容不属于BrowserView，则它拥有返回的`webContents`或`null`。
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-返回 `BrowserView` - 带有`id`的视图.
-
 ### 实例属性
 
 使用 `new BrowserView` 创建的对象具有以下属性:
@@ -51,25 +33,13 @@ view.webContents.loadURL('https://electronjs.org')
 
 视图的[`WebContents`](web-contents.md) 对象
 
-#### `view.id` _实验功能_
-
-视图的唯一ID `Integer`.
-
 ### 实例方法
 
 使用 `new BrowserView`创建的对象具有以下实例方法:
 
-#### `view.destroy()`
-
-强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
-
-#### `view.isDestroyed()`
-
-返回 `Boolean` -判断窗口是否被销毁
-
 #### `view.setAutoResize(options)` _实验功能_
 
-* `options` Object
+* `选项` 对象
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.

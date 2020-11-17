@@ -37,6 +37,10 @@ A `String` representing the description of the button to be read by a screen rea
 
 `NativeImage,` представляющее текущую иконку кнопки. Изменение этого значения немедленно обновляет кнопку в сенсорной панели.
 
+#### `touchBarButton.iconPosition`
+
+A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+
 #### `touchBarButton.enabled`
 
 A `Boolean` representing whether the button is in an enabled state.

@@ -41,3 +41,7 @@
 #### `touchBarSegmentedControl.selectedIndex`
 
 現在選択されているセグメントを表す `Integer`。 この値を変更すると、タッチバーのコントロールがすぐに更新されます。 ユーザがタッチバーに接触すると、この値が自動的に更新されます。
+
+#### `touchBarSegmentedControl.mode`
+
+コントロールの、現在の選択モードを表す `String`です。  `single`、`multiple`、`buttons` のいずれかにできます。

@@ -10,7 +10,7 @@ In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only availa
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 

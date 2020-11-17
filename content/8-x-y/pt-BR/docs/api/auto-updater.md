@@ -103,7 +103,7 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 Sob o capô chamando `autoUpdater.quitAndInstall()` fechará todos os aplicativos janelas primeiro, e automaticamente chamar `app.quit()` depois de todas as janelas foram Fechado.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Nota:** Não é estritamente necessário para lidar com este evento. Uma atualização baixada com sucesso ainda será aplicada na próxima vez que o aplicativo for iniciado.
 
 [squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support

@@ -54,5 +54,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 `</pre>
 
 ```javascript
-</h1>023119042275829058
+// renderer process (mainWindow)
+const modal = window.open('', 'modal')
+modal.document.write('<h1>Hello</h1>')
 ```

@@ -1,0 +1,3 @@
+# Program zpětné vazby pro Electron aplikace
+
+Electron pracuje na vytvoření efektivního procesu vydání a rychlejší verze. Aby s tím pomohl, máme App Feedback Program pro rozsáhlé Electron aplikace, který otestuje naše beta verze a oznamuje aplikační problémy týmu Electron. Používáme tento program, který nám pomůže upřednostnit práci a co nejdříve získat aplikace aktualizované na další stabilní verzi. Existuje několik požadavků, které očekáváme od účastníků, jako je účast na krátkých, online týdenních šekech. Prosím, navštivte [blogový příspěvek](https://electronjs.org/blog/app-feedback-program) pro podrobnosti a přihlaste se.

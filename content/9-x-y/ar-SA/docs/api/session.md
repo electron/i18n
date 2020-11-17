@@ -498,7 +498,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `ses.removeExtension(extensionId)`
 
@@ -506,7 +506,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `ses.getExtension(extensionId)`
 
@@ -514,13 +514,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 ### Instance Properties
 

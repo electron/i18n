@@ -25,25 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` 객체 (optional) - [BrowserWindow](browser-window.md) 참조.
 
-### 정적 메서드
-
-#### `BrowserView.getAllViews()`
-
-`BrowserView[]` 반환 - 열린 모든 BrowserViews 배열.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-`BrowserView` 반환 - `id`에 해당하는 뷰.
-
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -51,21 +33,9 @@ Objects created with `new BrowserView` have the following properties:
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` _Experimental_
-
-A `Integer` representing the unique ID of the view.
-
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserView` have the following instance methods:
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-#### `view.isDestroyed()`
-
-Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` _Experimental_
 

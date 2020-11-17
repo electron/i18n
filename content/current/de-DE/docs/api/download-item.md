@@ -9,7 +9,7 @@ Prozess: [Haupt](../glossary.md#main-process)
 ```javascript
 // Im Hauptprozess.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Set the save path, making Electron not to prompt a save dialog.
   item.setSavePath('/tmp/save.pdf')
@@ -58,7 +58,7 @@ Rückgabewert:
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Ausgelöst, wenn der Download beendet wurde. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
 The `state` can be one of following:
 

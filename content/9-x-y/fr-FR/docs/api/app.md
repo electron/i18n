@@ -44,7 +44,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis avant que l'application ne commence à fermer ses fenêtres. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 **Remarque :** Si l'application a été quittée par `autoUpdater.quitAndInstall()`, puis `before-quit` est émise *après* émettant un événement `close` sur toutes les fenêtres et les fermant.
 
@@ -56,7 +56,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis lorsque toutes les fenêtres ont été fermées et que l'application va se fermer. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
@@ -163,7 +163,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Émis lorsque l'utilisateur clique sur le bouton natif de nouvel onglet de macOS. Le bouton de nouvel onglet n'est visible que si la `BrowserWindow actuelle` possède un `tabbingIdentifier`
 
 ### Événement : 'browser-window-blur'
 

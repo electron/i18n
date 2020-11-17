@@ -9,9 +9,9 @@ Proceso: [principal](../glossary.md#main-process)</0>
 ```javascript
 // En el proceso principal.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Establece una dirección de guardado, haciendo que Electron no saque una ventana de guardado.
+  // Set the save path, making Electron not to prompt a save dialog.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {

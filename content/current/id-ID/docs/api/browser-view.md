@@ -25,25 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `refrensi web` Objek (contoh) - Lihat [jendela Browser](browser-window.md).
 
-### Metode Statis
-
-#### `BrowserView.getAllViews()`
-
-Returns `BrowserView[]` - An array of all opened BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
-
-#### `Lihat Browser.fromId(id)`
-
-* `identitas` Integer
-
-Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
-
-### Contoh properti
+### Instance Properties
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki properti berikut:
 
@@ -51,21 +33,9 @@ Objek yang dibuat dengan `lihat Browser baru` memiliki properti berikut:
 
 Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
-#### `lihat.id` _Eksperimental_
-
-A `bilangan bulat` mewakili ID unik dari tampilan.
-
-### Metode Instance
+### Методы экземпляра
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
-
-#### `view.destroy()`
-
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
-
-#### `view.isDestroyed()`
-
-Returns `Boolean` - Whether the view is destroyed.
 
 #### `lihat.set otomatis ubah ukuran (pilihan)` _Eksperimental_
 

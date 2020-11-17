@@ -76,7 +76,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// 畫面轉譯處理序 (mainWindow)
-let modal = window.open('', 'modal')
-modal.document.write('<h1>你好</h1>')
+// renderer process (mainWindow)
+const modal = window.open('', 'modal')
+modal.document.write('<h1>Hello</h1>')
 ```

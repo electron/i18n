@@ -27,7 +27,8 @@ Kebanyakan, Anda harus menggunakan (event handler) `ready`.
 
 Mengembalikan:
 
-* `launchInfo` unknown _macOS_
+* `event` Sinyal
+* `launchInfo` Record<string, any> _macOS_
 
 Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -117,9 +118,17 @@ Anda harus menghubungi ` event .preventDefault () </ 0> jika Anda ingin menangan
 
 Emitted saat aplikasi diaktifkan. Berbagai tindakan dapat memicu acara ini, seperti meluncurkan aplikasi untuk pertama kalinya, mencoba meluncurkan ulang aplikasi saat sudah berjalan, atau mengklik ikon dok atau ikon taskbar.
 
-### Acara: 'lanjutkan aktivitas' _macOS_
+### Event: 'did-become-active' _macOS_
 
 Pengembalian:
+
+* `acara` Acara
+
+Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+
+### Acara: 'lanjutkan aktivitas' _macOS_
+
+Mengembalikan:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -136,7 +145,7 @@ Pengembalian:
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Anda harus menghubungi `event.preventDefault()` jika Anda ingin menangani acara ini.
 
 ### Acara: 'aktivitas-error-dilanjutkan' _macOS_
 
@@ -144,9 +153,9 @@ Pengembalian:
 
 * `acara` Acara
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - String dengan deskripsi kesalahan yang dilokalkan.
+* `error` String - A string with the error's localized description.
 
-Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
 ### Acara: 'aktivitas-telah-dilanjutkan' _macOS_
 
@@ -156,7 +165,7 @@ Pengembalian:
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sebelum aktivitas dari perangkat lain diinginkan untuk dilanjutkan.
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
 ### Acara: 'memperbarui-kondisi-aktivitas' _macOS_
 
@@ -166,7 +175,7 @@ Pengembalian:
 * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Terjadi saat [ Handoff ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) akan dilanjutkan di perangkat lain. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActivity() ` tepat waktu. Bila tidak, operasi akan gagal dan `continue-activity-error` akan dipanggil.
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. Jika Anda perlu memperbarui status yang akan ditransfer, Anda harus segera memanggil ` event.preventDefault() `, membuat kamus ` userInfo ` baru dan memanggil ` app.updateCurrentActivity() ` tepat waktu. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -218,8 +227,8 @@ Pengembalian:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - Kode kesalahan
+* ` url </ 0> String</li>
+<li><code>error` String - Kode kesalahan
 * `sertifikat` [Sertifikat](structures/certificate.md)
 * `callback ` Fungsi
   * `isTrusted`  Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya
@@ -239,7 +248,7 @@ const { app } = require ('electron') app.on('certificate-error', (event, webCont
 
 ### Acara: 'pilih-klien-sertifikat'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -262,7 +271,7 @@ const { app } = require('electron') app.on('select-client-certificate', (event, 
 
 ### Acara: 'login'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -297,7 +306,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Acara: 'proses-gpu-jatuh'
+### Event: 'gpu-process-crashed' _Deprecated_
 
 Pengembalian:
 
@@ -306,9 +315,11 @@ Pengembalian:
 
 Emitted when the GPU process crashes or is killed.
 
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+
 ### Event: 'renderer-process-crashed' _Deprecated_
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -316,7 +327,7 @@ Pengembalian:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -334,7 +345,34 @@ Mengembalikan:
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+
+#### Event: 'child-process-gone'
+
+Mengembalikan:
+
+* `event` Sinyal
+* `details` Object
+  * `type` String - Tipe proses. Salah satu nilai berikut:
+    * `Utility`
+    * `Zygote`
+    * `Sandbox helper`
+    * `GPU`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - The reason the child process is gone. Nilai yang mungkin:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+
+Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
 ### Event: 'aksesibilitas-support-changed' _macOS_ _Windows_
 
@@ -381,7 +419,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -390,7 +428,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### Event: 'remote-require'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -400,7 +438,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -410,7 +448,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 ### Event: 'remote-get-builtin'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `webContents` [WebContents](web-contents.md)
@@ -420,9 +458,9 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 ### Event: 'remote-get-current-window'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -431,7 +469,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -546,8 +584,8 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getFileIcon(path[, options])`
 
-* ` path </ 0>  String</li>
-<li><code>options` Object (optional)
+* `path` String
+* `options` Object (optional)
   * `size` String
     * `kecil` - 16x16
     * `normal` - 32x32
@@ -566,11 +604,10 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(nama, path)`
 
-* ` nama </ 0>  String</li>
-<li><code> path </ 0>  String</li>
-</ul>
+* ` nama </ 0>  Deretan</li>
+<li><code>path` String
 
-<p spaces-before="0">Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.</p>
+Menimpa `path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Anda hanya dapat menimpa jalur dari `nama` didefinisikan dalam `app.getPath`.
 
@@ -588,7 +625,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(nama)`
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Mengabaikan nama aplikasi saat ini.</p>
@@ -613,10 +650,9 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.addRecentDocument(path)` _macOS_ _Windows_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Menambahkan <code>path` ke daftar dokumen terbaru.</p>
+Menambahkan `path` ke daftar dokumen terbaru.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
@@ -670,6 +706,17 @@ Returns `String` - Name of the application handling the protocol, or an empty st
 
 This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
+### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `Promise<Object>` - Resolve with an object containing the following:
+  * `icon` NativeImage - the display icon of the app handling the protocol.
+  * `path` String  - installation path of the app handling the protocol.
+  * `name` String - display name of the app handling the protocol.
+
+This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+
 ### `app.setUserTasks(tugas)` _Windows_
 
 * `tugas` [ Tugas[] ](structures/task.md) - Array dari `Tugas` objek
@@ -703,8 +750,7 @@ Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan
 
 Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows).
 
-** Catatan: </ 0> Jika objek ` JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
-properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
 **Catatan:** Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai **setelah** panggilan sukses berikutnya ke `app.setJumpList(kategori)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
 
@@ -799,6 +845,7 @@ if (!gotTheLock) {
 
   // Create myWindow, load the rest of the app, etc...
   app.whenReady().then(() => {
+    myWindow = createWindow()
   })
 }
 ```
@@ -813,7 +860,7 @@ This method returns whether or not this instance of your app is currently holdin
 
 Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
-### `app.setUserAktivitas(ketik, userInfo[, webpageURL])` _macOS_
+### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any - App-specific state to store for use by another device.
@@ -899,8 +946,10 @@ For `infoType` equal to `complete`: Promise is fulfilled with `Object` containin
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
 ```js
-{ auxAttributes:
-   { amdSwitchable: true,
+{
+  auxAttributes:
+   {
+     amdSwitchable: true,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -913,12 +962,14 @@ For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing f
      sandboxed: false,
      softwareRendering: false,
      supportsOverlays: false,
-     videoDecodeAcceleratorFlags: 0 },
-gpuDevice:
-   [ { active: true, deviceId: 26657, vendorId: 4098 },
-     { active: false, deviceId: 3366, vendorId: 32902 } ],
-machineModelName: 'MacBookPro',
-machineModelVersion: '11.5' }
+     videoDecodeAcceleratorFlags: 0
+   },
+  gpuDevice:
+   [{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 }],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5'
+}
 ```
 
 Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
@@ -947,7 +998,7 @@ Mengembalikan `Boolean` - Apakah lingkungan desktop saat ini adalah Unity launch
 
 * `options` Object (optional)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Default untuk array kosong.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
@@ -958,6 +1009,13 @@ Mengembalikan `Objek`:
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `launchItems` Object[] _Windows_
+  * `name` String _Windows_ - name value of a registry entry.
+  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
+  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
+  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
@@ -965,9 +1023,9 @@ Mengembalikan `Objek`:
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Default ke ` false </ 0>.</li>
 <li><code>openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Default ke `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Default untuk array kosong. Take care to wrap paths in quotes.
-
-Tetapkan setelan item masuk aplikasi.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Default ke ` true </ 0> .</li>
+<li><code>name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Tetapkan setelan item masuk aplikasi.
 
 Untuk bekerja dengan < AutoUpdater `Elektron` pada Windows, yang menggunakan [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Anda ingin menyetel jalur peluncuran ke Update.exe, dan meneruskan argumen yang menentukan nama aplikasi Anda. Sebagai contoh:
 
@@ -1009,7 +1067,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (optional) _Linux_ - List of app authors.
   * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on macOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
 
@@ -1046,14 +1104,14 @@ Enables full sandbox mode on the app. This means that all renderers will be laun
 
 Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
 
-### `app.isInApplicationsFolder()` _macOS_
+### ` app.isInApplicationsFolder () </ 0>  <em x-id="4"> macos </ 1></h3>
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+<p spaces-before="0">Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p>
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1062,7 +1120,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
 Sebagai contoh:
 
@@ -1156,3 +1214,9 @@ This is the user agent that will be used when no user agent is set at the `webCo
 A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
 
 The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.

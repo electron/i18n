@@ -6,7 +6,7 @@
 
 ### `new BrowserView(可选)` _实验功能_
 
-* `options` Object
+* `选项` 对象
   * ` label `String (可选) 按钮文本。
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。

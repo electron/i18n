@@ -40,9 +40,9 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 ### Currently supported versions
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### End-of-life
 

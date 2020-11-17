@@ -41,3 +41,7 @@ A `SegmentedControlSegment []` array representing the segments in this control. 
 #### `touchBarSegmentedControl.selectedIndex`
 
 An `Integer` representing the currently selected segment. Mengubah nilai ini segera memperbarui kontrol di bilah sentuh. Interaksi pengguna dengan panel sentuh akan memperbarui nilai ini secara otomatis.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

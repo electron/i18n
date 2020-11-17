@@ -41,3 +41,7 @@ Un arreglo `SegmentedControlSegment[]` que representa los segmentos en este cont
 #### `touchBarSegmentedControl.selectedIndex`
 
 Un `entero` que representa el segmento seleccionado actual. Cambiar este valor actualiza inmediatamente el control en la barra táctil. La interacción del usuario con la barra táctil actualizará este valor automáticamente.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

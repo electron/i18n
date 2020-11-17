@@ -59,8 +59,10 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <h3 spaces-before="0"><code>ipcMain.di (saluran, pendengar)`</h3> 
 
 * `channel` String
-* `listener` Function 
-    * `event` IpcMainEvent
+* ` pendengar </ 0> Fungsi
+
+<ul>
+<li><code>event` IpcMainEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>
 </ul>
@@ -70,8 +72,10 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <h3 spaces-before="0"><code>ipcMain.sekali (saluran, pendengar)`</h3> 
     * `channel` String
-* `listener` Function 
-    * `event` IpcMainEvent
+* ` pendengar </ 0> Fungsi
+
+<ul>
+<li><code>event` IpcMainEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>
 </ul>
@@ -81,22 +85,24 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 ### `ipcMain.pendengar menghapus (saluran, pendengar)`
 
 * `channel` String
-* `listener` Function 
-    * ` ... args </ 0> ada []</li>
+* ` pendengar </ 0> Fungsi
+
+<ul>
+<li><code> ... args </ 0> ada []</li>
 </ul></li>
 </ul>
 
 <p spaces-before="0">Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3 spaces-before="0"><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
-    * ` saluran </ 0>  String (opsional)</li>
+  * ` saluran </ 0>  String (opsional)</li>
 </ul>
 
 <p spaces-before="0">Menghapus pendengar yang ditentukan <code> saluran </ 0> .</p>
 
 <h3 spaces-before="0"><code>ipcMain.handle(channel, listener)`</h3> 
   * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise\<void> | any> 
     * `event` IpcMainInvokeEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>
@@ -129,7 +135,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any> 
+* `listener` Function<Promise\<void> | any> 
     * `event` IpcMainInvokeEvent
   * ` ... args </ 0> ada []</li>
 </ul></li>

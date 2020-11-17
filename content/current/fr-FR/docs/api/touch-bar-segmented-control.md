@@ -41,3 +41,7 @@ Un tableau de `SegmentedControlSegment[]`, qui représente les segments dans ce 
 #### `touchBarSegmentedControl.selectedIndex`
 
 Un `Integer` qui représente le segment sélectionné. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Une interaction utilisateur avec la touch bar mettra à jour cette valeur automatiquement.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

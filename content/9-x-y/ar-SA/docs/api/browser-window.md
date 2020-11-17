@@ -498,7 +498,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
@@ -508,7 +508,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 إزالة ملحق كروم بالاسم.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
@@ -516,7 +516,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 إرجاع `تسجيل<String, ExtensionInfo>` - المفاتيح هي أسماء الملحقات وكل قيمة هي كائن يحتوي على `اسم` و `إصدار ` خواص.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
@@ -530,7 +530,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 لن يتم إرجاع الأسلوب أيضاً إذا كان بيان الملحق مفقوداً أو غير مكتمل.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
@@ -540,7 +540,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 إزالة ملحق DevTools بالاسم.
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
@@ -557,7 +557,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-ملاحظة: لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث جاهز من وحدة التطبيقات.
+**ملاحظة:** لا يمكن استدعاء واجهة برمجة التطبيقات هذه قبل انبعاث الحدث `جاهز` من وحدة التطبيقات </code>
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 

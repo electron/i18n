@@ -132,6 +132,18 @@ Utilizar codificación empaquetada es fuertemente recomendado si no necesita env
 
 Añade otro encabezado HTTP. The header name will be issued as-is without lowercasing. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
 
+Ciertos encabezados están restringidos de ser definidos por aplicaciones. Estos encabezados se enlistan a continuación. Más información sobre encabezados restringidos puede ser encontrada en [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+
+* `Content-Length`
+* `Host`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
+
+Además, definir el encabezado `Connection` al valor `upgrade` también está dehabilitado.
+
 #### `request.getHeader(name)`
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.

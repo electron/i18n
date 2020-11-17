@@ -9,10 +9,10 @@
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 1500 })
+const win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
-let contents = win.webContents
+const contents = win.webContents
 console.log(contents)
 ```
 
@@ -309,7 +309,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-**非推奨:** このイベントは `render-process-gone` イベントに置き換えられます。そのイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
 #### イベント: 'render-process-gone'
 
@@ -326,7 +326,7 @@ win.webContents.on('will-prevent-unload', (event) => {
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-レンダラープロセスが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -373,11 +373,11 @@ Webページが応答しなくなるときに発生します。
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // 例えば、Ctrl / Cmd が押下されているときのみ、
-  // アプリケーションのメニューキーボードショートカットを有効にします。
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -583,7 +583,7 @@ app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    let result = deviceList.find((device) => {
+    const result = deviceList.find((device) => {
       return device.deviceName === 'test'
     })
     if (!result) {
@@ -608,7 +608,7 @@ app.whenReady().then(() => {
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ webPreferences: { offscreen: true } })
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -647,9 +647,9 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `level` Integer
-* `message` String
-* `line` Integer
+* `level` Integer - 0 から 3 のログレベル。 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `message` String - 実際のコンソールメッセージ
+* `line` Integer - このコンソールメッセージのトリガーとなったソースの行番号
 * `sourceId` String
 
 関連付けられたウインドウがコンソールメッセージを出力すると発生します。
@@ -795,7 +795,7 @@ win.loadFile('src/index.html')
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com').then(() => {
   const currentURL = win.webContents.getURL()
   console.log(currentURL)
@@ -883,6 +883,27 @@ win.loadURL('http://github.com').then(() => {
 #### `contents.isCrashed()`
 
 戻り値 `Boolean` - レンダラープロセスがクラッシュしたかどうか。
+
+#### `contents.forcefullyCrashRenderer()`
+
+この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
+
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+
+```js
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
+```
 
 #### `contents.setUserAgent(userAgent)`
 
@@ -1121,7 +1142,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (任意) - キャプチャの推奨サイズ。
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1172,7 +1193,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-カスタムの `pageSize` を渡すと、Chromium は `width_microns` と `height_microns` それぞれのプラットフォーム固有の最小値を検証しようとします。 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1181,7 +1202,14 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 使用例:
 
 ```js
-const options = { silent: true, deviceName: 'My-Printer' }
+const options = {
+  silent: true,
+  deviceName: 'My-Printer',
+  pageRanges: [{
+    from: 0,
+    to: 1
+  }]
+}
 win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
 })
@@ -1232,11 +1260,11 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // 既定の印刷オプションを使用します
+  // Use default printing options
   win.webContents.printToPDF({}).then(data => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
     fs.writeFile(pdfPath, data, (error) => {
@@ -1257,7 +1285,7 @@ win.webContents.on('did-finish-load', () => {
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
 })
@@ -1535,7 +1563,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
@@ -1612,7 +1640,7 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
-V8ヒープを取得して、`filePath`にそれを保存します。
+V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
 
 #### `contents.getBackgroundThrottling()`
 

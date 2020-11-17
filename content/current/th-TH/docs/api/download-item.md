@@ -8,7 +8,10 @@ Messages </a>
 
 ```javascript
 // In the main process.
-{ BrowserWindow }
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.webContents.session.on('will-download', (event, item, webContents) => {
+  // Set the save path, making Electron not to prompt a save dialog.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {

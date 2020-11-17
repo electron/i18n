@@ -212,9 +212,11 @@ Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 Nagseset sa hover text para sa tray icon na ito.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (optional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 

@@ -40,9 +40,9 @@ Gdy API zostanie zmienione lub usunięte w sposób, który narusza istniejące f
 
 ### Aktualnie wspierane wersje
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### EOL
 

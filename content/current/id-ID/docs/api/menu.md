@@ -28,20 +28,22 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu. Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
 
 
-#### `Menu.sendActionToFirstResponder(action)` _macOS_
+#### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em x-id="4"> macos </ 1></h4>
 
-* ` aksi </ 0>  Tali</li>
+<ul>
+<li><code> aksi </ 0>  Tali</li>
 </ul>
 
 <p spaces-before="0">Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
 <a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
-  Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
-  
-  
+
+Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+
+
 
 #### `Menu.membangun dari Template (template)`
 
@@ -94,7 +96,7 @@ Appends the `menuItem` to the menu.
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+Returns `MenuItem | null` the item with the specified `id`
 
 
 
@@ -207,8 +209,8 @@ const template = [
         {
           label: 'Speech',
           submenu: [
-            { role: 'startspeaking' },
-            { role: 'stopspeaking' }
+            { role: 'startSpeaking' },
+            { role: 'stopSpeaking' }
           ]
         }
       ] : [
@@ -223,12 +225,12 @@ const template = [
     label: 'View',
     submenu: [
       { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]

@@ -8,3 +8,4 @@
   * `allowServiceWorkers` Boolean (optional) - 기본값 false.
   * `supportFetchAPI` Boolean (optional) - 기본값 false.
   * `corsEnabled` Boolean (optional) - 기본값 false.
+  * `standard` Boolean (optional) - 기본값 false.

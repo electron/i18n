@@ -212,9 +212,11 @@ Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 Définit le texte au survol pour l'icône.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (optional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
 

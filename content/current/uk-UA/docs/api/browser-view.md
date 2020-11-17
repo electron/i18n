@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Object (опціонально) - Дивись [BrowserWindow](browser-window.md).
 
-### Статичні Методи
-
-#### `BrowserView.getAllViews()`
-
-Повертає `BrowserView[]` - Масив всіх відкритих BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Повертає `BrowserView | null` - BrowserView, який володіє переданим `webContents` чи `null`, якщо контент не належить BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-Повертає `BrowserView` - Вигляд з отриманим `id`.
-
 ### Властивості Екземпляра
 
 Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
@@ -51,21 +33,9 @@ view.webContents.loadURL('https://electronjs.org')
 
 Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
 
-#### `view.id` _Експериментальна_
-
-`Integer`, яке представляє унікальний ID вигляду.
-
 ### Методи Екземпляра
 
 Об'єкт створений за допомогою `new BrowserView` має наступні методи:
-
-#### `view.destroy()`
-
-Після примусового закриття view, події `unload` та `beforeunload` не будуть викликані. Після того як ви закінчили з view, викличіть функцію для того щоб звільнити пам'ять і інші ресурси тоді коли це стане можливим.
-
-#### `view.isDestroyed()`
-
-Повертає тип`Boolean`-Чи view закрито (True/False).
 
 #### `view.setAutoResize(options)` _Експериментальний_
 

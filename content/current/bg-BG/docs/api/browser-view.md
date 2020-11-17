@@ -25,24 +25,6 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (optional)
   * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
 
-### Статични член функции
-
-#### `BrowserView.getAllViews()`
-
-Връща `[BrowserView]` - Масив с всички отворени BrowserViews.
-
-#### `BrowserView.fromWebContents(webContents)`
-
-* `webContents` [WebContents](web-contents.md)
-
-Връща `BrowserView | null`-BrowserView, което притежава даден `webContents` или `null`, ако съдържанието не е собственост на BrowserView.
-
-#### `BrowserView.fromId(id)`
-
-* `id` Integer
-
-Връща `BrowserView` - Изгледът на съответното `id`.
-
 ### Инстантни свойства
 
 Обекти създадени с `new BrowserView` имат следните свойства:
@@ -51,21 +33,9 @@ view.webContents.loadURL('https://electronjs.org')
 
 Обект [`WebContents`](web-contents.md) собственост на този изглед.
 
-#### `view.id` _Experimental_
-
-`Integer` представляващ уникално ID на изгледа.
-
 ### Инстантни методи
 
 Обекти създадени с `new BrowserView` имат следните методи:
-
-#### `view.destroy()`
-
-Насила затваря изгледа, събитията `unload` и `beforeunload` няма да бъдат излъчени за уеб страницата. Когато сте готови с изгледа, извикайте тази функция, за да освободите памет и други ресурси възможно най-скоро.
-
-#### `view.isDestroyed()`
-
-Връща `Boolean` - Показва дали изгледа е унищожен.
 
 #### `view.setAutoResize(опции)` _Experimental_
 

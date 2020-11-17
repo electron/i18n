@@ -39,7 +39,7 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `pesan` String (opsional) _macOS_ - Pesan untuk menampilkan kotak masukan di atas.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -61,7 +61,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Elemen `ekstensi` harus berisi ekstensi tanpa wildcard atau titik (misalnya `'png'` bagus tapi ` '. Png'` dan ` '*.png'` buruk). Untuk menampilkan semua file, gunakan wildcard `'*'` (tidak ada wildcard lain yang didukung).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Catatan:** Pada Windows dan Linux, sebuah dialog terbuka tidak dapat berupa pemilih file dan pemilih direktori, jadi jika Anda menetapkan `properti` ke ` ['openFile', ' openDirectory ']` pada platform ini, pemilih direktori akan ditampilkan.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -87,13 +87,13 @@ dialog.showOpenDialogSync(mainWindow, {
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `pesan` String (opsional) _macOS_ - Pesan untuk menampilkan kotak masukan di atas.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - Kumpulan jalur file yang dipilih oleh pengguna. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
@@ -113,7 +113,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 Elemen `ekstensi` harus berisi ekstensi tanpa wildcard atau titik (misalnya `'png'` bagus tapi ` '. Png'` dan ` '*.png'` buruk). Untuk menampilkan semua file, gunakan wildcard `'*'` (tidak ada wildcard lain yang didukung).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Catatan:** Pada Windows dan Linux, sebuah dialog terbuka tidak dapat berupa pemilih file dan pemilih direktori, jadi jika Anda menetapkan `properti` ke ` ['openFile', ' openDirectory ']` pada platform ini, pemilih direktori akan ditampilkan.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -134,9 +134,9 @@ dialog.showOpenDialog(mainWindow, {
 <li><code>defaultPath` String (opsional) - Jalur direktori absolut, path file absolut, atau nama file yang akan digunakan secara default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
 <li><code> filter </ 0>  <a href="structures/file-filter.md"> FileFilter [] </ 1> (opsional)</li>
-<li><code>message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+<li><code>pesan` String (opsional) _macOS_ - Pesan untuk menampilkan teks di atas.
+  * `nameFieldLabel` String (opsional) _macOS_ - Label khusus untuk teks yang ditampilkan di depan bidang teks nama file.
+  * `showsTagField` Boolean (opsional) _macOS_ - Tampilkan kotak masukan tag, defaultnya `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Tampilkan file tersembunyi dalam dialog.
     * `createDirectory` _macOS_ - Allow creating new directories from dialog.
@@ -159,8 +159,8 @@ Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.s
 <li><code>defaultPath` String (opsional) - Jalur direktori absolut, path file absolut, atau nama file yang akan digunakan secara default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
 <li><code> filter </ 0>  <a href="structures/file-filter.md"> FileFilter [] </ 1> (opsional)</li>
-<li><code>message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
+<li><code>pesan` String (opsional) _macOS_ - Pesan untuk menampilkan teks di atas.
+  * `nameFieldLabel` String (opsional) _macOS_ - Label khusus untuk teks yang ditampilkan di depan bidang teks nama file.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Tampilkan file tersembunyi dalam dialog.
@@ -202,7 +202,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

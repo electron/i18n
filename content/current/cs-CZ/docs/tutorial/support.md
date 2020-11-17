@@ -40,9 +40,9 @@ Pokud je API změněno nebo odebráno způsobem, který narušuje existující f
 
 ### Aktuálně podporované verze
 
+- 11.x.y
 - 10.x.y
 - 9.x.y
-- 8.x.y
 
 ### Konec životnosti
 

@@ -7,7 +7,7 @@
 * `isDefault` Boolean - このプリンタが OS のデフォルトプリンタかどうか。
 * `options` Object - プラットフォーム固有のプリンタ情報の数値をいくつか含んだオブジェクト。
 
-`status` で表される数値は、プラットフォームごとに異なる意味を持ちます。Windows での値の意味は [こちら](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) を参照してください。Linux や macOS は [こちら](https://www.cups.org/doc/cupspm.html) を参照してください。
+`status` で表される数値は、プラットフォームごとに異なる意味を持ちます: Windowsでは、その潜在的な値は[ここで ](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2)見つけられます。また、Linux や macOS では [ここで](https://www.cups.org/doc/cupspm.html)見つけられます。
 
 ## サンプル
 

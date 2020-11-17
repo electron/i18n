@@ -10,7 +10,7 @@ Electron에서는 GUI와 연관된 모듈들(`dialog`, `menu`등) 을 메인 프
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 

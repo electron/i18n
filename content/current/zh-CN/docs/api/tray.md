@@ -212,9 +212,11 @@ Emitted when the mouse clicks the tray icon.
 
 设置鼠标指针在托盘图标上悬停时显示的文本
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (可选)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
@@ -236,7 +238,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
+* `选项` 对象
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String

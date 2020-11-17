@@ -324,7 +324,7 @@ Injects CSS into the current web page and returns a unique key for the inserted 
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 

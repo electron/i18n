@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## Enviando mensajes
 
-También es posible enviar mensajes desde el proceso principal al proceso de renderizado, ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para más información.
+También es posible enviar mensajes desde el proceso principal al proceso de renderizado, ver [webContents.send](web-contents.md#contentssendchannel-args) para más información.
 
 * Cuando se envía un mensaje, el nombre del evento es el`channel`.
 * Para responder a un mensaje sincrónico, es necesario establecer `event.returnValue`.
@@ -48,7 +48,7 @@ El módulo `ipcMain` tiene el siguiente método para escuchar los eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 ### `ipcMain.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
   * `...args` any[]
 
 Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
@@ -80,7 +80,7 @@ Elimina los oyentes del `channel` especificado.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

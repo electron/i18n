@@ -28,7 +28,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
+**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -79,7 +79,7 @@ Idinagdag ang `menuItem` sa menu.
 
 * `id` na String
 
-Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
+Returns `MenuItem | null` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -174,8 +174,8 @@ const template = [
         {
           label: 'Speech',
           submenu: [
-            { role: 'startspeaking' },
-            { role: 'stopspeaking' }
+            { role: 'startSpeaking' },
+            { role: 'stopSpeaking' }
           ]
         }
       ] : [
@@ -190,12 +190,12 @@ const template = [
     label: 'View',
     submenu: [
       { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]

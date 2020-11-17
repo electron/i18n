@@ -212,9 +212,11 @@ Emitted when the mouse clicks the tray icon.
 
 Устанавливает текст отображаемый при наведении на значок в трее.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (опционально)
+  * `fontType` String (опционально) - Вариант семейства шрифтов для отображения, может быть `моноширинным` или `цифро-моноширинным`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  По умолчанию используют системный шрифт по умолчанию.
 
 Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 

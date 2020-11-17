@@ -36,8 +36,8 @@ Abre el archivo determinado en el escritorio por defecto.
 
 * `url` String - Máximo 2081 caracteres en windows.
 * `options` Object (opcional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
+  * `activate` Boolean (opcional) _macOs_ - `true` para llevar la aplicación abierta al primer plano. El valor por defecto es `true`.
+  * `workingDirectory` String (opcional) _Windows_ - El directorio de trabajo.
 
 Devuelve `Promise<void>`
 
@@ -46,7 +46,7 @@ Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (P
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` Cadena
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (opcional) - Si eliminar o no eliminar unilateralmente el elemento si la papelera está desactivada o no es soportada en el volumen. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
@@ -59,7 +59,7 @@ Reproduce el sonido bip.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
+* `operation` String (opcional) - El valor por defecto es `create`; puede ser uno de los siguientes:
   * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
   * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
   * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.

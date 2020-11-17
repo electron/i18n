@@ -913,7 +913,7 @@ contents.on('did-finish-load', function () {
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async function () {
@@ -1321,7 +1321,7 @@ app.once('ready', () => {
 
 * `options` Object (opcional)
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. El valor por defecto es `true`.
 
 Abre las herramientas del desarrolador.
 

@@ -1,4 +1,4 @@
-# Objeto KeyboardEvent herda de `Event`
+# Objeto KeyboardEvent
 
 * `ctrlKey` Boolean (opcional) - se a tecla Ctrl foi usada em um acelerador para acionar o evento
 * `metaKey` Boolean (opcional) - se a tecla Meta foi usada em um acelerador para acionar o evento

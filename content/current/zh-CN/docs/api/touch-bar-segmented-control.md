@@ -6,7 +6,7 @@
 
 ### `new TouchBarSegmentedControl(options)`
 
-* `options` Object
+* `选项` 对象
   * `segmentStyle` String (optional) - Style of the segments:
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
     * `rounded` - 控件的呈现使用圆形风格。 Maps to `NSSegmentStyleRounded`.
@@ -41,3 +41,7 @@ A `String` representing the controls current segment style. Updating this value 
 #### `touchBarSegmentedControl.selectedIndex`
 
 `Integer`类型表示的当前选中段 改变这个值会立即触发更新当前段 用户对触摸条的操作会自动更新这个值
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

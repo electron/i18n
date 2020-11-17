@@ -11,8 +11,7 @@ Electron
 ├── build/ - Build configuration files needed to build with GN.
 ├── buildflags/ - Determines the set of features that can be conditionally built.
 ├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
+Robtru83@gmail.com
 ├── docs/ - Electron's documentation.
 |   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
 |   ├── development/ - Documentation to aid in developing for and with Electron.

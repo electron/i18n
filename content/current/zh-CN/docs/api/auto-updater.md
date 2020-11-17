@@ -82,10 +82,10 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 ### `autoUpdater.setFeedURL(选项)`
 
-* `options` Object
+* `选项` 对象
   * `url` String
   * `headers` Record<String, String> (可选) _macOS_ - HTTP 请求头。
-  * `serverType` String (可选) _macOS_ - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 设置检查更新的 `url`，并且初始化自动更新。
 

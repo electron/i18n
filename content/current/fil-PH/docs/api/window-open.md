@@ -76,7 +76,7 @@ mainWindow.webContents.on ('bagong-bintana', (kaganapan, url, frameName, disposi
 ```
 
 ```javascript
-// proseso ng renderer (mainWindow)
-hayaan modal = window.buksan ('', 'modal')
-modal.document.isulat ('<h1>Hello</h1>')
+// renderer process (mainWindow)
+const modal = window.open('', 'modal')
+modal.document.write('<h1>Hello</h1>')
 ```

@@ -117,7 +117,7 @@ Parameters added in this fashion (or via the `extra` parameter to `crashReporter
 
 * `key` String - Parameter key, must be no longer than 39 bytes.
 
-Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
+Remove an extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 

@@ -28,7 +28,7 @@ En écoutant `channel`, lorsqu'un nouveau message arrive, `listener` sera appel�
   * `événement` IpcRendererEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Ajoute un `listener` à déclenchement unique pour l’événement. Ce `listener` sera appelé uniquement lors de la prochaine émission d'un message sur le `channel`, après quoi il sera supprimé.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
@@ -88,7 +88,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you do not need a respons to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
 
 ### `ipcRenderer.sendSync(canal, ...args)`
 

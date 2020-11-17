@@ -11,7 +11,7 @@ Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ Es una barra de título oculta y una ventana de contenido de tamaño completo. S
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,7 +35,7 @@ Es una barra de título oculta con un aspecto alternativo donde los botones de t
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ Usa botones personalizados de cierre y miniaturiza que se muestran cuando se act
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ Al configurar la opción `transparent` a `true`, se puede hacer transparente la 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ Para crear una ventana click-through, por ejemplo hacer que la ventana ignore to
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,8 +83,8 @@ win.setIgnoreMouseEvents(true)
 Ignorar los mensajes de movimiento del ratón hace la página agena al movimiento del ratón, lo que significa que los eventos no se emitirán. En los sistemas operativos Windows se puede usar un parámetro opcional para reenviar los mensajes de movimiento del ratón a la página web, permitiendo que eventos como `mouseleave` se emitan:
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

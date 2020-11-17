@@ -212,14 +212,15 @@ Mengatur ` gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.
 
 Menyetel teks hover untuk ikon baki ini.
 
-#### `tray.setTitle(judul) ` _macos_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * ` judul </ 0> String</li>
-</ul>
+<li><code>options` Object (optional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
-<p spaces-before="0">Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).</p>
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
-<h4 spaces-before="0"><code> tray.getTitle () </ 0>  <em x-id="4"> macos </ 1></h4>
+#### ` tray.getTitle () </ 0>  <em x-id="4"> macos </ 1></h4>
 
 <p spaces-before="0">Returns <code>String` - the title displayed next to the tray icon in the status bar</p>
 

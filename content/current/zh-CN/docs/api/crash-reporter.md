@@ -33,7 +33,7 @@ On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com
 
 ### `crashReporter.start(options)`
 
-* `options` Object
+* `选项` 对象
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
@@ -107,7 +107,7 @@ Parameters added in this fashion (or via the `extra` parameter to `crashReporter
 
 * `key` String - Parameter key, must be no longer than 39 bytes.
 
-Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
+Remove an extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 

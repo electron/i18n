@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
 **Примечание:** Этот метод можно использовать только до отправки события `ready` модуля `app` и может быть вызван только один раз.
 
-Регистрирует `scheme` как стандартную, безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API. Укажите привилегию со значением `true` чтобы включить эту возможность.
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
 
 Пример регистрации привилегированной схемы, которая обходит Политику безопасности контента:
 
@@ -79,6 +79,8 @@ protocol.registerSchemesAsPrivileged([
 Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). В противном случае программа для схемы выдаст ошибку безопасности.
 
 По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
+
+Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 

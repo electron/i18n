@@ -8,7 +8,7 @@ O módulo `ipcMain` é um [emissor de eventos](https://nodejs.org/api/events.htm
 
 ## Enviando Mensagens
 
-Também é possível enviar mensagens do processo principal para o processo de renderização, veja [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para obter mais informações.
+Também é possível enviar mensagens do processo principal para o processo de renderização, veja [webContents.send](web-contents.md#contentssendchannel-args) para obter mais informações.
 
 * Ao enviar uma mensagem, o nome do evento é o `channel`.
 * Para responder a uma mensagem síncrona, você precisa de configurar `event.returnValue`.
@@ -80,7 +80,7 @@ Removes listeners of the specified `channel`.
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

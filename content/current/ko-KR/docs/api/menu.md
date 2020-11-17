@@ -28,7 +28,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 `Menu 혹은 null`을 반환합니다. 애플리케이션 메뉴가 설정되어있다면 애플리케이션 메뉴를, 설정되어있지 않으면 `null`을 반환합니다.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [인스턴스 프로퍼티](#instance-properties)는 동적으로 수정할 수 있습니다.
+**주석:** 반환된 `Menu` 인스턴스는 동적으로 메뉴 아이템을 추가하거나 삭제하는 것을 지원하지 않습니다. [인스턴스 프로퍼티](#instance-properties)는 동적으로 수정할 수 있습니다.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -79,7 +79,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 * `id` String
 
-특정한 `id`를 가진 `MenuItem`을 반환합니다.
+Returns `MenuItem | null` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -174,8 +174,8 @@ const template = [
         {
           label: 'Speech',
           submenu: [
-            { role: 'startspeaking' },
-            { role: 'stopspeaking' }
+            { role: 'startSpeaking' },
+            { role: 'stopSpeaking' }
           ]
         }
       ] : [
@@ -190,12 +190,12 @@ const template = [
     label: 'View',
     submenu: [
       { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]
