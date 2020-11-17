@@ -8,7 +8,7 @@ import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile, parseNav } from '../lib/parsers'
-import { BlogFile, DocsFile } from '../lib/interfaces'
+import { IBlogFile, IDocFile } from '../lib/interfaces'
 import locales from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
 import {
@@ -21,7 +21,7 @@ const contentDir = path.join(__dirname, '../content/current')
 
 let ids: Record<string, string> = {}
 
-async function parseDocs(): Promise<DocsFile[]> {
+async function parseDocs(): Promise<IDocFile[]> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
@@ -73,10 +73,10 @@ async function main() {
       .reduce((allDocs, doc) => {
         allDocs[doc.href] = doc
         return allDocs
-      }, {} as Record<string, DocsFile>)
+      }, {} as Record<string, IDocFile>)
 
     return acc
-  }, {} as Record<string, Record<string, DocsFile>>)
+  }, {} as Record<string, Record<string, IDocFile>>)
 
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = blogs
@@ -85,10 +85,10 @@ async function main() {
       .reduce((allBlogs, blog) => {
         allBlogs[blog.href] = blog
         return allBlogs
-      }, {} as Record<string, BlogFile>)
+      }, {} as Record<string, IBlogFile>)
 
     return acc
-  }, {} as Record<string, Record<string, BlogFile>>)
+  }, {} as Record<string, Record<string, IBlogFile>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/current/${locale}/website/locale.yml`)

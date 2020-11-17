@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
 import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
-import { DocsFile, ISection } from '../interfaces'
+import { IDocFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
@@ -43,7 +43,7 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   // parse markdown to HTML
   const markdown = await fs.promises.readFile(file.fullPath, 'utf8')
 
-  const docFile: DocsFile = {
+  const docFile: IDocFile = {
     locale,
     slug,
     href,
