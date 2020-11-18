@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Planned Breaking API Changes (11.0)
 
-Dla 11.0 nie ma żadnych zmian przełomowych.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Planowane zmiany API (10.0)
 
@@ -322,9 +325,9 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Przestarzałe: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-Zamień z: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
 ### Zmieniono API: `session.clearAuthCache()` nie akceptuje już opcji
 
@@ -382,7 +385,7 @@ Własność `webkitdirectory` w plikach HTML pozwala im wybrać foldery. Previou
 
 Począwszy od Electron 7, ta `Lista Plików` jest teraz listą wszystkich plików zawartych w folderze, podobnie jak Chrome, Firefox i Edge ([link do dokumentów MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-Jako ilustrację, zobacz folder z tą strukturą:
+Jako ilustrację, weź folder z tą strukturą:
 
 ```console
 folder
@@ -397,7 +400,7 @@ W Electron <=6 zwróci to listę plików `` z obiektem `Plik` dla:
 path/to/folder
 ```
 
-W Electron 7, teraz zwraca `FileList` z obiektem `File` dla:
+W Electron 7 zwróci teraz `Listę Plików` z `Plikiem` obiektu dla:
 
 ```console
 /path/to/folder/file3
@@ -789,9 +792,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Przestarzałe: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Zamień z: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 

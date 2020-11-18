@@ -4,11 +4,11 @@
 
 ファイルを操作する特定の種類のアプリケーションは、オペレーティングシステムのネイティブなファイルのドラッグ&ドロップの機能をサポートしたいでしょう。 ファイルをウェブコンテンツにドラッグすることは一般的であり、多くのウェブサイトでサポートされています。 Electron はさらに、ファイルやコンテンツをウェブコンテンツからオペレーティングシステム側へドラッグすることをサポートしています。
 
-To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
+この機能をアプリに実装するには、`ondragstart` イベントへの応答として [``webContents.startDrag(item)](../api/web-contents.md#contentsstartdragitem) API を呼ぶ必要があります。
 
 ## サンプル
 
-[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `index.html` ファイルに追加します:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `index.html` ファイルに以下の行を追加します。
 
 ```html
 <a href="#" id="drag"></a>
@@ -28,7 +28,7 @@ document.getElementById('drag').ondragstart = (event) => {
 
 上記のコードはレンダラープロセスに `ondragstart` イベント を処理し、情報をメインプロセスに転送するように指示します。
 
-In the Main process(`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+メインプロセス (`main.js` ファイル) で、以下のように受信したイベントへドラッグしているファイルのパスとアイコンを追加します。
 
 ```javascript
 const { ipcMain } = require('electron')
@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Electron アプリケーションを起動したら、BroswerWindow の アイテムをデスクトップにドラッグ&ドロップしてみてください。 このガイドでは、 項目はプロジェクトのルートにある Markdown ファイルです:
+Electron アプリケーションを起動したら、BroswerWindow の アイテムをデスクトップにドラッグ&ドロップしてみてください。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。
 
 ![ドラッグ＆ドロップ](../images/drag-and-drop.gif)

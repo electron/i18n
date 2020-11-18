@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## 중단될 예정 API (11.0)
 
-There are no breaking changes planned for 11.0.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## 중단될 예정 API (10.0)
 
@@ -569,7 +572,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ## 중단될 예정 API (4.0)
 
-다음 리스트는 Electron 4.0에서의 중대한 API 변화를 포함합니다.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ### `app.makeSingleInstance`
 

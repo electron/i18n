@@ -74,5 +74,7 @@ Electron 7.x.y 已经按照项目的 [支持策略](https://electronjs.org/docs/
 ### 继续废弃 `远程` 模块的工作 (在 Electron 11)
 我们开始了删除 [Electron 9](https://www.electronjs.org/blog/electron-9-0) 中的远程模块的工作，我们正在继续删除 `远程` 模块的计划。 在 Electron 11中，我们计划像在 Electron 10 中那样，继续重新调整实现 [虚弱Ref](https://v8.dev/features/weak-references) 的工作。 请阅读并关注 [这个问题](https://github.com/electron/electron/issues/21408) 以获取废弃的完整计划和详细信息。
 
-### 要求本地节点模块为上下文或N-API的最后步骤 (在 Electron 11)
-从 Electron 6 开始， 我们一直在奠定基础，要求渲染器进程中加载 [本机节点模块](https://nodejs.org/api/addons.html) 必须是 [N-API](https://nodejs.org/api/n-api.html) 或 [上下文意识](https://nodejs.org/api/addons.html#addons_context_aware_addons)。 实施这一改革可以加强安全，加快性能，减少维修工作量。 此计划的最后一步是去掉在 Electron 11 中禁用渲染流程的能力。 阅读 [这个问题](https://github.com/electron/electron/issues/18397) 来获得包括拟议时间安排在内的详细信息。
+### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
+_Edit: Originally, this blog post stated that we would disable renderer process reuse in Electron 11. Disabling renderer process reuse has now been pushed to Electron 12._
+
+From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.

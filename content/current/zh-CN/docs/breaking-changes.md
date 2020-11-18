@@ -90,7 +90,10 @@ shell.trashItem(路径).then(/* ... */)
 
 ## 计划重写的 API (11.0)
 
-11.0没有计划的分区更改。
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## 计划重写的 API (10.0)
 

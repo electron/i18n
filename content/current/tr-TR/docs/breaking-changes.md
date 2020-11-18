@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Planned Breaking API Changes (11.0)
 
-There are no breaking changes planned for 11.0.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Planned Breaking API Changes (10.0)
 
@@ -141,9 +144,9 @@ Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all
 
 The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
 
-Daha ayrıntılı bilgi için [#18397](https://github.com/electron/electron/issues/18397).
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
-### Varsayılan Değiştirildi: `Uzaktan Modül` varsayılan `için`etkinleştirinbtc
+### Default Changed: `enableRemoteModule` defaults to `false`
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
 
@@ -180,7 +183,7 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-API'ler artık eşzamanlılar ve seçime bağlı geriçağrı artık gerekmiyor.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
 // Deprecated
@@ -189,7 +192,7 @@ protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-Kaydedilmiş veya kesilmiş protokolün gezinme gerçekleşene dek varolan sayfa üzerinde etkisi yoktur.
+The registered or intercepted protocol does not have effect on current page until navigation happens.
 
 ### `protocol.isProtocolHandled`
 
@@ -211,7 +214,7 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
-Daha ayrıntılı bilgi için [#18397](https://github.com/electron/electron/issues/18397).
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Removed: `<webview>.getWebContents()`
 

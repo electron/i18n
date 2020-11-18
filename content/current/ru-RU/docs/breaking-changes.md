@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Запланированные критические изменения API (11.0)
 
-Не запланировано никаких изменений для 11.0.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Запланированные критические изменения API (10.0)
 
@@ -397,7 +400,7 @@ folder
 path/to/folder
 ```
 
-В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+В Electron 7 теперь возвращает `FileList` с объектом `File` для:
 
 ```console
 /path/to/folder/file3
@@ -405,7 +408,7 @@ path/to/folder
 /path/to/folder/file1
 ```
 
-Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Обратите внимание, что `webkitdirectory` больше не открывает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 

@@ -2,15 +2,15 @@
 
 ## 概要
 
-On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
+macOS では、アプリケーション内の任意のウインドウに表示中のファイルを設定できます。 表現中ファイルのアイコンはタイトルバーに表示され、ユーザーが `Command-Click` や `Control-Click` クリックをすると、ファイルへのパスを含むポップアップが表示されます。
 
 ![ウインドウが表すファイル](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
+> 注意: 上のスクリーンショットは、Atom テキストエディタで現在開いているファイルを表示するためにこの機能を使用している例です。
 
-You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
+ウインドウの編集状態を設定し、このウィンドウ内の書類が変更されたかどうかをファイルアイコンで表示することもできます。
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs.
+ウィンドウの表示中ファイルを設定するには、[BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) と [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) の API を使用します。
 
 ## サンプル
 
@@ -27,6 +27,6 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+Electron アプリケーションを起動した後、`Command` または `Control` キーを押した状態でタイトルをクリックします。 すると、先ほど指定したファイルのポップアップが表示されるはずです。
 
-![Represented file](../images/represented-file.png)
+![表示中のファイル](../images/represented-file.png)
