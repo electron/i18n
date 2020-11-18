@@ -8,7 +8,8 @@ export function parseNav(i18nDocs: Record<string, any>, locale: string) {
     .join('\n')
   const $ = cheerio.load(html)
   const startHeading = $('h2')[1]
-  const listItems = $(startHeading).next('ul').html()
+  // TODO(erickzhao): Ensure the `h3` under `listItems` get replaced with `li` elemenets
+  const listItems = $(startHeading).nextUntil('h2')
   const nav = `<ul>${listItems}</ul>`
   return nav
 }

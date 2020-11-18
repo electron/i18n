@@ -101,7 +101,7 @@
     "words_approved": "26013",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 3681
+    "qa_issues": 3680
   },
   {
     "name": "German",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "16612",
-    "translated": "8888",
+    "translated": "8894",
     "approved": "1610",
     "words": "193998",
-    "words_translated": "100620",
+    "words_translated": "100751",
     "words_approved": "14498",
     "translated_progress": 51,
     "approved_progress": 7,
-    "qa_issues": 2132
+    "qa_issues": 2133
   },
   {
     "name": "Vietnamese",
