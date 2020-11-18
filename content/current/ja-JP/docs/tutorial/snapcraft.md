@@ -10,7 +10,7 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-場合によっては、 `snapcraft` ツールがインストールされている必要があります。 特定のディストリビューションの `snapcraft` をインストールする手順は [ここ](https://snapcraft.io/docs/installing-snapcraft) にあります。
+場合によっては、`snapcraft` ツールをインストールしている必要があります。 特定ディストリビューションの `snapcraft` のインストール手順は [こちら](https://snapcraft.io/docs/installing-snapcraft) です。
 
 ## `electron-installer-snap`の使用
 
@@ -60,11 +60,11 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using `snapcraft` with `electron-packager`
+## `electron-packager` と共に `snapcraft` を使用する
 
-### Step 1: Create Sample Snapcraft Project
+### ステップ 1: サンプル snapcraft プロジェクトの作成
 
-Create your project directory and add add the following to `snap/snapcraft.yaml`:
+プロジェクトディレクトリを作成し、`snap/snapcraft.yaml` に以下を追加します。
 
 ```yaml
 name: electron-packager-hello-world
@@ -85,8 +85,8 @@ apps:
     - network
     - network-bind
     environment:
-      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-      # libappindicator has readable resources.
+      # Chromium フレームワーク/Electron の TMPDIR パスを修正し、
+      # libappindicator が読めるリソースを確保します。
       TMPDIR: $XDG_RUNTIME_DIR
 
 parts:
@@ -106,12 +106,12 @@ parts:
     - libnspr4
 ```
 
-If you want to apply this example to an existing project:
+この例を既存のプロジェクトに適用する場合は以下のようにしましょう。
 
-- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
-- Replace all instances of `electron-quick-start` with your project's name.
+- `source: https://github.com/electron/electron-quick-start.git` を `source: .` に置き換えます。
+- すべての `electron-quick-start` の箇所をプロジェクト名に置き換えます。
 
-### Step 2: Build the snap
+### ステップ 2: snap のビルド
 
 ```sh
 $ snapcraft
@@ -120,13 +120,13 @@ $ snapcraft
 Snapped electron-packager-hello-world_0.1_amd64.snap
 ```
 
-### Step 3: Install the snap
+### ステップ 3: snap のインストール
 
 ```sh
 sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
 ```
 
-### Step 4: Run the snap
+### ステップ 4: snap の実行
 
 ```sh
 electron-packager-hello-world

@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## 予定されている破壊的なAPIの変更 (11.0)
 
-11.0に予定されている破壊的な変更はありません。
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 

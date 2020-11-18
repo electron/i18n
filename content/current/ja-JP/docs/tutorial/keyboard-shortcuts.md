@@ -2,13 +2,13 @@
 
 ## 概要
 
-This feature allows you to configure local and global keyboard shortcuts for your Electron application.
+この機能により、Electron アプリケーションのローカルとグローバルのキーボードショートカットを設定できます。
 
 ## サンプル
 
 ### ローカルショートカット
 
-Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+ローカルキーボードショートカットは、アプリケーションにフォーカスしているときのみトリガーされます。 ローカルキーボードショートカットを設定するには、[`accelerator`] プロパティを指定する必要があります。[Menu](../api/menu-item.md) モジュールで [MenuItem](../api/menu.md) を作成する際にこのプロパティを指定します。
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -28,17 +28,17 @@ menu.append(new MenuItem({
 Menu.setApplicationMenu(menu)
 ```
 
-> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
+> 注意: 上記のコードでは、ユーザーのオペレーティングシステムによってアクセラレーターを変えていることがわかります。 macOS では `Alt+Cmd+I` で、Linux と Windows では`Alt+Shift+I` です。
 
-After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
+Electron アプリケーションを起動すると、アプリケーションメニューが先ほど定義したローカルショートカットとともに表示されます。
 
-![Menu with a local shortcut](../images/local-shortcut.png)
+![ローカルショートカット付きのメニュー](../images/local-shortcut.png)
 
-If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+`ヘルプ` をクリックする又は定義したアクセラレータを押してから、Electron アプリケーションを実行したターミナルを開くと、`click` イベントがトリガーされたことで生成されたメッセージ "Electron rocks!" が表示されます。
 
 ### グローバルショートカット
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+グローバルキーボードショートカットを設定するには、[globalShortcut](../api/global-shortcut.md) モジュールを使用して、アプリケーションにキーボードフォーカスがない場合のキーボードイベントを検出する必要があります。
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -52,23 +52,23 @@ app.whenReady().then(() => {
 }).then(createWindow)
 ```
 
-> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
+> 注意: 上記コードの `CommandOrControl` の組み合わせは、macOS では `Command` を、Windows/Linux では `Control` を使用します。
 
-After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+Electron アプリケーションを起動した後、定義されたキーの組み合わせを押して、Electron アプリケーションを起動したターミナルを開くと、Electron はグローバルショートカット大好きだとわかりますね!
 
 ### BrowserWindow 内のショートカット
 
-#### Using web APIs
+#### ウェブ API を使用する
 
-If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+[BrowserWindow](../api/browser-window.md) 内でキーボードショートカットを扱いたい場合は、[addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) を使用して `keyup` と `keydown` の [DOM イベント](https://developer.mozilla.org/en-US/docs/Web/Events) をレンダラープロセス内でリッスンすることでできます。
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+第 3 引数の `true` に注意してください。これにより、このリスナーが他のリスナーより常に先にキー押下を受け取ります。そのため、ここで `stopPropagation()` を呼び出さないでください。
 
-#### Intercepting events in the main process
+#### メインプロセス内でのイベントの受け取り
 
 [`before-input-event`](../api/web-contents.md#event-before-input-event) イベントは `keydown` イベントと `keyup` イベントをディスパッチするより前に発生します。 メニューに表示されないカスタムショートカットをキャッチして処理するため使用することができます。
 
@@ -92,11 +92,11 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+Electron アプリケーションを起動した後、Electron アプリケーションを実行したターミナルを開き、`Ctrl+I` キーの組み合わせを押すと、このキーの組み合わせが正常に受け取られたとわかります。
 
-#### Using third-party libraries
+#### サードパーティライブラリを使用する
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
+ショートカットの解析を手動で行いたくない場合は、[mousetrap](https://github.com/ccampbell/mousetrap) のような高度なキー検出を行うライブラリがあります。 レンダラープロセスで `mousetrap` を実行する使用例を以下に示します。
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

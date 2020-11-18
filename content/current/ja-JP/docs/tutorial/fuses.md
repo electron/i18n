@@ -1,54 +1,54 @@
-# Electron Fuses
+# Electron Fuse
 
-> Package time feature toggles
+> パッケージ時機能切り替え
 
-## What are fuses?
+## Fuse とはなんでしょうか?
 
-For a subset of Electron functionality it makes sense to disable certain features for an entire application.  For example, 99% of apps don't make use of `ELECTRON_RUN_AS_NODE`, these applications want to be able to ship a binary that is incapable of using that feature.  We also don't want Electron consumers building Electron from source as that is both a massive technical challenge and has a high cost of both time and money.
+Electron は機能の集合体なので、アプリケーション全体に渡って特定の機能を無効化しても合理的です。  例えば、99% のアプリは `ELECTRON_RUN_AS_NODE` を利用しないので、そういったアプリでその機能が利用できないバイナリを頒布できるようにしたいのです。  Electron の消費者がソースから Electron を構築することは技術的に大きな障害であり時間とお金両方のコストがかかるため、それも避けたいと考えています。
 
-Fuses are the solution to this problem, at a high level they are "magic bits" in the Electron binary that can be flipped when packaging your Electron app to enable / disable certain features / restrictions.  Because they are flipped at package time before you code sign your app the OS becomes responsible for ensuring those bits aren't flipped back via OS level code signing validation (Gatekeeper / App Locker).
+Fuse はこの問題の解決策です。高水準としては Electron バイナリ内の "マジックビット" であり、Electron アプリをパッケージングする際にそれらを反転させることで、特定の機能や制限を有効化/無効化できます。  アプリのコード署名前のパッケージ時に反転するので、OS は OS レベルのコード署名検証(Gatekeeper / App Locker) の時に反転しないようにする責任があります。
 
-## How do I flip the fuses?
+## Fuse の反転方法は何ですか?
 
-### The easy way
+### 簡単な方法
 
-We've made a handy module `@electron/fuses` to make flipping these fuses easy.  Check out the README of that module for more details on usage and potential error cases.
+これら Fuse を簡単に反転させるために、便利なモジュール `@electron/fuses` を作成しました。  使用方法や潜在的なエラーケースといった詳細は、このモジュールの README を確認してください。
 
 ```js
 require('@electron/fuses').flipFuses(
-  // Path to electron
+  // electron のパス
   require('electron'),
-  // Fuses to flip
+  // 反転する Fuse
   {
     runAsNode: false
   }
 )
 ```
 
-### The hard way
+### 難しい方法
 
-#### Quick Glossary
+#### 簡易用語集
 
-* **Fuse Wire**: A sequence of bytes in the Electron binary used to control the fuses
-* **Sentinel**: A static known sequence of bytes you can use to locate the fuse wire
-* **Fuse Schema**: The format / allowed values for the fuse wire
+* **Fuse Wire**: Fuse の制御に使用する Electron バイナリ内のバイト列
+* **Sentinel**: Fuse Wire の位置特定に使用できる静的な既知のバイト列
+* **Fuse Schema**: Fuse Wire が許容する値の形式
 
-Manually flipping fuses requires editing the Electron binary and modifying the fuse wire to be the sequence of bytes that represent the state of the fuses you want.
+手動で Fuse を反転させるには、Electron バイナリを編集し必要な Fuse の状態を表すバイト列になるように Fuse Wire を修正する必要があります。
 
-Somewhere in the Electron binary there will be a sequence of bytes that look like this:
+Electron バイナリのどこかに、以下のようなバイト列があります。
 
 ```text
 | ...binary | sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ...binary |
 ```
 
-* `sentinel_bytes` is always this exact string `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
-* `fuse_version` is a single byte whose unsigned integer value represents the version of the fuse schema
-* `fuse_wire_length` is a single byte whose unsigned integer value represents the number of fuses in the following fuse wire
-* `fuse_wire` is a sequence of N bytes, each byte represents a single fuse and its state.
-  * "0" (0x30) indicates the fuse is disabled
-  * "1" (0x31) indicates the fuse is enabled
-  * "r" (0x72) indicates the fuse has been removed and changing the byte to either 1 or 0 will have no effect.
+* `sentinel_bytes` は厳密にこのような文字列 `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX` です
+* `fuse_version` は単一バイトで、その符号無し整数の値が Fuse Schema のバージョンを表します。
+* `fuse_wire_length` は単一バイトで、その符号無し整数の値は後続の Fuse Wire にある Fuse の数を表します。
+* `fuse_wire` は N バイトのシーケンスで、各バイトは 1 つの Fuse とその状態を表します。
+  * "0" (0x30) は無効な Fuse を表します
+  * "1" (0x31) は有効な Fuse を表します
+  * "r" (0x72) は削除された Fuse を表し、このバイトを 1 や 0 に変更しても効果はありません。
 
-To flip a fuse you find its position in the fuse wire and change it to "0" or "1" depending on the state you'd like.
+Fuse を反転させるには、Fuse Wire の位置を見つけ、状態に応じて "0" または "1" に変更します。
 
-You can view the current schema [here](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
+現在のスキーマは [こちら](https://github.com/electron/electron/blob/master/build/fuses/fuses.json) で閲覧できます。

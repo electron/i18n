@@ -90,7 +90,10 @@ shell.trashItem(path).then(/* ... */)
 
 ## Alterações planejadas na API (11.0)
 
-Não há nenhuma alteração de quebra planejada para a 11.0.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Alterações planejadas na API (10.0)
 
@@ -241,7 +244,7 @@ A API `shell.openItem` foi substituída por uma API assíncrona `shell.openPath`
 
 ## Alterações planejadas na API (8.0)
 
-### Comportamento alterado: os valores enviados por IPC agora são serializados com Algoritmo de Clone Estruturado
+### Comportamento alterado: os valores enviados sobre o IPC agora são serializados com o Algoritmo de Clone Estruturado
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 

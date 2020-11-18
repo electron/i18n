@@ -32,7 +32,7 @@ Electron での開発で App 内課金をテストするには、`node_modules/e
 const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// できるだけ早くトランザクションをListen
+// できるだけ早くトランザクションをリッスンします。
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
@@ -50,7 +50,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
       case 'purchased': {
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // 領収書の URL を取得します。
         const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
@@ -113,7 +113,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
-  // 選択したproductを購入します。
+  // 選択した製品を購入します。
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

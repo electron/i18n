@@ -2,20 +2,20 @@
 
 ## 概要
 
-[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
+標準 HTML5 API の一部である [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) 属性を使用して、[オンラインおよびオフラインイベント](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) の検出をレンダラープロセスに実装できます。
 
-The `navigator.onLine` attribute returns:
+`navigator.onLine` 属性の戻り値は以下の通りです。
 
-* `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
-* `true` in all other cases.
+* `false` ネットワーク要求が失敗することが保証されている場合、つまり確実にオフラインの (ネットワークから切断されている) 場合。
+* `true` それ以外の状況。
 
-Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. For example, in cases when the computer is running a virtualization software that has virtual Ethernet adapters in "always connected" state. Therefore, if you want to determine the Internet access status of Electron, you should develop additional means for this check.
+他のすべての条件で `true`が返されるので、`true` の値は必ずしも Electron がインターネットアクセス可能であるとは限りません。誤検出に注意する必要があります。 例えば、仮想イーサネットアダプタを "常時接続" 状態にした仮想化ソフトをコンピュータ上で実行している場合などです。 したがって、Electron のインターネットアクセス状況を判定したい場合には、さらにこの確認手段を開発する必要があります。
 
 ## サンプル
 
-### Event detection in the Renderer process
+### レンダラープロセスでのイベント検知
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -28,7 +28,7 @@ app.whenReady().then(() => {
 })
 ```
 
-create the `online-status.html` file and add the following line before the closing `</body>` tag:
+`online-status.html`ファイルを作成し、`</body>` タグを閉じている直前に以下の行を追加します。
 
 ```html
 <script src="renderer.js"></script>
@@ -47,13 +47,13 @@ alertOnlineStatus()
 
 Electron アプリケーションを起動すると、通知が表示されます。
 
-![Online-offline-event detection](../images/online-event-detection.png)
+![オンライン/オフラインイベントの検知](../images/online-event-detection.png)
 
-### Event detection in the Main process
+### メインプロセスでのイベント検知
 
-There may be situations when you want to respond to online/offline events in the Main process as well. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+メインプロセスでも同様にオンライン/オフラインイベントに対応したい場面があるかもしれません。 ただし、メインプロセスには `navigator` オブジェクトがないため、これらのイベントを直接検出できません。 この場合、Electron のプロセス間通信 (IPC) ユーティリティを使用して、イベントをメインプロセスに転送する必要があります。
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-create the `online-status.html` file and add the following line before the closing `</body>` tag:
+`online-status.html`ファイルを作成し、`</body>` タグを閉じている直前に以下の行を追加します。
 
 ```html
 <script src="renderer.js"></script>
@@ -87,7 +87,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-After launching the Electron application, you should see the notification in the Console:
+Electron アプリケーションを起動すると、コンソールに通知が表示されます。
 
 ```sh
 npm start

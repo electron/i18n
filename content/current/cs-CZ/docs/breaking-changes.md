@@ -91,7 +91,10 @@ shell.trashItem(cesta).then(/* ... */)
 
 ## Planned Breaking API Changes (11.0)
 
-Pro 11.0 nejsou naplánovány žádné průlomové změny.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Plánované změny API (10.0)
 
