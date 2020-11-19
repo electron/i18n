@@ -144,7 +144,7 @@ Izolacja kontekstowa jest funkcją Electron, która pozwala programistom na uruc
 
 Electron używa tej samej technologii co [Skrypty Treści](https://developer.chrome.com/extensions/content_scripts#execution-environment) Chromium.
 
-Nawet gdy używasz `nodeIntegration: false` aby wymusić silną izolację i zapobiec korzystaniu z prymitywów węzłów, `Należy również użyć izolacji kontekstowej`.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Czemu & Jak?
 

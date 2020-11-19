@@ -143,7 +143,7 @@ window.readConfig = function () {
 
 Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)技术来开启这个行为。
 
-即使您使用选项 `nodeIntegration: false` 进行强制隔离并防止其使用Node原语，`contextIsolation` 也必须被启用。
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### 为什么 & 如何?
 

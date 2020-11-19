@@ -10,27 +10,20 @@
 
 ## الدليل الإرشادي والدروس
 
-* [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md)
-  * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
-  * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
-  * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
-  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
-* [انشاء تطبيقك الأول](tutorial/quick-start.md)
+### البداية السريعة
+
+* [دليل البدء السريع](tutorial/quick-start.md)
   * [المتطلبات الأساسية](tutorial/quick-start.md#prerequisites)
   * [إنشاء تطبيق أساسي](tutorial/quick-start.md#create-a-basic-application)
+  * [تشغيل التطبيق الخاص بك](tutorial/quick-start.md#run-your-application)
   * [حزمة الطلب وتوزيعه](tutorial/quick-start.md#package-and-distribute-the-application)
-* [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
-  * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [أدوات أخرى و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [معمارية التطبيق](tutorial/quick-start.md#application-architecture)
+
+### تعلم الأساسيات
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
   * [العمليات الرئيسية والرابط](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
-  * [باستخدام Native Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
 * إضافة ميزات إلى تطبيقك
   * [الإشعارات](tutorial/notifications.md)
   * [المستندات الأخيرة](tutorial/recent-documents.md)
@@ -38,19 +31,30 @@
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
+  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
-  * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
-  * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [سحب الملف الأصلي & إسقاط](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Dark Mode](tutorial/dark-mode.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [تضمين الويب في إلكترون](tutorial/web-embeds.md)
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
+  * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [أدوات أخرى و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* معمارية التطبيق
+  * [باستخدام Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [إمكانية الوصول](tutorial/accessibility.md)
-  * [سبيكترون](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين ميزات إمكانية الوصول يدويا](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
-  * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
+  * [تنقيح عملية الرئيسية](tutorial/debugging-main-process.md)
   * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -62,11 +66,6 @@
   * [Mac App ore](tutorial/mac-app-store-submission-guide.md)
   * [متجر تطبيقات Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Security](tutorial/security.md)
-  * [الإبلاغ عن المشكلات الأمنية](tutorial/security.md#reporting-security-issues)
-  * [المسائل الأمنية المتعلقة بالكروم وتحديثاته](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [تحذيرات أمنية إلكترون](tutorial/security.md#electron-security-warnings)
-  * [قائمة التحقق من الأمان](tutorial/security.md#checklist-security-recommendations)
 * [التحديثات](tutorial/updates.md)
   * [نشر خادم التحديث](tutorial/updates.md#deploying-an-update-server)
   * [تنفيذ التحديثات في تطبيقك](tutorial/updates.md#implementing-updates-in-your-app)
@@ -77,7 +76,7 @@
 
 هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
-* [تثبيت إكترون](tutorial/installation.md)
+* [تنصيب إلكترون (Electron)](tutorial/installation.md)
   * [بروكسيات](tutorial/installation.md#proxies)
   * [مرايا مخصصة ومخابئ](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
@@ -113,13 +112,13 @@
 
 ### وحدات للـ Main Process:
 
-* [app (التطبيق)](api/app.md)
-* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
+* [التطبيقات](api/app.md)
+* [تحديث تلقائي](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
-* [dialog (الحوار)](api/dialog.md)
-* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
+* [نافذة المتصفح](api/browser-window.md)
+* [تتبع المحتوى](api/content-tracing.md)
+* [نافذة الحوار](api/dialog.md)
+* [اختصار عالمي](api/global-shortcut.md)
 * [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu (القائمة)](api/menu.md)
@@ -143,15 +142,15 @@
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [منصة_شليلة](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### الوحدات لكلا العمليتين:
 
-* [الحافظة](api/clipboard.md)
+* [لوحة القُصاصات](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [shell](api/shell.md)
+* [صدفة](api/shell.md)
 
 ## التطوير
 

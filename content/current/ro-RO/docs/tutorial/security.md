@@ -144,7 +144,7 @@ Izolarea contextului este o caracteristică Electron care permite dezvoltatorilo
 
 Electron folosește aceeași tehnologie ca [Scripturile de conținut din Chromium](https://developer.chrome.com/extensions/content_scripts#execution-environment) pentru a activa acest comportament.
 
-Chiar și atunci când folosești `nodeIntegrare: fals` pentru a impune o izolare puternică și pentru a preveni utilizarea primitivelor Node, `contexte de izolare` trebuie, de asemenea, utilizate.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### De ce & Cum?
 

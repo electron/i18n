@@ -213,6 +213,7 @@ const w = new BrowserWindow({
 ### `protocol.unregisterProtocol`
 
 
+
 ### `protocol.uninterceptProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.
@@ -232,28 +233,37 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.registerFileProtocol`
 
 
+
 ### `protocol.registerBufferProtocol`
+
 
 
 ### `protocol.registerStringProtocol`
 
 
+
 ### `protocol.registerHttpProtocol`
+
 
 
 ### `protocol.registerStreamProtocol`
 
 
+
 ### `protocol.interceptFileProtocol`
+
 
 
 ### `protocol.interceptStringProtocol`
 
 
+
 ### `protocol.interceptBufferProtocol`
 
 
+
 ### `protocol.interceptHttpProtocol`
+
 
 
 ### `protocol.interceptStreamProtocol`

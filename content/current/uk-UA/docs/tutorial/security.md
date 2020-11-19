@@ -149,7 +149,7 @@ window.readConfig = function () {
 
 Electron використовує таку ж технологію, що і [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) , щоб увімкнути цю поведінку.
 
-Навіть коли ви використовуєте `nodeIntegration: false` для примусової ізоляції та запобігти використанню простих вузлів, `контекстну ізоляцію` також слід використовувати.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Чому & Як?
 

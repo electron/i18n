@@ -147,7 +147,7 @@ Kontextová izolace je funkce Electron, která umožňuje vývojářům spustit 
 
 Electron používá stejnou technologii jako Chromium [Content skripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) pro povolení tohoto chování.
 
-I když používáte `nodeIntegration: false` k prosazování silné izolace a zabraňují použití primitivních uzlů, `musí být také použity kontextIzolace`.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Proč & Jak?
 

@@ -91,6 +91,7 @@ shell.trashItem(path).then(/* ... */)
 ## Changements majeurs prévus de l'API (11.0)
 
 ### Supprimés: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` et `id` propriété de `BrowserView`
+
 Les API expérimentales `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` ont maintenant été supprimées. De plus, la propriété `id` de `BrowserView` a également été supprimée.
 
 Pour des informations plus détaillées, voir [#23578](https://github.com/electron/electron/pull/23578).
@@ -161,6 +162,7 @@ const w = new BrowserWindow({
 Nous [vous recommandons de vous éloigner du module distant](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
@@ -173,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.

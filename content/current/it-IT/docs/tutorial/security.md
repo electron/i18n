@@ -144,7 +144,7 @@ L'isolamento del contesto è una funzione Electron che permette agli sviluppator
 
 Electron utilizza la stessa tecnologia di Chromium [Content Script](https://developer.chrome.com/extensions/content_scripts#execution-environment) per abilitare questo comportamento.
 
-Anche quando si utilizza `nodeIntegration: false` per imporre un forte isolamento e prevenire l'uso di primitive Node, `contextIsolation` deve anche essere utilizzato.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Perché & Come?
 
