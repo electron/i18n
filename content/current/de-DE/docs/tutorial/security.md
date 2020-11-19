@@ -144,7 +144,7 @@ Kontext-Isolierung ist eine Electron-Funktion, die es Entwicklern erlaubt, Code 
 
 Electron verwendet die gleiche Technologie wie Chromiums [Inhaltsskripte](https://developer.chrome.com/extensions/content_scripts#execution-environment) um dieses Verhalten zu aktivieren.
 
-Selbst wenn Sie `nodeIntegration: false` verwenden, um starke Isolierung zu erzwingen und die Verwendung von Knotenprimitiven zu verhindern `Kontext-Isolation` muss ebenfalls verwendet werden.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Warum & Wie?
 

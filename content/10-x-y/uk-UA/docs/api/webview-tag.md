@@ -477,7 +477,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only the first range is honored.
+  * `pageRanges` Object[] (optional) - The page range to print. На macOS дотримується лише перший діапазон.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.

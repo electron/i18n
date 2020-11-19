@@ -96,18 +96,18 @@ Esta es la página web que desea mostrar una vez inicializada la aplicación. Es
 La página `index.html` se ve como sigue:
 
 ```html
-¡<! OCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>¡Hola Mundo!</title>
+    <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body>
-    <h1>¡Hola Mundo!</h1>
-    Estamos usando el nodo <script>documento. rite(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions. hrome)</script>,
-    y Electron <script>document.write(process.versions.electron)</script>.
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>
 ```

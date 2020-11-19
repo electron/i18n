@@ -156,7 +156,6 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 | Windows x64 | Windows x86   | 自動テスト済み |
 | Linux x64   | Linux x86     | 自動テスト済み |
 
-
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許可されている値については、 GN リファレンスを参照してください。

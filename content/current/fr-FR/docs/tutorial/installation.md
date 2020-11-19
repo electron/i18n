@@ -34,8 +34,8 @@ npm install --platform=win32 electron
 
 Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_GET_USE_PROXY` à n'importe quelle valeur plus des variables d'environnement supplémentaires en fonction de la version de Node de votre système hôte:
 
-* [Noeud 10 et plus](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Avant le nœud 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node 10 et plus](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [Avant Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Mirroirs et Caches personnalisés
 

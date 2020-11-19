@@ -91,6 +91,7 @@ shell.trashItem(path).then(/* ... */)
 ## Planned Breaking API Changes (11.0)
 
 ### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+
 The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
 
 For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
@@ -161,6 +162,7 @@ const w = new BrowserWindow({
 Wir [empfehlen Ihnen, sich vom Remote- Modul](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31) zu entfernen.
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
@@ -173,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.

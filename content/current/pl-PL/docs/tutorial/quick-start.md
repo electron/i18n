@@ -96,18 +96,18 @@ To jest strona internetowa, którą chcesz wyświetlić po zainicjowaniu aplikac
 Strona `index.html` wygląda następująco:
 
 ```html
-<! OCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Witaj światu!</title>
+    <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body>
-    <h1>Witaj Świat!</h1>
-    Używamy węzła <script>dokumentu. rite(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions. hrome)</script>,
-    i Electron <script>document.write(process.versions.electron)</script>.
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>
 ```

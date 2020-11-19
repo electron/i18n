@@ -144,7 +144,7 @@ window.readConfig = function () {
 
 يستخدم إلكترون نفس التكنولوجيا مثل برامج كروموم [لمحتوى البرامج البرمجية](https://developer.chrome.com/extensions/content_scripts#execution-environment) لتمكين هذا السلوك.
 
-حتى عندما تستخدم `تكميل العقدة: خاطئ` لفرض العزلة القوية و منع استخدام بدائيات العقدة ، `يجب أيضا استخدام العزلة السياقية`.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### لماذا & كيف؟
 

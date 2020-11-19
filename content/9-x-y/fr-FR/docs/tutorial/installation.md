@@ -34,8 +34,8 @@ npm install --platform=win32 electron
 
 Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_GET_USE_PROXY` à n'importe quelle valeur plus des variables d'environnement supplémentaires en fonction de la version de Node de votre système hôte:
 
-* [Noeud 10 et plus][proxy-env-10]
-* [Avant le nœud 10][proxy-env]
+* [Node 10 et plus][proxy-env-10]
+* [Avant Node 10][proxy-env]
 
 ## Mirroirs et Caches personnalisés
 During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).

@@ -149,7 +149,7 @@ Context isolatie is een Electron functie waarmee ontwikkelaars code kunnen uitvo
 
 Electron gebruikt dezelfde technologie als Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) om dit gedrag in te schakelen.
 
-Zelfs wanneer u `nodeIntegration: false` gebruikt om sterk geïsoleerd te worden en het gebruik van Node primitives te voorkomen `contextIsolatie` moet ook worden gebruikt.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Waarom & Hoe?
 
