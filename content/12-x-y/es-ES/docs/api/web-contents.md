@@ -138,7 +138,7 @@ Devuelve:
 * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
 * `postBody` [PostBody](structures/post-body.md) (opcional) - Los datos que serán enviados a la nueva ventana, junto con las cabeceras apropiadas que se establecerán. Si no hay datos para enviar, el valor será `null`. Solo se define cuando la ventana está siendo creada por un formulario que establece `target=_blank`.
 
-Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandler-handler).
+Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
 Emitido cuando la página solicita abrir una nueva ventana para una `url`. Puede ser requerido por `window.open` o un link externo como `<a target='_blank'>`.
 
@@ -177,13 +177,13 @@ Devuelve:
 * `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
-    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandler-handler). Unrecognized options are not filtered out.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
     * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
     * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. May or may not result in the `Referer` header being sent, depending on the referrer policy.
     * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. Si no hay datos para enviar, el valor será `null`. Only defined when the window is being created by a form that set `target=_blank`.
     * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
-Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandler-handler).
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
 See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
 

@@ -19,9 +19,9 @@ Ce document utilise la convention suivante pour catégoriser les modifications e
 L'API `shell.moveItemToTrash()` dépréciée a été supprimée. Utilisez le shell.trashItem() `asynchrone` à la place.
 
 ```js
-// Removed in Electron 13
+// Supprimé dans Electron 13
 shell.moveItemToTrash(path)
-// Replace with
+// Remplacer par
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -82,9 +82,9 @@ require('@electron/remote/main').initialize()
 La méthode synchrone `shell.moveItemToTrash() ` a été remplacée par une asynchrone `shell.trashItem() `.
 
 ```js
-// Deprecated in Electron 12
+Déprécié dans Electron 12
 shell.moveItemToTrash(path)
-// Replace with
+// Remplacer par
 shell.trashItem(path).then(/* ... */)
 ```
 

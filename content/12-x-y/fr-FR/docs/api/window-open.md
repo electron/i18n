@@ -11,7 +11,7 @@ However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `
 
 Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
 
-BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandler-handler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
+Les options du constructeur BrowserWindow sont définies par ordre croissant de priorité : d'abord les options héritées du parent puis les options analysées à partir de la chaîne `traits` de `window.open()` puis webPreferences liées à la sécurité héritées du parent, et enfin les options données par [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
 
 ### `window.open(url[, frameName][, features])`
 
