@@ -603,7 +603,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 [webview-tag]: ../api/webview-tag.md
 [webview-tag]: ../api/webview-tag.md
 [web-contents]: ../api/web-contents.md
-[window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandler-handler
+[window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandlerhandler
 [will-navigate]: ../api/web-contents.md#event-will-navigate
 [open-external]: ../api/shell.md#shellopenexternalurl-options
 [sandbox]: ../api/sandbox-option.md

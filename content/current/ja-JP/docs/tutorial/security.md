@@ -432,7 +432,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー](../api/web-contents.md#contentssetwindowopenhandler-handler) に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
+[`webContents`](../api/web-contents.md) は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー](../api/web-contents.md#contentssetwindowopenhandlerhandler) に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
 
 ```js
 const { shell } = require('electron')
