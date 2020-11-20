@@ -73,8 +73,8 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v11.0.1",
-  "electronMasterBranchCommit": "b4196ca4862327f7012fd6fdc67bc2a2957a89ae",
+  "electronLatestStableTag": "v11.0.2",
+  "electronMasterBranchCommit": "46972abf8b949af80ea18b81df92ceeaa26ce00d",
   "engines": {
     "node": ">=10"
   },
