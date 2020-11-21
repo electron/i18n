@@ -57,7 +57,7 @@ app.setUserTasks([])
 
 On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
-As quoted from [MSDN][msdn-thumbnail]:
+Jak cytowano z [MSDN][msdn-thumbnail]:
 
 > Ten pasek narzędzi jest znanym standardowym paskiem narzędzi. Ma maksymalnie 7 przycisków. Identyfikator każdego przycisku, obraz, podpowiedź i stan są zdefiniowane w strukturze, która jest następnie przekazywana do paska zadań. Aplikacja może pokazać, włączone, wyłączone, lub ukryć przyciski na pasku miniatur zgodnie z wymaganiami bieżącego stanu.
 > 
@@ -136,7 +136,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-As quoted from [MSDN][msdn-flash-frame]:
+Jak cytowano z [MSDN][msdn-flash-frame]:
 
 > Zazwyczaj okno jest wgrywane, aby poinformować użytkownika, że okno wymaga uwagi, ale nie ma obecnie ostrości klawiatury.
 

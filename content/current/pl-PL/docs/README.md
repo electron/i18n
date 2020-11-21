@@ -45,7 +45,7 @@ To są pytania, które są zadawane dość często. Sprawdź to przed utworzenie
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Inne narzędzia i boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### Zaawansowane kroki
 
 * Architektura aplikacji
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)

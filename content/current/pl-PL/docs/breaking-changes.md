@@ -94,7 +94,7 @@ shell.trashItem(path).then(/* ... */)
 
 The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
 
-For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
+Aby uzyskać bardziej szczegółowe informacje, zobacz [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Planowane zmiany API (10.0)
 
