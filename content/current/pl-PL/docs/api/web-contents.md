@@ -1444,7 +1444,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // Wyswietli 'whoooooooh!'
     })
   </script>
 </body>

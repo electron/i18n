@@ -21,11 +21,11 @@ Nie możemy się doczekać, aby zobaczyć co z nimi budujesz! Kontynuuj czytanie
     * [Nowość w Chrome 86](https://developers.google.com/web/updates/2020/10/nic86)
     * [Nowość w Chrome 87](https://developers.google.com/web/updates/2020/11/nic87)
 * Node.js `12.18.3`
-    * [Node 12.18.3 blog post](https://nodejs.org/en/blog/release/v12.18.3/)
-    * [Node 12.7.0 blog post](https://nodejs.org/en/blog/release/v12.17.0/)
+    * [Node 12.18.3 post na blogu](https://nodejs.org/en/blog/release/v12.18.3/)
+    * [Node 12.7.0 post na blogu](https://nodejs.org/en/blog/release/v12.17.0/)
 * V8 `8.7`
-    * [V8 8.6 blog post](https://v8.dev/blog/v8-release-86)
-    * [V8 8.7 blog post](https://v8.dev/blog/v8-release-87)
+    * [V8 8.6 wpis na blogu](https://v8.dev/blog/v8-release-86)
+    * [V8 8.7 wpis na blogu](https://v8.dev/blog/v8-release-87)
 
 ### Podświetl funkcje
 
