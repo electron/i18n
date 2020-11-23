@@ -22,7 +22,7 @@ Properly preparing macOS applications for release requires two steps: First, the
 To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. [Xcode][]'u indirin ve kurun - Bu işlem macOS çalıştırabilen bir bilgisayar gerektirir
 3. Generate, download, and install [signing certificates][]
 
 Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
@@ -161,7 +161,7 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 
 There are a number of tools for signing your packaged app:
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
+- [`electron-winstaller`][] windows için bir kurucu oluşturacak ve sizin için işaretleyecektir
 - [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
 - [`electron-builder`][] can sign some of its windows targets
 
