@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "17037",
-    "translated": "11766",
+    "translated": "11767",
     "approved": "2686",
     "words": "199286",
-    "words_translated": "133325",
+    "words_translated": "133347",
     "words_approved": "27332",
     "translated_progress": 66,
     "approved_progress": 13,
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "17037",
-    "translated": "6251",
+    "translated": "6252",
     "approved": "2160",
     "words": "199286",
-    "words_translated": "59511",
+    "words_translated": "59519",
     "words_approved": "20840",
     "translated_progress": 29,
     "approved_progress": 10,
-    "qa_issues": 2701
+    "qa_issues": 2702
   },
   {
     "name": "Italian",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "17037",
-    "translated": "8755",
+    "translated": "8774",
     "approved": "1899",
     "words": "199286",
-    "words_translated": "94941",
+    "words_translated": "95147",
     "words_approved": "11753",
     "translated_progress": 47,
     "approved_progress": 5,
-    "qa_issues": 3055
+    "qa_issues": 3060
   },
   {
     "name": "Portuguese, Brazilian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "17037",
-    "translated": "12099",
+    "translated": "12101",
     "approved": "4053",
     "words": "199286",
-    "words_translated": "137672",
+    "words_translated": "137709",
     "words_approved": "38835",
     "translated_progress": 69,
     "approved_progress": 19,
-    "qa_issues": 3856
+    "qa_issues": 3857
   },
   {
     "name": "Spanish",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "17037",
-    "translated": "6304",
+    "translated": "6308",
     "approved": "2169",
     "words": "199286",
-    "words_translated": "60071",
+    "words_translated": "60128",
     "words_approved": "21271",
     "translated_progress": 30,
     "approved_progress": 10,
-    "qa_issues": 2366
+    "qa_issues": 2368
   },
   {
     "name": "Ukrainian",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "17037",
-    "translated": "1616",
+    "translated": "1619",
     "approved": "450",
     "words": "199286",
-    "words_translated": "12375",
+    "words_translated": "12414",
     "words_approved": "2674",
     "translated_progress": 6,
     "approved_progress": 1,
-    "qa_issues": 688
+    "qa_issues": 691
   }
 ]
