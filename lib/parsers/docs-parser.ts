@@ -3,54 +3,67 @@ import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
 import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
-import { IParseFile, ISection } from '../interfaces'
+import { IDocFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
+import { Entry } from 'walk-sync'
 const GithubSlugger = require('github-slugger')
 const remark = require('remark')
 const links = require('remark-inline-links')
-const cleanDeep = require('clean-deep')
 const hrefType = require('href-type')
 
-export async function parseFile(file: IParseFile, ids: Record<string, string>) {
-  file.fullyPath = path.join(file.basePath, file.relativePath)
-  file.locale = file.relativePath.split('/')[0]
-  file.slug = path.basename(file.relativePath, '.md')
+export async function parseFile(file: Entry, ids: Record<string, string>) {
+  const locale = file.relativePath.split('/')[0]
+  const slug = path.basename(file.relativePath, '.md')
 
   // derive category from file path
   // {locale}/docs/api/{filename} -> api
-  file.category = file.relativePath
+  const category = file.relativePath
     .split('/') // path.sep => /, separator in file.relativePath is just / in any OS
     .slice(2, -1)
     .join('/')
 
   // nice categories for use in nav
-  file.categoryFancy = categoryNames[file.category]
+  const categoryFancy = categoryNames[category]
 
-  file.href = `/docs/${file.category}/${file.slug}`.replace('//', '/')
+  const href = `/docs/${category}/${slug}`.replace('//', '/')
 
   // build a reference to the source
-  file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
+  const githubUrl = `https://github.com/electron/electron/tree/master${href}.md`
 
-  file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
+  const crowdinFileId = ids[`master/content/en-US${href}.md`]
 
   // convenience booleans for use in templates
-  file.isTutorial = file.category === 'tutorial'
-  file.isApiDoc = file.category === 'api'
-  file.isDevTutorial = file.category === 'development'
-  file.isApiStructureDoc = file.category === 'api/structures'
+  const isTutorial = category === 'tutorial'
+  const isApiDoc = category === 'api'
+  const isDevTutorial = category === 'development'
+  const isApiStructureDoc = category === 'api/structures'
 
   // parse markdown to HTML
-  const markdown = await fs.promises.readFile(file.fullyPath, 'utf8')
+  const markdown = await fs.promises.readFile(file.fullPath, 'utf8')
+
+  const docFile: IDocFile = {
+    locale,
+    slug,
+    href,
+    crowdinFileId,
+    githubUrl,
+    category,
+    categoryFancy,
+    isTutorial,
+    isApiDoc,
+    isApiStructureDoc,
+    isDevTutorial,
+  }
 
   // ignore some docs & skip the rest of the parsing logic
   if (markdown.includes(IGNORE_PATTERN)) {
-    file.ignore = true
-    return file
+    docFile.ignore = true
+    return docFile
   }
 
-  file.sections = await Promise.all(
+  docFile.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async (section) => {
       const parsed = await hubdown(section.body, {
         runBefore: [plaintextFix, bashFix, fiddleUrls],
@@ -59,35 +72,35 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
         },
       })
       const $ = cheerio.load(parsed.content || '')
-      file.title =
-        file.title ||
+      docFile.title =
+        docFile.title ||
         $('h1').first().text().trim() ||
         $('h2').first().text().replace('Class: ', '')
-      file.description =
-        file.description || $('blockquote').first().text().trim()
+      docFile.description =
+        docFile.description || $('blockquote').first().text().trim()
 
       // fix HREF for relative links
-      $('a').each((i, el) => {
-        const href = $(el).attr('href')
-        if (!href || !file.href) {
+      $('a').each((_, el) => {
+        const elementHref = $(el).attr('href')
+        if (!elementHref || !href) {
           return ''
         }
-        const type = hrefType(href)
+        const type = hrefType(elementHref)
         if (type !== 'relative' && type !== 'rooted') return
-        const dirname = path.dirname(file.href)
+        const dirname = path.dirname(href)
         const newHref = convertToUrlSlash(
-          path.resolve(dirname, href.replace(/\.md/, ''))
+          path.resolve(dirname, elementHref.replace(/\.md/, ''))
         )
         $(el).attr('href', newHref)
       })
 
       // fix SRC for relative images
-      $('img').each((i, el) => {
+      $('img').each((_, el) => {
         const baseUrl = 'https://cdn.rawgit.com/electron/electron'
-        if (!file.href) {
+        if (!href) {
           return ''
         }
-        const dirname = path.dirname(file.href)
+        const dirname = path.dirname(href)
         let src = $(el).attr('src')
         if (!src) {
           return
@@ -98,7 +111,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
         // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
         src = convertToUrlSlash(path.resolve(dirname, src))
 
-        const newSrc = file.isApiDoc
+        const newSrc = isApiDoc
           ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
           : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
 
@@ -115,18 +128,7 @@ export async function parseFile(file: IParseFile, ids: Record<string, string>) {
     })
   )
 
-  // remove leftover file props from walk-sync
-  // @ts-ignore We need them delete!
-  delete file.fullPath
-  delete file.fullyPath
-  delete file.mode
-  delete file.size
-  delete file.mtime
-  delete file.relativePath
-  delete file.basePath
-
-  // remove empty values
-  return cleanDeep(file)
+  return docFile
 }
 
 function fixMdLinks(md: string): Promise<string> {
