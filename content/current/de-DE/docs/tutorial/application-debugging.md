@@ -27,6 +27,6 @@ Wenn der V8-Kontext abstützen sollte, wird folgende Nachricht in DevTools angez
 
 `DevTools wurde von der Seite getrennt. Sobald die Seite neu geladen ist, wird DevTools die Verbindung wiederherstellen.`
 
-Chromium Logs können durch das Einstellen der Umgebungsvariabel `ELECTRON_ENABLE_LOGGING` aktiviert werden. Weitere Informationen könenn in der [Dokumentation zu den Umgebungsvariablen](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging) gefunden werden.
+Chromium Logs können durch das Einstellen der Umgebungsvariabel `ELECTRON_ENABLE_LOGGING` aktiviert werden. Weitere Informationen könenn in der [Dokumentation zu den Umgebungsvariablen](../api/environment-variables.md#electron_enable_logging) gefunden werden.
 
-Alternativ kann dies aber auch durch das Argument `--enable-logging` im Terminal aktiviert werden. Weitere Informationen hierzu kann in der [Dokumentation der Konsolen-Argumente](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging) gefunden werden.
+Alternativ kann dies aber auch durch das Argument `--enable-logging` im Terminal aktiviert werden. Weitere Informationen hierzu kann in der [Dokumentation der Konsolen-Argumente](../api/command-line-switches.md#--enable-logging) gefunden werden.

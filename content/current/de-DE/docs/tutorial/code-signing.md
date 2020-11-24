@@ -161,9 +161,9 @@ Sie können ein Zertifikat von vielen Wiederverkäufern erhalten. Die Preise var
 
 Es gibt eine Reihe von Tools zum Signieren Ihrer gepackten App:
 
-- [`Elektron-winstaller`] generiert einen Installer für Fenster und signiert ihn für Sie
-- [`electron-forge`] kann Installer signieren, die es über die Squirrel.Windows oder MSI Ziele generiert.
-- [`Elektron-Builder`] kann einige seiner Windows-Ziele unterzeichnen
+* [`Elektron-winstaller`] generiert einen Installer für Fenster und signiert ihn für Sie
+* [`electron-forge`] kann Installer signieren, die es über die Squirrel.Windows oder MSI Ziele generiert.
+* [`Elektron-Builder`] kann einige seiner Windows-Ziele unterzeichnen
 
 ## Windows Store
 

@@ -34,9 +34,9 @@ $ git fetch upstream
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
 
-* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
-* [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
-* [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
+* [macOS 上でビルド](build-instructions-macos.md)
+* [Linux 上でビルド](build-instructions-linux.md)
+* [Windows 上でビルド](build-instructions-windows.md)
 
 プロジェクトをローカルに構築したら、変更を始める準備が整います！
 
@@ -56,7 +56,7 @@ $ git checkout -b my-branch -t upstream/master
 
 コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 
-プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](https://electronjs.org/docs/development/coding-style) を参照してください。
+プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](coding-style.md) を参照してください。
 
 ### ステップ5: コミット
 
@@ -77,28 +77,28 @@ $ git commit
 
 意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 プレフィックスの例:
 
-- fix: バグ修正
-- feat: 新機能
-- docs: ドキュメントの変更
-- test: 足りないテストの追加や既存のテストの訂正
-- build: ビルドシステムに影響する変更
-- ci: CI の設定ファイルとスクリプトへの変更
-- perf: パフォーマンスを改善するコード変更
-- refactor: バグ修正や機能追加の無いコード変更
-- style: コードの意味を変えない変更 (lint)
-- vendor: libchromiumcontent や node のような依存関係の更新
+* fix: バグ修正
+* feat: 新機能
+* docs: ドキュメントの変更
+* test: 足りないテストの追加や既存のテストの訂正
+* build: ビルドシステムに影響する変更
+* ci: CI の設定ファイルとスクリプトへの変更
+* perf: パフォーマンスを改善するコード変更
+* refactor: バグ修正や機能追加の無いコード変更
+* style: コードの意味を変えない変更 (lint)
+* vendor: libchromiumcontent や node のような依存関係の更新
 
 その他、コミットメッセージを作成するときに留意すること:
 
 1. 最初の行は、以下の通りにしてください。
-   - 変更の簡単な説明を含める (50 文字以下が好ましく、72 文字を超えない)
-   - 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
+   * 変更の簡単な説明を含める (50 文字以下が好ましく、72 文字を超えない)
+   * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
@@ -121,7 +121,7 @@ $ git rebase upstream/master
 
 ### ステップ7: テスト
 
-バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](https://electronjs.org/docs/development/testing) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
+バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](testing.md) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
 
 プルリクエストで変更を送信する前に、常に完全なテストスイートを実行してください。 テストを実行するには以下のようにします。
 

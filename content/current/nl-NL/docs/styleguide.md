@@ -46,6 +46,7 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
 * Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Het kiezen van woorden
 

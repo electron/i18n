@@ -34,9 +34,9 @@ $ git fetch upstream
 
 운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [리눅스에서 빌드하기](https://electronjs.org/docs/development/build-instructions-linux)
-* [Windows에서 빌드하기](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [리눅스에서 빌드하기](build-instructions-linux.md)
+* [Windows에서 빌드하기](build-instructions-windows.md)
 
 로컬에서 프로젝트를 빌드했다면 변경 작업을 시작할 준비는 마쳤다고 보시면 됩니다.
 
@@ -56,7 +56,7 @@ $ git checkout -b my-branch -t upstream/master
 
 프로젝트 코드 스타일 통일을 위해 코드를 변경할 때마다 `npm run lint`를 실행해주시길 바랍니다.
 
-[코딩 스타일](https://electronjs.org/docs/development/coding-style) 문서의 모범 사례를 확인하여 프로젝트 안의 다양한 프로그래밍 언어 코드를 수정할 때 적용해 보시길 바랍니다.
+[코딩 스타일](coding-style.md) 문서의 모범 사례를 확인하여 프로젝트 안의 다양한 프로그래밍 언어 코드를 수정할 때 적용해 보시길 바랍니다.
 
 ### 5 단계: 커밋
 
@@ -77,28 +77,28 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 시멘틱 접두사를 함께 사용한 커밋 메시지 예시:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 자주 사용하는 접두사:
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 그 밖의 커밋 메시지 작성 시 주의 사항은 다음과 같습니다:
 
 1. 첫 번째 라인 작성 규칙:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - 고유 명사, 두문자어, 함수나 변수 이름과 같은 코드와 관련된 단어를 제외하고는 소문자로 작성할 것
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * 고유 명사, 두문자어, 함수나 변수 이름과 같은 코드와 관련된 단어를 제외하고는 소문자로 작성할 것
 2. 두 번째 라인은 공백으로 남겨둘 것
 3. 72 줄 이내로 작성할 것
 
@@ -121,7 +121,7 @@ $ git rebase upstream/master
 
 ### 7 단계: 테스트
 
-버그 수정 및 새로운 기능과 관련된 커밋은 항상 테스트를 동반해야 합니다. 테스트 진행을 돕기 위해 [테스팅 가이드 문서](https://electronjs.org/docs/development/testing) 를 제공하고 있습니다. 다른 테스트가 어떤 구조로 작성되었는지 참고하시면 많은 도움이 될 것입니다.
+버그 수정 및 새로운 기능과 관련된 커밋은 항상 테스트를 동반해야 합니다. 테스트 진행을 돕기 위해 [테스팅 가이드 문서](testing.md) 를 제공하고 있습니다. 다른 테스트가 어떤 구조로 작성되었는지 참고하시면 많은 도움이 될 것입니다.
 
 Pull request로 변경 사항을 제출하기 전에, 항상 전체 테스트를 수행하시길 바랍니다. 테스트를 실행하는 명령어는 다음과 같습니다:
 

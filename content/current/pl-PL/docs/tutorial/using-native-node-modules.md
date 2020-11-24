@@ -100,9 +100,9 @@ procedura nie została znaleziona`, może to oznaczać, że moduł, który prób
 
 W szczególności ważne jest, aby:
 
-- łączysz się z `node.lib` z _Electron_ a nie Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- wliczasz flagę `/DELAYLOAD:node.exe`. Jeśli węzeł `. link xe` nie jest opóźniony, wtedy hak opóźnień nie będzie miał szansy na wystrzelenie i symbole węzła nie zostaną prawidłowo rozwiązane.
-- `win_delay_load_hook.obj` jest połączony bezpośrednio z końcową DLL. Jeśli hak jest ustawiony w zależnej DLL, nie będzie strzelał we właściwym czasie.
+* łączysz się z `node.lib` z _Electron_ a nie Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+* wliczasz flagę `/DELAYLOAD:node.exe`. Jeśli węzeł `. link xe` nie jest opóźniony, wtedy hak opóźnień nie będzie miał szansy na wystrzelenie i symbole węzła nie zostaną prawidłowo rozwiązane.
+* `win_delay_load_hook.obj` jest połączony bezpośrednio z końcową DLL. Jeśli hak jest ustawiony w zależnej DLL, nie będzie strzelał we właściwym czasie.
 
 Zobacz [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) dla przykładowego haka opóźnień, jeśli implementujesz własny.
 

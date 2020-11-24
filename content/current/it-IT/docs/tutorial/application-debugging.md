@@ -27,6 +27,6 @@ Se il contesto V8 si blocca, il DevTools visualizzerà questo messaggio.
 
 `DevTools è stato disconnesso dalla pagina. Una volta ricaricata la pagina, DevTools si riconnetterà automaticamente.`
 
-I log di cromo possono essere abilitati tramite la variabile di ambiente `ELECTRON_ENABLE_LOGGING`. Per ulteriori informazioni, vedere la documentazione delle variabili di ambiente [](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+I log di cromo possono essere abilitati tramite la variabile di ambiente `ELECTRON_ENABLE_LOGGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-In alternativa, si può passare l'argomento della riga di comando `--enable-logging`. Ulteriori informazioni sono disponibili nella documentazione [della riga di comando switches](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+In alternativa, si può passare l'argomento della riga di comando `--enable-logging`. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

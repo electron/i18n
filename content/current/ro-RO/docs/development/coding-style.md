@@ -48,9 +48,9 @@ Puteți rula `npm run lint-docs` pentru a vă asigura că modificările document
 
 API-urile Electron utilizează aceeași schemă de capitalizare ca și Node.js:
 
-- Când modulul în sine este o clasă ca `BrowserWindow`, utilizaţi `PascalCase`.
-- Atunci cand modulul este un set de API-uri, cum ar fi `globalShortcut`, utilizați `camelCase`.
-- Când API-ul este o proprietate a obiectului, și este suficient de complex pentru a fi într-un capitol separat ca `win.webContents`, utilizați `mixedCase`.
-- For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Când modulul în sine este o clasă ca `BrowserWindow`, utilizaţi `PascalCase`.
+* Atunci cand modulul este un set de API-uri, cum ar fi `globalShortcut`, utilizați `camelCase`.
+* Când API-ul este o proprietate a obiectului, și este suficient de complex pentru a fi într-un capitol separat ca `win.webContents`, utilizați `mixedCase`.
+* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
 When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.

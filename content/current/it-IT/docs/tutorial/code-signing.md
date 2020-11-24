@@ -161,9 +161,9 @@ Puoi ottenere un certificato di firma del codice da molti rivenditori. I prezzi 
 
 Ci sono molti strumenti per firmare la tua app impacchettata:
 
-- [`electron-winstaller`] genererà un installer per Windows e lo firmerà per te
-- [`electron-forge`] può firmare gli installatori che genera attraverso gli obiettivi Squirrel.Windows o MSI.
-- [`electron-builder`] può firmare alcuni dei suoi obiettivi di Windows
+* [`electron-winstaller`] genererà un installer per Windows e lo firmerà per te
+* [`electron-forge`] può firmare gli installatori che genera attraverso gli obiettivi Squirrel.Windows o MSI.
+* [`electron-builder`] può firmare alcuni dei suoi obiettivi di Windows
 
 ## Negozio Windows
 

@@ -36,7 +36,7 @@
   * [macOS の BrowserWindow が表すファイル](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [ダークモード](tutorial/dark-mode.md)
   * [Electron でのウェブ埋め込み](tutorial/web-embeds.md)
 * [ボイラープレートとCLI](tutorial/boilerplates-and-clis.md)
   * [ボイラープレート vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)

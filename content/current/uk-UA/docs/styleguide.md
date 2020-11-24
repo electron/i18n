@@ -46,6 +46,7 @@
 * Лінії мають вкладатися в 80 стовпчиків.
 * Списки не можуть мати вкладеність більшу ніж 2 рівні (згідно візуалізатору markdown).
 * Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Підбір слів
 

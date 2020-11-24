@@ -161,9 +161,9 @@ Vous pouvez obtenir un certificat de signature de code auprès de nombreux reven
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 
-- [`electron-winstaller`] va générer un installateur pour les fenêtres et le signer pour vous
-- [`electron-forge`] peut signer les installateurs qu'il génère à travers les cibles Squirrel.Windows ou MSI.
-- [`electron-builder`] peut signer certaines de ses cibles Windows
+* [`electron-winstaller`] va générer un installateur pour les fenêtres et le signer pour vous
+* [`electron-forge`] peut signer les installateurs qu'il génère à travers les cibles Squirrel.Windows ou MSI.
+* [`electron-builder`] peut signer certaines de ses cibles Windows
 
 ## Windows Store
 

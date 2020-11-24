@@ -1,4 +1,4 @@
-# SpellChecker
+# スペルチェッカー
 
 Electron 8 以降、Electron は Chromium のスペルチェッカーを内蔵しています。  WindowsとLinuxではHunspell辞書が搭載されており、macOSではネイティブのspellchecker APIが使用されています。
 
@@ -70,4 +70,4 @@ myWindow.webContents.on('context-menu', (event, params) => {
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-辞書ファイルの取得場所や、ホストするにあたって必要な事項についての詳細な情報は、[`session.setSpellCheckerDictionaryDownloadURL` のドキュメントを確認してください](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl)。
+辞書ファイルの取得場所や、ホストするにあたって必要な事項についての詳細な情報は、[`session.setSpellCheckerDictionaryDownloadURL` のドキュメントを確認してください](../api/session.md#sessetspellcheckerdictionarydownloadurlurl)。

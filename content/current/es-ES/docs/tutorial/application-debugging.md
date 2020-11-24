@@ -27,6 +27,6 @@ Si el contexto V8 se bloquea, el DevTools mostrará este mensaje.
 
 `DevTools fue desconectado de la página. Una vez que la pagina sea recargada, DevTools se reconectará automáticamente.`
 
-Los registros de Chromium puden ser habilitados a través de la variable de entorno `ELECTRON_ENABLE_LOGGING`. Para más información, vea la [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Los registros de Chromium puden ser habilitados a través de la variable de entorno `ELECTRON_ENABLE_LOGGING`. Para más información, vea la [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Alternativamente, el argumento de linea de comando `--enable-logging` puede ser pasado. Más información esta disponible en la [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Alternativamente, el argumento de linea de comando `--enable-logging` puede ser pasado. Más información esta disponible en la [command line switches documentation](../api/command-line-switches.md#--enable-logging).

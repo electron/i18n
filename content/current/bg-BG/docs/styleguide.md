@@ -46,6 +46,7 @@
 * Редовете трябва да са завършени в 80 колони.
 * Без вложени списъци с повече от 2 нива (поради рендерирането на Markdown).
 * Всички `js` и `javascript` блокове от код са ограничени с [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Използване на думи
 

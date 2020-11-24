@@ -1,4 +1,4 @@
-# SpellChecker
+# スペルチェッカー
 
 Electron 8 以降、Electron は Chromium のスペルチェッカーを内蔵しています。  WindowsとLinuxではHunspell辞書が搭載されており、macOSではネイティブのspellchecker APIが使用されています。
 

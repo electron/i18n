@@ -100,9 +100,9 @@ procedura nebyla nalezena`, to může znamenat, že modul, který se snažíte p
 
 Zejména je důležité, aby:
 
-- propojíte se s `node.lib` od _Electron_ a ne s Nodem. Pokud odkazujete na špatný `node.lib` , zjistíte chyby načítání, když potřebujete modul v Electronu.
-- obsahuje vlajku `/DELAYLOAD:node.exe`. Pokud uzel `. xe` odkaz není opožděn, pak háček se zpožděným zatížením nedostane šanci vystřelit a symboly uzlu nebudou správně vyřešeny.
-- `win_delay_load_hook.obj` je propojen přímo do posledního DLL. Pokud je háček nastaven v závislém DLL, nebude střelit v pravý čas.
+* propojíte se s `node.lib` od _Electron_ a ne s Nodem. Pokud odkazujete na špatný `node.lib` , zjistíte chyby načítání, když potřebujete modul v Electronu.
+* obsahuje vlajku `/DELAYLOAD:node.exe`. Pokud uzel `. xe` odkaz není opožděn, pak háček se zpožděným zatížením nedostane šanci vystřelit a symboly uzlu nebudou správně vyřešeny.
+* `win_delay_load_hook.obj` je propojen přímo do posledního DLL. Pokud je háček nastaven v závislém DLL, nebude střelit v pravý čas.
 
 Podívejte se na [`uzlů-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) pro příklad zpožděného načítání háku, pokud implementujete svůj vlastní.
 

@@ -27,6 +27,6 @@ Google предлагает [отличную документацию для с
 
 `DevTools был отключен от страницы. После перезагрузки страницы DevTools будет автоматически подключаться.`
 
-Журналы Chromium могут быть включены через переменную окружения `ELECTRON_ENABLE_LOGING`. Для получения дополнительной информации обратитесь к [документации по переменным окружения](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Журналы Chromium могут быть включены через переменную окружения `ELECTRON_ENABLE_LOGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-В качестве альтернативы, может быть передан аргумент командной строки `--enable-logging`. Более подробная информация доступна в [командной строке переключает документацию](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+В качестве альтернативы, может быть передан аргумент командной строки `--enable-logging`. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

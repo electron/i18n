@@ -27,6 +27,6 @@ Pokud dojde k pádu kontextu V8, DevTools zobrazí tuto zprávu.
 
 `DevTools byl odpojen od stránky. Po obnovení stránky se DevTools automaticky znovu připojí.`
 
-Chromové logy mohou být povoleny prostřednictvím proměnné prostředí `ELECTRON_ENABLE_LOGING`. Více informací naleznete v dokumentaci [proměnných prostředí](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromové logy mohou být povoleny prostřednictvím proměnné prostředí `ELECTRON_ENABLE_LOGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Případně může být předán argument příkazové řádky `--enable-logging`. Více informací je k dispozici v dokumentaci [příkazového řádku](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Případně může být předán argument příkazové řádky `--enable-logging`. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

@@ -1,4 +1,4 @@
-# Dark Mode
+# ダークモード
 
 ## 概要
 
@@ -12,7 +12,7 @@
 
 ### 自作インターフェイスの手動更新
 
-ライト/ダークモードを手動で切り替えたい場合は、`nativeTheme` モジュールの [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) プロパティで希望するモードを設定するとできます。 このプロパティの値はレンダラープロセスに伝播します。 `prefers-color-scheme` に関連する CSS ルールは、それに応じて更新されます。
+ライト/ダークモードを手動で切り替えたい場合は、`nativeTheme` モジュールの [themeSource](../api/native-theme.md#nativethemethemesource) プロパティで希望するモードを設定するとできます。 このプロパティの値はレンダラープロセスに伝播します。 `prefers-color-scheme` に関連する CSS ルールは、それに応じて更新されます。
 
 ## macOS での設定
 
@@ -141,7 +141,7 @@ app.on('activate', () => {
 
 これで、Electron アプリケーションを起動した後に、対応するボタンをクリックしてモードを変更したり、テーマをシステムデフォルトにリセットしたりできます。
 
-![Dark Mode](../images/dark_mode.gif)
+![ダークモード](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

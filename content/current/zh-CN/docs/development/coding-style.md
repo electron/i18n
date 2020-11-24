@@ -48,9 +48,9 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 Electron API 使用与 Node.js 相同的大小写方案：
 
-- 当模块本身是class时, 比如 `BrowserWindow`, 使用 `CamelCase`.
-- 当模块是一组 API 时, 比如 `globalShortcut`时，使用 `mixedCase`。
-- 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如 `win.webContents`, 使用 `mixedCase`.
-- 对于其他非模块API, 使用自然标题, 比如 `<webview> Tag` 或 `Process Object`.
+* 当模块本身是class时, 比如 `BrowserWindow`, 使用 `CamelCase`.
+* 当模块是一组 API 时, 比如 `globalShortcut`时，使用 `mixedCase`。
+* 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如 `win.webContents`, 使用 `mixedCase`.
+* 对于其他非模块API, 使用自然标题, 比如 `<webview> Tag` 或 `Process Object`.
 
 当创建新的 API 时， 最好使用 getter 和 setter 而不是 jQuery 的一次性函数。 举个例子, `.getText()` 和 `.setText(text)` 优于 `.text([text])`. 这是一些相关的 [讨论](https://github.com/electron/electron/issues/46)

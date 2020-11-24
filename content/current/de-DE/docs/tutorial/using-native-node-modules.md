@@ -100,9 +100,9 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 Insbesondere ist es wichtig, dass:
 
-- Sie verlinken gegen `node.lib` von _Electron_ und nicht Knoten. Wenn Sie gegen das falsche `node.lib` verlinken, werden Sie bei der Anforderung des Moduls in Electron zu Ladefehlern kommen.
-- Sie fügen die Flagge `/DELAYLOAD:node.exe` hinzu. Wenn der `Knoten. Axt` Link ist nicht verzögert, dann wird der Hook mit der Verzögerungslast nicht angefeuert und der Knoten wird nicht korrekt aufgelöst.
-- `win_delay_load_hook.obj` ist direkt mit der finalen DLL verbunden. Wenn der Hook in einer abhängigen DLL eingerichtet ist, wird er nicht zur richtigen Zeit abfeuern.
+* Sie verlinken gegen `node.lib` von _Electron_ und nicht Knoten. Wenn Sie gegen das falsche `node.lib` verlinken, werden Sie bei der Anforderung des Moduls in Electron zu Ladefehlern kommen.
+* Sie fügen die Flagge `/DELAYLOAD:node.exe` hinzu. Wenn der `Knoten. Axt` Link ist nicht verzögert, dann wird der Hook mit der Verzögerungslast nicht angefeuert und der Knoten wird nicht korrekt aufgelöst.
+* `win_delay_load_hook.obj` ist direkt mit der finalen DLL verbunden. Wenn der Hook in einer abhängigen DLL eingerichtet ist, wird er nicht zur richtigen Zeit abfeuern.
 
 Siehe [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) für einen Beispiel Verzögerungs-Load-Hook wenn Sie Ihren eigenen implementieren.
 

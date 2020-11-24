@@ -27,6 +27,6 @@ V8 コンテキストがクラッシュした場合、デベロッパー ツー�
 
 `デベロッパー ツールはページから切断されました。 ページをリロードすれば、デベロッパー ツールは自動で再接続します。`
 
-Chromium のログは `ELECTRON_ENABLE_LOGGING` 環境変数を介して有効にできます。 詳しい情報は [環境変数ドキュメント](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging) を参照してください。
+Chromium のログは `ELECTRON_ENABLE_LOGGING` 環境変数を介して有効にできます。 詳しい情報は [環境変数ドキュメント](../api/environment-variables.md#electron_enable_logging) を参照してください。
 
-代替として、`--enable-logging` コマンドライン引数を渡すことでもできます。 詳しい情報は [コマンドラインスイッチドキュメント](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging) を参照してください。
+代替として、`--enable-logging` コマンドライン引数を渡すことでもできます。 詳しい情報は [コマンドラインスイッチドキュメント](../api/command-line-switches.md#--enable-logging) を参照してください。

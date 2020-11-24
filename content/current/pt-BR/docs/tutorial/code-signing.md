@@ -161,9 +161,9 @@ Você pode obter um certificado de assinatura de um grande número de revendedor
 
 Existem várias ferramentas para assinar seu aplicativo de pacotes:
 
-- [`electron-winstaller`] irá gerar um instalador para janelas e assiná-lo para você
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`Construtor de elétrons`] pode assinar alguns de seus alvos de janelas
+* [`electron-winstaller`] irá gerar um instalador para janelas e assiná-lo para você
+* [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
+* [`Construtor de elétrons`] pode assinar alguns de seus alvos de janelas
 
 ## Windows Store
 

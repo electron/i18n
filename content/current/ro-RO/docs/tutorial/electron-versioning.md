@@ -139,7 +139,7 @@ Steagurile caracteristice sunt o practică obişnuită în Chromium şi sunt bin
 
 # Maestru `versionat`
 
-- Filiala `master` va conține întotdeauna următoarea versiune majoră `X.0.0-nightly.DATĂ` în `package.json`
-- Sucursalele de lansare nu sunt niciodată fuzionate la master
-- Filialele de lansare _do_ contine versiunea corecta in `package.json`
-- De îndată ce o ramură de eliberare este tăiată pentru o componentă majoră, căpitanul trebuie bătut la următorul maior.  `stăpânul` este întotdeauna versionat ca următoarea ramură de lansare teoretică
+* Filiala `master` va conține întotdeauna următoarea versiune majoră `X.0.0-nightly.DATĂ` în `package.json`
+* Sucursalele de lansare nu sunt niciodată fuzionate la master
+* Filialele de lansare _do_ contine versiunea corecta in `package.json`
+* De îndată ce o ramură de eliberare este tăiată pentru o componentă majoră, căpitanul trebuie bătut la următorul maior.  `stăpânul` este întotdeauna versionat ca următoarea ramură de lansare teoretică

@@ -99,9 +99,9 @@ Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイ�
 
 特に、次のことが重要です。
 
-- Node ではなく _Electron_ の `node.lib` に対してリンクします。 間違った `node.lib` に対してリンクすると、Electron のモジュールが必要になったときにロード時エラーが発生します。
-- `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、遅延読み込みフックが起動する機会がなく、Node のシンボルは正しく解決されません。
-- `win_delay_load_hook.obj` は、最終的な DLL に直接リンクされます。 依存 DLL にフックが設定されていると、正しいタイミングで起動しません。
+* Node ではなく _Electron_ の `node.lib` に対してリンクします。 間違った `node.lib` に対してリンクすると、Electron のモジュールが必要になったときにロード時エラーが発生します。
+* `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、遅延読み込みフックが起動する機会がなく、Node のシンボルは正しく解決されません。
+* `win_delay_load_hook.obj` は、最終的な DLL に直接リンクされます。 依存 DLL にフックが設定されていると、正しいタイミングで起動しません。
 
 遅延ロードフックを独自で実装する例については [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) を参照してください。
 

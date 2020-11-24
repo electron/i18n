@@ -37,7 +37,7 @@ console.log(webContents)
 
 * `id` Integer
 
-戻り値 `WebContents` - 指定した ID の WebContents インスタンス。
+戻り値 `WebContents` | undefined - 指定 ID の WebContents インスタンス。指定 ID に関連付けられた WebContents が存在しない場合は `undefined` です。
 
 ## クラス: WebContents
 

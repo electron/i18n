@@ -6,21 +6,21 @@ Jeśli masz obawy o bezpieczeństwo, zobacz [dokument bezpieczeństwa](https://g
 
 Jeśli szukasz pomocy programowania, odpowiedzi na pytania, lub dołączysz do dyskusji z innymi programistami, którzy korzystają z Electrona, możesz współdziałać ze społecznością w tych lokalizacjach:
 
-- [`Discord Electrona`](https://discord.com/invite/electron) ma kanały dla:
-  - Uzyskiwanie pomocy
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - i więcej!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` kanał na Freenode
-- `#electron` kanał na [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(rosyjski)*
-- [`electron-br`](https://electron-br.slack.com) *(brazylijski portugalski)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(koreański)*
-- [`electron-jp`](https://electron-jp.slack.com) *(japoński)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(turecki)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonezja)*
-- [`electron-id`](https://electronpl.github.io) *(Indonezja)*
+* [`Discord Electrona`](https://discord.com/invite/electron) ma kanały dla:
+  * Uzyskiwanie pomocy
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * i więcej!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#atom-shell` kanał na Freenode
+* `#electron` kanał na [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`electron-ru`](https://telegram.me/electron_ru) *(rosyjski)*
+* [`electron-br`](https://electron-br.slack.com) *(brazylijski portugalski)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(koreański)*
+* [`electron-jp`](https://electron-jp.slack.com) *(japoński)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(turecki)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonezja)*
+* [`electron-id`](https://electronpl.github.io) *(Indonezja)*
 
 Jeśli chcesz przyczynić się do Electrona, zobacz [dokument](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -40,9 +40,9 @@ Gdy API zostanie zmienione lub usunięte w sposób, który narusza istniejące f
 
 ### Aktualnie wspierane wersje
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### EOL
 

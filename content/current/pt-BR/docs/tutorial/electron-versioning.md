@@ -139,7 +139,7 @@ Procuramos aumentar a clareza em todos os níveis da atualização e do processo
 
 # Versionado `mestre`
 
-- O `master` branch sempre conterá a próxima versão maior `X.0.0-nightly.DATE` em seu `package.json`
-- Soltar branches nunca mais são mesclados de volta ao mestre
-- Release branches _do_ contain the correct version in their `package.json`
-- Assim que um branch de lançamento é cortado para um major, o master deve ser chamado para o próximo major.  I.e. `master` é sempre versionado como o próximo branch de lançamento teórico
+* O `master` branch sempre conterá a próxima versão maior `X.0.0-nightly.DATE` em seu `package.json`
+* Soltar branches nunca mais são mesclados de volta ao mestre
+* Release branches _do_ contain the correct version in their `package.json`
+* Assim que um branch de lançamento é cortado para um major, o master deve ser chamado para o próximo major.  I.e. `master` é sempre versionado como o próximo branch de lançamento teórico

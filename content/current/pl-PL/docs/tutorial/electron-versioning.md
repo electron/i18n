@@ -139,7 +139,7 @@ Staramy się zwiększyć przejrzystość na wszystkich szczeblach procesu aktual
 
 # Wersja `mistrza`
 
-- Oddział `główny` będzie zawsze zawierać następną główną wersję `X.0.0-nightly.DATE` w `package.json`
-- Oddziały wydania nigdy nie są scalane z powrotem do mistrza
-- Wydaj gałęzie __ zawierają poprawną wersję w ich `package.json`
-- Natychmiast po przecięciu gałęzi uwalniającej dla głównego kapitana należy zrzucić do następnego głównego.  Tj. `mistrz` jest zawsze wersją jako następna teoretyczna gałąź wydania
+* Oddział `główny` będzie zawsze zawierać następną główną wersję `X.0.0-nightly.DATE` w `package.json`
+* Oddziały wydania nigdy nie są scalane z powrotem do mistrza
+* Wydaj gałęzie __ zawierają poprawną wersję w ich `package.json`
+* Natychmiast po przecięciu gałęzi uwalniającej dla głównego kapitana należy zrzucić do następnego głównego.  Tj. `mistrz` jest zawsze wersją jako następna teoretyczna gałąź wydania

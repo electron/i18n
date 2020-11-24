@@ -139,7 +139,7 @@ Snažíme se zvýšit jasnost na všech úrovních procesu aktualizace a vydán�
 
 # Verze `master`
 
-- Větev `master` bude vždy obsahovat další hlavní verzi `X.0.0-nightly.DATE` ve svém `package.json`
-- Větev vydání nejsou nikdy sloučeny zpět do mistrovství
-- Větve vydání _do_ obsahují správnou verzi v jejich `balíčku.json`
-- Jakmile se uvolňovací větev rozřízne na hlavní, musí se kapitán přeskočit na další velitele.  Tj. `master` je vždy verzován jako další teoretická uvolňovací větev
+* Větev `master` bude vždy obsahovat další hlavní verzi `X.0.0-nightly.DATE` ve svém `package.json`
+* Větev vydání nejsou nikdy sloučeny zpět do mistrovství
+* Větve vydání _do_ obsahují správnou verzi v jejich `balíčku.json`
+* Jakmile se uvolňovací větev rozřízne na hlavní, musí se kapitán přeskočit na další velitele.  Tj. `master` je vždy verzován jako další teoretická uvolňovací větev

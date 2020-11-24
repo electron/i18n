@@ -70,4 +70,4 @@ Anche se il correttore ortografico stesso non invia alcun tipo di battitura, par
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Dai un'occhiata ai documenti per la sessione [`. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) per ulteriori informazioni su dove ottenere i file del dizionario da e come è necessario ospitarli.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

@@ -139,7 +139,7 @@ We proberen op alle niveaus van het actualiserings- en releases-proces meer duid
 
 # Versioned `master`
 
-- De `master` branch zal altijd de volgende grote versie `X.0.0-nightly.DATE` in zijn `package.json` bevatten
-- Losse branches worden nooit teruggevoegd naar master
-- Release branches _bevatten_ de juiste versie in hun `package.json`
-- Zodra een grote tak van de release is afgebouwd, moet de master tot de volgende grote worden doorgedrongen.  I.e. `master` is altijd versiebeheer als de volgende theoretische release branch
+* De `master` branch zal altijd de volgende grote versie `X.0.0-nightly.DATE` in zijn `package.json` bevatten
+* Losse branches worden nooit teruggevoegd naar master
+* Release branches _bevatten_ de juiste versie in hun `package.json`
+* Zodra een grote tak van de release is afgebouwd, moet de master tot de volgende grote worden doorgedrongen.  I.e. `master` is altijd versiebeheer als de volgende theoretische release branch

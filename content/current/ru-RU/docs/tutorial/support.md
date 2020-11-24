@@ -6,21 +6,21 @@
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` канал на Freenode
-- `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
-- [`electron-br`](https://electron-br.slack.com) *(Бразильский Португальский)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Корейский)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Японский)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецкий)*
-- [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
-- [`electron-pl`](https://electronpl.github.io) *(Польша)*
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#atom-shell` канал на Freenode
+* `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
+* [`electron-br`](https://electron-br.slack.com) *(Бразильский Португальский)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Корейский)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Японский)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецкий)*
+* [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
+* [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
 Если вы хотите внести свой вклад в Electron, смотрите [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -40,9 +40,9 @@
 
 ### Поддерживаемые версии
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### Конец жизни
 

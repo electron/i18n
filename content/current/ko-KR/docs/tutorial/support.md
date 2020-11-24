@@ -6,21 +6,21 @@
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- Freenode의 `#atom-shell` 채널
-- [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
-- [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
-- [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
-- [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
-- [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
-- [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* Freenode의 `#atom-shell` 채널
+* [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
+* [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
+* [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
+* [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
+* [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
+* [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
 
 만약 Electron에 기여하고 싶으시다면 [기여하기 문서](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)를 참고해주세요.
 
@@ -40,9 +40,9 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 ### 현재 지원되는 버전
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### 생애 종료
 

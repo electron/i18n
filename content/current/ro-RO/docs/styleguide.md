@@ -46,6 +46,7 @@ Pentru referințe API există excepții de la această regulă.
 * Liniile ar trebui să fie încadrate la 80 de coloane.
 * Fără liste indentate mai mult de 2 niveluri (din cauza redării de marcare).
 * Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Alegerea cuvintelor
 

@@ -161,9 +161,9 @@ Poți obține un certificat de cod de la o mulțime de distribuitori. Preţurile
 
 Există o serie de unelte pentru semnarea aplicației tale împachetate:
 
-- [`electron-winstaller`] va genera un instalator pentru ferestre și îl va semna pentru
-- [`electron-forge`] poate semna instalatorii pe care îi generează prin obiectivele Squirrel.Windows sau MSI.
-- [`electron-builder`] poate semna unele dintre țintele sale pentru ferestre
+* [`electron-winstaller`] va genera un instalator pentru ferestre și îl va semna pentru
+* [`electron-forge`] poate semna instalatorii pe care îi generează prin obiectivele Squirrel.Windows sau MSI.
+* [`electron-builder`] poate semna unele dintre țintele sale pentru ferestre
 
 ## Magazin Windows
 

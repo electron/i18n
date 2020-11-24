@@ -139,7 +139,7 @@ Nous cherchons à accroître la clarté à tous les niveaux du processus de mise
 
 # Version `master`
 
-- La branche `master` contiendra toujours la prochaine version majeure `X.0.0-nightly.DATE` dans son `package.json`
-- Les branches de version ne sont jamais fusionnées vers master
-- Les branches de version _do_ contiennent la version correcte dans leur `package.json`
-- Dès qu'une branche de publication est coupée pour un majeur, master doit être repoussé au majeur suivant.  Par exemple `master` est toujours versionné comme la prochaine branche de publication théorique
+* La branche `master` contiendra toujours la prochaine version majeure `X.0.0-nightly.DATE` dans son `package.json`
+* Les branches de version ne sont jamais fusionnées vers master
+* Les branches de version _do_ contiennent la version correcte dans leur `package.json`
+* Dès qu'une branche de publication est coupée pour un majeur, master doit être repoussé au majeur suivant.  Par exemple `master` est toujours versionné comme la prochaine branche de publication théorique

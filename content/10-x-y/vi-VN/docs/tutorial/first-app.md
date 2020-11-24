@@ -1,6 +1,6 @@
 # Viết ứng dụng Electron đầu tiên của bạn
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. 웹 서버 대신 데스크탑 애플리케이션에 초점을 맞춘 Node.js 런타임의 변종이라고 생각하시면 됩니다.
+Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. Bạn có thể thấy nó như là một biến thể của thời gian chạy Node.js tập trung vào ứng dụng cho máy tình để bàn, thay vì trên máy chủ web.
 
 Điều này không có nghĩa là Electron là một ứng dụng chạy JavaScript có ràng buộc với các thư viện giao diện (GUI). Thay vì đó, Electron sử dụng các trang web như chính giao diện của bản thân, vì vậy bạn có thể coi nó như một phiên bản trình duyệt Chromium rút gọn, được điều khiển thông qua JavaScript.
 

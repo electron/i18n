@@ -1,25 +1,25 @@
-# Web embeds
+# ウェブ埋め込み
 
 ## 概要
 
-If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
+Electron の `BrowserWindow` に (サードパーティ) ウェブコンテンツを埋め込みたい場合は、`<iframe>` タグ、`<webview>` タグ、 `BrowserView` の 3 つの選択肢があります。 それぞれ多少の異なる機能を提供しており、さまざまな状況で役立ちます。 これらの選択を支援するため、このガイドではそれぞれの選択肢の違いと機能について説明します。
 
 ### iframe
 
-Electron の iframe は一般的なブラウザの iframe のように動作します。 An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the number of capabilities of a site in an `<iframe>` tag, it is recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Electron の iframe は一般的なブラウザの iframe のように動作します。 [コンテンツセキュリティポリシー](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) で許可されている場合、ページの `<iframe>` 要素に外部ウェブページを表示できます。 `<iframe>` タグ内のサイト機能を制限するには、[`sandbox` 属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) を使用してサポートしたい機能のみを許可することを推奨します。
 
 ### WebView
 
-> Important Note: [we do not recommend you to use use WebViews](https://www.electronjs.org/docs/api/webview-tag#warning), as this tag undergoes dramatic architectural changes that may affect stability of your application. Consider switching to alternatives, like `iframe` and Electron's `BrowserView`, or an architecture that avoids embedded content by design.
+> 重要な注意: WebView タグはアプリケーションの安定性に影響を与えうる劇的なアーキテクチャ変更を受けているため、[これの利用は非推奨です](https://www.electronjs.org/docs/api/webview-tag#warning)。 `iframe` や Electron の `BrowserView` のような代替品や、設計の段階からコンテンツ埋め込みを避けるアーキテクチャへ切り替えるように検討してください。
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. To use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebView](../api/webview-tag.md) は Chromium の WebView が基ですが、Electron は明示的にサポートしていません。 将来の Electron のバージョンでも WebView API が利用できる保証はありません。 `<webview>` タグを使用する場合、`BrowserWindow` の `webPreferences` に内で `webviewTag` を `true` に設定する必要があります。
 
-WebView is a custom element (`<webview>`) that will only work inside Electron. これは "プロセス外 iframe" として実装されています。 This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that provide you with greater control over the content.
+WebView は、Electron 内でのみ機能するカスタム要素 (`<webview>`) です。 これは "プロセス外 iframe" として実装されています。 つまり、`<webview>` とのすべての通信は IPC を用いて非同期的に行われます。 `<webview>` 要素には、`webContents` と同様に多くのカスタムメソッドとイベントがあり、コンテンツのより広い制御を提供します。
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third-party content and handling various events.
+`<iframe>` と比較して `<webview>` はやや遅い傾向がありますが、サードパーティコンテンツのロード、通信など、さまざまなイベントの処理をより広く制御できます。
 
 ### BrowserView
 
-[BrowserViews](../api/browser-view.md) are not a part of the DOM - instead, they are created in and controlled by your Main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and their position is not controlled by the DOM or CSS. Instead, it is controlled by setting the bounds in the Main process.
+[BrowserView](../api/browser-view.md) は DOM の一部ではなく、メインプロセスで作成および制御されます。 これは、単に既存のウインドウ上に別のレイヤーでウェブコンテンツがあるだけです。 つまり、作成してある `BrowserWindow` のコンテンツから完全に分離され、その位置は DOM や CSS によって制御されません。 その代わり、メインプロセスで領域を設定して制御します。
 
-`BrowserViews` offer the greatest control over their contents, since they implement the `webContents` similarly to how the `BrowserWindow` does it. However, as `BrowserViews` are not a part of your DOM, but are rather overlaid on top of them, you will have to manage their position manually.
+`BrowserView` は `BrowserWindow` の動作と同じになる様に `webContents` を実装しているので、コンテンツに対して最大限の制御を提供できます。 しかし、`BrowserView` は DOM の一部ではなく画面上に重ねてあるだけなので、その位置は手動で管理する必要があります。

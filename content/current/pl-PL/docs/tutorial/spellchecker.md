@@ -70,4 +70,4 @@ Chociaż sam sprawdzacz pisowni nie wysyła żadnych typów, słowa lub dane wej
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Sprawdź dokumentację dla [`sesji. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) aby uzyskać więcej informacji o tym, skąd pobrać pliki słownikowe i jak chcesz je przechowywać.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

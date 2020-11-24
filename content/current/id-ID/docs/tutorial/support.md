@@ -6,21 +6,21 @@ If you have a security concern, please see the [security document](https://githu
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
-- [`Electron's Discord`](https://discord.com/invite/electron) memiliki saluran untuk:
-  - Mendapatkan bantuan
-  - Aplikasi ekosistem seperti [Meniru Elektron](https://github.com/electron-userland/electron-forge) dan [Biola Elektron](https://github.com/electron/fiddle)
-  - Berbagi ide dengan pengembang aplikasi Elektron lainnya
-  - Dan banyak lagi!
-- [`kategori`](https://discuss.atom.io/c/electron)kategoru elektron di forum-forum Atom
-- `#atom-shell` channel on Freenode
-- `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`Electron's Discord`](https://discord.com/invite/electron) memiliki saluran untuk:
+  * Mendapatkan bantuan
+  * Aplikasi ekosistem seperti [Meniru Elektron](https://github.com/electron-userland/electron-forge) dan [Biola Elektron](https://github.com/electron/fiddle)
+  * Berbagi ide dengan pengembang aplikasi Elektron lainnya
+  * Dan banyak lagi!
+* [`kategori`](https://discuss.atom.io/c/electron)kategoru elektron di forum-forum Atom
+* `#atom-shell` channel on Freenode
+* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
+* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
+* [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
 If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -40,9 +40,9 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 ### Currently supported versions
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### End-of-life
 

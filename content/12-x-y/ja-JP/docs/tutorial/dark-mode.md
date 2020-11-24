@@ -1,4 +1,4 @@
-# Dark Mode
+# ダークモード
 
 ## 概要
 
@@ -141,7 +141,7 @@ app.on('activate', () => {
 
 これで、Electron アプリケーションを起動した後に、対応するボタンをクリックしてモードを変更したり、テーマをシステムデフォルトにリセットしたりできます。
 
-![Dark Mode](../images/dark_mode.gif)
+![ダークモード](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

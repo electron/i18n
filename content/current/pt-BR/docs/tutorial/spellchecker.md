@@ -70,4 +70,4 @@ Embora o corretor ortográfico em si não envie nenhum tipo, palavras ou entrada
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Confira a documentação da sessão [`. URL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) para obter mais informações sobre onde obter os arquivos do dicionário e como você precisa hospedá-los.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

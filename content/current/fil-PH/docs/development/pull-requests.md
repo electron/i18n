@@ -34,9 +34,9 @@ $ git fetch upstream
 
 Gumawa ng mga hakbang at mga dependencies ay bahagyang naiiba na nagdedepende sa iyong operating system. Tingnan ang mga detalyadong gabay sa pagtatayo ng Electron sa isang local:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Pagbuo sa Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Pagbuo sa Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [Pagbuo sa Linux](build-instructions-linux.md)
+* [Pagbuo sa Windows](build-instructions-windows.md)
 
 Sa sandaling naitayo mo ang proyekto nang lokal, handa ka nang magsimulang gumawa ng mga pagbabago!
 
@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 Siguraduhing magpatakbo ng `npm run lint` mula sa oras-oras sa anumang mga pagbabago sa code upang matiyak na sinusunod nila ang estilo ng code ng proyekto.
 
-Tingnan ang [coding style](https://electronjs.org/docs/development/coding-style) para sa higit pang impormasyon tungkol sa pinakamahusay na kasanayan kapag binabago ang code sa iba't ibang bahagi ng mga proyekto.
+Tingnan ang [coding style](coding-style.md) para sa higit pang impormasyon tungkol sa pinakamahusay na kasanayan kapag binabago ang code sa iba't ibang bahagi ng mga proyekto.
 
 ### Ikalimang hakbang: Magtapat
 
@@ -77,28 +77,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
 1. Ang unang linya ay dapat na:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
 2. Panatilihing blangko ang ikalawang linya.
 3. I-wrap ang lahat ng iba pang mga linya sa 72 na mga haligi.
 
@@ -121,7 +121,7 @@ Tinitiyak nito na ang iyong working branch ay may mga pinakabagong pagbabago mul
 
 ### Ikapitong hakbang: Pagsubok
 
-Ang mga pag-aayos ng bug at mga tampok ay dapat laging may mga pagsubok. A [testing guide](https://electronjs.org/docs/development/testing) ay upang gawing mas madali ang proseso. Naghahanap sa iba pang mga pagsubok upang makita kung paano sila Dapat ay nakabalangkas din ay maaaring makatulong.
+Ang mga pag-aayos ng bug at mga tampok ay dapat laging may mga pagsubok. A [testing guide](testing.md) ay upang gawing mas madali ang proseso. Naghahanap sa iba pang mga pagsubok upang makita kung paano sila Dapat ay nakabalangkas din ay maaaring makatulong.
 
 Bago isumite ang iyong mga pagbabago sa kahilingan ng pull, laging patakbuhin ang buong test suite. Upang patakbuhin ang mga pagsusulit:
 

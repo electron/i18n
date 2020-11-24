@@ -70,4 +70,4 @@ Hoewel de spellingcontrole zelf geen typen verzendt, woorden of gebruikersinvoer
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Bekijk de documenten voor [`sessie. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) voor meer informatie over waar de woordenboekbestanden vandaan kunnen komen en hoe je ze moet hosten.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

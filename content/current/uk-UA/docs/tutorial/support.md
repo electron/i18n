@@ -6,21 +6,21 @@
 
 Якщо ви шукаєте допомогу програмування, для відповідей на питання, або приєднатися до дискусії з іншими розробниками, які використовують Electron, ви можете взаємодіяти з спільнотою в таких умовах:
 
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` канал на Freenode
-- `#electron` канал [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Російська)*
-- [`electron-br`](https://electron-br.slack.com) *(бразильська португальська)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(корейська)*
-- [`electron-jp`](https://electron-jp.slack.com) *(японська)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецька)*
-- [`electron-id`](https://electron-id.slack.com) *(Індонезія)*
-- [`electron-pl`](https://electronpl.github.io) *(Польща)*
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#atom-shell` канал на Freenode
+* `#electron` канал [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`electron-ru`](https://telegram.me/electron_ru) *(Російська)*
+* [`electron-br`](https://electron-br.slack.com) *(бразильська португальська)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(корейська)*
+* [`electron-jp`](https://electron-jp.slack.com) *(японська)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Турецька)*
+* [`electron-id`](https://electron-id.slack.com) *(Індонезія)*
+* [`electron-pl`](https://electronpl.github.io) *(Польща)*
 
 Якщо ви хочете зробити внесок на Electron, дивись [сторінку з учасником](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -40,9 +40,9 @@
 
 ### Встановлені версії
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### Кінець життя
 
