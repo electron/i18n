@@ -46,6 +46,7 @@ Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
 * Ang mga linya dapat naka balot sa 80 ng mga hanay.
 * Walang nesting na nangangahulugang mahigit 2 antas (dahil sa mga tagatanghal ng markdown).
 * Lahat ng bloke ng code sa `js` at `javascript` ay linted sa [pamantayan-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Pagpili ng mga salita
 

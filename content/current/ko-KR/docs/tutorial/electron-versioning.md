@@ -139,7 +139,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 
 # 버전이 지정된 `master`
 
-- `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
-- 출시 브랜치는 master 브랜치로 병합되지 않습니다.
-- 출시 브랜치는 `package.json` 안에 정확한 버전을 포함_할 수_ 있습니다.
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
+* 출시 브랜치는 master 브랜치로 병합되지 않습니다.
+* 출시 브랜치는 `package.json` 안에 정확한 버전을 포함_할 수_ 있습니다.
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

@@ -74,5 +74,7 @@ Electron 7.x.y は、プロジェクトの [サポート ポリシー](https://e
 ### `リモート` モジュールの非推奨作業を継続する (Electron 11)
 [Electron 9](https://www.electronjs.org/blog/electron-9-0) でリモートモジュールを削除する作業を開始し、 `リモート` モジュールを削除する計画を続けています。 Electron 11 では、Electron 10 で行ったように、 [WeakRef](https://v8.dev/features/weak-references) を実装するためのリファクタ作業を継続する予定です。 廃止予定の全計画と詳細については、 [この問題](https://github.com/electron/electron/issues/21408) をお読みいただき、従ってください。
 
-### ネイティブノードモジュールをContext AwareまたはN-API(Electron 11) にすることを要求する最終ステップ
-Electron 6 以降から レンダラープロセスにロードされた [ネイティブノードモジュール](https://nodejs.org/api/addons.html) を [N-API](https://nodejs.org/api/n-api.html) または [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons)のいずれかにするための基盤を構築してきました。 この変更を有効にすると、セキュリティの強化、パフォーマンスの高速化、メンテナンス作業の負荷の低減が可能になります。 この計画の最後のステップは、Electron 11 でレンダリングプロセスの再利用を無効にする機能を削除することです。 提案されたタイムラインを含む詳細については、この問題 [](https://github.com/electron/electron/issues/18397) を参照してください。
+### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
+_Edit: Originally, this blog post stated that we would disable renderer process reuse in Electron 11. Disabling renderer process reuse has now been pushed to Electron 12._
+
+From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.

@@ -37,7 +37,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Klasa: WebContents
 
@@ -1444,7 +1444,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // Wyswietli 'whoooooooh!'
     })
   </script>
 </body>

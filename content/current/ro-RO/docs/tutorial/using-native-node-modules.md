@@ -100,9 +100,9 @@ specificată nu a putut fi găsită`, ar putea însemna că modulul pe care înc
 
 În special, este important ca:
 
-- conectezi împotriva `node.lib` din _Electron_ și nu Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- includeți steagul `/DELAYLOAD:node.exe`. Dacă modulul `xe` link-ul nu este întârziat, apoi cârligul de încărcare a întârzierilor nu va avea șansa de a aprinde și simbolurile nu vor fi rezolvate corect.
-- `win_delay_load_hook.obj` este legat direct de DL-ul final. Dacă cârligul este configurat într-un DLL dependent, nu va fi aprins la momentul potrivit.
+* conectezi împotriva `node.lib` din _Electron_ și nu Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+* includeți steagul `/DELAYLOAD:node.exe`. Dacă modulul `xe` link-ul nu este întârziat, apoi cârligul de încărcare a întârzierilor nu va avea șansa de a aprinde și simbolurile nu vor fi rezolvate corect.
+* `win_delay_load_hook.obj` este legat direct de DL-ul final. Dacă cârligul este configurat într-un DLL dependent, nu va fi aprins la momentul potrivit.
 
 See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
 

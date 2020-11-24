@@ -35,7 +35,6 @@ $ code electron-quick-start
 }
 ```
 
-
 #### 3. Depurar
 
 Establece algunos puntos de interrupción en `main.js`, y comienza a depurar en la [Vista de depuración](https://code.visualstudio.com/docs/editor/debugging). Debería ser capaz de golpear los puntos de interrupción.
@@ -84,16 +83,16 @@ $ code electron-quick-start
   ]
 }
 ```
+
 **Configuration Notes**
 
-- `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
-- `${workspaceFolder}` is the full path to Chromium's `src` directory.
-- `your-executable-location` will be one of the following depending on a few items:
-  -  `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  -  `Release`: If you built a Release build rather than a Testing build.
-  -  `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-- The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
-
+* `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
+* `${workspaceFolder}` is the full path to Chromium's `src` directory.
+* `your-executable-location` will be one of the following depending on a few items:
+  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
+  * `Release`: If you built a Release build rather than a Testing build.
+  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
+* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
 
 #### 3. Depurar
 

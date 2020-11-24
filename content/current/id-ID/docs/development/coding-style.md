@@ -48,9 +48,9 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 API electron menggunakan skema kapitalisasi yang sama dengan Node.js:
 
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- Ketika API adalah sebuah properti dari objek, dan cukup kompleks untuk berada di bab terpisah seperti `win.webContents`, menggunakan `mixedCase`.
-- Untuk API bukan-modul lain, menggunakan judul alami, seperti `<webview>Tag` atau `Objek Proses`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* Ketika API adalah sebuah properti dari objek, dan cukup kompleks untuk berada di bab terpisah seperti `win.webContents`, menggunakan `mixedCase`.
+* Untuk API bukan-modul lain, menggunakan judul alami, seperti `<webview>Tag` atau `Objek Proses`.
 
 Saat membuat API baru, lebih disukai menggunakan getter dan setter daripada gaya satu-fungsi jQuery. Sebagai contoh, `.getText()` dan `.setText(text)` lebih diutamakan untuk `.text([text])`. Demikianlah sebuah [diskusi](https://github.com/electron/electron/issues/46) pada hal ini.

@@ -149,7 +149,7 @@ Context isolatie is een Electron functie waarmee ontwikkelaars code kunnen uitvo
 
 Electron gebruikt dezelfde technologie als Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) om dit gedrag in te schakelen.
 
-Zelfs wanneer u `nodeIntegration: false` gebruikt om sterk geïsoleerd te worden en het gebruik van Node primitives te voorkomen `contextIsolatie` moet ook worden gebruikt.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Waarom & Hoe?
 
@@ -438,7 +438,7 @@ Als u geen vensters hoeft te maken naast degene die u kent moet het maken, het u
 
 ### Hoe?
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')

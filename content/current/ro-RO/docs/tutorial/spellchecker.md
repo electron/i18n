@@ -70,4 +70,4 @@ Deși vânzătorul nu trimite nici un tip de înregistrare, cuvinte sau introduc
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Vezi documentele pentru [`sesiune. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) pentru mai multe informații despre unde să obțineți fișierele dicționarului și cum trebuie să le găzduiți.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

@@ -139,7 +139,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches _do_ contain the correct version in their `package.json`
-- Как только выпускная ветка будет перерезана на основной, мастер должен быть доставлен к следующему основному.  То есть `мастер-` всегда версируется в качестве следующей теоретической ветки релиза
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Release branches are never merged back to master
+* Release branches _do_ contain the correct version in their `package.json`
+* Как только выпускная ветка будет перерезана на основной, мастер должен быть доставлен к следующему основному.  То есть `мастер-` всегда версируется в качестве следующей теоретической ветки релиза

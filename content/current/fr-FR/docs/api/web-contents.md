@@ -37,7 +37,7 @@ Retourne `WebContents` - Le contenu web qui est au premier-plan dans cette appli
 
 * `id` Integer
 
-Retourne `WebContents` - Une instance WebContents avec l'ID donné.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Classe : WebContents
 

@@ -96,17 +96,17 @@ Aceasta este pagina web pe care doriți să o afișați odată ce aplicația est
 Pagina `index.html` arată după cum urmează:
 
 ```html
-<! OCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Salutare lume!</title>
+    <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body>
-    <h1>Bună lumea!</h1>
-    Folosim documentul node <script>. rite(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions. hrome)</script>,
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>

@@ -46,6 +46,7 @@ Per le referenze API, ci sono eccezioni a questa regola.
 * Le linee dovrebbero essere fissate ad 80 colonne.
 * Nessun elenco di nidificazione più di 2 livelli (a causa del renderizzatore di riduzione).
 * Tutti i blocchi di codice `js` e `javascript` sono allineati con il [Markdown standard](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Ortografia
 

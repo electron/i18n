@@ -70,4 +70,4 @@ myWindow.webContents.on('context-menu', (event, params) => {
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Погляньте на документацію для [`сесії. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) для отримання додаткової інформації про те, де можна знайти файли словників та як вам потрібно їх зберігати.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

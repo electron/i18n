@@ -2,15 +2,15 @@
 
 ## クイックスタート
 
-Electron は、JavaScript、HTML、CSS でデスクトップアプリケーションを作成できるフレームワークです。 これらのアプリケーションは、macOS、Windows、Linux上で直接実行したり、Mac App StoreまたはMicrosoft Store経由で配布したりすることができます。
+Electron は、JavaScript、HTML、CSS でデスクトップアプリケーションを作成できるフレームワークです。 これらのアプリケーションは、macOS、Windows、Linux 上で直接実行したり、Mac App Store や Microsoft Store 経由で配布したりできます。
 
-通常、各オペレーティングシステム固有のネイティブアプリケーションフレームワークを使用して、オペレーティングシステム(OS)用のデスクトップアプリケーションを作成します。 Electron は、既に知っているテクノロジーを使用してアプリケーションを一度書くことを可能にします。
+一般的には、各オペレーティングシステム (OS) 固有のネイティブアプリケーションフレームワークを使用して、オペレーティングシステム向けのデスクトップアプリケーションを作成します。 Electron では、既知の技術で一度書くだけでアプリケーションを作成できます。
 
 ### 必要な環境
 
-Electron に進む前に、 [Node.js](https://nodejs.org/en/download/) をインストールする必要があります。 最新の `LTS` または `現在の` バージョンのいずれかをインストールすることをお勧めします。
+Electron を進める前に、 [Node.js](https://nodejs.org/en/download/) をインストールする必要があります。 最新の `LTS` または `Current` バージョンのどちらかをインストールすることを推奨します。
 
-> お使いのプラットフォーム用にビルド済みのインストーラを使用して Node.js をインストールしてください。 それ以外の場合、異なる開発ツールとの互換性の問題が発生することがあります。
+> お使いのプラットフォーム向けのビルド済みインストーラを使用して、Node.js をインストールするようにしてください。 さもなくば、他の開発ツールと互換性の問題が発生することがあります。
 
 Node.js が正しくインストールされていることを確認するには、次のコマンドをターミナルクライアントに入力します。
 
@@ -19,11 +19,11 @@ node -v
 npm -v
 ```
 
-コマンドは、Node.js と npm のバージョンを表示する必要があります。 両方のコマンドが成功すると、Electron をインストールする準備ができます。
+このコマンドで、Node.js と npm のバージョンが表示されている必要があります。 両方のコマンドが成功していれば、Electron をインストールする準備は完了です。
 
 ### 基本的なアプリケーションを作成
 
-開発の観点からは、Electron アプリケーションは基本的に Node.js アプリケーションです。 つまり、Electron アプリケーションの出発点は、他の Node.js アプリケーションと同様に `package.json` ファイルになります。 Electron の最小限のアプリケーションには、次のような構造があります。
+開発に関しては、Electron は基本的に Node.js アプリケーションです。 つまり、Electron アプリケーションの出発点は、他の Node.js アプリケーションと同様に `package.json` ファイルになります。 Electron アプリケーションの最小構成は、以下のようになります。
 
 ```plain
 my-electron-app/
@@ -36,7 +36,7 @@ Documentation
 
 #### Install Electron
 
-プロジェクト用のフォルダを作成し、そこに Electron をインストールします:
+プロジェクト用のフォルダを作成し、そこに Electron をインストールします。
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -46,9 +46,9 @@ npm i --save-dev electron
 
 #### メインスクリプトファイルを作成
 
-メインスクリプトは、メインプロセスを実行する Electron アプリケーションのエントリ ポイントを指定します (私たちの場合は `main.js` ファイル)。 通常、Main プロセスで実行されるスクリプトは、アプリケーションのライフサイクルを制御し、グラフィカルユーザーインターフェイスとその要素を表示します。 ネイティブのオペレーティングシステムの相互作用を実行し、Web ページ内で Renderer プロセスを作成します。 Electron アプリケーションには、メインプロセスが 1 つしかありません。
+メインスクリプトに、メインプロセスで実行する Electron アプリケーションのエントリポイント (この場合は `main.js` ファイル) を指定します。 一般的に、メインプロセスで実行されるスクリプトは、アプリケーションのライフサイクル制御、グラフィカルユーザーインターフェースとその要素の表示、ネイティブオペレーティングシステムとのやり取りの実行、ウェブページ内へのレンダラープロセス作成を行います。 Electron アプリケーションは、メインプロセスを 1 つだけ保持できます。
 
-メインスクリプトは以下のようになります:
+メインスクリプトは以下のようになります。
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -81,17 +81,17 @@ app.on('activate', () => {
 })
 ```
 
-##### 何が上に起こっていますか?
+##### 上記は何を行っているのですか?
 
-1. Line 1: First, you import the `app` and `BrowserWindow` modules of the `electron` package to be able to manage your application's lifecycle events, as well as create and control browser windows.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later) and opens Developer Tools (line 13).
-3. 16行目: Electron アプリケーション `` が初期化されると、 [createWindow](../api/app.md#appwhenready) 関数を呼び出すことで、新しいブラウザウィンドウを作成します。
-4. 18行目: ウィンドウが開いていない場合にアプリケーションを終了しようとする新しいリスナーを追加します。 このリスナーは、オペレーティングシステムの [ウィンドウ管理の動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) による、macOS には無制限です。
-5. 24行目: アプリケーションがアクティブ化された後に表示されるウィンドウがない場合にのみ、新しいブラウザウィンドウを作成する新しいリスナーを追加します。 たとえば、アプリケーションを初めて起動した後、または実行中のアプリケーションを再起動します。
+1. 1 行目: まず、`electron` パッケージの `app` と `BrowserWindow` モジュールをインポートして、アプリケーションのライフサイクルイベントを管理したり、ブラウザーウインドウを作成して制御したりできるようにします。
+2. 3 行目: その後、Node インテグレーションを有効にした [新しいブラウザーウインドウ](../api/browser-window.md#new-browserwindowoptions) を作成し、`index.html` ファイルをこのウインドウに読み込み (12行目、このファイルについては後述)、デベロッパー ツールを開く (13行目) という関数を定義します。
+3. 16 行目: Electron アプリケーション `` が初期化されたときに [createWindow](../api/app.md#appwhenready) 関数を呼び出し、新しいブラウザーウインドウを作成します。
+4. 18 行目: 開いたウインドウが無い場合にアプリケーションを終了しようとするリスナーを新規追加します。 このリスナーはオペレーティングシステムの [ウインドウ管理動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) であり、macOS 上では動作しません。
+5. 24 行目: アプリケーションがアクティブにされた後で表示するウインドウがない場合にのみ新しいブラウザーウインドウを作成する、というリスナーを追加します。 例えば、アプリケーションを初めて起動した後や、既に起動しているアプリケーションを再びアクティブした場合などがこれにあたります。
 
-#### Web ページを作成
+#### ウェブページの作成
 
-これは、アプリケーションが初期化されたら表示したいWebページです。 このウェブページはレンダラープロセスを表します。 複数のブラウザウィンドウを作成することができ、各ウィンドウは独自のレンダラーを使用します。 必要に応じて、 `nodeIntegration` 環境設定から Node.js API へのフルアクセス権を付与することができます。
+ここでは、アプリケーションの初期時に表示したいウェブページを作成します。 このウェブページはレンダラープロセスを表します。 複数のブラウザーウインドウを作成でき、各ウィンドウはそれぞれ個別のレンダラーを使用します。 必要に応じて、 `nodeIntegration` の設定から Node.js API へのフルアクセス権限を付与できます。
 
 `index.html` ページは以下のようになります。
 
@@ -103,7 +103,7 @@ app.on('activate', () => {
     <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body>
+<body style="background: white;">
     <h1>Hello World!</h1>
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
@@ -114,7 +114,7 @@ app.on('activate', () => {
 
 #### package.json ファイルの変更
 
-Electron アプリケーションでは、(他のNode.js アプリケーションと同様に) メインエントリポイントとして `package.json` ファイルを使用します。 アプリケーションのメインスクリプトは `main.js`なので、 `package.json` ファイルをそれに応じて変更してください:
+Electron アプリケーションでは、(他の Node.js アプリケーションと同様に) メインエントリポイントとして `package.json` ファイルを使用します。 アプリケーションのメインスクリプトは `main.js` なので、 `package.json` ファイルをそれに応じて以下のように変更します。
 
 ```json
 {
@@ -124,7 +124,7 @@ Electron アプリケーションでは、(他のNode.js アプリケーショ�
 }
 ```
 
-> NOTE: If the `main` field is omitted, Electron will attempt to load an `index.js` file from the directory containing `package.json`.
+> 注意: `main` フィールドを省略した場合、Electron は `package.json` を含むディレクトリにある `index.js` ファイルをロードしようとします。
 
 デフォルトでは、 `npm start` コマンドは Node.js でメインスクリプトを実行します。 Electron でスクリプトを実行するには、以下のように変更する必要があります。
 
@@ -145,7 +145,7 @@ Electron アプリケーションでは、(他のNode.js アプリケーショ�
 npm start
 ```
 
-実行中の Electron アプリは次のようになります:
+実行中の Electron アプリは以下のようになるでしょう。
 
 ![最もシンプルな Electron アプリ](../images/simplest-electron-app.png)
 
@@ -153,7 +153,7 @@ npm start
 
 新しく作成したアプリを配布する最もシンプルで最速の方法は、 [Electron Forge](https://www.electronforge.io) を使用することです。
 
-1. Electron Forge をアプリケーションフォルダにインポート:
+1. Electron Forge をアプリケーションフォルダにインポートします。
 
     ```sh
     npx @electron-forge/cli import
@@ -167,10 +167,10 @@ npm start
 
     We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
-    "electron-forge"をご利用いただきありがとうございます!!!
+    Thanks for using "electron-forge"!!!
     ```
 
-1. 配布可能ファイルを作成:
+1. 頒布形式を作成します。
 
     ```sh
     npm run make
@@ -188,53 +188,53 @@ npm start
     ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
-    Electron フォージは、パッケージが見つかる `out` フォルダを作成します。
+    electron-forge は、パッケージが置かれる `out` フォルダを作成します。
 
     ```plain
     // MacOS の例
     out/
     ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
     ├── ...
-    ├── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
 ## 基本を学ぶ
 
-このセクションでは、Electron がどのように動作するかの基本について説明します。 これは、Quickstart セクションで先に作成された Electron とアプリケーションに関する知識を強化することを目的としています。
+このセクションでは、Electron がどのように動作するかの基本について説明します。 クイックスタートの章で先に作成した Electron とアプリケーションに関する知識を強化するのが目的です。
 
-### アプリケーションのアーキテクチャ
+### アプリケーションアーキテクチャ
 
 Electron は、3 つの柱で構成されています。
 
-* **Webコンテンツを表示するためのChromium**。
-* **ローカルファイルシステムとオペレーティングシステムを扱うNode.js**。
-* **頻繁に必要な OS ネイティブ関数を扱うためのカスタム API**。
+* ウェブコンテンツを表示する **Chromium**。
+* ローカルファイルシステムとオペレーティングシステムを扱う **Node.js**。
+* しばしば必要な OS ネイティブの関数を扱う **カスタム API**。
 
-Electron とアプリケーションを開発することは、Web インターフェイスを使用した Node.js アプリの構築や、シームレスな Node.js 統合による Web ページの構築と同じです。
+Electron を使ってアプリケーションを開発することは、ウェブインターフェースを使って Node.js アプリを構築したり、シームレスな Node.js インテグレーションでウェブページを構築したりするようなものです。
 
 #### メインプロセスとレンダラープロセス
 
-前述したように、Electron には、Main と Renderer という 2 種類のプロセスがあります。
+前述したように、Electron にはメインとレンダラーという 2 種類のプロセスがあります。
 
-* メインプロセス **は、** BrowserWindow `インスタンスを作成することで` ウェブページを作成します。 各 `BrowserWindow` インスタンスはレンダラープロセスで Web ページを実行します。 `BrowserWindow` インスタンスが破壊されると、対応する Renderer プロセスも終了します。
-* メイン プロセス **は** すべての Web ページとそれに対応する Renderer プロセスを管理します。
-
-----
-
-* レンダラープロセス **は** 対応するウェブページのみを管理します。 1つのレンダラープロセスでクラッシュした場合、他のレンダラープロセスには影響しません。
-* Renderer プロセス **は** と IPC 経由で Main プロセスと通信し、Web ページで GUI 操作を実行します。 レンダラープロセスからネイティブ GUI 関連の API を直接呼び出すことは、セキュリティ上の懸念と潜在的なリソースの漏洩が原因で制限されます。
+* メインプロセスは、`BrowserWindow` インスタンスを **作成** することでウェブページを作成します。 各 `BrowserWindow` インスタンスはレンダラープロセスで Web ページを実行します。 `BrowserWindow` インスタンスが破棄されると、対応するレンダラープロセスも終了します。
+* メインプロセスはすべてのウェブページとそれに対応するレンダラープロセスを **管理** します。
 
 ----
 
-プロセス間の通信は、プロセス間通信 (IPC) モジュールを介して可能です: [`ipcMain`](../api/ipc-main.md) と [`ipcRenderer`](../api/ipc-renderer.md).
+* レンダラープロセスは対応するウェブページのみを **管理** します。 レンダラープロセス 1 つがクラッシュしても、他のレンダラープロセスには影響しません。
+* レンダラープロセスは IPC 経由でメインプロセスと **通信**し、ウェブページ内の GUI 操作を実行します。 レンダラープロセスから直接ネイティブ GUI 関連の API を呼び出すことは、セキュリティ上の懸念やリソース漏洩の可能性のために制限されています。
+
+----
+
+プロセス間通信は、[`ipcMain`](../api/ipc-main.md) と [`ipcRenderer`](../api/ipc-renderer.md) の IPC (Inter-Process Communication) モジュールを介して行うことができます。
 
 #### API
 
 ##### Electron API
 
-Electron API は、プロセスタイプに基づいて割り当てられます。 つまり、いくつかのモジュールは、MainプロセスまたはRendererプロセスのいずれかと、両方から使用することができます。 Electron の API ドキュメントには、各モジュールを使用できるプロセスが示されています。
+Electron API はプロセスの種類に基づいて割り当てられます。つまり、メインプロセスとレンダラープロセスのどちらかでのみ使用できるモジュールもあれば、両方からでも使用できるモジュールもあります。 Electron の API ドキュメントには、各モジュールを使用できるプロセスが示されています。
 
-たとえば、両方のプロセスで Electron API にアクセスするには、その含まれているモジュールが必要です:
+例えば、両方のプロセスにおいて Electron API にアクセスする際は、同梱のモジュールを require します。
 
 ```js
 const electron = require('electron')
@@ -247,7 +247,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-レンダラーからメインプロセスを呼び出すには、IPCモジュールを使用します。
+レンダラープロセスからメインプロセスを呼び出すには、IPC モジュールを使用します。
 
 ```js
 // メインプロセス
@@ -265,11 +265,11 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('perform-action', ...args)
 ```
 
-> 注意: レンダラープロセスは信頼できないコード(特に第三者から)を実行する可能性があるためです。 メインプロセスに来るリクエストを慎重に検証することが重要です。
+> 注意: レンダラープロセスは信頼されていない (特にサードパーティからの) コードを実行する可能性があるため、メインプロセスに送られるリクエストは慎重に検証することが重要です。
 
 ##### Node.js API
 
-> 注意: Renderer プロセスから Node.js API にアクセスするには、 `nodeIntegration` を `true` に設定する必要があります。
+> 注意: レンダラープロセスから Node.js API にアクセスするには、`nodeIntegration` の設定を `true` にする必要があります。
 
 Electron は Node.js API とそのモジュールへのフルアクセスをメインおよびレンダラープロセスの両方で公開します。 たとえば、ルートディレクトリからすべてのファイルを読み込むことができます。
 
@@ -281,13 +281,13 @@ const root = fs.readdirSync('/')
 console.log(root)
 ```
 
-Node.js モジュールを使用するには、まず依存関係としてインストールする必要があります。
+Node.js のモジュールを使用するには、まず依存関係としてそれをインストールする必要があります。
 
 ```sh
 npm install --save aws-sdk
 ```
 
-次に、Electron アプリケーションでは、モジュールが必要です:
+そして、Electron アプリケーションでそのモジュールを require します。
 
 ```js
 const S3 = require('aws-sdk/clients/s3')

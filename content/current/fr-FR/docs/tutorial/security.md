@@ -162,7 +162,7 @@ L'isolement du contexte est une fonctionnalité d'Electron qui permet aux dével
 
 L'électron utilise la même technologie que le chrome [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) pour permettre ce comportement.
 
-Même lorsque vous utilisez `nodeIntegration: false` pour imposer une isolation forte et empêcher l'utilisation des primitives de Node, `contextIsolation` doit également être utilisé.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Pourquoi & Comment ?
 
@@ -500,7 +500,7 @@ Si vous n'avez pas besoin de créer des fenêtres en plus de celles que vous sav
 
 ### Comment ?
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 
 

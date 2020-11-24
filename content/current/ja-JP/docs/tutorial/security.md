@@ -144,7 +144,7 @@ window.readConfig = function () {
 
 Electron は Chromium の [コンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) と同じ技術を使用してこの動作を可能にしています。
 
-`nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### なぜ & 方法を？
 
@@ -432,18 +432,18 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー](../api/web-contents.md#contentssetwindowopenhandlerhandler) に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
   contents.setWindowOpenHandler(({ url }) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+    // この例では、既定のブラウザでこのイベントのURLを開くように
+    // オペレーティングシステムに依頼します。
     //
-    // See the following item for considerations regarding what
-    // URLs should be allowed through to shell.openExternal.
+    // shell.openExternal に渡す URL を許可する基準ついては、
+    // 以降の項目を参照してください。
     if (isSafeForExternalOpen(url)) {
       setImmediate(() => {
         shell.openExternal(url)
@@ -461,7 +461,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### なぜ？
 
-[`openExternal`](../api/shell.md#shellopenexternalurl-options) を不適切に使用することで、ユーザのホスト を危険にさらすことができます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
+[`openExternal`](../api/shell.md#shellopenexternalurl-options) の不適切な利用によって、そのユーザーのホストを危険に曝す可能性があります。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
 
 ### どうすればいいの？
 
@@ -494,7 +494,7 @@ shell.openExternal('https://example.com/index.html')
 ### どうすればいいの？
 
 ```js
-// Bad if the renderer can run untrusted content
+// レンダラーが信頼されていないコンテンツを実行してしまうと Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: true
@@ -514,7 +514,7 @@ const mainWindow = new BrowserWindow({
 ```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+> **注:** `enableRemoteModule` のデフォルト値は、Electron 10 から `false` になっています。 それ以前のバージョンでは、上記の方法で `remote` モジュールを明示的に無効にする必要があります。
 
 ## 16) `remote` モジュールをフィルタ
 

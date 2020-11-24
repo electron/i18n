@@ -157,7 +157,6 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
 | Windows x64 | Windows x86   | Automáticamente probado |
 | Linux x64   | Linux x86     | Automáticamente probado |
 
-
 Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
 
 Ver la referencia GN para valores permitidos de [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) y [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).

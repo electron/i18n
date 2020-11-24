@@ -46,6 +46,7 @@ Electron 說明文件撰寫指導方針。
 * 一行長度以 80 個半形字元為限，超過請換行。
 * 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
 * 所有的 `js` 及 `javascript` 程式碼區塊都由 [standard-markdown](https://www.npmjs.com/package/standard-markdown) lint 過。
+* For unordered lists, use asterisks instead of dashes
 
 ## 用詞
 

@@ -70,4 +70,4 @@ Přestože samotná kontrola pravopisu neodesílá žádné typy, Slova nebo vst
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Podívejte se na dokumentaci pro [`relaci. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) pro více informací o tom, kde získat slovníkové soubory a jak je potřebujete hostovat.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

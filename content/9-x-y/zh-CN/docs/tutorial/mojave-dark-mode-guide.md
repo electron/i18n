@@ -1,6 +1,6 @@
 # 支持 macOS 深色模式
 
-在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。  If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
+在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。  如果你的ElectronAPP有深色模式，你可以使用[这个 `nativeTheme` Api](../api/native-theme.md)让它跟随系统层面的深色模式设定
 
 在 macOS 10.15 Catalina 中，苹果为所有macOS电脑引入了一个新的“自动”暗色模式选项。 为了 `本土主题。 houldUseDarkColors` and `托盘` APIs 需要在这种模式下正常工作于 Catalina, 您需要有 `NSRequiresAquaSystem外观` 设置为 `false` 在您的 `信息中。 邮件列表` 文件或在 Electron `>=7.0.0` Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
 

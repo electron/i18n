@@ -161,9 +161,9 @@ packer(
 
 你可以运用许多方式来签署你的应用：
 
-- [`electron-winstaller`] 将生成一个窗口安装程序并为您签名
-- [`electron-forge`] 可以签署它通过 Squirel.Windows 或 MSI目标生成的安装程序。
-- [`electron-builder`] 能签署一些windows安装包。
+* [`electron-winstaller`] 将生成一个窗口安装程序并为您签名
+* [`electron-forge`] 可以签署它通过 Squirel.Windows 或 MSI目标生成的安装程序。
+* [`electron-builder`] 能签署一些windows安装包。
 
 ## Windows Store
 

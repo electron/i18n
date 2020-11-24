@@ -6,11 +6,11 @@
 
 В этом документе используется следующее соглашение для классификации критических изменений:
 
-- **Изменение API:** API был изменен таким образом, что код, который не был обновлен, гарантировано бросит исключение.
-- **Изменение поведения:** Поведение Electron было изменено, но не обязательно появление исключений.
-- **Изменено значение по-умолчанию:** Код, работа которого зависит от старого значения по-умолчанию, может сломаться, не обязательно кидая исключение. Старое поведение можно восстановить, если явно указать значение.
-- **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
-- **Удалено:** API или функция была удалена и больше не поддерживается Electron.
+* **Изменение API:** API был изменен таким образом, что код, который не был обновлен, гарантировано бросит исключение.
+* **Изменение поведения:** Поведение Electron было изменено, но не обязательно появление исключений.
+* **Изменено значение по-умолчанию:** Код, работа которого зависит от старого значения по-умолчанию, может сломаться, не обязательно кидая исключение. Старое поведение можно восстановить, если явно указать значение.
+* **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
+* **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
 ## Запланированные критические изменения API (13.0)
 
@@ -43,12 +43,12 @@ Chromium удалил поддержку Flash, и поэтому мы долж�
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-- `Отчет об ошибке.старте`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `вылетать Reporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `Отчет об ошибке.старте`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `вылетать Reporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
 
@@ -90,7 +90,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Запланированные критические изменения API (11.0)
 
-Не запланировано никаких изменений для 11.0.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Запланированные критические изменения API (10.0)
 
@@ -120,12 +124,12 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-- `Отчет об ошибке.старте`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `вылетать Reporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `Отчет об ошибке.старте`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `вылетать Reporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
@@ -158,6 +162,7 @@ const w = new BrowserWindow({
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
@@ -170,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
@@ -245,7 +259,7 @@ API `shell.openItem` был заменен асинхронной командо
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
 // Previously:
@@ -257,14 +271,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-- `BigInt` values will be correctly serialized, instead of being converted to `null`.
-- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
@@ -397,7 +411,7 @@ folder
 path/to/folder
 ```
 
-В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+В Electron 7 теперь возвращает `FileList` с объектом `File` для:
 
 ```console
 /path/to/folder/file3
@@ -405,7 +419,7 @@ path/to/folder
 /path/to/folder/file1
 ```
 
-Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Обратите внимание, что `webkitdirectory` больше не открывает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 

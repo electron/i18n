@@ -27,6 +27,6 @@ Pentru mai multe informații, a se vedea [Debugging the Main Process documentati
 
 `DevTools a fost deconectat de la pagină. Odată reîncărcată pagina, DevTools se vor reconecta automat.`
 
-Jurnalele de crom pot fi activate prin intermediul variabilei `ELECTRON_ENABLE_LOGGING`. Pentru mai multe informații, a se vedea [documentația variabilelor de mediu](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Jurnalele de crom pot fi activate prin intermediul variabilei `ELECTRON_ENABLE_LOGGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Alternativ, argumentul liniei de comandă `--active-logging` poate fi pasat. Mai multe informații sunt disponibile în [linia de comandă schimbă documentația](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Alternativ, argumentul liniei de comandă `--active-logging` poate fi pasat. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

@@ -1,4 +1,4 @@
-# SpellChecker
+# スペルチェッカー
 
 Electron 8 以降、Electron は Chromium のスペルチェッカーを内蔵しています。  WindowsとLinuxではHunspell辞書が搭載されており、macOSではネイティブのspellchecker APIが使用されています。
 
@@ -21,10 +21,10 @@ macOS ではネイティブ API を使用しているため、スペルチェッ
 Windows および Linux の場合、スペルチェッカーの言語を設定するために使用すべきいくつかの Electron API があります。
 
 ```js
-// Sets the spellchecker to check English US and French
+// アメリカ英語とフランス語のチェックする
 myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
+// 利用できる言語コードの配列
 const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
@@ -40,7 +40,7 @@ const { Menu, MenuItem } = require('electron')
 myWindow.webContents.on('context-menu', (event, params) => {
   const menu = new Menu()
 
-  // Add each spelling suggestion
+  // スペルの補完をそれぞれ追加します
   for (const suggestion of params.dictionarySuggestions) {
     menu.append(new MenuItem({
       label: suggestion,
@@ -48,7 +48,7 @@ myWindow.webContents.on('context-menu', (event, params) => {
     }))
   }
 
-  // Allow users to add the misspelled word to the dictionary
+  // ユーザーがスペルミスの単語を辞書に登録できるようにします
   if (params.misspelledWord) {
     menu.append(
       new MenuItem({
@@ -70,4 +70,4 @@ myWindow.webContents.on('context-menu', (event, params) => {
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+辞書ファイルの取得場所や、ホストするにあたって必要な事項についての詳細な情報は、[`session.setSpellCheckerDictionaryDownloadURL` のドキュメントを確認してください](../api/session.md#sessetspellcheckerdictionarydownloadurlurl)。

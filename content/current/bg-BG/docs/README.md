@@ -10,29 +10,22 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Ръководства и уроци
 
-* [Създаване на среда за разработка](tutorial/development-environment.md)
-  * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Настройване при Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Избор на редактор](tutorial/development-environment.md#a-good-editor)
-* [Създаване на вашето първо приложение](tutorial/quick-start.md)
+### Quickstart
+
+* [Quick Start Guide](tutorial/quick-start.md)
   * [Prerequisites](tutorial/quick-start.md#prerequisites)
   * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
+  * [Run your application](tutorial/quick-start.md#run-your-application)
   * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
-* [Шаблони и CLI](tutorial/boilerplates-and-clis.md)
-  * [Шаблон срещу CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Други инструменти и шаблони](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Архитектура на приложението](tutorial/quick-start.md#application-architecture)
+
+### Learning the basics
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
   * [Основен и Рендериращ процес](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
-  * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
 * Добавяне на функции към вашето приложение
-  * [Известия](tutorial/notifications.md)
+  * [Notifications](tutorial/notifications.md)
   * [Последни документи](tutorial/recent-documents.md)
   * [Прогрес на приложението](tutorial/progress-bar.md)
   * [Потребителско док меню](tutorial/macos-dock.md)
@@ -40,17 +33,28 @@ There are questions that are asked quite often. Check this out before creating a
   * [Потребителски настолни действия при Linux](tutorial/linux-desktop-actions.md)
   * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
   * [Offline/Online откриване](tutorial/online-offline-events.md)
-  * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
-  * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [Dark Mode](tutorial/dark-mode.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
+* [Шаблони и CLI](tutorial/boilerplates-and-clis.md)
+  * [Шаблон срещу CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Други инструменти и шаблони](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* Архитектура на приложението
+  * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [Accessibility](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [5256783105227699](tutorial/application-debugging.md)
-  * [Отстраняване на грешк](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -62,11 +66,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Сигурност](tutorial/security.md)
-  * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
-  * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
-  * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
 * [5256783105227699](tutorial/updates.md)
   * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
@@ -97,10 +96,10 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Функционална документация
 
-* [บทย่อ](api/synopsis.md)
+* [Обзор](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
-* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
+* [Променливи на средата](api/environment-variables.md)
 * [Chrome Extensions Support](api/extensions.md)
 * [5256783105227699](breaking-changes.md)
 

@@ -96,18 +96,18 @@ app.on('activate', () => {
 Страница `index.html` выглядит следующим образом:
 
 ```html
-<! OCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Приветствуем мир!</title>
+    <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
-<body>
-    <h1>Привет мир!</h1>
-    Мы используем документ узла <script>. rite(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions. hrome)</script>,
-    и Electron <script>document.write(process.versions.electron)</script>.
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
 </body>
 </html>
 ```

@@ -157,7 +157,6 @@ Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지�
 | Windows x64 | Windows x86   | Automatically tested |
 | Linux x64   | Linux x86     | Automatically tested |
 
-
 If you test other combinations and find them to work, please update this document :)
 
 See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).

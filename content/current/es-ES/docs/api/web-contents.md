@@ -37,7 +37,7 @@ Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo
 
 * `id` Íntegro
 
-Devuelve `WebContents` - Una instancia de WebContents con el ID especificado.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Clase: ContenidoWeb
 

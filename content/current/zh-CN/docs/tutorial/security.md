@@ -143,7 +143,7 @@ window.readConfig = function () {
 
 Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)技术来开启这个行为。
 
-即使您使用选项 `nodeIntegration: false` 进行强制隔离并防止其使用Node原语，`contextIsolation` 也必须被启用。
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### 为什么 & 如何?
 
@@ -431,7 +431,7 @@ app.on('web-contents-created', (evidences, contents) => format@@
 
 ### 怎么做？
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')

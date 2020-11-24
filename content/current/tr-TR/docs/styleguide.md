@@ -46,6 +46,7 @@ API referansları için bazı istisnalar mevcut.
 * Satırlar 80. karakterde bitmelidir.
 * İç içe listeleri 2'den fazla kademeyi listelemez (indirim işleyici nedeniyle).
 * Tüm `js` ve `javascript` kod blokları [standard-markdown](https://www.npmjs.com/package/standard-markdown) ile kontrol edilir.
+* For unordered lists, use asterisks instead of dashes
 
 ## Kelime seçimi
 

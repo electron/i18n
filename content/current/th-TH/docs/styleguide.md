@@ -47,9 +47,11 @@ Para referencias API, hay excepciones para esta regla.
 * ไม่มีรายการซ้อนกันมากกว่า 2 ระดับ (เนื่องจากตัวเรนเดอร์ markdown)
 * บล็อคโค้ด ` js ` และ ` javascript ` ทั้งหมดจะถูกขื่อด้วย
 
- มาตรฐาน markdown </ 1></li> </ul> 
+ มาตรฐาน markdown </ 1></p></li> 
   
-  
+  * For unordered lists, use asterisks instead of dashes</ul> 
+
+
 
 ## การเลือกคำ
 

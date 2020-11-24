@@ -6,11 +6,11 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 Dieses Dokument verwendet die folgende Konvention um die Änderungen zu kategorisieren:
 
-- **API geändert:** Eine API wurde so geändert, dass Code, der nicht aktualisiert wurde, garantiert eine Ausnahme wirft.
-- **Verhalten geändert:** Das Verhalten von Electron hat sich geändert, aber nicht so, dass eine Ausnahme unbedingt geworfen wird.
-- **Standard geändert:** Code abhängig von der alten Standardeinstellung kann kaputt gehen und wirft nicht notwendigerweise eine Ausnahme. Das alte Verhalten kann durch explizite Angabe des Wertes wiederhergestellt werden.
-- **Veraltet:** Eine API wurde als veraltet markiert. Die API wird weiterhin funktionieren, sendet aber eine Deprecation-Warnung aus und wird in einer zukünftigen Version entfernt.
-- **Entfernt:** Eine API oder Funktion wurde entfernt und wird von Electron nicht mehr unterstützt.
+* **API geändert:** Eine API wurde so geändert, dass Code, der nicht aktualisiert wurde, garantiert eine Ausnahme wirft.
+* **Verhalten geändert:** Das Verhalten von Electron hat sich geändert, aber nicht so, dass eine Ausnahme unbedingt geworfen wird.
+* **Standard geändert:** Code abhängig von der alten Standardeinstellung kann kaputt gehen und wirft nicht notwendigerweise eine Ausnahme. Das alte Verhalten kann durch explizite Angabe des Wertes wiederhergestellt werden.
+* **Veraltet:** Eine API wurde als veraltet markiert. Die API wird weiterhin funktionieren, sendet aber eine Deprecation-Warnung aus und wird in einer zukünftigen Version entfernt.
+* **Entfernt:** Eine API oder Funktion wurde entfernt und wird von Electron nicht mehr unterstützt.
 
 ## Geplante Bruch-API-Änderungen (13.0)
 
@@ -43,12 +43,12 @@ Für weitere Details siehe https://github.com/electron/electron/issues/23506
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
 
@@ -90,7 +90,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Planned Breaking API Changes (11.0)
 
-Es sind keine Änderungen für 11.0 geplant.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Geplante API-Änderungen (10.0)
 
@@ -120,12 +124,12 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
@@ -158,6 +162,7 @@ const w = new BrowserWindow({
 Wir [empfehlen Ihnen, sich vom Remote- Modul](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31) zu entfernen.
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
@@ -170,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
@@ -215,7 +229,7 @@ Nähere Informationen finden Sie unter [#18397](https://github.com/electron/elec
 
 ### Entfernt: `<webview>.getWebContents()`
 
-Diese API, die seit Electron 8.0 veraltet ist, wird nun entfernt.
+Diese API, die in Electron 8.0 veraltet war, wird nun entfernt.
 
 ```js
 // In Electron 9.0 entfernt
@@ -227,7 +241,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Entfernt: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. Die Funktion wurde in Electron 8.x veraltet und in Electron 9.x entfernt. Die Layout-Zoomgrenzen sind jetzt auf ein Minimum von 0 festgelegt. 5 und ein Maximum von 5.0, wie definiert [hier](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. Die Funktion wurde in Electron 8.x veraltet und in Electron 9.x entfernt. Die Layout-Zoomgrenzen sind jetzt auf ein Minimum von 0 festgelegt. 5 und ein Maximum von 5.0, wie definiert [hier](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Verhalten geändert: Das Senden von Nicht-JS-Objekten über IPC wirft jetzt eine Ausnahme
 
@@ -245,7 +259,7 @@ Die `shell.openItem` API wurde durch eine asynchrone `shell.openPath` API ersetz
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
 // Previously:
@@ -257,14 +271,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-- `BigInt` values will be correctly serialized, instead of being converted to `null`.
-- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
@@ -314,7 +328,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Veraltet: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Planned Breaking API Changes (7.0)
 

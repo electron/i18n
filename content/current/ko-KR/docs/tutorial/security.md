@@ -177,7 +177,7 @@ window.readConfig = function () {
 
 Electron은 크로니움의 [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)와 같은 기술을 사용하여 이러한 동작을 가능하게 합니다.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 
 
@@ -577,7 +577,7 @@ If you have no need to create windows in addition to the ones you know you'll ne
 
 ### 어떻게 하나요?
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 
 

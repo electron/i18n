@@ -27,6 +27,6 @@ Als de V8 context crasht, dan toont de DevTools dit bericht.
 
 `DevTools is losgekoppeld van de pagina. Zodra pagina opnieuw is geladen, wordt DevTools automatisch opnieuw verbonden.`
 
-Chromium logs kunnen worden ingeschakeld via de `ELECTRON_ENABLE_LOGGING` omgevingsvariabele. Zie voor meer informatie de [omgevingsvariabelen documentatie](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium logs kunnen worden ingeschakeld via de `ELECTRON_ENABLE_LOGGING` omgevingsvariabele. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Als alternatief kan het opdrachtlijnargument `--enable-logging` worden doorgegeven. Meer informatie is beschikbaar in de [opdrachtregelschakelaars documentatie](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Als alternatief kan het opdrachtlijnargument `--enable-logging` worden doorgegeven. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

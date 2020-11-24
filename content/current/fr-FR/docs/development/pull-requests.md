@@ -34,9 +34,9 @@ $ git fetch upstream
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Construire sous Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Construire sous Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [Construire sous Linux](build-instructions-linux.md)
+* [Construire sous Windows](build-instructions-windows.md)
 
 Dès que le projet est construit, vous pouvez apporter des modifications !
 
@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 Penser à lancer régulièrement `npm run lint` après chaque évolution du code, pour en garantir la conformité de style du projet.
 
-Voir [coding style](https://electronjs.org/docs/development/coding-style) pour plus d'informations sur les meilleurs usages lors de modification de code dans les différentes parties du projet.
+Voir [coding style](coding-style.md) pour plus d'informations sur les meilleurs usages lors de modification de code dans les différentes parties du projet.
 
 ### Étape 5 : modifications
 
@@ -77,28 +77,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
 1. La première ligne doit :
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
 2. Garder vide la deuxième ligne.
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
 
@@ -121,7 +121,7 @@ Cela garanti à votre branche de contenir les derniers changements du master de 
 
 ### Étape 7 : Tester
 
-Corrections et fonctionnalités doivent toujours être accompagnées de tests. Un [guide du test](https://electronjs.org/docs/development/testing) est fourni pour rendre le travail plus facile. S'inspirer d'autres tests peut aussi aider.
+Corrections et fonctionnalités doivent toujours être accompagnées de tests. Un [guide du test](testing.md) est fourni pour rendre le travail plus facile. S'inspirer d'autres tests peut aussi aider.
 
 Exécutez toujours la suite de tests complète avant de soumettre une contribution. Pour exécuter les tests:
 

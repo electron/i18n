@@ -1,5 +1,5 @@
 ---
-title: Obsługa Krzemu Apple
+title: Obsługa Apple Silicon
 author: MarshallOfSound
 date: '2020-10-15'
 ---
@@ -8,11 +8,11 @@ Sprzęt Apple Silicon zostanie wydany w tym roku, Jak wygląda ścieżka, aby ap
 
 ---
 
-Z wydaniem Electron 11.0.0-beta. , Zespół Electron jest teraz wysyłką wersji Electrona, która działa na nowym urządzeniu Apple Silicon, który Apple planuje wysyłać w późniejszym terminie tego roku. Możesz pobrać najnowszą wersję beta z `npm install electron@beta` lub pobrać ją bezpośrednio z naszej [wersji](https://electronjs.org/releases/stable).
+Z wydaniem Electron 11.0.0-beta. 1, zespół Electron dostarcza już wersje, które działają na nowym urządzeniu Apple Silicon, który Apple planuje wydać później w tym roku. Możesz pobrać najnowszą wersję beta z `npm install electron@beta` lub pobrać ją bezpośrednio z naszej [wersji](https://electronjs.org/releases/stable).
 
 ## Jak to działa?
 
-Od Electron 11 będziemy wysyłać oddzielne wersje Electron dla Intel Macs i Apple Silicon Mac. Przed tą zmianą wysyłaliśmy już dwa artefakty: `darwin-x64` i `mas-x64`, przy użyciu aplikacji Mac App Store. Wysyłamy teraz kolejne dwie artefakty, `darwin-arm64` i `mas-arm64`, które są odpowiednikami Krzemu Apple dla wyżej wymienionych artefaktów.
+Od Electron 11 będziemy dostarczać oddzielne wersje Electron dla Maców opartych na procesorach Intela i Maców Apple Silicon. Przed tą zmianą dostarczyliśmy już dwa artefakty: `darwin-x64` i `mas-x64` - druga jest kompatybilna z Mac App Store. Wysyłamy teraz kolejne dwie artefakty, `darwin-arm64` i `mas-arm64`, które są odpowiednikami Apple Silicon dla wyżej wymienionych artefaktów.
 
 ## Co muszę zrobić?
 
@@ -38,7 +38,7 @@ W wyniku tych wymagań wersji zależności, być może będziesz musiał naprawi
 
 ## Jak to sprawdzić?
 
-Obecnie aplikacje Apple Silicon działają tylko na sprzęcie Apple Silicon, który nie jest dostępny na rynku w momencie pisania tego wpisu na blogu. Jeśli masz [Zestaw Transition Programista](https://developer.apple.com/programs/universal/), możesz przetestować swoją aplikację. W przeciwnym razie będziesz musiał poczekać na wydanie produkcyjnego sprzętu Apple Krzemowy, aby przetestować, czy aplikacja działa.
+Obecnie aplikacje Apple Silicon działają tylko na sprzęcie Apple Silicon, który nie jest dostępny na rynku w momencie pisania tego wpisu na blogu. Jeśli masz [Zestaw Transition Programista](https://developer.apple.com/programs/universal/), możesz przetestować swoją aplikację. W przeciwnym razie będziesz musiał poczekać na wydanie produkcyjnego sprzętu Apple Silicon, aby przetestować, czy aplikacja działa.
 
 ## Co z Rosetta 2?
 

@@ -158,7 +158,6 @@ Nicht alle Kombinationen von Quell- und Ziel-Prozessor/Betriebssystem werden von
 | Windows x64 | Windows x86   | Automatisch getestet |
 | Linux x64   | Linux x86     | Automatisch getestet |
 
-
 Wenn Sie andere Kombinationen testen und diese funktionieren aktualisieren Sie bitte dieses Dokument :)
 
 Siehe GN-Referenz für zulässige Werte von [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) und [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).

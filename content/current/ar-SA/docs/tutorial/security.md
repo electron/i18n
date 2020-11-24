@@ -144,7 +144,7 @@ window.readConfig = function () {
 
 يستخدم إلكترون نفس التكنولوجيا مثل برامج كروموم [لمحتوى البرامج البرمجية](https://developer.chrome.com/extensions/content_scripts#execution-environment) لتمكين هذا السلوك.
 
-حتى عندما تستخدم `تكميل العقدة: خاطئ` لفرض العزلة القوية و منع استخدام بدائيات العقدة ، `يجب أيضا استخدام العزلة السياقية`.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### لماذا & كيف؟
 
@@ -432,7 +432,7 @@ Much like navigation, the creation of new `webContents` is a common attack vecto
 
 ### كيف؟
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandler-handler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')

@@ -34,9 +34,9 @@ $ git fetch upstream
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [在 Linux 上构建](https://electronjs.org/docs/development/build-instructions-linux)
-* [在 Windows 上构建](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [在 Linux 上构建](build-instructions-linux.md)
+* [在 Windows 上构建](build-instructions-windows.md)
 
 一旦您在本地构建了项目, 就可以开始进行更改了!
 
@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 请确保都运行 ` npm run lint ` 在任何代码更改后, 以确保它们遵循项目的代码样式。
 
-在项目的不同部分修改代码时, 有关最佳实践的更多信息, 请参见 [ 编码样式 ](https://electronjs.org/docs/development/coding-style)。
+在项目的不同部分修改代码时, 有关最佳实践的更多信息, 请参见 [ 编码样式 ](coding-style.md)。
 
 ### 步骤5: 提交更改
 
@@ -77,28 +77,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 带有语义化前缀的提交信息的样例：
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient 现在在Linux可用`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient 现在在Linux可用`
 
 常见前缀：
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 其他在写提交信息时需要留意的事情：
 
 1. 第一行应该:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
 2. 将第二行留空。
 3. 每行文字在72列处换行。
 
@@ -121,7 +121,7 @@ $ git rebase upstream/master
 
 ### 步骤7: 测试
 
-Bug 修复和功能应始终与测试一起进行。 提供了 [ 测试指南 ](https://electronjs.org/docs/development/testing) 使流程更容易。 看其他测试, 看看它们应该如何结构化也会有帮助。
+Bug 修复和功能应始终与测试一起进行。 提供了 [ 测试指南 ](testing.md) 使流程更容易。 看其他测试, 看看它们应该如何结构化也会有帮助。
 
 当提交您的改变到合并代码请求前, 请始终运行完整的测试套件。 运行测试:
 

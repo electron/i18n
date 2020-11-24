@@ -143,7 +143,7 @@ Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırma
 
 <h1 spaces-before="0">Versioned <code>master`</h1>
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Serbest branşlar asla ustaya birleştirilmez
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Serbest branşlar asla ustaya birleştirilmez
+* Release branches _do_ contain the correct version in their `package.json`
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

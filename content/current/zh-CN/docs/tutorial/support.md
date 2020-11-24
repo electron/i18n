@@ -6,21 +6,21 @@
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` Freenode上的频道
-- `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
-- [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
-- [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
-- [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
-- [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
-- [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#atom-shell` Freenode上的频道
+* `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
+* [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
+* [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
+* [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
+* [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
+* [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
 如果你有意为加入Electron的开发，可参阅[贡献文档](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
 
@@ -40,9 +40,9 @@
 
 ### 当前支持的版本
 
-- 11.x.y
-- 10.x.y
-- 9.x.y
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### 服务终止
 

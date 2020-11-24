@@ -100,9 +100,9 @@ procedure kon niet gevonden worden`, het kan betekenen dat de module die je prob
 
 Het is met name belangrijk dat:
 
-- je linkt tegen `node.lib` van _Electron_ en niet node. Als je tegen de verkeerde `node.lib` linkt, krijg je load-time fouten wanneer je de module in Electron nodig hebt.
-- je vermeldt de vlag `/DELAYLOAD:node.exe`. Indien het `knooppunt. Bijl` link is niet vertraagd dan krijgt de delay-load hook geen kans om te schieten en de symbolen van node zullen niet correct worden opgelost.
-- `win_delay_load_hook.obj` is direct gekoppeld aan de uiteindelijke DLL. Als de haak is ingesteld in een afhankelijke DLL, zal het niet op het juiste moment schieten.
+* je linkt tegen `node.lib` van _Electron_ en niet node. Als je tegen de verkeerde `node.lib` linkt, krijg je load-time fouten wanneer je de module in Electron nodig hebt.
+* je vermeldt de vlag `/DELAYLOAD:node.exe`. Indien het `knooppunt. Bijl` link is niet vertraagd dan krijgt de delay-load hook geen kans om te schieten en de symbolen van node zullen niet correct worden opgelost.
+* `win_delay_load_hook.obj` is direct gekoppeld aan de uiteindelijke DLL. Als de haak is ingesteld in een afhankelijke DLL, zal het niet op het juiste moment schieten.
 
 Zie [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) voor een voorbeeld vertragingenshook als je eigen implementeert.
 

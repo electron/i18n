@@ -101,9 +101,9 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 尤其重要的是：
 
-- 您链接了 `node.lib` 来自 _Electron_ 而不是节点。 如果您链接到 错误的 `node.lib` 当您需要 Electron 中的 模块时，您将会遇到加载时间错误。
-- 您包含标志 `/DELAYLOAD:node.exe`。 If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` 直接连接到最终的 DLL。 如果钩子 设置在依赖的 DLL 中，它不会在适当的时候开火。
+* 您链接了 `node.lib` 来自 _Electron_ 而不是节点。 如果您链接到 错误的 `node.lib` 当您需要 Electron 中的 模块时，您将会遇到加载时间错误。
+* 您包含标志 `/DELAYLOAD:node.exe`。 If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
+* `win_delay_load_hook.obj` 直接连接到最终的 DLL。 如果钩子 设置在依赖的 DLL 中，它不会在适当的时候开火。
 
 请参阅 [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) 以示例显示延迟载荷钩，如果您正在执行自己的操作。
 

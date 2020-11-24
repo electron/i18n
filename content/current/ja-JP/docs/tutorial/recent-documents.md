@@ -28,7 +28,7 @@ app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 
 Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 追加したばかりのアイテムが表示されます。 このガイドでは、項目はプロジェクトのルートにある Markdown ファイルです:
 
-![最近のドキュメント](../images/recent-documents.png)
+![最近使った書類](../images/recent-documents.png)
 
 ### 最近使ったドキュメントのリストをクリアする
 
@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Windows での注意
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. アプリケーションの登録に関するすべてのことは、[アプリケーションの登録](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) にあります。
+Windows でこの機能を使用する際にアプリケーションが書類のファイルタイプのハンドラとして登録されていない場合、ファイルを追加してもジャンプリストに表示されません。 アプリケーションの登録に関するすべてのことは、[アプリケーションの登録](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) にあります。
 
 ユーザーがジャンプリストからファイルをクリックすると、アプリケーションの新しいインスタンスが、ファイルのパスがコマンドライン引数として追加されて起動されます。
 

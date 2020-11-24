@@ -6,11 +6,11 @@ Zmienne zmiany zostaną tutaj udokumentowane i w miarę możliwości zostaną do
 
 Niniejszy dokument stosuje następującą konwencję do kategoryzowania zmian naruszających:
 
-- **Zmieniono API:** API zostało zmienione w taki sposób, że kod, który nie został zaktualizowany, jest gwarantowany, aby rzucić wyjątek.
-- **Zachowanie zmienione:** Zachowanie Electrona uległo zmianie, ale nie w taki sposób, aby wyjątek został wyrzucony.
-- **Zmieniono domyślnie:** Kod w zależności od starej wartości domyślnej może się złamać, niekoniecznie wyrzucając wyjątek. Stare zachowanie może zostać przywrócone poprzez wyraźne określenie wartości.
-- **Przestarzałe:** API zostało oznaczone jako przestarzałe. API będzie nadal działać, ale będzie emitować ostrzeżenie o deprekacji i zostanie usunięte w przyszłym wydaniu.
-- **Usunięto:** API lub funkcja została usunięta i nie jest już obsługiwana przez Electron.
+* **Zmieniono API:** API zostało zmienione w taki sposób, że kod, który nie został zaktualizowany, jest gwarantowany, aby rzucić wyjątek.
+* **Zachowanie zmienione:** Zachowanie Electrona uległo zmianie, ale nie w taki sposób, aby wyjątek został wyrzucony.
+* **Zmieniono domyślnie:** Kod w zależności od starej wartości domyślnej może się złamać, niekoniecznie wyrzucając wyjątek. Stare zachowanie może zostać przywrócone poprzez wyraźne określenie wartości.
+* **Przestarzałe:** API zostało oznaczone jako przestarzałe. API będzie nadal działać, ale będzie emitować ostrzeżenie o deprekacji i zostanie usunięte w przyszłym wydaniu.
+* **Usunięto:** API lub funkcja została usunięta i nie jest już obsługiwana przez Electron.
 
 ## Planowane zmiany API (13.0)
 
@@ -43,12 +43,12 @@ Więcej informacji na stronie: https://github.com/electron/electron/issues/23506
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
 
@@ -90,7 +90,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Planned Breaking API Changes (11.0)
 
-Dla 11.0 nie ma żadnych zmian przełomowych.
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+Aby uzyskać bardziej szczegółowe informacje, zobacz [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Planowane zmiany API (10.0)
 
@@ -120,12 +124,12 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
@@ -158,6 +162,7 @@ const w = new BrowserWindow({
 [Zalecamy odsunięcie się od zdalnego modułu ](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.
@@ -170,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.
@@ -245,7 +259,7 @@ In Electron 9.0, the old serialization algorithm has been removed, and sending s
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
 // Previously:
@@ -257,14 +271,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-- `BigInt` values will be correctly serialized, instead of being converted to `null`.
-- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
@@ -322,9 +336,9 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Przestarzałe: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-Zamień z: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
 ### Zmieniono API: `session.clearAuthCache()` nie akceptuje już opcji
 
@@ -382,7 +396,7 @@ Własność `webkitdirectory` w plikach HTML pozwala im wybrać foldery. Previou
 
 Począwszy od Electron 7, ta `Lista Plików` jest teraz listą wszystkich plików zawartych w folderze, podobnie jak Chrome, Firefox i Edge ([link do dokumentów MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-Jako ilustrację, zobacz folder z tą strukturą:
+Jako ilustrację, weź folder z tą strukturą:
 
 ```console
 folder
@@ -397,7 +411,7 @@ W Electron <=6 zwróci to listę plików `` z obiektem `Plik` dla:
 path/to/folder
 ```
 
-W Electron 7, teraz zwraca `FileList` z obiektem `File` dla:
+W Electron 7 zwróci teraz `Listę Plików` z `Plikiem` obiektu dla:
 
 ```console
 /path/to/folder/file3
@@ -789,9 +803,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Przestarzałe: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Zamień z: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 

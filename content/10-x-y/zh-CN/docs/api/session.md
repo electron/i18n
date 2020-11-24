@@ -99,7 +99,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+当一个hunspell字典初始化成功时触发。 这个事件在文件被下载之后触发。
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+当hunspell字典下载失败时触发。  如果需要详细信息，你应当查看网络日志并且检查下载请求。
 
 ### 实例方法
 
@@ -146,8 +146,8 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 * `options` Object (可选)
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
-  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。 If not specified, clear all quotas.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. 如果没有指定storages，将会清除所有的storages类型
+  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。 如果没有指定，将会清除所有的quotas。
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
@@ -210,13 +210,13 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+   匹配任何在给定IP范围内失败的URL。 IP范围使用指定的CIDR。
 
    例如: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+   匹配本地地址。 The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 

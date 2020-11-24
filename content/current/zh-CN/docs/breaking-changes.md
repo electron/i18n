@@ -6,11 +6,11 @@
 
 本文档使用以下约定对重大更改进行分类：
 
-- **API 更改：** 一个 API 更改的方式使得尚未更新的代码保证会丢弃异常。
-- **行为有所改变：** Electron的行为已经改变，但并不是一定会抛出例外情况。
-- **默认更改：** 代码取决于旧的默认情况可能会中断，不一定会抛出例外。 可以通过明确指定值来恢复旧行为。
-- **已废弃：** 一个 API 被标记为过时状态。 API将继续运行，但将发出一个废弃警告，并将在未来的发布中删除。
-- **已移除：** 一个 API 或功能已被删除，不再被 Electron 支持。
+* **API 更改：** 一个 API 更改的方式使得尚未更新的代码保证会丢弃异常。
+* **行为有所改变：** Electron的行为已经改变，但并不是一定会抛出例外情况。
+* **默认更改：** 代码取决于旧的默认情况可能会中断，不一定会抛出例外。 可以通过明确指定值来恢复旧行为。
+* **已废弃：** 一个 API 被标记为过时状态。 API将继续运行，但将发出一个废弃警告，并将在未来的发布中删除。
+* **已移除：** 一个 API 或功能已被删除，不再被 Electron 支持。
 
 ## 计划重写的 API (13.0)
 
@@ -43,12 +43,12 @@ We [recommend having contextIsolation enabled](https://github.com/electron/elect
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-- `开始`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `开始`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
 
@@ -90,7 +90,11 @@ shell.trashItem(路径).then(/* ... */)
 
 ## 计划重写的 API (11.0)
 
-11.0没有计划的分区更改。
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## 计划重写的 API (10.0)
 
@@ -120,12 +124,12 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-- `开始`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `开始`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
@@ -158,6 +162,7 @@ const w = new BrowserWindow(format@@
 我们 [推荐离开远程 模块](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
 ### `protocol.unregisterProtocol`
+
 ### `protocol.uninterceptProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.
@@ -170,14 +175,23 @@ protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
+
 ### `protocol.registerBufferProtocol`
+
 ### `protocol.registerStringProtocol`
+
 ### `protocol.registerHttpProtocol`
+
 ### `protocol.registerStreamProtocol`
+
 ### `protocol.interceptFileProtocol`
+
 ### `protocol.interceptStringProtocol`
+
 ### `protocol.interceptBufferProtocol`
+
 ### `protocol.interceptHttpProtocol`
+
 ### `protocol.interceptStreamProtocol`
 
 The APIs are now synchronous and the optional callback is no longer needed.
@@ -245,7 +259,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
 // Previously:
@@ -257,14 +271,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-- `BigInt` values will be correctly serialized, instead of being converted to `null`.
-- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
