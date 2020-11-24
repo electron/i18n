@@ -70,4 +70,4 @@ Obwohl die Rechtschreibprüfung selbst keine Typen sendet, Wörter oder Benutzer
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Schauen Sie sich die Dokumentation für die [`Sitzung an. etSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) für weitere Informationen darüber, woher Sie die Wörterbuchdateien beziehen und wie Sie sie hosten müssen.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

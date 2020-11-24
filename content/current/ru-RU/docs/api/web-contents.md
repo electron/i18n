@@ -37,7 +37,7 @@ console.log(webContents)
 
 * `id` Integer
 
-Возвращает `WebContents` - экземпляр WebContents по заданному ID.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Класс: WebContents
 

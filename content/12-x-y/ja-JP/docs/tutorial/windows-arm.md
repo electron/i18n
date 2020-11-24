@@ -8,7 +8,7 @@
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
 2. _コマンドプロンプト_ を使用して、`set npm_config_arch = arm64` を実行してから、同じように `npm install` / `yarn install` を実行します。
-3. [Electron が開発依存関係としてインストールされている場合](quick-start.md#prerequisites), npm は、arm64 バージョンをダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
+3. [Electron を開発用の依存関係としてインストールしている場合](quick-start.md#prerequisites)、npm は arm64 版をダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
 
 ## 一般的な考慮事項
 
@@ -28,7 +28,7 @@ arm64 をターゲットにしたい場合、このようなロジックは通�
 
 ### ネイティブモジュール
 
-ネイティブモジュールを使用する場合は、(Visual Studio 2017 で提供されている MSVC コンパイラの v142 に対してコンパイルされていることを確認する必要があります。 You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+ネイティブモジュールを使用する場合は、MSVC コンパイラの v142 (Visual Studio 2017 で提供) に対してコンパイルしていることを確認する必要があります。 また、ネイティブモジュールによって提供または参照されているビルド済みの `.dll` または `.lib` ファイルが Arm 版 Windows で使用できることも確認する必要があります。
 
 ### アプリをテストする
 
@@ -90,7 +90,7 @@ By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and
 
 ネイティブモジュールのデバッグは、Visual Studio 2017 (開発マシン上で実行) および対応する [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) をターゲットのデバイス上で実行することで実行できます。 デバッグするには以下のようにします。
 
-1. Launch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
+1. _コマンドプロンプト_ を介して、ターゲットデバイスでアプリの `.exe` を起動します (これに `-inspect-brk` を渡すと、ネイティブモジュールがロードされる前に一時停止します)。
 2. 開発マシン上で Visual Studio 2017 を起動します。
 3. ターゲットのデバイスに接続するためには、_デバッグ > プロセスにアタッチ..._ を選択し、デバイスの IP アドレスと Visual Studio Remote Debugger ツールに表示されているポート番号を入力します。
 4. _更新_ をクリックしてから、[割り当てるべき正しい Electron プロセス](../development/debug-instructions-windows.md) を選択します。

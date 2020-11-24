@@ -34,9 +34,9 @@ $ git fetch upstream
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [Compilado en Linux](build-instructions-linux.md)
+* [Compilado en Windows](build-instructions-windows.md)
 
 Una vez que has compilado el proyecto localmente, ¡Estas listo para empezar a hacer cambios!
 
@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
-Ver [estilo de codificación](https://electronjs.org/docs/development/coding-style) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
+Ver [estilo de codificación](coding-style.md) para mas información acerca de la mejor práctica cuando se esta modificando el código en diferentes partes del proyecto.
 
 ### Paso 5: Commit
 
@@ -77,28 +77,28 @@ Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un títul
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-- `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
-- `feat: agregar método app.isPackaged()`
-- `docs: app.isDefaultProtocolClient está disponible en Linux`
+* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
+* `feat: agregar método app.isPackaged()`
+* `docs: app.isDefaultProtocolClient está disponible en Linux`
 
 Prefijos usuales:
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 1. La primera linea debe:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
 
@@ -121,7 +121,7 @@ Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `ele
 
 ### Paso 7: Prueba
 
-Las características y reparaciones de un error deben siempre ser dadas con pruebas. Una [guía de prueba](https://electronjs.org/docs/development/testing) ha sido proporcionado para facilitar el proceso. Mirar otras pruebas para ver como deberían ser estructuradas también puede ayudar.
+Las características y reparaciones de un error deben siempre ser dadas con pruebas. Una [guía de prueba](testing.md) ha sido proporcionado para facilitar el proceso. Mirar otras pruebas para ver como deberían ser estructuradas también puede ayudar.
 
 Antes de enviar tus cambios en una pull request, siempre ejecute el paquete completo de pruebas. Para ejecutar las pruebas:
 

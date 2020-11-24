@@ -34,9 +34,9 @@ $ git fetch upstream
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Building on macOS](build-instructions-macos.md)
+* [Building on Linux](build-instructions-linux.md)
+* [Building on Windows](build-instructions-windows.md)
 
 Once you've built the project locally, you're ready to start making changes!
 
@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+See [coding style](coding-style.md) for more information about best practice when modifying code in different parts of the project.
 
 ### Step 5: Commit
 
@@ -77,28 +77,28 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Common prefixes:
 
-- fix: A bug fix
-- feat: A new feature
-- docs: Documentation changes
-- test: Adding missing tests or correcting existing tests
-- build: Changes that affect the build system
-- ci: Changes to our CI configuration files and scripts
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (linting)
-- vendor: Bumping a dependency like libchromiumcontent or node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
 Other things to keep in mind when writing a commit message:
 
 1. The first line should:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   - be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
 
@@ -121,7 +121,7 @@ This ensures that your working branch has the latest changes from `electron/elec
 
 ### Step 7: Test
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Bug fixes and features should always come with tests. A [testing guide](testing.md) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
 Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 

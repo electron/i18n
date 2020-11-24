@@ -6,21 +6,21 @@ Dacă aveți o preocupare de securitate, consultați [documentul de securitate](
 
 Dacă căutați ajutor de programare, pentru răspunsuri la întrebări, sau pentru a te alătura discuțiilor cu alți dezvoltatori care folosesc Electron, poți interacționa cu comunitatea în aceste locații:
 
-- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` canal pe Freenode
-- `#electron` canal pe [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Rusă)*
-- [`electronon-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electronon-kr`](https://electron-kr.github.io/electron-kr) *(coreeană)*
-- [`electron-jp`](https://electron-jp.slack.com) *(japoneză)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turcă)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Polonia)*
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#atom-shell` canal pe Freenode
+* `#electron` canal pe [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`electron-ru`](https://telegram.me/electron_ru) *(Rusă)*
+* [`electronon-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
+* [`electronon-kr`](https://electron-kr.github.io/electron-kr) *(coreeană)*
+* [`electron-jp`](https://electron-jp.slack.com) *(japoneză)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turcă)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
+* [`electron-pl`](https://electronpl.github.io) *(Polonia)*
 
 Dacă doriți să contribuiți la Electron, vedeți documentul [care contribuie cu](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -40,9 +40,9 @@ Când un API este modificat sau eliminat într-un mod care întrerupe funcţiona
 
 ### Versiuni acceptate în prezent
 
-- 11.x.y
-- 10,x.y
-- 9,x.y
+* 11.x.y
+* 10,x.y
+* 9,x.y
 
 ### Sfârșit de viață
 

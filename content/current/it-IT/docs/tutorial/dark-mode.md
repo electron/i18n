@@ -12,7 +12,7 @@ Se la tua app ha la propria modalità scura, dovresti attivarla o disattivarla i
 
 ### Aggiorna manualmente le tue interfacce
 
-Se vuoi passare manualmente tra le modalità chiara/scura, puoi farlo impostando la modalità desiderata nella proprietà [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) del modulo `nativeTheme`. Il valore di questa proprietà sarà propagato al tuo processo del Renderer. Ogni regola del CSS correlata a `prefers-color-scheme` sarà di conseguenza aggiornata.
+If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. Il valore di questa proprietà sarà propagato al tuo processo del Renderer. Ogni regola del CSS correlata a `prefers-color-scheme` sarà di conseguenza aggiornata.
 
 ## impostazioni di macOS
 

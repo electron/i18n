@@ -27,6 +27,6 @@ Jeśli kontekst V8 ulegnie awarii, DevTools wyświetli tę wiadomość.
 
 `DevTools został odłączony od strony. Po przeładowaniu strony DevTools automatycznie połączy się ponownie.`
 
-Chromium logs można włączyć za pomocą zmiennej środowiskowej `ELECTRON_ENABLE_LOGGING`. Aby uzyskać więcej informacji, zobacz [dokumentację zmiennych środowiskowych](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium logs można włączyć za pomocą zmiennej środowiskowej `ELECTRON_ENABLE_LOGGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Alternatywnie, argument wiersza poleceń `--enable-logging` może zostać przekazany. Więcej informacji jest dostępnych w [wierszach poleceń przełącza dokumentację](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Alternatywnie, argument wiersza poleceń `--enable-logging` może zostać przekazany. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).

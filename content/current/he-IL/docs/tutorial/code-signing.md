@@ -161,9 +161,9 @@ Before signing Windows builds, you must do the following:
 
 There are a number of tools for signing your packaged app:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+* [`electron-winstaller`] will generate an installer for windows and sign it for you
+* [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
+* [`electron-builder`] can sign some of its windows targets
 
 ## חנות Windows
 

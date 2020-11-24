@@ -139,7 +139,7 @@ For each major and minor bump, you should expect to see something like the follo
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
-- रिलीज़ शाखायें सही संस्करण को शामिल _करती_ हैं अपने `package.json` में
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
+* रिलीज़ शाखायें सही संस्करण को शामिल _करती_ हैं अपने `package.json` में
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

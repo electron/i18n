@@ -139,7 +139,7 @@ Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Ang mga release na branch ay hindi maaring isama ulit sa master
-- Ang mga release branches _ba_ay may laman nang tamang bersyon sa kanilang `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Ang mga release na branch ay hindi maaring isama ulit sa master
+* Ang mga release branches _ba_ay may laman nang tamang bersyon sa kanilang `package.json`
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

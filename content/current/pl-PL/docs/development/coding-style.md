@@ -50,9 +50,9 @@ Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](https://www.chromiu
 
 Electron APIs uses the same capitalization scheme as Node.js:
 
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-- For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
+* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
 When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. Istnieje [dyskusja](https://github.com/electron/electron/issues/46) na ten temat.

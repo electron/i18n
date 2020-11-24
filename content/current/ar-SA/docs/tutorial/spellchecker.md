@@ -70,4 +70,4 @@ myWindow.webContts. n('سياق-menu', (حدث, params) => {
 myWindow.session.setSpellCheckerDictionDownloadURL('https://example.com/dictionaries/')
 ```
 
-تحقق من المستندات لجلسة [`. etSpellCheckerDictionDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) لمزيد من المعلومات عن أين يمكن الحصول على ملفات القاموس من وكيف تحتاج لاستضافتها.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

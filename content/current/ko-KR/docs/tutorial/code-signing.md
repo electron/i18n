@@ -161,9 +161,9 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 
 패키지 된 응용 프로그램 서명을 위한 도구가 몇개 있습니다:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] 는 Windows 타겟 중 일부에 서명 할 수 있습니다.
+* [`electron-winstaller`] will generate an installer for windows and sign it for you
+* [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
+* [`electron-builder`] 는 Windows 타겟 중 일부에 서명 할 수 있습니다.
 
 ## Windows 스토어
 

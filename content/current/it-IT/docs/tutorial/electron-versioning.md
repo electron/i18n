@@ -139,7 +139,7 @@ Cerchiamo di aumentare la chiarezza a tutti i livelli del processo di aggiorname
 
 # Versionato `master`
 
-- Il ramo `master` conterrà sempre la prossima versione principale `X.0.0-nightly.DATE` nel suo `package.json`
-- I rami di rilascio non vengono mai uniti di nuovo al master
-- Release branches _do_ contain the correct version in their `package.json`
-- Non appena un ramo di rilascio viene tagliato per un maggiore, il maestro deve essere urtato al successivo maggiore.  Cioè `master` è sempre versionato come il prossimo ramo di rilascio teorico
+* Il ramo `master` conterrà sempre la prossima versione principale `X.0.0-nightly.DATE` nel suo `package.json`
+* I rami di rilascio non vengono mai uniti di nuovo al master
+* Release branches _do_ contain the correct version in their `package.json`
+* Non appena un ramo di rilascio viene tagliato per un maggiore, il maestro deve essere urtato al successivo maggiore.  Cioè `master` è sempre versionato come il prossimo ramo di rilascio teorico

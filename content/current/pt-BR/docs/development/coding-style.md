@@ -48,9 +48,9 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 As APIs do Electron usam o mesmo esquema de capitalização do Node.js:
 
-- Quando o módulo em si é uma classe como `BrowserWindow`, use `PascalCase`.
-- Quando o módulo é um conjunto de APIs, como `globalShortcut`, use `camelCase`.
-- Quando a API é uma propriedade de objeto, e é complexo o suficiente para estar em capítulo separado como `win.webContents`, use `mixedCase`.
-- Para outras APIs não-módulo, use títulos naturais, como `<webview> Tag` ou `Process Object`.
+* Quando o módulo em si é uma classe como `BrowserWindow`, use `PascalCase`.
+* Quando o módulo é um conjunto de APIs, como `globalShortcut`, use `camelCase`.
+* Quando a API é uma propriedade de objeto, e é complexo o suficiente para estar em capítulo separado como `win.webContents`, use `mixedCase`.
+* Para outras APIs não-módulo, use títulos naturais, como `<webview> Tag` ou `Process Object`.
 
 Ao criar uma nova API, é preferível usar getters e setters em vez de estilo de uma função do jQuery. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.

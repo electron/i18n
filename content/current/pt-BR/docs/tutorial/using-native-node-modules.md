@@ -100,9 +100,9 @@ especificado não pôde ser encontrado`, isto pode significar que o módulo que 
 
 Em particular, é importante que:
 
-- você vincula contra `node.lib` do _Electron_ e não o Node. Se você conectar contra o `node.lib errado,` você receberá erros de carregamento quando precisar do módulo no Electron.
-- você inclui a bandeira `/DELAYLOAD:node.exe`. Se o nó `. Link xe` não está atrasado, então o gancho de atraso não terá a chance de disparar e os símbolos do nó não serão corretamente resolvidos.
-- `win_delay_load_hook.obj` está ligado diretamente à DLL final. Se o gancho for configurado em uma DLL dependente, não vai disparar no momento certo.
+* você vincula contra `node.lib` do _Electron_ e não o Node. Se você conectar contra o `node.lib errado,` você receberá erros de carregamento quando precisar do módulo no Electron.
+* você inclui a bandeira `/DELAYLOAD:node.exe`. Se o nó `. Link xe` não está atrasado, então o gancho de atraso não terá a chance de disparar e os símbolos do nó não serão corretamente resolvidos.
+* `win_delay_load_hook.obj` está ligado diretamente à DLL final. Se o gancho for configurado em uma DLL dependente, não vai disparar no momento certo.
 
 Veja [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) para um exemplo de hook de carregamento de atraso se você estiver implementando o seu próprio.
 

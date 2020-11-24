@@ -6,12 +6,12 @@
 
 プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
 
-- [`Electron の Discord`](https://discord.com/invite/electron) はこちら:
-  - ヘルプの表示
-  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+- [`Electron の Discord`](https://discord.com/invite/electron) にはこのようなチャンネルがあります:
+  - ヘルプチャンネル
+  - [Electron Forge](https://github.com/electron-userland/electron-forge) や [Electron Fiddle](https://github.com/electron/fiddle) のようなエコシステムアプリのチャンネル
+  - 他の Electron アプリ開発者とアイデアを共有するチャンネル
+  - 他にもたくさん!
+- Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
 - Freenode の `#atom-shell` チャンネル
 - [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
 - [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
@@ -68,10 +68,10 @@ Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Electron のビルド済みバイナリは Ubuntu 18.04 上でビルドしています。
 
 Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 18.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 
 * Ubuntu 14.04 以降
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 以降
+* Debian 8 以降

@@ -161,9 +161,9 @@ Je kunt een code krijgen die een certificaat tekent van veel resellers. Prijzen 
 
 Er zijn een aantal tools voor het ondertekenen van je verpakte app:
 
-- [`electron-winstaller`] zal een installatieprogramma voor vensters genereren en deze tekenen voor u
-- [`electron-forge`] kunnen installateurs ondertekenen die het genereert via de Squirrel.Windows of MSI-doelen.
-- [`electron-builder`] kan enkele van zijn vensters ondertekenen
+* [`electron-winstaller`] zal een installatieprogramma voor vensters genereren en deze tekenen voor u
+* [`electron-forge`] kunnen installateurs ondertekenen die het genereert via de Squirrel.Windows of MSI-doelen.
+* [`electron-builder`] kan enkele van zijn vensters ondertekenen
 
 ## Windows Store
 

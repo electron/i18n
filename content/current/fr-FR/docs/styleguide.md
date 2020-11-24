@@ -46,6 +46,7 @@ Dans le cas de références de l'API, il existe des exceptions à cette règle.
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Choix des mots
 

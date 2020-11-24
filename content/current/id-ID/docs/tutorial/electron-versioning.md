@@ -139,7 +139,7 @@ Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan re
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Rilis Cabang-cabang tidak pernah digabung kembali ke master
-- Rilis cabang _Apakah_ mengandung versi yang benar di mereka `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Rilis Cabang-cabang tidak pernah digabung kembali ke master
+* Rilis cabang _Apakah_ mengandung versi yang benar di mereka `package.json`
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

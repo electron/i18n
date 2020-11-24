@@ -100,9 +100,9 @@ procedure could not be found`, potrebbe significare che il modulo che stai cerca
 
 In particolare, è importante che:
 
-- link contro `node.lib` da _Electron_ e non Node. Se si collega con il nodo `sbagliato .lib` si otterranno errori di caricamento quando si richiede il modulo in Electron.
-- includi la bandiera `/DELAYLOAD:node.exe`. Se il nodo `. xe` link non è ritardato, quindi l'hook del ritardo non avrà la possibilità di sparare e i simboli del nodo non saranno risolti correttamente.
-- `win_delay_load_hook.obj` è collegato direttamente alla DLL. Se il gancio è impostato in un DLL, non sparerà al momento giusto.
+* link contro `node.lib` da _Electron_ e non Node. Se si collega con il nodo `sbagliato .lib` si otterranno errori di caricamento quando si richiede il modulo in Electron.
+* includi la bandiera `/DELAYLOAD:node.exe`. Se il nodo `. xe` link non è ritardato, quindi l'hook del ritardo non avrà la possibilità di sparare e i simboli del nodo non saranno risolti correttamente.
+* `win_delay_load_hook.obj` è collegato direttamente alla DLL. Se il gancio è impostato in un DLL, non sparerà al momento giusto.
 
 Vedere [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) per un hook di ritardo ad esempio se stai implementando il tuo.
 

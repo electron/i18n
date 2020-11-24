@@ -6,11 +6,11 @@
 
 Цей документ використовує наступне правило для поділу змін:
 
-- **API змінено** API був змінений таким чином, що код, який не було оновлено, гарантовано кидає виняток.
-- **Поведінка змінилася:** Поведінка Electron змінилася, але не таким чином, щоб виняток обов'язково був кинутий.
-- **Змінено за замовчуванням:** код в залежності від старого за замовчуванням може зламатися, не обов'язково кидати виключення. Стара поведінка може бути відновлена шляхом явного вказування значення.
-- **Припиняється підтримка:** API було позначено як застаріле. API буде продовжувати функціонувати, але зробить попередження про застаріле, і буде видалено в майбутньому релізі.
-- **Видалено:** API або функція були видалені, і тому він більше не підтримується Electron.
+* **API змінено** API був змінений таким чином, що код, який не було оновлено, гарантовано кидає виняток.
+* **Поведінка змінилася:** Поведінка Electron змінилася, але не таким чином, щоб виняток обов'язково був кинутий.
+* **Змінено за замовчуванням:** код в залежності від старого за замовчуванням може зламатися, не обов'язково кидати виключення. Стара поведінка може бути відновлена шляхом явного вказування значення.
+* **Припиняється підтримка:** API було позначено як застаріле. API буде продовжувати функціонувати, але зробить попередження про застаріле, і буде видалено в майбутньому релізі.
+* **Видалено:** API або функція були видалені, і тому він більше не підтримується Electron.
 
 ## Заплановані Зміни API (13.0)
 
@@ -43,12 +43,12 @@ Chromium видалив підтримку для Flash, і ми повинні 
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-- `аварійний репортер`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `аварійний репортер`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 They should be called only from the main process.
 
@@ -124,12 +124,12 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-- `аварійний репортер`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `аварійний репортер`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
@@ -259,7 +259,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-- Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
 // Previously:
@@ -271,14 +271,14 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-- `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-- Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-- `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-- `BigInt` values will be correctly serialized, instead of being converted to `null`.
-- Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-- `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)

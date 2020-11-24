@@ -161,9 +161,9 @@ Můžete získat certifikát s podpisem kódu od mnoha prodejců. Ceny se liší
 
 Existuje řada nástrojů pro podepsání vaší zabalené aplikace:
 
-- [`elektronický instalátor`] vygeneruje instalační program pro okna a podepíše jej pro
-- [`elektronická forge`] může podepisovat instalátory, které generuje prostřednictvím cílů Squirrel.Windows nebo MSI.
-- [`elektronický stavitel`] může podepsat některé cíle svých oken
+* [`elektronický instalátor`] vygeneruje instalační program pro okna a podepíše jej pro
+* [`elektronická forge`] může podepisovat instalátory, které generuje prostřednictvím cílů Squirrel.Windows nebo MSI.
+* [`elektronický stavitel`] může podepsat některé cíle svých oken
 
 ## Windows Store
 

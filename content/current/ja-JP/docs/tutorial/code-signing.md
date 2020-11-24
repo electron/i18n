@@ -160,9 +160,9 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
-- [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名できます。
-- [`electron-builder`] ではその Windows ターゲットのいくつかに署名することができます
+* [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
+* [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名できます。
+* [`electron-builder`] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 

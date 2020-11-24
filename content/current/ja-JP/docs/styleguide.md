@@ -46,6 +46,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 * 行は 80 列で折り返す必要があります。
 * 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
 * すべての `js` と `javascript` コードブロックは、[standard-markdown](https://www.npmjs.com/package/standard-markdown) によって整形されます。
+* For unordered lists, use asterisks instead of dashes
 
 ## 使用する言葉
 

@@ -46,6 +46,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 * Lines should be wrapped at 80 columns.
 * Keine Schachtelungen sind mehr als 2 Ebenen (aufgrund des Markdown Renderers).
 * Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Wörter auswählen
 

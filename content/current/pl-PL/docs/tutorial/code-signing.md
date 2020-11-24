@@ -161,9 +161,9 @@ Możesz otrzymać certyfikat podpisywania kodu od wielu sprzedawców. Ceny są r
 
 Istnieje wiele narzędzi do podpisywania spakowanej aplikacji:
 
-- [`electron-winstaller`] wygeneruje instalator dla okien i podpisze go dla
-- [`electron-forge`] może podpisywać instalatorów, które generuje przez Squirrel.Windows lub MSI.
-- [`electron-builder`] może podpisać niektóre ze swoich celów w oknach
+* [`electron-winstaller`] wygeneruje instalator dla okien i podpisze go dla
+* [`electron-forge`] może podpisywać instalatorów, które generuje przez Squirrel.Windows lub MSI.
+* [`electron-builder`] może podpisać niektóre ze swoich celów w oknach
 
 ## Sklep Windows
 

@@ -203,7 +203,7 @@ dialog.showOpenDialog(mainWindow, {
 
 Показывает окно сообщения, оно будет блокировать процесс, пока не будет закрыто окно сообщения. It returns the index of the clicked button.
 
-Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
+Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным. If `browserWindow` is not shown dialog will not be attached to it. В этом случае он будет отображаться как независимое окно.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

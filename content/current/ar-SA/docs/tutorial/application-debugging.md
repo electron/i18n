@@ -27,6 +27,6 @@ win.webContents.openDevTools()
 
 `تم قطع اتصال الأدوات من الصفحة. بمجرد إعادة تحميل الصفحة، سيتم إعادة الاتصال تلقائيًا.`
 
-يمكن تمكين سجلات الكروم عن طريق متغير البيئة `ELECTRON_ENABLE_LOGING`. لمزيد من المعلومات، راجع [وثائق متغيرات البيئة](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+يمكن تمكين سجلات الكروم عن طريق متغير البيئة `ELECTRON_ENABLE_LOGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-بدلاً من ذلك، يمكن تمرير حجة سطر الأوامر `--تسجيل الأوامر` يمكن الحصول على مزيد من المعلومات في [مفاتيح تبديل سطر الأوامر](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+بدلاً من ذلك، يمكن تمرير حجة سطر الأوامر `--تسجيل الأوامر` More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).
