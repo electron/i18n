@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Hier is een voorbeeld van de 1.x-strategie:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Een app ontwikkeld met `1.8.1` kan geen `1 gebruiken. .3` bug fix zonder de `1 te absorberen. .2` functie, of door het terugzetten van de fix en het onderhouden van een nieuwe releaselijn.
 
@@ -54,11 +54,11 @@ Houd er rekening mee dat de meeste Chromium updates als breker zullen worden bes
 
 Stabilisatiefaciliteiten zijn takken die parallel lopen met master, waarbij alleen cherry-picked commits worden gebruikt die gerelateerd zijn aan veiligheid of stabiliteit. Deze takken worden nooit meer samengevoegd tot master.
 
-![](../images/versioning-sketch-1.png)
+![Stabilisatie branches](../images/versioning-sketch-1.png)
 
 Sinds Electron 8 zijn stabilisatie-branches altijd **grote** versiegrenzen, en genoemd tegen de volgende sjabloon `$MAJOR-x-y` e. . `8-x-y`.  Voordien hebben we **minor** version lines gebruikt en ze genoemd als `$MAJOR-$MINOR-x` bijv. `2-0-x`
 
-We laten toe dat meerdere stabilisatie-branches gelijktijdig bestaan, en zijn van plan om ten minste twee parallelle te allen tijde te ondersteunen, waarbij waar nodig beveiligingsfixes worden ondersteund. ![](../images/versioning-sketch-2.png)
+We laten toe dat meerdere stabilisatie-branches gelijktijdig bestaan, en zijn van plan om ten minste twee parallelle te allen tijde te ondersteunen, waarbij waar nodig beveiligingsfixes worden ondersteund. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Oudere lijnen worden niet ondersteund door GitHub, maar andere groepen kunnen alleen de eigendom en de backport van stabiliteit en beveiliging overnemen. We ontmoedigen dit, maar erkennen dat het het leven gemakkelijker maakt voor veel app ontwikkelaars.
 
@@ -101,14 +101,14 @@ Voor elke grote en kleine zeep zou je iets als volgt moeten verwachten:
 
 Een voorbeeld lifecycle in foto's:
 
-* Er is een nieuwe release branch aangemaakt met de nieuwste set functies. Het wordt gepubliceerd als `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Een bug fix komt in de master die terug kan worden gezet naar de release branch. De patch wordt toegepast en een nieuwe bèta wordt gepubliceerd als `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* De bèta wordt beschouwd als _over het algemeen stabiel_ en wordt opnieuw gepubliceerd als een niet-beta onder `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later wordt een nuldaagse exploitatie onthuld en wordt een fix toegepast om onder de knie te komen. We backport het fix naar de `2-0-x` lijn en release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Er is een nieuwe release branch aangemaakt met de nieuwste set functies. Het wordt gepubliceerd als `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Een bug fix komt in de master die terug kan worden gezet naar de release branch. De patch wordt toegepast en een nieuwe bèta wordt gepubliceerd als `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* De bèta wordt beschouwd als _over het algemeen stabiel_ en wordt opnieuw gepubliceerd als een niet-beta onder `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later wordt een nuldaagse exploitatie onthuld en wordt een fix toegepast om onder de knie te komen. We backport het fix naar de `2-0-x` lijn en release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Enkele voorbeelden van hoe verschillende semver nieuwe releases zullen ophalen:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Ontbrekende functies: Alpha's
 

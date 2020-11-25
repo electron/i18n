@@ -37,7 +37,7 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 * `id` Integer
 
-Returns `WebContents` - 给定 id 的 WebContents 实例。
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## 类: WebContents
 

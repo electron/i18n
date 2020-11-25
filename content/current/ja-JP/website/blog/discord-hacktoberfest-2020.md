@@ -1,7 +1,7 @@
 ---
 title: コミュニティDiscordサーバーとHacktoberfest
 author:
-  - エリックチャオ
+  - erickzhao
 date: '2020-10-01'
 ---
 

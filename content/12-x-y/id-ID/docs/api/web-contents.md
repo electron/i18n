@@ -37,7 +37,7 @@ Kembali `isi web` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali
 
 * `identitas` Integer
 
-Mengembalikan `isi web` - Contoh isi web dengan INDETITAS yang diberikan.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Kelas: isi web
 

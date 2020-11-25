@@ -20,7 +20,7 @@ Version d'Electron *< 2. * n'est pas conforme à la spécification [semver](http
 
 Voici un exemple de la stratégie 1.x :
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Une application développée avec la `1.8.1` ne peut pas avoir les corrections d'anomalies de la `1.8.3` sans inclure la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la correction tout en maintenant une nouvelle ligne de versionnage.
 
@@ -54,11 +54,11 @@ Notez que la plupart des mises à jour Chromium seront considérées comme cassa
 
 Les branches de stabilisation sont des branches qui sont parallèles au maître, ne prenant en compte que des commits triés sur le cerisier qui sont liés à la sécurité ou à la stabilité. Ces branches ne sont jamais fusionnées au maître.
 
-![](../images/versioning-sketch-1.png)
+![Branches de stabilisation](../images/versioning-sketch-1.png)
 
 Depuis Electron 8, les branches de stabilisation sont toujours **grandes lignes de version** et nommé contre le modèle suivant `$MAJOR-x-y` e. . `8-x-y`.  Avant cela, nous utilisions **des lignes de version** mineures et les nommions comme `$MAJOR-$MINOR-x` par exemple `2-0-x`
 
-Nous permettons à plusieurs branches de stabilisation d'exister simultanément, et ont l'intention de supporter au moins deux en parallèle en tout temps, en rétroportant les correctifs de sécurité si nécessaire. ![](../images/versioning-sketch-2.png)
+Nous permettons à plusieurs branches de stabilisation d'exister simultanément, et ont l'intention de supporter au moins deux en parallèle en tout temps, en rétroportant les correctifs de sécurité si nécessaire. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Les anciennes lignes ne seront pas supportées par GitHub, mais d'autres groupes peuvent prendre possession et rétroporter des correctifs de stabilité et de sécurité par eux-mêmes. Nous décourageons cela, mais reconnaissons que cela facilite la vie de nombreux développeurs d'applications.
 
@@ -101,14 +101,14 @@ Pour chaque bosse majeure et mineure, vous devriez vous attendre à voir quelque
 
 Un exemple de cycle de vie dans les images :
 
-* Une nouvelle branche de version est créée qui comprend les dernières fonctionnalités. Il est publié en tant que `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Une correction de bogue arrive dans master qui peut être rétroporté vers la branche de publication. Le patch est appliqué, et une nouvelle version bêta est publiée comme `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* La bêta est considérée comme _généralement stable_ et est à nouveau publiée comme non-bêta sous `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Plus tard, un exploit de zéro jour est révélé et un correctif est appliqué au maître. Nous rétroportons la correction sur la ligne `2-0-x` et publions `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Une nouvelle branche de version est créée qui comprend les dernières fonctionnalités. Il est publié en tant que `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Une correction de bogue arrive dans master qui peut être rétroporté vers la branche de publication. Le patch est appliqué, et une nouvelle version bêta est publiée comme `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* La bêta est considérée comme _généralement stable_ et est à nouveau publiée comme non-bêta sous `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Plus tard, un exploit de zéro jour est révélé et un correctif est appliqué au maître. Nous rétroportons la correction sur la ligne `2-0-x` et publions `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Quelques exemples de la façon dont différentes gammes de semver vont ramasser les nouvelles versions:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Caractéristiques manquantes : Alphas
 

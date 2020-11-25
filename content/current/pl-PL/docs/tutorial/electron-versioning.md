@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Oto przykład strategii 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Aplikacja stworzona z `1.8.1` nie może wziąć `1. .3` naprawia błąd bez absorbowania `1. .2` funkcja, lub poprzez wspieranie poprawki i utrzymywanie nowej linii wydania.
 
@@ -54,11 +54,11 @@ Zauważ, że większość aktualizacji Chromium będzie uważana za niszczącą.
 
 Oddziały stabilizujące to oddziały, które działają równolegle do mistrzowskiego, przyjmując tylko wierzchołkowe obiekty, które są związane z bezpieczeństwem lub stabilnością. Te gałęzie nigdy nie są scalane z powrotem do mistrza.
 
-![](../images/versioning-sketch-1.png)
+![Stabilizacja gałęzi](../images/versioning-sketch-1.png)
 
 Od Electron 8, gałęzie stabilizacji są zawsze **główne** linie wersji, i nazwane na poniższy szablon `$MAJOR-x-y` e. . `8-x-y`.  Wcześniej używaliśmy linii wersji **minor** i nazwaliśmy je jako `$MAJOR-$MINOR-x` np. `2-0-x`
 
-Zezwalamy na istnienie wielu gałęzi stabilizacji jednocześnie, i zamierzają przez cały czas wspierać co najmniej dwa równoległe elementy, w razie potrzeby wspierając poprawki zabezpieczeń. ![](../images/versioning-sketch-2.png)
+Zezwalamy na istnienie wielu gałęzi stabilizacji jednocześnie, i zamierzają przez cały czas wspierać co najmniej dwa równoległe elementy, w razie potrzeby wspierając poprawki zabezpieczeń. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Starsze linie nie będą obsługiwane przez GitHub, ale inne grupy mogą przejąć własność i wesprzeć stabilność i poprawki bezpieczeństwa. zniechęcamy do tego, ale zdajemy sobie sprawę, że ułatwia to życie wielu programistom aplikacji.
 
@@ -101,14 +101,14 @@ Dla każdego dużego i małego zderzaka należy spodziewać się czegoś takiego
 
 Przykładowy cykl życia na zdjęciach:
 
-* Utworzona jest nowa gałąź wydania, która zawiera najnowszy zestaw funkcji. Jest on opublikowany jako `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Naprawa błędu pojawia się w systemie nadrzędnym, który może być wspierany do gałęzi wydania. Plaster jest przyklejony, a nowa wersja beta jest opublikowana jako `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* beta jest uważana za _na ogół stabilną_ i jest publikowana ponownie jako niebeta poniżej `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Później zostanie ujawniony zerowy exploit, a naprawa jest stosowana do mistrza. Wspieramy poprawkę do linii `2-0-x` i wydajemy `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Utworzona jest nowa gałąź wydania, która zawiera najnowszy zestaw funkcji. Jest on opublikowany jako `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Naprawa błędu pojawia się w systemie nadrzędnym, który może być wspierany do gałęzi wydania. Plaster jest przyklejony, a nowa wersja beta jest opublikowana jako `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* beta jest uważana za _na ogół stabilną_ i jest publikowana ponownie jako niebeta poniżej `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Później zostanie ujawniony zerowy exploit, a naprawa jest stosowana do mistrza. Wspieramy poprawkę do linii `2-0-x` i wydajemy `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Kilka przykładów jak różne zakresy semver będą odbierać nowe wersje:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Brakujące funkcje: Alphas
 

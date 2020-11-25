@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 1.x stratejisine bir örnek:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 ` 1.8.1 </ 0> ile geliştirilen bir uygulama, <code> 1.8.2 </ 0> özelliğini emme veya düzeltmeyi geri gönderme olmadan <code> 1.8.3 </ 0> hata düzeltmesini alamaz ve yeni bir serbest bırakma hattının sürdürülmesini gerçekleştiremez.</p>
 
@@ -55,11 +55,11 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
-![](../images/versioning-sketch-1.png)
+![Dengeleme Dalları](../images/versioning-sketch-1.png)
 
 Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  在此之前，我們使用 **小** 版本行，並命名為 `$MAJOR-$次要-x` 例如。 `2-0-x`
 
-Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz. ![](../images/versioning-sketch-2.png)
+Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi kendilerine sahiplik ve backport kararlılığı ve güvenlik düzeltmeleri alabilir. Bunu birlikte cesaretlendiriyoruz çünkü birçok uygulamanın geliştiricileri için hayatı kolaylaştırdığının farkındayız.
 
@@ -104,14 +104,14 @@ For each major and minor bump, you should expect to see something like the follo
 
 Resimlerdeki bir yaşam döngüsü:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* Beta _genellikle kararlı_ olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* Beta _genellikle kararlı_ olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Çeşitli semver aralıklarının yeni sürümleri nasıl alacağına ilişkin birkaç örnek:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
 
