@@ -37,7 +37,7 @@ Ibinabalik `WebContents` - Ang mga nilalaman ng web na nakatuon sa application n
 
 * `id` Integer
 
-Ibinabalik ang `WebContents` - Halimbawa ng WebContents na may ibinigay na ID.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Klase: WebContents
 

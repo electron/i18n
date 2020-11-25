@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Iată un exemplu de strategie 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 O aplicație dezvoltată cu `1.8.1` nu poate lua `1. .3` rezolvare bug fără a absorbi `1. .2` caracteristică, sau prin backportarea reparației și menținerea unei noi linii de eliberare.
 
@@ -54,11 +54,11 @@ Mai jos este un tabel care mapează în mod explicit tipurile de modificări la 
 
 Sucursalele de stabilizare sunt sucursale care rulează paralel cu stăpânul, luând numai comitete de tip cherry alese care sunt legate de securitate sau stabilitate. Aceste ramuri nu sunt niciodată fuzionate în stăpân.
 
-![](../images/versioning-sketch-1.png)
+![Stabilizarea ramurilor](../images/versioning-sketch-1.png)
 
 De la Electron 8, ramurile de stabilizare sunt întotdeauna **importante** linii de versiuni, și numit împotriva următorului șablon `$MAJOR-x-y` e. . `8-x-y`.  Înainte de aceasta, am folosit **linii de versiune minore** și le-am numit ca `$MAJOR-$MINOR-x` ex. `2-0-x`
 
-Permitem ca mai multe sucursale de stabilizare să existe simultan, și intenționează să sprijine cel puțin două în paralel în orice moment, reparațiile de securitate backporting, dacă este necesar. ![](../images/versioning-sketch-2.png)
+Permitem ca mai multe sucursale de stabilizare să existe simultan, și intenționează să sprijine cel puțin două în paralel în orice moment, reparațiile de securitate backporting, dacă este necesar. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Liniile mai vechi nu vor fi suportate de GitHub, dar alte grupuri își pot asuma responsabilitatea și pot susține stabilitatea și soluțiile de securitate pe cont propriu. Noi descurajăm acest lucru, dar recunoaştem că face viaţa mai uşoară pentru mulţi dezvoltatori de aplicaţii.
 
@@ -101,14 +101,14 @@ Pentru fiecare umflătură majoră şi minoră, trebuie să vă aşteptaţi să 
 
 Un exemplu de ciclu de viață din imagini:
 
-* O nouă sucursală de lansare este creată care include ultimul set de caracteristici. Este publicat ca `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* O rezolvare a problemei vine în maestru care poate fi backportată la sucursala de lansare. Plasturele se aplică și o versiune beta nouă este publicată ca `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* beta este considerată _în general stabilă_ şi este publicată din nou ca non-beta sub `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Mai târziu, un exploit cu zero zile este dezvăluit și o reparație este aplicată stăpânului. Ne întoarcem la linia `2-0-x` și lansăm `2.0.1`. ![](../images/versioning-sketch-6.png)
+* O nouă sucursală de lansare este creată care include ultimul set de caracteristici. Este publicat ca `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* O rezolvare a problemei vine în maestru care poate fi backportată la sucursala de lansare. Plasturele se aplică și o versiune beta nouă este publicată ca `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* beta este considerată _în general stabilă_ şi este publicată din nou ca non-beta sub `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Mai târziu, un exploit cu zero zile este dezvăluit și o reparație este aplicată stăpânului. Ne întoarcem la linia `2-0-x` și lansăm `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Câteva exemple privind modul în care diferite serii de semiversuri vor prelua noile versiuni:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Caracteristici lipsă: Alphas
 

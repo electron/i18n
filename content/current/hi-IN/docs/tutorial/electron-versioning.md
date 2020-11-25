@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 1.x रणनीति का एक उदाहरण:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 `1.8.1` से निर्मित एप्प बिना `1.8.2` की सुविधा अपनायें `1.8.3` का बग फिक्स इस्तेमाल नहीं कर सकती, या फिर वह फिक्स को बैकपोर्ट करें और फिर एक नयी रिलीज़ पंक्ति को बनाये रखें |
 
@@ -54,11 +54,11 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
-![](../images/versioning-sketch-1.png)
+![स्थिरीकरण शाखायें](../images/versioning-sketch-1.png)
 
 Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
-हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![](../images/versioning-sketch-2.png)
+हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 पुरानी पंक्तियाँ गिटहब द्वारा समर्थित नहीं होगी, पर दुसरे समहू स्वामित्व प्राप्त कर सकते हैं और खुद ही स्थिरता और सुरक्षा सुधार बैकपोर्ट कर सकते हैं | हम ऐसा न करने की सलाह देते हैं, पर यह भी समझते हैं की इससे एप्प डेवलपर्स का काम काफी आसान हो जाता है |
 
@@ -101,14 +101,14 @@ For each major and minor bump, you should expect to see something like the follo
 
 तस्वीरों में एक जीवनकाल का उदाहरण:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* बीटा को _सामान्यतः स्थिर_ मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* बीटा को _सामान्यतः स्थिर_ मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 कुछ उदाहरण कि कैसे semver सीमायें नयी रिलीज़िस चुनती हैं:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
 

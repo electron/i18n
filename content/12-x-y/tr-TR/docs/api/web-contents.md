@@ -37,7 +37,7 @@ console.log(webContents)
 
 * `id` tamsayı
 
-`WebContents` 'ne döndürür - Belirli bir kimliği olan bir Web İçeriği örneği.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Tür: Webİçerikleri
 

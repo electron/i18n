@@ -299,7 +299,7 @@ Retorna:
 
 Emitted when the GPU process crashes or is killed.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Evento: 'processo-renderizador-rompido' _Depreciado_
 
 Retorna:
 

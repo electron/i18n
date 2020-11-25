@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Hier ein Beispiel für die 1.x-Strategie:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Eine App, die mit `1.8.1` entwickelt wurde, kann die `1 nicht einnehmen. .3` Fehlerbehebung, ohne entweder die `1 zu absorbieren. .2` Funktion, oder durch Rückportierung der Korrektur und Wartung einer neuen Release-Zeile.
 
@@ -54,11 +54,11 @@ Beachten Sie, dass die meisten Chromium-Updates als defekt angesehen werden. Kor
 
 Stabilisierungszweige sind Zweige, die parallel zum Master laufen. Sie übernehmen nur von Rosinen ausgewählte Commits, die mit Sicherheit oder Stabilität zusammenhängen. Diese Zweige werden nie wieder zum Meister zusammengeführt.
 
-![](../images/versioning-sketch-1.png)
+![Stabillisations Branches](../images/versioning-sketch-1.png)
 
 Seit Electron 8 sind Stabilisierungszweige immer **Hauptversionslinien** und benannt nach der folgenden Vorlage `$MAJOR-x-y` e. . `8-x-y`.  Zuvor haben wir **kleine** Versionszeilen verwendet und sie als `$MAJOR-$MINOR-x` benannt, z.B. `2-0-x`
 
-Wir erlauben gleichzeitige Existenz mehrerer Stabilisierungszweige und beabsichtigen, mindestens zwei jederzeit parallel zu unterstützen, gegebenenfalls Backportierung von Sicherheits-Korrekturen. ![](../images/versioning-sketch-2.png)
+Wir erlauben gleichzeitige Existenz mehrerer Stabilisierungszweige und beabsichtigen, mindestens zwei jederzeit parallel zu unterstützen, gegebenenfalls Backportierung von Sicherheits-Korrekturen. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Ältere Zeilen werden von GitHub nicht unterstützt, aber andere Gruppen können die Eigentums- und Backport-Stabilität und Sicherheitskorrekturen alleine übernehmen. Wir entmutigen dies, erkennen aber an, dass es das Leben für viele Anwendungsentwickler einfacher macht.
 
@@ -101,14 +101,14 @@ Für jede große und kleine Beutel, sollten Sie erwarten, dass Sie so etwas wie 
 
 Ein Beispiel für den Lebenszyklus in Bildern:
 
-* Ein neuer Release-Zweig wird geschaffen, der die neuesten Funktionen enthält. Es wird als `2.0.0-beta.1` veröffentlicht. ![](../images/versioning-sketch-3.png)
-* Eine Fehlerbehebung kommt in den Master, die in den Release-Zweig zurückportiert werden kann. Der Patch wird angewendet und eine neue Beta wird als `2.0.0-beta.2` veröffentlicht. ![](../images/versioning-sketch-4.png)
-* Die Beta gilt als _allgemein stabil_ und wird erneut als Nicht-Beta unter `2.0.0` veröffentlicht. ![](../images/versioning-sketch-5.png)
-* Später wird ein Zero-Tages-Exploit aufgedeckt und ein Fix wird auf Master angewendet. Wir portieren den Fix zurück in die `2-0-x` Zeile und Release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Ein neuer Release-Zweig wird geschaffen, der die neuesten Funktionen enthält. Es wird als `2.0.0-beta.1` veröffentlicht. ![New Release Branch](../images/versioning-sketch-3.png)
+* Eine Fehlerbehebung kommt in den Master, die in den Release-Zweig zurückportiert werden kann. Der Patch wird angewendet und eine neue Beta wird als `2.0.0-beta.2` veröffentlicht. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* Die Beta gilt als _allgemein stabil_ und wird erneut als Nicht-Beta unter `2.0.0` veröffentlicht. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Später wird ein Zero-Tages-Exploit aufgedeckt und ein Fix wird auf Master angewendet. Wir portieren den Fix zurück in die `2-0-x` Zeile und Release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Ein paar Beispiele, wie verschiedene Semberbereiche neue Versionen aufnehmen werden:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Fehlende Features: Alphas
 

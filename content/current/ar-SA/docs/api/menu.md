@@ -79,7 +79,7 @@ Appends the `menuItem` to the menu.
 
 * `id` سلسلة نصية
 
-Returns `MenuItem | null` the item with the specified `id`
+إرجاع `القائمة <unk> null` العنصر مع معرف `المحدد`
 
 #### `menu.insert(pos, menuItem)`
 

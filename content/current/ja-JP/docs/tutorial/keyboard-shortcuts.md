@@ -10,7 +10,7 @@
 
 ローカルキーボードショートカットは、アプリケーションにフォーカスしているときのみトリガーされます。 ローカルキーボードショートカットを設定するには、[`accelerator`] プロパティを指定する必要があります。[Menu](../api/menu-item.md) モジュールで [MenuItem](../api/menu.md) を作成する際にこのプロパティを指定します。
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -40,7 +40,7 @@ Electron アプリケーションを起動すると、アプリケーション�
 
 グローバルキーボードショートカットを設定するには、[globalShortcut](../api/global-shortcut.md) モジュールを使用して、アプリケーションにキーボードフォーカスがない場合のキーボードイベントを検出する必要があります。
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```js
 const { app, globalShortcut } = require('electron')
@@ -74,7 +74,7 @@ window.addEventListener('keyup', doSomething, true)
 
 ##### サンプル
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```js
 const { app, BrowserWindow } = require('electron')
