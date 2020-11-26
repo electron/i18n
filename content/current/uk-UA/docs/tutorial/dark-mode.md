@@ -12,7 +12,7 @@ If your app has its own dark mode, you should toggle it on and off in sync with 
 
 ### Manually update your own interfaces
 
-If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
+Якщо ви хочете вручну переключитись між світлию/темною темами, ви можете зробити це, задавши бажаний режим в параметрі [themeSource](../api/native-theme.md#nativethemethemesource) властивості `nativeTheme`. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
 
 ## macOS settings
 

@@ -20,7 +20,7 @@ Le versioni di Electron *< 2.0* non erano conformi alla specifica [semver](https
 
 Ecco un esempio della strategia 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Un'app sviluppata con `1.8.1` non può prendere il `1. .3` bug fix senza nemmeno assorbire `1. .2` funzione, o backporting il fix e mantenendo una nuova linea di rilascio.
 
@@ -54,11 +54,11 @@ Si noti che la maggior parte degli aggiornamenti di cromo sarà considerata rott
 
 I rami di stabilizzazione sono rami che corrono paralleli al master, prendendo in solo i commit cherry-picked che sono legati alla sicurezza o alla stabilità. Questi rami non sono mai uniti di nuovo al maestro.
 
-![](../images/versioning-sketch-1.png)
+![Branche di Stabilizzazione](../images/versioning-sketch-1.png)
 
 Poiché Electron 8, i rami di stabilizzazione sono sempre **principali** linee di versione, e nominato contro il seguente modello `$MAJOR-x-y` e. . `8-x-y`.  Prima abbiamo usato **linee minori** di versione e le abbiamo nominate come `$MAJOR-$MINOR-x` ad es. `2-0-x`
 
-Consentiamo che i rami di stabilizzazione multipli esistano contemporaneamente, e intendono sostenere almeno due in parallelo in ogni momento, backportando le correzioni di sicurezza secondo necessità. ![](../images/versioning-sketch-2.png)
+Consentiamo che i rami di stabilizzazione multipli esistano contemporaneamente, e intendono sostenere almeno due in parallelo in ogni momento, backportando le correzioni di sicurezza secondo necessità. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Le linee più vecchie non saranno supportate da GitHub, ma altri gruppi possono prendere la proprietà e backport stabilità e le correzioni di sicurezza da soli. Noi scoraggiamo questo, ma riconoscere che rende la vita più facile per molti sviluppatori di app.
 
@@ -101,14 +101,14 @@ Per ogni urto maggiore e minore, dovresti aspettarti di vedere qualcosa come il 
 
 Un esempio di ciclo di vita in foto:
 
-* Viene creato un nuovo ramo di rilascio che include l'ultima serie di funzionalità. È pubblicato come `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Una correzione di bug entra nel master che può essere backportato nel ramo di rilascio. Il cerotto viene applicato e una nuova beta viene pubblicata come `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* La beta è considerata _generalmente stabile_ e viene pubblicata di nuovo come una non-beta sotto `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Più tardi, viene rivelato un exploit zero-day e viene applicata una correzione al master. Restituiamo la correzione alla linea `2-0-x` e rilasciamo `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Viene creato un nuovo ramo di rilascio che include l'ultima serie di funzionalità. È pubblicato come `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Una correzione di bug entra nel master che può essere backportato nel ramo di rilascio. Il cerotto viene applicato e una nuova beta viene pubblicata come `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* La beta è considerata _generalmente stabile_ e viene pubblicata di nuovo come una non-beta sotto `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Più tardi, viene rivelato un exploit zero-day e viene applicata una correzione al master. Restituiamo la correzione alla linea `2-0-x` e rilasciamo `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Alcuni esempi di come varie gamme semver raccoglieranno nuove versioni:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Caratteristiche Mancanti: Alphas
 

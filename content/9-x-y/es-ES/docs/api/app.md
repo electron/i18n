@@ -611,19 +611,19 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Por ejemplo si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
 * `path` String (optional) _Windows_ - The path to the Electron executable. Por defecto a `process.execPath`
 * `args` String[] (optional) _Windows_ - Arguments passed to the executable. Por defecto a un array vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Sets the current executable as the default handler for a protocol (aka URI scheme). Te permite integrar tu app aún más en el sistema operativo. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Establece el ejecutable actual as el manejador por defecto para un protocolo (alias esquema URI). Te permite integrar tu app aún más en el sistema operativo. Una vez registrado. todos los enlaces con `tu-protocolo://` serán abiertos con el ejecutable actual. Todo el enlace, incluyendo el protocolo, sera pasado a tu aplicación como un parámetro.
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. Vea la [Apple's documentation][CFBundleURLTypes] para mas información.
 
 **Note:** En un entorno de Windows Store (cuando se empaqueta como `appx`) esta API devolverá `true` para todas las llamadas pero la clave de registro que establece no será accesible por otras aplicaciones.  Para registrar tu aplicación de Windows Store como gestor de protocolo determinado debe [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
+La API usa el Registro de Windows y `LSSetDefaultHandlerForURLScheme` internamente.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -641,15 +641,15 @@ This method checks if the current executable as the default handler for a protoc
 * `ruta` Cadena (opcional) _Windows_ - por defecto a `process.execPath`
 * `args` Cadena[] (opcional) _Windows_ - por defecto a un arreglo vacío
 
-Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
+Deveulve `Boolean` -Si el ejecutable actual es el manejador por defecto para un protocolo (alias esquema URI).
 
 **Nota:** En macOS puede usar este método para verificar si la aplicación ha sido registrada como controladora por defecto para un protocolo. También puedes verificar esto al marcar `~/Library/Preferences/com.apple.LaunchServices.plist` en el dispositivo macOS. Por favor vea la [documentación de Apple][LSCopyDefaultHandlerForURLScheme] para detalles.
 
-The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+La API usa el Registro de Windows y `LSCopyDefaultHandlerForURLScheme` internamente.
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - un URL con el nombre del protocolo para verificar. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
 
 Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
 
@@ -876,7 +876,7 @@ Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de l
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - Puede ser `basic` o `complete`.
 
 Devuelve `Promise<unknown>`
 
@@ -1003,7 +1003,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
-If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
 
 ### `app.isEmojiPanelSupported()`
 

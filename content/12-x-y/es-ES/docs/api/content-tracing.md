@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
+Este módulo no incluye una interfaz web. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
 **Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
 

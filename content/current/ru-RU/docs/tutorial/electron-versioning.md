@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Вот пример стратегии 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Приложение разработанное с `1.8.1` не может взять `1. .3` исправление ошибок без поглощения `1. .2` особенность, или backporting the fix and maintenance of new release line.
 
@@ -54,11 +54,11 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Стабилизационные ветви - это ветки, которые управляют параллельно с освоением, принимая только вишневые коммиты, связанные с безопасностью или стабильностью. Эти ветки никогда не сливаются с мастером.
 
-![](../images/versioning-sketch-1.png)
+![Стабильные ветки](../images/versioning-sketch-1.png)
 
 Начиная с Electron 8, ветки стабилизации всегда **основные версии** линий, и названы в соответствии с следующим шаблоном `$MAJOR-x-y` e. . `8-x-y`.  До этого мы использовали **мелкие** строк версии и назвали их `$MAJOR-$MINOR-x` , например `2-0-x`
 
-Мы позволяем многократным стабилизационным ветвям существовать одновременно, и намерена поддерживать как минимум два параллельных в любое время, при необходимости резервные исправления безопасности. ![](../images/versioning-sketch-2.png)
+Мы позволяем многократным стабилизационным ветвям существовать одновременно, и намерена поддерживать как минимум два параллельных в любое время, при необходимости резервные исправления безопасности. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Более старые линии не будут поддерживаться GitHub, но другие группы могут самостоятельно брать на себя права собственности и backport стабильности и исправления безопасности. Мы не поощряем это, но понимаем, что это упрощает жизнь для многих разработчиков приложений.
 
@@ -101,14 +101,14 @@ For each major and minor bump, you should expect to see something like the follo
 
 An example lifecycle in pictures:
 
-* Создана новая ветка релиза, включающая в себя последний набор функций. Он опубликован как `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Исправление ошибки входит в мастер, который может быть обращен в ветку выпуска. Патч применяется, и новая бета-версия опубликована как `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Позднее обнаруживается нулевой эксплойт и к мастеру применяется фиксация. Мы возвращаем исправление на линию `2-0-x` и релиз `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Создана новая ветка релиза, включающая в себя последний набор функций. Он опубликован как `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Исправление ошибки входит в мастер, который может быть обращен в ветку выпуска. Патч применяется, и новая бета-версия опубликована как `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Позднее обнаруживается нулевой эксплойт и к мастеру применяется фиксация. Мы возвращаем исправление на линию `2-0-x` и релиз `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 A few examples of how various semver ranges will pick up new releases:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
 

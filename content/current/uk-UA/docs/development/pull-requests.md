@@ -56,7 +56,7 @@ Most pull requests opened against the `electron/electron` repository include cha
 
 Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
 
-See [coding style](coding-style.md) for more information about best practice when modifying code in different parts of the project.
+Дивіться [стиль кодування](coding-style.md), щоб отримати більше інформації щодо найкращих практик, коли змінюєте код у різних частинах проекту.
 
 ### Step 5: Commit
 
@@ -121,7 +121,7 @@ This ensures that your working branch has the latest changes from `electron/elec
 
 ### Step 7: Test
 
-Bug fixes and features should always come with tests. A [testing guide](testing.md) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Bug fixes and features should always come with tests. Для полегшення процесу передбачено [посібник з тестування](testing.md). Looking at other tests to see how they should be structured can also help.
 
 Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 

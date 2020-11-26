@@ -250,7 +250,7 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 * El argumento `message` no es usado, como el OS provee su propio diálogo de confirmación.
 * El argumento `browserWindow` es ignorado ya que no es posible hacer este diálogo modelo de confirmación.
 
-## Bookmarks array
+## Array de marcadores
 
 `showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 

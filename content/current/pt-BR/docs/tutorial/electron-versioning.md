@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Aqui está um exemplo da estratégia da era 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Um app desenvolvido com o Electron versão `1.8.1` não pode receber as correções de bugs da `1.8.3` sem antes ter que ou absorver a funcionalidade da `1.8.2` ou fazer o backport das correções e manter uma nova linha de lançamento.
 
@@ -54,11 +54,11 @@ Observe que a maioria das atualizações do Chromium serão consideradas quebras
 
 Filiais de estabilização são ramificações que executam paralelamente ao mestre, tomando apenas commits escolhidos por cereja que são relacionados à segurança ou estabilidade. Esses branches nunca mais são mesclados de volta ao mestre.
 
-![](../images/versioning-sketch-1.png)
+![Estabilizando Branches](../images/versioning-sketch-1.png)
 
 Como Electron 8, os branches de estabilização são sempre **principais** linhas de versão, e nomeado com o seguinte modelo `$MAJOR-x-y` e. . `8-x-y`.  Antes disso, nós usamos **linhas de versão menores** e nomeamo-las como `$MAJOR-$MINOR-x` ex.: `2-0-x`
 
-Permitimos que existam múltiplos ramos de estabilização simultaneamente, e tencionam apoiar pelo menos duas em paralelo, sempre apoiando correções de segurança conforme necessário. ![](../images/versioning-sketch-2.png)
+Permitimos que existam múltiplos ramos de estabilização simultaneamente, e tencionam apoiar pelo menos duas em paralelo, sempre apoiando correções de segurança conforme necessário. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Linhas mais antigas não serão suportadas pelo GitHub, mas outros grupos podem tomar posse e manter a estabilidade e correções de segurança por conta própria. Desencorajamos isso, mas reconhecemos que isso torna a vida mais fácil para muitos desenvolvedores de aplicativos.
 
@@ -101,14 +101,14 @@ Para cada protuberância maior e menor, você deve esperar ver algo parecido com
 
 Um ciclo de vida de exemplo nas imagens:
 
-* Um novo branch de lançamento é criado que inclui o conjunto mais recente de recursos. É publicado como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Uma correção de bug entra em master que pode ser reportada para o branch de lançamento. A atualização é aplicada e uma nova versão beta é publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* A versão beta é considerada _geralmente estável_ e é publicada novamente como uma não-beta em `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Mais tarde, um exploit de dia zero é revelado e uma correção é aplicada ao mestre. Fazemos backup da correção para a linha `2-0-x` e lançamos `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Um novo branch de lançamento é criado que inclui o conjunto mais recente de recursos. É publicado como `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Uma correção de bug entra em master que pode ser reportada para o branch de lançamento. A atualização é aplicada e uma nova versão beta é publicada como `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* A versão beta é considerada _geralmente estável_ e é publicada novamente como uma não-beta em `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Mais tarde, um exploit de dia zero é revelado e uma correção é aplicada ao mestre. Fazemos backup da correção para a linha `2-0-x` e lançamos `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Alguns exemplos de como vários intervalos de sementes escolherão novos lançamentos:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Características faltando: Alfa
 

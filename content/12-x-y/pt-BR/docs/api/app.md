@@ -106,13 +106,13 @@ Retorna:
 
 Emitido quando a aplicação é ativada. Várias ações podem disparar esse evento, tais como iniciando o aplicativo pela primeira vez, a tentativa de re-iniciar o aplicativo quando ele já está sendo executado, ou clicando no ícone de barra de tarefas ou doca do aplicativo.
 
-### Evento: 'did-become-active' _macOS_
+### Evento: 'se tornou ativo' _macOS_
 
 Retorna:
 
 * `event` Event
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Emitido quando a aplicação mac se torna ativa. Diferença do `evento` ativo é que `ativado` é emitido toda vez que o app se torna ativo, não somente quando o ícone do Dock é clicado ou a aplicação é relançada.
 
 ### Evento: 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Evento 'processo-gpu-caiu _ Depreciado_
 
 Retorna:
 
@@ -307,9 +307,9 @@ Retorna:
 
 Emitted when the GPU process crashes or is killed.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Depreciado** Este evento é substituído pelo evento `processo-filho-finalizado` que contém mais informação sobre porque o processo filho desapareceu. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Evento: 'processo-renderizador-rompido' _Depreciado_
 
 Retorna:
 

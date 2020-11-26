@@ -20,7 +20,7 @@ Electron versions *< 2.0* did not conform to the [semver](https://semver.org) sp
 
 Zde je příklad strategie 1.x:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Aplikace vyvinutá s `1.8.1` nemůže nabývat `1. .3` oprava chyb bez pohlcení `1. .2 prvek` nebo podepření opravy a udržování nové vypouštěcí linie.
 
@@ -54,11 +54,11 @@ Všimněte si, že většina aktualizací Chromium bude považována za zlomovou
 
 Stabilizační větve jsou větve, které běží paralelně s velitelem a přijímají pouze třešňově vybrané commity, které souvisejí s bezpečností nebo stabilitou. Tyto větve se nikdy neslučují s velitelem.
 
-![](../images/versioning-sketch-1.png)
+![Stabilizační větve](../images/versioning-sketch-1.png)
 
 Protože Electron 8, stabilizační větve jsou vždy **hlavní** linky verzí, a pojmenováno podle následující šablony `$MAJOR-x-y` . . `8-x-y`.  Před tím jsme použili **drobné** linky verzí a pojmenovali je jako `$MAJOR-$MINOR-x` např. `2-0-x`
 
-Umožňujeme, aby existovalo několik stabilizačních větví současně, a mají v úmyslu vždy podporovat nejméně dvě souběžně a podle potřeby podporovat bezpečnostní opravy. ![](../images/versioning-sketch-2.png)
+Umožňujeme, aby existovalo několik stabilizačních větví současně, a mají v úmyslu vždy podporovat nejméně dvě souběžně a podle potřeby podporovat bezpečnostní opravy. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Starší linie nebudou podporovány GitHubem, ale jiné skupiny mohou převzít vlastnictví a podpořit stabilitu a bezpečnostní opravy samy. Odradujeme to, ale uvědomujeme si, že usnadňuje život mnoha vývojářům aplikací.
 
@@ -101,14 +101,14 @@ Pro každý větší a menší výhru, byste měli očekávat, že uvidíte něc
 
 Příklad životního cyklu na obrázcích:
 
-* Je vytvořena nová větev s nejnovějšími funkcemi. Je publikováno jako `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Oprava chyb přichází do mistrovství, které může být podpořeno do větev vydání. Tato oprava je aplikována a nová beta je publikována jako `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Později se objeví využití na nulový den a na mistr se použije oprava. Opravu vrátíme na řádek `2-0-` a vydáme `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Je vytvořena nová větev s nejnovějšími funkcemi. Je publikováno jako `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Oprava chyb přichází do mistrovství, které může být podpořeno do větev vydání. Tato oprava je aplikována a nová beta je publikována jako `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* The beta is considered _generally stable_ and is published again as a non-beta under `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Později se objeví využití na nulový den a na mistr se použije oprava. Opravu vrátíme na řádek `2-0-` a vydáme `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Několik příkladů toho, jak různé rozsahy počtů získají nové vydání:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Chybějící funkce: Alphas
 
