@@ -39,6 +39,17 @@ Pro bezpečnost vaší aplikace [doporučujeme povolit kontextIzolaci](https://g
 
 Pro více informací viz https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -83,10 +94,10 @@ vyžadováno ('@electron/remote/main').initialize()
 Synchronní `shell.moveItemToTrash()` byl nahrazen novým asynchronním `shell.trashItem()`.
 
 ```js
-// Zastaralý v Electronu 12
-shell.moveItemToTrash(cesta)
-// Nahradit
-shell.trashItem(cesta).then(/* ... */)
+// Deprecated in Electron 12
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
 ```
 
 ## Planned Breaking API Changes (11.0)

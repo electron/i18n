@@ -44,6 +44,6 @@ x64 (Intel Mac) 用 と arm64 (Apple Silicon) 用、2 つのバージョンの�
 
 Rosetta 2 は、Apple の [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) 技術の最新の成果で、同社の新しい arm64 Apple Silicon ハードウェア上でも x64 Intel アプリケーションを実行できます。 x64 Electron アプリは Rosetta 2 で動作すると推測していますが、注意すべき重要な点が (ネイティブ arm64 バイナリを頒布すべきかどうかについても) いくつかあります。
 
-* アプリのパフォーマンスは大幅に低下します。 Electron / V8 は JavaScript を [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) コンパイルしており、Rosetta が動作方式によっては、事実上 JIT を 2 回 (V8 で 1 回、Rosetta で 1 回) 実行します。
+* アプリのパフォーマンスは大幅に低下します。 Electron / V8 は JavaScript を [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) コンパイルしており、Rosetta の動作方式によっては、事実上 JIT を 2 回 (V8 で 1 回、Rosetta で 1 回) 実行します。
 * メモリのページサイズ増大など、Apple Sillicon の新技術の恩恵を受けられなくなります。
 * パフォーマンスが **大幅に** 低下するって言いましたよね?

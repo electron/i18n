@@ -39,6 +39,17 @@ Nous [recommandons que contextIsolation soit activé](https://github.com/electro
 
 Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -165,12 +176,12 @@ Nous [vous recommandons de vous éloigner du module distant](https://medium.com/
 
 ### `protocol.uninterceptProtocol`
 
-Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Déprécié
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Remplacé par
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -197,9 +208,9 @@ protocol.unregisterProtocol(scheme)
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Déprécié
+// Deprecated
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Remplacé par
+// Replace with
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -210,9 +221,9 @@ The registered or intercepted protocol does not have effect on current page unti
 This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
 
 ```javascript
-// Déprécié
+// Deprecated
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Remplacé par
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -426,9 +437,9 @@ Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionn�
 ### API modifiée : `win.setMenu(null)` est maintenant `win.removeMenu()`
 
 ```js
-// Déprécié
+// Deprecated
 win.setMenu(null)
-// Remplacé par
+// Replace with
 win.removeMenu()
 ```
 
