@@ -39,6 +39,17 @@ We [recommend having contextIsolation enabled](https://github.com/electron/elect
 
 For more details see: https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -165,7 +176,7 @@ We [recommend moving away from the remote module](https://medium.com/@nornagon/e
 
 ### `protocol.uninterceptProtocol`
 
-API'ler artık eşzamanlılar ve seçime bağlı geriçağrı artık gerekmiyor.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
 // Deprecated

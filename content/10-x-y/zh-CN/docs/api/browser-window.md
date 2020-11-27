@@ -122,7 +122,7 @@ child.once('ready-to-show', () => {
   * `x` Interger (可选) - (**必选** 如果使用了y) 窗口相对于屏幕左侧的偏移量。 默认值为将窗口居中。
   * `y` Integer (可选) - (**必选** 如果使用了x) 窗口相对于屏幕顶端的偏移量。 默认值为将窗口居中。
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
-  * `center` Boolean (可选) - 窗口在屏幕居中.
+  * `center` Boolean (可选) - 窗口是否在屏幕居中.
   * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
   * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.

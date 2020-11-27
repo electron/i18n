@@ -39,6 +39,17 @@ Chromium видалив підтримку для Flash, і ми повинні 
 
 Для детальнішої інформації бачити: https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -82,9 +93,9 @@ require('@electron/remote/main').initialize()
 Синхронізований `shell.moveItemToTrash()` замінений на новий, asynchron `shell.trashItem()`.
 
 ```js
-// Припиняється підтримка Electron 12
+// Deprecated in Electron 12
 shell.moveItemToTrash(path)
-// Замініть на
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -372,11 +383,11 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### API змінено: `webFrame.setIsolatedWorldInfo` замінює окремі методи
 
 ```js
-// Видалено в Electron 7.0
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Замінити на
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {

@@ -39,6 +39,17 @@ shell.trashItem(path).then(/* ... */)
 
 لمزيد من التفاصيل انظر: https://github.com/electron/electron/issues/23506.
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -82,9 +93,9 @@ require('@electron/remote/main').initialize()
 تم استبدال المزامنة `shell.moveItemToTrash()` بالجديد asynchronous `shell.trashItem()`.
 
 ```js
-// مهمل في Electron 12
+// Deprecated in Electron 12
 shell.moveItemToTrash(path)
-// استبدل بـ
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 

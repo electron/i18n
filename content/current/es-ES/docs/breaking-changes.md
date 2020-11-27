@@ -39,6 +39,17 @@ Nosotros [recomendamos tener contextIsolation activado](https://github.com/elect
 
 Para más detalles ver: https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Eliminado: métodos `crashReporter` en el render process
 
 Los siguientes métodos `crashReporter` ya no están disponible en el renderer process:
@@ -54,9 +65,9 @@ Deberían ser llamados solo desde el proceso principal.
 
 Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
-### Valor por defecto modificado: `crashReporter.start({ compress: true })`
+### Cambiado por defecto: `crashReporter.start({ compress: true })`
 
-El valor por defecto de la opción `compress` a `crashReporter.start` ha cambiado de `false` a `true`. Esto significa que los volcados se subirán al servidor de ingestión de errores con el encabezado `Content-Encoding: gzip` y el cuerpo será comprimido.
+El valor predeterminado de la opción `comprimir` a `crashReporter.start` ha cambiado de `false` a `true`. Esto significa que los volcados de fallos se subirán al servidor de ingestión de errores con la codificación de contenido `: encabezado gzip` , y el cuerpo será comprimido.
 
 Si su servidor de gestión de fallos no soporta cargas comprimidas, puedes desactivar la compresión especificando `{ compress: false }` en las opciones del reportero de errores .
 
@@ -165,12 +176,12 @@ Recomendamos [alejarnos del módulo remoto](https://medium.com/@nornagon/electro
 
 ### `protocol.uninterceptProtocol`
 
-Las APIs ahora son síncronas y el callback opcional ya no es necesario.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Reemplazar con
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -197,9 +208,9 @@ protocol.unregisterProtocol(scheme)
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Reemplazar con
+// Replace with
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -210,9 +221,9 @@ The registered or intercepted protocol does not have effect on current page unti
 This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Reemplazar con
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -234,7 +245,7 @@ Esta API, que fue obsoleta en Electron 8.0, se ha eliminado.
 ```js
 // Eliminado en Electron 9.0
 webview.getWebContents()
-// Reemplazar con 
+// Reemplazar con
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -262,11 +273,11 @@ The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
-// Anteriormente:
+// Previously:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => results in { value: 3 } arriving in the main process
 
-// Desde Electron 8:
+// From Electron 8:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
@@ -291,9 +302,9 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
-// Obsoleto
+// Deprecated
 webview.getWebContents()
-// Reemplazar con
+// Replace with
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -345,38 +356,38 @@ Reemplazar con: https://electronjs.org/headers
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Obsoleto
+// Deprecated
 session.clearAuthCache({ type: 'password' })
-// Reemplazar con 
+// Replace with
 session.clearAuthCache()
 ```
 
 ### API cambiada: `powerMonitor.querySystemIdleState` ahora es `powerMonitor.getSystemIdleState`
 
 ```js
-// Eliminado en Electron 7.0 
+// Removed in Electron 7.0
 powerMonitor.querySystemIdleState(threshold, callback)
-// Reemplazar con API síncrona
+// Replace with synchronous API
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
 ### API cambiada: `powerMonitor.querySystemIdleTime` ahora es `powerMonitor.getSystemIdleTime`
 
 ```js
-// Eliminada en Electron 7.0
+// Eliminado en Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Reemplazar con API síncrona
+// Reemplazar con API sincrónica
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
 ### API cambiada: `webFrame.setIsolatedWorldInfo` reemplaza métodos separados
 
 ```js
-// Eliminado en  Electron 7.0
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Reemplazar con 
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -399,24 +410,24 @@ A partir de Electron 7, esa `Lista de archivos` ahora es la lista de todos los a
 Como ilustración, coger una carpeta con esta estructura:
 
 ```console
-direcotrio
-├── archivo1
-├── archivo2
-└── archivo3
+folder
+├── file1
+├── file2
+└── file3
 ```
 
 En Electron <=6, esto devolvería una `Lista de archivos` con un `Archivo` objeto para:
 
 ```console
-rata/al/directorio
+path/to/folder
 ```
 
 En Electron 7, esto ahora devuelve una `Lista de archivos` con un objeto `File` para:
 
 ```console
-/ruta/a/directorio/archivo3
-/ruta/a/directorio/archivo2
-/ruta/a/directorio/archivo1
+/path/to/folder/file3
+/path/to/folder/file2
+/path/to/folder/file1
 ```
 
 Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
@@ -482,9 +493,9 @@ require('electron').remote.require('path')
 
 ```js
 // Obsoleto
-powerMonitor.querySystemIdleState(threshold, callback)
-// Reemplazar con API síncrona
-const idleState = powerMonitor.getSystemIdleState(threshold)
+powerMonitor.querySystemIdleState(umbral, callback)
+// Reemplazar con API sincrónica
+const idleState = powerMonitor.getSystemIdleState(aplano)
 ```
 
 ### Desaprobado: `powerMonitor.querySystemIdleTime` reemplazado por `powerMonitor.getSystemIdleTime`
@@ -492,14 +503,14 @@ const idleState = powerMonitor.getSystemIdleState(threshold)
 ```js
 // Obsoleto
 powerMonitor.querySystemIdleTime(callback)
-// Reemplazar con API síncrona
+// Reemplazar con API sincrónica
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
 ### Desaprobado: `app.enableMixedSandbox()` ya no es necesario
 
 ```js
-// Obsoleto
+// Deprecated
 app.enableMixedSandbox()
 ```
 
@@ -567,13 +578,13 @@ webFrame.setIsolatedWorldInfo(
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 
 ```js
-// Obsoleto
+// Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck: (text) => {
     return !spellchecker.isMisspelled(text)
   }
 })
-// Reemplazar con
+// Replace with
 webFrame.setSpellCheckProvider('en-US', {
   spellCheck: (words, callback) => {
     callback(words.filter(text => spellchecker.isMisspelled(text)))

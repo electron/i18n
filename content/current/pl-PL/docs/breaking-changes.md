@@ -39,6 +39,17 @@ W Electron 12 `contextIsolation` będzie domyślnie włączone.  Aby przywróci�
 
 Więcej informacji na stronie: https://github.com/electron/electron/issues/23506
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -82,9 +93,9 @@ require('@electron/remote/main').initialize()
 synchroniczny `shell.moveItemToTrash()` został zastąpiony nowym, asynchronicznym `shell.trashItem()`.
 
 ```js
-// Przestarzałe w Electron 12
+// Deprecated in Electron 12
 shell.moveItemToTrash(path)
-// Zamień na
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -168,9 +179,9 @@ const w = new BrowserWindow({
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Przestarzałe
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Zamień z
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -345,34 +356,34 @@ Replace with: https://electronjs.org/headers
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Przestarzałe
+// Deprecated
 session.clearAuthCache({ type: 'password' })
-// Zamień z
+// Replace with
 session.clearAuthCache()
 ```
 
 ### Zmieniono API: `powerMonitor.querySystemIdleState` jest teraz `powerMonitor.getSystemIdleState`
 
 ```js
-// Usunięte w Electron 7.0
-powerMonitor.querySystemIdleState(threshold, callback)
-// Zamień na synchroniczne API
-const idleState = powerMonitor.getSystemIdleState(threshold)
+// Usunięto w Electron 7.0
+powerMonitor.querySystemIdleState(prog, wywołanie zwrotne)
+// Zastąp synchronicznym API
+const idleState = powerMonitor.getSystemIdleState(prog)
 ```
 
 ### Zmieniono API: `powerMonitor.querySystemIdleTime` jest teraz `powerMonitor.getSystemIdleTime`
 
 ```js
-// Usunięte w Electron 7.0
+// Usunięto w Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Zamień na synchroniczne API
-const idleTime = powerMonitor.getSystemIdleTime()
+// Zastąp synchronicznym API
+const Time = powerMonitor.getSystemIdleTime()
 ```
 
 ### Zmieniono API: `webFrame.setIsolatedWorldInfo` zastępuje oddzielne metody
 
 ```js
-// Usunięto w Electron 7.0
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -400,9 +411,9 @@ Jako ilustrację, weź folder z tą strukturą:
 
 ```console
 folder
-├── plik1
-├── plik2
-└── plik3
+├── file1
+├── file2
+└── file3
 ```
 
 W Electron <=6 zwróci to listę plików `` z obiektem `Plik` dla:
