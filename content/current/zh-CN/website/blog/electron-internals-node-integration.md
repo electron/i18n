@@ -1,5 +1,5 @@
 ---
-title: 'Electron 内部&#58; 消息循环集成'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

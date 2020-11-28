@@ -1,5 +1,5 @@
 ---
-title: 'Julio de 2016&#58; Aplicaciones nuevas y reuniones'
+title: 'July 2016: New Apps and Meetups'
 author: señor
 date: '04-08-2016'
 ---

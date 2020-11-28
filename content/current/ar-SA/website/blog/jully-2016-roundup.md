@@ -1,5 +1,5 @@
 ---
-title: 'يوليو 2016&#58؛ تطبيقات واجتماعات جديدة'
+title: 'July 2016: New Apps and Meetups'
 author: سيد
 date: '2016-08-04'
 ---

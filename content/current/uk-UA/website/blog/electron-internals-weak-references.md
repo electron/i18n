@@ -1,5 +1,5 @@
 ---
-title: 'Інтернали Electron&#58; Слабкі посилання'
+title: 'Electron Internals: Weak References'
 author: zcbenz
 date: '2016-09-20'
 ---

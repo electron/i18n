@@ -1,5 +1,5 @@
 ---
-title: 'Centros do Electron&#58; Referências Fracas'
+title: 'Electron Internals: Weak References'
 author: zcbenz
 date: '2016-09-20'
 ---

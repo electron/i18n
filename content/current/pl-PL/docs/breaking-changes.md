@@ -39,7 +39,7 @@ W Electron 12 `contextIsolation` będzie domyślnie włączone.  Aby przywróci�
 
 Więcej informacji na stronie: https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### Usunięto: `crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
 

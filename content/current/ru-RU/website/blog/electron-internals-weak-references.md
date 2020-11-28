@@ -1,5 +1,5 @@
 ---
-title: 'Слабые ссылки на Electron Internals&#58;'
+title: 'Electron Internals: Weak References'
 author: zcbenz
 date: '2016-09-20'
 ---

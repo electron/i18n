@@ -1,5 +1,5 @@
 ---
-title: 'September 2016&#58; Neue Apps'
+title: 'September 2016: New Apps'
 author: haackiert
 date: '2016-10-06'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'كترون داخلي&#58؛ تكامل حلقة الرسائل'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

@@ -1,5 +1,5 @@
 ---
-title: '2016年9月&#58; 新应用程序'
+title: 'September 2016: New Apps'
 author: 已打包
 date: '2016-10-06'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'إلكترون الداخلي&#58؛ استخدام العقدة كمكتبة'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---

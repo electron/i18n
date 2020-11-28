@@ -1,5 +1,5 @@
 ---
-title: 'Electron interals&#58; Používání uzlu jako knihovny'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---

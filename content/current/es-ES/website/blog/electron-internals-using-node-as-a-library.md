@@ -1,5 +1,5 @@
 ---
-title: 'Internacionales de Electron&#58; Usar nodo como una biblioteca'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '08-08-2016'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'September 2016&#58; Nieuwe Apps'
+title: 'September 2016: New Apps'
 author: georcked
 date: '2016-10-06'
 ---

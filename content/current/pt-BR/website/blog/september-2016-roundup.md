@@ -1,5 +1,5 @@
 ---
-title: 'Setembro de 2016&#58; Novos Apps'
+title: 'September 2016: New Apps'
 author: exaustão
 date: '2016-10-06'
 ---

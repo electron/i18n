@@ -1,5 +1,5 @@
 ---
-title: 'Août 2016&#58; Nouvelles applications'
+title: 'August 2016: New Apps'
 author: jlord
 date: '2016-09-06'
 ---

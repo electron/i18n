@@ -1,5 +1,5 @@
 ---
-title: 'Electron の舞台裏&#58; メッセージループの統合'
+title: 'Electron の舞台裏: メッセージループの統合'
 author: zcbenz
 date: '2016-07-28'
 ---

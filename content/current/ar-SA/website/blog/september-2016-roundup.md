@@ -1,5 +1,5 @@
 ---
-title: 'سبتمبر 2016&#58; تطبيقات جديدة'
+title: 'September 2016: New Apps'
 author: مخترق
 date: '2016-10-06'
 ---

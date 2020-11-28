@@ -1,5 +1,5 @@
 ---
-title: 'Septembrie 2016&#58; Aplicații noi'
+title: 'September 2016: New Apps'
 author: agățat
 date: '2016-10-06'
 ---

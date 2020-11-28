@@ -1,5 +1,5 @@
 ---
-title: 'Iulie 2016&#58; Aplicații și întâlniri noi'
+title: 'July 2016: New Apps and Meetups'
 author: Jlord
 date: '2016-08-04'
 ---

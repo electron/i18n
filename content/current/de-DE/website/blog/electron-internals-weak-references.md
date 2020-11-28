@@ -1,5 +1,5 @@
 ---
-title: 'Elektron-Internals&#58; Schwacher Referenzen'
+title: 'Electron Internals: Weak References'
 author: zcbenz
 date: '2016-09-20'
 ---

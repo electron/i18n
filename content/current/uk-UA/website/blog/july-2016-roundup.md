@@ -1,5 +1,5 @@
 ---
-title: 'Липень 2016&#58; Нові Додатки та Зустрічі'
+title: 'July 2016: New Apps and Meetups'
 author: молодший
 date: '2016-08-04'
 ---

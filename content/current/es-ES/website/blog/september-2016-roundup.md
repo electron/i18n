@@ -1,5 +1,5 @@
 ---
-title: 'Septiembre de 2016&#58; Aplicaciones nuevas'
+title: 'September 2016: New Apps'
 author: acechado
 date: '06-10-2016'
 ---

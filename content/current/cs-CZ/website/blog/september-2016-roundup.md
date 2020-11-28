@@ -1,5 +1,5 @@
 ---
-title: 'září 2016&#58; Nové aplikace'
+title: 'September 2016: New Apps'
 author: vykrvený
 date: '2016-10-06'
 ---
