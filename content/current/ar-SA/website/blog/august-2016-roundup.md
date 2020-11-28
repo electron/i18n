@@ -1,5 +1,5 @@
 ---
-title: 'أغسطس 2016&#58; تطبيقات جديدة'
+title: 'August 2016: New Apps'
 author: سيد
 date: '2016-09-06'
 ---

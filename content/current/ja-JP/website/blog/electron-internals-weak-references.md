@@ -1,5 +1,5 @@
 ---
-title: 'Electron の舞台裏&#58; 弱参照'
+title: 'Electron の舞台裏: 弱参照'
 author: zcbenz
 date: '2016-09-20'
 ---

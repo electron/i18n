@@ -1,5 +1,5 @@
 ---
-title: 'Juli 2016&#58; Nieuwe Apps en Meetups'
+title: 'July 2016: New Apps and Meetups'
 author: jlord
 date: '2016-08-04'
 ---

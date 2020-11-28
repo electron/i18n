@@ -1,5 +1,5 @@
 ---
-title: 'Intégration de la boucle de message d''Electron&#58; Internals d''Electron'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

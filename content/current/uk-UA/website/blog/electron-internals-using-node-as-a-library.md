@@ -1,5 +1,5 @@
 ---
-title: 'Інтернали Electron&#58; використання вузла в якості бібліотеки'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---

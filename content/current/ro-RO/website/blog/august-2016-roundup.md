@@ -1,5 +1,5 @@
 ---
-title: 'August 2016&#58; Aplicații noi'
+title: 'August 2016: New Apps'
 author: Jlord
 date: '2016-09-06'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Electron interals&#58; Integrace zprávy smyčky'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

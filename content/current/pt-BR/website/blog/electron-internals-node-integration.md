@@ -1,5 +1,5 @@
 ---
-title: 'Integração de laços do Electron&#58; Mensagem de Loop'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

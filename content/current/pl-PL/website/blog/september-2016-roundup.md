@@ -1,5 +1,5 @@
 ---
-title: 'Wrzesień 2016&#58; Nowe aplikacje'
+title: 'September 2016: New Apps'
 author: zagnieżdżony
 date: '2016-10-06'
 ---

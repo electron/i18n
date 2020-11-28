@@ -1,5 +1,5 @@
 ---
-title: 'Интернаты Electron&#58; Цикличка сообщений'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---

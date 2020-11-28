@@ -1,5 +1,5 @@
 ---
-title: 'Septembre 2016&#58; Nouvelles applications'
+title: 'September 2016: New Apps'
 author: haché
 date: '2016-10-06'
 ---

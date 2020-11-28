@@ -1,5 +1,5 @@
 ---
-title: 'Июль 2016&#58; Новые приложения и встречи'
+title: 'July 2016: New Apps and Meetups'
 author: джлорд
 date: '2016-08-04'
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Electron 内部&#58; 使用节点作为库'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---

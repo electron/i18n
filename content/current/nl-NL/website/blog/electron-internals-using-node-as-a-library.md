@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals&#58; Knooppunt als een bibliotheek gebruiken'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
