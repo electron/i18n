@@ -60,11 +60,11 @@ Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/Eve
 To add listeners and handlers, add the following lines to the `renderer.js` file:
 
 ```js
-const { ipcRenderer } = 需要 （'电子'）
+const { ipcRenderer } = require('electron')
 
-文档. getelementbyid （'切换- 暗模式'）. 添加事件列表器 （'点击'， 异步 （） => =
-  const 是黑暗模式 = 等待 ipcrenderer. 调用 （'黑暗模式：切换'）
-  文档. getelementbyid （'主题源'） 'Dark' : 'Light'
+document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
+  const isDarkMode = await ipcRenderer.invoke('dark-mode:toggle')
+  document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
 })
 
 document.getElementById('reset-to-system').addEventListener('click', async () => {

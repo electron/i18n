@@ -52,7 +52,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `Tab`
 * `Capslock`
 * `Numlock`
-* `スクロールロック`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -66,8 +66,8 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `PrintScreen`
 * NumPad Keys
   * `num0` から `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - 数字キー
+  * `numadd` - テンキーの `+` キー
+  * `numsub` - テンキーの `-` キー
+  * `nummult` - テンキーの `*` キー
+  * `numdiv` - テンキーの `÷` キー

@@ -69,8 +69,6 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
@@ -113,8 +111,6 @@ $ ninja -C out/Release electron
 ```
 
 これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
-
-次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Testing` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
 実行形式は `./out/Testing` 下に置かれます。
 

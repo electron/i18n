@@ -70,9 +70,7 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# 下一行只有在使用 scache 构建时才需要
-$ exporter GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/testing --args="import(\"//electron/build/args/testing. n\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 若在 Windows 上 (没有可选参数)：
@@ -115,8 +113,6 @@ $ ninja -C out/Release electron
 ```
 
 这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
-
-你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
