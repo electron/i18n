@@ -10,7 +10,7 @@
 * [리눅스](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## 도구 빌드
 
 [Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
 
@@ -68,10 +68,8 @@ $ gclient sync -f
 
 ```sh
 $ cd src
-$ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+$ 수출 CHROMIUM_BUILDTOOLS_PATH ='pwd'/buildtools
+$ gn gen out / Test --args="가져오기(\"//전자/빌드/args/test.gn\") $GN_EXTRA_ARGS"www.chikitaisaac123@gmail.com Varo.com.chikitaisaac123@gmail.com Varo.com.chikitaisaac123@gmail.comisAdmin.lili
 ```
 
 Windows 환경이라면 (추가적인 인자는 없음):
@@ -114,8 +112,6 @@ $ ninja -C out/Release electron
 ```
 
 이 명령어는 이전에 'libchromiumcontent' (`chromium` 디렉토리의 `content/` 디렉토리와 WebKit 및 V8을 포함한 관련 의존성) 였던 모든 것을 빌드하는 것이기 때문에 상당한 시간이 걸릴 것입니다.
-
-반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
@@ -216,12 +212,12 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## 문제 해결
 
-### gclient sync complains about rebase
+### gclient 동기화 는 재베이스에 대해 불평Coinbase.pro
 
 If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
 
 ```plaintext
-2> Conflict while rebasing this branch.
+>
 2> Fix the conflict and run gclient again.
 2> See man git-rebase for details.
 ```

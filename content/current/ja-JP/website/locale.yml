@@ -88,8 +88,8 @@ releases:
   all_releases: 全リリース
   back_to_index: インデックスに戻る
 electron_is_good:
-  title: Electron を使って開発されたユーザーが大好きなアプリ
-  description: あらゆる業界にまたがる何千もの企業が、Electronを使用してクロスプラットフォームのソフトウェアを作成しています。
+  title: Electron 製のアプリは, ユーザーに愛されています
+  description: あらゆる業界の何千もの組織が、Electron を使用してクロスプラットフォームソフトウェアを構築しています。
 electron_is_easy:
   title: 簡単に開発できます
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムで質問することができます。また、Twitter（<a href="https://twitter.com/electronjs">@electronjs</a>）では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。もし、フォーラムやSNSといったパブリックな手段を避けたい場合は E メール ( <a href="mailto:info@electronjs.org">info@electronjs.org</a>) でのお問い合わせも可能です。
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムで質問することができます。また、Twitter の <a href="https://twitter.com/electronjs">@electronjs</a> では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。非公開での連絡をご希望の方は、メール <a href="mailto:info@electronjs.org">info@electronjs.org</a> でのお問い合わせも可能です。
 headings:
   languages: 言語
 taglines:
   languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
-  announcement: 'Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> をサポートしてください。 <a href="/blacklivesmatter">私達の声明</a>を読んでください。'
+  announcement: 'Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout">平等と正義の発意</a> を援助しましょう。<a href="/blacklivesmatter">私たちの声明もご一読ください</a>。'
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）

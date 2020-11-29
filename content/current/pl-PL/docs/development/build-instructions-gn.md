@@ -70,8 +70,6 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
@@ -115,8 +113,6 @@ $ ninja -C out/Release electron
 ```
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
-
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
@@ -171,7 +167,7 @@ set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
-Lub (korzystając z PowerShell):
+Or (if using PowerShell):
 
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
@@ -207,7 +203,7 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-do 0. More information: https://stackoverflow.com/a/9935126
+to 0. More information: https://stackoverflow.com/a/9935126
 
 This can be set quickly in powershell (ran as administrator):
 

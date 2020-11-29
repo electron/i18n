@@ -69,8 +69,6 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
@@ -114,8 +112,6 @@ $ ninja -C out/Release electron
 ```
 
 Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` contenido / ` directorio de ` chromium` y sus dependencias, incl. WebKit y V8), así que llevará un tiempo.
-
-Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
@@ -187,7 +183,7 @@ Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en l
 $ ninja -C out/Testing third_party/electron_node:headers
 ```
 
-Ahora puedes [ejecutar las pruebas](testing.md#unit-tests).
+You can now [run the tests](testing.md#unit-tests).
 
 Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
 

@@ -70,8 +70,6 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
@@ -115,8 +113,6 @@ $ ninja -C out/Release electron
 ```
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
-
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
@@ -238,4 +234,4 @@ $ gclient sync -f
 
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 
-Se você ver um prompt solicitando o `Usuário em 'https://chrome-internal.googlesource.com':` ao executar o `gclient sync` no Windows, Provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).

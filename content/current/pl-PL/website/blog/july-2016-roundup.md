@@ -1,5 +1,5 @@
 ---
-title: 'July 2016: New Apps and Meetups'
+title: 'Lipiec 2016: Nowe aplikacje i spotkania'
 author: jlord
 date: '2016-08-04'
 ---

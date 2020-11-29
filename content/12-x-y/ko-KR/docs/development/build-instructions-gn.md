@@ -10,7 +10,7 @@
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## 도구 빌드
 
 [Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
 
@@ -217,12 +217,12 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## 문제 해결
 
-### gclient sync complains about rebase
+### gclient 동기화 는 재베이스에 대해 불평Coinbase.pro
 
 If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
 
 ```plaintext
-2> Conflict while rebasing this branch.
+>
 2> Fix the conflict and run gclient again.
 2> See man git-rebase for details.
 ```

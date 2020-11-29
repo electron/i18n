@@ -37,7 +37,7 @@ Electron チームは、Electron 9.0.0 のリリース発表にワクワクし�
 ## 破壊的変更
 
 * `enableRemoteModule: true` を指定せずに `リモート` を使用した場合の非推奨の警告 [#21546](https://github.com/electron/electron/pull/21546)
-    * これは、 `リモート` モジュールを非推奨にし、ユーザーランドに移動するための私たちの計画の最初のステップです。 [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
+    * これは `remote` モジュールを非推奨にしユーザーランドへ移行する計画の第一段階です。 [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
 * `app.enableRendererProcessReuse` をデフォルトで true に設定します。 [#22336](https://github.com/electron/electron/pull/22336)
     * これは、レンダラープロセスにロードされるネイティブ Node モジュールは [N-API](https://nodejs.org/api/n-api.html) か [コンテキス対応](https://nodejs.org/api/addons.html#addons_context_aware_addons) であるという将来の要件に対応する作業の一環です。 完全な情報と提案された時系列は、[この Issue](https://github.com/electron/electron/issues/18397) で詳しく説明しています。
 * JavaScript以外のオブジェクトをIPC経由で送信すると例外が発生するようになりました。 [#21560](https://github.com/electron/electron/pull/21560)
