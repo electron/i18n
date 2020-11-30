@@ -20,7 +20,7 @@
 
 ### 基本を学ぶ
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+* [Electron のプロセスモデル](tutorial/quick-start.md#application-architecture)
   * [メインプロセスとレンダラープロセス](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -45,17 +45,17 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [その他のツール、ボイラープレート](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### 高度なトピック
 
 * アプリケーションアーキテクチャ
   * [ネイティブ Node.js モジュールを使用する](tutorial/using-native-node-modules.md)
   * [パフォーマンス戦略](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [セキュリティ戦略](tutorial/security.md)
 * [アクセシビリティ](tutorial/accessibility.md)
   * [アクセシビリティ機能を手動で有効にする](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [テストとデバッグ](tutorial/application-debugging.md)
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Visual Studio コードを使用したデバッグ](tutorial/debugging-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [デベロッパー ツール拡張](tutorial/devtools-extension.md)
@@ -126,7 +126,7 @@
 * [net](api/net.md)
 * [netLog](api/net-log.md)
 * [nativeTheme](api/native-theme.md)
-* [通知](api/notification.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

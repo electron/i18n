@@ -57,9 +57,9 @@ Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles�
 Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code de ceci :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
+const { app, Tray } = require('electron')
+app.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -67,8 +67,9 @@ app.on('ready', () => {
 pour cela :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
