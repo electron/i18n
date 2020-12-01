@@ -17,7 +17,7 @@
 
 وإضافة الأسطر التالية إلى ملف `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ document.getElementById('drag').ondragstart = (event) => {
 
 في العملية الرئيسية (`بشكل رئيسي. s` ملف ، قم بتوسيع الحدث المستلم مع مسار إلى الملف الذي يتم سحبه و أيقونة :
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (case, filePath) => {

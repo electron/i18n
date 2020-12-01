@@ -23,12 +23,12 @@ const { app, BrowserWindow } = require('electron')
 let onlineStatusWindow
 
 app.whenReady().then(() => {
-  onlineStatusWindow = BrowserWindow({ width: 0, height: 0, show: false }
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 ```
 
-create the `online-status.html` file and add the following line before the closing `</body>` tag:
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -36,7 +36,7 @@ create the `online-status.html` file and add the following line before the closi
 
 وإضافة ملف `renderer.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/renderer'
 const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
 
 window.addEventListener('online', alertOnlineStatus)
@@ -56,20 +56,20 @@ There may be situations when you want to respond to online/offline events in the
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
-عرض { app, BrowserWindow, ipcMain } = مطلوب('electron')
-اسمح لonlineStatusWindow
+const { app, BrowserWindow, ipcMain } = require('electron')
+let onlineStatusWindow
 
-app.whenReady. hen(() => {
-  onlineStatusWindow = BrowserWindow({ width: 0, الطول: 0, 0, اظهر: خطأ، تفضيلات الويب: { nodeIntegration: true } })
-  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
+app.whenReady().then(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 
-ipcMain.on('online-status-changed', (case, status) => {
+ipcMain.on('online-status-changed', (event, status) => {
   console.log(status)
 })
 ```
 
-create the `online-status.html` file and add the following line before the closing `</body>` tag:
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -77,7 +77,7 @@ create the `online-status.html` file and add the following line before the closi
 
 وإضافة ملف `renderer.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/main'
 const { ipcRenderer } = require('electron')
 const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
 

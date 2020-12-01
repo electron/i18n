@@ -1,43 +1,50 @@
 # オフスクリーンレンダリング
 
-オフスクリーンレンダリングは、ブラウザウインドウのコンテンツをビットマップで取得させるので、3D シーン中のテクスチャのように、どこにでも描画できます。 Electron のオフスクリーンレンダリングは、 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) プロジェクトと似たアプローチを使用します。
+## 概要
 
-2つの描画モードを使用でき、また、より効果的に描画するために、`'paint'` イベント内では変更された領域だけが渡されます。 描画は停止でき、設定されたフレームレートで再開できます。 指定のフレームレートは上限値で、ウェブページ上で何も発生しなかった場合、フレームは生成されません。 最大フレームレートは 60 です。それ以上はパフォーマンスが低下するだけで、利点はありません。
+オフスクリーンレンダリングでは `BrowserWindow` のコンテンツを ビットマップで取得できます。これは、3D シーンのテクスチャのようにどこにでも描画できます。 Electron のオフスクリーンレンダリングは [Chromium 埋め込みフレームワーク](https://bitbucket.org/chromiumembedded/cef) プロジェクトと似たアプローチを使用しています。
 
-**注釈:** オフスクリーンウインドウは、常に [フレームレスウインドウ](../api/frameless-window.md) として作成されます。
+*注意*:
 
-## レンダリングモード
+* レンダリングモードは 2 種類使用でき (後述)、変化した部分だけを `paint` イベントに渡すことでより効率的なレンダリングができます。
+* 描画を停止/続行したり、フレームレートを設定したりできます。
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### GPU アクセラレーション
+### レンダリングモード
 
-GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 GPU からフレームをコピーする必要があるために、より高いパフォーマンスを要求するので、このモードは他のフレームよりかなり遅くなります。 このモードのメリットは、WebGL と 3D CSS アニメーションがサポートされていることです。
+#### GPU アクセラレーション
 
-### ソフトウェア出力デバイス
+GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. このモードのメリットは、WebGL と 3D CSS アニメーションがサポートされていることです。
 
-このモードでは、CPU にレンダリングするソフトウェア出力デバイスが使用されているため、フレーム生成は非常に高速です。したがって、このモードは GPU アクセラレーションよりも優先されます。
+#### ソフトウェア出力デバイス
 
-このモードを有効にするには、[`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API を呼び出して GPU アクセラレーションを無効にする必要があります。
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## 使い方
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## サンプル
+
+[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
 app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

@@ -39,6 +39,17 @@ Nosotros [recomendamos tener contextIsolation activado](https://github.com/elect
 
 Para más detalles ver: https://github.com/electron/electron/issues/23506
 
+### Eliminado: `crashReporter.getCrashesDirectory()`
+
+El método `crashReporter.getCrashesDirectory` ha sido eliminado. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
+
+```js
+// Eliminado en Electron 12
+crashReporter.getCrashesDirectory()
+// Reeamplazar con
+app.getPath('crashDumps')
+```
+
 ### Eliminado: métodos `crashReporter` en el render process
 
 Los siguientes métodos `crashReporter` ya no están disponible en el renderer process:

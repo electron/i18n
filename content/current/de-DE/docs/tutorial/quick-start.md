@@ -25,7 +25,7 @@ Die Befehle sollten die Versionen von Node.js und npm entsprechend ausgeben. Wen
 
 Aus der Entwicklungsperspektive ist eine Electron-Anwendung im Wesentlichen eine Node.js-Anwendung. Das bedeutet, dass der Ausgangspunkt Ihrer Electron-Anwendung eine `package.json` Datei sein wird, wie in jeder anderen Node.js Anwendung. Eine minimale Elektronenanwendung hat folgende Struktur:
 
-```plain
+```plaintext
 my-electron-app/
 ├── package.json
 ├── main.js
@@ -50,32 +50,31 @@ Das Haupt-Skript legt den Einstiegspunkt Ihrer Electron-Anwendung fest (in unser
 
 Das Hauptskript kann wie folgt aussehen:
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    Höhe: 600,
+    height: 600,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  gewinnen. oadFile('index.html')
-  win.webContents.openDevTools()
+  win.loadFile('index.html')
 }
 
-App. henReady().then(createWindow)
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app. uit()
+    app.quit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow. etAllWindows().length === 0) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -95,7 +94,7 @@ Dies ist die Webseite, die nach der Initialisierung der Anwendung angezeigt werd
 
 Die `index.html` Seite sieht wie folgt aus:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ Die `index.html` Seite sieht wie folgt aus:
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

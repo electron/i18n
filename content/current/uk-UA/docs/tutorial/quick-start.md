@@ -25,7 +25,7 @@ npm -v
 
 З точки зору розробки, програма Electron це, по суті, додаток Node.js. Це означає, що початковою точкою вашої програми Electron буде файл `package.json` як у будь-якому іншому додатку Node.js. Мінімальний Electron додаток має наступну структуру:
 
-```plain
+```plaintext
 my-electron-app/
 ─ package.json
 ────main.js
@@ -50,32 +50,31 @@ npm i - save-dev electron
 
 Основний сценарій може виглядати наступним чином:
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    висота: 600,
-    веб-налаштування: {
+    height: 600,
+    webPreferences: {
       nodeIntegration: true
     }
   })
 
-  виграє. oadFile('index.html')
-  win.webContents.openDevTools()
+  win.loadFile('index.html')
 }
 
-додаток. henReady().then(createWindow)
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app. uit()
+    app.quit()
   }
 })
 
 app.on('activate', () => {
-  , якщо (BrowserWindow. etAllWindows().length === 0) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -95,7 +94,7 @@ app.on('activate', () => {
 
 Сторінка `index.html` виглядає наступним чином:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ app.on('activate', () => {
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

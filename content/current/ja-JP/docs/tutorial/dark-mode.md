@@ -59,7 +59,7 @@ Electron &gt; 8.0.0 を使用中でオプトアウトしたい場合は、`Info.
 
 リスナーとハンドラーを追加するため、`renderer.js` ファイルに以下のコードを追加します。
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -82,7 +82,7 @@ document.getElementById('reset-to-system').addEventListener('click', async () =>
 * `dark-mode:toggle` を受信したときに、`nativeTheme.shouldUseDarkColors` プロパティを使って、現在ダークテーマが有効かどうかを確認し `themeSource` を逆のテーマに設定します。
 * `dark-mode:system` を受信したときに、`themeSource` を `system` にリセットします。
 
-```js
+```javascript
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 
 function createWindow () {
@@ -129,7 +129,7 @@ app.on('activate', () => {
 
 `styles.css` ファイルを作成して以下の行を追加します。
 
-```css
+```css fiddle='docs/fiddles/features/macos-dark-mode'
 @media (prefers-color-scheme: dark) {
   body { background:  #333; color: white; }
 }

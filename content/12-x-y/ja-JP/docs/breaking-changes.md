@@ -39,6 +39,17 @@ Electron 12 では、 `contextIsolation` がデフォルトで有効になりま
 
 詳細は以下をご覧ください: https://github.com/electron/electron/issues/23506
 
+### 削除: `crashReporter.getCrashesDirectory()`
+
+`crashReporter.getCrashesDirectory` メソッドは削除されました。 `app.getPath('crashDumps)`に置き換える必要があります。
+
+```js
+// Electron 12 で削除
+crashReporter.getCrashesDirectory()
+// こちらに置換
+app.getPath('crashDumps')
+```
+
 ### 削除: レンダラープロセス内での `crashReporter` メソッド
 
 以下の `crashReporter` メソッドはレンダラープロセスで利用できなくなります。

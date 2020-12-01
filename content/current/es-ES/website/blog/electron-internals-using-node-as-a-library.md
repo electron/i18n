@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Using Node as a Library'
+title: 'Electron Internals: Usando Node como una librería'
 author: zcbenz
 date: '08-08-2016'
 ---

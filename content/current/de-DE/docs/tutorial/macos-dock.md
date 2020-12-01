@@ -16,7 +16,7 @@ Um Ihr benutzerdefiniertes Dock-Menü festzulegen, müssen Sie das [`app.dock.se
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menü. uildFromTemplate([

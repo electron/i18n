@@ -20,7 +20,7 @@ Zakładając, że masz pracującą aplikację Electron z [Szybki Przewodnik](qui
 
 i dodaj plik `renderer.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ Jeśli otworzysz konsolę, a następnie kliknij powiadomienie, zobaczysz wiadomo
 
 Zaczynając od działającej aplikacji z [Szybki Start Przewodnik](quick-start.md), zaktualizuj plik `main.js` następującymi liniami:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

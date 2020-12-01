@@ -25,7 +25,7 @@ npm -v
 
 从开发的角度来看，Electron应用基本上是一种Node.js应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 最小的 Electron 应用程序具有以下结构：
 
-```plain
+```plaintext
 my-electron-app/
 ├── package.json
 ├── main.js
@@ -50,7 +50,7 @@ npm i --save-dev electron
 
 主脚本可以如下所示：
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
@@ -63,7 +63,6 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -95,7 +94,7 @@ app.on('activate', () => {
 
 `index.html` 页面如下所示：
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ app.on('activate', () => {
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

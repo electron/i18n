@@ -46,7 +46,7 @@ Para referencias API, hay excepciones para esta regla.
 * Las líneas deben estar ajustadas a 80 columnas.
 * No anidar listas de más de 2 niveles (debido al renderizador markdown).
 * Todos los bloques de código `js` y `javascript` están analizados con [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* Para listas no ordenadas, use asteriscos en lugar de guiones
 
 ## Escoger palabras
 

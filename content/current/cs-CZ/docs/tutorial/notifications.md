@@ -20,7 +20,7 @@ Předpokládejme, že máte fungující Electron aplikaci z [Rychlého startu](q
 
 a přidejte soubor `render.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = nové oznámení ('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ Pokud otevřete konzoli a pak klikněte na oznámení, uvidíte zprávu, která 
 
 Začíná fungující aplikací z [Rychlý startovací průvodce](quick-start.md), aktualizujte soubor `main.js` o následující řádky:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 funkce showNotification () {

@@ -59,7 +59,7 @@ Poi, aggiungi gli [ascoltatori dell'evento](https://developer.mozilla.org/en-US/
 
 Per aggiungere gli ascoltatori e gestori, aggiungi le linee seguenti al file `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -82,7 +82,7 @@ In base all'evento ricevuto, aggiorniamo la proprietà [`nativeTheme.themeSource
 * Dopo aver ricevuto `dark-mode:toggle`, controlliamo se il tema scuro è correntemente attivo usando la proprietà `nativeTheme.shouldUseDarkColors` e impostare `themeSource` al tema opposto.
 * Dopo aver ricevuto `dark-mode:system`, ripristiniamo `themeSource` al `system`.
 
-```js
+```javascript
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 
 function createWindow () {
@@ -129,7 +129,7 @@ Il passaggio finale è di aggiungere un po' di stile per abilitare la modalità 
 
 Crea un file di `styles.css` ed aggiungi le linee seguenti:
 
-```css
+```css fiddle='docs/fiddles/features/macos-dark-mode'
 @media (prefers-color-scheme: dark) {
   body { background:  #333; color: white; }
 }

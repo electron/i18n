@@ -16,7 +16,7 @@ Upang itakda ang narepresentang file ng window, pwede mong gamitin ang [BrowserW
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

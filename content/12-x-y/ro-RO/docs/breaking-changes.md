@@ -44,6 +44,22 @@ Pentru mai multe detalii: https://github.com/electron/electron/issues/23506
 
 
 
+### Removed: `crashReporter.getCrashesDirectory()`
+
+The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+
+
+
+```js
+// Removed in Electron 12
+crashReporter.getCrashesDirectory()
+// Replace with
+app.getPath('crashDumps')
+```
+
+
+
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:

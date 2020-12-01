@@ -20,7 +20,7 @@ __Застосування меню док-станції:__
 
 Починаючи з робочого додатку з [Короткого Путівника](quick-start.md), додайте наступні рядки у файл `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

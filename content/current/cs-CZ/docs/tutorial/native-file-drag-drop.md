@@ -17,7 +17,7 @@ Začne fungující aplikací z [Rychlý startovací průvodce](quick-start.md), 
 
 a přidejte následující řádky do souboru `render.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ Výše uvedený kód dává Renderer pokyn k tomu, aby zvládl událost `ondrags
 
 V hlavním procesu(`hlavní. s` soubor), rozšíření přijaté události o cestu k souboru, který je přetažen a ikona:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event filePath) => {

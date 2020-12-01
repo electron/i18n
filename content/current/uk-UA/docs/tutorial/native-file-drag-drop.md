@@ -17,7 +17,7 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 
 і додати наступні рядки в `renderer.js` файл:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) =>
@@ -30,7 +30,7 @@ document.getElementById('drag').ondragstart = (event) =>
 
 У головному процесі (`main. s` файл), розширювати отриману подію з шляхом до файлу, який перетягується і іконка:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

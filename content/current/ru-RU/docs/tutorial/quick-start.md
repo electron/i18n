@@ -25,7 +25,7 @@ npm -v
 
 С точки зрения разработки, приложение Electron по сути является приложением Node.js. Это означает, что начальной точкой вашего приложения Electron будет файл `package.json`, как в любом другом приложении Node.js. Базовое приложение на Electron имеет следующую структуру:
 
-```plain
+```plaintext
 my-electron-app/
 ├── package.json
 ├── main.js
@@ -50,7 +50,7 @@ npm i --save-dev electron
 
 Основной скрипт может выглядеть следующим образом:
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
@@ -63,7 +63,6 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -95,7 +94,7 @@ app.on('activate', () => {
 
 Страница `index.html` выглядит следующим образом:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ app.on('activate', () => {
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

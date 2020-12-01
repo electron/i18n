@@ -1,43 +1,50 @@
 # Offscreen Rendering
 
-Offscreen weergave laat u de inhoud van een browservenster in een bitmap verkrijgen, zodat het overal kan worden weergegeven, bijvoorbeeld op een textuur in een 3D-scène. De offscreen weergave in Electron gebruikt een vergelijkbare aanpak dan de [Chromium ingesloten Framework](https://bitbucket.org/chromiumembedded/cef) project.
+## Overview
 
-Twee modi van rendering kunnen worden gebruikt en alleen het vuile gebied wordt doorgegeven in de `'verf'` gebeurtenis om efficiënter te zijn. De weergave kan worden gestopt, verder gaan en de framesnelheid kan worden ingesteld. De opgegeven framesnelheid is een top limietwaarde, wanneer er niets op een webpagina gebeurt, worden er geen frames gegenereerd. De maximum framesnelheid is 60 omdat er hierboven geen voordeel is, alleen prestatieverlies.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Opmerking:** Een offscreen venster wordt altijd gemaakt als een [Frameless Window](../api/frameless-window.md).
+*Notes*:
 
-## Rendering Modi
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### GPU versneld
+### Rendering Modi
 
-GPU versnelde rendering betekent dat de GPU wordt gebruikt voor compositie. Vanwege moet de lijst worden gekopieerd van de GPU die meer prestaties vereist, Dus deze modus is behoorlijk wat langzamer dan de andere. Het voordeel van deze modus is dat WebGL en 3D CSS animaties worden ondersteund.
+#### GPU versneld
 
-### Software uitvoerapparaat
+GPU versnelde rendering betekent dat de GPU wordt gebruikt voor compositie. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Het voordeel van deze modus is dat WebGL en 3D CSS animaties worden ondersteund.
 
-Deze modus maakt gebruik van een software uitvoerapparaat voor weergave in de CPU, dus het frame is veel sneller, Daarom heeft deze modus de voorkeur boven de versnelde GPU een.
+#### Software uitvoerapparaat
 
-Om deze modus in te schakelen moet de GPU-versnelling worden uitgeschakeld door de [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API aan te roepen.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Gebruik
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Voorbeeld
+
+Vanaf een werkende applicatie uit de [Snelstartgids](quick-start.md), voeg de volgende regels toe aan het `main.js` bestand:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady(). hen(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win. oadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // update eBitmap(dirty, image. etBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

@@ -24,11 +24,11 @@ let onlineStatusWindow
 
 app.whenReady().then(() => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 ```
 
-`online-status.html`ファイルを作成し、`</body>` タグを閉じている直前に以下の行を追加します。
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -36,7 +36,7 @@ app.whenReady().then(() => {
 
 `renderer.js` ファイルを追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/renderer'
 const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
 
 window.addEventListener('online', alertOnlineStatus)
@@ -61,7 +61,7 @@ let onlineStatusWindow
 
 app.whenReady().then(() => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 
 ipcMain.on('online-status-changed', (event, status) => {
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-`online-status.html`ファイルを作成し、`</body>` タグを閉じている直前に以下の行を追加します。
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -77,7 +77,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 
 `renderer.js` ファイルを追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/main'
 const { ipcRenderer } = require('electron')
 const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
 

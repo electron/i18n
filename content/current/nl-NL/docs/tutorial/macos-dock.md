@@ -16,7 +16,7 @@ Om je eigen dock menu in te stellen, moet je gebruik maken van [`app.dock.setMen
 
 Vanaf een werkende toepassing van de [Snelstartgids](quick-start.md), update het `main.js` bestand met de volgende regels:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu. uildFromTemplate([

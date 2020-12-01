@@ -25,6 +25,45 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
+### Removed: `BrowserWindow` extension APIs
+
+The deprecated extension APIs have been removed:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Removed in Electron 13
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Removed in Electron 13
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Removed in Electron 13
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
+
 ## Cambios planeados en la API(12.0)
 
 ### Eliminado: Soporte de Pepper Flash
@@ -39,14 +78,14 @@ Nosotros [recomendamos tener contextIsolation activado](https://github.com/elect
 
 Para más detalles ver: https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### Eliminado: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been removed. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
+El método `crashReporter.getCrashesDirectory` ha sido eliminado. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
 
 ```js
-// Removed in Electron 12
+// Eliminado en Electron 12
 crashReporter.getCrashesDirectory()
-// Replace with
+// Reeamplazar con
 app.getPath('crashDumps')
 ```
 
@@ -282,7 +321,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-* `NaN`, `Infinity` y `-Infinity` Ahora serán correctamente serializados en lugar de ser convertidos a `null`.
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
 * Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
 * `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
 * `BigInt` values will be correctly serialized, instead of being converted to `null`.

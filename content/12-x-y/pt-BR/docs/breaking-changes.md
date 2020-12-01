@@ -39,6 +39,17 @@ Recomendamos [ter contextIsolamento ativado](https://github.com/electron/electro
 
 Para mais detalhes veja: https://github.com/electron/electron/issues/23506
 
+### Removido: `crashReporter.getCrashesDirectory()`
+
+O método `crashReporter.getCrashesDirectory` foi removido. Usage should be replaced by `app.getPath('crashDumps')`.
+
+```js
+// Removido no Electron 12
+crashReporter.getCrashesDirectory()
+// Substitua por
+app.getPath('crashDumps')
+```
+
 ### Removed: `crashReporter` methods in the renderer process
 
 The following `crashReporter` methods are no longer available in the renderer process:
@@ -82,9 +93,9 @@ require('@electron/remote/main').initialize()
 O `shell.moveItemToTrash()` sincronizado foi substituído pelo novo, assíncrono `shell.trashItem()`.
 
 ```js
-// Deprecated in Electron 12
+// Descontinuado no Electron 12
 shell.moveItemToTrash(path)
-// Replace with
+// Substitua por
 shell.trashItem(path).then(/* ... */)
 ```
 

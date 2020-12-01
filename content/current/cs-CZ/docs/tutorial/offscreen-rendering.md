@@ -1,43 +1,50 @@
 # Offscreen vykreslování
 
-Offscreen rendering vám umožní získat obsah okna prohlížeče v bitmapě, aby to bylo možné vykreslit kdekoli, například na texturě ve 3D scéně. offscreen rendering v Electronu používá podobný přístup jako projekt [Chromium vložený Framework](https://bitbucket.org/chromiumembedded/cef).
+## Přehled
 
-Lze použít dva režimy vykreslování a v události `'barva'` je procházena pouze špinavá plocha, aby byla efektivnější. Vykreslování může být zastaveno, pokračovat a nastavit frekvenci snímku. Zadaná frekvence snímků je nejvyšší limitní hodnota, když se na webové stránce nic neděje, nejsou vytvořeny žádné rámce. maximální frekvence snímků je 60, protože je vyšší, že neexistuje žádný prospěch, pouze ztráta výkonu.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Poznámka:** Okno vypnuté obrazovky je vždy vytvořeno jako [bezrámové okno](../api/frameless-window.md).
+*Notes*:
 
-## Režim vykreslování
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Grafická akcelerace
+### Režim vykreslování
 
-Grafické zrychlené vykreslování znamená, že se GPU používá ke složení. Kvůli musí být snímek zkopírován z grafické karty, která vyžaduje větší výkonnost, proto je tento režim o něco pomalejší než ten druhý. Výhodou tohoto režimu je, že jsou podporovány WebGL a 3D CSS animace.
+#### Grafická akcelerace
 
-### Softwarové výstupní zařízení
+Grafické zrychlené vykreslování znamená, že se GPU používá ke složení. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Výhodou tohoto režimu je, že jsou podporovány WebGL a 3D CSS animace.
 
-Tento režim používá softwarové výstupní zařízení pro vykreslování v CPU, takže generování rámu je mnohem rychlejší, proto je tento režim preferován před grafickou akcelerací .
+#### Softwarové výstupní zařízení
 
-Pro povolení tohoto režimu musí být zrychlení GPU vypnuto voláním [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Využití
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Ukázka
+
+Začíná funkční aplikací z [Rychlý startovací průvodce](quick-start.md), přidejte následující řádky do souboru `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady(). hen(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  vyhraje. oadURL('http://github.com')
-  win.webContents.on('paint', (event dirty, image) => {
-    // updateBitmap(dirty, image. etBitmap())
+  win.loadURL('https://github.com')
+  win.webContents.on('paint', (event, dirty, image) => {
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

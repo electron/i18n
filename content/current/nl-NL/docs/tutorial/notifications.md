@@ -20,7 +20,7 @@ Ervan uitgaande dat je een werkende Electron applicatie hebt van de [Quick Start
 
 en voeg het bestand `renderer.js` toe:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Titel', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ Als u de console opent en vervolgens op de melding klikt, je ziet het bericht da
 
 Vanaf een werkende toepassing uit de [Snelstartgids](quick-start.md), update het `main.js` bestand met de volgende regels:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

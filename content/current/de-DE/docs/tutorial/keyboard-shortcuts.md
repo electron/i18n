@@ -12,7 +12,7 @@ Local keyboard shortcuts are triggered only when the application is focused. To 
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
 const { Menu, MenuItem } = require('electron')
 
 const menu = new Menu()
@@ -42,7 +42,7 @@ To configure a global keyboard shortcut, you need to use the [globalShortcut](..
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
@@ -76,7 +76,7 @@ Das [`vor dem Input-Event`](../api/web-contents.md#event-before-input-event) Ere
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

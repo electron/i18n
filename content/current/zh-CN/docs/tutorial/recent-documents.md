@@ -20,7 +20,7 @@ __应用 dock 菜单__
 
 从 起从[快速启动指南](quick-start.md)开始运行，将以下行添加到 `main.js` 文件：
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
