@@ -1,43 +1,50 @@
 # Renderização fora da tela
 
-Renderização fora da tela permite obter o conteúdo de uma janela do navegador em um bitmap, para que possa ser processado em qualquer lugar, por exemplo, em uma textura em uma cena 3D. A renderização offscreen no Electron usa uma abordagem semelhante ao projeto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
+## Visão Geral
 
-Dois modos de renderização podem ser usados, e somente a área suja é passada no evento `'pinta'` para ser mais eficiente. A renderização pode ser interrompida, continuando e a taxa de quadros pode ser definida. A taxa de quadros especificada é um valor limite superior, quando nada acontecer em uma página da Web, não há quadros gerados. A taxa máxima de quadros de é 60, porque acima disso não há nenhum benefício, somente perda de desempenho.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Nota:** Uma janela fora da tela é sempre criada como uma [Janela sem frames](../api/frameless-window.md).
+*Notes*:
 
-## Modos de Renderização
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Aceleração da GPU
+### Modos de Renderização
 
-Renderização acelerada pela GPU significa que a GPU é usada para composição. Por causa de que o frame deve ser copiado da GPU que requer mais desempenho, então esse modo é um pouco mais lento do que o outro. O benefício deste modo é que as animações CSS WebGL e 3D são suportadas.
+#### Aceleração da GPU
 
-### Dispositivo de saída
+Renderização acelerada pela GPU significa que a GPU é usada para composição. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. O benefício deste modo é que as animações CSS WebGL e 3D são suportadas.
 
-Este modo utiliza um dispositivo de saída de software para renderizar no CPU, então a geração do frame é muito mais rápida, Assim, este modo é preferido sobre a GPU acelerada um.
+#### Dispositivo de saída
 
-Para habilitar este modo, a aceleração GPU tem que ser desabilitada chamando a API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Usando
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Exemplo
+
+Começando com um aplicativo de trabalho do [Guia de início rápido](quick-start.md), adicione as seguintes linhas ao arquivo `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
 app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

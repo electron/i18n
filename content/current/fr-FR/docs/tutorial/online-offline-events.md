@@ -24,11 +24,11 @@ let onlineStatusWindow
 
 app.whenReady().then(() => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 ```
 
-créer le fichier `online-status.html` et ajouter la ligne suivante avant la balise fermeture :
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -36,7 +36,7 @@ créer le fichier `online-status.html` et ajouter la ligne suivante avant la bal
 
 et ajoutez le fichier `render.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/renderer'
 const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
 
 window.addEventListener('online', alertOnlineStatus)
@@ -57,11 +57,11 @@ Partez d'une application fonctionnelle à partir du [Quick Start Guide](quick-st
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
-laisser onlineStatusWindow
+let onlineStatusWindow
 
-app.whenReady(). hen(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
+app.whenReady().then(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
+  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
 })
 
 ipcMain.on('online-status-changed', (event, status) => {
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-créer le fichier `online-status.html` et ajouter la ligne suivante avant la balise fermeture :
+in the `index.html` file, add the following line before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
@@ -77,7 +77,7 @@ créer le fichier `online-status.html` et ajouter la ligne suivante avant la bal
 
 et ajoutez le fichier `render.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/online-detection/main'
 const { ipcRenderer } = require('electron')
 const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
 

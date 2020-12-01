@@ -30,7 +30,7 @@ Consulta la [documentazione dell'API per ulteriori opzioni e modalità](../api/b
 
 A partire da un'applicazione funzionante dalla [Guida rapida](quick-start.md), aggiungi le seguenti righe al file `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 

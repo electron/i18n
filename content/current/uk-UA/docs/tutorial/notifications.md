@@ -20,7 +20,7 @@
 
 і додайте файл `renderer.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ If you open the Console and then click the notification, you will see the messag
 
 Починаючи з робочого додатку [Короткий посібник](quick-start.md), оновіть `main.js` файл з наступними рядками:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

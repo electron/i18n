@@ -17,7 +17,7 @@
 
 并将以下行添加到 `渲染器.js` 文件：
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (事件) => }
@@ -30,7 +30,7 @@ document.getElementById('drag').ondragstart = (事件) => }
 
 在主进程中(`主要)。 s` 文件)，将收到的事件扩展到正在拖动的 文件和图标：
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

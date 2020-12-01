@@ -30,7 +30,7 @@ See the [API documentation for more options and modes](../api/browser-window.md#
 
 Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), adaugă următoarele linii în fișierul `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 

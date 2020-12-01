@@ -12,7 +12,7 @@ Les raccourcis clavier locaux ne sont déclenchés que lorsque l'application a l
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
 const { Menu, MenuItem } = require('electron')
 
 const menu = new Menu()
@@ -40,7 +40,7 @@ Pour configurer un raccourci clavier global, vous devez utiliser le module [glob
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
@@ -74,7 +74,7 @@ L’événement [`before-input-event`](../api/web-contents.md#event-before-input
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

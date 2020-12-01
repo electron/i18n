@@ -30,7 +30,7 @@ Linux では、Unity のグラフィカルインターフェイスにも同様�
 
 [クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 

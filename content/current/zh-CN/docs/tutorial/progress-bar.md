@@ -30,7 +30,7 @@ Setting the parameter to negative values (e.g. `-1`) will remove the progress ba
 
 从 起从[快速启动指南](quick-start.md)开始运行，将以下行添加到 `main.js` 文件：
 
-```javascript
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 

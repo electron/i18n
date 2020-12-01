@@ -20,7 +20,7 @@ Las versiones de electrón *< 2.0* no se ajustan a la especificación [semver](h
 
 Aquí hay un ejemplo de la estrategia 1.x:
 
-![1.x Versioning](../images/versioning-sketch-0.png)
+![Versiones 1.x](../images/versioning-sketch-0.png)
 
 Una aplicación desarrollada con `1.8.1` no puede tener la solución de errores `1.8.3` sin asimilar las características `1.8.2`, o portando la solución y manteniendo un nueva línea de publicación.
 
@@ -58,7 +58,7 @@ Las ramas de estabilización son ramas que funcionan paralelas al maestro, toman
 
 Desde Electron 8, las ramas de estabilización son siempre de las líneas de versión **mayor** y se nombran contra la siguiente plantilla `$MAJOR-x-y` p.e. `8-x-y`.  Antes de eso nosotros usabamos la lineas de version **minor** y las nombrabamos como `$MAJOR-$MINOR-x` p.e. `2-0-x`
 
-Permitimos a varias ramas estabilizadoras existir simultaneamente e intentamos soportar por lo menos dos en paralelo todo el tiempo, los arreglos de seguridad por la puerta trasera son necesarios. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
+Permitimos a varias ramas estabilizadoras existir simultaneamente e intentamos soportar por lo menos dos en paralelo todo el tiempo, los arreglos de seguridad por la puerta trasera son necesarios. ![Múltiples Ramas Estables](../images/versioning-sketch-2.png)
 
 Líneas antiguas no serán soportadas por GitHub, pero otros grupos pueden tomar la propiedad y estabilizar por la puerta trasera y hacer arreglos de seguridad por si mismos. Incitamos que no se haga esto, pero reconocemos que haría la vida de varios desarrolladores de aplicación más fácil.
 
@@ -101,14 +101,14 @@ Por cada cambio mayor y menor, debería esperar ver algo como lo siguiente:
 
 Un ejemplo del ciclo de vida en imágenes:
 
-* Se crea una nueva rama de lanzamiento que incluye el último conjunto de características. Se publica como `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
-* Una corrección de errores entra en maestro que puede ser adaptada a la rama de lanzamiento. El parche se aplica, y una nueva beta se publica como `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
-* El beta es considerado _generalmente estable_ y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
-* Más tarde, se revela una explotación de día cero y una solución se aplica al maestro. Realizamos backport a la línea `2-0-x` y lanzamos `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
+* Se crea una nueva rama de lanzamiento que incluye el último conjunto de características. Se publica como `2.0.0-beta.1`. ![Nueva Rama de Lanzamiento](../images/versioning-sketch-3.png)
+* Una corrección de errores entra en maestro que puede ser adaptada a la rama de lanzamiento. El parche se aplica, y una nueva beta se publica como `2.0.0-beta.2`. ![Corrección de errores y Backport a Beta](../images/versioning-sketch-4.png)
+* El beta es considerado _generalmente estable_ y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![Beta a Estable](../images/versioning-sketch-5.png)
+* Más tarde, se revela una explotación de día cero y una solución se aplica al maestro. Realizamos backport a la línea `2-0-x` y lanzamos `2.0.1`. ![Backports de seguridad](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
-![Semvers and Releases](../images/versioning-sketch-7.png)
+![Semvers y lanzamientos](../images/versioning-sketch-7.png)
 
 # Funciones faltantes: Alfas
 

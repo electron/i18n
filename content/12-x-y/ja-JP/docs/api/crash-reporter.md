@@ -76,13 +76,13 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 
 **注:** `extra`、`globalExtra` で渡すパラメータや `addExtraParameter` で設定するパラメータは、キーと値の長さに制限があります。 キー名の長さは最大 39 バイト、値の長さは 127 バイト以下でなければなりません。 最大値より長い名前を持つキーは警告を出さずに無視されます。 キーの値が最大長より長ければ切り捨てられます。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getLastCrashReport()`
 
 戻り値 [`CrashReport`](structures/crash-report.md) - 最後のクラッシュレポートの日付と ID。 アップロードされたクラッシュレポートだけを返します。例えば、クラッシュレポートがディスク上に存在したとしても、アップロードしていなければそれを返しません。 アップロードされたレポートがない場合これは、`null` を返します。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -90,13 +90,13 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 
 アップロードされたすべてのクラッシュレポートを返します。 各レポートには、日付とアップロードされた ID が含まれています。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getUploadToServer()`
 
 戻り値 `Boolean` - レポートがサーバに送信されるべきかどうか。 `start` メソッドまたは `setUploadToServer` を通して設定されます。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -104,13 +104,7 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 
 これは通常、ユーザーの設定によって制御されます。 `start` が呼ばれるまでは何もしません。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
-
-### `crashReporter.getCrashesDirectory()` _非推奨_
-
-戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
-
-**注:** このメソッドは非推奨です。代わりに `app.getPath('crashDumps')` を使用してください。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.addExtraParameter(key, value)`
 

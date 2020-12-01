@@ -25,7 +25,7 @@ Les commandes doivent afficher les versions de Node.js et npm en conséquence. S
 
 Du point de vue du développement, une application Electron est essentiellement une application Node.js. Cela signifie que le point de départ de votre application Electron sera un fichier `package.json` comme dans toute autre application Node.js. Une application Electron minimale a la structure suivante :
 
-```plain
+```plaintext
 mon-electron-app/
 ── package.json
 ── main.js
@@ -50,7 +50,7 @@ Le script principal spécifie le point d'entrée de votre application Electron (
 
 Le script principal peut ressembler à ceci :
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
@@ -63,7 +63,6 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -95,7 +94,7 @@ Ceci est la page Web que vous voulez afficher une fois l'application initialisé
 
 La page `index.html` ressemble à ceci:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ La page `index.html` ressemble à ceci:
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

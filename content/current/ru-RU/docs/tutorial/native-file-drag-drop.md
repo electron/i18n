@@ -17,7 +17,7 @@
 
 и добавьте следующие строки в файл `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ document.getElementById('drag').ondragstart = (event) => {
 
 В главном процессе(`главное. s` файл), развернуть полученное событие с путем, который является перетаскиванием и значком:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

@@ -20,7 +20,7 @@ Um eine Datei zu den letzten Dokumenten hinzuzufügen, müssen Sie die [app.addR
 
 Beginnend mit einer funktionierenden Anwendung aus dem [Quick Start Guide](quick-start.md), fügen Sie folgende Zeilen in die `main.js` Datei ein:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

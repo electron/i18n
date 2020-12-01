@@ -16,7 +16,7 @@ __قائمة الإرساء من Terminal.app:__
 
 بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، قم بتحديث ملف `main.js` مع الأسطر التالية:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 متجر { app, Menu } = مطلوبة ('electron')
 
 dockMenu = القائمة. uildFromTemplate([

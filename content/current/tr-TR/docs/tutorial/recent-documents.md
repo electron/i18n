@@ -20,7 +20,7 @@ To add a file to recent documents, you need to use the [app.addRecentDocument](.
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/kullanıcı/kullanıcıadı/Masaüstü/iş.tipi')

@@ -17,7 +17,7 @@ Pentru a implementa această caracteristică în aplicație, trebuie să apelaț
 
 și adaugă următoarele linii la fișierul `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ Codul de mai sus instruiește procesul de redare să se ocupe de evenimentul `on
 
 În procesul principal (`principal. s` fișier), extindeți evenimentul cu o cale către fișierul care este glisat și o pictogramă:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

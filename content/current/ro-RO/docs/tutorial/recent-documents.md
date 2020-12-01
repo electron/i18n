@@ -20,7 +20,7 @@ Pentru a adăuga un fișier la documentele recente, trebuie să utilizați API-u
 
 Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), adaugă următoarele linii în fișierul `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

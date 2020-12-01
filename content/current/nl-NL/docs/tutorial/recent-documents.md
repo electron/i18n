@@ -20,7 +20,7 @@ Om een bestand toe te voegen aan recente documenten, moet u de API [app.addRecen
 
 Vanaf een werkende applicatie uit de [Snelstartgids](quick-start.md), voeg de volgende regels toe aan het `main.js` bestand:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

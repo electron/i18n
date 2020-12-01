@@ -16,7 +16,7 @@ Chcete-li nastavit vlastní dok menu, musíte použít [`app.dock.setMenu`](../a
 
 Začíná funkční aplikací z [Rychlé spuštění průvodce](quick-start.md), aktualizujte soubor `main.js` o následující řádky:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu. uildFromTemplate([

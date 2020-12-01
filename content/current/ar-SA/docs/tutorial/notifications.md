@@ -20,7 +20,7 @@
 
 وإضافة ملف `renderer.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 تفعيل الإشعارات = الإشعارات الجديدة ('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ myNotification.onclick = () => {
 
 بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، قم بتحديث ملف `main.js` بالأسطر التالية:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = مطلوب('electron')
 
 الدالة تظهر الإشعار () {

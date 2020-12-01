@@ -20,7 +20,7 @@ __アプリケーションの Dock メニュー:__
 
 [クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

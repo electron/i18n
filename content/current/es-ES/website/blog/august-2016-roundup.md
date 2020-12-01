@@ -1,5 +1,5 @@
 ---
-title: 'August 2016: New Apps'
+title: 'Agosto 2016: Nuevas Apps'
 author: señor
 date: '2016-09-06'
 ---

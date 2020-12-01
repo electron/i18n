@@ -12,7 +12,7 @@
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
 const { Menu, MenuItem } = require('electron')
 
 const menu = new Menu()
@@ -42,7 +42,7 @@ Electron アプリケーションを起動すると、アプリケーション�
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
@@ -76,7 +76,7 @@ window.addEventListener('keyup', doSomething, true)
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
-```js
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

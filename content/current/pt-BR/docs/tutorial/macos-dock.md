@@ -16,7 +16,7 @@ Para definir seu menu personalizado do dock, você precisa usar o [`app.dock.set
 
 Começando com um aplicativo de trabalho do [Guia de início rápido](quick-start.md), atualize o `main.js` arquivo com as seguintes linhas:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu. uildFromTemplate([

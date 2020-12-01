@@ -20,7 +20,7 @@ Presupunând că aveți o aplicație Electron funcțională din [Ghidul de porni
 
 şi adăugaţi fişierul `renderer.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ Dacă deschideți Consola și apoi faceți clic pe notificare, vei vedea mesajul
 
 Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), actualizați fișierul `main.js` cu următoarele linii:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

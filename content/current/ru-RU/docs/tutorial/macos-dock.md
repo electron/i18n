@@ -16,7 +16,7 @@ __Dock меню из Terminal.app:__
 
 Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), обновите файл `main.js` с следующими строками:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Меню. uildFromTemplate([

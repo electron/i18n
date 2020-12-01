@@ -432,7 +432,7 @@ Si no tienes la necesidad de crear ventanas adicionales de la que sabes que tend
 
 ### ¿Cómo?
 
-[`webContents`][web-contents] will delegate to its [window open handler][window-open-handler] before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents] delegará a su [controlado de venta abierta][window-open-handler] antes de crear nuevas ventanas. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')

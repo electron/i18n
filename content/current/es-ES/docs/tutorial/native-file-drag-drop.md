@@ -17,7 +17,7 @@ Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-s
 
 y añadir las siguientes líneas al archivo `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ El código anterior indica al proceso de Renderer que maneje el evento `ondragst
 
 En el proceso principal(`main. s` archivo), expande el evento recibido con una ruta al archivo que está siendo arrastrado y un icono:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

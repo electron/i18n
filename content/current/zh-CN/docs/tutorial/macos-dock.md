@@ -16,7 +16,7 @@ __Terminal.app 的 Dock 菜单:__
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([

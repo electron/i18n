@@ -16,7 +16,7 @@ To set the represented file of window, you can use the [BrowserWindow.setReprese
 
 Vanaf een werkende applicatie uit de [Snelstartgids](quick-start.md), voeg de volgende regels toe aan het `main.js` bestand:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

@@ -17,7 +17,7 @@ Vanaf een werkende applicatie van de [Quick Start Guide](quick-start.md), voeg d
 
 en voeg de volgende regels toe aan het bestand `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ De code hierboven instrueert het Renderer-proces om de `ondragstart` event te ve
 
 In het hoofdproces (`voorop. s` bestand), vul de ontvangen gebeurtenis uit met een pad naar het bestand dat wordt gesleept en een pictogram:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

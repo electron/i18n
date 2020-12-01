@@ -17,7 +17,7 @@ Começando com um aplicativo que funciona no [Guia de Início Rápido](quick-sta
 
 and add the following lines to the `renderer.js` file:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ O código acima instrui o processo de Renderização a lidar com o evento `no in
 
 No processo principal (`principal). s` file), expanda o evento recebido com um caminho para o arquivo que está sendo arrastado e um ícone:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

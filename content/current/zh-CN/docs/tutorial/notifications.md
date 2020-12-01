@@ -20,7 +20,7 @@
 
 并添加 `渲染器.js` 文件：
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ myNotification.onclick = () => {
 
 从 的工作应用程序开始[快速启动指南](quick-start.md), 更新 `main.js` 文件中包含以下行：
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification ()

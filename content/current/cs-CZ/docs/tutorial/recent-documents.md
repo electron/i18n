@@ -20,7 +20,7 @@ Chcete-li přidat soubor do nedávných dokumentů, musíte použít [app.addRec
 
 Začíná funkční aplikací z [Rychlý startovací průvodce](quick-start.md), přidejte následující řádky do souboru `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

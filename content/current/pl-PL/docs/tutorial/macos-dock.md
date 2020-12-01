@@ -16,7 +16,7 @@ Aby ustawić własne menu doc, musisz użyć [`app.dock.setMenu`](../api/dock.md
 
 Zaczynając od działającej aplikacji z [Szybki Start Przewodnik](quick-start.md), zaktualizuj `main.js` plik następującymi liniami:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu. uildFromTemplate([

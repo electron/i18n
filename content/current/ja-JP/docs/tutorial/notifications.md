@@ -20,7 +20,7 @@
 
 `renderer.js` ファイルを追加します。
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ Electron アプリケーションを起動すると、通知が表示されま�
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

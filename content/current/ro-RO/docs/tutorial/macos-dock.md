@@ -16,7 +16,7 @@ Pentru a seta meniul de andocare personalizat, trebuie să utilizaţi [`app.dock
 
 Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), actualizați fișierul `main.js` cu următoarele linii:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Meniu. uildFromTemplate([

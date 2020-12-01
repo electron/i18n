@@ -1,43 +1,50 @@
 # Renderowanie Pozaekranowe
 
-Renderowanie poza ekranem pozwala uzyskać zawartość okna przeglądarki w bitmapie, więc może być renderowana w dowolnym miejscu, na przykład na tekstury w scenie 3D. renderowanie offscreerowe w Electron używa podobnego podejścia niż projekt [Chromium Osadzony Framework](https://bitbucket.org/chromiumembedded/cef).
+## Przegląd
 
-Można użyć dwóch trybów renderowania i tylko brudny obszar jest przekazywany w wydarzeniu `'malowanie'` aby być bardziej efektywnym. Renderowanie może być zatrzymane, kontynuowane i można ustawić szybkość klatki. Określona prędkość ramki jest najwyższą wartością graniczną, gdy nic się nie dzieje na stronie internetowej, żadne ramki nie są generowane. maksymalna liczba klatek na sekundę wynosi 60, ponieważ powyżej nie ma korzyści, tylko utrata wydajności.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Uwaga:** Okno offscreerowe jest zawsze tworzone jako [Okno bez ramki](../api/frameless-window.md).
+*Notes*:
 
-## Tryby Renderowania
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Akceleracja GPU
+### Tryby Renderowania
 
-Nakładanie GPU oznacza, że GPU jest używany do kompozycji. że ramka musi być skopiowana z GPU, co wymaga większej wydajności, więc ten tryb jest nieco wolniejszy niż drugi. Zaletą tego trybu jest to, że animacje CSS WebGL i 3D są obsługiwane.
+#### Akceleracja GPU
 
-### Urządzenie wyjściowe oprogramowania
+Nakładanie GPU oznacza, że GPU jest używany do kompozycji. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Zaletą tego trybu jest to, że animacje CSS WebGL i 3D są obsługiwane.
 
-Ten tryb wykorzystuje oprogramowanie wyjściowe do renderowania w CPU, więc generowanie klatki jest znacznie szybsze, dlatego ten tryb jest preferowany nad przyspieszeniem GPU .
+#### Urządzenie wyjściowe oprogramowania
 
-Aby włączyć ten tryb przyspieszenie GPU musi być wyłączone przez wywołanie [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Zużycie
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Przykład
+
+Zaczynając od działającej aplikacji z [Poradnika szybkiego startu](quick-start.md), dodaj następujące linie do pliku `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
-let wygraj
+let win
 
-app.whenReady(). hen() => {
-  wygraj = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  wygrywa. oadURL('http://github.com')
-  win.webContents.on('paint', (zdarzenie, brud, obrazek) => {
-    // updateBitmap(brudność, obraz). etBitmap())
+  win.loadURL('https://github.com')
+  win.webContents.on('paint', (event, dirty, image) => {
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

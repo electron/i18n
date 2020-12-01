@@ -25,7 +25,7 @@ npm -v
 
 開発に関しては、Electron は基本的に Node.js アプリケーションです。 つまり、Electron アプリケーションの出発点は、他の Node.js アプリケーションと同様に `package.json` ファイルになります。 Electron アプリケーションの最小構成は、以下のようになります。
 
-```plain
+```plaintext
 my-electron-app/
 ├── package.json
 ├── main.js
@@ -50,7 +50,7 @@ npm i --save-dev electron
 
 メインスクリプトは以下のようになります。
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
@@ -63,7 +63,6 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -95,7 +94,7 @@ app.on('activate', () => {
 
 `index.html` ページは以下のようになります。
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ app.on('activate', () => {
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

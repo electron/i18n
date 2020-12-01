@@ -59,7 +59,7 @@ Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/Eve
 
 To add listeners and handlers, add the following lines to the `renderer.js` file:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -82,7 +82,7 @@ Depending on the received event, we update the [`nativeTheme.themeSource`](../ap
 * Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
 * Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
 
-```js
+```javascript
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 
 function createWindow () {
@@ -129,7 +129,7 @@ The final step is to add a bit of styling to enable dark mode for the web parts 
 
 Create a `styles.css` file and add the following lines:
 
-```css
+```css fiddle='docs/fiddles/features/macos-dark-mode'
 @media (prefers-color-scheme: dark) {
   body { background:  #333; color: white; }
 }

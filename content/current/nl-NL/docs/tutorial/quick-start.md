@@ -25,7 +25,7 @@ De commando's moeten de versies van Node.js en npm overeenkomstig afdrukken. Als
 
 Vanuit een ontwikkelingsperspectief is een Electron applicatie in wezen een Node.js applicatie. Dit betekent dat het startpunt van uw Electron applicatie een `package.json` bestand zal zijn, zoals in elke andere Node.js applicatie. Een minimale Electron applicatie heeft de volgende structuur:
 
-```plain
+```plaintext
 mijn-electron-app/
 +unnamed@@0 Đpackage.json
 ½ main.js
@@ -50,32 +50,31 @@ Het hoofdscript specificeert het invoerpunt van uw Electron applicatie (in ons g
 
 Het hoofdscript kan er als volgt uitzien:
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
-functie createWindow () {
+function createWindow () {
   const win = new BrowserWindow({
-    breedte: 800,
+    width: 800,
     height: 600,
-    webVoorkeuren: {
+    webPreferences: {
       nodeIntegration: true
     }
   })
 
-  win. oadFile('index.html')
-  win.webContents.openDevTools()
+  win.loadFile('index.html')
 }
 
-app. henReady().then(createWindow)
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
-  if (process.platform!== 'darwin') {
-    app. uit()
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
 })
 
-app.on('activeren', () => {
-  als (BrowserWindow. etAllWindows().length === 0) {
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -95,7 +94,7 @@ Dit is de webpagina die u wilt weergeven zodra de applicatie is geïnitialiseerd
 
 De `index.html` pagina ziet er als volgt uit:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ De `index.html` pagina ziet er als volgt uit:
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

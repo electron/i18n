@@ -1,43 +1,50 @@
 # Закадровый рендеринг
 
-Закадровый рендеринг позволяет получить содержимое окна браузера в виде Bitmap изображения, которое может быть отображено где угодно. (Например, может быть использовано в виде текстуры в 3D сцене). Закадровый рендеринг в Electron использует подход, схожий с [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
+## Обзор
 
-Два режима рендеринга могут быть использованы и только грязная область передается в `'paint'` событие более эффективно. рендеринг может быть остановлен, продолжиться и частота кадров может быть установлена. Указанная частота кадров является предельным значением, когда на веб-странице ничего не происходит, фреймы не создаются. Максимальная скорость работы составляет 60, так как выше нет выгоды, только потеря производительности.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Примечание:** Окно с выключенным экраном всегда создается как [Окно без кадров](../api/frameless-window.md).
+*Notes*:
 
-## Режими рендеринга
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Аппаратное ускорение
+### Режимы рендеринга
 
-Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
+#### Аппаратное ускорение
 
-### Устройство вывода
+Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
 
-Этот режим использует устройство вывода для рендеринга в процессоре, поэтому кадр поколения намного быстрее, поэтому этот режим предпочтительнее GPU ускоренного режима.
+#### Устройство вывода
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Использование
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Пример
+
+Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
-позволит выиграть
+let win
 
-app.whenReady(). hen(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win. oadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image. etBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

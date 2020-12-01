@@ -16,7 +16,7 @@ Per impostare il file rappresentato della finestra, puoi usare le API [FinestraB
 
 A partire da un'applicazione funzionante dalla [Guida rapida](quick-start.md), aggiungi le seguenti righe al file `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

@@ -16,7 +16,7 @@ macOS では、アプリケーション内の任意のウインドウに表示�
 
 [クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

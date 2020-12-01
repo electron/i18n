@@ -17,7 +17,7 @@ Commencer avec une application fonctionnelle du [Guide de démarrage rapide](qui
 
 ajoutez ensuite les lignes suivantes au fichier `render.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ Le code ci-dessus indique au processus Renderer de gérer l'événement `ondrags
 
 Dans le processus principal (fichier `main.js` ), étendrel'événement reçu en lui ajoutant le chemin du fichier en train d'être glissé et une icône :
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

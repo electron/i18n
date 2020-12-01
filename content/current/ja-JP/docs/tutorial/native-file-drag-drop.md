@@ -17,7 +17,7 @@
 
 そして、 `renderer.js` ファイルに次の行を追加します。
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ document.getElementById('drag').ondragstart = (event) => {
 
 メインプロセス (`main.js` ファイル) で、以下のように受信したイベントへドラッグしているファイルのパスとアイコンを追加します。
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

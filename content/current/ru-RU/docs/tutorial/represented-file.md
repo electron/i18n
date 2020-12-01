@@ -16,7 +16,7 @@ You can also set the edited state for a window so that the file icon can indicat
 
 Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {

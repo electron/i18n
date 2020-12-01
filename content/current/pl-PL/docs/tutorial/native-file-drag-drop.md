@@ -17,7 +17,7 @@ Zaczynając od działającej aplikacji z [Szybki Start Guide](quick-start.md), d
 
 i dodaj następujące linie do pliku `renderer.js`:
 
-```js
+```javascript
 const { ipcRenderer } = require('electron')
 
 document.getElementById('drag').ondragstart = (event) => {
@@ -30,7 +30,7 @@ Powyższy kod instruuje proces Renderer do obsługi zdarzenia `ondragstart` i pr
 
 W głównym procesie (`głównie. s` plik), rozwiń odebrane zdarzenie ze ścieżką do pliku, który jest ciągnięty i ikona:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {

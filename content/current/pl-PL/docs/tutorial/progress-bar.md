@@ -30,7 +30,7 @@ Zobacz [Dokumentacje API dla większej liczby opcji i trybów](../api/browser-wi
 
 Zaczynając od działającej aplikacji z [Poradnika szybkiego startu](quick-start.md), dodaj następujące linie do pliku `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 

@@ -25,7 +25,7 @@ I comandi dovrebbero stampare le versioni di Node.js e npm di conseguenza. Se en
 
 Dal punto di vista dello sviluppo, un'applicazione Electron è essenzialmente un'applicazione Node.js. Ciò significa che il punto di partenza dell'applicazione Electron sarà un file `package.json` come in qualsiasi altra applicazione Node.js. Un'applicazione Electron minima ha la seguente struttura:
 
-```plain
+```plaintext
 my-electron-app/
 ├<unk> <unk> <unk> package.json
 <unk> <unk> <unk> <unk> <unk> main.js
@@ -50,32 +50,31 @@ Lo script principale specifica il punto di entrata della tua applicazione Electr
 
 Lo script principale può apparire come segue:
 
-```js
+```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
-    altezza: 600,
-    webPreferenze: {
+    height: 600,
+    webPreferences: {
       nodeIntegration: true
     }
   })
 
-  vince. oadFile('index.html')
-  win.webContents.openDevTools()
+  win.loadFile('index.html')
 }
 
-app. henReady().then(createWindow)
+app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app. uit()
+    app.quit()
   }
 })
 
 app.on('activate', () => {
-  if (BrowserWindow. etAllWindows().length === 0) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -95,7 +94,7 @@ Questa è la pagina web che si desidera visualizzare una volta che l'applicazion
 
 La pagina `index.html` appare come segue:
 
-```html
+```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,9 +104,11 @@ La pagina `index.html` appare come segue:
 </head>
 <body style="background: white;">
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
 </body>
 </html>
 ```

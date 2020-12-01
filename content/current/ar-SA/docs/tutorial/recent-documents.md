@@ -20,7 +20,7 @@ __قائمة الإرساء للتطبيق:__
 
 بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `main.js`:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = مطلوب('electron')
 
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')

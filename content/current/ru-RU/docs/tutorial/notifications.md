@@ -20,7 +20,7 @@
 
 и добавьте файл `renderer.js`:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
@@ -42,7 +42,7 @@ myNotification.onclick = () => {
 
 Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), обновите файл `main.js` следующими строками:
 
-```js
+```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
 function showNotification () {

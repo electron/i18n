@@ -1,43 +1,50 @@
 # Offscreen Rendering
 
-عرض الشاشة خارج الشاشة يتيح لك الحصول على محتوى نافذة المتصفح في الخريطة، حتى يمكن أن تصبح في أي مكان، على سبيل المثال على نسيج في مشهد ثلاثي الأبعاد. يستخدم عرض خارج الشاشة في إلكترون نهجاً مشابهاً لمشروع [كروميوم الإطار المضمن](https://bitbucket.org/chromiumembedded/cef).
+## النظرة عامة
 
-يمكن استخدام نوعين من التوريد ويتم تمرير المنطقة القذرة فقط في حدث `'طلاء'` لتكون أكثر كفاءة. يمكن إيقاف التقديم، متابعة ويمكن تعيين معدل الإطار. معدل الإطار المحدد هو قيمة الحد الأعلى، عندما لا يحدث شيء على صفحة ويب، لا يتم إنشاء أي إطار. الحد الأقصى لمعدل الإطار هو 60 ، لأنه فوق أنه ليس هناك فائدة ، فقط خسارة الأداء.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**ملاحظة:** يتم دائماً إنشاء نافذة خارج الشاشة كـ [نافذة بلا إطار](../api/frameless-window.md).
+*Notes*:
 
-## أنماط التصيير
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### مسرع GPU
+### أنماط التصيير
 
-ويعني الإسراع في تقديم الوحدة العالمية أن الوحدة تستخدم لتكوينها. بسبب أنه يجب نسخ الإطار من الوحدة البريدية العالمية التي تتطلب المزيد من الأداء، وبالتالي فإن هذا الوضع أبطأ قليلاً من الوضع الآخر. من مزاياه يمكن دعم تأثيرات لـWebGL و 3D CSS.
+#### مسرع GPU
 
-### برامج أجهزة الإخراج
+ويعني الإسراع في تقديم الوحدة العالمية أن الوحدة تستخدم لتكوينها. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. من مزاياه يمكن دعم تأثيرات لـWebGL و 3D CSS.
 
-يستخدم هذا الوضع جهاز إخراج برنامج للتشغيل في وحدة المعالجة المركزية، لذا فإن إنشاء الإطار أسرع بكثير، وبالتالي فإن هذا الوضع مفضل على GPU المعجّل واحد.
+#### برامج أجهزة الإخراج
 
-لتمكين هذا الوضع يجب تعطيل تسارع GPU عن طريق الاتصال بـ [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## الإستعمال
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
-عرض { app, BrowserWindow } = مطلوب('electron')
+## مثال
+
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
-اترك الفوز
+let win
 
-app.whenReady(). hen(() => {
-  win = BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  فائز. oadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    /updateBitmap(dirty, Image. etBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.
