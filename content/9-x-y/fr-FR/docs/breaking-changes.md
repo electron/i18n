@@ -148,9 +148,48 @@ Si cela vous affecte, vous pouvez définir temporairement `app.allowRendererProc
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
+
 ### Supprimé: `<webview>.getWebContents()`
 
-Cette API, qui a été dépréciée dans Electron 8.0, est désormais supprimée.
+Cette API, qui a été dépréciée dans Electron 8.0, est maintenant supprimée.
 
 ```js
 // Supprimé dans Electron 9.0
@@ -162,11 +201,11 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Supprimé: `webFrame.setLayoutZoomLevelLimits()`
 
-Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction a été dépréciée dans Electron 8.x, et supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction a été dépréciée dans Electron 8.x, et supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
+### Comportement modifié : l'envoi d'objets non-JS via IPC lance maintenant une exception
 
-Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. Pour aider à faciliter la transition, l'ancien algorithme de sérialisation IPC a été conservé et utilisé pour certains objets qui ne sont pas sérialisables avec le clonage Structuré. En particulier, les objets DOM (par exemple, `Élément`, `Emplacement` et `DOMMatrix`), Node. s objets supportés par des classes C++ (par exemple `processus. nv`, certains membres de `Stream`), et les objets Electron soutenus par les classes C++ (par ex. `WebContents`, `BrowserWindow` et `WebFrame`) ne sont pas sérialisables avec Structured Clone. À chaque fois que l'ancien algorithme a été appelé, un avertissement de dépréciation a été imprimé.
+Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme de clonage structuré, apportant des améliorations significatives des performances. Pour aider à faciliter la transition, l'ancien algorithme de sérialisation IPC a été conservé et utilisé pour certains objets qui ne sont pas sérialisables avec le clonage Structuré. En particulier, les objets DOM (par exemple, `Élément`, `Emplacement` et `DOMMatrix`), Node. s objets supportés par des classes C++ (par exemple `processus. nv`, certains membres de `Stream`), et les objets Electron soutenus par les classes C++ (par ex. `WebContents`, `BrowserWindow` et `WebFrame`) ne sont pas sérialisables avec Structured Clone. À chaque fois que l'ancien algorithme a été appelé, un avertissement de dépréciation a été imprimé.
 
 Dans Electron 9. , l'ancien algorithme de sérialisation a été supprimé, et envoyer de tels objets non sérialisables lancera maintenant une erreur "l'objet n'a pas pu être cloné".
 
@@ -178,7 +217,7 @@ L'API `shell.openItem` a été remplacée par une API `shell.openPath` asynchron
 
 ### Comportement modifié : les valeurs envoyées par IPC sont maintenant sérialisées avec l'algorithme de clonage structuré
 
-L'algorithme utilisé pour sérialiser les objets envoyés par IPC (via `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents. les méthodes de fin` et associées) est passé d'un algorithme personnalisé à l'algorithme intégré de V8 [Structured Clone Algorithm][SCA] qui est déja utilisé pour sérialiser les messages dans `postMessage`. Cela entraîne une amélioration dans un rapport 2 des performances en ce qui concerne les messages de grande taille, mais apporte également quelques changements de rupture dans le comportement.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 - Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 ```js
@@ -206,7 +245,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsolète: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
+This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
 // Deprecated
@@ -216,7 +255,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-Cependant, il est recommandé d'éviter d'utiliser le module `remote`.
+However, it is recommended to avoid using the `remote` module altogether.
 
 ```js
 // main
@@ -246,7 +285,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Obsolète : `webFrame.setLayoutZoomLevelLimits()`
 
-Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Changements majeurs prévus de l'API (7.0)
 
@@ -306,15 +345,15 @@ webFrame.setIsolatedWorldInfo(
 
 ### Supprimé: `propriété marquée` sur `getBlinkMemoryInfo`
 
-Cette propriété a été supprimée dans Chromium 77 et n'est donc plus disponible.
+This property was removed in Chromium 77, and as such is no longer available.
 
 ### Comportement modifié : l'attribut `webkitdirectory` pour `<input type="file"/>` liste maintenant le contenu du répertoire
 
-La propriété `webkitdirectory` sur les entrées de fichiers HTML leur permet de sélectionner des dossiers. Dans les versions précédentes d'Electron l'implémentation était incorrecte et la propriété `event.target.files` de l'input retournait une `FileList` qui retournait un objet `File` correspondant au dossier sélectionné.
+La propriété `webkitdirectory` sur les entrées de fichiers HTML leur permet de sélectionner des dossiers. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
 Depuis Electron 7, ce `FileList` est maintenant la liste de tous les fichiers contenus dans le dossier, de la même manière que Chrome, Firefox et Edge ([lien vers les docs MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-En guise d'illustration, considérez un dossier avec cette structure :
+En guise d'illustration, prenez un dossier avec cette structure :
 ```console
 dossier
 ├── fichier1
@@ -322,12 +361,12 @@ dossier
 └── fichier3
 ```
 
-Dans Electron < 6, cela renverrait une` FileList` avec un objet` File `pour :
+Dans Electron <=6, cela retournerait une `FileList` avec un objet `File` pour :
 ```console
 chemin/vers/dossier
 ```
 
-Dans Electron 7, cela renvoie maintenant une` FileList` avec un objet` File `pour :
+Dans Electron 7, cela retourne maintenant une `FileList` avec un objet `Fichier` pour :
 ```console
 /chemin/vers/dossier/fichier3
 /chemin/vers/dossier/fichier2
@@ -341,9 +380,9 @@ Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionn�
 ### API modifiée : `win.setMenu(null)` est maintenant `win.removeMenu()`
 
 ```js
-// Déprécié
+// Deprecated
 win.setMenu(null)
-// Remplacé par
+// Replace with
 win.removeMenu()
 ```
 
@@ -454,7 +493,7 @@ const w = new BrowserWindow({
 
 ### Comportement modifié : `nodeIntegration` dans les fenêtres enfants ouvertes via `nativeWindowOpen`
 
-Les fenêtres enfants ouvertes avec l'option `nativeWindowOpen` auront toujours Node.js integration désactivée, sauf si `nodeIntegrationInSubFrames` est à `true`.
+Les fenêtres enfants ouvertes avec l'option `nativeWindowOpen` auront toujours l'intégration de Node.js désactivée, sauf si `nodeIntegrationInSubFrames` est `true`.
 
 ### API modifiée : l'enregistrement des systèmes privilégiés doit maintenant être fait avant que l'application ne soit prête
 

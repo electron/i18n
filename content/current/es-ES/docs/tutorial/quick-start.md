@@ -99,15 +99,15 @@ La página `index.html` se ve como sigue:
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Hola mundo!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body style="background: white;">
-    <h1>Hello World!</h1>
+    <h1>Hola mundo!</h1>
     <p>
-        We are using node <script>document.write(process.versions.node)</script>,
+        Estamos usando node <script>document.write(process.versions.node)</script>,
         Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        y Electron <script>document.write(process.versions.electron)</script>.
     </p>
 </body>
 </html>

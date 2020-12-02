@@ -148,9 +148,48 @@ Wenn dies Sie betrifft, können Sie vorübergehend `app.allowRendererProcessReus
 
 Nähere Informationen finden Sie unter [#18397](https://github.com/electron/electron/issues/18397).
 
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
+
 ### Entfernt: `<webview>.getWebContents()`
 
-Diese API, die seit Electron 8.0 veraltet ist, wird nun entfernt.
+Diese API, die in Electron 8.0 veraltet war, wird nun entfernt.
 
 ```js
 // In Electron 9.0 entfernt
@@ -162,7 +201,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Entfernt: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Verhalten geändert: Das Senden von Nicht-JS-Objekten über IPC wirft jetzt eine Ausnahme
 
@@ -246,7 +285,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Veraltet: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium hat die Unterstützung für das Ändern des Layout-Zoomniveaus entfernt und es übersteigt die Möglichkeiten von uns, dies zu pflegen. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ## Planned Breaking API Changes (7.0)
 

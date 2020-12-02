@@ -76,13 +76,13 @@ This method should be called as early as possible in app startup, preferably bef
 
 **Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
 
-**Note:** This method is only available in the main process.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getLastCrashReport()`
 
 Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. En caso de que no haya reportes subidos, `null` es retornado.
 
-**Note:** This method is only available in the main process.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -90,13 +90,13 @@ Devuelve [`CrashReport []`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-**Note:** This method is only available in the main process.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This method is only available in the main process.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -104,7 +104,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This method is only available in the main process.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.addExtraParameter(key, value)`
 

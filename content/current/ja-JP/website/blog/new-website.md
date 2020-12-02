@@ -55,15 +55,15 @@ ls electron-i18n/content
 
 そこにいくつかの信じられないほどの Electron アプリがありますが、これらはいつも簡単にみつけられるとは限りません。すべての開発者が市場に適切なウェブサイトを構築し、自分のアプリを配布するための時間やリソースを持っているわけではありません。
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. アプリのアイコンから抽出されたカラーパレットを使用する [太字でアクセス可能な色](https://github.com/zeke/pick-a-good-color) を生成して、各アプリのページに視覚的な区別を与えることができます。
+[PNG アイコンファイルとアプリメタデータが少しあれば](https://github.com/electron/electron-apps/blob/master/contributing.md)、特定のアプリに関する多くの情報を収集できます。GitHub から収集したデータで、公開リポジトリがある全アプリのスクリーンショット、ダウンロードリンク、バージョン、リリースノート、README をアプリページに表示できるようになりました。 各アプリのアイコンから抽出したカラーパレットを使用しつつ、[強調されたアクセシビリティの高い色](https://github.com/zeke/pick-a-good-color) を作成し、各アプリページに視覚の分別をつけることもできます。
 
-[アプリのインデックス ページ](https://electronjs.org/apps) にもカテゴリ とキーワードフィルターがあり、 [GraphQL GUI](https://electronjs.org/apps?q=graphql) や [p2p ツール](https://electronjs.org/apps?q=graphql) のような興味深いアプリを見つけることができます。
+[アプリのインデックスページ](https://electronjs.org/apps) には、[GraphQL GUI](https://electronjs.org/apps?q=graphql) や [p2p ツール](https://electronjs.org/apps?q=graphql) のような面白いアプリを見つけられるように、カテゴリとキーワードフィルタが追加されました。
 
-サイトで Electron アプリを紹介したい場合は、 electron/electron-apps [リポジトリで](https://github.com/electron/electron-apps) プルリクエストを開いてください。
+サイトで紹介したい Electron アプリがある方は、[electron/electron-apps](https://github.com/electron/electron-apps) リポジトリでプルリクエストを開いてください。
 
 ## Homebrew を使った、ワンラインインストール
 
-The [Homebrew](https://brew.sh) package manager for macOS has a subcommand called [cask](https://caskroom.github.io) that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
+macOS のパッケージマネージャー [Homebrew](https://brew.sh) には [cask](https://caskroom.github.io) というサブコマンドがあります。`brew cask install atom` のようにすれば、ターミナル上のコマンド一つでデスクトップアプリを簡単にインストールできます。
 
 一般的な Electron アプリの Homebrew Cask 名を収集し始め、 キャッシュを持つすべてのアプリページに インストールコマンドを表示するようになりました。
 
@@ -80,19 +80,19 @@ homebrew樽の名前を持つすべてのアプリを表示するには、 [elec
 
 このサイトを electron.atom.io から新しいドメインに移動しました: [electronjs.org](https://electronjs.org)。
 
-The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron はもともと `atom-shell` と呼ばれていました。 Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. マイクロソフトやSlackのような企業が `atom-shell`を利用し始めたとき。 プロジェクトには新しい名前が必要であることが明らかになりました
+Electron プロジェクトは、ウェブ技術をベースにした GitHub のオープンソーステキストエディタ [Atom](https://atom.io) の中から生まれました。 Electron はもともと `atom-shell` と呼ばれていました。 最初に使用したアプリは Atom でしたが、ほどなくしてこの魔法のような Chromium + Node ランタイムがあらゆるタイプのアプリケーションにも利用できると気づきました。 Microsoft や Slack のような企業が `atom-shell` を利用し始めた頃、このプロジェクトには新しい名前が必要だろうということになりました。
 
-「電子」が生まれました 2016年初頭、GitHubはAtomとは別に、Electronの開発とメンテナンスに特化した に焦点を当てた新しいチームを編成しました。 In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+そして "Electron" が生まれたのです。 2016 年の初め、GitHub は Atom と別に Electron の開発とメンテナンス特化の新チームを結成しました。 それ以来 Electron は何千ものアプリ開発者に採用されています。現在では多くの大企業に採用され、その多くが独自の Electron チームをも保有しています。
 
-Supporting GitHub's Electron projects like Atom and [GitHub Desktop](https://desktop.github.com) is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
+Atom や [GitHub Desktop](https://desktop.github.com) のような GitHub の Electron プロジェクトサポートも未だに私たちチームの優先事項です。しかし、新ドメインへの移行が Atom と Electron の技術的区別をより明確にできるであろうと願っています。
 
 ## 🐢🚀 どこでもNode.js
 
-以前の Electron のウェブサイトは、Rubyベースの [静的サイトジェネレータである](https://jekyllrb.com)Jekyll で構築されていました。 Jekyllは静的なウェブサイトを構築するための素晴らしいツールですが、 ウェブサイトはそれを拡張し始めていました。 適切なリダイレクトや動的なコンテンツレンダリングのようなより多くの動的な機能が欲しかったので、 [Node.js](https://nodejs.org) サーバーは当然の選択でした。
+以前の Electron ウェブサイトは、Ruby ベースの静的サイト生成ツールとして人気の [Jekyll](https://jekyllrb.com) で構築していました。 Jekyll は静的ウェブサイトの構築に最適なツールですが、このウェブサイトではそれを使いこなせなくなり始めていました。 適切なリダイレクトや動的なコンテンツの描画等より動的な機能が欲しかったため、[Node.js](https://nodejs.org) サーバーは当然の選択でした。
 
-Electron エコシステムには、Python から C++ から Bash まで、多くの 異なるプログラミング言語で書かれたコンポーネントを含むプロジェクトが含まれています。 しかし、JavaScriptはElectronの基本であり、コミュニティで最も使用されている言語です。
+Electron のエコシステムには、Python から C++ や Bash まで、さまざまなプログラミング言語で書かれたコンポーネントのプロジェクトが含まれています。 しかし Electron の基礎は JavaScript であり、私たちのコミュニティで最も使用されている言語です。
 
-ウェブサイトをRubyからNode.jsに移行することで、ウェブサイトに貢献したい人のための エントリへの障壁を下げることを目指しています。
+ウェブサイトを Ruby から Node.js に移行することで、ウェブサイトに貢献したい人の敷居を低くすることが目標です。
 
 ## ⚡️ より簡単になったオープンソースへの参加
 
@@ -105,7 +105,7 @@ npm install
 npm run dev
 ```
 
-この新しいウェブサイトはHerokuでホストされています。 We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. これにより、査読者はサイトのライブコピーに プルリクエストの実際の効果を見ることが容易になります。
+この新しいウェブサイトはHerokuでホストされています。 デプロイパイプラインと [アプリプレビュー](https://devcenter.heroku.com/articles/github-integration-review-apps) 機能を使用しています。これにより、プルリクエストごとにアプリの動作するコピーを自動作成できます。 これにより、査読者はサイトのライブコピーに プルリクエストの実際の効果を見ることが容易になります。
 
 ## 🙏 貢献者への感謝
 

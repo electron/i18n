@@ -25,9 +25,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### Eliminado: APIs de extensión `BrowserWindow`
 
-The deprecated extension APIs have been removed:
+La APIs de extensión han sido eliminadas:
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -35,32 +35,32 @@ The deprecated extension APIs have been removed:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+En su lugar use las APIs de session:
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Eliminado en Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Reemplazar con 
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// Eliminado en Electron 13
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// Reemplazar con
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+// Eliminado en Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Reemplazar con
 session.defaultSession.getAllExtensions()
 ```
 
@@ -276,6 +276,45 @@ A partir de Electron 9 no permitimos la carga de módulos nativos no conscientes
 Si esto le impacta, puede establecer temporalmente `app.allowRendererProcessReuse` a `false` para revertir al viejo comportamiento.  Esta bandera solo será una opción hasta Electron 11, así que debe planear actualizar sus módulos nativos para que sean conscientes de contexto.
 
 Para obtener información más detallada consulte [#18397](https://github.com/electron/electron/issues/18397).
+
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+En su lugar use las APIs de session:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
 
 ### Eliminado: `<webview>.getWebContents()`
 

@@ -28,7 +28,7 @@ app.whenReady().then(() => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+en el archivo `index.html`, agregar la siguiente linea antes de la etiqueta de cierre `</body>`:
 
 ```html
 <script src="renderer.js"></script>
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+en el archivo `index.html`, agregar la siguiente linea antes de la etiqueta de cierre `</body>`:
 
 ```html
 <script src="renderer.js"></script>
