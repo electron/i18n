@@ -20,7 +20,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 
 ### Aprender lo básico
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+* [Modelo de proceso de Electron](tutorial/quick-start.md#application-architecture)
   * [Proceso Principal y Proceso Visualizador](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -45,12 +45,12 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### Pasos avanzados
 
 * Arquitectura de la aplicación
   * [Uso de Módulos Nativos de Node.js](tutorial/using-native-node-modules.md)
   * [Estrategias de rendimiento](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [Estrategias de seguridad](tutorial/security.md)
 * [Accesibilidad](tutorial/accessibility.md)
   * [Habilitando manualmente Características de Accesibilidad](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pruebas y depuración](tutorial/application-debugging.md)

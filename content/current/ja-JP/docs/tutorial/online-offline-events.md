@@ -28,7 +28,7 @@ app.whenReady().then(() => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
 
 ```html
 <script src="renderer.js"></script>
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
 
 ```html
 <script src="renderer.js"></script>

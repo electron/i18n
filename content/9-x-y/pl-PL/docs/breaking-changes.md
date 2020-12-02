@@ -148,6 +148,45 @@ Jeśli to wpływa na Ciebie, możesz tymczasowo ustawić `app.allowRendererProce
 
 Więcej szczegółowych informacji można znaleźć w [#18397](https://github.com/electron/electron/issues/18397).
 
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
+
 ### Usunięto: `<webview>.getWebContents()`
 
 Ten API, który został przestarzały w Electron 8.0, został teraz usunięty.
@@ -222,20 +261,20 @@ However, it is recommended to avoid using the `remote` module altogether.
 // main
 const { ipcMain, webContents } = require('electron')
 
-const getGuestForWebContents = (webContentsId, contents) => {
-  const guest = webContents.fromId(webContentsId)
-  if (!guest) {
-    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+const getGuestForWebContents = (webContentsId, zawartość) => {
+  const gość = webContents. romId(webContentsId)
+  jeśli (! uest) {
+    rzuca nowy błąd(`Invalid webContentsId: ${webContentsId}`)
   }
-  if (guest.hostWebContents !== contents) {
-    throw new Error(`Access denied to webContents`)
+  jeśli (gość. ostWebContent! = zawartość) {
+    rzuca nowy błąd (`Dostęp zabroniony webContents`)
   }
-  return guest
+  wróć gościa
 }
 
-ipcMain.handle('openDevTools', (event, webContentsId) => {
-  const guest = getGuestForWebContents(webContentsId, event.sender)
-  guest.openDevTools()
+ipcMain. andle('openDevTools', (event, webContentsId) => {
+  const goest = getGuestForWebContents(webContentsId, event.sender)
+  gość. penDevTools()
 })
 
 // renderer
@@ -254,43 +293,43 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Przestarzałe: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-Zamień z: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
 ### Zmieniono API: `session.clearAuthCache()` nie akceptuje już opcji
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Przestarzałe
+// Deprecated
 session.clearAuthCache({ type: 'password' })
-// Zamień z
+// Replace with
 session.clearAuthCache()
 ```
 
 ### Zmieniono API: `powerMonitor.querySystemIdleState` jest teraz `powerMonitor.getSystemIdleState`
 
 ```js
-// Usunięte w Electron 7.0
-powerMonitor.querySystemIdleState(threshold, callback)
-// Zamień na synchroniczne API
-const idleState = powerMonitor.getSystemIdleState(threshold)
+// Usunięto w Electron 7.0
+powerMonitor.querySystemIdleState(prog, wywołanie zwrotne)
+// Zastąp synchronicznym API
+const idleState = powerMonitor.getSystemIdleState(prog)
 ```
 
 ### Zmieniono API: `powerMonitor.querySystemIdleTime` jest teraz `powerMonitor.getSystemIdleState`
 
 ```js
-// Usunięte w Electron 7.0
+// Usunięto w Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Zamień na synchroniczne API
-const idleTime = powerMonitor.getSystemIdleTime()
+// Zastąp synchronicznym API
+const Time = powerMonitor.getSystemIdleTime()
 ```
 
 ### Zmieniono API: `webFrame.setIsolatedWorldInfo` zastępuje oddzielne metody
 
 ```js
-// Usunięto w Electron 7.0
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -314,12 +353,12 @@ Własność `webkitdirectory` w plikach HTML pozwala im wybrać foldery. Previou
 
 Począwszy od Electron 7, ta `Lista Plików` jest teraz listą wszystkich plików zawartych w folderze, podobnie jak Chrome, Firefox i Edge ([link do dokumentów MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-Jako ilustrację, zobacz folder z tą strukturą:
+Jako ilustrację, weź folder z tą strukturą:
 ```console
 folder
-├── plik1
-├── plik2
-└── plik3
+├── file1
+├── file2
+└── file3
 ```
 
 W Electron <=6 zwróci to listę plików `` z obiektem `Plik` dla:
@@ -327,7 +366,7 @@ W Electron <=6 zwróci to listę plików `` z obiektem `Plik` dla:
 path/to/folder
 ```
 
-W Electron 7, teraz zwraca `FileList` z obiektem `File` dla:
+W Electron 7 zwróci teraz `Listę Plików` z `Plikiem` obiektu dla:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
@@ -716,9 +755,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Przestarzałe: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Zamień z: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 

@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. Solo existe una API macOS para crear menú de dock personalizado, pero Electron además usa el icono de app dock como el punto de entrada para características multiplataforma como [recent documents][recent-documents] y [application progress][progress-bar].
 
 La base de acoplamiento personalizada se utiliza habitualmente para añadir accesos directos a las tareas para las que el usuario no desea abrir toda la ventana de la aplicación.
 

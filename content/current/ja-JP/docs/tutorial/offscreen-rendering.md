@@ -8,21 +8,21 @@
 
 * レンダリングモードは 2 種類使用でき (後述)、変化した部分だけを `paint` イベントに渡すことでより効率的なレンダリングができます。
 * 描画を停止/続行したり、フレームレートを設定したりできます。
-* The maximum frame rate is 60 because greater values bring only performance losses with no benefits.
-* When nothing is happening on a webpage, no frames are generated.
-* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+* 最大フレームレートは 60 です。より大きな値にしてもメリットはなく、性能を損うだけです。
+* ウェブページに何も起きなければ、フレームは生成されません。
+* オフスクリーンウインドウは、常に [フレームレスウインドウ](../api/frameless-window.md) として作成されます。
 
 ### レンダリングモード
 
 #### GPU アクセラレーション
 
-GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. このモードのメリットは、WebGL と 3D CSS アニメーションがサポートされていることです。
+GPU アクセラレーションレンダリングとは、GPU が構成に使用されることを意味します。 GPU からのフレームのコピーにより多くのリソースを必要とするため、このモードはソフトウェア出力デバイスよりも遅くなります。 このモードのメリットは、WebGL と 3D CSS アニメーションがサポートされていることです。
 
 #### ソフトウェア出力デバイス
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
+このモードでは、CPU レンダリングのソフトウェア出力デバイスが使用されているため、フレーム生成は非常に高速です。 したがって、このモードは GPU アクセラレーションよりも好まれます。
 
-To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+このモードを有効にするには、[`app.disableHardwareAcceleration()` API](../api/app.md#appdisablehardwareacceleration) を呼び出して GPU アクセラレーションを無効にする必要があります。
 
 ## サンプル
 
@@ -47,4 +47,4 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, navigate to your application's working folder.
+この Electron アプリケーションを起動したら、アプリケーションを開いたフォルダを見てみましょう。

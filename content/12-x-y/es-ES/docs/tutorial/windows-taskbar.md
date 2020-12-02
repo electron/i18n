@@ -57,7 +57,7 @@ app.setUserTasks([])
 
 On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
-As quoted from [MSDN][msdn-thumbnail]:
+Como se cita desde [MSDN][msdn-thumbnail]:
 
 > Esta barra de herramientas es la barra de tareas estándar de control común. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. La aplicación puede mostrar, habilitar, deshabilitar u ocultar botones de la barra de herramientas si es requerido por su estado actual.
 > 
@@ -110,7 +110,7 @@ win.setThumbarButtons([])
 
 On Windows, a taskbar button can use a small overlay to display application status.
 
-As quoted from [MSDN][msdn-icon-overlay]:
+Como se cita desde [MSDN][msdn-icon-overlay]:
 
 > El encubrimiento de íconos sirve como una notificación contextual del estatus, y tiene la intención de negar la necesidad de separar el ícono de la notificación del estatus del ícono para comunicar la información al usuario. Por ejemplo, el nuevo estatus de correos en Microsoft Outlook, actualmente se muestra en el área de notificaciones, ahora puede ser indicado a través de un encubrimiento en el botón de la barra de tareas. De nuevo, debes decidir durante su ciclo de desarrollo cual método es el mejor para su aplicación. El encubrimiento de íconos tiene la intención de dar información importante, estatus de larga duración o notificaciones así como estado de la red o de mensajería, o nuevos correos. El usuario no debe ser presentado con cambios constantes en el encubrimiento o animaciones.
 
@@ -136,7 +136,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-As quoted from [MSDN][msdn-flash-frame]:
+Como se cita desde [MSDN][msdn-flash-frame]:
 
 > Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 

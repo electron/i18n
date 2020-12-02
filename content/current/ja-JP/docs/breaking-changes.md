@@ -25,9 +25,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### 削除: `BrowserWindow` 拡張機能 API
 
-The deprecated extension APIs have been removed:
+以下の非推奨の API が削除されました。
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -35,32 +35,32 @@ The deprecated extension APIs have been removed:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+代わりに以下の session API を使用してください。
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Electron 13 で削除
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// こちらに置換
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// Electron 13 で削除
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// こちらに置換
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+// Electron 13 で削除
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// こちらに置換
 session.defaultSession.getAllExtensions()
 ```
 
@@ -277,6 +277,45 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 これが影響する場合、`app.allowRendererProcessReuse` を `false` に設定して一時的に以前の動作に戻すことができます。  このフラグは Electron 11 までの設定となっており、ネイティブモジュールを更新してコンテキストに対応する必要があります。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
+
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+代わりに以下の session API を使用してください。
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
 
 ### 削除: `<webview>.getWebContents()`
 
