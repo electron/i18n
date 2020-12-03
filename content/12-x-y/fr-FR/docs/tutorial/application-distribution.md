@@ -1,6 +1,6 @@
 # Distribution de l'Application
 
-Pour distribuer votre application avec Electron, vous devez l'empaqueter et le remarquer. La façon la plus simple de le faire est d'utiliser l'un des outils d'emballage suivants :
+Pour distribuer votre application avec Electron, vous devez l’empaqueter et la rebaptiser. La façon la plus simple de le faire est d'utiliser l'un des outils d'emballage suivants :
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)

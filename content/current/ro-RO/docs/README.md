@@ -83,11 +83,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * Eliberări Electron & FeedBack Dezvoltător
   * [Poliță de Versiuni](tutorial/electron-versioning.md)
   * [Elliberări de cronologii](tutorial/electron-timelines.md)
-* [Împachetarea Codului Sursă a Aplicațiilor cu asar](tutorial/application-packaging.md)
-  * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

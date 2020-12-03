@@ -83,11 +83,6 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * Release di Electron & Feedback Sviluppatore
   * [Gestione delle versioni](tutorial/electron-versioning.md)
   * [Timeline di Rilascio](tutorial/electron-timelines.md)
-* [Impacchettamento Codice Risorsa App con asar](tutorial/application-packaging.md)
-  * [Generare Archivi asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Usare Archivi asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitazioni](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Aggiungere File Scompattati agli Archivi asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Test del Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

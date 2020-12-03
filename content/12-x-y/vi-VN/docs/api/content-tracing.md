@@ -9,19 +9,7 @@ This module does not include a web interface. To view recorded traces, use [trac
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
-const { app, contentTracing } = require('electron')
-
-app.whenReady().then(() => {
-  (async () => {
-    await contentTracing.startRecording({
-      include_categories: ['*']
-    })
-    console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
-  })()
-})
+{ app, contentTracing }
 ```
 
 ## Phương thức

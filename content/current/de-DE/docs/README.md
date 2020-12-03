@@ -83,11 +83,6 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * Electron Veröffentlichungen & Entwickler Feedback
   * [Versionsrichtlinie](tutorial/electron-versioning.md)
   * [Veröffentlichungszeitleisten](tutorial/electron-timelines.md)
-* [Anwendungsquellcode packen mit asar](tutorial/application-packaging.md)
-  * [asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
-  * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
-  * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Ungepackte Dateien zu asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
 
 ---

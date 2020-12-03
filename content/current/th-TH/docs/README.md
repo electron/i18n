@@ -83,11 +83,6 @@ There are questions that are asked quite often. Check this out before creating a
 * Versiones Electron & Comentarios de desarrollador
   * [Versiebeleidid](tutorial/electron-versioning.md)
   * [Calendrier de release9996](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
-  * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

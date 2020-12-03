@@ -1,8 +1,8 @@
 # Yêu cầu kéo về
 
-* [Setting up your local environment](#setting-up-your-local-environment)
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
+* [Thiết lập môi trường cục bộ của bạn](#setting-up-your-local-environment)
+  * [Bước 1: Ngã ba](#step-1-fork)
+  * [Bước 2: Xây dựng](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
 * [Making Changes](#making-changes)
   * [Step 4: Code](#step-4-code)
@@ -17,20 +17,20 @@
   * [Step 11: Landing](#step-11-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## Thiết lập môi trường cục bộ của bạn
 
-### Step 1: Fork
+### Bước 1: Ngã ba
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Fork dự án được [GitHub và](https://github.com/electron/electron) nhân bản ngã ba của bạn địa phương.
 
 ```sh
 $ git clone git@github.com:username/electron.git
 $ cd electron
 $ git remote add upstream https://github.com/electron/electron.git
-$ git fetch upstream
+$ git fetch upstream $ git clone
 ```
 
-### Step 2: Build
+### Bước 2: Xây dựng
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 * [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)

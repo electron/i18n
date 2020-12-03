@@ -122,7 +122,7 @@ Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem
 
 ## Ejemplos
 
-An example of creating the application menu with the simple template API:
+Un ejemplo de creación de una menú de la aplicación con el API simple template:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -232,9 +232,9 @@ Menu.setApplicationMenu(menu)
 
 ### Proceso de renderizado
 
-To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+Para crear menús iniciados por el renderer process, envía la información requerida al main process usando IPC y haz que main process muestre el menú en nombre del renderer.
 
-Below is an example of showing a menu when the user right clicks the page:
+A continuación un ejemplo de mostrar un menú cuando el usuario pulsa el botón derecho en la página:
 
 ```js
 // renderer

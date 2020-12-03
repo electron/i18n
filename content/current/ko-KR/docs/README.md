@@ -83,11 +83,6 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * Electron 릴리즈 & 개발자 피드백
   * [버저닝 정책](tutorial/electron-versioning.md)
   * [버전 출시 일정](tutorial/electron-timelines.md)
-* [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md)
-  * [asar 아카이브 생성하기](tutorial/application-packaging.md#generating-asar-archives)
-  * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
-  * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [asar 아카이브에 압축 해제된 파일 추가하기](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM 테스트](tutorial/testing-widevine-cdm.md)
 
 ---

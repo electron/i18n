@@ -83,11 +83,6 @@
 *
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)
-  * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

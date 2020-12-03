@@ -83,11 +83,6 @@
 * Отзыв разработчика Electron Releases &
   * [Политика контроля версиями](tutorial/electron-versioning.md)
   * [Графики выпуска](tutorial/electron-timelines.md)
-* [Упаковка исходников приложения с помощью asar](tutorial/application-packaging.md)
-  * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Тестирование Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

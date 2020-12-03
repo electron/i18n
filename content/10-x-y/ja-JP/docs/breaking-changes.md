@@ -161,9 +161,9 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
-### Deprecated: `BrowserWindow` extension APIs
+### 非推奨: `BrowserWindow` 拡張機能 API
 
-The following extension APIs have been deprecated:
+これらの拡張機能 API は非推奨になりました。
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -177,26 +177,26 @@ The following extension APIs have been deprecated:
 * `ses.getAllExtensions()`
 
 ```js
-// Deprecated in Electron 9
+// Electron 9 で非推奨化
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// こちらに置換
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Electron 9 で非推奨化
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// こちらに置換
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Electron 9 で非推奨化
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// こちらに置換
 session.defaultSession.getAllExtensions()
 ```
 
