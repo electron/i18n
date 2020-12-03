@@ -97,11 +97,6 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * Rilis Electron & Developer Feedback 
     * [Kebijakan Pembuatan Versi](tutorial/electron-versioning.md)
   * [Garis Waktu Rilis](tutorial/electron-timelines.md)
-* [Pengemasan Sumber Kode Aplikasi dengan asar](tutorial/application-packaging.md) 
-    * [Menghasilkan Arsip asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 

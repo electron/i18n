@@ -83,11 +83,6 @@ There are questions that are asked quite often. Check this out before creating a
 * 電子釋放 & 開發人員回饋
   * [版本控制方針](tutorial/electron-versioning.md)
   * [發佈時間表](tutorial/electron-timelines.md)
-* [使用 asar 打包應用程式原始程式碼](tutorial/application-packaging.md)
-  * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
-  * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
-  * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

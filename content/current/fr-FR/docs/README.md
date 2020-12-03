@@ -83,11 +83,6 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * Releases d'Electron & Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Calendrier de release99](tutorial/electron-timelines.md)
-* [Packaging du code source de l'App avec asar](tutorial/application-packaging.md)
-  * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Ajouter des fichiers non empaquetés dans une archive asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
 
 ---

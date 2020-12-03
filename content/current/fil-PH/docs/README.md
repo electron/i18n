@@ -83,11 +83,6 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Pagbubuo ng mga asar na Archive](tutorial/application-packaging.md#generating-asar-archives)
-  * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Pagdaragdag ng mga naka-unpack na mga file sa asar na mga Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

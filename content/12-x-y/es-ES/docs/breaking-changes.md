@@ -227,9 +227,9 @@ Si esto le impacta, puede establecer temporalmente `app.allowRendererProcessReus
 
 Para obtener información más detallada consulte [#18397](https://github.com/electron/electron/issues/18397).
 
-### Deprecated: `BrowserWindow` extension APIs
+### Obsoleto: APIs de extensión `BrowserWindow`
 
-The following extension APIs have been deprecated:
+Las siguientes APIs de extensión han sido marcadas como obsoletas:
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -243,26 +243,26 @@ En su lugar use las APIs de session:
 * `ses.getAllExtensions()`
 
 ```js
-// Deprecated in Electron 9
+// Obsoleto en Electron 9
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Reemplazar con
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Obsoleto en Electron 9
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// Reemplazar con
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Obsoleto en Electron 9
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Reemplazar con
 session.defaultSession.getAllExtensions()
 ```
 

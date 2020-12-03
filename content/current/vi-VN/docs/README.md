@@ -83,11 +83,6 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * Phát hành Electron & phản hồi của nhà phát triển
   * [Chính sách phiên bản](tutorial/electron-versioning.md)
   * [Lịch phát hành](tutorial/electron-timelines.md)
-* [Chi tiết: Đóng gói mã nguồn của ứng dụng với asar](tutorial/application-packaging.md)
-  * [Tạo ra một file asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Huan](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Thử nghiệm Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

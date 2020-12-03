@@ -83,11 +83,6 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * Electron uitgaven & Feedback van de ontwikkelaar
   * [Versiebeleid](tutorial/electron-versioning.md)
   * [Tijdlijn van uitgaves](tutorial/electron-timelines.md)
-* [De broncode van de app inpakken met asar](tutorial/application-packaging.md)
-  * [Genereren asar archieven](tutorial/application-packaging.md#generating-asar-archives)
-  * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Voeg uitgepakte bestanden toe aan asar archieven](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
 
 ---

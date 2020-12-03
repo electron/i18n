@@ -83,11 +83,6 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * Wydania Electrona & Developerski Feedback
   * [Polityka Wersjonowania](tutorial/electron-versioning.md)
   * [Oś czasu poszczególnych wydań](tutorial/electron-timelines.md)
-* [Szczegółowo: Pakowanie Kodu Źródłowego z asar](tutorial/application-packaging.md)
-  * [Generowanie Archiwów asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testowanie Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

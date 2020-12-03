@@ -83,11 +83,6 @@
 * Electron发布 & 开发者反馈
   * [版本规则](tutorial/electron-versioning.md)
   * [发布时间线](tutorial/electron-timelines.md)
-* [用 asar 打包 App 源代码](tutorial/application-packaging.md)
-  * [生成 asar 档案文件](tutorial/application-packaging.md#generating-asar-archives)
-  * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
-  * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [测试 Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---

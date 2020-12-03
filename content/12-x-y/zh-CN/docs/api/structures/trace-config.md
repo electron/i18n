@@ -3,7 +3,7 @@
 * `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
 * `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
 * `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
-* `enable_argument_filter` boolean (optional) - 如果为true, 则会基于一个经过手动检查过的不包含任何PII（个人信息）的特定列表对事件data进行筛选 See [the implementation in Chromium][trace_event_args_whitelist.cc] for specifics.
+* `enable_argument_filter` boolean (可选) - 如果为true，则筛选结果（事件数据）是根据手动设置的列表（不包括任何PII）来进行条件帅选。 See [the implementation in Chromium][trace_event_args_whitelist.cc] for specifics.
 * `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
 * `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
 * `included_process_ids` number[] (optional) - a list of process IDs to include in the trace. If not specified, trace all processes.

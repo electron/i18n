@@ -4,7 +4,7 @@
 
 Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-*Notes*:
+*Uwagi*:
 
 * There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
 * You can stop/continue the rendering as well as set the frame rate.

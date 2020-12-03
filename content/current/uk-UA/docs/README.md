@@ -83,11 +83,6 @@
 * Випуски Electron & відгуки розробників
   * [Політика версійності](tutorial/electron-versioning.md)
   * [Історія та план версій](tutorial/electron-timelines.md)
-* [Пакування Коду Застосунку з asar](tutorial/application-packaging.md)
-  * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
-  * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
-  * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---
