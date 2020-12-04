@@ -11,7 +11,7 @@
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. 默认值为 `false`.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
@@ -191,4 +191,4 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 * `current` Integer - The number of bytes that have been uploaded so far
 * `total` Integer - The number of bytes that will be uploaded this request
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+您可以使用此方法获取使用 `POST` 请求的文件上传或其他数据传输的进度

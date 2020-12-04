@@ -44,3 +44,4 @@ Dessa forma, eu evitei remendar o Chromium e o Node, e o mesmo código foi usado
 
 Você pode encontrar a implementação da integração do loop de mensagem no `node_bindings` arquivos sob [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Ele pode ser facilmente reutilizado para projetos que querem integrar o Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

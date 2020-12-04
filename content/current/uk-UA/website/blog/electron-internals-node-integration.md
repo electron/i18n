@@ -44,3 +44,4 @@ So in Electron I created a separate thread to poll the backend fd, and since I w
 
 Ви можете знайти реалізування інтеграції циклу повідомлень в `node_bindings` files under [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Так може бути легко використовувати для проектів, що хочуть інтегрувати Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
