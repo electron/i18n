@@ -44,3 +44,4 @@ Așa că în Electron am creat un fir separat pentru a sonda fendul backend, iar
 
 Poți găsi implemarea integrării buclei de mesaje în `fișiere node_bindings` sub [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Acesta poate fi refolosit cu ușurință pentru proiectele care doresc să integreze Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

@@ -44,3 +44,4 @@ In questo modo ho evitato di patching cromo e nodo, e lo stesso codice è stato 
 
 Puoi trovare l'implementazione dell'integrazione del loop dei messaggi nei file `node_bindings` sotto [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Può essere facilmente riutilizzato per progetti che vogliono integrare Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

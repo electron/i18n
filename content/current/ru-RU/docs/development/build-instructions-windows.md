@@ -14,7 +14,7 @@
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Различные версии SDK могут быть установлены бок о бок. Для установки SDK откройте установщик Visual Studio, выберите `Изменить` → `Индивидуальные компоненты`, прокрутите вниз и выберите соответствующий Windows SDK для установки. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
+  * Различные версии SDK могут быть установлены бок о бок. Для установки SDK откройте установщик Visual Studio, выберите `Изменить` → `Индивидуальные компоненты`, прокрутите вниз и выберите соответствующий Windows SDK для установки. Другая опция заключается в том, чтобы посмотреть на [Windows SDK и архив эмулятора](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) и скачать отдельную версию SDK соответственно.
   * Также необходимо установить инструменты отладки SDK. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
 
 Если у вас нет установщика Windows, то [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) имеет версии Windows, которые вы можете использовать для сборки Electron.

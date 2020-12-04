@@ -44,3 +44,4 @@ De cette façon, j'ai évité de patcher Chromium et Node, et le même code a é
 
 Vous pouvez trouver l'implémentation de l'intégration de la boucle message dans les fichiers `node_bindings` sous [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Il peut être facilement réutilisé pour les projets qui veulent intégrer Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

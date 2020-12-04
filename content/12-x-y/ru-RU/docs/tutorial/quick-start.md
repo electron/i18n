@@ -142,7 +142,7 @@ app.on('activate', () => {
 #### Запустите приложение
 
 ```sh
-npm старт
+npm start
 ```
 
 Приложение Electron должно выглядеть следующим образом:
@@ -156,7 +156,7 @@ npm старт
 1. Импорт Electron Forge в папку приложений:
 
     ```sh
-    npx @electron-forge/cli импорт
+    npx @electron-forge/cli import
 
     ✔ Проверка системы
     ✔ Инициализация Git репозитория
@@ -167,13 +167,13 @@ npm старт
 
     У нас есть ATTEMPTED для преобразования вашего приложения в формат, который понимает кузница электронов.
 
-    Спасибо за использование "Электрон-forge"!!!
+    Спасибо за использование "electron-forge"!!!
     ```
 
 1. Создать распределенную таблицу:
 
     ```sh
-    пробег npm make
+    npm run make
 
     > my-gsod-electron-app@1.0. make /my-electron-app
     > electron-forge make

@@ -44,3 +44,4 @@ Tímto způsobem jsem se vyhnul patchování Chromia a Node, a stejný kód byl 
 
 Zavedení smyčky zprávy naleznete v `node_bindings` souborech pod [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Může být snadno znovu použita pro projekty, které chtějí integrovat Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
