@@ -31,8 +31,8 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 
 ```sh
 $ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github. om/electron/electron
-$ gclient sync --with_branch_head--with_tags
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
+$ gclient sync --with_branch_heads --with_tags
 # 这将需要一段时间，喝杯咖啡休息一下。
 ```
 

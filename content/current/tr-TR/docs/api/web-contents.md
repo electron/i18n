@@ -309,7 +309,7 @@ Dönüşler:
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Kullanımdan Kaldırıldı: ** Bu olayın yerine render işlemeninin neden ortadan kaybolduğuna dair daha çok bilgi barıdıran `render-process-gone` olayı getirildi. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -323,7 +323,7 @@ Dönüşler:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - İşlem başarılı bir şekilde başlatılamadı
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.

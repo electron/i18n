@@ -106,13 +106,13 @@ Dönüşler:
 
 Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
 
-### Event: 'did-become-active' _macOS_
+### Olay: 'did-become-active' _macOS_
 
 Dönüşler:
 
 * `event` Olay
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Mac uygulaması aktif olduğunda çalışmaya başlar. `activate` olayından farklı olarak `did-become-active` olayı, uygulama sadece Dock ikonuna tıklandığında veya yeniden başlatıldığında değil, her aktif edildiğinde çalıştırılır.
 
 ### Olay: 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ If `callback` is called without a username or password, the authentication reque
 
 Emitted whenever there is a GPU info update.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Olay: 'gpu-process-crached' _Kullanımdan Kaldırıldı_
 
 Dönüşler:
 
@@ -307,9 +307,9 @@ Dönüşler:
 
 Emitted when the GPU process crashes or is killed.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Kullanımdan Kaldırıldı: ** Bu olayın yerine alt işlemlerin neden ortadan kaybolduğuna dair daha çok bilgi barındıran `child-process-gone` olayı getirildi. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Olay: 'renderer-process-crashed' _Kullanımdan Kaldırıldı_
 
 Dönüşler:
 
@@ -319,7 +319,7 @@ Dönüşler:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Kullanımdan Kaldırıldı: ** Bu olayın yerine render işlemeninin neden ortadan kaybolduğuna dair daha çok bilgi barıdıran `render-process-gone` olayı getirildi. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -334,7 +334,7 @@ Dönüşler:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - İşlem başarılı bir şekilde başlatılamadı
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
@@ -359,7 +359,7 @@ Dönüşler:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - İşlem başarılı bir şekilde başlatılamadı
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
   * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
