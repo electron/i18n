@@ -299,7 +299,7 @@ Dönüşler:
 
 Emitted when the GPU process crashes or is killed.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Olay: 'renderer-process-crashed' _Kullanımdan Kaldırıldı_
 
 Dönüşler:
 
@@ -324,7 +324,7 @@ Dönüşler:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - İşlem başarılı bir şekilde başlatılamadı
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.

@@ -7,7 +7,7 @@
 * `isDefault` Boolean - whether or not a given printer is set as the default printer on the OS.
 * `options` Object - an object containing a variable number of platform-specific printer information.
 
-`durumu` temsil edilen sayı farklı platformlarda farklı anlamlar ifade ediyor: Windows'da potansiyel değerleri burada [](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2)bulunabilir ve Linux ve macOS'ta burada [](https://www.cups.org/doc/cupspm.html)bulunabilirler.
+`status` tarafından temsil edilen sayı farklı platformlarda farklı anlamlara gelmektedir: Windows'da ki potansiyel değerlerine [buraya tıklayarak](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) ulaşılabilir. Linux ve macOS'da ki potansiyel değerlerine ise [buraya tıklayarak](https://www.cups.org/doc/cupspm.html) ulaşılabilir.
 
 ## Örnek
 
