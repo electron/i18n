@@ -6,7 +6,7 @@ Proceso: [principal](../glossary.md#main-process)</0>
 
 **Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Noticias de la plataforma
 

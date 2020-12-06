@@ -691,15 +691,15 @@ La API usa el Registro de Windows y `LSCopyDefaultHandlerForURLScheme` intername
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - un URL con el nombre del protocolo para verificar. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - un URL con el nombre del protocolo para verificar. A diferencia de otros métodos de esta familia, este acepta una URL entera, incluyendo `://` a un mínimo de (por ejemplo `https://`).
 
-Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+Devuelve `String` - Nombre de la aplicación que controla el protocolo o un string vacío si no hay controlador. Por ejemplo, si Electron es el controlador por defecto de la URL, este podría ser  `Electron` en Windows y Mac. Sin embargo, no confíe  en el formato preciso que no se garantiza que no cambie. Espere un formato diferente en Linux, posiblemente con un sufijo `.desktop`.
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+Este método devuelve el nombre de la aplicación del controlador para el protocolo de la URL (alias schema URI).
 
 ### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
 
-* `url` String - un URL con el nombre del protocolo para verificar. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - un URL con el nombre del protocolo para verificar. A diferencia de otros métodos de esta familia, este acepta una URL entera, incluyendo `://` a un mínimo de (por ejemplo `https://`).
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
   * `icon` NativeImage - the display icon of the app handling the protocol.
@@ -725,11 +725,11 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 Devuelve `Objecto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array `JumpListItem` de objetos que corresponden a elementos que el usuario explícitamente a eliminado de la categorías personalizadas en el Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
 
 ### `app.setJumpList(categories)` _Windows_
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array de objetos `JumpListCategory`.
 
 Configura o remueve una Jump list personalizada para la aplicación, y devuelve una de las siguientes cadenas:
 
@@ -855,7 +855,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` any - Estado especifico de la aplicación para almacenar para su uso por otro dispositivo.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Crea un `NSUserActivity` y se establece como la actividad actual. La actividad es elegible para [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) a otro dispositivo luego.
@@ -875,7 +875,7 @@ Marca la actividad actual del usuario [Handoff](https://developer.apple.com/libr
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` any - Estado especifico de la aplicación para almacenar para su uso por otro dispositivo.
 
 Actualiza la actividad actual si su tipo coincide `type`, fusionando las entradas de `userInfo` en su actual diccionario `userInfo`.
 
@@ -1068,7 +1068,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
-If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
+Si no estableces `credits` pero aún deseas sacarlos en tu aplicación, AppKit buscará por un archivo llamado "Credits.html", "Credits.rtf", y "Credits.rtfd", en ese orden, en el paquete devuelto por el método de clase principal NSBundle. El primer archivo encontrado es usado, y si no se encuentra ninguno, el área de información se deja en blanco. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
 
 ### `app.isEmojiPanelSupported()`
 
@@ -1108,8 +1108,8 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (opcional)
-  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
-    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
+  * `conflictHandler` Function\<Boolean> (opcional) - Un controlador para el potencial conflicto en el fallo de movimiento.
+    * `conflictType` String - El tipo de conflicto de movimiento encontrado por el controlador; puede ser `exists` o `existsAndRunning`, donde `exists` quiere decir que una aplicación con el mismo nombre está presente el directorio de las Aplicaciones y `existsAndRunning` quiere decir que que existe y que se está ejecutando actualmente.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
@@ -1117,7 +1117,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 **Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
 
 Por ejemplo:
 
@@ -1170,7 +1170,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Los usuarios pueden pasar un [Menú](menu.md) para establecer esta propiedad.
+Una propiedad `Menu | null` que devuelve [`Menu`](menu.md) si uno ha sido establecido y `null` de lo contrario. Los usuarios pueden pasar un [Menú](menu.md) para establecer esta propiedad.
 
 ### `app.badgeCount` _Linux_ _macOS_
 
@@ -1184,7 +1184,7 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 ### `app.commandLine` _Readonly_
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+Un objeto [`CommandLine`](./command-line.md) que te permite leer y manipular los argumentos de linea de comando que usa Chromium.
 
 ### `app.dock` _macOS_ _Readonly_
 

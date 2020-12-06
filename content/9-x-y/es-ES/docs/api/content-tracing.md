@@ -32,7 +32,7 @@ El módulo `contentTracing` tiene los siguientes métodos:
 
 Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías una vez que todos los procesos hijos han confirmado la solicitud `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Obtenga un conjunto de grupos de categorías. La categoría de grupos puede cambiar a medida que se alcanza nuevas rutas de código. Ver también [lista de categorías de seguimiento integradas](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 > **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
 
@@ -50,7 +50,7 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
-* `resultFilePath` String (optional)
+* `resultFilePath` String (opcional)
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
@@ -58,7 +58,7 @@ Dejar de grabar en todos los procesos.
 
 Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+Los datos de rastreo se escribirán dentro de `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 

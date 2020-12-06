@@ -26,11 +26,11 @@ Por ejemplo:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Without `*` prefix the URL has to match exactly.
+entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+A comma-separated list of servers for which delegation of user credentials is required. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
 ### --disable-ntlm-v2
 

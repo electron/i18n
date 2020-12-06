@@ -149,22 +149,22 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Por defecto es `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Por defecto es `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Por defecto es `false`.
+  * `enableLargerThanScreen` Boolean (opcional) - Permite que la ventana se redimensione mayor que la pantalla. Solo relevante para macOS, ya que los otros sistemas operativos permiten ventanas más grandes que la pantalla por defecto. Por defecto es `false`.
   * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Por defecto es `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Por defecto es `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por defecto es `false`. On Windows, does not work unless the window is frameless.
+  * `transparent` Boolean (opcional) - Hace la ventana [tranparente](frameless-window.md#transparent-window). Por defecto es `false`. En Windows, no funciona a menos que la ventana sea sin marco.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Los valores posibles son:
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
     * `customButtonsOnHover` Boolean (opcional) - Dibuja un botón cierre y minimizar personalizado en macOS en ventanas sin marcos. Estos botones no se mostrarán a menos que se encuentren en la esquina superior izquierda de la ventana. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. **Nota:** Actualmente esta opción es experimental.
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Sólo puede ser usado con `titleBarStyle` configurado en `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
-  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
   * `tabbingIdentifier` String (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
   * `webPreferences` Object (optional) - Settings of web page's features.
@@ -247,7 +247,7 @@ Devuelve:
 * `title` String
 * `explicitSet` Boolen
 
-Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` is false when title is synthesized from file URL.
+Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` es falso cuando el título se sintetiza a partir de la URL del archivo.
 
 #### Evento: "close"
 
@@ -331,7 +331,7 @@ Aparece cuando se restaura la ventana de un estado minimizado.
 Devuelve:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [Rectangle](structures/rectangle.md) - Tamaño de la ventana en que esta siendo redimensionada.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
@@ -409,7 +409,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explicitly supported on Linux:
+Los siguientes comandos de aplicación están explícitamente soportados en Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -1381,7 +1381,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 Cambia si se puede enfocar o no la ventana.
 
-On macOS it does not remove the focus from the window.
+En macOS no elimina el foco de la ventana.
 
 #### `win.setParentWindow(parent)`
 
@@ -1431,11 +1431,11 @@ Añade una ventana como pestaña de la ventana actual, después de la pestaña p
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Para más detalles, ver [macOS documentation][vibrancy-docs].
+* `type` String | null - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`. Para más detalles, ver [macOS documentation][vibrancy-docs].
 
 Añade un efecto de vibración a la ventana del navegador. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+Note que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` han sido marcadas como obsoletas y serán eliminadas un un próxima versión de macOS.
 
 #### `win.setTrafficLightPosition(position)` _macOS_
 

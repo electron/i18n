@@ -44,4 +44,4 @@ De esta manera evité parchear el cromo y el nodo, y el mismo código se utiliz�
 
 Puedes encontrar la implemención de la integración del bucle de mensajes en los archivos `node_bindings` en [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Puede reutilizarse fácilmente para proyectos que quieran integrar Node.
 
-*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
+*Actualización: Implementación movida a [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

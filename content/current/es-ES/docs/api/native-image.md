@@ -160,7 +160,7 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` Number[] (opcional)
 
 Devuelve `NativeImage`
 
@@ -199,7 +199,7 @@ Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` Integer - Entre 0 - 100.
 
 Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
 

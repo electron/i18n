@@ -345,11 +345,11 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
-#### Event: 'resized' _macOS_ _Windows_
+#### イベント: 'resized' _macOS_ _Windows_
 
-Emitted once when the window has finished being resized.
+ウインドウがリサイズされるときに一度発生します。
 
-This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+これは、通常、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
 
 #### イベント: 'will-move' _macOS_ _Windows_
 

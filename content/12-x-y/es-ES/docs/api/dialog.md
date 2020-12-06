@@ -88,7 +88,7 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
 * `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (opcional) _macOS_ _mas_ - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado. (For return values, see [table here](#bookmarks-array).)
+* `bookmarks` String[] (opcional) _macOS_ _mas_ - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -168,7 +168,7 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
 * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` deben estar activados para estar presentes. (For return values, see [table here](#bookmarks-array).)
+* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` deben estar activados para estar presentes. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -252,14 +252,14 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
 ## Array de marcadores
 
-`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, y `showSaveDialogSync` retornarán un array `bookmarks`.
 
-| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
-| ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas  | False                           |     NA      | `[]` (empty array)             |
-| non mas    | any                             |     NA      | `[]` (empty array)             |
+| Tipo de compilación | securityScopedBookmarks boolean | Tipo de Retorno | Valor de Retorno               |
+| ------------------- | ------------------------------- |:---------------:| ------------------------------ |
+| macOS mas           | True                            |     Success     | `['LONGBOOKMARKSTRING']`       |
+| macOS mas           | True                            |      Error      | `['']` (array of empty string) |
+| macOS mas           | False                           |       NA        | `[]` (empty array)             |
+| non mas             | any                             |       NA        | `[]` (empty array)             |
 
 ## Páginas
 
