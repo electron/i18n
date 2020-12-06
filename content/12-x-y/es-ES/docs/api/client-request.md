@@ -130,7 +130,7 @@ Utilizar codificación empaquetada es fuertemente recomendado si no necesita env
 #### `request.setHeader(name, value)`
 
 * `nombre` Cadena - Un nombre de encabezado HTTP extra.
-* `value` String - An extra HTTP header value.
+* `value` String - Un valor de cabecera HTTP extra.
 
 Añade otro encabezado HTTP. The header name will be issued as-is without lowercasing. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
 

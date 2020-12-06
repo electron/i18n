@@ -14,7 +14,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 

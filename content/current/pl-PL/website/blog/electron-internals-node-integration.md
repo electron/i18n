@@ -44,4 +44,4 @@ W ten sposób uniknąłem patchowania chromu i węzła, a ten sam kod został u�
 
 Możesz znaleźć wzmiankę o integracji pętli wiadomości w plikach `node_bindings` pod [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Można go łatwo użyć ponownie dla projektów, które chcą zintegrować Node.
 
-*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
+*Aktualizacja: Implementacja przeniesiona do [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

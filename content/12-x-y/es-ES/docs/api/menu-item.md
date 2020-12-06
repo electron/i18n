@@ -144,7 +144,7 @@ A `String` indicating the item's sublabel.
 
 #### `menuItem.toolTip` _macOS_
 
-A `String` indicating the item's hover text.
+Un `String` indicando el texto flotante del elemento.
 
 #### `menuItem.enabled`
 
