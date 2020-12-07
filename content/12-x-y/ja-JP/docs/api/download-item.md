@@ -74,7 +74,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - ダウロードアイテムを保存するファイルパスを設定します。
 
-このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 If `path` doesn't exist, Electron will try to make the directory recursively. ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 `path` が存在しない場合、Electron はディレクトリを再帰的に作成しようとします。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
 
 #### `downloadItem.getSavePath()`
 

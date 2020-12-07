@@ -170,11 +170,11 @@ Pepper Flashプラグインの `version` を設定します。
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+複数のGPUが利用可能な場合、離散GPUを強制的に使用します。
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+複数のGPUが利用可能な場合、統合GPUを強制的に使用します。
 
 ## Node.js フラグ
 

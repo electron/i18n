@@ -112,7 +112,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando la aplicación mac está activada. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Emitido cuando la aplicación mac se activa. La diferencia del evento `activate` es que `did-become-active` es emitido cada vez que la aplicación se activa, no solo cuando el icono en el Dock es pulsado o la aplicación es re-lanzada.
 
 ### Evento: 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ Si `callback` es llamado sin un nombre de usuario o contraseña, la solicitud de
 
 Emitido cada vez que hay una actualización de información de la GPU.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Evento: 'gpu-process-crashed' _Obsoleto_
 
 Devuelve:
 
@@ -307,9 +307,9 @@ Devuelve:
 
 Emitido cuando el proceso de la GPU se crashea o es terminado.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Obsoleto:** Este evento es reemplazado por el evento `child-process-gone` el cual contiene más información acerca de porque desapareció el proceso secundario. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Evento: 'renderer-process-crashed' _Obsoleto_
 
 Devuelve:
 
@@ -319,7 +319,7 @@ Devuelve:
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -337,7 +337,7 @@ Devuelve:
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
 #### Event: 'child-process-gone'
 
@@ -1196,7 +1196,7 @@ Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, 
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+Una propiedad `String` que índica el nombre actual de la aplicación, el cual es el nombre en el archivo `package.json` de la aplicación.
 
 Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
@@ -1204,7 +1204,7 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
-Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

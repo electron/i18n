@@ -11,7 +11,7 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
-* `serviceName` String (optional) - The non-localized name of the process.
+* `serviceName` String (任意) - そのプロセスのローカライズされていない名前。
 * `name` String (任意) - そのプロセスの名前。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 * `cpu` [CPUUsage](cpu-usage.md) - プロセスの CPU 使用率。
 * `creationTime` Number - このプロセスの作成時間。 時間はエポックからのミリ秒数として表されます。 `pid` はプロセスの終了後に再利用される可能性があるため、`pid` と `creationTime` の両方を使用してプロセスを一意に識別すると良いでしょう。

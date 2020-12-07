@@ -11,6 +11,6 @@
 * `referrer` String (任意) - `referrer` の URL。 これはファイルと URL のレスポンスにのみ使用されます。
 * `method` String (任意) - HTTP の `method`。 これはファイルと URL のレスポンスにのみ使用されます。
 * `session` Session (任意) - URL のリクエストに使用されるセッション。省略すると、HTTP リクエストには現在のセッションを再利用します。 `session` を `null` に設定すると、ランダムな独立したセッションが使用されます。 これは URL レスポンスにのみ使用されます。
-* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (optional) - The data used as upload data. これは、`method` が `"POST"` の場合の URL レスポンスにのみ使用されます。
+* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (任意) - アップロードデータとして使用されるデータ。 これは、`method` が `"POST"` の場合の URL レスポンスにのみ使用されます。
 
 [net-error]: https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h

@@ -10,7 +10,7 @@ Electron でのパッチは、すべてメンテナンスの負担になりま�
 2. このパッチによってコードが Electron 環境でコンパイルできようになるが、Electron 固有の処理 (たとえば、Chrome の `Profile` への参照のパッチを当てる) であるため上流にできない。 パッチなし (たとえば、サブクラス化またはコードのコピーによるもの) では変更を実装できない理由についての論述を含む。
 3. パッチは、基本的に上流と互換性のない機能に Electron 固有の変更を加えます。
 
-基本的に、私たちが作業するすべての上流プロジェクトは友好的な人々が携わっており、問題のコードが Electron と上流プロジェクトの両方と互換性を持つようにするリファクタリングを喜んで受け入れてくれます。 (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+基本的に、私たちが作業するすべての上流プロジェクトは友好的な人々が携わっており、問題のコードが Electron と上流プロジェクトの両方と互換性を持つようにするリファクタリングを喜んで受け入れてくれます。 (たとえば、Chromium の [この](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) 変更を挙げると、同じことを行ったパッチを削除しています。また、Node の [この](https://github.com/nodejs/node/pull/22110) 変更は、 Electron のバグ修正でもあります。) **可能な限り上流の変更を目指し、無期限のパッチを避けるべきです。**
 
 ## パッチシステム
 

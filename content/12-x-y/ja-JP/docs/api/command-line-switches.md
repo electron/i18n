@@ -163,15 +163,15 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+複数のGPUが利用可能な場合、離散GPUを強制的に使用します。
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+複数のGPUが利用可能な場合、統合GPUを強制的に使用します。
 
 ## Node.js フラグ
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron は Node.js でサポートされている [CLI フラグ][node-cli] の一部をサポートしています。
 
 **注:** `ELECTRON_RUN_AS_NODE` で実行していないときに未サポートのコマンドラインスイッチを Electron に渡しても、効果はありません。
 
@@ -193,7 +193,7 @@ host:port でインスペクタを起動し、ユーザスクリプトの開始�
 
 V8 インスペクタの統合により、Chrome デベロッパー ツールや IDE などのツールで Electron インスタンスのデバッグやプロファイルが可能になりました。 ツールは TCP ポートを介して Electron インスタンスにアタッチし、[Chrome デベロッパー ツールプロトコル](https://chromedevtools.github.io/devtools-protocol/) を使用して通信します。
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+詳細は [メインプロセスのデバッグ][debugging-main-process] ガイドを参照してください。
 
 `--debug[=[host:]port]` のエイリアスです。
 

@@ -328,7 +328,7 @@ Devuelve:
 
 Emitido cuando el proceso se crashea o es terminado.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### Event: 'render-process-gone'
 
@@ -345,7 +345,7 @@ Devuelve:
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
 #### Evento: "unresponsive"
 
