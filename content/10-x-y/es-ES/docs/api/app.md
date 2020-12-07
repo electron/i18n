@@ -299,7 +299,7 @@ Devuelve:
 
 Emitido cuando el proceso de la GPU se crashea o es terminado.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Evento: 'renderer-process-crashed' _Obsoleto_
 
 Devuelve:
 
@@ -1136,7 +1136,7 @@ Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, 
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+Una propiedad `String` que índica el nombre actual de la aplicación, el cual es el nombre en el archivo `package.json` de la aplicación.
 
 Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
@@ -1144,7 +1144,7 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
-Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

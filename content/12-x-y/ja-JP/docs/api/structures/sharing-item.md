@@ -1,5 +1,5 @@
-# SharingItem Object
+# SharingItem オブジェクト
 
-* `texts` String[] (optional) - An array of text to share.
-* `filePaths` String[] (optional) - An array of files to share.
-* `urls` String[] (optional) - An array of URLs to share.
+* `texts` String[] (任意) - 共有する、テキストの配列。
+* `filePaths` String[] (任意) - 共有するファイルの配列。
+* `urls` String[] (任意) - 共有するURLの配列。

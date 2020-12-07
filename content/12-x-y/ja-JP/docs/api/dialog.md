@@ -221,7 +221,7 @@ dialog.showOpenDialog(mainWindow, {
 * `response` Number - クリックされたボタンのインデックス。
 * `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。 そうでない場合は `false` になります。
 
-Shows a message box.
+メッセージボックスを表示します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 

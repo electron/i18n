@@ -348,7 +348,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされるときに一度発生します。
 
-これは、通常、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+これは、通常、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 macOS の場合 `setBounds`/`setSize` でウィンドウのサイズを変更し、 `animate` パラメーターを `true` に設定すると、サイズ変更が完了したときにも、このイベントが発生します。
 
 #### イベント: 'will-move' _macOS_ _Windows_
 
@@ -365,11 +365,11 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-#### Event: 'moved' _macOS_ _Windows_
+#### イベント: 'moved' _macOS_ _Windows_
 
 ウインドウが新しい位置に移動されるときに一回だけ、発生します。
 
-__Note__: On macOS this event is an alias of `move`.
+__注__: macOSでは、このイベントは `move` のエイリアスです。
 
 #### イベント: 'enter-full-screen'
 
@@ -474,7 +474,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 * `event` Event
 * `point` [Point](structures/point.md) - コンテキストメニューがトリガーされた画面の座標。
 
-システムコンテキストメニューがウィンドウ上でトリガーされたときに発生します。 通常ユーザーがウィンドウのクライアントエリア以外を右クリックしたときにトリガーされます。  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+システムコンテキストメニューがウィンドウ上でトリガーされたときに発生します。 通常ユーザーがウィンドウのクライアントエリア以外を右クリックしたときにトリガーされます。  これは、フレームレスウィンドウで`-webkit-app-region: drag`と宣言したウィンドウタイトルバーまたは任意の領域です。
 
 Calling `event.preventDefault()` will prevent the menu from being displayed.
 
@@ -506,7 +506,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 * `id` Integer
 
-Returns `BrowserWindow | null` - The window with the given `id`.
+戻り値 `BrowserWindow | null` - 指定された `id` のウインドウ。
 
 #### `BrowserWindow.addExtension(path)` _非推奨_
 

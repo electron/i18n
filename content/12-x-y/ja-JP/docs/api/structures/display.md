@@ -9,7 +9,7 @@
 * `colorSpace` String -  色変換を目的とした色空間 (実現可能なすべての色の組み合わせを含む3次元オブジェクト) を表します。
 * `colorDepth` Number - ピクセルあたりのビット数。
 * `depthPerComponent` Number - 色コンポーネントあたりのビット数。
-* `displayFrequency` Number - The display refresh rate.
+* `displayFrequency` Number - 表示リフレッシュレート。
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)

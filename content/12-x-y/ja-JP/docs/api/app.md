@@ -362,7 +362,7 @@ renderer processが予期せず消えたときに発生します。  This is nor
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
-  * `serviceName` String (optional) - The non-localized name of the process.
+  * `serviceName` String (任意) - そのプロセスのローカライズされていない名前。
   * `name` String (任意) - そのプロセスの名前。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
 子 processが予期せず消えたときに発生します。 This is normally because it was crashed or killed. レンダラープロセスを含みません。
@@ -419,7 +419,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-### Event: 'remote-require' _Deprecated_
+### イベント: 'remote-require' _非推奨_
 
 戻り値:
 
@@ -429,7 +429,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-global' _Deprecated_
+### イベント: 'remote-get-global' _非推奨_
 
 戻り値:
 
@@ -439,7 +439,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-builtin' _Deprecated_
+### イベント: 'remote-get-builtin' _非推奨_
 
 戻り値:
 
@@ -449,7 +449,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-current-window' _Deprecated_
+### イベント: 'remote-get-current-window' _非推奨_
 
 戻り値:
 
@@ -458,7 +458,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### イベント: 'remote-get-current-web-contents' _非推奨_
 
 戻り値:
 

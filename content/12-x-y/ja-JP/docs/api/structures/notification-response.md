@@ -1,7 +1,7 @@
-# NotificationResponse Object
+# NotificationResponse オブジェクト
 
-* `actionIdentifier` String - The identifier string of the action that the user selected.
-* `date` Number - The delivery date of the notification.
-* `identifier` String - The unique identifier for this notification request.
-* `userInfo` Record<String, any> - A dictionary of custom information associated with the notification.
-* `userText` String (optional) - The text entered or chosen by the user.
+* `actionIdentifier` String - ユーザが選択したアクションの識別子文字列。
+* `date` Number - 通知の配信日。
+* `identifier` String - この通知要求の一意の識別子。
+* `userInfo` Record<String, any> - 通知に関連付けられたカスタム情報の辞書。
+* `userText` String (任意) - ユーザーが入力または選択したテキスト。
