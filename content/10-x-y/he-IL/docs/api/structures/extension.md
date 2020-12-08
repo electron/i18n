@@ -1,8 +1,8 @@
-# Extension Object
+# אובייקט הExtension
 
 * `id`‏ String
-* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
+* `manifest` כלשהו - העתק של [מידע הmanifest על ההרחבה](https://developer.chrome.com/extensions/manifest).
 * `name`‏ String
-* `path` String - The extension's file path.
+* `path` מחרוזת - הנתיב לקובץ ההרחבה.
 * `version` String
-* `url` String - The extension's `chrome-extension://` URL.
+* `url` מחרוזת - כתובת הURL של `chrome-extension://` של ההרחבה.

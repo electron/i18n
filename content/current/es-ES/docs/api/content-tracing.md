@@ -4,7 +4,7 @@
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-Este módulo no incluye una interfaz web. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
+Este módulo no incluye una interfaz web. Para ver las huellas gravadas, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), disponible en `chrome://tracing` en Chrome.
 
 **Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
 
@@ -14,7 +14,7 @@ const { app, contentTracing } = require('electron')
 app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
-      include_categories: ['*']
+      included_categories: ['*']
     })
     console.log('Tracing started')
     await new Promise(resolve => setTimeout(resolve, 5000))

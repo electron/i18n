@@ -1136,7 +1136,7 @@ app.moveToApplicationsFolder({
 })
 ```
 
-Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
+Significaría que si una aplicación ya existe en el directorio del usuario, si el usuario elige 'Continuar Mover' entonces la función debería continuar con su comportamiento por defecto y la aplicación existente será eliminada y la aplicación activa será movida en su lugar.
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
@@ -1174,7 +1174,7 @@ Una propiedad `Menu | null` que devuelve [`Menu`](menu.md) si uno ha sido establ
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+Una propiedad `Integer` que devuelve el recuento de insignia para la aplicación actual. Estableciendo a `0` ocultará la insignia.
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
@@ -1204,7 +1204,7 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
-Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Establecer a un valor personalizado lo antes posible en la inicialización de tu aplicación para asegurar que el valor sobrescrito es usado.
 
 ### `app.allowRendererProcessReuse`
 

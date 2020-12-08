@@ -1,6 +1,6 @@
 # Verwendung von Native Node Modules
 
-Native Knoten-Module werden von Electron unterstützt, aber da Electron sehr wahrscheinlich eine andere V8-Version als die auf Ihrem System installierte Knotenbinärdatei verwenden wird die Module, die Sie verwenden, müssen für Electron neu kompiliert werden. Ansonsten bekommst du die folgende Fehlerklasse, wenn du versuchst, deine App auszuführen:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Ansonsten bekommst du die folgende Fehlerklasse, wenn du versuchst, deine App auszuführen:
 
 ```sh
 Fehler: Das Modul '/path/to/native/module.node'
@@ -16,21 +16,21 @@ Es gibt mehrere verschiedene Möglichkeiten, native Module zu installieren:
 
 ### Installation von Modulen und Neuaufbau für Electron
 
-Sie können Module wie andere Node-Projekte installieren und dann die Module für Electron mit dem Paket [`Elektron-rebuild`](https://github.com/electron/electron-rebuild) neu erstellen. Dieses -Modul kann automatisch die Version von Electron bestimmen und die manuellen Schritte des Herunterladens von Headern und des Neuaufbaus von nativen Modulen für Ihre App handhaben.
+Sie können Module wie andere Node-Projekte installieren und dann die Module für Electron mit dem Paket [`Elektron-rebuild`](https://github.com/electron/electron-rebuild) neu erstellen. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-Zum Beispiel um `Elektron-Rebuild` zu installieren und dann Module mit ihm über die Kommandozeile neu zu erstellen:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Jedes Mal, wenn Sie "npm install" ausführen, führen Sie dies aus
-./node_modules/aus. in/electron-rebuild
+# Every time you run "npm install", run this:
+./node_modules/.bin/electron-rebuild
 
-# Wenn Sie Probleme haben, versuchen Sie:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-Für weitere Informationen zur Nutzung und Integration mit anderen Werkzeugen konsultieren Sie das Projekt README.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### `npm` verwenden
 
@@ -110,12 +110,12 @@ Siehe [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8ace
 
 [`Prebuild`](https://github.com/prebuild/prebuild) bietet eine Möglichkeit, native Knotenmodule mit vorkompilierten Binärdateien für mehrere Versionen von Knoten und Electron zu veröffentlichen.
 
-Wenn Module Binärdateien für die Verwendung in Electron bereitstellen, stellen Sie sicher, dass `--build-from-source` und die `npm_config_build_from_source` environment Variable weggelassen werden, um die vorkompilierten Binärdateien voll zu nutzen.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## Module, die auf `Knoten-Pre-gyp angewiesen sind`
 
 Das [`node-pre-gyp` Tool](https://github.com/mapbox/node-pre-gyp) bietet eine Möglichkeit, native Knoten Module mit vorkompilierten Binärdateien zu verteilen und viele beliebte Module verwenden es.
 
-Normalerweise funktionieren diese Module unter Electron, aber manchmal kann es passieren, wenn Electron eine neuere Version von V8 als Node verwendet und/oder es Änderungen an ABI gibt, dass schlechte Dinge passieren. Daher wird generell empfohlen, immer native Module aus dem Quellcode zu erstellen. `Elektron-Rebuild` behandelt dies automatisch.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-Wenn Sie der `npm` Methode zur Installation von Modulen folgen, wird dies standardmäßig durchgeführt, falls nicht, Sie müssen `--build-from-source` an `npm`übergeben , oder setzen Sie die `npm_config_build_from_source` Umgebungsvariable.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

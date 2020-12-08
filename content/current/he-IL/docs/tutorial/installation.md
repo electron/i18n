@@ -119,7 +119,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 בהרצת `npm install electron`, חווים חלק מהמשתמשים תקלות בהתקנה.
 
-ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. The best resolution is to try switching networks, or wait a bit and try installing again.
+ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. לרוב, הפתרון הוא לנסות לחליף רשת או לנסות להתקין שוב במועד מאוחר יותר.
 
 ניתן גם לנסות להתקין Electron ישירות מ-[electron/electron/releases](https://github.com/electron/electron/releases) אם ההתקנה דרך `npm` נכשלת.
 

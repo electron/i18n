@@ -16,7 +16,7 @@
 
 ערכים אפשריים:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+* `disabled_software` - תוכנה בלבד. האצת חומרה מנוטרלת (צהוב)
 * `disabled_off` - Disabled (red)
 * `disabled_off_ok` - Disabled (yellow)
 * `unavailable_software` - Software only, hardware acceleration unavailable (yellow)

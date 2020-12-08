@@ -14,13 +14,35 @@ Acest document folosește următoarea convenție pentru a clasifica modificăril
 
 ## Modificări Plănuite ale API(13.0)
 
+### API Changed: `session.setPermissionCheckHandler(handler)`
+
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+
+```js
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
 ### Eliminat: `shell.moveItemToTrash()`
 
 API-ul deprecat sincronizat `shell.moveItemToTrash()` a fost eliminat. Utilizaţi în schimb `shell.trashItem()` asincron ` shell.trashItem(.</p>
 
-<pre><code class="js">// Eliminat în Electron 13
+<pre><code class="js">// Removed in Electron 13
 shell.moveItemToTrash(path)
-// Înlocuiește cu
+// Replace with
 shell.trashItem(path).then(/* ... */)
 `</pre>
 

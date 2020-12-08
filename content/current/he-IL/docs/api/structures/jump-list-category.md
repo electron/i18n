@@ -8,4 +8,4 @@
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
 * `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**שימו לב:** אם האובייקט `JumpListCategory` הוא בעל `type` או `name` אשר אינו מוגדר, אז ה`type` שלו מונח כ`tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.

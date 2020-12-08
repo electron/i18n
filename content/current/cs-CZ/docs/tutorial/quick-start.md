@@ -121,6 +121,7 @@ Vaše Electron aplikace používá soubor `package.json` jako hlavní vstupní b
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

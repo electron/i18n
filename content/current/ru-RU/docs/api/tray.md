@@ -244,18 +244,18 @@ Sets the option to ignore double click events. Ignoring these events allows you 
   * `title` String
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (optional) - Do not play the associated sound. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `noSound` Boolean (опционально) - Не проигрывать соответствующий звук. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". По умолчанию - `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Отображает всплывающее сообщение в трее.
 
 #### `tray.removeBalloon()` _Windows_
 
-Removes a tray balloon.
+Удаляет всплывающее уведомление в трее.
 
 #### `tray.focus()` _Windows_
 
-Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+Возвращает фокус в область уведомления панели задач. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 

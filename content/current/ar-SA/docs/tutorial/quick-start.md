@@ -119,8 +119,9 @@ app.on('activate', () => {
 
 ```json
 {
-    "الاسم": "my-electron-app",
-    "الإصدار": "0.1.0",
+    "name": "my-electron-app",
+    "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

@@ -1,6 +1,6 @@
 # 使用原生 Node 模块
 
-Electron 支持原生的 Node 模块，但由于 Electron 非常有可能使用一个与您的系统上所安装的 Node 不同的 V8 引擎，您所使用的模块将需要被重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -16,21 +16,21 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 包重建这些模块以适配 Electron 。 This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-例如，想要通过命令行下载 `electron-rebuild` 并重新编译：
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# 每次运行"npm install"后，也运行这条命令
+# Every time you run "npm install", run this:
 ./node_modules/.bin/electron-rebuild
 
-# 在windows下如果上述命令遇到了问题，尝试这个：
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-更多有关使用方法和与其他工具结合的信息，请查阅该项目的README。
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### 通过 `npm` 安装
 
@@ -111,12 +111,12 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 [`预构建`](https://github.com/prebuild/prebuild) 提供了一种发布 本机节点模块的方式，并且预建了二进制节点 和 Electron。
 
-如果为 Electron 提供二进制原生模块，请确保删除 `--build-from-source` 和 `npm_config_build_from_source` 环境变量 来充分利用预编译的二进制文件。
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## 依赖于 `node-pre-gyp` 的模块
 
 [`node-pre-gyp` 工具](https://github.com/mapbox/node-pre-gyp) 提供一种部署原生 Node 预编译二进制模块的方法， 许多流行的模块都是使用它。
 
-通常这些模块在 Electron 中工作良好，但有时当 Electron 使用比 Node 新的 V8 版本且/或有 ABI 改变时，可能发生错误。 因此，一般来说，建议始终从源代码编译原生模块。 `electron-rebuild` 会自动帮你处理这些问题。
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-如果你通过 `npm` 的方式安装模块，默认情况下这就完成了， 如果没有，你需要传入 `--build-from-source` 给 `npm`, 或者设置 `npm_config_build_from_source` 环境变量。
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

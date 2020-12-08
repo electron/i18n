@@ -85,7 +85,7 @@ Redimensiona y mueve la vista a los limites proporcionados en relación a la ven
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+Los límites `bounds` de esta instancia de BrowserView como un `Object`.
 
 #### `view.setBackgroundColor(color)` _Experimental_
 

@@ -1,7 +1,7 @@
 # Объект Cookie
 
-* `name` String - название cookie.
-* `value` String - значение cookie.
+* `name` String - Название cookie.
+* `value` String - Значение cookie.
 * `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов.
 * `hostOnly` Boolean (опционально) - является ли cookie только для хоста; это будет только `true`, если домен не был передан.
 * `path` String (опционально) - путь к cookie.

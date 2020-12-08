@@ -14,15 +14,37 @@ Niniejszy dokument stosuje następującą konwencję do kategoryzowania zmian na
 
 ## Planowane zmiany API (13.0)
 
+### API Changed: `session.setPermissionCheckHandler(handler)`
+
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+
+```js
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
 ### Usunięto: `shell.moveItemToTrash()`
 
 Przestarzałe synchroniczne `shell.moveItemToTrash()` API zostało usunięte. Zamiast tego użyj asynchronicznego `shell.trashItem()`.
 
 ```js
-// Usunięto w Electron 13
+// Removed in Electron 13
 shell.moveItemToTrash(path)
-// Zamień na
-shell.trashItem(path).to(/* ... */)
+// Replace with
+shell.trashItem(path).then(/* ... */)
 ```
 
 ### Removed: `BrowserWindow` extension APIs

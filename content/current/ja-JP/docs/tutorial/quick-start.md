@@ -121,6 +121,7 @@ Electron アプリケーションでは、(他の Node.js アプリケーショ�
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

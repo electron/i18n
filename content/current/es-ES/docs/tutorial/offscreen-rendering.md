@@ -8,7 +8,7 @@ Offscreen rendering te permite obtener el contenido de un `BrowserWindow` en un 
 
 * Hay dos modos de rendering que puede ser usados (vea la sección de abajo) y solo la área sucia se pasa al evento `paint` para ser más eficiente.
 * Usted puede parar/continuar el renderizado así como también ajustar la velocidad de frame.
-* La tasa máxima de fotograma es 60 porque valores mayores solo traen pérdidas de rendimiento sin beneficios.
+* La tasa máxima de fotograma es 240 porque valores mayores solo traen pérdidas de rendimiento sin beneficios.
 * Cuando nada esta sucediendo en un pagina web, no se generan frames.
 * Un offscreen window siempre es creado como [Frameless Window](../api/frameless-window.md).
 

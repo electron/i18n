@@ -30,7 +30,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 * `event` Event
 * `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Electron이 로드된 직후 한번만 발생합니다. MacOS에서는 알림 센터를 통해 앱이 시작된 경우 `launchInfo`에 앱을 여는데 사용된 `NSUserNotification`의 `userInfo`가 할당됩니다. 또한 `app.isReady()` 호출하여 이 이벤트가 이미 발생되었는지 확인할 수 있으며, `app.whenReady()`를 사용하여 Electron이 초기화되었을때 resolve되는 Promise를 얻을 수 있습니다.
 
 ### 이벤트: 'window-all-closed'
 
@@ -44,7 +44,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 
 * `event` Event
 
-Emitted before the application starts closing its windows. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
+응용 프로그램이 창을 닫기 전에 발생됩니다. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
 **참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
@@ -56,7 +56,7 @@ Emitted before the application starts closing its windows. `event.preventDefault
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
+모든 창이 닫혀서 앱이 종료되기 직전에 발생됩니다. `event.preventDefault()`를 호출하면 기본 동작의 수행 (애플리케이션 종료) 을 막습니다.
 
 `will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
 

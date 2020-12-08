@@ -1,6 +1,6 @@
 # Používání nativních Node modulů
 
-Nativní moduly uzlu jsou podporovány Elektronem, ale protože Electron je velmi , pravděpodobně použije jinou verzi V8 než binární uzel nainstalovaný na vašem systému, moduly, které používáte budou muset být rekompilovány pro Electron. V opačném případě dostanete následující třídu chyb, když se pokusíte spustit aplikaci:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. V opačném případě dostanete následující třídu chyb, když se pokusíte spustit aplikaci:
 
 ```sh
 Chyba: Modul '/path/to/native/module.node'
@@ -16,21 +16,21 @@ Existuje několik různých způsobů, jak nainstalovat nativní moduly:
 
 ### Instalace modulů a přestavba Electronu
 
-Můžete nainstalovat moduly jako ostatní projekty uzlu a pak znovu sestavit moduly pro Electron s balíčkem [`elektron-rebuild`](https://github.com/electron/electron-rebuild). Tento modul může automaticky určit verzi Electronu a zpracovat manuální kroky stahování hlaviček a přestavbu nativních modulů pro vaši aplikaci.
+Můžete nainstalovat moduly jako ostatní projekty uzlu a pak znovu sestavit moduly pro Electron s balíčkem [`elektron-rebuild`](https://github.com/electron/electron-rebuild). This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-Například, nainstalovat `elektronick-rebuild` a poté znovu sestavit moduly s ní pomocí příkazové řádky:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Pokaždé, když spustíte "npm install", spusťte toto:
-./node_modules/. in/electron-rebuild
+# Every time you run "npm install", run this:
+./node_modules/.bin/electron-rebuild
 
-# Pokud máte potíže, vyzkoušejte:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-Další informace o používání a integraci s jinými nástroji naleznete v ČERVETNÉ.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### Používá se `npm`
 
@@ -110,12 +110,12 @@ Podívejte se na [`uzlů-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e139
 
 [`Předsestavení`](https://github.com/prebuild/prebuild) poskytuje způsob, jak publikovat nativní moduly uzlu s předsestavenými binárními soubory pro více verzí uzlu a Electron.
 
-Pokud moduly poskytují binární soubory pro použití v elektronikě, ujistěte se, že vynecháte proměnnou `--build-from-source` a `npm_config_build_from_source` prostředí , abyste plně využili předkompilovaných binárních souborů.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## Moduly, které spoléhají na `uzel pre-gyp`
 
 Nástroj [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) poskytuje způsob, jak umístit moduly nativní uzel s předsestavenými binárními soubory, a mnoho populárních modulů jej používá.
 
-Obvykle tyto moduly fungují dobře pod elektronem, ale někdy když Electron používá novější verzi V8 než Node a/nebo jsou změny ABI, mohou se vyskytnout špatné věci . Takže obecně se doporučuje vždy vytvářet nativní moduly ze zdrojového kódu . `elektronická rebuild` to pro vás automaticky ovládá.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-Pokud sledujete `npm` způsob instalace modulů, pak se to provádí ve výchozím nastavení, pokud ne, musíte předat `--build-from-source` `npm`, nebo nastavte proměnnou prostředí `npm_config_build_from_source`.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

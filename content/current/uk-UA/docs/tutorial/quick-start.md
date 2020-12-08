@@ -121,7 +121,8 @@ app.on('activate', () => {
 {
     "name": "my-electron-app",
     "version": "0.1.0",
-    "main": "main": "main.js"
+    "description": "My Electron app",
+    "main": "main.js"
 }
 ```
 

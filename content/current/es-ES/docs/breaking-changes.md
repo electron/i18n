@@ -14,6 +14,28 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(13.0)
 
+### API Changed: `session.setPermissionCheckHandler(handler)`
+
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+
+```js
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
 ### Eliminado: `shell.moveItemToTrash()`
 
 Se ha eliminado la API síncrona `shell.moveItemToTrash()` obsoleta. Utilice en su lugar `shell.trashItem()`.

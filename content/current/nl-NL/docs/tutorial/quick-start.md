@@ -121,6 +121,7 @@ Uw Electron applicatie gebruikt het `package.json` bestand als het belangrijkste
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

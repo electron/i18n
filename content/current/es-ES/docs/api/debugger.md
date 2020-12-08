@@ -72,7 +72,7 @@ Desasocia el depurador de la `webContents`.
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` any (optional) - JSON object with request parameters.
+* `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
 * `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
