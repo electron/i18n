@@ -38,7 +38,7 @@ const findPRNumber = async (): Promise<{ found: boolean; number: number }> => {
     repo: REPO,
     per_page: 100,
   })
-  const glotbot = prs.data.filter((pr) => pr.user.login === BOTNAME)
+  const glotbot = prs.data.filter((pr) => pr.user?.login === BOTNAME)
   const title = prs.data.filter((pr) => pr.title === ORIGINAL_TITLE)
   if (glotbot.length > 0 && title.length > 0) {
     const prNumber = glotbot[0].number
