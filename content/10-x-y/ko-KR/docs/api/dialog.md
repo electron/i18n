@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Dialog는 Electron의 메인 스레드에서 열립니다. 렌더러 프로세스에서 dialog를 표시하려면 remote 모듈을 사용하십시오.
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -30,7 +30,7 @@ console.log(dialog)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (선택 인자) - dialog에서 사용해야 하는 기능을 포함합니다. 아래 값들을 사용할 수 있습니다:
     * `openFile` - 파일 선택 가능
     * `openDirectory` - 폴더 선택 가능
     * `multiSelections` - 경로 다중 선택 가능
@@ -39,7 +39,7 @@ console.log(dialog)
     * `promptToCreate` _Windows_ - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
+    * `최근` _윈도우_ - 최근 문서 목록에 열려있는 항목을 추가하지 않기
   * `message` String (optional) _macOS_ - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -78,7 +78,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (선택 인자) - dialog에서 사용해야 하는 기능을 포함합니다. 아래 값들을 사용할 수 있습니다:
     * `openFile` - 파일 선택 가능
     * `openDirectory` - 폴더 선택 가능
     * `multiSelections` - 경로 다중 선택 가능
@@ -87,7 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` _Windows_ - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
+    * `최근` _윈도우_ - 최근 문서 목록에 열려있는 항목을 추가하지 않기
   * `message` String (optional) _macOS_ - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 

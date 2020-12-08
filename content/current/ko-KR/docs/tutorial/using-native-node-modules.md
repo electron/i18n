@@ -1,6 +1,6 @@
 # 네이티브 노드 모듈 사용하기
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -15,21 +15,21 @@ NODE_MODULE_VERSION $ABC. 모듈을 다시 컴파일하거나 다시 설치해�
 
 ### 모듈을 설치하고 Electron용으로 다시 빌드하기
 
-다른 노드 프로젝트 처럼 모듈을 설치하고 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 패키지를 사용해서 모듈을 Electron용으로 다시 빌드할 수 있습니다. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+다른 노드 프로젝트 처럼 모듈을 설치하고 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 패키지를 사용해서 모듈을 Electron용으로 다시 빌드할 수 있습니다. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# "npm install"을 실행할 때마다, 이것을 실행하세요:
+# Every time you run "npm install", run this:
 ./node_modules/.bin/electron-rebuild
 
-# Windows에서 문제가 있다면, 이것을 시도해 보세요:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### `npm` 사용하기
 
@@ -109,12 +109,12 @@ See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec2
 
 [`prebuild`](https://github.com/prebuild/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
-모듈이 Electron에서 사용을 위한 바이너리를 제공한다면 미리 만들어진 바이너리를 최대한 활용하기 위해 `-- build-from-source`와 `npm_config_build_from_source` 환경 변수를 생략해야합니다.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## `node-pre-gyp`에 의존하는 모듈
 
 [`node-pre-gyp`도구](https://github.com/mapbox/node-pre-gyp)는 미리 만들어진 바이너리로 네이티브 노드 모듈을 배포하는 방법을 제공하며 많은 인기 모듈이 이것을 사용하고 있습니다.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node and/or there are ABI changes, bad things may happen. So in general, it is recommended to always build native modules from source code. `electron-rebuild` handles this for you automatically.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-모듈을 설치 방법인 `npm`을 따르고 있다면, 이것은 기본적으로 수행됩니다. 그렇지 않으면 `--build-from-source`를 `npm`에 전달하거나 또는 `npm_config_build_from_source` 환경 변수를 설정하십시오.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

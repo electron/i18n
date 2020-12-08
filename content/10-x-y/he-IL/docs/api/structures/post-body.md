@@ -1,10 +1,10 @@
-# PostBody Object
+# אובייקט PostBody
 
-* `data` Array<[PostData](./post-data.md)> - The post data to be sent to the new window.
-* `contentType` String - The `content-type` header used for the data. One of `application/x-www-form-urlencoded` or `multipart/form-data`. Corresponds to the `enctype` attribute of the submitted HTML form.
-* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.
+* `data` Array<[PostData](./post-data.md)> - המידע שיש לשלוח לחלון החדש.
+* `contentType` מחרוזת - הheader `content-type` שמשמשת להעברת המידע. `application/x-www-form-urlencoded` או `multipart/form-data`. מתאימה ל`enctype` בטופס HTML שנשלח.
+* `boundary` מחרוזת (אופציונלי) - התחום שמשמש להפרדת חלקים מרובים של ההודעה. חוקי רק כאשר `content` הוא `multipart/form-data`.
 
-Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
+שימו לב כי תווים שמתחילים ב`--` אינם נתמכים עוד. לדוגמה, אפשרות זו תשלח באופן שגוי `multipart/form-data` כאשר `nativeWindowOpen` מוגדר `false` בwebPrefrences:
 
 ```html
 <form

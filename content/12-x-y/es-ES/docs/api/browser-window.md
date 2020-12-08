@@ -39,7 +39,7 @@ win.once('ready-to-show', () => {
 
 Este evento generalmente se emite después del evento `did-finish-load`, pero para páginas con muchos recursos remotos, puede ser emitido antes del evento `did-finish-load`.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
+Por favor tenga en cuanta que usando este evento implica que el renderer será considerado "visible" y se pintara incluso si `show` es falso.  Este evento nunca se disparará si usa `paintWhenInitiallyHidden: false`
 
 ## Configurar `backgroundColor`
 
@@ -139,7 +139,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `title` String (opcional) - Titulo de la ventana por defecto. Por defecto es `"Electron"`. Si la etiqueta HTML `<title>` es definida en el archivo HTML cargado por `loadURL()`, esta propiedad será ignorada.
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
   * `show` Boolean (optional) - Whether window should be shown when created. Por defecto es `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Por defecto es `true`.
+  * `paintWhenInitiallyHidden` Boolean (opcional) - Si el renderer debería estar activo cuando `show` es `false` y recién ha sido creado.  Para que `document.visibilityState` funcione correctamente en la primera carga con `show: false` debería establecer esto a `false`.  Estableciendo esto a `false` causará que el evento `ready-to-show` no se dispare.  Por defecto es `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Por defecto es `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Por defecto es `false`.
@@ -165,7 +165,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `trafficLightPosition` [Point](structures/point.md) (opcional) - Establezca un valor personalizado para la posición de los botones del semáforo. Sólo puede ser usado con `titleBarStyle` configurado en `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
-  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Además note que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` han sido marcados como obsoletos y serán eliminados en una próxima versión de macOS.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
   * `tabbingIdentifier` String (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
   * `webPreferences` Object (optional) - Settings of web page's features.
@@ -311,7 +311,7 @@ Aparece cuando se oculta la ventana.
 
 Aparece cuando la página web ha sido renderizada (mientras no está siendo mostrada) y la ventana puede mostrarse sin un visual flash.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
+Por favor tenga en cuanta que usando este evento implica que el renderer será considerado "visible" y se pintara incluso si `show` es falso.  Este evento nunca se disparará si usa `paintWhenInitiallyHidden: false`
 
 #### Evento: "maximize"
 
@@ -355,7 +355,7 @@ This is usually emitted when the window has been resized manually. On macOS, res
 Devuelve:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [Rectangle](structures/rectangle.md) - Ubicación a la que se está moviendo la ventana.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
@@ -453,7 +453,7 @@ Devuelve:
 * `event` Event
 * `rotation` Float
 
-Emitido en el gesto de rotación de trackpad. Continuamente emitido hasta que el gesto de rotación se termine. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido en el gesto de rotación de trackpad. Continuamente emitido hasta que el gesto de rotación se termine. El valor `rotation` en cada emisión es el angulo rotado en grado desde la última emisión. El último evento emitido sobre un gesto de rotación será siempre de valor `0`. Los valores de rotación en sentido antihorario son positivos, mientras que los valores de rotación en sentido horario son negativos.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -494,7 +494,7 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+Devuelve `BrowserWindow | null` - La ventana a que pertenece el `webContents` indicado o `null` si los contenidos no son propiedad de una ventana.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -532,7 +532,7 @@ Elimina una extensión de Chrome por su nombre.
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<String, ExtensionInfo>` - Las llaves son nombres de extensiones y cada valor es una Objeto conteniendo las propiedades `name` y `version`.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -564,7 +564,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Record<string, ExtensionInfo>` - Las llaves son nombres de extensiones y cada valor es una Objeto conteniendo las propiedades `name` y `version`.
 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
@@ -598,13 +598,13 @@ Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eve
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+Una propiedad `Integer` representando el identificador único de la ventana. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Si la barra de menú ya está visible, estableciendo esta propiedad a `true` no la ocultara inmediatamente.
 
 #### `win.simpleFullScreen`
 
@@ -652,35 +652,35 @@ A `String` property that determines the title of the native window.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser minimizada manualmente por el usuario.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+En Linux el setter no es operativo, a pesar de que el getter devuelve `true`.
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser maximizada manualmente por el usuario.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+En Linux el setter no es operativo, a pesar de que el getter devuelve `true`.
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Una propiedad `Boolean` que determina si los botones de la ventana maximizar/ampliar alterna el modo de pantalla completa o maximiza la ventana.
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+Una propiedad `Boolean` que determina si la ventana puede ser redimencionada manualmente por el usuario.
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+Una propiedad `Boolean` que determina si la ventana puede ser cerrada manualmente por el usuario.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+En Linux el setter no es operativo, a pesar de que el getter devuelve `true`.
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+Una propiedad `Boolean` que determina si la ventana puede ser movida por el usuario.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+En Linux el setter no es operativo, a pesar de que el getter devuelve `true`.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
@@ -1101,7 +1101,7 @@ This API returns whether the window is in tablet mode, and the `resize` event ca
 
 Returns `String` - Window id in the format of DesktopCapturerSource's id. Por ejemplo "window:1234:0".
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+Más específicamente el formato es `window:id:other_id` donde `id` es `HWND` en Windows, `CGWindowID` (`uint64_t`) en macOS y `Window` (`unsigned long`) en Linux. `other_id` es usado para identificar contenidos webs (pestañas) así dentro de la misma ventana de nivel superior.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1168,7 +1168,7 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 * `url` String
 * `options` Object (opcional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una URL de referencia HTTP.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)

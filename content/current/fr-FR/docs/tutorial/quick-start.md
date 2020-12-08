@@ -121,6 +121,7 @@ Votre application Electron utilise le fichier `package.json` comme point d'entr√
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

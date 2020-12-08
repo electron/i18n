@@ -1,6 +1,6 @@
 # Utilizarea modulelor Native Node
 
-Modulele Native Node sunt suportate de Electron, dar din moment ce Electron este foarte probabil să folosească o versiune V8 diferită de Node instalată pe sistemul dvs , modulele pe care le utilizaţi vor trebui recompilate pentru Electron. Altfel, vei primi următoarea clasă de eroare atunci când încerci să rulezi aplicația:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Altfel, vei primi următoarea clasă de eroare atunci când încerci să rulezi aplicația:
 
 ```sh
 Eroare: modulul '/path/to/native/module.node'
@@ -16,21 +16,21 @@ Există mai multe moduri diferite de a instala modulele native:
 
 ### Se instalează module și se reconstruiesc pentru Electron
 
-Poți instala module ca alte proiecte Node și apoi să reconstruiești modulele pentru Electron cu pachetul [`electron-rebuild`](https://github.com/electron/electron-rebuild). Acest modul poate determina automat versiunea Electron și poate gestiona pașii manuali de descărcare a header-urilor și de reconstruire a modulelor native pentru aplicația ta.
+Poți instala module ca alte proiecte Node și apoi să reconstruiești modulele pentru Electron cu pachetul [`electron-rebuild`](https://github.com/electron/electron-rebuild). This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-De exemplu, pentru a instala `electron-rebuild` și apoi reconstruiește modulele cu ele prin linia de comandă:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# De fiecare dată când executați "npm install", executați asta:
-./node_modules/. in/electron-rebuild
+# Every time you run "npm install", run this:
+./node_modules/.bin/electron-rebuild
 
-# pe Windows dacă ai probleme, încerci:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-Pentru mai multe informații despre utilizare și integrare cu alte instrumente, consultați README.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### Folosind `npm`
 
@@ -110,12 +110,12 @@ See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec2
 
 [`prebuild`](https://github.com/prebuild/prebuild) oferă o modalitate de a publica modulele native Node cu binare preconstruite pentru mai multe versiuni de Node și Electron.
 
-Dacă modulele furnizează binare pentru utilizarea în Electron, asigură-te că omite `--build-from-source` și `npm_config_build_from_source` variabila pentru a profita pe deplin de binarele preconstruit.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## Module care se bazează pe `node-pre-gyp`
 
 [`Instrumentul` node-pre-gyp](https://github.com/mapbox/node-pre-gyp) oferă o modalitate de a implementa module native Node cu binare preconstruite, si multe module populare il folosesc.
 
-De obicei, aceste module funcționează bine sub Electron, dar uneori când Electron folosește o versiune mai nouă a V8 decât Node și/sau există schimbări ABI, se pot întâmpla lucruri rele Deci, în general, este recomandat să se construiască întotdeauna module native din codul sursă. `Reconstruirea de electron-reconstruiește` se ocupă automat de asta.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-Dacă urmăriți modul `npm` de instalare a modulelor, atunci acest lucru este realizat în mod implicit, dacă nu, trebuie să treci `--build-rom-source` la `npm`, sau setează variabila de mediu `npm_config_build_from_source`.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

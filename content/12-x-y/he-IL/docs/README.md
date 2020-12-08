@@ -28,7 +28,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Notifications](tutorial/notifications.md)
   * [מסמכים אחרונים](tutorial/recent-documents.md)
   * [התקדמות התרגום](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
+  * [תפריט עגינה מותאם אישית](tutorial/macos-dock.md)
   * [שורת משימות מותאמת אישית של Windows](tutorial/windows-taskbar.md)
   * [פעולות מותאמות אישית בסביבת לינוק לשולחן עבודה](tutorial/linux-desktop-actions.md)
   * [קיצורי מקלדת](tutorial/keyboard-shortcuts.md)
@@ -49,7 +49,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 * ארכיטקטורת יישום
   * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [אסטרטגיות ביצועים](tutorial/performance.md)
   * [Security Strategies](tutorial/security.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
@@ -80,21 +80,21 @@ There are questions that are asked quite often. Check this out before creating a
   * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [פתרון בעיות](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback
-  * [Versioning Policy](tutorial/electron-versioning.md)
+* גרסאות של Electron & משוב מפתחים
+  * [מדיניות גרסאות](tutorial/electron-versioning.md)
   * [ציר זמן הוצאות לאור](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+* [אריזת קוד המקוד עם asar](tutorial/application-packaging.md)
+  * [לחולל ארכיוני asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [שימוש בארכיוני asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [הוספת קבצים לא ארוזים לארכיוני asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---
 
-* [Glossary of Terms](glossary.md)
+* [מילון מונחים](glossary.md)
 
-## API References
+## הפניה לממשק
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)

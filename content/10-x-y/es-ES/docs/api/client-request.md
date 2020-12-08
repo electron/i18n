@@ -136,7 +136,7 @@ Añade otro encabezado HTTP. The header name will be issued as-is without lowerc
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Returns `String` - The value of a previously set extra header name.
+Devuelve `String` - El valor de un nombre de cabecera extra establecido anteriormente.
 
 #### `request.removeHeader(name)`
 

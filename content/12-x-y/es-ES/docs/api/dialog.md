@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files:
+Un ejemplo de mostrar un dialogo para seleccionar múltiples archivos:
 
 ```javascript
 const { dialog } = require('electron')

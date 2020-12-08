@@ -72,7 +72,7 @@ Desasocia el depurador de la `webContents`.
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
-* `commandParams` any (optional) - JSON object with request parameters.
+* `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
 * `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.

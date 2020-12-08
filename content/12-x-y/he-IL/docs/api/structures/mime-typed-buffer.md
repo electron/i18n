@@ -1,5 +1,5 @@
 # MimeTypedBuffer Object
 
-* `mimeType` String (optional) - MIME type of the buffer.
-* `charset` String (optional) - Charset of the buffer.
+* `mimeType` מחרוזת (אופציונלי) - הMIME type של הbuffer.
+* `charset` מחרוזת (אופציונלי) - סט התווים של הbuffer.
 * `data` Buffer - The actual Buffer content.

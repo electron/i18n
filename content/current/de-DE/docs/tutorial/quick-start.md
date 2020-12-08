@@ -121,6 +121,7 @@ Ihre Electron-Anwendung verwendet die `package.json` Datei als Haupteintragspunk
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

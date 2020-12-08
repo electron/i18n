@@ -121,6 +121,7 @@ Aplicația ta Electron folosește fișierul `package.json` ca punct principal de
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "description": "My Electron app",
     "main": "main.js"
 }
 ```

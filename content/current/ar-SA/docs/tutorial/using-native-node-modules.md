@@ -1,6 +1,6 @@
 # Using Native Node Modules
 
-وحدات العقدة الأصلية مدعومة من قبل إلكترون، ولكن بما أن إلكترون هو من المحتمل أن يستخدم نسخة V8 مختلفة من Node binary المثبتة على نظام الخاص بك، الوحدات النمطية التي تستخدمها تحتاج إلى إعادة تجميعها للإلكترون. خلافا لهذا كل ما سيحدث عندما تحاول تشغيل تطبيقك هو الخطأ البرمجي التالي:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. خلافا لهذا كل ما سيحدث عندما تحاول تشغيل تطبيقك هو الخطأ البرمجي التالي:
 
 ```sh
 خطأ: تم تجميع الوحدة النمطية '/path/to/native/module.node'
@@ -16,21 +16,21 @@ NODE_MODULE_VERSION $ABC. الرجاء محاولة إعادة تجميع أو �
 
 ### تثبيت وحدات وإعادة بناء لإلكترون
 
-يمكنك تثبيت وحدات مثل مشاريع العقدة الأخرى، ثم إعادة بناء وحدات لإلكترون باستخدام حزمة [`إلكترون - إعادة بناء`](https://github.com/electron/electron-rebuild). يمكن لهذه الوحدة النمطية تحديد إصدار إلكترون تلقائياً والتعامل مع الخطوات اليدوية لتنزيل الرؤوس وإعادة بناء الوحدات الأصلية للتطبيق الخاص بك.
+يمكنك تثبيت وحدات مثل مشاريع العقدة الأخرى، ثم إعادة بناء وحدات لإلكترون باستخدام حزمة [`إلكترون - إعادة بناء`](https://github.com/electron/electron-rebuild). This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-على سبيل المثال، لتثبيت `electron-rebuild` ثم إعادة إنشاء وحدات معه عبر سطر الأمر:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
-npm تثبيت --save-dev electron-rebuild
+npm install --save-dev electron-rebuild
 
-# في كل مرة تقوم بتشغيل "npm install"، قم بتشغيل هذا:
-/node_modules/. في/electron-rebuild
+# Every time you run "npm install", run this:
+./node_modules/.bin/electron-rebuild
 
-# على Windows إذا كان لديك مشكلة، حاول:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-للحصول على مزيد من المعلومات عن الاستخدام والتكامل مع الأدوات الأخرى، راجع README.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### استخدام `npm`
 
@@ -110,12 +110,12 @@ npm إعادة البناء --nodedir=/path/to/electron/vendor/node
 
 [`البناء المسبق`](https://github.com/prebuild/prebuild) يوفر طريقة لنشر وحدات العقدة الأصلية مع ثنائيات تم بناؤها مسبقاً لإصدارات متعددة من العقدة والإلكترون.
 
-إذا كانت الوحدات توفر ثنائيات للاستخدام في إلكترون، تأكد من حذف `--build-from-source` و `npm_config_build_from_source` Environment من أجل الاستفادة الكاملة من البينوكيات التي تم بناؤها مسبقاً.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## الوحدات التي تعتمد على `ما قبل العقدة`
 
 توفر أداة [`عقدة ما قبل القراءة`](https://github.com/mapbox/node-pre-gyp) طريقة لنشر وحدات Node المحلية مع ثنائيات مبنية مسبقاً. والكثير من الوحدات الشعبية تستخدمها.
 
-عادة ما تعمل هذه الوحدات بشكل جيد تحت إلكترون، ولكن في بعض الأحيان عندما يستخدم إلكترون نسخة أحدث من V8 من العقدة و/أو هناك تغييرات ABI، قد تحدث أشياء سيئة . لذا بشكل عام، من المستحسن دائمًا بناء وحدات محلية من كود المصدر. `إلكترون - إعادة البناء` يتعامل مع هذا لك تلقائياً.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-إذا كنت تتبع طريقة `npm` لتثبيت الوحدات، فيتم ذلك بشكل افتراضي، إن لم يكن ذلك، يجب عليك تمرير `--build-from -source` إلى `npm`، أو تعيين `npm_config_build_from_source` متغير البيئة.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

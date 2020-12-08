@@ -14,15 +14,37 @@
 
 ## 计划重写的 API (13.0)
 
+### API Changed: `session.setPermissionCheckHandler(handler)`
+
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+
+```js
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
 ### 已移除： `shell.moveItemToTrash()`
 
 废弃的同步 `shell.moveItemToTrash()` API 已被删除。 使用 异步 `shell.trashItem()` 代替。
 
 ```js
-// 在 Electron 13
-shell.moveItemToTrash(路径)
-// 替换为
-shell.trashItem(路径).then(/* ... */)
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
 ```
 
 ### Removed: `BrowserWindow` extension APIs

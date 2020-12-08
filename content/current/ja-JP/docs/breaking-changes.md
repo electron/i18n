@@ -14,6 +14,28 @@
 
 ## 予定されている破壊的なAPIの変更 (13.0)
 
+### API 変更: `session.setPermissionCheckHandler(handler)`
+
+`handler` メソッドの第 1 引数は、前までは必ず `webContents` でしたが、これからは `null` になることもあります。  `requestingOrigin`、`embeddingOrigin`、`securityOrigin` プロパティを使用して、権限の確認へ正しく対応する必要があります。  `webContents` が `null` になることがあるので、これに依存しないようにしてください。
+
+```js
+// 古いコード
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// こちらに置換
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
 ### 削除: `shell.moveItemToTrash()`
 
 非推奨の同期 `shell.moveItemToTrash()` API が削除されました。 代わりに の非同期 `shell.trashItem()` を使用してください。
