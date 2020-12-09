@@ -16,7 +16,7 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+O leer la imagen desde el portapapeles, lo cual devuelve un `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+Los siguientes sufijos para DPI son soportados:
 
 * `@1x`
 * `@1.25x`
@@ -134,7 +134,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 * `buffer` [Buffer][buffer]
 * `options` Object (opcional)
-  * `width` Integer (optional) - Required for bitmap buffers.
+  * `width` Integer (opcional) - Requerido para búferes de bipmaps.
   * `height` Entero (opcional) - Necesario para los búferes de mapa de bits.
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
@@ -157,7 +157,7 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 
 Devuelve `NativeImage`
 
-Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. Vea [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) para una lista de posibles valores.
 
 El `hslShift` se aplica a la imagen con las siguientes reglas:
 
@@ -252,9 +252,9 @@ Devuelve `NativeImage` - La imagen recortada.
 #### `image.resize(options)`
 
 * `options` Object
-  * `width` Integer (optional) - Defaults to the image's width.
+  * `width` Integer (opcional) - Por defecto es el ancho de la imagen.
   * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen.
-  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Possible values are `good`, `better`, or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los posibles valores soportados son `good`, `better`, o `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 
@@ -281,7 +281,7 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+Por favor note que esta propiedad solo tiene efecto en macOS.
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 

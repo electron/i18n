@@ -203,7 +203,7 @@ Devuelve `Integer` - el índice del botón pulsado.
 
 Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. It returns the index of the clicked button.
 
-El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. En tal caso será mostrado como una ventana independiente.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
@@ -261,10 +261,10 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
 | Tipo de compilación | securityScopedBookmarks boolean | Tipo de Retorno | Valor de Retorno               |
 | ------------------- | ------------------------------- |:---------------:| ------------------------------ |
-| macOS mas           | True                            |     Success     | `['LONGBOOKMARKSTRING']`       |
-| macOS mas           | True                            |      Error      | `['']` (array of empty string) |
-| macOS mas           | False                           |       NA        | `[]` (empty array)             |
-| non mas             | any                             |       NA        | `[]` (empty array)             |
+| macOS mas           | True                            |      Éxito      | `['LONGBOOKMARKSTRING']`       |
+| macOS mas           | True                            |      Error      | `['']` (array de cadena vacía) |
+| macOS mas           | False                           |       NA        | `[]` (array vacío)             |
+| no mas              | cualquiera                      |       NA        | `[]` (array vacío)             |
 
 ## Páginas
 

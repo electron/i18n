@@ -105,9 +105,9 @@ app.on('activate', () => {
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using node <script>document.write(process.versions.node)</script>,
+        Вы используете node <script>document.write(process.versions.node)</script>,
         Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        и Electron <script>document.write(process.versions.electron)</script>.
     </p>
 </body>
 </html>

@@ -116,7 +116,7 @@ protocol.registerSchemesAsPrivileged([
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -139,7 +139,7 @@ Por defecto el `scheme` es tratado como `http:`, que es analizado de forma difer
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -170,7 +170,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -189,7 +189,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -216,7 +216,7 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -288,7 +288,7 @@ Devuelve `Promise<Boolean>` - completado con un boolean eso indica si hay un con
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -305,7 +305,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -322,7 +322,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -339,7 +339,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -360,7 +360,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 * `handler` Function
   * Objeto `request`
     * `url` String
-    * `headers` Record<String, String>
+    * Registro `headers`<String, String>
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)

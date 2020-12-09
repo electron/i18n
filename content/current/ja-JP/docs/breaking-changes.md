@@ -50,6 +50,7 @@ shell.trashItem(path).then(/* ... */)
 ### 削除: `BrowserWindow` 拡張機能 API
 
 以下の非推奨の API が削除されました。
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -58,6 +59,7 @@ shell.trashItem(path).then(/* ... */)
 * `BrowserWindow.getDevToolsExtensions()`
 
 代わりに以下の session API を使用してください。
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
@@ -303,6 +305,7 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 ### 非推奨: `BrowserWindow` 拡張機能 API
 
 これらの拡張機能 API は非推奨になりました。
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -311,6 +314,7 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 * `BrowserWindow.getDevToolsExtensions()`
 
 代わりに以下の session API を使用してください。
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`

@@ -10,7 +10,7 @@ Crea un nuevo menú.
 
 ### Métodos Estáticos
 
-The `Menu` class has the following static methods:
+La clase `Menu` tiene los siguientes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 

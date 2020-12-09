@@ -103,7 +103,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Vea la [Documentación de Node.js](https://nodejs.org/api/cli.html) o ejecute `node --help` en su terminal para una lista de las opciones disponibles. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+Vea la [Documentación de Node.js](https://nodejs.org/api/cli.html) o ejecute `node --help` en su terminal para una lista de las opciones disponibles. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
 
 ### --lang
 

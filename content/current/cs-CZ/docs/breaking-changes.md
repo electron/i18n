@@ -50,6 +50,7 @@ shell.trashItem(path).then(/* ... */)
 ### Removed: `BrowserWindow` extension APIs
 
 The deprecated extension APIs have been removed:
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -58,6 +59,7 @@ The deprecated extension APIs have been removed:
 * `BrowserWindow.getDevToolsExtensions()`
 
 Use the session APIs instead:
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
@@ -303,6 +305,7 @@ Podrobnější informace naleznete v [#18397](https://github.com/electron/electr
 ### Deprecated: `BrowserWindow` extension APIs
 
 The following extension APIs have been deprecated:
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -311,6 +314,7 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getDevToolsExtensions()`
 
 Use the session APIs instead:
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`

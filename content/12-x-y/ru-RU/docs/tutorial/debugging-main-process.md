@@ -23,4 +23,4 @@ electron --inspect=5858 ваше/приложение
 Вам нужно будет использовать отладчик, поддерживающий протокол инспектора V8.
 
 - Откройте `chrome://inspect` в Chrome и выберите для проверки запущенное приложение Electron.
-- [Debugging in VSCode](debugging-vscode.md)
+- [Отладка в VSCode](debugging-vscode.md)

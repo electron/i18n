@@ -14,12 +14,12 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(13.0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### API modificada: `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+El primer parámetro de los métodos `handler` anteriormente siempre era un `webContents`, ahora puede ser a veces `null`.  Debe usar las propiedades `requestingOrigin`, `embeddingOrigin` y `securityOrigin` para responder correctamente a la verificación de permiso.  Como el `webContents` puede ser `null` ya no se puede confiar en él.
 
 ```js
-// Old code
+// Código viejo
 session.setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
@@ -27,7 +27,7 @@ session.setPermissionCheckHandler((webContents, permission) => {
   return false
 })
 
-// Replace with
+// Reemplazar con
 session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
@@ -50,6 +50,7 @@ shell.trashItem(path).then(/* ... */)
 ### Eliminado: APIs de extensión `BrowserWindow`
 
 La APIs de extensión han sido eliminadas:
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -58,6 +59,7 @@ La APIs de extensión han sido eliminadas:
 * `BrowserWindow.getDevToolsExtensions()`
 
 En su lugar use las APIs de session:
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
@@ -302,6 +304,7 @@ Para obtener información más detallada consulte [#18397](https://github.com/el
 ### Obsoleto: APIs de extensión `BrowserWindow`
 
 Las siguientes APIs de extensión han sido marcadas como obsoletas:
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -310,6 +313,7 @@ Las siguientes APIs de extensión han sido marcadas como obsoletas:
 * `BrowserWindow.getDevToolsExtensions()`
 
 En su lugar use las APIs de session:
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`

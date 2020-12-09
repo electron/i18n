@@ -117,7 +117,7 @@ Handles a single `invoke`able IPC message, then removes the listener. See `ipcMa
 
 * `channel` Cadena
 
-Removes any handler for `channel`, if present.
+Elimina cualquier controlador para `channel`, si hay.
 
 ## Objeto IpcMainEvent
 
@@ -125,7 +125,7 @@ La documentación para el objeto `event` pasado a `callback` puede ser encontrad
 
 ## Objeto IpcMainInvokeEvent
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+La documentación para el objeto `event` pasado a `handle` callbacks puede ser encontrada en la estructura de documentos [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md).
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [web-contents-send]: web-contents.md#contentssendchannel-args

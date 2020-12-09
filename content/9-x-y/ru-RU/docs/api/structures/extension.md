@@ -3,6 +3,6 @@
 * `id` String
 * `manifest` любой - Копировать [манифест расширения](https://developer.chrome.com/extensions/manifest).
 * `name` String
-* `path` String - The extension's file path.
+* `path` String - Путь файла расширения.
 * `version` String
-* `url` String - The extension's `chrome-extension://` URL.
+* `url` String - `chrome-extension://` URL расширения.
