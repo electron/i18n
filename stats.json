@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "14473",
-    "translated": "10813",
+    "translated": "10818",
     "approved": "2262",
     "words": "174961",
-    "words_translated": "130021",
+    "words_translated": "130109",
     "words_approved": "24119",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 3681
+    "qa_issues": 3683
   },
   {
     "name": "German",
