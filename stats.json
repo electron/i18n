@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14473",
-    "translated": "11778",
+    "translated": "11820",
     "approved": "3123",
     "words": "174961",
-    "words_translated": "141526",
+    "words_translated": "141948",
     "words_approved": "34756",
-    "translated_progress": 80,
+    "translated_progress": 81,
     "approved_progress": 19,
-    "qa_issues": 5051
+    "qa_issues": 5065
   },
   {
     "name": "Tagalog",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "14473",
-    "translated": "1351",
+    "translated": "1356",
     "approved": "350",
     "words": "174961",
-    "words_translated": "10545",
+    "words_translated": "10635",
     "words_approved": "2046",
     "translated_progress": 6,
     "approved_progress": 1,
-    "qa_issues": 706
+    "qa_issues": 710
   }
 ]
