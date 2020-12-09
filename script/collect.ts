@@ -205,10 +205,12 @@ async function getMasterBranchCommit() {
   })
 
   if (typeof master.data.commit.sha !== 'string') {
-    throw new Error(`Could not fetch Electron master branch commit SHA (found "${master.data.commit.sha})"`);
+    throw new Error(
+      `Could not fetch Electron master branch commit SHA (found "${master.data.commit.sha})"`
+    )
   }
 
-  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha);
+  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
 }
 
 async function fetchTutorialsFromMasterBranch() {
