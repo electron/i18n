@@ -59,7 +59,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 ### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
@@ -67,14 +67,14 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -83,8 +83,8 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -104,8 +104,8 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -116,8 +116,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 

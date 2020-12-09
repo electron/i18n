@@ -2,13 +2,13 @@
 
 ## Genel Bakış
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+Bir çok Linux ortamında, `.desktop` dosyasını düzenleyerek sistem başlangıcına kişisel girişler yapabilirsiniz. Canonical'ın Unity dökümantasyonu için [Add Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) sayfasını ziyaret edin. Daha genel bir emplementasyon detayları için, [ freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) sayfasını ziyaret edin.
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+> NOT: Yukarıda ki ekran görüntüsü Audacious ses oynatıcın'da ki örnek başlatıcı kısayollarına bir örnektir
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+Kısayol oluşturmak için kısayol menüsüne eklemek istediğiniz girdiye `Name` ve `Exec` özelliklerini sağlamanız gerekir. Kullanıcı kısayol menü tuşuna tıkladığında Unity `Exec` alanında tanımlı komutu çalıştırır. An example of the `.desktop` file may look as follows:
 
 ```plaintext
 Actions=PlayPause;Next;Previous

@@ -256,10 +256,10 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
 | Tipo de compilación | securityScopedBookmarks boolean | Tipo de Retorno | Valor de Retorno               |
 | ------------------- | ------------------------------- |:---------------:| ------------------------------ |
-| macOS mas           | True                            |     Success     | `['LONGBOOKMARKSTRING']`       |
-| macOS mas           | True                            |      Error      | `['']` (array of empty string) |
-| macOS mas           | False                           |       NA        | `[]` (empty array)             |
-| non mas             | any                             |       NA        | `[]` (empty array)             |
+| macOS mas           | True                            |      Éxito      | `['LONGBOOKMARKSTRING']`       |
+| macOS mas           | True                            |      Error      | `['']` (array de cadena vacía) |
+| macOS mas           | False                           |       NA        | `[]` (array vacío)             |
+| no mas              | cualquiera                      |       NA        | `[]` (array vacío)             |
 
 ## Páginas
 

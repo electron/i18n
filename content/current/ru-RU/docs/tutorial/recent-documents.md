@@ -10,7 +10,7 @@ __JumpList:__
 
 __Dock меню приложения:__
 
-![macOS панель меню](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![Меню macOS Dock](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 Для добавления файла в последние документы необходимо использовать [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
 

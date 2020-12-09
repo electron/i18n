@@ -1,8 +1,8 @@
-# Debugging in VSCode
+# Отладка в VSCode
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+Это руководство посвящено тому, как настроить VSCode отладку как для вашего проекта Electron, так и для родного кода Electron.
 
-## Debugging your Electron app
+## Отладка приложения Electron
 
 ### Главный процесс
 
@@ -83,16 +83,16 @@ $ code electron-quick-start
 }
 ```
 
-**Configuration Notes**
+**Примечание о настройке**
 
-* `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
+* `cppvsdbg` требует включённого [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * `${workspaceFolder}` is the full path to Chromium's `src` directory.
-* `your-executable-location` will be one of the following depending on a few items:
+* `ваше исполняемое местоположение` будет одним из следующих в зависимости от нескольких элементов:
   * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
   * `Release`: If you built a Release build rather than a Testing build.
   * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
+* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. В этом примере должен быть ваш путь к `electron-quick-start`.
 
 #### 3. Отладка
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+Установите некоторые точки останова в .cc файле выбранного вами кода Electron C++ и начните отладку в [Debug View](https://code.visualstudio.com/docs/editor/debugging).

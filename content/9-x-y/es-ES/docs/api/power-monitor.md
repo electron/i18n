@@ -5,7 +5,7 @@
 Proceso: [Main](../glossary.md#main-process)
 
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es emitido.
 
 Por ejemplo:
 

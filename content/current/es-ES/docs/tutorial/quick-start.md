@@ -119,9 +119,9 @@ Su aplicación Electron utiliza el archivo `package.json` como el punto de entra
 
 ```json
 {
-    "name": "my-electron-app",
+    "name": "mi-app-electron",
     "version": "0.1.0",
-    "description": "My Electron app",
+    "description": "Mi app Electron",
     "main": "main.js"
 }
 ```

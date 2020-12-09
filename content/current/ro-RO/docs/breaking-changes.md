@@ -49,6 +49,7 @@ shell.trashItem(path).then(/* ... */)
 ### Removed: `BrowserWindow` extension APIs
 
 The deprecated extension APIs have been removed:
+
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
 * `BrowserWindow.removeExtension(name)`
@@ -57,6 +58,7 @@ The deprecated extension APIs have been removed:
 * `BrowserWindow.getDevToolsExtensions()`
 
 Use the session APIs instead:
+
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
