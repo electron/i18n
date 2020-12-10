@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. Kaydedilen izleri görüntülemek için [ izleme görüntüleyici ](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md) kullanın, Chrome'da ` chrome: // tracing ` adresinde bulunur.
 
 **Not:** Uygulama modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 

@@ -14,12 +14,12 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 
 ## Changements majeurs prévus de l'API (13.0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### API modifiée : `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+Le premier paramètre `handler` des méthodes était auparavant toujours un `webContents`, il peut maintenant parfois être `null`.  Vous devez utiliser les propriétés `requestingOrigin`, `embeddingOrigin` et `securityOrigin` pour répondre correctement à la vérification des permissions.  Comme le `webContents` peut être désormais `null` , on ne peut plus s'y fier.
 
 ```js
-// Old code
+// Ancien code:
 session.setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
@@ -27,7 +27,7 @@ session.setPermissionCheckHandler((webContents, permission) => {
   return false
 })
 
-// Replace with
+// A remplacer par:
 session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
