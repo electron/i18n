@@ -1,6 +1,6 @@
 # class="VfPpkd-ksKsZd-XxIAqe">
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Recopila datos de seguimiento de Chromium para encontrar cuellos de botella y operaciones lentas.
 
 Proceso: [Main](../glossary.md#main-process)
 

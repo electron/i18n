@@ -1,6 +1,6 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Recopila datos de seguimiento de Chromium para encontrar cuellos de botella y operaciones lentas.
 
 Proceso: [principal](../glossary.md#main-process)</0>
 

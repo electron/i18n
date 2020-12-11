@@ -23,10 +23,10 @@ For example, to install the standalone `electron-rebuild` tool and then rebuild 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# Za każdym razem gdy uruchamiasz "npm install", uruchamiasz to:
 ./node_modules/.bin/electron-rebuild
 
-# If you have trouble on Windows, try:
+# Jeśli masz problem na Windows, spróbuj:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 

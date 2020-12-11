@@ -231,4 +231,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Documentation Translations
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+انظر [](https://github.com/electron/i18n#readme)الإلكترون/i18n
