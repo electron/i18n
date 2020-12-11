@@ -242,7 +242,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `html` Cadena (opcional)
   * `image` [NativeImage](native-image.md) (opcional)
   * `rtf` Cadena (opcional)
-  * `bookmark` String (optional) - The title of the URL at `text`.
+  * `bookmark` String (opcional) - El título de la URL en `text`.
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escribe `datos` en el portapapeles.

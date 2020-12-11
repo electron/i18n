@@ -65,26 +65,26 @@ Use the session APIs instead:
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Usunięte w Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Zamienione z
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// Usunięte Electron 13
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// Zamienione z
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+// Usunięte w Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Zamienione z
 session.defaultSession.getAllExtensions()
 ```
 
@@ -156,9 +156,9 @@ require('@electron/remote/main').initialize()
 synchroniczny `shell.moveItemToTrash()` został zastąpiony nowym, asynchronicznym `shell.trashItem()`.
 
 ```js
-// Deprecated in Electron 12
+// Przestarzałe w Electron 12
 shell.moveItemToTrash(path)
-// Replace with
+// Zamienione z
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -444,6 +444,52 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ### Przestarzałe: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
+### Deprecated events in `systemPreferences`
+
+The following `systemPreferences` events have been deprecated:
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+Use the new `updated` event on the `nativeTheme` module instead.
+
+```js
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+### Deprecated: methods in `systemPreferences`
+
+The following `systemPreferences` methods have been deprecated:
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Use the following `nativeTheme` properties instead:
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
+```
 
 ## Planned Breaking API Changes (7.0)
 

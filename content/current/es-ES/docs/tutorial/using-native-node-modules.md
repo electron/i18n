@@ -108,12 +108,12 @@ Mire [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec
 
 [`prebuild`](https://github.com/prebuild/prebuild) proporciona una forma de publicar módulos nativos de Node con binarios precompilados para multiples versiones de Node y Electron.
 
-If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Si el módulo `prebuild`-powered provee binarios para el uso en Electron, asegúrate de omitir `--build-from-source` y la variable de entorno `npm_config_build_from_source` para aprovechar el máximo de los binarios preconstruidos.
 
 ## Módulos que dependen de `node-pre-gyp`
 
 La herramienta [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) proporciona una forma de implementar módulos de nodo nativos con binarios precompilados, y muchos módulos populares lo están usando.
 
-Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Por esto, es recomendable usar `electron-rebuild` para estos módulos.
+Algunas veces esos módulos funcionan bien bajo Electron, pero cuando no hay disponibles binarios específico para Electron necesitarás construirlos desde el código fuente. Por esto, es recomendable usar `electron-rebuild` para estos módulos.
 
-If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Si estás siguiendo la forma de `npm` de instalar módulos, necesitarás pasar `--build-from-source` a `npm`, o establecer la variable de entorno `npm_config_build_from_source`.

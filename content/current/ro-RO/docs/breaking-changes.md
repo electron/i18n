@@ -587,6 +587,65 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 
 
+### Deprecated events in `systemPreferences`
+
+The following `systemPreferences` events have been deprecated:
+
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+Use the new `updated` event on the `nativeTheme` module instead.
+
+
+
+```js
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+
+
+
+### Deprecated: methods in `systemPreferences`
+
+The following `systemPreferences` methods have been deprecated:
+
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Use the following `nativeTheme` properties instead:
+
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+
+
+```js
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
+```
+
+
+
+
 ## Modificări Plănuite ale API(7.0)
 
 

@@ -1,10 +1,10 @@
 # Build Instructions (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+إتبع الإرشادات أدناه لبناء تطبيقات إلكترون على نظام التشغيل Windows.
 
 ## المتطلبات الأساسية
 
-* At least 25GB disk space and 8GB RAM.
+* مساحة قرص 25 جيغابايت على الأقل و 8 جيغابايت
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
   Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
@@ -13,11 +13,11 @@ Follow the guidelines below for building Electron on Linux.
   $ npx @electron/check-python-tls
   ```
 
-  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  إذا كان البرنامج النصي يرجع إلى أن إعداداتك تستخدم بروتوكول أمان قديم، استخدم مدير حزمة النظام لتحديث بايثون إلى أحدث إصدار في الإصدار 2. (س) الفرع. وبدلا من ذلك، قم بزيارة https://www.python.org/downloads/ للحصول على تعليمات مفصلة.
 
 * Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK 3 and libnotify.
+* [عصابة](https://clang.llvm.org/get_started.html) 3.4 أو لاحقاً.
+* رؤوس التنمية من GTK 3 و libnotify.
 
 On Ubuntu, install the following libraries:
 

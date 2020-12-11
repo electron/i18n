@@ -1,6 +1,6 @@
 # Fortschrittsanzeige in der Taskleiste (Windows, macOS, Unity)
 
-Unter Windows kann ein Taskleisten-Button verwendet werden, um einen Fortschrittsbalken anzuzeigen. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Unter Windows kann ein Taskleisten-Button verwendet werden, um einen Fortschrittsbalken anzuzeigen. Dieser erlaubt einem Fenster Status-Updates zu einem Fortschritt zu geben, ohne das das Fenster erneut geöffnet werden muss.
 
 Auf macOS wird der Fortschrittsbalken als Teil des Dock-Symbols angezeigt.
 

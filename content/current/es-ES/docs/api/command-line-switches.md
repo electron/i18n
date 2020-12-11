@@ -56,7 +56,7 @@ Fuerza el espacio máximo de disco a utilizar por la caché de disco, en bytes.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+Habilita el caller stack logging para las siguientes APIs (eventos filtrados):
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`

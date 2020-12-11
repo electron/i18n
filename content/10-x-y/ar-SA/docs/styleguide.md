@@ -183,15 +183,15 @@ can be <code>macOS`, `Windows` or `Linux`.</p>
 ```
 
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`يجب أن تحدد وسيطات نوع الصفيف` العناصر التي قد تتضمنها الصفيف في الوصف أدناه.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+الوصف لنوع `الدالة` يجب أن يوضح كيف يمكن استدعاءه وتسرد أنواع المعلمات التي سيتم إرسالها إليه.
 
 
 
 ### أحداث
 
-The events chapter must be in following form:
+يجب أن يكون فصل الأحداث في النموذج التالي:
 
 
 
@@ -206,15 +206,15 @@ Returns:
 ```
 
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+يمكن أن يكون العنوان `###` أو `####`- مستويات اعتماداً على ما إذا كان حدث من وحدة أو صف دراسي.
 
-The arguments of an event follow the same rules as methods.
+وتتبع حجج الحدث نفس القواعد التي تتبعها الأساليب.
 
 
 
 ### الخصائص
 
-The properties chapter must be in following form:
+Глава свойства трябва да бъде в следния вид:
 
 
 
@@ -225,10 +225,10 @@ The properties chapter must be in following form:
 ```
 
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+يمكن أن يكون العنوان `###` أو `####`- مستويات اعتماداً على ما إذا كان حدث من وحدة أو صف دراسي.
 
 
 
-## Documentation Translations
+## ترجمة الوثائق
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+انظر [](https://github.com/electron/i18n#readme)الإلكترون/i18n

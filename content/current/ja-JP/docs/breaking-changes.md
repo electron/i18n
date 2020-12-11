@@ -446,6 +446,52 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x では警告を発し、Electron 9.x では存在しなくなります。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように、最小 0.25 から最大 5.0 に固定されました。
 
+### 非推奨化した `systemPreferences` のイベント
+
+以下の `systemPreferences` のイベントは非推奨になりました。
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+代わりに `nativeTheme` の新しいイベントである `updated` を使用してください。
+
+```js
+// 非推奨
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// こちらに置換
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+### 非推奨化した `systemPreferences` のメソッド
+
+以下の `systemPreferences` のメソッドは非推奨になりました。
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+代わりに以下の `nativeTheme` のプロパティを使用してください。
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// 非推奨
+systemPreferences.isDarkMode()
+// こちらに置換
+nativeTheme.shouldUseDarkColors
+
+// 非推奨
+systemPreferences.isInvertedColorScheme()
+// こちらに置換
+nativeTheme.shouldUseInvertedColorScheme
+
+// 非推奨
+systemPreferences.isHighContrastColorScheme()
+// こちらに置換
+nativeTheme.shouldUseHighContrastColors
+```
+
 ## 予定されている破壊的なAPIの変更 (7.0)
 
 ### 非推奨: Atom.io の Node ヘッダー URL
