@@ -1505,7 +1505,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number]
 * `channel` String
 * `...args` any[]
 
@@ -1763,7 +1763,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 `Boolean` 型のプロパティです。ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうかを決定します。 これは Page Visibility API にも影響を与えます。
 
-#### `contents.mainFrame` _Readonly_
+#### `contents.mainFrame` _読み出し専用_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 

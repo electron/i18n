@@ -1505,7 +1505,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number]
 * `channel` String (Строка)
 * `...args` any[]
 
@@ -1763,7 +1763,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `contents.mainFrame` _Readonly_
+#### `contents.mainFrame` _Только чтение_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 

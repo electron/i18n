@@ -12,7 +12,7 @@
 
 Electron 内の Chrome のバージョンは、通常であれば新しい Chrome の安定バージョンがリリースされてから 1 ~ 2 週間以内に更新します。 この期間というのは保証されておらず、バージョンアップの作業量にも依存します。
 
-Chrome の安定版のみを使用します。 重要な修正が beta や dev 版にある場合、それをバックポートします。
+Only the stable channel of Chrome is used. إذا كان إصلاح مهم في قناة بيتا أو ديف ، سنقوم بعودة المنبور.
 
 より詳しい情報は、[セキュリティについて](tutorial/security.md) を参照してください。
 
@@ -26,7 +26,7 @@ Chrome の安定版のみを使用します。 重要な修正が beta や dev �
 
 ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], [IndexedDB][indexed-db] といった良い選択肢があります。
 
-あるいは、Electron が提供する IPC プリミティブを使用することもできます。 メインプロセスとレンダラープロセス間でデータを 共有する [`ipcMain`](api/ipc-main.md) と [`ipcRenderer`](api/ipc-renderer.md) モジュールを使用できます。 To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). その後のメッセージポートを介した通信は直接のものになり、メインプロセスには迂回しません。
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 数分経つとアプリの tray が消失します。
 

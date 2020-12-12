@@ -12,9 +12,9 @@ This document uses the following convention to categorize breaking changes:
 * **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 * **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
-## Planned Breaking API Changes (13.0)
+## Kế hoạch breaking API thay đổi (13,0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### API thay đổi: `session.setPermissionCheckHandler(handler)`
 
 The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
 

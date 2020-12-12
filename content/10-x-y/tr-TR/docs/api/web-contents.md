@@ -1425,7 +1425,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number]
 * `channel` Dizesi
 * `...args` any[]
 

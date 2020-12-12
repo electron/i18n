@@ -1,5 +1,6 @@
 # Объект IpcMainEvent расширяет `Event`
 
+* `processId` Integer - The internal ID of the renderer process that sent this message
 * `frameId` Integer - ID графического фрейма, который отправил сообщения
 * `returnValue` any - установите это значение, которое будет возвращено в синхронном сообщении
 * `sender` WebContents - возвращает `webContents`, которое отправило сообщение

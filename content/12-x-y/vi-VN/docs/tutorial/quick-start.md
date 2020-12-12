@@ -6,7 +6,7 @@ Electron is a framework that enables you to create desktop applications with Jav
 
 Typically, you create a desktop application for an operating system (OS) using each operating system's specific native application frameworks. Electron makes it possible to write your application once using technologies that you already know.
 
-### Kiện tiên quyết
+### Điều kiện tiên quyết
 
 Before proceeding with Electron you need to install [Node.js][node-download]. We recommend that you install either the latest `LTS` or `Current` version available.
 

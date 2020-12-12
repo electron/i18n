@@ -1,5 +1,6 @@
 # Objeto KeyboardEvent que extiende de <037tulotero>Event</code></0>373
 
+* `processId` Integer - The internal ID of the renderer process that sent this message
 * `frameId` Integer - El ID de frame renderer que enviá este mensaje
 * `returnValue` any - Configura este al valor a ser devuelto en un mensaje sincrónico
 * `sender` WebContents - Devuelve el `webContents` que enviá el mensaje
