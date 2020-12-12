@@ -1,5 +1,6 @@
 # Obiekt IpcMainEvent rozszerzający `Event`
 
+* `processId` Integer - The internal ID of the renderer process that sent this message
 * `frameId` Integer - ID ramki renderowania, która wysłała tę wiadomość
 * `returnValue` any -Wartość do zwrócenia w wiadomości synchronicznej
 * `sender` WebContents - Zwraca obiekt `WebContents`, który wysłał wiadomość

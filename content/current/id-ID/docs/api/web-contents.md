@@ -1455,7 +1455,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number]
 * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>

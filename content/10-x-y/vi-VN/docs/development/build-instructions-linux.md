@@ -1,8 +1,8 @@
 # Build Instructions (Linux)
 
-Xpath:/p.
+Follow the guidelines below for building Electron on Linux.
 
-## Kiện tiên quyết
+## Điều kiện tiên quyết
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
@@ -13,7 +13,7 @@ Xpath:/p.
   $ npx @electron/Check-Python-TLS
   ```
 
-  Nếu kịch bản trả về cấu hình của bạn đang sử dụng giao thức bảo mật đã lỗi thời, hãy sử dụng trình quản lý gói của hệ thống để Cập Nhật Python lên phiên bản mới nhất trong nhánh 2.7. x. File
+  Nếu kịch bản trả về cấu hình của bạn đang sử dụng giao thức bảo mật đã lỗi thời, hãy sử dụng trình quản lý gói của hệ thống để Cập Nhật Python lên phiên bản mới nhất trong nhánh 2.7. x. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.

@@ -470,26 +470,26 @@ nativeTheme.on('updated', () => { /* ... */ })
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-代わりに以下の `nativeTheme` のプロパティを使用してください。
+代わりに、次の `nativeTheme` プロパティを使用します。
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// 非推奨
+// Deprecated
 systemPreferences.isDarkMode()
-// こちらに置換
+// Replace with
 nativeTheme.shouldUseDarkColors
 
-// 非推奨
+// Deprecated
 systemPreferences.isInvertedColorScheme()
-// こちらに置換
+// Replace with
 nativeTheme.shouldUseInvertedColorScheme
 
-// 非推奨
+// Deprecated
 systemPreferences.isHighContrastColorScheme()
-// こちらに置換
-nativeTheme.shouldUseHighContrastColors
+// Replace with
+nativeTheme.shouldUseHighContrastC
 ```
 
 ## 予定されている破壊的なAPIの変更 (7.0)

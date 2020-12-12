@@ -1,5 +1,6 @@
 # IpcMainEvent Object extends `Event`
 
+* `processId` Integer - The internal ID of the renderer process that sent this message
 * `frameId` Integer - 发送该消息的渲染进程框架的ID（可能是iframe）
 * `returnValue` any - 将其设置为要在同步消息中返回的值
 * `sender<code> WebContents - 返回发送消息的 webContents</li>
