@@ -6,22 +6,22 @@ Electron has a deployment of a custom Goma Backend that we make available to all
 
 ## Enabling Goma
 
-Currently Electron Goma supports Windows, Linux, and macOS.  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
+Actuellement, Electron Goma prend en charge Windows, Linux et macOS.  Si vous travaillez sur une plateforme prise en charge, vous pouvez activer goma en important le fichier de config `goma.gn` lors de l'utilisation de `gn`.
 
 ```bash
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
 ```
 
-You must ensure that you do not have `cc_wrapper` configured, this means you can't use `sccache` or similar technology.
+Vous devez vous assurer que vous n'avez pas de `cc_wrapper` configuré et donc vous ne pourrez pas utiliser `sccache` ou une technologie similaire.
 
-Before you can use goma to build Electron you need to authenticate against the Goma service.  You only need to do this once per-machine.
+Avant de pouvoir utiliser goma pour compiler Electron, vous devez vous authentifier auprès du service Goma.  Vous n'avez besoin de le faire qu'une seule fois par machine.
 
 ```bash
 cd electron/external_binaries/goma
 ./goma_auth.py login
 ```
 
-Once authenticated you need to make sure the goma daemon is running on your machine.
+Une fois authentifié, vous devez vous assurer que le daemon goma est en cours d'exécution sur votre machine .
 
 ```bash
 cd electron/external_binaries/goma
@@ -32,7 +32,7 @@ cd electron/external_binaries/goma
 
 When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.
 
-Please do not set a value higher than **300** on Windows or Linux and **80** on macOS, we monitor the goma system and users found to be abusing it with unreasonable concurrency will be de-activated.
+Veuillez ne pas définir de valeur supérieure à **300** sur Windows ou Linux et à **80** sur macOS, nous surveillons le système goma et les utilisateurs en abusant avec une concurrence déraisonnable seront désactivés.
 
 ```bash
 ninja -C out/Testing electron -j 200
@@ -44,4 +44,4 @@ If you access [http://localhost:8088](http://localhost:8088) on your local machi
 
 ## Access
 
-For security and cost reasons access to Electron Goma is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Pour des raisons de sécurité et de coût, l'accès à Electron Goma est actuellement restreint aux Mainteneurs d'Electron.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.

@@ -1505,7 +1505,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number]
+* `frameId` Integer| [number, number]
 * `channel` String
 * `...args` any[]
 
@@ -1537,9 +1537,9 @@ ipcMain.on('ping', (event) => {
 * `message` tous
 * `transfer` MessagePortMain[] (optional)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+Envoie un message au processus de rendu en effectuant éventuellement un transfert de propriété de zéro ou plus objets de type [`MessagePortMain`][].
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+Les objets `MessagePortMain` transférés seront disponibles dans le processus de rendu en accédant à la propriété `ports` de l'événement émis. Ils seront des objets DOM `MessagePort` natifs en arrivant dans le moteur de rendu.
 
 Par exemple :
 
@@ -1739,7 +1739,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
+A `Integer` representing the unique ID of this WebContents. Chaque ID est unique parmi ceux des instances de `WebContents` de l'application Electron.
 
 #### `contents.session` _Readonly_
 

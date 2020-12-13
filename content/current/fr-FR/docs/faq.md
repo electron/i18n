@@ -101,7 +101,7 @@ Il est très probable que vous utilisez le module dans le mauvais processus.fran
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
-If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemple :
+Si [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) est désactivé sur les écrans LCD les polices peuvent être floues. Exemple . Exemple :
 
 ![exemple de rendu de sous-pixel](images/subpixel-rendering-screenshot.gif)
 

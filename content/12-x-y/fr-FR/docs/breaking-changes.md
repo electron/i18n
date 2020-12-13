@@ -369,13 +369,13 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Deprecated events in `systemPreferences`
+### Événements obsolètes dans `systemPreferences`
 
-The following `systemPreferences` events have been deprecated:
+Les événements `systemPreferences` suivants ont été dépréciés :
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
-Use the new `updated` event on the `nativeTheme` module instead.
+Utilisez à la place le nouvel événement `updated` sur le module `nativeTheme`.
 
 ```js
 // Deprecated
@@ -386,32 +386,32 @@ systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Deprecated: methods in `systemPreferences`
+### Méthodes obsolètes dans `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Les méthodes suivantes de `systemPreferences` ont été dépréciées :
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+Veuillez utiliser à la place les propriétés de `nativeTheme` suivantes :
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Deprecated
+// Depreciée
 systemPreferences.isDarkMode()
-// Replace with
+// Remplacer par
 nativeTheme.shouldUseDarkColors
 
-// Deprecated
+// Depreciée
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// Remplacer par
 nativeTheme.shouldUseInvertedColorScheme
 
-// Deprecated
+// Depreciée
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Remplacer par
 nativeTheme.shouldUseHighContrastColors
 ```
 
