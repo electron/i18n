@@ -1505,7 +1505,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number]
+* `معرف الإطار`عدد صحيح | [number, number]
 * `channel` String
 * `...args` any[]
 
