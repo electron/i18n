@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "14494",
-    "translated": "5949",
+    "translated": "5950",
     "approved": "173",
     "words": "175063",
-    "words_translated": "77214",
+    "words_translated": "77218",
     "words_approved": "1684",
     "translated_progress": 44,
     "approved_progress": 0,
-    "qa_issues": 2691
+    "qa_issues": 2692
   },
   {
     "name": "Bulgarian",
@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "14494",
-    "translated": "10140",
+    "translated": "10144",
     "approved": "2257",
     "words": "175063",
-    "words_translated": "121055",
+    "words_translated": "121085",
     "words_approved": "24828",
     "translated_progress": 69,
     "approved_progress": 14,
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "14494",
-    "translated": "10819",
+    "translated": "10855",
     "approved": "2263",
     "words": "175063",
-    "words_translated": "130111",
+    "words_translated": "130424",
     "words_approved": "24121",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 3683
+    "qa_issues": 3697
   },
   {
     "name": "German",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "14494",
-    "translated": "7303",
+    "translated": "7304",
     "approved": "1381",
     "words": "175063",
-    "words_translated": "84135",
+    "words_translated": "84139",
     "words_approved": "10015",
     "translated_progress": 48,
     "approved_progress": 5,
-    "qa_issues": 3069
+    "qa_issues": 3070
   },
   {
     "name": "Portuguese, Brazilian",
@@ -231,7 +231,7 @@
     "words_approved": "10894",
     "translated_progress": 52,
     "approved_progress": 6,
-    "qa_issues": 2408
+    "qa_issues": 2407
   },
   {
     "name": "Romanian",
@@ -251,10 +251,10 @@
     "code": "ru",
     "phrases": "14494",
     "translated": "10364",
-    "approved": "3430",
+    "approved": "3431",
     "words": "175063",
     "words_translated": "123271",
-    "words_approved": "34862",
+    "words_approved": "34874",
     "translated_progress": 70,
     "approved_progress": 19,
     "qa_issues": 3716
@@ -263,10 +263,10 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14494",
-    "translated": "11836",
+    "translated": "11837",
     "approved": "3124",
     "words": "175063",
-    "words_translated": "142204",
+    "words_translated": "142216",
     "words_approved": "34758",
     "translated_progress": 81,
     "approved_progress": 19,
