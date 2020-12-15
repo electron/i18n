@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Co się dzieje powyżej?
 
 1. Linia 1: Pierwsza importujesz moduły `app` i `BrowserWindow` pakietu `electron` , aby móc zarządzać wydarzeniami w cyklu życia aplikacji, jak również tworzenie i sterowanie oknami przeglądarki.
-2. Linia 3: Następnie definiujesz funkcję, która tworzy [nowe okno przeglądarki](../api/browser-window.md#new-browserwindowoptions) z włączoną integracją węzłów, indeks obciążeń `. Plik tml` w tym oknie (linia 12, omówimy plik później) i otworzy narzędzia dla programistów (linia 13).
-3. Wiersz 16: Tworzysz nowe okno przeglądarki, powołując się na funkcję `createWindow` po zainicjowaniu aplikacji Electron [](../api/app.md#appwhenready).
-4. Linia 18: Dodajesz nowego słuchacza, który próbuje opuścić aplikację, gdy nie ma już żadnych otwartych okien Ten słuchacz jest no-op na macOS ze względu na [zachowanie zarządzania oknem systemu operacyjnego](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Linia 24: Dodajesz nowego słuchacza, który tworzy nowe okno przeglądarki tylko wtedy, gdy aplikacja nie ma widocznych okien po aktywacji. Na przykład po pierwszym uruchomieniu aplikacji lub ponownym uruchomieniu już uruchomionej aplikacji.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Ten słuchacz jest no-op na macOS ze względu na [zachowanie zarządzania oknem systemu operacyjnego](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Na przykład po pierwszym uruchomieniu aplikacji lub ponownym uruchomieniu już uruchomionej aplikacji.
 
 #### Utwórz stronę internetową
 

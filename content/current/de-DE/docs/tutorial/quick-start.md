@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Was geschieht oben?
 
 1. Zeile 1: Zuerst weden die Module `app` und `BrowserWindow` des Pakets `electron` importiert, um den Lebenszyklus deiner Anwendung verwalten zu können sowie Browserfenster zu erstellen und zu steuern.
-2. Zeile 3: Danach definieren Sie eine Funktion, die ein [neues Browserfenster](../api/browser-window.md#new-browserwindowoptions) mit aktivierter node-integration erzeugt, die Datei `index.html` in diesem Fenster lädt (Zeile 12, wir werden die Datei später besprechen) und die Entwicklerwerkzeuge öffnet (Zeile 13).
-3. Zeile 16: Sie erstellen ein neues Browserfenster, indem Sie die Funktion `createWindow` aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
-4. Zeile 18: Sie fügen einen neuen "listener" hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
-5. Zeile 24: Sie fügen einen neuen Listener hinzu, der ein neues Browserfenster nur dann erzeugt, wenn die Anwendung nach der Aktivierung keine sichtbaren Fenster hat. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Zeile 15: Sie erstellen ein neues Browserfenster, indem Sie die Funktion `createWindow` aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
+4. Zeile 17: Sie fügen einen neuen "listener" hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
 
 #### Webseite erstellen
 

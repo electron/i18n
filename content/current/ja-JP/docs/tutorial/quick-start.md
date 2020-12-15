@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### 上記は何を行っているのですか?
 
 1. 1 行目: まず、`electron` パッケージの `app` と `BrowserWindow` モジュールをインポートして、アプリケーションのライフサイクルイベントを管理したり、ブラウザーウインドウを作成して制御したりできるようにします。
-2. 3 行目: その後、Node インテグレーションを有効にした [新しいブラウザーウインドウ](../api/browser-window.md#new-browserwindowoptions) を作成し、`index.html` ファイルをこのウインドウに読み込み (12行目、このファイルについては後述)、デベロッパー ツールを開く (13行目) という関数を定義します。
-3. 16 行目: Electron アプリケーション `` が初期化されたときに [createWindow](../api/app.md#appwhenready) 関数を呼び出し、新しいブラウザーウインドウを作成します。
-4. 18 行目: 開いたウインドウが無い場合にアプリケーションを終了しようとするリスナーを新規追加します。 このリスナーはオペレーティングシステムの [ウインドウ管理動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) であり、macOS 上では動作しません。
-5. 24 行目: アプリケーションがアクティブにされた後で表示するウインドウがない場合にのみ新しいブラウザーウインドウを作成する、というリスナーを追加します。 例えば、アプリケーションを初めて起動した後や、既に起動しているアプリケーションを再びアクティブした場合などがこれにあたります。
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. 15 行目: Electron アプリケーション `` が初期化されたときに [createWindow](../api/app.md#appwhenready) 関数を呼び出し、新しいブラウザーウインドウを作成します。
+4. 17 行目: 開いたウインドウが無い場合にアプリケーションを終了しようとするリスナーを新規追加します。 このリスナーはオペレーティングシステムの [ウインドウ管理動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) であり、macOS 上では動作しません。
+5. 23 行目: アプリケーションがアクティブにされた後で表示するウインドウがない場合にのみ新しいブラウザーウインドウを作成する、というリスナーを追加します。 例えば、アプリケーションを初めて起動した後や、既に起動しているアプリケーションを再びアクティブした場合などがこれにあたります。
 
 #### ウェブページの作成
 
