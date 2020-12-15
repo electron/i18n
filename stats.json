@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "14494",
-    "translated": "5131",
+    "translated": "5138",
     "approved": "1795",
     "words": "175063",
-    "words_translated": "53318",
+    "words_translated": "53387",
     "words_approved": "19255",
     "translated_progress": 30,
     "approved_progress": 10,
-    "qa_issues": 2702
+    "qa_issues": 2707
   },
   {
     "name": "Italian",
