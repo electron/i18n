@@ -198,14 +198,14 @@
     "name": "Persian",
     "code": "fa",
     "phrases": "14494",
-    "translated": "713",
+    "translated": "718",
     "approved": "63",
     "words": "175063",
-    "words_translated": "4451",
+    "words_translated": "4500",
     "words_approved": "386",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 43
+    "qa_issues": 47
   },
   {
     "name": "Polish",
