@@ -10,7 +10,7 @@ Proses: [Main](../glossary.md#main-process)
 
 ## Platform Notices
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Saat ini, hanya macOS dan Windows yang didukung. Tidak ada dukungan bawaan untuk auto-updater di Linux, sehingga direkomendasikan untuk menggunakan pengelola paket distribusi untuk memperbarui app anda.
 
 Sebagai tambahan, ada beberapa perbedaan kecil pada setiap platform:
 
@@ -18,7 +18,7 @@ Sebagai tambahan, ada beberapa perbedaan kecil pada setiap platform:
 
 Di macOS, modul `autoUpdater` dibangun di atas [Squirrel.Mac][squirrel-mac], artinya Anda tidak memerlukan pengaturan khusus untuk membuatnya bekerja. Untuk server-side persyaratan, Anda dapat membaca [Server Support][server-support]. Perhatikan bahwa [App Keamanan Transportasi](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) berlaku untuk semua permintaan yang dilakukan sebagai bagian dari proses update. Aplikasi yang perlu di disable ATS bisa menambahkan `NSAllowsArbitraryLoads` kunci ke plist aplikasi mereka.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. Ini adalah kebutuhan untuk `Squirrel.Mac`.
 
 ### Windows
 
@@ -49,8 +49,7 @@ Mengembalikan:
 
 <h3 spaces-before="0">Sinyal: 'update-available'</h3>
 
-<p spaces-before="0">Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p spaces-before="0">Emitted when there is an available update. Pembaruan diunduh secara otomatis.</p>
 
 <h3 spaces-before="0">Sinyal: 'update-not-available'</h3>
 
@@ -98,11 +97,11 @@ Mengembalikan `String` - URL feed pembaruan saat ini.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Menanyakan kepada server apa ada pembaruan. Anda harus memanggil `setFeedURL` sebelum menggunakan API ini.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Memulai ulang app dan memasang pembaruan setelah selesai diunduh. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 

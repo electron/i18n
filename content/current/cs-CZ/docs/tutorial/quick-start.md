@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Co se děje výše?
 
 1. Řádek 1: Nejprve importujete moduly `aplikace` a `BrowserWindow` balíčku `electron` , abyste mohli spravovat životní cyklus vaší aplikace, stejně jako vytváření a ovládání oken prohlížeče.
-2. 3. řádek: Poté definujete funkci, která vytváří [nové okno prohlížeče](../api/browser-window.md#new-browserwindowoptions) s povolenou integrací uzlu, načte `index. tml` soubor do tohoto okna (řádek 12, budeme diskutovat o souboru později) a otevře Nástroje vývojáře (řádek 13).
-3. Řádek 16: Vytvoříte nové okno prohlížeče vyvoláním funkce `createWindow` , jakmile je Electron aplikace [inicializována](../api/app.md#appwhenready).
-4. Řádek 18: Přidáte nový posluchač, který se pokouší ukončit aplikaci, když již nemá žádná otevřená okna. Tento posluchač je no-op na macOS kvůli [řízení oken systému](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Řádek 24: Přidáte nový posluchač, který vytvoří nové okno prohlížeče, pouze pokud aplikace nemá po aktivaci žádná viditelná okna. Například po prvním spuštění aplikace nebo po opětovném spuštění již spuštěné aplikace.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Tento posluchač je no-op na macOS kvůli [řízení oken systému](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Například po prvním spuštění aplikace nebo po opětovném spuštění již spuštěné aplikace.
 
 #### Vytvořit webovou stránku
 

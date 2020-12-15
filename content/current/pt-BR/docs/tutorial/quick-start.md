@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### O que se está a passar?
 
 1. Linha 1: Primeiro, você importa os módulos de aplicativo `` e `BrowserWindow` do pacote `electron` para ser capaz de gerenciar os eventos do ciclo de vida de seu aplicativo, Além de criar e controlar janelas do navegador.
-2. Linha 3: Depois disso, você define uma função que cria uma [nova janela do navegador](../api/browser-window.md#new-browserwindowoptions) com a integração de nó ativada, carrega índice `. tml` arquivo nesta janela (linha 12, discutiremos o arquivo mais tarde) e abriremos Ferramentas de Desenvolvedor (linha 13).
-3. Linha 16: Você cria uma nova janela do navegador invocando a função `createWindow` quando o aplicativo Electron [for inicializado](../api/app.md#appwhenready).
-4. Linha 18: Você adiciona um novo ouvinte que tenta sair do aplicativo quando não tem mais janelas abertas. Este listener é um no-op no macOS devido ao [comportamento de gerenciamento de janelas do sistema operacional](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Linha 24: Você adiciona um novo ouvinte que cria uma nova janela do navegador somente se o aplicativo não tiver janelas visíveis após a ativação. Por exemplo, depois de lançar o aplicativo pela primeira vez, ou reiniciando o aplicativo já em execução.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Este listener é um no-op no macOS devido ao [comportamento de gerenciamento de janelas do sistema operacional](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Por exemplo, depois de lançar o aplicativo pela primeira vez, ou reiniciando o aplicativo já em execução.
 
 #### Criar uma página da web
 

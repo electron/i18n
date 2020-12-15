@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Що відбувається зверху?
 
 1. Лінія 1: По-перше, Ви імпортуєте модуль `додаток` та `BrowserWindow` пакету `electron` , щоб мати можливість керувати подіями життєвого циклу додатку, як і створювати і керувати вікнами браузера.
-2. Лінія 3: Після цього ви визначаєте функцію, яка створює [нове вікно браузера](../api/browser-window.md#new-browserwindowoptions) з включеним інтеграцією вузла, завантаження `індексів. tml` файл у цьому вікні (рядок 12, ми обговоримо файл пізніше) і відкриємо Інструменти розробника (рядок 13).
-3. Лінія 16: Ви створюєте нове вікно браузера, викликаючи функцію `створити вікно` після того, як Electron app [буде ініціалізовано](../api/app.md#appwhenready).
-4. Стрічка 18: Ви додаєте новий слухач, який намагається вийти з програми, коли більше не має відкритих вікон. Цей слухач не є операційною системою через поведінку управління вікном [операційною системою](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Лінія 24: Ви додаєте новий слухач, який створює нове вікно браузера, тільки якщо програма не має видимих вікон після активації. Наприклад, після запуску програми в перший раз, або повторного запуску вже запущених додатків.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Цей слухач не є операційною системою через поведінку управління вікном [операційною системою](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Наприклад, після запуску програми в перший раз, або повторного запуску вже запущених додатків.
 
 #### Створити веб-сторінку
 
