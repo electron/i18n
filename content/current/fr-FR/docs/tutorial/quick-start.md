@@ -82,11 +82,11 @@ app.on('activate', () => {
 
 ##### Que se passe-t-il ci-dessus?
 
-1. Ligne 1 : Tout d'abord, vous importez les modules `app` et `BrowserWindow` du package `electron` pour pouvoir gérer les événements du cycle de vie de votre application ainsi que créer et contrôler les fenêtres du navigateur.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
-3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Ligne 17 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
-5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Par exemple, après avoir lancé l'application pour la première fois, ou relancé l'application déjà en cours d'exécution.
+1. Ligne 1 : Tout d'abord, importez les modules `app` et `BrowserWindow` du package `electron` afin de pouvoir gérer les événements du cycle de vie de votre application et créer ou contrôler les fenêtres du navigateur.
+2. Ligne 3: Définissez ensuite une fonction qui créera une nouvelle [BrowserWindow](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis chargez `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard).
+3. Ligne 15 : Créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois l'application Electron initialisée.
+4. Ligne 17 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
+5. Ligne 23 : Ajoutez un nouvel écouteur qui créera une nouvelle fenêtre de navigateur seulement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple lors du premier lancement de l'application ou du rechargement de l'application en cours.
 
 #### Créer une page web
 

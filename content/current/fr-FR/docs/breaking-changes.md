@@ -88,6 +88,35 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
+### Removed: methods in `systemPreferences`
+
+Les méthodes suivantes de `systemPreferences` ont été dépréciées :
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Veuillez utiliser à la place les propriétés de `nativeTheme` suivantes :
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Removed in Electron 13
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Removed in Electron 13
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Removed in Electron 13
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
+```
+
 ## Changements majeurs prévus de l'API (12.0)
 
 ### Supprimé: Support de Pepper Flash
