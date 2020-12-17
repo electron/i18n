@@ -121,6 +121,7 @@ Vaše Electron aplikace používá soubor `package.json` jako hlavní vstupní b
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ Vaše Electron aplikace používá soubor `package.json` jako hlavní vstupní b
 
 > POZNÁMKA: Pokud je vynecháno pole `hlavní` Electron se pokusí načíst index `. s` soubor z adresáře obsahujícího `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 Ve výchozím nastavení příkaz `npm start` spustí hlavní skript s Node.js. Chcete-li spustit skript s Electronem, musíte jej změnit:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."

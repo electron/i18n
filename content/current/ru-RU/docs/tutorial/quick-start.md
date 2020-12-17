@@ -121,6 +121,7 @@ app.on('activate', () => {
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ app.on('activate', () => {
 
 > ПРИМЕЧАНИЕ: Если поле `основной` опущено, Electron попытается загрузить индекс `. s` файл из каталога, содержащего `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 По умолчанию, старт `npm` запустит основной скрипт с помощью Node.js. Чтобы запустить скрипт с Electron, необходимо изменить его следующим образом:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."

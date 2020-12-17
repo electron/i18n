@@ -121,6 +121,7 @@ Uw Electron applicatie gebruikt het `package.json` bestand als het belangrijkste
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,15 +129,19 @@ Uw Electron applicatie gebruikt het `package.json` bestand als het belangrijkste
 
 > OPMERKING: als het `hoofd` veld wordt weggelaten, zal Electron proberen een `index te laden. s` bestand uit de map `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 Standaard wordt het `npm start` commando het hoofdscript met Node.js uitgevoerd. Om het script met Electron uit te voeren, moet je het als zodanig wijzigen:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
-        "start": "electron ." ."
+        "start": "electron ."
     }
 }
 ```

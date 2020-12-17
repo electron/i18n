@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Il modulo `globalShortcut` può registrare/eliminare una scorciatoia di tastiera con il sistema operativo in modo che tu possa personalizzare le operazioni con diverse scorciatoie.
 
-**Nota:** La scorciatoia è globale; funzionerà anche se l'app non ha il focus sulla tastiera. Non dovresti utilizzare questo modulo finchè l'evento `ready` dell'app non è stato lanciato.
+**Nota:** La scorciatoia è globale; funzionerà anche se l'app non ha il focus sulla tastiera. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, globalShortcut } = require('electron')

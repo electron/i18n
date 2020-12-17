@@ -121,6 +121,7 @@ app.on('activate', () => {
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ app.on('activate', () => {
 
 > 注意：如果删除 `个主` 字段，Electron 将尝试加载一个 `索引。 s` 文件从目录中包含 `package.json`
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 默认情况下， `npm start` 命令将以 Node.js 运行主脚本。 要使用 Electron 运行脚本，您需要将其更改为这样：
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."

@@ -121,6 +121,7 @@ app.on('activate', () => {
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ app.on('activate', () => {
 
 > ملاحظة: إذا تم حذف الحقل الرئيسي `` ، فسيحاول إلكترون تحميل فهرس `. s` ملف من الدليل الذي يحتوي على `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 بشكل افتراضي، سيقوم أمر `npm star` بتشغيل البرنامج النصي الرئيسي باستخدام Node.js. لتشغيل البرنامج النصي باستخدام إلكترون، تحتاج إلى تغييره على هذا النحو:
 
 ```json
 {
-    "الاسم": "my-electron-app",
-    "الإصدار": "0.1.0",
+    "name": "my-electron-app",
+    "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."
