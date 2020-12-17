@@ -121,6 +121,7 @@ Electron アプリケーションでは、(他の Node.js アプリケーショ�
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,15 +129,19 @@ Electron アプリケーションでは、(他の Node.js アプリケーショ�
 
 > 注意: `main` フィールドを省略した場合、Electron は `package.json` を含むディレクトリにある `index.js` ファイルをロードしようとします。
 
+> 注意: `author` と `description` のフィールドはパッケージ化に必要です。これが無ければ、`npm run make` の実行でエラーが発生します。
+
 デフォルトでは、 `npm start` コマンドは Node.js でメインスクリプトを実行します。 Electron でスクリプトを実行するには、以下のように変更する必要があります。
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
-        "start": "electron."
+        "start": "electron ."
     }
 }
 ```

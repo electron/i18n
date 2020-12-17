@@ -88,7 +88,7 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: methods in `systemPreferences`
+### Méthodes supprimées dans `systemPreferences`
 
 Les méthodes suivantes de `systemPreferences` ont été dépréciées :
 * `systemPreferences.isDarkMode()`
@@ -101,19 +101,19 @@ Veuillez utiliser à la place les propriétés de `nativeTheme` suivantes :
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// Supprimée dans Electron 13
 systemPreferences.isDarkMode()
-// Replace with
+// Remplacée par
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
+// Supprimée dans Electron 13
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// Remplacée par
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// Supprimée dans Electron 13
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Remplacée par
 nativeTheme.shouldUseHighContrastColors
 ```
 

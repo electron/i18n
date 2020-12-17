@@ -121,6 +121,7 @@ Aplicația ta Electron folosește fișierul `package.json` ca punct principal de
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,17 +129,21 @@ Aplicația ta Electron folosește fișierul `package.json` ca punct principal de
 
 > NOTĂ: Dacă câmpul `principal` este omis, Electron va încerca să încarce un index `index. s` fișier din directorul care conține `pachete.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 În mod implicit, comanda de pornire `npm` va rula script-ul principal cu Node.js. Pentru a rula scriptul cu Electron, trebuie să îl schimbi ca atare:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."
     }
-
+}
 ```
 
 #### Rulează cererea
