@@ -83,11 +83,11 @@ app.on('activate', () => {
 
 ##### Que se passe-t-il ci-dessus?
 
-1. Ligne 1 : Tout d'abord, vous importez les modules `app` et `BrowserWindow` du package `electron` pour pouvoir gérer les événements du cycle de vie de votre application ainsi que créer et contrôler les fenêtres du navigateur.
+1. Ligne 1 : Tout d'abord, importez les modules `app` et `BrowserWindow` du package `electron` afin de pouvoir gérer les événements du cycle de vie de votre application et créer ou contrôler les fenêtres du navigateur.
 2. Ligne 3: Après cela, vous définissez une fonction qui crée une [nouvelle fenêtre de navigateur](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis charge `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard) et ouvre les Developer Tools (ligne 13).
 3. Ligne 16 : Vous créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois que l'application Electron [est initialisée](../api/app.md#appwhenready).
-4. Ligne 18 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
-5. Ligne 24 : Vous ajoutez un nouvel auditeur qui crée une nouvelle fenêtre de navigateur uniquement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple, après avoir lancé l'application pour la première fois, ou relancé l'application déjà en cours d'exécution.
+4. Ligne 18 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
+5. Ligne 24 : Vous ajoutez un nouvel auditeur qui crée une nouvelle fenêtre de navigateur uniquement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple lors du premier lancement de l'application ou du rechargement de l'application en cours.
 
 #### Créer une page web
 

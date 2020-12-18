@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Ce se întâmplă mai sus?
 
 1. Linia 1: Primul, importați modulele `aplicației` și `BrowserWindow` din pachetul `electron` pentru a putea gestiona evenimentele din ciclul de viață al aplicației dvs., crearea și controlul ferestrelor browser-ului.
-2. Linia 3: După aceea, definiți o funcție care creează o [nouă fereastră de browser](../api/browser-window.md#new-browserwindowoptions) cu integrarea nodului activată, încarcă indexul `. fișier tml` în această fereastră (linia 12, vom discuta fișierul mai târziu) și deschidem Developer Tools (linia 13).
-3. Linia 16: Creezi o nouă fereastră de browser prin utilizarea funcției `createWindow` odată ce aplicația Electron [este inițializată](../api/app.md#appwhenready).
-4. Linia 18: Adăugați un nou ascultător care încearcă să închidă aplicația atunci când nu mai are ferestre deschise. Acest ascultător este un macOS de tip "no-op on macOS" din cauza comportamentului [de gestionare a ferestrei](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Linia 24: Adăugaţi un nou ascultător care creează o nouă fereastră a browser-ului numai dacă atunci când aplicaţia nu are nicio fereastră vizibilă după ce a fost activată. De exemplu, după lansarea aplicației pentru prima dată, sau după relansarea aplicației care rulează deja.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Acest ascultător este un macOS de tip "no-op on macOS" din cauza comportamentului [de gestionare a ferestrei](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. De exemplu, după lansarea aplicației pentru prima dată, sau după relansarea aplicației care rulează deja.
 
 #### Creaţi o pagină web
 
@@ -121,6 +121,7 @@ Aplicația ta Electron folosește fișierul `package.json` ca punct principal de
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,17 +129,21 @@ Aplicația ta Electron folosește fișierul `package.json` ca punct principal de
 
 > NOTĂ: Dacă câmpul `principal` este omis, Electron va încerca să încarce un index `index. s` fișier din directorul care conține `pachete.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 În mod implicit, comanda de pornire `npm` va rula script-ul principal cu Node.js. Pentru a rula scriptul cu Electron, trebuie să îl schimbi ca atare:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."
     }
-
+}
 ```
 
 #### Rulează cererea

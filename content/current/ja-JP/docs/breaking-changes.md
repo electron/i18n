@@ -88,6 +88,35 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
+### 削除した `systemPreferences` のメソッド
+
+以下の `systemPreferences` のメソッドは非推奨になりました。
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+代わりに、次の `nativeTheme` プロパティを使用します。
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Electron 13 で削除
+systemPreferences.isDarkMode()
+// こちらに置換
+nativeTheme.shouldUseDarkColors
+
+// Electron 13 で削除
+systemPreferences.isInvertedColorScheme()
+// こちらに置換
+nativeTheme.shouldUseInvertedColorScheme
+
+// Electron 13 で削除
+systemPreferences.isHighContrastColorScheme()
+// こちらに置換
+nativeTheme.shouldUseHighContrastColors
+```
+
 ## 予定されている破壊的なAPIの変更 (12.0)
 
 ### 削除: Pepper(ペッパー)フラッシュ対応

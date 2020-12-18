@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Cosa sta succedendo sopra?
 
 1. Linea 1: Prima, importa i moduli `app` e `BrowserWindow` del pacchetto `electron` per poter gestire gli eventi del ciclo di vita della tua applicazione, oltre a creare e controllare le finestre del browser.
-2. Riga 3: Dopo di che, definisci una funzione che crea una [nuova finestra del browser](../api/browser-window.md#new-browserwindowoptions) con integrazione del nodo abilitata, carica `indice. tml` file in questa finestra (riga 12, discuteremo il file più tardi) e apre Developer Tools (riga 13).
-3. Riga 16: Si crea una nuova finestra del browser invocando la funzione `createWindow` una volta che l'applicazione Electron [è inizializzata](../api/app.md#appwhenready).
-4. Linea 18: Si aggiunge un nuovo ascoltatore che cerca di uscire dall'applicazione quando non ha più finestre aperte. Questo listener è un no-op su macOS a causa del comportamento di gestione delle finestre [del sistema operativo](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Linea 24: Si aggiunge un nuovo ascoltatore che crea una nuova finestra del browser solo se l'applicazione non ha finestre visibili dopo essere stata attivata. Ad esempio, dopo aver lanciato l'applicazione per la prima volta o aver riavviato l'applicazione già in esecuzione.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Questo listener è un no-op su macOS a causa del comportamento di gestione delle finestre [del sistema operativo](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Ad esempio, dopo aver lanciato l'applicazione per la prima volta o aver riavviato l'applicazione già in esecuzione.
 
 #### Crea una pagina web
 
@@ -121,6 +121,7 @@ La tua applicazione Electron utilizza il file `package.json` come punto di entra
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ La tua applicazione Electron utilizza il file `package.json` come punto di entra
 
 > NOTA: Se il campo `principale` è omesso, Electron tenterà di caricare un `indice. s` file dalla directory contenente `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 Per impostazione predefinita, il comando `npm start` esegue lo script principale con Node.js. Per eseguire lo script con Electron, è necessario cambiarlo come tale:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."

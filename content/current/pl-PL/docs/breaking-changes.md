@@ -88,6 +88,35 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
+### Usunięto: metody w `systemPreferences`
+
+The following `systemPreferences` methods have been deprecated:
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Use the following `nativeTheme` properties instead:
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Usunięte w Electron 13
+systemPreferences.isDarkMode()
+// Zamienione z
+nativeTheme.shouldUseDarkColors
+
+// Usunięte w Electron 13
+systemPreferences.isInvertedColorScheme()
+// Zamienione z
+nativeTheme.shouldUseInvertedColorScheme
+
+// Usunięte w Electron 13
+systemPreferences.isHighContrastColorScheme()
+// Zamienione z
+nativeTheme.shouldUseHighContrastColors
+```
+
 ## Planned Breaking API Changes (12.0)
 
 ### Usunięta: Wsparcie Pepper Flash
@@ -454,11 +483,11 @@ The following `systemPreferences` events have been deprecated:
 Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-// Deprecated
+// Przestarzałe
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Replace with
+// Zamień z
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 

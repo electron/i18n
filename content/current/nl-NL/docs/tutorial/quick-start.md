@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### Wat gebeurt er hierboven?
 
 1. Regel 1: Eerst importeer de `app` en `BrowserWindow` modules van het `elektron` pakket om de lifecycle events van uw applicatie te beheren evenals het maken en besturen van browservensters.
-2. Regel 3: Daarna definieer je een functie die een [nieuw browservenster](../api/browser-window.md#new-browserwindowoptions) maakt met de node integratie ingeschakeld laadt `index. tml` bestand in dit venster (regel 12, we zullen het bestand later bespreken) en opent de ontwikkelaarshulpmiddelen (regel 13).
-3. Regel 16: Je maakt een nieuw browservenster door de functie `createWindow` aan te roepen zodra de Electron applicatie [is geïnitialiseerd.](../api/app.md#appwhenready).
-4. Regel 18: U voegt een nieuwe luisteraar toe die probeert de applicatie te verlaten wanneer deze geen open vensters meer heeft. Deze luisteraar is een no-op op op macOS als gevolg van het [vensterbeheer](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. Regel 24: U voegt een nieuwe luisteraar toe die een nieuw browservenster alleen maakt als de applicatie geen zichtbare vensters heeft nadat deze is geactiveerd. Bijvoorbeeld na het starten van de applicatie voor de eerste keer, of de reeds lopende applicatie opnieuw opstarten.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Deze luisteraar is een no-op op op macOS als gevolg van het [vensterbeheer](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Bijvoorbeeld na het starten van de applicatie voor de eerste keer, of de reeds lopende applicatie opnieuw opstarten.
 
 #### Maak een webpagina
 
@@ -121,6 +121,7 @@ Uw Electron applicatie gebruikt het `package.json` bestand als het belangrijkste
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,15 +129,19 @@ Uw Electron applicatie gebruikt het `package.json` bestand als het belangrijkste
 
 > OPMERKING: als het `hoofd` veld wordt weggelaten, zal Electron proberen een `index te laden. s` bestand uit de map `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 Standaard wordt het `npm start` commando het hoofdscript met Node.js uitgevoerd. Om het script met Electron uit te voeren, moet je het als zodanig wijzigen:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
-        "start": "electron ." ."
+        "start": "electron ."
     }
 }
 ```

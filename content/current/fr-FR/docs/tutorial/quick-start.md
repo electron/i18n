@@ -82,11 +82,11 @@ app.on('activate', () => {
 
 ##### Que se passe-t-il ci-dessus?
 
-1. Ligne 1 : Tout d'abord, vous importez les modules `app` et `BrowserWindow` du package `electron` pour pouvoir gérer les événements du cycle de vie de votre application ainsi que créer et contrôler les fenêtres du navigateur.
-2. Ligne 3: Après cela, vous définissez une fonction qui crée une [nouvelle fenêtre de navigateur](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis charge `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard) et ouvre les Developer Tools (ligne 13).
-3. Ligne 16 : Vous créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois que l'application Electron [est initialisée](../api/app.md#appwhenready).
-4. Ligne 18 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [de gestion des fenêtres](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
-5. Ligne 24 : Vous ajoutez un nouvel auditeur qui crée une nouvelle fenêtre de navigateur uniquement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple, après avoir lancé l'application pour la première fois, ou relancé l'application déjà en cours d'exécution.
+1. Ligne 1 : Tout d'abord, importez les modules `app` et `BrowserWindow` du package `electron` afin de pouvoir gérer les événements du cycle de vie de votre application et créer ou contrôler les fenêtres du navigateur.
+2. Ligne 3: Définissez ensuite une fonction qui créera une nouvelle [BrowserWindow](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis chargez `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard).
+3. Ligne 15 : Créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois l'application Electron initialisée.
+4. Ligne 17 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
+5. Ligne 23 : Ajoutez un nouvel écouteur qui créera une nouvelle fenêtre de navigateur seulement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple lors du premier lancement de l'application ou du rechargement de l'application en cours.
 
 #### Créer une page web
 
@@ -121,6 +121,7 @@ Votre application Electron utilise le fichier `package.json` comme point d'entr�
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,17 +129,21 @@ Votre application Electron utilise le fichier `package.json` comme point d'entr�
 
 > REMARQUE : Si le champ `main` est omis, Electron tentera de charger le fichier `index.js` à partir du répertoire contenant `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 Par défaut, la commande `npm start` exécutera le script principal avec Node.js. Pour exécuter le script avec Electron, vous devez le modifier comme suit:
 
 ```json
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."
     }
- } }
+}
 ```
 
 #### Exécuter votre application

@@ -83,10 +83,10 @@ app.on('activate', () => {
 ##### ماذا يحدث أعلاه؟
 
 1. السطر 1: أولا، تستورد `التطبيق` و `نافذة المتصفح` وحدات `إلكترون` لحزمة لتتمكن من إدارة أحداث دورة حياة التطبيق الخاص بك، بالإضافة إلى إنشاء نوافذ المتصفح والتحكم فيها.
-2. السطر 3: بعد ذلك، يمكنك تحديد دالة تنشئ [نافذة متصفح جديدة](../api/browser-window.md#new-browserwindowoptions) مع تمكين تكامل العقدة، تحميل `فهرس. ملف tml` في هذه النافذة (السطر 12، سنناقش الملف لاحقا) وفتح أدوات المطور (السطر 13).
-3. السطر 16: أنت تنشئ نافذة متصفح جديدة عن طريق الاستناد إلى دالة `إنشاء نافذة` بمجرد تهيئة تطبيق إلكترون [](../api/app.md#appwhenready).
-4. السطر 18: تضيف مستمع جديد يحاول الإقلاع عن التطبيق عندما لا يكون لديه أي نوافذ مفتوحة. هذا المستمع غير موجود على macOS بسبب سلوك إدارة النافذة [لنظام التشغيل](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
-5. السطر 24: تضيف مستمع جديد ينشئ نافذة متصفح جديدة فقط إذا كان التطبيق لا يحتوي على نوافذ مرئية بعد التفعيل. على سبيل المثال بعد إطلاق التطبيق لأول مرة أو إعادة تشغيل التطبيق قيد التشغيل بالفعل.
+2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
+3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
+4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. هذا المستمع غير موجود على macOS بسبب سلوك إدارة النافذة [لنظام التشغيل](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. على سبيل المثال بعد إطلاق التطبيق لأول مرة أو إعادة تشغيل التطبيق قيد التشغيل بالفعل.
 
 #### إنشاء صفحة ويب
 
@@ -121,6 +121,7 @@ app.on('activate', () => {
 {
     "name": "my-electron-app",
     "version": "0.1.0",
+    "author": "your name",
     "description": "My Electron app",
     "main": "main.js"
 }
@@ -128,12 +129,16 @@ app.on('activate', () => {
 
 > ملاحظة: إذا تم حذف الحقل الرئيسي `` ، فسيحاول إلكترون تحميل فهرس `. s` ملف من الدليل الذي يحتوي على `package.json`.
 
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+
 بشكل افتراضي، سيقوم أمر `npm star` بتشغيل البرنامج النصي الرئيسي باستخدام Node.js. لتشغيل البرنامج النصي باستخدام إلكترون، تحتاج إلى تغييره على هذا النحو:
 
 ```json
 {
-    "الاسم": "my-electron-app",
-    "الإصدار": "0.1.0",
+    "name": "my-electron-app",
+    "version": "0.1.0",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
     "scripts": {
         "start": "electron ."

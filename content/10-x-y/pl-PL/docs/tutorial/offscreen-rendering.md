@@ -2,7 +2,7 @@
 
 Renderowanie poza ekranem pozwala uzyskać zawartość okna przeglądarki w bitmapie, więc może być renderowana w dowolnym miejscu, na przykład na tekstury w scenie 3D. renderowanie offscreerowe w Electron używa podobnego podejścia niż projekt [Chromium Osadzony Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Można użyć dwóch trybów renderowania i tylko brudny obszar jest przekazywany w wydarzeniu `'malowanie'` aby być bardziej efektywnym. Renderowanie może być zatrzymane, kontynuowane i można ustawić szybkość klatki. Określona prędkość ramki jest najwyższą wartością graniczną, gdy nic się nie dzieje na stronie internetowej, żadne ramki nie są generowane. maksymalna liczba klatek na sekundę wynosi 60, ponieważ powyżej nie ma korzyści, tylko utrata wydajności.
+Można użyć dwóch trybów renderowania i tylko brudny obszar jest przekazywany w wydarzeniu `'malowanie'` aby być bardziej efektywnym. Renderowanie może być zatrzymane, kontynuowane i można ustawić szybkość klatki. Określona prędkość ramki jest najwyższą wartością graniczną, gdy nic się nie dzieje na stronie internetowej, żadne ramki nie są generowane. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Uwaga:** Okno offscreerowe jest zawsze tworzone jako [Okno bez ramki](../api/frameless-window.md).
 

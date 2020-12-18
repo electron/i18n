@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 O módulo `globalShortcut` pode registrar/cancelar o registro de um atalho de teclado global com o sistema operativo que você possa personalizar as operações para os vários atalhos.
 
-** Nota:** O atalho é global; Isso funcionará mesmo se o aplicativo não tenha o foco do teclado. Não deve usar este módulo até que o evento`ready` do módulo do aplicativo é emitido.
+** Nota:** O atalho é global; Isso funcionará mesmo se o aplicativo não tenha o foco do teclado. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, globalShortcut } = require('electron')

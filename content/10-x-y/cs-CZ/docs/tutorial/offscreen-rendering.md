@@ -2,7 +2,7 @@
 
 Offscreen rendering vám umožní získat obsah okna prohlížeče v bitmapě, aby to bylo možné vykreslit kdekoli, například na texturě ve 3D scéně. offscreen rendering v Electronu používá podobný přístup jako projekt [Chromium vložený Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Lze použít dva režimy vykreslování a v události `'barva'` je procházena pouze špinavá plocha, aby byla efektivnější. Vykreslování může být zastaveno, pokračovat a nastavit frekvenci snímku. Zadaná frekvence snímků je nejvyšší limitní hodnota, když se na webové stránce nic neděje, nejsou vytvořeny žádné rámce. maximální frekvence snímků je 60, protože je vyšší, že neexistuje žádný prospěch, pouze ztráta výkonu.
+Lze použít dva režimy vykreslování a v události `'barva'` je procházena pouze špinavá plocha, aby byla efektivnější. Vykreslování může být zastaveno, pokračovat a nastavit frekvenci snímku. Zadaná frekvence snímků je nejvyšší limitní hodnota, když se na webové stránce nic neděje, nejsou vytvořeny žádné rámce. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Poznámka:** Okno vypnuté obrazovky je vždy vytvořeno jako [bezrámové okno](../api/frameless-window.md).
 

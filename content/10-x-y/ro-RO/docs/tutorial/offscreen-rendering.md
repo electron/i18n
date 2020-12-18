@@ -2,7 +2,7 @@
 
 Redarea în afara ecranului vă permite să obțineți conținutul unei ferestre a browserului într-o hartă bitmap, astfel încât să poată fi randat oriunde, de exemplu pe o textură într-o scenă 3D. Redarea în afara ecranului în Electron folosește o abordare similară față de proiectul [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Două moduri de redare pot fi folosite și numai zona murdară este pasată în evenimentul `'paint'` pentru a fi mai eficientă. Redarea poate fi oprită, continuă și rata de cadru poate fi setată. Nivelul de cadru specificat este o valoare limită de vârf. atunci când nu se întâmplă nimic pe o pagină web, nu sunt generate cadouri. Rata maximă a cadrului este 60, pentru că peste aceasta nu există niciun beneficiu, doar pierdere de performanță.
+Două moduri de redare pot fi folosite și numai zona murdară este pasată în evenimentul `'paint'` pentru a fi mai eficientă. Redarea poate fi oprită, continuă și rata de cadru poate fi setată. Nivelul de cadru specificat este o valoare limită de vârf. atunci când nu se întâmplă nimic pe o pagină web, nu sunt generate cadouri. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Notă:** O fereastră în afara ecranului este întotdeauna creată ca [Fereastră fără cadru](../api/frameless-window.md).
 
