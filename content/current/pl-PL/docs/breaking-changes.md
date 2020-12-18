@@ -88,7 +88,7 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: methods in `systemPreferences`
+### Usunięto: metody w `systemPreferences`
 
 The following `systemPreferences` methods have been deprecated:
 * `systemPreferences.isDarkMode()`
@@ -101,19 +101,19 @@ Use the following `nativeTheme` properties instead:
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// Usunięte w Electron 13
 systemPreferences.isDarkMode()
-// Replace with
+// Zamienione z
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
+// Usunięte w Electron 13
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// Zamienione z
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// Usunięte w Electron 13
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Zamienione z
 nativeTheme.shouldUseHighContrastColors
 ```
 
@@ -483,11 +483,11 @@ The following `systemPreferences` events have been deprecated:
 Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-// Deprecated
+// Przestarzałe
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Replace with
+// Zamień z
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
