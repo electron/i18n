@@ -2,7 +2,7 @@
 
 Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. візуалізація offscreen в Electron використовує подібний підхід, ніж проект [Chromium вбудований фреймворк](https://bitbucket.org/chromiumembedded/cef) проекту.
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. Рендеринг можна зупинити, продовжити і встановити частоту кадрів заново. Зазначена частота кадрів є верхньою межею коли на веб-сторінці нічого не відбувається, кадри не генеруються. максимальна частота кадрів становить 60 років, оскільки вище, ніж немає користі, лише втрати продуктивності.
+Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. Рендеринг можна зупинити, продовжити і встановити частоту кадрів заново. Зазначена частота кадрів є верхньою межею коли на веб-сторінці нічого не відбувається, кадри не генеруються. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Примітка:** Вікно в автономному режимі завжди створюється як [Безграничне вікно](../api/frameless-window.md).
 

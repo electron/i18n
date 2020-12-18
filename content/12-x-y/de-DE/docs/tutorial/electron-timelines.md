@@ -9,7 +9,7 @@
 den neuen Blogeintrag von [ Electronic für Release cadence](https://www.electronjs.org/blog/12-week-cadence) für weitere Details zu unserem Release-Zeitplan.</li> </ul> 
   
   
-| Version | -beta.1    | Stall      | Chrome | Knoten |
+| Version | -beta.1    | Stabil     | Chrome | Node   |
 | ------- | ---------- | ---------- | ------ | ------ |
 | 2.0.0   | 2018-02-21 | 2018-05-01 | M61    | v8.9   |
 | 3.0.0   | 2018-06-21 | 2018-09-18 | M66    | v10.2  |

@@ -2,7 +2,7 @@
 
 Renderização fora da tela permite obter o conteúdo de uma janela do navegador em um bitmap, para que possa ser processado em qualquer lugar, por exemplo, em uma textura em uma cena 3D. A renderização offscreen no Electron usa uma abordagem semelhante ao projeto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Dois modos de renderização podem ser usados, e somente a área suja é passada no evento `'pinta'` para ser mais eficiente. A renderização pode ser interrompida, continuando e a taxa de quadros pode ser definida. A taxa de quadros especificada é um valor limite superior, quando nada acontecer em uma página da Web, não há quadros gerados. A taxa máxima de quadros de é 60, porque acima disso não há nenhum benefício, somente perda de desempenho.
+Dois modos de renderização podem ser usados, e somente a área suja é passada no evento `'pinta'` para ser mais eficiente. A renderização pode ser interrompida, continuando e a taxa de quadros pode ser definida. A taxa de quadros especificada é um valor limite superior, quando nada acontecer em uma página da Web, não há quadros gerados. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Nota:** Uma janela fora da tela é sempre criada como uma [Janela sem frames](../api/frameless-window.md).
 

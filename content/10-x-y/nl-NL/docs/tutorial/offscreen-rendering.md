@@ -2,7 +2,7 @@
 
 Offscreen weergave laat u de inhoud van een browservenster in een bitmap verkrijgen, zodat het overal kan worden weergegeven, bijvoorbeeld op een textuur in een 3D-scène. De offscreen weergave in Electron gebruikt een vergelijkbare aanpak dan de [Chromium ingesloten Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-Twee modi van rendering kunnen worden gebruikt en alleen het vuile gebied wordt doorgegeven in de `'verf'` gebeurtenis om efficiënter te zijn. De weergave kan worden gestopt, verder gaan en de framesnelheid kan worden ingesteld. De opgegeven framesnelheid is een top limietwaarde, wanneer er niets op een webpagina gebeurt, worden er geen frames gegenereerd. De maximum framesnelheid is 60 omdat er hierboven geen voordeel is, alleen prestatieverlies.
+Twee modi van rendering kunnen worden gebruikt en alleen het vuile gebied wordt doorgegeven in de `'verf'` gebeurtenis om efficiënter te zijn. De weergave kan worden gestopt, verder gaan en de framesnelheid kan worden ingesteld. De opgegeven framesnelheid is een top limietwaarde, wanneer er niets op een webpagina gebeurt, worden er geen frames gegenereerd. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
 **Opmerking:** Een offscreen venster wordt altijd gemaakt als een [Frameless Window](../api/frameless-window.md).
 

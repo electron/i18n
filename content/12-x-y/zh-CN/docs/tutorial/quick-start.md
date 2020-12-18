@@ -86,7 +86,7 @@ app.on('activate', () => {
 1. 第1行：为了管理您应用程序的生命周期事件，以及创建和控制浏览器窗口，您从 `electron` 软件包导入了 `app` 和 `BrowserWindow`模块 。
 2. 第 3 行：在此之后，您定义一个函数，该函数创建一个 [新的浏览窗口](../api/browser-window.md#new-browserwindowoptions) 启用了节点集成，将 `index.html` 文件加载到此窗口中（第 12 行，稍后我们将讨论该文件），并打开开发人员工具（第 13 行）。
 3. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
-4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是一个禁门。
+4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
 5. 第 24 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后，或重新启动已在运行的应用程序。
 
 #### 创建网页

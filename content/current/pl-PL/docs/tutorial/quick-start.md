@@ -129,7 +129,7 @@ Twoja aplikacja Electron używa pliku `package.json` jako głównego punktu wej�
 
 > UWAGA: Jeśli pole `główne` zostanie pominięte, Electron spróbuje załadować `indeks. s` plik z katalogu zawierający `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> UWAGA: Pola `autor` i `opis` są wymagane do pakowania, w przeciwnym razie pojawi się błąd podczas uruchamiania `npm run make`.
 
 Domyślnie komenda `npm start` uruchomi główny skrypt z Node.js. Aby uruchomić skrypt z Electronem, musisz go zmienić jako taki:
 
