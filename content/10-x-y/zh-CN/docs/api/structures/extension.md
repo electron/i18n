@@ -1,4 +1,4 @@
-# Extension Object
+# Extension 对象
 
 * `id` String
 * `manifest` any - [扩展程序清单数据](https://developer.chrome.com/extensions/manifest)的副本。

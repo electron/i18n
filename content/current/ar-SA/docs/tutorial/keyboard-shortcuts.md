@@ -2,13 +2,13 @@
 
 ## النظرة عامة
 
-This feature allows you to configure local and global keyboard shortcuts for your Electron application.
+تتيح لك هذه الميزة تكوين اختصارات لوحة المفاتيح المحلية والعالمية لتطبيق إلكترون الخاص بك.
 
 ## مثال
 
 ### اختصارات محلية
 
-Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+يتم تشغيل اختصارات لوحة المفاتيح المحلية عندما يكون التطبيق في حالة التركيز فقط. لتكوين اختصار لوحة مفاتيح محلي، تحتاج إلى تحديد خاصية [`المسرع`] عند إنشاء [MenuItem](../api/menu-item.md) داخل الوحدة [Menu](../api/menu.md).
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -28,7 +28,7 @@ menu.append(new MenuItem({
 Menu.setApplicationMenu(menu)
 ```
 
-> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
+> ملاحظة: في الكود أعلاه، يمكنك أن ترى أن المسرع يختلف بناءً على نظام تشغيل المستخدم. بالنسبة لـ MacOS فيكون `Alt+Cmd+I`, بينما لـ Linux و Windows فهو `Alt+Shift+I`.
 
 After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
 
