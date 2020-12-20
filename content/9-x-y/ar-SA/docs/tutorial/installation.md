@@ -43,7 +43,7 @@ During installation, the `electron` module will call out to [`@electron/get`][el
 إذا كنت غير قادر على الوصول إلى GitHub أو تحتاج إلى توفير نسخة مخصصة، يمكنك القيام بذلك من خلال توفير مرآة أو دليل ذاكرة التخزين المؤقت الموجود.
 
 #### مصدر اخر
-يمكنك استخدام متغيرات البيئة لتجاوز عنوان URL الأساسي، والمسار الذي يمكن من خلاله البحث عن ثنائيات إلكترون، واسم الملف الثنائي. The url used by `@electron/get` is composed as follows:
+يمكنك استخدام متغيرات البيئة لتجاوز عنوان URL الأساسي، المسار الذي يمكن من خلاله البحث عن ثنائيات إلكترون، واسم الملف الثنائي. The url used by `@electron/get` is composed as follows:
 
 ```plaintext
 الرابط = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -66,7 +66,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 يمكنك تجاهل موقع ذاكرة تخزين المحلية بتوفير `electron_config_cache` متغير البيئة.
 
-يحتوي ذاكرة التخزين المؤقت على الملف البريدي الرسمي للإصدار بالإضافة إلى ملخص الاختبار، مخزنة كملف نصي . مخبئ نموذجي قد يبدو هكذا:
+تحتوي ذاكرة التخزين المؤقت على ملف zip للإصدار الرسمي بالإضافة إلى المجموع الاختباري، مخزنين كملف نصي. مخبأ نموذجي قد يبدو هكذا:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -96,7 +96,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 وقد لا يكون ذلك ضرورياً في بعض الأحيان، مثلاً في بيئة المعلومات المركزية، عند اختبار مكون آخر.
 
-لمنع تحميل الثنائية عند تثبيت جميع الإعتمادات npm يمكنك تعيين متغير البيئة `ELECTRON_SKIP_BINARY_DOWNLOAD`. مثال:
+لمنع تحميل الثنائية عند تثبيت جميع إعتمادات npm يمكنك تعيين متغير البيئة `ELECTRON_SKIP_BINARY_DOWNLOAD`. مثال:
 ```sh
 تثبيت ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm
 ```
