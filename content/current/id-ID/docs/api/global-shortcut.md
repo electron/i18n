@@ -6,10 +6,10 @@ Proses: [Main](../glossary.md#main-process)
 
 The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboard global dengan sistem operasi sehingga Anda dapat menyesuaikan operasi untuk berbagai cara pintas.</p>
 
-<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
- dari modul aplikasi dipancarkan.</p>
+<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. This module cannot be used before the <code>ready` event of the app module is emitted.
 
-<pre><code class="javascript">const { app, globalShortcut } = require('electron')
+```javascript
+const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   // Register a 'CommandOrControl+X' shortcut listener.
@@ -32,7 +32,7 @@ app.on ('will-quit', () => {
   // Unregister semua jalan pintas.
   globalShortcut.unregisterAll ()
 })
-`</pre>
+```
 
 ## Methods
 
