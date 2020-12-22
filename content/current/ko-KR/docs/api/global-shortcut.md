@@ -6,7 +6,7 @@
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**주의:** 단축키는 전역입니다; 앱이 키보드 포커스를 받고 있지 않을 때도 작동합니다. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
+**주의:** 단축키는 전역입니다; 앱이 키보드 포커스를 받고 있지 않을 때도 작동합니다. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, globalShortcut } = require('electron')

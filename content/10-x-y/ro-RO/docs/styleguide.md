@@ -168,7 +168,7 @@ Descrierea pentru `Function` tipul argumentelor ar trebuie să lase clar cum ar 
 
 ### Events-Evenimente
 
-The events chapter must be in following form:
+Capitolul evenimentelor trebuie să fie sub următoarea formă:
 
 ```markdown
 ### Event: 'wake-up'
@@ -180,7 +180,7 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Titlul poate fi `###` or `####`-nivele depinzând dacă este un eveniment al unui modul sau clasă.
 
 The arguments of an event follow the same rules as methods.
 
