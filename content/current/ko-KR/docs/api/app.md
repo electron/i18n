@@ -607,11 +607,11 @@ By default, web pages' cookies and caches will be stored under the `userData` di
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+`String` 을 반환 - 로드된 애플리케이션의 버전. 애플리케이션의 `package.json` 파일에 버전이 없을 경우 현재 번들 또는 실행 파일의 버전이 반환됩니다.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+`String`을 반환합니다 - `package.json`에 명시된 현재 애플리케이션의 이름
 
 `package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
