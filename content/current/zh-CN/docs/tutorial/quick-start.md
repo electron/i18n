@@ -34,7 +34,7 @@ my-electron-app/
 
 让我们根据上面的结构创建一个基本的应用程序。
 
-#### Install Electron
+#### 安装 Electron
 
 为您的项目创建一个文件夹并安装Electron：
 
