@@ -86,9 +86,9 @@ By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and
 
 1. 漫游您的应用程序 `。 xe` 透过 _命令提示_ 在目标设备上(通过 `--查看-brk` 在任何本地模块加载之前暂停).
 2. 在你的开发机器上启动 Visual Studio 2017
-3. 选择 _调试 > 附加到进程以连接到目标设备..._ 并输入设备的 IP 地址和端口号由 Visual Studio 远程调试工具显示。
+3. 通过选择 _调试 > _ 访问并输入设备的 IP 地址和 Visual Studio 远程调试器工具显示的端口号，连接到目标设备。
 4. 点击 _刷新_ 并选择 [相应的 Electron 进程以附加](../development/debug-instructions-windows.md)。
-5. 您可能需要确保在您的应用中本地模块的任何符号都正确加载。 要配置这个配置，请头到 _调试 > 选项..._ 在 Visual Studio 2017 中，并添加包含您 `的文件夹。 db` 符号在 _调试 > 符号_
+5. 您可能需要确保在您的应用中本地模块的任何符号都正确加载。 要配置此内容，请进入 Visual Studio 2017_Debug > Options..._，and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
 5. 一旦附加，设置任何相应的断点，并使用 Chrome 的 [远程工具来恢复 JavaScript 执行节点](debugging-main-process.md)。
 
 ## 正在获取额外帮助

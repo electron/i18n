@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Windows 注意事项
 
-若要在Windows上使用此功能，您的应用程序必须注册为文档文件类型的 处理程序。 否则，文件将不会在JumpList中出现 你可以在 [Application Registration][app-registration] 里找到所有关于注册事宜的说明。
+若要在Windows上使用此功能，您的应用程序必须注册为文档文件类型的 处理程序。 否则，文件将不会 在JumpList 中出现。 你可以在 [Application Registration][app-registration] 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 
@@ -52,7 +52,7 @@ app.clearRecentDocuments()
 
 #### 将最近文档列表添加到应用程序菜单
 
-您可以添加菜单项以访问和清除最近的文档，方法是在菜单模板中添加 个代码片段：
+您可以添加菜单项以访问和清除最近的文档，方法是在菜单模板中添加以下代码片段：
 
 ```json
 {

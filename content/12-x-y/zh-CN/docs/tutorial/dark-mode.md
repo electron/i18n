@@ -1,4 +1,4 @@
-# Dark Mode
+# 暗黑模式
 
 ## 概览
 
@@ -127,7 +127,7 @@ app.on('activate', () => {
 
 The final step is to add a bit of styling to enable dark mode for the web parts of the UI by leveraging the [`prefers-color-scheme`][prefer-color-scheme] CSS attribute. The value of `prefers-color-scheme` will follow your `nativeTheme.themeSource` setting.
 
-Create a `styles.css` file and add the following lines:
+创建一个 `styles.css` 文件，并添加以下行：
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -139,9 +139,9 @@ Create a `styles.css` file and add the following lines:
 }
 ```
 
-After launching the Electron application, you can change modes or reset the theme to system default by clicking corresponding buttons:
+启动 Electron 应用程序后，你可以通过点击相应按钮更改模式或将 主题重置为系统默认值。
 
-![Dark Mode](../images/dark_mode.gif)
+![暗黑模式](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

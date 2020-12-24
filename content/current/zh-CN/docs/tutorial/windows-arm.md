@@ -28,7 +28,7 @@ if (process.arch === 'x64') {
 
 ### 原生模块
 
-如果您使用本机模块，您必须确保他们编译与 MSVC 编译器的 v142 (在 Visual Studio 2017中提供)。 您还必须检查任何预建的 `.dll` 或 `。 ib` 本地模块提供或引用的文件可用于Windows在军备上。
+如果您使用本机模块，您必须确保他们编译与 MSVC 编译器的 v142 (在 Visual Studio 2017中提供)。 您还必须检查 native module 提供或引用的 `.dll` 或 `.lib` 文件是否可用于 Arm 上的 Windows。
 
 ### 测试您的应用
 
@@ -90,11 +90,11 @@ If you want to develop your application directly on a Windows on Arm device, sub
 
 调试本地模块可以通过 Visual Studio 2017 (运行于您的开发机器)和相应的 [Visual Studio 远程调试器](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) 运行在目标设备上。 要调试：
 
-1. 启动您的应用程序 `。 xe` 透过 _命令提示_ 在目标设备上(通过 `--查看-brk` 在任何本地模块加载之前暂停).
+1. 在目标设备上通过_命令提示符_启动 `.exe` 应用(传递 `--inspect-brk` 参数可以在加载任何 native modules 之前暂停应用)。
 2. 在你的开发机器上启动 Visual Studio 2017
-3. 选择 _调试 > 附加到进程以连接到目标设备..._ 并输入设备的 IP 地址和端口号由 Visual Studio 远程调试工具显示。
+3. 通过选择 _调试 > _ 访问并输入设备的 IP 地址和 Visual Studio 远程调试器工具显示的端口号，连接到目标设备。
 4. 点击 _刷新_ 并选择 [相应的 Electron 进程以附加](../development/debug-instructions-windows.md)。
-5. 您可能需要确保在您的应用中本地模块的任何符号都正确加载。 要配置这个配置，请头到 _调试 > 选项..._ 在 Visual Studio 2017 中，并添加包含您 `的文件夹。 db` 符号在 _调试 > 符号_
+5. 您可能需要确保在您的应用中本地模块的任何符号都正确加载。 要配置此内容，请进入 Visual Studio 2017_Debug > Options..._，and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
 6. 一旦附加，设置任何相应的断点，并使用 Chrome 的 [远程工具来恢复 JavaScript 执行节点](debugging-main-process.md)。
 
 ## 正在获取额外帮助

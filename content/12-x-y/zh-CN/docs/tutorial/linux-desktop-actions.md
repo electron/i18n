@@ -2,13 +2,13 @@
 
 ## 概览
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
 ![audacious][3]
 
-> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+> 注意：上面的截图是 Audacious 音频播放器中启动器快捷方式的一个例子
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity 将在用户点击快捷菜单项后执行 `Exec` 字段定义的命令。 `.desktop` 文件的示例如下：
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -28,7 +28,7 @@ Name=Previous
 Exec=audacious -r
 ```
 
-The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. 您可以在应用的全局变量 `process.argv` 中找到它们。
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 

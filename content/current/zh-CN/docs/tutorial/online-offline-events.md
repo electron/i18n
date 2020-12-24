@@ -34,7 +34,7 @@ in the `index.html` file, add the following line before the closing `</body>` ta
 <script src="renderer.js"></script>
 ```
 
-并添加 `渲染器.js` 文件：
+并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/online-detection/renderer'
 const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
@@ -75,7 +75,7 @@ in the `index.html` file, add the following line before the closing `</body>` ta
 <script src="renderer.js"></script>
 ```
 
-并添加 `渲染器.js` 文件：
+并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/online-detection/main'
 const { ipcRenderer } = require('electron')

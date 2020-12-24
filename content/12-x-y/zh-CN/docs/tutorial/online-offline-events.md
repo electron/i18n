@@ -34,7 +34,7 @@ create the `online-status.html` file and add the following line before the closi
 <script src="renderer.js"></script>
 ```
 
-并添加 `渲染器.js` 文件：
+并添加 `renderer.js` 文件：
 
 ```javascript
 const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
@@ -75,7 +75,7 @@ create the `online-status.html` file and add the following line before the closi
 <script src="renderer.js"></script>
 ```
 
-并添加 `渲染器.js` 文件：
+并添加 `renderer.js` 文件：
 
 ```javascript
 const { ipcRenderer } = require('electron')
