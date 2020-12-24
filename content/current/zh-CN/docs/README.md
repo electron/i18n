@@ -36,7 +36,7 @@
   * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [暗黑模式](tutorial/dark-mode.md)
   * [在 Electron 中嵌入网页](tutorial/web-embeds.md)
 * [模板和命令行界面](tutorial/boilerplates-and-clis.md)
   * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)

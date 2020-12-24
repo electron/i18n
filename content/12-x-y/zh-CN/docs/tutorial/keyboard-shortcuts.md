@@ -2,13 +2,13 @@
 
 ## 概览
 
-This feature allows you to configure local and global keyboard shortcuts for your Electron application.
+此特性允许你为 Electron 应用程序配置应用和全局键盘快捷键。
 
 ## 示例
 
 ### 本地快捷键
 
-Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
+应用键盘快捷键仅在应用程序被聚焦时触发。 To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -28,9 +28,9 @@ menu.append(new MenuItem({
 Menu.setApplicationMenu(menu)
 ```
 
-> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
+> 注意：在上面的代码中，您可以看到基于用户的操作系统的 accelerator  差异。 对于MacOS，是 `Alt+Cmd+I`，而对于Linux 和 Windows，则是 `Alt+Shift+I`.
 
-After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
+启动 Electron 应用程序后，你应该看到应用程序菜单以及您刚刚定义的本地快捷方式：
 
 ![Menu with a local shortcut](../images/local-shortcut.png)
 
@@ -58,7 +58,7 @@ After launching the Electron application, if you press the defined key combinati
 
 ### 在浏览器窗口内的快捷方式
 
-#### Using web APIs
+#### 使用 web APIs
 
 If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
 
@@ -68,7 +68,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
-#### Intercepting events in the main process
+#### 拦截主进程中的事件
 
 在调度页面中的`keydown`和`keyup`事件之前，会发出[`before-input-event`](../api/web-contents.md#event-before-input-event)事件。 它可以用于捕获和处理在菜单中不可见的自定义快捷方式。
 
@@ -94,9 +94,9 @@ app.whenReady().then(() => {
 
 After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
 
-#### Using third-party libraries
+#### 使用第三方库
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. Below are examples of usage of the `mousetrap` running in the Renderer process:
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. 以下是在渲染进程中 `mousetrap` 的使用示例：
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

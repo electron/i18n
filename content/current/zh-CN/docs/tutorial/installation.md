@@ -1,6 +1,6 @@
 # 安装
 
-要安装预构建的 Electron 二进制，请使用 [`npm`](https://docs.npmjs.com)。 首选方法是在您的 应用程序中安装Electron 作为开发依赖：
+要安装预构建的 Electron 二进制，请使用 [`npm`](https://docs.npmjs.com)。 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
 
 ```sh
 npm install electron --save-dev
@@ -109,7 +109,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 当在CI环境中 测试另一个组件的时候，这可能是不必要的。
 
-为了防止在安装所有npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 如：
+为了防止在安装所有 npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 如：
 
 ```sh
 ELECRON_SKIP_BINARY_DOWNOAD=1 npm install

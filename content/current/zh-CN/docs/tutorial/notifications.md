@@ -2,7 +2,7 @@
 
 ## 概览
 
-所有三个操作系统为应用程序向用户发送 通知提供了手段。 在主程序和渲染程序中，显示通知的技术不同的 。
+这三个操作系统都为应用程序向用户发送通知提供了手段。 在主进程和渲染进程中，显示通知的技术不同的。
 
 为了渲染程序，Electron方便地允许开发者使用 [HTML5 通知 API 发送 通知](https://notifications.spec.whatwg.org/)， 使用当前运行中的系统的原生通知 API 以显示它。
 
@@ -12,13 +12,13 @@
 
 ### 在渲染过程中显示通知
 
-假定您有 的 Electron 应用程序[快速启动指南](quick-start.md)， 添加以下行到 `索引。 结束前的tml` 文件 `</body>` 标签：
+假定你有一[Quick Start Guide](quick-start.md) 中的 Electron 应用程序， 添加以下内容到 `index.html` 文件在闭合 `</body>` 标签前：
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-并添加 `渲染器.js` 文件：
+并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const myNotification = new Notification('Title', {
@@ -32,9 +32,9 @@ myNotification.onclick = () => {
 
 启动 Electron 应用程序后，您应该看到通知：
 
-![渲染过程中的通知](../images/notification-renderer.png)
+![渲染进程中的通知](../images/notification-renderer.png)
 
-如果您打开控制台，然后单击通知。 您将看到触发 `onclick` 事件后生成的 消息：
+如果你打开控制台，然后单击通知。你将看到触发 `onclick` 事件后生成的消息：
 
 ![在通知上点击消息](../images/message-notification-renderer.png)
 
@@ -58,7 +58,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 启动 Electron 应用程序后，您应该看到通知：
 
-![主要过程中的通知](../images/notification-main.png)
+![主进程中的通知](../images/notification-main.png)
 
 ## 补充资料
 
@@ -66,7 +66,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 ### Windows
 
-* 在 Windows 10 上，您的应用程序的快捷方式必须安装到 启动菜单中，包含一个 [应用程序用户模型ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加第 `个应用。setAppUserModelId(process.execPath)` 到 您的主要进程才能看到通知。
+* 在 Windows 10 上，您的应用程序的快捷方式必须安装到启动菜单中，包含一个 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx). 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加行 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
@@ -78,13 +78,13 @@ Electron尝试将应用程序用户模型 ID 的相关工作自动化。 Electro
 
 Windows 的更高版本允许高级通知，自定义模板，图像和其他灵活元素。 要发送这些通知(来自主进程或渲染器进程)，请使用用户区模块 [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) 来用原生节点附件发送 `ToastNotification` 和 `TileNotification` 对象。
 
-当包括按钮在内的通知使用 `electron-windows-notifications`, 时, 处理回复需要使用 [`电子窗口-互动通知`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) 帮助注册所需的 COM 组件并调用您的 Electron 应用程序和输入的用户数据。
+当包括按钮在内的通知使用 `electron-windows-notifications` 时，处理回复需要使用 [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) 帮助注册所需的 COM 组件并调用您的 Electron 应用程序和输入的用户数据。
 
 #### 免打扰模式 / 演示模式
 
-要检测是否允许您发送通知，请使用 用户土地模块 [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)
+如果要检测是否允许发送通知，请使用 [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) 模块
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+这允许你提前确定 Windows 是否会将你的通知扔掉。
 
 ### macOS
 

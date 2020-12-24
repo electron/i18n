@@ -1,6 +1,6 @@
 # 네이티브 노드 모듈 사용하기
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Electron에서 네이티브 노드 모듈을 사용할 수 있지만 Electron은 당신의 시스템에 설치된 노드의 V8과 다른 버전을 가질 확률이 크기 때문에 사용할 모듈을 Electron을 위해 다시 컴파일해야합니다. 그렇지 않고 앱을 실행하려고 하면 다음과 같은 오류가 발생합니다.
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -15,9 +15,9 @@ NODE_MODULE_VERSION $ABC. 모듈을 다시 컴파일하거나 다시 설치해�
 
 ### 모듈을 설치하고 Electron용으로 다시 빌드하기
 
-다른 노드 프로젝트 처럼 모듈을 설치하고 [`electron-rebuild`][electron-rebuild] 패키지를 사용해서 모듈을 Electron용으로 다시 빌드할 수 있습니다. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+다른 노드 프로젝트 처럼 모듈을 설치하고 [`electron-rebuild`][electron-rebuild] 패키지를 사용해서 모듈을 Electron용으로 다시 빌드할 수 있습니다. 모듈은 자동으로 Electron의 버전을 가져오고 헤더를 다운로드하고 네이티브 모듈을 다시 빌드합니다.
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+예를 들어 `electron-rebuild`을 설치하고 이를 이용해 모듈을 재빌드 하려면 다음 명령어를 입력하면 됩니다.
 
 ```sh
 npm install --save-dev electron-rebuild

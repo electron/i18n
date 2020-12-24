@@ -6,7 +6,7 @@ Electron有API来配置Windows任务栏中的应用程序图标。 This API supp
 
 ## 弹出列表
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. 该上下文菜单被成为 `弹出列表`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
+Windows 允许应用程序自定义一个菜单栏，当用户右键单击任务栏中的应用图标可以看到该菜单栏。 该上下文菜单被成为 `弹出列表`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
 
 > 应用程序的“任务”列表的制定是基于程序的功能，用户能用它做一些快捷操作。 任务应当是与上下文无关的，因为它不需要程序运行就可以工作。 而且据统计，它们应该是用户在这个应用上使用最多的操作，例如: 撰写一封邮件或者在邮件程序里打开日历，word处理程序新建一个文档，以某一种模式启动应用程序，或者是启动应用程序的某些子命令。 一个应用程序不应当定义一些用户不需要的高级功能的或者只会使用一次的操作的菜单，以防止将菜单弄得杂乱无章，例如注册。 不要将“任务”功能用于广告操作，例如升级应用或者推广特价产品等等。
 > 
