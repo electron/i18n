@@ -4,13 +4,13 @@
 
 Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-__Görev Listesi:__
+__JumpList:__
 
-![Görev listesi Son Dosyalar listesi][1]
+![JumpList Recent Files][1]
 
-__Uygulama kesinti menüsü:__
+__Application dock menu:__
 
-![macOS Dock Menu][2]
+![macOS Dock Menü][2]
 
 To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
 
@@ -42,11 +42,11 @@ app.clearRecentDocuments()
 
 ## Additional information
 
-### Windows notları
+### Windows Notes
 
 To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Her şeyi bulabilirsiniz Başvurunuzun tescili hakkında [Application Registration][app-registration].
 
-Bir kullanıcı Görev Listesi'nden bir dosyayı tıkladığında, uygulamanızın yeni bir örneği komut satırı argümanı olarak eklenen dosyanın yolu ile başlatılacaktır.
+When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
 ### macOS Notları
 
@@ -73,7 +73,7 @@ You can add menu items to access and clear recent documents by adding the follow
 
 ![macOS Recent Documents menu item][6]
 
-Son belgeler menüsünden bir dosya istediğinde, `open-file` event of `app` modülü yayınlanacaktır.
+When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
 [1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
 [2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png
