@@ -1,6 +1,6 @@
 # Hızlı Başlangıç
 
-Electron zengin yerel (işletim sistemi) API'ler ile bir çalışma zamanı sağlayarak, saf JavaScript ile masaüstü uygulamalar oluşturmanıza olanak sağlar. Bunu, web sunucuları yerine masaüstü uygulamalarına odaklanan Node.js çalışma sürecinin bir varyantı olarak görebilirsiniz.
+Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. Bunu, web sunucuları yerine masaüstü uygulamalarına odaklanan Node.js çalışma sürecinin bir varyantı olarak görebilirsiniz.
 
 Burada daha önce bulunan eski "Hızlı Başlangıç" dokümanı iki parçaya ayrıldı:
 
