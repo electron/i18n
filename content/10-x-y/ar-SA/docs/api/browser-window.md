@@ -117,8 +117,8 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `العرض` عدد صحيح (اختياري) - عرض النافذة بالبكسل. الافتراضي هو `800`.
+  * `الارتفاع` عدد صحيح (اختياري) - ارتفاع النافذة بالبكسل. الافتراضي هو `600`.
   * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
