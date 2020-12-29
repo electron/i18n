@@ -4,7 +4,7 @@ author: aguas subterráneas
 date: '2017-12-06'
 ---
 
-Una nueva versión importante de Electron está en obras, y con ella algunos cambios en nuestra estrategia de versiones. A partir de la versión 2.0.0, Electron se adhiere estrictamente a la versión semántica.
+Una nueva versión mayor de Electron está en desarrollo, y con ella algunos cambios en nuestra estrategia de versiones. A partir de la versión 2.0.0, Electron se adhiere estrictamente a la versión semántica.
 
 ---
 
