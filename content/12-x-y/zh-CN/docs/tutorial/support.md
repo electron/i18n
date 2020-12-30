@@ -7,7 +7,7 @@
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
+  - 寻求帮助
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   - Sharing ideas with other Electron app developers
   - And more!
@@ -68,10 +68,10 @@
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+在 Ubuntu 18.04 上预构建的二进制文件。
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 18.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 
 * Ubuntu 14.04 或更高版本
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 或更高版本
+* Debian 8 或更高版本

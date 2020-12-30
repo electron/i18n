@@ -10,7 +10,7 @@
 
 1) 使用 [`electron-forge`][electron-forge] 或 [`electron-builder`][electron-builder], 与 `snap` 支持的两个工具都不在该框中。 这是最简单的选择。 2) 使用 `electron-installer-snap`, 它采用 `electron-packager` 的输出。 3) 使用已经创建的 `.deb` 包。
 
-在某些情况下，您需要安装 `快照` 工具。 Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
+在某些情况下，您需要安装 `snapcraft` 工具。 安装特定发行版的 `snapcraft` 的指南[在这里](https://snapcraft.io/docs/installing-snapcraft)能看到。
 
 ## 使用 `electron-installer-snap`
 
@@ -62,9 +62,9 @@ snap(options)
 
 ## Using `snapcraft` with `electron-packager`
 
-### Step 1: Create Sample Snapcraft Project
+### 第 1 步：创建示例 Snapcraft 项目
 
-Create your project directory and add add the following to `snap/snapcraft.yaml`:
+创建您的项目目录并将以下内容添加到 `snap/snapcraft.yaml`：
 
 ```yaml
 name: electron-packager-hello-world
@@ -106,12 +106,12 @@ parts:
     - libnspr4
 ```
 
-If you want to apply this example to an existing project:
+如果要将此示例应用于现有项目：
 
-- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
-- Replace all instances of `electron-quick-start` with your project's name.
+- 替代 `source: https://github.com/electron/electron-quick-start.git</0 > 为 <code>source: ..`.
+- 替代所有的`electron-quick-start` 为你的项目名称。
 
-### Step 2: Build the snap
+### 第 2 步：构建 snap
 
 ```sh
 $ snapcraft
@@ -120,13 +120,13 @@ $ snapcraft
 Snapped electron-packager-hello-world_0.1_amd64.snap
 ```
 
-### Step 3: Install the snap
+### 第 3 步：安装 snap
 
 ```sh
 sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
 ```
 
-### Step 4: Run the snap
+### 第 4 步：运行 snap
 
 ```sh
 electron-packager-hello-world

@@ -12,7 +12,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron随时更新交替释放Chromium。 欲了解更多信息， 请查看 [Electron 发布博客](https://electronjs.org/blog/12-week-cadence)。
+Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence)。
 
 ## 安全是所有人的共同责任
 
@@ -518,7 +518,7 @@ const mainwindow = new BrowserWindow(
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
+> **注意**：从 Electron 10 开始 `enableRemoteModule` 选项默认为 `false`. 对于之前的版本，您需要显式禁用 `remote` 模块。
 
 ## 16) 筛选 `远程` 模块
 
