@@ -12,7 +12,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron随时更新交替释放Chromium。 欲了解更多信息， 请查看 [Electron 发布博客](https://electronjs.org/blog/12-week-cadence)。
+Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence)。
 
 ## 安全是所有人的共同责任
 

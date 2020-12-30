@@ -49,8 +49,8 @@
 
 当考虑一个模块时，我们建议你做以下检查：
 
-1. the size of dependencies included
-2. the resources required to load (`require()`) it
+1. 包含的依赖项的大小
+2. 需要加载的(`require()`) 资源
 3. 你所加载的资源能够执行你关心的操作
 
 可以使用命令行上的单个命令生成用于加载模块的 CPU 配置文件和堆内存配置文件 在下面的示例中，我们看一下受欢迎的模块 `request`。

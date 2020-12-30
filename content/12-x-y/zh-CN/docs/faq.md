@@ -26,7 +26,7 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 
 在两个网页（渲染进程）间共享数据最简单的方法是使用浏览器中已经实现的 HTML5 API。 Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-或者，您可以使用 Electron 提供的 IPC 原始。 在主进程和渲染器进程之间共享数据， 您可以使用 [`ipcMain`](api/ipc-main.md) 和 [`ipcRenderer`](api/ipc-renderer.md) 模块。 若要直接在网页之间进行沟通，您可以发送一个 [`MessagePort`][message-port] 可能通过主进程 使用 [`ipcRendererer。 ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). 随后在邮件端口上的通信是直接的，不会绕过主进程 。
+或者，您可以使用 Electron 提供的原始版 IPC 。 在主进程和渲染器进程之间共享数据， 您可以使用 [`ipcMain`](api/ipc-main.md) 和 [`ipcRenderer`](api/ipc-renderer.md) 模块。 若要直接在网页之间进行沟通，您可以发送一个 [`MessagePort`][message-port] 可能通过主进程 使用 [`ipcRendererer。 ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). 随后在邮件端口上的通信是直接的，不会绕过主进程 。
 
 ## 几分钟后我的应用托盘消失了。
 
@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-如果 [次级像素反锯齿](https://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如： 示例:
+如果 [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/)已被禁用，那么 LCD 屏幕上的字体可能会看起来模糊。 示例:
 
 ！[子像素渲染示例][]
 

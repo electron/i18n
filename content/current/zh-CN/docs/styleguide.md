@@ -46,7 +46,7 @@
 * 行长度应该控制在80列内.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
 * 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* 对于无序列表，请使用星号而不是破折号
 
 ## 用词选择
 
@@ -151,7 +151,7 @@
 
 标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-对于模块， `对象名称` 是模块的名称。 对于类，它必须是类实例的 个名称，不能与模块的 个名称相同。
+对于模块， `objectName` 是模块的名称。 对于类，它必须是类实例的名称，而且不能与模块名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
@@ -161,7 +161,7 @@
 required[, optional]
 ```
 
-以下是关于每一个论据的更详细的资料。 参数类型 是由常见类型表示的：
+下面的方法是有关每个参数的更多详细信息。 参数类型是由常见类型表示的：
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

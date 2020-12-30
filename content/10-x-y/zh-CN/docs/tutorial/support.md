@@ -6,7 +6,7 @@
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 - [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  - Getting help
+  - 寻求帮助
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   - Sharing ideas with other Electron app developers
   - And more!
