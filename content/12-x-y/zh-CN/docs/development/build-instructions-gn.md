@@ -1,4 +1,4 @@
-# Build Instructions
+# 构建指南
 
 请遵循以下指南来构建Electron。
 
@@ -31,7 +31,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # This will use about 16G.
 ```
 
-## Getting the code
+## 获得源码
 
 ```sh
 $ mkdir electron && cd electron
@@ -40,11 +40,11 @@ $ gclient sync --with_branch_heads --with_tags
 # 这将需要一段时间，喝杯咖啡休息一下。
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-### A note on pulling/pushing
+### 推送/拉取的注意事项
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
 ```sh
 $ cd src/electron
@@ -55,9 +55,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
 
-So, in order to pull, you'd run the following commands:
+因此，为了拉取，您将运行以下命令：
 
 ```sh
 $ cd src/electron
@@ -75,7 +75,7 @@ $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_b
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+若在 Windows 上 (没有可选参数)：
 
 ```sh
 $ cd src
@@ -83,7 +83,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.
