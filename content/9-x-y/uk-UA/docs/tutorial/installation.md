@@ -1,4 +1,4 @@
-# Встановлення
+# Установки
 
 To install prebuilt Electron binaries, use [`npm`][npm]. Рекомендований метод - встановити Electron як залежність від розробки в вашому додатку:
 

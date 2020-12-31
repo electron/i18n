@@ -31,7 +31,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 
 ### 缓存
 
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+要想构建Chromium和Electron你需要编译上千个文件 通过利用缓存重用Electron CI的构建结果你可以避免大部分的等待时间 这需要使用一些可选步骤(已列在下方) 和这两个环境变量：
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache-ci"
@@ -88,7 +88,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.

@@ -42,7 +42,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 > 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-### A note on pulling/pushing
+### 推送/拉取的注意事项
 
 如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
@@ -81,7 +81,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.
