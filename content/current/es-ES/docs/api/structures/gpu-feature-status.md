@@ -16,7 +16,7 @@
 
 Posibles valores:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+* Xpath: /ul[2]/li. Aceleracion de hardware deactivada
 * `disabled_off` - Deshabilitado (rojo)
 * `disabled_off_ok` - Deshabilitado (amarillo)
 * `unavailable_software` - Sólo software. Aceleración de hardware no disponible (amarillo)
