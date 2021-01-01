@@ -1,10 +1,14 @@
-# PostBody Object
+# Objeto del Cuerpo
 
-* `data` Array<[PostData](./post-data.md)> - The post data to be sent to the new window.
-* `contentType` String - The `content-type` header used for the data. One of `application/x-www-form-urlencoded` or `multipart/form-data`. Corresponds to the `enctype` attribute of the submitted HTML form.
-* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.
+* `datos<`ArrayPostData (Datos)-El post data deben ser enviado a la nueva ventana.</p></li> 
+  
+  * `Tipodecontenido`El `El titulo del tipo de contenido usado para los datos. <code>Uno dato <code>de aplicacion/x-wwww-form-urlencoded`o<0>mulipart/form-data</code>. Corresponds to the `enctype` attribute of the submitted HTML form.
+
+* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.</ul> 
 
 Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
+
+
 
 ```html
 <form
