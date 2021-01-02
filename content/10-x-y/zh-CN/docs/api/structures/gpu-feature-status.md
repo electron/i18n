@@ -16,7 +16,7 @@
 
 可选值：
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+* `已禁用软件` - 仅限软件。 硬件加速已禁用 (黄色)
 * `disabled_off` - 禁用(red)
 * `disabled_off_ok` - 已禁用(yellow)
 * `unavailable_software` - 只用于软件, 硬件加速不可用 (yellow)
