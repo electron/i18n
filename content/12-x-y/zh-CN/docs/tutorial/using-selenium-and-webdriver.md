@@ -60,7 +60,7 @@ Only local connections are allowed.
 
 记住 `9515` 这个端口号，我们后面会用到
 
-### 2. Install WebDriverJS
+### 2. 安装 WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
@@ -120,7 +120,7 @@ Only local connections are allowed.
 $ npm install webdriverio
 ```
 
-### 3. 连接到chrome驱动
+### 3. 连接到 chrome 驱动
 
 ```javascript
 const webdriverio = require('webdriverio')

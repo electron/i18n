@@ -39,7 +39,7 @@ Vamos criar uma aplicação básica baseada na estrutura acima.
 Crie uma pasta para seu projeto e instale o Electron lá:
 
 ```sh
-mkdir my-electron-app && cd meu-electron-app
+mkdir my-electron-app && cd my-electron-app
 npm init -y
 npm i --save-dev electron
 ```

@@ -854,4 +854,4 @@ Emittiert wenn die DevTools geschlossen wurden.
 Emitted when DevTools is focused / opened.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
-[chrome-webview]: https://developer.chrome.com/apps/tags/webview
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/

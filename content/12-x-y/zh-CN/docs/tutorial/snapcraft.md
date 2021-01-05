@@ -109,7 +109,7 @@ parts:
 如果要将此示例应用于现有项目：
 
 - 替代 `source: https://github.com/electron/electron-quick-start.git</0 > 为 <code>source: ..`.
-- 替代所有的`electron-quick-start` 为你的项目名称。
+- 替代所有的 `electron-quick-start` 为你的项目名称。
 
 ### 第 2 步：构建 snap
 

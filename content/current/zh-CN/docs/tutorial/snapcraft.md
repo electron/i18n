@@ -64,7 +64,7 @@ snap(options)
 
 ### 第 1 步：创建示例 Snapcraft 项目
 
-创建您的项目目录并将以下内容添加到 `snap/snapcraft.yaml`：
+Create your project directory and add the following to `snap/snapcraft.yaml`:
 
 ```yaml
 name: electron-packager-hello-world
@@ -109,7 +109,7 @@ parts:
 如果要将此示例应用于现有项目：
 
 - 替代 `source: https://github.com/electron/electron-quick-start.git</0 > 为 <code>source: ..`.
-- 替代所有的`electron-quick-start` 为你的项目名称。
+- 替代所有的 `electron-quick-start` 为你的项目名称。
 
 ### 第 2 步：构建 snap
 

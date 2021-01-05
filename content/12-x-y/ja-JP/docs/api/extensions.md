@@ -99,4 +99,10 @@ The following methods of `chrome.management` are supported:
 - `chrome.management.onEnabled`
 - `chrome.management.onDisabled`
 
+### `chrome.webRequest`
+
+この API はすべての機能がサポートされています。
+
+> **注意:** ハンドラが競合する場合は、`chrome.webRequest` より Electron の [`webRequest`](web-request.md) モジュールのものが優先されます。
+
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

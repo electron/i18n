@@ -854,4 +854,4 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 当开发者工具被选中/打开时，触发该事件。
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
-[chrome-webview]: https://developer.chrome.com/apps/tags/webview
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/

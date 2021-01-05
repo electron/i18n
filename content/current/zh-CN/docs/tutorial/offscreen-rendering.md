@@ -4,10 +4,10 @@
 
 Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-*Notes*:
+*注意*：
 
 * There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
-* You can stop/continue the rendering as well as set the frame rate.
+* 您可以停止/继续渲染并设置帧速率。
 * The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
 * When nothing is happening on a webpage, no frames are generated.
 * An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
@@ -47,4 +47,4 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, navigate to your application's working folder.
+启动 Electron 应用程序后，导航到应用程序文件夹。
