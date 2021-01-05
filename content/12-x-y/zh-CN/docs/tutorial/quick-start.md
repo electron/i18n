@@ -2,15 +2,15 @@
 
 ## 快速入门
 
-Electron 是一个能让你使用 JavaScript, HTML 和 CSS 来创建桌面应用程序的框架。 然后这些应用程序可以打包在macOS、Windows和Linux上直接运行，或者通过Mac App Store或微软商店分发。
+Electron 是一个能让你使用 JavaScript, HTML 和 CSS 来创建桌面应用程序的框架。 这些应用程序可以打包后在 macOS、Windows 和 Linux 上直接运行，或者通过 Mac App Store 或微软商店进行分发。
 
-通常，您使用每个操作系统特定的本地应用程序框架为操作系统 (OS)创建一个桌面应用程序。 Electron 可以使用你会的技术来编写应用程序。
+通常，你可以使用操作系统 (OS) 特定的本地应用程序框架来创建一个桌面应用程序。 Electron 可以使用你了解的技术来编写应用程序。
 
 ### 前提条件
 
-Before proceeding with Electron you need to install [Node.js][node-download]. 我们建议您安装最新的 `LTS` 或 `Current 版本` 可用。
+Before proceeding with Electron you need to install [Node.js][node-download]. 我们建议您安装最新可用的 `LTS` 或 `Current 版本` 。
 
-> 请使用为你平台预构建的安装器来安装Node.js。 您可能会遇到与不同的开发工具不兼容的问题。
+> 请使用为你平台预构建的 Node.js 安装器来进行安装。 否则，您可能会遇到与不同开发工具不兼容的问题。
 
 要检查 Node.js 是否正确安装，请在您的终端输入以下命令：
 
@@ -19,11 +19,11 @@ node -v
 npm -v
 ```
 
-这两个命令应输出了 Node.js 和 npm 的版本信息。 如果两个命令都成功，您就可以安装 Electron了。
+这两个命令应输出了 Node.js 和 npm 的版本信息。 如果这两个命令都执行成功，你就可以开始准备安装 Electron了。
 
 ### 创建基本应用程序
 
-从开发的角度来看，Electron应用基本上是一种Node.js应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 最小的 Electron 应用程序具有以下结构：
+从开发的角度来看，Electron 应用本质上是一个 Node.js 应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 最小的 Electron 应用程序具有以下结构：
 
 ```plain
 my-electron-app/
@@ -46,7 +46,7 @@ npm i --save-dev electron
 
 #### 创建主脚本文件
 
-主脚本指定了您将运行主进程的 Electron 应用程序的入口点(就我们而言， `main.js` 文件)。 通常，在主进程中运行的脚本控制应用程序的生命周期，并显示图形用户界面及其元素。 执行本机操作系统交互，并在网页中创建渲染程序。 Electron 应用程序只能有一个主进程。
+主脚本指定了运行主进程的 Electron 应用程序的入口(就我们而言，是 `main.js` 文件)。 通常，在主进程中运行的脚本控制应用程序的生命周期、显示图形用户界面及其元素、执行本机操作系统交互以及在网页中创建渲染进程。 Electron 应用程序只能有一个主进程。
 
 主脚本可以如下所示：
 
@@ -81,9 +81,9 @@ app.on('activate', () => {
 })
 ```
 
-##### 上面发生了什么情况？
+##### 上面发生了什么？
 
-1. 第1行：为了管理应用程序的生命周期事件，以及创建和控制浏览器窗口，您从 `electron` 软件包导入了 `app` 和 `BrowserWindow`模块 。
+1. 第1行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
 2. 第 3 行：在此之后，您定义一个函数，该函数创建一个 [新的浏览窗口](../api/browser-window.md#new-browserwindowoptions) 启用了节点集成，将 `index.html` 文件加载到此窗口中（第 12 行，稍后我们将讨论该文件），并打开开发人员工具（第 13 行）。
 3. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
 4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
@@ -114,7 +114,7 @@ app.on('activate', () => {
 
 #### 修改您的 package.json 文件
 
-您的 Electron 应用程序使用 `package.json` 文件作为主入口(像任何其它的 Node.js 应用程序)。 您的应用程序的主脚本是 `main.js`, 所以相应修改 `package.json` 文件：
+您的 Electron 应用程序使用 `package.json` 文件作为主入口(像任何其它的 Node.js 应用程序)。 您的应用程序的主脚本是 `main.js`，所以相应修改 `package.json` 文件：
 
 ```json
 {
@@ -151,7 +151,7 @@ npm start
 
 ### 打包并分发应用程序
 
-最简单和快捷来分发您新创建的应用是使用 [Electron Forge](https://www.electronforge.io)
+分发你新创建的应用最简单和快捷的方法是使用 [Electron Forge](https://www.electronforge.io)。
 
 1. 导入 Electron Forge 到您的应用文件夹：
 
@@ -200,11 +200,11 @@ npm start
 
 ## 学习基础知识
 
-本节指导您了解 Electron 如何在内部工作的基本知识。 其目的是加强关于 Electron 和早些时候在 Quickstart 部分创建的应用程序的知识。
+本节指导您了解 Electron 内部如何工作的基本知识。 其目的是加强 Electron 和之前 Quickstart 部分创建的应用程序的知识。
 
 ### 应用程序结构
 
-Electron由三个主要支柱组成：
+Electron 包含三个核心：
 
 * **Chromium** 用于显示网页内容。
 * **Node.js** 用于本地文件系统和操作系统。

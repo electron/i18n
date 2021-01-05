@@ -551,7 +551,7 @@ webview.addEventListener('dom-ready', () => {
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
-> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+> **注意**: Chromium でのズームポリシーはドメインごとです。すなわち、特定ドメインのズームレベルは、同じドメインのウィンドウの全インスタンスに伝播します。 ウインドウの URL が別々であれば、ウインドウごとのズームになります。
 
 ### `<webview>.getZoomFactor()`
 
@@ -854,4 +854,4 @@ webContents が破棄されたときに発生します。
 開発者向けツールがフォーカスされた / 開かれたときに発行されます。
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
-[chrome-webview]: https://developer.chrome.com/apps/tags/webview
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/

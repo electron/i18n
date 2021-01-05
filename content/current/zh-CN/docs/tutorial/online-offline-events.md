@@ -2,20 +2,20 @@
 
 ## 概览
 
-[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
+在渲染进程中，[在线/离线事件](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) 的探测，是通过标准 HTML5 API 中 [` navigator.onLine `](http://html5index.org/Offline%20-%20NavigatorOnLine.html) 属性来实现的。
 
-The `navigator.onLine` attribute returns:
+`navigator.onLine` 属性返回值：
 
-* `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
-* `true` in all other cases.
+* `false`：如果所有网络请求都失败(例如，断开网络)。
+* `true`: 在其他情况下都返回 true
 
-Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. For example, in cases when the computer is running a virtualization software that has virtual Ethernet adapters in "always connected" state. Therefore, if you want to determine the Internet access status of Electron, you should develop additional means for this check.
+由于许多情况都会返回 `true`，你应该小心对待误报的情况， 因为我们不能总是假设 `true` 值意味着 Electron 可以访问互联网。 例如，当计算机运行的虚拟化软件时，虚拟以太网适配器处于 "always connected" 状态。 因此，如果您想要确定 Electron 的互联网访问状态，您应该为此检查进行额外的开发。
 
 ## 示例
 
-### Event detection in the Renderer process
+### 渲染进程中的事件探测
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -28,7 +28,7 @@ app.whenReady().then(() => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
 
 ```html
 <script src="renderer.js"></script>
@@ -47,13 +47,13 @@ alertOnlineStatus()
 
 启动 Electron 应用程序后，您应该看到通知：
 
-![Online-offline-event detection](../images/online-event-detection.png)
+![在线/离线事件探测](../images/online-event-detection.png)
 
-### Event detection in the Main process
+### 主进程中的事件探测
 
-There may be situations when you want to respond to online/offline events in the Main process as well. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+在某些情况下，您可能还希望响应主进程中的在线/离线事件探测 但是，主进程没有 `navigator` 对象，无法直接检测这些事件。 In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -69,7 +69,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-in the `index.html` file, add the following line before the closing `</body>` tag:
+在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
 
 ```html
 <script src="renderer.js"></script>
@@ -87,7 +87,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-After launching the Electron application, you should see the notification in the Console:
+启动 Electron 应用程序后，您应该在控制台看到以下通知：
 
 ```sh
 npm start

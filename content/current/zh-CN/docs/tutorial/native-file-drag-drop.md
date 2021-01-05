@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-启动 Electron 应用程序后，尝试 item 从 BroswerWindow 拖放到桌面上。 在本指南中， 该项目是位于项目根目录下的Markdown文件：
+启动 Electron 应用程序后，尝试将该项从 BroswerWindow 拖放到桌面上。 在本指南中，本项是位于项目根目录下的 Markdown 文件：
 
 ![拖动](../images/drag-and-drop.gif)

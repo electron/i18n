@@ -14,7 +14,7 @@ If your app has its own dark mode, you should toggle it on and off in sync with 
 
 If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](https://www.electronjs.org/docs/api/native-theme#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
 
-## macOS settings
+## macOS 设置
 
 在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式][system-wide-dark-mode]。 如果您的 Electron 应用具有深色模式，您可以 使用"本机 api" [应用 `应用`](../api/native-theme.md)。
 

@@ -1413,7 +1413,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number]
+* `frameId` Integer | [number, number] - 送信先のフレームの ID、またはフレームがメインフレームと異なるプロセスにある場合に `[processId, frameId]` の組み合わせを指定します。
 * `channel` String
 * `...args` any[]
 
