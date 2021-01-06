@@ -2,7 +2,7 @@
 
 ## 概览
 
-此特性允许你为 Electron 应用程序配置应用和全局键盘快捷键。
+该功能允许你为 Electron 应用程序配置应用和全局键盘快捷键。
 
 ## 示例
 
@@ -10,7 +10,7 @@
 
 应用键盘快捷键仅在应用程序被聚焦时触发。 To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -40,7 +40,7 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```js
 const { app, globalShortcut } = require('electron')
@@ -74,7 +74,7 @@ Note the third parameter `true` indicates that the listener will always receive 
 
 ##### 示例
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```js
 const { app, BrowserWindow } = require('electron')

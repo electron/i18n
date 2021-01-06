@@ -57,7 +57,7 @@ These methods can be accessed from the `webFrameMain` module:
 * `processId` Integer - An `Integer` representing the id of the process which owns the frame.
 * `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-Returns `WebFrameMain` - A frame with the given process and routing IDs.
+戻り値 `WebFrameMain | undefined` - 指定のプロセスとルーティングの ID のフレームです。指定の ID に関連付けられた WebFrameMain がない場合は `undefined` になります。
 
 ## Class: WebFrameMain
 
@@ -70,7 +70,7 @@ Returns `WebFrameMain` - A frame with the given process and routing IDs.
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
-Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+戻り値 `Promise<unknown>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
 
 ページ内の `code` を評価します。
 
@@ -82,42 +82,42 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 
 ### インスタンスプロパティ
 
-#### `frame.url` _Readonly_
+#### `frame.url` _読み出し専用_
 
 A `string` representing the current URL of the frame.
 
-#### `frame.top` _Readonly_
+#### `frame.top` _読み出し専用_
 
 A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
-#### `frame.parent` _Readonly_
+#### `frame.parent` _読み出し専用_
 
 A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
-#### `frame.frames` _Readonly_
+#### `frame.frames` _読み出し専用_
 
 A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
-#### `frame.framesInSubtree` _Readonly_
+#### `frame.framesInSubtree` _読み出し専用_
 
 A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
-#### `frame.frameTreeNodeId` _Readonly_
+#### `frame.frameTreeNodeId` _読み出し専用_
 
 An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
-#### `frame.name` _Readonly_
+#### `frame.name` _読み出し専用_
 
 A `String` representing the frame name.
 
-#### `frame.osProcessId` _Readonly_
+#### `frame.osProcessId` _読み出し専用_
 
 An `Integer` representing the operating system `pid` of the process which owns this frame.
 
-#### `frame.processId` _Readonly_
+#### `frame.processId` _読み出し専用_
 
 An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
-#### `frame.routingId` _Readonly_
+#### `frame.routingId` _読み出し専用_
 
 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.

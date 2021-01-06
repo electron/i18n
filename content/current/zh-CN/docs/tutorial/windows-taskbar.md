@@ -14,17 +14,17 @@ Windows 允许应用程序自定义一个菜单栏，当用户右键单击任务
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-> NOTE: The screenshot above is an example of general tasks of Internet Explorer
+> 注：上面的屏幕截图是 IE 浏览器的任务栏示例
 
 Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
+你可以使用 [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API 来设置你的应用中的用户任务：
 
 #### 示例
 
 ##### Set user tasks
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript
 const { app } = require('electron')
@@ -51,11 +51,11 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
+> 注意：即使你的应用关闭，用户任务仍然会被显示，因此在你的应用被卸载之前，任务的图标和程序的路径必须是存在的。
 
 ### 缩略图工具栏
 
-On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
+在 Windows，你可以在任务栏上添加一个按钮来当作应用的缩略图工具栏。 它为用户提供了一种访问特定窗口命令的方式, 而无需还原或激活该窗口。
 
 引自 [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars)：
 
@@ -65,15 +65,15 @@ On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar 
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
+> 注：上面的屏幕截图是 Windows 媒体播放器的缩略图工具栏示例
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
+要在应用程序中设置缩略图工具栏，您需要使用 [BrowserWindow.setThumbartons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
 
 #### 示例
 
-##### Set thumbnail toolbar
+##### 设置缩略图工具栏
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -97,7 +97,7 @@ win.setThumbarButtons([
 
 ##### Clear thumbnail toolbar
 
-To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
+要清除缩略图工具栏按钮，您需要在 `main.js` 文件调用 `BrowserWindow.setThumbaritons` 函数设置为空数组。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -108,7 +108,7 @@ win.setThumbarButtons([])
 
 ### 任务栏中的图标叠加
 
-On Windows, a taskbar button can use a small overlay to display application status.
+在 Windows，任务栏按钮可以使用小型叠加层显示应用程序状态。
 
 引自 [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays)：
 
@@ -116,13 +116,13 @@ On Windows, a taskbar button can use a small overlay to display application stat
 
 ![任务栏按钮的叠加](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-> NOTE: The screenshot above is an example of overlay on a taskbar button
+> 注：上面的屏幕截图是任务栏按钮叠加的示例
 
-To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
+要设置窗口的叠加层图标，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
 
 #### 示例
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -134,17 +134,17 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ### 闪烁框
 
-On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
+在Windows上，你可以突出显示任务栏按钮以获得用户的关注。 这与在 macOS 上 dock 弹跳图标相似。
 
 引自 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks)：
 
 > 通常, 会闪现一个窗口, 通知用户该窗口需要注意, 但是该窗口当前没有键盘焦点。
 
-To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API.
+要在 BrowserWindow 的任务栏按钮突出显示，可以使用 [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API 。
 
 #### 示例
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,4 +155,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+> 注意：别忘了调用 `win.flashFramework(false)` 来关闭闪烁。 在上面的示例中, 当窗口进入焦点时会调用它, 但您可能会使用超时或其他一些事件来禁用它。

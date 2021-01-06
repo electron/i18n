@@ -4,15 +4,15 @@
 
 这三个操作系统都为应用程序向用户发送通知提供了手段。 在主进程和渲染进程中，显示通知的技术不同的。
 
-为了渲染程序，Electron方便地允许开发者使用 [HTML5 通知 API 发送 通知](https://notifications.spec.whatwg.org/)， 使用当前运行中的系统的原生通知 API 以显示它。
+对于渲染进程，Electron 方便地允许开发者使用 [HTML5 通知 API](https://notifications.spec.whatwg.org/) 发送通知，然后使用当前运行中的系统的原生通知 API 来进行显示。
 
-要在主进程中显示通知，您需要使用 [通知](../api/notification.md) 模块。
+要在主进程中显示通知，您需要使用 [Notification](../api/notification.md) 模块。
 
 ## 示例
 
-### 在渲染过程中显示通知
+### 在渲染进程中显示通知
 
-假定你有一[Quick Start Guide](quick-start.md) 中的 Electron 应用程序， 添加以下内容到 `index.html` 文件在闭合 `</body>` 标签前：
+假定你有一个 [Quick Start Guide](quick-start.md) 中的 Electron 应用程序， 添加以下内容到 `index.html` 文件在闭合 `</body>` 标签前：
 
 ```html
 <script src="renderer.js"></script>
@@ -30,7 +30,7 @@ myNotification.onclick = () => {
 }
 ```
 
-启动 Electron 应用程序后，您应该看到通知：
+启动 Electron 应用程序后，您应该能看到通知：
 
 ![渲染进程中的通知](../images/notification-renderer.png)
 
@@ -40,7 +40,7 @@ myNotification.onclick = () => {
 
 ### 在主进程中显示通知
 
-从 的工作应用程序开始[快速启动指南](quick-start.md), 更新 `main.js` 文件中包含以下行：
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
@@ -56,7 +56,7 @@ function showNotification ()
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-启动 Electron 应用程序后，您应该看到通知：
+启动 Electron 应用程序后，您应该能看到通知：
 
 ![主进程中的通知](../images/notification-main.png)
 
@@ -66,7 +66,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 ### Windows
 
-* 在 Windows 10 上，您的应用程序的快捷方式必须安装到启动菜单中，包含一个 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx). 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加行 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
+* 在 Windows 10 上，您的应用程序的快捷方式必须安装到启动菜单中，包含一个 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx). 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
@@ -82,9 +82,9 @@ Windows 的更高版本允许高级通知，自定义模板，图像和其他灵
 
 #### 免打扰模式 / 演示模式
 
-如果要检测是否允许发送通知，请使用 [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) 模块
+如果要检测是否允许发送通知，请使用 [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) 模块。
 
-这允许你提前确定 Windows 是否会将你的通知扔掉。
+这样，您可以提前确定 Windows 是否会将通知忽略。
 
 ### macOS
 

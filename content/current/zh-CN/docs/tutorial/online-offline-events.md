@@ -45,7 +45,7 @@ window.addEventListener('offline', alertOnlineStatus)
 alertOnlineStatus()
 ```
 
-启动 Electron 应用程序后，您应该看到通知：
+启动 Electron 应用程序后，您应该能看到通知：
 
 ![在线/离线事件探测](../images/online-event-detection.png)
 

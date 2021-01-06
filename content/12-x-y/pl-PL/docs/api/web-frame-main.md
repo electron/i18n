@@ -57,7 +57,7 @@ These methods can be accessed from the `webFrameMain` module:
 * `processId` Integer - An `Integer` representing the id of the process which owns the frame.
 * `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-Returns `WebFrameMain` - A frame with the given process and routing IDs.
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
 ## Class: WebFrameMain
 
