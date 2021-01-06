@@ -26,7 +26,7 @@ To enable this mode, GPU acceleration has to be disabled by calling the [`app.di
 
 ## 示例
 
-从 起从[快速启动指南](quick-start.md)开始运行，将以下行添加到 `main.js` 文件：
+从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')

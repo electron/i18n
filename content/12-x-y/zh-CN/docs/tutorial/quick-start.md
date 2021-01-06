@@ -83,10 +83,10 @@ app.on('activate', () => {
 
 ##### 上面发生了什么？
 
-1. 第1行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
+1. 第 1 行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
 2. 第 3 行：在此之后，您定义一个函数，该函数创建一个 [新的浏览窗口](../api/browser-window.md#new-browserwindowoptions) 启用了节点集成，将 `index.html` 文件加载到此窗口中（第 12 行，稍后我们将讨论该文件），并打开开发人员工具（第 13 行）。
 3. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
-4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 因为操作系统 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
+4. 第 18 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
 5. 第 24 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
 
 #### 创建网页
@@ -124,9 +124,9 @@ app.on('activate', () => {
 }
 ```
 
-> > 注意：如果未设置 `main` 字段，Electron 将尝试加载包含在 `package.json` 文件目录中的 `index.js` 文件。
+> 注意：如果未设置 `main` 字段，Electron 将尝试加载包含在 `package.json` 文件目录中的 `index.js` 文件。
 
-默认情况下， `npm start` 命令将用 Node.js 来运行主脚本。 要使用 Electron 运行脚本，您需要将其更改为这样：
+默认情况下， `npm start` 命令将用 Node.js 来运行主脚本。 要使用 Electron 来运行脚本，您需要将其更改为这样：
 
 ```json
 {
@@ -188,7 +188,7 @@ npm start
     ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
-    Electron-forge 创建 `out` 文件夹，您的软件包将在那里找到：
+    Electron-forge 会创建 `out` 文件夹，您的软件包将在那里找到：
 
     ```plain
     // MacOS 示例
@@ -216,7 +216,7 @@ Electron 包含三个核心：
 
 如前所述，Electron 有两种进程：主进程和渲染进程。
 
-* 主进程 **通过创建 `浏览器窗口` 实例来创建** 个网页。 每一个 `BrowserWindow` 实例在其渲染过程中运行网页， 当一个 `BrowserWindow` 实例被销毁时，对应的渲染过程也被终止。
+* 主进程通过创建 **BrowserWindow** 实例来`创建` 网页。 每一个 `BrowserWindow` 实例在其渲染过程中运行网页， 当一个 `BrowserWindow` 实例被销毁时，对应的渲染过程也会被终止。
 * 主进程 **管理** 所有网页及其对应的渲染进程。
 
 ----
@@ -232,7 +232,7 @@ Electron 包含三个核心：
 
 ##### Electron API
 
-Electron API 是根据流程类型分配的。这意味着某些模块可以在主进程或渲染进程中使用，有些模块两者中皆可使用。 Electron 的 API 文档指明了每个模块可以使用的过程。
+Electron API 是根据流程类型分配的。这意味着某些模块可以在主进程或渲染进程中使用，有些模块两者中皆可使用。 Electron 的 API 文档指明了每个模块可以使用的进程。
 
 例如，需要同时在两个进程中访问 Electron API，require 包含的模块：
 
@@ -287,7 +287,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-然后，在您的 Electron 应用程序中，进行 require：
+然后，在您的 Electron 应用程序中，加载该模块：
 
 ```js
 const S3 = require('aws-sdk/clients/s3')

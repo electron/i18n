@@ -14,7 +14,7 @@ To set the represented file of window, you can use the [BrowserWindow.setReprese
 
 ## 示例
 
-从 起从[快速启动指南](quick-start.md)开始运行，将以下行添加到 `main.js` 文件：
+从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
 
 ```javascript
 const { app, BrowserWindow } = require('electron')

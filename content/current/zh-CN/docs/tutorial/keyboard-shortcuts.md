@@ -2,7 +2,7 @@
 
 ## 概览
 
-此特性允许你为 Electron 应用程序配置应用和全局键盘快捷键。
+该功能允许你为 Electron 应用程序配置应用和全局键盘快捷键。
 
 ## 示例
 
@@ -10,7 +10,7 @@
 
 应用键盘快捷键仅在应用程序被聚焦时触发。 To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
 const { Menu, MenuItem } = require('electron')
@@ -38,9 +38,9 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 ### 全局快捷键
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+要配置全局键盘快捷键， 您需要使用 [globalShortcon](../api/global-shortcut.md) 模块来检测键盘事件，即使应用程序没有获得键盘焦点。
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
 const { app, globalShortcut } = require('electron')
@@ -74,7 +74,7 @@ Note the third parameter `true` indicates that the listener will always receive 
 
 ##### 示例
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
 const { app, BrowserWindow } = require('electron')

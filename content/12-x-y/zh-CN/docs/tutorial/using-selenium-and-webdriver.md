@@ -153,7 +153,7 @@ const 客户端 = webdriverio。 emote(选项)
 
 无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
-或者，传递一个参数，与您的 Electron 二进制运行，指向您的 个应用文件夹。 这就消除了将您的应用复制粘贴到 Electron资源目录的必要性。
+或者，传递一个参数，与您的 Electron 二进制运行，指向您的 个应用文件夹。 这就消除了将您的应用复制粘贴到 Electron 资源目录的必要性。
 
 [chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
 [spectron]: https://electronjs.org/spectron

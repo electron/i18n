@@ -18,7 +18,7 @@ __应用 dock 菜单__
 
 ### 将一个项目添加到最近文档
 
-从 起从[快速启动指南](quick-start.md)开始运行，将以下行添加到 `main.js` 文件：
+从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Windows 注意事项
 
-若要在Windows上使用此功能，您的应用程序必须注册为文档文件类型的 处理程序。 否则，文件将不会 在JumpList 中出现。 你可以在 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) 里找到所有关于注册事宜的说明。
+若要在 Windows 上使用此功能，您的应用程序必须注册为这类文件的处理程序。 否则，文件将不会在跳转列表中出现。 你可以在 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 

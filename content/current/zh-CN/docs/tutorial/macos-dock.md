@@ -10,11 +10,11 @@ __Terminal.app 的 Dock 菜单:__
 
 ![基座菜单](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-要设置您的自定义基座菜单，您需要使用 [`app.dock.setmenu`](../api/dock.md#docksetmenumenu-macos) API， 它仅在 macOS 上可用。
+要设置您的自定义 dock 菜单，您需要使用 [`app.dock.setmenu`](../api/dock.md#docksetmenumenu-macos) API，它仅在 macOS 上可用。
 
 ## 示例
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
@@ -38,6 +38,6 @@ app.whenReady().then(() => {
 })
 ```
 
-启动 Electron 应用程序后，右键点击应用程序图标。 您应该看到您刚刚定义的自定义菜单：
+启动 Electron 应用程序后，右键点击应用程序图标。 您应该可以看到您刚刚设置的自定义菜单：
 
-![macOS 停靠菜单](../images/macos-dock-menu.png)
+![macOS dock 菜单](../images/macos-dock-menu.png)
