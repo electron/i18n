@@ -651,11 +651,11 @@ L'API utilise le registre Windows et `LSCopyDefaultHandlerForURLScheme` en inter
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - une URL avec le nom du protocole à vérifier. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - une URL avec le nom du protocole à vérifier. Contrairement aux autre méthodes de cette famille, celle-ci accepte un URL en entier, y compris `://` au minimum (par exemple : `https://`).
 
-Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+Retourne `String` - Nom de l'application qui gère le protocole, ou un <0>String</0> vide s'il n'y a pas de gestionnaire. Par exemple, si Electron est le gestionnaire par défaut de l'URL, il pourrait s'agit de `Electron` sur Windows et Mac. Par contre, ne vous fiez pas au format précis qui ne garantit pas de ne pas changer. Attendez-vous à un format différent sur Linux, probablement avec un préfixe `.desktop`.
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+Cette méthode retourne le nom de l'application du gestionnaire par défaut pour le protocole d'une URL (schéma d'URI).
 
 ### `app.setUserTasks(tasks)` _Windows_
 

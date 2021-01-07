@@ -117,6 +117,7 @@ explore:
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
   fiddle_title: Try more powerful experiments with Electron Fiddle
   see_more_info: اطلاعات بیشتر
+download: Download
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: شروع کنید!
   fiddle:
     lead_desc: ساده ترین راه برای شروع کار با الکترون
+    different_os: "Not the right operating system? See:"
     create_app: برنامه خود را بسازید
     description: الکترون فیدل این امکان را به شما می دهد که  آزمایش های کوچکی را انجام بدهید و آن ها بررسی و سبک و سنگین کنید.پس از باز کردن فیدل، او با قالبی ساده و روان به شما خوشامد می گوید-بعضی تنظیمات را تغییر دهید،مثلا ورژن الکترونی که می خواهید با آن کار کنید را،و برنامه را کشف کنید!بعد پروژه ی فیدل خود را یا به در "گیت هاب گیست" بارگذاری کنید یا اینکه آن را در  یک فولدر ذخیره کنید.وقتی که پروژه ی خود را در گیت هاب آرشیو کردید،همه می توانند پروژه شما را بررسی کنند.
     explore: گشتن الکترون

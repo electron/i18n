@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示範應用程式</a>以互動的方式展示 Electron API 中最重要的功能。經由範例程式碼及提示說明，看看 Electron 有什麼能耐幫你打造應用程式。"
   fiddle_title: Try more powerful experiments with Electron Fiddle
   see_more_info: See more info
+download: Download
 download_from_github: 從 GitHub 下載
 view_all_releases_on_github: 查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: 開始使用
   fiddle:
     lead_desc: 開始使用 Electron 的最簡單途徑
+    different_os: "Not the right operating system? See:"
     create_app: 建立您的應用程式
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: 探索 Electron

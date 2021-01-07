@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demo</a> interaktivně demonstruje nejdůležitější funkce Electron API. Podívejte se, co je možné s Electronem udělat za pomoci příkladů kódu a užitečných tipů pro vývoj vaší aplikace."
   fiddle_title: Vyzkoušejte výkonnější experimenty s Electron Fiddle
   see_more_info: Zobrazit další informace
+download: Download
 download_from_github: Stáhnout z GitHubu
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: Začínáme
   fiddle:
     lead_desc: Nejjednodušší způsob jak začít s Electronem
+    different_os: "Not the right operating system? See:"
     create_app: Vytvořte svou aplikaci
     description: Electron Fiddle vám umožní vytvářet a hrát si s malými Electron experimenty. Ihned po otevření vás přivítá svými šablonami pro rychlý start – změňte pár věcí, vyberte si verzi Electronu, se kterou chcete spustit kód a prostě si hrajte. Poté si můžete uložit svůj Fiddle jako GitHub Gist nebo do místní složky. Jakmile pushnete na GitHub, bude si moct váš Fiddle kdokoliv rychle vyzkoušet zadáním jeho odkazu do adresy v prohlížeči.
     explore: Procházet Electron

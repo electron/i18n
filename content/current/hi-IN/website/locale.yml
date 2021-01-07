@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>इलेक्ट्रॉन ऐपीआई डेमोस एप्प</a> बड़े ही बखूबी तरीके से इलेक्ट्रॉन ऐपीआई की सबसे महत्वपूर्ण विशेषताओं को पर्दर्शित करता है | अपनी खुद की एप्प बनाने के लिए सैंपल कोड और मददगार सुझावों का इस्तेमाल करें और जानें कि इलेक्ट्रॉन के साथ क्या-क्या संभव है |"
   fiddle_title: इलेक्ट्रॉन बेला के साथ और अधिक शक्तिशाली प्रयोगों की कोशिश करो
   see_more_info: अधिक जानकारी देखें
+download: Download
 download_from_github: गिटहब से डाउनलोड करें
 view_all_releases_on_github: गिटहब पर<a href="https://github.com/electron/electron-api-demos/releases">सभी रिलीजी देखें</a>
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: प्रारंभ करें
   fiddle:
     lead_desc: The easiest way to get started with Electron
+    different_os: "Not the right operating system? See:"
     create_app: Create your app
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron

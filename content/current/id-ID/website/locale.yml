@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'> app elektron API demo</a> interaktif menunjukkan fitur yang paling penting dari API elektron. Melihat apa yang mungkin dengan elektron dengan sampel kode dan tips untuk membangun aplikasi Anda."
   fiddle_title: Try more powerful experiments with Electron Fiddle
   see_more_info: Lihat info lebih lanjut
+download: Download
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: Memulai
   fiddle:
     lead_desc: Cara paling mudah memulai dengan Electron
+    different_os: "Not the right operating system? See:"
     create_app: Ciptakan aplikasi Anda
     description: Electron Fiddle memungkinkan Anda membuat dan bermain dengan percobaan Electron kecil. Anda akan disambut dengan templat quick-start segera setelah dibuka, ubahlah beberapa hal, pilih versi Electron yang ingin Anda jalankan, dan mainkan. Kemudian, simpan Fiddle Anda baik sebagai GitHub Gist atau ke folder lokal. Setelah di-push ke GitHub, siapa pun dapat dengan cepat mencoba Fiddle Anda dengan hanya memasukkannya di bilah alamat.
     explore: Jelajahi Electron
