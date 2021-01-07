@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demos uygulaması</a> Electron API' nin en önemli özelliklerini gösterir. Uygulamanızı oluşturmak için örnek kod ve yardımcı ipuçları ile Electron' da nelerin mümkün olduğunu görün."
   fiddle_title: Electron Fiddle'la daha güçlü deneyler yapın
   see_more_info: Daha fazla bilgi
+download: Download
 download_from_github: Github'dan indirin
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: Başlarken
   fiddle:
     lead_desc: Electron ile başlamanın en kolay yolu
+    different_os: "Not the right operating system? See:"
     create_app: Uygulamanı oluştur
     description: Electron Fiddle küçük Electron deneyleri yapmanızı sağlar. Sizi bir hızlı-başlangıç şablonuyla karşılar – birkaç şey değiştirin, çalışmak istediğiniz Electron versiyonunu seçin ve istediğinizi yapın. Sonra, Fiddle'ınızı bir GitHub Gist'e veya bir yerel dosyaya kaydedin. GitHub'a pushladıktan sonra herkes sadece adres çubuğuna yazarak Fiddle'ınızı deneyebilir.
     explore: Electron'u Keşfet

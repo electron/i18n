@@ -88,7 +88,7 @@ releases:
   all_releases: 全リリース
   back_to_index: インデックスに戻る
 electron_is_good:
-  title: Electron 製のアプリは, ユーザーに愛されています
+  title: Electron 製のアプリは、ユーザーに愛されています
   description: あらゆる業界の何千もの組織が、Electron を使用してクロスプラットフォームソフトウェアを構築しています。
 electron_is_easy:
   title: 簡単に開発できます
@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>デモアプリケーション</a>では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることを Tips 付きのサンプルコードと共にご覧いただけますので、アプリ開発にお役立てください。"
   fiddle_title: Electron Fiddle の強力な実験機能を試しましょう
   see_more_info: 詳細
+download: ダウンロード
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
@@ -133,7 +134,7 @@ headings:
   languages: 言語
 taglines:
   languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
-  announcement: 'Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout">平等と正義の発意</a> を援助しましょう。<a href="/blacklivesmatter">私たちの声明もご一読ください</a>。'
+  announcement: 'Black Lives Matter。<a href="https://support.eji.org/give/153413/#!/donation/checkout">平等と正義の発意</a> を援助しましょう。<a href="/blacklivesmatter">私たちの声明もご一読ください</a>。'
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
@@ -221,6 +222,7 @@ landing:
   get_started: 始めましょう！
   fiddle:
     lead_desc: やさしい Electron のはじめかた
+    different_os: "他のオペレーティングシステムはこちら:"
     create_app: あなたのアプリを作る
     description: Electron Fiddle では、小さな Electron の実験を作成して遊ぶことができます。 開くとクイックスタートテンプレートが表示されます。いくつか変更して、実行したい Electron のバージョンを選択してから試してみましょう。すると、GitHub Gist やローカルフォルダーに Fiddle を保存できます。GitHub にプッシュされたものは、アドレスバーに入力するだけで誰でもすぐに Fiddle を試すことができます。
     explore: Electron に触れる

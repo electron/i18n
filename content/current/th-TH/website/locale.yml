@@ -117,6 +117,7 @@ explore:
   description: "แอป <a href='https://github.com/electron/electron-api-demos'> แอพ Electron API Demos </a> แสดงให้เห็นถึงคุณลักษณะที่สำคัญที่สุดของ Electron API แบบโต้ตอบ ดูสิ่งที่เป็นไปได้ด้วยอิเล็กตรอนพร้อมรหัสตัวอย่างและเคล็ดลับที่มีประโยชน์สำหรับการสร้างแอปของคุณ"
   fiddle_title: ลองการทดลองที่ทรงพลังกว่าด้วย Electron Fiddle
   see_more_info: ดูข้อมูลเพิ่มเติม
+download: Download
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: เริ่มต้น
   fiddle:
     lead_desc: วิธีที่ง่ายที่สุดในการเริ่มต้นกับ Electron
+    different_os: "Not the right operating system? See:"
     create_app: สร้างแอปของคุณ
     description: Electron Fiddle ช่วยให้คุณสร้างและเล่นกับการทดลองอิเล็กตรอนขนาดเล็ก มันทักทายคุณด้วยเทมเพลตเริ่มต้นอย่างรวดเร็วหลังจากเปิด - เปลี่ยนบางสิ่งเลือกรุ่นของอิเล็กตรอนที่คุณต้องการเรียกใช้ด้วยและเล่นรอบ ๆ จากนั้นให้บันทึกซอของคุณไม่ว่าจะเป็น GitHub Gist หรือไปยังโฟลเดอร์ท้องถิ่น เมื่อผลักไปที่ GitHub ทุกคนสามารถลองเล่นซอของคุณได้อย่างรวดเร็วโดยเพียงแค่ป้อนในแถบที่อยู่
     explore: สำรวจ Electron
