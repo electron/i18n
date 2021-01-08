@@ -2,11 +2,11 @@
 
 * `type` String - Один из следующих вариантов:
   * `rawData` - Данные доступны как `Buffer`, в поле `rawData`.
-  * `file` - Объект представляет файл. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+  * `file` - Объект представляет файл. Для описания файла будут использоваться поля `filePath`, `offset`, `length` и `modificationTime`.
+  * `blob` - Объект представляет `Blob`. Поле `blobUUID` будет использоваться для описания `Blob`.
+* `bytes` String (опционально) - сырые байты данных в `Buffer`. Обязательно для типа `rawData`.
+* `filePath` String (опционально) - Путь к загружаемому файлу. Обязательно для типа `file`.
+* `blobUUID` String (опционально) - `UUID` загружаемого `Blob`. Обязательно для типа `blob`.
+* `offset` Integer (опционально) - Смещение от начала загруженного файла, в байтах. Допустимо только для типа `file`.
+* `length` Integer (необязательно) - Длина загружаемого файла в байтах. Если установлено значение `-1`, будет загружен весь файл. Допустимо только для типа `file`.
+* `modificationTime` Double (optional) - время модификации файла представленного типом double, это количество секунд c начала `UNIX Эпохи` (01.01.1970). Допустимо только для типа `file`.

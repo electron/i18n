@@ -47,6 +47,15 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
+En Arch Linux/Manjaro, instala las siguientes librerías:
+
+```sh
+$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
+                   libgnome-keyring alsa-lib libcap libcups libxtst \
+                   libxss nss gcc-multilib curl gperf bison \
+                   python2 python-dbusmock jdk8-openjdk
+```
+
 Otras distribuciones pueden ofrecer paquetes similares para la instalación mediante administradores de de paquetes como pacman. O se puede compilar a partir del código fuente.
 
 ### Compilación cruzada
