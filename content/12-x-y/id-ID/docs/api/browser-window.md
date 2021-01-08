@@ -1067,7 +1067,7 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 
 
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+#### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * ` aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</p></li>
 <li><p spaces-before="0"><code>extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
@@ -1076,6 +1076,8 @@ Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengemb
 
 Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Sum any extra width and height areas you have within the overall content view.
+
+The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
 
 
 

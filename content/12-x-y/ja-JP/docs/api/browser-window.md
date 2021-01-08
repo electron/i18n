@@ -805,7 +805,7 @@ macOS Lion (10.7) より前のバージョンで見られる簡易フルスク�
 
 Returns `Boolean` - ウィンドウが通常の状態 (最大化されていない、最小化されていない、フルスクリーンモードではない) かどうか。
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+#### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
 * `extraSize` [Size](structures/size.md) (任意) _macOS_ - アスペクト比を維持している間は含まれない余分のサイズ。
@@ -813,6 +813,8 @@ Returns `Boolean` - ウィンドウが通常の状態 (最大化されていな�
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
 HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 プレーヤー内で 16:9 アスペクト比 (HD @1920x1280 の標準的なアスペクト比) を維持するためには、この関数を 16/9 と { width: 40, height: 50 } の引数で呼び出します。 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
+
+`win.setSize` などの API でプログラム的にウインドウをサイズ変更した場合、アスペクト比は維持されません。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -1090,11 +1092,11 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.isTabletMode()` _Windows_
 
-Returns `Boolean` - Whether the window is in Windows 10 tablet mode.
+戻り値 `Boolean` - ウインドウが Windows 10 タブレットモードであるかどうか。
 
-Since Windows 10 users can [use their PC as tablet](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet), under this mode apps can choose to optimize their UI for tablets, such as enlarging the titlebar and hiding titlebar buttons.
+Windows 10 ユーザーは [PC をタブレットとして使用できる](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet) ので、アプリはこのモードの際にタイトルバーを大きくしたり、タイトルバーのボタンを非表示にしたりと、タブレット用に UI を最適化できます。
 
-This API returns whether the window is in tablet mode, and the `resize` event can be be used to listen to changes to tablet mode.
+この API は、ウインドウがタブレットモードかどうかを返します。`resize` イベントでタブレットモードへの変更をリッスンすることもできます。
 
 #### `win.getMediaSourceId()`
 
@@ -1400,7 +1402,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 On Windows it calls SetWindowDisplayAffinity with `WDA_EXCLUDEFROMCAPTURE`. For Windows 10 version 2004 and up the window will be removed from capture entirely, older Windows versions behave as if `WDA_MONITOR` is applied capturing a black window.
+macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_EXCLUDEFROMCAPTURE` で呼び出します。 Windows 10 バージョン 2004 以降からウインドウのキャプチャが完全に削除されましたが、古い Windows バージョンで `WDA_MONITOR` が適用された場合は黒いウィンドウをキャプチャするように動作します。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
