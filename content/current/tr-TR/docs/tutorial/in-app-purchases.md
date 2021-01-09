@@ -3,11 +3,13 @@
 ## Hazırlık
 
 ### Ücretli Uygulamalar Sözleşmesi
+
 Henüz yapmadıysanız, Ücretli Uygulamalar Sözleşmesini imzalamanız, bankacılık ve vergi bilgilerinizi iTunes Connect'e ayarlamanız gerekir.
 
 [iTunes Connect Developer Yardımı: Anlaşmalar, vergi ve bankacılığa genel bakış](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### Uygulamanızın Satınalma İşlemini oluşturun
+
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 
 [iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
@@ -26,7 +28,8 @@ To test In-App Purchase in development with Electron you'll have to change the `
 Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+// Main process
+const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
 // Listen for transactions as soon as possible.

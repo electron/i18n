@@ -4,38 +4,23 @@
 
 进程: [主进程](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-例如:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## 事件
 
 ` powerMonitor ` 模組發出以下事件:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 在系統復原時發出。
 
-### 事件: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 當系統變為用交流電作電源時發出。
 
-### 事件: 'on-battery' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 當系統變為用電池作電源時發出。
 

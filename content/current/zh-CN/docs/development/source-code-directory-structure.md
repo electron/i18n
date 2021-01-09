@@ -33,7 +33,7 @@ Electron
 |   |   ├── api/ - API implementation for renderer process modules.
 |   |   ├── extension/ - Code related to use of Chrome Extensions
 |   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   ├── remote/ - Logic that handles use of the remote module in
 |   |   |             the main process.
 |   |   └── web-view/ - Logic that handles the use of webviews in the
 |   |                   renderer process.
@@ -83,6 +83,7 @@ Electron
 * **npm** - Logic for installation of Electron via npm.
 * **out** - `ninja` 的临时输出目录.
 * **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
+
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -91,31 +92,8 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - 第三方源代码，包括 `boto` 和 `requests`.
-
-## 让 Git 子模块保持最新
-
-Electron代码库有一些第三方依赖, 可以在 [/vendor](https://github.com/electron/electron/tree/master/vendor) 目录中找到. 运行 `git status` 时，偶尔会看到这样的消息：
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-要更新这些第三方依赖，运行以下命令：
-
-```sh
-git submodule update --init --recursive
-```
-
-如果您发现自己经常运行此命令, 你可以在 `~/.gitconfig` 文件中创建一个别名：
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```
+* **vendor** - Source code for some third party dependencies.

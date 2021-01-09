@@ -1,68 +1,68 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: تغييرات API القادمة في إلكترون 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+منذ بداية إلكترون، بدءاً من الوراء عندما كانت تسمى الذاكرة - شل، لقد قمنا بتجربة توفير واجهة برمجة تطبيقات جافا سكريبت اللطيفة عبر المنصة لوحدة محتوى كروميوم ومكونات واجهة المستخدم الأصلية. بدأ تطبيق APIs بشكل عضوي جداً، ومع مرور الوقت قمنا بعدة تغييرات لتحسين التصاميم الأولية.
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+الآن مع تجهيز إلكترون لإصدار 1.0، نود أن نغتنم الفرصة للتغيير من خلال معالجة آخر تفاصيل API الملتهبة. التغييرات الموصوفة أدناه مدرجة في **0.35.**، مع APIs القديمة الإبلاغ عن تحذيرات المهمشة حتى تتمكن من التحديث لإصدار 1.0 في المستقبل. لن يكون إلكترون 1.0 خارجا لبضعة أشهر لذلك لديك بعض الوقت قبل أن تصبح هذه التغييرات مكسورة.
 
-## Deprecation warnings
+## تحذيرات الإهمال
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+بشكل افتراضي، ستظهر التحذيرات إذا كنت تستخدم APIs المهملة. لإيقاف تشغيلهم، يمكنك تعيين `process.noDegiation` إلى `true`. لتتبع مصادر استخدامات API المهملة، يمكنك تعيين `العملية. مهمل` إلى `صحيح` لطرح استثناءات بدلاً من طباعة التحذيرات، أو تعيين `العملية. الإهمال العرقي` إلى `صحيح` لطباعة آثار الإهمال.
 
-## New way of using built-in modules
+## طريقة جديدة لاستخدام الوحدات المدمجة
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+الوحدات المدمجة يتم الآن تجميعها في وحدة واحدة بدلاً من تقسيمها إلى وحدات مستقلة، حتى تتمكن من استخدامهم [دون تضارب مع وحدات أخرى](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+الطريقة القديمة لـ `مطلوبة ('app')` لا تزال مدعومة للتوافق الخلفي، ولكن يمكنك أيضًا إيقاف تشغيل:
 
 ```javascript
-require('electron').hideInternalModules()
-require('app')  // throws error.
+يتطلب ('electron').hideInternalModules()
+متطلب ('app') // رمي خطأ.
 ```
 
-## An easier way to use the `remote` module
+## طريقة أسهل لاستخدام وحدة `البعيد`
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+وبسبب الطريقة التي تغير بها استخدام الوحدات المدمجة، جعلنا من الأسهل استخدام وحدات الجانب الرئيسي للمعالجة في عملية العرض. يمكنك الآن فقط الوصول إلى `عن بعد`سمات لاستخدامها:
 
 ```javascript
-// New way.
+// طريقة جديدة.
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+بدلاً من استخدام سلسلة طلب طويلة:
 
 ```javascript
-// Old way.
+// الطريقة القديمة.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## تقسيم وحدة `ipc`
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+وحدة `ipc` موجودة على كل من العملية الرئيسية وعملية العرض و API مختلفة على كل جانب. وهو أمر مربك للغاية بالنسبة للمستخدمين الجدد. لقد قمنا بإعادة تسمية الوحدة إلى `ipcMain` في العملية الرئيسية، و `ipcRenderer` في عملية العرض لتجنب الخلط:
 
 ```javascript
 // In main process.
-var ipcMain = require('electron').ipcMain
+var ipcMain = مطلوبة ('electron').ipcMain
 ```
 
 ```javascript
-// In renderer process.
+// في عملية العرض.
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+وبالنسبة لوحدة `ipcRenderer` ، تم إضافة عنصر `إضافي` عند تلقي الرسائل، لمطابقة كيفية التعامل مع الرسائل في `ipcMain` وحدة:
 
 ```javascript
 ipcRenderer.on('message', function (event) {
@@ -70,28 +70,28 @@ ipcRenderer.on('message', function (event) {
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## توحيد خيارات `نافذة المتصفح`
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+خيارات `نافذة المتصفح` لها أنماط مختلفة استنادًا إلى خيارات API الأخرى، وكان من الصعب نوعا ما استخدامها في جافا سكريبت بسبب `-` في الأسماء. تم توحيدها الآن مع أسماء جافا سكريبت التقليدية:
 
 ```javascript
-new BrowserWindow({ minWidth: 800, minHeight: 600 })
+نافذة متصفح جديدة({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## متابعة اتفاقيات DOM لأسماء API
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+أسماء API في إلكترون المستخدمة لتفضيل إميل حرف الجمال لجميع أسماء API، مثل `Url` إلى `URL`، ولكن DOM لديها اتفاقياتها الخاصة بها، ويفضلون `URL` على `URL`، أثناء استخدام `معرف` بدلاً من `ID`. لقد قمنا بإعادة تسمية API التالية لمطابقة أنماط DOM:
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `عنوان URL` أعيد تسميته إلى `URL`
+* `Csp` أعيد تسميتها إلى `CSP`
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+ستلاحظ الكثير من الإهمال عند استخدام إلكترون v0.35.0 للتطبيق الخاص بك بسبب هذه التغييرات. طريقة سهلة لإصلاحها هي استبدال جميع مثيلات `URL` بـ `URL`.
 
-## Changes to `Tray`'s event names
+## تغييرات على أسماء الحدث `Tray`
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+نمط `Tray` اسم الحدث كان مختلفا بعض الشيء عن وحدات أخرى لذلك تم إعادة الاسم لجعله مطابقا للأخرى.
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `انقر` أعيد تسميتها إلى `انقر`
+* `ضغطة مزدوجة` أعيد تسميتها إلى `ضغطة مزدوجة`
+* `انقر بالزر الأيمن` أعيدت تسميتها إلى `انقر بالزر الأيمن`
 

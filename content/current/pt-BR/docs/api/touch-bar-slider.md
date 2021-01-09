@@ -4,7 +4,7 @@
 
 Processo: <3>Main</7><9>
 
-### `new TouchBarSlider(options)` _Experimental_
+### `new TouchBarSlider(options)`
 
 * `options` Object
   * `label` String (optional) - Label text.

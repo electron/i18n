@@ -1,7 +1,7 @@
-# Objek KeyboardEvent memperluas `Event`
+# KeyboardEvent Object extends `Event`
 
-* `ctrlKey` Boolean (opsional) - apakah tombol Control digunakan untuk memicu Peristiwa lebih cepat
-* `metaKey` Boolean (opsional) - apakah tombol meta digunakan untuk memicu Peristiwa lebih cepat
-* `shiftKey` Boolean (opsional) - apakah tombol Shift digunakan untuk memicu Peristiwa lebih cepat
-* `altKey` Boolean (optional) - apakah tombol Alt digunakan untuk memicu Peristiwa lebih cepat
-* `triggeredByAccelerator` Boolean (opsional) - apakah akselerator digunakan untuk memicu peristiwa sebagai kebalikan dari isyarat pengguna lain seperti klipada tetikus
+* `ctrlKey` Boolean (optional) - whether the Control key was used in an accelerator to trigger the Event
+* `metaKey` Boolean (optional) - whether a meta key was used in an accelerator to trigger the Event
+* `shiftKey` Boolean (optional) - whether a Shift key was used in an accelerator to trigger the Event
+* `altKey` Boolean (optional) - whether an Alt key was used in an accelerator to trigger the Event
+* `triggeredByAccelerator` Boolean (optional) - whether an accelerator was used to trigger the event as opposed to another user gesture like mouse click

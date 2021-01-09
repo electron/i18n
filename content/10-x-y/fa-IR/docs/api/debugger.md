@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### رویدادها نمونه
+### Instance Events
 
 #### Event: 'detach'
 
@@ -53,7 +53,7 @@ Returns:
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### روشهای نمونه
+### Instance Methods
 
 #### `debugger.attach([protocolVersion])`
 

@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)`
 
@@ -18,7 +18,7 @@
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 The following properties are available on instances of `TouchBarScrubber`:
 

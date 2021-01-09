@@ -56,10 +56,10 @@ npm install -g electron-windows-store
 
 ```powershell
 electron-windows-store `
-    --input-directory C:\myelectronapp `
-    --output-directory C:\output\myelectronapp `
+    --input-directory C:\myelectronapp`
+    --output-directory C:\output\myelectronapp`
     --package-version 1.0.0.0 `
-    --package-name myelectronapp
+    --package-name myelectronelectronapp
 ```
 
 一旦执行，工具就开始工作：它接受您的 Electron 应用程序作为输入，展平 `node_modules`。 然后，它将应用程序归档为 `app.zip`。 使用安装程序和 Windows 容器，该工具创建一个“扩展的” AppX 包 - 包括 Windows 应用程序清单 (`AppXManifest.xml`)以及虚拟文件系统和输出文件夹中的虚拟注册表。
@@ -75,6 +75,7 @@ electron-windows-store `
 另一个重要的限制是编译的 AppX 包仍然包含一个 win32 可执行文件，因此不会在 Xbox，HoloLens 或 Phones 中运行。
 
 ## 可选: 使用 BackgroundTask 添加 UWP 功能
+
 您可以将 Electron 应用程序与不可见的 UWP 后台任务配对，以充分利用 Windows 10 功能，如推送通知，Cortana 集成或活动磁贴。
 
 如何使用 Electron 应用程序通过后台任务发送 Toast 通知和活动磁贴, 请[查看微软提供的案例](https://github.com/felixrieseberg/electron-uwp-background).

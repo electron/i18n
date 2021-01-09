@@ -4,62 +4,62 @@ author: jlord
 date: '2016-05-11'
 ---
 
-For the last two years, Electron has helped developers build cross platform desktop apps using HTML, CSS, and JavaScript. Now we're excited to share a major milestone for our framework and for the community that created it. The release of Electron 1.0 is now available from [electronjs.org](https://electronjs.org).
+Przez ostatnie dwa lata Electron pomógł programistom zbudować wieloplatformowe aplikacje stacjonarne za pomocą HTML, CSS i JavaScript. Teraz jesteśmy podekscytowani dzielić się ważnym kamieniem milowym dla naszego frameworka i dla społeczności, która go stworzyła. Wydanie Electron 1.0 jest teraz dostępne od [electronjs.org](https://electronjs.org).
 
 ---
 
 ![Electron 1.0](https://cloud.githubusercontent.com/assets/378023/15007352/315f5eea-1213-11e6-984e-21f5dab31267.png)
 
-Electron 1.0 represents a major milestone in API stability and maturity. This release allows you to build apps that act and feel truly native on Windows, Mac, and Linux. Building Electron apps is easier than ever with new docs, new tools, and a new app to walk you through the Electron APIs.
+Electron 1.0 stanowi ważny kamień milowy w stabilności i dojrzałości API. Ta wersja pozwala na tworzenie aplikacji, które działają i czują się prawdziwie natywne w systemach Windows, Mac, i Linux. Tworzenie aplikacji Electron jest łatwiejsze niż kiedykolwiek dzięki nowym dokumentacjom, nowym narzędziom i nowej aplikacji, aby przejść przez Electron API.
 
-If you're ready to build your very first Electron app, here's a [quick start guide](https://electronjs.org/docs/tutorial/quick-start) to help you get started.
+Jeśli jesteś gotowy do zbudowania swojej pierwszej aplikacji Electrona, oto [szybki poradnik](https://electronjs.org/docs/tutorial/quick-start) , który pomoże Ci zacząć.
 
-We are excited to see what you build next with Electron.
+Jesteśmy podekscytowani widzieć co zbudujesz z Electronem.
 
-## Electron's Path
+## Ścieżka Electrona
 
-We released Electron when we launched [Atom](https://atom.io) a little over two years ago. Electron, then known as Atom Shell, was the framework we'd built Atom on top of. In those days, Atom was the driving force behind the features and functionalities that Electron provided as we pushed to get the initial Atom release out.
+Wydaliśmy Electron, gdy uruchomiliśmy [Atom](https://atom.io) nieco ponad dwa lata temu. Electron, zwany dalej Atom Shell, był ramą, którą zbudowaliśmy Atom na górze. W tych dniach, Atom był siłą napędową za funkcjami i funkcjami , które Electron dostarczyliśmy, gdy popchnęliśmy na wyjście z początkowej wersji Atom
 
-Now driving Electron is a growing community of developers and companies building everything from [email](https://nylas.com), [chat](https://slack.com), and [Git apps](https://www.gitkraken.com) to [SQL analytics tools](https://www.wagonhq.com), [torrent clients](https://webtorrent.io/desktop), and [robots](https://www.jibo.com).
+Teraz napędzanie Electron jest rosnącą społecznością deweloperów i firm budujących wszystko z [e-maila](https://nylas.com), [czatu](https://slack.com), i [aplikacji Git](https://www.gitkraken.com) do [Narzędzia analityczne SQL](https://www.wagonhq.com), [klientów torrentów](https://webtorrent.io/desktop)i [robotów](https://www.jibo.com).
 
-In these last two years we've seen both companies and open source projects choose Electron as the foundation for their apps. Just in the past year, Electron has been downloaded over 1.2 million times. [Take a tour](https://electronjs.org/apps) of some of the amazing Electron apps and add your own if it isn't already there.
+W ciągu ostatnich dwóch lat widzieliśmy zarówno firmy, jak i projekty open source wybierz Electron jako podstawę ich aplikacji. Właśnie w ubiegłym roku Electron został pobrany ponad 1,2 miliona razy. [Weź wycieczkę](https://electronjs.org/apps) z niektórych niesamowitych aplikacji Electron i dodaj własne, jeśli jeszcze tam nie ma.
 
-![Electron downloads](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
+![Pobieranie Electron](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
 
-## Electron API Demos
+## Dema API Electron
 
-Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. The [Electron API Demos](https://github.com/electron/electron-api-demos) app contains code snippets to help you get your app started and tips on effectively using the Electron APIs.
+Wraz z 1. uwolnienie, udostępniamy nową aplikację, aby pomóc Ci odkrywać Electron API i dowiedzieć się więcej na temat tego, jak twoja aplikacja Electron może czuć się natywna. Aplikacja [Electron API Demos](https://github.com/electron/electron-api-demos) zawiera fragmenty kodu, które pomogą uruchomić aplikację i porady dotyczące skutecznego korzystania z API Electrona.
 
-[![Electron API Demos](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Dema API Electron](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
 
 ## Devtron
 
-We've also added a new extension to help you debug your Electron apps. [Devtron](https://electronjs.org/devtron) is an open-source extension to the [Chrome Developer Tools](https://developer.chrome.com/devtools) designed to help you inspect, debug, and troubleshoot your Electron app.
+Dodaliśmy również nowe rozszerzenie, które pomoże Ci debugować swoje aplikacje Electron . [Devtron](https://electronjs.org/devtron) jest otwartym rozszerzeniem [Narzędzia dla programistów Chrome](https://developer.chrome.com/devtools) zaprojektowanym w celu sprawdzenia, debugowanie i rozwiązanie problemów z aplikacją Electron.
 
 [![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
 
-### Features
+### Funkcje
 
-  * **Require graph** that helps you visualize your app's internal and external library dependencies in both the main and renderer processes
-  * **IPC monitor** that tracks and displays the messages sent and received between the processes in your app
-  * **Event inspector** that shows you the events and listeners that are registered in your app on the core Electron APIs such as the window, app, and processes
-  * **App Linter** that checks your apps for common mistakes and missing functionality
+  * **Wymagaj wykresu** , który pomaga wizualizować wewnętrzne i zewnętrzne zależności biblioteki aplikacji zarówno w procesach głównych, jak i renderowania
+  * **Monitor IPC** , który śledzi i wyświetla wiadomości wysyłane i odbierane pomiędzy procesami w aplikacji
+  * **Inspektor wydarzeń** pokazujący wydarzenia i słuchaczy, którzy są zarejestrowani w aplikacji w rdzeniu Electron API, takim jak okno, aplikacja i procesy
+  * **App Linter** , który sprawdza aplikacje pod kątem zwykłych błędów i brakuje funkcji
 
 ## Spectron
 
-Finally, we're releasing a new version of [Spectron](https://electronjs.org/spectron), the integration testing framework for Electron apps.
+Wreszcie, publikujemy nową wersję [Spectron](https://electronjs.org/spectron), frameworka testowego dla aplikacji Electron.
 
 [![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
 
-Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron is based on [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) and [WebDriverIO](http://webdriver.io) so it also has full APIs for page navigation, user input, and JavaScript execution.
+Spectron 3. posiada kompleksowe wsparcie dla całego API Electrona, co pozwala na szybsze zapisywanie testów, które weryfikują zachowanie aplikacji w różnych scenariuszach i środowiskach. Spectron opiera się na [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) i [WebDriverIO](http://webdriver.io) więc ma również pełne API do nawigacji stron, dane wejściowe użytkownika i wykonanie JavaScript.
 
 ## Społeczność
 
-Electron 1.0 is the result of a community effort by hundreds of developers. Outside of the core framework, there have been hundreds of libraries and tools released to make building, packaging, and deploying Electron apps easier.
+Electron 1.0 jest wynikiem wysiłków społeczności setki programistów. Poza podstawowymi ramami udostępniono setki bibliotek i narzędzi w celu ułatwienia budowania, pakowania i wdrażania aplikacji Electron.
 
-There is now a new [community](https://electronjs.org/community) page that lists many of the awesome Electron tools, apps, libraries, and frameworks being developed. You can also check out the [Electron](https://github.com/electron) and [Electron Userland](https://github.com/electron-userland) organizations to see some of these fantastic projects.
+Istnieje teraz nowa strona [społeczności](https://electronjs.org/community) , która zawiera wiele niesamowitych narzędzi, aplikacji, bibliotek i tworzonych ram. Możesz również sprawdzić organizacje [Electron](https://github.com/electron) i [Electron Userland](https://github.com/electron-userland) aby zobaczyć niektóre z tych fantastycznych projektów.
 
-New to Electron? Watch the Electron 1.0 intro video:
+Nowy Electron? Obejrzyj wprowadzający film Electron 1.0:
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
 

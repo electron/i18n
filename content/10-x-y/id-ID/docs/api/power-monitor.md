@@ -4,23 +4,23 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-## Kejadian
+## Events
 
 Modul`powerMonitor` memancarkan peristiwa berikut:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted saat sistem sedang menangguhkan.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Emitted saat sistem dilanjutkan.
 
-### Event: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emitted saat sistem berubah menjadi AC power.
 
-### Acara: 'di-baterai' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emitted saat sistem berubah menjadi daya baterai.
 
@@ -36,7 +36,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Metode
+## Methods
 
 The `powerMonitor` module has the following methods:
 

@@ -57,7 +57,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 
 
-### Metode Instance
+### Методы экземпляра
 
 The `menu` object has the following instance methods:
 
@@ -119,9 +119,9 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted when `menu.popup()` is called.
 
@@ -129,15 +129,15 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 
 
-### Contoh properti
+### Instance Properties
 
 `menu` objek juga memiliki properti berikut:
 
@@ -326,7 +326,7 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
 
 <p spaces-before="0">Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
 
-<h2 spaces-before="0">Setting Menu untuk Jendela Peramban Tertentu (<em x-id="3"> Linux </em> <em x-id="3"> Windows </em>)</h2>
+<h2 spaces-before="0">Setting Menu for Specific Browser Window (<em x-id="3">Linux</em> <em x-id="3">Windows</em>)</h2>
 
 <p spaces-before="0">Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
 

@@ -2,7 +2,7 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = requiere('electron')
@@ -17,7 +17,7 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' _Windows_
@@ -39,7 +39,7 @@ Devuelve:
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
@@ -50,7 +50,7 @@ Devuelve:
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  Vea la [guía de modo oscuro](../tutorial/mojave-dark-mode-guide.md) para más información.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
@@ -61,7 +61,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 ### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
@@ -69,14 +69,14 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -85,8 +85,8 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -106,8 +106,8 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -118,8 +118,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -400,7 +400,7 @@ Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo
 
 ### `systemPreferences.getAnimationSettings()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `shouldRenderRichAnimation` Boolean - Devuelve verdadero is animaciones ricas deben ser renderizadas. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
 * `scrollAnimationsEnabledBySystem` Boolean - Determina sobre una base por plataforma si las animaciones de desplazamiento (por ejemplo, producidas por la clave home/end) deben estar habilitadas.

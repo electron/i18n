@@ -1,16 +1,16 @@
 # Accessibilità
 
-Realizzare applicazioni accessibili è importante e siamo lieti di presentare nuove funzionalità per [Devtron](https://electronjs.org/devtron) e [Spectron](https://electronjs.org/spectron) che forniscono agli sviluppatori l'opportunità di rendere le loro app migliori per tutti.
+Rendere le applicazioni accessibili è importante e siamo lieti di fornire funzionalità a [Devtron](https://electronjs.org/devtron) e [Spectron](https://electronjs.org/spectron) che offre a sviluppatori l'opportunità di migliorare le loro applicazioni per tutti.
 
 ---
 
 I problemi di accessibilità nelle applicazioni Electron sono simili a quelli dei siti Web perché fondamentalmente sono entrambi in HTML. Con le app Electron, tuttavia, non puoi utilizzare le risorse online per i controlli di accessibilità perché la tua app non ha un URL per indicare l'auditor.
 
-Queste nuove funzionalità portano questi strumenti di controllo alla tua app Electron. Puoi scegliere di aggiungere audit ai propri test con Spectron o utilizzarli in DevTools con Devtron. Continua a leggere per un riepilogo degli strumenti.
+Queste funzionalità portano questi strumenti di controllo alla tua app Electron. Puoi scegliere di aggiungere audit ai tuoi test con Spectron o usarli all'interno di DevTools con Devtron. Continua a leggere per un riepilogo degli strumenti.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Ad esempio:
+Nel framework di test Spectron, puoi ora controllare ogni finestra e `<webview>`tag nella tua applicazione. Ad esempio:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,7 +24,7 @@ Puoi leggere ulteriori informazioni su questa funzione nella [documentazione di 
 
 ## Devtron
 
-In Devtron, c'è una nuova scheda di accessibilità che vi permetterà di controllare una pagina nella tua app, ordinare e filtrare i risultati.
+In Devtron, c'è una scheda di accessibilità che ti permetterà di controllare una pagina nella tua app, ordinare e filtrare i risultati.
 
 ![screenshot di devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,19 +32,21 @@ Entrambi questi strumenti utilizzano la libreria degli [Strumenti di sviluppo di
 
 Se conosci altri fantastici strumenti di accessibilità per Electron, aggiungili alla documentazione di accessibilità con una richiesta di pull.
 
-## Attivazione dell'accessibilità
+## Abilitare manualmente le funzioni di accessibilità
 
-Le applicazioni Electron mantengono l'accessibilità disabilitata di default per ragioni di prestazioni ma ci sono molti modi per abilitarla.
+Le applicazioni Electron attiveranno automaticamente le funzionalità di accessibilità nella presenza di tecnologia assistiva (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) su Windows o [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) su macOS). Vedi la documentazione di accessibilità [di Chrome](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) per maggiori dettagli.
 
-### All'interno dell'applicazione
+È inoltre possibile attivare manualmente queste funzioni sia all'interno dell'applicazione Electron o impostando flag in software nativo di terze parti.
 
-Utilizzando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puoi mostrare lo switch di accessibilità agli utenti nelle preferenze dell'applicazione. Le utilità di assistenza del sistema dell'utente hanno la priorità su questa impostazione e andranno ad annullarla.
+### Usare L'Api Di Elettronico
 
-### Tecnologia assistiva
+Utilizzando l'API [`app.setAccessibilitySupportEnabled(abilitata)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) è possibile esporre manualmente l'albero di accessibilità di Chrome agli utenti nelle preferenze dell'applicazione. Nota che le utilità di assistenza di sistema dell'utente hanno la priorità su questa impostazione e la sovrascriverà.
 
-L'applicazione Electron abiliterà automaticamente l'accessibilità quando rileva la tecnologia assistiva (Windows) o il VoiceOver (macOS). Vedi la [documentazione di accessibilità](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) di Chrome per ulteriori dettagli.
+### All'interno di software di terze parti
 
-Su macOS, la tecnologia di assistenza di terze parti può cambiare l'accessibilità all'interno delle applicazioni Electron impostando l'attributo `AXManualAccessibility` a livello di codice:
+#### macOS
+
+Su macOS, la tecnologia assistiva di terze parti può attivare o disattivare le funzionalità di accessibilità all'interno delle applicazioni Electron impostando l'attributo `AXManualAccessibility` a livello programmatico:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

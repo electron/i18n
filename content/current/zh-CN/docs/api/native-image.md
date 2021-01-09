@@ -103,6 +103,13 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 创建一个空的 ` NativeImage ` 实例。
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -121,7 +128,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object
+* `选项` 对象
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -133,7 +140,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)
+* `options` Object (可选)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -185,7 +192,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -198,21 +205,21 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
@@ -229,9 +236,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 返回 ` Boolean `-图像是否为空。
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Returns [`Size`](structures/size.md)
+* `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Returns [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -251,7 +262,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* `options` Object
+* `选项` 对象
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (可选) - 默认值为图片高度.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -260,13 +271,21 @@ Returns [`Size`](structures/size.md)
 
 如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 `Float` - 图像的长宽比.
 
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+
 #### `image.addRepresentation(options)`
 
-* `options` Object
+* `选项` 对象
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.

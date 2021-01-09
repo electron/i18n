@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  You need to enable t
 
 > Menampilkan konten web eksternal dalam bingkai terisolasi dan proses.
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. Halaman tertanam dalam aplikasi Anda mengontrol bagaimana konten tamu ditata dan diberikan.
 
@@ -190,7 +190,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 
 A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
-## Metode
+## Methods
 
 Tag ` webview ` memiliki metode berikut:
 
@@ -328,7 +328,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `id` String
+* `code` String
 * `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -477,9 +477,9 @@ Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. Di macOS, hanya barisan pertama yang disukai.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -502,8 +502,8 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -522,8 +522,8 @@ Menangkap sebuah snapshot dari halaman dalam `rect`. Omitting `rect` will captur
 
 ### `<webview>.send(channel, ...args)`
 
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Returns <code>Promise<void>`</p>
@@ -585,10 +585,10 @@ Peristiwa DOM berikut tersedia untuk tag `webview`:
 
 ### Event: 'load-commit'
 
-Pengembalian:
+Mengembalikan:
 
-* `url` String
-* `adalah Bingkai Utama` Boolean
+* ` url </ 0> String</li>
+<li><code>adalah Bingkai Utama` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -598,7 +598,7 @@ Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputa
 
 ### Peristiwa: 'Apakah-gagal-beban'
 
-Pengembalian:
+Mengembalikan:
 
 * `kode kesalahan` Bilangan bulat
 * `Deskripsi kesalahan` Tali
@@ -609,7 +609,7 @@ Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal ata
 
 ### Peristiwa: 'Apakah-frame-selesai-beban'
 
-Pengembalian:
+Mengembalikan:
 
 * `adalah Bingkai Utama` Boolean
 
@@ -629,16 +629,16 @@ Emitted saat dokumen dalam bingkai yang diberikan dimuat.
 
 ### Acara : 'halaman-judul-diperbarui'
 
-Pengembalian:
+Mengembalikan:
 
-* ` judul </ 0> String</li>
+* ` judul</ 0>  String</li>
 <li><code>explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Peristiwa: 'halaman-favicon-diperbarui '
 
-Pengembalian:
+Mengembalikan:
 
 * `FAVICONS` String [] - serangkaian URL.
 
@@ -654,10 +654,10 @@ Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
 
 ### Event: 'console-message'
 
-Pengembalian:
+Mengembalikan:
 
 * `level` Integer
-* `pesan` String
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -671,7 +671,7 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
 
 ### Event: 'ditemukan-di-halaman'
 
-Pengembalian:
+Mengembalikan:
 
 * `result` Object
   * `requestId` Bilangan bulat
@@ -691,10 +691,10 @@ webContents.findInPage`] permintaan.</p>
 
 ### Peristiwa: 'baru-jendela'
 
-Pengembalian:
+Mengembalikan:
 
-* `url` String
-* `nama bingkai` tali
+* ` url </ 0> String</li>
+<li><code>nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -722,44 +722,46 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
-
-Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
-
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-Memanggil `event.preventDefault ()` tidak __TIDAK__ memiliki efek.
-
-
+<p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p> 
+  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
+  
+  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  
+  Memanggil `event.preventDefault ()` tidak __TIDAK__ memiliki efek.
+  
+  
 
 ### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-Dibunyikan apabila navigasi dilakukan.
+<p spaces-before="0">Dibunyikan apabila navigasi dilakukan.</p>
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-
+<p spaces-before="0">This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
 
 ### peristiwa: 'Apakah-menavigasi-di halaman'
 
-Pengembalian:
+Mengembalikan:
 
 * `adalah Bingkai Utama` Boolean
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-Dibunyikan saat navigasi dalam halaman terjadi.
+<p spaces-before="0">Dibunyikan saat navigasi dalam halaman terjadi.</p>
 
-Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
-
-
+<p spaces-before="0">Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
+navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
+diklik atau saat peristiwa hash <code>perubahan hash` dipicu.</p> 
 
 ### Acara : 'dekat'
 
@@ -778,11 +780,10 @@ const webview = document.querySelector ('webview') webview.addEventListener ('cl
 
 ### Event: 'ipc-message'
 
-Pengembalian:
+Mengembalikan:
 
-* ` saluran </ 0>  String</li>
-<li><code>args` any[]
-
+* `channel` String
+* `args` any[]
 Fired when the guest page has sent an asynchronous message to the embedder page.
 
 With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
@@ -821,11 +822,10 @@ Dipecat saat proses renderer jatuh.
 
 ### Peristiwa: 'plugin-jatuh'
 
-Pengembalian:
+Mengembalikan:
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 <li><code>Versi` String
-
 Dibunyikan ketika proses plugin telah jatuh.
 
 
@@ -850,10 +850,9 @@ Emitted saat media dijeda atau dilakukan bermain.
 
 ### Event: 'apakah-ganti-tema-warna'
 
-Pengembalian:
+Mengembalikan:
 
 * `themeColor` String
-
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 
@@ -867,29 +866,24 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Pengembalian:
+Mengembalikan:
 
-* `url` String
+*  url </ 0> String</li>
+</ul>
 
-Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+<p spaces-before="0">Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
+<h3 spaces-before="0">Event: 'devtools-dibuka'</h3>
 
+<p spaces-before="0">Emitted saat DevTools dibuka.</p>
 
-### Event: 'devtools-dibuka'
+<h3 spaces-before="0">Event: 'devtools-ditutup'</h3>
 
-Emitted saat DevTools dibuka.
+<p spaces-before="0">Emitted saat DevTools ditutup.</p>
 
+<h3 spaces-before="0">Event: 'fokus devtools'</h3>
 
-
-### Event: 'devtools-ditutup'
-
-Emitted saat DevTools ditutup.
-
-
-
-### Event: 'fokus devtools'
-
-Emitted saat DevTools difokuskan / dibuka.
+<p spaces-before="0">Emitted saat DevTools difokuskan / dibuka.</p>
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [chrome-webview]: https://developer.chrome.com/apps/tags/webview

@@ -1,14 +1,14 @@
-# الدليل الرسمي
+# الوثائق الرسمية
 
-رجاءا تأكد من أنك تستخدم الوثائق التي تطابق إصدارك من Electron. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
+الرجاء التأكد من استخدام المستندات التي تتطابق مع إصدار الالكترون الخاص بك. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدارك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرض دليل لا يتوافق مع اصدار الكترون الخاص بك وهناك احتمال بأن لا تتوافق التعليمات و API مع اصدار الكترون الذي لديك. لعرض الإصدارات القديمة من الوثائق، يمكنك [تصفح بواسطة العلامة](https://github.com/electron/electron/tree/v1.4.0) على كيت هاب بفتح قائمة "تبديل branch" واختيار التي تطابق الإصدار الخاص بك.
 
 ## الأسئلة الشائعة
 
-There are questions that are asked quite often. Check this out before creating an issue:
+وهناك أسئلة تُطرح في كثير من الأحيان. تحقق من هذا قبل إنشاء مشكلة:
 
-* [إلكترون - الاسئلة الشائعة](faq.md)
+* [Electron  - الاسئلة الشائعة](faq.md)
 
-## الدليل الإرشادي والدروس
+## الإرشادات و الشروحات
 
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md)
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
@@ -16,10 +16,10 @@ There are questions that are asked quite often. Check this out before creating a
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
   * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md)
-  * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
-  * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [تشغيل تطبيقك](tutorial/first-app.md#running-your-app)
-* [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md)
+  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
+  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
@@ -38,19 +38,19 @@ There are questions that are asked quite often. Check this out before creating a
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
+  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
-  * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
-  * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [سحب الملف الأصلي & إسقاط](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [تضمين الويب في إلكترون](tutorial/web-embeds.md)
 * [إمكانية الوصول](tutorial/accessibility.md)
-  * [سبيكترون](tutorial/accessibility.md#spectron)
+  * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
+  * [تمكين الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md)
-  * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
+  * [تنقيح عملية الرئيسية](tutorial/debugging-main-process.md)
   * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)
   * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -77,7 +77,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
-* [تثبيت إكترون](tutorial/installation.md)
+* [تنصيب إلكترون (Electron)](tutorial/installation.md)
   * [بروكسيات](tutorial/installation.md#proxies)
   * [مرايا مخصصة ومخابئ](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
@@ -115,13 +115,13 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### وحدات للـ Main Process:
 
-* [app (التطبيق)](api/app.md)
-* [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
+* [التطبيقات](api/app.md)
+* [تحديث تلقائي](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing (تتبع المحتوى)](api/content-tracing.md)
-* [dialog (الحوار)](api/dialog.md)
-* [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
+* [نافذة المتصفح](api/browser-window.md)
+* [تتبع المحتوى](api/content-tracing.md)
+* [نافذة الحوار](api/dialog.md)
+* [اختصار عالمي](api/global-shortcut.md)
 * [inAppPurchase (مشتريات داخل التطبيق)](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu (القائمة)](api/menu.md)
@@ -143,15 +143,15 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [منصة_شليلة](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### الوحدات لكلا العمليتين:
 
-* [الحافظة](api/clipboard.md)
+* [لوحة القُصاصات](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [shell](api/shell.md)
+* [صدفة](api/shell.md)
 
 ## التطوير
 

@@ -1,4 +1,4 @@
-# File na nagrerepresenta sa macOS BrowserWindows
+# Represented File for macOS BrowserWindows
 
 Sa macOS, ang isang window ay pwedeng magtakda ng nirerepresentang file, upang ang icon nito ay lalabas sa title bar, at kung ang mga gumagamit ay nag Command-Click o Control-Click sa titulo, ang isang path popup ay lalabas.
 

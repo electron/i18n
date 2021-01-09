@@ -13,27 +13,27 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 Utilisez `Démarrage Rapide` comme exemple :
 
 ```markdown
-# Quick Start
+# Démarrage rapide
 
 ...
 
-## Main process
+## Processus principal
 
 ...
 
-## Renderer process
+## Processus de rendu
 
 ...
 
-## Run your app
+## Lancez votre application
 
 ...
 
-### Run as a distribution
+### Exécuter en tant que distribution
 
 ...
 
-### Manually downloaded Electron binary
+### Téléchargement manuel du binaire Electron
 
 ...
 ```
@@ -45,7 +45,8 @@ Dans le cas de références de l'API, il existe des exceptions à cette règle.
 * Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison de l'outil de coloration syntaxique).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
-* Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
+* Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* Pour les listes non ordonnées, utilisez des astérisques plutôt que des tirets
 
 ## Choix des mots
 
@@ -95,10 +96,10 @@ En prenant `autoUpdater` comme exemple :
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listées sous un chapitre `### Static Methods`.
 * Les [Méthodes d'instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Instance Methods`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Toutes les méthodes qui ont une valeur de retour doivent commencer leur description par "Retourne `[TYPE]` - Description de retour"
   * Si la méthode retourne un `Objet`, sa structure peut être décrite à l'aide d'un deux-points suivi d'un saut de ligne et d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instance doivent être listés sous un chapitre `### Instance Events`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Les propriétés d'instance doivent être listées sous un chapitre `### Propriétés d'instance`.
   * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
 
 En prenant les classes `Session` et `Cookies` comme exemple :
@@ -140,17 +141,17 @@ En prenant les classes `Session` et `Cookies` comme exemple :
 Le chapitre sur les méthodes doit respecter la forme suivante :
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Une description du paramètre.
+* `optional` Integer (facultatif) - Une autre description du paramètre.
 
 ...
 ```
 
 Le titre peut être de niveau `###` ou `#####` dépendant du fait qu'il s'agisse d'une méthode de module ou de classe.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pour les modules, l'objet `objectName` est le nom du module. Pour les classes, ce doit être le nom de l'instance de la classe, et ne doit pas être le même que le nom du module.
 
 Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `objectName`.
 
@@ -160,7 +161,7 @@ Les arguments optionnels sont notés par les crochets `[]` entourant l'argument 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Ci-dessous la méthode se trouve des informations plus détaillées sur chacun des arguments. Le type d'argument est noté par les types communs :
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

@@ -36,7 +36,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 자바스크립트
 
-* [standard](https://npm.im/standard) JavaScript 코딩 스타일을 사용합니다.
+* [표준](https://www.npmjs.com/package/standard) JavaScript 코딩 스타일을 사용합니다.
 * 파일 이름의 공백은 `_`대신에 `-`을 사용하여야 합니다. 예를 들어 `file_name.js`를 `file-name.js`로 고쳐야 합니다. 왜냐하면 [github/atom](https://github.com/github/atom)에서 사용되는 모듈의 이름은 보통 `module-name` 형식이기 때문입니다. 이 규칙은 '`.js`' 파일에만 적용됩니다.
 * 적절한 곳에 새로운 ES6/ES2015 문법을 사용해도 됩니다.
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 는 <0>requires</0>와 다른 상수에 사용합니다.  값이 원시 타입인 경우 대문자로 이름을 지정하십시오 (예: `const NUMBER_OF_RETRIES = 5`).
@@ -48,9 +48,9 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 Electron API는 Node.js와 비슷한 명명법을 사용합니다:
 
-- 모듈 자체가 `BrowserWindow`같은 class일 경우, `PascalCase`로 작성합니다.
-- 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성합니다.
-- API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
-- 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
+* 모듈 자체가 `BrowserWindow`같은 class일 경우, `PascalCase`로 작성합니다.
+* 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성합니다.
+* API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
+* 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
 
 새로운 API를 만들 땐 jQuery의 one-function 스타일 대신 getter, setter스타일을 사용해야 합니다. 예를 들어 `.text([text])` 대신 `.getText()`와 `.setText(text)` 형식으로 함수를 설계하면 됩니다. 포럼에서 이 문제에 대한 [논의](https://github.com/electron/electron/issues/46)가 진행되고 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Projekt der Woche: WordPress Desktop'
 author:
   - mkaz
   - johngodley
@@ -7,57 +7,57 @@ author:
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+Diese Woche haben wir bei [Automattic](https://automattic.com/) mit Leuten aufgeholt, um über [WordPress Desktop](https://apps.wordpress.com/desktop/)zu sprechen ein Open-Source-Desktop-Client zur Verwaltung von WordPress-Inhalten.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress-Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Jeder kennt WordPress, aber was ist WordPress Desktop?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+Das [WordPress. om Desktop App](https://apps.wordpress.com/desktop/) bietet eine nahtlose plattformübergreifende Erfahrung, die es Ihnen ermöglicht, sich auf Ihre Inhalte und Ihr Design zu konzentrieren, ohne Browser-Registerkarten, die Sie ablenken – oder Ihre Seiten beiseite zu lassen, aber zugänglich zu halten. In Kombination mit unserem Browser-Support und unserer mobilen App können Sie Ihre Website überall bauen, auf welche Weise Sie Ihre Arbeit erledigen können.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## Warum eine Desktop-App zur Verwaltung von WordPress-Sites erstellen? Könnte nicht alles web-basiert sein?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+Es verwendet eigentlich genau die gleiche Technologie, die Sie erhalten, wenn Sie [WordPress.com](https://wordpress.com) in Ihrem Browser besuchen. Jedoch ist es alles lokal gehostet, so dass es minimale Ladezeiten hat. Mit dem Vorteil der nativen Funktionen, wie Sie in Ihrem Dock, Benachrichtigungen, etc., können Sie wirklich konzentrieren sich auf Ihre WordPress-Seiten und Blogging.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Warum haben Sie beschlossen, WordPress Desktop auf Elektronik?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+Ende 2015 haben wir einen Großteil von WordPress.com in Form von [Calypso](https://github.com/automattic/wp-calypso)umgebaut, einer modernen Open-Source-JavaScript-App mit React. Wir haben mit Electron begonnen und mit einigen Änderungen an Calypso konnten wir es lokal zum Laufen bringen. Es war eine überzeugende Erfahrung und wir dachten, dass es sehr viel wert sei, sie weiterzuentwickeln.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+Wir hatten mehrere Teams, die an Calypso gearbeitet haben. Um einen vollständigen Multiplattform-GUI-Client zu erstellen, der dies mit herkömmlichen Desktop-Technologien entsprach, hätte es mehr Arbeit gekostet. Mit Electron ein kleines Team von 2-4 von uns war in der Lage, die Bemühungen des anderen Teams in ein paar Monaten zu nutzen und die Desktop-App zu entwickeln.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Was sind einige Herausforderungen, denen Sie beim Erstellen von WordPress Desktop gegenüberstehen?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+Wir haben eine erste Version der App sehr schnell laufen lassen aber die Abstimmung um sich optimal als Desktop-App zu verhalten, brauchte viel mehr Zeit. Eine große Herausforderung für die App ist, dass Sie eine Kopie von Calypso auf Ihrem eigenen Rechner laufen lassen - es ist eine rein API gesteuerte Benutzeroberfläche. Daran waren viele Überbrückungsarbeiten beteiligt, und die Änderungen wurden an Calypso selbst zurückgeführt.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+Zusätzlich wurde viel Aufwand aufgewendet, um die App für verschiedene Plattformen zu paketieren - wir stellen Windows zur Verfügung, macOS, und Linux-Versionen - und es gibt genügend Unterschiede, um das zu machen.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+Zu der Zeit war Electron relativ neu und wir haben immer wieder Probleme entdeckt, die in Kürze behoben wurden (manchmal noch am selben Tag!)
 
-## In what areas should Electron be improved?
+## In welchen Bereichen sollte Electron verbessert werden?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron stellt bereits das meiste von dem zur Verfügung, was wir für die Desktop-App benötigen, und es ist schnell vorangekommen, seit wir begonnen haben, sie zu verwenden. Allerdings gibt es einige Bereiche, die in einer Desktop-App als selbstverständlich angesehen werden, B. Rechtschreibprüfung und finden/ersetzen, die mit Electron unverändert schwerer zu replizieren sind.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+Wir würden auch gerne sehen, wie einige der neueren Chrome-Technologien auch in Electron gefiltert werden. Wir sind besonders daran interessiert, mit WebVR zu experimentieren.
 
-## What are your favorite things about Electron?
+## Was sind Ihre Lieblings-Dinge über Elektronik?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Der Hauptgrund für die Wahl von Electron und seiner größten Stärke ist die sehr aktive und offene Gemeinschaft. Automattic hat immer an Open Source geglaubt. Es ist einer unserer Kernprinzipien und das Electron-Projekt und die Community folgen vielen Grundüberzeugungen, sehr offen und positiv zu sein.
 
-## What's coming next in WordPress Desktop?
+## Was kommt als nächstes in WordPress Desktop?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Das Gute an unserem Modell ist, dass die Desktop-App von jeder neuen Calypso-Funktion profitiert - es gibt ständige Verbesserungen. Wir hoffen, dass wir der App zusätzliche Funktionen wie den Offline-Support hinzufügen können , die die App wirklich in das Heimatgebiet führen würde, und bessere Systembenachrichtigungen.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Gibt es Teams bei Automattic die an anderen Electron-Apps arbeiten?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Ja, nach unseren Bemühungen um die Desktop-App, das Simplenote-Team beschloss, Electron zu verwenden, um Desktop-Apps für Windows und Linux zu erstellen (ein nativer Mac-Client existiert bereits). Die [Simplenote Electron App](https://github.com/Automattic/simplenote-electron) ist auch Open Source und auf Github verfügbar.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+Wir haben auch eine kommende Raspberry Pi Integration, die Electron verwendet.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Wenn eines davon interessant klingt, dann würden wir [gerne von dir hören](https://automattic.com/work-with-us/) hören!
 
-## Any Electron tips that might be useful to other developers?
+## Irgendwelche Electron-Tipps, die für andere Entwickler nützlich sein könnten?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Der Prozess des Versands signierter Desktop-Software ist für uns relativ neu, vor allem für Windows. haben wir einen Artikel für [Code geschrieben, der eine Windows-App](https://mkaz.blog/code/code-signing-a-windows-application/) signiert, der den Prozess und einige der Hürden enthält, die wir durchlaufen haben, um es richtig zu machen.
 

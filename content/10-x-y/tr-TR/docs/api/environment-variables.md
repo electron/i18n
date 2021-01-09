@@ -26,7 +26,7 @@ Aşağıdaki ortam değişkenleri, Electron uygulamalarının çalışma anında
 
 Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
 
-Örneğin:
+Örnek:
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"

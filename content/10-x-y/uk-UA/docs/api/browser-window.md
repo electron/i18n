@@ -156,6 +156,10 @@ child.once('ready-to-show', () => {
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. За замовчуванням `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). За замовчуванням `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Можливі значення:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Можливі значення:
     * `default` - Стандартна непрозора Mac панель заголовків.
     * `hidden` - Прихована панель заголовків і контент на розмір вікна, поки панель заголовків досі має стандартні кнопки керування ("світлофори") вгорі зліва.
@@ -1341,9 +1345,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Повертає `Boolean` - Якщо панель меню видима.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (опціонально) _macOS_ - Встановлює чи вікно має бути видиме над іншими повноекранними вікнами
 
 Встановлює чи вікно вікно має бути видиме на всіх робочих областях.
 
@@ -1451,7 +1457,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Встановлює шаблон touchBar для почотного вікна. Зазначення `null` чи `undefined` очищує панель дотиків. Цей метод має ефект тільки, якщо машина має панель дотиків та запущена на macOS 10.12.1+.
 
-**Примітка:** TouchBar API наразі експериментальне і може бути видалене в майбутніх версіях Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Експериментальний_
 

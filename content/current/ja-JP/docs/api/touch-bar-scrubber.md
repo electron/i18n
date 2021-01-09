@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` _実験的_
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - このスクラバーに配置するアイテムの配列.

@@ -1,70 +1,69 @@
-# Context Isolation
+# عزل السياق
 
-## What is it?
+## ما هذا؟
 
-Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
+العزلة السياقية هي ميزة تضمن تشغيل كلاً من البرامج النصية `مسبقاً` ومنطق Electron's الداخلي في سياق منفصل للموقع الذي تحمله في [`محتويات الويب`](../api/web-contents.md).  هذا مهم لأغراض الأمان لأنه يساعد على منع الموقع من الوصول إلى داخلي إلكترون أو APIs القوية التي يملك برنامج التحميل المسبق الخاص بك حق الوصول.
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+وهذا يعني أن كائن `النافذة` الذي يمكن الوصول إليه قبل تحميل البرنامج النصي الخاص بك هو في الواقع كائن **مختلف** عن الموقع الذي يمكن الوصول إليه.  على سبيل المثال، إذا قمت بتعيين `window.hello = 'wave'` في البرنامج النصي للتحميل المسبق الخاص بك ويتم تمكين عزل السياق `نافذة. مرحبًا` لن يتم تعريفه إذا حاول الموقع الوصول إليه.
 
-Every single application should have context isolation enabled and from Electron 12 it will be enabled by default.
+يجب أن يكون لكل تطبيق منفرد منعزل سياقي، وسيتم تمكين إلكترون 12 بشكل افتراضي.
 
-## How do I enable it?
+## كيف يمكنني تمكينها؟
 
-From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
+من إلكترون 12، سيتم تمكين بشكل افتراضي. بالنسبة للإصدارات المنخفضة، هو خيار في `تفضيلات الويب` عند إنشاء `نافذة متصفح جديدة`'s.
 
 ```javascript
-const mainWindow = new BrowserWindow({
+const mainWindow = متصفح جديد ({
   webPreferences: {
     contextIsolation: true
   }
 })
 ```
 
-## Migration
+## هجرة
 
-> I used to provide APIs from my preload script using `window.X = apiObject` now what?
+> كنت أقوم بتوفير واجهات برمجة التطبيقات من البرنامج النصي للتحميل المسبق باستخدام `النافذة.X = apiObobjec` ماذا؟
 
-Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
+الكشف عن APIs من البرنامج النصي للتحميل المسبق لموقع الويب المحمل هو استخدام شائع، وهناك وحدة مخصصة في إلكترون لمساعدتك على القيام بذلك بطريقة مؤلمة.
 
-**Before: With context isolation disabled**
+**سابقاً: مع تعطيل عزلة السياق**
 
 ```javascript
 window.myAPI = {
-  doAThing: () => {}
+  doAthing: () => {}
 }
 ```
 
-**After: With context isolation enabled**
+**بعد ذلك: مع تمكين عزلة السياق**
 
 ```javascript
 const { contextBridge } = require('electron')
 
-contextBridge.exposeInMainWorld('myAPI', {
-  doAThing: () => {}
+contextBridge.exposeInMainWorld('myAPI , {
+  doAthing: () => {}
 })
 ```
 
-The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+يمكن استخدام وحدة [`سياق بريدج`](../api/context-bridge.md) **بأمان** الكشف عن واجهات برمجة التطبيقات من السياق المعزول الذي يعمل فيه البرنامج النصي للتحميل المسبق في السياق الذي يعمل فيه الموقع. سيتم الوصول إلى API أيضًا من الموقع على `window.myAPI` كما كان من قبل.
 
-You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
+يجب عليك قراءة الوثائق `السياقية Bridge` المرتبطة أعلاه لفهم حدودها فهما كاملا.  على سبيل المثال لا يمكنك إرسال نماذج أو رموز مخصصة على الجسر.
 
-## Security Considerations
+## الاعتبارات الأمنية
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
+فقط تمكين `سياق العزل` و استخدام `سياق العمود` لا يعني تلقائياً أن كل شيء تفعله آمن.  على سبيل المثال هذه التعليمة البرمجية **غير آمنة**.
 
 ```javascript
-// ❌ Bad code
-contextBridge.exposeInMainWorld('myAPI', {
+// ❌ كود سيئ
+contextBridge.exposeInMainWorld('myAPI ، {
   send: ipcRenderer.send
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+إنه يكشف بشكل مباشر عن API قوي بدون أي نوع من التصفية وهذا من شأنه أن يسمح لأي موقع على الإنترنت بإرسال رسائل اعتباطية من IPC لا تريد أن تكون ممكنة. والطريقة الصحيحة للكشف عن مؤشرات API المعتمدة على IPC، بدلا من ذلك، هي توفير طريقة واحدة لكل رسالة من رسائل IPC.
 
 ```javascript
-// ✅ Good code
-contextBridge.exposeInMainWorld('myAPI', {
+// ✅ رمز جيد
+contextBridge.exposeInMainWorld('myAPI , {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

@@ -95,7 +95,7 @@ Common prefixes:
 
 Other things to keep in mind when writing a commit message:
 
-1. Pierwsza linia powinna:
+1. The first line should:
    - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
    - be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
 2. Keep the second line blank.
@@ -122,7 +122,7 @@ This ensures that your working branch has the latest changes from `electron/elec
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
-Before submitting your changes in a pull request, always run the full test suite. Aby uruchomić testy:
+Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
 ```sh
 $ npm run test
@@ -187,7 +187,7 @@ Try not to be discouraged. If you feel that a review is unfair, say so or seek t
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Gratulujemy i dziękujemy za twój współudział!
+Congratulations and thanks for your contribution!
 
 ### Continuous Integration Testing
 

@@ -1,43 +1,50 @@
 # Ekran Dışı İşleme
 
-Ekran dışı görüntülenme, bir tarayıcı penceresinin içeriğini bir bitmap olarak edinmenizi sağlar, böylece, herhangi bir yerde, örneğin bir 3D sahnedeki bir doku üzerinde oluşturulabilir. Electron'daki ekran dışı işleme, [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) projesinden daha benzer bir yaklaşım kullanıyor.
+## Genel Bakış
 
-İki işleme modu kullanılabilir ve olayın daha verimli olması için sadece kirli alan ` 'paint' ` 'ten geçebilir. İşleme durdurulabilir, devam ettirilebilir ve kare hızı ayarlanabilir. Belirtilen kare hızı bir üst limit değeridir, bir web sayfasında hiçbir şey olmadığında hiç çerçeve oluşturulmaz. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-**Not:** Bir ekran dışı pencere her zamanan [Frameless Window](../api/frameless-window.md) oluşturur.
+*Notes*:
 
-## Rendering Modes
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### GPU hızlandırma
+### Rendering Modes
 
-GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı anlamına gelir. Çünkü daha çok performans gerektiren pencerenin GPU'dan kopyalanması gerekir, bu nedenle bu mod diğerinden oldukça yavaştır. Bu modun faydası WEBGL ve 3D CSS animasyonlarının desteklenmesidir.
+#### GPU hızlandırma
 
-### Çıkış aygıtı yazılımı
+GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı anlamına gelir. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Bu modun faydası WEBGL ve 3D CSS animasyonlarının desteklenmesidir.
 
-Bu mod, CPU'da oluşturulması için bir yazılım çıktı aygıtı kullanır, bu sayede çerçeve üretimi çok daha hızlıdır, dolayısıyla bu mod hızlandırılmış GPU modelden daha çok tercih edilir.
+#### Çıkış aygıtı yazılımı
 
-Bu modu etkinleştirmek için [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API'sinin çağırılarak GPU hızlandırmasının devre dışı bırakılması gerekir.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-## Kullanım
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-``` javascript
+## Örnek
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
 app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+After launching the Electron application, navigate to your application's working folder.

@@ -17,7 +17,7 @@ Electron hereda esta opción de construcción de Chromium. En versiones `Debug` 
 
 ## Verificación
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _esta sección está desactualizada y contiene información que ya no es relevante para el GN-built electron._
 
 Pruebe sus cambios conforme al estilo de codificación del proyecto usando:
 

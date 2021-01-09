@@ -2,14 +2,14 @@
 
 > Lấy thông tin tùy chọn của hệ thống.
 
-Process: [Main](../glossary.md#main-process)
+Quá trình: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Các sự kiện
+## Events
 
 The `systemPreferences` object emits the following events:
 

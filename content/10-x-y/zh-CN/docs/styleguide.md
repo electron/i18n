@@ -13,25 +13,27 @@
 举一个`Quick Start`的例子:
 
 ```markdown
-# 快速入门
+# 快速启动
 
 ...
 
-## 主进程
+## 主要进程
+
+...
 
 ## 渲染进程
 
 ...
 
-## 运行应用程序
+## 运行您的应用程序
 
 ...
 
-### 作为分发版本运行
+### 以发行版
 
-...
+ 运行...
 
-### 手动下载二进制格式的 Electron
+### 手动下载 Electron 二进制文件
 
 ...
 ```
@@ -93,10 +95,10 @@
 * 构造函数必须用 `###` 级标题列出.
 * [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
 * [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
-* 所有具有返回值的方法都必须以“Returns `[TYPE]` - Return description”开始
+* 所有具有返回值的方法必须以“返回 `[TYPE]` - 返回描述”
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须在 `### Instance Properties` 章节中列出。
+* 实例属性必须列在 `### 实例属性` 章节下。
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
@@ -138,17 +140,17 @@
 方法章节必须采用以下形式：
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `requird` String - A 参数描述。
+* `optional` 整数(可选) - 另一个参数描述。
 
 ...
 ```
 
 标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+对于模块， `objectName` 是模块的名称。 对于类，它必须是类实例的名称，而且不能与模块名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
@@ -158,11 +160,11 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+下面的方法是有关每个参数的更多详细信息。 参数类型是由常见类型表示的：
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`字符串`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Object - 过滤器对象，包含过滤参数`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自定义类型, 就像 Electron 的 [`WebContent`](api/web-contents.md)
@@ -195,7 +197,7 @@ Returns:
 
 事件的参数遵循与方法相同的规则.
 
-### 属性
+### Properties
 
 属性章节必须采用以下形式:
 

@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+Les suffixes suivants pour le DPI sont également pris en charge :
 
 * `@1x`
 * `@1.25x`
@@ -101,7 +101,14 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 Retourne `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Crée une instance `NativeImage` vide.
+
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
 
 ### `nativeImage.createFromPath(path)`
 
@@ -229,9 +236,13 @@ Note que le pointeur retourné est un pointeur faible vers l'image native sous-j
 
 Retourne `Boolean` - Si l'image est vide.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Retourne [`Size`](structures/size.md)
+* `scaleFactor` Double (facultatif) - 1.0 par défaut.
+
+Retourne [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -254,15 +265,23 @@ Retourne `NativeImage` - L'image recadrée.
 * `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (facultatif) - La hauteur de l'image par défaut.
-  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Possible values are `good`, `better`, or `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Les valeurs possibles sont `good`, `better`, ou `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Retourne `NativeImage` - L'image redimensionnée.
 
 Si seulement la `hauteur` ou la `largeur` sont spécifiées, alors le ratio d'aspect actuel sera préservé dans l'image redimensionnée.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Float` - Le ratio d'aspect de l'image.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

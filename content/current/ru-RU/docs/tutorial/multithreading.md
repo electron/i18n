@@ -30,7 +30,7 @@ The only way to load a native module safely for now, is to make sure the app loa
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  выбросить новую ошибку('Загрузить родной модуль не безопасен')
 }
 const worker = new Worker('script.js')
 ```

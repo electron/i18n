@@ -10,7 +10,7 @@ import got from 'got'
 import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
-import { Octokit } from '@octokit/rest'
+import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
 const currentEnglishBasePath = path.join(
@@ -29,12 +29,7 @@ const github = new Octokit({
   auth: process.env.GH_TOKEN ?? '',
 })
 
-interface IResponse {
-  tag_name: string
-  assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
-}
-
-let release: IResponse
+let release: RestEndpointMethodTypes['repos']['getRelease']['response']['data']
 // This used to share `supportedVersions` between this file,
 // and not use the cached version from package.json.
 let supportedVersions: string[] = []
@@ -208,6 +203,12 @@ async function getMasterBranchCommit() {
     repo: 'electron',
     branch: 'master',
   })
+
+  if (typeof master.data.commit.sha !== 'string') {
+    throw new Error(
+      `Could not fetch Electron master branch commit SHA (found "${master.data.commit.sha})"`
+    )
+  }
 
   writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
 }

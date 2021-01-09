@@ -12,7 +12,7 @@ Processo: [Main](../glossary.md#main-process)
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
+  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Predefinito alla stringa vuota. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Di default è `false`.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
@@ -131,6 +131,18 @@ Using chunked encoding is strongly recommended if you need to send a large reque
 * `value` String - An extra HTTP header value.
 
 Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+
+* `Content-Length`
+* `Host`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
+
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
 
 #### `request.getHeader(name)`
 

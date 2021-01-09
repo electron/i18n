@@ -1,13 +1,13 @@
 # Membangun Sistem Tinjauan
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron menggunakan [GN](https://gn.googlesource.com/gn) untuk proyek generasi dan [ninja](https://ninja-build.org/) untuk membangun. Project configurations can be found in the `.gn` and `.gni` files.
 
-## GN Files
+## Berkas GN
 
-The following `gn` files contain the main rules for building Electron:
+` `
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* 0> BUILD.gn </code> mendefinisikan bagaimana Electron itu sendiri dibangun dan menyertakan konfigurasi perangkat utama untuk menautkan dengan Chromium.
+* ` membangun / args / {debug, rilis, semua}.gn ` berisi argumen membangun perangkat utama untuk membangun Electron.
 
 ## Membangun Komponen
 
@@ -37,7 +37,7 @@ Kapan pun Anda membuat perubahan pada kode sumber Electron, Anda harus menjalank
 $ npm run build && npm test
 ```
 
-Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Append `.only` to any `describe` or `it` function call:
+Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. ` .hanya ` untuk pemanggilan fungsi ` deskripsikan ` atau ` fungsinya itu`:
 
 ```js
 describe.only('some feature', () => {

@@ -21,6 +21,7 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
      * `~/.config/chromium/Default/Extensions/`
    * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions`
 1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+
    ```javascript
    const path = require('path')
    const os = require('os')

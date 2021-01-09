@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ヘルプとフィードバック</b></a> を得るには <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a> に参加したり、<a href='https://discuss.atom.io/c/electron'>Discuss</a> に投稿したり、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> を訪れたりしましょう。"
+    help: "<a href='https://discord.gg/electron'>Discord サーバー</a>、<a href='https://discuss.atom.io/c/electron'>Discuss</a>、<a href='https://stackoverflow.com/questions/tagged/electron'>スタック・オーバーフロー</a> などで <b>ヘルプとフィードバック</b> を受けられます。"
     security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
@@ -88,8 +88,8 @@ releases:
   all_releases: 全リリース
   back_to_index: インデックスに戻る
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: Electron 製のアプリは、ユーザーに愛されています
+  description: あらゆる業界の何千もの組織が、Electron を使用してクロスプラットフォームソフトウェアを構築しています。
 electron_is_easy:
   title: 簡単に開発できます
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>デモアプリケーション</a>では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることを Tips 付きのサンプルコードと共にご覧いただけますので、アプリ開発にお役立てください。"
   fiddle_title: Electron Fiddle の強力な実験機能を試しましょう
   see_more_info: 詳細
+download: ダウンロード
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
@@ -128,12 +129,12 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムで質問することができます。また、Twitter の <a href="https://twitter.com/electronjs">@electronjs</a> では Electron に関する重要な情報をツイートしているので、是非フォローしてみてください。非公開での連絡をご希望の方は、メール <a href="mailto:info@electronjs.org">info@electronjs.org</a> でのお問い合わせも可能です。
 headings:
   languages: 言語
 taglines:
   languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
-  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
+  announcement: 'Black Lives Matter。<a href="https://support.eji.org/give/153413/#!/donation/checkout">平等と正義の発意</a> を援助しましょう。<a href="/blacklivesmatter">私たちの声明もご一読ください</a>。'
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
@@ -221,6 +222,7 @@ landing:
   get_started: 始めましょう！
   fiddle:
     lead_desc: やさしい Electron のはじめかた
+    different_os: "他のオペレーティングシステムはこちら:"
     create_app: あなたのアプリを作る
     description: Electron Fiddle では、小さな Electron の実験を作成して遊ぶことができます。 開くとクイックスタートテンプレートが表示されます。いくつか変更して、実行したい Electron のバージョンを選択してから試してみましょう。すると、GitHub Gist やローカルフォルダーに Fiddle を保存できます。GitHub にプッシュされたものは、アドレスバーに入力するだけで誰でもすぐに Fiddle を試すことができます。
     explore: Electron に触れる

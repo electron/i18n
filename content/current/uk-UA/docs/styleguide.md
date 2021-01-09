@@ -13,27 +13,27 @@
 Для прикладу `Швидкий старт`:
 
 ```markdown
-# Quick Start
+# Швидкий старт
 
 ...
 
-## Main process
+# # Головний процес
 
 ...
 
-## Renderer process
+## Процес рендерингу
 
 ...
 
-## Run your app
+# Запустіть програму
 
 ...
 
-### Run as a distribution
+### Запуск як розподіл
 
 ...
 
-### Manually downloaded Electron binary
+### Вручну завантажили Electron binary
 
 ...
 ```
@@ -45,7 +45,8 @@
 * Використовуйте `sh` замість `cmd` в блоках коду (згідно синтаксису підсвітки).
 * Лінії мають вкладатися в 80 стовпчиків.
 * Списки не можуть мати вкладеність більшу ніж 2 рівні (згідно візуалізатору markdown).
-* Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](http://npm.im/standard-markdown).
+* Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Підбір слів
 
@@ -95,10 +96,10 @@
 * Конструктори, повинні бути перераховані на `###` рівні.
 * [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Статичні Методи`.
 * [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні бути перераховані в главі `### Методи Екземпляру`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - опис повернення"
   * Якщо метод повертає `Object`, його структура може бути визначена з використанням двокрапки потім з нового рядка невпорядкований список властивостей у стилі параметрів функції.
 * Події об'єкта класу повинні бути перераховані в розділі `### Події Еекземпляру`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Властивості об'єкта класу повинні бути перераховані в `### Властивості екземпляра` розділу.
   * Власстивості об'єкта класу мають починатися з "A [тип властивості] ..."
 
 Для прикладу `Session` та `Cookies` класи:
@@ -142,15 +143,15 @@
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Опис параметра.
+* `optional` Integer (опціонально) - Інший опис параметрів.
 
 ...
 ```
 
 Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулів, `об'єкт` - це назва модуля. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Наприклад, методи класу `Session` у модулі `session` повинні використовувати `ses` як `objectName`.
 
@@ -160,7 +161,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Нижче наведено більш детальну інформацію про кожен з аргументів. Тип аргумента зазначається або загальними типами:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

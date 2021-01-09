@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## روش ها
+## Methods
 
 The `WebFrame` class has the following instance methods:
 
@@ -108,7 +108,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `webFrame.insertText(text)`
 
-* `متنی` رشته
+* `text` String
 
 Inserts `text` to the focused element.
 
@@ -198,7 +198,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* PrinterInfo Object
+* `نام` رشته
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 

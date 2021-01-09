@@ -21,7 +21,7 @@ menu.append(new MenuItem({
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  ускоритель: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
 }
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X pressed')
   })
 })
 ```
@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Обратите внимание на третий параметр `true`, который означает, что слушатель всегда будет получать нажатия клавиш перед другими слушателями, чтобы они не могли вызвать `stopPropagation ()`.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Может быть использовано для захвата и управления ярлыками, которые не видны в меню.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap][].
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('Вверх вниз слева справа b enter', () => {
   console.log('konami code')
 })
 ```

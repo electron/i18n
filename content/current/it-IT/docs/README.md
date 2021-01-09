@@ -4,33 +4,26 @@ Assicuratevi di usare la documentazione corrispondente alla versione in uso di E
 
 ## FAQ (Domande frequenti)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ci sono domande che vengono poste abbastanza spesso. Check this out before creating an issue:
 
 * [Domande frequenti su Electron](faq.md)
 
 ## Guide e tutorial
 
-* [Impostazione dell'ambiente di sviluppo](tutorial/development-environment.md)
-  * [Configurazione su macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Configurazione su Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Configurazione su Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Scegliere un Editor](tutorial/development-environment.md#a-good-editor)
-* [Creazione della tua prima applicazione](tutorial/first-app.md)
-  * [Installare Electron](tutorial/first-app.md#installing-electron)
-  * [Sviluppo Electron in breve](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Esecuzione della tua App](tutorial/first-app.md#running-your-app)
-* [Boilerplate e CLI](tutorial/boilerplates-and-clis.md)
-  * [Boilerplate contro CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forgia](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Altri strumenti e Boilerplate](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Architettura Applicazione](tutorial/application-architecture.md)
-  * [Processi di Rendering e Principali](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
-  * [Strategie di prestazione](tutorial/performance.md)
+### Avvio Rapido
+
+* [Guida All'Avvio Rapido](tutorial/quick-start.md)
+  * [Prerequisiti](tutorial/quick-start.md#prerequisites)
+  * [Crea un'applicazione di base](tutorial/quick-start.md#create-a-basic-application)
+  * [Esegui la tua applicazione](tutorial/quick-start.md#run-your-application)
+  * [Pacchetto e distribuzione dell'applicazione](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Imparare le basi
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [Principali Processi e di Rendering](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Aggiungere Funzioni Alla Tua App
   * [Notifiche](tutorial/notifications.md)
   * [Documenti Recenti](tutorial/recent-documents.md)
@@ -43,15 +36,26 @@ There are questions that are asked quite often. Check this out before creating a
   * [File Rappresentato per le FinestreBrowser macOS](tutorial/represented-file.md)
   * [Trascina & Rilascia File Nativo](tutorial/native-file-drag-drop.md)
   * [Rendering Offscreen](tutorial/offscreen-rendering.md)
-  * [Supporto per la modalità "Dark" di macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Modalità Scura](tutorial/dark-mode.md)
   * [Incorporamenti web in Electron](tutorial/web-embeds.md)
+* [Boilerplate e CLI](tutorial/boilerplates-and-clis.md)
+  * [Boilerplate contro CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Altri strumenti e Boilerplate](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* Architettura Applicazione
+  * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
+  * [Strategie di prestazione](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [Accessibilità](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [Attivazione dell'accessibilità](tutorial/accessibility.md#enabling-accessibility)
+  * [Abilitare Manualmente Le Caratteristiche Di Accessibilità](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test e Debugging](tutorial/application-debugging.md)
-  * [Debuggare il Processo Principale](tutorial/debugging-main-process.md)
-  * [Debug del Processo Principale con Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debug del processo principale](tutorial/debugging-main-process.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Uso di Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Estensione DevTools](tutorial/devtools-extension.md)
@@ -62,11 +66,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [Negozio App Mac](tutorial/mac-app-store-submission-guide.md)
   * [Negozio Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Sicurezza](tutorial/security.md)
-  * [Segnalazione Problemi Sicurezza](tutorial/security.md#reporting-security-issues)
-  * [Aggiornamenti e Problemi di Sicurezza di Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Avvisi Sicurezza Electron](tutorial/security.md#electron-security-warnings)
-  * [Lista di Controllo Sicurezza](tutorial/security.md#checklist-security-recommendations)
 * [Aggiornamenti](tutorial/updates.md)
   * [Implementare un Server Aggiornamento](tutorial/updates.md#deploying-an-update-server)
   * [Implementando gli Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
@@ -84,13 +83,7 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * Release di Electron & Feedback Sviluppatore
   * [Gestione delle versioni](tutorial/electron-versioning.md)
   * [Timeline di Rilascio](tutorial/electron-timelines.md)
-* [Impacchettamento Codice Risorsa App con asar](tutorial/application-packaging.md)
-  * [Generare Archivi asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Usare Archivi asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitazioni](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Aggiungere File Scompattati agli Archivi asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Test del Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Uso del plugin Flash Pepper](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -127,6 +120,7 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * [ElementoMenu](api/menu-item.md)
 * [rete](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notifica](api/notification.md)
 * [Monitorapotenza](api/power-monitor.md)
 * [BloccaSalvaPotenza](api/power-save-blocker.md)
@@ -137,12 +131,13 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Moduli del processo Renderer (pagina Web):
 
 * [Catturadesktop](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remoto](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Moduli di entrambi i processi:

@@ -10,7 +10,7 @@ Prozess: [Haupt](../glossary.md#main-process)
 
 ## Plattform-Hinweise
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Aktuell werden nur macOS und Windows unterstützt. Da es keinen eingebauten auto-updater auf den meisten Linux-Basierenden Betriebssystemen gibt, wird empfohlen, den eingebauten Pakete-Verwalter der Distribution zu verwenden, um die App zu updaten.
 
 Außerdem gibt es auf jeder Plattform einige subtile Unterschiede:
 
@@ -21,8 +21,8 @@ Unter MacOS basiert das `autoUpdater` Modul auf [ Squirrel.Mac](https://github.c
  App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel ` NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
  .</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> Your application must be signed for automatic updates on macOS.
-This is a requirement of <code>Squirrel.Mac`.</p> 
+<p spaces-before="0"><strong x-id="1">Notiz</strong>: Eine App muss zuerst signiert werden, um automatisch auf macOS updatet zu werden.
+Dies ist eine Voraussetzung von <code>Squirrel.Mac`.</p> 
 
 
 
@@ -62,8 +62,8 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h3 spaces-before="0">Ereignis : 'Update-verfügbar'</h3>
 
-<p spaces-before="0">Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p spaces-before="0">Wird ausgelöst, wenn ein Update verfügbar ist. Das Update wird
+automatisch heruntergeladen.</p>
 
 <h3 spaces-before="0">Ereignis : "Update nicht verfügbar"</h3>
 
@@ -85,8 +85,7 @@ automatically.</p>
 
 <p spaces-before="0">Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> It is not strictly necessary to handle this event. A successfully
-downloaded update will still be applied the next time the application starts.</p>
+<p spaces-before="0"><strong x-id="1">Hinweis:</strong> Es ist nicht unbedingt notwendig, dieses Ereignis zu behandeln. Ein fehlerfreie Heruntergeladenes Update wird automatisch übernommen, wenn die App das nächste mal gestartet wird.</p>
 
 <h3 spaces-before="0">Ereignis: 'before-quit-for-update'</h3>
 
@@ -105,7 +104,7 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 * `options` Object 
     * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
@@ -115,14 +114,14 @@ Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
 <h3 spaces-before="0"><code>autoUpdater.checkForUpdates ()`</h3> 
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Fragt den Server, ob es ein Update gibt. Es muss zuerst `setFeedURL` aufrufen werden, bevor diese API verwendet werden kann.
 
 
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Startet die App neu und installiert damit das Update, sofern es heruntergeladen wurde. Diese Funktion sollte nur aufgerufen werden, nachdem `update-downloaded` ausgelöst wurde.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Hinweis.**: Es ist nicht unbedingt notwendig, diese Funktion auszulösen, denn ein fehlerfrei heruntergeladenes Update wird immer automatisch installiert, wenn die App das nächste mal startet.

@@ -103,6 +103,13 @@ Returns `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -177,9 +184,9 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Natively wrap images such as tray, dock, and application icons.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of the `NativeImage` class:
 
@@ -229,9 +236,13 @@ Notice that the returned pointer is a weak pointer to the underlying native imag
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Returns [`Size`](structures/size.md)
+* `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Returns [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +271,17 @@ Returns `NativeImage` - The resized image.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Float` - The image's aspect ratio.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 
@@ -275,7 +294,7 @@ Returns `Float` - The image's aspect ratio.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

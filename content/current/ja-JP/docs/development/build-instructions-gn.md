@@ -6,23 +6,23 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 続行する前に、以下から各プラットフォームのビルド要件を確認してください。
 
-  * [macOS](build-instructions-macos.md#prerequisites)
-  * [Linux](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+* [macOS](build-instructions-macos.md#prerequisites)
+* [Linux](build-instructions-linux.md#prerequisites)
+* [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## ビルドツール
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron ビルドツール](https://github.com/electron/build-tools) は、さまざまな設定やビルドターゲットを使ってソースから Electron をコンパイルするためのセットアップの多くを自動化します。 手動で環境構築する場合の手順は以下の通りです。
 
 ## GN 要件
 
-[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
+[`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
 
 更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
-### Setting up the git cache
+### git キャッシュのセットアップ
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Electron を複数回チェックアウトする予定がある場合 (例えば複数の並列ディレクトリを異なるブランチにチェックアウトさせるなど)、git キャッシュを使用することでその後の `gclient` 呼び出しを高速化できます。 これをするには `GIT_CACHE_PATH` 環境変数を以下のように設定する必要があります。
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -33,15 +33,15 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 ## コードを取得
 
 ```sh
-$ mkdir electron && cd electron
+$ mkdir electron-gn && cd electron-gn
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# これはしばらくかかります。コーヒーでも飲みに行きましょう。
 ```
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
 
-#### プル/プッシュ時の注意
+### プル/プッシュ時の注意
 
 もし将来公式の `electron` レポジトリから `git pull` や `git push` をする予定であれば、現在はそれぞれのフォルダの origin URL を更新する必要があります。
 
@@ -57,6 +57,7 @@ $ cd -
 :memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
 なので、プルするには、以下のコマンドを実行するとよいでしょう。
+
 ```sh
 $ cd src/electron
 $ git pull
@@ -68,12 +69,11 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 Windows 上(任意の引数はなし):
+
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
@@ -99,18 +99,18 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 **ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
 テスト構成は以下のとおりです。
+
 ```sh
 $ ninja -C out/Testing electron
 ```
 
 リリース構成は以下のとおりです。
+
 ```sh
 $ ninja -C out/Release electron
 ```
 
 これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
-
-次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Testing` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
 実行形式は `./out/Testing` 下に置かれます。
 
@@ -125,11 +125,13 @@ $ ./out/Testing/electron
 ### パッケージ化
 
 Linuxの場合、デバッグ情報やシンボル情報を削除します。
+
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
 配布可能なzipファイルとしてこのエレクトロンビルドをパッケージするには、次のようにする。
+
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
@@ -144,18 +146,18 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。
 
-<table>
-<tr><th>ホスト</th><th>ターゲット</th><th>状況</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>実験的</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>自動テスト済み</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>自動テスト済み</td></tr>
-</table>
+| ホスト         | ターゲット         | 状況      |
+| ----------- | ------------- | ------- |
+| Windows x64 | Windows arm64 | 実験的     |
+| Windows x64 | Windows x86   | 自動テスト済み |
+| Linux x64   | Linux x86     | 自動テスト済み |
 
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許可されている値については、 GN リファレンスを参照してください。
 
 #### Arm 上で Windows (実験的)
+
 Arm 上の Windows 用にクロスコンパイルするには、[Chromium のガイドに従って](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) 必要な依存関係、SDK およびライブラリを取得し、`gclient sync` を実行する前に環境内で `ELECTRON_BUILDING_WOA=1` でビルドします。
 
 ```bat
@@ -164,13 +166,13 @@ gclient sync -f --with_branch_heads --with_tags
 ```
 
 もしくは (PowerShell を用いる場合) こうします。
+
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
 それから、上記のように `target_cpu="arm64"` で `gn gen` を実行します。
-
 
 ## テスト
 
@@ -209,8 +211,25 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## トラブルシューティング
 
-### git キャッシュ内の古いロック
-git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--ignore_locks` 引数を渡します。
+### gclient sync が rebase に関する問題を報告する
+
+`gclient sync` が中断されると、git ツリーが不正な状態のままになってしまい、将来 `gclient sync` を実行したときに不可解なメッセージが表示されます。
+
+```plaintext
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
+```
+
+`src/electron` に git のコンフリクトやリベースがない場合は、`src` の `git am` を abort する必要があります。
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
 
 ### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
+
 Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。

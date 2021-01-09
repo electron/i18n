@@ -1,6 +1,6 @@
 # CustomScheme Object
 
-* `scheme` String -Tùy biến Schemes với các tùy chọn.
+* `scheme` String - Custom schemes to be registered with options.
 * `privileges` Object (optional)
   * `standard` Boolean (optional) - Default false.
   * `secure` Boolean (optional) - Default false.

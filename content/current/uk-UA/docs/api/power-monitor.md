@@ -4,38 +4,23 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-Наприклад:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Події (Events)
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Подія: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume' _Linux_ _Windows_
+### Подія: 'resume' _macOS_ _Windows_
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' _Windows_
+### Подія: 'on-ac' _macOS_ _Windows_
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' _Windows_
+### Подія: 'on-battery' _macOS_  _Windows_
 
 Emitted when system changes to battery power.
 

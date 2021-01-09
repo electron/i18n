@@ -26,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `arch`
 - `platform`
 - `sandboxed`
-- `ang uri`
+- `uri`
 - `version`
 - `versions`
 - `mas`
@@ -135,7 +135,7 @@ Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -151,7 +151,7 @@ Returns an object with V8 heap statistics. Tandaan na ang lahat ng mga estatisti
 
 ### `process.getBlinkMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -169,7 +169,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `proseso.getSystemMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema.
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.

@@ -33,7 +33,7 @@ Electron
 |   |   ├── api/ - API implementation for renderer process modules.
 |   |   ├── extension/ - Code related to use of Chrome Extensions
 |   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   ├── remote/ - Logic that handles use of the remote module in
 |   |   |             the main process.
 |   |   └── web-view/ - Logic that handles the use of webviews in the
 |   |                   renderer process.
@@ -84,6 +84,7 @@ Electron
 * **npm** - Logic for installation of Electron via npm.
 * **keluar** - Direktori keluaran sementara `ninja`.
 * **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
+
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -92,31 +93,8 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
-
-## Menjaga Git Submodul Up to Date
-
-Repositori Electron memiliki beberapa dependensi yang dipesan, ditemukan di [/vendor](https://github.com/electron/electron/tree/master/vendor). Terkadang Anda mungkin melihat pesan seperti ini saat menjalankan `status git`:
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-Untuk memperbarui dependensi ini, jalankan perintah berikut:
-
-```sh
-git submodule update --init --recursive
-```
-
-Jika Anda sering menjalankan perintah ini, Anda bisa membuat alias untuk itu di berkas `~/.gitconfig` Anda:
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```
+* **vendor** - Source code for some third party dependencies.

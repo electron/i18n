@@ -17,41 +17,41 @@ myNotification.onclick = () => {
 Хотя код и Ux схожий между операционными системами, все же есть небольшие различия.
 
 ## Windows
-* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Это может быть перекрыто во время разработки, поэтому добавляя `node_modules\electron\dist\electron.exe` в меню Пуск. Перейдите в файл Проводника, щелкните правой кнопкой мыши и выберите пункт «Запустить меню». После этого вам нужно добавить строку `app.setAppUserModelId(process.execPath)` в ваш основной процесс, чтобы увидеть уведомления.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Обратите внимание, однако, что его не нужно прикреплять к стартовому экрану.
+* В Windows 7 уведомления работают с пользовательской реализацией, которая наглядно напоминает родной для более новых систем.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron пытается автоматизировать работу вокруг ID модели приложения. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Кроме того, в Windows 8 максимальная длина тела уведомления составляет 250 символов, в команде Windows рекомендуется хранить уведомления от до 200 символов. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Попытка отправить гигантские количества текста на API (тысячи символов) может привести к нестабильности.
 
 ### Advanced Notifications
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Позже версии Windows позволяют получать расширенные уведомления с пользовательскими шаблонами, изображениями и другими гибкими элементами. Для отправки этих уведомлений (от основного процесса или процесса визуализации), используйте модуль пользовательского доступа [Электрон-уведомления](https://github.com/felixrieseberg/electron-windows-notifications), который использует родные дополнения для отправки `ToastNotification` и `TileNotification` объектов.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Во время уведомлений, включая кнопки работы с `электронными окнами-уведомлениями`, Обработка ответов требует использования [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), что помогает с регистрацией необходимых компонентов COM и вызовом приложению Electron, используя введенные данные пользователя.
 
-### Quiet Hours / Presentation Mode
+### Тихие часы / Режим презентации
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Это позволит вам заранее определить, будет ли Windows выбрасывать уведомление без уведомления.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Уведомления находятся прямо в macOS, но вы должны знать [рекомендации пользовательского интерфейса Apple относительно уведомлений](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Обратите внимание, что размер уведомлений ограничен 256 байтами и будет сокращен , если вы превысите этот лимит.
 
 ### Advanced Notifications
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Поздние версии macOS позволяют получать уведомления с полем ввода, позволяя пользователю быстро ответить на уведомление. Чтобы отправлять уведомления с полем ввода, используйте модуль пользовательского пространства [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Не беспокоить/состояние сеанса
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Это позволит Вам заранее определить отображаются ли уведомления или нет.
 
 ## Linux
 

@@ -8,13 +8,11 @@ Segui le linee guida sotto per compilare Electron su Windows.
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
   * Vedi [la documentazione di compilazione Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) per ulteriori dettagli su quali componenti Visual Studio siano richiesti.
   * Se il tuo Visual Studio è installato in una directory diversa da quella predefinita, avrai bisogno di impostare alcune variabili d'ambiente per far puntare gli strumenti di compilazione al tuo attuale percorso di installazione.
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-* [Python 2.7.10 o superiore](http://www.python.org/download/releases/2.7/)
-  * Contrariamente alle istruzioni di configurazione `depot_tools` collegate sotto, avrai bisogno di usare il tuo Python installato localmente con almeno la versione 2.7.10 (con supporto per TLS 1.2). Per farlo, assicurati che in **PATH**, il tuo Python localmente installato venga prima della cartella `depot_tools`. Adesso `depot_tools` viene ancora con Python 2.7.6, che causerà il fallimento del comando `gclient` (vedi https://crbug.com/868864).
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Spesso, questo sarà `C`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Spesso, questo sarà `C`.
   * [Python per Estensioni Windows /pywin32)](https://pypi.org/project/pywin32/#files) è anch'esso necessario per eseguire il processo di costruzione.
 * [Node.js](https://nodejs.org/download/)
-* [Git](http://git-scm.com)
+* [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
   * Differenti versioni di SDK possono essere installate fianco a fianco. Per installare SDK, apri Visual Studio Installer, seleziona `Modifica` → `Componenti Individuali`, scendi e seleziona l'appropriato SDK Windows per installare. Un'altra opzione sarebbe di guardare al [Windows SDK ed emulatore archivio](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) e scaricare la versione standalone del SDK rispettivamente.
   * Gli Strumenti di Debug SDK devono anch'essi essere installati. Se l'SDK di Windows 10 era installato tramite il Visual Studio Installer, allora possono essere installati andando a: `Pannello di Controllo` → `Programmi` → `Programmi e Funzionalità` → Seleziona il "Kit di Sviluppo Software Windows" → `Cambia` → `Modifica` → Spunta "Strumenti di Debug per Windows" → `Modifica`. Oppure, puoi scaricare l'installatore SDK standalone ed usarlo per installare gli Strumenti di Debug.
@@ -23,9 +21,13 @@ Se al momento non hai un'installazione Windows, [dev.microsoftedge.com](https://
 
 La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. Puoi sviluppare Electron con qualsiasi editor, ma il supporto per la creazione con Visual Studio arriverà in futuro.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Nota:** Anche se Visual Studio non è usato per costruire, è comunque **richiesto** perché ci servono le catene di costruzione che fornisce.
 
-## Compilazione
+## Exclude source tree from Windows Security
+
+Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+## Costruzione
 
 Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 

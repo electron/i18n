@@ -125,7 +125,7 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+[Mac App Store Guide][]를 참고하세요.
 
 # Signing Windows builds
 
@@ -149,7 +149,7 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 
 ## Windows 스토어
 
-See the [Windows Store Guide][].
+[Windows Store Guide][]를 확인하세요.
 
 [애플 개발자 프로그램]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder

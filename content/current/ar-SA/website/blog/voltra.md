@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'مشروع الأسبوع: فولترا'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+هذا الأسبوع اجتمعنا مع [ابريل إلستش](https://twitter.com/aprileelcich) و [باولو فراغوميني](https://twitter.com/0x00A) للتحدث عن فولترا، مشغل موسيقى يعمل بالطاقة الإلكترونية.
 
 ---
 
-## What is Voltra?
+## ما هو فولترا؟
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[فولترا](https://voltra.co/) مشغل موسيقي للأشخاص الذين يريدون امتلاك موسيقاهم. هو أيضاً متجر حيث يمكنك اكتشاف وشراء موسيقى جديدة بناءً على ما تملكه بالفعل. إنها خالية من الإعلانات، منصة متقاطعة لسطح المكتب والجوال. كما أنها لا تجسس عليك.
 
-[![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
+[![فولترا-فنانة](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## من هو فولترا؟
 
-Anyone who listens to music.
+كل من يستمع إلى الموسيقى.
 
-## What motivated you to create Voltra?
+## ما الذي دفعك لإنشاء فولترا؟
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+لقد كان للإذاعة دائما نصيب كبير من المستمعين. إنها تتحرك من الموجات الإذاعية وعلى الإنترنت. الآن يمكنك استئجار الموسيقى بناء على الطلب - إنه إحياء إذاعي! وقد ظهر الكثير من المنتجات والخدمات الجديدة بسبب ذلك، لكن البث الإذاعي ما زال يترك شخصا آخر يتحكم في موسيقاك وكيف تجربها.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+أردنا منتج كان مركزاً كلياً على الموسيقى التي تملكها. شيء ما جعل من السهل اكتشاف وشراء موسيقى جديدة مباشرة من الفنانين أو العلامات
 
-## Is there a free version?
+## هل هناك نسخة مجانية؟
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+مشغل سطح المكتب مجاني تماما. [بيع الموسيقى الخاصة بك مجاني أيضًا!](https://voltra.co/artists) نحن لسنا مدعومين بالإعلانات.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+نظرًا لأن التطبيق مجاني، قد نفتح المصدر لاحقًا. الآن ليس لدينا عرض النطاق الترددي لإدارة ذلك. ولدينا أيضا أفكار محددة جدا للميزات والاتجاه الذي نريد أن نأخذ الأشياء. لدينا مجتمع بيتا نشط ونأخذ ملاحظاتنا بعين الصدارة
 
-## How do you make money?
+## كيف يمكنك كسب المال؟
 
-We have premium features!
+لدينا ميزات متميزة!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+لدينا [أرشيف الصوت Voltra](https://voltra.co/premium/) خدمة نسخ احتياطي للسحابة مصممة خصيصا للموسيقى. نحن لا نضغط أو نشارك كتل البيانات. مجموعة الموسيقى الخاصة بك يتم النسخ الاحتياطي لك جسدياً.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+بالنسبة للفنانين والعلامات، يوفر [Pro memberership](https://voltra.co/artists/pro) لدينا أدوات لمساعدتهم على الوصول إلى جمهور أكثر ملاءمة، مثل الصفحات الشبكية للفنانين المحترفين.
 
-## What makes Voltra different?
+## ما الذي يجعل فولترا مختلفة؟
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+التصميم وقابلية الاستخدام مهمان جدا بالنسبة لنا. نريد أن نعطي المستمعين تجربة خالية من الاستماع! هناك بعض مشغلات الموسيقى المثيرة للاهتمام والمتاجر هناك. ولكن العديد منهم أكثر تقدما وأكثر صعوبة في الاستخدام مما يدركه مبدعوه. نريد أن نجعل فولترا في متناول أكبر عدد ممكن من الناس.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+نحن أيضا لا نأخذ قطع من الفنان أو التسمية. هذا هو المفصل الرئيسي بالنسبة لنا. انه مهم جداً لانه يقلل الحاجز بالنسبة للفنانين لكي يأخذوا موسيقاهم الى السوق
 
-## What are some design & technical decisions you made?
+## ما هو بعض التصاميم & القرارات التقنية التي اتخذتها؟
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+أثناء تصميم فولترا، نظرنا في اتفاقيات واجهة المستخدم من التطبيقات الأصلية والشبكة، فكرنا أيضا كثيرا حول ما يمكننا إزالته. لدينا مجموعة بيتا خاصة نشطة أعطتنا تغذية مرتدة حاسمة خلال الأشهر القليلة الماضية.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+وجدنا أن صورة الألبوم والتصوير مهم للناس حقا. العديد من اللاعبين هم فقط قوائم الملفات. أحد الأشياء الرائعة حول امتلاك ألبومات فيزيائية هو فن الألبوم، وأردنا أن نضع التأكيد على هذا في تطبيق فولترا على سطح المكتب.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+كما أننا تأكد من عدم الفوضى في ملفات الناس. نحن نستخدم مشاهدة الملفات حتى تتمكن من وضع ملفاتك أينما تريد، ونحن لا نعيد تسميتها أو نحركها من أجلك. لدينا قاعدة بيانات مدمجة لتتبع حالة الدلائل المشاهدة حتى نتمكن من تتبع ما هو جديد، حتى عندما لا يتم تشغيل العملية.
 
-## What are some challenges you've faced while building Voltra?
+## ما هي بعض التحديات التي واجهتها أثناء بناء فولترا؟
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+نحن نقضي الكثير من الوقت في التركيز على الأداء. بدأنا بإطارات لكننا انتقلنا إلى فانيلا جافاسكريبت. ومن واقع تجربتنا فإن التجريد العام الذي توفره يفوق العقوبات والاحتفالات التي تفرضها على الأداء.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+ونحن نتعامل مع مجموعات كبيرة جدا بشكل جيد في هذه المرحلة. المجموعات الكبيرة تعني ربما عشرات الآلاف من الصور! لديك عقدة. وحدة نظام الملفات المتاحة مباشرة من عملية التقديم جعلت من السهل حقاً تحميل وكسح الكثير من الصور بسرعة فائقة استناداً إلى أحداث DOM .
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+بشكل عام *[الإعداد الفوري](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* و *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* كانا أداتين مهمتين للغاية لأداء الكثير من المعالجة مع الحفاظ على استجابة واجهة المستخدم. بشكل أكثر تحديداً، توزيع المهام المرتبطة بالمعالج في عمليات منفصلة يساعد حقاً على إبقاء واجهة المستخدم مستجيبة. على سبيل المثال، قمنا بنقل السياق الصوتي الفعلي إلى عملية منفصلة، التواصل معه حول [IPC](https://electronjs.org/docs/glossary/#ipc) لتجنب الانقطاعات المحتملة من واجهة مستخدم مشغولة.
 
-## Why did you choose to build Voltra on Electron?
+## لماذا اخترت بناء فولترا على إلكترون؟
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+صندوق رمل المتصفح مقيد جدا بالنسبة لتطبيقنا. ولكننا أيضا نقوم بتطوير مشغل على الويب. لذا فالفوز كبير هو أنه يمكننا أن نشارك ما يقرب من 100% من التعليمات البرمجية بين التطبيقين.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+لقد بدأنا في الواقع ببناء تطبيق أصلي باستخدام Swift. المشكلة الرئيسية التي وجدناها هي أننا كنا نعيد اختراع الكثير من الأشياء. الشبكة لديها أكبر نظام إيكولوجي مفتوح المصدر في العالم. لذا فقد تحولنا بسرعة إلى إلكترون
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+وأيضا، والأهم من ذلك، مع إلكترون الذي تطوره مرة واحدة ويجب أن يكون فقط WorkTM على جميع المنصات الرئيسية. إنها ليست مضمونة، ولكن تكلفة البرمجة المحلية لكل منصة تفوق بالتأكيد أي تكاليف أخرى يقدمها الإلكترون.
 
-## What are your favorite things about Electron?
+## ما هي الأشياء المفضلة لديك عن إلكترون؟
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: إن وجود تكدس شبكات Node.js' وطبقة عرض Chromium معا هي وصفة لإنجاز الأشياء.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**الكفاءة**: هي مجرد تكدس الويب، لذا فإن فريقنا بأكمله يشارك بالفعل في بناء المنتج.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**المجتمع**: هناك مجتمع منظم تنظيما عاليا يعرف كيفية التواصل بشكل جيد! نحن نشعر بالامتياز حيال التطوير بدعم كهذا.
 
-## In what areas could Electron be improved?
+## في أي مجالات يمكن تحسين إلكترون؟
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+ونود أن نرى إلكترون يؤيد حزمة واحدة. الحازم مهم بنفس القدر لإلكترون ما هو مدير الحزمة ل العقدة. هناك العديد من الحزم في أرض المستخدم، لكل منها ميزات مثيرة للاهتمام ولكن كل منها مع الأخطاء. ومن شأن توافق آراء المجتمع المحلي أن يساعد على توجيه الطاقة التي ينفقها المساهمون.
 
-## What's coming next?
+## ما الذي سيأتي بعد ذلك؟
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+نحن حاليا نقوم بتطوير تطبيق محمول، و نعمل مع الفنانين و التسميات لإضافة موسيقاهم إلى متجر فولترا. مرحباً! إذا كنت فنان أو ملصق، [قم بالتسجيل الآن](https://admin.voltra.co/signup)! ونخطط لفتح المحل عندما نصل إلى هدفنا المتمثل في 10 ملايين مسار.
 

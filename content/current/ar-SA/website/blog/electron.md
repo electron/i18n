@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: قذيفة Atom هي الآن إلكترون
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+اسم قذيفة Atom هو الآن إلكترون. يمكنك معرفة المزيد عن إلكترون وما يبنيه الناس معه في منزله الجديد [electronjs.org](https://electronjs.org).
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+إلكترون هو قذيفة التطبيق عبر المنصة التي بنيناها أصلاً لمحرر [Atom](https://atom.io) للتعامل مع تكاملية حلقة Chromium/Node.js و APIs الأصلية.
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+عندما بدأنا ، لم يكن هدفنا مجرد دعم احتياجات محرر النصوص. أردنا أيضا إنشاء إطار مباشر يسمح للناس باستخدام تكنولوجيا الويب لبناء تطبيقات سطح المكتب عبر المنصات مع كل القطع المحلية.
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+خلال عامين، نما إلكترون بشكل هائل. يتضمن الآن تحديثات تلقائية للتطبيقات، مثبتة ويندوز، الإبلاغ عن الأعطال والإشعارات وغيرها من ميزات التطبيق الأصلية المفيدة &mdash; وكلها معروضة من خلال تطبيقات جافا سكريبت APIs. ولدينا المزيد في العمل. نحن نخطط لاستخراج المزيد من المكتبات من Atom لجعل بناء تطبيق أصلي مع تكنولوجيا الويب أسهل ما يمكن.
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+حتى الآن، قام المطورين الأفراد، والبدء في مرحلة مبكرة، والشركات الكبيرة ببناء تطبيقات على إلكترون. لقد أنشأوا مجموعة كبيرة من التطبيقات &mdash; بما في ذلك تطبيقات الدردشة، ومستكشفي قواعد البيانات، ومصممي الخرائط، وأدوات التصميم التعاوني، وتطبيقات النماذج المحمولة.
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+تحقق من [electronjs. rg](https://electronjs.org) لمشاهدة المزيد من التطبيقات التي بناها الناس على إلكترون أو إلقاء نظرة على [مستندات](https://github.com/electron/electron/tree/master/docs#readme) لمعرفة المزيد حول ما يمكنك القيام به.
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+إذا كنت قد بدأت بالفعل، فإننا نحب أن نتحدث معك حول التطبيقات التي تبنيها على إلكترون. البريد الإلكتروني [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) لإخبارنا بالمزيد. يمكنك أيضًا متابعة حساب تويتر [@ElectronJS](https://twitter.com/electronjs) الجديد ليبقى متصلاً بالمشروع.
 
 :zap: :blue_heart: :electric_plug:
 

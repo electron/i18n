@@ -50,7 +50,7 @@ process.once('loaded', () => {
 })
 ```
 
-## 属性
+## Properties
 
 ### `process.defaultApp` _Readonly_
 
@@ -182,7 +182,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Returns `String` - The version of the host operating system.
 
-示例：
+示例:
 
 ```js
 const version = process.getSystemVersion()

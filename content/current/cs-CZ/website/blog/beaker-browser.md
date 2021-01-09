@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Beaker Browser'
+title: 'Projekt slabého: Prohlížeč Beaker'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
+Tento týden jsme chytili [Paul Frazee](http://pfrazee.github.io/), tvůrce z [Beaker Browser](https://beakerbrowser.com/). Beaker je experimentální webový prohlížeč peer-to-peer, který používá protokol Dat pro hostování stránek z uživatelských zařízení .
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## What is Beaker and why did you create it?
+## Co je to Beaker a proč jste to vytvořili?
 
-Beaker is a participatory browser. It's a browser for indie hackers.
+Kámen je participativní prohlížeč. Je to prohlížeč pro indie hackery.
 
-The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
+Web je uzavřený zdroj. Pokud chcete ovlivňovat fungování sociálních médií, musíte pracovat na Facebooku nebo Twitteru. Pro hledání Google. Kontrola je v rukou společností, nikoli samotných uživatelů.
 
-With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
+S Beaker máme nový webový protokol: [Decentralized Archive Transport](https://datprotocol.com). "Datum". Vytváří lokality na vyžádání, zdarma, a pak je sdílí ze zařízení. Nejsou vyžadovány žádné servery. To je naše inovace.
 
-![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![Protokoly křepelek](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
+Při návštěvě stránky Dat v Beakeru stahujete soubory. Stránka je navždy. Můžete ho uložit, rozštěpit, upravit a zdarma sdílet svou novou verzi. To vše je open-source.
 
-So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
+Takže o tom jde: děláme prohlížeč pro otevřené webové stránky. Chceme, aby to byl soubor nástrojů pro sociální hackerství.
 
-## Who should be using Beaker?
+## Kdo by měl používat kafer?
 
-Hackers. Modders. Creative types. People who like to tinker.
+Hackery. Modery. Tvůrčí typy. Lidé, kteří rádi maličkí.
 
-## How do I create a new project that uses Dat?
+## Jak vytvořím nový projekt, který používá datum?
 
-We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
+Máme [nástroj příkazové řádky nazvaný bkr](https://github.com/beakerbrowser/bkr) , který je podobný jako git + npm. Tady je vytvoření stránky:
 
 ```bash
 $ cd ~/my-site
 $ bkr init
-$ echo "Hello, world!" > index.html
-$ bkr publish
+$ echo "Dobrý den, svět!" > index.html
+$ bkr publikovat
 ```
 
-And here's forking a site:
+A tady je vytvoření stránky:
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+$ echo "My fork nemá žádné ohledy na předchozí index. tml!" > index.html
+$ bkr publikovat
 ```
 
-Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
+Tyto stránky pak budou hostovány z vašeho prohlížeče. Je to trochu jako BitTorrent; sdílíte stránky v P2P mesh.
 
-If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
+Pokud chcete grafické rozhraní, máme k dispozici některé základní nástroje zabudované do prohlížeče, ale tlačíme tyto nástroje do uživatelského území. To vše bude upravitelné uživatelské aplikace.
 
-## Why did you choose to build Beaker on Electron?
+## Proč jste si vybrali stavbu kádinky na Electronu?
 
-It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
+Pro tento projekt to bylo samozřejmé. Pokud jsem rozštěpil Chrome sám, napíšu C++ právě teď! To nikdo nechce. Znám webový stack, a mohu s ním rychle pracovat. To není žádný brainer.
 
-The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
+Pravdou je, že si nejsem jistý, zda bych mohl něco z toho udělat bez Electronu. Je to skvělý kus softwaru.
 
-## What are some challenges you've faced while building Beaker?
+## Jaké jsou některé výzvy, kterým jste čelili při budování koberce?
 
-Half of it is poking at the tools and figuring out how much I can get away with.
+Polovina toho se pokřikuje na nástroje a zjišťuje, kolik se mi může dostat pryč.
 
-Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
+Učinit prohlížeč sám o sobě byl docela snadný. Electron je prakticky sada nástrojů pro vytváření prohlížečů. ...S výjimkou karet prohlížeče; to mě trvalo navždy, abych se dostal do pořádku. Nakonec jsem se rozpadl a naučil jsem se dělat SVG. Je mnohem lepší podívat, ale trvalo 3 nebo 4 iterace, než jsem to měl pravdu.
 
-## In what areas should Electron be improved?
+## V jakých oblastech by měl být Electron vylepšen?
 
-It'd be really great if I could dock the devtools inside a webview.
+Bylo by opravdu skvělé, kdybych mohl devtools ukotvit do webviewu.
 
-## What's coming next in Beaker?
+## Co přijde další v Beakeru?
 
-Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
+Zabezpečené názvy DNS pro stránky Dat. sociálně konfigurovatelné schéma URL s názvem ["App scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) Více Dat API.
 
-## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
+## Pro lidi, kteří se mohou zajímat o příspěvek k projektu, v jakých oblastech kádinka potřebuje pomoc?
 
-We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
+Máme mnoho otevřených problémů. Nebojte se mě utíkat. #beakerprohlížeč na volné enode. Uchováváme [stránku pro přispěvatele](https://beakerbrowser.com/docs/team.html) a přidáme Vás. A pokud navštívíte Austin, budu si koupit pivo.
 
-## Any Electron tips that might be useful to other developers?
+## Jakékoliv tipy Electronu, které by mohly být užitečné pro ostatní vývojáře?
 
-1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
-2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
-3. Read through all the guides and advanced docs at least once.
-4. Don't build a browser, it's a saturated market.
+1. Použijte nástroj pro sestavení, který je tam ven. Nechcete zápasit s vlastními řešeními, věřte mě. Použít e-builder. Používejte kotlový repozitář.
+2. Pokud potřebujete otevřít problém v repou Electron, přejděte na další míli, abyste jej mohli snadno reprodukovat. Odpověď dostanete mnohem rychleji a tým ji ocení. Ještě lépe, zkuste to opravit sami sebe. Ve skutečnosti je velmi zajímavé vidět vnitřní masy.
+3. Přečtěte si alespoň jednou všechny průvodce a pokročilé dokumentace.
+4. Nenastavujte prohlížeč - je to nasycený trh.
 

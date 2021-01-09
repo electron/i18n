@@ -2,7 +2,7 @@
 
 > 네이티브 애플리케이션 메뉴와 컨텍스트 메뉴를 생성합니다.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -48,7 +48,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 `menu` 오브젝트는 다음과 같은 인스턴스 메소드를 가지고 있습니다:
 
@@ -96,7 +96,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 #### 이벤트: 'menu-will-show'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -104,13 +104,13 @@ Returns:
 
 #### 이벤트: 'menu-will-close'
 
-Returns:
+반환:
 
 * `event` Event
 
 팝업창을 닫거나, `menu.closePopup()`을 호출했을 때 발생합니다.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 `menu` 오브젝트는 다음과 같은 속성(property) 도 갖습니다:
 
@@ -276,7 +276,7 @@ macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아�
 
 macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. 첫번째 아이템의 레이블을 변경하기 위해서는, 앱 번들의 `Info.plist` 파일을 수정해야 합니다. 더 자세한 정보는 [About Information Property List Files][AboutInformationPropertyListFiles]를 참조하세요.
 
-## 특정 브라우저 윈도우를 위한 설정 메뉴 (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 브라우저 윈도우의 [`setMenu` 메서드][setMenu]는 특정 브라우저 윈도우의 메뉴를 설정할 수 있습니다.
 

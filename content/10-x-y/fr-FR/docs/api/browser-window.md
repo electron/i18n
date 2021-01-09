@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Créer et contrôle des fenêtres navigateur.
+> Créer et gérer des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -22,11 +22,11 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Fenêtre sans bords (Frameless window)
 
-Pour créer une fenêtre sans chrome, ou une fenêtre transparente en forme arbitraire, vous pouvez utiliser l'API [Frameless Window](frameless-window.md).
+Pour créer une fenêtre sans chrome, ou une fenêtre transparente de forme arbitraire, vous pouvez utiliser l'API [Frameless Window](frameless-window.md).
 
 ## Afficher des fenêtres avec élégance
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Lors du chargement direct d'une page dans la fenêtre, les utilisateurs peuvent voir la page se charger progressivement, ce qui n'est pas une bonne expérience pour une application native. Pour rendre l'affichage de la fenêtre exempt de flash visuel, il y a deux solutions selon la situation.
 
 ## À l'aide de l'événement `ready-to-show`
 
@@ -106,7 +106,7 @@ Il est recommandé de mettre en pause les opérations coûteuse lorsque l'état 
 
 ## Classe : BrowserWindow
 
-> Créer et contrôle des fenêtres navigateur.
+> Créer et gérer des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -117,8 +117,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `width` Integer (facultatif) - Largeur de la fenêtre en pixels. Default is `800`.
+  * `height` Integer (facultatif) - Hauteur de la fenêtre en pixels. Default is `600`.
   * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (facultatif) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
@@ -135,7 +135,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `focusable` Boolean (facultatif) - Si la fenêtre peut avoir le focus. La valeur par défaut est `true`. Sur Windows, mettre `focusable: false` implique également le réglage `skipTaskbar: true`. Sur Linux, mettre `focusable: false` fait que la fenêtre arrête d'interragir avec wm, par conséquent la fenêtre restera toujours au dessus dans tous les espaces de travail.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Par défaut la valeur est `false`.
   * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre doit s'afficher en plein écran. Quand explicitement mit a `false`, le bouton plein écran sera caché ou désactivé sur macOS. Par défaut la valeur est `false`.
-  * `fullscreenable` Boolean (facultatif) - Est-ce que la fenêtre peut s'afficher en plein écran. Sur macOS, indiquez également si le bouton de maximizer/zoom doit basculer en mode plein écran ou agrandir la fenêtre. La valeur par défaut est `vraie`.
+  * `fullscreenable` Boolean (facultatif) - Est-ce que la fenêtre peut s'afficher en plein écran. Sur macOS, indiquez également si le bouton de maximizer/zoom doit basculer en mode plein écran ou agrandir la fenêtre. La valeur par défaut est `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Par défaut la valeur est `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Par défaut la valeur est `false`.
@@ -153,9 +153,13 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. La valeur par défaut est `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optionnel) - Force l'utilisation du thème sombre pour la fenêtre, fonctionne uniquement sur certains environnements de bureau GTK+3. `false` par défaut.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Par défaut la valeur est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
@@ -277,7 +281,7 @@ _**Note**: Il y a une subtile différence entre le comportement de `window.onbef
 
 #### Événement : 'session-end' _Windows_
 
-Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
+Émis lorsque la session va se terminer à cause d'un redémarrage, une extinction forcée ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
@@ -305,7 +309,7 @@ _**Note**: Il y a une subtile différence entre le comportement de `window.onbef
 
 #### Événement : 'ready-to-show'
 
-Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
+Émis lorsque la page web à été chargée (tout en n'étant pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 Veuillez noter que l'utilisation de cet événement implique que le moteur de rendu sera considéré comme "visible" et peinture, même si `show` est faux.  Cet événement ne se déclenchera jamais si vous utilisez `paintWhenInitiallyHidden: false`
 
@@ -865,7 +869,7 @@ Active ou désactive la fenêtre.
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+Retourne `Boolean` - Si la fenêtre est activée.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -873,7 +877,7 @@ Returns `Boolean` - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (facultatif) _macOS_
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Redimensionne la fenêtre à `width` x `height`. Si la largeur `width` ou la hauteur `height` sont inférieures aux minima définis, la fenêtre se limitera à sa taille minimale.
 
 #### `win.getSize()`
 
@@ -917,17 +921,17 @@ Retourne `Integer[]` - Contient la largeur et la hauteur maximale de la fenêtre
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+Définit si la fenêtre peut être redimensionnée ou pas par l’utilisateur.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+Retourne `Boolean` - Si la fenêtre peut être redimensionnée manuellement par l'utilisateur.
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMovable()` _macOS_ _Windows_
 
@@ -939,11 +943,11 @@ Sous Linux, retourne toujours `true`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Définit si la fenêtre peut être minimisée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+Retourne `Boolean` - Si la fenêtre peut être minimisée par l'utilisateur.
 
 Sous Linux, retourne toujours `true`.
 
@@ -951,7 +955,7 @@ Sous Linux, retourne toujours `true`.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Définit si la fenêtre peut être maximalisée par l’utilisateur. N'a aucun effet sous Linux.
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
@@ -973,7 +977,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Sets whether the window can be manually closed by user. N'a aucun effet sous Linux.
 
 #### `win.isClosable()` _macOS_ _Windows_
 
@@ -1084,7 +1088,7 @@ Le type natif du handle est `HWND` sous Windows, `NSView*` sur macOS, et `Window
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Hooks a windows message. La `callback` est appelée lorsque le message est reçu dans le WndProc.
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1339,9 +1343,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Retourne `Boolean` - Si la barre de menu est visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Booléen (facultatif) _macOS_ - Définit si la fenêtre doit être visible au-dessus des fenêtres plein écran
 
 Définit si la fenêtre doit être visible sur tous les espaces de travail.
 
@@ -1449,15 +1455,15 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Définit la disposition de la barre tactile pour la fenêtre actuelle. La spécification `null` ou `undefined` efface la barre de contact. Cette méthode n'a d'effet que si la machine a une barre tactile et est en cours d'exécution sur macOS 10.12.1+.
 
-**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attache une `browserView` à `win`. Si d'autres `BrowserView`sont déjà attachées, elles seront supprimés de cette fenêtre.
 
 #### `win.getBrowserView()` _Expérimental_
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+Retourne `BrowserView | null` - La `BrowserView` attachée à `win`. Retourne `null` si aucune n'est attachée. Lance une erreur si plusieurs `BrowserView` sont attachées.
 
 #### `win.addBrowserView(browserView)` _Experimental_
 

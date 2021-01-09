@@ -60,7 +60,7 @@ $ git pull
 $ gclient sync -f
 ```
 
-## สิ่งก่อสร้าง
+## Building
 
 ```sh
 $ cd src
@@ -142,12 +142,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-<table>
-<tr><th>Host</th><th>Target</th><th>Status</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
-</table>
+| Host        | Target        | Status               |
+| ----------- | ------------- | -------------------- |
+| Windows x64 | Windows arm64 | Experimental         |
+| Windows x64 | Windows x86   | Automatically tested |
+| Linux x64   | Linux x86     | Automatically tested |
+
 
 If you test other combinations and find them to work, please update this document :)
 
@@ -170,7 +170,7 @@ gclient sync -f --with_branch_heads --with_tags
 Next, run `gn gen` as above with `target_cpu="arm64"`.
 
 
-## ทดสอบ
+## Tests
 
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 

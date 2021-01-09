@@ -25,9 +25,9 @@ If you don't currently have a Windows installation, [dev.microsoftedge.com](http
 
 **Примітка:** Навіть якщо Visual Studio не використовується для збірки, вона все ще **вимагається**, тому що нам потрібні ланцюжки збірки, які він надає.
 
-## Будування
+## Building
 
-Перегляньте [Інструкції для Будівництва: GN](build-instructions-gn.md)
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32bit Build
 

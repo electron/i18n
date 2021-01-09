@@ -83,7 +83,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 ### `protocol.registerFileProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -99,7 +99,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
@@ -121,7 +121,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -135,7 +135,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` ProtocolResponse
@@ -149,7 +149,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
@@ -209,7 +209,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -221,7 +221,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -233,7 +233,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
@@ -245,7 +245,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
@@ -257,7 +257,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `schemat` String
-* Funkcja `handler`
+* `handler` Function
   * `request` ProtocolRequest
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))

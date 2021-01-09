@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'>빠르게 시작하기 문서</a>를 읽고 앱 만들기를 <a href='/docs/tutorial/first-app'><b>시작해 보세요</b></a>."
     updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
     localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>도움을 받거나 피드백을 주시려면</b></a> <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>에 참여하거나, <a href='https://discuss.atom.io/c/electron'>토론</a>에 게시하거나, 혹은 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>에 방문해보세요."
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>보안 이슈 제보</b></a>는 <a href='mailto:security@electronjs.org'>security@electronjs.org</a>로 해주세요."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
     feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."
@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 데모 앱</a>은 대화식으로 Electron API의 가장 중요한 부분을 설명합니다. 샘플 코드와 유용한 팁으로 앱을 제작하는 데에 무엇이 가능할지 알아보세요."
   fiddle_title: Electron Fiddle과 함께 강력한 경험을 시도해보세요
   see_more_info: 자세히 보기
+download: Download
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 버전을 확인해보세요</a>
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: 시작하기
   fiddle:
     lead_desc: Electron을 시작하기에 가장 쉬운 방법
+    different_os: "Not the right operating system? See:"
     create_app: 자기만의 앱을 만드세요
     description: Electron Fiddle은 작은 Electron 실험 도구로 만들며 놀 수 있게 해줍니다. 연 후에 여러분을 반겨주는 빠른 시작 템플릿에서 몇 가지를 바꾸고, Electron의 버전을 고르고 실행하고 놀아보세요. 그다음엔, 여러분의 Fiddle을 Github Gist나 로컬 폴더에 저장할 수 있습니다. 한 번 Github에 올리면 누구나 여러분의 Fiddle을 주소창에 입력하는 것으로 체험해 볼 수 있습니다.
     explore: Electron 탐색하기

@@ -24,7 +24,6 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 * **セキュアコーディングプラクティスの採用。** あなたのアプリケーションの防衛の第一歩はあなたのコードです。 クロスサイトスクリプティング(XSS) のような共通WEB脆弱性は、Electronアプリケーション上でセキュリティの影響度が高くなります。そのため、セキュアなソフトウェア開発のベストプラクティスの採用やセキュリティテストの実施が強く求められます。
 
-
 ## 信用されないコンテンツの隔離
 
 信用されていないソース (例えばリモートサーバー) からコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトがデフォルト [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって) 得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
@@ -86,7 +85,6 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-
 ## 2) リモートコンテンツで、Node.js integration を有効にしない
 
 _この推奨は、Electron 5.0.0 からデフォルトの振舞いです。_
@@ -140,19 +138,17 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) リモートコンテンツで、コンテキストイソレーションを有効にする
 
 コンテキストイソレーションは、開発者が専用の JavaScript コンテキストで、プリロードスクリプトと Electron API でコードを実行できるようにする Electron の機能です。 つまり、`Array.prototype.push` や `JSON.parse` などのグローバルオブジェクトは、レンダラープロセスで実行されているスクリプトでは変更できません。
 
 Electron は Chromium の [コンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) と同じ技術を使用してこの動作を可能にしています。
 
-`nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
-### Why & How?
+### なぜ & 方法を？
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
+`contextIsolation` が何であるかと、有効にする方法については、 [コンテキストIsolation](context-isolation.md) ドキュメントを参照してください。
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
 
@@ -187,7 +183,6 @@ session
   })
 ```
 
-
 ## 5) webSecurity を無効にしない
 
 _Electron のデフォルトを推奨しています_
@@ -201,6 +196,7 @@ _Electron のデフォルトを推奨しています_
 ` webSecurity` を無効にすると、同一オリジンポリシーが無効になり、`allowRunningInsecureContent` プロパティが `true` に設定されます。 つまり、異なるドメインからの安全でないコードの実行を可能にしてしまいます。
 
 ### どうすればいいの？
+
 ```js
 // NG
 const mainWindow = new BrowserWindow({
@@ -217,7 +213,6 @@ const mainWindow = new BrowserWindow()
 
 ```html<!-- NG --><webview disablewebsecurity src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
 ```
-
 
 ## 6) Content-Security-Policy を定義する
 
@@ -262,7 +257,6 @@ CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロ
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) `allowRunningInsecureContent` を `true` にしない
 
 _Electron のデフォルトを推奨しています_
@@ -290,7 +284,6 @@ const mainWindow = new BrowserWindow({
 // OK
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) 実験的な機能を有効にしない
 
@@ -320,7 +313,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) `enableBlinkFeatures` を使用しない
 
 _Electron のデフォルトを推奨しています_
@@ -332,6 +324,7 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 一般に、機能がデフォルトで有効になっていない場合は、よい理由が考えられます。 その機能を有効にするための、正しい使用方法は存在します。 開発者は、機能を有効にする必要がある理由、影響の内容、アプリケーションのセキュリティにどのように影響するかを正確に把握する必要があります。 どのような場合においても、機能を推論的に有効にするべきではありません。
 
 ### どうすればいいの？
+
 ```js
 // 悪例
 const mainWindow = new BrowserWindow({
@@ -345,7 +338,6 @@ const mainWindow = new BrowserWindow({
 // OK
 const mainWindow = new BrowserWindow()
 ```
-
 
 ## 10) `allowpopups` を使用しない
 
@@ -361,7 +353,6 @@ _Electron のデフォルトを推奨しています_
 
 ```html<!-- NG --><webview allowpopups src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
 ```
-
 
 ## 11) 作成前に WebView のオプションを確認する
 
@@ -441,29 +432,36 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) は、新しいウィンドウを作成する前に [`new-window`](../api/web-contents.md#event-new-window) イベントを発行します。 そのイベントは、他のパラメータの中でも、ウィンドウが開くことを要求された `url` とそれを作成するために使用されたオプションを渡されます。 このイベントを使用してウィンドウの作成を詳細に調べ、必要なものだけに限定することを推奨します。
+[`webContents`](../api/web-contents.md) は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー](../api/web-contents.md#contentssetwindowopenhandlerhandler) に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
+  contents.setWindowOpenHandler(({ url }) => {
     // この例では、既定のブラウザでこのイベントのURLを開くように
     // オペレーティングシステムに依頼します。
-    event.preventDefault()
+    //
+    // shell.openExternal に渡す URL を許可する基準ついては、
+    // 以降の項目を参照してください。
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    await shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```
 
 ## 14) 信用されないコンテンツで `openExternal` を使用しない
 
-Shellの [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) はデスクトップのネィティブユーティリティの指定した protocol URI で開けるようにします。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
+シェルの [`openExternal`](../api/shell.md#shellopenexternalurl-options) は、指定されたプロトコル URI を デスクトップのネイティブユーティリティで開くことができます。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
 
 ### なぜ？
 
-[`openExternal`](../api/shell.md#shellopenexternalurl-options-callback)の不適切な利用によって、そのユーザーホストを危険に曝すことがありえます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
+[`openExternal`](../api/shell.md#shellopenexternalurl-options) の不適切な利用によって、そのユーザーのホストを危険に曝す可能性があります。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
 
 ### どうすればいいの？
 
@@ -472,6 +470,7 @@ Shellの [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback)
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -495,8 +494,12 @@ shell.openExternal('https://example.com/index.html')
 ### どうすればいいの？
 
 ```js
-// レンダラーが信頼できないコンテンツを実行する場合、危険
-const mainWindow = new BrowserWindow({})
+// レンダラーが信頼されていないコンテンツを実行してしまうと Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -508,8 +511,10 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html<!-- 信頼できないコンテンツをレンダラーが実行する場合は NG  --><webview src="page.html"></webview><!-- OK --><webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **注:** `enableRemoteModule` のデフォルト値は、Electron 10 から `false` になっています。 それ以前のバージョンでは、上記の方法で `remote` モジュールを明示的に無効にする必要があります。
 
 ## 16) `remote` モジュールをフィルタ
 

@@ -8,7 +8,7 @@ Le module `ipcMain` est un [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## Envoyer des messages
 
-Il est également possible d'envoyer des messages depuis le processus main pour le processus renderer. Voir [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) pour plus d'information.
+Il est également possible d'envoyer des messages depuis le processus main pour le processus renderer. Voir [webContents.send](web-contents.md#contentssendchannel-args) pour plus d'information.
 
 * Lors de l'envoi d'un message, le nom de l'événement est `channel`.
 * Pour répondre à un message synchrone, vous devez définir `event.returnValue`.
@@ -61,7 +61,7 @@ En écoutant `channel`, lorsqu'un nouveau message arrive, `listener` sera appel�
   * `événement` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Ajoute un `listener` à déclenchement unique pour l’événement. Ce `listener` sera appelé uniquement lors de la prochaine émission d'un message sur le `channel`, après quoi il sera supprimé.
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -80,7 +80,7 @@ Supprime tous les écouteurs du `channel` spécifié.
 ### `ipcMain.handle(canal, écouteur)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -109,7 +109,7 @@ Le `event` qui est passé comme premier argument au gestionnaire est le même qu
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 

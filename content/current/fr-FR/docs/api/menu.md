@@ -16,19 +16,19 @@ La classe `Menu` a les méthodes statiques suivantes :
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Définit le menu `` comme le menu d'application sur macOS. Sous Windows et Linux, le menu `` sera défini comme le menu supérieur de chaque fenêtre.
 
 Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
-**Note:** The default menu will be created automatically if the app does not set one. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
+**Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
 #### `Menu.getApplicationMenu()`
 
 Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
+**Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
 #### `Menu.sendActionToFirstResponder(action)` _macOS_
 
@@ -44,7 +44,7 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Généralement, le paramètre `template` est un tableau d' `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus. The usage can be referenced above.
 
 Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
@@ -56,9 +56,9 @@ L'objet `menu` a les méthodes d'instance suivantes:
 
 * `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
+  * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
+  * `positioningItem` Number (facultatif) _macOS_ - L'index de l'élément de menu à positionner sous le curseur de la souris aux coordonnées spécifiées. est. La valeur par défaut est -1.
   * `callback` Fonction (facultatif) - Appelée lorsque le menu est fermé.
 
 Dépile ce menu sous la forme d'un menu contextuel dans la [`BrowserWindow`](browser-window.md).
@@ -79,7 +79,7 @@ Ajoute le `menuItem` au menu.
 
 * `id` String
 
-Retourne `MenuItem` l'élément avec le `id` spécifié
+Returns `MenuItem | null` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -172,12 +172,12 @@ const template = [
         { role: 'selectAll' },
         { type: 'separator' },
         {
-          label: 'Parle',
-          sous-menu : [
-            { role: 'startspeaking' },
-            { role: 'stopspeaking' }
+          label: 'Speech',
+          submenu: [
+            { role: 'startSpeaking' },
+            { role: 'stopSpeaking' }
           ]
-
+        }
       ] : [
         { role: 'delete' },
         { type: 'separator' },
@@ -187,15 +187,15 @@ const template = [
   },
   // { role: 'viewMenu' }
   {
-    label: 'Voir',
-    sous-menu : [
+    label: 'View',
+    submenu: [
       { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
+      { role: 'forceReload' },
+      { role: 'toggleDevTools' },
       { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
+      { role: 'resetZoom' },
+      { role: 'zoomIn' },
+      { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
     ]
@@ -203,10 +203,10 @@ const template = [
   // { role: 'windowMenu' }
   {
     label: 'Window',
-    sous-menu : [
+    submenu: [
       { role: 'minimize' },
       { role: 'zoom' },
-      . .(isMac ? [
+      ...(isMac ? [
         { type: 'separator' },
         { role: 'front' },
         { type: 'separator' },

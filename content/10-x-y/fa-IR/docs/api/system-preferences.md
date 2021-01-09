@@ -44,7 +44,7 @@ Returns:
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-## روش ها
+## Methods
 
 ### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 

@@ -1,7 +1,7 @@
 # DesktopCapturerSource 物件
 
-* `id`String - 當呼叫[`navigator.webkitGetUserMedia`] ，window或screen的識別碼`，可被當作chromeMediaSourceId`約束 識別碼的格式將為`window：XX`或`screen：XX，`其中`XX`是一個隨機生成的數位。
-* `name` String - screen 來源將命名為`Entire Screen`"或 `Screen<index></1>`，而window source的名稱將與window title 匹配。
-* `thumbnail` [NativeImage](../native-image.md) - 縮圖. **注：** 不保證`縮略圖大小`與指定`desktopCapturer.getSources`的選項一致 實際大小取決於螢幕或視窗。
-* `display_id`String - 一個獨立的識別碼，與 [Screen API](../screen.md)傳回的[Display](display.md) `id`匹配。 在某些平臺上，`id`欄位的`XX`部分和在其他平台會有所不同。 如果不可用，它將是一個空字串。
-* `appIcon` [ NativeImage ](../native-image.md)- 視窗或screen型別的null應用程式的icon。 若icon的大小事先不知道，由應用程式提供。
+* `id` String - The identifier of a window or screen that can be used as a `chromeMediaSourceId` constraint when calling [`navigator.webkitGetUserMedia`]. The format of the identifier will be `window:XX` or `screen:XX`, where `XX` is a random generated number.
+* `name` String - A screen source will be named either `Entire Screen` or `Screen <index>`, while the name of a window source will match the window title.
+* `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **注：** 不保證`縮略圖大小`與指定`desktopCapturer.getSources`的選項一致 The actual size depends on the scale of the screen or window.
+* `display_id` String - A unique identifier that will correspond to the `id` of the matching [Display](display.md) returned by the [Screen API](../screen.md). On some platforms, this is equivalent to the `XX` portion of the `id` field above and on others it will differ. It will be an empty string if not available.
+* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.

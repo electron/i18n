@@ -16,9 +16,9 @@ Necesitaras instalar [`depot_tools`][depot-tools], el conjunto de herramientas u
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-### Setting up the git cache
+### Configurar el cache de Git
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener múltiples directorios paralelos verificados en diferentes ramas), el uso del cache git acelerará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno `GIT_CACHE_PATH`:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -141,12 +141,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium.
 
-<table>
-<tr><th>Host</th><th>Objetivo</th><th>Estado</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automáticamente probado</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automáticamente probado</td></tr>
-</table>
+| Host        | Objetivo      | Estado                  |
+| ----------- | ------------- | ----------------------- |
+| Windows x64 | Windows arm64 | Experimental            |
+| Windows x64 | Windows x86   | Automáticamente probado |
+| Linux x64   | Linux x86     | Automáticamente probado |
+
 
 Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
 

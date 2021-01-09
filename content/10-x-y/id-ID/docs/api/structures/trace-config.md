@@ -1,4 +1,4 @@
-# Objek TraceConfig
+# TraceConfig Object
 
 * `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
 * `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.

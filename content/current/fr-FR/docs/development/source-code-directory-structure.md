@@ -33,7 +33,7 @@ Electron
 | | | ─ api/ - Implémentation d'API pour les modules de processus de rendu.
 | | | ── extension/ - Code relatif à l'utilisation des extensions Chrome
 | | | dans le processus de rendu d'Electron.
-| | | ─ remote/ - Logique qui met à la disposition du module distant dans
+| | | ─ remote/ - Logique qui gère l'usage du module remote dans
 | | | | le processus principal.
 | | <unk> ─ web-view/ - Logique qui gère l'utilisation des webviews dans le processus
 | | renderer.
@@ -84,6 +84,7 @@ Electron
 * **npm** - Logique pour l'installation d'Electron via npm.
 * **out** - Dossier de sortie temporaire de `ninja`.
 * **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
+
 ```diff
 script/ - L'ensemble de tous les scripts que Electron exécute pour une variété de fonctions.
 ── codesign/ - Codesign Fakes pour les applications Electron ; utilisé pour les tests.
@@ -92,31 +93,8 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
     ── notes/ - Génère des notes de publication pour les nouvelles versions d'Electron.
     <unk> ─ ─ uploaders/ - Envoie divers fichiers liés à la version pendant la sortie.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Les scripts mis ici ne devraient jamais être invoqués par les utilisateurs directement, contrairement à ceux de `script`.
 * **typings** - Types TypeScript pour le code interne d'Electron.
-* **vendor** - Code source pour certaines dépendances de tiers, y compris `boto` et `requests`.
-
-## Garder les sous-modules Git à jour
-
-Le repository d'Electron a quelques dépendances tierces, se trouvant dans le dossier [/vendor](https://github.com/electron/electron/tree/master/vendor). Parfois, vous pourriez voir un message comme celui ci lors de l'exécution de `git status`:
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-Pour mettre à jour ces dependances tierces, exécutez cette commande:
-
-```sh
-git submodule update --init --recursive
-```
-
-Si vous utilisez souvent cette commande, vous pouvez créer un alias dans votre fichier `~/.gitconfig`:
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```
+* **vendor** - Source code for some third party dependencies.

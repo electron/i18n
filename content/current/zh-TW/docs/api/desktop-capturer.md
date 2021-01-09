@@ -2,7 +2,7 @@
 
 > 取得桌面上可透過 [`navigator.mediaDevices.getUserMedia`] API 擷取影片或音訊的媒體來源資訊。
 
-處理序: [畫面轉譯器](../glossary.md#renderer-process)
+處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 下列範例展示如何將桌面上標題為 `Electron` 的視窗擷取為影像檔:
 
@@ -79,7 +79,7 @@ const constraints = {
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+**注意：** 在macOS 10.15 Catalina 或更高，捕獲螢幕內容需要使用者同意 可以通過 [`systemPreferences.getMediaAccessStatus`] 檢測到。
 
 ## Caveats
 

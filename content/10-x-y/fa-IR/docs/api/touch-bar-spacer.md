@@ -1,8 +1,8 @@
-## Class: Tou24 satchBarSpacer
+## Class: TouchBarSpacer
 
-> ترجمه شود به زبان فارسی
+> Create a spacer between two items in the touch bar for native macOS applications
 
-Drive
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSpacer(options)`
 

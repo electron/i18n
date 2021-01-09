@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
 
 **注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
 
@@ -14,7 +14,7 @@ const { app, contentTracing } = require('electron')
 app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
-      include_categories: ['*']
+      included_categories: ['*']
     })
     console.log('Tracing started')
     await new Promise(resolve => setTimeout(resolve, 5000))

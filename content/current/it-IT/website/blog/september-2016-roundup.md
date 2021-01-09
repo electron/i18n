@@ -1,49 +1,49 @@
 ---
-title: 'September 2016&#58; New Apps'
+title: 'September 2016: New Apps'
 author: haacked
 date: '2016-10-06'
 ---
 
-Here are the new Electron apps and talks that were added to the site in September.
+Ecco le nuove applicazioni e i colloqui di Electron che sono stati aggiunti al sito a settembre.
 
 ---
 
-This site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+Questo sito è aggiornato con le nuove [app](https://electronjs.org/apps) e [meetup](https://electronjs.org/community) attraverso [richieste di pull](https://github.com/electron/electronjs.org/pulls) dalla comunità. Puoi [guardare il repository](https://github.com/electron/electronjs.org) per ricevere notifiche di nuove aggiunte o se non sei interessato a _tutte le_ modifiche del sito, iscriviti al [blog RSS feed](https://electronjs.org/feed.xml).
 
-If you've made an Electron app or host a meetup, make a [pull request](https://github.com/electron/electronjs.org) to add it to the site and it will make the next roundup.
+Se hai creato un'app Electron o hai ospitato una riunione, fai una richiesta [pull](https://github.com/electron/electronjs.org) per aggiungerla al sito e farà la carrellata successiva.
 
-### New Talks
+### Nuovi Talks
 
-In September, GitHub held its GitHub Universe conference billed as the event for people building the future of software. There were a couple of interesting Electron talks at the event.
+Nel mese di settembre, GitHub ha tenuto la sua conferenza di GitHub Universe fatturata come l'evento per le persone che costruiscono il futuro del software. Ci sono stati un paio di interessanti colloqui di Electron all'evento.
 
-* [Making Electron Development Simpler, More Pleasant, and More Productive](https://www.youtube.com/watch?v=Eqg_IqVeI5s) by Machisté Quintana, a Software Engineer at Slack.
-* [Electron: Desktop Apps with Web Languages](https://www.youtube.com/watch?v=FNHBfN8c32U) by Zeke Sikelianos, an Electron Developer at GitHub.
+* [Rendere lo sviluppo degli elettroni più semplice, più piacevole e più produttivo](https://www.youtube.com/watch?v=Eqg_IqVeI5s) di Machiste<unk> Quintana, un ingegnere di software a Slack.
+* [Electron: App desktop con le lingue web](https://www.youtube.com/watch?v=FNHBfN8c32U) di Zeke Sikelianos, uno sviluppatore di Electron di GitHub.
 
-Also, if you happen to be in Paris on December 5, Zeke will be [giving an Electron talk at dotJS 2016](https://twitter.com/dotJS/status/783615732307333120).
+Anche, se vi capita di essere a Parigi il 5 dicembre, Zeke sarà [dare un colloquio Electron a dotJS 2016](https://twitter.com/dotJS/status/783615732307333120).
 
-### New Apps
+### Nuove Applicazioni
 
-|                                                                                     |                                                           |                                                                                                                                     |
-| ----------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='/images/apps/pexels-icon.png' width='50' />              | [Pexels](https://www.pexels.com/pro/mac-and-windows-app/) | Search for completely free photos and copy them into your clipboard                                                                 |
-| <img src='/images/apps/timestamp-icon.png' width='50' />           | [Timestamp](https://mzdr.github.io/timestamp/)            | A better macOS menu bar clock with a customizable date/time display and a calendar                                                  |
-| <img src='/images/apps/harmony-icon.png' width='50' />             | [Harmony](http://getharmony.xyz/)                         | Music player compatible with Spotify, Soundcloud, Play Music and your local files                                                   |
-| <img src='/images/apps/uphone-icon.png' width='50' />              | [uPhone](http://www.integraccs.com)                       | WebRTC Desktop Phone                                                                                                                |
-| <img src='/images/apps/sealtalk-icon.png' width='50' />            | [SealTalk](http://sealtalk.im)                            | Instant-messaging App powered by RongCloud IM Cloud Service and IM SDK                                                              |
-| <img src='/images/apps/infinity-icon.png' width='50' />            | [Infinity](https://ycosxapp.github.io)                    | An easy way to make presentation                                                                                                    |
-| <img src='/images/apps/cycligent-git-tool-icon.png' width='50' />  | [Cycligent Git Tool](https://www.cycligent.com/git-tool)  | Straightforward, graphic GUI for your Git projects                                                                                  |
-| <img src='/images/apps/foco-icon.png' width='50' />                | [Foco](https://github.com/akashnimare/foco)               | Stay focused and boost productivity with Foco                                                                                       |
-| <img src='/images/apps/strawberry-icon.png' width='50' />          | [Strawberry](https://strawberrypos.com)                   | Win Diners for Life Know and serve them better with the all-in-one restaurant software suite.                                       |
-| <img src='/images/apps/mixmax-icon.png' width='50' />              | [Mixmax](https://mixmax.com/download)                     | See every action on your emails in real-time Compose anywhere.                                                                      |
-| <img src='/images/apps/firebase-admin-icon.png' width='50' />      | [Firebase Admin](https://firebaseadmin.com)               | A Firebase data management tool                                                                                                     |
-| <img src='/images/apps/anote-icon.png' width='50' />               | [ANote](https://github.com/AnotherNote/anote)             | A Simple Friendly Markdown Note                                                                                                     |
-| <img src='/images/apps/temps-icon.png' width='50' />               | [Temps](https://jackd248.github.io/temps/)                | A simple but smart menubar weather app                                                                                              |
-| <img src='/images/apps/amium-icon.png' width='50' />               | [Amium](https://www.amium.com)                            | A work collaboration product that brings conversation to your files                                                                 |
-| <img src='/images/apps/soube-icon.png' width='50' />               | [Soube](http://soube.diegomolina.cl)                      | Simple music player                                                                                                                 |
-| <img src='/images/apps/un-colored-icon.png' width='50' />          | [(Un)colored](https://n457.github.io/Uncolored/)          | Next generation desktop rich content editor that saves documents with themes HTML & Markdown compatible. For Windows, OS X & Linux. |
-| <img src='/images/apps/quickcalc-icon.png' width='50' />           | [quickcalc](https://github.com/Cwoodall6/quickcalc)       | Menubar Calculator                                                                                                                  |
-| <img src='/images/apps/forestpin-analytics-icon.png' width='50' /> | [Forestpin Analytics](http://forestpin.com/analytics)     | Financial data analytics tool for businesses                                                                                        |
-| <img src='/images/apps/ling-icon.png' width='50' />                | [Ling](https://github.com/talhasch/ling)                  | REST Client                                                                                                                         |
-| <img src='/images/apps/shortexts-icon.png' width='50' />           | [Shortexts](http://shortexts.com/)                        | Shortcuts for texts you copy frequently, folders and emojis                                                                         |
-| <img src='/images/apps/front-end-box-icon.png' width='50' />       | [Front-End Box](http://frontendbox.io)                    | Set of front-end-code generators                                                                                                    |
+|                                                                                     |                                                               |                                                                                                                                                 |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src='/images/apps/pexels-icon.png' width='50' />              | [Pexels](https://www.pexels.com/pro/mac-and-windows-app/)     | Cerca foto completamente gratuite e copiale negli appunti                                                                                       |
+| <img src='/images/apps/timestamp-icon.png' width='50' />           | [Timestamp](https://mzdr.github.io/timestamp/)                | Un migliore orologio della barra del menu macOS con un display data/ora personalizzabile e un calendario                                        |
+| <img src='/images/apps/harmony-icon.png' width='50' />             | [Harmony](http://getharmony.xyz/)                             | Lettore musicale compatibile con Spotify, Soundcloud, Play Music e i tuoi file locali                                                           |
+| <img src='/images/apps/uphone-icon.png' width='50' />              | [uPhone](http://www.integraccs.com)                           | Telefono Desktop WebRTC                                                                                                                         |
+| <img src='/images/apps/sealtalk-icon.png' width='50' />            | [SealTalk](http://sealtalk.im)                                | Instant-messaging App powered by RongCloud IM Cloud Service and IM SDK                                                                          |
+| <img src='/images/apps/infinity-icon.png' width='50' />            | [Infinito](https://ycosxapp.github.io)                        | Un modo semplice per fare la presentazione                                                                                                      |
+| <img src='/images/apps/cycligent-git-tool-icon.png' width='50' />  | [Strumento Git Cycligent](https://www.cycligent.com/git-tool) | Interfaccia grafica semplice per i tuoi progetti Git                                                                                            |
+| <img src='/images/apps/foco-icon.png' width='50' />                | [Foco](https://github.com/akashnimare/foco)                   | Rimanete concentrati e aumentate la produttività con Foco                                                                                       |
+| <img src='/images/apps/strawberry-icon.png' width='50' />          | [Fragola](https://strawberrypos.com)                          | Vinci Diners for Life Conoscere e servirli meglio con la suite software ristorante all-in-one.                                                  |
+| <img src='/images/apps/mixmax-icon.png' width='50' />              | [Mixmax](https://mixmax.com/download)                         | Vedi ogni azione sulle tue email in tempo reale Componi ovunque.                                                                                |
+| <img src='/images/apps/firebase-admin-icon.png' width='50' />      | [Firebase Admin](https://firebaseadmin.com)                   | Uno strumento di gestione dati Firebase                                                                                                         |
+| <img src='/images/apps/anote-icon.png' width='50' />               | [ANote](https://github.com/AnotherNote/anote)                 | Una Nota Di Markdown Semplice Amichevole                                                                                                        |
+| <img src='/images/apps/temps-icon.png' width='50' />               | [Tempi](https://jackd248.github.io/temps/)                    | Un'app meteo semplice ma intelligente nella barra dei menu                                                                                      |
+| <img src='/images/apps/amium-icon.png' width='50' />               | [Amio](https://www.amium.com)                                 | Un prodotto di collaborazione di lavoro che porta conversazione ai tuoi file                                                                    |
+| <img src='/images/apps/soube-icon.png' width='50' />               | [Soube](http://soube.diegomolina.cl)                          | Lettore musicale semplice                                                                                                                       |
+| <img src='/images/apps/un-colored-icon.png' width='50' />          | [(non )colorato](https://n457.github.io/Uncolored/)           | Editor di contenuti ricchi desktop di prossima generazione che salva documenti con temi HTML & Markdown compatibili. Per Windows, OS X & Linux. |
+| <img src='/images/apps/quickcalc-icon.png' width='50' />           | [quickcalc](https://github.com/Cwoodall6/quickcalc)           | Calcolatrice Menubar                                                                                                                            |
+| <img src='/images/apps/forestpin-analytics-icon.png' width='50' /> | [Analisi Forestpin](http://forestpin.com/analytics)           | Strumento di analisi dei dati finanziari per le imprese                                                                                         |
+| <img src='/images/apps/ling-icon.png' width='50' />                | [Molva](https://github.com/talhasch/ling)                     | Client REST                                                                                                                                     |
+| <img src='/images/apps/shortexts-icon.png' width='50' />           | [Shortexts](http://shortexts.com/)                            | Scorciatoie per i testi che si copiano frequentemente, cartelle ed emoji                                                                        |
+| <img src='/images/apps/front-end-box-icon.png' width='50' />       | [Casella Front-End](http://frontendbox.io)                    | Set di generatori front-end-code                                                                                                                |
 

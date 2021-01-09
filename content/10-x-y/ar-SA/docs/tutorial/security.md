@@ -1,114 +1,109 @@
 # Security, Native Capabilities, and Your Responsibility
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. مواقعنا مُنحت صلاحيات محدودة في صندوق الرمل، ونحن على ثقة بأن مستخدمينا يستمتعون بـ متصفح قام ببناؤه فريق كبير من المهندسين القادرين على الرد بسرعة على التهديدات الأمنية المكتشفة حديثا.
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+عند العمل مع إلكترون، من المهم أن نفهم أن إلكترون ليس متصفح ويب. يسمح لك ببناء تطبيقات سطح المكتب الغنية بالميزة مع تكنولوجيا الويب المألوفة، ولكن التعليمات البرمجية الخاصة بك تمتلك قوة أكبر بكثير. يمكن لـ JavaScript الوصول إلى نظام الملفات، وقصة المستخدم، والمزيد. هذا يسمح لك ببناء تطبيقات محلية عالية الجودة، ولكن حجم المخاطر الأمنية المتأصلة مع الصلاحيات الإضافية الممنوحة للكود الخاص بك.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+وإذ تضع ذلك في اعتبارها، كن على علم بأن عرض المحتوى التعسفي من المصادر غير الموثوق بها يشكل خطرا أمنيا شديدا ليس المقصود من إلكترون التعامل معه. في الواقع، تطبيقات إلكترون الأكثر شعبية (Atom, Slack, Visual Studio Code، إلخ) تعرض المحتوى المحلي في المقام الأول (أو موثوق به، تأمين المحتوى البعيد بدون دمج العقدة - إذا نفذ تطبيقك التعليمات البرمجية من مصدر على الإنترنت، تقع على عاتقك مسؤولية التأكد من أن التعليمات البرمجية ليست خبيثة.
 
 ## الإبلاغ عن المشكلات الأمنية
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+للحصول على معلومات حول كيفية الكشف بشكل صحيح عن ضعف إلكترون، راجع [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## المسائل الأمنية المتعلقة بالكروم وتحديثاته
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+يبقي إلكترون على اطلاع مع إصدارات الكروميوم بالتناوب. للحصول على مزيد من المعلومات، انظر [مشاركة مدونة إصدار الإلكترون Cadence](https://electronjs.org/blog/12-week-cadence).
 
-## Security Is Everyone's Responsibility
+## الأمن هو مسؤولية الجميع
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+من المهم أن نتذكر أن أمان تطبيق إلكترون الخاص بك هو نتيجة الأمان العام للأساس الإطاري (*كروميوم*، *العقدة. s*)، إلكترون نفسه، جميع التبعيات NPM و الرمز الخاص بك. وعلى هذا النحو، تقع على عاتقك مسؤولية اتباع بعض أفضل الممارسات المهمة:
 
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
+* **ابق تطبيقك على اطلاع بأحدث اصدار اطر إلكترون.** عند تحرير المنتج الخاص بك، تقوم أيضا بشحن حزمة مؤلفة من Electron، مكتبة Chromium المشتركة و Node.js. نقاط الضعف التي تؤثر على هذه المكونات قد تؤثر على أمن التطبيق الخاص بك. عن طريق تحديث إلكترون إلى أحدث إصدار ، تأكد من أن نقاط الضعف الحرجة (مثل *تخطي عقد التكامل*) قد تم تصحيحها بالفعل ولا يمكن استغلالها في تطبيقك. للمزيد من المعلومات، أنظر "[استخدم الإصدار الحالي من إلكترون](#17-use-a-current-version-of-electron)".
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **تقييم التبعيات الخاصة بك.** بينما يقدم NPM نصف مليون حزمة قابلة لإعادة الاستخدام، تقع على عاتقك مسؤولية اختيار مكتبات موثوق بها من طرف ثلاثة. إذا كنت تستخدم مكتبات قديمة متأثرة بأوجه ضعف معروفة أو تعتمد على رمز رديء الصيانة، قد يكون أمن التطبيق في خطر.
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **تبني ممارسات البرمجة الآمنة** خط الدفاع الأول لتطبيقك هو الكود الخاص بك. نقاط الضعف الشائعة على الشبكة، مثل سكريبت عبر الموقع، (XSS)، لها تأثير أمان أعلى على تطبيقات إلكترون ومن ثم يوصى بشدة باعتماد أفضل ممارسات تطوير البرمجيات الآمنة وإجراء الاختبارات الأمنية.
 
 
 ## عزل الحتوى غير الموثوق به
 
-A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+توجد مشكلة أمنية عندما تتلقى تعليمة برمجية من مصدر غير موثوق به (على سبيل المثال خادم بعيد) وتقوم بتنفيذها محلياً. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. إذا تمكن مهاجم بطريقة ما من تغيير المحتوى المذكور (إما عن طريق مهاجمة المصدر مباشرة، أو عن طريق الجلوس بين التطبيق الخاص بك ووجهتك الفعلية)، فإنهم سيكونون قادرين على تنفيذ التعليمات البرمجية الأصلية على جهاز المستخدم.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning: لا ينبغي تحت أي ظرف من الظروف تحميل وتنفيذ التعليمات البرمجية البعيدة باستخدام تمكين تكامل Node.js. بدلاً من ذلك، استخدم فقط الملفات المحلية (المجمعة معاً مع التطبيق الخاص بك) لتنفيذ رمز Node.js. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## تحذيرات أمنية إلكترون
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+من إلكترون 2.0 على ذلك، سيشاهد المطورين تحذيرات وتوصيات مطبوعة إلى وحدة المطور. تظهر فقط عندما يكون اسم بيناري هو إلكترون ، يشير إلى أن المطور ينظر حاليا إلى وحدة التحكم.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+يمكنك تمكين أو تعطيل هذه التحذيرات بالقوة عن طريق إعداد `ELECTRON_ENABLE_SECURITY_WARNINGS` أو `ELECTRON_DISABLE_SECURITY_WARNINGS` عن إمّا `. nv` أو `نافذة` كائن.
 
 ## قائمة: التوصيات الأمنية
 
-You should at least follow these steps to improve the security of your application:
+يجب عليك على الأقل متابعة هذه الخطوات لتحسين أمن تطبيقك:
 
-1. [Only load secure content](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-do-not-enable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+1. [تحميل المحتوى الآمن فقط](#1-only-load-secure-content)
+2. [تعطيل دمج Node.js في جميع المعلنين الذين يعرضون المحتوى البعيد](#2-do-not-enable-nodejs-integration-for-remote-content)
+3. [تمكين عزل السياق في جميع مقدمي عرض المحتوى البعيد](#3-enable-context-isolation-for-remote-content)
 4. [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#4-handle-session-permission-requests-from-remote-content)
-5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Do not set `allowRunningInsecureContent` to `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [Do not enable experimental features](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
-14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Disable the `remote` module](#15-disable-the-remote-module)
-16. [Filter the `remote` module](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+5. [لا تقم بتعطيل `webSecurity`](#5-do-not-disable-websecurity)
+6. [تحديد `سياسة المحتوى - الأمن`](#6-define-a-content-security-policy) واستخدام قواعد تقييدية (أي `script-src 'نفسها'`)
+7. [لا تقم بتعيين `allowRunningInSecureContent` إلى `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [لا تقم بتمكين الميزات التجريبية](#8-do-not-enable-experimental-features)
+9. [لا تستخدم `تمكين ميزات Blinks`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: لا تستخدم `سماح المنبثقات`](#10-do-not-use-allowpopups)
+11. [`<webview>`: التحقق من الخيارات والمشاركات](#11-verify-webview-options-before-creation)
+12. [تعطيل التنقل أو الحد منه](#12-disable-or-limit-navigation)
+13. [تعطيل أو تقييد إنشاء نوافذ جديدة](#13-disable-or-limit-creation-of-new-windows)
+14. [لا تستخدم `openExternal` مع محتوى غير موثوق به](#14-do-not-use-openexternal-with-untrusted-content)
+15. [تعطيل وحدة `البعيد`](#15-disable-the-remote-module)
+16. [تصفية وحدة `عن بعد`](#16-filter-the-remote-module)
+17. [استخدام نسخة حالية من إلكترون](#17-use-a-current-version-of-electron)
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+للتشغيل الآلي للكشف عن سوء التكوينات والأنماط غير الآمنة، من الممكن استخدام [التجاوز الإلكتروني](https://github.com/doyensec/electronegativity). للحصول على تفاصيل إضافية عن نقاط الضعف المحتملة وأخطاء التنفيذ عند تطوير التطبيقات باستخدام إلكترون، يرجى الرجوع إلى هذا الدليل [لـ المطورين ومراجعي الحسابات](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
-## 1) Only Load Secure Content
+## 1) تحميل المحتوى الآمن فقط
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+يجب تحميل أي موارد غير مشمولة بتطبيقك باستخدام بروتوكول آمن مثل `HTTPS`. بعبارة أخرى، لا تستخدم بروتوكولات غير آمنة مثل `HTTP`. وبالمثل، نوصي باستخدام `WSS` على `WS`، `FTPS` حول `FTP`، وما إلى ذلك.
 
-### Why?
+### لما؟
 
-`HTTPS` has three main benefits:
+`HTTPS` لديه ثلاث مزايا رئيسية:
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) يقوم بالتصديق على الخادم البعيد، وضمان اتصال التطبيق بالمضيف الصحيح بدلاً من انتحال الشخص. 2) يضمن سلامة البيانات، ويؤكد أن البيانات لم يتم تعديلها أثناء الانتقال بين التطبيق الخاص بك والمضيف. 3) أنها تشفر حركة المرور بين المستخدم الخاص بك والمضيف المقصود، جعله أكثر صعوبة للإسقاط على المعلومات المرسلة بين تطبيقك و المضيف.
 
-### How?
+### كيف؟
 
 ```js
-// Bad
-browserWindow.loadURL('http://example.com')
+// سيئ
+المتصفح Window.loadURL('http://example.com')
 
-// Good
+///Good
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- سيء --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- جيد --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) لا تقم بتمكين تكامل Node.js للمحتوى البعيد
 
-_This recommendation is the default behavior in Electron since 5.0.0._
+_هذه التوصية هي السلوك الافتراضي في إلكترون منذ 5.0.0._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. الهدف هو الحد من الصلاحيات التي تمنحها للمحتوى البعيد، وبالتالي تجعل من الصعب بشكل كبير على المهاجم أن يضر بمستخدميك إذا ما اكتسبوا القدرة على تنفيذ جافا سكريبت على موقع الويب الخاص بك.
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+بعد ذلك، يمكنك منح أذونات إضافية للمضيفين المحددين. على سبيل المثال، إذا كنت تفتح نافذة المتصفح المشار إليها في `https://example. om/`، يمكنك إعطاء هذا الموقع بالضبط القدرات التي يحتاجها، ولكن لا أكثر.
 
-### Why?
+### لما؟
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+هجوم البرنامج النصي عبر الموقع (XSS) يكون أكثر خطورة إذا تمكن المهاجم من القفز من عملية العارض وتنفيذ التعليمات البرمجية على جهاز الكمبيوتر الخاص بالمستخدم. وهجمات الكتابة عبر المواقع شائعة إلى حد ما - وإن كانت مشكلة. قوتهم عادة ما تقتصر على التلاعب بالموقع الذي يتم تنفيذه على الموقع. تعطيل تكامل Node.js يساعد على منع تصعيد XSS إلى هجوم يسمى "تنفيذ التعليمات البرمجية البعيدة".
 
-### How?
+### كيف؟
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
+// سيئ
+const mainWindow = متصفح جديد ({
   webPreferences: {
     nodeIntegration: true,
     nodeIntegrationInWorker: true
@@ -120,149 +115,139 @@ mainWindow.loadURL('https://example.com')
 
 ```js
 // Good
-const mainWindow = new BrowserWindow({
+const mainWindow = New BrowserWindow({
   webPreferences: {
-    preload: path.join(app.getAppPath(), 'preload.js')
+    preload: path.join(app.getAppPath(), 'preload.js'
   }
 })
 
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- سيء --><webview nodeIntegration src="page.html"></webview><!-- جيد --><webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+عند تعطيل دمج Node.js ، لا يزال بإمكانك عرض APIs على موقع الويب الخاص بك الذي يستهلك Node.js الوحدات أو الميزات. لا يزال التحميل المسبق للبرامج النصية الوصول إلى `يتطلب` وعقدة أخرى. s ميزات ، مما يسمح للمطورين بالكشف عن محتوى مخصص API للمحتوى المحمّل عن بعد.
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+في المثال التالي البرنامج النصي للتحميل المسبق، الموقع الذي تم تحميله لاحقاً سيكون لديه الوصول إلى طريقة `window.readConfig()` ولكن لا توجد ميزات Node.js.
 
 ```js
 const { readFileSync } = require('fs')
 
 window.readConfig = function () {
   const data = readFileSync('./config.json')
-  return data
+  إعادة البيانات
 }
 ```
 
 
-## 3) Enable Context Isolation for Remote Content
+## 3) تمكين العزل السياقي للمحتوى البعيد
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+عزل السياق هو ميزة إلكترون التي تسمح للمطورين بتشغيل التعليمات البرمجية في البرامج النصية السابقة التحميل وفي تطبيقات إلكترون APIs في سياق جافا سكريبت مخصص. في الممارسة، هذا يعني أن الكائنات العالمية مثل `Array.prototype. اضغط` أو `JSON.parse` لا يمكن تعديله بواسطة البرامج النصية قيد التشغيل في عملية المعرض.
 
-Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
+يستخدم إلكترون نفس التكنولوجيا مثل برامج كروموم [لمحتوى البرامج البرمجية](https://developer.chrome.com/extensions/content_scripts#execution-environment) لتمكين هذا السلوك.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+حتى عندما تستخدم `تكميل العقدة: خاطئ` لفرض العزلة القوية و منع استخدام بدائيات العقدة ، `يجب أيضا استخدام العزلة السياقية`.
 
-### Why & How?
+### لماذا & كيف؟
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+للحصول على مزيد من المعلومات حول ماهية `العزلة` وكيفية تمكينه يرجى الاطلاع على [وثيقة العزلة السياقية الخاصة بنا](context-isolation.md).
 
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) التعامل مع طلبات إذن الجلسة من المحتوى البعيد
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+API مبني على [أذونات كروميوم API](https://developer.chrome.com/extensions/permissions) وينفذ نفس أنواع الأذونات.
 
-### Why?
+### لما؟
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+بشكل افتراضي، سيوافق إلكترون تلقائياً على جميع طلبات الأذونات ما لم يقوم المطور بتكوين معالج مخصص يدوياً. على الرغم من وجود إفتراضي متين، المطورين الواعين بالأمن قد يريدون أن يفترضوا العكس تماما.
 
-### How?
+### كيف؟
 
 ```js
-const { session } = require('electron')
+const { session } = مطلوبة ('electron')
 
-session
-  .fromPartition('some-partition')
-  .setPermissionRequestHandler((webContents, permission, callback) => {
-    const url = webContents.getURL()
+جلسة
+  .fromPartition('some-section')
+  . etPermissionrequestHandler(webcontents, perauthore, perauthortHandler) => {
+    const url = webcontts. etURL()
 
-    if (permission === 'notifications') {
-      // Approves the permissions request
-      callback(true)
+    if (إذن === 'الإشعارات') {
+      // يوافق على الأذونات المطلوبة
+      الرد (true)
     }
 
-    // Verify URL
-    if (!url.startsWith('https://example.com/')) {
-      // Denies the permissions request
-      return callback(false)
+    // التحقق من عنوان URL
+    إذا (! ر.ل tartsWith('https://example. om/')) {
+      // رفض الإذن بطلب
+      رد المكالمة (alse)
     }
-  })
+})
 ```
 
 
-## 5) Do Not Disable WebSecurity
+## 5) عدم تعطيل أمن الويب
 
-_Recommendation is Electron's default_
+_التوصية هي الافتراضي لـ Electron's_
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+لا تقم بتعطيل `webSecurity` في تطبيقات الإنتاج.
 
-### Why?
+### لما؟
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+سيؤدي تعطيل `webSecurity` إلى تعطيل سياسة نفس الأصل وتعيين `allowRunningInsecure content` إلى `true`. بعبارة أخرى، فإنه يسمح بتنفيذ التعليمات البرمجية غير الآمنة من نطاقات مختلفة.
 
-### How?
+### كيف؟
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+//
+سيئ النوافذ الرئيسية = متصفح جديد ({
+  تفضيلات الويب: {
     webSecurity: false
   }
 })
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+// جيد
+const mainWindow = متصفح جديد()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- سيء --><webview disablewebsecurity src="page.html"></webview><!-- جيد --><webview src="page.html"></webview>
 ```
 
 
-## 6) Define a Content Security Policy
+## 6) تحديد سياسة أمن المحتوى
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+سياسة أمن المحتوى (CSP) هي طبقة حماية إضافية ضد هجمات الكتابة عبر الموقع وهجمات حقن البيانات. نوصي بتمكينهم من خلال أي موقع تحميله داخل إلكترون.
 
-### Why?
+### لما؟
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://example.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
+يسمح CSP للمحتوى الذي يخدم الخادم لتقييد ومراقبة الموارد إلكترون الذي يمكن تحميله لتلك الصفحة المعطاة. `https://example.com` يجب أن يسمح بتحميل البرامج النصية من الأصول التي حددتها بينما البرامج النصية من `https://evil. لا ينبغي السماح لـ ttacker.com` بتشغيل. تعريف CSP هو طريقة سهلة لتحسين أمن التطبيق الخاص بك.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.example.com`.
+سيسمح CSP التالي لإلكترون بتنفيذ البرامج النصية من الموقع الحالي ومن `apis.example.com`.
 
 ```plaintext
-// Bad
-Content-Security-Policy: '*'
+// سيئ
+المحتوى - سياسة الأمن: '*'
 
-// Good
+///Good
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
-### CSP HTTP Header
+### رأس HTTP CSP
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+يحترم إلكترون [`سياسة أمن المحتوى` رأس HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) والذي يمكن تعيينه باستخدام Electron's [`webrequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) المعالج :
 
 ```javascript
 const { session } = require('electron')
 
-session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({
-    responseHeaders: {
-      ...details.responseHeaders,
+session.defaultSession.webrequest. nheadersreceieived(التفاصيل، استرجاع المكالمة) => {
+  رد المكالمة ({
+    الردات: {
+      .details.responseheaders,
       'Content-Security-Policy': ['default-src \'none\'']
     }
   })
@@ -271,282 +256,272 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP Meta Tag
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+آلية التوصيل المفضلة لـ CSP، هي عنوان HTTP، ومع ذلك، ليس من الممكن استخدام هذه الطريقة عند تحميل مورد باستخدام بروتوكول `الملف:/`. يمكن أن يكون مفيدا في بعض الحالات، مثل استخدام ملف `/ /` بروتوكول ، لتعيين سياسة على صفحة مباشرة في العلامة باستخدام وسم `<meta>`:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) لا تقم بتعيين `allowRunningInSecureContent` إلى `true`
 
-_Recommendation is Electron's default_
+_التوصية هي الافتراضي لـ Electron's_
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+بشكل افتراضي، لن يسمح إلكترون لمواقع الويب المحملة فوق `HTTPS` بتحميل و تنفيذ البرامج النصية ، CSS، أو الإضافات من مصادر غير آمنة (`HTTP`). تعيين الخاصية `allowRunningInsecure ureContent` إلى `true` يعطل تلك الحماية.
 
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+تحميل HTML المبدئي لموقع عبر `HTTPS` ومحاولة تحميل موارد لاحقة عبر `HTTP` يعرف أيضًا باسم "محتوى مختلط".
 
-### Why?
+### لما؟
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+تحميل المحتوى عبر `HTTPS` يضمن صحة وسلامة الموارد التي تم تحميلها أثناء تشفير حركة المرور نفسها. راجع القسم على [فقط عرض المحتوى الآمن](#1-only-load-secure-content) لمزيد من التفاصيل.
 
-### How?
+### كيف؟
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+//
+سيئ النوافذ الرئيسية = متصفح جديد ({
+  تفضيلات الويب: {
     allowRunningInsecureContent: true
   }
 })
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// جيد
+const mainWindow = متصفح جديد ({})
 ```
 
 
-## 8) Do Not Enable Experimental Features
+## 8) عدم تمكين الميزات التجريبية
 
-_Recommendation is Electron's default_
+_التوصية هي الافتراضي لـ Electron's_
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+يمكن للمستخدمين المتقدمين في إلكترون تمكين ميزات كروميوم التجريبية باستخدام خاصية `اختبارية`
 
-### Why?
+### لما؟
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+الميزات التجريبية هي، كما يقترح الاسم، تجريبية ولم يتم تمكين لجميع مستخدمي Chromium. علاوة على ذلك، فإن تأثيرها على إلكترون ككل لم يتم اختباره.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+حالات الاستخدام المشروعة موجودة، ولكن ما لم تعرف ما تقوم به، يجب عدم تمكين هذه الخاصية.
 
-### How?
+### كيف؟
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+//
+سيئ النوافذ الرئيسية = متصفح جديد ({
+  تفضيلات الويب: {
     experimentalFeatures: true
   }
 })
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// جيد
+const mainWindow = متصفح جديد ({})
 ```
 
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) لا تستخدم `ميزات تمكين Blinkures`
 
-_Recommendation is Electron's default_
+_التوصية هي الافتراضي لـ Electron's_
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+البوميض هو اسم محرك التقديم خلف كروميوم. كما هو الحال مع `ميزات تجريبية`، خاصية `تمكين ميزات Blinkatures` تسمح للمطورين بـ تمكين الميزات التي تم تعطيلها بشكل افتراضي.
 
-### Why?
+### لما؟
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+بشكل عام، هناك أسباب وجيهة محتملة إذا لم يتم تمكين الميزة بشكل افتراضي. توجد حالات استخدام مشروعة لتمكين خصائص محددة. باعتبارك مطور ، يجب أن تعرف بالضبط لماذا تحتاج إلى تمكين ميزة، ما هي تداعيات وكيف يؤثر ذلك على أمن تطبيقك. تحت لا يجب على أي ظروف تمكين الميزات بشكل مخيف.
 
-### How?
+### كيف؟
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+//
+سيئ النوافذ الرئيسية = متصفح جديد ({
+  تفضيلات الويب: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
   }
 })
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+// جيد
+const mainWindow = متصفح جديد()
 ```
 
 
-## 10) Do Not Use `allowpopups`
+## 10) لا تستخدم `السماح المنبثقات`
 
-_Recommendation is Electron's default_
+_التوصية هي الافتراضي لـ Electron's_
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` العلامات غير مسموح لولا ذلك بإنشاء نوافذ جديدة .
 
-### Why?
+### لما؟
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. هذا يتبع مبدأ الحد الأدنى من الوصول المطلوب: لا تدع الموقع ينشئ نوافذ منبثقة جديدة ما لم تعرف أنه يحتاج إلى هذه الميزة.
 
-### How?
+### كيف؟
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- سيء --><webview allowpopups src="page.html"></webview><!-- جيد --><webview src="page.html"></webview>
 ```
 
 
-## 11) Verify WebView Options Before Creation
+## 11) التحقق من خيارات WebView قبل الإنشاء
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+سيتم إنشاء WebView في عملية إعادة عرض التي لا تحتوي على تكامل Node.js تمكين لن تكون قادرة على تمكين التكامل نفسه. ومع ذلك، فإن WebView سوف دائما ينشئ عملية عرض مستقلة مع `تفضيلات الويب` الخاصة به.
 
 It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
 
-### Why?
+### لما؟
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+منذ `<webview>` يعيش في DOM، يمكن إنشاؤها بواسطة برنامج نصي يعمل على موقع الويب الخاص بك حتى لو كانت العقدة. يتم تعطيل التكامل لولا ذلك.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
+يتيح إلكترون للمطورين تعطيل مختلف ميزات الأمان التي تتحكم في عملية المعرض. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
 
-### How?
+### كيف؟
 
-Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. استخدم الحدث لمنع إنشاء `مشاهدات ويب` مع خيارات محتملة غير آمنة.
 
 ```js
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+المحتويات app.on('web-contents-created'، (الحدث، المحتويات) => {
+  . لا ('will-attach-webview', (الحدث, webPreferenes), Params) => {
+    // قطع البرامج النصية للتحميل المسبق إذا كانت غير مستخدمة أو تحقق من موقعها مشروع
+    حذف تفضيلات الويب. إعادة تحميل
+    حذف تفضيلات الويب. إعادة تحميل URL
 
-    // Disable Node.js integration
-    webPreferences.nodeIntegration = false
+    // تعطيل تكامل Node.js
+    webPreferences. odeintegration = خطأ
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://example.com/')) {
+    //التحقق من عنوان URL الذي يتم تحميله
+    إذا (!params. rc.startsWith('https://example.com/')) {
+      event.preventDefault()
+
+  })
+})
+```
+
+ومرة أخرى، فإن هذه القائمة لا تؤدي إلا إلى التقليل من المخاطر، كما أنها لا تحذفها. إذا كان هدفك هو عرض موقع، فسيكون المتصفح خيارًا أكثر أمانًا.
+
+## 12) تعطيل الملاحة أو الحد منها
+
+إذا كان التطبيق الخاص بك لا يحتاج إلى التنقل أو يحتاج فقط إلى الانتقال إلى الصفحات المعروفة، هي فكرة جيدة للحد من التنقل فوراً إلى هذا النطاق المعروف، وعدم السماح بأي نوع آخر من التنقل.
+
+### لما؟
+
+الملاحة هي ناقل هجوم شائع. إذا كان بإمكان مهاجم أن يقنع تطبيقك بـ التنقل بعيدا عن صفحته الحالية، قد يجبرون تطبيقك على فتح مواقع الويب على الإنترنت. حتى إذا تم تكوين محتويات الويب `الخاصة بك` لتكون أكثر أماناً (مثل وجود `عقد اندماج` معطلة أو `سياق` ممكناً)، جعل التطبيق الخاص بك لفتح موقع ويب عشوائي سيجعل عمل استغلال تطبيق الخاص بك أسهل بكثير.
+
+نمط الهجوم الشائع هو أن المهاجم يقنع مستخدمي تطبيقك بالتفاعل مع التطبيق بطريقة تمكنه من الانتقال إلى إحدى الصفحات للمهاجم. ويتم ذلك عادة عن طريق الروابط، أو الإضافات، أو أي محتوى آخر ينشئه المستخدم.
+
+### كيف؟
+
+If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. إذا كنت تعرف صفحات التطبيق الخاص بك قد ينتقل إلى: تحقق من عنوان URL في معالج الحدث ودع التنقل يحدث فقط إذا كان يتطابق مع عناوين URL التي تتوقعها.
+
+ننصح بأن تستخدم "مركز العقد" لعناوين URLs. يمكن إجراء مقارنات سلاسل بسيطة في بعض الأحيان خداع - `startsWith('https://example.com')` اختبار يسمح `https://example.com.attacker.com` من خلال.
+
+```js
+const URL = مطلوب('url').URL
+
+app.on('web-contents-created', (الحدث, المحتويات) => {
+  . n('سنسح'، (الحدث، الملاحةUrl) => {
+    const parsedUrl = URL(avigationUrl) الجديد
+
+    إذا (parsedUrl. rigin !== 'https://example.com') {
       event.preventDefault()
     }
   })
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+## 13 - تعطيل إنشاء نوافذ جديدة أو الحد منها
 
-## 12) Disable or limit navigation
+إذا كان لديك مجموعة معروفة من النوافذ، فمن الجيد الحد من إنشاء نوافذ إضافية في التطبيق الخاص بك.
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+### لما؟
 
-### Why?
+Much like navigation, the creation of new `webContents` is a common attack vector. يحاول المهاجمون إقناع التطبيق الخاص بك بإنشاء نوافذ جديدة أو إطارات أو أو أي عمليات أخرى من عمليات العارض مع امتيازات أكثر من ذي قبل؛ أو مع فتح صفحات لا يمكن فتحها من قبل.
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+إذا لم تكن بحاجة إلى إنشاء نوافذ بالإضافة إلى النوافذ التي تعرفها فستحتاج إلى إنشائها، تعطيل إنشاء يشتريك القليل من الأمان الإضافي بدون تكلفة. هذه هي عادة الحال بالنسبة للتطبيقات التي تفتح واحدة `نافذة المتصفح` ولا تحتاج إلى فتح عدد اعتباطي من النوافذ الإضافية عند التشغيل.
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+### كيف؟
 
-### How?
-
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
-
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
-
-```js
-const URL = require('url').URL
-
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-navigate', (event, navigationUrl) => {
-    const parsedUrl = new URL(navigationUrl)
-
-    if (parsedUrl.origin !== 'https://example.com') {
-      event.preventDefault()
-    }
-  })
-})
-```
-
-## 13) Disable or limit creation of new windows
-
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
-
-### Why?
-
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
-
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
-
-### How?
-
-[`webContents`][web-contents] will emit the [`new-window`][new-window] event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`][web-contents] will emit the [`new-window`][new-window] event before creating new windows. سيتم تمرير هذا الحدث، ضمن معلمات أخرى ، عنوان url `` المطلوب من النافذة فتحه والخيارات المستخدمة لإنشائه. نوصي بأن تستخدم الحدث لتمحيص إنشاء نوافذ، وتقصره على ما تحتاجه فقط.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+app.on('web-contents-created'، (الحدث، المحتويات) => {
+  المحتويات. n('new-window', async (الحدث, avigationUrl) => {
+    // في هذا المثال سوف نطلب من نظام التشغيل
+    // فتح عنوان URL لهذا الحدث في المتصفح الافتراضي.
     event.preventDefault()
 
-    await shell.openExternal(navigationUrl)
+    انتظار shell.openExternal(navigationUrl)
   })
 })
 ```
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) لا تستخدم `الفتح الخارجي` مع محتوى غير موثوق به
 
-Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. على سبيل المثال macOS هذه الوظيفة مشابهة لجهاز الأوامر الطرفية `المفتوح` وسوف تفتح التطبيق المحدد استناداً إلى رابط URI ونوع الملف.
 
-### Why?
+### لما؟
 
-Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. عند استخدام openExternal مع محتوى غير موثوق به، يمكن استخدام لتنفيذ الأوامر التعسفية.
 
-### How?
+### كيف؟
 
 ```js
-//  Bad
-const { shell } = require('electron')
+//
+سيئة { shell } = مطلوبة ('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 ```js
-//  Good
+// جيد
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Disable the `remote` module
+## 15) تعطيل وحدة `عن بعد`
 
-The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+توفر وحدة `البعيد` طريقة لعمليات المعرض لـ الوصول إلى واجهات برمجة التطبيقات المتاحة عادة في العملية الرئيسية فقط. باستخدامه، المعرض يمكنه استدعاء طرق لعنصر عملية رئيسي دون إرسال رسائل بين العمليات صراحة. إذا كان تطبيق سطح المكتب الخاص بك لا يعمل محتوى غير موثوق به، هذا يمكن أن يكون طريقة مفيدة للحصول على إمكانية الوصول إلى عمليات العارض و العمل مع الوحدات النمطية المتاحة فقط للعملية الرئيسية. مثل وحدات ذات صلة بـ GUI (حوارات، قوائم، إلخ).
 
-However, if your app can run untrusted content and even if you [sandbox][sandbox] your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+However, if your app can run untrusted content and even if you [sandbox][sandbox] your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. لذلك، يجب أن يكون معطلا في مثل هذه الظروف.
 
-### Why?
+### لما؟
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`البعيد` يستخدم قناة IPC الداخلية للتواصل مع العملية الرئيسية. هجمات "نموذج التلوث" يمكن أن تمنح الوصول إلى التعليمات البرمجية الضارة إلى قناة IPC الداخلية ، والذي يمكن استخدامه بعد ذلك للهروب من صندوق الرمل عن طريق محاكاة `البعيد` رسائل IPC والوصول إلى وحدات العمليات الرئيسية التي تعمل مع امتيازات أعلى .
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+بالإضافة إلى ذلك، من الممكن تحميل البرامج النصية مسبقاً إلى وحدات تسرب عن طريق الخطأ إلى عارض مربع رملي. تسريب `` رمز خبيث للأسلحة مع عدد كبير من وحدات العمليات الرئيسية للقيام بالهجوم.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+تعطيل وحدة `البعيد` يزيل ناقلات الهجوم هذه. تمكين عزل السياق يمنع أيضًا هجمات "النموذج الأولي" من بنجاح.
 
-### How?
+### كيف؟
 
 ```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+// سيئ إذا كان المعرض يستطيع تشغيل محتوى غير موثوق به
+مشغل mainWindow = متصفح جديد ({})
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({
+// جيد
+const mainWindow = متصفح جديد Window({
   webPreferences: {
     enableRemoteModule: false
   }
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- سيئ إذا كان المعرض يستطيع تشغيل محتوى غير موثوق به --><webview src="page.html"></webview><!-- جيد --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+## 16) تصفية وحدة `البعيد`
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+إذا لم تستطع تعطيل وحدة `عن بعد` ، يجب عليك تصفية الكومبيت, العقدة, و وحدات إلكترون (ما يسمى بوحدات مدمجة) يمكن الوصول إليها عن طريق `عن بعد` التي لا يحتاج إليها تطبيقك. يمكن القيام بذلك عن طريق حظر وحدات معينة بالكامل وعن طريق استبدال وحدات أخرى بوكلاء يعرضون فقط الوظيفة التي يحتاج إليها تطبيقك.
 
-### Why?
+### لما؟
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+ونظرا لامتيازات الدخول إلى النظام في العملية الرئيسية، الوظيفة التي توفرها وحدات العملية الرئيسية قد تكون خطيرة في أيدي التعليمات البرمجية الخبيثة التي تعمل في عملية عرض معرضة للخطر. من خلال الحد من مجموعة الوحدات التي يمكن الوصول إليها إلى الحد الأدنى الذي يحتاج إليه تطبيقك و تصفية الآخرين، يمكنك تقليل مجموعة الأدوات التي يمكن أن يستخدمها الرمز الخبيث لمهاجمة النظام.
 
-Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+لاحظ أن الخيار الأكثر أمنا هو [تعطيل الوحدة النمطية عن بعد](#15-disable-the-remote-module) بالكامل. إذا اخترت تصفية الوصول بدلاً من تعطيل الوحدة تمامًا، يجب أن تكون حذرا جدا للتأكد من أنه لا يوجد تصعيد للامتيازات ممكن من خلال الوحدات التي تسمح بتجاوز عامل التصفية.
 
-### How?
+### كيف؟
 
 ```js
 const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
@@ -586,15 +561,15 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) استخدام نسخة حالية من إلكترون
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+يجب عليك أن تسعى دائما إلى استخدام أحدث إصدار متاح من إلكترون. كلما تم إصدار نسخة رئيسية جديدة، يجب عليك محاولة تحديث تطبيق الخاص بك في أسرع وقت ممكن.
 
-### Why?
+### لما؟
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+تم بناء تطبيق مع نسخة قديمة من إلكترون وكروميوم والعقدة. s هدف أسهل من التطبيق الذي يستخدم إصدارات أحدث من هذه المكونات. بشكل عام، مشاكل الأمن واستغلال الإصدارات القديمة من Chromium و Node.js متوفرة على نطاق أوسع.
 
-Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+كل من Chromium و Node.js هي ميزات مثيرة للإعجاب للهندسة بنيت بواسطة آلاف المطورين الموهوبين. ونظرا لشعبيتهم، فإن أمنهم يتم اختباره بعناية وتحليله من قبل باحثين أمنيين متساويين في المهارة. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. سيكون تطبيقك أكثر أمنا إذا كان يقوم بتشغيل إصدار حديث من إلكترون (ومن ثم الكروميوم والعقدة). ) لـ أي مشاكل أمنية محتملة ليست معروفة على نطاق واسع.
 
 
 [browser-window]: ../api/browser-window.md

@@ -1,26 +1,26 @@
 ---
-title: Touch Bar Support
+title: Supporto Touch Bar
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta release contains initial support for the macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+La versione beta di Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) contiene il supporto iniziale per macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
 
 ---
 
-The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
+La nuova API Touch Bar consente di aggiungere pulsanti, etichette, popover, selezioni di colore , cursori e distanziatori. Questi elementi possono essere aggiornati dinamicamente e emettono anche eventi quando sono interagiti.
 
-This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
+Questa è la prima versione di questa API quindi si evolverà nelle prossime versioni di Electron. Si prega di controllare le note di rilascio per ulteriori aggiornamenti e aprire [problemi](https://github.com/electron/electron/issues) per eventuali problemi o funzionalità mancanti.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+È possibile installare questa versione tramite `npm install electron@beta` e saperne di più su di essa nelle [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) e [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Documenti di Electron.
 
-Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. Evento:
+Un grande ringraziamento a [@MarshallOfSound](https://github.com/MarshallOfSound) per aver contribuito questo a Electron. Evento:
 
-## Touch Bar Example
+## Esempio Di Touch Bar
 
 ![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
+Di seguito è riportato un esempio di creazione di un semplice gioco di slot machine nel touch bar. Dimostra come creare una barra di tocco, stile degli elementi, associarli a una finestra , gestire il pulsante fare clic sugli eventi e aggiornare le etichette dinamicamente.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -40,28 +40,28 @@ const result = new TouchBarLabel()
 // Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
-  backgroundColor: '#7851A9',
+  sfondoColore: '#7851A9',
   click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+    // Ignora clic se giÃ filando
+    se (filatura) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    filatura = vero
+    risultato. abel = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    const spinLunghezza = 4 * 1000 // 4 secondi
+    const startTime = data. ow()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now() - startTime) >= spinLength) {
+      if ((Date. ow() - startTime) >= spinLength) {
         finishSpin()
       } else {
         // Slow down a bit on each spin
-        timeout *= 1.1
+        timeout *= 1.
         setTimeout(spinReels, timeout)
       }
     }
@@ -72,29 +72,29 @@ const spin = new TouchBarButton({
 
 const getRandomValue = () => {
   const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  valori restituiti[Matematica. loor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel3. abel = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
+  const uniqueValues = new Set([reel1. abel, reel2.label, reel3.label]). ize
   if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
+    // Tutti i 3 valori sono gli stessi
+    risultati. abel = '💰 Jackpot!'
+    risultato. extColor = '#FDFF00'
   } else if (uniqueValues === 2) {
     // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
+    resultate. abel = '😍 Vincitore!'
+    risultato. extColor = '#FDFF00'
   } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+    // Nessun valore è lo stesso
+    risultato. abel = '🙁 Spin again'
+    risultato. extColor = null
   }
   spinning = false
 }
@@ -107,21 +107,21 @@ const touchBar = new TouchBar([
   reel2,
   new TouchBarSpacer({size: 'small'}),
   reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
+  nuovo TouchBarSpacer({size: 'large'}),
+  risultato
 ])
 
 let window
 
-app.once('ready', () => {
+app. nce('ready', () => {
   window = new BrowserWindow({
     frame: false,
-    titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+    titoloBarStile: 'hidden-inset',
+    larghezza: 200,
+    altezza: 200,
+    backgroundColore: '#000'
   })
-  window.loadURL('about:blank')
+  finestra. oadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```

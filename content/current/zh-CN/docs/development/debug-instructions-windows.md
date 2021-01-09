@@ -34,7 +34,7 @@ Relevant code files can be found in `./shell/`.
 
 ### 我应该附加哪个进程?
 
-在主进程内部执行的代码(即在主 JavaScript 文件中找到或最终运行的代码)以及使用远程代码调用的代码(`require('electron').remote`)将在主进程内运行，而其他代码将在其相应的渲染器进程内执行。
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 您可以在调试时附加到多个程序，但在任何时候只有一个程序在调试器中处于活动状态。 您可以在 `调试位置` 工具栏或 `进程窗口` 中设置活动程序。
 

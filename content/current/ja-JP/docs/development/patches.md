@@ -41,6 +41,7 @@ patches
 ### 使い方
 
 #### 新しいパッチの追加
+
 ```bash
 $ cd src/third_party/electron_node
 $ vim some/code/file.cc
@@ -53,6 +54,7 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 これは一般に無害であり、無視することができます (ただし、これらの変更を PR に追加しても他の人には見えません)。
 
 #### 既存のパッチを編集する
+
 ```bash
 $ cd src/v8
 $ vim some/code/file.cc
@@ -64,6 +66,7 @@ $ ../electron/script/git-export-patches -o ../electron/patches/v8
 ```
 
 #### パッチを削除する
+
 ```bash
 $ vim src/electron/patches/node/.patches
 # 削除するパッチ名の行を削除します
@@ -76,6 +79,7 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 注意として、`git-import-patches` は `refs/patches/upstream-head` として実行されたときに `HEAD` だったコミットをマークします。 これにより、Electron パッチからのコミット (`refs/patches/upstream-head` の後にあるコミット) と上流にあるコミット (`refs/patches/upstream-head` の前にあるコミット) を追跡できます。
 
 #### コンフリクトの解決
+
 上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 多くの場合、3 ウェイマージを使用して git で競合を自動的に解決できます。 `-3` の引数を渡すことで、3 ウェイマージアルゴリズムを使用するように `git-import-patches` に指示できます。
 
 ```bash

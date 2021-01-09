@@ -1,24 +1,46 @@
 # Barre de progression dans la barre des tâches (Windows, macOS, Unity)
 
-Sous Windows, un bouton de la barre des tâches peut être utilisé pour afficher une barre de progression. Cela permet à une fenêtre de fournir des informations de progression à l'utilisateur sans qu'il soit nécessaire de passer à la fenêtre elle-même.
+## Vue d'ensemble
+
+Une barre de progression permet à une fenêtre de fournir une informations à l'utilisateur sur la progression sans avoir besoin de basculer sur cette même fenêtre.
+
+Sous Windows, vous pouvez utiliser un bouton de la barre des tâches pour afficher une barre de progression.
+
+![Barre de progression sous Windows](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du dock.
 
-Le Unity DE possède également une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
+![Barre de progression sous macOS](../images/macos-progress-bar.png)
 
-__Barre de progression dans le bouton de la barre des tâches :__
+Sur Linux, l’interface graphique Unity dispose également d’une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
 
-![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Barre de progression sous Linux](../images/linux-progress-bar.png)
 
-Les trois cas sont couverts par la même API - la méthode `setProgressBar()` disponible sur les instances de `BrowserWindows`. Appelez-la avec un numéro entre `0` et `1` pour indiquer votre progression. Si vous avez une longue tâche qui est actuellement à 63% en finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
+> REMARQUE : sur Windows, chaque fenêtre peut avoir sa propre barre de progression, tandis que sur macOS et Linux (Unity) il ne peut y avoir qu’une seule barre de progression pour l’application.
 
-D'une manière générale, régler le paramètre sur une valeur inférieure à zéro (comme `-1`) supprimera la barre de progression, alors qu'en réglant sur une valeur supérieure à un (comme `2`) cela basculera la barre de progression dans un mode intermédiaire.
+----
 
-Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress).
+Les trois cas sont couverts par la même API - la méthode [`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) disponible sur une instance de `BrowserWindows`. Pour indiquer l'état de la progression vous devez appeler cette méthode avec un nombre entre `0` et `1`. Par exemple: Si vous avez une tâche qui dure relativement longtemps et qui est en est actuellement à 63% avant sa finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
 
-```javascript
+Toute valeur négative (par ex. `-1`) supprimera la barre de progression alors qu'une valeur supérieures à `1` (e. . `2`) basculera la barre de progression en mode indéterminée (sauf pour Windows où elle plafonnera à 100 %). Dans ce mode, une barre de progression reste active mais n'affiche pas le pourcentage réel. Utilisez ce mode lorsque vous ne savez pas combien de temps prendra une opération pour s'effectuer.
+
+Voir la [documentation API pour plus d'options et de modes](../api/browser-window.md#winsetprogressbarprogress-options).
+
+## Exemple
+
+Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
+
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
 win.setProgressBar(0.5)
 ```
+
+Après avoir lancé l'application Electron, vous devriez voir la barre dans le dock (macOS) ou la barre des tâches (Windows ou sous Unity) qui indique le pourcentage de progression défini précédemment.
+
+![Barre de progression du dock macOS](../images/dock-progress-bar.png)
+
+Pour macOS, la barre de progression de votre application sera également indiquée lors de l'utilisation de [Mission Control](https://support.apple.com/en-us/HT204100):
+
+![Barre de progression avec Mission Control](../images/mission-control-progress-bar.png)

@@ -2,7 +2,7 @@
 
 > デフォルトのアプリケーションを使用してファイルと URL を管理します。
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process) (非サンドボックス時のみ)
 
 `shell` モジュールは、デスクトップの統合に関する機能を提供します。
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+**注:** `shell` モジュールはレンダラープロセスで使用できますが、サンドボックス化されたレンダラーでは機能しません。
 
 ## メソッド
 
@@ -24,13 +24,13 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+指定したファイルをファイルマネージャに表示します。 可能であれば、ファイルを選択します。
 
 ### `shell.openPath(path)`
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+戻り値 `Promise<String>` - 障害が発生した場合、その障害に対応するエラーメッセージを含む文字列で解決します。それ以外では "" になります。
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
@@ -38,17 +38,17 @@ Returns `Promise<String>` - Resolves with an string containing the error message
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 省略値は `true` です。
+  * `activate` Boolean (任意) _macOS_ - `true` で開いたアプリケーションを前面に表示します。 省略値は `true` です。
   * `workingDirectory` String (任意) _Windows_ - 作業ディレクトリ。
 
 戻り値 `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+指定した外部プロトコルの URL をデスクトップ既定の方法で開きます。 (例えば、mailto: の URL はユーザのデフォルトのメールエージェントになります)。
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。 _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 
@@ -61,7 +61,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
+* `operation` String (任意) - 省略値は `create` で、以下の値のいずれかにできます。
   * `create` - 新しいショートカットを作成し、必要であれば上書きします。
   * `update` - 既にあるショートカットのみを、指定したプロパティで更新します。
   * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。

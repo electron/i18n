@@ -43,7 +43,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## روش ها
+## Methods
 
 The `protocol` module has the following methods:
 

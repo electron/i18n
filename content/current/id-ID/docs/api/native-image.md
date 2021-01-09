@@ -112,15 +112,24 @@ Mengembalikan ` gambar asli </ 0></p>
 
 
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
+
+
 ### `nativeImage.createFromPath(jalur)`
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Mengembalikan <code> gambar asli </ 0></p>
+Mengembalikan ` gambar asli </ 0></p>
 
-<p spaces-before="0">Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.</p> 
-  
+<p spaces-before="0">Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.
+
+
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -139,6 +148,7 @@ console.log(image)
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
 <li><code>faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Creates a new <code>NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
@@ -152,6 +162,7 @@ Mengembalikan ` gambar asli </ 0></p>
     * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Membuat contoh<code>gambar baru` baru dari `penyangga`. Tries to decode as PNG or JPEG first.
@@ -161,6 +172,7 @@ Mengembalikan ` gambar asli </ 0></p>
 ### `gambar asli.buatdaridataURL(dataURL)`
 
 * ` dataURL ` tali
+
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
@@ -171,6 +183,7 @@ Mengembalikan ` gambar asli </ 0></p>
 
 * `imageName` String
 * `hslShift` Number[] (optional)
+
 Mengembalikan ` gambar asli </ 0></p>
 
 <p spaces-before="0">Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
@@ -182,6 +195,7 @@ The `hslShift` is applied to the image with the following rules:
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
 
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
 In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
@@ -202,7 +216,7 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 
 
-### Metode Instance
+### Методы экземпляра
 
 Metode berikut tersedia pada contoh kelas ` Gambar asli`:
 
@@ -212,6 +226,7 @@ Metode berikut tersedia pada contoh kelas ` Gambar asli`:
 
 * `options` Object (optional) 
     * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
 Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
 
 <h4 spaces-before="0"><code>image.toJPEG(quality)`</h4> 
@@ -265,9 +280,13 @@ Returns `Boolean` - Whether the image is empty.
 
 
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Mengembalikan [`Ukuran`](structures/size.md)
+* `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan [`Ukuran`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 
 
@@ -310,23 +329,33 @@ to be mapped to the same algorithm on a given platform.</li>
 
 <p spaces-before="0">Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
-<h4 spaces-before="0"><code>image.getAspectRatio()`</h4> 
-    Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+<h4 spaces-before="0"><code>image.getAspectRatio([scaleFactor])`</h4> 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
-<h4 spaces-before="0"><code>image.addRepresentation(options)`</h4> 
-    
-    * `options` Object 
+<p spaces-before="0">If <code>scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+
+
+
+#### `image.addRepresentation(options)`
+
+* `options` Object 
     * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (opsional) - Default ke 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Default ke 0. Required if a bitmap buffer is specified as `buffer`.
   * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
-
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 
 
-### Contoh properti
+### Instance Properties
 
 
 

@@ -112,9 +112,9 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ## 문제 해결
 
-`npm install electron`을 실행할 때, 어떤 사용자에게는 가끔 설치 오류가 발생합니다.
+`npm install electron`을 실행하면 일부 사용자는 설치 오류가 발생할 수 있습니다.
 
-대부분의 경우에는, 이 오류는 네트웍 문제로 인한 것이고 `electron` npm 패키지 자체의 오류는 아닙니다. `ELIFECYCLE`나 `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` 같은 오류는 이런 네트웍 문제임을 나타냅니다. 최선의 방법은 네트웍을 전환하거나 잠시 기다린 후에 다시 설치를 시도하는 것입니다.
+거의 모든 경우, 이러한 오류들은 네트워크 문제의 결과이고 `electron` npm package의 문제가 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 및 `ETIMEDOUT`과 같은 오류는 모두 네트워크 문제를 나타냅니다. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
 
 You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 

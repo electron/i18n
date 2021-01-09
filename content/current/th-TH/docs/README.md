@@ -10,29 +10,22 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## แนะนำและบทความสอน
 
-* [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md)
-  * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
-  * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
-  * [การติดตั้งบน Linux](tutorial/development-environment.md#setting-up-linux)
-  * [วิธีการเลือกเครื่องมือที่ใช้พัฒนา](tutorial/development-environment.md#a-good-editor)
-* [สร้างแอพแรกของคุณ](tutorial/first-app.md)
-  * [วิธีการติดตั้ง Electron](tutorial/first-app.md#installing-electron)
-  * [ทำความรู้จักการพัฒนา Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [เริ่มต้นแอพของคุณ](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
-  * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-ลืม](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-สร้าง](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-สำเร็จรูป](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [เครื่องมือและแผ่นข้อมูลอื่น ๆ](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [โครงสร้างของแอพพลิเคชั่น](tutorial/application-architecture.md)
-  * [ขั้นตอนหลักและขั้นตอนการเรนเดอร์](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [วิธีการใช้อินเตอร์เฟสของ Electron](tutorial/application-architecture.md#using-electron-apis)
-  * [วิธีการใช้อินเตอร์เฟสของ Node.js](tutorial/application-architecture.md#using-nodejs-apis)
-  * [วิธีการใช้เนทีฟโมดูลของ Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+### Quickstart
+
+* [Quick Start Guide](tutorial/quick-start.md)
+  * [ข้อกำหนดเบื้องต้น](tutorial/quick-start.md#prerequisites)
+  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
+  * [Run your application](tutorial/quick-start.md#run-your-application)
+  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Learning the basics
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [ขั้นตอนหลักและขั้นตอนการเรนเดอร์](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * การเพิ่มฟีสเจอร์บนแอพของคุณ
-  * [การแจ้งเตือน](tutorial/notifications.md)
+  * [Notifications](tutorial/notifications.md)
   * [บทความปัจจุบัน](tutorial/recent-documents.md)
   * [ความคืบหน้าการแปลภาษา](tutorial/progress-bar.md)
   * [เมนู Dock แบบกำหนดเอง](tutorial/macos-dock.md)
@@ -40,18 +33,29 @@ There are questions that are asked quite often. Check this out before creating a
   * [การกระทำที่กำหนดเองบนเดสก์ทอป Linux](tutorial/linux-desktop-actions.md)
   * [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
   * [ออฟไลน์ / ออนไลน์ ตรวจสอบ](tutorial/online-offline-events.md)
-  * [ไฟล์ที่แสดงสำหรับ macOS Browser Windows](tutorial/represented-file.md)
-  * [เนทิฟไฟล์  ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
-  * [O](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [การเข้าถึง](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
+* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md)
+  * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-ลืม](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-สร้าง](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-สำเร็จรูป](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [เครื่องมือและแผ่นข้อมูลอื่น ๆ](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* โครงสร้างของแอพพลิเคชั่น
+  * [วิธีการใช้เนทีฟโมดูลของ Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
+* [Accessibility](tutorial/accessibility.md)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [การทดสอบและการดีบัก](tutorial/application-debugging.md)
-  * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Codeo](tutorial/debugging-main-process-vscode.md)
+  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
@@ -62,11 +66,6 @@ There are questions that are asked quite often. Check this out before creating a
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [ความปลอดภัย](tutorial/security.md)
-  * [รายงานปัญหาด้านความปลอดภัย](tutorial/security.md#reporting-security-issues)
-  * [รายงานปัญหาด้านความปลอดภัยของ Chromium และการอัพเกรต](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [การแจ้งเตือนความปลอดภัยสำหรับ Electron](tutorial/security.md#electron-security-warnings)
-  * [รายการความปลอดภัย](tutorial/security.md#checklist-security-recommendations)
 * [อัพเดต](tutorial/updates.md)
   * [การติดตั้งบนเซิร์ฟเวอร์ที่มีการอัพเดต](tutorial/updates.md#deploying-an-update-server)
   * [วิธีการอัพเดตแอพของคุณ](tutorial/updates.md#implementing-updates-in-your-app)
@@ -84,13 +83,7 @@ There are questions that are asked quite often. Check this out before creating a
 * Versiones Electron & Comentarios de desarrollador
   * [Versiebeleidid](tutorial/electron-versioning.md)
   * [Calendrier de release9996](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
-  * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
-  * [ข้อจำกัด](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -108,8 +101,8 @@ There are questions that are asked quite often. Check this out before creating a
 ### องค์ประกอบที่กำหนดเอง (Automatic Translation)
 
 * [ออบเจค `File`](api/file-object.md)
-* [Tag `<webview>`](api/webview-tag.md)
-* [Funkcja `window.open`](api/window-open.md)
+* [`<webview>` Tag](api/webview-tag.md)
+* [ฟังก์ชัน `window.open`](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### โมดูลสำหรับกระบวนการหลัก:
@@ -119,16 +112,17 @@ There are questions that are asked quite often. Check this out before creating a
 * [มุมมองเบราว์เซอร์](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [กล่องโต้ตอบ](api/dialog.md)
+* [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ในการซื้อแอป](api/in-app-purchase.md)
-* [ipc หลัก](api/ipc-main.md)
+* [ipcMain](api/ipc-main.md)
 * [เมนู](api/menu.md)
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
 * [netLog](api/net-log.md)
-* [Pemberitahuan](api/notification.md)
-* [powerMonitor](api/power-monitor.md)
+* [nativeTheme](api/native-theme.md)
+* [การแจ้งเตือน](api/notification.md)
+* [พลังงานจอภาพ](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
 * [หน้าจอ](api/screen.md)
@@ -137,13 +131,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [TouchBar](api/touch-bar.md)
 * [ถาด](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 
-* [เดสก์ท็อปจับภาพ](api/desktop-capturer.md)
-* [ipc โหมดแสดงภาพ](api/ipc-renderer.md)
+* [desktopCapturer](api/desktop-capturer.md)
+* [ipcRenderer](api/ipc-renderer.md)
 * [ระยะไกล](api/remote.md)
-* [เว็บเฟรม](api/web-frame.md)
+* [webFrame](api/web-frame.md)
 
 ### โมดูลสำหรับกระบวนการทั้งสอง:
 

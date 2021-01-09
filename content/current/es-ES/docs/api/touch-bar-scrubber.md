@@ -4,7 +4,7 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `Nuevo depurador de la barra táctil(opciones)` _Experimental_
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar.

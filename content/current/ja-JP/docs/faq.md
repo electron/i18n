@@ -12,7 +12,7 @@
 
 Electron 内の Chrome のバージョンは、通常であれば新しい Chrome の安定バージョンがリリースされてから 1 ~ 2 週間以内に更新します。 この期間というのは保証されておらず、バージョンアップの作業量にも依存します。
 
-Chrome の安定版のみを使用します。 重要な修正が beta や dev 版にある場合、それをバックポートします。
+Only the stable channel of Chrome is used. إذا كان إصلاح مهم في قناة بيتا أو ديف ، سنقوم بعودة المنبور.
 
 より詳しい情報は、[セキュリティについて](tutorial/security.md) を参照してください。
 
@@ -102,7 +102,7 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 ## フォントがぼやけます。これはどういうものでどうすればいいのですか?
 
-[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
+[サブピクセルアンチエイリアス](https://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
 ![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
 

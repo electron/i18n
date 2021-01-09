@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Certaines questions sont souvent posées. Vérifiez ceci avant de créer un problème :
 
 * [FAQ Electron](faq.md)
 
@@ -18,7 +18,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Créer votre première App](tutorial/first-app.md)
   * [Installer Electron](tutorial/first-app.md#installing-electron)
   * [Le développement avec Electron en résumé](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Lancer votre App](tutorial/first-app.md#running-your-app)
+  * [Lancer votre Application](tutorial/first-app.md#running-your-app)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -42,15 +42,15 @@ There are questions that are asked quite often. Check this out before creating a
   * [Détection en ligne/hors ligne](tutorial/online-offline-events.md)
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
-  * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
+  * [Rendu Offscreen](tutorial/offscreen-rendering.md)
   * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Les web embeds dans Electron](tutorial/web-embeds.md)
+  * [Intégrer le Web dans Electron](tutorial/web-embeds.md)
 * [Accessibilité](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activer l'accessibilité](tutorial/accessibility.md#enabling-accessibility)
 * [Test et débogage](tutorial/application-debugging.md)
-  * [Débogguer le Main Process](tutorial/debugging-main-process.md)
+  * [Débogguer le Processus Principal](tutorial/debugging-main-process.md)
   * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -70,7 +70,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Mises à jour](tutorial/updates.md)
   * [Déploiement d’un serveur de mise à jour](tutorial/updates.md#deploying-an-update-server)
   * [Implémentation des mises à jour dans votre application](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Appliquer les mises à jour](tutorial/updates.md#applying-updates)
+  * [Application des mises à jour](tutorial/updates.md#applying-updates)
 * [Obtenir de l'aide](tutorial/support.md)
 
 ## Tutoriels détaillés
@@ -85,11 +85,11 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Calendrier de release99](tutorial/electron-timelines.md)
   * [Programme de feedback](tutorial/app-feedback-program.md)
-* [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md)
-  * [Génerer des archives asar](tutorial/application-packaging.md#generating-asar-archives)
+* [Packaging du code source de l'App avec asar](tutorial/application-packaging.md)
+  * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Ajouter des fichiers non empaquetés dans des archives asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Ajouter des fichiers non empaquetés dans une archive asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
 * [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
@@ -108,7 +108,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ### Éléments DOM Personnalisé :
 
-* [Objet `File`](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)

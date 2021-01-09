@@ -10,7 +10,7 @@ NW.js では、アプリケーションのメインエントリポイントを H
 
 Electron では、エントリポイントは常に JavaScript スクリプトです。 URL を直接指定するのではなく、手動でブラウザウィンドウを作成し、API で HTML ファイルをロードします。 アプリケーションを終了するタイミングを決めるため、ウインドウイベントを監視する必要もあります。
 
-Electron は Node.js ランタイムのように動作します。 Electron の API はローレベルなので、[PhantomJS](http://phantomjs.org/) 代わりのブラウザテストに使うことができます。
+Electron は Node.js ランタイムのように動作します。 Electron の API はローレベルなので、[PhantomJS](https://phantomjs.org/) 代わりのブラウザテストに使うことができます。
 
 ## 2) Node インテグレーション
 

@@ -21,12 +21,12 @@ Debugging des Main-Prozess ist etwas schwieriger, denn du kannst die Developer T
 
 Für weitere Informationen, ließ einfach die [Debugging des Main-Prozess](./debugging-main-process.md) Dokumentation.
 
-## V8 Crashes
+## V8 Abstürze
 
-If the V8 context crashes, the DevTools will display this message.
+Wenn der V8-Kontext abstützen sollte, wird folgende Nachricht in DevTools angezeigt:
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`DevTools wurde von der Seite getrennt. Sobald die Seite neu geladen ist, wird DevTools die Verbindung wiederherstellen.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Chromium Logs können durch das Einstellen der Umgebungsvariabel `ELECTRON_ENABLE_LOGGING` aktiviert werden. Weitere Informationen könenn in der [Dokumentation zu den Umgebungsvariablen](../api/environment-variables.md#electron_enable_logging) gefunden werden.
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Alternativ kann dies aber auch durch das Argument `--enable-logging` im Terminal aktiviert werden. Weitere Informationen hierzu kann in der [Dokumentation der Konsolen-Argumente](../api/command-line-switches.md#--enable-logging) gefunden werden.

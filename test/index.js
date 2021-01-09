@@ -447,8 +447,8 @@ describe('i18n.navs', () => {
 
   it('has the required sidebar nav content for tutorials', () => {
     const value = i18n.navs['en-US']
-    value.should.contain('<a href="/docs/tutorial/development-environment"')
-    value.should.contain('Setting up the Development Environment')
+    value.should.contain('<a href="/docs/tutorial/quick-start"')
+    value.should.contain('Quick Start Guide')
   })
 })
 

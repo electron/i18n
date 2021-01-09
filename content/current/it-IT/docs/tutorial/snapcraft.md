@@ -10,13 +10,7 @@ Ci sono tre modi per creare un file `.snap`:
 
 1) Usando [`forgia-electron`](https://github.com/electron-userland/electron-forge) o [`builder-electron`](https://github.com/electron-userland/electron-builder), entrambi strumenti con supporto `snap` fuori dalla scatola. Questa è l'opzione più facile. 2) Usando `electron-istallatore-snap`, che prende l'output dell'`electron-impacchettatore`. 3) Usando un pacchetto `.deb` preesistente.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-Mentre _è possibile_ installare `snapcraft` su macOS usando Homebrew, non è possibile costruire pacchetti `snap` ed è focalizzato su pacchetti gestionali nel negozio.
+In alcuni casi, dovrai avere lo strumento `snapcraft` installato. Le istruzioni per installare `snapcraft` per la tua particolare distribuzione sono disponibili [qui](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Usando `electron-installatore-snap`
 
@@ -28,7 +22,7 @@ npm install --save-dev electron-installer-snap
 
 ### Fase 1: Impacchetta La Tua App Electron
 
-Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/electron-packager) (o uno strumento simile). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/electron-packager) (o uno strumento simile). Assicurati di rimuovere `node_modules` che non necessiti nella tua applicazione finale, poiché ogni modulo che non ti serve realmente aumenterà le dimensioni della tua applicazione.
 
 L'output dovrebbe sembrare questo:
 
@@ -66,6 +60,78 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
 ## Usando un Pacchetto Debian Esistente
 
 Snapcraft può prendere un file `.deb` e trasformarlo in uno `.snap`. La creazione di uno snap è configurata usando un file `snapcraft.yaml` che descrive la fonte, le dipendenze, la descrizione ed altri blocchi costruttivi essenziali.
@@ -76,7 +142,7 @@ Se non hai già un pacchetto `.deb`, usando `electron-installatore-snap` potrebb
 
 ### Fase 2: Crea uno snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Per ulteriori informazioni sulle opzioni di configurazione disponibili, vedi la [documentazione sulla sintassi di snapcraft](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
 nome: miaApp

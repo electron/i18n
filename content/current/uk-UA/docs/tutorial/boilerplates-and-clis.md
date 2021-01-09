@@ -1,35 +1,35 @@
 # Шаблони Коду та CLI
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Розробка Electron є ненаписаною - для розробки не існує "один істинний шлях", збирати, упаковку чи випустити застосунок на Electron. Додаткові можливості для Electron, обидва для збірки та під час виконання, зазвичай можна знайти на [npm](https://www.npmjs.com/search?q=electron) в окремих пакетах, дозволяти розробникам будувати як програму, так і будувати конвеєр.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Цей рівень модулярності і розширення гарантує, що всі розробники працюють з Electron, як великий, так і малий у обсязі команди, ніколи не обмежуються тим, що вони можуть або не можуть робити в будь-який час під час свого життєвого циклу розробки. Тим не менш, для багатьох розробників, один з бойлери або командний рядок може значно полегшити компіляцію, пакунок і вивільніть додаток .
 
 ## Шаблони Коду vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Паросток бойлера, це тільки початкова точка - полотно, так щоб озвучуватись: з якої ви створюєте свій додаток. Зазвичай вони приходять у вигляді репозиторію, який ви можете клонувати і налаштувати налаштування вашого серця.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Інструмент командного рядка з іншого боку продовжує підтримувати вас протягом розробки і релізу. Вони є більш корисними та підтримуючими, але застосовують рекомендації щодо того, як код потрібно структурувати та будувати. *Особливо для початківців, використовуючи інструмент командного рядка, ймовірно, буде корисним*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Це "повний інструмент для створення сучасних програм Electron". Electron Forge об'єднує існуючі (і добре підтримуються) конструкційні інструменти для розробки Electron в згуртований пакет, так щоб кожен міг перейти прямо до розробки Electron.
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge походить з [шаблоном готового використання](https://electronforge.io/templates) , використовуючи Webpack як пакет. До неї входять приклад конфігурації typescript і надається два файли конфігурації, щоб забезпечити легке настроювання. Він використовує ті ж основні модулі, що використовуються більшою спільнотою Electron (наприклад, [`electron-packager`](https://github.com/electron/electron-packager)) - зміни зроблені розробленими розробниками Electron maintainers (як Slack) користувачами Forge для отримання корисних копалин, теж.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Більше інформації та документації по [electronforge.io](https://electronforge.io/).
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+Це "повне рішення для пакунку та створити готовий додаток Electron для дистрибуції" ", який фокусується на інтегрованому досвіді. [`electron-builder`](https://github.com/electron-userland/electron-builder) додає одну окрему залежність, орієнтовану на простоту, а також на обробку всіх подальших вимог внутрішньо.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder` замінює можливості та модулі, які використовуються в Electron супроводжуючих (наприклад, автооновлення). Вони загалом більш інтегровані але будуть рідше в популярних додатках Electron : Atom, Visual Studio Code, або Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Ви можете знайти більше інформації та документації в [в репозиторії](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Якщо вам не потрібні якісь інструменти, але тільки суцільний бойлер, з якого можна будувати, CT Linux [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) може коштувати . Воно дуже популярне у спільноті і використовує `електрон-конструктор` .
 
 ## Інші Інструменти та Шаблони Коду
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Список ["Awome Electron"](https://github.com/sindresorhus/awesome-electron#boilerplates) містить більше інструментів і бойлитиць на вибір. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.

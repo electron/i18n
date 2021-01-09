@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSegmentedControl(options)` _Experimental_
+### `new TouchBarSegmentedControl(options)`
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
@@ -49,3 +49,7 @@ updates the control in the touch bar. Updating deep properties inside this array
 
 An `Integer` representing the currently selected segment. Changing this value immediately updates the control
 in the touch bar. User interaction with the touch bar will update this value automatically.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

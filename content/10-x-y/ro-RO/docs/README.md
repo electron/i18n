@@ -4,7 +4,7 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt puse destul de des. Verifică asta înainte de a crea o problemă:
 
 * [Întrebări și răspunsuri Electron](faq.md)
 
@@ -40,11 +40,11 @@ There are questions that are asked quite often. Check this out before creating a
   * [Acțiuni Linux desktop personalizate](tutorial/linux-desktop-actions.md)
   * [Scurtături tastatură](tutorial/keyboard-shortcuts.md)
   * [Detecție offline/online](tutorial/online-offline-events.md)
-  * [Fișier reprezentant pentru macOS BrowserWindows](tutorial/represented-file.md)
-  * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
+  * [Fișier reprezentat pentru macOS BrowserWindows](tutorial/represented-file.md)
+  * [Fișier nativ Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
   * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Încorporări web în Electron](tutorial/web-embeds.md)
 * [Accesibilitate](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,28 +103,28 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul procesului](api/process.md)
 * [Comutatoare de linie de comandă acceptate](api/command-line-switches.md)
 * [Variabile de mediu](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Suport Extensii Chrome](api/extensions.md)
 * [Ruperea modificărilor API](breaking-changes.md)
 
 ### Elemente DOM personalizate:
 
 * [Obiectul `File`](api/file-object.md)
 * [Eticheta `<webview>`](api/webview-tag.md)
-* [Funcția `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [`window.open` Function](api/window-open.md)
+* [Obiect`BrowserWindowProxy`](api/browser-window-proxy.md)
 
 ### Module pentru procesul principal:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
+* [BrowserWindow - FereastraBrowser-ului](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Meniu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
@@ -141,17 +141,17 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 
 ### Module pentru randarea procesului (pagina web):
 
-* [desktopCapturer-capturareaDesktop-ului](api/desktop-capturer.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote-de la distanță](api/remote.md)
-* [webFrame-cadruWeb](api/web-frame.md)
+* [remote](api/remote.md)
+* [webFrame](api/web-frame.md)
 
 ### Module pentru ambele procese:
 
-* [clipboard-clipboard](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
-* [nativeImage-ImagineNativă](api/native-image.md)
-* [shell-coajă](api/shell.md)
+* [nativeImage](api/native-image.md)
+* [shell](api/shell.md)
 
 ## Dezvoltare
 

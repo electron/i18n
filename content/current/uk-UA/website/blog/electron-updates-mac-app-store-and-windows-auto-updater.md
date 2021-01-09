@@ -1,29 +1,29 @@
 ---
-title: Mac App Store and Windows Auto Updater on Electron
-author: jlord
+title: Mac App Store та Windows Auto Updater Electron
+author: молодший
 date: '2015-11-05'
 ---
 
-Recently Electron added two exciting features: a Mac App Store compatible build and a built-in Windows auto updater.
+Нещодавно Electron додав дві захоплюючі функції: Mac App Store сумісної збірки та вбудоване автоматичне оновлення Windows.
 
 ---
 
-## Mac App Store Support
+## Підтримка Mac App Store
 
 <img src='https://cloud.githubusercontent.com/assets/1305617/10928574/a301640c-825e-11e5-918e-a06b7a55dcb4.png' width="300" />
 
-As of `v0.34.0` each Electron release includes a build compatible with the Mac App Store. Previously an application built on Electron would not comply with Apple's requirements for the Mac App Store. Most of these requirements are related to the use of private APIs. In order to sandbox Electron in such a way that it complies with the requirements two modules needed to be removed:
+Станом на `v0.34.0` кожен реліз Electron включає збірку, сумісну з Mac App Store. Раніше додаток, побудований на Electron не буде відповідати вимогам Apple для Mac App Store. Більшість цих вимог пов'язані з використанням приватного API. Для того, щоб видалити пісочницю Electron таким чином, він відповідає вимогам двох модулів, які необхідно видалити:
 
-- `crash-reporter`
-- `auto-updater`
+- `crash-репортер`
+- `автоматичне оновлення`
 
-Additionally some behaviors have changed with respect to detecting DNS changes, video capture and accessibility features. You can read more about the changes and [submitting your app to the Mac App store](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) in the documentation. The distributions can be found on the [Electron releases page](https://github.com/electron/electron/releases), prefixed with `mas-`.
+Крім того, дещо змінилось залежно від виявлення змін DNS, функцій захоплення відео та доступності функції. Ви можете прочитати більше про зміни і [відправити ваш додаток до Mac App store](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) в документації. Розподіл можна знайти на [Electron releases page](https://github.com/electron/electron/releases), Префіксується за частотою ``.
 
-Related Pull Requests: [electron/electron#3108](https://github.com/electron/electron/pull/3108), [electron/electron#2920](https://github.com/electron/electron/pull/2920)
+Споріднені запити на споживання: [electron/electron#3108](https://github.com/electron/electron/pull/3108), [electron/electron#2920](https://github.com/electron/electron/pull/2920)
 
-## Windows Auto Updater
+## Автоматично оновлювати Windows
 
-In Electron `v0.34.1` the `auto-updater` module was improved in order to work with [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). This means that Electron ships with easy ways for auto updating your app on both OS X and Windows. You can read more on [setting up your app for auto updating on Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) in the documentation.
+У Electron `v0.34.1` модуль `автоматичного оновлення` був поліпшений для роботи з [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). Це означає, що Electron корабельне оформлення легких шляхів автоматичного оновлення вашого додатку на ОС X та Windows. Ви можете прочитати більше про [налаштування вашого додатку для автоматичного оновлення на Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) у документації.
 
-Related Pull Request: [electron/electron#1984](https://github.com/electron/electron/pull/1984)
+Споріднений запит на злиття: [electron/electron#1984](https://github.com/electron/electron/pull/1984)
 

@@ -2,7 +2,7 @@
 
 > Acesse informações sobre fontes de mídia que podem ser usadas para capturar áudio e vídeo da área de trabalho usando a API [`navigator.mediaDevices.getUserMedia`].
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 O exemplo a seguir mostra como capturar vídeo de uma janela desktop com o título `Electron`:
 

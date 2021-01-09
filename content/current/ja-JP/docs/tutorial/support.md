@@ -5,16 +5,22 @@
 セキュリティ上の相談がある場合は、[セキュリティドキュメント](https://github.com/electron/electron/tree/master/SECURITY.md) をご参照ください。
 
 プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
-- Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
-- Freenode の `#atom-shell` チャンネル
-- [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
-- [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
-- [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
-- [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
-- [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
-- [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
+
+* [`Electron の Discord`](https://discord.com/invite/electron) にはこのようなチャンネルがあります:
+  * ヘルプチャンネル
+  * [Electron Forge](https://github.com/electron-userland/electron-forge) や [Electron Fiddle](https://github.com/electron/fiddle) のようなエコシステムアプリのチャンネル
+  * 他の Electron アプリ開発者とアイデアを共有するチャンネル
+  * 他にもたくさん!
+* Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
+* Freenode の `#atom-shell` チャンネル
+* [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
+* [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
+* [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
+* [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
+* [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
+* [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
 Electron にコントリビュートしたい場合は、[コントリビュートドキュメント](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) をご参照ください。
 
@@ -33,9 +39,10 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 既存の機能を破壊するような API の変更や削除がされた場合、可能であれば、その機能は削除されるまでに最低 2 つのメジャーバージョンでサポートされます。 例えば、3 引数を取る関数が、メジャーバージョン 10 で 2 引数になった場合、3 引数版は少なくともメジャーバージョン 12 まで動作し続けます。 最低 2 つのバージョンという基準を過ぎた後は、メンテナンスの負担が大きすぎるとメンテナが感じるまで、2 つのバージョンより長く下位互換性をサポートします。
 
 ### 現在のサポート対象バージョン
-- 9.x.y
-- 8.x.y
-- 7.x.y
+
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
 ### End-of-life
 
@@ -61,12 +68,10 @@ Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提
 
 ### Linux
 
-`ia32` (`i686`) と `x64` (`amd64`) のビルド済みバイナリは、Ubuntu 12.04上でビルドされ、 `armv7l` バイナリは、Debian Wheezy用のhard-float ABIとNEONのARM v7を対象にビルドしています。
+Electron のビルド済みバイナリは Ubuntu 18.04 上でビルドしています。
 
-[Electron 2.0 がリリースされるまで](../breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
+Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 18.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 
-Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
-
-* Ubuntu 12.04 以降
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 以降
+* Fedora 24 以降
+* Debian 8 以降

@@ -1,6 +1,6 @@
 # Установка
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Для установки предварительных бинарных файлов Electron используйте [`npm`](https://docs.npmjs.com). Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
 
 ```sh
 npm install electron --save-dev
@@ -32,40 +32,43 @@ npm install --platform=win32 electron
 
 ## Прокси
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Если вам нужно использовать HTTP-прокси, необходимо установить переменную `ELECTRON_GET_USE_PROXY` в любое значение , плюс дополнительные переменные окружения в зависимости от версии узла вашей системы:
 
-* [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Узел 10 и выше](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [До узла 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Пользовательские зеркала и кэши
-During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
+
+Во время установки, модуль `Электрон` вызовет [`@electron/get`](https://github.com/electron/get) для загрузки готовых бинарных файлов Electron для вашей платформы. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
 Если доступа к GitHub нет или нужна другая сборка, можно задать зеркало или папку кеша.
 
 #### Зеркало
-Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. The URL used by `@electron/get` is composed as follows:
+
+Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. URL-адрес, используемый `@electron/get` составлен следующим образом:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China CDN mirror:
+Например, использовать зеркало CDN в Китае:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+По умолчанию, `ELECTRON_CUSTOM_DIR` установлен в `v$VERSION` Чтобы изменить формат, используйте плейсхолдер `{{ version }}`. Например, `версия -{{ version }}` преобразуется в `версию-5.0.`, `{{ version }}` решит `5.0.`и `v{{ version }}` эквивалентны по умолчанию. В качестве более конкретного примера использовать не-CDN в Китае зеркало:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+Вышеприведенная конфигурация будет загружена с URL-адресов, таких как `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Кеш
-Кроме того, можно заменить локальный кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
+
+Кроме того, можно заменить локальный кеш. `@electron/get` кэширует загруженных бинарных файлов в локальном каталоге, чтобы не стрессовать по сети. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -73,9 +76,9 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 В старом Electron возможно использование папки `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+Вы также можете переопределить местоположение локального кэша, указав переменную окружения `electron_config_cache` .
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Кэш содержит официальный zip-файл версии и контрольную сумму, хранящуюся как текстовый файл. Типичный кэш может выглядеть следующим образом:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -100,14 +103,16 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Пропустить загрузку бинарных файлов
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+При установке `Электрона` пакета NPM автоматически загружается двоичный файл электрона.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Иногда это может быть ненужным, например, в среде CI при тестировании другого компонента.
+
+Чтобы предотвратить загрузку бинарного файла при установке всех зависимостей npm, вы можете установить переменную окружения `ELECTRON_SKIP_BINARY_DOWNLOAD`. Например:
+
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DESCRIPTION
 ```
 
 ## Устранение проблем

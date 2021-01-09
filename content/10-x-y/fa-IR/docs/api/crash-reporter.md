@@ -1,8 +1,8 @@
 # crashReporter
 
-> گزارش های خرابی را به سرور راه دور ارسال کنید.
+> Submit crash reports to a remote server.
 
-فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
@@ -17,7 +17,7 @@ For setting up a server to accept and process crash reports, you can use followi
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-یا استفاده از یک راه حل میزبانی 3rd حزب:
+Or use a 3rd party hosted solution:
 
 * [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
@@ -27,7 +27,7 @@ Crash reports are stored temporarily before being uploaded in a directory undern
 
 On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
-## روش ها
+## Methods
 
 The `crashReporter` module has the following methods:
 

@@ -30,14 +30,14 @@ Homebrew tarafından sağlanan Python kullanıyorsanız, ayrıca aşağıdaki Py
 Yüklemek için `pip` kullanabilirsiniz:
 
 ```sh
-$ pip install pyobjc
+$ pip pyobjc yükle
 ```
 
 ## macOS SDK
 
 Electron geliştiriyor ve özel Electron derlemenizi dağıtmak gibi bir planınız yoksa bu bölümü atlayabilirsiniz.
 
-Resmi Electron sürümleri [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), ve macOS 10.13 SDK ile yapılmıştır.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Resmi Electron sürümleri [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), ve macOS 10.13 SDK ile yapılmıştır.  Yeni bir SDK ile sistem çok çalışır, ama sürümler şu anda 10,13 SDK'yı kullanıyor.
 
 ## Electron'u Derlemek
 

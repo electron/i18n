@@ -1,6 +1,6 @@
 # Offizielle Anleitungen
 
-Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
 ## Häufig gestellte Fragen
 
@@ -11,12 +11,12 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 ## Leitfäden und Tutorials
 
 * [Entwicklungsumgebung einrichten](tutorial/development-environment.md)
-  * [Einrichtung auf macOSX](tutorial/development-environment.md#setting-up-macos)
+  * [Einrichtung auf macOS](tutorial/development-environment.md#setting-up-macos)
   * [Einrichtung auf Windows](tutorial/development-environment.md#setting-up-windows)
   * [Einrichtung auf Linux](tutorial/development-environment.md#setting-up-linux)
   * [Wähle einen Editor](tutorial/development-environment.md#a-good-editor)
 * [Erstelle deine erste App](tutorial/first-app.md)
-  * [Installiere Electron](tutorial/first-app.md#installing-electron)
+  * [Electron installieren](tutorial/first-app.md#installing-electron)
   * [Electron-Entwicklung auf einen Blick](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Ihre App ausführen](tutorial/first-app.md#running-your-app)
 * [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md)
@@ -26,9 +26,9 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools und Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Anwendungsarchitektur](tutorial/application-architecture.md)
-  * [Haupt- und Renderprozesse](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Main und Render Prozesse](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js APIs benutzen](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Node.js APIs verwenden](tutorial/application-architecture.md#using-nodejs-apis)
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Features zu deiner App hinzufügen
@@ -40,11 +40,11 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
-  * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
-  * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Repräsentierte Datei für macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [MacOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
-  * [Webbetten in Electron](tutorial/web-embeds.md)
+  * [Einbindung von Webseiten in Electron](tutorial/web-embeds.md)
 * [Barrierefreiheit](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -58,12 +58,12 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
 * [Verteilung](tutorial/application-distribution.md)
   * [Unterstützte Plattformen](tutorial/support.md#supported-platforms)
-  * [Codesignatur](tutorial/code-signing.md)
+  * [Code Signierung](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Sicherheit](tutorial/security.md)
-  * [Berichterstattung von Sicherheitsproblemen](tutorial/security.md#reporting-security-issues)
+  * [Melden von Sicherheitsproblemen](tutorial/security.md#reporting-security-issues)
   * [Chromium Sicherheitsprobleme und Updates](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Sicherheitswarnungen](tutorial/security.md#electron-security-warnings)
   * [Sicherheits-Checkliste](tutorial/security.md#checklist-security-recommendations)
@@ -77,7 +77,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weiter oben diskutiert wurden.
 
-* [Installiere Electron](tutorial/installation.md)
+* [Electron installieren](tutorial/installation.md)
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
@@ -91,7 +91,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ungepackte Dateien zu asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
-* [Verwenden des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -118,13 +118,13 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [Browserfenster](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menü](api/menu.md)
+* [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
@@ -148,10 +148,10 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 
 ### Module für beide Prozesse:
 
-* [clipboard](api/clipboard.md)
+* [Zwischenablage (clipboard)](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [shell](api/shell.md)
+* [Shell](api/shell.md)
 
 ## Entwicklung
 

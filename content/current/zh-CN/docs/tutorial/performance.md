@@ -12,12 +12,12 @@
 
 通过多次的尝试，我们发现，构建高性能的Electron应用程序，最成功的策略是分析正在运行的代码，查找其中最耗资源的部分，然后对其进行优化。 一遍又一遍地重复这个“搬砖”的过程，将极大地提高应用程序的性能。 在大型应用程序（例如Visual Studio Code、Slack）中的实践经验证明了这是目前最可靠的性能提升策略。
 
-要了解更多关于如何分析应用程序代码的信息，请熟悉Chrome开发者工具。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) tool.
+要了解更多关于如何分析应用程序代码的信息，请熟悉Chrome开发者工具。 若要高级分析查看多个进程，请使用 [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) 工具。
 
 ### 推荐阅读
 
- * [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 检查列表
 
@@ -49,7 +49,8 @@
 
 当考虑一个模块时，我们建议你做以下检查：
 
-1. 依赖包含的大小 2) 加载(`require()`) 所需要的资源
+1. 包含的依赖项的大小
+2. 需要加载的(`require()`) 资源
 3. 你所加载的资源能够执行你关心的操作
 
 可以使用命令行上的单个命令生成用于加载模块的 CPU 配置文件和堆内存配置文件 在下面的示例中，我们看一下受欢迎的模块 `request`。
@@ -60,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
-![performance-cpu-prof](../images/performance-cpu-prof.png)
+！[性能-cpu-prof](../images/performance-cpu-prof.png)
 
-![performance-heap-prof](../images/performance-heap-prof.png)
+！[性能-Heap-prof](../images/performance-heap-prof.png)
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
@@ -88,13 +89,17 @@ node --cpu-prof --heap-prof -e "require('request')"
 const fs = require('fs')
 const fooParser = require('foo-parser')
 
-class Parser {
-  constructor () {
-    this.files = fs.readdirSync('.')
+class Parser 然后
+  conster () const fs = require('fs') 
+ const foParser = require('foo-parser') 
+
+ class parser (
+ constructor () configurtor ()
+    this iles = fs.readdirSync('。 )
   }
 
-  getParsedFiles () {
-    return fooParser.parse(this.files)
+  getParsedFiles () }
+    return foodParser.parse(this iles)
   }
 }
 
@@ -112,30 +117,30 @@ const fs = require('fs')
 class Parser {
   async getFiles () {
     // Touch the disk as soon as `getFiles` is called, not sooner.
-    // Also, ensure that we're not blocking other operations by using
-    // the asynchronous version.
-    this.files = this.files || await fs.readdir('.')
+    // 另外，请确保我们不会使用
+    // 异步版本来阻止其他操作。
+    此文件=此文件|| 正在等待 fs.readdir('.')
 
-    return this.files
+    返回此文件。 less
   }
 
-  async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
-    // Since `require()` comes with a module cache, the `require()` call
-    // will only be expensive once - subsequent calls of `getParsedFiles()`
-    // will be faster.
+  async getParsedFiles () }
+    // 我们的虚拟泡沫解析器是一个需要加载的大而昂贵的模块。 这样
+    // 推迟工作，直到我们实际需要解析文件为止。
+    // 既然`require()` 里有一个模块缓存， `require()`调用
+    // 只会花费一次——其后的 `getParsedFiles()`
+    // 将会更快。
     const fooParser = require('foo-parser')
-    const files = await this.getFiles()
+    const files = required this.getFiles()
 
-    return fooParser.parse(files)
+    return fooParser。 arse(files)
   }
 }
 
-// This operation is now a lot cheaper than in our previous example
-const parser = new Parser()
+// 此操作现在比我们以前的示例
+const 解析器 = 新的 Parser()
 
-module.exports = { parser }
+模块便宜得多。 xports = { parser }
 ```
 
 简而言之，只有当需要的时候才分配资源，而不是在你的应用启动时分配所有。
@@ -160,8 +165,7 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 2) 尽可能避免使用同步IPC 和 `remote` 模块。 虽然有合法的使用案例，但使用`remote`模块的时候非常容易不知情地阻塞 UI线程。
 
-3) Avoid using blocking I/O operations in the main process. 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
-
+3) 避免在主进程中使用阻止I/O操作。 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
 ## 4) 阻塞渲染进程
 
@@ -180,7 +184,6 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 *`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
 *Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
-
 
 ## 5) 不必要的polyfills
 
@@ -201,7 +204,6 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
 
 如果您正在使用 TypeScript 这样的编译器，检查它的配置并确保你的目标是Electron 支持的最新 ECMAScript 版本。
-
 
 ## 6) 不必要或阻塞的网络请求
 

@@ -2,14 +2,14 @@
 
 > Sistem tercihlerini al.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Etkinlikler
+## Events
 
 `systemPreferences` nesnesi aşağıdaki olayları yayar:
 
@@ -17,14 +17,14 @@ console.log(systemPreferences.isDarkMode())
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `newColor` String - Kullanıcının sistemine atadığı yeni RGBA vurgu rengi.
 
 ### Event: 'color-changed' _Windows_
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Event
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
@@ -37,9 +37,9 @@ Dönüşler:
 
 ### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
-Döndürür:
+Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
@@ -83,7 +83,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function
+* `callback` Fonksiyon
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -104,7 +104,7 @@ Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function
+* `callback` Fonksiyon
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -116,7 +116,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function
+* `callback` Fonksiyon
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String

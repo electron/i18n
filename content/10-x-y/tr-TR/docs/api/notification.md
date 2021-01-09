@@ -2,7 +2,7 @@
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ## Oluşturucu işleminde kullanma
 
@@ -12,9 +12,9 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` bir [EventEmitter][event-emitter]'dır.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
@@ -42,7 +42,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Örnek Olaylar
+### Örnek Events
 
 `new Notification` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -52,11 +52,11 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Event
 
 Bildirim kullanıcıya gösterildiğinde yayınlanır, `show()` metodu ile birden çok kez gösterilebileceğinden, bunun birden çok kez tetiklenebileceğini unutmayın.
 
-#### Etkinlik: 'tıkla'
+#### Olay: 'click'
 
 Dönüşler:
 
@@ -68,7 +68,7 @@ Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
@@ -78,7 +78,7 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti 
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize.
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
@@ -87,10 +87,10 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `index` Numara - Etkin olan eylem dizinini gösterir.
 
-### Sınıf örneği metodları
+### Örnek yöntemleri
 
 `new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
@@ -104,7 +104,7 @@ Bildirim daha önce gösterilmişse, bu yöntem önceden gösterilen bildirimi r
 
 Bildirimleri yoksay.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 #### `notification.title`
 

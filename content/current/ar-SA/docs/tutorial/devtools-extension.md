@@ -1,59 +1,60 @@
 # DevTools Extension
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+يدعم إلكترون [ملحق Chrome DevTools](https://developer.chrome.com/extensions/devtools)، الذي يمكن استخدامه لتوسيع قدرة الأدوات على تصحيح أخطاء أطر الويب الشعبية.
 
-## How to load a DevTools Extension
+## كيفية تحميل ملحق DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+وتوجز هذه الوثيقة عملية تحميل التمديد يدوياً. يمكنك أيضًا تجربة [Electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)، أداة طرف ثالث تقوم بتنزيل الإضافات مباشرة من متجر Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+لتحميل ملحق في إلكترون، تحتاج إلى تنزيله في متصفح كروم، حدد موقع مسار نظام الملفات، ثم قم بتحميله عن طريق الاتصال بـ `متصفح Window. ddDevToolsExtension(extension)` API.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+استخدام [أدوات مطور React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) على سبيل المثال:
 
 1. تثبيته في متصفح Chrome.
-1. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Find out filesystem location used by Chrome for storing extensions:
-   * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+1. انتقل إلى `chrome://extensions`، وابحث عن معرف ملحقه، وهو عبارة عن سلسلة تجزئة مثل `fmkadmapgofadopljbjfkapdkoienihi`.
+1. اعرف موقع نظام الملفات المستخدم من قبل Chrome لتخزين الملحقات:
+   * على ويندوز هو `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Exextent`;
    * في Linux يمكن أن يكون:
      * `~/.config/google-chrome/Default/Extensions/`
      * `~/.config/google-chrome-beta/Default/Extensions/`
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
-   * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+   * على macOS هو `~/Library/Application Support/Google/Chrome/Default/Exextent`.
+1. اجتياز موقع الملحق إلى `BrowserWindow.addDevToolsExexten` API، لأدوات React المطور، إنه شيء مثل:
+
    ```javascript
-   const path = require('path')
+   المسار = المطلوب('path')
    const os = require('os')
 
    BrowserWindow.addDevToolsExtension(
       path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+
    ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**ملاحظة:** `BrowserWindow.addDevToolsExexten` لا يمكن استدعاء API قبل أن ينبعث الحدث الجاهز من وحدة التطبيق.
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+سيتم تذكر الملحق حتى تحتاج فقط إلى استدعاء واجهة برمجة التطبيقات هذه مرة واحدة لكل ملحق إذا حاولت إضافة ملحق تم تحميله مسبقا، هذه الطريقة لن تعود وبدلا من ذلك قم بتسجيل تحذير إلى وحدة التحكم.
 
-### How to remove a DevTools Extension
+### كيفية إزالة ملحق DevTools
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+يمكنك تمرير اسم الملحق إلى `BrowserWindow.removeDevToolsExexten` API لإزالته. يتم إرجاع اسم الملحق من قبل `المتصفح ويندوز. ddDevToolsExexten` ويمكنك الحصول على أسماء جميع ملحقات DevTools المثبتة باستخدام `BrowserWindow.getDevToolsExexten` API.
 
-## Supported DevTools Extensions
+## ملحقات الأدوات المدعومة
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+يدعم إلكترون فقط مجموعة محدودة من `كروم.*` API، لذلك بعض الملحقات باستخدام كروم `غير مدعوم.` قد لا تعمل واجهات برمجة التطبيقات لميزات تمديد الكروم. يتم اختبار ملحقات Devtools وضمان العمل في Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-* [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-* [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
-* [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
+* [أدوات مطور React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+* [تصحيح الأخطاء الخلفية](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
+* [مصحح أخطاء jQuery](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Cerebral Debugger](https://cerebraljs.com/docs/introduction/devtools.html)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+* [مصحح الدماغ](https://cerebraljs.com/docs/introduction/devtools.html)
+* [تقليل ملحق الأدوات](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [أدوات مطور MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### ماذا علي أن أفعل إذا كان ملحق أدوات DevTools لا يعمل؟
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+أولاً يرجى التأكد من استمرار الحفاظ على الإضافة، بعض الملحقات لا يمكن أن تعمل حتى للإصدارات الأخيرة من متصفح Chrome ، ونحن غير قادرين على القيام بأي شيء من أجلهم.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+ثم قم بتسجيل خطأ في قائمة مشكلات Electron، ووصف أي جزء من الملحق لا يعمل كما هو متوقع.

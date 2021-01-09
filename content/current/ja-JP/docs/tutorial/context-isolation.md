@@ -1,16 +1,16 @@
-# Context Isolation
+# コンテキストの分離状態
 
-## What is it?
+## それは何ですか?
 
-Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
+コンテキスト分離は、あなたの`プレロード` スクリプトと Electron の内部ロジックの両方が、 [`webContents`](../api/web-contents.md) でロードしたウェブサイトに対して別のコンテキストで実行されることを保証する機能です。  これは、ウェブサイトが Electron の内部にアクセスできないようにするためのセキュリティ目的や、プリロードスクリプトがアクセスできる強力な API を防ぐために重要です。
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+つまり、preload スクリプトがアクセスできる `window` オブジェクトは、ウェブサイトがアクセスできるオブジェクトとは実際には **異なる** オブジェクトであることを意味します。  例えば、もしあなたが `window.hello = 'wave'` とプリロードスクリプトで設定し、コンテキスト分離が有効だった場合、`window.hello` は、Web サイトがアクセスしようとすると未定義になります。
 
-Every single application should have context isolation enabled and from Electron 12 it will be enabled by default.
+すべてのアプリケーションはコンテキスト分離を有効にし、Electron 12 からはデフォルトで有効になります。
 
-## How do I enable it?
+## 有効にするにはどうすればいいですか?
 
-From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
+Electron 12 からは、デフォルトで有効になります。 より低いバージョンの場合は、 `new BrowserWindow` を構築する際の `webPreferences`オプションのオプションです。
 
 ```javascript
 const mainWindow = new BrowserWindow({
@@ -20,13 +20,13 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-## Migration
+## 移行
 
-> I used to provide APIs from my preload script using `window.X = apiObject` now what?
+> 私は`window.X = apiObject</0> を使ってプリロードスクリプトから API を提供していました。今はどうすればいいですか?X = apiObject` は何ですか?
 
-Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
+ロードされたウェブサイトに preload スクリプトから API を公開することは一般的なユースケースであり、Electron にはこれを簡単に行うための専用モジュールがあります。
 
-**Before: With context isolation disabled**
+**Before: コンテキストの分離を無効にする**
 
 ```javascript
 window.myAPI = {
@@ -34,37 +34,36 @@ window.myAPI = {
 }
 ```
 
-**After: With context isolation enabled**
+**After: コンテキスト分離が有効になっている**
 
 ```javascript
 const { contextBridge } = require('electron')
 
-contextBridge.exposeInMainWorld('myAPI', {
+contextBridge.exposeInMainWorld('myAPI, {
   doAThing: () => {}
 })
 ```
 
-The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+[`contextBridge`](../api/context-bridge.md) モジュールは、 **安全に** APIを、プリロードスクリプトが実行している分離されたコンテキストから、ウェブサイトが実行しているコンテキストに公開することができます。 APIは以前と同様に `window.myAPI` のウェブサイトからもアクセスできます。
 
-You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
+上記の `contextBridge` ドキュメントを読んで、その制限を完全に理解する必要があります。  たとえば、カスタムプロトタイプやシンボルをブリッジに送信することはできません。
 
-## Security Considerations
+## セキュリティについての考慮事項
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
+`contextIsolation` を有効にして、 `contextBridge` を使用するだけでは、すべてが安全であることを自動的に意味するわけではありません。  例えば、このコードは **unsafe** である。
 
 ```javascript
-// ❌ Bad code
-contextBridge.exposeInMainWorld('myAPI', {
+// ❌ 不正なコード
+contextBridge.exposeInMainWorld('myAPI, {
   send: ipcRenderer.send
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+引数フィルタリングを行うことなく、強力なAPIを直接公開します。 これにより、任意のウェブサイトがあなたが可能にしたくない任意のIPCメッセージを送信できるようになります。 IPCベースのAPIを公開する正しい方法は、IPCメッセージごとに1つのメソッドを提供することです。
 
 ```javascript
-// ✅ Good code
-contextBridge.exposeInMainWorld('myAPI', {
+// ✅ 良いコード
+contextBridge.exposeInMainWorld('myAPI, {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
-

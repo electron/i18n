@@ -6,7 +6,7 @@
 
 `ClientRequest`实现了[Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter][event-emitter]类型.
 
-### 事件
+### 实例事件
 
 #### Event: 'data'
 
@@ -24,7 +24,7 @@
 
 正在进行的 HTTP 事务被取消后触发。
 
-#### Event: 'error'
+#### 事件: 'error'
 
 返回:
 

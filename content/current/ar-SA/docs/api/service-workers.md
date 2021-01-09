@@ -6,7 +6,7 @@
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { session } = require('electron')
@@ -38,7 +38,7 @@ The following events are available on instances of `ServiceWorkers`:
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
   * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
-  * `level` Number - The log level, from 0 to 3.  In order it matches `verbose`, `info`, `warning` and `error`.
+  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
   * `sourceUrl` String - The URL the message came from
   * `lineNumber` Number - The line number of the source that triggered this console message
 

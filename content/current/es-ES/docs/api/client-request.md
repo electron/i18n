@@ -11,15 +11,15 @@ Proceso: [Main](../glossary.md#main-process)
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `session` Session (opcional) - La instancia de [`Session`](session.md) con la cual la solicitud esta asociada.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Por defecto es `false`.
+  * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada.  This will make the `net` request's cookie behavior match a `fetch` request. Por defecto es `false`.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
+  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. Cuando el modo es `manual` la redirección será cancelada a menos que [`request.followRedirect`](#requestfollowredirect) es invocada sincrónicamente durante el evento [`redirect`](#event-redirect).
 
 `opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
@@ -113,7 +113,7 @@ Devuelve:
 * `Redirigir Url` Cadena
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitido cuando el servidor devuelve una respuesta redirect (por ejemplo 301 Moved Permanently). Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Propiedades de Instancia
 
@@ -128,15 +128,27 @@ Utilizar codificación empaquetada es fuertemente recomendado si no necesita env
 #### `request.setHeader(name, value)`
 
 * `nombre` Cadena - Un nombre de encabezado HTTP extra.
-* `value` String - An extra HTTP header value.
+* `value` String - Un valor de cabecera HTTP extra.
 
-Añade otro encabezado HTTP. The header name will be issued as-is without lowercasing. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
+Añade otro encabezado HTTP. El nombre de la cabecera se emitirá tal cual sin convertirlas a minúscula. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
+
+Ciertos encabezados están restringidos de ser definidos por aplicaciones. Estos encabezados se enlistan a continuación. Más información sobre encabezados restringidos puede ser encontrada en [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+
+* `Content-Length`
+* `Host`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
+
+Además, definir el encabezado `Connection` al valor `upgrade` también está dehabilitado.
 
 #### `request.getHeader(name)`
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Returns `String` - The value of a previously set extra header name.
+Devuelve `String` - El valor de un nombre de cabecera extra establecido anteriormente.
 
 #### `request.removeHeader(name)`
 

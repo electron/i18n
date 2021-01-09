@@ -1,24 +1,46 @@
 # タスクバーで示すプログレスバー (Windows, macOS, Unity)
 
-Windows ではのタスクバーのボタンにはプログレスバーを表示できます。 これによって、ユーザーがウィンドウの切り替え操作をすることなく、ユーザーに進捗情報を提供することが可能となります。
+## 概要
 
-macOS でのプログレスバーは、Dock のアイコンの一部として表示されます。
+プログレスバーは、ユーザーがウィンドウの切り替え操作をすることなくユーザーに進捗情報を提供できます。
 
-Unity DE にも同様の機能があり、ランチャー内でプログレスバーの提供を可能にすることができます。
+Windows では、タスクバーのボタンにプログレスバーを表示できます。
 
-__タスクバーのボタンにプログレスバーを表示する__
+![Windows プログレスバー](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-![タスクバーのプログレスバー](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+macOS では、Dock のアイコンの一部としてプログレスバーを表示します。
 
-これら3つのケースは全て同じAPI - `BrowserWindows` のインスタンスに存在する `setProgressBar()` 関数によって変換されます。 プログレスを示すためにこれを `0` ～ `1`の数値で呼びます。 長い間実行するタスクがある場合、それが今のところ完了に対して 63% であるならば `setProgressBar(0.63)` を呼びます。
+![macOS プログレスバー](../images/macos-progress-bar.png)
 
-一般的に、パラメーターを 0 未満の値 (`-1` など) にすると、プログレスバーが削除されます。1 より大きい値 (`2` など) にすると、プログレスバーが中間モードに切り替わります。
+Linux では、Unity のグラフィカルインターフェイスにも同様の機能があり、ランチャー内でプログレスバーを指定できます。
 
-[より多くのオプションやモードについては API ドキュメント](../api/browser-window.md#winsetprogressbarprogress) を参照してください。
+![Linux プログレスバー](../images/linux-progress-bar.png)
 
-```javascript
+> 注意: Windows では各ウィンドウごとにプログレスバーを保有できますが、macOS と Linux (Unity) ではアプリケーションのプログレスバーが 1 つだけです。
+
+----
+
+[`setProgressBar()`](../api/browser-window.md#winsetprogressbarprogress-options) メソッドは、`BrowserWindow` のインスタンスから利用できます。 進捗状況を示すには、`0` から `1` の間の数でこのメソッドを呼び出します。 例えば、現在完了までの進捗率が 63% に達している長期のタスクがある場合、`setProgressBar(0.63)` のように呼び出します。
+
+パラメータを負の値 (例えば `-1`) に設定するとプログレスバーは削除されますが、`1`より大きい値 (例えば `2`) に設定するとプログレスバーは不定モード (Windows のみ -- これ以外は 100% に切り捨てられます) に切り替わります。 このモードではプログレスバーはアクティブなままですが、実際のパーセンテージが表示されません。 このモードは、操作完了までの時間がわからない場合に使用します。
+
+[より多くのオプションやモードについては API ドキュメント](../api/browser-window.md#winsetprogressbarprogress-options) を参照してください。
+
+## サンプル
+
+[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
+
+```javascript fiddle='docs/fiddles/features/progress-bar'
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
 win.setProgressBar(0.5)
 ```
+
+Electron アプリケーションを起動すると、Dock (macOS) またはタスクバー (Windows、Unity) にバーが表示され、設定した進捗率が表示されます。
+
+![macOS Dock プログレスバー](../images/dock-progress-bar.png)
+
+macOS の場合、[Mission Control](https://support.apple.com/en-us/HT204100) の使用中でもアプリケーションのプログレスバーが表示されます。
+
+![Mission Control プログレスバー](../images/mission-control-progress-bar.png)

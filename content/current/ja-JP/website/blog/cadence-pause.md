@@ -18,4 +18,4 @@ Chromium の歩みに合わせることが最善の選択として慎重に進�
 
 その他の更新情報については [Twitter アカウント](https://twitter.com/electronjs) をフォローしてください。
 
-Edit (2020-03-30): Electron 9 stable will target Chromium M83 and be released on May 19, 2020, in response to [Chromium's announcement](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) of skipping the M82 stable date and adjusting the M83 stable date.
+Edit (2020-03-30): Electron 9 stable は Chromium M83 をターゲットにし、2020年5月19日にリリースされます。 [Chromium の発表](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) に応じて、M82の安定した日付をスキップし、M83の安定した日付を調整しました。

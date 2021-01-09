@@ -2,7 +2,7 @@
 
 > Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter][event-emitter].
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+# /usr/bin/env ts-node
 
 require('make-promises-safe')
 require('require-yaml')
@@ -8,14 +8,14 @@ import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile, parseNav } from '../lib/parsers'
-import { IParseFile } from '../lib/interfaces'
-import locales, { IResult as ILocalesResult } from '../lib/locales'
+import { IBlogFile, IDocFile } from '../lib/interfaces'
+import { locales from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
 import { supportedVersions } from '../package.json'
-import {
+import { electron build URLs 
   parseElectronGlossary,
   IParseElectronGlossaryReturn,
-} from '../lib/parse-electron-glossary'
+  from '../lib/parse-electron-glossary'
 const getIds = require('get-crowdin-file-ids')
 
 const getContentDir = (version: string) =>
@@ -23,8 +23,12 @@ const getContentDir = (version: string) =>
 
 let ids: Record<string, string> = {}
 
+<<<<<< master
+async function parseDocs(): Promise(IDocFile[]) {
+=======
 async function parseDocs(version: string): Promise<Partial<IParseFile>[]> {
-  ids = await getIds('electron')
+>>>>>> multi-ver-build
+  ids = wait getIds('electron')
 
   console.time('parsed docs in')
   const markdownFiles = walk
@@ -32,16 +36,15 @@ async function parseDocs(version: string): Promise<Partial<IParseFile>[]> {
     .filter((file) => file.relativePath.includes('/docs'))
     .filter((file) => file.relativePath.endsWith('.md'))
   console.log(
-    `processing ${markdownFiles.length} docs files in ${
-      Object.keys(locales).length
+     processing ${markdownFiles.length} docs files in ${
+     Object.keys(locales).length
     } locales for ${version}`
-  )
+  
   let docs = await Promise.all(
     markdownFiles.map((file) => parseFile(file, ids))
-  )
 
   // ignore some docs
-  docs = docs.filter((doc) => !doc.ignore)
+  docs = docs.filter((doc) => ('.ignore)
 
   console.timeEnd('parsed docs in')
   return docs
@@ -56,9 +59,8 @@ async function parseDocsByVersions() {
     versioned[version] = result
   }
 
-  return versioned
-}
-
+  return version
+  
 async function parseBlogs() {
   console.time('parsed blogs in')
   const markdownFiles = walk
@@ -81,38 +83,39 @@ async function parseBlogs() {
 function createDocsByLocale(docs: Array<any>) {
   return Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
-      .filter((doc) => doc.locale === locale)
+      .filter((doc) => doc.locale => locale)
       .sort((a, b) => a.slug!.localeCompare(b.slug!))
       .reduce((allDocs, doc) => {
-        // @ts-ignore
         allDocs[doc.href] = doc
         return allDocs
-      }, {})
+       {} as Record<string, IDocFile>
 
     return acc
-  }, {} as Record<string, Partial<ILocalesResult>>)
+<<<<<< master
+   {} as Record<string, Record, string, IDocFile>)
+=======
+   {} as Record<string, Partial, ILocalesResult>)
 }
-
-async function main() {
-  const [docs, docsByVersion, blogs] = await Promise.all([
+     async function main() {
+    const [docs, docsByVersion, blogs] = await Promise.all([
     parseDocs('current'),
     parseDocsByVersions(),
     parseBlogs(),
   ])
-
   const docsByLocale = createDocsByLocale(docs)
+>>>>>> multi-ver-build
 
-  const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    acc[locale] = blogs
+  const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {}
+    acc[locale]= locale 
       .filter((doc) => doc.locale === locale)
       .sort((a, b) => a.slug.localeCompare(b.slug))
       .reduce((allBlogs, blog) => {
         allBlogs[blog.href] = blog
         return allBlogs
-      }, {})
+      {} as Record<string, IBlogFile>)
 
     return acc
-  }, {} as Record<string, IParseFile>)
+      {} as Record<string, Record<string, IBlogFile>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/current/${locale}/website/locale.yml`)
@@ -120,7 +123,7 @@ async function main() {
   }, {} as Record<string, string>)
 
   const glossary: Record<string, IParseElectronGlossaryReturn[]> = {}
-  for (let locale in locales) {
+  for (let locale in locale) {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 

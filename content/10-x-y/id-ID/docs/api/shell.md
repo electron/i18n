@@ -26,10 +26,9 @@ Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openPath(path)`
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Returns <code>Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".</p>
+Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Buka file yang diberikan dengan cara default desktop.
 

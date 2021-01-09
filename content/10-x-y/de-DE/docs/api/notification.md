@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter][event-emitter].
 
@@ -42,7 +42,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Instanz-Ereignisse
+### Instanz Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -52,28 +52,23 @@ Objects created with `new Notification` emit the following events:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is shown to the user, note this could be fired
-multiple times as a notification can be shown multiple times through the
-<code>show()` method.</p>
+Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Ereignis: 'click'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is clicked by the user.</p>
+Emitted when the notification is clicked by the user.
 
-<h4 spaces-before="0">Event: 'close'</h4>
+#### Event: 'close'
 
-<p spaces-before="0">Rückgabewert:</p>
+Rückgabewert:
 
-<ul>
-<li><code>event` Event
+* `event` Event
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -83,8 +78,8 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>reply` String - The string the user entered into the inline reply field.
+* `event` Event
+* `reply` String - The string the user entered into the inline reply field.
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
@@ -92,10 +87,10 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>index` Number - The index of the action that was activated.
+* `event` Event
+* `index` Number - The index of the action that was activated.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 Objects created with `new Notification` have the following instance methods:
 

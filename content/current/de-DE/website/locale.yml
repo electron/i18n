@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Anfangen</b></a> eine App zu bauen mit hilfe der <a href='/docs/tutorial/first-app'>Schnellstart Anleitung</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bleiben Sie auf dem neusten Stand</b></a>, indem Sie <a href='https://twitter.com/electronjs'>@electronjs</a> auf Twitter folgen und den <a href='/blog'>Blog-Feed</a> abonnieren."
     localized_docs: "<a href='/languages'><b>Lesen Sie die Dokumentation in Ihrer Sprache</b></a>, indem Sie die <a href='/languages'>Sprach-Seiten</a> besuchen."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Bekomme hilfe und feedback</b></a> durch beitreten des <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, Posten auf <a href='https://discuss.atom.io/c/electron'>Discuss</a> oder auf <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Melde Sicherheitsprobleme</b></a> per Email an <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Bugs melden</b></a> durch öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Anfragen von Features</b></a> durch Öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
@@ -117,6 +117,7 @@ explore:
   description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
   fiddle_title: Versuche mehr leistungsfähige Experimente mit Electron Fiddle
   see_more_info: Weitere Infos anzeigen
+download: Download
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: Erste Schritte
   fiddle:
     lead_desc: Der einfachste Weg mit Electron zu beginnen
+    different_os: "Not the right operating system? See:"
     create_app: Erstelle Deine App
     description: Electron Fiddle ermöglicht es dir, kleine Electron-Experimente zu erstellen und zu spielen. Es begrüßt dich nach dem Öffnen mit einer Schnellstart-Vorlage – ändere einige Dinge, wähle die Version von Electron, mit der du sie ausführen möchtest und spielst. Dann speichere deinen Fiddle entweder als GitHub Gist oder in einen lokalen Ordner. Sobald er auf GitHub gedrückt wurde, kannst du deinen Fiddle schnell ausprobieren, indem du ihn in die Adressleiste eingibst.
     explore: Erkunde Electron

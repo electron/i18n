@@ -2,7 +2,7 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
@@ -48,7 +48,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Örnek Metodlar
+### Örnek yöntemleri
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
@@ -98,7 +98,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 ` menu.popup () ` çağrıldığında verilir.
 
@@ -106,11 +106,11 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
@@ -276,7 +276,7 @@ macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için
 
 MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinin `Info.plist` dosyasını geliştirin. Daha fazla bilgi için [About Information Property List Files][AboutInformationPropertyListFiles] bakın.
 
-## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 Tarayıcı pencerelerinin [`setMenu` method][setMenu], belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
 

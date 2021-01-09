@@ -16,11 +16,11 @@ npm install --save-dev electron@latest
 
 ## Bersyon 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Madali lang para sa mga developers ang pagsasama ng mga katangian, ngunit ito'y nagbibigay ng porblema sa mga developer ng client-facing na mga aplikasyon. Ang pagsusuri sa QA ng mga pangunahing aplikasyon gaya ng Slack, Stride, Teams, Skype, VS Code, Atom, at Desktop ay maaring napakahaba at ang katatagan ay isang tanging hinahangad na resulta. Ngunit mayroong napakapanganib na resulta sa paggamit ng mga bagong katangian para maresolba ng mga bugs na problema.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Madali lang para sa mga developers ang pagsasama ng mga katangian, ngunit ito'y nagbibigay ng porblema sa mga developer ng client-facing na mga aplikasyon. Ang pagsusuri sa QA ng mga pangunahing aplikasyon gaya ng Slack, Stride, Teams, Skype, VS Code, Atom, at Desktop ay maaring napakahaba at ang katatagan ay isang tanging hinahangad na resulta. Ngunit mayroong napakapanganib na resulta sa paggamit ng mga bagong katangian para maresolba ng mga bugs na problema.
 
 Isang halimbawa ng 1.x na istratehiya ay:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 Ang app na binuo sa `1.8.1` ay hindi makukuha sa `1.8.3` pagsasaayos ng mga bugs na hindi gumagamit ng `1.8.2` na katangian, o sa pagba-backport ng pagsasaayos at pagpapanatili sa linya ng mga bagong labas.
 
@@ -48,18 +48,17 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
 | Node.js major version updates                             | Node.js minor version updates                    | Node.js patch version updates                    |
 | Mga updates sa Chromium version                           |                                                  | pagsasaayos ng may kaugnayan sa chromium patches |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Pagpapapanatag ng mga Branch
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
-![](../images/versioning-sketch-1.png)
+![Pagpapapanatag ng mga Branch](../images/versioning-sketch-1.png)
 
 Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
-Pumapayag kami sa maramihang pagpapanatag ng mga branches para umiral nang sabay-sabay, at tangkain na suportahan kahit sa dalawang magkahanay sa lahat ng oras, ang pagsasaayos ng seguridad sa pagba-backport na kinakailangan. ![](../images/versioning-sketch-2.png)
+Pumapayag kami sa maramihang pagpapanatag ng mga branches para umiral nang sabay-sabay, at tangkain na suportahan kahit sa dalawang magkahanay sa lahat ng oras, ang pagsasaayos ng seguridad sa pagba-backport na kinakailangan. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Ang mga lumang linya ay hindi suportado ng GitHub, pero pwedeng may ibang grupo na magmamay-ari at magba-backport ng katatagan at seguridad na pwedeng umayos sa kanilang sarili. Hindi namin ito minumungkahi, pero kinikilala namin ito dahil ito'y nagpapadali sa buhat ng maraming app developers.
 
@@ -102,16 +101,17 @@ For each major and minor bump, you should expect to see something like the follo
 
 Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* Itinuturi ang beta na _pangkalahatang matatag_ at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* Itinuturi ang beta na _pangkalahatang matatag_ at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha sa mga bagong labas:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. Kung gusto mong subukan kaagad ang bagong tampok, dapat mong i-build ang Electron ng iyong sarili.
 
 Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
@@ -119,6 +119,7 @@ Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho 
 * inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa _alpha_
 
 # Mga tampok na Bandila
+
 Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
@@ -138,7 +139,7 @@ Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Ang mga release na branch ay hindi maaring isama ulit sa master
-- Ang mga release branches _ba_ay may laman nang tamang bersyon sa kanilang `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Ang mga release na branch ay hindi maaring isama ulit sa master
+* Ang mga release branches _ba_ay may laman nang tamang bersyon sa kanilang `package.json`
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 进程：[主进程](../glossary.md#main-process)
 
-示例：
+示例:
 ```js
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])

@@ -62,7 +62,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -84,7 +84,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
@@ -94,7 +94,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -103,7 +103,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -112,7 +112,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -121,7 +121,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -178,7 +178,7 @@ proxyURIList = <proxyURL>[","<proxyURIList>]
 proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 ```
 
-For example:
+وعلى سبيل المثال:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check

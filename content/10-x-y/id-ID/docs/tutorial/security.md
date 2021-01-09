@@ -31,7 +31,7 @@ A security issue exists whenever you receive code from an untrusted source (e.g.
 
 > : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
-## Peringatan Keamanan Elektron
+## Peringatan Keamanan Elektronika
 
 Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -336,7 +336,8 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
 
@@ -344,11 +345,11 @@ Baik const mainWindow = BrowserWindow() baru
 
 <p spaces-before="0"><em x-id="4">Recommendation is Electron's default</em></p>
 
-<p spaces-before="0">If you are using <a href="../api/webview-tag.md" f-id="webview-tag" fo="3"><code><webview>`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`][browser-window] menggunakan metode `window.open()`. `<webview>` tags are otherwise not allowed to create new windows.</p>
+<p spaces-before="0">If you are using <a href="../api/webview-tag.md" f-id="webview-tag" fo="3"><code><webview>`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.</p>
 
 ### Mengapa?
 
-Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan baru [`BrowserWindows`][browser-window] secara default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
 
 ### Bagaimana?
 

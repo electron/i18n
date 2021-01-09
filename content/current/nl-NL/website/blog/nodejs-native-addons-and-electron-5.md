@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Node.js Inheemse Addons en Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Als je problemen hebt met het gebruik van een native Node.js addon met Electron 5. , er is een kans dat het moet worden bijgewerkt om te werken met de meest recente versie van V8.
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## Goodbye `v8::Handle`, Hallo `v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+In 2014 wordt de V8 team niet meer ondersteund `v8::Handle` ten gunste van `v8::Local` voor lokale handelingen. Electron 5.0 bevat een versie van V8 die eindelijk `v8::Handle` voor goed en native Nodes verwijderd heeft. s voegt toe dat het nog gebruikt zal moeten worden om te worden geüpdatet voordat ze gebruikt kunnen worden met Electron 5.0.
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+De vereiste codewijziging is minimaal, maar *elke* native Node module die nog steeds `v8::Handle` gebruikt zal niet kunnen bouwen met Electron 5. en zal moeten worden gewijzigd. Het goede nieuws is dat Node. s v12 zal ook deze V8 wijziging omvatten dus alle modules die `v8::Handle` gebruiken moeten toch *worden geüpdatet* om te werken met de volgende versie van Node.
 
-## I maintain a native addon, how can I help?
+## Ik onderhoud een native addon, hoe kan ik u helpen?
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+Als je een native addon voor Node.js behoudt, vervang je alle voorvallen van `v8::Handle` door `v8::Local`. Het eerste was slechts een alibi voor het laatste, dus er hoeven geen andere wijzigingen te worden aangebracht om dit specifieke probleem aan te pakken.
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+Je kunt ook geïnteresseerd zijn in het bekijken van [N-API](https://nodejs.org/api/n-api.html), die apart wordt gehouden van V8 als onderdeel van Node. is gericht op het isoleren van inheemse addons van veranderingen in de onderliggende JavaScript-engine. U kunt meer informatie vinden [in de N-API documentatie op de Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
 
-## Help! I use a native addon in my app and it won't work!
+## Help! Ik gebruik een native addon in mijn app en het zal niet werken!
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+Als je voor Node een native addon gebruikt. s in je app en de native addon zal niet bouwen vanwege dit probleem, Kijk bij de auteur van de addon om te zien of ze een nieuwe versie hebben uitgebracht die het probleem oplost. Zo niet, dan is het waarschijnlijk de beste weddenschap om naar de auteur (of het openen [ van een pull-verzoek!](https://help.github.com/articles/about-pull-requests/)) te komen.</p>

@@ -1,4 +1,4 @@
-# การเข้าถึง
+# Accessibility
 
 ทําให้การใช้งานที่สามารถเข้าถึงได้เป็นสิ่งสําคัญและเรายินดีที่จะแนะนําใหม่ และ[สเป็คตรอน][spectron]ที่มอบ[Devtron][devtron] นักพัฒนาซอฟต์แวร์มีโอกาสที่จะทําให้แอปของพวกเขาดีขึ้นสําหรับทุกคน
 
@@ -32,7 +32,7 @@ Both of these tools are using the [Accessibility Developer Tools][a11y-devtools]
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## เปิดใช้งานการเข้าถึง
+## Enabling Accessibility
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 

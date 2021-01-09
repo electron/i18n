@@ -4,7 +4,7 @@
 * `rotation`‏ Number - יכול להיות 0, 90, 180, 270, מציין הטיית המסך עם כיוון השעון.
 * `scaleFactor`‏ Number - פלט של מקדם יחס הפיקסלים של ההתקן.
 * `touchSupport` ‏String - ערכים אפשריים: `available`,‏ `unavailable`,‏ `unknown`.
-* `monochrome` ‏Boolean - האם רכיב התצגוה הוא מסך מונוכרום.
+* `monochrome` Boolean - Whether or not the display is a monochrome display.
 * `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `colorSpace` String -  represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
 * `colorDepth` Number - The number of bits per pixel.

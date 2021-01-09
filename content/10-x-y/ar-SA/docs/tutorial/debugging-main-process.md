@@ -1,14 +1,14 @@
 # تنقيح عملية الرئيسية
 
-يمكن لـ DevTools في نافذة متصفح الإلكترون تصحيح جافا سكريبت هذا نفذت في تلك النافذة (أي صفحات الويب). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+يمكن لـ DevTools في نافذة متصفح الإلكترون تصحيح جافا سكريبت هذا نفذت في تلك النافذة (أي صفحات الويب). لتصحيح أخطاء جافا سكريبت التي تم تنفيذها في العملية الرئيسية سوف تحتاج إلى استخدام مصحح خارجي و اطلاق إلكترون باستخدام مفتاح `- تفقد` أو `- تفقد علامة`.
 
-## Command Line Switches
+## مفاتيح تبديل خط الأوامر
 
-Use one of the following command line switches to enable debugging of the main process:
+استخدم أحد مفاتيح تبديل سطر الأوامر التالية لتمكين تصحيح مسار العملية الرئيسية:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+سيستمع إلكترون إلى رسائل بروتوكول V8 للمفتش على منفذ ``المحدد، تصحيح أخطاء خارجي سيحتاج إلى الاتصال بهذا الميناء. منفذ `` الافتراضي هو `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+مثل `--تفقد` ولكن توقف التنفيذ على السطر الأول من جافا سكريبت.
 
 ## منقح خارجي
 
-You will need to use a debugger that supports the V8 inspector protocol.
+سوف تحتاج إلى استخدام مصحح يدعم بروتوكول مفتشي V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [تنقيح عملية الرئيسية في VSCode](debugging-main-process-vscode.md)
+- قم بتوصيل Chrome عن طريق زيارة `chrome://inspect` واختيار لتفتيش تطبيق إلكترون الذي تم إطلاقه موجود هناك.
+- [تصحيح العملية الرئيسية في VSCode](debugging-main-process-vscode.md)

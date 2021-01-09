@@ -1,6 +1,6 @@
 # Guide Windows Store
 
-Avec Windows 10, le bon vieux executable win32 a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
+Avec Windows 10, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
 
 Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`][electron-windows-store], permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
 
@@ -42,12 +42,12 @@ La sortie devrait ressembler à peu près à ceci :
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+── node.dll
+── resources
+文<unk> ─ app.asar
+── v8_context_snapshot.bin
+── squirrel.exe
+<unk> ─ ui_resources_200_percent.pak
 ```
 
 ## Étape 2: Exécuter electron-windows-store

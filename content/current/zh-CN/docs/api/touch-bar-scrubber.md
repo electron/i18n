@@ -2,11 +2,11 @@
 
 > 创建一个scrubber (可滚动的选择程序)
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` _实验功能_
+### `new TouchBarScrubber(options)`
 
-* `options` Object
+* `选项` 对象
   * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
   * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - 用户选中项排序。

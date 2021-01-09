@@ -42,7 +42,7 @@ Saat memuat halaman, kejadian `ready-to-show` akan dikeluarkan saat proses peren
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -62,9 +62,9 @@ Untuk aplikasi yang kompleks, kejadian `ready-to-show` bisa dijalankan sangat te
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -82,8 +82,8 @@ Dengan menggunakan opsi `parent`, Anda dapat membuat jendela anak:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -100,8 +100,13 @@ Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk men
 
 
 ```javascript
-const { BrowserWindow } = require ('electron') biarkan anak = Jendela peramban baru ( {orang tua: atas, modal: benar, tunjukkan: salah} ) anak. beban URL ('https://github.com') child.once (' siap tampil ', () = & gt; {
-{ parent: top, modal: true, show: false }{parent: top, modal: true, show: false}{parent: top, modal: true, show: false}{parent: top, modal: true, show: false}
+const { BrowserWindow } = require('electron')
+
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
+child.loadURL('https://github.com')
+child.once('ready-to-show', () => {
+  child.show()
+})
 ```
 
 
@@ -189,9 +194,13 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
 <li><code>backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Defaultnya adalah `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Defaultnya adalah ` false </ 0> .</li>
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Defaultnya adalah ` false </ 0> .</li>
 <li><code>transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
 <li><code>type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Nilai yang mungkin adalah: 
+        * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Nilai yang mungkin adalah:
     
         * `default` - Hasil dalam judul Mac buram abu-abu standar.
@@ -224,9 +233,8 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
 
     * `kotak pasir` Boolean (opsional) - Jika disetel, ini akan menampilkan kotak pasir perender terkait dengan jendela, membuatnya kompatibel dengan Chromium Kotak pasir tingkat OS dan menonaktifkan mesin Node.js. Ini tidak sama dengan opsi `nodeIntegration` dan API tersedia untuk skrip pramuat lebih terbatas. Baca lebih lanjut tentang opsi [di sini](sandbox-option.md).
 
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Defaultnya adalah `true`.
-
-    * `session` [Session](session.md#class-session) (perintah) - sesuaikan sesi yang digunakan oleh halaman. Alih-alih melewati objek Sidang secara langsung, Anda juga bisa memilihnya gunakan opsi `partisi` sebagai gantinya, yang menerima string partisi. Kapan `Session` dan `partisi` disediakan, `Session` akan lebih disukai. Default adalah sesi default.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Defaultnya adalah ` false </ 0> .</p></li>
+<li><p spaces-before="0"><code>session` [Session](session.md#class-session) (perintah) - sesuaikan sesi yang digunakan oleh halaman. Alih-alih melewati objek Sidang secara langsung, Anda juga bisa memilihnya gunakan opsi `partisi` sebagai gantinya, yang menerima string partisi. Kapan `Session` dan `partisi` disediakan, `Session` akan lebih disukai. Default adalah sesi default.
 
     * `partisi` String (opsional) - Mengatur sesi yang digunakan oleh halaman sesuai dengan string partisi. Jika `partisi` dimulai dengan `bertahan:`, halaman akan menggunakan sesi persisten yang tersedia untuk semua halaman di aplikasi dengan sama `partisi`. Jika tidak ada awalan `bertahan:`, halaman akan menggunakan a sesi dalam memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Default adalah sesi default.
 
@@ -460,9 +468,17 @@ Emitted after the window has been resized.
 
 
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
+
+
 #### Event: 'will-move' _macOS_ _Windows_
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -477,13 +493,13 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted saat jendela sedang dipindahkan ke posisi baru.
 
-__Note__: On macOS this event is an alias of `moved`.
 
 
-
-#### Acara : 'pindah' _ macOS </ 0></h4> 
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted sekali saat jendela dipindahkan ke posisi baru.
+
+__Note__: On macOS this event is an alias of `move`.
 
 
 
@@ -524,7 +540,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * ` perintah </ 0>  String</li>
@@ -537,11 +553,14 @@ is invoked. Ini biasanya terkait dengan kunci media keyboard atau perintah brows
  awalan <code> APPCOMMAND_ </ 0> dilucuti.
 misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browser-backward </ 0> .</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.on ('app-command', (e, cmd) = & gt; {
-   // Arahkan jendela kembali saat pengguna menyentuh mouse mereka kembali tombol
-   jika (cmd === 'browser mundur' & amp; & amp; win.webContents.canGoBack ()) {
-     win.webContents.goBack ()
-   }})
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.on('app-command', (e, cmd) => {
+  // Navigate the window back when the user hits their mouse back button
+  if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
+    win.webContents.goBack()
+  }
+})
 `</pre> 
   The following app commands are explicitly supported on Linux:
   
@@ -569,7 +588,7 @@ Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi ele
 
 #### Acara : 'gesek' _ macOS </ 0></h4> 
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * ` arah </ 0>  String</li>
@@ -582,7 +601,7 @@ Pengembalian:
 
 #### Event: 'rotate-gesture' _macOS_
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 * `rotation` Float
@@ -605,6 +624,19 @@ Emitted ketika jendela telah ditutup lembar.
 #### Event: 'new-window-for-tab' _macOS_
 
 Emitted ketika tombol tab asli baru diklik.
+
+
+
+#### Event: 'system-context-menu' _Windows_
+
+Mengembalikan:
+
+* `event` Sinyal
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 
 
@@ -646,27 +678,27 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `identitas` Integer
 
-Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
-  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-  
-  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-  
-  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-  
-  
+Menambahkan ekstensi Chrome yang terletak di ` path `, dan mengembalikan nama ekstensi.
+
+Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi Chrome dengan nama.</p>
@@ -688,23 +720,22 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
+Menambahkan ekstensi DevTools yang terletak di ` path`, dan mengembalikan nama ekstensi.
 
-<p spaces-before="0">Menambahkan ekstensi DevTools yang terletak di <code> path`, dan mengembalikan nama ekstensi.</p> 
-  Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
-  
-  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-  
-  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-  
-  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-  
-  
+Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+
+Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi DevTools dengan nama.</p>
@@ -723,8 +754,10 @@ Untuk memeriksa apakah ada ekstensi DevTools, Anda dapat menjalankan yang beriku
 
 
 ```javascript
-biarkan diinstal = { BrowserWindow }getDevToolsExtensions () hasOwnProperty ('devtron')
-console.log (terpasang)
+const { BrowserWindow } = require('electron')
+
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
+console.log(installed)
 ```
 
 
@@ -741,10 +774,10 @@ Objek yang dibuat dengan`BrowserWindow baru ` memiliki properti berikut:
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-// Dalam contoh ini `win` adalah contoh kami
-let win = new BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ('https://github.com')
+const { BrowserWindow } = require('electron')
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('https://github.com')
 ```
 
 
@@ -1333,7 +1366,7 @@ Mengembalikan `Integer []` - berisi jendela posisi saat ini.
 
 #### `win.setTitle(title)`
 
-* ` judul </ 0> String</li>
+* ` judul</ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Perubahan judul jendela asli <code>judul`.</p> 
@@ -1355,10 +1388,10 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 
 ```javascript
-const { BrowserWindow } = membutuhkan ('elektron')
-biarkan menang = new BrowserWindow()
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
-biarkan toolbarRect = document.getElementById ('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1486,8 +1519,8 @@ Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
 
 #### `win.loadURL (url [, options])`
 
-* `url` String
-* `options` Object (optional) 
+* ` url </ 0> String</li>
+<li><code>options` Object (optional) 
     * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -1502,10 +1535,10 @@ Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlu
 Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
 Metode:</p>
 
-<pre><code class="javascript">biarkan url = require('url').format({
-  protokol: 'file',
-  garis miring: benar,
-  pathname: require ('path'). join(__ dirname, 'index.html')
+<pre><code class="javascript">const url = require('url').format({
+  protocol: 'file',
+  slashes: true,
+  pathname: require('path').join(__dirname, 'index.html')
 })
 
 win.loadURL(url)
@@ -1543,7 +1576,7 @@ Sama seperti ` webContents.reload </ 0> .</p>
 
 <h4 spaces-before="0"><code>win.setMenu(menu)` _Linux_ _Windows_</h4> 
 
-* `menu` Menu | batal
+* `menu` Menu | null
 
 Sets the `menu` as the window's menu bar.
 
@@ -1733,9 +1766,11 @@ Kembali `Boolean` - Apakah menu bar terlihat.
 
 
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `terlihat` Boolean
+* `options` Object (optional) 
+    * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 
@@ -1868,13 +1903,13 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Linux_
+#### `win.setTouchBar(touchBar)` Linux _macOS_
 
 * `touchBar` TouchBar | null
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 
 

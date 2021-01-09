@@ -14,7 +14,7 @@ Follow the guidelines below for building Electron on macOS.
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ npx @electron/check-python-tls
+$ npx @electron/Check-Python-TLS
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -23,11 +23,11 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Nếu bạn đang dùng Python được cung cấp bởi Homebrew, bạn cũng cần phải cài thêm các Python module sau:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Bạn có thể dùng `pip` để cài:
 
 ```sh
 $ pip install pyobjc
@@ -35,10 +35,10 @@ $ pip install pyobjc
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Nếu bạn đang phát triển Electron và không định phân phối lại bản xây dựng của bạn thì bạn có thể bỏ qua phần này.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the macOS 10.13 SDK.  Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Các bản xây dựng chính thức của Electron được xây dựng bởi [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), và macOS 10.13 SDK.  Xây dựng với phiên bản SDK mới hơn cũng hoạt động, nhưng phiên bản phát hành hiện tại đang dùng SDK phiên bản 10.13.
 
 ## Building Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+Xem [Build Instructions: GN](build-instructions-gn.md).

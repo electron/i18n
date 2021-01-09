@@ -1,10 +1,10 @@
 # pelacakan konten
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Kumpulkan data pelacakan dari modul konten Chromium untuk menemukan kemacetan kinerja dan operasi yang lambat.
 
 Proses: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
 
 **Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
@@ -14,7 +14,7 @@ const { app, contentTracing } = require('electron')
 app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
-      include_categories: ['*']
+      included_categories: ['*']
     })
     console.log('Tracing started')
     await new Promise(resolve => setTimeout(resolve, 5000))

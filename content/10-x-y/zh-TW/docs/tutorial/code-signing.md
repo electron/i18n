@@ -1,4 +1,4 @@
-# 代碼簽名
+# Code Signing
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
@@ -22,7 +22,7 @@ Properly preparing macOS applications for release requires two steps: First, the
 To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. 下載並安裝 [Xcode][] - 這需要運行 macOS 的電腦
 3. Generate, download, and install [signing certificates][]
 
 Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.

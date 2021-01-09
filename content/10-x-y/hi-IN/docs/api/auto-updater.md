@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 

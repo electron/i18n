@@ -1,70 +1,70 @@
-# Developer Environment
+# Vývojářské prostředí
 
-Vývoj elektronových aplikací je v podstatě vývoj v Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Vývoj elektronových aplikací je v podstatě vývoj v Node.js. Aby se váš operační systém změnil v prostředí schopné vytvářet stolní aplikace pomocí Electronu, budete pouze potřebovat Node. , npm, editor kódu dle vašeho výběru a základní pochopení klienta příkazové řádky vašeho operačního systému.
 
-## Nastavení pro macOS
+## Nastavení macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud][macincloud] or [xcloud](https://xcloud.me)).
+> Electron podporuje macOS 10.10 (Yosemite) a vyšší. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud][macincloud] or [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Nejprve nainstalujte nejnovější verzi Node.js. Doporučujeme nainstalovat buď nejnovější `LTS` nebo `aktuální` verzi, která je k dispozici. Visit [the Node.js download page][node-download] and select the `macOS Installer`. Zatímco Homebrew je nabízená možnost, ale doporučujeme proti ní - mnoho nástrojů nebude kompatibilní se způsobem, jakým Homebrew instaluje Node.js.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Po stažení spusťte instalační program a nechte vás Průvodce instalací prostřednictvím instalace.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Po instalaci potvrďte, že vše funguje podle očekávání. Najděte macOS `Terminál` aplikaci ve složce `/Applications/Utilities` (nebo hledáním slova `Terminálu` ve Spotlight). Otevřete `Terminál` nebo jiný klient příkazové řádky dle vašeho výběru a potvrďte, že jsou k dispozici `uzel` a `npm`:
 
 ```sh
-# This command should print the version of Node.js
-node -v
+# Tento příkaz by měl vytisknout verzi Node.js
+uzel -v
 
-# This command should print the version of npm
+# Tento příkaz by měl vytisknout verzi npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Pokud oba příkazy vytisknou číslo verze, jsou všechny nastaveny! Než začnete , možná budete chtít nainstalovat [editor kódu](#a-good-editor) vhodný pro vývoj JavaScriptu.
 
-## Nastavení pro Windows
+## Nastavení Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
+> Electron podporuje Windows 7 a novější verze – pokus o vývoj aplikací Electron na starších verzích Windows nebude fungovat. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Nejprve nainstalujte nejnovější verzi Node.js. Doporučujeme nainstalovat buď nejnovější `LTS` nebo `aktuální` verzi, která je k dispozici. Visit [the Node.js download page][node-download] and select the `Windows Installer`. Po stažení spusťte instalační program a nechte vás Průvodce instalací prostřednictvím instalace.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Na obrazovce, která vám umožňuje nakonfigurovat instalaci, se ujistěte, že vyberte `Node. s runtime`, `npm správce balíčků`, a `Přidat do PATH` .
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Po instalaci potvrďte, že vše funguje podle očekávání. Najděte Windows PowerShell otevřením Menu Start a psaním `PowerShell`. Otevřete nahoru `PowerShell` nebo jiný klient příkazové řádky dle vašeho výběru a potvrďte, že jsou k dispozici `uzel` a `npm`:
 
 ```powershell
-# This command should print the version of Node.js
-node -v
+# Tento příkaz by měl vytisknout verzi Node.js
+uzel -v
 
-# This command should print the version of npm
+# Tento příkaz by měl vytisknout verzi npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Pokud oba příkazy vytisknou číslo verze, jsou všechny nastaveny! Než začnete , možná budete chtít nainstalovat [editor kódu](#a-good-editor) vhodný pro vývoj JavaScriptu.
 
-## Nastavení pro Linux
+## Nastavení Linuxu
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> Electron obecně podporuje Ubuntu 12.04, Fedora 21, Debian 8 a novější.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
+Nejprve nainstalujte nejnovější verzi Node.js. V závislosti na vaší distribuci Linuxu se mohou instalační kroky lišit. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux][node-package].
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Běžíte na Linux, takže už pravděpodobně víte, jak pracovat s příkazovou řádkou klientem. Otevřete svého oblíbeného klienta a potvrďte, že `uzel` a `npm` jsou dostupné globálně:
 
 ```sh
-# This command should print the version of Node.js
-node -v
+# Tento příkaz by měl vytisknout verzi Node.js
+uzel -v
 
-# This command should print the version of npm
+# Tento příkaz by měl vytisknout verzi npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Pokud oba příkazy vytisknou číslo verze, jsou všechny nastaveny! Než začnete , možná budete chtít nainstalovat [editor kódu](#a-good-editor) vhodný pro vývoj JavaScriptu.
 
-## A Good Editor
+## Dobrý editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Both of them have excellent JavaScript support.
+We might suggest two free popular editors built in Electron: GitHub's [Atom][atom] and Microsoft's [Visual Studio Code][code]. Oba mají vynikající podporu JavaScriptu.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Pokud jste jedním z mnoha vývojářů se silnou preferencí, víte, že prakticky všechny editory kódu a IDEs v těchto dnech podporují JavaScript.
 
 [macincloud]: https://www.macincloud.com/
 [node-download]: https://nodejs.org/en/download/

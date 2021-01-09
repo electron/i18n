@@ -4,9 +4,9 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 ## Preguntas más frecuentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
-* [Preguntas más frecuentes sobre Electron](faq.md)
+* [Preguntas Frecuentes sobre Electron](faq.md)
 
 ## Guías y tutoriales
 
@@ -16,9 +16,9 @@ There are questions that are asked quite often. Check this out before creating a
   * [Configurar Linux](tutorial/development-environment.md#setting-up-linux)
   * [Elegir un editor](tutorial/development-environment.md#a-good-editor)
 * [Crear su primera aplicación](tutorial/first-app.md)
-  * [Instalar Electron](tutorial/first-app.md#installing-electron)
+  * [Instalando Electron](tutorial/first-app.md#installing-electron)
   * [Desarrollo de Electron en pocas palabras](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Ejecutar su aplicación](tutorial/first-app.md#running-your-app)
+  * [Ejecuta tu aplicación](tutorial/first-app.md#running-your-app)
 * [Plantillas y CLIs](tutorial/boilerplates-and-clis.md)
   * [Plantillas vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -41,8 +41,8 @@ There are questions that are asked quite often. Check this out before creating a
   * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
   * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
-  * [Función nativa de Arrastrar y Soltar archivo](tutorial/native-file-drag-drop.md)
-  * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
+  * [Función nativa arrastrar & soltar archivo](tutorial/native-file-drag-drop.md)
+  * [Renderización fuera de pantalla](tutorial/offscreen-rendering.md)
   * [Soporte para Modo Oscuro macOS](tutorial/mojave-dark-mode-guide.md)
   * [Página web embebida en Electron](tutorial/web-embeds.md)
 * [Accesibilidad](tutorial/accessibility.md)
@@ -54,7 +54,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Depuración del proceso principal con el Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
+  * [Extensión de Chrome DevTools](tutorial/devtools-extension.md)
   * [Prueba Automática con un controlador personalizado](tutorial/automated-testing-with-a-custom-driver.md)
 * [Distribución](tutorial/application-distribution.md)
   * [Plataformas soportadas](tutorial/support.md#supported-platforms)
@@ -86,7 +86,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
   * [Tiempos de Lanzamientos](tutorial/electron-timelines.md)
   * [Programa de retroalimentación](tutorial/app-feedback-program.md)
 * [Empaquetando el código fuente con asar](tutorial/application-packaging.md)
-  * [Generar archivos asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Generando archivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Añadiendo archivos desempaquetados a ficheros asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
@@ -108,9 +108,9 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 ### Elementos de DOM personalizados:
 
-* [`Archivo` Objeto](api/file-object.md)
-* [`<webview>` Etiqueta](api/webview-tag.md)
-* [`window.open` Función](api/window-open.md)
+* [`File` Object](api/file-object.md)
+* [Etiqueta `<webview>`](api/webview-tag.md)
+* [Función `window.open`](api/window-open.md)
 * [`BrowserWindowProxy` Objeto](api/browser-window-proxy.md)
 
 ### Módulos para el proceso principal:
@@ -119,7 +119,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
+* [class="VfPpkd-ksKsZd-XxIAqe">](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [Compras integradas](api/in-app-purchase.md)
@@ -129,11 +129,11 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [red](api/net.md)
 * [netLog](api/net-log.md)
 * [Notification](api/notification.md)
-* [powerMonitor](api/power-monitor.md)
+* [Monitor de energía](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
+* [Protocolo](api/protocol.md)
 * [screen](api/screen.md)
-* [session](api/session.md)
+* [Sesión](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Barra táctil](api/touch-bar.md)
 * [Tray](api/tray.md)
@@ -150,7 +150,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
+* [NativeImage](api/native-image.md)
 * [shell](api/shell.md)
 
 ## Desarrollo

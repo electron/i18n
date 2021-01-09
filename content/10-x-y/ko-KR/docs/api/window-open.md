@@ -23,7 +23,7 @@ The `features` string follows the format of standard browser, but each feature h
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**참고:**
+**Notes:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.

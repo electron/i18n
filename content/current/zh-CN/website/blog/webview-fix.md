@@ -1,31 +1,31 @@
 ---
-title: Webview Vulnerability Fix
+title: 网络视图脆弱性修复
 author: ckerr
 date: '2018-03-21'
 ---
 
-A vulnerability has been discovered which allows Node.js integration to be re-enabled in some Electron applications that disable it. This vulnerability has been assigned the CVE identifier [CVE-2018-1000136](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000136).
+发现了一个易受伤害性，可以在某些禁用 Electron 应用程序中重新启用Node.js集成。 这个脆弱性已经被分配到CVE标识符 [CVE-2018-1000136](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000136)。
 
 ---
 
-## Affected Applications
+## 受影响的应用程序
 
 An application is affected if *all* of the following are true:
 
- 1. Runs on Electron 1.7, 1.8, or a 2.0.0-beta
- 2. Allows execution of arbitrary remote code
- 3. Disables Node.js integration
- 4. Does not explicitly declare `webviewTag: false` in its webPreferences
- 5. Does not enable the `nativeWindowOption` option
- 6. Does not intercept `new-window` events and manually override `event.newGuest` without using the supplied options tag
+ 1. 在 Electron 1.7, 1.8, 或 2.0.0-beta 运行
+ 2. 允许执行任意远程代码
+ 3. 禁用 Node.js 集成
+ 4. 没有明确声明 `webviewTag: false` 在其网页首选项
+ 5. 不启用 `原生窗口选项`
+ 6. 不在没有使用提供的选项标签的情况下截取 `新窗口` 事件并手动覆盖 `event.newGuest`
 
-Although this appears to be a minority of Electron applicatons, we encourage all applications to be upgraded as a precaution.
+虽然这似乎是Electron应用程序中的少数，但我们鼓励所有应用程序升级，以此作为一种预防措施。
 
-## Mitigation
+## 减轻影响
 
-This vulnerability is fixed in today's [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), and [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) releases.
+这种脆弱性在今日 [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4)和 [2.0.0-bet.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) 发布版本中已经固定下来。
 
-Developers who are unable to upgrade their application's Electron version can mitigate the vulnerability with the following code:
+无法升级其应用程序的 Electron 版本的开发者可以通过以下代码来降低脆弱性：
 
 ```js
 app.on('web-contents-created', (event, win) => {
@@ -48,13 +48,13 @@ app.on('web-contents-created', (event, win) => {
 })
 ```
 
-## Further Information
+## 更多信息
 
-This vulnerability was found and reported responsibly to the Electron project by Brendan Scarvell of [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
+[Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/) 的Brendan Scavell向Electron 项目报告了这种脆弱性。
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
 
-To report a vulnerability in Electron, please email security@electronjs.org.
+若要报告Electron中的脆弱性，请电子邮件security@electronjs.org。
 
-Please join our [email list](https://groups.google.com/forum/#!forum/electronjs) to receive updates about releases and security updates.
+请加入我们的 [电子邮件列表](https://groups.google.com/forum/#!forum/electronjs) 来接收有关发布和安全更新的更新。
 

@@ -46,7 +46,7 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Trên Windows và Linux:
 
 ```plaintext
 electron/resources/

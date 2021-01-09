@@ -2,7 +2,7 @@
 
 Offscreen rendering ermöglicht es, den Inhalt eines Browser Fensters in einer Bitmap darzustellen um diesen, beispielsweise, auf einer Oberfläche in einer 3D Szene anzuzeigen. Offscreen rendering in Electron verwendet einen ähnlichen Ansatz wie das [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) Projekt.
 
-Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty area an das `'paint'` Event weitergegeben um hohe Effizienz zu bewaren. Das Rendering kann pausiert und fortgesetzt werden. Die Bildrate kann ebenfalls gesetzt werden. Die angegebene Bildrate ist der Maximalwert. Wenn auf einer Seite nichts passiert, werden auch keine Bilder generiert. Die Bildrate hat einen absoluten Maximalwert von 60 da es darüber keine Vorteile gibt, jedoch ein substanzieller Leistungsverlust vorhanden ist.
+Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty area an das `'paint'` Event weitergegeben um hohe Effizienz zu bewaren. Das Rendering kann pausiert und fortgesetzt werden. Die Bildrate kann ebenfalls gesetzt werden. Die angegebene Bildrate ist der Maximalwert. Wenn auf einer Seite nichts passiert, werden auch keine Bilder generiert. Die Bildrate hat einen absoluten Maximalwert von 240 da es darüber keine Vorteile gibt, jedoch ein substanzieller Leistungsverlust vorhanden ist.
 
 **Notiz:** Ein offscreen Fenster wird immer als ein [Frameless Window](../api/frameless-window.md) erzeugt.
 
@@ -10,7 +10,7 @@ Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty
 
 ### GPU Beschleunigung
 
-GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Da das Bild aber zuerst auf den Grafikprozessor kopiert werden muss (was Zeit in Anspruch nimmt), ist dieser Modus langsamer als der CPU beschleunigte Modus. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Da das Bild aber zuerst auf den Grafikprozessor kopiert werden muss (was Zeit in Anspruch nimmt), ist dieser Modus langsamer als der CPU beschleunigte Modus. Der Vorteil dieses Modus ist, dass WebGL und 3D CSS-Animationen unterstützt werden.
 
 ### Software Ausgabegerät
 
@@ -27,16 +27,16 @@ app.disableHardwareAcceleration()
 
 let win
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+  gewinnen. oadURL('http://github.com')
+  win.webContents.on('paint', (Event, dirty, image) => {
+    // updateBitmap(dirty, image. etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

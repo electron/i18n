@@ -1,6 +1,6 @@
 # Instalação
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com). The preferred method is to install Electron as a development dependency in your app:
+Para instalar binários pré-compilados do Electron, use [`npm`](https://docs.npmjs.com). O método preferido é instalar o Electron como uma dependência de desenvolvimento em seu app:
 
 ```sh
 npm install electron --save-dev
@@ -34,38 +34,41 @@ npm install --platform=win32 electron
 
 Se você necessitar usar um HTTP proxy, é preciso adicionar a variável para múltiplos valores,`ELECTRON_GET_USE_PROXY`, além das variáveis de ambientes adicionais, dependendo da versão do Node:
 
-* [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node 10 e superior](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [Antes do Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## Mirrors e Caches Customizados
-During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. Ele fará isso entrando em contato a página de lançamento da GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, onde `$VERSION` é a versão exata do Electron).
+
+Durante a instalação, o módulo `electron` irá chamar para [`@electron/get`](https://github.com/electron/get) para baixar os binários pré-construídos do Electron para sua plataforma. Ele fará isso entrando em contato a página de lançamento da GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, onde `$VERSION` é a versão exata do Electron).
 
 Se você não conseguir acessar o GitHub ou precisar fornecer uma compilação personalizada, poderá fazê-lo fornecendo um espelho ou um diretório de cache existente.
 
 #### Mirror (espelhamento)
-Você pode usar variáveis de ambiente para substituir a URL base, o caminho no qual procurar por binários Electron e o nome do arquivo binário. The URL used by `@electron/get` is composed as follows:
+
+Você pode usar variáveis de ambiente para substituir a URL base, o caminho no qual procurar por binários Electron e o nome do arquivo binário. A URL usada por `@electron/get` é composta da seguinte forma:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China CDN mirror:
+Por exemplo, para usar o espelho CDN da China:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
+Por padrão, `ELECTRON_CUSTOM_DIR` está definido como `v$VERSION`. Para alterar o formato, use o espaço reservado `{{ version }}`. Por exemplo, `versão -{{ version }}` resolve para `versão 5.0.`, `{{ version }}` decide para `5.0.`, e `v{{ version }}` é equivalente ao padrão. Como um exemplo mais concreto, use o espelho não-CDN da China:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+A configuração acima será baixada de URLs como `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
-Como alternativa, você pode substituir o cache local. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
+
+Como alternativa, você pode substituir o cache local. `@electron/get` irá armazenar em cache os binários baixados em um diretório local para não estressar a sua rede. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
 
 * Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -73,41 +76,43 @@ Como alternativa, você pode substituir o cache local. `@electron/get` will cach
 
 Em ambientes que usam versões mais antigas do Electron, você pode encontrar cache também em `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+Você também pode substituir o local de cache fornecendo uma variável de ambiente `electron_config_cache` .
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+O cache contém o arquivo zip oficial da versão, bem como uma soma de verificação, armazenada como um arquivo de texto. Um cache típico pode se parecer com isto:
 
 ```sh
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-│   └── electron-v1.7.9-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
-│   └── electron-v1.8.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-│   └── electron-v1.8.2-beta.1-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-│   └── electron-v1.8.2-beta.2-darwin-x64.zip
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
-│   └── SHASUMS256.txt
-├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
-│   └── electron-v1.8.2-beta.3-darwin-x64.zip
-└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
-    └── SHASUMS256.txt
+── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+── electron-v1.7.9-darwin-x64.zip
+─── httpsgithub.comelectronreleasesdownloadv1.7.9SHASUMS256.txt
+── SHASUMS256.txt
+── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64. ip
+├── electron-v1.8.1-darwin-x64.zip
+── httpsgithub.comelectronreleasesdownloadv1.8.1SHASUMS256.txt
+── SHASUMS256.txt
+─ httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+── electron-v1.8.2-beta.1-darwin-x64.zip
+── httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+├── SHASUMS256.txt
+── httpsgithub.comelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
+─── electron-v1.8.2-beta.2-darwin-x64.zip
+── httpsgithubelectronreleasesdownloadv1.8.2-beta. SHASUMS256.txt
+├── SHASUMS256.txt
+─ httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64. ip
+├── electron-v1.8.2-beta.3-darwin-x64.zip
+── httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    ── SHASUMS256.txt
 ```
 
-## Skip binary download
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+## Pular download binário
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Ao instalar o `electron` pacote NPM, ele baixa automaticamente o binário de elétrons.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Às vezes, isso pode ser desnecessário, por exemplo, em um ambiente CI, ao testar outro componente.
+
+Para evitar que o binário seja baixado quando você instalar todas as dependências npm, você pode definir a variável de ambiente `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ex:
+
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 instalação npm
 ```
 
 ## Solução de Problemas

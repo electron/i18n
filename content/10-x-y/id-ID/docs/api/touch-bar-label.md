@@ -13,7 +13,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh `TouchBarLabel`:
 

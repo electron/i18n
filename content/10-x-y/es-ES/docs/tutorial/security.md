@@ -12,7 +12,7 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se mantiene actualizado con versiones alternativas de Chromium. Para más información, vea la [publicación del blog de Electron Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La seguridad es la responsabilidad de Todos
 
@@ -52,10 +52,10 @@ Al menos debes seguir los siguientes pasos para mejorar la seguridad de su aplic
 9. [No use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: No use`allowpopups`](#10-do-not-use-allowpopups)
 11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
-12. [Deshabilitar o limitar navegación](#12-disable-or-limit-navigation)
+12. [Deshabilitar o limitar la navegación](#12-disable-or-limit-navigation)
 13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Deshabilitar el módulo `remoto`](#15-disable-the-remote-module)
+15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
 16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
 17. [Usar una versión actual de Electron](#17-use-a-current-version-of-electron)
 
@@ -71,7 +71,7 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 
 1) Autentica el servidor remoto, asegurando que tu aplicación conecte al  anfitrión correcto en vez de un falsificador. 2) Asegura integridad de data, afirmando que la data no fue modificada mientras estaba en  tránsito entre tu aplicación y el anfitrión. 3) Encripta el tráfico entre tu usuario y el anfitrión destinatario, haciéndolo  más difícil escuchar a escondidas las información establecida entre tu aplicación y el  anfitrión.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Malo
@@ -93,13 +93,13 @@ _Esta recomendación es el comportamiento por defecto desde Electron 5.0.0._
 
 Es primordial que no active la integración Node.js en ningún renderizador ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], o [`<webview>`][webview-tag]) que carga contenido remote. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
-Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
+Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si está abriendo una ventana de navegador apunta a `https://example. om/`, puedes dar a ese sitio web exactamente las habilidades que necesita, pero no más.
 
-### ¿Por què?
+### ¿Por qué?
 
 Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede altar fuera del proceso de renderizado y ejecutar el código en la computadora del usuario. Ataques cross-site-scripting son muy comunes - y durante un problema, su poder es usualmente limitado a molestar a la página en dónde los están ejecutando. Desactivar la integración Node.js ayuda a prevenir un XSS de ser escalado en un llamado ataque de "Ejecución de Código Remoto".
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Incorrecto
@@ -143,15 +143,15 @@ window.readConfig = function () {
 
 ## 3) Habilitar el aislamiento del contexto para Contenido Remoto
 
-Context isolation es un ajuste de Electron que permite a los desarrolladores ejecutar códigos en guiones de pre carga y en APIs de Electron en un contexto dedicado de JavaScript. En práctica, eso significa que los objetos globales como `Array.prototype.push` o `JSON.parse` no puede ser modificado por guiones por guiones ejecutándose en el proceso de renderizado.
+Aislamiento de contexto es un ajuste de Electron que permite a los desarrolladores ejecutar códigos en guiones de pre carga y en APIs de Electron en un contexto dedicado de JavaScript. En práctica, eso significa que los objetos globales como `Array.prototype.push` o `JSON.parse` no puede ser modificado por guiones por guiones ejecutándose en el proceso de renderizado.
 
 Electron usa la misma tecnología que los [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) de Chromium para activar este comportamiento.
 
 Incluso cuando usas `nodeIntegration: false` para forzar el fuerte aislamiento y prevenir el uso de Node primitivos, `contextIsolation` también se debe usar.
 
-### Why & How?
+### ¿Por qué & cómo?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Para más información sobre lo que es `contextIsolation` y cómo activarlo, por favor vea nuestro documento dedicado [Aislación de Contexto](context-isolation.md).
 
 
 ## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
@@ -160,11 +160,11 @@ Tu puedes haber visto pedidos de permiso mientras usas Chrome: Ellos avisan lo q
 
 La API está basada en los [Chromium permissions API](https://developer.chrome.com/extensions/permissions) e implementa el mismo tipo de permisos.
 
-### ¿Por què?
+### ¿Por qué?
 
 Por defecto, Electron aprobará automáticamente todos los pedidos de permiso a menos que el desarrollador haya configurado manualmente un comerciante personalizado. Aunque es un sólido ajuste automático, los desarrolladores conscientes de la seguridad pueden querer asumir lo contrario.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 const { session } = require('electron')
@@ -192,15 +192,15 @@ session
 
 _La recomendación por defecto es Electrón_
 
-Puede que haya adivinado que deshabilitando la propiedad `webSecurity` en un render process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) desactiva características de seguridad cruciales.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 No deshabilite `webSecurity` en aplicaciones de producción.
 
-### ¿Por què?
+### ¿Por qué?
 
 Desactivar `webSecurity` deshabilitará la política de mismo-origen y establecer la propiedad `allowRunningInsecureContent` a `true`. En otras palabras, permite la ejecución de código inseguro desde diferentes dominios.
 
-### ¿Còmo?
+### ¿Cómo?
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -223,7 +223,7 @@ const mainWindow = new BrowserWindow()
 
 Un Contenido de Política de Seguridad (CSP) es una capa adicional de protección contra los ataques cross-site-scripting attacks y ataques de inyecciones de data. Recomendamos que ellos estén activados por cualquier página web cargada dentro de Electron.
 
-### ¿Por què?
+### ¿Por qué?
 
 CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Definir un CSP es una manera fácil de mejorar la seguridad de tus aplicaciones.
 
@@ -271,7 +271,7 @@ Por defecto, Electron no permitirá sitios webs cargados sobre `HTTPS` para carg
 
 Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar recursos subsecuentes mediante `HTTP` es también conocido como "contenido mixto".
 
-### ¿Por què?
+### ¿Por qué?
 
 Cargando contenido sobre `HTTPS` se asegura la autenticidad y la integridad de los recursos cargados mientras se cifra el trafico en si mismo. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
 
@@ -298,13 +298,13 @@ _La recomendación por defecto es Electrón_
 
 Usuarios avanzados de Electron pueden habilitar las características experimentales de Chromium usando la propiedad `experimentalFeatures`.
 
-### ¿Por què?
+### ¿Por qué?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Las funciones experimentales son, como sugiere su nombre, experimentales y no han sido habilitadas para todos los usuarios de Chromium. Además, es probable que su impacto sobre Electron en su conjunto no haya sido probado.
 
 Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Incorrecto
@@ -327,11 +327,11 @@ _La recomendación por defecto es Electrón_
 
 Blink es el nombre del motor de renderizado detrás de Chromium. Como con la propiedad `experimentalFeatures`, la propiedad `enableBlinkFeatures` permite a los desarrolladores habilitar características que han sido deshabilitada por defecto.
 
-### ¿Por què?
+### ¿Por qué?
 
 En general, probablemente hay buenas razones si una función no fue habilitada por defecto. Casos de uso legítimo para habilitar funciones especificas existen. Como un desarrollador, usted debería saber exactamente por qué usted necesita habilitar una función, cuales son las ramificaciones, y como impacta las seguridad de su aplicación. Usted no debería habilitar funciones de forma especulativa bajo ninguna circunstancia.
 
-### ¿Còmo?
+### ¿Cómo?
 ```js
 // Incoreccto
 const mainWindow = new BrowserWindow({
@@ -351,13 +351,13 @@ const mainWindow = new BrowserWindow()
 
 _La recomendación por defecto es Electrón_
 
-Si estas usando [`<webview>`][webview-tag], puede que necesites las paginas y los scripts cargados en tu tag `<webview>` par abrir nuevas ventanas. El atributo `allowpopups` les permite crear nuevas [`BrowserWindows`][browser-window] usando el método `window.open()`. tags `<webview>` de otra manera no se permite crear nuevas ventanas.
+Si estas usando [`<webview>`][webview-tag], puede que necesites las paginas y los scripts cargados en tu tag `<webview>` par abrir nuevas ventanas. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. tags `<webview>` de otra manera no se permite crear nuevas ventanas.
 
-### ¿Por què?
+### ¿Por qué?
 
-Si usted no necesita ventanas emergentes, le conviene no permitir la creación de nuevos [`BrowserWindows`][browser-window] por defecto. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```html<!-- Malo --><webview allowpopups src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
 ```
@@ -369,13 +369,13 @@ Un WebView creado en un proceso de renderizado que no contenga integración habi
 
 Es una buena ida controlar la creación de nuevas etiquetas [`<webview>`][webview-tag] desde el proceso principal y verificar que su webPreferences no deshabilitan características de seguridad.
 
-### ¿Por què?
+### ¿Por qué?
 
 Puesto que `<webview>` vive en el DOM, ellos pueden ser creados por un script corriendo en tu sitio web incluso si la integración con Node.js está descativada.
 
 Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. En la mayoría de los casos, los desarrolladores no necesitan desactivar ninguna de esas características - y por lo tanto no deberías permitir diferentes configuraciones para las etiquetas [`<webview>`][webview-tag] recién creados.
 
-### ¿Còmo?
+### ¿Cómo?
 
 Antes que la etiqueta [`<webview>`][webview-tag] sea adjuntada, Electron va a disparar el evento `will-attach-webview` en el `webContents` hosting. Use el evento para evitar la creación de `webViews` con posibles opciones inseguras.
 
@@ -397,19 +397,19 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Una vez más, esta lista simplemente minimiza el riesgo, no lo elimina. Si su objetivo es mostrar un sitio web, un navegador será una opción más segura.
 
 ## 12) Deshabilitar o limitar la navegación
 
 Si tu aplicación no tiene la necesidad de navegar o sólo necesita navegar a páginas conocidas, es una buena idea limitar la navegación directamente a ese alcance conocido, inhabilitando cualquier otro tipo de navegación.
 
-### ¿Por què?
+### ¿Por qué?
 
 La navegación es un vector de ataque común. Si un atacante puede convencer a su aplicación para que navegue lejos de su página actual, posiblemente puede forzar a tu aplicación a abrir sitios web en Internet. Incluso si tu `webContents` están configurados para ser más seguros (como tener `nodeIntegration` deshabilitado o `contextIsolation` habilitado), conseguir que tu aplicación abra un sitio web aleatorio hará que el trabajo de explotar tu aplicación sea mucho mas fácil.
 
 Un patrón común de ataque es que el atacante convence a los usuarios de tu aplicación a interactuar con la aplicación de tal manera que navegue a una de las páginas del atacante. Esto usualmente se hace vía links, plugins u otro contenido generado por el usuario.
 
-### ¿Còmo?
+### ¿Cómo?
 
 Si tu aplicación no tiene necesidad de navegación, puedes llamar a `event.preventDefault()` en un manejador [`will-navigate`][will-navigate]. Si sabes a que páginas tu aplicación puede navegar, revisa la URL en el manejador de evento y solo deja que ocurra la navegación si coincide con las URL que estás esperando.
 
@@ -433,13 +433,13 @@ app.on('web-contents-created', (event, contents) => {
 
 Si tienes un conjunto de ventanas conocido, es una buena idea limitar la creación de ventanas adicionales en tu aplicación.
 
-### ¿Por què?
+### ¿Por qué?
 
 Al igual que la navegación, la creación de nuevo `webContents` en un vector de ataque común. Los atacantes intentar convencer a tu aplicación a crear nuevas ventanas, frames u otros procesos renderer con más privilegios de lo que antes tenían; o con páginas abiertas que antes no pudieron abrir.
 
 Si no tienes la necesidad de crear ventanas adicionales de la que sabes que tendrás que crear, desactivando la creación te compra un poco de seguridad extra sin costo alguno. Este comúnmente el caso de las aplicaciones que abre un `BrowserWindow` y no necesita abrir un número arbitrario de ventanas adicionales en tiempo de ejecución.
 
-### ¿Còmo?
+### ¿Cómo?
 
 [`webContents`][web-contents] emitirá el evento [`new-window`][new-window] antes de crear nuevas ventanas. Ese evento será pasado, entre otros parámetros, la `url` de la ventana que fue requerida y las opciones usadas para crearla. Recomendamos que use el evento para examinar la creación de las ventanas, limitar la creación solo a lo que se necesita.
 
@@ -461,11 +461,11 @@ app.on('web-contents-created', (event, contents) => {
 
 El [`openExternal`][open-external] de Shell permite abrir un protocolo URI dado con las utilidades nativas del escritorio. En macOS, a modo de ejemplo, esta función es similar a la utilidad de comando de terminal `open` y abrirá la aplicación especifica basado en la URI y en el tipo de archivo asociado.
 
-### ¿Por què?
+### ¿Por qué?
 
 El uso indebido de [`openExternal`][open-external] puede ser apalancado para comprometer el host del usuario. Cuando openExternal se usa con contenido no confiable, puede ser apalancado para ejecutar comandos arbitrarios.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Incorrecto
@@ -484,15 +484,15 @@ El módulo `remoto` suministra una manera al proceso de renderizado a acceder a 
 
 Sin embargo, su su aplicación puede ejecutar contenido inseguro e incluso si en [sandbox][sandbox] tus renderer process en consecuencia, el módulo `remote` hace esto fácil que el código malicioso escape la caja de arena (sandbox) y tenga acceso a los recursos del sistema a través de los privilegios más alto del proceso principal. Por lo tanto, debería deshabilitarse en tales circunstancias.
 
-### ¿Por què?
+### ¿Por qué?
 
 `remote` usa un canal IPC interno para comunicarse con el proceso principal. Los ataques de "contaminación de prototipos" pueden permitir el acceso al canal IPC interno de códigos maliciosos, que luego pueden ser usados para escapar del sandbox imitando mensajes IPC de `remote` y obteniendo acceso a los módulos del proceso principal corriendo con privilegios más altos.
 
 Adicionalmente, es posible que los scripts de precarga filtren accidentalmente módulos a un renderizador sandboxed. Fuga de `remoto` arma código malicioso con una multitud de los principales módulos de proceso con los que realizar un ataque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+Deshabilitar el módulo `remoto` elimina estos vectores de ataque. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Incorrecto si el renderer puede correr contenido no confiable
@@ -515,13 +515,13 @@ const mainWindow = new BrowserWindow({
 
 Si no puede deshabilitar el módulo `remote`, debería filtrar los globales, Node, y los módulos Electron (también llamados built-ins) accesibles vía `remote` que su aplicación no los requiere. Esto puede ser llevado a cabo bloqueando ciertos módulos de manera total y reemplazándolos por otros sea con proxies que exponen solamente la funcionalidad que su aplicación necesita.
 
-### ¿Por què?
+### ¿Por qué?
 
 Debido a los privilegios de acceso del sistema del proceso principal, la funcionalidad proporcionada por los módulos del proceso principal puede ser peligrosa en manos de código malicioso que se ejecuta en un proceso de renderizado comprometido. Al limitar el conjunto de módulos accesibles al mínimo que necesita tu aplicación y filtrando a los demás, reduces el conjunto de herramientas que el código malicioso puede usar para atacar el sistema.
 
 Tenga en cuenta que la opción más segura es [fully disable the remote module](#15-disable-the-remote-module). Si elige filtrar lo accesos en lugar de deshabilitar completamente el modulo, debe ser muy cuidadoso para asegurar que no se puede escalar el privilegio a través de los módulos que permite que pasen el filtro.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
@@ -563,9 +563,9 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utilizar una versión actual de Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Debe esforzarse por utilizar siempre la última versión disponible de Electron. Cada vez que se lanza una nueva versión principal, deberías intentar actualizar tu aplicación lo antes posible.
 
-### ¿Por què?
+### ¿Por qué?
 
 Una aplicación construida con una versión anterior de Electron, Chromium y Node.js es un objetivo más fácil que una aplicación que está usando versiones más recientes de esos componentes. Generalmente hablando, los problemas de seguridad y exploits para viejas verciones de Chromium y Node.js están más ampliamente disponibles.
 

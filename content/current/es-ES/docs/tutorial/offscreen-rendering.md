@@ -1,43 +1,50 @@
 # Renderización fuera de pantalla
 
-La renderización fuera de pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede renderizar en cualquier lugar, por ejemplo, en una textura en una escena 3D. La renderización fuera de pantalla en Electron utiliza un enfoque similar al del proyecto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
+## Descripción general
 
-Se pueden usar dos modos de renderización y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La renderización se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. La tasa máxima del frame es 60, porque por encima de que no hay beneficio, solo perdida de rendimiento.
+Offscreen rendering te permite obtener el contenido de un `BrowserWindow` en un bitmap, así puede renderizarlo en cualquier lugar, por ejemplo, en una textura de una escena 3D. El offscreen rendering en Electron utiliza un enfoque similar al del proyecto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-**Nota:** siempre se crea una ventana fuera de pantalla como [Frameless Window](../api/frameless-window.md).
+*Notas*:
 
-## Modos de renderizado
+* Hay dos modos de rendering que puede ser usados (vea la sección de abajo) y solo la área sucia se pasa al evento `paint` para ser más eficiente.
+* Usted puede parar/continuar el renderizado así como también ajustar la velocidad de frame.
+* La tasa máxima de fotograma es 240 porque valores mayores solo traen pérdidas de rendimiento sin beneficios.
+* Cuando nada esta sucediendo en un pagina web, no se generan frames.
+* Un offscreen window siempre es creado como [Frameless Window](../api/frameless-window.md).
 
-### GPU acelerado
+### Modos de renderizado
 
-La renderización acelerada por GPU significa que la GPU se usa para la composición. Debido a eso, el cuadro debe copiarse de la GPU, que requiere más rendimiento, por lo que este modo es bastante más lento que el otro. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+#### GPU acelerado
 
-### Dispositivo de salida de software
+La renderización acelerada por GPU significa que la GPU se usa para la composición. Por eso, el frame ha de ser copiado desde la GPU lo cual requiere mas recursos, por lo tanto este modo es mas lento que el dispositivo de salida de Software. El beneficio de este modo es que las animaciones WebGL y 3D CSS son compatibles.
 
-Este modo utiliza un dispositivo de salida de software para la renderización en la CPU, por lo que la generación de cuadros es mucho más rápida, por lo tanto, este modo es preferible a la GPU acelerada.
+#### Dispositivo de salida de software
 
-Para habilitar este modo, la aceleración de la GPU debe desactivarse llamando la API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
+Este modo usa un dispositivo de salida por Software para renderizar en la CPU, asi que la generación del frame es mucho más rápida. Como resultado, este modo es preferido sobre el GPU acelerado.
 
-## Uso
+Para habilitar este modo, la aceleración de la GPU ha de ser deshabilitada llamando a la API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
 
-``` javascript
+## Ejemplo
+
+Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), agregue las siguientes líneas al archivo `main.js`:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
 app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
 ```
+
+Después de lanzar la aplicación Electron, navegue al directorio de trabajo de la aplicación.

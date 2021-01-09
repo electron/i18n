@@ -30,7 +30,7 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## プロキシ環境下
+## プロキシ
 
 HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PROXY` 変数を任意の値に設定する必要があります。さらに、ホストシステムの Node のバージョンに応じて追加の環境変数を設定する必要があります。
 

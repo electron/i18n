@@ -6,7 +6,7 @@
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { session } = require('electron')
@@ -80,11 +80,12 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `التطاق - domain` نص (اختياري) - نطاق ملفات تعريف الارتباط. سيتم اضافة نقطة في بداية نص النطاق من اجل ان يكون صالحًا للنطاقات المتشعبة. Empty by default if omitted.
   * <;; 0>;; الاسم<;;/0>;; السلسلة--اسم ملف تعريف الارتباط. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 

@@ -12,7 +12,7 @@ También puede intentar descargar Electron directamente de [electron/electron/re
 
 La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Sólo se utiliza el canal estable de Chrome. Si una solución importante está en el canal beta o dev , haremos back-port a él.
 
 Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que 
 
 Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), y [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) son buenos candidatos.
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternativamente, puede utilizar los primitivos IPC proporcionados por Electron. Para compartir datos entre los procesos principales y renderizadores, puedes usar los módulos [`ipcMain`](api/ipc-main.md) y [`ipcRenderer`](api/ipc-renderer.md). Para comunicarte directamente entre páginas web, puedes enviar un [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) de uno a otro. posiblemente a través del proceso principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La comunicación posterior a través de los puertos de mensajes es directa y no se desvía a través de el proceso principal.
 
 ## La ventana/bandeja de la aplicación desaparece después de unos minutos.
 
@@ -102,7 +102,7 @@ It is very likely you are using the module in the wrong process. Por ejemplo `el
 
 ## La fuente se ve borrosa, ¿qué es esto y qué puedo hacer?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ejemplo:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ejemplo:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
@@ -117,6 +117,6 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+El efecto es visible sólo en (algunos?) pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.

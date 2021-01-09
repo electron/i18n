@@ -18,7 +18,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 

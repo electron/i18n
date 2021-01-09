@@ -35,12 +35,12 @@ console.log(dialog)
     * `openDirectory` - Dizinlerin seçilmesine izin ver.
     * `multiSelections` - Birden fazla yolun seçilmesine izin ver.
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Dialog modülünden yeni klasörler oluşturmaya izin verir.
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `mesaj` dizi(isteğe bağlı) _macOS_ -Girdi kutularının üstünde görüntülenecek ileti.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -64,8 +64,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 <code> 'png' </ 0> iyidir ancak <code> '. Png' </ 0> ve <code> '*. Png' </ 0> kötü). Tüm dosyaları göstermek için,
 <code> '*' </ 0> joker karakteri kullan (başka bir joker karakter desteklenmiyor).</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows and Linux an open dialog can not be both a file selector
-and a directory selector, so if you set <code>properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+<p spaces-before="0"><strong x-id="1"> Not: </ 0>Windows ve Linux'ta açık bir iletişim kutusu, hem bir dosya seçici hem de bir dizin seçici olamaz. dolayısıyla <code>özellikleri` için `['openFile', 'openDirectory']` Bu platformlarda bir dizin seçici gösterilir.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -86,18 +85,18 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - Dizinlerin seçilmesine izin ver.
     * `multiSelections` - Birden fazla yolun seçilmesine izin ver.
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Dialog modülünden yeni klasörler oluşturmaya izin verir.
     * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+  * `mesaj` dizi(isteğe bağlı) _macOS_ -Girdi kutularının üstünde görüntülenecek ileti.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
@@ -119,8 +118,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 <code> 'png' </ 0> iyidir ancak <code> '. Png' </ 0> ve <code> '*. Png' </ 0> kötü). Tüm dosyaları göstermek için,
 <code> '*' </ 0> joker karakteri kullan (başka bir joker karakter desteklenmiyor).</p>
 
-<p spaces-before="0"><strong x-id="1">Note:</strong> On Windows and Linux an open dialog can not be both a file selector
-and a directory selector, so if you set <code>properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+<p spaces-before="0"><strong x-id="1"> Not: </ 0>Windows ve Linux'ta açık bir iletişim kutusu, hem bir dosya seçici hem de bir dizin seçici olamaz. dolayısıyla <code>özellikleri` için `['openFile', 'openDirectory']` Bu platformlarda bir dizin seçici gösterilir.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -141,12 +139,12 @@ dialog.showOpenDialog(mainWindow, {
   * `defaultPath`dizi (isteğe bağlı) -Varsayılan olarak kullanılacak mutlak dizin yolu, mutlak dosya yolu veya dosya adı.
   * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filtreler` [FileFilter[]](structures/file-filter.md) (isteğe bağlı)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `mesaj` dize (isteğe bağlı) _macOS_ - Metin alanlarının üstünde görüntülenecek ileti.
+  * `nameFieldLabel` dize (isteğe bağlı) _macOS_ - Dosya adı metin alanının önünde görüntülenen metin için özel etiket.
+  * `showsTagField`Boolean (isteğe bağlı) _macOS_ - Etiket giriş kutusunu göster, varsayılan olarak ` doğru </ 0> 'dır.</li>
+<li><p spaces-before="0"><code>properties` String[] (optional)</p>
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Dialog modülünden yeni klasörler oluşturmaya izin verir.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
@@ -166,12 +164,12 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
   * `defaultPath`dizi (isteğe bağlı) -Varsayılan olarak kullanılacak mutlak dizin yolu, mutlak dosya yolu veya dosya adı.
   * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filtreler` [FileFilter[]](structures/file-filter.md) (isteğe bağlı)
-  * `message` String (optional) _macOS_ - Message to display above text fields.
-  * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
+  * `mesaj` dize (isteğe bağlı) _macOS_ - Metin alanlarının üstünde görüntülenecek ileti.
+  * `nameFieldLabel` dize (isteğe bağlı) _macOS_ - Dosya adı metin alanının önünde görüntülenen metin için özel etiket.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
+    * `createDirectory` _macOS_ - Dialog modülünden yeni klasörler oluşturmaya izin verir.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
@@ -210,7 +208,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-`browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir. `browserWindow` gösterilmemişse dialog ona bağlanmayacaktır. Böyle bir durumda ayrı pencere olarak görüntülenecektir.
+`browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir. `browserWindow` gösterilmemişse dialog ona bağlanmayacaktır. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

@@ -18,7 +18,7 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-For example:
+De exemplu:
 ```js
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
@@ -77,6 +77,6 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 
 ```javascript
 // renderer process (mainWindow)
-let modal = window.open('', 'modal')
+const modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```

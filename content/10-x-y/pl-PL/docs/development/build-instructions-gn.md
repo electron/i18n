@@ -96,7 +96,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
 
-Dla konfiguracji testowej:
+For the testing configuration:
 ```sh
 $ ninja -C out/Testing electron
 ```
@@ -142,12 +142,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-<table>
-<tr><th>Host</th><th>Target</th><th>Status</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Eksperymentalny</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatycznie przetestowane</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatycznie przetestowane</td></tr>
-</table>
+| Host        | Target        | Status               |
+| ----------- | ------------- | -------------------- |
+| Windows x64 | Windows arm64 | Eksperymentalny      |
+| Windows x64 | Windows x86   | Automatically tested |
+| Linux x64   | Linux x86     | Automatically tested |
+
 
 If you test other combinations and find them to work, please update this document :)
 
@@ -161,7 +161,7 @@ set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
-Lub (korzystając z PowerShell):
+Or (if using PowerShell):
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
@@ -197,7 +197,7 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-do 0. More information: https://stackoverflow.com/a/9935126
+to 0. More information: https://stackoverflow.com/a/9935126
 
 This can be set quickly in powershell (ran as administrator):
 

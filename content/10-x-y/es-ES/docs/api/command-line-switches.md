@@ -26,11 +26,11 @@ Por ejemplo:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Without `*` prefix the URL has to match exactly.
+entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+A comma-separated list of servers for which delegation of user credentials is required. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
 ### --disable-ntlm-v2
 
@@ -56,7 +56,7 @@ Fuerza el espacio máximo de disco a utilizar por la caché de disco, en bytes.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+Habilita el caller stack logging para las siguientes APIs (eventos filtrados):
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -103,7 +103,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
 
 ### --lang
 
@@ -167,6 +167,14 @@ Permite que el nivel máximo por module de V-logging sobrepase el valor dado por
 Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. Por ejemplo. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
+
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 

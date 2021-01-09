@@ -1,16 +1,22 @@
-# macOS Dock
+# macOS Док
 
-Electron has APIs to configure the app's icon in the macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+## Огляд
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+Electron має API для налаштування піктограми застосунка в macOS Dock. macOS-only API існує для створення власного меню док-станції, але Electron також використовує піктограму app dock як точку запису для крос-платформених функцій, таких як [останні документи](./recent-documents.md) і [прогрес додатку](./progress-bar.md).
 
-__Dock menu of Terminal.app:__
+Користувацький док зазвичай використовується для додавання ярликів до задач, в які користувач не зможе відкрити для цього весь додаток.
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+__Меню панелі Terminal.app:__
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+![Док-меню](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
-```javascript
+To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
+
+## Приклад
+
+Запуск робочого додатку з [короткого посібника](quick-start.md), оновити `main.js` файл наступними рядками:
+
+```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
@@ -27,5 +33,11 @@ const dockMenu = Menu.buildFromTemplate([
   { label: 'New Command...' }
 ])
 
-app.dock.setMenu(dockMenu)
+app.whenReady().then(() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
+
+Після запуску програми Electron, клацніть правою кнопкою миші значок програми. Ви повинні побачити власне меню яке тільки що було визначено:
+
+![меню dock macOS](../images/macos-dock-menu.png)

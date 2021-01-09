@@ -2,7 +2,7 @@
 
 > process object의 확장.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 Electron의 `process` object는 [Node.js `process` object](https://nodejs.org/api/process.html)의 확장입니다. 이것은 다음 이벤트, 속성, 그리고 메서드를 추가합니다.
 

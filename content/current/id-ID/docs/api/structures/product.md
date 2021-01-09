@@ -7,4 +7,5 @@
 * `contentLengths` Number[] - Besar keseluruhan konten, dalam bytes.
 * `price` Number - Harga produk dalam mata uang lokal.
 * `formattedPrice` String - Harga produk dalam format mata uang lokal.
+* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
 * `isDownloadable` Boolean - Nilai boolean yang mengindikasikan apakah App Store sudah mengizinkan untuk mendowload konten produk. `true` jika setidaknya satu file terkait dengan produk.

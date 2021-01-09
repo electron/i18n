@@ -1,72 +1,77 @@
-# Electron Support
+# دعم إلكترون
 
-## Finding Support
+## البحث عن الدعم
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+إذا كان لديك قلق أمني، يرجى الاطلاع على [مستند الأمان](https://github.com/electron/electron/tree/master/SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` channel on Freenode
-- `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+إذا كنت تبحث عن مساعدة في البرمجة، للإجابات على الأسئلة. أو للمشاركة في النقاش مع المطورين الآخرين الذين يستخدمون إلكترون، يمكنك التفاعل مع المجتمع في هذه المواقع:
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  * Getting help
+  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  * Sharing ideas with other Electron app developers
+  * And more!
+* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* `#الذرة` قناة على Freenode
+* `#electron` قناة على [الذرة Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* [`إلكترون-رو`](https://telegram.me/electron_ru) *(الروسية)*
+* [`إلكترون - بر`](https://electron-br.slack.com) *(البرتغالية البرازيلية)*
+* [`إلكترون-كور`](https://electron-kr.github.io/electron-kr) *(كوري)*
+* [`electron-jp`](https://electron-jp.slack.com) *(اليابان)*
+* [`إلكترون-تر`](https://electron-tr.herokuapp.com) *(تركي)*
+* [`البريد الإلكتروني`](https://electron-id.slack.com) *(إندونيسيا)*
+* [`إلكترون - pl`](https://electronpl.github.io) *(بولندا)*
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+إذا كنت ترغب في المساهمة في إلكترون، راجع [المستند المساهم](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+إذا كنت قد وجدت خطأ في الإصدار [المدعوم](#supported-versions) من إلكترون، الرجاء الإبلاغ عنه مع [تتبع المشاكل](../development/issues.md).
 
-## Supported Versions
+[رائع-إلكترون](https://github.com/sindresorhus/awesome-electron) هي قائمة تحافظ عليها المجتمعات المحلية من التطبيقات المفيدة الأدوات والموارد.
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+## الإصدارات المدعومة
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+أحدث ثلاثة إصدارات *مستقرة* يتم دعمها من قبل فريق إلكترون. على سبيل المثال، إذا كان الإصدار الأخير 6.1.x، فسيتم دعم 5.0.x أيضا كسلسلة 4.2.x.  نحن فقط ندعم أحدث إصدار ثانوي لكل سلسلة إصدارات مستقرة.  وهذا يعني أنه في حالة إصلاح الأمن 6-1. سوف تتلقى الإصلاح، لكننا لن نصدر نسخة جديدة من 6.0.x.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+الإصدار المستقر الأخير يحصل بشكل انفرادي على جميع الإصلاحات من `الرئيسي`، والنسخة السابقة لذلك تتلقى الغالبية العظمى من تلك الإصلاحات كأمر بالوقت وعرض النطاق الترددي. سيتلقى أقدم خط إصدار مدعوم فقط إصلاحات الأمان مباشرة.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+ستقبل جميع خطوط الإصدار المدعومة طلبات سحب خارجية إلى النسخة الاحتياطية إصلاحات مدمجة سابقا إلى `سيد`، وعلى الرغم من أن ذلك قد يكون على أساس كل حالة على حدة بالنسبة لبعض الخطوط المدعومة الأقدم. سيتم حل جميع القرارات المطعون فيها حول إصدار معلومات أساسية من خلال [الفريق العامل المعني بالإصدارات](https://github.com/electron/governance/tree/master/wg-releases) كبند من بنود جدول الأعمال في اجتماعهم الأسبوعي في الأسبوع الذي يتم فيه إثارة قاعدة البيانات الرئيسية.
 
-### Currently supported versions
-- 9.x.y
-- 8.x.y
-- 7.x.y
+عندما يتم تغيير أو إزالة API بطريقة تؤدي إلى تعطيل الوظيفة الموجودة، سيتم دعم الوظائف السابقة على الأقل من إصدارين رئيسيين عندما ممكن قبل إزالتها. على سبيل المثال، إذا كانت الدالة تأخذ ثلاث حجج، ويخفض هذا الرقم إلى حالتين في الإصدار الرئيسي 10، النسخة الثلاثية الحجج ستستمر في العمل حتى النسخة الرئيسية 12 على الأقل. الحد الأدنى من الإصدارين عتبة، سوف نحاول دعم التوافق إلى الوراء بما يتجاوز الإصدارين حتى يشعر المشرفون أن عبء الصيانة مرتفع جداً بحيث لا يمكن الاستمرار في القيام بذلك.
 
-### End-of-life
+### الإصدارات المدعومة حاليا
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+* 11.x.y
+* 10.x.y
+* 9.x.y
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+### نهاية العمر
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+عندما يصل فرع الإصدار إلى نهاية دورة الدعم الخاصة به، سلسلة سيتم إهمالها في NPM وسيتم إصدار إصدار نهاية الدعم النهائي سيضيف هذا الإصدار تحذيرا للإفادة بأن نسخة إلكترون غير مدعومة قيد الاستخدام.
+
+هذه الخطوات هي مساعدة مطوري التطبيقات على تعلم متى يصبح فرع يستخدمونه غير مدعوم، ولكن دون أن يكون متدخلا بشكل مفرط للمستخدمين النهائيين.
+
+إذا كان للتطبيق ظروف استثنائية ويحتاج إلى البقاء على سلسلة غير مدعومة من إلكترون، يمكن للمطورين إسكات تحذير نهاية الدعم عن طريق حذف الإصدار النهائي من حزمة التطبيقات `. ابن` `التبعية`. على سبيل المثال، منذ أن انتهت المجموعة 1-6-x بنهاية الدعم 1.6. 8 افرج، يمكن للمطورين اختيار للبقاء في سلسلة 1-6-x دون تحذيرات مع `التبعية` من `"إلكترونية": 1. .0 - 1.6-17`.
 
 ## Supported Platforms
 
-Following platforms are supported by Electron:
+الأنظمة التالية مدعومة من شركة Electron:
 
 ### نظام macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+يتم توفير 64 بت ثنائي فقط لـ macOS، والحد الأدنى لنسخة macOS المدعومة هو macOS 10.10 (Yosemite).
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 وما بعدها مدعوم، أنظمة التشغيل الأقدم غير مدعومة (ولا تعمل).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+كل من `ia32` (`x86`) و `x64` (`amd64`) ثنائيات يتم توفيرها للويندوز. [إلكترون 6.0.8 ثم أضف الدعم الأصلي لأجهزة ويندوز على الذراع (`arm64`)](windows-arm.md). تشغيل التطبيقات المحملة مع الإصدارات السابقة ممكن باستخدام y32 binary.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+The prebuilt binaries of Electron are built on Ubuntu 18.04.
 
-[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
-
-* Ubuntu 12.04 and newer
-* Fedora 21
-* Debian 8
+* Ubuntu 14.04 and newer
+* Fedora 24 and newer
+* Debian 8 and newer

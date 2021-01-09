@@ -1,123 +1,123 @@
 # توقيع الكود
 
-Code signing is a security technology that you use to certify that an app was created by you.
+توقيع الكود هو تقنية أمان تستعملها للتحقق من أن التطبيق تم إنشاؤه من قبلك.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+في نظام macOS يمكن أن يكتشف النظام أي تغيير في التطبيق، سواء كان التغيير مقدماً عن طريق الخطأ أو بواسطة الكود الخبيث.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+على Windows، يقوم النظام بتعيين مستوى ثقة إلى شهادة توقيع الكود الخاص بك إذا لم يكن لديك، أو إذا كان مستوى ثقتك منخفضاً، سوف يتسبب في ظهور مربعات الحوار عند بدء المستخدمين في استخدام التطبيق.  مستوى الثقة يبني مع مرور الوقت حتى يكون من الأفضل بدء توقيع التعليمات البرمجية في أقرب وقت ممكن.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+وفي حين أنه من الممكن توزيع التطبيقات غير الموقعة، فإنه لا يوصى بها. كل من Windows و macOS سيمنعان، بشكل افتراضي، إما تحميل أو تنفيذ التطبيقات غير الموقعة. بدءاً بـ macOS Catalina (الإصدار 10.15)، يجب على المستخدمين الذهاب عبر خطوات يدوية متعددة لفتح التطبيقات غير الموقعة.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![تحذير كاتالينا كاتالينا: لا يمكن فتح التطبيق لأنه لا يمكن التحقق من المطور
+](../images/gatekeeper.png)
 
 كما ترى، يحصل المستخدمين على خيارين: نقل التطبيق مباشرة إلى سلة المهملات أو إلغاء تشغيله. لا تريد مستخدميك رؤية علبة الحوار هذه.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+إذا كنت تقوم ببناء تطبيق إلكترون الذي تنوي حزمه وتوزيعه، يجب أن يتم التوقيع على الرموز.
 
-# Signing & notarizing macOS builds
+# تسجيل & توثيق إصدارات macOS
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+يتطلب الإعداد الصحيح لتطبيقات macOS للإصدار خطوتين: أولاً، يحتاج التطبيق إلى توقيع الرموز. ثم يحتاج التطبيق إلى رفعه إلى Apple من أجل عملية تسمى "التوثيق"، حيث ستتحقق الأنظمة الآلية كذلك من أن تطبيقك لا يفعل أي شيء لتعريض مستخدميه للخطر.
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+لبدء العملية، تأكد من استيفاء متطلبات التسجيل و توثيق التطبيق الخاص بك:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. تحميل وتثبيت [Xcode][] - هذا يتطلب جهاز كمبيوتر يعمل بنظام macOS
 3. Generate, download, and install [signing certificates][]
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+النظام الإيكولوجي لشركة Electron's يفضل التكوين والحرية، لذلك هناك طرق متعددة للحصول على توقيع وتوثيق تطبيقك.
 
 ## `electron-forge`
 
-If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`][], [`electron-osx-sign`][], and [`electron-notarize`][] under the hood.
+إذا كنت تستخدم أداة البناء المفضلة لـ Electron، فإن الحصول على توقيع التطبيق والتوثيق يتطلب بعض الإضافات إلى الإعدادات الخاصة بك. [Forge](https://electronforge.io) هي مجموعة من أدوات إلكترون الرسمية، باستخدام [`كهربائي-باقة`][]، [`التوقيع الإلكتروني`][]و [`التوثيق الإلكتروني`][] تحت الرأس.
 
-Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
+دعونا نلقي نظرة على الإعدادات مع جميع الحقول المطلوبة. ليس كل منهم مطلوب: الأدوات ستكون ذكية بما فيه الكفاية للعثور تلقائياً على `هوية مناسبة`، على سبيل المثال، لكننا نوصي بأن تكون صريحا.
 
 ```json
 {
-  "name": "my-app",
-  "version": "0.0.1",
+  "الاسم": "my-app",
+  "الاصدار": "0.0. ",
   "config": {
-    "forge": {
+    "نسي: {
       "packagerConfig": {
         "osxSign": {
-          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
-          "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
-          "signature-flags": "library"
-        },
+          "الهوية": "تطبيق معرف المطور: فيليكس ريزيبيرغ (LT94ZKYDCJ)",
+          "وقت التشغيل الصلب": صحيح,
+          "الاستحقاقات": "الاستحقاقات. قائمة"،
+          "الاستحقاقات - الميراث": "الاستحقاقات. قائمة"،
+          "أعلام التوقيع": "المكتبة"
+        }،
         "osxNotarize": {
-          "appleId": "felix@felix.fun",
-          "appleIdPassword": "my-apple-id-password",
+          "appleId": "felix@felix. un",
+          "appleIdPassword": "my-apple-id-passd",
         }
-      }
+
     }
   }
 }
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+الملف `plist` المشار إليه هنا يحتاج إلى الاستحقاقات التالية لـ macOS- لضمان آليات أمان Apple أن التطبيق الخاص بك يقوم بهذه الأشياء دون أن يعني أي ضرر:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version="1.0" ترميز UTF-8"?>
+<!DOCTYPE plist PUBLIC "-/Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. متدنى</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. الذاكرة القابلة للتنفيذ البطيء التوقيع</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
 
-To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+لمشاهدة كل هذا في العمل، راجع رمز مصدر إلكترون ، [وخاصة `إلكترون - فورج` تكوين ملف](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
 
 ## `electron-builder`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+مصنع إلكترون يأتي مع حل مخصص للتوقيع على تطبيقك. يمكنك العثور على [وثائقها هنا](https://www.electron.build/code-signing).
 
 ## `electron-packager`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
+إذا كنت لا تستخدم خط أنابيب بناء متكامل مثل Forge أو Builder، أنت تستخدم على الأرجح [`حزمة الإلكترون`][]، الذي يشمل [`إلكترون - osx-signat`][] و [`التوثيق الإلكتروني`][].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+إذا كنت تستخدم واجهة برمجة تطبيقات الحزمة، يمكنك تمرير [في التكوين الذي يوقع ويوثِّق تطبيقك ](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
 ```js
-const packager = require('electron-packager')
+حزمة التعبئة = مطلوبة ('electron-packager')
 
-packager({
+حزمة ({
   dir: '/path/to/my/app',
   osxSign: {
-    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-    'hardened-runtime': true,
-    entitlements: 'entitlements.plist',
-    'entitlements-inherit': 'entitlements.plist',
-    'signature-flags': 'library'
+    هوية: 'تطبيق معرف المطور: Felix Rieseberg (LT94ZKYDCJ)',
+    'فترة التشغيل الصعبة': حقيقة،
+    استحقاقات: 'استحقاقات. قائمة',
+    'الاستحقاقات' 'الإرث': 'الاستحقاقات'. قائمة',
+    'signature-flags': 'المكتبة'
   },
   osxNotarize: {
-    appleId: 'felix@felix.fun',
-    appleIdPassword: 'my-apple-id-password'
+    appleId: 'felix@felix. un',
+    appleIdPassword: 'my-apple-id-passd'
   }
 })
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+الملف `plist` المشار إليه هنا يحتاج إلى الاستحقاقات التالية لـ macOS- لضمان آليات أمان Apple أن التطبيق الخاص بك يقوم بهذه الأشياء دون أن يعني أي ضرر:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version="1.0" ترميز UTF-8"?>
+<!DOCTYPE plist PUBLIC "-/Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. متدنى</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. الذاكرة القابلة للتنفيذ البطيء التوقيع</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
@@ -125,40 +125,42 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Mac App ore
 
-See the [Mac App Store Guide][].
+انظر الى [ دليل متجر التطبيقات Mac][].
 
-# Signing Windows builds
+# توقيع إنشاء Windows
 
 قبل التوقيع بناءات Windows، يجب عليك القيام بما يلي:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. احصل على شهادة توقيع رمز مصادقة Windows (يتطلب رسم سنوي)
+2. قم بتثبيت Visual Studio للحصول على أداة التوقيع (الطبعة المجانية [للمجتمع ](https://visualstudio.microsoft.com/vs/community/) تكفي)
 
-يمكنك أخذ كود مصادقة موقعة من الكثير من الموزعين. Prices vary, so it may be worth your time to shop around. تحتوي على البائعين الشائعين:
+يمكنك أخذ كود مصادقة موقعة من الكثير من الموزعين. تختلف الأسعار، لذا قد يكون من المفيد أن تتسوق حولك. تحتوي على البائعين الشائعين:
 
-* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [رقمي](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
+* من بين الآخرين، يرجى التسوق للعثور على واحد يناسب احتياجاتك، جوجل هو صديقك 😄
 
 يوجد رقم للأداة لأجل توقيع حزمة تطبيقك:
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`Electron-winstaller`][] سيقوم بإنشاء مثبت للنوافذ وقم بالتوقيع عليه لـ
+- [`Electron-Forge`][] يمكن توقيع مثبتات يولدها من خلال Squirrel.Windows أو MSI.
 - [`electron-builder`][] can sign some of its windows targets
 
 ## متجر تطبيقات Windows
 
-See the [Windows Store Guide][].
+انظر الى[دليل متجر Windows][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
-[`electron-forge`]: https://github.com/electron-userland/electron-forge
-[`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
-[`electron-packager`]: https://github.com/electron/electron-packager
-[`electron-notarize`]: https://github.com/electron/electron-notarize
-[`electron-winstaller`]: https://github.com/electron/windows-installer
+[`Electron-Forge`]: https://github.com/electron-userland/electron-forge
+[`التوقيع الإلكتروني`]: https://github.com/electron-userland/electron-osx-sign
+[`إلكترون - osx-signat`]: https://github.com/electron-userland/electron-osx-sign
+[`كهربائي-باقة`]: https://github.com/electron/electron-packager
+[`حزمة الإلكترون`]: https://github.com/electron/electron-packager
+[`التوثيق الإلكتروني`]: https://github.com/electron/electron-notarize
+[`Electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
-[Mac App Store Guide]: mac-app-store-submission-guide.md
-[Windows Store Guide]: windows-store-guide.md
+[ دليل متجر التطبيقات Mac]: mac-app-store-submission-guide.md
+[دليل متجر Windows]: windows-store-guide.md

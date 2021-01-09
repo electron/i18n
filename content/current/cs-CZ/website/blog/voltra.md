@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'Projekt týdne: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+Tento týden jsme se setkali s [Aprile Elcich](https://twitter.com/aprileelcich) a [Paolo Fragomeni](https://twitter.com/0x00A) pro diskusi o Voltrě, Electron-powered hudebním přehrávači.
 
 ---
 
-## What is Voltra?
+## Co je to Voltra?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Voltra](https://voltra.co/) je hudební přehrávač pro lidi, kteří chtějí vlastnit svou hudbu. Je to také obchod, kde můžete objevit a koupit si novou hudbu na základě toho, co již vlastníte. Je to bez reklam, na různých platformách pro stolní počítače a mobilní. Také vám to nešpehuje.
 
 [![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Pro koho je Voltra?
 
-Anyone who listens to music.
+Každý, kdo poslouchá hudbu.
 
-## What motivated you to create Voltra?
+## Co vás motivovalo k vytvoření Voltra?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+Rádio má vždy velký podíl posluchačů. Je to odklon od vzdušných vln a na internet. Nyní si můžete pronajmout hudbu na požádání — je to rozhlasové oživení! Z tohoto důvodu se objevilo mnoho nových produktů a služeb, ale streamování rádia stále ponechává někoho jiného, kdo ovládá vaši hudbu a jak ji zažíváte.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+Chtěli jsme produkt, který byl zcela zaměřen na hudbu, kterou vlastníte. Něco usnadnilo objevování a koupení nové hudby přímo od umělců nebo štítků.
 
-## Is there a free version?
+## Je zde bezplatná verze?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+Přehrávač pro stolní počítače je zcela zdarma. [Prodej hudby je také zdarma!](https://voltra.co/artists) Nejsme podporováni reklamou.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+Protože je aplikace zdarma, můžeme ji později otevřít. Právě teď nemáme šířku pásma, kterou bychom mohli zvládnout. Máme také velmi specifické nápady na funkce a směr, kterým se chceme ubírat. Máme aktivní beta komunitu a bereme si naši zpětnou vazbu k srdci.
 
-## How do you make money?
+## Jak vyděláte peníze?
 
-We have premium features!
+Máme prémiové funkce!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+Naše [Voltra Audio Archive](https://voltra.co/premium/) je záložní služba cloudu určená speciálně pro hudbu. Nekomprimujeme ani nesdílíme datové bloky. Vaše sbírka hudby je pro vás fyzicky zálohována.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+Pro umělce a štítky nabízí naše [Pro členství](https://voltra.co/artists/pro) nástroje, které jim pomohou oslovit relevantnější publikum, jako jsou analytiky a webové stránky profesionálních umělců.
 
-## What makes Voltra different?
+## Co dělá Voltra odlišným?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+Konstrukce a použitelnost jsou pro nás neuvěřitelně důležité. Chceme dát posluchačům nerozptýlený zážitek z naslouchání! Tam jsou zajímaví hudební přehrávači a skladují se. Mnohé z nich jsou však vyspělejší a těžší používat, než si jejich tvůrci uvědomují. Chceme Voltra zpřístupnit co největšímu počtu lidí.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+Také si nebereme kousek od umělce ani od štítku. To je pro nás klíčový diferenciátor. Je to opravdu důležité, protože snižuje překážku pro umělce, aby dostali svou hudbu na trh.
 
-## What are some design & technical decisions you made?
+## Jaké jsou vaše návrhy & technická rozhodnutí?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+Při navrhování Voltry, zvažovali jsme konvence uživatelských rozhraní z domácích aplikací a webu, také jsme přemýšleli hodně o tom, co bychom mohli odstranit. Máme aktivní soukromou beta skupinu, která nám v posledních několika měsících poskytla kritickou zpětnou vazbu.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+Zjistili jsme, že obal alba a fotografie jsou pro lidi opravdu důležité. Mnoho hráčů je jen seznamy souborů. Jednou z skvělých věcí o vlastnictví fyzických alb je obal alba, a chtěli jsme na to klást důraz v aplikaci Voltra.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+Také jsme se ujistili, že nebudeme nepořádat s lidskými soubory. Používáme sledování souborů, abyste mohli vkládat soubory kdekoliv chcete, a my je nepřejmenujeme ani nepřesouváme za vás. Máme vloženou databázi pro sledování stavu sledovaných adresářů, abychom mohli sledovat co je nové. i když proces není spuštěn.
 
-## What are some challenges you've faced while building Voltra?
+## Jaké jsou některé výzvy, kterým jste čelili při budování Voltra?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+Strávíme spoustu času zaměřeného na výkon. Začali jsme frameworky, ale přesunuli se do vanilla Javascript. Podle našich zkušeností generalizované abstrakce převažují nad pokuty za výkon a ceremoniálu, které zavádějí.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+V této chvíli zacházíme s velmi velkými sbírkami. Velké sbírky znamenají možná desetitisíce obrázků! Nemám nic. Modul souborového systému přímo dostupný v procesu vykreslování, takže je opravdu snadné načíst a uvolnit mnoho obrázků super rychle na základě DOM událostí.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+Obecně *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* a *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* byly super důležité nástroje pro provádění spousty zpracování při zachování reakce uživatelského rozhraní. Přesněji řečeno, distribuce úloh vázaných na CPU do oddělených procesů skutečně pomáhá udržovat uživatelské rozhraní citlivé. Například jsme přesunuli skutečný zvukový kontext do samostatného procesu, komunikace s ním přes [IPC](https://electronjs.org/docs/glossary/#ipc) , aby se zabránilo možným přerušení z rušného uživatelského rozhraní.
 
-## Why did you choose to build Voltra on Electron?
+## Proč jste se rozhodli stavět Voltra na Electronu?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+Písnička prohlížeče je příliš omezená pro naši aplikaci. Ale vyvíjíme také webový přehrávač. Je tedy obrovským vítězstvím, že můžeme mezi oběma implementacemi sdílet téměř 100% kodexu.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+Ve skutečnosti jsme začali budováním původní aplikace Swift. Hlavním problémem, který jsme zjistili, bylo, že jsme objevili mnoho věcí. Web má největší celosvětový open source ekosystém. Takže jsme velmi rychle přešli na Electron.
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+A co je nejdůležitější, s Electron se vyvíjejí jednou a mělo by to jen WorkTM na všech hlavních platformách. Není zaručena, ale náklady na domácí kódování pro každou platformu rozhodně převyšují veškeré další náklady, které elektronický systém představuje.
 
-## What are your favorite things about Electron?
+## Co jsou vaše oblíbené věci o Electronu?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: Mít Node.js’ síťový zásobník a prezentační vrstva Chromia společně je receptem pro získání práce.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**kompetence**: Je to jen webový stack, takže doslova celý náš tým se podílí na tvorbě produktu.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**Komunita**: Je zde vysoce organizovaná komunita, která ví, jak opravdu dobře komunikovat! S takovou podporou se cítíme velmi skvěle.
 
-## In what areas could Electron be improved?
+## V jakých oblastech by mohl být Electron vylepšen?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+Chtěli bychom, aby Electron podpořil jeden balík. Balíček je pro Electron stejně důležitý jako pro Node. Na uživatelském území existuje více balíčků, z nichž každý má zajímavé vlastnosti, ale každý s chybami. Konsenzus ze strany společenství by pomohl řídit energii, kterou vynakládají přispěvatelé.
 
-## What's coming next?
+## Co bude dál?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+V současné době vyvíjíme mobilní aplikaci a pracujeme s umělci a štítky, abychom přidali svou hudbu do obchodu Voltra. Hej! Pokud jste umělce nebo štítek, [zaregistrujte se nyní](https://admin.voltra.co/signup)! Plánujeme otevřít obchod, až dosáhneme svého cíle 10 milionů stop.
 

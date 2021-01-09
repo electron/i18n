@@ -23,6 +23,7 @@ Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosy
    * macOS'ta ` ~ / Kütüphane / Uygulama Desteği / Google / Chrome / Varsayılan / Uzantılar </ 0>.</li>
 </ul></li>
 <li>Pass the location of the extension to <code>BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+
    ```javascript
    const path = require('path')
    const os = require('os')

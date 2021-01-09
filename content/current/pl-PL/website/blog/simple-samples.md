@@ -1,22 +1,22 @@
 ---
-title: Electron Simple Samples
+title: Proste próbki Electrona
 author: zeke
 date: '2017-01-19'
 ---
 
-We recently hosted an Electron hackathon at GitHub HQ for members of [Hackbright Academy](https://hackbrightacademy.com), a coding school for women founded in San Francisco. To help attendees get a head start on their projects, our own [Kevin Sawicki](https://github.com/kevinsawicki) created a few sample Electron applications.
+Niedawno byliśmy gospodarzem hackathona Electron w sztabie GitHub dla członków [Hackbright Academy](https://hackbrightacademy.com), szkoła kodowania dla kobiet założona w San Francisco. Aby pomóc uczestnikom rozpocząć swoje projekty, nasz własny [Kevin Sawicki](https://github.com/kevinsawicki) stworzył kilka przykładowych aplikacji Electron.
 
 ---
 
-If you're new to Electron development or haven't yet tried it out, these sample applications are a great place to start. They are small, easy to read, and the code is heavily commented to explain how everything works.
+Jeśli jesteś nowy w opracowaniu Electrona lub jeszcze go nie wypróbowałeś, te przykładowe aplikacje to świetne miejsce do rozpoczęcia. Są małe, łatwe do czytania, i kod jest mocno komentowany, aby wyjaśnić, jak wszystko działa.
 
-To get started, clone this repository:
+Aby rozpocząć, sklonuj to repozytorium:
 
 ```sh
 git clone https://github.com/electron/simple-samples
 ```
 
-To run any of the apps below, change into the app's directory, install dependencies, then start:
+Aby uruchomić którąkolwiek z poniższych aplikacji, zmień się w katalogu aplikacji, zainstaluj zależności, a następnie rozpocznij działanie:
 
 ```sh
 cd activity-monitor
@@ -24,38 +24,38 @@ npm install
 npm start
 ```
 
-## Activity Monitor
+## Monitor Aktywności
 
-Shows a doughnut chart of the CPU system, user, and idle activity time.
+Pokazuje wykres doughnut systemu CPU, użytkownika i czas bezczynności procesora.
 
-[![Screenshot](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
+[![Zrzut ekranu](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
 
 ## Hash
 
-Shows the hash values of entered text using different algorithms.
+Pokazuje wartości skrótu wprowadzonego tekstu za pomocą różnych algorytmów.
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
+[![zrzut ekranu](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
 
 ## Mirror
 
-Plays a video of the computer's camera at a maximized size like looking into a mirror. Includes an optional rainbow filter effect that uses CSS animations.
+Odtwarza film kamery komputera o maksymalnym rozmiarze, jak patrzenie w lusterko. Zawiera opcjonalny efekt filtra tęczowego, który używa animacji CSS.
 
-## Prices
+## Ceny
 
-Shows the current price of oil, gold, and silver using the Yahoo Finance API.
+Pokazuje aktualną cenę ropy naftowej, złota i srebra za pomocą API Yahoo Finance API.
 
-[![screenshot](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
+[![zrzut ekranu](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
 
 ## URL
 
-Loads a URL passed on the command line in a window.
+Załaduje adres URL przekazany w wierszu poleceń w oknie.
 
-## Other Resources
+## Inne zasoby
 
-We hope these apps help you get started using Electron. Here are a handful other resources for learning more:
+Mamy nadzieję, że te aplikacje pomogą Ci zacząć korzystać z Electron. Oto kilka innych zasobów do nauki:
 
-- [electron-quick-start](https://github.com/electron/electron-quick-start): A minimal Electron application boilerplate.
-- [Electron API Demos](https://github.com/electron/electron-api-demos): An interactive app that demonstrates the core features of the Electron API
-- [electronjs.org/docs/all](https://electronjs.org/docs/all/): All of the Electron documentation together on a single searchable page.
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Another collection of sample applications for Electron, compiled by Electron maintainer [Haojian Wu](https://github.com/hokein).
-- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - A GitHub repository that collects the latest and greatest Electron-related tutorials, books, videos, etc.
+- [electron-quick-start](https://github.com/electron/electron-quick-start): Minimalny kocioł do aplikacji Electron.
+- [Dema Electron API](https://github.com/electron/electron-api-demos): Interaktywna aplikacja, która pokazuje podstawowe funkcje Electron API
+- [electronjs.org/docs/all](https://electronjs.org/docs/all/): Wszystkie dokumenty Electrona razem na jednej stronie z możliwością wyszukiwania.
+- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Inna kolekcja przykładowych aplikacji dla Electrona, skompilowana przez Electrona opiekuna [Haojian Wu](https://github.com/hokein).
+- [niesamowity elektron](https://github.com/sindresorhus/awesome-electron) - repozytorium GitHub, które zbiera najnowsze i największe poradniki związane z elektroniką, książki, filmy itp.

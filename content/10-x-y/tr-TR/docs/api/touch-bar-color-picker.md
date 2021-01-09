@@ -12,7 +12,7 @@
   * `change` Function (optional) - Function to call when a color is selected.
     * `renk` Metin - Kullanıcının seçiciden seçtiği renk.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `TouchBarColorPicker` örnekleri üzerinde mevcuttur:
 

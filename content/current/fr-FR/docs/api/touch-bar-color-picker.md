@@ -4,7 +4,7 @@
 
 Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarColorPicker(options)` _Experimental_
+### `new TouchBarColorPicker(options)`
 
 * `options` Object
   * `availableColors` String[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.

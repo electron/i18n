@@ -44,7 +44,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Pemuatan Awal
+## Preload
 
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 

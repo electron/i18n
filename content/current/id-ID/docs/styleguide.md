@@ -45,7 +45,8 @@ Untuk API referensi, ada pengecualian untuk aturan ini.
 * Gunakan `sh` dari pada `cmd` di blok kode (karena stabilo sintaks).
 * Garis harus dibungkus pada 80 kolom.
 * Tidak ada daftar nesting lebih dari 2 tingkat (karena penyajian penurunan harga).
-* Semua `js` dan `javascript` blok kode yang dibatasi dengan [standar-penurunan harga](http://npm.im/standard-markdown).
+* Semua `js` dan `javascript` blok kode yang dibatasi dengan [standar-penurunan harga](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Pemetikan kata-kata
 

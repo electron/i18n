@@ -10,7 +10,7 @@
 
 而 Electron 则直接以 Javascript 作为程序的入口。 你需要手动使用 API 来创建浏览器视窗、加载 HTML 文件，而不是直接输入一个 URL。 你还需要通过监听 window 事件来决定退出程序的时机。
 
-Electron 的工作模式更像 Node.js 运行时。 Electron 所提供的 API 能够直接控制底层系统的功能，你可以用它來代替 [ PhantomJS ](http://phantomjs.org/) 进行浏览器测试。
+Electron 的工作模式更像 Node.js 运行时。 Electron 所提供的 API 能够直接控制底层系统的功能，你可以用它來代替 [ PhantomJS ](https://phantomjs.org/) 进行浏览器测试。
 
 ## 2) Node 集成
 

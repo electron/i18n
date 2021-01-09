@@ -1,38 +1,38 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron має вбудовану підтримку для орфографії Chromium з часу Electron 8.  На Windows та Linux ця живиться за допомогою словників Hunspell та на macOS він використовує нативні API орфографії.
 
-## How to enable the spellchecker?
+## Як увімкнути перевірку орфографії?
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+Для Electron 9 та вище перевірки правопису включено за замовчуванням.  Для Electron 8 вам потрібно ввімкнути його в `web-Налаштуваннях`.
 
 ```js
 const myWindow = new BrowserWindow({
-  webPreferences: {
+  веб-налаштування: {
     spellcheck: true
   }
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## Як встановити мови які використовує програма перевірки орфографії?
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+На macOS як ми використовуємо рідний API не можна встановити мову, яку використовує орфографія. За замовчуванням на macOS нативний орфографію орфографії автоматично визначить мову, яка використовується для вас.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+Для Windows та Linux декілька Electron API ви повинні використовувати для встановлення мов для перевірки орфографії.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// Встановлює перевірку правопису для перевірки англійської США та французької
+myWindow.session. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
+// Масив всіх доступних мовних кодів
 const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+За замовчуванням засіб перевірки орфографії буде включено мову, яка відповідає поточній локалі ОС.
 
-## How do I put the results of the spellchecker in my context menu?
+## Як мені внести результати перевірки правопису в моє контекстне меню?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+Вся потрібна інформація для створення контекстного меню [`у меню`](../api/web-contents.md#event-context-menu) події на кожному `веб-змістах` надається екземпляр unnamed@@1.  Невеликий приклад створення контекстного меню з цією інформацією наведено нижче.
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## Чи використовує засіб перевірки правопису якісь служби Google?
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+Хоча сам семінар не посилає жодних типів, слів або ввід користувача до служб Google були завантажені з файлів словників Google CDN за замовчуванням.  Якщо ви хочете уникнути цього, ви можете вказати альтернативний URL для завантаження словників.
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Погляньте на документацію для [`сесії. etSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) для отримання додаткової інформації про те, де можна знайти файли словників та як їх використовувати.

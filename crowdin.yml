@@ -6,28 +6,17 @@ project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
 
 files:
-  # Content generate for version: "7-3-x"
-  - source: /content/7-3-x/en-US/docs/*.md
-    translation: /content/7-3-x/%locale%/docs/%original_file_name%
-  - source: /content/7-3-x/en-US/docs/development/*.md
-    translation: /content/7-3-x/%locale%/docs/development/%original_file_name%
-  - source: /content/7-3-x/en-US/docs/tutorial/*.md
-    translation: /content/7-3-x/%locale%/docs/tutorial/%original_file_name%
-  - source: /content/7-3-x/en-US/docs/api/*.md
-    translation: /content/7-3-x/%locale%/docs/api/%original_file_name%
-  - source: /content/7-3-x/en-US/docs/api/structures/*.md
-    translation: /content/7-3-x/%locale%/docs/api/structures/%original_file_name%
-  # Content generate for version: "8-x-y"
-  - source: /content/8-x-y/en-US/docs/*.md
-    translation: /content/8-x-y/%locale%/docs/%original_file_name%
-  - source: /content/8-x-y/en-US/docs/development/*.md
-    translation: /content/8-x-y/%locale%/docs/development/%original_file_name%
-  - source: /content/8-x-y/en-US/docs/tutorial/*.md
-    translation: /content/8-x-y/%locale%/docs/tutorial/%original_file_name%
-  - source: /content/8-x-y/en-US/docs/api/*.md
-    translation: /content/8-x-y/%locale%/docs/api/%original_file_name%
-  - source: /content/8-x-y/en-US/docs/api/structures/*.md
-    translation: /content/8-x-y/%locale%/docs/api/structures/%original_file_name%
+  # Content generate for version: "9-x-y"
+  - source: /content/9-x-y/en-US/docs/*.md
+    translation: /content/9-x-y/%locale%/docs/%original_file_name%
+  - source: /content/9-x-y/en-US/docs/development/*.md
+    translation: /content/9-x-y/%locale%/docs/development/%original_file_name%
+  - source: /content/9-x-y/en-US/docs/tutorial/*.md
+    translation: /content/9-x-y/%locale%/docs/tutorial/%original_file_name%
+  - source: /content/9-x-y/en-US/docs/api/*.md
+    translation: /content/9-x-y/%locale%/docs/api/%original_file_name%
+  - source: /content/9-x-y/en-US/docs/api/structures/*.md
+    translation: /content/9-x-y/%locale%/docs/api/structures/%original_file_name%
   # Content generate for version: "10-x-y"
   - source: /content/10-x-y/en-US/docs/*.md
     translation: /content/10-x-y/%locale%/docs/%original_file_name%
@@ -39,6 +28,17 @@ files:
     translation: /content/10-x-y/%locale%/docs/api/%original_file_name%
   - source: /content/10-x-y/en-US/docs/api/structures/*.md
     translation: /content/10-x-y/%locale%/docs/api/structures/%original_file_name%
+  # Content generate for version: "12-x-y"
+  - source: /content/12-x-y/en-US/docs/*.md
+    translation: /content/12-x-y/%locale%/docs/%original_file_name%
+  - source: /content/12-x-y/en-US/docs/development/*.md
+    translation: /content/12-x-y/%locale%/docs/development/%original_file_name%
+  - source: /content/12-x-y/en-US/docs/tutorial/*.md
+    translation: /content/12-x-y/%locale%/docs/tutorial/%original_file_name%
+  - source: /content/12-x-y/en-US/docs/api/*.md
+    translation: /content/12-x-y/%locale%/docs/api/%original_file_name%
+  - source: /content/12-x-y/en-US/docs/api/structures/*.md
+    translation: /content/12-x-y/%locale%/docs/api/structures/%original_file_name%
   # Content generate for version: "current"
   - source: /content/current/en-US/docs/*.md
     translation: /content/current/%locale%/docs/%original_file_name%

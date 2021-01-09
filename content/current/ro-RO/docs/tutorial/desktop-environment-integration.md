@@ -1,29 +1,29 @@
-# Desktop Environment Integration
+# Integrare de mediu desktop
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Diferitele sisteme de operare oferă caracteristici diferite pentru integrarea aplicațiilor desktop în mediile lor desktop. De exemplu, pe Windows, aplicațiile pot pune comenzi rapide în bara de activități, și pe Mac, aplicațiile pot pune un meniu personalizat în meniul dock.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Acest ghid explică cum să integrezi aplicația ta în acele medii pentru desktop cu API-uri Electron.
 
 ## Notificări
 
-See the [Notifications documentation](notifications.md).
+Vezi [documentația pentru notificări](notifications.md).
 
 ## Documente recente
 
-See [Recent Documents documentation](recent-documents.md).
+Vezi [Documente recente](recent-documents.md).
 
-## Progress Bar
+## Bară de progres
 
-See the [Progress Bar documentation](progress-bar.md).
+Vezi [documentaţia Barei de Progres](progress-bar.md).
 
-## Unity Launcher
+## Lansator Unitate
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Vezi [documentația Launcher Unity](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## Fișier reprezentat pentru fereastra macOS
 
-See the [Represented File documentation](represented-file.md).
+Vezi [Documentația fișierului reprezentat](represented-file.md).
 
-## Dragging files out of the window
+## Tragerea fişierelor din fereastră
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Vezi [Native File Drag & Drop documentation](native-file-drag-drop.md).

@@ -13,7 +13,7 @@ Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-proce
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Di default `true`.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Il valore predefinito è `true`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 

@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-Drive
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)`
 
@@ -28,7 +28,7 @@ A `ScrubberItem[]` array representing the items in this scrubber. Updating this 
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. مقادیر ممکن:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. مقادیر ممکن:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -48,7 +48,7 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. مقادیر ممکن:
 
 * `fixed` - Maps to `NSScrubberModeFixed`.
 * `free` - Maps to `NSScrubberModeFree`.

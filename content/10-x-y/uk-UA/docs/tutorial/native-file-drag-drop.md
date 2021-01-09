@@ -1,10 +1,10 @@
-# Нативний Drag & Drop Файлу
+# Нативний Drag & Видалити файл
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Деякі види програм, які маніпулюють файлами, можуть допомогти нативний файл операційної системи перетягування & відкинути функцію. Перетягуючи файли на веб-вміст є поширеним і підтримується багатьма сайтами. Electron additionally supports dragging files and content out from web content into the operating system's world.
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+Для реалізації цієї функції у вашому додатку, вам потрібно викликати `webContents.startDrag(item)` API у відповідь на `на подію`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+У процесі рендерингу обробте захід `ondragstart` і переслати інформацію до вашого основного процесу.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,15 +16,15 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Потім, в основних процесах, збільшіть подію з шляхом до файлу, який тягнеться з іконкою.
 
 ```javascript
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {
-  event.sender.startDrag({
-    file: filePath,
+  event.sender.start({
+    file: Path,
     icon: '/path/to/icon.png'
   })
-})
+
 ```

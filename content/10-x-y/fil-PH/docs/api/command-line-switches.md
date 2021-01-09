@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integrated authentication.
 
-Halimbawa ng:
+Halimbawa:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
@@ -167,6 +167,14 @@ Binigyan ang kada-modyul ng mainam na antas ng V-logging para i-override ang hal
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Halimbawa. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
+
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 

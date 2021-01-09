@@ -58,7 +58,7 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 The following properties are available on instances of `TouchBar`:
 

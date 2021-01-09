@@ -47,6 +47,15 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
+On Arch Linux / Manjaro, install the following libraries:
+
+```sh
+$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
+                   libgnome-keyring alsa-lib libcap libcups libxtst \
+                   libxss nss gcc-multilib curl gperf bison \
+                   python2 python-dbusmock jdk8-openjdk
+```
+
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
 ### 交叉编译
@@ -65,7 +74,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-若要为 `arm` 或 `ia32` 平台的目标设备交叉编译，您应当为 `target_cpu` 添加`gn gen` 参数：
+并为 `arm` 或 `ia32` 目标交叉编译 您应该将 `target_cpu` 参数传递给 `gn gen`:
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'

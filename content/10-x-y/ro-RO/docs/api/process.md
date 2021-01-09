@@ -1,4 +1,4 @@
-# proces
+# process-proces
 
 > Extensions to process object.
 
@@ -50,7 +50,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Proprietăți
 
 ### `process.defaultApp` _Readonly_
 

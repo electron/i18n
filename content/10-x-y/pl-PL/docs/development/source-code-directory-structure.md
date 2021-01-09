@@ -74,7 +74,7 @@ Electron
 └── BUILD.gn - Building rules of Electron.
 ```
 
-## Struktura innych katalogów
+## Structure of Other Directories
 
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.

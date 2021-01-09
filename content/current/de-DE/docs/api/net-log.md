@@ -34,7 +34,7 @@ Beginnt die Aufzeichnung von Netzwerk Events in `path`.
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
 
@@ -42,8 +42,4 @@ Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beende
 
 ### `netLog.currentlyLogging` _Readonly_
 
-Eine `Boolean` Eigenschaft die anzeigt ob Netzwerk Logs aufgezeichnet werden.
-
-### `netLog.currentlyLoggingPath` _Readonly_ _Deprecated_
-
-Eine `String` Eigenschaft welche den Pfad zur aktuellen Log Datei zurückgibt.
+A `Boolean` property that indicates whether network logs are currently being recorded.

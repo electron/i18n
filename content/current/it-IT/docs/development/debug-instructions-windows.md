@@ -24,7 +24,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 Poi, apri Visual Studio. Electron non è costruito con Visual Studio e non contiene un file di progetto - puoi comunque aprire il file di codice sorgente "Come File", il che vuol dire che Visual Studio li aprirà da loro stessi. È ancora possibile impostare i punti di interruzione: Visual Studio rileva automaticamente che il codice sorgente corrisponde al codice in esecuzione nel processo allegato e si interrompe di conseguenza.
 
-Relevant code files can be found in `./shell/`.
+I file di codice rilevanti si possono trovare in `./shell/`.
 
 ### Allegare
 
@@ -34,7 +34,7 @@ Se Electron è in esecuzione sotto un diverso profilo utente, seleziona la casel
 
 ### A Quale Processo Dovrei Allegarlo?
 
-Il codice eseguito entro il processo principale (che è, trovato nel codice o in un file JavaScript principale eventualmente eseguito) così come il codice richiamato usando il remoto (`require('electron').remote`) sarà eseguito all'interno del processo principale, mentre altro codice sarà eseguito all'interno dei suoi processi di render rispettivi.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
 Puoi essere allegato a programmi multipli quando stai facendo il debug, ma solo un programma è attivo nel debugger in ogni momento. Puoi impostare il programma attivo nella barra degli strumenti `Posizione di Debug` o nella `finestra Processi`.
 

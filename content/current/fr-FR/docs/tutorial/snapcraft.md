@@ -1,22 +1,16 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Snapcraft Guide (Ubuntu Software Center & Plus)
 
 Ce guide fournit des informations sur comment empaqueter votre application Electron pour n’importe quel environnement Snapcraft, y compris l’Ubuntu Software Center.
 
 ## Contexte et exigences
 
-Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Les Snaps sont des paquets logiciels conteneurs qui incluent les dépendances requises, la mise à jour automatique et fonctionnent sur toutes les distributions Linux majeures sans modification du système.
 
 Il existe trois méthodes pour créer un fichier `.snap` :
 
 1) En utilisant [`electron-forge`](https://github.com/electron-userland/electron-forge) ou [`electron-builder`](https://github.com/electron-userland/electron-builder), deux outils qui sont livrés en supportant `snap` par nature. C'est l'option la plus simple. 2) En utilisant `electron-installer-snap`, qui réceptionne les émissions d'`electron-packager`. 3) En utilisant un package `.deb` déjà créé.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-Bien qu'il soit _possible_ d'installer `snapcraft` sur macOS avec Homebrew, il n'est pas possible de builds des packages `snap`. Il se concentre sur la gestion des packages dans le magasin.
+Dans certains cas, vous devrez avoir installé l'outil `snapcraft`. Les instructions pour installer `snapcraft` pour votre distribution particulière sont disponibles [ici](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Utilisation de `electron-installer-snap`
 
@@ -34,22 +28,22 @@ La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
 .
-└── dist
-    └── app-linux-x64
-        ├── LICENSE
-        ├── LICENSES.chromium.html
-        ├── content_shell.pak
-        ├── app
-        ├── icudtl.dat
-        ├── libgcrypt.so.11
-        ├── libnode.so
-        ├── locales
-        ├── resources
-        ├── v8_context_snapshot.bin
-        └── version
+<unk> ── dist
+    <unk> ── app-linux-x64
+        ── LICENSE
+        ── LICENSES. hromium.html
+        ── content_shell. ak
+        ── app
+        ── ─ icudtl. à
+        ── libgcrypt.so.11
+        ── libnode. o
+        ── locales
+        ── resources
+        Ω── v8_context_snapshot. dans
+        <unk> ─ version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Étape 2 : Exécution de `electron-installer-snap`
 
 Depuis un terminal qui a `snapcraft` dans son `PATH`, exécutez `electron-installer-snap` avec seulement `--src`, qui est l'emplacement de votre application Electron créée à la première étape.
 
@@ -64,6 +58,78 @@ const snap = require('electron-installer-snap')
 
 snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
+```
+
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
 ```
 
 ## En utilisant un package Debian existant
@@ -129,7 +195,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativement, si vous construisez votre `snap` avec un confinement `strict` , vous pouvez utiliser la commande `desktop-launch`:
 
 ```yaml
 apps:

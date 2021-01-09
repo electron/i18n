@@ -10,13 +10,7 @@
 
 1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-いずれにしても、`snapcraft` ツールをインストールしている必要があります。 Ubuntu 16.04 (または現在の LTS) でのビルドを推奨します。
-
-```sh
-snap install snapcraft --classic
-```
-
-一方でmacOS上ではHomebrewを使用することで_一応_ 、`snapcraft`をインストールすることはできます。しかし、これは`snap` パッケージをビルドできます。このツールは、ストアでのパッケージの管理用です。
+場合によっては、`snapcraft` ツールをインストールしている必要があります。 特定ディストリビューションの `snapcraft` のインストール手順は [こちら](https://snapcraft.io/docs/installing-snapcraft) です。
 
 ## `electron-installer-snap`の使用
 
@@ -64,6 +58,78 @@ const snap = require('electron-installer-snap')
 
 snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
+```
+
+## `electron-packager` と共に `snapcraft` を使用する
+
+### ステップ 1: サンプル snapcraft プロジェクトの作成
+
+プロジェクトディレクトリを作成し、`snap/snapcraft.yaml` に以下を追加します。
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Chromium フレームワーク/Electron の TMPDIR パスを修正し、
+      # libappindicator が読めるリソースを確保します。
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+この例を既存のプロジェクトに適用する場合は以下のようにしましょう。
+
+- `source: https://github.com/electron/electron-quick-start.git` を `source: .` に置き換えます。
+- すべての `electron-quick-start` の箇所をプロジェクト名に置き換えます。
+
+### ステップ 2: snap のビルド
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### ステップ 3: snap のインストール
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### ステップ 4: snap の実行
+
+```sh
+electron-packager-hello-world
 ```
 
 ## 既存のデビアンパッケージの使用

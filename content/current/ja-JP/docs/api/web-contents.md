@@ -9,10 +9,10 @@
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 1500 })
+const win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
-let contents = win.webContents
+const contents = win.webContents
 console.log(contents)
 ```
 
@@ -37,7 +37,7 @@ console.log(webContents)
 
 * `id` Integer
 
-戻り値 `WebContents` - 指定した ID の WebContents インスタンス。
+戻り値 `WebContents` | undefined - 指定 ID の WebContents インスタンス。指定 ID に関連付けられた WebContents が存在しない場合は `undefined` です。
 
 ## クラス: WebContents
 
@@ -129,13 +129,14 @@ console.log(webContents)
 
 戻り値:
 
-* `event` NewWindowEvent
+* `event` NewWindowWebContentsEvent
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
+* `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -144,15 +145,24 @@ console.log(webContents)
 `event.preventDefault()` を呼ぶと、Electron が自動的に新しい [`BrowserWindow`](browser-window.md) を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい [`BrowserWindow`](browser-window.md) インスタンスの参照を [`event.newGuest`](browser-window.md) にセットしなければ、予期しない動作になる可能性があります。 例:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
   event.preventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // 提供されていれば既存の webContents を使う
+    webContents: options.webContents, // あれば既存の webContents を使用する
     show: false
   })
   win.once('ready-to-show', () => win.show())
   if (!options.webContents) {
-    win.loadURL(url) // 自動で既存の webContents はナビゲートされる
+    const loadOptions = {
+      httpReferrer: referrer
+    }
+    if (postBody != null) {
+      const { data, contentType, boundary } = postBody
+      loadOptions.postData = postBody.data
+      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
+    }
+
+    win.loadURL(url, loadOptions) // 自動で既存の webContents をナビゲーションする
   }
   event.newGuest = win
 })
@@ -275,7 +285,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 const { BrowserWindow, dialog } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
-  const choice = dialog.showMessageBox(win, {
+  const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
     buttons: ['このページを離れる', 'キャンセル'],
     title: 'このサイトを離れてもよろしいですか?',
@@ -290,7 +300,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### イベント: 'crashed' _非推奨_
 
 戻り値:
 
@@ -299,24 +309,24 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
+    * `clean-exit` - 終了コード 0 でプロセスが終了した
+    * `clean-exit` - 終了コードが非 0 でプロセスが終了した
+    * `killed` - プロセスに SIGTERM シグナルが送信されたなどの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
+    * `launch-failed` - プロセスが正常に起動されなかった
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -350,7 +360,7 @@ Webページが応答しなくなるときに発生します。
   * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `isComposing` Boolean - [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
   * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
@@ -358,16 +368,16 @@ Webページが応答しなくなるときに発生します。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
-メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental) を使用します。
+メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) を使用します。
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // 例えば、Ctrl / Cmd が押下されているときのみ、
-  // アプリケーションのメニューキーボードショートカットを有効にします。
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -573,7 +583,7 @@ app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    let result = deviceList.find((device) => {
+    const result = deviceList.find((device) => {
       return device.deviceName === 'test'
     })
     if (!result) {
@@ -598,7 +608,7 @@ app.whenReady().then(() => {
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ webPreferences: { offscreen: true } })
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -637,9 +647,9 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `level` Integer
-* `message` String
-* `line` Integer
+* `level` Integer - 0 から 3 のログレベル。 順に `verbose`、`info`、`warning`、`error` に対応します。
+* `message` String - 実際のコンソールメッセージ
+* `line` Integer - このコンソールメッセージのトリガーとなったソースの行番号
 * `sourceId` String
 
 関連付けられたウインドウがコンソールメッセージを出力すると発生します。
@@ -785,7 +795,7 @@ win.loadFile('src/index.html')
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com').then(() => {
   const currentURL = win.webContents.getURL()
   console.log(currentURL)
@@ -874,6 +884,27 @@ win.loadURL('http://github.com').then(() => {
 
 戻り値 `Boolean` - レンダラープロセスがクラッシュしたかどうか。
 
+#### `contents.forcefullyCrashRenderer()`
+
+この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
+
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+
+```js
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
+```
+
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
@@ -945,7 +976,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` _実験的_
+#### `contents.setIgnoreMenuShortcuts(ignore)`
 
 * `ignore` Boolean
 
@@ -1111,7 +1142,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (任意) - キャプチャの推奨サイズ。
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1148,21 +1179,21 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
-  * `dpi` Record<string, number> (optional)
+  * `dpi` Record<string, number> (任意)
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
   * `header` String (任意) - ページヘッダーとして印刷される文字列。
   * `footer` String (任意) - ページフッターとして印刷される文字列。
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `pageSize` String | Size (任意) - 印刷するドキュメントのページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid` のいずれかにするか、`height` を含む Object にできます。
 * `callback` Function (任意)
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1171,7 +1202,14 @@ When a custom `pageSize` is passed, Chromium attempts to validate platform speci
 使用例:
 
 ```js
-const options = { silent: true, deviceName: 'My-Printer' }
+const options = {
+  silent: true,
+  deviceName: 'My-Printer',
+  pageRanges: [{
+    from: 0,
+    to: 1
+  }]
+}
 win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
 })
@@ -1180,16 +1218,16 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
+  * `headerFooter` Record<string, string> (任意) - PDF のヘッダーとフッター。
+    * `title` String - PDF ヘッダーのタイトル。
+    * `url` String - PDF フッターの URL。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
   * `marginsType` Integer (optional) - 使用する余白の種類を指定します。 0 で既定値、1 で余白なし、2 で最小限の余白になります。
-  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 Can range from 0 to 100.
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。 0 から 100 の範囲にできます。
   * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+    * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
+    * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `height` と `width` を含む Object にできます。
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
 
@@ -1219,19 +1257,22 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
 ```javascript
 const { BrowserWindow } = require('electron')
 const fs = require('fs')
+const path = require('path')
+const os = require('os')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // デフォルトの印刷オプションを使用します
+  // Use default printing options
   win.webContents.printToPDF({}).then(data => {
-    fs.writeFile('/tmp/print.pdf', data, (error) => {
+    const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
+    fs.writeFile(pdfPath, data, (error) => {
       if (error) throw error
-      console.log('PDF 書き出しに成功しました。')
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
     })
   }).catch(error => {
-    console.log(error)
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
   })
 })
 ```
@@ -1244,7 +1285,7 @@ win.webContents.on('did-finish-load', () => {
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
 })
@@ -1412,7 +1453,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number]
 * `channel` String
 * `...args` any[]
 
@@ -1442,19 +1483,19 @@ ipcMain.on('ping', (event) => {
 
 * `channel` String
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain[] (任意)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+レンダラープロセスにメッセージを送信し、任意で 0 個以上の [`MessagePortMain`][] オブジェクトの所有権を転送します。
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
 
 例:
 ```js
-// Main process
+// メインプロセス
 const { port1, port2 } = new MessageChannelMain()
 webContents.postMessage('port', { message: 'hello' }, [port1])
 
-// Renderer process
+// レンダラープロセス
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
@@ -1522,7 +1563,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
@@ -1559,7 +1600,7 @@ win.webContents.on('did-finish-load', async () => {
 
 * `fps` Integer
 
-もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。 1 から 60 の値のみを受け取ります。
+もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。 1 から 240 の値のみを受け取ります。
 
 #### `contents.getFrameRate()`
 
@@ -1599,7 +1640,11 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
-V8ヒープを取得して、`filePath`にそれを保存します。
+V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
+
+#### `contents.getBackgroundThrottling()`
+
+戻り値 `Boolean` - ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうか。 これは Page Visibility API にも影響を与えます。
 
 #### `contents.setBackgroundThrottling(allowed)`
 
@@ -1635,7 +1680,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.frameRate`
 
-`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。 1 から 60 の値のみを受け取ります。
+`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。 1 から 240 の値のみを受け取ります。
 
 *オフスクリーンレンダリング* が有効な場合にのみ適用されます。
 
@@ -1660,3 +1705,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 #### `contents.debugger` _読み出し専用_
 
 この webContents の [`Debugger`](debugger.md) インスタンス。
+
+#### `contents.backgroundThrottling`
+
+`Boolean` 型のプロパティです。ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうかを決定します。 これは Page Visibility API にも影響を与えます。

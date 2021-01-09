@@ -2,7 +2,7 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıdaki örnek, ` Electron` isimli masaüstü penceresinden nasıl ekran kaydedilebileceğini göstermektedir:
 
@@ -66,7 +66,7 @@ const constraints = {
 }
 ```
 
-## Yöntemler
+## Metodlar
 
 `desktopCapturer` modülü aşağıdaki yöntemleri içerir:
 

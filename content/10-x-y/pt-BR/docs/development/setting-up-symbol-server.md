@@ -1,4 +1,4 @@
-# Configuração para servidor de símbolos no Depurador
+# Setting Up Symbol Server in Debugger
 
 Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
@@ -22,8 +22,7 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Using the symbol server in Visual Studio
 
-<img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' />
-<img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
+![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 ## Troubleshooting: Symbols will not load
 

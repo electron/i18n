@@ -2,15 +2,15 @@
 
 * `pid` Integer - Id du processus.
 * `type` String - Type de processus. Une des valeurs suivantes:
-  * `Navigateur`
+  * `Browser`
   * `Tab`
-  * `Utilitaire`
+  * `Utility`
   * `Zygote`
-  * `Assistant bac à sable`
+  * `Sandbox helper`
   * `GPU`
-  * `Plugin Pepper`
-  * `Broker de plugin Pepper`
-  * `Inconnu`
+  * `Pepper Plugin`
+  * `Pepper Plugin Broker`
+  * `Unknown`
 * `cpu` [CPUUsage](cpu-usage.md) - Usage CPU du processus.
 * `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - Information sur la mémoire du processus.
@@ -20,4 +20,4 @@
   * `low`
   * `medium`
   * `high`
-  * `inconnu`
+  * `unknown`

@@ -14,74 +14,63 @@ app.whenReady().then(() => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## Electron CLI Flags
 
-`,` Ile ayrılmış `alan adları` listesi için bağlantı limitini yoksay.
+### --auth-server-whitelist=`url`
 
-## --disable-http-cache
+Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
 
-HTTP istekleri için disk önbelleği devre dışı bırakır.
+Örneğin:
 
-## --disable-http2
+```sh
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
-HTTP/2 ve SPDY/3.1 protokollerini devre dışı bırakın.
+o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. Without `*` prefix the URL has to match exactly.
+
+### --auth-negotiate-delegate-whitelist=`url`
+
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ### --disable-ntlm-v2
 
 Disables NTLM v2 for posix platforms, no effect elsewhere.
 
-## --lang
+### --disable-http-cache
 
-Set a custom locale.
+HTTP istekleri için disk önbelleği devre dışı bırakır.
 
-## --inspect=`port` and --inspect-brk=`port`
+### --disable-http2
 
-Hata ayıklama ile ilgili bayrakları, ayrıntılar için [Debugging the Main Process](../tutorial/debugging-main-process.md) kılavuzuna bakın.
+HTTP/2 ve SPDY/3.1 protokollerini devre dışı bırakın.
 
-## --remote-debugging-port=`port`
+### --disable-renderer-backgrounding
 
-Belirtilen `port` noktasında HTTP üzerinden uzaktan hata ayıklamayı etkinleştirir.
+Chromium görünmez sayfa oluşturucu işlemlerinin önceliğinin düşürülmesini engeller.
 
-## --disk-cache-size=`size`
+Eğer sadece bir pencere içindeki daralmaları devre dışı bırakmak istiyorsanız, tüm global render işlemlerinde bu bayrak ile [playing silent audio](https://github.com/atom/atom/pull/9485/files)'i alabilirsiniz.
+
+### --disk-cache-size=`size`
 
 Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinden ifade etmeye zorlar.
 
-## --js-flags=`flags`
+### --enable-api-filtering-logging
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Enables caller stack logging for the following APIs (filtering events):
+- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+- `remote.require()` / `remote-require`
+- `remote.getGlobal()` / `remote-get-builtin`
+- `remote.getBuiltin()` / `remote-get-global`
+- `remote.getCurrentWindow()` / `remote-get-current-window`
+- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
-```sh
-$ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
-```
+### --enable-logging
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+Chromium loglarını konsol içerisine yazdırır.
 
-## --proxy-server=`address:port`
+Kullanıcının uygulaması yüklenene kadar bu anahtar `app.commandLine.appendSwitch` içerisinde kullanılamaz fakat aynı etkiyi yaratması için `ELECTRON_ENABLE_LOGGING` ortam değişkenini ayarlayabilirsiniz.
 
-Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anahtar HTTPS ve WebSocket istekleri dahil olmak üzere yalnızca HTTP protokollü istekleri etkiler. Ayrıca, tüm proxy sunucuların HTTPS'yi ve WebSocket isteklerini desteklemediği de dikkat çeken bir noktadır. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
-
-## --proxy-bypass-list=`hosts`
-
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
-
-Örneğin:
-
-```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
-```
-
-Local adreslerde (`localhost`, `127.0.0.1` etc.), `google.com` alt alan adları ile yer alan tüm ana bilgisayarlar dışında kullanılacak proxy sunucuları `foo.com` suffix içermeli ve `1.2.3.4:5678` içinde bulundurmalı.
-
-## --proxy-pac-url=`url`
-
-PAC komut dosyasını belirtilen `url`'de kullanır.
-
-## --no-proxy-server
-
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
-
-## --host-rules=`rules`
+### --host-rules=`rules`
 
 Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayrılmış `kurallar`.
 
@@ -94,61 +83,84 @@ Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayr�
 
 Bu eşlemeler, net istekli bitiş noktası sunucusu için geçerlidir (TCP bağlantısı ve ana çözümleyici doğrudan bir bağlantıda ve `CONNECT` Http proxy bağlantısında ve `SOCKS` proxy bağlantısı bitiş noktası sunucusu içerisinde).
 
-## --host-resolver-rules=`rules`
+### --host-resolver-rules=`rules`
 
 Gibi `--host-rules` ama bu `kurallar` sadece ana çözümleyici için geçerlidir.
 
-## --auth-server-whitelist=`url`
-
-Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
-
-Örneğin:
-
-```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
-
-o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. Without `*` prefix the URL has to match exactly.
-
-## --auth-negotiate-delegate-whitelist=`url`
-
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
-
-## --ignore-certificate-errors
+### --ignore-certificate-errors
 
 Sertifika ile ilgili hataları yok sayar.
 
-## --ppapi-flash-path=`path`
+### --ignore-connections-limit=`domains`
 
-Pepper flash eklentisi `yolunu` belirler.
+`,` Ile ayrılmış `alan adları` listesi için bağlantı limitini yoksay.
 
-## --ppapi-flash-version=`version`
+### --js-flags=`flags`
 
-Pepper flash eklentisi `sürümünü` ayarlar.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
-## --log-net-log=`path`
+```sh
+$ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
+```
+
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+
+### --lang
+
+Set a custom locale.
+
+### --log-net-log=`path`
 
 Kaydedilecek net günlük olaylarını etkinleştirir ve bunları `yoluna` yazar.
 
-## --disable-renderer-backgrounding
+### --no-proxy-server
 
-Chromium görünmez sayfa oluşturucu işlemlerinin önceliğinin düşürülmesini engeller.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
-Eğer sadece bir pencere içindeki daralmaları devre dışı bırakmak istiyorsanız, tüm global render işlemlerinde bu bayrak ile [playing silent audio](https://github.com/atom/atom/pull/9485/files)'i alabilirsiniz.
+### --no-sandbox
 
-## --enable-logging
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
 
-Chromium loglarını konsol içerisine yazdırır.
+### --proxy-bypass-list=`hosts`
 
-Kullanıcının uygulaması yüklenene kadar bu anahtar `app.commandLine.appendSwitch` içerisinde kullanılamaz fakat aynı etkiyi yaratması için `ELECTRON_ENABLE_LOGGING` ortam değişkenini ayarlayabilirsiniz.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-## --v=`log_level`
+Örneğin:
+
+```javascript
+const { app } = require('electron')
+app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+```
+
+Local adreslerde (`localhost`, `127.0.0.1` etc.), `google.com` alt alan adları ile yer alan tüm ana bilgisayarlar dışında kullanılacak proxy sunucuları `foo.com` suffix içermeli ve `1.2.3.4:5678` içinde bulundurmalı.
+
+### --proxy-pac-url=`url`
+
+PAC komut dosyasını belirtilen `url`'de kullanır.
+
+### --proxy-server=`address:port`
+
+Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anahtar HTTPS ve WebSocket istekleri dahil olmak üzere yalnızca HTTP protokollü istekleri etkiler. Ayrıca, tüm proxy sunucuların HTTPS'yi ve WebSocket isteklerini desteklemediği de dikkat çeken bir noktadır. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+
+### --remote-debugging-port=`port`
+
+Belirtilen `port` noktasında HTTP üzerinden uzaktan hata ayıklamayı etkinleştirir.
+
+### --ppapi-flash-path=`path`
+
+Pepper flash eklentisi `yolunu` belirler.
+
+### --ppapi-flash-version=`version`
+
+Pepper flash eklentisi `sürümünü` ayarlar.
+
+### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
-## -vmodule=`pattern`
+### -vmodule=`pattern`
 
 Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksimal V-logging düzeylerini verir. Örneğin `my_module.*` ve `foo*.*` kaynak dosyaları içindeki tüm kodlar için `my_module=2,foo*=3` logging seviyelerini değiştirebilir.
 
@@ -156,16 +168,43 @@ Any pattern containing a forward or backward slash will be tested against the wh
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
-## --enable-api-filtering-logging
+### --force_high_performance_gpu
 
-Enables caller stack logging for the following APIs (filtering events):
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+Force using discrete GPU when there are multiple GPUs available.
 
-## --no-sandbox
+### --force_low_power_gpu
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Force using integrated GPU when there are multiple GPUs available.
+
+## Node.js Flags
+
+Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+
+**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+
+### --inspect-brk[=[host:]port]
+
+Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+
+Aliased to `--debug-brk=[host:]port`.
+
+### --inspect-port=[host:]port
+
+Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+
+Aliased to `--debug-port=[host:]port`.
+
+### --inspect[=[host:]port]
+
+Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+
+V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+
+See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+
+Aliased to `--debug[=[host:]port`.
+
+### --inspect-publish-uid=stderr,http
+Specify ways of the inspector web socket url exposure.
+
+By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

@@ -8,7 +8,7 @@ Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `a
 
 `screen` est un [EventEmitter][event-emitter].
 
-**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let { screen } = require('electron')` ne fonctionnera pas.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
@@ -61,7 +61,7 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)

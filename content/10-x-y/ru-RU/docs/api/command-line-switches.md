@@ -52,7 +52,7 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --disk-cache-size=`размер`
 
-Максимальный размер кеша на жёстком диске в байтах.
+Максимальный размер кэша на жёстком диске в байтах.
 
 ### --enable-api-filtering-logging
 
@@ -132,15 +132,15 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Будет использовать прокси сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т. д.), `google.com` поддоменов, хостов которые содержат `foo.com` и `1.2.3.4:5678`.
+Будет использовать прокси-сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т.д.), поддоменов `google.com`, хостов, которые содержат `foo.com` и `1.2.3.4:5678`.
 
 ### --proxy-pac-url=`ссылка`
 
-Использовать PAC скрипт для указанного `url`.
+Использовать PAC скрипт для указанной `ссылки`.
 
 ### --proxy-server=`адрес:порт`
 
-Использует указанный proxy сервер, который перезаписывает системные настройки. Этот параметр влияет только на запросы HTTP протокола, включая HTTPS и WebSocket. Примечательно также, что не все proxy серверы поддерживают HTTPS и WebSocket протоколы. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Использовать указанный прокси-сервер, переопределив системные настройки. Этот параметр влияет только на запросы протокола HTTP, включая HTTPS и WebSocket запросы. Примечательно также, что не все прокси-сервера поддерживают запросы HTTPS и WebSocket. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ### --remote-debugging-port=`порт`
 
@@ -167,6 +167,14 @@ Gives the default maximal active V-logging level; 0 is the default. Normally pos
 Любой шаблон, содержащий переднюю или обратную косую черту, будет протестирован против всего пути, а не только модуля. Например, `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Этот параметр работает только когда `--enable-logging` также указан.
+
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 

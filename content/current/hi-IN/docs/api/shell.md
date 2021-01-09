@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## मेथड्स
 
@@ -28,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Open the given file in the desktop's default manner.
 

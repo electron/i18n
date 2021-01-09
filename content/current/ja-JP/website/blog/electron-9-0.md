@@ -6,7 +6,7 @@ author:
 date: '2020-05-19'
 ---
 
-Electron 9.0.0 がリリースされました! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
+Electron 9.0.0 がリリースされました! Chromium `83`, V8 `8.3`, および Node.js `12.14` へのアップグレードが含まれます。 スペルチェッカー機能、有効化されたPDFビューアなど、いくつかの新しいAPI統合が追加されました。
 
 ---
 
@@ -18,7 +18,7 @@ Electron チームは、Electron 9.0.0 のリリース発表にワクワクし�
 
 * Chromium `83.0.4103.64`
     * [Chrome 81 の新機能](https://developers.google.com/web/updates/2020/04/nic81)
-    * [Chrome 82 was skipped](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
+    * [Chrome 82 がスキップされました](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
     * [Chrome 83 の新機能](https://developers.google.com/web/updates/2020/05/nic83)
 * Node.js `12.14.1`
     * [Node 12.14.1 ブログ記事](https://nodejs.org/en/blog/release/v12.14.1/)
@@ -28,43 +28,43 @@ Electron チームは、Electron 9.0.0 のリリース発表にワクワクし�
 
 ### 注目の機能
 
-* Multiple improvements to the spellchecker feature. See more details in [#22128](https://github.com/electron/electron/pull/22128) and [#22368](https://github.com/electron/electron/pull/22368).
-* Improved window events handler efficiency on Linux. [#23260](https://github.com/electron/electron/pull/23260).
-* Enable PDF viewer. [#22131](https://github.com/electron/electron/pull/22131).
+* スペルチェッカー機能の複数の改善。 詳細は [#22128](https://github.com/electron/electron/pull/22128) と [#22368](https://github.com/electron/electron/pull/22368) をご覧ください。
+* Linux 上でのウィンドウイベントハンドラの効率を改善しました。 [#23260](https://github.com/electron/electron/pull/23260).
+* PDF ビューアを有効にします。 [#22131](https://github.com/electron/electron/pull/22131).
 
 新機能と変更の完全なリストは、[9.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v9.0.0) を参照してください。
 
 ## 破壊的変更
 
-* Deprecation warning when using `remote` without `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
-    * This is the first step in our plans for deprecating the `remote` module and moving it to userland. [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
-* Set `app.enableRendererProcessReuse` to true by default. [#22336](https://github.com/electron/electron/pull/22336)
+* `enableRemoteModule: true` を指定せずに `リモート` を使用した場合の非推奨の警告 [#21546](https://github.com/electron/electron/pull/21546)
+    * これは `remote` モジュールを非推奨にしユーザーランドへ移行する計画の第一段階です。 [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
+* `app.enableRendererProcessReuse` をデフォルトで true に設定します。 [#22336](https://github.com/electron/electron/pull/22336)
     * これは、レンダラープロセスにロードされるネイティブ Node モジュールは [N-API](https://nodejs.org/api/n-api.html) か [コンテキス対応](https://nodejs.org/api/addons.html#addons_context_aware_addons) であるという将来の要件に対応する作業の一環です。 完全な情報と提案された時系列は、[この Issue](https://github.com/electron/electron/issues/18397) で詳しく説明しています。
-* Sending non-JavaScript objects over IPC now throws an exception. [#21560](https://github.com/electron/electron/pull/21560)
-    * This behavior was depreciated in Electron 8.0. In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+* JavaScript以外のオブジェクトをIPC経由で送信すると例外が発生するようになりました。 [#21560](https://github.com/electron/electron/pull/21560)
+    * この動作は Electron 8.0 で減価償却されました。 Electron 9.0 では、古いシリアライズアルゴリズムが削除され、このような非シリアライズ可能なオブジェクトを送信すると、「オブジェクトをクローンできませんでした」というエラーがスローされます。
 
 これらの変更と将来の変更の詳細については、[予定されている破壊的な変更](https://github.com/electron/electron/electron/blob/master/docs/breaking-changes.md) のページを参照してください。
 
 ## API の変更
 
-* `shell` API changes:
-   * The `shell.openItem` API has been replaced with an asynchronous `shell.openPath API`. [proposal](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
-* `session`API changes:
-   * Added `session.listWordsFromSpellCheckerDictionary` API to list custom words in the dictionary. [#22128](https://github.com/electron/electron/pull/22128)
-   * Added `session.removeWordFromSpellCheckerDictionary` API to remove custom words in the dictionary. [#22368](https://github.com/electron/electron/pull/22368)
-   * Added `session.serviceWorkerContext` API to access basic service worker info and receive console logs from service workers. [#22313](https://github.com/electron/electron/pull/22313)
+* `シェル` API の変更:
+   * `shell.openItem` API は、非同期の `shell.openPath API` に置き換えられました。 [提案](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
+* `セッション`API の変更:
+   * 辞書内のカスタム単語を一覧表示するために、 `session.listWordsFromスペルチェッカーDictionary` APIを追加しました。 [#22128](https://github.com/electron/electron/pull/22128)
+   * 辞書内のカスタム単語を削除するために `session.removeWordFromSpellCheckerDictionary` APIを追加しました。 [#22368](https://github.com/electron/electron/pull/22368)
+   * `session.serviceWorkerContext` API を追加し、基本的なサービス ワーカー情報にアクセスし、サービス ワーカーからコンソール ログを受信しました。 [#22313](https://github.com/electron/electron/pull/22313)
 * `app` API の変更:
-   * Added a new force parameter to `app.focus()` on macOS to allow apps to forcefully take focus. [#23447](https://github.com/electron/electron/pull/23447)
+   * macOS の `app.focus()` に、アプリが強制的にフォーカスできるように新しいフォースパラメータを追加しました。 [#23447](https://github.com/electron/electron/pull/23447)
 * `BrowserWindow` API の変更:
-   * Added support for property access to some getter/setter pairs on `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
+   * `BrowserWindow` で getter/setter のペアへのプロパティアクセスをサポート。 [#23208](https://github.com/electron/electron/pull/23208)
 
 ### 非推奨となった API
 
-The following APIs are now deprecated or removed:
+次の API が非推奨または削除されました:
 
-* `shell.openItem` API is now depreciated, and replaced with an asynchronous `shell.openPath API`.
-* `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
-* `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
+* `shell.openItem` API が減価償却され、非同期の `shell.openPath API` に置き換えられました。
+* `<webview>.getWebContents`が削除されました。
+* `WebFrame.setLayoutZoomLevelLimits`は Electron 8.0 では非推奨となっていました。
 
 ## 6.x.y サポートの終了
 
@@ -76,10 +76,10 @@ Electron 6.x.y はプロジェクトの [サポートポリシー](https://elect
 
 今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
 
-### Change the default of `contextIsolation` from `false` to `true` (Starting in Electron 10)
+### `contextIsolation` のデフォルトを `false` から `true` に変更する (Electron 10 から開始)
 
-Without contextIsolation, any code running in a renderer process can quite easily reach into Electron internals or an app's preload script. That code can then perform privileged actions that Electron wants to keep restricted.
+contextIsolation がなければ、レンダラープロセスで実行されるコードは、Electron の内部またはアプリケーションのプリロードスクリプトに簡単にアクセスできます。 そのコードは、Electron が制限を維持したい特権アクションを実行できます。
 
-Changing this default improves the default security of Electron apps, so that apps will need to deliberately opt in to the insecure behaviour. Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
+このデフォルトを変更すると、Electron アプリのデフォルトのセキュリティが向上し、アプリが意図的に安全でない動作を選択する必要があります。 Electronは、Electron 10.0にある 現在のコンテキストのデフォルトの `contextIsolation` を、Electron 12.0の新しいデフォルト(`true`) に変更します。
 
-For more information on `contextIsolation`, how to enable it easily and it's security benefits please see our dedicated [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).
+`のcontextIsolationisolation`の詳細について、特に簡単に有効にする方法とセキュリティ上の利点を[コンテキスト分離文書](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md)を参照してください。

@@ -1,14 +1,14 @@
-# ekran
+# screen
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` is an [EventEmitter][event-emitter].
 
-**Note:** Oluşturucu / DevTools'da `window.screen`, ayrılmış bir DOM özelliği olduğundan, `let { screen } = require('electron')` komutu çalışmaz.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 Tüm ekranı kaplayan bir pencere oluşturmanın örneği:
 
@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Etkinlikler
+## Events
 
 `ekran` modülü aşağıdaki olayları yayar:
 
@@ -54,7 +54,7 @@ app.whenReady().then(() => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 `newDisplay` eklendiğinde ortaya çıkar.
@@ -63,7 +63,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 `oldDisplay` kaldırıldığında yayılır.

@@ -1,6 +1,6 @@
 # 安裝
 
-To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
+To install prebuilt Electron binaries, use [`npm`][npm]. 建議的方式是將其在你的應用程式中以開發相依套件安裝：
 
 ```sh
 npm install electron --save-dev
@@ -43,7 +43,7 @@ During installation, the `electron` module will call out to [`@electron/get`][el
 如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
-你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The URL used by `@electron/get` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME

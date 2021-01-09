@@ -85,6 +85,7 @@ session.defaultSession.cookies.set(cookie)
   * `secure` Boolean (任意) - Cookie に Secure フラグがついているか。 省略値は false です。
   * `httpOnly` Boolean (任意) - Cookie に HttpOnly フラグがついているか。 省略値は、false です。
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
+  * `sameSite` String (任意) - この Cookie に適用する [SameSite](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#SameSite_attribute) ポリシー。  `unspecified`、`no_restriction`、`lax`、`strict` のいずれかにできます。  省略値は `no_restriction` です。
 
 戻り値 `Promise<void>` - cookie が設定されたときに解決される Promise。
 

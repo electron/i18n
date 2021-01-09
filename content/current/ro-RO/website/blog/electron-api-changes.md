@@ -1,56 +1,56 @@
 ---
-title: API Changes Coming in Electron 1.0
+title: Modificări ale API în Electron 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
+De la începutul Electron, porniţi înapoi când se numea Atom-Shell, am experimentat oferind un frumos JavaScript API pentru conținutul modulului Chromium și componentele GUI native. API au început foarte organic, şi de-a lungul timpului am făcut câteva modificări pentru a îmbunătăţi proiectele iniţiale.
 
 ---
 
-Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
+Acum când Electron se pregătește pentru o versiune 1.0, am dori să profităm de ocazie pentru a schimba adresând ultimele detalii API niging. Modificările descrise mai jos sunt incluse în **0.35.**, cu vechile API-uri care raportează avertismentele de descurajare astfel încât să puteți ajunge la zi pentru viitoarea versiune 1.0 Un 1.0 Electron nu va mai fi exclus pentru câteva luni, așa că aveți ceva timp până când aceste modificări se destrămă.
 
-## Deprecation warnings
+## Avertismente de dezaprobare
 
-By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
+În mod implicit, avertismentele vor arăta dacă folosiți API-uri învechite. Pentru a le dezactiva, puteți seta `process.noDeprecation` la `true`. Pentru a urmări sursele de utilizare API învechite, puteți seta procesul `. hrowDeprecation` to `true` to aruncare excepții în loc să tipărească avertismente, sau setează `process process. raceDeprecation` pentru `adevărat` pentru a afișa urmele dezprecațiilor.
 
-## New way of using built-in modules
+## Mod nou de utilizare a modulelor încorporate
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+Modulele încorporate sunt acum grupate într-un singur modul, în loc să fie separate în module independente, astfel încât să le puteți folosi [fără conflicte cu alte module](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
+Vechiul mod de `necesar ('app')` este în continuare acceptat pentru compatibilitate înapoi, dar puteți de asemenea să dezactivați dacă:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // throws error.
+require('app') // eroare de aruncare.
 ```
 
-## An easier way to use the `remote` module
+## Un mod mai ușor de a utiliza modulul `la distanță`
 
-Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
+Din cauza modului în care s-a schimbat modul în care au fost folosite modulele încorporate, am facilitat utilizarea modulelor de la nivelul procesului principal în procesul de redare. Acum poți doar să accesezi atributele `la distanță`pentru a le folosi:
 
 ```javascript
-// New way.
+// Mod nou.
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-Instead of using a long require chain:
+În loc să se folosească un lanț lung necesar:
 
 ```javascript
-// Old way.
+// Vechea cale.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## Splitting the `ipc` module
+## Împărțirea modulului `ipc`
 
-The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
+Modulul `ipc` a existat atât pe procesul principal, cât și pe procesul de redare, iar API a fost diferit pe fiecare parte, care este destul de confuză pentru utilizatorii noi. Am redenumit modulul în `ipcMain` în procesul principal, și `ipcRenderer` în procesul de redare pentru a evita confuzia:
 
 ```javascript
 // In main process.
@@ -62,7 +62,7 @@ var ipcMain = require('electron').ipcMain
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
+Iar pentru modulul `ipcRenderer` , un eveniment `suplimentar` a fost adăugat la primirea mesajelor, pentru a potrivi modul în care mesajele sunt tratate în `module ipcMain`:
 
 ```javascript
 ipcRenderer.on('message', function (event) {
@@ -70,28 +70,28 @@ ipcRenderer.on('message', function (event) {
 })
 ```
 
-## Standardizing `BrowserWindow` options
+## Opțiuni standardizate `Fereastra Browser`
 
-The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
+Opțiunile `BrowserWindow` au stiluri diferite bazate pe opțiunile altor API-uri, și au fost puțin mai greu de folosit în JavaScript din cauza `-` în nume. Acestea sunt acum standardizate în nume JavaScript tradiționale:
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## Following DOM's conventions for API names
+## Ca urmare a convențiilor DOM, privind denumirile API
 
-The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
+Numele API din Electron folosite pentru a prefera camelCase pentru toate numele API, ca `Url` to `URL`, dar DOM are propriile sale convenții, și preferă `URL-ul` către `Url`, în timp ce utilizați ID-ul `` în loc de `ID`. Am făcut următoarele redenumiri API pentru a se potrivi cu stilurile DOM:
 
-* `Url` is renamed to `URL`
-* `Csp` is renamed to `CSP`
+* `Url` este redenumit la `URL`
+* `Csp` este redenumit la `CSP`
 
-You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
+Vei observa o mulțime de dezavantaje când folosești Electron v0.35.0 pentru aplicația ta din cauza acestor modificări. O modalitate ușoară de a le repara este înlocuirea tuturor instanțelor `Url` cu `URL`.
 
-## Changes to `Tray`'s event names
+## Modificări la numele evenimentelor `Tăi`
 
-The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
+Numele evenimentului `Tăi` a fost puţin diferit de alte module, astfel încât a fost făcută o redenumire pentru a se potrivi cu celelalte.
 
-* `clicked` is renamed to `click`
-* `double-clicked` is renamed to `double-click`
-* `right-clicked` is renamed to `right-click`
+* `clic-ul` este redenumit la `click`
+* `dublu-clic` este redenumit la `dublu-click`
+* `clic-dreapta` este redenumit `clic-dreapta`
 

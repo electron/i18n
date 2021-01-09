@@ -2,7 +2,7 @@
 
 > İşlem nesnesine uzantılar.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
@@ -26,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `arch`
 - `platform`
 - `sandboxed`
-- `tip`
+- `türü`
 - `version`
 - `versions`
 - `mas`
@@ -182,7 +182,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Returns `String` - The version of the host operating system.
 
-Örneğin:
+Örnek:
 
 ```js
 const version = process.getSystemVersion()

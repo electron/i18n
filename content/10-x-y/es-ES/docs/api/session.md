@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 El módulo `session` puede ser usado para crear nuevos objetos `session`.
 
@@ -46,7 +46,7 @@ Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Puede crear un objeto `Session` en el módulo `session`:
 
@@ -96,7 +96,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -105,7 +105,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitido cuando un archivo de diccionario hunspell se comienza a descargar
@@ -269,7 +269,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function | null
   * Objeto `request`
     * `hostname` String
-    * `certificate` [certificate](structures/certificate.md)
+    * `certificate` [Certificate](structures/certificate.md)
     * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - Enumeración de 'media'.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos

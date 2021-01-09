@@ -1,8 +1,8 @@
-# Pemberitahuan
+# การแจ้งเตือน
 
 > Create OS desktop notifications
 
-Messages </a>
+Messages
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Messages </a>
+Messages
 
 `Notification` is an [EventEmitter][event-emitter].
 

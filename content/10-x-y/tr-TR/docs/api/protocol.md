@@ -2,7 +2,7 @@
 
 > Özel bir protokol kaydettirin ve mevcut protokol isteklerini engelleyin.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 Şebeke sunucusu ile aynı etkiye sahip bir protokol uygulamak için bir örnek. `dosya://` protokolü:
 
@@ -82,10 +82,10 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -98,10 +98,10 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -110,7 +110,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
 
-Örneğin:
+Örnek:
 
 ```javascript
 protocol.registerBufferProtocol('atom', (request, callback) => {
@@ -120,10 +120,10 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -134,10 +134,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` ProtocolResponse
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -148,10 +148,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully registered
@@ -160,7 +160,7 @@ Registers a protocol of `scheme` that will send a stream as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
 
-Örneğin:
+Örnek:
 
 ```javascript
 const { protocol } = require('electron')
@@ -194,7 +194,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 Returns `Boolean` - Whether the protocol was successfully unregistered
 
@@ -202,16 +202,16 @@ Returns `Boolean` - Whether the protocol was successfully unregistered
 
 ### `protocol.isProtocolRegistered(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 Returns `Boolean` - Whether `scheme` is already registered.
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -220,10 +220,10 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -232,10 +232,10 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -244,10 +244,10 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -256,10 +256,10 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Function
   * `request` ProtocolRequest
-  * `callback` Function
+  * `callback` Fonksiyon
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
@@ -268,7 +268,7 @@ Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStre
 
 ### `protocol.uninterceptProtocol(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 Returns `Boolean` - Whether the protocol was successfully unintercepted
 
@@ -276,7 +276,7 @@ Returns `Boolean` - Whether the protocol was successfully unintercepted
 
 ### `protocol.isProtocolIntercepted(scheme)`
 
-* `scheme` String
+* `scheme` Dizi
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
 

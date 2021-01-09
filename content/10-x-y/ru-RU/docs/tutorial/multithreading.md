@@ -4,7 +4,7 @@
 
 ## Многопоточный Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Можно использовать узел. s Функции в веб-рабочих Electron, чтобы сделать таким образом, параметр `nodeIntegrationInWorker` должен быть установлен в `true` в `настройки`.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,23 +14,23 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker` может использоваться независимо от `узлов интеграции`, но `песочница` не должна быть установлена как `true`.
 
-## Available APIs
+## Доступные API
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Все встроенные модули Node.js поддерживаются в Web Workers, и `asar` архивов все еще можно прочитать с помощью API Node.js. Однако ни один из встроенных модулей Electron не может быть использован в многопоточной среде.
 
-## Native Node.js modules
+## Нативные модули Node.js
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Любой родной модуль Node.js может быть загружен непосредственно в Web Workers, но это настоятельно рекомендуется не делать это. Большинство из существующих родных модулей были написаны, исходя из однопоточной среды, используя их в Web Workers приведет к сбоям и повреждениям памяти.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Обратите внимание, что даже если родной узел. модуль s является безопасным для потоков, все еще не безопасно загрузить его в Web Worker'е, потому что процесс `. функция lopen` не является потоком безопасной.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Единственный способ безопасно загрузить родной модуль убедитесь, что приложение не загружает родные модули после запуска веб-работников.
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('Загрузка родного модуля не безопасна')
 }
 let worker = new Worker('script.js')
 ```

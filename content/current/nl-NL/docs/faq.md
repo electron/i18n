@@ -12,7 +12,7 @@ Je kunt ook Electron direct hieronder proberen [electron/electron/releases](http
 
 De Chrome-versie van Electron wordt meestal binnen een week of twee later geïmplementeerd nadat er een nieuwe stabiele versie voor Chrome is uitgebracht. Deze schatting is niet gegarandeerd en hangt af van de hoeveelheid werk die gemoeid is met upgraden.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Alleen het stabiele kanaal van Chrome wordt gebruikt. Als een belangrijke fix in beta of desv kanaal is, zullen we deze backporten.
 
 Raadpleeg de [beveiligingsintroductie](tutorial/security.md) voor meer informatie.
 
@@ -26,11 +26,11 @@ Nieuwe functionaliteiten van Node.js worden meestal mogelijk gemaakt door V8-upg
 
 Om data te delen tussen webpagina's (de rendere processes) is het het gemakkelijkst om de HTML5 APIs te gebruiken die al beschikbaar zijn in browsers. Goede kandidaten zijn [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`LocalStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) en [`SessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Als alternatief kunt u de IPC-primitieven gebruiken die door Electron worden verstrekt. Deel gegevens tussen de hoofd- en spelerprocessen, u kunt de [`ipcMain`](api/ipc-main.md) en [`ipcRenderer`](api/ipc-renderer.md) modules gebruiken. Om direct te communiceren tussen webpagina's, kunt u een [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) van de één naar de ander sturen. mogelijk via het hoofdproces met behulp van [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Achtereenvolgende communicatie over berichtenpoorten is direct en maakt geen omweg door het hoofdproces.
 
-## My app's tray disappeared after a few minutes.
+## Het werkvak van mijn app verdween na een paar minuten.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Dit gebeurt wanneer de variabele die wordt gebruikt om het systeemvak op te slaan, garbage collected krijgt.
 
 Wanneer je dit probleem tegenkomt, zullen de volgende artikelen misschien van pas komen:
 
@@ -43,7 +43,7 @@ Als je een snelle oplossing zoekt, kun je de variabelen globaal maken door de co
 const { app, Tray } = require('electron')
 app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('hallo wereld')
 })
 ```
 
@@ -51,10 +51,10 @@ naar dit:
 
 ```javascript
 const { app, Tray } = require('electron')
-let tray = null
+laat tray = null
 app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('hallo wereld')
 })
 ```
 
@@ -62,7 +62,7 @@ app.whenReady().then(() => {
 
 Vanwege de Node.js integratie van Electron zijn er een aantal extra symbolen aan de DOM toegevoegd, zoals `module`, `exports` en `require`. Dit kan problemen veroorzaken voor sommige bibliotheken omdat ze symbolen met dezelfde namen willen toevoegen.
 
-To solve this, you can turn off node integration in Electron:
+Om dit op te lossen kan je de node integratie uitschakelen in Electron:
 
 ```javascript
 // In het main proces.
@@ -91,24 +91,24 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Bij het gebruik van de ingebouwde module van Electron, zou u een fout kunnen tegenkomen zoals deze:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Het is zeer waarschijnlijk dat u de module in het verkeerde proces gebruikt. Bijvoorbeeld `electron.app` kan alleen worden gebruikt in het hoofdproces, terwijl `electron.webFrame` alleen beschikbaar is in renderer processen.
 
-## The font looks blurry, what is this and what can I do?
+## Het lettertype ziet er wazig, wat is dit en wat kan ik doen?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Voorbeeld:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Voorbeeld:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![subpixel rendering voorbeeld](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixel anti-aliasing heeft een niet-transparante achtergrond nodig van de laag die de lettertype symbolen bevat. (Zie [dit probleem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) voor meer informatie).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Om dit doel te bereiken stel je de achtergrond in in de constructor voor [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,6 +117,6 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Het effect is alleen zichtbaar op (som?) LCD-schermen. Zelfs als je geen verschil ziet, kunnen sommige gebruikers dat doen. Het is het beste om de achtergrond altijd op deze manier in te stellen, tenzij er redenen zijn om dat niet te doen.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Merk op dat het instellen van de achtergrond in de CSS niet het gewenste effect heeft.

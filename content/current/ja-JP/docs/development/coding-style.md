@@ -36,7 +36,7 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 ## JavaScript
 
-* [standard](https://npm.im/standard) の JavaScript 形式で記述します。
+* [standard](https://www.npmjs.com/package/standard) の JavaScript 形式で記述します。
 * ファイル名は、`_` の代わりに `-` で連結する必要があります。[github/atom](https://github.com/github/atom) モジュール名は通常は `module-name` の形式になるので、`file_name.js` ではなく、`file-name.js` としてください。 このルールは、`.js` ファイルにのみ適用されます。
 * 必要に応じて、より新しい ES6/ES2015 構文を使用します
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) は require とその他の定数に.  値がプリミティブの場合、名前はすべて大文字にします (例 `const NUMBER_OF_RETRIES = 5`)。
@@ -48,9 +48,9 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 Electron API では、Node.js と同じ大文字表記が使用されます。
 
-- モジュール自体が `BrowserWindow` のようなクラスである場合は、`PascalCase` を使用します。
-- モジュールが `globalShortcut` のような API のセットである場合は、`camelCase` を使用します。
-- API がオブジェクトのプロパティで、`win.webContents` のような別の章に分けられるほど複雑な場合は、`mixedCase` を使用します。
-- 他の非モジュール API の場合は、`<webview>タグ` や `プロセスオブジェクト` などの自然なタイトルを使用します。
+* モジュール自体が `BrowserWindow` のようなクラスである場合は、`PascalCase` を使用します。
+* モジュールが `globalShortcut` のような API のセットである場合は、`camelCase` を使用します。
+* API がオブジェクトのプロパティで、`win.webContents` のような別の章に分けられるほど複雑な場合は、`mixedCase` を使用します。
+* 他の非モジュール API の場合は、`<webview>タグ` や `プロセスオブジェクト` などの自然なタイトルを使用します。
 
 新しい API を作成する場合は、jQuery の one 関数スタイルの代わりに getter と setter を使用することを推奨します。 例えば、`.text([text])` より、`.getText()` と `.setText(text)` を優先します。 こちらに、これついての [ディスカッション](https://github.com/electron/electron/issues/46) があります。

@@ -46,11 +46,13 @@ HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-レスポンス HTTP ヘッダを表す `Record<string, string[]>` 。 `headers` オブジェクトは以下のようにフォーマットされます:
+`Record<string, string | string[]>` 型。HTTP レスポンスヘッダを表します。 `headers` オブジェクトは以下のようにフォーマットされます:
 
 * すべてのヘッダ名は小文字です。
-* 各ヘッダー名ごとに配列の値を返すプロパティがヘッダーオブジェクトに生成されます。
-* 各ヘッダーの値はヘッダー名に関連付けられた配列に格納されます。
+* `age`、`authorization`、`content-length`、`content-type`、`etag`、`expires`、`from`、`host`、`if-modified-since`、`if-unmodified-since`、`last-modified`、`location`、`max-forwards`、`proxy-authorization`、`referer`、`retry-after`、`server`、`user-agent` の重複は破棄されます。
+* `set-cookie` は常に配列です。 重複は配列へと追加されます。
+* 重複した `cookie` ヘッダは、値を '; ' で結合します。
+* 他の重複したヘッダはすべて、値を ', ' で結合します。
 
 #### `response.httpVersion`
 

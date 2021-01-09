@@ -1,4 +1,4 @@
-# systeemVoorkeuren
+# systemPreferences
 
 > Get system preferences.
 

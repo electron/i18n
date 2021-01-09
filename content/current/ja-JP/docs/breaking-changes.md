@@ -6,91 +6,244 @@
 
 このドキュメントでは、以下の規約によって破壊的な変更を分類しています。
 
-- **API 変更:** 古いコードで例外の発生が保証されるように API が変更されました。
-- **動作変更:** Electron の動作が変更されましたが、例外が必ず発生する訳ではありません。
-- **省略値変更:** 古い省略値に依存するコードは動かなくなるかもしれませんが、必ずしも例外は発生しません。 値を明示することで以前の動作に戻すことができます。
-- **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
-- **削除:** API または機能が削除され、Electron でサポートされなくなりました。
+* **API 変更:** 古いコードで例外の発生が保証されるように API が変更されました。
+* **動作変更:** Electron の動作が変更されましたが、例外が必ず発生する訳ではありません。
+* **省略値変更:** 古い省略値に依存するコードは動かなくなるかもしれませんが、必ずしも例外は発生しません。 値を明示することで以前の動作に戻すことができます。
+* **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
+* **削除:** API または機能が削除され、Electron でサポートされなくなりました。
+
+## 予定されている破壊的なAPIの変更 (13.0)
+
+### API 変更: `session.setPermissionCheckHandler(handler)`
+
+`handler` メソッドの第 1 引数は、前までは必ず `webContents` でしたが、これからは `null` になることもあります。  `requestingOrigin`、`embeddingOrigin`、`securityOrigin` プロパティを使用して、権限の確認へ正しく対応する必要があります。  `webContents` が `null` になることがあるので、これに依存しないようにしてください。
+
+```js
+// 古いコード
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+    return true
+  }
+  return false
+})
+
+// こちらに置換
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+    return true
+  }
+  return false
+})
+```
+
+### 削除: `shell.moveItemToTrash()`
+
+非推奨の同期 `shell.moveItemToTrash()` API が削除されました。 代わりに の非同期 `shell.trashItem()` を使用してください。
+
+```js
+// Electron 13 では削除されます。
+shell.moveItemToTrash(path)
+// 以下と置き換えてください
+shell.trashItem(path).then(/* ... */)
+```
+
+### 削除: `BrowserWindow` 拡張機能 API
+
+以下の非推奨の API が削除されました。
+
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+代わりに以下の session API を使用してください。
+
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Electron 13 で削除
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// こちらに置換
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Electron 13 で削除
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// こちらに置換
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Electron 13 で削除
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// こちらに置換
+session.defaultSession.getAllExtensions()
+```
+
+### 削除した `systemPreferences` のメソッド
+
+以下の `systemPreferences` のメソッドは非推奨になりました。
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+代わりに、次の `nativeTheme` プロパティを使用します。
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Electron 13 で削除
+systemPreferences.isDarkMode()
+// こちらに置換
+nativeTheme.shouldUseDarkColors
+
+// Electron 13 で削除
+systemPreferences.isInvertedColorScheme()
+// こちらに置換
+nativeTheme.shouldUseInvertedColorScheme
+
+// Electron 13 で削除
+systemPreferences.isHighContrastColorScheme()
+// こちらに置換
+nativeTheme.shouldUseHighContrastColors
+```
 
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### Default Changed: `contextIsolation` defaults to `true`
+### 削除: Pepper(ペッパー)フラッシュ対応
 
-In Electron 12, `contextIsolation` will be enabled by default.  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+### Default Changed: `contextIsolation` default to `true`
 
-For more details see: https://github.com/electron/electron/issues/23506
+Electron 12 では、 `contextIsolation` がデフォルトで有効になります。  以前の動作を復元するには、 、 `contextIsolation: false` をWebPreferencesで指定する必要があります。
+
+[アプリケーションのセキュリティのためにコンテキスト分離を有効にする](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) をお勧めします。
+
+詳細は以下をご覧ください: https://github.com/electron/electron/issues/23506
+
+### 削除: `crashReporter.getCrashesDirectory()`
+
+`crashReporter.getCrashesDirectory` メソッドは削除されました。 `app.getPath('crashDumps)`に置き換える必要があります。
+
+```js
+// Electron 12 で削除
+crashReporter.getCrashesDirectory()
+// こちらに置換
+app.getPath('crashDumps')
+```
 
 ### 削除: レンダラープロセス内での `crashReporter` メソッド
 
 以下の `crashReporter` メソッドはレンダラープロセスで利用できなくなります。
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
 これらは、メインプロセスから呼び出ことしかできません。
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### デフォルトの変更: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+`compress` オプションの `crashReporter.start` のデフォルト値が `false` から `true` に変更されました。 This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
+### 非推奨: `リモート` モジュール
+
+`リモート` モジュールは Electron 12 で非推奨で、 Electron 14 で削除されます。 [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
+
+```js
+// Electron 12では非推奨:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// 置換:
+const { BrowserWindow } = require('@electron/remote')
+
+// メインプロセスで:
+require('@electron/remote/main').initialize()
+```
+
+### 非推奨: `shell.moveItemToTrash()`
+
+同期 `shell.moveItemToTrash()` が新しい 非同期 `shell.trashItem()` に置き換えられました。
+
+```js
+// Electron 12 では非推奨
+shell.moveItemToTrash(path)
+// 以下と置き換えてください。
+shell.trashItem(path).then(/* ... */)
+```
+
 ## 予定されている破壊的なAPIの変更 (11.0)
 
-There are no breaking changes planned for 11.0.
+### 削除: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` と `BrowserView` の `id` プロパティ
+
+実験的 API `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` が削除されました。 加えて、`BrowserView` の `id` プロパティも削除されました。
+
+詳細な情報は、[#23578](https://github.com/electron/electron/pull/23578) を参照してください。
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### 非推奨: `crashReporter.start()` 関数の`companyName` 引数
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
+`crashReporter.start()`の引数の`companyName` は以前は必須でしたが、省略可能になり、今後廃止することになりました。 非推奨ではない方法で以前と同じ動作を実現するには、 `globalExtra
+` に`companyName` の値を渡します。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 で非推奨
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
+// 置き換え
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### 非推奨: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` メソッドは非推奨となりました。 `app.getPath('crashDumps)`に置き換える必要があります。
 
 ```js
-// Deprecated in Electron 10
+// Electron 10 では非推奨
 crashReporter.getCrashesDirectory()
-// Replace with
+// 置き換え
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### 非推奨: レンダラープロセス内での `crashReporter` メソッド
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+レンダラープロセスから以下の `crashReporter` メソッドを呼び出すことは非推奨になります。:
 
-- `crashReporter.start`
-- `crashReporter.getLastCrashReport`
-- `crashReporter.getUploadedReports`
-- `crashReporter.getUploadToServer`
-- `crashReporter.setUploadToServer`
-- `crashReporter.getCrashesDirectory`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
+* `crashReporter.getUploadedReports`
+* `crashReporter.getUploadToServer`
+* `crashReporter.setUploadToServer`
+* `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+レンダラーの `crashReporter` モジュールに残っている非推奨ではないメソッドは、 `extraParameter`と `removeExtraParameter` と`getParameters`だけです。
 
-All above methods remain non-deprecated when called from the main process.
+上記のすべてのメソッドは、メインプロセスから呼び出されたときに非推奨のままです。
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### Deprecated: `crashReporter.start({ compress: false })`
+### 非推奨: `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. ほぼ すべてのクラッシュ受信サーバーはgzip圧縮をサポートしています。 This option will be removed in a future version of Electron.
 
 ### 削除: Browser Window の Affinity
 
@@ -112,6 +265,62 @@ const w = new BrowserWindow({
 
 私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
+### `protocol.unregisterProtocol`
+
+### `protocol.uninterceptProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// こちらに置換
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+
+### `protocol.registerBufferProtocol`
+
+### `protocol.registerStringProtocol`
+
+### `protocol.registerHttpProtocol`
+
+### `protocol.registerStreamProtocol`
+
+### `protocol.interceptFileProtocol`
+
+### `protocol.interceptStringProtocol`
+
+### `protocol.interceptBufferProtocol`
+
+### `protocol.interceptHttpProtocol`
+
+### `protocol.interceptStreamProtocol`
+
+API は同期になり、任意のコールバックは不要になりました。
+
+```javascript
+// 非推奨
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// こちらに置換
+protocol.registerFileProtocol(scheme, handler)
+```
+
+登録または干渉されたプロトコルは、ナビゲーションが発生するまで現在のページに影響しません。
+
+### `protocol.isProtocolHandled`
+
+この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
+
+```javascript
+// 非推奨
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// こちらに置換
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
 ## 予定されている破壊的なAPIの変更 (9.0)
 
 ### 省略値変更: レンダラープロセス内でコンテキスト未対応のネイティブモジュールのロードがデフォルトで無効に
@@ -121,6 +330,47 @@ Electron 9 では、レンダラープロセスでコンテキスト未対応の
 これが影響する場合、`app.allowRendererProcessReuse` を `false` に設定して一時的に以前の動作に戻すことができます。  このフラグは Electron 11 までの設定となっており、ネイティブモジュールを更新してコンテキストに対応する必要があります。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
+
+### 非推奨: `BrowserWindow` 拡張機能 API
+
+これらの拡張機能 API は非推奨になりました。
+
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+代わりに以下の session API を使用してください。
+
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Electron 9 で非推奨化
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// こちらに置換
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Electron 9 で非推奨化
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// こちらに置換
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Electron 9 で非推奨化
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// こちらに置換
+session.defaultSession.getAllExtensions()
+```
 
 ### 削除: `<webview>.getWebContents()`
 
@@ -154,7 +404,8 @@ Electron 9.0 では、旧シリアライズアルゴリズムが削除されま�
 
 IPC を介して (`ipcRenderer.send`、`ipcRenderer.sendSync`、`WebContents.send` 及び関連メソッドから) オブジェクトを送信できます。このオブジェクトのシリアライズに使用されるアルゴリズムが、カスタムアルゴリズムから V8 組み込みの [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) に切り替わります。これは `postMessage` のメッセージのシリアライズに使用されるものと同じアルゴリズムです。 これにより、大きなメッセージに対するパフォーマンスが 2 倍向上しますが、動作に重大な変更が加えられます。
 
-- 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
+* 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
+
 ```js
 // 以前:
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
@@ -164,14 +415,16 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => Error("() => {} could not be cloned.") を投げる
 ```
-- `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
-- 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
-- `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
-- `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
-- 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
-- `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
-- 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
-- Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
+
+* `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
+* 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
+* `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
+* `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
+* 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
+* `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
+* 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
+* Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
+
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
@@ -193,7 +446,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 ただし、`remote` モジュールをできる限り使用しないことを推奨します。
 
 ```js
-// main
+// メイン
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = (webContentsId, contents) => {
@@ -212,7 +465,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// レンダラー
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -221,6 +474,52 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ### 非推奨: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x では警告を発し、Electron 9.x では存在しなくなります。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように、最小 0.25 から最大 5.0 に固定されました。
+
+### 非推奨化した `systemPreferences` のイベント
+
+以下の `systemPreferences` のイベントは非推奨になりました。
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+代わりに `nativeTheme` の新しいイベントである `updated` を使用してください。
+
+```js
+// 非推奨
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// こちらに置換
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+### 非推奨化した `systemPreferences` のメソッド
+
+以下の `systemPreferences` のメソッドは非推奨になりました。
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+代わりに、次の `nativeTheme` プロパティを使用します。
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastC
+```
 
 ## 予定されている破壊的なAPIの変更 (7.0)
 
@@ -252,7 +551,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API 変更: `powerMonitor.querySystemIdleTime` が `powerMonitor.getSystemIdleTime` になりました
 
 ```js
 // Electron 7.0 で削除
@@ -289,6 +588,7 @@ webFrame.setIsolatedWorldInfo(
 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。
 
 例として、以下の構造のフォルダーを使用します。
+
 ```console
 folder
 ├── file1
@@ -297,11 +597,13 @@ folder
 ```
 
 Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
+
 ```console
 path/to/folder
 ```
 
 Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
+
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
@@ -452,7 +754,9 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API 変更: `webFrame.setSpellCheckProvider` が非同期コールバックを取るように
+
 `spellCheck` コールバックは非同期になり、`autoCorrectWord` パラメーターは削除されました。
+
 ```js
 // 非推奨
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -505,7 +809,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 
@@ -527,20 +831,20 @@ const { memory } = metrics[0] // 非推奨なプロパティ
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置き換えてください
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// こちらに置き換えてください
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -601,7 +905,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `プロセス`
+### `process`
 
 ```js
 // 非推奨
@@ -702,10 +1006,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// 置換
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
@@ -733,7 +1037,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `プロセス`
+### `process`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 

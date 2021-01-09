@@ -28,7 +28,7 @@ Ang isang hanay ng `ScrubberItem[]` na kumakatawan sa mga aytem sa scrubber na i
 
 #### `touchBarScrubber.selectedStyle`
 
-Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang agad na pagaupdate ng value na ito ay nagupdate sa control na nasa touch bar. Posibleng halaga:
+Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
 
 * `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -48,7 +48,7 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng halaga:
+A `String` representing the mode of this scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
 
 * `fixed` - Nagma-map sa `NSScrubberModeFixed`.
 * `free` - Nagma-map sa `NSScrubberModeFree`.

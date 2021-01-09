@@ -33,14 +33,14 @@ On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com
 
 ### `crashReporter.start(options)`
 
-* `options` Object
+* `选项` 对象
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. 默认值为 `true`。
   * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. 默认值为 `false`.
   * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. 默认值为 `false`.
-  * `compress` Boolean (optional) _macOS_ _Windows_ - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Not all collection servers support compressed payloads. 默认值为 `false`.
+  * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. 默认值为 `false`.
   * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
   * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
@@ -107,7 +107,7 @@ Parameters added in this fashion (or via the `extra` parameter to `crashReporter
 
 * `key` String - Parameter key, must be no longer than 39 bytes.
 
-Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
+Remove an extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
 ### `crashReporter.getParameters()`
 

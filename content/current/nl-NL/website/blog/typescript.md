@@ -1,80 +1,80 @@
 ---
-title: "Announcing TypeScript support in Electron"
+title: "Aankondiging van TypeScript in Electron"
 author: zeke
 date: '2017-06-01'
 ---
 
-The `electron` npm package now includes a TypeScript definition file that provides detailed annotations of the entire Electron API. These annotations can improve your Electron development experience **even if you're writing vanilla JavaScript**. Just `npm install electron` to get up-to-date Electron typings in your project.
+Het `elektron` npm pakket bevat nu een TypeScript definitie bestand dat gedetailleerde aantekeningen van de gehele Electron API bevat. Deze aantekeningen kunnen de ontwikkeling van Electron ervaring **verbeteren, zelfs als je vanilla JavaScript** schrijft. U kunt `npm installeren electron` om de nieuwste Electron types in uw project te krijgen.
 
 ---
 
-TypeScript is an open-source programming language created by Microsoft. It's a superset of JavaScript that extends the language by adding support for static types. The TypeScript community has grown quickly in recent years, and TypeScript was ranked among the [most loved programming languages](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) in a recent Stack Overflow developer survey.  TypeScript is described as "JavaScript that scales", and teams at [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), and [Microsoft](https://github.com/Microsoft/vscode) are all using it to write scalable Electron apps that are used by millions of people.
+TypeScript is een open-source programmeertaal gemaakt door Microsoft. Het is een superset of JavaScript dat de taal uitbreidt door ondersteuning toe te voegen voor statische types. De TypeScript community is de afgelopen jaren snel gegroeid en TypeScript werd gerangschikt onder de [meest geliefde programmeertalen](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) in een recent onderzoek van Stack Overflow ontwikkelaar.  TypeScript is described as "JavaScript that scales", and teams at [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), and [Microsoft](https://github.com/Microsoft/vscode) are all using it to write scalable Electron apps that are used by millions of people.
 
-TypeScript supports many of the newer language features in JavaScript like classes, object destructuring, and async/await, but its real differentiating feature is **type annotations**. Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
+TypeScript ondersteunt veel van de nieuwere taalfuncties in JavaScript zoals -klassen, objectontstructurering en async/await, maar de echte differentiërende functie is **type aantekeningen**. Verklaren van de input en uitvoer datatypes verwacht door je programma kan [bugs verminderen](https://slack.engineering/typescript-at-slack-a81307fa288d) met helpt u om fouten te vinden op compilatietijd. en de aantekeningen kunnen ook dienen als een formele verklaring van [hoe je programma werkt](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
 
-When libraries are written in vanilla Javascript, the types are often vaguely defined as an afterthought when writing documentation. Functions can often accept more types than what was documented, or a function can have invisible constraints that are not documented, which can lead to runtime errors.
+Wanneer bibliotheken in vanilla Javascript worden geschreven, worden de types vaak vagelijk gedefinieerd als een nagedachte bij het schrijven van documentatie. Functies kunnen vaak meer types accepteren dan wat is gedocumenteerd, of een functie kan onzichtbare kaders bevatten die niet gedocumenteerd zijn, wat kan leiden tot runtime fouten.
 
-TypeScript solves this problem with **definition files**. A TypeScript definition file describes all the functions of a library and its expected input and output types. When library authors bundle a TypeScript definition file with their published library, consumers of that library can [explore its API right inside their editor](https://code.visualstudio.com/docs/editor/intellisense) and start using it right away, often without needing to consult the library's documentation.
+TypeScript lost dit probleem op met **definitie bestanden**. Een TypeScript definitiebestand beschrijft alle functies van een bibliotheek en de verwachte invoer- en uitvoertypes. Wanneer bibliotheekauteurs een TypeScript definitiebestand met hun gepubliceerde bibliotheek bundelen, Gebruikers van die bibliotheek kunnen [de API direct in hun editor](https://code.visualstudio.com/docs/editor/intellisense) verkennen en direct beginnen met het gebruiken ervan vaak zonder de documentatie van de bibliotheek te hoeven raadplegen.
 
-Many popular projects like [Angular](https://angularjs.org/), [Vue.js](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (and now Electron!) compile their own definition file and bundle it with their published npm package. For projects that don't bundle their own definition file, there is [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), a third-party ecosystem of community-maintained definition files.
+Veel populaire projecten zoals [hoekje](https://angularjs.org/), [Vue. s](http://vuejs.org/), [node-github](https://github.com/mikedeboer/node-github) (en nu Electron! compileer hun eigen definitiebestand en bundelt het met hun gepubliceerde npm pakket. Voor projecten die hun eigen definitiebestand niet bundelen, is er [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), een ecosysteem van door de gemeenschap onderhouden definitiebestanden.
 
 ## Installatie
 
-Starting at version 1.6.10, every release of Electron includes its own TypeScript definition file. When you install the `electron` package from npm, the `electron.d.ts` file is bundled automatically with the installed package.
+Vanaf versie 1.6.10 bevat elke release van Electron zijn eigen TypeScript definitie bestand. Wanneer je het `elektron` pakket vanaf npm installeert, het `electron.d.ts` bestand wordt automatisch gebundeld met het geinstalleerde pakket.
 
-The [safest way](https://electronjs.org/docs/tutorial/electron-versioning/) to install Electron is using an exact version number:
+De [veiligste manier](https://electronjs.org/docs/tutorial/electron-versioning/) om Electron te installeren gebruikt een exact versienummer:
 
 ```sh
-npm install electron --save-dev --save-exact
+npm installeer electron --save-dev --save-exact
 ```
 
-Or if you're using [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison):
+Of als je [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#toc-cli-commands-comparison) gebruikt:
 
 ```sh
 yarn add electron --dev --exact
 ```
 
-If you were already using third-party definitions like `@types/electron` and `@types/node`, you should remove them from your Electron project to prevent any collisions.
+Als u al gebruik maakte van derde-partijdefinities zoals `@types/electron` en `@types/node`, je moet ze verwijderen uit je Electron project om botsingen te voorkomen.
 
-The definition file is derived from our [structured API documentation](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), so it will always be consistent with [Electron's API documentation](https://electronjs.org/docs/api/). Just install `electron` and you'll always get TypeScript definitions that are up to date with the version of Electron you're using.
+Het definitiebestand is afgeleid van onze [gestructureerde API documentatie](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), Dus het zal altijd consistent zijn met [API-documentatie van Electron](https://electronjs.org/docs/api/). Installeer gewoon `electron` en je krijgt altijd TypeScript-definities die up-to-date zijn met de versie van Electron die je gebruikt.
 
-## Usage
+## Gebruik
 
-For a summary of how to install and use Electron's new TypeScript annotations, watch this short demo screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+Voor een samenvatting van hoe Electron's nieuwe TypeScript aantekeningen te installeren en te gebruiken, bekijk deze korte demo screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/), you've already got TypeScript support built in. There are also community-maintained plugins for [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), and [other editors](https://www.typescriptlang.org/index.html#download-links).
+Als je [Visual Studio Code](https://code.visualstudio.com/)gebruikt, heb je al TypeScript ondersteuning ingebouwd. Er zijn ook door de gemeenschap onderhouden plugins voor [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), en [andere editors](https://www.typescriptlang.org/index.html#download-links).
 
-Once your editor is configured for TypeScript, you'll start to see more context-aware behavior like autocomplete suggestions, inline method reference, argument checking, and more.
+Zodra uw editor is geconfigureerd voor TypeScript, zie je meer context-bewust gedrag zoals autocomplete suggesties, inline methode referentie, argument controle en meer.
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Method autocompletion">
-  <figcaption>Method autcompletion</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Methode automatisch aanvullen">
+  <figcaption>Methode autcompletion</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="Method reference">
-  <figcaption>Inline method reference</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128018/f6352600-3a3f-11e7-8d92-f0fb88ecc53e.png" alt="Methode referentie">
+  <figcaption>Inline methode referentie</figcaption>
 </figure>
 
 <figure>
-  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="Argument checking">
-  <figcaption>Argument checking</figcaption>
+  <img src="https://cloud.githubusercontent.com/assets/2289/26128021/f6b1ca0c-3a3f-11e7-8161-ce913268a9f0.png" alt="Argument controle">
+  <figcaption>Argument controle</figcaption>
 </figure>
 
-## Getting started with TypeScript
+## Aan de slag met TypeScript
 
-If you're new to TypeScript and want to learn more, this [introductory video from Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) provides a nice overview of why the language was created, how it works, how to use it, and where it's headed.
+Als je nieuw bent bij TypeScript en meer wilt weten, deze [inleidende video van Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) biedt een mooi overzicht van waarom de taal is gemaakt hoe het werkt, hoe het te gebruiken is en waar het naar boven komt.
 
-There's also a [handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html) and a [playground](https://www.typescriptlang.org/play/index.html) on the official TypeScript website.
+Er is ook een [handboek](https://www.typescriptlang.org/docs/handbook/basic-types.html) en een [speelveld](https://www.typescriptlang.org/play/index.html) op de officiële TypeScript website.
 
-Because TypeScript is a superset of JavaScript, your existing JavaScript code is already valid TypeScript. This means you can gradually transition an existing JavaScript project to TypeScript, sprinkling in new language features as needed.
+Omdat TypeScript een superset of JavaScript is, is uw bestaande JavaScript-code al geldig. Dit betekent dat u geleidelijk een bestaand JavaScript-project naar TypeScript kunt overzetten, en indien nodig nieuwe taalfuncties kunt gebruiken.
 
-## Thanks
+## Bedankt
 
-This project would not have been possible without the help of Electron's community of open-source maintainers. Thanks to [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), and many others for their bug fixes, documentation improvements, and technical guidance.
+This project would not have been possible without the help of Electron's community of open-source maintainers. Dankzij [Samuel Attard](https://github.com/MarshallOfSound), [Felix Rieseberg](https://github.com/felixrieseberg), [Birunthan Mohanathas](https://github.com/poiru), [Milan Burda](https://github.com/miniak), [Brendan Forster](https://github.com/shiftkey), en nog veel meer voor hun bug fixes, verbeteringen in documentatie, en technische begeleiding.
 
 ## Support
 
-If you encounter any issues using Electron's new TypeScript definition files, please file an issue on the [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues) repository.
+Als u problemen ondervindt met behulp van de nieuwe TypeScript definitiebestanden, gelieve een probleem op te lossen op de [electron-typescript-definitions](https://github.com/electron/electron-typescript-definitions/issues) repository.
 
-Happy TypeScripting!
+Happy TypeScript!

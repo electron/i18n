@@ -3,11 +3,13 @@
 ## 准备工作
 
 ### 付费应用协议
+
 如果你还没有，你需要在 iTunes Connect 签署付费应用协议, 并设置您的银行和税务信息。
 
 [iTunes Connect 开发人员帮助: 协议、税务和银行概述](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
 ### 创建您的应用内购买
+
 然后，您需要在iTunes Connect中配置您的应用内购买，并包含名称，定价和说明等详细信息，以突出显示您的应用内购买的功能。
 
 [iTunes Connect开发人员帮助：创建应用程序内购买](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
@@ -26,33 +28,34 @@
 通过下面的例子来了解如何在Electron中使用应用内购买功能。 您必须使用通过ITunes Connect创建的产品的唯一标识 （ID）来替换掉下面示例中的PRODUCT_IDS。( `com.example.app.product1` 的ID是 `product1`)。 请注意，您必须尽可能早的在你的应用中监听`transactions-updated`事件。
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+// 主进程
+const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// 尽早监听transactions事件.
+// 监听交易尽快进行。
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
   // 检查每一笔交易.
-  transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+  transactions.forEach(function (transaction) }
+    const pay = transactions. ayment
 
-    switch (transaction.transactionState) {
-      case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
-        break
+    开关(交易)。 赎金动作状态(
+      案例'购买'：
+        控制台。 og(正在购买 ${payment.productIdentifier}... ()
+        休息
 
-      case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+      案例'购买'：□
+        console. og(`${payment.productIdentifier} 购买.`)
 
-        // Get the receipt url.
-        const receiptURL = inAppPurchase.getReceiptURL()
+        // 获取收据URL。
+        const receivtURL = inApppurase.getreceiptURL()
 
-        console.log(`Receipt URL: ${receiptURL}`)
+        console.log(`receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // 将收到文件提交服务器并检查它是否有效。
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 如果收据通过校验，说明产品已经被购买了
@@ -61,14 +64,14 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
-        break
+        断开
       }
 
-      case 'failed':
+      案例'失败':
 
-        console.log(`Failed to purchase ${payment.productIdentifier}.`)
+        console.log(`无法购买 ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // 完成交易。
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -107,10 +110,10 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   })
 
   // 询问用户需要购买哪个产品.
-  const selectedProduct = products[0]
-  const selectedQuantity = 1
+  const selected Product = 产品[0]
+  选定数量= 1
 
-  // Purchase the selected product.
+  // 购买选定的产品
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+وعلى سبيل المثال:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
@@ -74,7 +74,7 @@ This switch can not be used in `app.commandLine.appendSwitch` since it is parsed
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-For example:
+وعلى سبيل المثال:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
@@ -125,7 +125,7 @@ Disables Chromium sandbox, which is now enabled by default. Should only be used 
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { app } = require('electron')
@@ -167,6 +167,14 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
+
+### --force_high_performance_gpu
+
+Force using discrete GPU when there are multiple GPUs available.
+
+### --force_low_power_gpu
+
+Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 

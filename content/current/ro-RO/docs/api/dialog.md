@@ -47,7 +47,7 @@ Returns `String[] | undefined`, the file paths chosen by the user; if the dialog
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. De exemplu:
 
 ```javascript
 {
@@ -99,7 +99,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. De exemplu:
 
 ```javascript
 {
@@ -203,7 +203,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

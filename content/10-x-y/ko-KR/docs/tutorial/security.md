@@ -238,7 +238,7 @@ session
 
 _추천 값은 Electron의 기본값입니다._
 
-이미 짐작 하듯이 렌더러 프로세스([`BrowserWindow`][browser-window], [`BrowserView`][browser-view] 혹은 [`<webview>`][webview-tag])에서 `webSecurity` 속성을 비활성화하면 중요한 보안 기능이 비활성화 됩니다.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 애플리케이션 제품에서 `webSecurity`을 비활성화 하지 마세요.
 
@@ -465,13 +465,13 @@ const mainWindow = new BrowserWindow()
 
 _추천 값은 Electron의 기본값입니다._
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. `allowpopups` 속성을 사용하면 `window.open()`메서드를 사용하여 새 [`BrowserWindows`][browser-window]를 생성할 수 있습니다. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
 
 
 ### 왜냐구요?
 
-팝업이 필요하지 않은 경우, 기본적으로 새로운 [`BrowserWindows`][browser-window]를 생성하지 않는 편이 더 좋습니다. 이것은 최소한으로 요구되는 접근 원칙을 따릅니다: 웹 사이트가 새로운 기능을 필요로하지 않는다면 새로운 팝업을 만들지 않게하십시오.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. 이것은 최소한으로 요구되는 접근 원칙을 따릅니다: 웹 사이트가 새로운 기능을 필요로하지 않는다면 새로운 팝업을 만들지 않게하십시오.
 
 
 

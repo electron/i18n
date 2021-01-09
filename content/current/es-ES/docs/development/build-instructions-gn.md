@@ -6,23 +6,23 @@ Siga los pasos que se mencionan abajo para compilar Electron.
 
 Comprueba los pre-requisitos de tu plataforma para la compilación antes de avanzar
 
-  * [macOS](build-instructions-macos.md#prerequisites)
-  * [Linux](build-instructions-linux.md#prerequisites)
-  * [Windows](build-instructions-windows.md#prerequisites)
+* [macOS](build-instructions-macos.md#prerequisites)
+* [Linux](build-instructions-linux.md#prerequisites)
+* [Windows](build-instructions-windows.md#prerequisites)
 
 ## Build Tools
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. Si deseas configurar el entorno de forma manual, las instrucciones se enumeran a continuación.
 
 ## Pre-requisitos de GN
 
-Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas usadas para consumir Chromium y sus dependencias.
+Necesitaras instalar [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas usadas para consumir Chromium y sus dependencias.
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-### Setting up the git cache
+### Configurar el cache de Git
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener múltiples directorios paralelos verificados en diferentes ramas), el uso del cache git acelerará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno `GIT_CACHE_PATH`:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -41,7 +41,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 > En lugar de `https://github.com/electron/electron`, puedes usar tu propio fork aquí (algo como `https://github.com/<username>/electron`).
 
-#### Una nota al tirar/empujar
+### Una nota al tirar/empujar
 
 Si usted tiene la intención de `git pull` or `git push` desde el repositorio oficial `electron` en el futuro, ahora necesita actualizar las URLs de la carpeta origin correspondiente.
 
@@ -57,6 +57,7 @@ $ cd -
 :memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Ejecutar `gclient sync -f` asegura que todas las dependencias requeridas para compilar Electron coninciden con ese archivo.
 
 Así que, para tirar, ejecutarías los siguientes comandos:
+
 ```sh
 $ cd src/electron
 $ git pull
@@ -68,12 +69,11 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
-$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 O en Windows (sin el argumento opcional):
+
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
@@ -100,18 +100,18 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 **Para compilar, corra `ninja` con el `electron` target:** Nota Bene: Esto también tomará un tiempo y probablemente calentará tu regazo.
 
 For the testing configuration:
+
 ```sh
 $ ninja -C out/Testing electron
 ```
 
 Para la configuración de la lanzamiento:
+
 ```sh
 $ ninja -C out/Release electron
 ```
 
 Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` contenido / ` directorio de ` chromium` y sus dependencias, incl. WebKit y V8), así que llevará un tiempo.
-
-Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Testing`:
 
@@ -126,11 +126,13 @@ $ ./out/Testing/electron
 ### Embalaje
 
 En linux, primero elimine la información de depuración y de símbolos:
+
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
 Para empaquetar la aplicación compilada electron como un archivo zip distribuible:
+
 ```sh
 ninja -C out/Release electron:electron_dist_zip
 ```
@@ -145,18 +147,18 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium.
 
-<table>
-<tr><th>Host</th><th>Objetivo</th><th>Estado</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>Experimental</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automáticamente probado</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automáticamente probado</td></tr>
-</table>
+| Host        | Objetivo      | Estado                  |
+| ----------- | ------------- | ----------------------- |
+| Windows x64 | Windows arm64 | Experimental            |
+| Windows x64 | Windows x86   | Automáticamente probado |
+| Linux x64   | Linux x86     | Automáticamente probado |
 
 Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
 
 Ver la referencia GN para valores permitidos de [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) y [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).
 
 #### Windows en Arm (experimental)
+
 Para compilar de forma cruzada para Windows en Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) para obtener las dependencias necesarias, SDK y librerias, luego construir con `ELECTRON_BUILDING_WOA=1` en su entorno antes de ejecutar `gclient sync`.
 
 ```bat
@@ -165,13 +167,13 @@ gclient sync -f --with_branch_heads --with_tags
 ```
 
 O (si usa PowerShell):
+
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
 Despues, corra `gn gen` como arriba con `target_cpu="arm64"`.
-
 
 ## Verificación
 
@@ -210,8 +212,25 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Problemas
 
-### Bloqueos anticuados en la caché de git
-Si `gclient sync` se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para quitar el bloqueo, pase el argumento `--ignore_locks` a `gclient sync`.
+### gclient sync se queja sobre rebase
+
+Si `gclient sync` es interrumpido el arbol de git puede quedar en mal estado, lo que conduce a un mensaje críptico cuando se ejecuta `gclient sync` en el futuro:
+
+```plaintext
+2> Conflicto mietras se hace rebase de esta rama.
+2> Corrija el conflicto y ejecute gclient de nuevo.
+2> Consulte man git-rebase para más detalles.
+```
+
+Si no hay conflictos de git o rebases en `src/electron`, puede necesitar abortar un `git am` en `src`:
+
+```sh
+$ cd ../
+$ git am --abort
+$ cd electron
+$ gclient sync -f
+```
 
 ### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
+
 Si ve un prompt para `Username for 'https://chrome-internal.googlesource.com':` cuando corre `gclient sync` en Windows, es probable que la variable de entorno `DEPOT_TOOLS_WIN_TOOLCHAIN` no esta establecida a 0. Abra `Control Panel` → `System and Security` → `System` → `Advanced system settings` y agregue un variable de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` con valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).

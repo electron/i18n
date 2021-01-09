@@ -1,40 +1,40 @@
 ---
-title: 'July 2016&#58; New Apps and Meetups'
+title: 'July 2016: New Apps and Meetups'
 author: jlord
 date: '2016-08-04'
 ---
 
-We're starting a monthly roundup to highlight activity in the Electron community. Each roundup will feature things like new apps, upcoming meetups, tools, videos, etc.
+Stiamo iniziando una carrellata mensile per evidenziare l'attività nella comunità Electron. Ogni roundup sarà caratterizzato da cose come nuove applicazioni, prossimi incontri, strumenti, video, ecc.
 
 ---
 
-This site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+Questo sito è aggiornato con le nuove [app](https://electronjs.org/apps) e [meetup](https://electronjs.org/community) attraverso [richieste di pull](https://github.com/electron/electronjs.org/pulls) dalla comunità. Puoi [guardare il repository](https://github.com/electron/electronjs.org) per ricevere notifiche di nuove aggiunte o se non sei interessato a _tutte le_ modifiche del sito, iscriviti al [blog RSS feed](https://electronjs.org/feed.xml).
 
-If you've made an Electron app or host a meetup, make a [pull request](https://github.com/electron/electronjs.org) to add it to the site and it will make the next roundup.
+Se hai creato un'app Electron o hai ospitato una riunione, fai una richiesta [pull](https://github.com/electron/electronjs.org) per aggiungerla al sito e farà la carrellata successiva.
 
-### New Apps
-
-{: .table .table-ruled .table-full-width .table-with-spacious-first-column .mb-7}
-|                                                                           |                                                                         |                                                                                           |
-| ------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| <img src="/images/apps/demio.png" width="50" />          | [Demio](https://demio.com)                                              | A Webinar platform built for inbound sales and marketing                                  |
-| <img src="/images/apps/electorrent.png" width="50" />    | [Electorrent](https://github.com/Tympanix/Electorrent)                  | A remote client app for uTorrent server                                                   |
-| <img src="/images/apps/phonegap.png" width="50" />       | [PhoneGap](http://phonegap.com/products/#desktop-app-section)           | The open source framework that gets you building amazing mobile apps using web technology |
-| <img src="/images/apps/wordmark.png" width="50" />       | [WordMark](http://wordmarkapp.com)                                      | A lightweight blog publishing editor for Markdown writers                                 |
-| <img src="/images/apps/ubauth.png" width="50" />         | [UbAuth](http://ubauth.enytc.com)                                       | App to help developers create access tokens for Uber applications with OAuth 2.0          |
-| <img src="/images/apps/hyperterm.png" width="50" />      | [HyperTerm](https://hyperterm.org)                                      | HTML/JS/CSS terminal                                                                      |
-| <img src="/images/apps/marp.png" width="50" />           | [Marp](https://yhatt.github.io/marp)                                    | Markdown presentation writer                                                              |
-| <img src="/images/apps/glyphrstudio.png" width="50" />   | [Glyphr Studio](https://github.com/glyphr-studio/Glyphr-Studio-Desktop) | A free, web based font designer, focusing on font design for hobbyists                    |
-| <img src="/images/apps/bitcrypt.png" width="50" />       | [BitCrypt](https://github.com/Nazgul07/BitCrypt)                        | A simple file encryption application for Windows Encrypt your bits                        |
-| <img src="/images/apps/trym.png" width="50" />           | [Trym](http://kontentapps.com/trym)                                     | Beautiful small app for macOS to help you view, optimize and convert SVG icons            |
-| <img src="/images/apps/booker.png" width="50" />         | [Booker](http://apps.meamka.me/booker)                                  | Text editor with the power of Markdown                                                    |
-| <img src="/images/apps/phonepresenter.png" width="50" /> | [PhonePresenter](https://phonepresenter.com)                            | The smartest presentation clicker                                                         |
-| <img src="/images/apps/yout-player.png" width="50" />    | [Yout](https://youtplayer.github.io)                                    | The new way to watch your playlists from YouTube on desktop                               |
-
-### New Meetups
+### Nuove Applicazioni
 
 {: .table .table-ruled .table-full-width .table-with-spacious-first-column .mb-7}
-|                                                                                                         |            |
-| ------------------------------------------------------------------------------------------------------- | ---------- |
-| [Electron Open Source Desktop Framework](http://www.meetup.com/Electron-Open-Source-Desktop-Framework/) | London, UK |
+|                                                                           |                                                                         |                                                                                                            |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| <img src="/images/apps/demio.png" width="50" />          | [Demio](https://demio.com)                                              | Una piattaforma Webinar costruita per le vendite e il marketing in entrata                                 |
+| <img src="/images/apps/electorrent.png" width="50" />    | [Elettorrent](https://github.com/Tympanix/Electorrent)                  | Un'app client remota per il server uTorrent                                                                |
+| <img src="/images/apps/phonegap.png" width="50" />       | [PhoneGap](http://phonegap.com/products/#desktop-app-section)           | Il framework open source che ti permette di costruire fantastiche app mobili utilizzando la tecnologia web |
+| <img src="/images/apps/wordmark.png" width="50" />       | [WordMark](http://wordmarkapp.com)                                      | Un editor di blog editore leggero per scrittori Markdown                                                   |
+| <img src="/images/apps/ubauth.png" width="50" />         | [UbAuth](http://ubauth.enytc.com)                                       | App per aiutare gli sviluppatori a creare token di accesso per le applicazioni Uber con OAuth 2.0          |
+| <img src="/images/apps/hyperterm.png" width="50" />      | [HyperTerm](https://hyperterm.org)                                      | Terminale HTML/JS/CSS                                                                                      |
+| <img src="/images/apps/marp.png" width="50" />           | [Marp](https://yhatt.github.io/marp)                                    | Descrittore presentazione Markdown                                                                         |
+| <img src="/images/apps/glyphrstudio.png" width="50" />   | [Glyphr Studio](https://github.com/glyphr-studio/Glyphr-Studio-Desktop) | Un libero web based font designer, focalizzato sul font design per hobbisti                                |
+| <img src="/images/apps/bitcrypt.png" width="50" />       | [BitCrypt](https://github.com/Nazgul07/BitCrypt)                        | Una semplice applicazione di crittografia file per Windows Crittografa i tuoi bit                          |
+| <img src="/images/apps/trym.png" width="50" />           | [Trym](http://kontentapps.com/trym)                                     | Bella piccola app per macOS per aiutarti a visualizzare, ottimizzare e convertire le icone SVG             |
+| <img src="/images/apps/booker.png" width="50" />         | [Booker](http://apps.meamka.me/booker)                                  | Editor di testo con la potenza di Markdown                                                                 |
+| <img src="/images/apps/phonepresenter.png" width="50" /> | [PhonePresenter](https://phonepresenter.com)                            | Il clic per presentazioni più intelligente                                                                 |
+| <img src="/images/apps/yout-player.png" width="50" />    | [Yout](https://youtplayer.github.io)                                    | Il nuovo modo di guardare le tue playlist da YouTube sul desktop                                           |
+
+### Nuovi Riunioni
+
+{: .table .table-ruled .table-full-width .table-with-spacious-first-column .mb-7}
+|                                                                                                         |                     |
+| ------------------------------------------------------------------------------------------------------- | ------------------- |
+| [Quadro Desktop Open Source Di Electron](http://www.meetup.com/Electron-Open-Source-Desktop-Framework/) | Londra, Regno Unito |
 

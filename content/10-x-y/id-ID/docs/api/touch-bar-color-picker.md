@@ -12,7 +12,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when a color is selected.
     * `warna` String - Warna yang dipilih pengguna dari pemetik.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh `TouchBarColorPicker`:
 

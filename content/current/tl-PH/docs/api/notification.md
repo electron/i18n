@@ -14,7 +14,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -26,7 +26,7 @@ The `Notification` class has the following static methods:
 
 Returns `Boolean` - Whether or not desktop notifications are supported on the current system
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.

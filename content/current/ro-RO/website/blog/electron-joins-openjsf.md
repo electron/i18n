@@ -1,26 +1,26 @@
 ---
-title: Electron joins the OpenJS Foundation
+title: Electron se alătură Fundației OpenJS
 author:
   - felixrieseberg
 date: '2019-12-11'
 ---
 
-At [Node+JS Interactive](https://events19.linuxfoundation.org/events/nodejs-interactive-2019/) in Montreal, the [OpenJS Foundation](https://openjsf.org/) announced that it accepted Electron into the Foundation's incubation program. The Foundation is committed to supporting the healthy growth of the JavaScript ecosystem and web technologies by providing a neutral organization to host and sustain projects, as well as collaboratively fund activities for the benefit of the community at large.
+La [Node+JS Interactiv](https://events19.linuxfoundation.org/events/nodejs-interactive-2019/) în Montreal, Fundaţia [OpenJS](https://openjsf.org/) a anunţat că a acceptat Electron în programul de incubaţie al Fundaţiei. Fundația s-a angajat să sprijine creșterea sănătoasă a ecosistemului JavaScript și a tehnologiilor web prin furnizarea unei organizații neutre care să găzduiască și să susțină proiecte. să finanțeze, de asemenea, în colaborare activități în beneficiul întregii comunități.
 
-The OpenJS Foundation is host to a number of open source JavaScript projects including jQuery, Node.js, and webpack. It's supported by 30 corporate and end-user members, including GoDaddy, Google, IBM, Intel, Joyent, and Microsoft. Electron is an open–source framework for building cross-platform desktop applications with web technologies.
+Fundația OpenJS găzduiește o serie de proiecte JavaScript cu sursă deschisă, inclusiv jQuery, Node.js și webpack. Este suportat de 30 de membri corporatist si final, inclusiv GoDaddy, Google, IBM, Intel, Joyent si Microsoft. Electron este un cadru open source pentru construirea de aplicații desktop pe mai multe platforme cu tehnologii web.
 
-This is an exciting move for Electron, and we see it as a next step in our evolution as an open-source project.
+Aceasta este o mişcare captivantă pentru Electron, şi o vedem ca pe următorul pas în evoluţia noastră ca pe un proiect open-source.
 
 ---
 
-## What this means for developers
+## Ce înseamnă asta pentru dezvoltatori
 
-Electron joining the OpenJS Foundation does not change how Electron is made, released, or used — and does not directly affect developers building applications with Electron. Even though Electron was originally created at GitHub in 2013, it is currently maintained by a number of organizations and individuals. In 2019, Electron codified its governance structure and invested heavily into formalizing how decisions affecting the entire project are made. We believe that having multiple organizations and developers investing in and collaborating on Electron makes the project stronger.
+Electron care se alătură Fundației OpenJS nu schimbă modul în care Electron este făcut, lansat, sau utilizat — și nu afectează direct dezvoltatorii care construiesc aplicații cu Electron. Deși Electron a fost creat inițial pe GitHub în 2013, acesta este menținut în prezent de o serie de organizații și persoane. În 2019, Electron și-a codificat structura de guvernanță și a investit masiv în formalizarea modului în care se iau deciziile care afectează întregul proiect. Credem că a avea mai multe organizații și dezvoltatori care investesc în Electron și colaborează în acesta face ca proiectul să fie mai puternic.
 
-Lifting Electron up from being owned by a single corporate entity and moving it into a neutral foundation focused on supporting the web and JavaScript ecosystem is a natural next step as we mature as an open-source project.
+Ridicarea Electron în sus de la a fi deținut de o singură entitate corporativă și mutarea ei într-o fundație neutră concentrată pe susținerea ecosistemului web și JavaScript este un pas natural următor pe măsură ce ne maturizăm ca proiect open-source.
 
-## Learning more
+## Învățați mai mult
 
-You can read up on the foundation, its mission, and its members on the [OpenJSF website](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). For more information and quotes about the acceptance of Electron into the OpenJSF incubation program, check out the official press release. To learn more about the humans behind Electron and how they work together, take a look at our [Governance page](https://electronjs.org/governance).
+Puteţi citi pe fundaţie, misiunea sa şi membrii săi pe [site-ul OpenJSF](https://www.notion.so/Electron-joins-the-OpenJS-Foundation-d898f12480874e56abe78f29b041fb91#0801fd7e9fa340afbcdce0510ba05f8a). Pentru mai multe informații și citate despre acceptarea Electron în programul de incubație OpenJSF, consultați comunicatul de presă oficial. Pentru a afla mai multe despre oamenii din spatele Electron și cum lucrează împreună, aruncați o privire la [pagina noastră pentru guvernanță](https://electronjs.org/governance).
 
-To get started with Electron itself, take a peek at [our documentation](https://electronjs.org/docs).
+Pentru a începe cu Electron în sine, aruncați o privire la [documentația noastră](https://electronjs.org/docs).

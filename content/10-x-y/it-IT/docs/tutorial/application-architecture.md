@@ -18,35 +18,35 @@ Il processo principale gestisce tutte le pagine web e il corrispondente processo
 
 Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse di sistema nelle pagine web è molto pericolosa ed è facile perdere risorse. Se si desidera eseguire operazioni di GUI in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
 
-> #### A parte: Comunicazione Tra Processi
+> #### Asia: Comunicazione Tra I Processi
 > 
 > In Electron ci sono diversi modi per comunicare tra il processo principale e quelli di rendering, come i moduli  [`ipcRenderer`](../api/ipc-renderer.md)  e  [`ipcMain`](../api/ipc-main.md) per inviare messaggi, e il modulo [remote](../api/remote.md) per una comunicazione tipo RPC. C'è inoltre un elemento delle FAQ su [come condividere dati tra pagine web][share-data].
 
-## Usare le API di Electron
+## Usare API Electron
 
-Electron offre numerose API che supportano lo sviluppo di un'applicazione desktop sia nel processo principale che in quello di render. In entrambi i processi, accederesti alle API di Electron richiedendone il modulo incluso:
+Electron offre una serie di API che supportano lo sviluppo di un'applicazione desktop sia nel processo principale che nel processo di renderer. In entrambi i processi , accedi alle API di Electron, richiedendo il modulo incluso:
 
 ```javascript
 const electron = require('electron')
 ```
 
-Tutte le API di Electron sono assegnate ad un tipo di processo. Molte di queste possono essere usate solo dal processo principale, alcune di esse solo da un processo di renderer, alcune da entrambi. La documentazione per ogni API individuale dichiarerà da quale processo possa essere usata.
+A tutte le API Electron viene assegnato un tipo di processo. Molti di loro possono essere usati solo dal processo principale, alcuni solo da un processo di renderer, alcuni da entrambi. La documentazione per ogni singola API indicherà da quale processo può essere utilizzata.
 
-Una finestra in Electron è creata per istanza usando la classe `BrowserWindow`. E' disponibile solo nel processo principale.
+Una finestra in Electron è creata per esempio usando la classe `BrowserWindow` . È disponibile solo nel processo principale.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
+// Questo funzionerà nel processo principale, but be `undefined` in a
 // renderer process:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Poiché la comunicazione tra processi è possibile, un processo di render può chiamare fino al processo principale per eseguire le attività. Electron viene fornito con un modulo detto `remoto` che espone le API solitamente disponibili sul processo principale. Per poter creare un `BrowserWindow` da un processo di render, useremmo il remoto come intermediario:
+Poiché la comunicazione tra i processi è possibile, un processo di renderer può richiedere il processo principale per eseguire le attività. Electron viene fornito con un modulo chiamato `remoto` che espone le API di solito disponibili solo sul processo principale . Per creare una `Finestra di navigazione` da un processo di renderer, useremmo il remoto come medio-man:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Questo funzionerà in un processo di renderer, ma sia `undefined` nel processo
+// principale:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,40 +55,40 @@ const win = new BrowserWindow()
 
 ## Usare API Node.js
 
-Electron espone l'accesso completo a Node.js sia nel processo principale che in quello di render. Questo ha due implicazioni importanti:
+Electron espone l'accesso completo a Node.js sia nel processo principale che nel processo di renderer . Ciò ha due importanti implicazioni:
 
-1) Tutte le API disponibili in Node.js sono disponibili in Electron. Chiamare il seguente codice da un'app di Electron funziona:
+1) Tutte le API disponibili in Node.js sono disponibili in Electron. Chiamare il seguente codice da un'applicazione Electron funziona:
 
 ```javascript
 const fs = require('fs')
 
-const root = fs.readdirSync('/')
+const root = fs. eaddirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Questo stamperà tutti i file al livello radice del disco,
+// o '/' o 'C:\'.
 console.log(root)
 ```
 
-Come potresti indovinare, questo ha implicazioni di sicurezza importanti se mai dovessi tentare di caricare contenuto remoto. Puoi trovare altre informazioni e guide sul caricamento di contenuti remoti nella nostra [documentazione di sicurezza][security].
+Come si potrebbe già essere in grado di indovinare, questo ha importanti implicazioni per la sicurezza se si tenta mai di caricare contenuti remoti. Puoi trovare altre informazioni e guide sul caricamento di contenuti remoti nella nostra [documentazione di sicurezza][security].
 
-2) Puoi usare i moduli di Node.js nella tua applicazione. Scegli il tuo modulo npm preferito. npm offre la repository correntemente più grande al mondo di codice open source - l'abilità di usare del codice testato e ben mantenuto che era riservato alle applicazioni dei serve è una delle funzionalità chiave di Electron.
+2) È possibile utilizzare i moduli Node.js nella vostra applicazione. Scegli il tuo modulo preferito npm . npm offre attualmente il più grande repository al mondo di codice open-source – la capacità di utilizzare codice ben curato e testato che un tempo era riservato alle applicazioni server è una delle caratteristiche chiave di Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Ad esempio, per utilizzare l'SDK ufficiale AWS nella tua applicazione, dovresti prima installarlo come dipendenza:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Poi, nella tua app Electron, richiede e utilizza il modulo come se stavi costruendo un'applicazione Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
+// Un client S3 pronto all'uso
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+C'è una avvertenza importante: Nativo Nodo. s moduli (cioè, i moduli che richiedono la compilazione di codice nativo prima di poter essere usati) dovranno essere compilati per essere utilizzati con Electron.
 
-The vast majority of Node.js modules are _not_ native. Only 400 out of the ~650,000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
+The vast majority of Node.js modules are _not_ native. Solo 400 su ~ 650.000 moduli sono nativi. However, if you do need native modules, please consult [this guide on how to recompile them for Electron][native-node].
 
 [security]: ./security.md
 [native-node]: ./using-native-node-modules.md

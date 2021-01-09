@@ -32,7 +32,7 @@ Both of these tools are using the [Accessibility Developer Tools][a11y-devtools]
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## Kích hoạt khả năng tiếp cận
+## Enabling Accessibility
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 

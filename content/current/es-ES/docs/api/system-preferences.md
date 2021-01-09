@@ -50,7 +50,7 @@ Devuelve:
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  Vea la [guía de modo oscuro](../tutorial/mojave-dark-mode-guide.md) para más información.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
@@ -61,7 +61,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 ### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
@@ -69,14 +69,14 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
-* `userInfo` Record<String, any>
+* Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -85,8 +85,8 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -106,8 +106,8 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -118,8 +118,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `evento` Cadena
 * `callback` Función
   * `evento` Cadena
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Registro `userInfo`<String, unknown>
+  * String `object`
 
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -167,7 +167,7 @@ Algún `key` y `type`s populares:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `llave` Cadena
-* `type` String - Ver [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` Cadena
 
 Establece el valor de `key` en `NSUserDefaults`.
@@ -191,19 +191,19 @@ Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-u
 Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
 
 ```javascript
-onst { BrowserWindow, systemPreferences } = requiere('electron')
-let browserOptions = { width: 1000, height: 800 }
+const { BrowserWindow, systemPreferences } = require('electron')
+const browserOptions = { width: 1000, height: 800 }
 
-// Haz la ventana transparente solo si la plataforma los soporta.
+// Make the window transparent only if the platform supports it.
 si (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = verdad
   browserOptions.frame = falso
 }
 
 // Crea la  ventana.
-dejar ganar = VentanadeBuscador(Opcionesdebuscador)
+const win = new BrowserWindow(browserOptions)
 
-// Navegar.
+// Navigate.
 si (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -368,7 +368,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 })
 ```
 
-Esta API en si misma no va a proteger sus datos de usuario, más bien, es un mecanismo para permitirle hacerlo. Las aplicaciones nativas necesitarán establecer [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) como [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) en la entrada de su llavero para que al leerlo se solicite automáticamente el consentimiento biométrico de Touch ID. Esto se podría hacer con [`node-keytar`](https://github.com/atom/node-keytar), de tal manera que se almacenaría una clave de cifrado con `node-keytar` u sólo se obtendría si `promptTouchID()` se resuelve.
+Esta API en si misma no va a proteger sus datos de usuario, más bien, es un mecanismo para permitirle hacerlo. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. Esto se podría hacer con [`node-keytar`](https://github.com/atom/node-keytar), de tal manera que se almacenaría una clave de cifrado con `node-keytar` u sólo se obtendría si `promptTouchID()` se resuelve.
 
 **NOTE:** Esta API retornara una promesa rechazada en sistemas macOS más viejos que Sierra 10.12.2.
 

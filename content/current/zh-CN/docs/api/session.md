@@ -11,7 +11,7 @@
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `cache` Boolean - 是否可以使用缓存.
 
 Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
@@ -99,7 +99,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+当一个hunspell字典初始化成功时触发。 这个事件在文件被下载之后触发。
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
@@ -126,7 +126,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
 
-Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+当hunspell字典下载失败时触发。  如果需要详细信息，你应当查看网络日志并且检查下载请求。
 
 ### 实例方法
 
@@ -144,10 +144,10 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
-  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。 If not specified, clear all quotas.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. 如果没有指定storages，将会清除所有的storages类型
+  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。 如果没有指定，将会清除所有的quotas。
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
@@ -210,13 +210,13 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+   匹配任何在给定IP范围内失败的URL。 IP范围使用指定的CIDR。
 
    例如: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+   匹配本地地址。 The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -232,7 +232,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object
+* `选项` 对象
   * `offline` Boolean (optional) - Whether to emulate network outage. 默认值为 false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -254,7 +254,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object
+* `选项` 对象
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -285,7 +285,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
   const { hostname } = request
@@ -301,7 +301,17 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
-  * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `permission` String - The type of requested permission.
+    * `clipboard-read` - Request access to read from the clipboard.
+    * `media` -  Request access to media devices such as camera, microphone and speakers.
+    * `mediaKeySystem` - Request access to DRM protected content.
+    * `geolocation` - Request access to user's current location.
+    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
+    * `midi` - Request MIDI access in the `webmidi` API.
+    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
+    * `fullscreen` - Request for the app to enter fullscreen mode.
+    * `openExternal` - Request to open links in external applications.
   * `callback` Function
     * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - Some properties are only available on certain permission types.
@@ -325,12 +335,12 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types.
-    * `securityOrigin` String - The security orign of the `media` check.
+    * `securityOrigin` String - The security origin of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
@@ -380,6 +390,10 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 这不会影响现有的`WebContents`, 并且每个`WebContents`都可以使用 `webContents.setUserAgent`重写会话范围的user agent。
 
+#### `ses.isPersistent()`
+
+Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
+
 #### `ses.getUserAgent()`
 
 返回 `String` - 当前会话的 user agent.
@@ -400,7 +414,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object
+* `选项` 对象
   * `path` String - 下载的绝对路径.
   * `urlChain` String[] - 完整的 url 下载地址.
   * `mimeType` String (可选)
@@ -412,9 +426,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
-#### `ses.clearAuthCache(options)`
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -440,7 +452,7 @@ The built in spellchecker does not automatically detect what language a user is 
 
 Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages.  This API is a no-op on macOS.
+**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
@@ -480,7 +492,7 @@ Returns `Promise<Extension>` - resolves when the extension is loaded.
 
 This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Note that Electron does not support the full range of Chrome extensions APIs.
+Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
 
 Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
@@ -498,6 +510,8 @@ app.on('ready', async () => {
 This API does not support loading packed (.crx) extensions.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
+
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
 #### `ses.removeExtension(extensionId)`
 
@@ -552,7 +566,7 @@ const path = require('path')
 app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', (request, callback) => {
-    let url = request.url.substr(7)
+    const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')

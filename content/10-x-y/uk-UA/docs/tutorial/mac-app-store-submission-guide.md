@@ -1,26 +1,26 @@
 # Інструкція Додання в Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Оскільки v0.34.0, Electron дозволяє надсилати упаковані програми до Mac App Store (MAS). У цьому керівництві є інформація на: як представити ваш застосунок і обмеження збірки MAS.
 
 **Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
-## How to Submit Your App
+## Як розмістити ваш додаток
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+Наступні кроки представляють простий спосіб відправки вашої програми в Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### Отримати сертифікат
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides][nwjs-guide] on web.
+Для надсилання програми до Mac App Store, спочатку необхідно отримати сертифікат з Apple. You can follow these [existing guides][nwjs-guide] on web.
 
-### Get Team ID
+### Отримати ID команди
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Перш ніж підписати ваш додаток, ви повинні знати ID команди вашого облікового запису. Щоб знайти спільний ID, увійдіть до [Apple Developer Center](https://developer.apple.com/account/), і натисніть Членство в бічній панелі. ID вашої команди з'являється в належності розділ інформації під назвою команди.
 
-### Sign Your App
+### Зареєструйте свій додаток
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Після завершення підготовки ви можете прикріпити ваш додаток слідуючи [Дистрибутиву Програми](application-distribution.md), а потім підписати додаток.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+Спочатку потрібно додати `ключ ElectronTeamID` до додатку `Info. список`, який має ідентифікатор вашої команди як своє значення:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Потім потрібно підготувати три файли прав.
 
 `child.plist`:
 
@@ -79,9 +79,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Ви повинні замінити `TEAM_ID` на ваш командний ідентифікатор і замінити `your.bundle.id` на ID вашого застосунку.
 
-And then sign your app with the following script:
+І тоді підпишіть вашу програму за допомогою наступного сценарію:
 
 ```sh
 #!/bin/bash
@@ -90,83 +90,83 @@ And then sign your app with the following script:
 APP="YourApp"
 # The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# Шлях до місця, на яку потрібно перейти підписаний пакунок.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Ім'я сертифікатів, які ви запитували.
+APP_KEY="Сторонній додаток для розробників Mac: Назва компанії (APPIDENTITY)"
+INSTALLER_KEY="Установник розробників сторонніх осіб: Назва компанії (APPIDENTITY)"
+# Шлях ваших плутаних файлів.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --умови обслуговування "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --умови обслуговування "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --умови обслуговування "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --умови обслуговування "$PARENT_PLIST" "$APP_PATH"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
+codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 
-productbuild --компонент "$APP_PATH" /Застосунки --знак "$INSTALLER_KEY" "$RESULT_PATH"
+productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
 If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
-#### Sign Native Modules
+#### Модулі Sign ative
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Також слід підписати власні модулі, які використовувалися у вашому застосунку. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+Також зверніть увагу, що вбудовані модулі можуть мати проміжні файли, які не повинні бути включені (як вони також повинні бути підписані). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Версії 8.1.0 і пізніше ігнорувати ці файли за замовчуванням.
 
-### Upload Your App
+### Завантажити додаток
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
-### Submit Your App for Review
+### Надіслати додаток для перегляду
 
 After these steps, you can [submit your app for review][submit-for-review].
 
-## Limitations of MAS Build
+## Обмеження збірки MAS
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Для того, щоб задовольнити всі вимоги для пісочниці додатків, наступні модулі були вимкнені в MAS збірці:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+і наступні поведінки були змінені:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Відеозйомка не може працювати на деяких машинах.
+* Деякі функції доступності можуть не працювати.
+* Додатки не будуть знати про зміни в DNS.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
-### Additional Entitlements
+### Додаткові заголовки
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Залежно від того, який API Electron використовує ваш додаток, вам може знадобитися додати додаткові права для вашого `батьківського об'єкта. список` файл який може використовувати ці API з вашого додатку Mac App Store build.
 
-#### Network Access
+#### Доступ до мережі
 
-Enable outgoing network connections to allow your app to connect to a server:
+Увімкніть вихідні з’єднання, щоб додаток підключився до сервера:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Увімкніть вхідні підключення до мережі, щоб дозволити вам відкрити мережу слухати сокет:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -175,7 +175,7 @@ Enable incoming network connections to allow your app to open a network listenin
 
 See the [Enabling Network Access documentation][network-access] for more details.
 
-#### dialog.showOpenDialog
+#### діалогове вікно
 
 ```xml
 <key>com.apple.security.files.user-selected.read-only</key>
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 
 See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
-#### dialog.showSaveDialog
+#### діалогове вікно навігації
 
 ```xml
 <key>com.apple.security.files.user-selected.read-write</key>
@@ -193,11 +193,11 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 
 See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
-## Cryptographic Algorithms Used by Electron
+## Криптографічні алгоритми, що використовуються Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs][export-compliance] for more information.
+Залежно від країн, в яких ви випускаєте свій додаток, може знадобитися , щоб надати інформацію про криптографічні алгоритми, які використовуються у вашому програмному забезпеченні . See the [encryption export compliance docs][export-compliance] for more information.
 
-Electron uses following cryptographic algorithms:
+Electron використовує наступні криптографічні алгоритми:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -208,12 +208,12 @@ Electron uses following cryptographic algorithms:
 * RSA - [RFC 3447](http://www.ietf.org/rfc/rfc3447)
 * SHA - [FIPS 180-4](https://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
 * Blowfish - https://www.schneier.com/cryptography/blowfish/
-* CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144), [RFC 2612](https://tools.ietf.org/html/rfc2612)
+* CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144) [RFC 2612](https://tools.ietf.org/html/rfc2612)
 * DES - [FIPS 46-3](https://csrc.nist.gov/publications/fips/fips46-3/fips46-3.pdf)
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - "На розробці та безпеці блок-шифрування" книгою X. Лай
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)

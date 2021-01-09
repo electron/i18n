@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+Aceasta este a doua postare dintr-o serie continuă care explică internalii Electron. Uitați-vă la [prima postare](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) despre integrarea în bucla de evenimente dacă nu ați făcut deja.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+Majoritatea oamenilor folosesc [Nodul](https://nodejs.org) pentru aplicații de pe server, dar din cauza setului de API bogat al Node-ului și a comunității prospere, este de asemenea foarte potrivit pentru o bibliotecă încorporată. Această postare explică modul în care Node este folosit ca o bibliotecă în Electron.
 
 ---
 
-## Build system
+## Construiește sistem
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+Atât Node, cât și Electron folosesc [`GYP`](https://gyp.gsrc.io) ca sisteme lor de construcții. Dacă vrei să încorporezi Nodul în interiorul aplicației tale, trebuie să îl folosești și ca sistem de construcții.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+Nou la `GYP`? Citește [acest ghid](https://gyp.gsrc.io/docs/UserDocumentation.md) înainte de a continua în acest post.
 
-## Node's flags
+## Steagurile nodului
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+The [`node. yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) fișier în directorul de cod sursă al Nodului descrie cum este construit Nodul împreună cu o mulțime de variabile [`GYP`](https://gyp.gsrc.io) controlând ce părți din Node sunt activate și dacă se deschid anumite configurații.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+Pentru a schimba steagurile de construcție, trebuie să setezi variabilele în fișierul `.gypi` al proiectului tău. Scriptul `configura` din Nod poate genera unele configurații comune pentru tine, de exemplu rulând `. configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron nu folosește scriptul `configura` deoarece are propriile scripturi de construcții. Configurațiile pentru Nodul sunt definite în fișierul [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) din directorul de cod sursă al Electron.
 
-## Link Node with Electron
+## Link Nodul cu Electron
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+În Electron, Modulul este legat ca bibliotecă partajată prin setarea variabilei `GYP` `node_shared` la `true`, așa că modul de construcție al nodului va fi schimbat de la `executabil` la `shared_library`, iar punctul de intrare `al Nodului` nu va fi compilat.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Deoarece Electron utilizează biblioteca V8 expediată cu Chromium, biblioteca V8 inclusă în codul sursă al Node nu este utilizată. Acest lucru se realizează prin setarea `node_use_v8_platform` și `node_use_bundled_v8` la `false`.
 
-## Shared library or static library
+## Bibliotecă partajată sau bibliotecă statică
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Când conectezi cu modulul există două opțiuni: poți fie să construiești Nodul ca o bibliotecă statică și să o incluzi în executabilul final, sau îl poți construi ca o bibliotecă comună și îl poți livra alături de executabilul final.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+În Electron, Nodul a fost construit pentru mult timp ca o bibliotecă statică. Acest lucru a făcut să construiască simplu, a activat cele mai bune optimizări ale compilatorului, și a permis Electron să fie distribuit fără `node.dll` în plus.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+Totuși, acest lucru s-a schimbat după ce Chrome a trecut la utilizarea [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL este o fork de [OpenSSL](https://www.openssl.org) care elimină mai multe API-uri neutilizate și schimbă multe interfețe existente . Deoarece modulul încă utilizează OpenSSL, compilatorul ar genera numeroase erori de conectare din cauza simbolurilor contradictorii dacă ar fi conectate împreună.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron nu a putut utiliza BoringSSL în nod sau să folosească OpenSSL în Chromium, astfel încât singura opţiune a fost să treacă la construirea nodului ca bibliotecă comună, și [ascunde simbolurile BoringSSL și OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) în componentele fiecare.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+Această modificare a adus Electron unele reacţii adverse pozitive. Înainte de se schimbă, nu ați putut redenumi fișierul executabil Electron pe Windows dacă ați folosit module native, deoarece numele executabilului a fost codificat cu greu în biblioteca de import. După ce Nodul a fost construit ca o bibliotecă partajată, această limitare a dispărut deoarece toate modulele native au fost legate la `nod.`, al cărui nume nu a trebuit să fie schimbat.
 
-## Supporting native modules
+## Suport module native
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Modulele native](https://nodejs.org/api/addons.html) în modulul de lucru prin definirea unei funcții de intrare pentru ca modulul să se încarce, și apoi căutarea simbolurilor V8 și libuv din Node. Acesta este un pic supărător pentru încorporări deoarece, în mod implicit, simbolurile V8 și libuv sunt ascunse când construirea Node ca librărie și module native nu va reuși să încarce pentru că nu pot găsi simbolurile.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Pentru a face modulele native să funcţioneze, simbolurile V8 şi libuv au fost expuse în Electron. Pentru V8 acest lucru se face prin [forțarea tuturor simbolurilor din fișierul de configurare Chromium să fie expus](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). Pentru libuv, este realizat prin [setarea definiției `BUILDING_UV_SHARED=1`](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## Pornirea modulului în aplicație
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+După toate lucrările de construire și de conectare cu Nodul, ultimul pas este să rulezi Nodul din aplicația ta.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+Modulul nu oferă multe API publice pentru încorporarea sa în alte aplicații. De obicei, poți apela doar [`nod::Start` și `nod::Initit`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) pentru a începe o nouă instanță a nodului. Cu toate acestea, dacă construiți o aplicație complexă bazată pe Node, trebuie să utilizați API-uri ca `nod::CreateEnvironment` pentru a controla cu precizie fiecare pas.
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+În Electron, Node este pornit în două moduri: modul de sine stătător care rulează în procesul principal, care este similar cu binariile oficiale Node şi modul încorporat care inseră API-uri Node în paginile web. Detaliile acestui lucru vor fi explicate într-un post viitor.
 

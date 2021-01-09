@@ -1,14 +1,14 @@
 # Electron Versioning
 
-> A detailed look at our versioning policy and implementation.
+> إلقاء نظرة مفصلة على سياستنا وتنفيذها في هذا الصدد.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+ابتداء من الإصدار 2.0.0، يتبع إلكترون [فصل دراسي](#semver). سيقوم الأمر التالي بتثبيت أحدث بناء مستقر من إلكترون:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+لتحديث مشروع موجود لاستخدام أحدث إصدار مستقر:
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,80 +16,80 @@ npm install --save-dev electron@latest
 
 ## إصدار 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+إصدارات إلكترون *< 2.* لم يتطابق مع [الفصل الدراسي](http://semver.org) المنظور: الإصدارات الرئيسية تقابل تغييرات API للمستخدم النهائي، الإصدارات الثانوية تقابل الإصدارات الرئيسية لـ Chromium، وتتوافق إصدارات التصحيح مع الميزات الجديدة وإصلاحات الأخطاء. في حين أنه مناسب للمطورين يدمجون الميزات، فإنه يخلق مشاكل لمطوري التطبيقات الموجهة للعملاء. دورات اختبار الجودة للتطبيقات الرئيسية مثل Slack, Stride, Groupams, Skype, VS Code، الذرة و سطح المكتب يمكن أن يكونا طويلين و الاستقرار هو نتيجة مرغوبة للغاية. هناك خطر كبير في اعتماد ميزات جديدة أثناء محاولة امتصاص اصلاحات الشوائب.
 
-Here is an example of the 1.x strategy:
+وفيما يلي مثال على الاستراتيجية 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+التطبيق الذي تم تطويره مع `1.8.1` لا يمكن أن يأخذ `1. .3` إصلاح الخلل دون امتصاص `1. 2 - خاصية` أو عن طريق دعم الإصلاح والحفاظ على خط إطلاق جديد.
 
 ## الإصدار 2.0 ومابعده
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+وهناك عدة تغييرات رئيسية من استراتيجيتنا 1.x المبينة أدناه. والغرض من كل تغيير هو تلبية احتياجات وأولويات المطورين/المشرفين ومطوري التطبيقات.
 
 1. Strict use لـsemver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+2. إدخال علامات نصف متوافقة `-بيتا`
+3. تقديم [رسائل الالتزام التقليدية](https://conventionalcommits.org/)
+4. فروع تثبيت محددة جيدا
+5. فرع `الرئيسي` لا إصدار ؛ فروع التثبيت فقط تحتوي على معلومات الإصدار
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+سوف نغطي بالتفصيل كيفية عمل فروع Git ، وكيفية عمل وسم npm ، وما يتوقع المطورين رؤيته، وكيف يمكن للمرء أن يدعم التغييرات.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+ابتداءً من 2.0 فصاعداً، سيتبع إلكترون الفصل الدراسي.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+وفيما يلي جدول يحدد بوضوح أنواع التغييرات في فئة النصف المقابلة لها (مثل الماجور والقاصر، باتش).
 
-| زيادات الجذرية في الإصدار          | زيادات الفرعية في الإصدار          | زيادات الترقيع في الإصدار           |
-| ---------------------------------- | ---------------------------------- | ----------------------------------- |
-| Electron breaking API changes      | Electron non-breaking API changes  | إصلاح خلل في Electron               |
-| تحديثات الإصدار الجذرية في Node.js | تحديثات الإصدار الفرعية في Node.js | تحديثات الإصدار الترقيعي في Node.js |
-| تحديثات إصدار Chromium             |                                    | fix-related chromium patches        |
+| زيادات الجذرية في الإصدار          | زيادات الفرعية في الإصدار                   | زيادات الترقيع في الإصدار           |
+| ---------------------------------- | ------------------------------------------- | ----------------------------------- |
+| تغيير API لكسر إلكترون             | تغيير واجهة برمجة تطبيقات إلكترون غير مكسور | إصلاح خلل في Electron               |
+| تحديثات الإصدار الجذرية في Node.js | تحديثات الإصدار الفرعية في Node.js          | تحديثات الإصدار الترقيعي في Node.js |
+| تحديثات إصدار Chromium             |                                             | تصحيحات الكروم ذات الصلة بالإصلاح   |
 
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+لاحظ أن معظم تحديثات كروميوم ستعتبر كسرًا. ومن المحتمل أن يتم اختيار التصليحات التي يمكن الحصول عليها كترتيبات.
 
 # فروع التثبيت
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+ففروع التثبيت هي فروع تتوازى مع إتقانها ولا تأخذ سوى الإلتزامات التي يتم اختيارها في الكرز والتي تتصل بالأمن أو الاستقرار. هذه الفروع لا تدمج أبداً مرة أخرى لسيد .
 
 ![](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+منذ إلكترون 8، فروع التثبيت هي دائماً **خطوط إصدار رئيسية** وسميت ضد القالب التالي `$MAJOR-x-y` e. `8-x-y`.  قبل ذلك استخدمنا **سطر الإصدار الثانوي** وسميناها كـ `$MAJOR-$ماينور-x` مثل `2-0-x`
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+ونسمح بوجود فروع متعددة لتحقيق الاستقرار في آن واحد، ويعتزم دعم اثنين على الأقل بالتوازي في جميع الأوقات، ودعم الإصلاحات الأمنية حسب الاقتضاء. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+ولن تكون الخطوط القديمة مدعومة من شركة GitHub، ولكن يمكن لمجموعات أخرى أن تأخذ بزمام الأمور وتساند الاستقرار والأمن من تلقاء نفسها. نحن نثبط هذا، لكننا ندرك أنه يجعل الحياة أسهل للعديد من مطوري التطبيقات.
 
 # إصدارات بيتا وإصلاحات الأخطاء
 
-Developers want to know which releases are _safe_ to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+يريد المطورين معرفة أي الإصدارات _آمنة_ لاستخدامها. وحتى السمات التي تبدو بريئة يمكن أن تحدث انتكاسات في التطبيقات المعقدة. وفي الوقت نفسه، قفل الإصدار الثابت أمر خطير لأنك تتجاهل التصحيحات الأمنية وإصلاحات الأخطاء التي ربما تكون قد ظهرت منذ الإصدار الخاص بك. هدفنا هو السماح بنطاقات الفصل الدراسي القياسية التالية في `package.json`:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* استخدم `~2.0.0` لقبول الإصلاحات المتصلة بالاستقرار أو الأمان فقط في الإصدار `2.0.0` الخاص بك.
+* استخدم `^2.0.0` للسماح بعدم التكسير _مستقرة بشكل معقول_ عمل الميزات بالإضافة إلى إصلاحات الأمان والخطأ.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+المهم في النقطة الثانية هو أن التطبيقات التي تستخدم `^` يجب أن تظل قادرة على توقع مستوى معقول من الاستقرار. ولتحقيق ذلك، يسمح المنتصف لـ _معرف ما قبل الإصدار_ للإشارة إلى إصدار معين ليس _آمنا_ أو _مستقر_ بعد.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+أيّاً كان اختيارك، سوف تضطر دوريًا إلى ضرب الإصدار في `package.json` لأن تكسير التغييرات هو حقيقة من حقائق حياة Chromium.
 
 العملية كالتالي:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+1. وتبدأ جميع خطوط الإطلاقات الرئيسية والثانوية الجديدة بسلسلة بيتا تشير إليها علامات نصف الإصدار المسبق لـ `بيتا.`، على سبيل المثال `2.0.0-بيتا.1`. بعد النسخة التجريبية الأولى، يجب أن تستوفي الإطلاقات التجريبية اللاحقة جميع الشروط التالية:
+    1. التغيير متوافقة مع API-إلى الوراء (يسمح بالإهمالات)
+    2. ويجب أن يكون خطر الوفاء بالجدول الزمني لاستقرارنا منخفضا.
+2. إذا كان من الضروري إجراء تغييرات مسموح بها بمجرد أن يصبح الإصدار بيتا، فإنها تطبق وتزداد علامة ما قبل الإصدار، هو. . `2.0.0-بيتا.2`.
+3. إذا كان إصدار تجريبي معين _يعتبر عموما_ مستقرا، فسيتم إعادة إصداره كنسخة مستقرة، تغيير معلومات الإصدار فقط. مثال: `2.0.0`. بعد الاستقرار الأول، يجب أن تكون جميع التغييرات متوافقة مع الخلف أو إصلاحات الأمان.
+4. إذا كان من الضروري إصلاح الشوائب أو التصحيحات الأمنية في المستقبل بمجرد أن يكون الإصدار مستقراً، يتم تطبيقها و إصدار _التصحيح_ تم زيادته e. . `2.0.1`.
 
-Specifically, the above means:
+ويعني ذلك على وجه التحديد ما يلي:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+1. قبول التغييرات غير المكسورة API قبل الأسبوع 3 في دورة بيتا على ما يرام، حتى لو كانت تلك التغييرات تنطوي على إمكانية التسبب في تأثيرات جانبية معتدلة
+2. الاعتراف بالتغييرات التي تحمل علامات الميزة، والتي لا تغير مسارات التعليمات البرمجية الموجودة، في معظم النقاط في دورة بيتا على ما يرام. يمكن للمستخدمين تمكين هذه الأعلام صراحة في تطبيقاتهم.
+3. الاعتراف بأي ميزات من أي نوع بعد الأسبوع 3 في دورة بيتا هو 👎 بدون سبب جيد جدا.
 
-For each major and minor bump, you should expect to see something like the following:
+بالنسبة لكل نتوبة رئيسية أو صغيرة، تتوقع رؤية شيء مثل ما يلي:
 
 ```plaintext
 2.0.0-beta.1
@@ -100,45 +100,45 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+مثال على دورة الحياة في الصور:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* تم إنشاء فرع جديد للإصدار يتضمن أحدث مجموعة من المميزات. تم نشرها كـ `2.0.0-بيتا.1`. ![](../images/versioning-sketch-3.png)
+* إصلاح الأخطاء يأتي في إتقان والذي يمكن دعمه إلى فرع الإصدار. يتم تطبيق التصحيح، ويتم نشر نسخة تجريبية جديدة على شكل `2.0.0-بيتا.2`. ![](../images/versioning-sketch-4.png)
+* تعتبر النسخة التجريبية _مستقرة بشكل عام_ ويتم نشرها مرة أخرى كنسخة غير بيتا تحت `2.0.0`. ![](../images/versioning-sketch-5.png)
+* وفي وقت لاحق، يكشف عن استغلال في اليوم الصفري ويطبق إصلاح على القائد. نحن ندعم الإصلاح إلى سطر `2-0-x` ونصدر `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+وهناك بضعة أمثلة للكيفية التي ستحصل بها مختلف نطاقات الفصول على إصدارات جديدة:
 
 ![](../images/versioning-sketch-7.png)
 
 # الميزات المفقودة: آلفا
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+ولاستراتيجيتنا عدد قليل من المقايضات، ونحن نرى الآن أنها مناسبة. والأهم من ذلك أن المعالم الجديدة قد تستغرق بعض الوقت قبل الوصول إلى خط إطلاق مستقر. إذا كنت ترغب في تجربة ميزة جديدة على الفور، فسيتعين عليك بناء إلكترون بنفسك.
 
-As a future consideration, we may introduce one or both of the following:
+ويمكن أن نستحدث في المستقبل واحدا من الأمور التالية أو كليهما:
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+* أ - إطلاقات ألفا التي تعاني من قيود استقرار أقل على البيتا؛ على سبيل المثال، سيكون من المسموح به قبول ميزات جديدة عندما تكون قناة الاستقرار في _ألفا_
 
 # أعلام الميزة
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+وتعتبر أعلام السمات ممارسة شائعة في كروميوم، وهي راسخة في النظام الإيكولوجي لتطوير شبكة الإنترنت. في سياق إلكترون ، يجب أن يكون لعلم الميزة أو **الفرع الناعم** الخصائص التالية:
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
-* feature flags are eventually removed after the feature is released
+* هو مفعل/معطل إما في وقت التشغيل، أو وقت البناء؛ نحن لا نؤيد مفهوم علم الميزة بنطاق الطلب
+* إنه يقسم مسارات البرمجة الجديدة والقديمة تماماً؛ إعادة تصميم التعليمات البرمجية القديمة لدعم ميزة جديدة _ينتهك_ عقد الميزة - العلم
+* يتم في نهاية المطاف إزالة أعلام الميزة بعد إطلاق الميزة
 
-# Semantic Commits
+# التزامات سماوية
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+ونحن نسعى إلى زيادة الوضوح على جميع مستويات عملية التحديث والإصدار. ابتداءً من `2.0.0` سنحتاج إلى طلبات السحب للتقيد بـ [Commits](https://conventionalcommits.org/) spec، والتي يمكن تلخيصها على النحو التالي:
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* الإلتزامات التي من شأنها أن تؤدي إلى **نتوء رئيسي** يجب أن تبدأ جسمها ب `تغيير التحديث:`.
+* يجب أن تبدأ الالتزامات التي ستؤدي إلى انقطاع **صغير** بميزة `:`.
+* يجب أن تبدأ الإلتزامات التي ستؤدي إلى فصل دراسي **تصحيح** مع `إصلاح:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+* ونسمح بإبطال الالتزامات، شريطة أن تتقيد الرسالة المحطمة بصيغة الرسالة المذكورة أعلاه.
+* من المقبول بالنسبة لبعض الإلتزامات الواردة في طلب سحب أن لا تتضمن بادئة دلالية، طالما أن عنوان طلب السحب يحتوي على رسالة دلالية ذات مغزى.
 
 # تعيين الإصدار`master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+- سوف يحتوي فرع `الرئيسي` دائماً على الإصدار الرئيسي التالي `X.0.0-nightly.DATE` في `package.json`
+- فروع الإصدار لا يتم دمجها أبداً مرة أخرى للإتقان
+- فروع الإصدار __ تحتوي على الإصدار الصحيح في `package.json`
+- وحالما يتم قطع فرع الإصدار بالنسبة لشخص رئيسي، يجب أن يرفع سيد إلى الأغلبية التالية.  I.e. `master` is always versioned as the next theoretical release branch

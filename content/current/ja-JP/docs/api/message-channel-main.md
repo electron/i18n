@@ -1,10 +1,12 @@
 # MessageChannelMain
 
-`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
+`MessageChannelMain` はメインプロセス側における DOM の [`MessageChannel`][] オブジェクトです。 .
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+チャンネルメッセージングの使用方法の詳細については、[チャンネルメッセージング API][] のドキュメントを参照してください。
 
 ## Class: MessageChannelMain
+
+プロセス: [Main](../glossary.md#main-process)
 
 サンプル:
 ```js
@@ -17,11 +19,11 @@ port1.postMessage({ some: 'message' })
 
 #### `channel.port1`
 
-A [`MessagePortMain`](message-port-main.md) property.
+[`MessagePortMain`](message-port-main.md) 型のプロパティ。
 
 #### `channel.port2`
 
-A [`MessagePortMain`](message-port-main.md) property.
+[`MessagePortMain`](message-port-main.md) 型のプロパティ。
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[チャンネルメッセージング API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

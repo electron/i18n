@@ -49,7 +49,7 @@ Windows의 Electron CI는 AppVeyor를 사용하며, 이는 Azure VM 이미지를
         * 마스터 VHD URI - 이전 단계의 끝에서 얻은 URI를 사용하세요.
         * `미국 동부`위치를 사용하세요.
 
-6. Azure에 다시 로그인하고 홈에서 방금 만든 VM을 찾습니다. < 가상 머신 < `$YOUR_NEW_VM`
+6. Log back into Azure and find the VM you just created in Home < Virtual Machines < `$YOUR_NEW_VM`
     * RDP(원격 데스크톱) 파일을 다운로드하여 VM에 액세스할 수 있습니다.
 
 7. Microsoft 원격 데스크톱을 사용하여 `연결`을 클릭하여 VM에 연결합니다.

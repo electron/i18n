@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 

@@ -103,6 +103,13 @@ console.log(appIcon)
 
 空の `NativeImage` インスタンスを作成します。
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - サムネイルを構築するためのファイルのパス。
+* `maxSize` [Size](structures/size.md) - 返されうるサムネイルの最大の幅と高さ (正の数)。 Windows の実装では、`maxSize.height` を無視し `maxSize.width` に従って高さを拡大縮小します。
+
+戻り値 `Promise<NativeImage>` - これは [NativeImage](native-image.md) であるファイルのサムネイルプレビュー画像で解決されます。
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -177,7 +184,7 @@ console.log(image)
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
@@ -229,9 +236,13 @@ console.log(image)
 
 戻り値 `Boolean` - 画像が空かどうか。
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-戻り値 [`Size`](structures/size.md)
+* `scaleFactor` Double (任意) - 省略値は 1.0。
+
+戻り値 [`Size`](structures/size.md).
+
+`scaleFactor` が渡された場合、渡された値に最も近い画像表現に対応するサイズを返します。
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +271,17 @@ console.log(image)
 
 `height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `Float` - イメージのアスペクト比。
+
+`scaleFactor` が渡された場合、渡された値に最も近い画像表現に対応するアスペクト比を返します。
+
+#### `image.getScaleFactors()`
+
+戻り値 `Float[]` - この NativeImage の表現に対応するすべての拡大率の配列。
 
 #### `image.addRepresentation(options)`
 

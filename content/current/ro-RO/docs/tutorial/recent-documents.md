@@ -1,42 +1,58 @@
-# Recent Documents (Windows & macOS)
+# Documente recente (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+## Overview
+
+Windows și macOS oferă acces la o listă de documente recente deschise de prin meniul JumpList, respectiv dock.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList Fișiere recente](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-__Application dock menu:__
+__Meniu dock aplicație:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![Meniu andocare macOS](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Pentru a adăuga un fișier la documentele recente, trebuie să utilizați API-ul [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows).
 
-```javascript
+## Exemplu
+
+### Adăugați un element la documentele recente
+
+Începând cu o aplicație de lucru din [Ghidul de pornire rapidă](quick-start.md), adaugă următoarele linii în fișierul `main.js`:
+
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+După lansarea aplicației Electron, click dreapta pe pictograma aplicației. Ar trebui să vezi elementul pe care tocmai l-ai adăugat. În acest ghid, elementul este un fișier Markdown situat în rădăcina proiectului:
+
+![Document recent](../images/recent-documents.png)
+
+### Ștergeți lista de documente recente
+
+Pentru a șterge lista de documente recente, trebuie să utilizați [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API în fișierul `main.js`:
 
 ```javascript
 const { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Informaţii suplimentare
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+### Note Windows
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Pentru a utiliza această caracteristică pe Windows, aplicația trebuie să fie înregistrată ca un gestionar al tipului de fișier al documentului, altfel fișierul nu va apărea în JumpList chiar și după ce l-ai adăugat. Poți găsi totul la înregistrarea aplicației în [Înregistrarea aplicației](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
-## macOS Notes
+Când un utilizator apasă pe un fișier din lista JumpList, o nouă instanță a aplicației dvs. va fi începută cu calea fișierului adăugat ca argument în linia de comandă.
 
-### Adding the Recent Documents list to the application menu:
+### Note macOS
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+#### Adăugați lista de documente recente în meniul aplicației
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Puteți adăuga elemente de meniu pentru a accesa și șterge documentele recente prin adăugarea de a următorului cod snippet în template-ul meniului:
 
 ```json
 {
@@ -55,4 +71,6 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+![element meniu documente recente macOS](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+
+Atunci când se solicită un fișier din meniul de documente recente, modulul `fişier deschis` eveniment din `app` va fi emis pentru acesta.

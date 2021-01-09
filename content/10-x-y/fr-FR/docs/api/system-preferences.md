@@ -39,7 +39,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
 **Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.

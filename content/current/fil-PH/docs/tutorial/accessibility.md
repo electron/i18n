@@ -1,12 +1,12 @@
 # Aksesibilidad
 
-Ang paggawa ng mga naa-acess na mga aplikasyon ay mahalaga, at masaya kaming ipakilala ang bagong mga functionality sa [Devtron](https://electronjs.org/devtron) at [Spectron](https://electronjs.org/spectron) na nagbibigay sa mga tagabuo ng mga oportunidad na gawing mas maganda ang kanilang mga app para sa lahat.
+Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
 Ang mga pinag-iisipan sa mga Electron na aplikasyon ay katulad sa mga websayt na iyon dahil sila ay pawang naka-HTML. Gamit ang mga Electron na mga app, datapwat, hindi mo magagamit ang mga online na pinagkukunang-yaman para sa mga aksesibilidad na awdit dahil ang iyong app ay walang isang URL upang ituro ang awditor.
 
-Ang mga katangiang ito ay magdadala ng mga kagamitang pang-awdit sa iyong Electron na app. Maaari mong piliing magdagdag ng mga awdit gamit ang Spectron o gamitin ang mga ito sa loob ng DevTools gamit ang Devtron. Magbasa pa para sa isang buod ng mga kagamitan.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Magbasa pa para sa isang buod ng mga kagamitan.
 
 ## Spectron
 
@@ -24,7 +24,7 @@ Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumenta
 
 ## DevtronDevtron
 
-Sa Devtron, may isang bagong aksesibilidad na tab na nagpapa-awdit sa iyong ng isang pahina sa iyong app, ayusin at linisin ang mga resulta.
+In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![ang screenshot ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,19 +32,21 @@ Pawang sa mga kagamitang ito ay gumagamit ng [Accessibility Developer Tools](htt
 
 Kung alam mo ang ilang mabuting mga kagamitang pang-aksesibilidad para sa Electron, idagdag ang mga ito sa mga aksesibilidad na dokumentasyon gamit ang isang pull request.
 
-## Paganahin ang aksesibilidad
+## Manually enabling accessibility features
 
-Ang mga Electron na aplikasyon ay nagpapanatili sa aksesibilidad na nakahindto sa default para sa pagganap na mga dahilan, pero may maraming mga paraan para paganahin ito.
+Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). Tingnan ang chrome na [dokumentasyon ng aksesibilidad](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) para sa mga karagdagang detalye.
 
-### Loobang aplikasyon
+You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-Sa paggamit ng [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), maipapalabas mo ang switch ng aksesibilidad sa mga tagagamit sa mga kagustuhan ng aplikasyon. Ang mga kagamitang tumutulong ng sistema para sa tagagamit ay may prayoridad sa setting na ito at lalagpasan ito.
+### Using Electron's API
 
-### Teknolohiyang assistive
+By using the [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-Ang Electron na aplikasyon ay awtomatikong magpapagana sa aksesibilidad kapag napansin nito ang asistibong teknolohiya (Windows) o VoiceOver (macOS). Tingnan ang [dokumentasyon sa aksesibilidad](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) ng Chrome para sa karagdagang detalye.
+### Within third-party software
 
-Sa macOS, ang pangatlong partidong asistibong teknolohiya ay makakabago sa aksesibilidad sa loob ng ma Electron na aplikasyon sa pamamagitan ng pagtiyak sa katangiang `AXManualAccessibility` sa programatikong paraan:
+#### macOS
+
+On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

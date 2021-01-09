@@ -1,38 +1,38 @@
 ---
-title: Electron App Feedback Program
+title: Program zpětné vazby pro Electron aplikace
 author: sofianguy
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron pracuje na tom, aby byly uvolňovací cykly rychlejší a stabilnější. Abychom to umožnili, spustili jsme program zpětné vazby aplikace pro velké aplikace Electron, abychom otestovali naše beta verze a nahlásili nám problémy specifické pro aplikaci. To nám pomáhá upřednostnit práci, která získá aplikace aktualizované na další stabilní verzi dříve.
 
-Edit (2020-05-21): This program has been retired.
+Editace (2020-05-21): Tento program byl odcházen do důchodu.
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## Kdo se může připojit?
+Naše kritéria a očekávání pro aplikace připojené k tomuto programu zahrnují tyto položky:
+- Otestujte vaši aplikaci během beta periody po dobu 10 000 a více hodin
+- Mějte jednu osobu, která se každý týden zkontroluje, zda bude diskutovat o chybách a blokovacích aplikacích ve vaší aplikaci
+- Souhlasíte s dodržováním [Kodexu chování Electronu](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+- Jste ochotni sdílet následující informace uvedené v další otázce
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## Jaké informace má moje Electron aplikace sdílet?
+- Celkový počet uživatelských hodin, kdy je vaše aplikace spuštěna s jakýmkoliv beta release
+- Verze Electronu, se kterou vaše aplikace testuje (např. 4.0.0-beta.3)
+- Jakékoliv chyby znemožňující aplikaci přejít na verzi verze s beta testovanou
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## Uživatelská hodina
+Nechápeme, že každý může sdílet přesná uživatelská čísla, ale lepší data nám pomáhají rozhodnout, jak stabilní je konkrétní vydání. Žádáme, aby se aplikace zavázaly testovat minimální počet uživatelských hodin, v současné době 10,000 v celém cyklu beta.
+- 10 uživatelských hodin může být 10 osob testováno po dobu jedné hodiny nebo 1 osoba po dobu 10 hodin
+- Testování můžete rozdělit mezi beta releases, například test na 5 000 uživatelských hodin na 3.0.0-beta. a pak testujte 5 000 uživatelských hodin na 3.0.0-beta.5. Více je lepší, ale chápeme, že některé aplikace nemohou testovat každou beta verzi
+- CI nebo QA hodiny se nezapočítávají do celkového součtu; nicméně vnitřní vydání se počítají
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## Proč by se měla moje Electron aplikace připojit?
+Chyby vaší aplikace budou zaznamenány a budou na radaru týmu Electron. Vaše zpětná vazba pomáhá týmu Electronu vidět, jak nové beta dělají a jakou práci je třeba udělat.
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## Budou informace o mé aplikaci sdíleny veřejně? Kdo bude vidět tyto informace?
+Ne, informace vaší aplikace nebudou sdíleny s veřejností. Informace jsou uchovávány v soukromém GitHub repozitáři, který je viditelný pouze pro členy App Feedback Program a [Electron Governance](https://github.com/electron/governance). Všichni členové souhlasili se dodržením [Kodexu chování Electronu](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
-## Sign up
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+## Zaregistrovat se
+V současné době přijímáme *omezený počet* registrací. Pokud máte zájem a jste schopni splnit výše uvedené požadavky, vyplňte prosím tento [formulář](https://goo.gl/forms/OpMEKV75ScN6we7g1).

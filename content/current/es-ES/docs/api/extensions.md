@@ -18,6 +18,8 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
+Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
+
 See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
 ## Supported Extensions APIs
@@ -83,5 +85,17 @@ The following methods of `chrome.tabs` are supported:
 - `chrome.tabs.executeScript`
 
 > **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
+
+### `chrome.management`
+
+Los siguientes métodos de `chrome.management` son soportados:
+
+- `chrome.management.getAll`
+- `chrome.management.get`
+- `chrome.management.getSelf`
+- `chrome.management.getPermissionWarningsById`
+- `chrome.management.getPermissionWarningsByManifest`
+- `chrome.management.onEnabled`
+- `chrome.management.onDisabled`
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

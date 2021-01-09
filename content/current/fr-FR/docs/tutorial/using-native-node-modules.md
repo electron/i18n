@@ -1,6 +1,6 @@
 # Utiliser des Modules Natifs de Node
 
-Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version V8 différente du binaire Node installée sur votre système, les modules que vous utiliserez devront être recompilés pour Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
 
 ```sh
 Erreur : Le module '/path/to/native/module.node'
@@ -16,21 +16,21 @@ Il y a plusieurs façons d'installer des modules natifs :
 
 ### Installation et compilation de modules pour Electron
 
-Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/electron/electron-rebuild). Ce module peut automatiquement obtenir la version d'Electron et gérer les étapes manuelles de téléchargement des en-têtes, compiler les modules natifs pour votre application.
+Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/electron/electron-rebuild). This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-Par exemple, pour installer `electron-rebuild` puis recompiler les modules avec via une ligne de commande :
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# À chaque fois que vous exécutez "npm install", exécutez :
+# Every time you run "npm install", run this:
 ./node_modules/.bin/electron-rebuild
 
-# Sur Windows si vous rencontrez des problèmes, essayez :
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-Pour plus d'informations sur l'usage et l'intégration avec les autres outils, consultez le README du projet.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
 ### À l'aide de `npm`
 
@@ -101,9 +101,9 @@ spécifiée n'a pas pu être trouvée`, cela peut signifier que le module que vo
 
 En particulier, il est important que :
 
-- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- vous incluez le drapeau `/DELAYLOAD:node.exe`. Si le `noeud. Le lien xe` n'est pas retardé, alors le crochet de chargement de temps n'aura pas de chance de tirer et les symboles du noeud ne seront pas correctement résolus.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+* vous faites un lien avec `node.lib` depuis _Electron_ et non pas Node. Si vous faites un lien avec le mauvais `node.lib` vous obtiendrez des erreurs de temps de chargement lorsque vous aurez besoin du module dans Electron.
+* vous incluez le drapeau `/DELAYLOAD:node.exe`. Si le `noeud. Le lien xe` n'est pas retardé, alors le crochet de chargement de temps n'aura pas de chance de tirer et les symboles du noeud ne seront pas correctement résolus.
+* `win_delay_load_hook.obj` est directement lié au DLL final. Si le crochet est configuré dans une DLL dépendante, il ne se déclenchera pas au bon moment.
 
 Voir [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) pour un exemple de Hook de chargement à retardement si vous implémentez le vôtre.
 
@@ -111,12 +111,12 @@ Voir [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec
 
 [`prebuild`](https://github.com/prebuild/prebuild) permet de publier facilement des modules natifs Node avec des binaires précompilés pour plusieurs version de Node et d'Electron.
 
-Si des modules fournissent des binaires pour Electron, assurez-vous d'omettre les variables d'environnement `--build-from-source` et `npm_config_build_from_source` pour profiter pleinement des binaires précompilés.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
 ## Les modules s'appuyant sur `node-pre-gyp`
 
 [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) fournit un moyen de déployer des modules natifs Node avec des binaires précompilés, beaucoup de modules populaires l'utilisent.
 
-Habituellement, ces modules fonctionnent très bien avec Electron, mais parfois lorsque qu'Electron utilise une version de V8 plus récente que Node et qu'il y a des changements dans l'ABI, de mauvaises choses peuvent arriver. Donc, en général, il est recommandé de toujours compiler les modules natifs depuis leur code source. `electron-rebuild` s'en charge automatiquement pour vous.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-Si vous suivez la méthode d'installation du module via `npm`, alors cela est fait par défaut, sinon vous devrez passer la variable d'environnement `--build-from-source` à `npm`, ou définir la variable d'environnement `npm_config_build_from_source`.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

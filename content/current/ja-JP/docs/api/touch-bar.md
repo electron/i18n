@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBar(options)` _（実験的）_
+### `new TouchBar(options)`
 
 * `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (任意)
@@ -54,6 +54,10 @@
 
 [`typeof TouchBarSpacer`](./touch-bar-spacer.md) であり、`TouchBarSpacer` クラスの参照です。
 
+#### `TouchBarOtherItemsProxy`
+
+[`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) であり、`TouchBarOtherItemsProxy` クラスの参照です。
+
 ### インスタンスプロパティ
 
 `TouchBar` のインスタンスには以下のプロパティがあります。
@@ -73,20 +77,20 @@ const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
 let spinning = false
 
-// Reel labels
+// リールのラベル
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// スピン結果のラベル
 const result = new TouchBarLabel()
 
-// Spin button
+// スピンするボタン
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // Ignore clicks if already spinning
+    // スピン中のクリックを無視
     if (spinning) {
       return
     }
@@ -104,7 +108,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
+        // 各スピンを少し遅くするSlow down a bit on each spin
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -128,15 +132,15 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // All 3 values are the same
+    // 3 つの値すべてが同じとき
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 values are the same
+    // 2 つの値が同じとき
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
   } else {
-    // No values are the same
+    // 同じ値がないとき
     result.label = '🙁 Spin Again'
     result.textColor = null
   }

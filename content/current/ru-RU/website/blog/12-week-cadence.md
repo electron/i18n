@@ -1,40 +1,40 @@
 ---
-title: New Electron Release Cadence
-author: sofianguy
+title: Новая када электронов
+author: вежливость
 date: '2019-05-13'
 ---
 
-🎉 Electron is moving to release a new major stable version every 12 weeks! 🎉
+🎉 Electron собирается выпускать новую стабильную версию каждые 12 недель! 🎉
 
 ---
 
-## ⚡️ Wow that's quick! But why?
+## ⚡ Вау это быстро! Но почему?
 
-Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
+Проще говоря, Chromium не останавливает доставку, так что Electron тоже не будет замедляться.
 
-Chromium releases on a consistent 6-week [schedule](https://www.chromium.org/developers/calendar). To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+Chromium выпускает последовательное 6-недельное расписание [](https://www.chromium.org/developers/calendar). Чтобы предоставить самые последние версии Chromium в Electron, наше расписание нуждается в отслеживании. Более подробную информацию о цикле релизов Chrome можно найти [здесь](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
-## 🚀 Why every 12 weeks?
+## 🚀 Почему каждые 12 недель?
 
-Every 6 weeks, a new Chromium release comes out with new features, bug fixes / security fixes, and V8 improvements. Electron's users have been loud and clear about wanting these changes in a timely manner, so we've adjusted our stable release dates to match every other Chromium stable release. Up first, Electron v6.0.0 will include M76 and is scheduled for stable release on [July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), the same release day as [Chromium M76](https://www.chromestatus.com/features/schedule).
+Каждые 6 недель, новый релиз Chromium включает в себя новые возможности, исправления ошибок / исправления безопасности и улучшения V8. Пользователи Electron были громко и ясно относительно желания вносить эти изменения своевременно, так что мы скорректировали даты наших стабильных выпусков, чтобы они соответствовали всем остальным стабильным выпускам Chromium. Впервые, Electron v6.0. включит M76 и запланировано на стабильный релиз [июля 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), тот же день, что и [Chromium M76](https://www.chromestatus.com/features/schedule).
 
-## 🚧 What does this mean for me and my Electron app?
+## 🚧 Что это значит для меня и моего приложения Electron?
 
-You'll have access to new Chromium and V8 features and fixes sooner than before. Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+У вас есть доступ к новым функциям и исправлениям Chromium и V8 раньше, чем раньше. Важно, вы также узнаете _, когда_ приближаются новые изменения, так что вы сможете планировать с лучшей информацией чем раньше.
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
+Команда Electron [продолжит поддерживать](https://electronjs.org/docs/tutorial/support#supported-versions) последние три основных версии. Например, когда [v6.0.0 стабилизируется 30 июля 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), мы будем поддерживать v6.x, v5.x, а v4.x, а v3.x - End-Of-Life.
 
 ## 💬 Программа отзывов
 
-Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
+Пожалуйста, присоединяйтесь к нашей [Отзыв о приложении](https://electronjs.org/blog/app-feedback-program) , чтобы помочь нам в тестировании наших бета-версий и стабилизации. Проекты, участвующие в этой программе, тестируют бета-версии Electron на своих приложениях; и в свою очередь, новые ошибки, которые они обнаруживают, имеют приоритетное значение для стабильного выпуска.
 
-## 📝 A brief history of Electron releases
+## 📝 Краткая история релизов Electron
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+Решения относительно стабильных выпусков до версии 3.0.0 не соответствовали расписанию. В проект добавлены внутренние расписания v3.0.0 и v4.0.0. Ранее в этом году мы решили опубликовать наш стабильный релиз впервые в [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Объявление о наших стабильных датах выпуска получило положительный отклик и мы рады продолжать это делать для будущих выпусков.
 
-In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+Для того, чтобы лучше упорядочить эти усилия, связанные с повышением, наши [обновления](https://github.com/electron/governance/tree/master/wg-upgrades) и [Релизы](https://github.com/electron/governance/tree/master/wg-releases) Рабочие группы были созданы в нашей системе управления [](https://electronjs.org/blog/governance). Они позволили нам лучше определить приоритеты и делегировать эту работу, которая, как мы надеемся, станет более очевидной с каждым последующим выпуском.
 
-Here is where our new cadence will put us in comparison to Chromium's cadence:
-<img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
+Вот где наш новый кадр положит нас по сравнению с кадром Chromium:
+<img alt="линейный график сравнения версий Electron и Chromium" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+📨 Если у вас есть вопросы, пожалуйста, напишите нам на [info@electronjs.org](mailto:info@electronjs.org).

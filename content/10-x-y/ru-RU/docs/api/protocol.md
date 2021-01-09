@@ -2,7 +2,7 @@
 
 > Регистрация пользовательского протокола и перехват существующих запросов протокола.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
@@ -92,7 +92,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 Регистрирует протокол `scheme`, который отправит файл в качестве ответа. Обработчик `handler` будет вызван с запросом `request` и обратным вызовом `callback`, где запрос `request` является входящим запросом для схемы `scheme`.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. `filePath` должен быть абсолютным путем.
+Для обработки запроса `request`, обратный вызов `callback` должен быть вызван либо с путём к файлу, либо с объектом, который имеет свойство `path`, например, `callback(filePath)` или `callback({ path: filePath })`. `filePath` должен быть абсолютным путем.
 
 По умолчанию `scheme` обрабатывается как `http:`, который анализируется иначе, чем протоколы, которые следуют "общему синтаксису URI", как `file:`.
 
@@ -272,7 +272,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Returns `Boolean` - Whether the protocol was successfully unintercepted
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Удаляет перехватчик, установленный для `scheme` и восстанавливает его оригинальный обработчик.
 
 ### `protocol.isProtocolIntercepted(scheme)`
 

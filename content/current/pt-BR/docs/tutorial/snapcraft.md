@@ -1,26 +1,20 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Guia do Snapcraft (Central de Software Ubuntu & Mais)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Este guia fornece informações sobre como empacotar seu aplicativo Electron para qualquer ambiente Snapcraft, incluindo o Centro de Software Ubuntu.
 
 ## Contexto e Requisitos
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Junto com a comunidade mais ampla do Linux, Canônica visa corrigir muitos dos problemas comuns de instalação de software com o projeto [`snapcraft`](https://snapcraft.io/) . Os snaps são pacotes de software containerized que incluem as necessárias dependências, atualização automática e funcionam em todas as principais distribuições Linux sem a modificação de sistema .
 
-There are three ways to create a `.snap` file:
+Existem três maneiras de criar um arquivo `.snap`:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) ou [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas as ferramentas que vêm com `snap` suporte de fora da caixa. Esta é a opção mais fácil. 2) Usando `electron-installer-snap`, que leva a saída do `electron-packager`. 3) Usando um pacote `.deb` já criado.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+Em alguns casos, você precisará ter a ferramenta `snapcraft` instalada. Instruções para instalar `snapcraft` para sua distribuição específica estão disponíveis [aqui](https://snapcraft.io/docs/installing-snapcraft).
 
-```sh
-snap install snapcraft --classic
-```
+## Usando `electron-installer-snap`
 
-While it _is possible_ to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
-
-## Using `electron-installer-snap`
-
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+O módulo funciona como o [`electron_winstaller`](https://github.com/electron/windows-installer)e módulos semelhantes em que seu escopo é limitado a construir pacotes snap. Você pode testá-lo com:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,63 +22,136 @@ npm install --save-dev electron-installer-snap
 
 ### Etapa 1: Empacotar sua aplicação Electron
 
-Package the application using [electron-packager](https://github.com/electron/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Empacote a aplicação usando o [electron-packager](https://github.com/electron/electron-packager) (ou uma ferramenta similar). Certifique-se de remover `node_modules` que você não precisa no seu aplicativo final, desde qualquer módulo de que você não precisa aumentará o tamanho do seu aplicativo.
 
 A saída deve ser algo mais ou menos assim:
 
 ```plaintext
 .
-└── dist
-    └── app-linux-x64
-        ├── LICENSE
-        ├── LICENSES.chromium.html
-        ├── content_shell.pak
-        ├── app
-        ├── icudtl.dat
-        ├── libgcrypt.so.11
-        ├── libnode.so
-        ├── locales
-        ├── resources
-        ├── v8_context_snapshot.bin
-        └── version
+── dist
+    ── app-linux-x64
+        ── LICENSE
+        ─── LICENSE 
+ ── LICENSES. hromium.html
+        ─ content_shell. ak
+        ── app
+        ── icudtl. em
+        ── libgcrypt.so.11
+        ── libnode. o
+        ── localidades
+        ── recursos
+        ── v8_context_snapshot. em
+        ── versão
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Etapa 2: Executando `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+De um terminal que tem `snapcraft` em seu `PATH`, run `electron-installer-snap` com o único parâmetro obrigatório `--src`, que é a localização de sua aplicação Electron empacotada criada na primeira etapa.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Se você tiver uma pipeline de compilação existente, você pode usar programaticamente o `electron-installer-snap` . Para obter mais informações, consulte a [documentação da API do Snapcraft](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
 
 snap(options)
-  .then(snapPath => console.log(`Created snap at ${snapPath}!`))
+  .then(snapPath => console.log(`Criado em ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Using `snapcraft` with `electron-packager`
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+### Step 1: Create Sample Snapcraft Project
 
-### Step 1: Create a Debian Package
+Create your project directory and add the following to `snap/snapcraft.yaml`:
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
 
-### Step 2: Create a snapcraft.yaml
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
+```
+
+## Usando um pacote Debian existente
+
+Snapcraft é capaz de pegar um arquivo `.deb` existente e transformá-lo em um arquivo `.snap`. A criação de um snap é configurada usando um `snapcraft. aml` arquivo que descreve as fontes, dependências, descrição e outros blocos de construção.
+
+### Passo 1: Crie um pacote Debian
+
+Se você ainda não tiver um pacote `.deb` , usar `electron-installer-snap` pode ser um caminho mais fácil para criar pacotes de snap. No entanto, existem várias soluções para a criação de pacotes Debian, incluindo o [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) ou [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+
+### Passo 2: Criar um snapcraft.yaml
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
 ```yaml
-name: myApp
-version: '2.0.0'
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+name: minhaApp
+versão: '2.0.0'
+resumo: Uma pequena descrição do aplicativo.
+descrição: 「
+ Sabe o quê? Este aplicativo é incrível! Isso faz todas as coisas
+ por você. Alguns dizem que o mantém jovem, talvez até feliz.
 
 grade: stable
 confinement: classic
@@ -117,7 +184,7 @@ apps:
     desktop: usr/share/applications/myApp.desktop
     # Correct the TMPDIR path for Chromium Framework/Electron to ensure
     # libappindicator has readable resources.
-    environment:
+    ambiente:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
@@ -129,13 +196,13 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Como alternativa, se você estiver construindo o seu `encaixando` com `confinamento estrito` você pode usar o `comando de inicialização da área de trabalho`:
 
 ```yaml
 apps:
-  myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
-    command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
+  meuApp:
+    # Corrija o caminho TMPDIR para o Chromium Framework/Electron para garantir que
+    # libappindicator possua recursos legíveis.
+    comando: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```

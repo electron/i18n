@@ -2,7 +2,7 @@
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 ```javascript
 // 메인 프로세스에서.
@@ -109,7 +109,7 @@ child.once('ready-to-show', () => {
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 `BrowserWindow`는 [EventEmitter][event-emitter]이다.
 
@@ -118,21 +118,21 @@ child.once('ready-to-show', () => {
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `width` 정수 (선택 인자) - 창의 넓이를 픽셀로 설정합니다. 기본값은 `800`입니다.
+  * `height` 정수 (선택 인자) - 창의 높이를 픽셀로 설정합니다. 기본값은 `600`입니다.
+  * `x` 정수 (선택 인자) - (y가 존재할 시 **필수**) 창의 x좌표를 설정합니다. 기본값은 창을 중앙에 두는 것입니다.
+  * `y` 정수 (선택 인자) - (x가 존재할 시 **필수**) 창의 y좌표를 설정합니다. 기본값은 창을 중앙에 두는 것입니다.
   * `useContentSize` Boolean (선택) - 실제 윈도우의 크기는 윈도우 프레임의 크기를 포함해서 살짝 크기 때문에, `width`와 `height`를 웹 페이지의 크기로 사용하고자 할 때 사용한다. 기본값은 `false`이다.
   * `center` Boolean (선택) - 윈도우를 화면의 중심에 표시한다.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. 기본값은 `true`이다.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. 기본값은 `true`이다.
+  * `minWidth` 정수 (선택 인자) - 창의 최소 넓이를 설정합니다. 기본값은 `0`입니다.
+  * `minHeight` 정수 (선택 인자) - 창의 최소 높이를 설정합니다. 기본값은 `0`입니다.
+  * `maxWidth` 정수 (선택 인자) - 창의 최대 넓이를 설정합니다. 기본값은 제한없음 입니다.
+  * `maxHeight` 정수 (선택 인자) - 창의 최대 높이를 설정합니다. 기본값은 제한없음 입니다.
+  * `resizable` 불리언 (선택 인자) - 창의 크기를 조정 가능 여부를 설정합니다. 기본값은 `true`이다.
+  * `movable` 불리언 (선택 인자) - 창의 이동 가능 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `minimizable` 불리언 (선택 인자) - 창을 최소화 가능할지 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `maximizable` 불리언 (선택 인자) - 창을 최대화 가능할지 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `closable` Boolean (optional) - Whether window is closable. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
   * `focusable` Boolean (선택) - 창에 초점을 맞출 수 있는지 여부. 기본값은 `true`이다. Windows에서는 `focusable: false`를 설정하는 것은 `skipTaskbar: true`도 설정하는 것을 의미합니다. Linux에서는 `focusable: false`를 설정하는 것이 그 창과 wm과의 상호작용을 중지하게 만듭니다. 따라서 그 창은 항상 워크스페이스의 최상단에 위치하게 됩니다.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. 기본값은 `false`이다.
   * `fullscreen` Boolean (선택) - 창이 전체화면으로 표시되어야 하는지 여부. 명시적으로 `false`로 설정하면 macOS에서는 전체화면 버튼이 비활성화되거나 숨겨집니다. 기본값은 `false`이다.
@@ -157,6 +157,10 @@ child.once('ready-to-show', () => {
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 기본값은 `false`이다.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 기본값은 `false`이다. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
@@ -242,7 +246,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 #### 이벤트: 'page-title-updated'
 
-Returns:
+반환:
 
 * `event` Event
 * `title` String
@@ -252,7 +256,7 @@ Returns:
 
 #### 이벤트: 'close'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -326,14 +330,14 @@ Emitted when the window is minimized.
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'will-resize' _macOS_ _Windows_
+#### 이벤트: 'will-resize' _macOS_ _Windows_
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+윈도우의 크기가 변하기 전에 발생합니다. Calling `event.preventDefault()` will prevent the window from being resized.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -343,7 +347,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -380,7 +384,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -389,7 +393,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Returns:
+반환:
 
 * `event` Event
 * `command` String
@@ -428,7 +432,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `direction` String
@@ -439,7 +443,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `rotation` Float
@@ -502,7 +506,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a Chrome extension by name.
 
@@ -534,7 +538,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a DevTools extension by name.
 
@@ -559,7 +563,7 @@ console.log(installed)
 
 **Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -685,7 +689,7 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -1293,7 +1297,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 * `options` Object
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 기본값은 `0`입니다.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
@@ -1341,9 +1345,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Sets whether the window should be visible on all workspaces.
 
@@ -1451,7 +1457,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

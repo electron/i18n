@@ -1,13 +1,13 @@
-# تنقيح عملية الرئيسية في VSCode
+# تصحيح العملية الرئيسية في VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. فتح مشروع إلكترون في VSCode.
 
 ```sh
-$ git clone git@github.com:electron/electron-quick-start.git
-$ code electron-quick-start
+$ git استنساخ git@github.com: الإلكترون / الإلكترون quick-start.git
+$ رمز الإلكترون السريع بدء
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. إضافة ملف `.vscode/launch.json` مع التكوين التالي:
 
 ```json
 {
@@ -32,6 +32,6 @@ $ code electron-quick-start
 
 ### 3. التنقيح
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+عيّن بعض نقاط التوقف في `main.js`، وابدأ تصحيح الأخطاء في [عرض التصحيح](https://code.visualstudio.com/docs/editor/debugging). يجب أن تكون قادراً على الوصول إلى نقاط التوقف
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+إليك مشروع مكون مسبقاً يمكنك تنزيله وتصحيحه مباشرة في VSCode: https://github.com/octref/vscode-electron-debug/tree/Master/electron-quick-start

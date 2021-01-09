@@ -212,9 +212,11 @@ En macOS, configura la `image` asociada con este icono de bandeja cuando se pres
 
 Configura la activación de texto para este icono de bandeja.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` Cadena
+* `options` Object (opcional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 

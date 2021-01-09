@@ -1,4 +1,5 @@
 # Objeto MimeTypedBuffer
 
-* `tipoMimo` String - El tipoMimo del Buffer que estás enviando.
+* `Tipomime`String (optional)-Tipo MIME de la respuesta.
+* `charset`String (optional)-Charset de la respuesta.
 * `datos` Buffer - El contenido real del Buffer.

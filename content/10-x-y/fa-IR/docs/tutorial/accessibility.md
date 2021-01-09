@@ -1,4 +1,4 @@
-# دسترسی
+# Accessibility
 
 Making accessible applications is important and we're happy to introduce new functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
 
@@ -32,7 +32,7 @@ Both of these tools are using the [Accessibility Developer Tools][a11y-devtools]
 
 If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## فعال کردن قابلیت
+## Enabling Accessibility
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 

@@ -1,40 +1,40 @@
 ---
-title: Electron's API Docs as Structured Data
+title: Documentação da API do Electron como Dados Estruturados
 author: zeke
 date: '2016-09-27'
 ---
 
-Today we're announcing some improvements to Electron's documentation. Every new release now includes a [JSON file](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) that describes all of Electron's public APIs in detail. We created this file to enable developers to use Electron's API documentation in interesting new ways.
+Hoje estamos anunciando algumas melhorias na documentação do Electron. A cada nova versão agora inclui um [arquivo JSON](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) que descreve detalhadamente todas as APIs públicas do Electron. Nós criamos este arquivo para permitir que os desenvolvedores usem a documentação da API do Electron de novas maneiras interessantes.
 
 ---
 
-## Schema overview
+## Visão geral
 
-Each API is an object with properties like name, description, type, etc. Classes such as `BrowserWindow` and `Menu` have additional properties describing their instance methods, instance properties, instance events, etc.
+Cada API é um objeto com propriedades como nome, descrição, tipo, etc. Aulas como `BrowserWindow` e `Menu` têm propriedades adicionais descrevendo seus métodos de instância, propriedades de instância, eventos de instância, etc.
 
-Here's an excerpt from the schema that describes the `BrowserWindow` class:
+Aqui está um excerto do esquema que descreve a classe `BrowserWindow` (Janela de Navegação):
 
 ```js
 {
-  name: 'BrowserWindow',
-  description: 'Create and control browser windows.',
-  process: {
+  nome: 'BrowserWindow',
+  descrição: 'Criar e controlar janelas de navegador. ,
+  processo: {
     main: true,
     renderer: false
   },
-  type: 'Class',
-  instanceName: 'win',
+  tipo: 'Class',
+  instância: 'win',
   slug: 'browser-window',
-  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
-  staticMethods: [...],
-  instanceMethods: [...],
-  instanceProperties: [...],
-  instanceEvents: [...]
+  websiteUrl: 'https://electronjs. rg/docs/api/browser-window',
+  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window. d',
+  Métodos estáticos: [...],
+  exemploMédios: [...],
+  instâncias: [...],
+  eventos: [...]
 }
 ```
 
-And here's an example of a method description, in this case the `apis.BrowserWindow.instanceMethods.setMaximumSize` instance method:
+E aqui está um exemplo de uma descrição de método, neste caso o método de instância `apis.BrowserWindow.instanceMethods.setMaximumSize`:
 
 ```js
 {
@@ -51,43 +51,43 @@ And here's an example of a method description, in this case the `apis.BrowserWin
 }
 ```
 
-## Using the new data
+## Usando os novos dados
 
-To make it easy for developers to use this structured data in their projects, we've created [electron-docs-api](https://www.npmjs.com/package/electron-api-docs), a small npm package that is published automatically whenever there's a new Electron release.
+Para facilitar o uso desses dados estruturados pelos desenvolvedores em seus projetos, criamos [electron-docs-api](https://www.npmjs.com/package/electron-api-docs), um pequeno pacote npm que é publicado automaticamente sempre que houver uma nova versão do Electron.
 
 ```sh
 npm install electron-api-docs --save
 ```
 
-For instant gratification, try out the module in your Node.js REPL:
+Para gratificação instantânea, experimente o módulo no seu Node.js REPL:
 
 ```sh
 npm i -g trymodule && trymodule electron-api-docs=apis
 ```
 
-## How the data is collected
+## Como os dados são coletados
 
-Electron's API documentation adheres to [Electron Coding Style](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) and the [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme), so its content can be programmatically parsed.
+Documentação da API do Electron adere ao [Electron Coding Style](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) e ao [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme), para que o seu conteúdo possa ser analisado programaticamente.
 
-The [electron-docs-linter](https://github.com/electron/electron-docs-linter) is a new development dependency of the `electron/electron` repository. It is a command-line tool that lints all the markdown files and enforces the rules of the styleguide. If errors are found, they are listed and the release process is halted. If the API docs are valid, the `electron-json.api` file is created and [uploaded to GitHub](https://github.com/electron/electron/releases/tag/v1.4.1) as part of the Electron release.
+O [electron-docs-linter](https://github.com/electron/electron-docs-linter) é uma nova dependência de desenvolvimento do repositório `electron/electron`. É uma ferramenta de linha de comando que limpa todos os arquivos markdown e impõe as regras do styleguide. Se os erros forem encontrados, eles serão listados e o processo de liberação for interrompido. Se a documentação da API for válida, o `electron-json. pi` arquivo é criado e [é enviado para o GitHub](https://github.com/electron/electron/releases/tag/v1.4.1) como parte da versão do Electron.
 
-## Standard Javascript and Standard Markdown
+## Javascript padrão e Markdown padrão
 
-Earlier this year, Electron's codebase was updated to use the [`standard`](http://standardjs.com/) linter for all JavaScript. Standard's README sums up the reasoning behind this choice:
+No início deste ano, a base de código do Electron foi atualizada para usar o linter[`padrão`](http://standardjs.com/) para todos os JavaScript. O padrão README resume o raciocínio por trás desta escolha:
 
-> Adopting standard style means ranking the importance of code clarity and community conventions higher than personal style. This might not make sense for 100% of projects and development cultures, however open source can be a hostile place for newbies. Setting up clear, automated contributor expectations makes a project healthier.
+> Adotar o estilo padrão significa classificar a importância da clareza do código e das convenções da comunidade acima do estilo pessoal. Isto pode não fazer sentido para 100% dos projectos e das culturas de desenvolvimento, por mais que a fonte aberta possa ser um lugar hostil para os novatos. Configurar expectativas claras e automatizadas dos colaboradores torna um projeto mais saudável.
 
-We also recently created [standard-markdown](https://github.com/zeke/standard-markdown) to verify that all the JavaScript code snippets in our documentation are valid and consistent with the style in the codebase itself.
+Também criamos recentemente [padrão markdown](https://github.com/zeke/standard-markdown) para verificar se todos os trechos de código JavaScript em nossa documentação são válidos e consistentes com o estilo na própria base de código.
 
-Together these tools help us use continuous integration (CI) to automatically find errors in pull requests. This reduces the burden placed on humans doing code review, and gives us more confidence about the accuracy of our documentation.
+Juntos estas ferramentas nos ajudam a usar a integração contínua (CI) para encontrar automaticamente erros em pull requests. Isso reduz a carga colocada sobre os humanos fazendo uma revisão e nos dá mais confiança sobre a precisão de nossa documentação.
 
-### A community effort
+### Um esforço comunitário
 
-Electron's documentation is constantly improving, and we have our awesome open-source community to thank for it. As of this writing, nearly 300 people have contributed to the docs.
+A documentação do Electron está constantemente melhorando, e temos nossa incrível comunidade de código aberto para agradecê-la. A partir deste artigo, quase 300 pessoas contribuíram para a documentação.
 
-We're excited to see what people do with this new structured data. Possible uses include:
+Estamos animados para ver o que as pessoas fazem com esses novos dados estruturados. Possíveis usos incluem:
 
-- Improvements to [https://electronjs.org/docs/](https://electronjs.org/docs/)
-- A [TypeScript definition file](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions) for more streamlined Electron development in projects using TypeScript.
-- Searchable offline documentation for tools like [Dash.app](https://kapeli.com/dash) and [devdocs.io](http://devdocs.io/)
+- Melhorias em [https://electronjs.org/docs/](https://electronjs.org/docs/)
+- Um [arquivo de definição TypeScript](https://github.com/electron/electron-docs-linter/blob/master/README.md#typescript-definitions) para desenvolvimento Electron mais simplificado em projetos usando TypeScript.
+- Documentação off-line pesquisável para ferramentas como [Dash.app](https://kapeli.com/dash) e [devdocs.io](http://devdocs.io/)
 

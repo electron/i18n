@@ -1,61 +1,61 @@
 ---
-title: Electron Userland
+title: Elektron gebruikersland
 author: zeke
 date: '2016-12-20'
 ---
 
-We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
+We hebben een nieuwe [userland](https://electronjs.org/userland) sectie toegevoegd aan de Electron website om gebruikers de mensen te helpen ontdekken, pakketten en apps die vormen van ons bloeiende open-source ecosysteem.
 
 ---
 
 [![github-contributors](https://cloud.githubusercontent.com/assets/2289/21205352/a873f86c-c210-11e6-9a92-1ef37dfc986b.png)](https://electronjs.org/userland)
 
-## Origins of Userland
+## Oorsprong van Userland
 
-Userland is where people in software communities come together to share tools and ideas. The term originated in the Unix community, where it referred to any program that ran outside of the kernel, but today it means something more. When people in today's Javascript community refer to userland, they're usually talking about the [npm package registry](http://npm.im). This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
+Gebruikers zijn de plek waar mensen in softwaregemeenschappen samenkomen om tools en ideeën te delen. De term is ontstaan in de Unix-gemeenschap. waar het verwees naar elk programma dat buiten de kernel liep, maar vandaag de dag betekent het iets meer. Wanneer mensen in de Javascript gemeenschap naar gebruikersland verwijst, praten ze meestal over de [npm package register](http://npm.im). Dit is waar het grootste deel van experimenten en innovatie gebeurt, while Node en de JavaScript taal (zoals de Unix kernel) behouden een relatief kleine en stabiele set van core-functies.
 
-## Node and Electron
+## Node en Electron
 
-Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. Deze ontwerpfilosofie maakt het mogelijk dat Electron een flexibele tool blijft zonder te dwingend te zijn over hoe het gebruikt moet worden.
+Zoals Node, heeft Electron een kleine set core API's. Deze bieden de basisfuncties die nodig zijn voor het ontwikkelen van multi-platform desktopapplicaties. Deze ontwerpfilosofie maakt het mogelijk dat Electron een flexibele tool blijft zonder te dwingend te zijn over hoe het gebruikt moet worden.
 
-Userland is the counterpart to "core", enabling users to create and share tools that extend Electron's functionality.
+Userland is de tegenhanger van "kern", wat gebruikers in staat stelt tools te maken en te delen die de functionaliteit van Electroni uitbreiden.
 
-## Collecting data
+## Gegevens verzamelen
 
-To better understand the trends in our ecosystem, we analyzed metadata from 15,000 public GitHub repositories that depend on `electron` or `electron-prebuilt`
+Om de trends in ons ecosysteem beter te begrijpen wij metadata van 15 geanalyseerd 00 openbare GitHub repositories die afhankelijk zijn van `elektron` of `elektron-prebuilt`
 
-We used the [GitHub API](https://developer.github.com/v3/), the [libraries.io API](https://libraries.io/api), and the npm registry to gather info about dependencies, development dependencies, dependents, package authors, repo contributors, download counts, fork counts, stargazer counts, etc.
+We hebben de [GitHub API](https://developer.github.com/v3/)gebruikt, de [bibliotheken. o API](https://libraries.io/api), en de npm register om informatie te verzamelen over afhankelijkheden, ontwikkelingsafhankelijkheden, afhankelijkheid, pakket auteurs, repo bijdragers, download tellen, fork tellen, stargazer tellen, etc.
 
-We then used this data to generate the following reports:
+We hebben deze gegevens vervolgens gebruikt om de volgende verslagen te genereren:
 
-- [App Development Dependencies](https://electronjs.org/userland/dev_dependencies): Packages most often listed as `devDependencies` in Electron apps.
-- [GitHub Contributors](https://electronjs.org/userland/github_contributors): GitHub users who have contributed to numerous Electron-related GitHub repositories.
-- [Package Dependencies](https://electronjs.org/userland/package_dependencies): Electron-related npm packages that are frequently depended on by other npm packages.
-- [Starred Apps](https://electronjs.org/userland/starred_apps): Electron apps (that are not npm packages) with numerous stargazers.
-- [Most Downloaded Packages](https://electronjs.org/userland/most_downloaded_packages): Electron-related npm packages that are downloaded a lot.
-- [App Dependencies](https://electronjs.org/userland/dependencies): Packages most often listed as `dependencies` in Electron apps.
-- [Package Authors](https://electronjs.org/userland/package_authors): The most prolific authors of Electron-related npm packages.
+- [App Development afhankelijkheden](https://electronjs.org/userland/dev_dependencies): Pakketten worden meestal vermeld als `devDependencies` in Electron apps.
+- [GitHub bijdragers](https://electronjs.org/userland/github_contributors): GitHub gebruikers die hebben bijgedragen aan talloze Electron-gerelateerde GitHub repositories.
+- [Package Afhankelijkheden](https://electronjs.org/userland/package_dependencies): Electron-gerelateerde npm packages die vaak afhankelijk zijn van andere npm packages.
+- [Starred Apps](https://electronjs.org/userland/starred_apps): Electron apps (die geen npm pakketten zijn) met talloze stargazers.
+- [Meest gedownloade pakketten](https://electronjs.org/userland/most_downloaded_packages): Electron-gerelateerde npm pakketten die veel gedownload worden.
+- [App Afhankelijkheden](https://electronjs.org/userland/dependencies): Pakketten worden meestal vermeld als `afhankelijkheden` in Electron apps.
+- [Package Authors](https://electronjs.org/userland/package_authors): De meest prolifictieve auteurs van Electron-gerelateerde npm packages.
 
-## Filtering Results
+## Filter resultaten
 
-Reports like [app dependencies](https://electronjs.org/userland/dependencies) and [starred apps](https://electronjs.org/userland/starred_apps) which list packages, apps, and repos have a text input that can be used to filter the results.
+Rapporten zoals [app-afhankelijkheden](https://electronjs.org/userland/dependencies) en [apps met ster](https://electronjs.org/userland/starred_apps) welke pakketten weergeven, apps en repos hebben een tekstinvoer die kan worden gebruikt om de resultaten te filteren.
 
-As you type into this input, the URL of the page is updated dynamically. This allows you to copy a URL representing a particular slice of userland data, then share it with others.
+Terwijl je in deze invoer typt, wordt de URL van de pagina dynamisch bijgewerkt. Deze stelt u in staat om een URL te kopiëren die een bepaald stuk gebruikersgegevens bevat, en het vervolgens met anderen te delen.
 
 [![babel](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
 
-## More to come
+## Meer te komen
 
-This first set of reports is just the beginning. We will continue to collect data about how the community is building Electron, and will be adding new reports to the website.
+Deze eerste reeks verslagen is nog maar het begin. We zullen data blijven verzamelen over hoe de gemeenschap Electroon bouwt, en zullen nieuwe rapporten toevoegen aan de website.
 
-All of the tools used to collect and display this data are open-source:
+Alle hulpmiddelen die worden gebruikt om deze gegevens te verzamelen en weergeven zijn open-source:
 
-- [electron/electronjs.org](https://github.com/electron/electron.atom): The Electron website.
-- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): Slices of data about packages, repos, and users in Electron userland.
-- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): All public repositories on GitHub that depend on `electron` or `electron-prebuilt`
-- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): All npm packages that mention `electron` in their `package.json` file.
+- [electron/electronjs.org](https://github.com/electron/electron.atom): De Electron website.
+- [electron/electron-userland-reports](https://github.com/electron/electron-userland-reports): lices van gegevens over pakketten, repos en gebruikers in Electron userland.
+- [electron/repos-using-electron](https://github.com/electron/repos-using-electron): Alle openbare repositories op GitHub die afhankelijk zijn van `electron` of `electron-prebuilt`
+- [electron/electron-npm-packages](https://github.com/zeke/electron-npm-packages): Alle npm packages die `electron` vermelden in hun `package.json` bestand.
 
-If you have ideas about how to improve these reports, please let us know [opening an issue on the website repository](https://github.com/electron/electronjs.org/issues/new) or any of the above-mentioned repos.
+Als je ideeën hebt over hoe je deze rapporten kunt verbeteren, Laat ons weten [door het openen van een issue in de repository](https://github.com/electron/electronjs.org/issues/new) of een van de hierboven genoemde repos.
 
-Thanks to you, the Electron community, for making userland what it is today!
+Bedankt aan jou, de Electron community, voor het maken van userland wat het vandaag is!
 

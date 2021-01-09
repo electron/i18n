@@ -4,7 +4,7 @@ Ci sono molti modi di aggiornare una app di Electron. La più facile ed ufficial
 
 ## Usando `aggiorna.electronjs.org`
 
-The Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+Il team di Electron mantiene [update.electronjs.org][], un servizio web gratuito e open-source che le app Electron possono utilizzare per l'auto-aggiornamento. Il servizio è progettato per le applicazioni Electron che soddisfano i seguenti criteri:
 
 - App eseguite su macOS o Windows
 - App con repository di GitHub pubblica
@@ -25,13 +25,13 @@ Invoca l'updater dal file di processo principale della tua app:
 richiedi('aggiorna-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Per impostazione predefinita, questo modulo controllerà gli aggiornamenti all'avvio dell'app, poi ogni dieci minuti. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. Al termine del download, viene visualizzata una finestra di dialogo che consente all'utente di riavviare l'app.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`][update-electron-app] or [use the update service directly][update.electronjs.org].
+Se hai bisogno di personalizzare la configurazione, puoi [passare le opzioni a `update-electron-app`][update-electron-app] o [utilizzare direttamente il servizio di aggiornamento][update.electronjs.org].
 
 ## Implementare un Server Aggiornamento
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Se stai sviluppando un'applicazione privata di Electron o se non stai pubblicando rilasci su GitHub Releases, potrebbe essere necessario eseguire il proprio server di aggiornamento.
 
 In base alle tue necessità, puoi scegliere da una di queste:
 
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Come passo finale, controllare gli aggiornamenti. L'esempio sottostante controllerà ogni minuto:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Assicurati anche che gli errori siano [gestiti](../api/auto-updater.md#event-error). Ecco un esempio per registrarli a `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
@@ -98,9 +98,9 @@ autoUpdater.on('error', message => {
 })
 ```
 
-## Handing Updates Manually
+## Handing Updates Manualmente
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Poiché le richieste fatte da Auto Update non sono sotto il controllo diretto, potresti trovare situazioni difficili da gestire (come se il server di aggiornamento è dietro l'autenticazione). Il campo `url` supporta i file, il che significa che con qualche sforzo, puoi eludere l'aspetto della comunicazione del server del processo. [Ecco un esempio di come questo potrebbe funzionare](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
 
 [now]: https://zeit.co/now
 [hazel]: https://github.com/zeit/hazel

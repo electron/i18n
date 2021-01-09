@@ -1,5 +1,7 @@
 # Recent Documents (Windows & macOS)
 
+## Sekilas
+
 Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 __jumplist:__
@@ -10,47 +12,53 @@ __Menu dermaga aplikasi:__
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan
+To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
 
- app.addRecentDocument </ 0>  API :</p> 
+## Contoh
 
+### Add an item to recent documents
 
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
 
-```javascript
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
+After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
 
-Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-macos-windows) API untuk mengosongkan daftar dokumen baru-baru:
+![Recent document](../images/recent-documents.png)
 
+### Clear the list of recent documents
 
+To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
 
 ```javascript
 onst { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
+## Additional information
 
+### catatan Windows
 
+To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di
 
-## catatan Windows
-
-Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di  Aplikasi Pendaftaran </ 0> .</p> 
+ Aplikasi Pendaftaran </ 0> .</p> 
 
 Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan mulai dengan path dari file ditambahkan sebagai argumen baris perintah.
 
 
 
-## Catatan macOS
+### Catatan macOS
 
 
 
-### Adding the Recent Documents list to the application menu:
+#### Add the Recent Documents list to the application menu
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
-
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
 
 
@@ -71,5 +79,7 @@ You can add menu items to access and clear recent documents by adding the follow
 }
 ```
 
+
+![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 Ketika sebuah file yang diminta dari menu dokumen terakhir, `open-file` acara dari `app` modul akan dipancarkan untuk itu.

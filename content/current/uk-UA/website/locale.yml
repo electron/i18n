@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Почати</b></a> створення додатку читаючи <a href='/docs/tutorial/first-app'>керівництво швидкого старту</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсі</b></a>, слідкуючи за нами <a href='https://twitter.com/electronjs'>@electronjs</a> в Twitter та підпискою на <a href='/blog'>канал блогу</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацію на рідній мові</b></a> відвідавши <a href='/languages'>мовну сторінку</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Допомога та зворотній зв’язок</b></a> у каналі <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, чи дописуючи у <a href='https://discuss.atom.io/c/electron'>Discuss</a>, або на <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Повідомляй про проблеми безпеки на</b></a> на <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Повідомляйте про помилки</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Пропонуйте функції</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
@@ -117,6 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
   fiddle_title: Експерименти з Electron Fiddle
   see_more_info: Детальніше
+download: Download
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
@@ -221,6 +222,7 @@ landing:
   get_started: Почати зараз
   fiddle:
     lead_desc: Найпростіший спосіб розпочати з Electron
+    different_os: "Not the right operating system? See:"
     create_app: Створи свій додаток
     description: Electron Fiddle дозволяє створювати та проводити невеликі експерименти з Electron. При відкритті, Вас вітає шаблон прискореного запуску - Ви можете змінити кілька установок, вибрати бажану версію Electron і пограти з різними варіантами. Після цього, збережіть Ваш Fiddle як GitHub Gist або в локальну папку. При опублікуванні в GitHub, Ваш Fiddle доступний кожному і все, що потрібно зробити, щоб спробувати Ваш Fiddle - це ввести його в адресний рядок браузера.
     explore: Дослідити Electron

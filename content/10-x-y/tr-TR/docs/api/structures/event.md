@@ -1,3 +1,3 @@
-# Olay nesnesi genişletilir `GlobalOlay`
+# Event Object extends `GlobalEvent`
 
-* `önlemekVarsayılan` GeçersizFonksiyon
+* `preventDefault` VoidFunction

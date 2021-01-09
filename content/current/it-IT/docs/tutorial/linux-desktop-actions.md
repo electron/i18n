@@ -1,12 +1,14 @@
 # Azioni Launcher Desktop Linux Personalizzate
 
-Su molti ambienti Linux, puoi aggiungere voci personalizzate al suo Launcher modificando il file `.desktop`. Per la documentazione Unità canonica, vedi [Aggiungere Shortcut ad un launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). Per dettagli su un'implementazione più generica, vedi la [Specificazione freedesktop.org](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+## Overview
 
-__Shortcut del launcher di Audaious:__
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generalmente parlando, le shortcut sono aggiunte fornendo una proprietà `Nome` ed una `Exec` per ogni voce del menu shortcut. L'unità eseguirà il campo `Exec` una volta cliccato dall'utente. Il formato è come segue:
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
 Azioni=AvviaPausa;Prossimo;Precedente
@@ -27,4 +29,4 @@ Exec=audacious -r
 MostraSoloIn=Unità;
 ```
 
-Il metodo preferito dell'unità di dire alla tua app cosa fare è usare i parametri. Puoi trovarli nella tua app nella variabile glibale `processo.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

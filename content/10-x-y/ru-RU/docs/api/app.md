@@ -2,7 +2,7 @@
 
 > Контролируйте жизненный цикл Вашего приложения.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Этот пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
@@ -27,9 +27,10 @@ app.on('window-all-closed', () => {
 
 Возвращает:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Происходит единожды при завершении инициализации Electron. На macOS `launchInfo` содержит `userInfo` из `NSUserNotification`, которое было использовано для открытия приложения, если оно было запущено из центра уведомлений. Вы также можете вызвать `app.isReady()` для проверки того, что событие уже произошло и `app.whenReady()` чтобы получить Promise, который выполнится, когда Electron будет инициализирован.
 
 ### Событие: 'window-all-closed'
 
@@ -113,7 +114,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфическое для приложения состояние, сохраненное на другом устройстве.
 
-Происходит во время [Handoff][handoff], когда активность с другого устройства хочет возобновиться. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff][handoff], когда активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
 Активность пользователя может быть продолжена только в приложении, которое имеет тот же ID команды разработчика, что и активность исходного приложения, и поддерживает тип активности. Поддерживаемые типы активности, указаны в `Info.plist` приложения под ключом `NSUserActivityTypes`.
 
@@ -154,7 +155,7 @@ Emitted once, when Electron has finished initializing. On macOS, `launchInfo` ho
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff][handoff], когда вот-вот возобновится на другом устройстве. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff][handoff], когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' _macOS_
 
@@ -323,7 +324,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -333,7 +334,7 @@ Emitted when the renderer process unexpectedly dissapears.  This is normally bec
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true`, когда поддержка доступности Chrome включена, иначе `false`.
 
 Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
@@ -365,7 +366,7 @@ app.on('session-created', (session) => {
 
 `argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущая рабочая директория. Обычно приложения реагируют на это, делая их основное окно сфокусированным и развернутым.
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**Примечание:** Если второй экземпляр запускается другим пользователем, массив `argv` не будет содержать аргументы.
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
@@ -388,7 +389,7 @@ app.on('session-created', (session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит, когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -398,7 +399,7 @@ app.on('session-created', (session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -442,7 +443,7 @@ app.on('session-created', (session) => {
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (опиционально)
+* `exitCode` Integer (опционально)
 
 Немедленный выход с помощью `exitCode`. `exitCode` по умолчанию 0.
 
@@ -473,7 +474,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае. See also `app.whenReady()`.
+Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае. См. также `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -528,8 +529,8 @@ Shows application windows after they were hidden. Does not automatically focus t
   * `pictures` каталог пользователя для фотографии.
   * `videos` каталог пользователя для видео.
   * `recent` Directory for the user's recent files (Windows only).
-  * `logs` директория для логов Вашего приложения.
-  * `pepperFlashSystemPlugin` полный путь к системной версии плагина Pepper Flash.
+  * `logs` директория для логов вашего приложения.
+  * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
@@ -692,7 +693,7 @@ This method returns the application name of the default handler for the protocol
 
 Если `categories` - `null`, то ранее установленный пользовательский список переходов (если таковой имеется) будет заменён стандартным списком переходов для приложения (управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается как `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
 **Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **следующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию перед тем, как метод выполнится, приведёт к исключению всей категории из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
@@ -766,7 +767,7 @@ I.e. This method returns `true` if your process is the primary instance of your 
 
 На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
-Пример активации окна первичного экземпляра, при запуске второго экземпляра:
+Пример активации окна единственного экземпляра, при запуске второго экземпляра:
 
 ```javascript
 const { app } = require('electron')
@@ -941,7 +942,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 Возвращает `Object`:
 
-* `openAtLogin` Boolean - `true`, если приложение открывается при входе в систему.
+* `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
 * `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds][mas-builds].
@@ -980,7 +981,7 @@ app.setLoginItemSettings({
 
 ### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
-* `enabled` Boolean - включить или отключить отображение [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
+* `enabled` Boolean - включить или отключить отрисовку [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
 
@@ -1018,7 +1019,7 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` _mas_
 
-* `bookmarkData` String - закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
+* `bookmarkData` String - закодированные в формате base64 данные защищенных закладок, возвращаемые методами `dialog.showOpenDialog` или `dialog.showSaveDialog`.
 
 Возвращает `Function`. Эта функция **должна** быть вызвана после того, как Вам успешно удалось получить доступ к защищенному файлу. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
@@ -1046,7 +1047,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (опционально)
-  * `conflictHandler` Function<Boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках.
+  * `conflictHandler` Function\<Boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках.
     * `conflictType` String - Тип конфликта перемещения, с которым столкнулся обработчик; может быть `exists` или `existsAndRunning`, где `exists` означает, что приложение с тем же именем присутствует в каталоге приложений, а `existsAndRunning` означает, что он существует и работает в данный момент.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1116,9 +1117,9 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+**Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 
 ### `app.commandLine` _Readonly_
 
@@ -1146,7 +1147,7 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 ### `app.allowRendererProcessReuse`
 
-`Boolean`, которое, когда `true`, отключает переопределения, которые Electron имеет на месте, чтобы убедиться, что графические процессы перезапускаются при каждой навигации.  The current default value for this property is `true`.
+`Boolean`, которое, когда `true`, отключает переопределения, которые Electron имеет на месте, чтобы убедиться, что графические процессы перезапускаются при каждой навигации.  Текущее значение по умолчанию для этого свойства - `true`.
 
 Цель заключается в том, чтобы эти переопределения были отключены по умолчанию, а затем, в некоторой точке в будущем, это свойство будет удалено.  Это свойство влияет на то, какие нативные модули можно использовать в графическом процессе.  Для большей информации о том, как Electron перезапускает графический процесс и использует нативные модули в графическом процессе, пожалуйста, проверьте этот [отслеживаемый вопрос](https://github.com/electron/electron/issues/18397).
 

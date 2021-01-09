@@ -116,13 +116,13 @@ child.once('ready-to-show', () => {
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional)
+* `options` Object (可选)
   * `width` Integer (可选) - 窗口的宽度(以像素为宽度)。 默认值为 `800`
   * `height` Integer (可选) - 窗口的高度(以像素为单位)。 默认值为 `600`
   * `x` Interger (可选) - (**必选** 如果使用了y) 窗口相对于屏幕左侧的偏移量。 默认值为将窗口居中。
   * `y` Integer (可选) - (**必选** 如果使用了x) 窗口相对于屏幕顶端的偏移量。 默认值为将窗口居中。
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
-  * `center` Boolean (可选) - 窗口在屏幕居中.
+  * `center` Boolean (可选) - 窗口是否在屏幕居中.
   * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
   * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
@@ -153,9 +153,13 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. 默认值为 `true`。
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - 强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 `false`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
@@ -305,7 +309,7 @@ Emitted when the window is closed. After you have received this event you should
 
 #### 事件: 'ready-to-show'
 
-当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
@@ -501,7 +505,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* `name` 字符串
+* `name` String
 
 根据名字删除一个 Chrome 的扩展。
 
@@ -533,7 +537,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* `name` 字符串
+* `name` String
 
 根据名字删除一个 DevTools 的扩展。
 
@@ -1138,7 +1142,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
@@ -1178,7 +1182,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (可选)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
@@ -1204,7 +1208,7 @@ Remove the window's menu bar.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional)
+* `options` Object (可选)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1289,7 +1293,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* `选项` 对象
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 默认值为 `0`
@@ -1340,9 +1344,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (可选)
+  * `visibleOnFullScreen` Boolean (可选) _macOS_ - 设置是否窗口可以在全屏窗口之上显示。
 
 设置窗口是否在所有工作空间上可见
 
@@ -1357,7 +1363,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Object (optional)
+* `options` Object (可选)
   * `forward` Boolean (可选) _macOS_ _Windows_ - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
@@ -1450,7 +1456,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _实验_
 

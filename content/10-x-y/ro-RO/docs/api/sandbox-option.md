@@ -107,11 +107,11 @@ Currently the `require` function provided in the preload scope exposes the follo
 
 - `electron`
   - `crashReporter`
-  - `desktopCapturer-capturareaDesktop-ului`
+  - `desktopCapturer`
   - `ipcRenderer`
-  - `nativeImage-ImagineNativă`
-  - `remote-de la distanță`
-  - `webFrame-cadruWeb`
+  - `nativeImage`
+  - `remote`
+  - `webFrame`
 - `events`
 - `timers`
 - `url`

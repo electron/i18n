@@ -12,12 +12,12 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 幾度となく、パフォーマンスの高い Electron アプリを構築するための最も成功した戦略は、実行中のコードのプロファイルを作成し、その中で最もリソースを消費する部分を見つけ、最適化することであることがわかりました。 この一見面倒なプロセスを何度も繰り返すと、アプリのパフォーマンスは劇的に向上します。 Visual Studio Code や Slack などの主要なアプリで使用された経験から、この方法がパフォーマンスを向上させる最も信頼できる戦略であることが示されています。
 
-アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) tool.
+アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 複数のプロセスを同時に見て高度に分析するには、[Chrome Trace](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) ツールをご検討ください。
 
 ### 推薦図書
 
- * [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## チェックリスト
 
@@ -49,7 +49,8 @@ Node.js モジュールをアプリケーションに追加する前に、その
 
 モジュールを検討するときは、以下を確認することを推奨します。
 
-1. 依存関係のサイズ。2) のロードに必要なリソース (` require()`) も含まれます。
+1. 含まれる依存関係のサイズ
+2. ロード (`require()`) に必要なリソース
 3. 関心のあるアクションを実行するために必要なリソース
 
 モジュールをロードするときの CPU プロファイルとヒープメモリプロファイルの生成は、コマンドライン上の 1 つのコマンドで実行できます。 以下の例では、人気のあるモジュール `request` を見ていきます。
@@ -162,7 +163,6 @@ Electron の強力なマルチプロセスアーキテクチャは、長時間�
 
 3) メインプロセスでブロックする I/O 操作の使用を避けてください。 要するに、コア Node.js モジュール (`fs` や `child_process` など) が同期バージョンと非同期バージョンを提供している場合は、常に非同期および非ブロッキングのものを選択するべきです。
 
-
 ## 4) レンダラープロセスをブロックしている
 
 Electron には Chrome の最新バージョンが同梱されているため、Web Platform が提供する最新で最良の機能を利用して、アプリをスムーズかつ応答性の良いように維持する手法で重い操作を後回しまたはオフロードできます。
@@ -180,7 +180,6 @@ Electron には Chrome の最新バージョンが同梱されているため、
 *`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
 *Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
-
 
 ## 5) 不要な polyfill
 
@@ -202,14 +201,13 @@ Electron の現在のバージョンへの ployfill は不要であるという�
 
 TypeScript などのトランスパイラー/コンパイラを使用している場合は、その構成を調べて、Electron でサポートされている最新の ECMAScript バージョンをターゲットにしていることを確認してください。
 
-
 ## 6) 不要またはブロックしているネットワークリクエスト
 
 めったに変更されないリソースをアプリケーションへ簡単にバンドルできる場合は、インターネットから取得しないでください。
 
 ### なぜ？
 
-Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
+Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 今、あなたは適切なデスクトップアプリケーションを頒布しているのですから、可能な限り「ネットを切り捨てる」ようにして、決して変更されずアプリへ簡単に同梱できそうなリソースのためにユーザーを待たせないようにしましょう。
 
 Google Fonts は典型例です。 多くの開発者は、コンテンツ配信ネットワークに付属する Google の印象的な無料フォントのコレクションを利用しています。 行程は簡単です。CSS に数行を含めると、Google が残りを処理します。
 

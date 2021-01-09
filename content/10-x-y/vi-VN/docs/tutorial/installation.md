@@ -30,7 +30,7 @@ In addition to changing the architecture, you can also specify the platform (e.g
 npm install --platform=win32 electron
 ```
 
-## Proxy
+## Proxies
 
 If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
@@ -105,7 +105,7 @@ When installing the `electron` NPM package, it automatically downloads the elect
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ví dụ.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```

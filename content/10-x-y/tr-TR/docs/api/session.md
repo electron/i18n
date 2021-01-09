@@ -2,7 +2,7 @@
 
 > Tarayıcı oturumları, çerezler, önbellek, proxy ayarlarını, vb. yönetin.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 `oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Yöntemler
+## Metodlar
 
 `oturum` modülü aşağıdaki yöntemleri içerir:
 
@@ -46,7 +46,7 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 > Bir oturumun özelliklerini alın ve ayarlayın.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 `oturum` modülünde bir `Oturum` nesnesi oluşturabilirsiniz:
 
@@ -56,15 +56,15 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Örnek Olaylar
+### Örnek Events
 
 Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Etkinlik: 'indirilecek'
 
-Returns:
+Dönüşler:
 
-* `olay` Olay
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [webİçerikleri](web-contents.md)
 
@@ -96,7 +96,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -105,7 +105,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
@@ -114,7 +114,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
@@ -123,12 +123,12 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Sınıf örneği metodları
+### Örnek yöntemleri
 
 Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
@@ -273,7 +273,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
     * `errorCode` Tamsayı - Hata kodu.
-  * `callback` Function
+  * `callback` Fonksiyon
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir.
       * `0` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
@@ -302,7 +302,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function
+  * `callback` Fonksiyon
     * `permissionGranted` Boolean - İzin verme veya reddetme.
   * `details` Object - Some properties are only available on certain permission types.
     * `externalURL` String (optional) - The url of the `openExternal` request.
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -397,7 +397,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* `url` Dize
+* `url` String
 
 Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
@@ -526,7 +526,7 @@ Returns `Extension[]` - A list of all loaded extensions.
 
 **Note:** BU API  `hazır` olayı  `app` modülü yayılmadan çağrılamaz.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 

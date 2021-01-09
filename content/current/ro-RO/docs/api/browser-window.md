@@ -34,9 +34,9 @@ La încărcarea directă în fereastra unei pagini, utilizatorii pot să vadă p
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
-win.once('ready-to-show',() => {
-win.show()
+const win = new BrowserWindow({ show: false })
+win.once('ready-to-show', () => {
+  win.show()
 })
 ```
 
@@ -51,7 +51,7 @@ Pentru o app- aplicație mai complexă, evenimentul `ready-to-show` poate fi emi
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -64,8 +64,8 @@ Folosind opțiunea `parent`, poți să creezi ferestre copii:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -79,7 +79,7 @@ O fereastră modală este o fereastră copil care dezactivează fereastra părin
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -153,9 +153,13 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. Modul implicit este `true-adevărat`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. Modul implicit este `false-fals`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Modul implicit este `false-fals`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Modul implicit este `false-fals`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Valorile posibile sunt:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Valorile posibile sunt:
     * `default-modul implicit` - Bara titlului în standard-ul opac gri al Mac.
     * `hidden-ascuns` - Rezultă într-o bară de titlu ascunsă și într-o fereastră de conținut de dimensiuni complete, dar totuși bara titlului deține controlul standard al ferestrei ("traffic lights") în partea stângă din partea de sus.
@@ -174,7 +178,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `nodeIntegrationInSubFrames` Boolean (opțional) - Opțiune experimentală pentru a activa suportul Node.js în sub-cadre ca și iframes și ferestre copil. Toate preîncărcarile tale se vor încărca pentru toate iframe-urile, poți utiliza`process.isMainFrame` pentru a determina dacă esti în cadrul principal sau nu.
     * `preload-preîncărcare` String (opțional) - Specifică un scenariu care va fi încărcat înaintea altor scenarii ce aleargă deja în pagină. Acest scenariu va avea mereu acces la nodul API, chiar dacă integrarea nodului este pornită sau nu. Valoarea ar trebui să fie calea absolută a fișierului pentru scenariu. Când integrarea nodurilor este oprită, preîncărcarea scenariului poate reintroduce un simbol global Nod înapoi în scopul global. Vezi exemplul [ aici](process.md#event-loaded).
     * `sandbox` Boolean (opțional) - Dacă set- setează, acest lucru va face ca sandbox-cutie de nisip să redea asociarea cu fereastra, facând-o compatibilă cu Chromium OS-nivel sandbox și dezabilitând motorul Node.js. Acesta nu este la fel ca opțiunea `nodeIntegration` iar API-urile disponibile la preîncărcarea scenariului este limitată. Citește mai multe despre opțiune [aici](sandbox-option.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Modul implicit este `true-adevărat`.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Modul implicit este `false-fals`.
     * `session` [Session-Sesiune](session.md#class-session)(opțional) - Setează sesiunea utilizată de pagină. În loc să trimiți direct obiectul Session-Sesiune, poți alege să folosești în loc opțiunea `partition`, care acceptă o partiție a șirului. Atunci când sunt obținute`session-sesiune<code> și <code>partition-partiție`, <0>session</code> va fi cel preferat. Modul implicit este modul implicit al sesiunii.
     * `partition` String(opțional)- Setează sesiunea utilizată de pagină în conformitate cu partiția șirului sesiunii. Dacă `partition` începe cu `persist:`, pagina va utiliza o sesiune persistentă valabilă tuturor paginilor din interiorul aplicației cu aceași`partitio-partiție`. Dacă nu există prefixul `persist:`, pagina va folosi o sesiune în-memorie. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. Modul implicit este modul implicit al sesiunii.
     * `affinity` String(opțional) - Când este specificată, paginile cu aceeași`affinity-afinitate` vor rula în același proces de redare. Notează că odată reutilizat procesul de redare, anumite opțiuni `webPreferences-PreferințeWeb` vor fi afișate între paginile web chiar dacă ai specificat valori diferite pentru fiecare, inclusiv dar fară limită la `preload`, `sandbox` și `nodeIntegration`. Așa că este preferabil să utilizezi aceleași `webPreferences-PreferințeWeb` pentru toate paginile cu aceași `affinity-afinitate`. _Deprecated_
@@ -257,7 +261,7 @@ Returns:
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. De exemplu:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -341,6 +345,12 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
 Returns:
@@ -356,11 +366,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -400,7 +410,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
@@ -458,6 +468,17 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
+#### Event: 'system-context-menu' _Windows_
+
+Returns:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
+
 ### Metode Statice
 
 The `BrowserWindow` class has the following static methods:
@@ -486,7 +507,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -551,7 +572,7 @@ To check if a DevTools extension is installed you can run the following:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -566,7 +587,7 @@ Objects created with `new BrowserWindow` have the following properties:
 ```javascript
 const { BrowserWindow } = require('electron')
 // In this example `win` is our instance
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1037,13 +1058,13 @@ Returns `String` - The title of the native window.
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. De exemplu:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1155,7 +1176,7 @@ The `url` can be a remote address (e.g. `http://`) or a path to a local HTML fil
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1341,9 +1362,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Sets whether the window should be visible on all workspaces.
 
@@ -1445,7 +1468,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_
 
 * `touchBar` TouchBar | null
 

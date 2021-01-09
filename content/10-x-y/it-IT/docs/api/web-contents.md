@@ -215,7 +215,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Restituiti:
+Restituisce:
 
 * `event` Event
 * `url` Stringa
@@ -305,7 +305,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Restituisce:
 
 * `event` Event
-* `ucciso` Booleano
+* `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
@@ -323,7 +323,7 @@ Restituisce:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -410,29 +410,29 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificato-errore'
+#### Evento: 'certificate-error'
 
 Restituisce:
 
 * `event` Event
 * `url` Stringa
 * `errore` Stringa - Il codice d'errore.
-* `certificato` [Certificato](structures/certificate.md)
-* `callback` Funzione
+* `certificate` [Certificato](structures/certificate.md)
+* `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'selezione-certificato-client'
+#### Evento: 'select-client-certificate'
 
 Restituisce:
 
 * `event` Event
 * `url` URL
-* `Listacertificati` [Certificati[]](structures/certificate.md)
-* `callback` Funzione
+* `certificateList` [Certificate[]](structures/certificate.md)
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emesso quando un certificato client è richiesto.
@@ -452,7 +452,7 @@ Restituisce:
   * `ospite` Stringa
   * `porta` Numero Intero
   * `regno` Stringa
-* `callback` Funzione
+* `callback` Function
   * `username` String (opzionale)
   * `password` String (opzionale)
 
@@ -568,7 +568,7 @@ Restituisce:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Funzione
+* `callback` Function
   * `deviceId` Stringa
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -660,7 +660,7 @@ Restituisce:
 
 * `event` Event
 * `preloadPath` String
-* `errore` Errore
+* `error` Error
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
@@ -927,7 +927,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `code` Stringa
+* `codice` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -1147,7 +1147,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `silent` Boolean (optional) - Don't ask user for print settings. Di default è `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Di default è `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Di default `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Il valore predefinito è `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -1159,9 +1159,9 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1198,8 +1198,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -1426,7 +1426,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
@@ -1502,7 +1502,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Funzione
+* `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1573,7 +1573,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
@@ -1653,7 +1653,7 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
 Only applicable if *offscreen rendering* is enabled.
 

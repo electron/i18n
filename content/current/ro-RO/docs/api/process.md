@@ -50,7 +50,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Proprietăți
 
 ### `process.defaultApp` _Readonly_
 
@@ -93,7 +93,11 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+A `String` representing the current process's type, can be:
+
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Readonly_
 

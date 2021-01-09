@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'Progetto della settimana: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+Questa settimana abbiamo incontrato [Aprile Elcich](https://twitter.com/aprileelcich) e [Paolo Fragomeni](https://twitter.com/0x00A) per parlare di Voltra, un musicista elettronico.
 
 ---
 
-## What is Voltra?
+## Che cos’è Voltra?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Voltra](https://voltra.co/) è un lettore musicale per le persone che vogliono possedere la loro musica. E 'anche un negozio dove è possibile scoprire e acquistare nuova musica in base a quello che già possiedi. E 'senza pubblicità, cross-piattaforma per desktop e mobile. Inoltre non ti spia.
 
 [![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Per chi è Voltra?
 
-Anyone who listens to music.
+Chiunque ascolti la musica.
 
-## What motivated you to create Voltra?
+## Cosa ti ha motivato a creare Voltra?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+Radio ha sempre avuto una grande parte di ascoltatori. Si sta muovendo fuori dalle onde aeree e su Internet. Ora puoi noleggiare musica su richiesta — è un risveglio radio! Per questo motivo sono emersi molti nuovi prodotti e servizi, ma la radio in streaming lascia ancora qualcun altro nel controllo della tua musica e come la sperimenti.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+Volevamo un prodotto che si concentrasse interamente sulla musica che possiedi. Qualcosa che ha reso facile scoprire e acquistare nuova musica direttamente da artisti o etichette.
 
-## Is there a free version?
+## C'è una versione gratuita?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+Il lettore desktop è completamente gratuito. [Vendere la tua musica è anche gratuito!](https://voltra.co/artists) Non siamo supportati dalla pubblicità.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+Dal momento che l'app è gratuita, possiamo open source più tardi. In questo momento non abbiamo la larghezza di banda per gestirlo. Abbiamo anche idee molto specifiche per le caratteristiche e la direzione che vogliamo prendere le cose. Abbiamo una comunità beta attiva e prendiamo a cuore il nostro feedback.
 
-## How do you make money?
+## Come fai dei soldi?
 
-We have premium features!
+Abbiamo funzionalità premium!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+Il nostro [Voltra Audio Archive](https://voltra.co/premium/) è un servizio di backup cloud progettato appositamente per la musica. Non comprimiamo o condividiamo blocchi di dati. La tua collezione musicale è stata salvata fisicamente per te.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+Per gli artisti e le etichette, il nostro [Pro Membership](https://voltra.co/artists/pro) offre strumenti per aiutarli a raggiungere un pubblico più rilevante, come le pagine web di analisi e artisti professionali.
 
-## What makes Voltra different?
+## Cosa rende Voltra diverso?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+Design e usabilità sono incredibilmente importanti per noi. Vogliamo dare agli ascoltatori un'esperienza di ascolto senza distrazioni! Ci sono alcuni interessanti lettori musicali e negozi là fuori. Ma molti di loro sono più avanzati e più difficili da usare di quanto i loro creatori realizzano. Vogliamo rendere Voltra accessibile a quante più persone possibile.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+Non prendiamo nemmeno un taglio dall'artista o dall'etichetta. Questo è un differenziatore chiave per noi. E 'davvero importante perché abbassa la barriera per gli artisti per ottenere la loro musica sul mercato.
 
-## What are some design & technical decisions you made?
+## Quali sono alcuni design & decisioni tecniche che hai preso?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+Durante la progettazione di Voltra, abbiamo considerato convenzioni UI da applicazioni native e il web, abbiamo anche pensato molto a quello che potremmo rimuovere. Abbiamo un gruppo beta privato attivo che ci ha dato un feedback critico negli ultimi mesi.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+Abbiamo scoperto che l'arte dell'album e la fotografia sono davvero importanti per la gente. Molti giocatori sono solo elenchi di file. Una delle cose interessanti del possedere gli album fisici è l'arte dell'album, e abbiamo voluto mettere l'accento su questo nell'app Voltra desktop.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+Abbiamo anche fatto in modo di non pasticciare con i file delle persone. Usiamo il file watching in modo da poter mettere i file dove vuoi, e non rinominarli o spostarli per te. Abbiamo un database incorporato per monitorare lo stato delle directory guardate in modo da poter tracciare ciò che è nuovo, anche quando il processo non è in esecuzione.
 
-## What are some challenges you've faced while building Voltra?
+## Quali sono alcune sfide che hai affrontato durante la costruzione di Voltra?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+Passiamo un sacco di tempo focalizzato sulle prestazioni. Abbiamo iniziato con i frameworks ma spostato in vaniglia Javascript. Nella nostra esperienza, le astrazioni generalizzate che forniscono superano le penalità di prestazione e la cerimonia che introdurranno.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+Gestiamo le collezioni molto grandi abbastanza bene a questo punto. Grandi collezioni significa forse decine di migliaia di immagini! Avendo Node. ’ modulo di file system direttamente disponibile dal processo di rendering ha reso davvero facile per il carico pigro e scaricare un sacco di immagini super rapidamente in base agli eventi DOM.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+In generale *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* e *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* sono stati strumenti super importanti per eseguire un sacco di elaborazione mantenendo l'interfaccia utente reattiva. Più specificamente, distribuire le attività legate alla CPU in processi separati aiuta davvero a mantenere l'interfaccia utente reattiva. Ad esempio, abbiamo spostato il contesto audio effettivo in un processo separato, comunicando con esso oltre [IPC](https://electronjs.org/docs/glossary/#ipc) per evitare potenziali interruzioni da un'interfaccia utente occupata.
 
-## Why did you choose to build Voltra on Electron?
+## Perché hai scelto di costruire Voltra su Electron?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+La sandbox del browser è troppo limitata per la nostra app. Ma stiamo anche sviluppando un web player. Quindi è una grande vittoria che possiamo condividere quasi il 100% del codice tra le due implementazioni.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+In realtà abbiamo iniziato costruendo un'app nativa con Swift. Il problema principale che abbiamo trovato era che stavamo reinventando un sacco di cose. Il web ha il più grande ecosistema open source al mondo. Quindi siamo passati abbastanza rapidamente a Electron.
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+Inoltre, e soprattutto, con Electron si sviluppa una volta e dovrebbe solo WorkTM su tutte le principali piattaforme. Non è garantito, ma il costo della codifica nativamente per ogni piattaforma supera sicuramente qualsiasi altro costo che l'elettrone introduce.
 
-## What are your favorite things about Electron?
+## Quali sono le tue cose preferite di Electron?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: Avendo Node.js’ stack di rete e lo strato di presentazione di Chromium confezionato insieme è una ricetta per ottenere le cose fatte.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**Competenza**: È solo lo stack web, quindi letteralmente tutto il nostro team è coinvolto nella costruzione del prodotto.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**Community**: C'è una comunità altamente organizzata che sa comunicare davvero bene! Ci sentiamo abbastanza grandi di sviluppare con supporto come questo.
 
-## In what areas could Electron be improved?
+## In quali settori si potrebbe migliorare Electron?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+Vorremmo che Electron approvasse un unico pacchetto. Il packager è importante per Electron ciò che il gestore dei pacchetti è Node. Ci sono più packager nella terra degli utenti, ognuno con caratteristiche interessanti ma ciascuno con bug. Il consenso della comunità contribuirebbe a orientare l'energia spesa dai contribuenti.
 
-## What's coming next?
+## Cosa succederà?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+Attualmente stiamo sviluppando un’app per dispositivi mobili, e stiamo lavorando con artisti ed etichette per aggiungere la loro musica al negozio di Voltra. Ehi! Se sei un artista o un'etichetta, [iscriviti ora](https://admin.voltra.co/signup)! Abbiamo in programma di aprire il negozio quando raggiungeremo il nostro obiettivo di 10 milioni di piste.
 

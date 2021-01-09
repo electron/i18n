@@ -135,7 +135,7 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -151,7 +151,7 @@ Returns an object with V8 heap statistics. Nota che tutte le statistiche sono ri
 
 ### `process.getBlinkMemoryInfo()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -169,7 +169,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `process.getSystemMemoryInfo()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.

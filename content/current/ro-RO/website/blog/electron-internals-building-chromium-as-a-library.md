@@ -1,84 +1,84 @@
 ---
-title: 'Electron Internals: Building Chromium as a Library'
+title: 'Electron Internals: Construirea cromului ca o bibliotecă'
 author: zcbenz
 date: '2017-03-03'
 ---
 
-Electron is based on Google's open-source Chromium, a project that is not necessarily designed to be used by other projects. This post introduces how Chromium is built as a library for Electron's use, and how the build system has evolved over the years.
+Electron este bazat pe Chromium Google open-source, un proiect care nu este neapărat proiectat pentru a fi folosit de alte proiecte. Această postare prezintă modul în care Chromium este construit ca o bibliotecă pentru utilizarea Electron și cum sistemul de construcție a evoluat de-a lungul anilor.
 
 ---
 
-## Using CEF
+## Folosind CEF
 
-The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
+Chromium Embedded Framework (CEF) este un proiect care transformă Chromium în bibliotecă şi oferă API stabile bazate pe codul Chromium. Foarte versiunile timpurii ale editorului Atom și NW.js au folosit CEF.
 
-To maintain a stable API, CEF hides all the details of Chromium and wraps Chromium's APIs with its own interface. So when we needed to access underlying Chromium APIs, like integrating Node.js into web pages, the advantages of CEF became blockers.
+Pentru a menţine un API stabil, CEF ascunde toate detaliile Chromium şi înfăşoară API-urile lui Chromium cu propria sa interfaţă. Aşa că atunci când trebuia să accesăm API-uri Chromium subiacente, cum ar fi integrarea Node.js în paginile web, avantajele ale CEF au devenit blocante.
 
-So in the end both Electron and NW.js switched to using Chromium's APIs directly.
+Deci în final, atât Electron cât şi NW.js au trecut la folosirea API-ului Chromium direct.
 
-## Building as part of Chromium
+## Construirea ca parte din Crom
 
-Even though Chromium does not officially support outside projects, the codebase is modular and it is easy to build a minimal browser based on Chromium. The core module providing the browser interface is called Content Module.
+Chiar dacă Chromium nu sprijină în mod oficial proiectele din afară, codebaza este modulară şi este uşor să construieşti un browser minim bazat pe Chromium. Modulul de bază care furnizează interfața browser-ului se numește Modulul de conținut.
 
-To develop a project with Content Module, the easiest way is to build the project as part of Chromium. This can be done by first checking out Chromium's source code, and then adding the project to Chromium's `DEPS` file.
+Pentru a dezvolta un proiect cu modulul de conținut, cea mai ușoară cale este să construiești proiectul ca parte a Chromium. Acest lucru poate fi realizat mai întâi prin verificarea codului sursă Chromium, şi apoi prin adăugarea proiectului la fişierul `DEPS` al Chromium.
 
-NW.js and very early versions of Electron are using this way for building.
+NW.js și versiunile timpurii de Electron folosesc acest mod pentru construire.
 
-The downside is, Chromium is a very large codebase and requires very powerful machines to build. For normal laptops, that can take more than 5 hours. So this greatly impacts the number of developers that can contribute to the project, and it also makes development slower.
+Partea negativă este, Chromium este un codebază foarte mare şi necesită maşini foarte puternice pentru construcţie. Pentru laptop-uri normale, care pot dura mai mult de 5 ore. Deci acest lucru are un impact major asupra numărului de dezvoltatori care pot contribui la proiectul și, de asemenea, face dezvoltarea mai lentă.
 
-## Building Chromium as a single shared library
+## Construind Chromium ca o singură bibliotecă comună
 
-As a user of Content Module, Electron does not need to modify Chromium's code under most cases, so an obvious way to improve the building of Electron is to build Chromium as a shared library, and then link with it in Electron. In this way developers no longer need to build all off Chromium when contributing to Electron.
+Ca utilizator al modulului de conținut, Electron nu trebuie să modifice codul Chromium în cele mai multe cazuri, astfel încât un mod evident de a îmbunătăţi clădirea Electron este să construieşti Chromium ca o bibliotecă comună, și apoi conectați cu ea în Electron. În acest mod dezvoltatorii nu mai trebuie să construiască toate de pe Chromium atunci când contribuie la Electron.
 
-The [libchromiumcontent](https://github.com/electron/libchromiumcontent) project was created by [@aroben](https://github.com/aroben) for this purpose. It builds the Content Module of Chromium as a shared library, and then provides Chromium's headers and prebuilt binaries for download. The code of the initial version of libchromiumcontent can be found [in this link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+Proiectul [libchromiumcontent](https://github.com/electron/libchromiumcontent) a fost creat de [@aroben](https://github.com/aroben) în acest scop. Acesta construiește Conținutul Modulul Chromium ca o bibliotecă partajată, apoi oferă antetele Chromiumului și binarele preconstruite pentru descărcare. Codul versiunii iniţiale a libchromiumcontent poate fi găsit [în acest link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
 
-The [brightray](https://github.com/electron/brightray) project was also born as part of libchromiumcontent, which provides a thin layer around Content Module.
+Proiectul [strălucitor](https://github.com/electron/brightray) a fost de asemenea născut ca parte a libchromiumcontent, care oferă un strat subţire în jurul modulului de conţinut.
 
-By using libchromiumcontent and brightray together, developers can quickly build a browser without getting into the details of building Chromium. And it removes the requirement of a fast network and powerful machine for building the project.
+Folosind libchromiumcontent și brightray împreună, dezvoltatorii pot construi rapid un browser fără a intra în detaliile construirii Chromium. Și elimină cerința unei rețele rapide și a unei mașini puternice pentru construirea proiectului.
 
-Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
+În afară de Electron, au fost construite și alte proiecte bazate pe Chromium în acest mod, cum ar fi browser-ul [Întunecat](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
-## Filtering exported symbols
+## Filtrare simboluri exportate
 
-On Windows there is a limitation of how many symbols one shared library can export. As the codebase of Chromium grew, the number of symbols exported in libchromiumcontent soon exceeded the limitation.
+Pe Windows există o limitare a numărului de simboluri pe care le poate exporta o bibliotecă partajată. Deoarece codebaza Chromium a crescut, numărul de simboluri exportate în libchromiumcontent a depăşit rapid limitarea.
 
-The solution was to filter out unneeded symbols when generating the DLL file. It worked by [providing a `.def` file to the linker](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), and then using a script to [judge whether symbols under a namespace should be exported](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
+Soluţia a fost să filtreze simbolurile innecesare la generarea fişierului DLL. A lucrat cu [furnizând un `. ef` fișier către link-ul](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), şi apoi folosind un script pentru [judecaţi dacă simbolurile sub un spaţiu de nume ar trebui exportate](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
 
-By taking this approach, though Chromium kept adding new exported symbols, libchromiumcontent could still generate shared library files by stripping more symbols.
+Luând această abordare, Chromium a continuat să adauge noi simboluri exportate, libchromiumcontent poate genera în continuare fișiere librării partajate prin decaparea mai multor simboluri .
 
-## Component build
+## Componenta construită
 
-Before talking about the next steps taken in libchromiumcontent, it is important to introduce the concept of component build in Chromium first.
+Înainte de a vorbi despre următorii paşi făcuţi în libchromiumcontent, este important să introduci mai întâi conceptul de componentă construită în Chromium.
 
-As a huge project, the linking step takes very long in Chromium when building. Normally when a developer makes a small change, it can take 10 minutes to see the final output. To solve this, Chromium introduced component build, which builds each module in Chromium as separated shared libraries, so the time spent in the final linking step becomes unnoticeable.
+Ca un proiect uriaş, pasul de legătură durează foarte mult în Chromium atunci când se construieşte. În mod normal când un dezvoltator face o mică schimbare, poate dura 10 minute pentru a vedea rezultatul final. Pentru a rezolva acest lucru, Chromium a introdus componenta construită, care construieşte fiecare modul în Chromium ca şi biblioteci partajate separate, astfel încât timpul petrecut în pasul final de legătură să devină neobservabil.
 
-## Shipping raw binaries
+## Livrare binare brute
 
-With Chromium continuing to grow, there were so many exported symbols in Chromium that even the symbols of Content Module and Webkit were more than the limitation. It was impossible to generate a usable shared library by simply stripping symbols.
+Cu cromul care continuă să crească, au fost atât de multe simboluri exportate în Chromium încât chiar şi simbolurile modulului de conţinut şi ale setului Webkit au fost mai mult decât limita . A fost imposibil să se genereze o bibliotecă comună utilizabilă doar simboluri decongelate.
 
-In the end, we had to [ship the raw binaries of Chromium](https://github.com/electron/libchromiumcontent/pull/98) instead of generating a single shared library.
+În final, a trebuit să [livrăm binarele brut al Chromium](https://github.com/electron/libchromiumcontent/pull/98) în loc de generând o singură bibliotecă comună.
 
-As introduced earlier there are two build modes in Chromium. As a result of shipping raw binaries, we have to ship two different distributions of binaries in libchromiumcontent. One is called `static_library` build, which includes all static libraries of each module generated by the normal build of Chromium. The other is `shared_library`, which includes all shared libraries of each module generated by the component build.
+La fel ca mai devreme, există două moduri de construcţie în Chromium. Ca urmare a expedierii de binari neprelucrați, trebuie să livrăm două distribuții diferite de binare în libchromiumcontent. Unul se numește `static_library` construit, care include toate bibliotecile statice ale fiecărui modul generate de construirea normală a Chromium. Cealaltă este `shared_library`, care include toate bibliotecile partajate ale fiecărui modul generate de componenta construită.
 
-In Electron, the Debug version is linked with the `shared_library` version of libchromiumcontent, because it is small to download and takes little time when linking the final executable. And the Release version of Electron is linked with the `static_library` version of libchromiumcontent, so the compiler can generate full symbols which are important for debugging, and the linker can do much better optimization since it knows which object files are needed and which are not.
+În Electron, versiunea de Debug este conectată cu versiunea `shared_library` a libchromiumcontent, pentru că este mic să descarci și durează puțin atunci când se leagă executabilul final. Iar versiunea de lansare a Electron este legată de versiunea `static_library` a libchromiumcontent, astfel încât compilatorul să poată genera simboluri complete care sunt importante pentru depanare, iar linkerul poate optimiza mult mai bine deoarece știe care obiect sunt fișierele necesare și care nu.
 
-So for normal development, developers only need to build the Debug version, which does not require a good network or powerful machine. Though the Release version then requires much better hardware to build, it can generate better optimized binaries.
+Pentru dezvoltarea normală, dezvoltatorii trebuie doar să construiască versiunea Debug, care nu necesită o rețea bună sau o mașină puternică. Deși versiunea de lansare necesită hardware mult mai bun pentru a construi, poate genera binare optimizate.
 
-## The `gn` update
+## Actualizarea `gn`
 
-Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
+Fiind unul dintre cele mai mari proiecte din lume, cele mai normale sisteme nu sunt potrivite pentru construirea Chromium, iar echipa de Chromium dezvoltă propriile lor unelte .
 
-Earlier versions of Chromium were using `gyp` as a build system, but it suffers from being slow, and its configuration file becomes hard to understand for complex projects. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
+Versiunile anterioare de Chromium foloseau `gyp` ca un sistem de construcţii, dar suferă din cauza încetinirii, şi fişierul de configurare devine greu de înţeles pentru proiectele complexe . După ani de dezvoltare, Chromium a trecut la `gn` ca sistem de construcții, care este mult mai rapid și are o arhitectură clară.
 
-One of the improvements of `gn` is to introduce `source_set`, which represents a group of object files. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. By using `gn`, each module now only generates a bunch of object files, and the final executable just links all the object files together, so the intermediate static library files are no longer generated.
+Una dintre îmbunătățirile aduse de `gn` este de a introduce `source_set`, care reprezintă un grup de fișiere de obiecte. În `gyp`, fiecare modul a fost reprezentat fie de `static_library` fie `shared_library`, și pentru construirea normală a Chromium, fiecare modul a generat o bibliotecă statică și au fost conectate împreună în executabilul final. Folosind `gn`, fiecare modul acum generează doar o grămadă de fișiere obiecte, și executabilul final doar conectează toate fișierele obiectului, astfel încât fișierele bibliotecii statice intermediare să nu mai fie generate.
 
-This improvement however made great trouble to libchromiumcontent, because the intermediate static library files were actually needed by libchromiumcontent.
+Cu toate acestea, această îmbunătăţire a făcut mari probleme la libchromiumcontent, pentru că fişierele cu bibliotecă statică intermediară au fost de fapt necesare din cauza libchromiumcontent.
 
-The first try to solve this was to [patch `gn` to generate static library files](https://github.com/electron/libchromiumcontent/pull/239), which solved the problem, but was far from a decent solution.
+Prima încercare de a rezolva aceasta a fost de a [patch `gn` pentru a genera fișiere librăriei statice](https://github.com/electron/libchromiumcontent/pull/239), care a rezolvat problema, dar nu a fost nici pe departe o soluție decentă .
 
-The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files](https://github.com/electron/libchromiumcontent/pull/249). It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
+A doua încercare a fost făcută de [@alespergl](https://github.com/alespergl) pentru a [produce biblioteci statice personalizate din lista fișierelor obiectului](https://github.com/electron/libchromiumcontent/pull/249). A folosit un truc pentru a rula mai întâi o construcție fictivă pentru a colecta o listă de fișiere de obiect generate, și apoi să construiești bibliotecile statice hrănind `gn` cu lista. A făcut doar schimbări minime în codul sursă al Chromium, şi a păstrat încă arhitectura clădirii Electron.
 
 ## Summary
 
-As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
+După cum vedeți, în comparație cu construirea Electron ca parte din Chromium, construirea Crom ca o bibliotecă face eforturi mai mari și necesită întreținere continuă. Cu toate acestea, cel din urmă elimină cerinţa hardware-ului puternic pentru a construi Electron, permițând astfel unei game mult mai largi de dezvoltatori să construiască și să contribuie la Electron. Efortul merită în totalitate.
 

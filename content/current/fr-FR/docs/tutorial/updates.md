@@ -4,7 +4,7 @@ Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus
 
 ## Utilisation de `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. Ce service est conçu pour les applications Electron répondant aux critères suivant:
+L'équipe d'Electron maintient [update.electronjs.org](https://github.com/electron/update.electronjs.org), un webservice gratuit et open-source que les applications Electron peuvent utiliser pour se mettre à jour automatiquement. Ce service est conçu pour les applications Electron répondant aux critères suivant:
 
 - L'application tourne sous macOs ou Windows
 - L'application a un répertoire GitHub public
@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Comme dernière étape, vérifiez les mises à jour. L'exemple ci-dessous vérifiera chaque minute:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Assurez-vous également que les erreurs sont [gérées](../api/auto-updater.md#event-error). Voici un exemple pour les renvoyer sur `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
@@ -98,6 +98,6 @@ autoUpdater.on('error', message => {
 })
 ```
 
-## Handing Updates Manually
+## Gestion manuelle des mises à jour
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Parce que les requêtes faites par la mise à jour automatique ne sont pas sous votre contrôle direct, vous pouvez trouver des situations difficiles à gérer (comme si le serveur de mise à jour est derrière l'authentification). Le champ `url` supporte les fichiers, ce qui signifie qu'avec un peu d'effort, vous pouvez ignorer l'aspect serveur-communication du processus. [Voici un exemple de comment cela pourrait fonctionner](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

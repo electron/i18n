@@ -26,7 +26,7 @@
     * `selectedIndex` Tamsayı - Kullanıcının seçtiği segmentin dizini.
     * `isSelected` Boole - Kullanıcı seçiminin sonucu olarak segmentin seçilip seçilmediği.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `TouchBarSegmentedControl` örnekleri olarak uygundur:
 

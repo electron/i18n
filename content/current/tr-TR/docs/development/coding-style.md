@@ -42,7 +42,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 ## JavaScript
 
-* [Standart](https://npm.im/standard) JavaScript stilinde yazın.
+* [Standart](https://www.npmjs.com/package/standard) Javascript stilinde yazın.
 * Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
 
 * Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın
@@ -58,10 +58,10 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron API'leri Node.js ile aynı büyük/küçük harf düzenini kullanır:
 
-- When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-- When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-- API bir objenin bir mülkü ise, ve ayrı bir bölüme sahip olacak kadar karmaşık ise, `win.webContents` gibi, `mixedCase` kullanın.
+* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
+* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* API bir objenin bir mülkü ise, ve ayrı bir bölüme sahip olacak kadar karmaşık ise, `win.webContents` gibi, `mixedCase` kullanın.
 
-- Modül olmayan API'lar için, `<webview> Tag` veya `Process Object` gibi doğal başlıklar kullanın.
+* Modül olmayan API'lar için, `<webview> Tag` veya `Process Object` gibi doğal başlıklar kullanın.
 
 Yeni bir API oluştururken, jQuery'nin tek-fonksiyon stili yerine getter ve setter kullanarak erişim yapmak tercih edilir. Örneğin, `.getText()` and `.setText(text)`, `.text([text])` yerine tercih edilir. Bununla ilgili bir [tartışma](https://github.com/electron/electron/issues/46) mevcut.

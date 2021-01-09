@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Требования
+## ข้อกำหนดเบื้องต้น
 
 * Windows 10 / Server 2012 R2 หรือสูงกว่า
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
@@ -25,7 +25,7 @@ Follow the guidelines below for building Electron on Windows.
 
 **หมายเหตุ: </</c0> แม้ว่า Visual Studio จะไม่ใช้สําหรับอาคาร ก็ยังคง** **ต้อง**เพราะเราต้องการเครื่องมือสร้างมันให้
 
-## สิ่งก่อสร้าง
+## Building
 
 ดู [ คำแนะนำในการสร้าง: GN ](build-instructions-gn.md)
 

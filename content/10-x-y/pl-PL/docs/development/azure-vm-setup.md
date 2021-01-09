@@ -36,13 +36,13 @@ Example Use Case:
 5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     * You will need the credential information available in the AppVeyor build cloud definition.
-        * Obejmuje to:
-            * ID klienta
+        * This includes:
+            * Client ID
             * Client Secret
             * Tenant ID
             * Subscription ID
             * Resource Group
-            * Sieć wirtualna
+            * Virtual Network
     * You will also need to specify
         * Master VM name - just a unique name to identify the temporary VM
         * Master VM size - use `Standard_F32s_v2`

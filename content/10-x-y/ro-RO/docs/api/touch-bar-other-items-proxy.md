@@ -4,6 +4,6 @@
 > 
 > Note: Only one instance of this class can be added per TouchBar.
 
-Proces-ul: [Main](../tutorial/application-architecture.md#main-and-renderer-processes) - Principal</0>
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarOtherItemsProxy()`

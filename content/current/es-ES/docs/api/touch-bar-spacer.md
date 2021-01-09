@@ -4,10 +4,18 @@
 
 Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSpacer(options)` _Experimental_
+### `new TouchBarSpacer(options)`
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:
-    * `small` - Espacio pequeño entre los elementos. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `small` - Espacio pequeño entre los elementos. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. Este es el valor predeterminado.
     * `large` - Espacio grande entre los elementos. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Ocupa todo el espacio disponible. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
+
+### Propiedades de Instancia
+
+The following properties are available on instances of `TouchBarSpacer`:
+
+#### `touchBarSpacer.size`
+
+A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.

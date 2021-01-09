@@ -222,7 +222,7 @@ Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. 
 
 ### `<webview>.downloadURL(url)`
 
-* `url` Cadena
+* `url` String
 
 Inicia una descarga del recurso en `url` sin navegar.
 
@@ -324,11 +324,11 @@ Injects CSS into the current web page and returns a unique key for the inserted 
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `code` Cadena de caracteres
+* `codigo` String
 * `userGesture` Boolean (opcional) - Por defecto `false`.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
@@ -477,9 +477,9 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only the first range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -498,15 +498,15 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
-  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
-  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
 
 Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
@@ -578,7 +578,7 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 Devuelve `Number` - El ID de WebContents de este `webview`.
 
-## DOM Events
+## Eventos DOM
 
 Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 
@@ -587,7 +587,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -602,7 +602,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -610,7 +610,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -626,14 +626,14 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: "page-title-updated"
+### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `title` Cadena
+* `title` String
 * `explicitSet` Boolen
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
 ### Evento: 'page-favicon-updated'
 
@@ -725,7 +725,7 @@ Devuelve:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurrir cuando el objeto `window.location` se cambia o un usuario hace clic en un enlace en la página.
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
@@ -747,14 +747,14 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: 'close'
+### Evento: "close"
 
 Disparado cuando la página de invitado intenta cerrarse.
 

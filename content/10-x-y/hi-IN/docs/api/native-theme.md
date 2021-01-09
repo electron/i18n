@@ -2,7 +2,7 @@
 
 > Read and respond to changes in Chromium's native color theme.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 

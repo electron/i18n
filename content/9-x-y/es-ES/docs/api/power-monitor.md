@@ -1,0 +1,70 @@
+# Monitor de energía
+
+> Monitorea los cambios de estado de energía.
+
+Proceso: [Main](../glossary.md#main-process)
+
+
+Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es emitido.
+
+Por ejemplo:
+
+```javascript
+const { app, powerMonitor } = require('electron')
+
+app.whenReady().then(() => {
+  powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
+  })
+})
+```
+
+## Eventos
+
+El módulo `powerMonitor` emite los siguientes eventos:
+
+### Event: 'suspend' _macOS_ _Windows_
+
+Se emite cuando se suspende el sistema.
+
+### Event: 'resume' _macOS_ _Windows_
+
+Se emite cuando se reanuda el sistema.
+
+### Event: 'on-ac' _macOS_ _Windows_
+
+Se emite cuando el sistema se cambia a la corriente alterna.
+
+### Event: 'on-battery' _macOS_  _Windows_
+
+Se emite cuando el sistema se cambia a la energía de batería.
+
+### Evento: 'shutdown' _Linux_ _macOS_
+
+Se emite cuando el sistema está a punto de reiniciarse o apagarse. Si el controlador de eventos invocó `e.preventDefault()`, Electron intentará retrasar el apagado del sistema para que la aplicación salga limpiamente. Si se llama a `e.preventDefault()`, la aplicación debe salir tan pronto como sea posible llamando a algo como `app.quit()`.
+
+### Evento: 'lock-screen' _macOS_ _Windows_
+
+Emitido cuando el sistema está a punto de bloquear la pantalla.
+
+### Evento: 'unlock-screen' _macOS_ _Windows_
+
+Emitido tan pronto como el sistema desbloquea la pantalla.
+
+## Métodos
+
+El modulo `powerMonitor` tiene los siguientes métodos:
+
+### `powerMonitor.getSystemIdleState(idleThreshold)`
+
+* `idleThreshold` Integer
+
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+
+Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo.  `locked` is available on supported systems only.
+
+### `powerMonitor.getSystemIdleTime()`
+
+Devuelve `Integer` - Tiempo inactivo en segundos
+
+Calcular tiempo inactivo del sistema en segundos.

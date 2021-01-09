@@ -10,9 +10,9 @@
   * `label` Dizge (isteğe bağlı) - açılır düğme metni.
   * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Açılır düğme simgesi.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Varsayılan `true`'dur.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Varsayılanı `true`.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `TouchBarPover` örnekleri için uygundur:
 

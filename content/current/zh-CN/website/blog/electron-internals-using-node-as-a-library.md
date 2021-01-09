@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+这是正在进行的解释 Electron内部的第二个职位。 Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+大多数人使用服务器端应用程序的 [节点](https://nodejs.org) 但由于节点有丰富的 API 设置和欣欣向荣的社区，它也是一个内嵌库的适合点。 此帖解释了节点如何在 Electron 中被用作图书馆。
 
 ---
 
-## Build system
+## 构建系统
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+节点和 Electron 都使用 [`GYP`](https://gyp.gsrc.io) 作为他们的构建系统。 如果你想把 个节点嵌入到你的应用中，你也必须把它用作你的构建系统。
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+新建 `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
 
-## Node's flags
+## 节点标志
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+[`个节点。 yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) 节点源代码目录中的文件描述节点 是如何构建的， 加上许多 [`GYP`](https://gyp.gsrc.io) 变量来控制 节点的哪些部分已启用以及是否打开某些配置。
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+To change the build flags, you need to set the variables in the `.gypi` file of your project. 节点中的 `配置` 脚本可以为您生成一些常见的 配置，例如运行 `。 配置 --shared` 将生成 一个 `config.gyi` 其中包含指示节点作为共享库构建的变量。
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+Electron 不使用 `配置` 脚本，因为它有自己的构建脚本。 节点配置在 [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) 文件 中定义了 Electron的根源代码目录。
 
-## Link Node with Electron
+## 与 Electron 链接节点
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+在 Electron 节点正通过设置 `GYP` 变量 `node_shared` 到 `true`so 节点的构建类型将从 `可执行文件` 更改为 `shared_bull`和包含节点的源代码 `主要` 入口点将不会被编译。
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. 通过设置 `node_use_v8_platform` 和 `node_use_bundled_v8` 到 `false` 来做到这一点。
 
-## Shared library or static library
+## 共享库或静态库
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+当与节点链接时，有两个选项：您可以构建节点作为 静态库，并将其包含在最终可执行文件中。 或者你可以构建它作为一个 共享库，并且将它与最终可执行文件一起运送。
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+Electron，节点是作为静态库长期构建的。 This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+然而，Chrome切换到使用 [BoringSSL](https://boringssl.googlesource.com/boringssl) 后改变了这种情况。 BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+Electron 无法在节点中使用 BoringSSL 或在 Chromium 中使用 OpenSSL 所以唯一的 选项是切换到构建节点作为共享库， 和 [隐藏每个组件中的 BoringSSL 和 OpenSSL 符号](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218)
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+这种变化给Electron带来了一些正面的副作用。 在此 改变之前， 如果您使用 本机模块，您无法重命名Windows上的 Electron 可执行文件，因为可执行文件的名称在 导入库中是硬编码的。 当节点作为共享的库构建后，此限制就会变得 ，因为所有原生模块都连接到 `节点。 ll`其名称不需要 更改.
 
-## Supporting native modules
+## 支持本机模块
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[节点工作中的原生模块](https://nodejs.org/api/addons.html) ，定义节点加载的条目函数。 然后从节点中搜索V8和libuv 的符号。 这是嵌入器的 个故障，因为默认情况下，在构建节点作为库时，V8 和 libuv 的符号 将被隐藏，本地模块将无法加载 ，因为它们找不到符号。
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+因此，为了使本地模块发挥作用，V8和libuv 符号 在Electron中暴露。 对于V8，这是通过 [迫使Chromium配置文件中的所有 个符号曝光](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122) 来完成的。 For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## 在您的应用中启动节点
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+在与节点建立和链接的所有工作完成后，最后一步是在您的应用中运行 节点。
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+节点不提供许多用于嵌入到其他应用中的公有API。 通常您只能调用 [`节点：start` 和 `节点：:Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) 开始 新的节点实例。 然而，如果您正在基于节点构建一个复杂的应用程序， 您必须使用 API 就像是 `节点：:CreateEnvironment` 来精确控制每 步骤。
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+在 Electron 中，节点是以两种方式开始的： 主要过程中运行的独立模式。 这类似于官方节点二进制以及嵌入式模式 ，将节点插入网页中。 这个详细信息将在未来的帖子中解释 。
 

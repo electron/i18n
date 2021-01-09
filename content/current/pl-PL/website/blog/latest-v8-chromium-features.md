@@ -1,76 +1,76 @@
 ---
-title: Use V8 and Chromium Features in Electron
+title: Użyj funkcji V8 i Chromium w Electronie
 author: jlord
 date: '2016-01-07'
 ---
 
-Building an Electron application means you only need to create one codebase and design for one browser, which is pretty handy. But because Electron stays up to date with [Node.js](http://nodejs.org) and [Chromium](https://www.chromium.org) as they release, you also get to make use of the great features they ship with. In some cases this eliminates dependencies you might have previously needed to include in a web app.
+Budowanie aplikacji Electron oznacza, że musisz tylko utworzyć jedną ebazę kodową i projekt dla jednej przeglądarki, co jest dość przydatne. Ale ponieważ Electron pozostaje na bieżąco z [Node. s](http://nodejs.org) i [Chromium](https://www.chromium.org) w momencie wydania, możesz również korzystać z wspaniałych funkcji, z którymi wysyłają. W niektórych przypadkach eliminuje to zależności, które wcześniej musiałeś uwzględnić w aplikacji internetowej.
 
 ---
 
-There are many features and we'll cover some here as examples, but if you're interested in learning about all features you can keep an eye on the [Google Chromium blog](http://blog.chromium.org) and [Node.js changelogs](https://nodejs.org/en/download/releases). You can see what versions of Node.js, Chromium and V8 Electron is using at [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions).
+Istnieje wiele funkcji, a my omówimy kilka tutaj jako przykłady, ale jeśli jesteś zainteresowany poznaniem wszystkich funkcji, możesz mieć oko na [Google Chromium blog](http://blog.chromium.org) i [Node. s dzienniki zmian](https://nodejs.org/en/download/releases). Możesz zobaczyć, jakie wersje Node.js, Chromium i V8 Electron używają na [electronjs.org/#electron-version](https://electronjs.org/#electron-versions).
 
-## ES6 Support through V8
+## Wsparcie ES6 poprzez V8
 
-Electron combines Chromium's rendering library with Node.js. The two share the same JavaScript engine, [V8](https://developers.google.com/v8). Many ECMAScript 2015 (ES6) features are already built into V8 which means you can use them in your Electron application without any compilers.
+Electron łączy bibliotekę renderowania Chromium z Node.js. Te dwa mają ten sam silnik JavaScript, [V8](https://developers.google.com/v8). Wiele funkcji ECMAScript 2015 (ES6) jest już wbudowanych w V8, co oznacza, że możesz ich używać w swojej aplikacji Electron bez kompilatorów.
 
-Below are a few examples but you can also get classes (in strict mode), block scoping, promises, typed arrays and more. Check out [this list](https://nodejs.org/en/docs/es6/) for more information on ES6 features in V8.
+Poniżej znajduje się kilka przykładów, ale możesz również uzyskać klasy (w trybie ścisłym), zakres bloków, obietnice, wpisane tablice i wiele więcej. Sprawdź [tę listę](https://nodejs.org/en/docs/es6/) , aby uzyskać więcej informacji na temat funkcji ES6 w V8.
 
-**Arrow Functions**
+**Funkcje strzałki**
 
 ```js
 findTime () => {
-  console.log(new Date())
+  console.log(nowa data())
 }
 ```
-**String Interpolation**
+**Interpolacja tekstów**
 
 ```js
 var octocat = "Mona Lisa";
-console.log(`The octocat's name is ${octocat}`);
+console.log(`Nazwa oktocat to ${octocat}`);
 ```
 
 **New Target**
 
 ```js
-Octocat() => {
-  if (!new.target) throw "Not new";
-  console.log("New Octocat");
+Oktokat() => {
+  jeśli (!new.target) rzuca "Not new";
+  konsola. og("New Octocat");
 }
 
-// Throws
+// Rzuty
 Octocat();
 // Logs
 new Octocat();
 ```
 
-**Array Includes**
+**Tablica zawiera**
 
 ```js
- // Returns true
-[1, 2].includes(2);
+ // Zwraca wartość true
+[1, 2].uje(2);
 ```
 
-**Rest Parameters**
+**Parametry odpoczynku**
 
 ```js
-// Represent indefinite number of arguments as an array
+// Przedstawienie nieokreślonej liczby argumentów jako tablicy
 (o, c, ...args) => {
   console.log(args.length)
 }
 ```
 
-## Chromium Features
+## Funkcje chromu
 
-Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
+Dzięki całej ciężkiej pracy Google i współtwórcy wprowadzeni do Chromium, kiedy budujesz aplikacje Electrona, możesz również używać fajnych rzeczy takich jak (ale nie tylko):
 
 - [MouseEvent.getModifierState()](https://googlechrome.github.io/samples/mouseevent-get-modifier-state/index.html)
 - [CSS.escape()](https://googlechrome.github.io/samples/css-escape/index.html)
-- [Fetch API Streaming](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
+- [Pobierz strumieniowanie API](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
 
-Follow along with the [Google Chromium blog](http://blog.chromium.org) to learn about features as new versions ship and again, you can check the version of Chromium that Electron uses [here](https://electronjs.org/#electron-versions).
+Śledź razem z [blogiem Google Chromium](http://blog.chromium.org) , aby dowiedzieć się więcej o funkcjach jako nowych wersjach wysyłanych i ponownie, możesz sprawdzić wersję Chromium używaną przez Electron [tutaj](https://electronjs.org/#electron-versions).
 
-## What are you excited about?
+## Czego jesteś podekscytowany?
 
-Tweet to us [@ElectronJS](https://twitter.com/electronjs) with your favorite features built into V8 or Chromium.
+Tweetuj do nas [@ElectronJS](https://twitter.com/electronjs) ze swoimi ulubionymi funkcjami wbudowanymi w V8 lub Chromium.
 

@@ -9,3 +9,4 @@
 * `HTTP전용` Boolean (옵션) - 쿠키의 HTTP전용 표시 여부
 * `세션` Boolean (옵션) - 쿠키가 세션 쿠키인지 아니면 만료일이  있는 영구 쿠키인지
 * `유효 기간` Double (옵션) - 쿠키 만료일은 유닉스 시간을 몇초로 나타낸 것입니다. 세션 쿠키에는 제공되지 않습니다.
+* `sameSite` String - [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies)정책이 이 쿠키에 적용됨.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

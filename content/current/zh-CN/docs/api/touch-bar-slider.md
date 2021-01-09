@@ -2,11 +2,11 @@
 
 > 为本机 macOS 应用程序在触摸栏中创建滑块
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _实验功能_
+### `new TouchBarSlider(options)`
 
-* `options` Object
+* `选项` 对象
   * `label` String (可选) - 标签文本.
   * `value` Integer (可选) - 选中值.
   * ` minValue ` Integer (可选) - 最小值.

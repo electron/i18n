@@ -4,35 +4,35 @@ author: sofianguy
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron arbeitet daran, seine Release-Zyklen schneller und stabiler zu machen. Um dies zu ermöglichen, haben wir das App Feedback Programm für große Electron-Apps gestartet, um unsere Beta-Versionen zu testen und app-spezifische Probleme an uns zu melden. Dies hilft uns die Arbeit zu priorisieren, die Anwendungen schneller auf unsere nächste stabile Version aktualisieren wird.
 
-Edit (2020-05-21): This program has been retired.
+Bearbeiten (2020-05-21): Dieses Programm wurde zurückgezogen.
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## Wer kann beitreten?
+Unsere Kriterien und Erwartungen für den Beitritt von Apps zu diesem Programm beinhalten folgende Elemente:
+- Testen Sie Ihre App während der Beta-Periode für 10.000+ Benutzerstunden
+- Habe eine einzige Punkt-Person, die wöchentlich einchecken wird, um die Electron-Fehler und App-Blocker deiner App zu besprechen
+- Sie erklären sich damit einverstanden, sich an den Code der Electronic [zu halten](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+- Sie sind bereit, die folgenden in der nächsten Frage aufgelisteten Informationen zu teilen
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## Welche Informationen muss meine Electron-App weitergeben?
+- Gesamtanzahl der Benutzer, die Ihre App mit jeder Beta-Version ausgeführt hat
+- Version von Electron, mit der Ihre App getestet wird (z.B. 4.0.0-beta.3)
+- Fehler, die Ihre Anwendung daran hindern, auf die Release-Zeile zu aktualisieren, die Beta getestet wurde
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## Benutzer-Stunden
+Wir verstehen, dass nicht jeder exakte Benutzernummern teilen kann, aber bessere Daten helfen uns zu entscheiden, wie stabil eine bestimmte Version ist. Wir bitten darum, dass sich Apps dazu verpflichten, eine Mindestanzahl von Benutzerstunden, derzeit 10.000 im Beta-Zyklus, zu testen.
+- 10 Benutzer-Stunden könnten 10 Personen für eine Stunde testen oder eine Person für 10 Stunden testen
+- Sie können das Testen auf Beta-Versionen aufteilen, zum Beispiel auf 3.0.0-Beta für 5.000 User-Stunden. und dann 5.000 Userstunden auf 3.0.0-beta.5 testen. Mehr ist besser, aber wir verstehen, dass einige Anwendungen nicht jede Beta-Version testen können
+- CI oder QA Stunden zählen nicht auf die Gesamtanzahl; interne Releases zählen jedoch
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## Warum sollte meine Electron-App beitreten?
+Die Fehler deiner App werden verfolgt und auf dem Radar des Electron-Teams sein. Ihr Feedback hilft dem Electron-Team zu sehen, wie die neuen Betas funktionieren und welche Arbeit geleistet werden muss.
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## Werden die Informationen meiner Anwendung öffentlich freigegeben? Wer bekommt diese Informationen zu sehen?
+Nein, die Informationen Ihrer Anwendung werden nicht an die Allgemeinheit weitergegeben. Informationen werden in einem privaten GitHub Repo aufbewahrt, das nur für Mitglieder des App Feedback-Programms und [Electron Governance](https://github.com/electron/governance) sichtbar ist. All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
 ## Registrieren
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+We are currently accepting a *limited number* of signups. Wenn Sie interessiert sind und die oben genannten Anforderungen erfüllen können, füllen Sie bitte dieses [-Formular](https://goo.gl/forms/OpMEKV75ScN6we7g1) aus.

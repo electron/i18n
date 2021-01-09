@@ -16,8 +16,8 @@
 
 ### 권장 읽기
 
- * [시작해요, 런타임 성능 분석](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [비주얼 스튜디오 코드 - 첫번째 두번째](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [시작해요, 런타임 성능 분석](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [비주얼 스튜디오 코드 - 첫번째 두번째](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 체크리스트
 
@@ -49,7 +49,8 @@ Node.js 모듈을 애플리케이션에 추가하기 전에 해당 모듈을 검
 
 모듈을 고려할 때 다음을 확인하는 것이 좋습니다.
 
-1. 포함된 종속성의 크기 2) 로드하는데 필요한 자원 (require)))
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. 관심있는 작업을 수행하는데 필요한 리소스
 
 명령 행에서 단일 명령으로 모듈을 로드하기 위한 CPU 프로 파일 및 힙 메모리 프로 파일을 생성할 수 있습니다. 아래 예시에서는 널리 사용되는 모듈 요청을 살펴볼 수 있습니다.
@@ -155,7 +156,6 @@ Electron의 강력한 multi-process 아키텍처는 장시간 실행되는 task�
 
 3) main process에서 I/O 차단 작업을 사용하지 않도록 하세요. 즉, 핵심 Node.js 모듈(`fs`나 `child_process`)이 동기식 또는 비동기식 버전을 제공할 때마다, 비동기식 및 비차단식 변수를 선택해야 합니다.
 
-
 ## 4) renderer process 차단
 
 Electron은 현재 버전의 크롬과 함께 제공되기 때문에, 당신은 웹 플랫폼이 제공하는 가장 최신의 훌륭한 기능을 이용할 수 있습니다. 무거운 작업을 미루거나 오프로드하여 앱을 원활하고 반응성있게 유지할 수 있습니다.
@@ -173,7 +173,6 @@ Renderer 코드의 작업 흐름을 조정하는 것은 사용자들이 app의 �
 *`requestIdleCallback()`* 는 process가 유휴 기간에 진입하는 즉시 실행할 function을 개발자가 대기열에 넣을 수 있도록 합니다. 사용자 경험에 영향을 주지 않고 우선 순위가 낮거나 배경 작업을 수행할 수 있게 합니다. 사용 방법에 대한 자세한 내용은 [MDN에 대한 설명서를 확인하세요.](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
 
 *Web Workers*는 별도의 스레드에서 코드를 실행할 수 있는 강력한 도구입니다. 그러나 고려해야 할 몇 가지 주의사항이 있습니다. - Electron의 [멀티스레딩 문서](./multithreading.md)와 [Web Workers를 위한 MDN 문서](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)를 참고하세요. 이들은 오랜 시간 동안 많은 CPU 전력이 필요한 모든 작업에 이상적인 해결책입니다.
-
 
 ## 5) 불필요한 polyfills
 
@@ -194,7 +193,6 @@ Polyfill이 최근 버전의 Electron에서 불필요하다는 가정하에 실�
 또한, 사용한 라이브러리를 주의 깊게 검토하세요. 정말로 필요한 것들입니까? 예를 들면, `jQuery`는 매우 성공적이서 현재는 대부분의 기능이 [(standard JavaScript feature set available)](http://youmightnotneedjquery.com/) 표준 JavaScript에서 가능하다.
 
 TypeScript와 같은 트랜스필러/컴파일러를 사용하는 경우, 해당 구성을 검사하고 Electron이 지원하는 가장 최신의 ECMAScript 버전을 대상으로 하고 있는지 확인하세요.
-
 
 ## 6) 불필요하거나 차단된 네트워크 요청
 

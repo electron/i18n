@@ -1,39 +1,39 @@
 # ipcMain
 
-> 由主程序（main process）到渲染程序（renderer process）的非同步通訊。
+> 由主處理序到畫面轉譯處理序的非同步通訊。
 
-Process: [主程序](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
-`ipcMain` 模組是一個 [EventEmitter][event-emitter] 類別實例。 當在主程序使用時，它能用來接收來自渲染程序（網頁）的同步與非同步訊息。 而從渲染程序送出的訊息將會被送往此模組。
+`ipcMain` 模組是一個 [EventEmitter][event-emitter] 類別實例。 When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
 ## 傳送訊息
 
 要從主程序發送訊息給渲染程序也是可以的，請參閱 [webContents.send][web-contents-send]。
 
-* 當需要傳遞一個訊息時，事件名稱就是雙方的 `channel`。
-* 為了回覆一個同步的訊息時，您需要對 `event.returnValue` 指定值。
-* 若要送回非同步的訊息給發送者，您可以使用 `event.reply(...)`。  此方法將會自動的接收那些來自非 main frame（例如：iframes）的訊息，而 `event.sender.send(...)` 則總是把訊息傳送給 main frame。
+* When sending a message, the event name is the `channel`.
+* To reply to a synchronous message, you need to set `event.returnValue`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
-以下是在主程序與渲染程序之間傳送和接收訊息的一個例子：
+An example of sending and handling messages between the render and main processes:
 
 ```javascript
-// 在主程序中
+// 在主處理序裡。
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // 印出 "ping"
+  console.log(arg) // prints "ping"
   event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // 印出 "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// 在渲染程序中 (網頁)
+// 在畫面轉譯處理序中 (網頁)。
 const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // 印出 "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
   console.log(arg) // 印出 "pong"
@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## 方法
 
-`ipcMain` 模組具有以下方法來監聽事件：
+The `ipcMain` module has the following method to listen for events:
 
 ### `ipcMain.on(channel, listener)`
 
@@ -52,7 +52,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainEvent
   * `...args` any[]
 
-監聽 `channel`，當一個新的訊息抵達 `listener` 時會呼叫 `listener(event, args...)`。
+Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
@@ -69,45 +69,45 @@ ipcRenderer.send('asynchronous-message', 'ping')
 * `listener` Function
   * `...args` any[]
 
-從 `channel` 的 listener array 之中移除特定的 `listener`。
+Removes the specified `listener` from the listener array for the specified `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String (選用)
 
-移除指定 `channel` 的所有 listener。
+Removes listeners of the specified `channel`.
 
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
 加入一個 handler 到 `invokable` 的 IPC。 每當渲染程序呼叫 `ipcRenderer.invoke(channel, ...args)` 時，將呼叫這個 handler。
 
-假如 `listener` 返回值是一個 Promise，則最後 Promise 的結果將會被當作返回值回傳給 remote 的呼叫者。 否則，listener 的返回值將會被回覆。
+If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
 
 ```js
-// 主程序中
+// Main process
 ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
   const result = await somePromise(...args)
   return result
 })
 
-// 渲染程序中
+// Renderer process
 async () => {
   const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
   // ...
 }
 ```
 
-傳遞給 handler 的第一個引數 `event` 與傳遞給一般 event listener 的引數是相同的。 它含有請求來源的 WebContents 的相關資訊。
+The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
 
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -117,15 +117,15 @@ async () => {
 
 * `channel` String
 
-從 `channel` 中移除 handler，假使它存在的話。
+Removes any handler for `channel`, if present.
 
 ## IpcMainEvent object
 
-傳遞給 `callback` 的 `event` 物件文件可以在 [`ipc-main-event`](structures/ipc-main-event.md) 的結構文件頁面中查閱。
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
 
 ## IpcMainInvokeEvent object
 
-傳遞給 `handle` 回呼函式的 `event` 物件文件可以在 [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) 的結構文件頁面中查閱。
+The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [web-contents-send]: web-contents.md#contentssendchannel-arg1-arg2-

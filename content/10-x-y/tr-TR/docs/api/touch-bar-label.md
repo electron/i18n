@@ -13,7 +13,7 @@
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `TouchBarLabel` örnekleri için uygundur:
 

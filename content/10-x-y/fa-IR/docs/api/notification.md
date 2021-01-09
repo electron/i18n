@@ -42,7 +42,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### رویدادها نمونه
+### Instance Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -90,7 +90,7 @@ Returns:
 * `event` Event
 * `index` Number - The index of the action that was activated.
 
-### روشهای نمونه
+### Instance Methods
 
 Objects created with `new Notification` have the following instance methods:
 

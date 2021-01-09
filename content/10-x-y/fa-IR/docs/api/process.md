@@ -2,7 +2,7 @@
 
 > Extensions to process object.
 
-فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
@@ -111,7 +111,7 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## روش ها
+## Methods
 
 The `process` object has the following methods:
 

@@ -1,85 +1,85 @@
 ---
 title: Electron 9.0.0
 author:
-  - sofianguy
+  - софіангі
   - VerteDinde
 date: '2020-05-19'
 ---
 
-Electron 9.0.0 has been released! It includes upgrades to Chromium `83`, V8 `8.3`, and Node.js `12.14`. We've added several new API integrations for our spellchecker feature, enabled PDF viewer, and much more!
+Electron 9.0.0 було випущено! Він включає оновлення до Chromium `83`, V8 `8.3`і Node.js `12.14`. Ми додали декілька нових інтеграцій API для нашої функції перевірки орфографії, включили переглядач PDF і багато іншого!
 
 ---
 
-The Electron team is excited to announce the release of Electron 9.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Команда Electron з радістю повідомляє про реліз Electron 9.0.0! Ви можете встановити його за допомогою npm за допомогою `npm встановити electron@latest` або завантажити з нашого [релізів веб-сайт](https://electronjs.org/releases/stable). Реліз упакований разом з оновленнями, виправленнями та новими функціями. Ми не можемо дочекатися, щоб побачити, що ви з ними будуєте! Продовжити читання і поділитися інформацією про цей реліз, і будь ласка поділіться з усіма відгуками!
 
-## Notable Changes
+## Важливі зміни
 
-### Stack Changes
+### Зміни стека
 
 * Chromium `83.0.4103.64`
-    * [New in Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
-    * [Chrome 82 was skipped](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
-    * [New in Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
+    * [Нова в Chrome 81](https://developers.google.com/web/updates/2020/04/nic81)
+    * [Пропущено Chrome 82](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html)
+    * [Нова в Chrome 83](https://developers.google.com/web/updates/2020/05/nic83)
 * Node.js `12.14.1`
-    * [Node 12.14.1 blog post](https://nodejs.org/en/blog/release/v12.14.1/)
+    * [Допис у блозі 12.14.1](https://nodejs.org/en/blog/release/v12.14.1/)
 * V8 `8.3`
-    * [V8 8.1 blog post](https://v8.dev/blog/v8-release-81)
-    * [V8 8.3 blog post](https://v8.dev/blog/v8-release-83)
+    * [V8 8.1 запис у блозі](https://v8.dev/blog/v8-release-81)
+    * [V8 8.3 запис у блозі](https://v8.dev/blog/v8-release-83)
 
-### Highlight Features
+### Підсвітка функцій
 
-* Multiple improvements to the spellchecker feature. See more details in [#22128](https://github.com/electron/electron/pull/22128) and [#22368](https://github.com/electron/electron/pull/22368).
-* Improved window events handler efficiency on Linux. [#23260](https://github.com/electron/electron/pull/23260).
-* Enable PDF viewer. [#22131](https://github.com/electron/electron/pull/22131).
+* Декілька удосконалень у функції перевірки правопису. Детальніше в [#22128](https://github.com/electron/electron/pull/22128) і [#22368](https://github.com/electron/electron/pull/22368).
+* Вдосконалений коефіцієнт обробки подій на Linux. [#23260](https://github.com/electron/electron/pull/23260).
+* Увімкнути переглядач PDF. [#22131](https://github.com/electron/electron/pull/22131).
 
-See the [9.0.0 release notes](https://github.com/electron/electron/releases/tag/v9.0.0) for a full list of new features and changes.
+Дивіться [9.0.0 примітки до випуску](https://github.com/electron/electron/releases/tag/v9.0.0) на повний список нових функцій і змін.
 
 ## Важливі Зміни
 
-* Deprecation warning when using `remote` without `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
-    * This is the first step in our plans for deprecating the `remote` module and moving it to userland. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
-* Set `app.enableRendererProcessReuse` to true by default. [#22336](https://github.com/electron/electron/pull/22336)
-    * This is continued work for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Full info and proposed timeline is detailed in [this issue](https://github.com/electron/electron/issues/18397).
-* Sending non-JavaScript objects over IPC now throws an exception. [#21560](https://github.com/electron/electron/pull/21560)
-    * This behavior was depreciated in Electron 8.0. In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
+* Застереження про амортизацію при використанні `пульта` без `enableRemoteModu: true`. [#21546](https://github.com/electron/electron/pull/21546)
+    * Це перший крок у наших планах подовження модуля `пульт` і переміщення його до бази користувачів. Ви можете прочитати й ознайомитися з [цією проблемою](https://github.com/electron/electron/issues/21408) , що детально оформила наші причини для цього, і включити запропоновану часову шкалу для розгортання.
+* За замовчуванням встановити значення `app.enableRenderProcessReuse`. [#22336](https://github.com/electron/electron/pull/22336)
+    * Це продовження роботи для майбутньої необхідності, тому що вбудовані модулі вузлів, завантажені в процес рендеринга, будуть або [N-API](https://nodejs.org/api/n-api.html) або [контексті Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Повна інформація і запропонована лінія часу детальна в [це питання](https://github.com/electron/electron/issues/18397).
+* Надсилання неJavaScript об'єктів через IPC тепер викликає виключення. [#21560](https://github.com/electron/electron/pull/21560)
+    * Ця поведінка знецінена в Electron 8.0. В Electron 9.0, старий алгоритм серіалізації був видалений, і надсилання таких несеріалізованих об'єктів тепер буде кидати помилку "об'єкт не може бути клонувано".
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Більше інформації про ці та майбутні зміни можна знайти на сторінці [Заплановані порушення](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)
 
-## API Changes
+## Зміни API
 
-* `shell` API changes:
-   * The `shell.openItem` API has been replaced with an asynchronous `shell.openPath API`. [proposal](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
-* `session`API changes:
-   * Added `session.listWordsFromSpellCheckerDictionary` API to list custom words in the dictionary. [#22128](https://github.com/electron/electron/pull/22128)
-   * Added `session.removeWordFromSpellCheckerDictionary` API to remove custom words in the dictionary. [#22368](https://github.com/electron/electron/pull/22368)
-   * Added `session.serviceWorkerContext` API to access basic service worker info and receive console logs from service workers. [#22313](https://github.com/electron/electron/pull/22313)
-* `app` API changes:
-   * Added a new force parameter to `app.focus()` on macOS to allow apps to forcefully take focus. [#23447](https://github.com/electron/electron/pull/23447)
-* `BrowserWindow` API changes:
-   * Added support for property access to some getter/setter pairs on `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
+* `оболонка` API зміни:
+   * `shell.openItem` API замінено на асинхронний `shell.openPath API`. [пропозиція](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)
+* `сеанс`змін API:
+   * Додано `session.listWordsFromSpellCheckerDictionary` API для перегляду списку користувацьких слів у словнику. [#22128](https://github.com/electron/electron/pull/22128)
+   * Додано `session.removeWordFromSpellCheckerDictionary` API для видалення користувацьких слів у словнику. [#22368](https://github.com/electron/electron/pull/22368)
+   * Додано `session.serviceWorkerContext` API для доступу до базової службової інформації та отримання логів консолі від сервісних workers. [#22313](https://github.com/electron/electron/pull/22313)
+* `додаток` змінити API:
+   * Додано новий параметр сили для `app.focus()` на macOS щоб дозволити програмам примусово взяти фокус. [#23447](https://github.com/electron/electron/pull/23447)
+* `BrowserWindow` Зміни API:
+   * Додано підтримку доступу властивості до деяких пар getter/setter на `BrowserWindow`. [#23208](https://github.com/electron/electron/pull/23208)
 
-### Deprecated APIs
+### Застарілий API
 
-The following APIs are now deprecated or removed:
+Зараз наступні API застарілі або видалені:
 
-* `shell.openItem` API is now depreciated, and replaced with an asynchronous `shell.openPath API`.
-* `<webview>.getWebContents`, which was deprecated in Electron 8.0, is now removed.
-* `webFrame.setLayoutZoomLevelLimits`, which was deprecated in Electron 8.0, is now removed.
+* `shell.openItem` API тепер знецінено і замінено на асинхронний `shell.openPath API`.
+* `<webview>.getWebContents`, який було застаріло в Electron 8.0, тепер видалено.
+* `webFrame.setLayoutZoomLevelLimits`, який був застарілий в Electron 8.0, тепер видалений.
 
-## End of Support for 6.x.y
+## Кінець підтримки 6.x.y
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 6.x.y досяг останньої підтримки, оскільки згідно з політикою підтримки проекту [](https://electronjs.org/docs/tutorial/support#supported-versions). Розробники та додатки заохочують оновитися до новішої версії Electron.
 
-## What's Next
+## Що далі
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 10.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 10.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+У короткостроковій перспективі, ви можете очікувати, що команда продовжить зосереджуватися на тому, щоб не змінювати роботу основних компонентів з метою створення Electron, включаючи Chromium, Node, та V8. Хоча ми обережні, не виконуючи обіцянок щодо дати випуску, наш план - це випуску нових основних версій Electron з новими версіями цих компонентів приблизно щоквартально. Значення [орієнтовне 10.0.0 розкладу](https://electronjs.org/docs/tutorial/electron-timelines) відображає ключові дати в життєвому циклі розробки Electron 10.0. Також, [подивитися наш Візуальний документ](https://electronjs.org/docs/tutorial/electron-versioning) для більш докладної інформації про керування версіями в Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+Для отримання інформації про заплановані зміни у майбутніх версіях Electron, [дивіться наші заплановані порушенні зміни](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Change the default of `contextIsolation` from `false` to `true` (Starting in Electron 10)
+### Змініть за замовчуванням `contextIsolation` з `false` на `true` (Починаючи з Electron 10)
 
-Without contextIsolation, any code running in a renderer process can quite easily reach into Electron internals or an app's preload script. That code can then perform privileged actions that Electron wants to keep restricted.
+Без contextIsolation будь-який код, що запускається в рендеринговому процесі, може легко потрапити до скрипта Electron з перевантаження програмки. Цей код може виконувати привілейовані дії, які Electron хоче зберегти обмежені.
 
-Changing this default improves the default security of Electron apps, so that apps will need to deliberately opt in to the insecure behaviour. Electron will depreciate the current default of `contextIsolation` in Electron 10.0, and change to the new default (`true`) in Electron 12.0.
+Зміна цього за замовчуванням покращує безпеку додатків за замовчуванням, так що додаткам потрібно буде навмисно обрати незахищену поведінку. Electron знецінить поточне значення за замовчуванням `contextIsolation` з Electron 10. , і змінити на новий за замовчуванням (`true`) в Electron 12.0.
 
-For more information on `contextIsolation`, how to enable it easily and it's security benefits please see our dedicated [Context Isolation Document](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).
+Для отримання додаткової інформації про `contextolation`, як ввімкнути його легко і приступити до надійності, будь ласка, ознайомтеся з нашими присвяченими [документацією контексту](https://github.com/electron/electron/blob/master/docs/tutorial/context-isolation.md).

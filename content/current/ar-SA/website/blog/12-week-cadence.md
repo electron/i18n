@@ -1,40 +1,40 @@
 ---
-title: New Electron Release Cadence
-author: sofianguy
+title: سيدة إصدار إلكترون جديدة
+author: الألم
 date: '2019-05-13'
 ---
 
-🎉 Electron is moving to release a new major stable version every 12 weeks! 🎉
+🎉 ينتقل إليكترون إلى إصدار نسخة رئيسية مستقرة جديدة كل 12 أسبوعا! 🎉
 
 ---
 
-## ⚡️ Wow that's quick! But why?
+## ⚡ و هذا سريع! ولكن لماذا ؟
 
-Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
+ببساطة، لا يتوقف الكروميوم عن الشحن لذلك لن يبطئ إلكترون أيضًا.
 
-Chromium releases on a consistent 6-week [schedule](https://www.chromium.org/developers/calendar). To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+إصدارات الكروميوم على جدول [لمدة 6 أسابيع ثابتة](https://www.chromium.org/developers/calendar). لتسليم أحدث إصدارات Chromium في Electron، يحتاج جدولنا الزمني لتتبع إصداراتهم. يمكن العثور على مزيد من المعلومات حول دورة إصدار Chromium [هنا](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
-## 🚀 Why every 12 weeks?
+## 🚀 لماذا كل 12 أسبوعا؟
 
-Every 6 weeks, a new Chromium release comes out with new features, bug fixes / security fixes, and V8 improvements. Electron's users have been loud and clear about wanting these changes in a timely manner, so we've adjusted our stable release dates to match every other Chromium stable release. Up first, Electron v6.0.0 will include M76 and is scheduled for stable release on [July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), the same release day as [Chromium M76](https://www.chromestatus.com/features/schedule).
+كل 6 أسابيع، يصدر إصدار كروميوم جديد مع ميزات جديدة، وإصلاحات الشوائب/إصلاحات الأمان، وتحسينات V8. وقد كان مستخدمو شركة إلكتروني مرتفعين وواضحين فيما يتعلق برغبتهم في إجراء هذه التغييرات في الوقت المناسب، لذلك قمنا بتعديل تواريخ الإصدار المستقر لمطابقة كل الإصدارات المستقرة الأخرى لكروميوم. أولاً ، إلكترون v6.0. سوف يتضمن M76 ومن المقرر اصداره بشكل مستقر في [30 يوليو 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)، نفس يوم الإصدار كما [Chromium M76](https://www.chromestatus.com/features/schedule).
 
-## 🚧 What does this mean for me and my Electron app?
+## 🚧 ماذا يعني هذا بالنسبة لي ولتطبيق إلكترون؟
 
-You'll have access to new Chromium and V8 features and fixes sooner than before. Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+ستتمكن من الوصول إلى ميزات Chromium و V8 الجديدة والإصلاحات في وقت أسرع من ذي قبل. ومن المهم أن تعرف أيضا _عندما_ تأتي هذه التغييرات الجديدة، لذا ستتمكن من التخطيط مع معلومات أفضل من ذي قبل.
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
+سيواصل فريق إلكترون [دعم](https://electronjs.org/docs/tutorial/support#supported-versions) أحدث ثلاثة إصدارات رئيسية. على سبيل المثال، عندما يذهب [v6.0.0 إلى الاستقرار في 30 يوليو 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)، سندعم v6.x, v5.x, and v4.x, بينما v3.x سوف تصل إلى نهاية العمر.
 
 ## 💬 برنامج ملاحظات بيتا
 
-Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
+يرجى النظر في الانضمام إلى [برنامج ملاحظات التطبيق](https://electronjs.org/blog/app-feedback-program) لمساعدتنا في اختبار إصدارات بيتا واستقرارها. المشاريع التي تشارك في هذا البرنامج اختبار إلكترون بيتا في تطبيقاتها؛ وفي المقابل، يتم إعطاء الأولوية للأخطاء الجديدة التي يجدونها للإفراج المستقر.
 
-## 📝 A brief history of Electron releases
+## 📝 تاريخ قصير من إصدارات إلكترون
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+ولم تتبع القرارات المتعلقة بالإطلاقات المستقرة قبل v3.0.0 جدولاً زمنياً. أضفنا جداول داخلية للمشروع مع v3.0.0 و v4.0.0. في وقت سابق من هذا العام، قررنا نشر تاريخ الإصدار المستقر لأول مرة لـ [إلكترون v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). وقد استقبل الإعلان عن تواريخ الإصدار المستقرة بشكل عام ونحن متحمسون للاستمرار في القيام بذلك للإصدارات في المستقبل.
 
-In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+ومن أجل تحسين تبسيط هذه الجهود المتصلة بالتحديث، [ترقيات](https://github.com/electron/governance/tree/master/wg-upgrades) و [إصدارات](https://github.com/electron/governance/tree/master/wg-releases) أفرقة عمل تم إنشاؤها داخل نظام [الإدارة](https://electronjs.org/blog/governance) لدينا. فقد سمحت لنا بتحديد الأولويات وتفويض هذا العمل على نحو أفضل، ونأمل أن يصبح أكثر وضوحا مع كل الإفراج اللاحق.
 
-Here is where our new cadence will put us in comparison to Chromium's cadence:
-<img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
+ها هو المكان الذي ستضعنا فيه مدينتنا الجديدة مقارنة بمكانة Chromium:
+<img alt="خط الرسم البياني بمقارنة الإلكترون مع الإصدارات الكروميوم" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+📨 إذا كان لديك أسئلة، يرجى مراسلتنا على [info@electronjs.org](mailto:info@electronjs.org).

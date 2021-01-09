@@ -26,7 +26,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 `Boolean` - Varolan sistemde masaüstü bildirimlerinin desteklenip desteklenmediğini gösterir
 
-### `new Notification([options])` _Experimental_
+### `new Notification([options])`
 
 * `options` Object (optional)
   * `title` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.

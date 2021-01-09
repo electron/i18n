@@ -45,7 +45,8 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 * 코드 블럭에서 `cmd` 대신 `sh` 를 사용하세요 (문법 강조기 때문입니다.)
 * 한줄은 영문 80 자 길이로 맞춰야 합니다.
 * 2단계를 넘는 중첩 목록은 사용하면 안됩니다. (마크다운 렌더러 때문입니다.)
-* 모든 `js` 와 `javascript` 코드 블럭들은 [표준-마크다운](http://npm.im/standard-markdown)에 의해 분석됩니다.
+* 모든 `js` 와 `javascript` 코드 블럭들은 [표준-마크다운](https://www.npmjs.com/package/standard-markdown)에 의해 분석됩니다.
+* For unordered lists, use asterisks instead of dashes
 
 ## 단어 선택
 

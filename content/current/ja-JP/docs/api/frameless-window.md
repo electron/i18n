@@ -11,7 +11,7 @@
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -25,7 +25,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -35,17 +35,17 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-ウインドウの左上にカーソルを合わせたときに表示されるカスタム描画の閉じる、最小化ボタンを使用します。 The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウインドウにのみ適用されます。
+ウインドウの左上にカーソルを合わせたときに表示されるカスタム描画の閉じる、最小化ボタンを使用します。 フルスクリーンボタンは、フレームレスウインドウの制約のために利用できません。Apple の macOS ウインドウマスクと被るからです。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウインドウにのみ適用されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -55,7 +55,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ win.show()
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -83,8 +83,8 @@ win.setIgnoreMouseEvents(true)
 マウスのメッセージを無視すると、Webページでマウスの移動が検出されなくなり、マウスの移動イベントが発生しません。 Windowsオペレーティングシステムでは、`mouseleave` のようなイベントを発生させられるよう、マウスの移動メッセージをWebページに転送するのに、オプションパラメーターが使用されます。
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })
@@ -120,7 +120,7 @@ button {
 
 ## テキストの選択
 
-In a frameless window the dragging behavior may conflict with selecting text. 例えば、タイトルバーをドラッグするとき、誤ってタイトルバーのテキストを選択する可能性があります。 これを防止するには、このようにドラッグ可能な領域内のテキスト選択を無効にする必要があります。
+フレームレスウインドウでは、ドラッグの挙動がテキストの選択と競合する可能性があります。 例えば、タイトルバーをドラッグするとき、誤ってタイトルバーのテキストを選択する可能性があります。 これを防止するには、このようにドラッグ可能な領域内のテキスト選択を無効にする必要があります。
 
 ```css
 .titlebar {

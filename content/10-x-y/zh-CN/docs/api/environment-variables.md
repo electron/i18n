@@ -26,7 +26,7 @@ Windows 控制台示例:
 
 Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) 的子集的支持。 除与 Chromium 使用 BoringSSL 相抵触的情况外，大多数都得到了支持。
 
-示例：
+示例:
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
@@ -91,7 +91,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 
 Set the trash implementation on Linux. Default is `gio`.
 
-选项:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -124,7 +124,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-由 ` electron ` 包运行时，该变量告知 ` electron `命令使用指定构件代替由`npm install`下载的构件。 用法：
+当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing

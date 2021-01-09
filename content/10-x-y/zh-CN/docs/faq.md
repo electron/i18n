@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## 几分钟后我的应用托盘消失了。
 
-This happens when the variable which is used to store the tray gets garbage collected.
+当用来存储托盘的变量得到 垃圾收集时，就会发生这种情况。
 
 你可以参考以下两篇文章来了解为什么会遇到这个问题：
 
@@ -58,8 +58,8 @@ This happens when the variable which is used to store the tray gets garbage coll
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
+app.whenReady().then(() => *
+  const tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -69,7 +69,7 @@ app.whenReady().then(() => {
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.whenReady().then(() => {
+app.whenReady().then(() =>
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -115,11 +115,11 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+你很可能在错误的过程中使用该模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. 示例：
+如果 [个子像素反锯齿](http://alienryderflex.com/sub_pixel/) 被禁用，那么LCD 屏幕上的字体看起来会变得模糊。 示例:
 
 ![subpixel rendering example][]
 
@@ -134,7 +134,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. 即使您没有看到不同的情况，您的一些用户可能也会看到。 最好始终以这种方式确定背景，除非你有理由不这样做。
 
 注意到，仅设置 CSS 背景并不具有预期的效果。
 

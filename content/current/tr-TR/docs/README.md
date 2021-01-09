@@ -10,27 +10,20 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
 
 ## 1 whan to business in online application
 
-* [Geliştirme Ortamını Kurmak](tutorial/development-environment.md)
-  * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
-  * [Windows İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
-  * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-linux)
-  * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
-* [İlk Uygulamanızı Oluşturma](tutorial/first-app.md)
-  * [Electron'u Yükleme](tutorial/first-app.md#installing-electron)
-  * [Kabukta Electron Geliştirme](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Uygulamanızı Çalıştırma](tutorial/first-app.md#running-your-app)
-* [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md)
-  * [Demirbaş KSA'a Karşı](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Diğer Araçlar ve Demirbaşlar](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Uygulama Mimarisi](tutorial/application-architecture.md)
-  * [Ana ve Oluşturucu İşlemleri](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Electron API'lerini Kullanma](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js API'lerini Kullanma](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Yerli Node.js Modüllerini Kullanma](tutorial/using-native-node-modules.md)
-  * [Performans Stratejileri](tutorial/performance.md)
+### Quickstart
+
+* [Quick Start Guide](tutorial/quick-start.md)
+  * [Ön gereklilikler](tutorial/quick-start.md#prerequisites)
+  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
+  * [Run your application](tutorial/quick-start.md#run-your-application)
+  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Learning the basics
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [Ana ve Oluşturucu İşlemleri](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Uygulamanıza Özellikler Ekleme
   * [Bildirimler](tutorial/notifications.md)
   * [Son Günlerdeki Dokümanlar](tutorial/recent-documents.md)
@@ -40,18 +33,29 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
   * [Özel Linux Masaüstü Eylemleri](tutorial/linux-desktop-actions.md)
   * [Klavye Kısayolları](tutorial/keyboard-shortcuts.md)
   * [Çevrimdışı/Çevrimiçi Algılama](tutorial/online-offline-events.md)
-  * [MacOS BrowserWindows için temsil edilen dosya](tutorial/represented-file.md)
-  * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
-  * [MacOS'da karanlık mod destekletmek](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
+* [Demirbaşlar ve KSA'lar](tutorial/boilerplates-and-clis.md)
+  * [Demirbaş KSA'a Karşı](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Diğer Araçlar ve Demirbaşlar](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* Uygulama Mimarisi
+  * [Yerli Node.js Modüllerini Kullanma](tutorial/using-native-node-modules.md)
+  * [Performans Stratejileri](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [Erişilebilirlik](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test ve Hata Ayıklama](tutorial/application-debugging.md)
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
-  * [Ana işlemi Visual Studio Code ile debuglamak](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
@@ -62,11 +66,6 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
   * [Mac Uygulama Mağazası](tutorial/mac-app-store-submission-guide.md)
   * [Windows Mağaza](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Güvenlik](tutorial/security.md)
-  * [Güvenlik sorunlarını raporlama](tutorial/security.md#reporting-security-issues)
-  * [Chromium Güvenlik Sorunları ve Yükseltmeleri](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Güvenlik Uyarıları](tutorial/security.md#electron-security-warnings)
-  * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
 * [Güncellemeler](tutorial/updates.md)
   * [Güncelleme Sunucusunu Dağıtma](tutorial/updates.md#deploying-an-update-server)
   * [Uygulama içerisinde güncellemeleri yapmak](tutorial/updates.md#implementing-updates-in-your-app)
@@ -84,13 +83,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * Electron Sürümleri & Geliştirici geri bildirimi
   * [Sürüm oluşturma ilkesi](tutorial/electron-versioning.md)
   * [Sürüm zaman çizelgeleri](tutorial/electron-timelines.md)
-* [Asar ile kaynak kodu paketlemek](tutorial/application-packaging.md)
-  * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
-  * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
-  * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [asar Arşivlerine Paketlenmemiş Dosyaları Eklemek](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Widevine CDM’inin Test Edilmesi](tutorial/testing-widevine-cdm.md)
-* [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -107,19 +100,19 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 
 ### Özel DOM Elementleri:
 
-* [`File` Nesne](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>`Etiket](api/webview-tag.md)
 * [`window.open` Fonksiyon](api/window-open.md)
 * [`BrowserWindowProxy` Nesne](api/browser-window-proxy.md)
 
 ### Ana Süreç İçin Modüller:
 
-* [app](api/app.md)
+* [uygulama](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [diyalog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
@@ -127,16 +120,18 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [MenuItem](api/menu-item.md)
 * [ağ](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Bildirim](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
+* [güç Tasarrufu Engelleyici](api/power-save-blocker.md)
+* [protokol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Dokunma Çubuğu](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Oluşturma Süreci (Web Sayfası) İçin Modüller:
 

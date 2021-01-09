@@ -26,7 +26,7 @@
 - `arch`
 - `platform`
 - `sandboxed - Запущена ли песочница`
-- `тип`
+- `type`
 - `версия`
 - `versions - Список с версиями и их зависимостями`
 - `mas - Является ли сборкой Mac App Store`
@@ -171,8 +171,8 @@ Chromium не предоставляет значение `residentSet` для m
 
 Возвращает `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `total` Integer - Общий объем физической памяти в килобайтах, доступный системе.
+* `free` Integer - Общий объем памяти, не используемый приложениями или дисковым кэшем.
 * `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
@@ -198,16 +198,16 @@ console.log(version)
 
 * `filePath` String - Путь к выходному файлу.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Возвращает `Boolean`, который указывает успешно ли создан снимок.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Вызывает зависание основного потока текущего процесса.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Устанавливает мягкое ограничение дескрипторов файлов до `maxDescriptors` или жесткое ограничение операционной системы, в зависимости от того, какое значение ниже для текущего процесса.

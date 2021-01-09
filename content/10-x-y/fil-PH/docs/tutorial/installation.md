@@ -105,12 +105,12 @@ When installing the `electron` NPM package, it automatically downloads the elect
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Halimbawa.:
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
-## "Troubleshooting"
+## Paghahanap ng ProblemaPaghahanap ng Problema
 
 Habang pinatatakbo and `npm install electron`, ang ibang user ay kadalasang nakakasalubong ng error sa pag-install.
 

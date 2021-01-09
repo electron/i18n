@@ -1,6 +1,6 @@
 # `sandbox` オプション
 
-> Create a browser window with a sandboxed renderer. このオプションを有効にすると、レンダラーは Node API にアクセスするために IPC 経由でメインプロセスと通信する必要があります。
+> サンドボックス化されたレンダラーを用いたブラウザウインドウを作成します。 このオプションを有効にすると、レンダラーは Node API にアクセスするために IPC 経由でメインプロセスと通信する必要があります。
 
 Chromium の主なセキュリティ機能の1つは、すべての Blink レンダリング / JavaScript コードがサンドボックス内で実行されることです。 このサンドボックスは、OS 固有の機能を使用して、レンダラープロセスの悪用がシステムに悪影響を及ぼすことがないようにします。
 
@@ -30,15 +30,15 @@ app.whenReady().then(() => {
 })
 ```
 
-上記のコードでは、作成された [`BrowserWindow`](browser-window.md) では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+上記のコードでは、作成された [`BrowserWindow`](browser-window.md) では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は [`BrowserWindow`](browser-window.md) を作成し、`window.open` を介してこれへプロキシを返します)。
 
-[`app.enableSandbox`](app.md#appenablesandbox-experimental) を使用すると、すべての `BrowserWindow` インスタンスに対して `sandbox:true` を強制することができます。
+[`app.enableSandbox`](app.md#appenablesandbox) を使用すると、すべての `BrowserWindow` インスタンスに対して `sandbox:true` を強制することができます。
 
 ```js
 let win
 app.enableSandbox()
 app.whenReady().then(() => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // `app.enableSandbox()` を呼び出したので、`sandbox: true` を渡す必要はありません。
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 
 ## プリロード
 
-An app can make customizations to sandboxed renderers using a preload script. 次に例を示します。
+アプリでは、プリロードスクリプトを使用してサンドボックス化されたレンダラーをカスタマイズできます。 次に例を示します。
 
 ```js
 let win
@@ -118,11 +118,17 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 より多くの Electron API をサンドボックスに公開するために、必要に応じて追加することができますが、メインプロセスのどのモジュールも `electron.remote.require` で既に使用できます。
 
-## 状況
+## 信頼できないコンテンツの描画
 
-まだ実験的な機能なので、`sandbox` オプションは慎重に使用してください。 プリロードスクリプトにいくつかの Electron レンダラー API を公開することによるセキュリティの影響をまだ確認していませんが、信頼できないコンテンツをレンダリングする前に考慮すべき点がいくつかあります。
+Electron で信頼できないコンテンツをレンダリングすることは、成功しているアプリ (例: Beaker Browser) もありますが、まだ未知の領域です。 私たちの目標は、サンドボックスコンテンツのセキュリティという点で Chrome にできるだけ近づけることですが、最終的にはいくつかの根本的な問題があるため、常に後れを取ってしまうことになります。
+
+1. 私たちには Chromium 製品に適したセキュリティのリソースやノウハウがありません。 今あるものを活かして Chromium からできることはすべて継承し、セキュリティ上の問題にも迅速に対応できるようにしていますが、Electron は Chromium のようにリソースを割くことができず、Chromium のようなセキュリティは確保できません。
+2. Chrome のセキュリティ機能 (セーフブラウジングや証明書の透過性など) の中には、中央集権化と専用サーバが必要なものがありますが、どちらも Electron プロジェクトの目的に反しています。 そのため、セキュリティ関連のコストが発生しないように、Electron では機能を無効にしています。
+3. Chromium は 1 つだけですが Electron には何千ものアプリが存在しており、それぞれのアプリの動作は微妙に異なります。 これらの違いを考慮すると巨大な可能性の空間が生じ、通常とは異なるユースケースでのプラットフォームのセキュリティ確保に挑戦することになります。
+4. セキュリティアップデートをユーザーに直接伝えることができないため、セキュリティアップデートをユーザーに届けるために、アプリベンダーに Electron のバージョンをアップグレードして頂いています。
+
+信頼できないコンテンツを描画する前に考慮すべきことがいくつかあります。
 
 - [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) も有効になっていないと、プリロードスクリプトは信頼できないコードに誤って特権 API をリークする可能性があります。
-- V8 エンジンのいくつかのバグで、悪意のあるコードがレンダラープリロード API にアクセスし、`remote` モジュールを介してシステムに完全にアクセスできるようにする可能性があります。 したがって、[`remote` モジュールを無効にすることを強くお勧めします](../tutorial/security.md#15-disable-the-remote-module)。 無効化できない場合は、`remote` モジュールを選択して [フィルタリング](../tutorial/security.md#16-filter-the-remote-module) する必要があります。
-
-信頼できないコンテンツを Electron で描画することはまだ未知の領域なので、サンドボックスプリロードスクリプトに公開されている API は他の Electron API よりも不安定であるとみなされ、セキュリティ上の問題を修正するための変更が行われる可能性があります。
+- V8 エンジンのバグにより、悪意のあるコードがレンダラーのプリロード API にアクセスし `remote` モジュールを介して事実上のシステムへのフルアクセスを許可している可能性があります。 そのため、[`remote` モジュールを無効にする](.../tutorial/security.md#15-disable-the-remote-module) ことを強く推奨します。 無効化が不可能な場合は、[`remote` モジュールを分別してフィルタリングする](.../tutorial/security.md#16-filter-the-remote-module) 必要があります。
+- Chromium のセキュリティ修正を古いバージョンの Electron にバックポートするよう最善の努力をしていますが、すべての修正のバックポートは保証できません。 堅牢性を確保するには、Electron の最新の安定版を使用することが最善の方法です。

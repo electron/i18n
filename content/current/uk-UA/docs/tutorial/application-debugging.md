@@ -1,10 +1,10 @@
-# Application Debugging
+# Налагодження додатку
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Кожного разу, коли ваша програма Electron не поводяться так, як ви хотіли, масив інструментів налагодження може допомогти вам знайти помилки, продуктивність вузьких місць або оптимізаційних можливостей.
 
-## Renderer Process
+## Відтворювач
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+Найбільш повним інструментом для налагодження індивідуальних процесів візуалізатора Інструменти розробника Chromium. Доступно для всіх процесів рендеру, включаючи екземпляри `BrowserWindow`, `BrowserView`та `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,20 +13,20 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google пропонує [відмінну документацію для їх інструментів розробника](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
 
-## Main Process
+## Основний процес
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Налагодження основного процесу є трохи хитрішим, оскільки ви не можете відкрити для них інструменти розробника. Інструменти розробника Chromium можуть використовувати [ для налагодження основного процесу Electron's](https://nodejs.org/en/docs/inspector/) завдяки тіснішій співпраці між Google / Chrome і Node. s, але ви можете зіткнутися з диваками як `вимагають` не присутній в консолі.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Для отримання додаткової інформації дивіться [налагодження документації головного Процесу](./debugging-main-process.md).
 
-## V8 Crashes
+## Аварії V8
 
-If the V8 context crashes, the DevTools will display this message.
+Якщо контекст V8 аварійно завершується, розробники відображатимуть це повідомлення.
 
-`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
+`DevTools було відключено від сторінки. Після того, як сторінка буде перезавантажена, розробники автоматично перепідключаться.`
 
-Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](https://www.electronjs.org/docs/api/environment-variables#electron_enable_logging).
+Журнали Chromium можуть бути увімкнені через змінну середовища `ELECTRON_ENABLE_LOGING`. Для отримання додаткової інформації дивіться [змінні середовища](../api/environment-variables.md#electron_enable_logging).
 
-Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](https://www.electronjs.org/docs/api/command-line-switches#--enable-logging).
+Альтернативно можна передати аргумент командного рядка `--enable-logging`. Додаткові відомості можна знайти в [документації щодо параметрів командної стрічки ](../api/command-line-switches.md#--enable-logging).

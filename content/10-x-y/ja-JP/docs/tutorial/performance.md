@@ -12,7 +12,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 幾度となく、パフォーマンスの高い Electron アプリを構築するための最も成功した戦略は、実行中のコードのプロファイルを作成し、その中で最もリソースを消費する部分を見つけ、最適化することであることがわかりました。 この一見面倒なプロセスを何度も繰り返すと、アプリのパフォーマンスは劇的に向上します。 Visual Studio Code や Slack などの主要なアプリで使用された経験から、この方法がパフォーマンスを向上させる最も信頼できる戦略であることが示されています。
 
-アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) tool.
+アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 複数のプロセスを同時に見て高度に分析するには、[Chrome Trace](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) ツールをご検討ください。
 
 ### 推薦図書
 
@@ -209,7 +209,7 @@ TypeScript などのトランスパイラー/コンパイラを使用してい�
 
 ### なぜ？
 
-Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
+Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 今、あなたは適切なデスクトップアプリケーションを頒布しているのですから、可能な限り「ネットを切り捨てる」ようにして、決して変更されずアプリへ簡単に同梱できそうなリソースのためにユーザーを待たせないようにしましょう。
 
 Google Fonts は典型例です。 多くの開発者は、コンテンツ配信ネットワークに付属する Google の印象的な無料フォントのコレクションを利用しています。 行程は簡単です。CSS に数行を含めると、Google が残りを処理します。
 

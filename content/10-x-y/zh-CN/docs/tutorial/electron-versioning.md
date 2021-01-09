@@ -2,7 +2,7 @@
 
 > 详细查看我们的版本控制策略和实现。
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+在 2.0.0.0版本，Electron 跟随 [semver](#semver)。 以下命令将安装最新稳定的 Electron 版本：
 
 ```sh
 npm install --save-dev electron
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+Electron 版本 *<* 不符合 [semver](http://semver.org) 旁观：主要版本与最终用户API更改相对应。 次要版本与 Chromium 主要版本相对应，补丁版本与新功能和 bug 修复相对应。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -26,7 +26,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 
 ## 版本 2.0 和之后版本
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+我们的1.x战略有以下几项重大变化。 每次更改都是为了满足开发者/维护者和应用开发者的需要和优先事项。
 
 1. 严格使用 semver
 2. 引入符合 semver 的 `-beta` 标签
@@ -49,21 +49,21 @@ There are several major changes from our 1.x strategy outlined below. Each chang
 | Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+请注意，大多数Chromium更新都将被认为是分解的。 可以返回的修复很可能会被精选为补丁。
 
 # 稳定分支
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+稳定分支是与主子平行的分支，只是在挑选的与安全或稳定有关的精选承诺中。 这些分支永远不会被合并为主人.
 
 ![](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+既然Electron 8, 稳定分支总是 **个主要版本行** 并根据以下模板 `$MAJOR-x-y` e命名。 。 `8-x-y`  在此之前，我们使用 **个次要的** 版本行，并将它们命名为 `$MAJOR-$MINOR-x` 例如： `2-0-x`
 
 我们允许同时存在多个稳定分支，并且打算在任何时候至少支持两个并行支持安全修复。 ![](../images/versioning-sketch-2.png)
 
 GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# 测试版和Bug修复
+# 测试版和 Bug 修复
 
 开发人员想知道哪个版本可以 _安全_ 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
@@ -76,7 +76,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
+1. 所有新的主要和次要的版本行都以 `beta 的分号预发布标签表示的测试系列开头。`, 例如 `2.0.0-beta.1`。 在第一次测试后，测试版随后的释放必须满足以下所有条件：
     1. 更改是落后的 API 兼容 (允许废弃)
     2. 实现我们稳定的时间表的危险必须是低的。
 2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
@@ -86,8 +86,8 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 特别地，上述步骤意味着：
 
 1. 在测试周期的第3周前允许不打破的 API 更改非常好，即使这些变化有可能造成适度的副影响
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+2. 接受特征标记的更改，这些更改不会改变现有的代码路径。在测试周期中的大多数点都是好的。 用户可以在他们的应用中明确启用那些标记。
+3. 第三周之后在测试周期内接纳任何类型的功能是 👎 没有很好的理由。
 
 对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
 
@@ -102,10 +102,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 图片中的生命周期示例:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* 创建了一个新的发行分支，包括最新的功能。 它已发布为 `2.0.0-beta.1`。 ![](../images/versioning-sketch-3.png)
+* Bug 修复会被导入主，可以返回发布分支。 补丁已应用，一个新测试版已发布为 `2.0.0-beta.2`。 ![](../images/versioning-sketch-4.png)
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 后来，揭露了零天的利用情况，并对大师采取了补救措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![](../images/versioning-sketch-6.png)
 
 几个不同的 semver 范围将如何接收新版本的示例:
 
@@ -141,4 +141,4 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 - The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 - Release 分支永远不会合并回 master 分支
 - 发布分支 _在_ 其`package.json ` 中包含正确的版本
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+- 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  I.e. `master` is always versioned as the next theoretical release branch

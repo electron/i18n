@@ -8,13 +8,13 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+* `options` (Object | String) - Если `options` является String, то она интепретируется как URL запроса. Если это объект, ожидается полное указание HTTP запроса через следующие свойства:
+  * `method` String (опционально) - Метод HTTP-запроса. По умолчанию метод GET.
+  * `url` String (опционально) - URL запроса. Необходимо предоставить в абсолютной форме с протокольной схемой, указанной как http или https.
   * `session` Session (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
   * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Параметр `session` преобладает над параметром `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. По умолчанию - `false`.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `protocol` String (опционально) - Схема протокола в формате 'scheme:'. В настоящее время поддерживаются значения 'http:' или 'https:'. По умолчанию 'http:'.
   * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
@@ -89,7 +89,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Событие: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Возникает при прерывании `request`. Событие `abort` не будет запущено, если `request` уже закрыт.
 
 #### Событие: 'error'
 
@@ -113,7 +113,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением.  Если событие обработано, [`request.followRedirect`](#requestfollowredirect) должен вызываться **синхронно**, в противном случае запрос будет отменен.
 
 ### Свойства экземпляра
 
@@ -132,6 +132,18 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 Добавляет дополнительный HTTP-заголовок. Имя заголовка будет выдано как есть, без нижнего регистра. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
 
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+
+* `Content-Length`
+* `Host`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
+
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+
 #### `request.getHeader(name)`
 
 * `name` String - укажите имя дополнительного заголовка.
@@ -142,12 +154,12 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 * `name` String - укажите имя дополнительного заголовка.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Удаляет ранее установленное дополнительное имя заголовка. Этот метод может быть вызван только перед первой записью. Попытка вызвать его после первой записи приведет к ошибке.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Buffer) - Часть данных в теле запроса. Если это строка, то она преобразуется в буфер в заданной кодировке.
+* `encoding` String (опционально) - используется для конвертирования строковые части в объект Buffer. По умолчанию 'utf-8'.
 * `callback` Function (опционально) - вызывается после того, как закончится операция записи.
 
 `callback` является по существу фиктивной функцией, представленной в целях сохранения схожести с API Node.JS. Вызывается асинхронно в следующем такте, после содержимое `chunk` будет отправлено в сетевой слой Chromium. В отличие от реализации Node.JS, не гарантировано, что содержимое `chunk` будет отправлено до вызова `callback`.
@@ -160,7 +172,7 @@ Removes a previously set extra header name. This method can be called only befor
 * `encoding` String (опционально)
 * `callback` Function (опционально)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Отправляет последний фрагмент данных запроса. Последующие операции по записи или завершению не будут разрешены. Событие `finish` происходит сразу после завершения операции.
 
 #### `request.abort()`
 
@@ -174,8 +186,8 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 Возвращает `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `active` Boolean - Активен ли запрос в данный момент. Если это false, никакие другие свойства не будут установлены
+* `started` Boolean - Началась ли загрузка. Если это false, то и `current` и `total` будут установлены в 0.
 * `current` Integer - количество байтов, которые были загружены
 * `total` Integer - количество байтов, которые будут загружены в этом запросе
 

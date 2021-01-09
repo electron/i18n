@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 Le module `globalShortcut` peut inscrire/désinscrire un raccourci clavier global avec le système d'exploitation afin que vous puissiez personnaliser les opérations pour les différents raccourcis.
 
-**Remarque :** Le raccourci est global; il fonctionnera même si l'application n'a pas le focus du clavier. Vous ne devez pas utiliser ce module avant que l'événement `ready` du module app soit émis.
+**Remarque :** Le raccourci est global; il fonctionnera même si l'application n'a pas le focus du clavier. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, globalShortcut } = require('electron')

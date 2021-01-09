@@ -1,4 +1,4 @@
-# 构建说明
+# 构建指南
 
 请遵循以下指南来构建Electron。
 
@@ -24,21 +24,21 @@ Security` → `System` → `Advanced system settings` ，然后添加系统变�
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# 这将使用大约16G
+# This will use about 16G.
 ```
 
-## 获取源码
+## 获得源码
 
 ```sh
 $ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github. om/electron/electron
-$ gclient sync --with_branch_head--with_tags
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
+$ gclient sync --with_branch_heads --with_tags
 # 这将需要一段时间，喝杯咖啡休息一下。
 ```
 
 > 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-#### 拉/推的注意事项
+#### 推送/拉取的注意事项
 
 如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
@@ -53,7 +53,7 @@ $ cd -
 
 :memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
 
-运行以下命令拉取源码：
+因此，为了拉取，您将运行以下命令：
 ```sh
 $ cd src/electron
 $ git pull
@@ -65,19 +65,19 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# 下一行只有在使用 scache 构建时才需要
-$ exporter GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/testing --args="import(\"//electron/build/args/testing. n\") $GN_EXTRA_ARGS"
+# this next line is needed only if building with sccache
+$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 若在 Windows 上 (没有可选参数)：
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.
@@ -142,12 +142,12 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-<table>
-<tr><th>Host</th><th>Target</th><th>状态</th></tr>
-<tr><td>Windows x64</td><td>Windows arm64</td><td>实验功能</td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
-</table>
+| Host        | Target        | 状态                   |
+| ----------- | ------------- | -------------------- |
+| Windows x64 | Windows arm64 | 实验功能                 |
+| Windows x64 | Windows x86   | Automatically tested |
+| Linux x64   | Linux x86     | Automatically tested |
+
 
 If you test other combinations and find them to work, please update this document :)
 

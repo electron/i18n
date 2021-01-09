@@ -20,7 +20,7 @@ Sebuah alat baris perintah di sisi lain terus mendukung Anda selama pengembangan
 
 Sebuah "alat lengkap untuk membangun aplikasi Elektron modern". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. Menggunakan modul inti yang sama yang digunakan oleh komunitas Elektron yang lebih besar (seperti [` packer elektron </ 0> ) -  
+Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. Menggunakan modul inti yang sama yang digunakan oleh komunitas Elektron yang lebih besar (seperti [` packer elektron </ 0> ) - 
 perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan pengguna Forge juga.</p>
 
 <p spaces-before="0">Anda dapat menemukan lebih banyak informasi dan dokumentasi tentang <a href="https://electronforge.io/"> electronforge.io </ 0> .</p>

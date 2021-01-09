@@ -2,11 +2,11 @@
 
 > 在macOS 应用程序中，为触控栏创建拾色器
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### ` new TouchBarColorPicker(可选)` _实验功能_
+### `new TouchBarColorPicker(options)`
 
-* `options` Object
+* `选项` 对象
   * `availableColors` String[] (可选) - 由可选的十六进位色值组成的字符串数组.
   * ` backgroundColor `String (可选) - 拾色器选中的颜色十六进位色值，例如 ` #ABCDEF `。
   * `change` Function (optional) - Function to call when a color is selected.

@@ -1,29 +1,29 @@
 # Integracja z Powłoką Systemową
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Różne systemy operacyjne zapewniają różne funkcje integracji aplikacji komputerowej z ich środowiskami komputerowymi. Na przykład na Windows, aplikacje mogą umieszczać skróty na pasku zadań JumpList i na komputerze Mac, aplikacje mogą umieścić niestandardowe menu w menu doku.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Ten przewodnik wyjaśnia, jak zintegrować aplikację z tymi środowiskami z Electron API.
 
 ## Powiadomienia
 
-See the [Notifications documentation](notifications.md).
+Zobacz [dokumentację powiadomień](notifications.md).
 
 ## Ostatnie dokumenty
 
-See [Recent Documents documentation](recent-documents.md).
+Zobacz [najnowszą dokumentację dokumentów](recent-documents.md).
 
-## Progress Bar
+## Pasek postępu
 
-See the [Progress Bar documentation](progress-bar.md).
+Zobacz [dokumentację paska postępu](progress-bar.md).
 
 ## Unity Launcher
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Zobacz [dokumentację Unity Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## Reprezentowany plik dla okna macOS
 
-See the [Represented File documentation](represented-file.md).
+Zobacz [Reprezentowaną dokumentację pliku](represented-file.md).
 
-## Dragging files out of the window
+## Przeciąganie plików z okna
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Zobacz [natywne przeciąganie pliku & Dokumentacja upuszczenia](native-file-drag-drop.md).

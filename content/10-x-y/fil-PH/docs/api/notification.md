@@ -42,7 +42,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Mga Instance na Kaganapan
+### Halimbawa ng mga Event
 
 Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusunod na mga event:
 
@@ -50,25 +50,25 @@ Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusuno
 
 #### Event: 'ipakita'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `event` na Kaganapan
 
 Ay lalabas kapag ang paunawa ay ipinakita sa mga gumagamit, tandaan na ito ay ititira ng maraming beses bilang isang paunawa na maaaring ipakita ng maraming beses sa pamamagitan ng pamamaraan ng `show()`.
 
-#### Event: 'klik'
+#### Event: 'click'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 
 Ay lalabas kapag ang paunawa ay na-klik na ng gumagamit.
 
 #### Event: 'isara'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` kaganapan
+* `event` na Kaganapan
 
 Ay lalabas kapag ang paunawa ay isinara sa pamamagitan ng manu-manong pakikialam mula sa mga gumagamit.
 
@@ -76,21 +76,21 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'sumagot' sa _macOS_
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon.
 
 Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
 
 #### Event: 'aksyon' sa _macOS_
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na.
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang mga bagay na ginawa na may `new Notification` ay may mga sumusunod na pamamaraan ng instansya:
 
@@ -158,7 +158,7 @@ A [`NotificationAction[]`](structures/notification-action.md) property represent
 
 Sa macOS, maaari mong tukuyin ang pangalan ng mga tunog na gusto mong patunugin kapag ang paunawa ay ipinakita. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Maging sigurado na ang file ng tunog ay nakoya na sa ilalim ng bundle ng app (hal, `YourApp.app/Contents/Resources`), o isa sa mga sumusunod na lokasyon:
 
-* `-/Library/Sounds`
+* `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`

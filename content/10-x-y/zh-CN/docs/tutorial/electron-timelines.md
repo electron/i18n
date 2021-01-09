@@ -4,7 +4,7 @@
 * 这些是我们排定的测试版发布日程，但我们往往比预定的发布更多测试版本。
 * 我们致力于在这些日期发布版本，但可能因为诸如安全漏洞之类的理由调整这些排定的最后期限。
 * 查看 [ 5.0.0 版本时间线博客文章](https://electronjs.org/blog/electron-5-0-timeline) 以了解我们有关发布日期的信息。
-* Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* 自从Electron 6.0以来，我们一直在针对每一个其他版本的 Chromium ，并且在同一天与Chrome 稳定性一样释放我们的稳定性。 您可以在[这里](https://chromiumdash.appspot.com/schedule)参考 Chromium 的发布计划。 查看 [Electron的新版本干部文章](https://www.electronjs.org/blog/12-week-cadence) 以了解我们发布计划的更多详情。
 
 | 版本     | -beta.1    | 稳定版        | Chrome | Node   |
 | ------ | ---------- | ---------- | ------ | ------ |

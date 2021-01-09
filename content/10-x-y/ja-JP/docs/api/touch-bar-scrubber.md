@@ -36,7 +36,7 @@
 
 #### `touchBarScrubber.overlayStyle`
 
-スクラバー内の選択したアイテムのスタイルを表す `String`。 このスタイルは、その後ろに置かれるのではなく、スクラバーアイテムの上に重ねられます。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 以下は取りうる値です。
+スクラバー内の選択したアイテムのスタイルを表す `String`。 このスタイルは、その後ろに置かれるのではなく、スクラバーアイテムの上に重ねられます。 この値を更新すると、タッチバーのコントロールがすぐに更新されます。 取りうる値:
 
 * `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
 * `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.

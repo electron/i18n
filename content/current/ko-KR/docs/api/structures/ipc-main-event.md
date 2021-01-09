@@ -1,5 +1,6 @@
 # `Event`를 상속한 IpcMainEvent 오브젝트
 
+* `processId` Integer - The internal ID of the renderer process that sent this message
 * `frameId` Integer - 이 메시지를 보낸 렌더러 프레임의 ID
 * `returnValue` any - 동기 메시지에 반환될 값으로 설정하십시오.
 * `sender` WebContents - 메시지를 보낸 `webContents`를 반환합니다.

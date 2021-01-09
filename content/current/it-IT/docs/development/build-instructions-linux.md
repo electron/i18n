@@ -17,7 +17,7 @@ Di seguito sono riportate le linee guida per compilare Electron in ambiente Linu
 
 * Node.js. Ci sono diversi modi per installare Node. Puoi scaricare i sorgenti da [nodejs.org](https://nodejs.org) e compilarli. Ciò consente di installare Node nella propria home directory come utente standard. O puoi scaricarlo da un repository come ad esempio [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o successiva.
-* Development headers of GTK 3 and libnotify.
+* Intestazioni di sviluppo di GTK 3 e libnotify.
 
 Su Ubuntu, installa le seguenti librerie:
 
@@ -45,6 +45,15 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    nss-devel python-dbusmock openjdk-8-jre
+```
+
+On Arch Linux / Manjaro, install the following libraries:
+
+```sh
+$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
+                   libgnome-keyring alsa-lib libcap libcups libxtst \
+                   libxss nss gcc-multilib curl gperf bison \
+                   python2 python-dbusmock jdk8-openjdk
 ```
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.

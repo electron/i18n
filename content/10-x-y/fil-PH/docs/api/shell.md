@@ -1,4 +1,4 @@
-# "Shell"
+# kabibi
 
 > Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
@@ -28,7 +28,7 @@ Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openPath(path)`
 
-* `path` String
+* `path` na String
 
 Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 

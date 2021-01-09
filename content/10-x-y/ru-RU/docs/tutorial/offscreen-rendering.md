@@ -2,19 +2,19 @@
 
 Закадровый рендеринг позволяет получить содержимое окна браузера в виде Bitmap изображения, которое может быть отображено где угодно. (Например, может быть использовано в виде текстуры в 3D сцене). Закадровый рендеринг в Electron использует подход, схожий с [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
+Два режима рендеринга могут быть использованы и только грязная область передается в `'paint'` событие более эффективно. рендеринг может быть остановлен, продолжиться и частота кадров может быть установлена. Указанная частота кадров является предельным значением, когда на веб-странице ничего не происходит, фреймы не создаются. The maximum frame rate is 240, because above that there is no benefit, only performance loss.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Примечание:** Окно с выключенным экраном всегда создается как [Окно без кадров](../api/frameless-window.md).
 
-## Режими рендеринга
+## Режимы рендеринга
 
 ### Аппаратное ускорение
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
 
-### Software output device
+### Устройство вывода
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Этот режим использует устройство вывода для рендеринга в процессоре, поэтому кадр поколения намного быстрее, поэтому этот режим предпочтительнее GPU ускоренного режима.
 
 To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
@@ -25,18 +25,18 @@ const { app, BrowserWindow } = require('electron')
 
 app.disableHardwareAcceleration()
 
-let win
+позволит выиграть
 
-app.whenReady().then(() => {
+app.whenReady(). hen(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true
     }
   })
 
-  win.loadURL('http://github.com')
+  win. oadURL('http://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    // updateBitmap(dirty, image. etBitmap())
   })
   win.webContents.setFrameRate(30)
 })

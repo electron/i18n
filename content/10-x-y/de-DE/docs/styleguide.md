@@ -17,15 +17,15 @@ Am Beispiel von `Schnellstart`:
 
 ...
 
-## Main-Prozess
+## Hauptprozess
 
 ...
 
-## Renderer-Prozess
+## Renderer Prozess
 
 ...
 
-## Ihre App ausführen
+## Starte deine App
 
 ...
 
@@ -33,7 +33,7 @@ Am Beispiel von `Schnellstart`:
 
 ...
 
-### Electron-Binärdatei manuell herunterladen
+### Manuell heruntergeladene Electron Binärdatei
 
 ...
 ```
@@ -50,7 +50,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 ## Wörter auswählen
 
 * "Wird" sollte statt "würde" verwendet werden, um Ergebnisse zu beschreiben.
-* Bevorzugen Sie "im ___ Prozess" gegenüber "bei".
+* Prefer "in the ___ process" over "on".
 
 ## API Referenzen
 
@@ -58,21 +58,21 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Seitentitel
 
-Jede Seite muss den tatsächlichen Objektnamen verwenden, den `require('electron')` als Titel zurück gibt, wie `BrowserWindow`, `autoUpdater`, und `session`.
+Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Unter dem Seitentitel muss eine einzeilige Beschreibung sein, beginnend mit `>`.
+Under the page title must be a one-line description starting with `>`.
 
-Am Beispiel von `session`:
+Using `session` as example:
 
 ```markdown
 # session
 
-> Verwalte Browser-Sitzungen, Cookies, Cache, Proxy-Einstellungen, etc.
+> Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
 ### Methoden und Events von Modulen
 
-Für Module, die keine Klassen sind, müssen deren Methoden und Events unter `## Methods` und `## Events` aufgelistet werden.
+For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
 Verwende `AutoUpdater` als Beispiel:
 
@@ -83,22 +83,22 @@ Verwende `AutoUpdater` als Beispiel:
 
 ### Event: 'error'
 
-## Methoden
+## Methods
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### Klassen
 
-* API-Klassen oder Klassen, die Teil von Modulen sind, müssen unter dem Kapitel `## Klassen: Klassenname` aufgeführt werden.
-* Eine Seite kann mehrere Klassen haben.
+* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
+* One page can have multiple classes.
 * Konstruktoren müssen mit `###` Level-Titeln aufgelistet werden.
 * [Statische Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) müssen unter einem Kapitel `### Statische Methoden` aufgelistet werden.
 * [Instanz-Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) müssen unter einem `### Instanz-Methoden` Kapitel aufgelistet werden.
-* Alle Methoden, die einen Rückgabewert haben, müssen ihre Beschreibung mit "Returns `[TYPE]`" beginnen
-  * Wenn die Methode ein `Objekt` zurückgibt, kann dessen Struktur angegeben werden mit einem Doppelpunkt gefolgt von einem Zeilenumbruch, dann einer ungeordneten Liste der Eigenschaften im gleichen Stil wie die Funktionsparameter.
+* Alle Methoden, die einen Rückgabewert haben, müssen ihre Beschreibung mit "Returns `[TYPE]` - Rückgabewert" beginnen
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Instanz-Eigenschaften müssen im Kapitel `### Instanz-Eigenschaften` aufgelistet werden.
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -143,14 +143,14 @@ The methods chapter must be in the following form:
 ### `objectName.methodName(required[, optional]))`
 
 * `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `optional` Ganzzahl (optional) - Eine weitere Parameterbeschreibung.
 
 ...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Bei Modulen ist der `objectName` der Name des Moduls. Für Klassen muss es der Name der Instanz der Klasse sein und darf nicht der gleiche sein wie der Name des Moduls.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -160,7 +160,7 @@ The optional arguments are notated by square brackets `[]` surrounding the optio
 erforderlich[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Unter der Methode finden Sie detailliertere Informationen zu jedem der Argumente. Der Typ des Arguments wird von den gebräuchlichen Typen notiert:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

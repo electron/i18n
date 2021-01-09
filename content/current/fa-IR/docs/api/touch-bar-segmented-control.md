@@ -2,11 +2,11 @@
 
 > Create a segmented control (a button group) where one button has a selected state
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Drive
 
-### `new TouchBarSegmentedControl(options)` _Experimental_
+### `new TouchBarSegmentedControl(options)`
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `segmentStyle` String (optional) - Style of the segments:
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
     * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.
@@ -41,3 +41,7 @@ A `SegmentedControlSegment[]` array representing the segments in this control. U
 #### `touchBarSegmentedControl.selectedIndex`
 
 An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

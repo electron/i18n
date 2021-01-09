@@ -6,6 +6,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+프로세스:[Main](../glossary.md#main-process)
+
 예시:
 ```js
 const { port1, port2 } = new MessageChannelMain()

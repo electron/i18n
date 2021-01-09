@@ -6,7 +6,7 @@ Da [ChromeDriver - WebDriver per Chrome](https://sites.google.com/a/chromium.org
 
 ## Impostare Spectron
 
-[Spectron](https://electronjs.org/spectron) è il ChromeDriver per testare i framework ufficialmente supportata per Electron. Essa è costruita sulla base di [WebdriverIO](http://webdriver.io/) ed ha degli aiuti per accedere alle API di Electron nei tuoi test e bundle di ChromeDriver.
+[Spectron](https://electronjs.org/spectron) è il ChromeDriver per testare i framework ufficialmente supportata per Electron. Essa è costruita sulla base di [WebdriverIO](https://webdriver.io/) ed ha degli aiuti per accedere alle API di Electron nei tuoi test e bundle di ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,9 +45,9 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Impostare WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fornisce un pacchetto Node per testare con il driver web, lo useremo come esempio.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) fornisce un pacchetto Node per testare con il driver web, lo useremo come esempio.
 
-### 1. Start ChromeDriver
+### 1. Avvia ChromeDriver
 
 Prima devi scaricare il binario di `chromedriver` ed eseguirlo:
 
@@ -66,9 +66,9 @@ Ricorda il numero di porta `9515`, che sarà usato più tardi
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Connettiti a ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+L'utilizzo di `selenio-webdriver` con Electron è lo stesso con a monte, tranne che è necessario specificare manualmente come collegare driver cromo e dove trovare il binario di Electron:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -99,9 +99,9 @@ driver.quit()
 
 ## Impostare WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) fornisce un pacchetto Node per testare con il driver web.
+[WebdriverIO](https://webdriver.io/) fornisce un pacchetto Node per testare con il driver web.
 
-### 1. Start ChromeDriver
+### 1. Avvia ChromeDriver
 
 Prima devi scaricare il binario di `chromedriver` ed eseguirlo:
 
@@ -114,13 +114,13 @@ Solo connessioni locali consentite.
 
 Ricorda il numero di porta `9515`, che sarà usato più tardi
 
-### 2. Install WebdriverIO
+### 2. Installa WebdriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Connettiti al driver cromato
 
 ```javascript
 const webdriverio = require('webdriverio')
@@ -131,26 +131,26 @@ const options = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Opzionale, forse 'app=' + /path/to/your/app/
     }
   }
 }
 
-const client = webdriverio.remote(options)
+const client = webdriverio. emote(options)
 
 client
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+  .getTitle(). hen((title) => {
+    console.log('Title era: ' + title)
   })
   .end()
 ```
 
 ## Workflow
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Per testare la tua applicazione senza ricostruire Electron, [posiziona](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la sorgente della tua app nella directory delle risorse di Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+In alternativa, passa un argomento da eseguire con il binario Electron che punta alla cartella della tua app. Questo elimina la necessità di copiare-incollare la tua app nella directory delle risorse di Electron.

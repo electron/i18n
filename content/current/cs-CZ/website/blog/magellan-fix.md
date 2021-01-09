@@ -1,34 +1,34 @@
 ---
-title: SQLite Vulnerability Fix
+title: Oprava zranitelnosti SQLite
 author: ckerr
 date: '2018-12-18'
 ---
 
-A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
+Objevila se zranitelnost vykonávání vzdáleného kódu, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," ovlivňující software založený na SQLite nebo Chromium, včetně všech verzí Electronu.
 
 ---
 
-## Scope
+## Oblast působnosti
 
-Electron applications using Web SQL are impacted.
+Aplikace Electron používající Web SQL jsou ovlivněny.
 
 
-## Mitigation
+## Zmírnění
 
-Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
+Ovlivněné aplikace by měly přestat používat Web SQL nebo aktualizovat na upravenou verzi Electronu.
 
-We've published new versions of Electron which include fixes for this vulnerability:
+Zveřejnili jsme nové verze Electronu, které obsahují opravy pro tuto zranitelnost:
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-There are no reports of this in the wild; however, affected applications are urged to mitigate.
+Neexistují žádné zprávy o tom ve volné přírodě; dotčené aplikace jsou však vyzývány, aby je zmírnily.
 
-## Further Information
+## Další informace
 
-This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
+Tato zranitelnost byla objevena týmem Tencent Blade, který zveřejnil [příspěvek blogu, který diskutuje o zranitelnosti](https://blade.tencent.com/magellan/index_en.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Chcete-li se dozvědět více o osvědčených postupech pro zabezpečení Vašich Electron aplikací, podívejte se na náš [bezpečnostní návod](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Pokud chcete nahlásit zranitelnost v Electronu, napište email security@electronjs.org.

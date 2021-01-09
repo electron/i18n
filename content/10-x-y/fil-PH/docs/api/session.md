@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Mga Instance na Kaganapan
+### Halimbawa ng mga Event
 
 Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### Kaganapan: 'will-download'
 
-Magbabalik ng:
+Pagbabalik:
 
 * `event` na Kaganapan
 * `item` na [DownloadItem](download-item.md)
@@ -84,9 +84,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
@@ -94,41 +94,41 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` kaganapan
+* `event` na Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `event` Event
+* `event` na Kaganapan
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check

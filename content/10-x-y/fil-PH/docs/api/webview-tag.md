@@ -1,4 +1,4 @@
-# `<webview>` Tag
+# `<webview>` Pananda
 
 ## Warning
 
@@ -18,7 +18,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Paalala:** Lahat ng paraan ay tinatawag sa webview galing sa unang pahina na nangangailangan a asinkrunos na tawag papunta sa pangunahing proseso.
 
-## Halimbawa
+## Mga halimbawa
 
 Para i-embed ang pahina ng web sa iyong app, Idagdag ang `webview` tag sa iyong app's na taga-embed na pahina (Ito ang app na pahina na makikita sa panauhin na nilalaman). Sa kanyang pinakasimpleng porma, ang `webview` tag kasama ang `src` sa pahina ng web at css na estilo na ikontrol ang itsura ng `webview` container:
 
@@ -197,7 +197,7 @@ Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
 **Paalala:** Ang webview na elemento ay dapat makarga bago gamitin ang mga pamamaraan.
 
-**Halimbawa**
+**Mga halimbawa**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -454,8 +454,8 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 * `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - I-translate ang mga napili para maging normal.
-  * `activateSelection` - Ipukos at iclick ang node ng napili.
+  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
+  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
 
 Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
 
@@ -465,7 +465,7 @@ Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang
   * `silent` Boolean (optional) - Don't ask user for print settings. Ang default ay `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Ang default ay `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Ang Default ay `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Ng default ay `tama`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -477,9 +477,9 @@ Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only the first range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -502,8 +502,8 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -584,33 +584,33 @@ Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
 ### Event: 'load-commit'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Kaganapan: 'ginawa-tapusin-dala'
+### Event: 'did-finish-load'
 
 Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
 
-### Kaganapan: 'ginawa-mabibigo-dala'
+### Event: 'did-fail-load'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `pagkakamalingCode`kabuuan
-* `Paglalarawan ng pagkakamali`tali
-* `napatunayan sa Url`tali
-* `ay pangunahing kuwadro` Boolean
+* `errorCode` Integer
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
 
 Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
 
 ### Kaganapan: 'ginawa-frame-finish-load'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 
 Itigil kapag natapos na ang nabigasyon ng frame.
 
@@ -628,7 +628,7 @@ Itigil kapag ang dokumento ng sinasabing frame ay na-load.
 
 ### Event: 'page-title-updated'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `title` String
 * `explicitSet` Boolean
@@ -637,7 +637,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Kaganapan: 'pahina-favicon-updated'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `favicons` String[] - Hanay ng mga URL.
 
@@ -653,10 +653,10 @@ Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
 
 ### Event: 'console-message'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `level` Integer
-* `mensahe` Tali
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -673,7 +673,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Kaganapan: 'natagpuan-sa-pahina'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `result` Object
   * `requestId` Integer
@@ -696,7 +696,7 @@ console.log(requestId)
 
 ### Kaganapan: 'bagong-bintana'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 * `frameName` Pisi
@@ -721,7 +721,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Kaganapan: 'mag-navigate'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
@@ -735,7 +735,7 @@ Tinatawag ang `event.preventDefault()` na may __NOT__ mga epekto.
 
 ### Kaganapan: 'ginawa-navigate'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
@@ -745,16 +745,16 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Kaganapan: 'ginawa-navigate-in-page'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 * `url` Tali
 
 Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
 Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
-### Event: 'close'
+### Event: 'isara'
 
 Itigil kung ang guest page ay sinubukang isara ang sarili.
 
@@ -769,7 +769,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `channel` String
 * `args` any[]
@@ -802,7 +802,7 @@ Itigil kapag ang nag-crash ang proseso na nagsumite.
 
 ### Kaganapan: 'plugin-nag-crash'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `name` String
 * `Bersyon` Pisi
@@ -823,7 +823,7 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `themeColor` String
 
@@ -835,7 +835,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Kaganapan: 'update-target-url'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 

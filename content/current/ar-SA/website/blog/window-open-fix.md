@@ -1,29 +1,29 @@
 ---
-title: BrowserView window.open() Vulnerability Fix
+title: تصفح عرض window.open() إصلاح الضعف
 author: ckerr
 date: '2019-02-03'
 ---
 
-A code vulnerability has been discovered that allows Node to be re-enabled in child windows.
+تم اكتشاف ضعف رمز يسمح بإعادة تمكين العقدة في النوافذ الفرعية.
 
 ---
 
-Opening a BrowserView with `sandbox: true` or `nativeWindowOpen: true` and `nodeIntegration: false` results in a webContents where `window.open` can be called and the newly opened child window will have `nodeIntegration` enabled. This vulnerability affects all supported versions of Electron.
+فتح عرض المتصفح مع `sandbox: true` أو `nativeWindowOpen: true` and `nodeIntegration: false` يؤدي إلى محتوى ويب حيث `نافذة. يمكن استدعاء القلم` وستكون نافذة الأطفال المفتوحة حديثا `عقد الدمج` ممكنة. هذا الضعف يؤثر على جميع الإصدارات المدعومة من إلكترون.
 
-## Mitigation
+## التخفيف
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`2.0.17`](https://github.com/electron/electron/releases/tag/v2.0.17), [`3.0.15`](https://github.com/electron/electron/releases/tag/v3.0.15), [`3.1.3`](https://github.com/electron/electron/releases/tag/v3.1.3), [`4.0.4`](https://github.com/electron/electron/releases/tag/v4.0.4), and [`5.0.0-beta.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2). We encourage all Electron developers to update their apps to the latest stable version immediately.
+لقد نشرنا إصدارات جديدة من إلكترون تتضمن إصلاحات لهذا الضعف: [`. .17`](https://github.com/electron/electron/releases/tag/v2.0.17)، [`3.0. 5`](https://github.com/electron/electron/releases/tag/v3.0.15)، [`3.1.3`،](https://github.com/electron/electron/releases/tag/v3.1.3)، [`4. .4`](https://github.com/electron/electron/releases/tag/v4.0.4)و [` 5.0.0-بيتا.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2) نحن نشجع جميع مطوري إلكترون على تحديث تطبيقاتهم إلى أحدث إصدار مستقر على الفور.
 
-If for some reason you are unable to upgrade your Electron version, you can mitigate this issue by disabling all child web contents:
+إذا كنت غير قادر لسبب ما على ترقية الإلكترون الخاص بك، فيمكنك التخفيف من حدة هذه المشكلة عن طريق تعطيل جميع محتويات الويب الفرعية:
 
 ```javascript
-view.webContents.on('-add-new-contents', e => e.preventDefault());
+view.webContents.on('-add-new-contents', e => e.preventDefault())؛
 ```
 
-## Further Information
+## معلومات إضافية
 
-This vulnerability was found and reported responsibly to the Electron project by [PalmerAL](https://github.com/PalmerAL).
+تم العثور على هذا الضعف وتم الإبلاغ عنه بشكل مسؤول في مشروع إلكترون بواسطة [PalmerAL](https://github.com/PalmerAL).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+لمعرفة المزيد عن أفضل الممارسات للحفاظ على أمن تطبيقات إلكترون، راجع [درسنا الأمني](https://electronjs.org/docs/tutorial/security).
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+إذا كنت ترغب في الإبلاغ عن ضعف في إلكترون، البريد الإلكتروني security@electronjs.org.

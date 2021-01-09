@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Dialog는 Electron의 메인 스레드에서 열립니다. 렌더러 프로세스에서 dialog를 표시하려면 remote 모듈을 사용하십시오.
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -30,17 +30,17 @@ console.log(dialog)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (선택 인자) - dialog에서 사용해야 하는 기능을 포함합니다. 아래 값들을 사용할 수 있습니다:
     * `openFile` - 파일 선택 가능
     * `openDirectory` - 폴더 선택 가능
     * `multiSelections` - 경로 다중 선택 가능
     * `showHiddenFiles` - 숨겨진 파일 표시
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
+    * `createDirectory` _macOS_ - dialog에서 새로운 폴더 생성 가능
+    * `promptToCreate` _Windows_ - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+    * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
+    * `최근` _윈도우_ - 최근 문서 목록에 열려있는 항목을 추가하지 않기
+  * `message` String (optional) _macOS_ - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -62,7 +62,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 `extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Note:** 윈도우, 리눅스에서는 dialog 창이 file, directory 중복 선택 불가능합니다. directory 선택을 원할경우 `properties` `['openFile', 'opendirectory']` 를 설정하면 directory 선택이 가능합니다.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -78,23 +78,23 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (선택 인자) - dialog에서 사용해야 하는 기능을 포함합니다. 아래 값들을 사용할 수 있습니다:
     * `openFile` - 파일 선택 가능
     * `openDirectory` - 폴더 선택 가능
     * `multiSelections` - 경로 다중 선택 가능
     * `showHiddenFiles` - 숨겨진 파일 표시
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `promptToCreate` _Windows_ - Prompt for creation if the file path entered in the dialog does not exist. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
+    * `createDirectory` _macOS_ - dialog에서 새로운 폴더 생성 가능
+    * `promptToCreate` _Windows_ - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
     * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
-  * `message` String (optional) _macOS_ - Message to display above input boxes.
+    * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
+    * `최근` _윈도우_ - 최근 문서 목록에 열려있는 항목을 추가하지 않기
+  * `message` String (optional) _macOS_ - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - 사용자가 선택한 파일 경로들. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다. (For return values, see [table here](#bookmarks-array).)
 
 `browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
@@ -114,7 +114,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 
 `extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Note:** 윈도우, 리눅스에서는 dialog 창이 file, directory 중복 선택 불가능합니다. directory 선택을 원할경우 `properties` `['openFile', 'opendirectory']` 를 설정하면 directory 선택이 가능합니다.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -140,8 +140,8 @@ dialog.showOpenDialog(mainWindow, {
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - 숨겨진 파일 표시
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` _macOS_ - dialog에서 새로운 폴더 생성 가능
+    * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
@@ -165,8 +165,8 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - 숨겨진 파일 표시
-    * `createDirectory` _macOS_ - Allow creating new directories from dialog.
-    * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` _macOS_ - dialog에서 새로운 폴더 생성 가능
+    * `treatPackageAsDirectory` _macOS_ - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
     * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
@@ -180,7 +180,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Note:** MacOS 에서는 dialog expanding and collapsing 시에 문제를 피하기위해 비동기 버전 사용이 권장됩니다.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
@@ -203,7 +203,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다. If `browserWindow` is not shown dialog will not be attached to it. In such case It will be displayed as independed window.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

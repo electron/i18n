@@ -1,6 +1,6 @@
 # Gamit ang clang-format sa C++ Code
 
-Ang gamit ng[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html)ay upang kusang umayos ang code na C/C++/Objective-C, upang sa gayon, ang mga naglilinang ay 'di nangangailangan na mangamba tungkol sa istilo ng mga isyu sa tuwing nagsasagawa ng mga pagsusuri sa code.
+Ang gamit ng[`clang-format`](https://clang.llvm.org/docs/ClangFormat.html)ay upang kusang umayos ang code na C/C++/Objective-C, upang sa gayon, ang mga naglilinang ay 'di nangangailangan na mangamba tungkol sa istilo ng mga isyu sa tuwing nagsasagawa ng mga pagsusuri sa code.
 
 Lubos na pinapayuhan na iayos ang nabagong code sa C++ bago magbukas ng mga pull request, na syang magpapadali para sa'yo at sa nagsusuri.
 
@@ -22,6 +22,6 @@ If you want to format the changed code on your latest git commit (HEAD), you can
 
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
-  * [Atom](https://atom.io/packages/clang-format)
-  * [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-  * [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+* [Atom](https://atom.io/packages/clang-format)
+* [Vim & Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+* [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

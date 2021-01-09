@@ -45,7 +45,7 @@ The `dialog` module has the following methods:
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Na przykład:
 
@@ -97,7 +97,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 * `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Na przykład:
 
@@ -148,7 +148,7 @@ dialog.showOpenDialog(mainWindow, {
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -176,7 +176,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
   * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
   * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -197,13 +197,13 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `icon` ([NativeImage](native-image.md) | String) (opcjonalne)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Domyślnie jest `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 
 Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym. Jeśli `okno przeglądarki` nie zostanie wyświetlone, okno dialogowe nie zostanie do niego dołączone. W takim przypadku zostanie wyświetlone jako niezależne okno.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal. Jeśli `okno przeglądarki` nie zostanie wyświetlone, okno dialogowe nie zostanie do niego dołączone. W takim przypadku zostanie wyświetlone jako niezależne okno.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
@@ -220,7 +220,7 @@ Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędne
   * `icon` [NativeImage](native-image.md) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Domyślnie jest `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 
 Returns `Promise<Object>` - resolves with a promise containing the following properties:
   * `response` Number - The index of the clicked button.
@@ -228,7 +228,7 @@ Returns `Promise<Object>` - resolves with a promise containing the following pro
 
 Shows a message box, it will block the process until the message box is closed.
 
-Argument `browserWindow` pozwala dialogowemu dołączyć się do okna nadrzędnego, czyniąc go modalnym.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 ### `dialog.showErrorBox(title, content)`
 

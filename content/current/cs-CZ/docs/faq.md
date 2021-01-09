@@ -1,68 +1,68 @@
 # Electron FAQ
 
-## Why am I having trouble installing Electron?
+## Proč mám potíže s instalací Electronu?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Při spuštění `npm instaluje elektroron`, někteří uživatelé občas zaznamenají chyby instalace.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
+Téměř ve všech případech jsou tyto chyby výsledkem síťových problémů a ne skutečných problémů s balíčkem `elektronron` npm. Chyby jako `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`a `ETIMEDOUT` jsou náznakem takových problémů sítě . Nejlepším rozlišením je vyzkoušet přepínání sítí, nebo počkejte trochu a zkuste nainstalovat znovu.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Můžete se také pokusit stáhnout Electron přímo z [electron/electron/releasases](https://github.com/electron/electron/releases) při instalaci přes `npm` selhává.
 
-## When will Electron upgrade to latest Chrome?
+## Kdy bude Electron upgradovat na nejnovější Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Verze Chrome Electronu je obvykle vyčerpána během jednoho nebo dvou týdnů po a nová stabilní verze Chrome bude zveřejněna. Tento odhad není zaručen a závisí na objemu práce spojené s modernizací.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Používá se pouze stabilní kanál Chrome. Pokud je důležitá oprava v kanálu beta nebo dev , budeme ji zpětně portovat.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Více informací naleznete v [bezpečnostním úvodu](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Kdy bude Electron upgradovat na nejnovější Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Když bude vydána nová verze Node.js, obvykle počkáme asi měsíc před aktualizací této verze v Electronu. Takže se můžeme vyhnout tomu, abychom se dopouštěli chyb zavedených do nových verzí Node.js, což se děje velmi často.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Nové funkce Node. s je obvykle přinášen aktualizací V8, protože Electron je pomocí V8 dodávaného prohlížečem Chrome, lesklá nová funkce JavaScriptu nového uzlu. s verze je obvykle již v Electronu.
 
-## How to share data between web pages?
+## Jak sdílet data na webových stránkách?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pro sdílení dat mezi webovými stránkami (procesy pro renderování) je nejjednodušším způsobem použít HTML5 API, která jsou již k dispozici v prohlížečích. Dobrými kandidáty jsou [úložiště API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)a [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternativně můžete použít primární IPC, které poskytuje Electron. pro sdílení údajů mezi hlavními procesy a procesy vykreslování, můžete použít moduly [`ipcMain`](api/ipc-main.md) a [`ipcRenderer`](api/ipc-renderer.md). Chcete-li komunikovat přímo mezi webovými stránkami, můžete od sebe poslat [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) , případně prostřednictvím hlavního procesu pomocí [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Následná komunikace přes porty zpráv je přímá a neomezuje se prostřednictvím hlavního procesu.
 
-## My app's tray disappeared after a few minutes.
+## Můj panel aplikace zmizel po několika minutách.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+K tomu dochází, když proměnná, která se používá k ukládání do lišty, získá sbírku odpadků.
 
-If you encounter this problem, the following articles may prove helpful:
+Pokud narazíte na tento problém, následující články mohou být užitečné:
 
 * [Správa paměti](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Proměnný rozsah](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Pokud chcete rychlou opravu, můžete vytvořit proměnné globálně změnou svého kódu:
 
 ```javascript
 const { app, Tray } = require('electron')
-app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
+app.whenReady().then() => {
+  const tray = nová Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-to this:
+k tomu:
 
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
 app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
+  tray = nová Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Nemohu použít jQuery/RequireJS/Meteor/AngularJS v Electronu.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Kvůli uzlu. s integrace Electronu, existují další symboly vložené do DOM jako `modul`, `export`, `vyžaduje`. To způsobuje problémy pro některé knihovny, protože chtějí vložit symboly se stejnými jmény.
 
-To solve this, you can turn off node integration in Electron:
+Chcete-li to vyřešit, můžete vypnout integraci uzlu v Electronu:
 
 ```javascript
 // In the main process.
@@ -75,7 +75,7 @@ const win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Ale pokud chcete zachovat schopnost používat uzel. s a Electron API, musíte přejmenovat symboly na stránce před zahrnutím jiných knihoven:
 
 ```html
 <head>
@@ -89,26 +89,26 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `vyžaduje ('electron').xxx` není definován.
 
-When using Electron's built-in module you might encounter an error like this:
+Při používání vestavěného Electronu se může vyskytnout chyba jako je:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Nezjištěný TypeError: Nelze číst vlastnost 'setZoomLevel' nedefinovaná
 ```
 
-It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Je velmi pravděpodobné, že používáte modul ve špatném procesu. Například `elektron.Aplikace` může být použita pouze v hlavním procesu, zatímco `elektron.webFrame` je k dispozici pouze v procesu vykreslování.
 
-## The font looks blurry, what is this and what can I do?
+## Písmo vypadá rozmazaně, co je to a co mohu dělat?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ukázka:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ukázka:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![ukázka vykreslování subpixelů](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Podpixelové antaliasování vyžaduje neprůhledné pozadí vrstvy obsahující font glyfs. (Další informace viz [tento úkol](https://github.com/electron/electron/issues/6344#issuecomment-420371918)).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Pro dosažení tohoto cíle nastavte pozadí v konstruktoru pro [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,6 +117,6 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Efekt je viditelný pouze na (nějaké?) LCD obrazovce. I když nevidíte rozdíl, někteří z vašich uživatelů mohou. Je nejlepší vždy nastavit pozadí tímto způsobem, pokud nemáte důvody tak neučinit.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Všimněte si, že právě nastavení pozadí v CSS nemá požadovaný efekt.

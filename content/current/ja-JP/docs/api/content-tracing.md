@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー](https://github.com/catapult-project/catapult/blob/master/tracing) を使用します。Chrome では `chrome://tracing` で利用できます。
+このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md) を使用します。Chrome では `chrome://tracing` で利用できます。
 
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
@@ -14,7 +14,7 @@ const { app, contentTracing } = require('electron')
 app.whenReady().then(() => {
   (async () => {
     await contentTracing.startRecording({
-      include_categories: ['*']
+      included_categories: ['*']
     })
     console.log('Tracing started')
     await new Promise(resolve => setTimeout(resolve, 5000))
@@ -34,7 +34,7 @@ app.whenReady().then(() => {
 
 カテゴリグループの集合を取得します。 新しいコードパスに到達したら、カテゴリグループは変更できます。 詳しくは [組み込みトレースカテゴリのリスト](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) を参照してください。
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **注意:** Electron は `"electron"` という非デフォルトのトレースカテゴリを追加します。 このカテゴリは、Electron 固有のトレースイベントのキャプチャに使用できます。
 
 ### `contentTracing.startRecording(options)`
 

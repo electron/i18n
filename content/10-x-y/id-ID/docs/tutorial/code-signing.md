@@ -4,7 +4,7 @@ Code signing is a security technology that you use to certify that an app was cr
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Pada Windows, sistem menetapkan tingkat kepercayaan ke sertifikat penandatanganan kode yang jika Anda tidak memiliki, atau jika tingkat kepercayaan Anda rendah, akan menyebabkan dialog keamanan muncul ketika pengguna mulai menggunakan aplikasi Anda.  Tingkat kepercayaan terbangun seiring dengan berjalannya waktu, jadi lebih baik untuk memulai penandatanganan kode sedini mungkin.
 
 While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
@@ -77,7 +77,7 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
 
-## `electron-builder`
+## `pembangun elektron`
 
 Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
 

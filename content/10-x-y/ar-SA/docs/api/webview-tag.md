@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  You need to enable t
 
 > Display external web content in an isolated frame and process.
 
-shliilhpltfrom
+Процес: [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -477,9 +477,9 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only the first range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -502,8 +502,8 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -584,7 +584,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-تراجع:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -597,7 +597,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-تراجع:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -608,7 +608,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-تراجع:
+Returns:
 
 * `isMainFrame` Boolean
 
@@ -628,7 +628,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-تراجع:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -637,7 +637,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-تراجع:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -653,7 +653,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-تراجع:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -673,7 +673,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-تراجع:
+Returns:
 
 * `result` Object
   * `requestId` Integer
@@ -696,7 +696,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-تراجع:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -721,7 +721,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Event: 'will-navigate'
 
-تراجع:
+Returns:
 
 * `url` String
 
@@ -735,7 +735,7 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Event: 'did-navigate'
 
-تراجع:
+Returns:
 
 * `url` String
 
@@ -745,7 +745,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-تراجع:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -769,7 +769,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-تراجع:
+Returns:
 
 * `channel` String
 * `args` any[]
@@ -802,9 +802,9 @@ Fired when the renderer process is crashed.
 
 ### Event: 'plugin-crashed'
 
-تراجع:
+Returns:
 
-* `الإسم`String
+* `name` سلسلة نصية
 * `الإصدار` String
 
 Fired when a plugin process is crashed.
@@ -823,7 +823,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-تراجع:
+Returns:
 
 * `themeColor` String
 
@@ -835,7 +835,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-تراجع:
+Returns:
 
 * `url` String
 

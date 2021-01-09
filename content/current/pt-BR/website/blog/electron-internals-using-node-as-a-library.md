@@ -1,58 +1,58 @@
 ---
-title: 'Electron Internals&#58; Using Node as a Library'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Check out the [first post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) about event loop integration if you haven't already.
+Este é o segundo post em uma série em curso explicando os internos do Electron. Confira o [primeiro post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) sobre a integração do loop de evento se você ainda não o fez.
 
-Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. This post explains how Node is used as a library in Electron.
+A maioria das pessoas usa [Node](https://nodejs.org) para aplicativos do lado do servidor, mas devido à rica comunidade de API do Node definida e próspera, também é uma ótima opção para uma biblioteca incorporada. Este post explica como o nó é usado como uma biblioteca no Electron.
 
 ---
 
-## Build system
+## Sistema de compilação
 
-Both Node and Electron use [`GYP`](https://gyp.gsrc.io) as their build systems. If you want to embed Node inside your app, you have to use it as your build system too.
+Tanto o Node quanto o Electron usam [`GYP`](https://gyp.gsrc.io) como sistemas de compilação. Se você quer incorporar Node dentro de seu aplicativo, você precisa usá-lo como sistema de criação também.
 
-New to `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+Novo no `GYP`? Leia [este guia](https://gyp.gsrc.io/docs/UserDocumentation.md) antes de continuar mais nesta publicação.
 
-## Node's flags
+## Bandeiras do nó
 
-The [`node.gyp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) file in Node's source code directory describes how Node is built, along with lots of [`GYP`](https://gyp.gsrc.io) variables controlling which parts of Node are enabled and whether to open certain configurations.
+O nó [`. o arquivo yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) no diretório de código fonte do Node descreve como o Node é criado, junto com várias variáveis do [`GYP`](https://gyp.gsrc.io) controlando quais partes do nó estão habilitadas e se devem abrir certas configurações.
 
-To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
+Para alterar as bandeiras de compilação, você precisa definir as variáveis no arquivo `.gypi` do seu projeto . O `configurar` script no Node pode gerar algumas comuns configurações para você, por exemplo, executando `. Configurar --shared` irá gerar um `config.gypi` com variáveis instruindo Node a ser construído como uma biblioteca compartilhada.
 
-Electron does not use the `configure` script since it has its own build scripts. The configurations for Node are defined in the [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) file in Electron's root source code directory.
+O Electron não usa o script `configurar` pois ele tem seus próprios scripts de compilação. As configurações para o Node são definidas no arquivo [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) no diretório do código fonte raiz do Electron.
 
-## Link Node with Electron
+## Associar Nó com Electron
 
-In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
+No Electron, O nó está sendo vinculado como uma biblioteca compartilhada, definindo a `variável GYP` `node_shared` como `true`, então a compilação do Node será alterada de `executável` para `shared_library`, , e o código-fonte que contém o `principal` pontos de entrada não serão compilados.
 
-Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. This is done by setting both `node_use_v8_platform` and `node_use_bundled_v8` to `false`.
+Uma vez que o Electron usa a biblioteca V8 enviada com Chromium, a biblioteca V8 incluída no código-fonte do Node não é usada. Isto é feito configurando ambos `node_use_v8_platform` e `node_use_bundled_v8` para `false`.
 
-## Shared library or static library
+## Biblioteca compartilhada ou biblioteca estática
 
-When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
+Ao conectar com o Node, existem duas opções: você pode construir o Node como uma biblioteca estática e incluí-lo no executável final, ou você pode construí-la como uma biblioteca compartilhada e enviá-la ao lado do executável final.
 
-In Electron, Node was built as a static library for a long time. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+No Electron, o nó foi construído como uma biblioteca estática por muito tempo. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
 
-However, this changed after Chrome switched to use [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. Because Node still uses OpenSSL, the compiler would generate numerous linking errors due to conflicting symbols if they were linked together.
+No entanto, isto mudou depois que o Chrome mudou para usar o [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL é um fork do [OpenSSL](https://www.openssl.org) que remove várias APIs não utilizadas e altera muitas interfaces existentes. Como o nó ainda usa o OpenSSL, o compilador geraria vários erros de ligação devido a símbolos conflitantes se eles fossem conectados.
 
-Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in the components of each.
+O Electron não pôde usar BoringSSL no Node, ou usar o OpenSSL no Chromium, então a única opção era mudar para construir o Node como uma biblioteca compartilhada, e [esconde os símbolos BoringSSL e OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) nos componentes de cada um.
 
-This change brought Electron some positive side effects. Before this change, you could not rename the executable file of Electron on Windows if you used native modules because the name of the executable was hard coded in the import library. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
+Esta mudança trouxe ao Electron alguns efeitos colaterais positivos. Antes desta mudança não foi possível renomear o arquivo executável do Electron no Windows se usasse módulos nativos porque o nome do executável era codificado na biblioteca de importação. Depois que o Node foi construído como uma biblioteca compartilhada, esta limitação se foi porque todos os módulos nativos estavam vinculados a um nó `. ll`, cujo nome não precisava ser alterado.
 
-## Supporting native modules
+## Apoiando módulos nativos
 
-[Native modules](https://nodejs.org/api/addons.html) in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Módulos nativos](https://nodejs.org/api/addons.html) no Node funcionam definindo uma função de entrada para carregar o Node e, em seguida, pesquisando os símbolos da V8 e da libuv do Node. Isto é um pouco de problema para incorporar porque, por padrão, os símbolos do V8 e libuv estão ocultos quando construir o Node como uma biblioteca e módulos nativos vão falhar ao carregar porque eles não conseguem encontrar os símbolos.
 
-So in order to make native modules work, the V8 and libuv symbols were exposed in Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Portanto, a fim de fazer com que os módulos nativos funcionassem, os símbolos V8 e libuv foram expostos no Electron. Para V8 isso é feito [forçando todos os símbolos no arquivo de configuração do Chromium a serem expostos](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). Para libuv, é alcançado definindo a definição [ `BUILDING_UV_SHARED=1`](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
 
-## Starting Node in your app
+## Iniciando nó no seu aplicativo
 
-After all the work of building and linking with Node, the final step is to run Node in your app.
+Depois de todo o trabalho de construção e link com o Node, o último passo é executar Node em seu aplicativo.
 
-Node doesn't provide many public APIs for embedding itself into other apps. Usually, you can just call [`node::Start` and `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) to start a new instance of Node. However, if you are building a complex app based on Node, you have to use APIs like `node::CreateEnvironment` to precisely control every step.
+O nó não fornece muitas APIs públicas para se incorporar em outros aplicativos. Geralmente, você pode apenas chamar [`node::Start` e `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) para iniciar uma nova instância do Node. No entanto, se você está construindo um aplicativo complexo com base no Node, você tem que usar APIs como `node::CreateEnvironment` para controlar precisamente cada passo.
 
-In Electron, Node is started in two modes: the standalone mode that runs in the main process, which is similar to official Node binaries, and the embedded mode which inserts Node APIs into web pages. The details of this will be explained in a future post.
+No Electron, o nó é iniciado em dois modos: o modo autônomo que é executado no processo principal, que é semelhante aos binários oficiais do Node e ao modo incorporado que insere as APIs do Node nas páginas web. Os detalhes disto serão explicados em uma postagem futura.
 

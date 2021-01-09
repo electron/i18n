@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _Experimental_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (opsyonal) - Pipinduting teksto.
@@ -36,6 +36,10 @@ A `String` hex code representing the button's current background color. Changing
 #### `touchBarButton.icon`
 
 A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+
+#### `touchBarButton.iconPosition`
+
+A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
 
 #### `touchBarButton.enabled`
 

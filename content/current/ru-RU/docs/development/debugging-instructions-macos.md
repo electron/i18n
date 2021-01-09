@@ -1,14 +1,15 @@
 # Отладка под macOS
 
-Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. Однако, используя lldb и исходный код Electron, вы можете включить отладку с точками останова внутри исходного кода Electron. Если вы предпочитаете графический интерфейс, Вы также можете использовать [XCode для отладки](debugging-instructions-macos-xcode.md).
 
 ## Требования
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). Вы конечно можете скачать обычную сборку Electron и подключиться для отладки к ней, но вы обнаружите, что она сильно оптимизирована, и это существенно затрудняет отладку: отладчик не сможет показать вам содержимое всех переменных, так же путь выполнения может казаться странным вследствие встраивания функций (inlining), хвостовых вызовов (trail calls) и других оптимизаций, выполненных компилятором.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: В дополнение к Xcode, также установите утилиты командной строки Xcode. Они включают в себя LLDB, дебаггер по умолчанию в Xcode на macOS. Он поддерживает отладку C, Objective-C и C++ на настольных и iOS устройствах и симуляторах.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+
    ```text
    скрипт команды импортирует ~/electron/src/tools/lldb/lldbinit.py. 07gf
    ```
@@ -27,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
-Relevant code files can be found in `./shell/`.
+Соответствующие файлы кода можно найти в `./shell/`.
 
 Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 
@@ -93,6 +94,7 @@ To finish debugging at this point, run `process continue`. You can also continue
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
 ### Дальнейшее изучение
+
 LLDB это мощный инструмент с отличной документацией. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+You can also check out LLDB's fantastic [manual and tutorial](https://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.

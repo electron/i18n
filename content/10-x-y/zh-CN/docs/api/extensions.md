@@ -86,4 +86,22 @@ The following methods of `chrome.tabs` are supported:
 
 > **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
+### `chrome.management`
+
+The following methods of `chrome.management` are supported:
+
+- `chrome.management.getAll`
+- `chrome.management.get`
+- `chrome.management.getSelf`
+- `chrome.management.getPermissionWarningsById`
+- `chrome.management.getPermissionWarningsByManifest`
+- `chrome.management.onEnabled`
+- `chrome.management.onDisabled`
+
+### `chrome.webRequest`
+
+All features of this API are supported.
+
+> **注意：** 如果有冲突需要处理，Electron 的 [`webRequest`](web-request.md) 模块将优先于 `chrome.web` 。
+
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

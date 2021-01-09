@@ -323,7 +323,7 @@ Zwraca:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Proces nigdy nie został uruchomiony
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -674,7 +674,7 @@ Zwraca:
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
-#### Zdarzenie: 'ipc-message-sync'
+#### Event: 'ipc-message-sync'
 
 Zwraca:
 
@@ -1002,7 +1002,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Zwraca `Promise<void>`
+Returns `Promise<void>`
 
 Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
@@ -1071,7 +1071,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Zwraca `Promise<void>`
+Returns `Promise<void>`
 
 Inserts `text` to the focused element.
 
@@ -1144,24 +1144,24 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 #### `contents.print([options], [callback])`
 
 * `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Domyślnie jest `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Domyślnie jest `false`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Domyślnie jest `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
     * `left` Number (optional) - The left margin of the printed web page, in pixels.
     * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Domyślnie jest `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
   * `scaleFactor` Number (optional) - The scale factor of the web page.
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1179,7 +1179,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Przykład zastosowania:
+Example usage:
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }
@@ -1198,8 +1198,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -1398,7 +1398,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-//W głównym procesie.
+// W procesie głównym.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1426,7 +1426,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
@@ -1573,7 +1573,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Akceptowane są tylko wartości od 1 do 240.
 
 #### `contents.getFrameRate()`
 
@@ -1653,7 +1653,7 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Akceptowane są tylko wartości od 1 do 240.
 
 Only applicable if *offscreen rendering* is enabled.
 

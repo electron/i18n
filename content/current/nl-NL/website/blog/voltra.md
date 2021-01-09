@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'Project van de week: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+Deze week hebben we elkaar ontmoet met [Aprile Elcich](https://twitter.com/aprileelcich) en [Paolo Fragomeni](https://twitter.com/0x00A) om te praten over Voltra, een Electron-powered muziekspeler.
 
 ---
 
-## What is Voltra?
+## Wat is Voltra?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Voltra](https://voltra.co/) is een muziekspeler voor mensen die hun muziek willen bezitten. Het is ook een winkel waar je nieuwe muziek kunt ontdekken en kopen op basis van wat je al bezit. Het is advertentievrij, cross-platform voor desktop en mobiel. Het bespioneert je ook niet.
 
-[![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
+[![voltra-artiesten](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Voor wie is het Voltra?
 
-Anyone who listens to music.
+Iedereen die naar muziek luistert.
 
-## What motivated you to create Voltra?
+## Wat motiveerde je om Voltra te maken?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+Radio heeft altijd een groot deel van luisteraars gehad. Het gaat van de luchtgolven af en op het internet. Nu kun je muziek op aanvraag huren - het is een radio-reactief! Er zijn veel nieuwe producten en diensten ontstaan als gevolg hiervan. maar streamen van radio laat nog steeds iemand anders de controle over jouw muziek en hoe je het ervaart.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+We wilden een product dat volledig gericht was op muziek die je bezit. Iets dat het makkelijk maakte om nieuwe muziek rechtstreeks van artiesten of labels te ontdekken en te kopen.
 
-## Is there a free version?
+## Is er een vrije versie?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+De desktopspeler is volledig gratis. [Muziek verkopen is ook gratis!](https://voltra.co/artists) Wij worden niet ondersteund.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+Aangezien de app gratis is, kunnen we deze later opstarten. Op dit moment hebben we geen bandbreedte om dat te beheren. We hebben ook zeer specifieke ideeën over kenmerken en de richting die we willen inslaan. We hebben een actieve bètagemeenschap en nemen onze feedback ter harte.
 
-## How do you make money?
+## Hoe verdien je geld?
 
-We have premium features!
+We hebben premium functionaliteiten!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+Ons [Voltra Audioarchief](https://voltra.co/premium/) is een cloud-back-upservice speciaal ontworpen voor muziek. Gegevensblokken worden niet gecomprimeerd of gedeeld. Je muziekcollectie is fysiek geback-upt.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+Voor kunstenaars en labels biedt onze [Pro-lidmaatschap](https://voltra.co/artists/pro) tools aan om ze te helpen relevantere doelgroepen te bereiken, zoals analytics en professionele artiest webpagina's.
 
-## What makes Voltra different?
+## Wat maakt Voltra anders?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+Ontwerp en bruikbaarheid zijn ongelooflijk belangrijk voor ons. We willen luisteraars een afleidingsloze luisterervaring geven! Er zijn een aantal interessante muziekspelers en -winkels. Maar velen van hen zijn gevorderde en moeilijker te gebruiken dan hun scheppers beseffen. We willen Voltra toegankelijk maken voor zoveel mogelijk mensen.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+We nemen ook geen snijpunt van de kunstenaar of het etiket. Dat is een belangrijke differentiator voor ons. Het is echt belangrijk omdat het de hindernis voor kunstenaars vermindert om hun muziek op de markt te brengen.
 
-## What are some design & technical decisions you made?
+## Wat zijn design & technische besluiten die je hebt gemaakt?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+Tijdens het ontwerpen van Voltra, hebben we interface-conventies van inheemse apps en het internet overwogen, we hebben ook veel nagedacht over wat we konden verwijderen. We hebben een actieve particuliere bètagroep die ons de afgelopen maanden kritisch heeft onthaald.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+We vonden dat Albumhoes en fotografie echt belangrijk zijn voor mensen. Veel spelers zijn slechts lijsten met bestanden. Een van de leuke dingen over het bezit van fysieke albums is de albumhoek, en we wilden dit benadrukken in de Voltra desktop app.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+We hebben er ook voor gezorgd dat mensen niet in de problemen geraken. We gebruiken bestanden om te kijken zodat je bestanden kunt plaatsen waar je maar wilt, en we hernoemen ze niet en verplaatsen ze niet voor jou. We hebben een ingesloten database om de status van de bekeken mappen te volgen, zodat we kunnen volgen wat er nieuw is zelfs wanneer het proces niet wordt uitgevoerd.
 
-## What are some challenges you've faced while building Voltra?
+## Wat zijn enkele uitdagingen waarmee je wordt geconfronteerd bij het bouwen van Voltra?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+We besteden veel tijd aan prestaties. We zijn begonnen met frameworks maar verplaatst naar vanilla Javascript. Uit ervaring weten we dat de algemene abstracties die zij bieden zwaarder wegen dan de prestatiestraffen en -ceremonie die zij introduceren.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+We behandelen op dit moment zeer grote inzamelingen. Grote collecties betekenen mogelijk tienduizenden afbeeldingen! Knooppunt hebben. De bestandssysteemmodule direct beschikbaar vanuit het render proces heeft het erg makkelijk gemaakt om veel afbeeldingen te laden en te lossen, zeer snel gebaseerd op DOM-gebeurtenissen.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+In het algemeen *[setOnmiddellijk](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* en *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* zijn super belangrijke hulpmiddelen voor het uitvoeren van veel verwerkingen terwijl de gebruikersinterface responsief blijft. Het verdelen van CPU-gebonden taken in afzonderlijke processen draagt er echt toe bij dat de gebruikersinterface responsief blijft. We hebben bijvoorbeeld de audio-context in een apart proces verplaatst, communiceert er mee via [IPC](https://electronjs.org/docs/glossary/#ipc) om mogelijke onderbrekingen van een drukke gebruikersinterface te voorkomen.
 
-## Why did you choose to build Voltra on Electron?
+## Waarom heb je gekozen om Voltra op Electron?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+De browsersandbox is te beperkt voor onze app. Maar we ontwikkelen ook een webspeler. Het is dus een grote overwinning dat we bijna 100% van de code kunnen delen tussen de twee implementaties.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+We zijn zelfs begonnen met het bouwen van een native app met Swift. Het grootste probleem dat we ontdekten was dat we een heleboel dingen opnieuw uitvinden. Het web heeft 's werelds grootste open source ecosysteem. We zijn dus snel naar Electron overgegaan.
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+En het belangrijkste is dat Electron je één keer ontwikkelt en het alleen WorkTM op alle belangrijke platforms. Het is niet gegarandeerd, maar de coderingskosten voor elk platform wegen zeker zwaarder dan alle andere kosten die elektron introduceert.
 
-## What are your favorite things about Electron?
+## Wat zijn jouw lievelingsdingen over Electron?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: het samen verpakt hebben van de netwerkstack en Chromium’s presentatielaag van Node.js is een recept om dingen gedaan te krijgen.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**Competentie**: Het is alleen de webstack, dus letterlijk is ons hele team betrokken bij het bouwen van het product.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**Community**: Er is een zeer georganiseerde gemeenschap die weet hoe ze echt goed moet communiceren! Wij hebben het gevoel dat wij ons zo goed kunnen ontwikkelen.
 
-## In what areas could Electron be improved?
+## Op welke gebieden zou Electron kunnen worden verbeterd?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+We zouden graag zien dat Electron één verpakker ondersteunt. De packager is net zo belangrijk voor Electron wat de pakketbeheerder is om op te treden. Er zijn meerdere verpakkers in gebruiker-land, elk met interessante functies maar elk met bugs. Consensus van de gemeenschap zou helpen om de energie die door de bijdragers wordt uitgegeven te sturen.
 
-## What's coming next?
+## Wat komt er volgende?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+We zijn momenteel een mobiele app aan het ontwikkelen en werken met artiesten en labels om hun muziek toe te voegen aan de Voltra shop. Hé! Als je een artiest of label bent, [meld je nu aan](https://admin.voltra.co/signup)! We zijn van plan om de winkel te openen wanneer we ons doel van tien miljoen sporen bereiken.
 

@@ -33,9 +33,10 @@ $ git fetch upstream
 ### ステップ2: ビルド
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
-* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
-* [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
-* [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
+
+* [macOS 上でビルド](build-instructions-macos.md)
+* [Linux 上でビルド](build-instructions-linux.md)
+* [Windows 上でビルド](build-instructions-windows.md)
 
 プロジェクトをローカルに構築したら、変更を始める準備が整います！
 
@@ -55,7 +56,7 @@ $ git checkout -b my-branch -t upstream/master
 
 コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 
-プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](https://electronjs.org/docs/development/coding-style) を参照してください。
+プロジェクトのさまざまな部分でコードを変更する際のベストプラクティスの詳細については、[コーディングスタイル](coding-style.md) を参照してください。
 
 ### ステップ5: コミット
 
@@ -76,28 +77,28 @@ $ git commit
 
 意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
-- `fix: don't overwrite prevent_default if default wasn't prevented`
-- `feat: add app.isPackaged() method`
-- `docs: app.isDefaultProtocolClient is now available on Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 プレフィックスの例:
 
-  - fix: バグ修正
-  - feat: 新機能
-  - docs: ドキュメントの変更
-  - test: 足りないテストの追加や既存のテストの訂正
-  - build: ビルドシステムに影響する変更
-  - ci: CI の設定ファイルとスクリプトへの変更
-  - perf: パフォーマンスを改善するコード変更
-  - refactor: バグ修正や機能追加の無いコード変更
-  - style: コードの意味を変えない変更 (lint)
-  - vendor: libchromiumcontent や node のような依存関係の更新
+* fix: バグ修正
+* feat: 新機能
+* docs: ドキュメントの変更
+* test: 足りないテストの追加や既存のテストの訂正
+* build: ビルドシステムに影響する変更
+* ci: CI の設定ファイルとスクリプトへの変更
+* perf: パフォーマンスを改善するコード変更
+* refactor: バグ修正や機能追加の無いコード変更
+* style: コードの意味を変えない変更 (lint)
+* vendor: libchromiumcontent や node のような依存関係の更新
 
 その他、コミットメッセージを作成するときに留意すること:
 
 1. 最初の行は、以下の通りにしてください。
-   - 変更の簡単な説明を含める (50 文字以下が好ましく、72 文字を超えない)
-   - 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
+   * 変更の簡単な説明を含める (50 文字以下が好ましく、72 文字を超えない)
+   * 適切な名詞、頭字語、および関数/変数名のようなコードを参照する単語を除いて、完全な小文字にする
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
@@ -120,7 +121,7 @@ $ git rebase upstream/master
 
 ### ステップ7: テスト
 
-バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](https://electronjs.org/docs/development/testing) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
+バグの修正と機能追加には常にテストが必要です。 プロセスを簡単にするため、[テストガイド](testing.md) が提供されています。 それらがどのように構築されるべきかを見るため、他のテストを見ることでも手助けになれます。
 
 プルリクエストで変更を送信する前に、常に完全なテストスイートを実行してください。 テストを実行するには以下のようにします。
 
@@ -180,7 +181,7 @@ $ git push origin my-branch
 
 すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* についての具体的な提案が含まれていないために、唐突だったり親切でないものに出くわすことがあります。
 
-がっかりしないでください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 大抵の場合、そのようなコメントはレビュアーがレビューするのに十分な時間が無いためで、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 That said, reviewers should be expected to provide helpful feedback.
+がっかりしないでください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 大抵の場合、そのようなコメントはレビュアーがレビューするのに十分な時間が無いためで、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 要するに、レビュアーは親切なやりとりを提供することが期待されているということです。
 
 ### ステップ11: 取り込み
 
@@ -195,4 +196,3 @@ $ git push origin my-branch
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
 プルリクエストを開くと、CI が自動的に開始されますが、メンテナーだけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、メンテナーにテストをリスタートするよう依頼してください。
-

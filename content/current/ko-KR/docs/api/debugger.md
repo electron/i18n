@@ -8,16 +8,16 @@ Chrome 개발자 도구는 JavaScript 런타임에서 사용할 수있는 [speci
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('디버거 연결 실패 : ', err)
+  console.log('Debugger attach failed : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('디버거 해제 이유 : ', reason)
+  console.log('Debugger detached due to : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {

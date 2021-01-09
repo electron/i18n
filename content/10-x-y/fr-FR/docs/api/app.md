@@ -27,7 +27,8 @@ Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `rea
 
 Retourne :
 
-* `launchInfo` inconnu _macOS_
+* `event` Événement
+* `launchInfo` Record<string, any> _macOS_
 
 Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
@@ -39,11 +40,11 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 ### Événement : 'before-quit'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis avant que l'application ne commence à fermer ses fenêtres. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 **Remarque :** Si l'application a été quittée par `autoUpdater.quitAndInstall()`, puis `before-quit` est émise *après* émettant un événement `close` sur toutes les fenêtres et les fermant.
 
@@ -55,7 +56,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis lorsque toutes les fenêtres ont été fermées et que l'application va se fermer. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
 Consultez la description de l’événement `window-all-closed` pour voir les différences entre les événements `will-quit` et `window-all-closed`.
 
@@ -65,7 +66,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
@@ -162,7 +163,7 @@ Retourne :
 
 * `event` Événement
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Émis lorsque l'utilisateur clique sur le bouton natif de nouvel onglet de macOS. Le bouton de nouvel onglet n'est visible que si la `BrowserWindow actuelle` possède un `tabbingIdentifier`
 
 ### Événement : 'browser-window-blur'
 
@@ -317,16 +318,16 @@ Retourne :
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Valeurs possibles :
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
+  * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
+    * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
+    * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
+    * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
+    * `crashed` - Processus s'est planté
+    * `oom` - Le processus est tombé à cours de mémoire
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+Émis lorsque le processus de rendu disparait de façon inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 ### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -378,7 +379,7 @@ Retourne :
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
 ### Événement : 'remote-require'
 
@@ -444,7 +445,7 @@ Cette méthode garantit que tous les écouteurs d’événements de `beforeunloa
 
 * `exitCode` Integer (facultatif)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sort immédiatement avec `exitCode`. `exitCode` est par défaut à 0.
 
 Toutes les fenêtres seront fermées immédiatement sans demander à l'utilisateur, et les événements `before-quit` et `will-quit` ne seront pas émis.
 
@@ -479,11 +480,11 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 ### `app.focus([options])`
 
 * `options` Object (optional)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, donne le focus à la première fenêtre de l'application.
 
-You should seek to use the `steal` option as sparingly as possible.
+Il vaut mieux utiliser l'option `steal` aussi parcimonieusement que possible.
 
 ### `app.hide()` _macOS_
 
@@ -491,11 +492,11 @@ Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Affiche les fenêtres de l'application après qu'elles aient été occultées. Ne leur pas automatiquement le focus. .
 
 ### `chemin app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (facultatif) - Un chemin personnalisé pour vos logs. Doit être absolu.
 
 Définit ou crée un répertoire qui peut être manipulé par `app.getPath()` ou `app.setPath(pathName, newPath)`.
 
@@ -507,9 +508,9 @@ Retourne `String` - Répertoire courant de l'application.
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String - Nom pour lequel vous pouvez demander le chemin nom:
   * `home` Répertoire d'accueil de l'utilisateur.
-  * `appData` Per-user application data directory, which by default points to:
+  * `appData` Répertoire de données par utilisateur de l'application, pointant par défaut sur:
     * `%APPDATA%` sur Windows
     * `$XDG_CONFIG_HOME` ou `~/.config` sur Linux
     * `~/Library/Application Support` sur macOS
@@ -529,7 +530,7 @@ Retourne `String` - Répertoire courant de l'application.
   * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
 
 Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appelé en premier, un répertoire de logs par défaut sera créé équivalent à un appel `app.setAppLogsPath()` sans paramètre `path`.
 
@@ -584,7 +585,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retourne `String` - La locale de l'application actuelle. Les valeurs de retour possibles sont documentées [ici](locales.md).
 
 Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -594,7 +595,7 @@ Pour définir la localisation, utilisez un paramètre de ligne de commande au d�
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Retourne `String` - Les deux lettres de la locale du système d'exploitation de l'utilisateur selon le codage [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) . La valeur est tirée des API natives d'OS.
 
 **Note:** Quand il est impossible de détecter le code du pays de la localisation, il renvoie une chaîne vide.
 
@@ -604,7 +605,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Ajoute le `path` à la liste des documents récents.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Cette liste est gérée par l'OS. Cette liste est gérée par l'Os. Sous Windows, vous pouvez scruter la liste à partir de la barre des tâches et sur macOS à partir du menu du dock.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 
@@ -613,8 +614,8 @@ Efface la liste des documents récents.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`. Par exemple, si vous souhaitez que votre application gère les liens `electron://`, appelez cette méthode avec `electron` comme paramètre.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Par défaut, un tableau vide
+* `path` String (facultatif) _Windows_ -Chemin vers l'exécutable d'Electron. Par défaut `process.execPath`
+* `args` String[] (facultatif) _Windows_ - Arguments transmis à l'exécutable. Par défaut, un tableau vide
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -634,7 +635,7 @@ L'API utilise le registre Windows et `LSSetDefaultHandlerForURLScheme` en intern
 
 Returns `Boolean` - Si l'appel a réussi.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Cette méthode vérifie si l'exécutable courant est le gestionnaire par défaut pour un protocole (aka le schéma URI). Si c'est le cas, cela supprimera l'application comme gestionnaire par défaut.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -650,11 +651,11 @@ L'API utilise le registre Windows et `LSCopyDefaultHandlerForURLScheme` en inter
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - une URL avec le nom du protocole à vérifier. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - une URL avec le nom du protocole à vérifier. Contrairement aux autre méthodes de cette famille, celle-ci accepte un URL en entier, y compris `://` au minimum (par exemple : `https://`).
 
-Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+Retourne `String` - Nom de l'application qui gère le protocole, ou un <0>String</0> vide s'il n'y a pas de gestionnaire. Par exemple, si Electron est le gestionnaire par défaut de l'URL, il pourrait s'agit de `Electron` sur Windows et Mac. Par contre, ne vous fiez pas au format précis qui ne garantit pas de ne pas changer. Attendez-vous à un format différent sur Linux, probablement avec un préfixe `.desktop`.
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+Cette méthode retourne le nom de l'application du gestionnaire par défaut pour le protocole d'une URL (schéma d'URI).
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -689,7 +690,7 @@ Définit ou supprime une JumpList personnalisée pour l'application et renvoie l
 
 Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (si existante) sera remplacée par la JumpList standard de l'application (gérée par Windows).
 
-**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
 **Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
@@ -1043,7 +1044,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - Le type de conflit de déplacement rencontré par le gestionnaire ; peut être `exists` ou `existsAndRunning`, où `existe` signifie qu'une application du même nom est présente dans le répertoire Applications et `existsAndRunning` signifie à la fois qu'elle existe et qu'elle est actuellement en cours d'exécution.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1113,7 +1114,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1156,7 +1157,6 @@ L'intention est que ces dérogations soient désactivées par défaut, puis à u
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows

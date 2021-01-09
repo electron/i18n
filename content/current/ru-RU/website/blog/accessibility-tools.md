@@ -1,20 +1,20 @@
 ---
-title: Accessibility Tools
-author: jlord
+title: Средства специальных возможностей
+author: джлорд
 date: '2016-08-23'
 ---
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Создание доступных приложений важно, и мы рады представить новую функциональность [Devtron](https://electronjs.org/devtron) и [Spectron](https://electronjs.org/spectron) , что дает разработчикам возможность сделать их приложения лучше для всех.
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Проблемы доступности в приложениях Electron похожи на веб-сайты, потому что они оба в конечном итоге HTML. Однако в приложениях Electron вы не можете использовать онлайн-ресурсы для аудита доступности, так как у вашего приложения нет URL-адреса, на который будет ссылаться аудитор.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) for more information.
+Эти новые возможности приносят эти инструменты аудита в ваше приложение Electron. Вы можете добавить аудит в тесты со Spectron или использовать их в DevTools с Devtron. Читайте краткую информацию об инструментах или посмотрите нашу [документацию по доступности](https://electronjs.org/docs/tutorial/accessibility/) для получения дополнительной информации.
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Например:
+В тестируемом фреймворке Spectron теперь вы можете аудитировать каждое окно и `<webview>` тег в вашем приложении. Например:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -28,11 +28,11 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### Devtron
 
-In Devtron there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+В Devtron есть новая вкладка специальных возможностей, которая позволит вам проверить страницу в вашем приложении, сортировать и фильтровать результаты.
 
 ![devtron скриншот](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Оба этих инструмента используют [Библиотеку Инструменты Разработчика Доступности](https://github.com/GoogleChrome/accessibility-developer-tools) , созданную Google для Chrome. Вы можете узнать больше о правилах аудита доступности, которые использует эта библиотека [хранилище](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) with a pull request.
+Если вы знаете о других инструментах специальных возможностей для Electron, добавьте их в [документацию о специальных возможностях](https://electronjs.org/docs/tutorial/accessibility/) с запросом на слияние.
 

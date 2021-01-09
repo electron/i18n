@@ -16,8 +16,8 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 ### Recommended Reading
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Kontrol Listesi
 
@@ -49,7 +49,8 @@ In short, a seemingly excellent module written primarily for Node.js servers run
 
 When considering a module, we recommend that you check:
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. the resources required to perform the action you're interested in
 
 Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
@@ -162,7 +163,6 @@ Electron's powerful multi-process architecture stands ready to assist you with y
 
 3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
 
-
 ## 4) Blocking the renderer process
 
 Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
@@ -180,7 +180,6 @@ Generally speaking, all advice for building performant web apps for modern brows
 *`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
-
 
 ## 5) Unnecessary polyfills
 
@@ -201,7 +200,6 @@ Operate under the assumption that polyfills in current versions of Electron are 
 In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
-
 
 ## 6) Unnecessary or blocking network requests
 

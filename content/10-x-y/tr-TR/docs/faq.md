@@ -1,4 +1,4 @@
-# FAQ Electron
+# Electron SSS
 
 ## Neden Electron yüklerken sorunla karşılaşıyorum?
 
@@ -29,7 +29,7 @@ Web sayfaları arasında veri paylaşımının (işleyici işlemleri) en kolay y
 Veya ana süreçte nesneleri global bir değişken olarak depolamak için Electron'a özgü IPC sistemini kullanabilirsiniz ve daha sonra bunlara oluşturuculardan `electron` modülünün `uzak` özelliği ile erişmek için:
 
 ```javascript
-// Ana süreçte.
+// Ana işlem içinde.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ Electron'un Node.js entegrasyonu nedeniyle bazı fazladan semboller `modül`, `d
 Bunu çözmek için Electron'daki node entegrasyonunu kapatabilirsiniz:
 
 ```javascript
-// Ana süreçte.
+// Ana işlem içinde.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {

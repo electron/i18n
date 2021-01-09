@@ -12,17 +12,17 @@ Pour plus d’informations sur la façon de communiquer correctement une vulnér
 
 ## Problèmes de sécurité et mises à jour de Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se tient à jour avec les versions alternatives de Chromium. Pour plus d'informations, voir le blog [Electron Release Cadence](https://electronjs.org/blog/12-week-cadence).
 
 ## La sécurité est la responsabilité de tous
 
 Il est important de se rappeler que la sécurité de votre application Electron dépend de la sécurité globalement de la fondation du framework (*Chromium*, *Node.js*), Electron lui-même, toutes les dépendances NPM et votre code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
 
-* **Gardez votre application à jour avec la dernière version de framework Electron. ** Lorsque vous publiez votre produit, vous expédiez également un paquet composé d'Electron, la bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)".
+* **Gardez votre application à jour avec la dernière version de framework Electron. /0> Lorsque vous libérez votre produit, vous expédiez également un paquet composé d'Electron, bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)".</p></li>
 
 * **Évaluez vos dépendances.** Alors que NPM fournit un demi-million de paquets réutilisables, il est de votre responsabilité de choisir des bibliothèques de tiers de confiance. Si vous utilisez des bibliothèques obsolètes affectées par des vulnérabilités connues ou si vous êtes dépendants d'un code mal géré, la sécurité de votre application pourrait être compromise.
 
-* **Adoptez des pratiques de codage sécurisées.** La première ligne de défense pour votre application est votre propre code. Des vulnérabilités web courantes, telles que le cross-site scripting (XSS), ont un impact de sécurité plus élevé sur les applications Electron, c'est pourquoi il est fortement recommandé d'adopter des meilleures pratiques de développement de logiciel sécurisé et d'effectuer des tests de sécurité.
+* **Adoptez des pratiques de codage sécurisées.** La première ligne de défense pour votre application est votre propre code. Des vulnérabilités web courantes, telles que le cross-site scripting (XSS), ont un impact de sécurité plus élevé sur les applications Electron, c'est pourquoi il est fortement recommandé d'adopter des meilleures pratiques de développement de logiciel sécurisé et d'effectuer des tests de sécurité.</ul>
 
 
 ## Isolation pour les contenus non approuvés
@@ -149,9 +149,9 @@ L'électron utilise la même technologie que le chrome [Content Scripts](https:/
 
 Même lorsque vous utilisez `nodeIntegration: false` pour imposer une isolation forte et empêcher l'utilisation des primitives de Node, `contextIsolation` doit également être utilisé.
 
-### Why & How?
+### Pourquoi & Comment ?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Pour plus d'informations sur ce qu'est `contextIsolation` et comment l'activer, veuillez voir notre document dédié [Isolation de contexte](context-isolation.md).
 
 
 ## 4) Gérer les demandes d'autorisation de session à partir du contenu distant
@@ -192,7 +192,7 @@ session
 
 _Cette recommandation est appliquée par défaut sur Electron_
 
-Vous avez peut-être déjà deviné que la désactivation de la propriété `webSecurity` sur un processus de rendu ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], ou [`<webview>`][webview-tag]<4></code></a>) désactive les fonctionnalités de sécurité cruciales .
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 Ne pas désactiver `webSecurity` dans les applications de production.
 
@@ -300,7 +300,7 @@ Les utilisateurs avancés d'Electron peuvent activer les fonctionnalités expér
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales sont, comme le nom le suggère, expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron dans son ensemble n'a probablement pas été testé.
 
 Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _Cette recommandation est appliquée par défaut sur Electron_
 
-Si vous utilisez [`<webview>`][webview-tag]`<webview>`</0>, vous aurez peut-être besoin des pages et des scripts chargés dans votre balise <2> pour ouvrir de nouvelles fenêtres. L'attribut `allowpopups` leur permet de créer un nouveau [`BrowserWindows`][browser-window] en utilisant la méthode `window.open()`. Les balises `<webview>` ne sont pas autorisées à créer de nouvelles fenêtres .
+Si vous utilisez [`<webview>`][webview-tag]`<webview>`</0>, vous aurez peut-être besoin des pages et des scripts chargés dans votre balise <2> pour ouvrir de nouvelles fenêtres. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. Les balises `<webview>` ne sont pas autorisées à créer de nouvelles fenêtres .
 
 ### Pourquoi ?
 
-Si vous n'avez pas besoin de popups, il vaut mieux ne pas autoriser la création de nouveaux [`BrowserWindows`][browser-window] par défaut. Cela suit le principe d'accès minimum requis : ne laissez pas un site web créer de nouvelles fenêtres popups à moins que vous sachiez qu'il a besoin de cette fonctionnalité.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Cela suit le principe d'accès minimum requis : ne laissez pas un site web créer de nouvelles fenêtres popups à moins que vous sachiez qu'il a besoin de cette fonctionnalité.
 
 ### Comment ?
 
@@ -399,7 +399,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste ne fait que minimiser le risque, elle ne le supprime pas. Si votre objectif est d'afficher un site web, un navigateur sera une option plus sûre.
 
 ## 12) Désactiver ou limiter la navigation
 
@@ -492,7 +492,7 @@ Cependant, si votre application peut exécuter du contenu non approuvé et même
 
 De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
 
 ### Comment ?
 
@@ -513,15 +513,15 @@ const mainWindow = new BrowserWindow({
 ```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filtrer le module `distant`
+## 16) Filtrer le module `remote`
 
-Si vous ne pouvez pas désactiver le module `distant`, vous devez filtrer les globales, Node, et les modules Electron (dits intégrés) accessibles via `distance` que votre application ne requiert pas. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
+Si vous ne pouvez pas désactiver le module `remote`, vous devez filtrer les modules globaux, ceux de Node, et les modules Electron (dits intégrés) accessibles via `remote` dont votre application n'a pas besoin. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
 
 ### Pourquoi ?
 
-En raison des privilèges d'accès au système du processus principal, la fonctionnalité fournie par les modules du processus principal peut être dangereuse entre les mains de code malveillant exécuté dans un processus de rendu compromis. En limitant l'ensemble de modules accessibles au minimum dont votre application a besoin et en filtrant les autres, vous réduisez le jeu d'outils que le code malveillant peut utiliser pour attaquer le système.
+En raison des privilèges d'accès au système du processus principal, une fonctionnalité fournie par les modules du processus principal peut être dangereusement manipulée par du code malveillant exécuté dans un processus de rendu corrompu. En limitant au minimum nécessaire à votre application l'ensemble des modules accessibles et en filtrant les autres, vous réduisez les outils qu'un code malveillant puisse utiliser pour attaquer le système.
 
-Notez que l'option la plus sûre est de [désactiver complètement le module distant](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent pour vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à dépasser le filtre.
+Notez que l'option la plus sûre est de [désactiver complètement le module remote](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent et vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à passer au travers du filtre.
 
 ### Comment ?
 
@@ -565,13 +565,13 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) Utiliser une version actuelle d'Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. Chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
 
 ### Pourquoi ?
 
-Une application construite avec une ancienne version d'Electron, Chromium et Node. s est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composantes. De manière générale, les problèmes de sécurité et les exploits pour les anciennes versions de Chromium et de Node.js sont plus largement disponibles.
+Une application construite avec une ancienne version d'Electron, de Chromium ou de Node.js est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composants. De manière générale, les problèmes de sécurité et les exploitation de failles pour les anciennes versions de Chromium et de Node.js sont plus fréquentes.
 
-Chromium et Node.js sont des prouesses impressionnantes d'ingénierie construites par milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node. s) pour quels problèmes de sécurité potentiels ne sont pas aussi connus.
+Chromium et Node.js représentent des prouesses impressionnantes d'ingénierie produites par des milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node.js) dont les problèmes de sécurité potentiels ne sont pas aussi connus.
 
 
 [browser-window]: ../api/browser-window.md

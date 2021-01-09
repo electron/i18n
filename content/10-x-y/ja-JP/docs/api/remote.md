@@ -42,7 +42,7 @@ Electron は、レンダラープロセス内のリモートオブジェクト�
 
 メインプロセス内のコードでは、レンダラー (例えば `remote` モジュール) からのコールバックを受け取ることができますが、この機能を使用するときは非常に注意する必要があります。
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+まず、デッドロックを避けるため、メインプロセスに渡されたコールバックは非同期に呼び出してください。 メインプロセスに渡されたコールバックからは戻り値が得られません。
 
 例えば、メインプロセス内で呼ばれた `Array.map` はレンダラープロセスの関数を使用できません。
 
@@ -71,7 +71,7 @@ console.log(withRendererCb, withLocalCb)
 
 次に、メインプロセスに渡されたコールバックは、メインプロセスがそれをガベージコレクションするまで存続します。
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+例えば、以下のコードは一見問題がないように見えます。 これはリモートオブジェクトの `close` イベントにコールバックをインストールしています。
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -153,7 +153,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _読み出し専用_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+`NodeJS.Process` 型のオブジェクト。  この `process` はメインプロセスのオブジェクトです。 これは `remote.getGlobal('process')` と同じですが、これはキャッシュされます。
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties

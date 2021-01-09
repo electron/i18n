@@ -104,6 +104,52 @@ const w = new BrowserWindow({
 
 우리는 [remote 모듈에서 벗어나길 권장합니다.](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)
 
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
+
+```javascript
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
+
+```javascript
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
+```
+
+등록되거나 인터셉트된 프로토콜은 탐색이 발생할 때까지 현재 페이지에 영향을 미치지 않습니다.
+
+### `protocol.isProtocolHandled`
+
+이 API는 더이상 사용되지 않고 사용자는 `protocol.isProtocolRegistered`와 `protocol.isProtocolIntercepted`를 대신 사용해야 합니다.
+
+```javascript
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
 ## 중단될 예정 API (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
@@ -113,6 +159,45 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
 For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
 
 ### Removed: `<webview>.getWebContents()`
 
@@ -213,6 +298,52 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium은 레이아웃 확대/축소 변경 제한에 대한 지원을 중단했습니다. 이를 관리하는 Electron의 용량을 넘어섭니다. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
+### Deprecated events in `systemPreferences`
+
+The following `systemPreferences` events have been deprecated:
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+Use the new `updated` event on the `nativeTheme` module instead.
+
+```js
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+### Deprecated: methods in `systemPreferences`
+
+The following `systemPreferences` methods have been deprecated:
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Use the following `nativeTheme` properties instead:
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
+```
 
 ## 중단될 예정 API (7.0)
 
@@ -581,7 +712,7 @@ crashReporter.start({
 })
 ```
 
-### `nativeImage`
+### `기본이미지`
 
 ```js
 // 중단예정
@@ -608,7 +739,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-### `session`
+### `세션`
 
 ```js
 // 중단예정
@@ -710,7 +841,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `nativeImage`
+### `기본이미지`
 
 ```js
 // 제거됨

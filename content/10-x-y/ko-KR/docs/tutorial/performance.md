@@ -181,7 +181,7 @@ Electron의 가장 큰 장점 중 하나는 어떤 엔진이 JavaScript, HTML, �
 
 ### 왜냐구요?
 
-오늘 날의 인터넷을 위한 웹 응용 프로그램을 구축할 때, 가장 오랜된 환경이 사용할 수 있는 기능과 사용할 수 없는 기능을 좌우합니다. 그럼에도 Electron은 잘 수행되는 CSS 필터와 애니메이션 등을 지원한다-오래된 브라우저들은 그렇지 못 할 것이다-. WebGL을 사용할 수 있는 경우 개발자는 구형 전화를 지원하기 위해 더 많은 리소스가 필요한 솔루션을 선택했을 수 있습니다.
+오늘 날의 인터넷을 위한 웹 응용 프로그램을 구축할 때, 가장 오랜된 환경이 사용할 수 있는 기능과 사용할 수 없는 기능을 좌우합니다. 그럼에도 Electron은 잘 수행되는 CSS 필터와 애니메이션 등을 지원한다-오래된 브라우저들은 그렇지 못 할 것이다-. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
 
 JavaScript에 관해서, DOM selector을 위해 jQuery같은 툴킷 라이브러리나 `async/await`을 지원하기 위해`regenerator-runtime`같은 polyfill을 포함시켰을 수도 있습니다.
 
@@ -193,7 +193,7 @@ Polyfill이 최근 버전의 Electron에서 불필요하다는 가정하에 실�
 
 또한, 사용한 라이브러리를 주의 깊게 검토하세요. 정말로 필요한 것들입니까? 예를 들면, `jQuery`는 매우 성공적이서 현재는 대부분의 기능이 [(standard JavaScript feature set available)][jquery-need] 표준 JavaScript에서 가능하다.
 
-TypeScript와 같은 트랜스필러/컴파일러를 사용하는 경우, 해당 구성을 검사하고 Electron이 지원하는 가장 최신의 ECMAScript 버전을 대상으로 하고 있는지 확인하세요.
+If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
 
 ## 6) 불필요하거나 차단된 네트워크 요청
@@ -204,33 +204,33 @@ TypeScript와 같은 트랜스필러/컴파일러를 사용하는 경우, 해당
 
 대부분의 Electron 사용자는 데스크톱 애플리케이션로 전환하고자 하는 웹 기반의 애플리케이션으로 시작을 합니다. 웹 개발자들에게 Electron은 다양한 콘텐츠 전송 네트워크의 리소스를 로딩하는 데에 사용됩니다. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
 
-대표적인 예로 구글 글꼴이 있습니다. 많은 개발자들이 구글의 콘텐츠전송네트워크와 함께 제공되는 인상적인 무료 글꼴 컬렉션을 사용합니다. The pitch is straightforward: 몇 줄의 CSS를 포함하면 나머지는 구글이 알아서 할 것입니다.
+A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
 
-Elctron 앱을 만들 때, 글꼴을 다운로드하여 앱에 포함시키면 사용자에게 더 좋은 서비스를 제공할 수 있을 것입니다.
+When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
 
 ### 어떻게 하나요?
 
-이상적인 환경에서 당신의 애플리케이션은 실행하기 위한 네트워크가 필요하지 않을 것입니다. 그렇게 하기 위해서는, 당신의 앱이 다운로드하는 리소스들을 이해하고\-리소스들이 얼마나 큰 지 알아야 합니다.
+In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
 
-그렇게 하려면 개발자 도구를 여세요. `Network`탭으로 이동하여 `Disable cache`옵션을 선택하세요. 그런 다음 렌더러(renderer) 를 다시 로드합니다. 당신의 앱이 재로드(reload) 를 금지하지 않았다면, 일반적으로는 개발자 도구를 포커스로 둔 채로`Cmd + R`이나 `Ctrl + R`를 누르면 작동시킬 수 있을 것입니다.
+To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
 
-이제 툴(tool) 이 꼼꼼하게 모든 네트워크 요청을 기록합니다. 첫번째 단계로, 더 큰 파일에 우선적으로 집중하여 다운로드 중인 모든 리소스를 점검하세요. 변하지 않는 이미지, 글꼴, 미디어 파일이 묶음(bundle) 에 포함 될 수 있나요? 그럴 수 있다면 하나로 묶으세요.
+The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
 
-다음 단계로, `Network Throttling`을 활성화하세요. 최근에 `Online`을 읽은 드롭다운(drop-down) 을 찾고 `Fast 3G`와 같은 느린 속도를 선택하세요. 랜더러(renderer) 를 다시 로드 한 후 앱이 불필요하게 대기하는 리소스가 있는지 확인하세요. 대부분의 경우 앱은 실제로 관련 리소스가 필요하지 않음에도 불구하고 네트워크 요청이 완료될 때까지 기다립니다.
+As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
 
-팁으로, 애플리케이션 업데이트를 발송하지 않고 인터넷에서 변경하려는 리소스를 로딩하는 것은 좋은 방법입니다. 리소스가 로드되는 방식을 고급 방식으로 제어하고 싶다면, [Service Workers][service-workers]에 투자하는 것을 고려하세요.
+As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. 리소스가 로드되는 방식을 고급 방식으로 제어하고 싶다면, [Service Workers][service-workers]에 투자하는 것을 고려하세요.
 
 ## 7) 코드를 묶으세요
 
-이미 [Loading and running code too soon(빠른 코드 로드 및 실행)](#2-loading-and-running-code-too-soon)에서 언급한 바와 같이 `require`를 호출하는 것은 비용이 많이 드는 작업입니다. 그렇게 할 수 있다면, 애플리케이션의 코드를 단일 파일로 묶으세요.
+As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
 
 ### 왜냐구요?
 
-일반적으로 최신의 JavaScript 개발에는 많은 파일과 모듈이 포함됩니다. 이는 Electron으로 개발하는데에 있어서 문제가 없으나, 우리는 `require()`호출에 포함된 오버헤드가 애플리케이션 로드할 때 한 번만 사용되는 것을 보장하기 위해서 모든 코드를 하나의 단일 파일로 묶을 것을 강력하게 권고합니다.
+Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
 
 ### 어떻게 하나요?
 
-수 많은 JavaScript bundler가 있으며 우리는 어느 하나가 다른 것보다 낫다고 말하는 것이 커뮤니티를 화나게 한다는 것을 알고 있습니다. 그러나 우리는 Node.js와 브라우저 환경을 다루는 Electron의 독특한 특성을 다룰 수 있는 bundler를 사용하기를 권합니다.
+There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
 이 문서를 쓰는 시점에서, 인기있는 선택에는 [Webpack][webpack], [Parcel][parcel], [rollup.js][rollup]가 포함됩니다.
 

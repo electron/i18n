@@ -12,7 +12,7 @@ Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/
 
 Wersja Chrome w bibliotece Electron jest zazwyczaj aktualizowana 1 lub 2 tygodnie po wydaniu nowej, stabilnej wersji Chrome. Nie możemy jednak zagwarantować, iż zostanie to wykonane w powyższym czasie, gdyż zależy to głównie od nakładu pracy, jaki będziemy musieli włożyć przy aktualizacji.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Używany jest tylko stały kanał Chrome. Jeśli ważna korekta jest w kanale beta lub dev , będziemy go zapisywać.
 
 Aby uzyskać więcej informacji zobacz [wprowadzenie do zabezpieczeń](tutorial/security.md).
 
@@ -29,7 +29,7 @@ Aby udostępniać dane między stronami internetowymi (procesy renderowania) naj
 Możesz również użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem uzyskać do nich dostęp w procesie renderowania za pomocą `remote` property of `electron` module:
 
 ```javascript
-//W głównym procesie.
+// W procesie głównym.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ Ze względu na integrację Node.js z Electron, występują pewne dodatkowe symbo
 Aby to rozwiązać, możesz wyłączyć integrację node w Electronie:
 
 ```javascript
-//W głównym procesie.
+// W procesie głównym.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -119,7 +119,7 @@ Jest bardzo prawdopodobne, że używasz modułu w niewłaściwym procesie. Na pr
 
 ## Czcionka wygląda na rozmazaną, co to jest i jak to naprawić?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Przykład:
+Jeśli [antyaliasing podpikseli](http://alienryderflex.com/sub_pixel/) jest wyłączony, czcionki na ekranach LCD mogą wyglądać na rozmyte. Przykład:
 
 ![subpixel rendering example][]
 
@@ -134,7 +134,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Nawet jeśli nie widzisz różnicy, niektórzy z Twoich użytkowników mogą. Najlepiej zawsze ustawiać tło w ten sposób, chyba że mają państwo powody, aby tego nie robić.
 
 Zauważ, że sama zmiana tła w CSS nie przyniesie oczekiwanego efektu.
 

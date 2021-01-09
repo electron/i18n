@@ -1,25 +1,15 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import { IParseFile } from '../interfaces'
-const cleanDeep = require('clean-deep')
+import { IBlogFile } from '../interfaces'
+import { Entry } from 'walk-sync'
 
-export async function parseBlogFile(file: IParseFile) {
-  file.fullyPath = path.join(file.basePath, file.relativePath)
-  file.locale = file.relativePath.split('/')[0]
-  file.slug = path.basename(file.relativePath, '.md')
+export async function parseBlogFile(file: Entry) {
+  const locale = file.relativePath.split('/')[0]
+  const slug = path.basename(file.relativePath, '.md')
+  const href = `/blog/${slug}`.replace('//', '/')
+  const content = await fs.promises.readFile(file.fullPath, 'utf8')
 
-  file.href = `/blog/${file.slug}`.replace('//', '/')
+  const blogFile: IBlogFile = { locale, slug, href, content }
 
-  // file content
-  file.content = await fs.promises.readFile(file.fullPath, 'utf8')
-
-  // remove leftover file props from walk-sync
-  delete file.mode
-  delete file.size
-  delete file.mtime
-  delete file.relativePath
-  delete file.basePath
-
-  // remove empty values
-  return cleanDeep(file)
+  return blogFile
 }

@@ -2,7 +2,7 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -10,7 +10,7 @@ Crea un nuevo menú.
 
 ### Métodos Estáticos
 
-The `Menu` class has the following static methods:
+La clase `Menu` tiene los siguientes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -276,7 +276,7 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files][AboutInformationPropertyListFiles].
 
-## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 

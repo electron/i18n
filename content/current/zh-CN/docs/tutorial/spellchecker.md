@@ -1,38 +1,38 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron自Electron 8以来内置支持Chromium拼写检查器。  在 Windows 和 Linux 上，这个功能由 Hunspell 字典提供，并在 macOS 上使用本机拼写检查器 API。
 
-## How to enable the spellchecker?
+## 如何启用拼写检查器？
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+对于Electron 9及以上，默认情况下启用拼写检查器。  对于Electron 8，您需要在 `Web 首选项` 中启用它。
 
 ```js
-const myWindow = new BrowserWindow({
+const mywindow = new BrowserWindow(format@@
   webPreferences: {
     spellcheck: true
   }
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## 如何设置拼写检查器使用的语言？
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+在 macOS 上，当我们使用原生API时，无法设置拼写检查器使用的语言。 默认情况下，本机拼写检查器会自动检测您使用的语言。
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+对于Windows和Linux，您应该使用一些Electron API来设置拼写检查器的语言。
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// 设置拼写检查器以检查英语、美国语和法语
+myWindow.session. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
-const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
+// 所有可用语言代码的数组
+const possibleLangues(myWindow.session.available SpellCheckerLanges)
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+默认情况下，拼写检查器将启用匹配当前操作系统区域的语言。
 
-## How do I put the results of the spellchecker in my context menu?
+## 如何在上下文菜单中显示拼写检查器的结果？
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+生成上下文菜单所需的所有信息都在 [`上下文菜单`](../api/web-contents.md#event-context-menu) 每个事件 `webContent` 实例中提供。  下面提供了一个小的示例 用此信息制作上下文菜单。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## 拼写检查器是否使用任何谷歌服务？
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+虽然拼写检查器本身没有发送任何输入， 单词或用户输入到谷歌服务中，猎拼写字典文件默认从谷歌CDN下载。  如果你想要避免这种情况，你可以提供一个替代URL来下载字典。
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

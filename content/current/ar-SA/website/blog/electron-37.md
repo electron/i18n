@@ -1,26 +1,26 @@
 ---
-title: What's new in Electron 0.37
+title: ما هو الجديد في إلكترون 0.37
 author: zeke
 date: '2016-03-25'
 ---
 
-Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. This latest release brings in all the new features shipped in [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). This includes CSS custom properties, increased [ES6](http://www.ecma-international.org/ecma-262/6.0/) support, `KeyboardEvent` improvements, `Promise` improvements, and many other new features now available in your Electron app.
+إلكترون `0. 7` تم إصدارها مؤخرا [](https://github.com/electron/electron/releases) وشملت ترقية كبيرة من Chrome 47 إلى Chrome 49 وكذلك العديد من واجهات API الأساسية الجديدة. هذا الإصدار الأخير يجلب في جميع الميزات الجديدة التي تم شحنها في [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) و [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html). يتضمن هذا الخصائص المخصصة لـ CSS، وزيادة دعم [ES6](http://www.ecma-international.org/ecma-262/6.0/) ، `تحسين حدث المفاتيح` ، `التحسينات الواعدة` ، والعديد من الميزات الجديدة الأخرى المتاحة الآن في تطبيق إلكترون الخاص بك.
 
 ---
 
-## What's New
+## ما الجديد
 
 ### CSS Custom Properties
 
-If you've used preprocessed languages like Sass and Less, you're probably familiar with *variables*, which allow you to define reusable values for things like color schemes and layouts. Variables help keep your stylesheets DRY and more maintainable.
+إذا كنت قد استخدمت لغات معالجة مسبقة مثل Sass and Less، فمن المحتمل أن تكون على دراية بمتغيرات **، التي تسمح لك بتحديد القيم القابلة لإعادة الاستخدام لأشياء مثل مخططات الألوان والتخطيطات. المتغيرات تساعد على الحفاظ على أوراق الأنماط الخاصة بك وأكثر قابلية للصيانة.
 
-CSS custom properties are similar to preprocessed variables in that they are reusable, but they also have a unique quality that makes them even more powerful and flexible: **they can be manipulated with JavaScript**. This subtle but powerful feature allows for dynamic changes to visual interfaces while still benefitting from [CSS's hardware acceleration](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions), and reduced code duplication between your frontend code and stylesheets.
+خصائص CSS المخصصة مماثلة للمتغيرات المعالجة مسبقاً من حيث أنها قابلة لإعادة الاستخدام. ولكن لديهم أيضا ميزة فريدة تجعلهم أكثر قوة ومرونة: **يمكن التلاعب بهم باستخدام جافا سكريبت**. هذه الميزة الدقيقة ولكن القوية تسمح بتغييرات ديناميكية في الواجهات البصرية بينما لا تزال تستفيد من [تسارع أجهزة CSS](https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/Performance_fundamentals#Use_CSS_animations_and_transitions)، وقللت من ازدواجية التعليمات البرمجية بين الواجهه الأمامي وورقات الأسلوب.
 
-For more info on CSS custom properties, see the [MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) and the [Google Chrome demo](https://googlechrome.github.io/samples/css-custom-properties/).
+لمزيد من المعلومات على خصائص CSS المخصصة، راجع [MDN مقالة](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) و [Google Chrome التجريبي](https://googlechrome.github.io/samples/css-custom-properties/).
 
-#### CSS Variables In Action
+#### متغيرات CSS قيد العمل
 
-Let's walk through a simple variable example that can be tweaked live in your app.
+دعونا نمشي عبر مثال متغير بسيط يمكن إضعافه مباشرة في التطبيق الخاص بك.
 
 ```css
 :root {
@@ -32,147 +32,147 @@ body {
 }
 ```
 
-The variable value can be retrieved and changed directly in JavaScript:
+القيمة المتغيرة يمكن استرجاعها وتغييرها مباشرة في JavaScript:
 
 ```js
-// Get the variable value ' #A5ECFA'
-let color = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
+// احصل على قيمة المتغير ' #A5ECFA'
+اترك اللون = window.getComputedStyle(document.body).getPropertyValue('--awesome-color')
 
-// Set the variable value to 'orange'
-document.body.style.setProperty('--awesome-color', 'orange')
+// عيّن قيمة المتغير إلى 'البرتقالي'
+document.body.styProperty('--awesome-color', 'orange')
 ```
 
-The variable values can be also edited from the **Styles** section of the development tools for quick feedback and tweaks:
+يمكن أيضا تعديل القيم المتغيرة من **الأنماط** قسم أدوات التطوير للحصول على ردود الفعل السريعة والتغييرات:
 
-![CSS properties in Styles tab](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
+![خصائص CSS في تبويب الأنماط](https://cloud.githubusercontent.com/assets/671378/13991612/1d10eb9c-f0d6-11e5-877b-c4dbc59f1209.gif){: .screenshot }
 
-### `KeyboardEvent.code` Property
+### `KeyboardEvent.code` الخاصية
 
-Chrome 48 added the new `code` property available on `KeyboardEvent` events that will be the physical key pressed independent of the operating system keyboard layout.
+أضاف Chrome 48 خاصية `كود` الجديدة المتاحة في `حدث مفاتيح` الأحداث التي ستكون المفتاح المادي المضغوط بشكل مستقل عن تخطيط لوحة مفاتيح نظام التشغيل.
 
-This should make implementing custom keyboard shortcuts in your Electron app more accurate and consistent across machines and configurations.
+وهذا من شأنه أن يجعل تنفيذ اختصارات لوحة المفاتيح المخصصة في تطبيق إلكترون الخاص بك أكثر دقة واتساقا عبر الآلات والتهيئات.
 
 ```js
 window.addEventListener('keydown', function(event) {
-  console.log(`${event.code} was pressed.`)
+  console.log(`${event.code} تم الضغط عليها.`)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) to see it in action.
+شاهد [هذا المثال](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) لرؤيته في العمل.
 
-### Promise Rejection Events
+### أحداث رفض الوعد
 
-Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
+أضاف Chrome 49 اثنين من الأحداث `النافذة` الجديدة التي تسمح لك بأن يتم إعلامك عندما يتم عدم التعامل مع [الوعد](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) المرفوض.
 
 ```js
-window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+window.addEventListener('unhandledrefreftion', function (event) {
+  console.log('لم يتم التعامل مع الوعد المرفوض', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+window. ddEventListener('reftionhandled', function (event) {
+  console.log('تم التعامل مع وعد مرفوض', event.promise, event.reason)
 })
 ```
 
-Check out [this example](https://googlechrome.github.io/samples/promise-rejection-events/index.html) to see it in action.
+شاهد [هذا المثال](https://googlechrome.github.io/samples/promise-rejection-events/index.html) لرؤيته في العمل.
 
-### ES2015 Updates in V8
+### تحديثات ES2015 في V8
 
-The version of V8 now in Electron incorporates [91% of ES2015](https://kangax.github.io/compat-table/es6/#chrome49). Here are a few interesting additions you can use out of the box—without flags or pre-compilers:
+الإصدار من V8 الآن في إلكترون يتضمن [91% من ES2015](https://kangax.github.io/compat-table/es6/#chrome49). فيما يلي بعض الإضافات المثيرة للاهتمام التي يمكنك استخدامها خارج المربع - بدون أعلام أو مترجمين مسبقين:
 
-#### Default parameters
+#### المعلمات الافتراضية
 
 ```js
-function multiply(x, y = 1) {
-  return x * y
+الدالة مضاعفة(x, y = 1) {
+  العودة x * y
 }
 
-multiply(5) // 5
+مضاعف(5) // 5
 ```
 
 #### Destructuring assignment
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+أضاف Chrome 49 [مهمة التدمير](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) لجعل تعيين المتغيرات ومعلمات الوظيفة أسهل بكثير.
 
-This makes Electron requires cleaner and more compact to assign now:
+هذا يجعل إلكترون بحاجة إلى أنظف وأكثر توافقاً لتعيين الآن:
 
-##### Browser Process Requires
+##### تتطلب عملية المتصفح
 
 ```js
-const {app, BrowserWindow, Menu} = require('electron')
+إختر {app, BrowserWindow, Menu} = مطلوبة ('electron')
 ```
 
-##### Renderer Process Requires
+##### عملية العارض تتطلب
 
 ```js
-const {dialog, Tray} = require('electron').remote
+إختر {dialog, Tray} = مطلوبة ('electron').بعد
 ```
 
-##### Other Examples
+##### أمثلة أخرى
 
 ```js
-// Destructuring an array and skipping the second element
-const [first, , last] = findAll()
+// تدمير مصفوفة وتخطي العنصر الثاني
+في [أول، ، ، اخير] = العثور على All()
 
-// Destructuring function parameters
-function whois({displayName: displayName, fullName: {firstName: name}}){
-  console.log(`${displayName} is ${name}`)
+// هدم الدالة
+دالة الذي({displayName: displayname, fullname: {firstName: name}}){
+  console. og(`${displayName} هو ${name}`)
 }
 
-let user = {
-  displayName: "jdoe",
-  fullName: {
-      firstName: "John",
-      lastName: "Doe"
+دع المستخدم = {
+  عرض الاسم: "jdoe"
+  الاسم الكامل: {
+      الاسم الأول: "جون"،
+      الاسم الأخير: "Doe"
   }
 }
 whois(user) // "jdoe is John"
 
-// Destructuring an object
-let {name, avatar} = getUser()
+/// Destructuring a objec
+le {name, avatar} = getUser()
 ```
 
-## New Electron APIs
+## تطبيقات إلكترون جديدة
 
-A few of the new Electron APIs are below, you can see each new API in the release notes for [Electron releases](https://github.com/electron/electron/releases).
+عدد قليل من تطبيقات إلكترون الجديدة أدناه ، يمكنك رؤية كل واجهة برمجة التطبيقات الجديدة في ملاحظات الإصدار [إصدارات إلكترون](https://github.com/electron/electron/releases).
 
-#### `show` and `hide` events on `BrowserWindow`
+#### `إظهار` و `إخفاء` الأحداث على `نافذة المتصفح`
 
-These events are emitted when the window is either shown or hidden.
+وتنبعث هذه الأحداث عندما تكون النافذة إما معروضة أو مخفية.
 
 ```js
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = مطلوب('electron')
 
-let window = new BrowserWindow({width: 500, height: 500})
-window.on('show', function () { console.log('Window was shown') })
-window.on('hide', function () { console.log('Window was hidden') })
+دع نافذة = نافذة متصفح جديدة({width: 500, height: 500}
+n('show', function () { console.log('عرض النوافذ') })
+window.on('hide', function () { console.log('تم إخفاء النوافذ') })
 ```
 
-#### `platform-theme-changed` on `app` for `OS X`
+#### `تم تغيير المنصة` على `تطبيق` لـ `OS X`
 
-This event is emitted when the system’s [Dark Mode](https://discussions.apple.com/thread/6661740) theme is toggled.
+ينبعث هذا الحدث عندما يتم تبديل موضوع [الوضع المظلم](https://discussions.apple.com/thread/6661740) للنظام.
 
 ```js
-const {app} = require('electron')
+const {app} = مطلوب('electron')
 
 app.on('platform-theme-changed', function () {
-  console.log(`Platform theme changed. In dark mode? ${app.isDarkMode()}`)
+  console.log('المنصة تغيرت. في الوضع المظلم؟ ${app.isDarkMode()}`)
 })
 ```
 
-#### `app.isDarkMode()` for `OS X`
+#### `app.isDarkMode()` لـ `OS X`
 
-This method returns `true` if the system is in Dark Mode, and `false` otherwise.
+هذه الطريقة ترجع `حقيقة` إذا كان النظام في وضع الظلام، و `كاذب` خلاف ذلك.
 
-#### `scroll-touch-begin` and `scroll-touch-end` events to BrowserWindow for `OS X`
+#### `تمرير اللمس` و `تمرير اللمس - نهاية` أحداث إلى متصفح نافذة `OS X`
 
-These events are emitted when the scroll wheel event phase has begun or has ended.
+وتنطلق هذه الأحداث عندما تبدأ أو تنتهي مرحلة حدث عجلة التمرير.
 
 ```js
 const {BrowserWindow} = require('electron')
 
-let window = new BrowserWindow({width: 500, height: 500})
-window.on('scroll-touch-begin', function () { console.log('Scroll touch started') })
-window.on('scroll-touch-end', function () { console.log('Scroll touch ended') })
+دع النافذة = BrowserWindow({width: 500, height: 500}
+window.on('scroll-touch-star', function () { console. og('لمس التمرير بدأت') })
+window.on('scroll-touch-end', function () { console.log('لمس إنتهى) })
 ```
 

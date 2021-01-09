@@ -1,10 +1,10 @@
 # Графики выпуска Electron
 
-* The `-beta.1` and `stable` dates are our solid release dates.
+* Даты `-beta.1` и `стабильных` являются датами выпуска нашего твердого выпуска.
 * Мы стремимся к еженедельным бета-релизам, однако мы часто выпускаем больше бета-версий, чем запланировано.
 * Все даты являются нашими целями, но могут быть причины для корректировки стабильного срока, например, ошибки безопасности.
-* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
-* Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* Взгляните на пост блога [5.0.0 Timeline](https://electronjs.org/blog/electron-5-0-timeline) для получения информации о датах публикации нашего выпуска.
+* С версии Electron 6.0 мы запускаем все другие версии Chromium и выпускаем стабильную версию в тот же день, что и стабильная версия Chrome. Вы можете ознакомиться с расписанием выпуска Chrome [здесь](https://chromiumdash.appspot.com/schedule). Смотрите [новый релиз в блоге Electron](https://www.electronjs.org/blog/12-week-cadence) для получения более подробной информации о графике выпуска.
 
 | Версия | -beta.1    | Стабильная | Chrome | Node   |
 | ------ | ---------- | ---------- | ------ | ------ |

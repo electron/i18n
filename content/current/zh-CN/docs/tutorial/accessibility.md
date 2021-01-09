@@ -1,16 +1,16 @@
 # 辅助功能
 
-为程序制作辅助功能是很重要的。在这里，我们很高兴地向你们介绍[Devtron](https://electronjs.org/devtron)和[Spectron](https://electronjs.org/spectron)。这两个新功能有机会使开发者们让他们的应用程序更加可用。
+Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
 Electron 应用中有关辅助功能的开发和网站是相似的，因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
-然而这些新功能将这些审查工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中使用 Devtron。 详见各工具的文档.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. 详见各工具的文档.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 例如：
+在 Spectron 测试框架中，您现在可以审核每个窗口， `<webview>` 标签在您的应用程序中。 例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-在 Devtron 中, 有一个新的辅助功能选项卡, 允许您对应用程序中的某一个页面进行审核, 并对审核结果进行排序和筛选。
+在Devtron，有一个辅助选项卡，您可以在您的应用中审核一个 页面，并排序和过滤结果。
 
 ![devtron 截图](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
@@ -32,19 +32,21 @@ app.client.auditAccessibility().then(function (audit) {
 
 如果你知道其他适用于Electron的辅助功能开发工具, 请通过pull request添加到本文档中.
 
-## 启用辅助功能
+## 手动启用辅助功能
 
-由于性能原因, Electron应用程序在默认情况下禁用了辅助功能, 不过你可以通过多种方法启用它们。
+Electron 应用程序将自动启用 辅助技术中的辅助功能(e). 。 [JAWS](https://www.freedomscientific.com/products/software/jaws/) 在 Windows 或 [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) 在 macOS 上)。 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
-### 应用程序内部
+您也可以在您的 Electron 应用程序 中手动切换这些功能，或者在第三方本机软件中设置标记。
 
-通过使用 [` app.setAccessibilitySupportEnabled(enabled) `](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), 可以在应用程序首选项中向用户开放辅助功能的开关。 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
+### 使用 Electron 的 API
 
-### 辅助功能技术
+通过使用 [`app.setAccessibilityUported(启用)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API，您可以手动向应用程序首选项中的用户暴露Chrome的访问树。 请注意，用户的系统辅助工具优先于此设置， 将覆盖它。
 
-Electron应用在检测到辅助功能技术(Windows) 或VoiceOver(macOS) 时会自动启用辅助功能 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
+### 在第三方软件内
 
-在 macOS 上, 在Electron应用中，可以通过 ` AXManualAccessibility `来切换第三方的辅助功能：
+#### macOS
+
+在 macOS 上，第三方辅助技术可以通过设置 `AXManualAccessibility` 属性来切换在 Electron 应用程序中的辅助功能 程序设计：
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

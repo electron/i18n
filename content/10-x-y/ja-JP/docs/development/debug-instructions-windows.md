@@ -1,6 +1,6 @@
 # Windows におけるデバッグ
 
-JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、Visual Studio、Electron がホストするシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内のブレークポイントを使ったステップスルーデバッグができます。
+JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 しかし、Visual Studio、Electron がホストするシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内のブレークポイントを使ったステップスルーデバッグができます。
 
 **こちらも参照**: Chromium のデバッグに関する豊富な情報があります。その多くは Chromium 開発者サイト ([Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows)) の Electron にも適しています。
 

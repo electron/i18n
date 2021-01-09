@@ -16,11 +16,11 @@ npm install --save-dev electron@latest
 
 ## 버전 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 기능 추가(merge)는 일부 개발자들은 편리하게 느끼겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 기능 추가(merge)는 일부 개발자들은 편리하게 느끼겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
 
 1.x 버전 전략 예제입니다.
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 `1.8.1` 버전 앱은 `1.8.2` 기능을 추가하거나 버그를 백포트(backport) 방식으로 수정하고 새로운 출시 라인(release line)을 생성해서 유지하기 전까지는 `1.8.3` 버전 버그 수정을 적용할 수 없습니다.
 
@@ -48,18 +48,17 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 | Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
 | Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 안정화 브랜치
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
-![](../images/versioning-sketch-1.png)
+![안정화 브랜치](../images/versioning-sketch-1.png)
 
 Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
-필요에 따라 백포팅을 통한 보안 관련 사항 수정이 필요하기 때문에 최소한 두 개의 안정화 브랜치를 병행해서 지원하며 이로 인해 여러 개의 안정화 브랜치들이 동시에 존재할 수 있습니다. ![](../images/versioning-sketch-2.png)
+필요에 따라 백포팅을 통한 보안 관련 사항 수정이 필요하기 때문에 최소한 두 개의 안정화 브랜치를 병행해서 지원하며 이로 인해 여러 개의 안정화 브랜치들이 동시에 존재할 수 있습니다. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 오래된 라인은 GitHub가 지원하지 않을 것입니다. 하지만 다른 그룹들이 이들에 대해 소유권을 가질 수 있으며 그들만의 안정화, 보안 관련 수정 사항 등을 백포트 할 수 있습니다. 저희는 이를 장려하지는 않지만, 이것이 많은 앱 개발자들의 삶을 훨씬 쉽게 만들어 준다는 사실만은 기억해두시길 바랍니다.
 
@@ -102,16 +101,17 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 
 주기(lifecycle) 예제를 그림으로 표현하면 다음과 같습니다:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* 베타 버전이_일반적으로 안정적_이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 공개되었습니다. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* 베타 버전이_일반적으로 안정적_이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 공개되었습니다. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 아래는 다양한 semver 범위에 따라 새로운 출시 버전이 결정되는 것을 보여주는 예제들입니다:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # 누락된 기능: 알파
+
 우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
 향후에는 아래의 사항들을 도입할 수도 있습니다:
@@ -119,6 +119,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 * 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 _알파_에 유지하면서 새로운 기능을 허락할 수 있음.
 
 # 기능 플래그(Feature Flags)
+
 기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
 * 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
@@ -138,7 +139,7 @@ Since Electron 8, stabilization branches are always **major** version lines, and
 
 # 버전이 지정된 `master`
 
-- `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
-- 출시 브랜치는 master 브랜치로 병합되지 않습니다.
-- 출시 브랜치는 `package.json` 안에 정확한 버전을 포함_할 수_ 있습니다.
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
+* 출시 브랜치는 master 브랜치로 병합되지 않습니다.
+* 출시 브랜치는 `package.json` 안에 정확한 버전을 포함_할 수_ 있습니다.
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

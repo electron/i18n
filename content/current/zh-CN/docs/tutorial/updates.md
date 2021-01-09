@@ -4,7 +4,7 @@
 
 ## 使用 `update.electronjs.org`
 
-The Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. 这个服务是设计给那些满足以下标准的 Electron 应用：
+Electron团队保留 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费的开源 网络服务，Electron应用可以用来自我更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
 
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
@@ -53,13 +53,13 @@ const { app, autoUpdater, dialog } = require('electron')
 下一步, 构建更新服务器的URL并且通知[autoUpdater](../api/auto-updater.md):
 
 ```javascript
-const server = 'https://your-deployment-url.com'
-const url = `${server}/update/${process.platform}/${app.getVersion()}`
+const server = 'https://your-demandmenturl.com'
+const url = `${server}/update/${process.platform}/ ${app.getVersion()}`
 
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+作为最后一步，检查更新。 下面的示例将每分钟检查一次：
 
 ```javascript
 setInterval(() => {
@@ -80,16 +80,16 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'A new version has been downloaded. 重启应用程序来应用更新。'
   }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  dialog.showMessageBox(dialogOpts).then((returnValue) =>
+    如果(returnValue.response === 0) autoUpdater.quitAnd()
   })
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+还请确认错误是 [正在处理](../api/auto-updater.md#event-error)。 Here's an example for logging them to `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
@@ -98,6 +98,6 @@ autoUpdater.on('error', message => {
 })
 ```
 
-## Handing Updates Manually
+## 手动处理更新
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+因为自动更新请求不在您的直接控制之下。 您可能发现了难以处理的情况(例如更新服务器在认证后面)。 `url` 字段确实支持文件, 这意味着你可以通过一些努力跳过该进程的服务器通信方面。 [这是一个如何工作的示例](https://github.com/electron/electron/issues/5020#issuecomment-477636990)。

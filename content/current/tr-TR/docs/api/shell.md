@@ -2,7 +2,7 @@
 
 > Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 `shell` modülü, masaüstü entegrasyonuyla ilgili işlevler sunar.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Yöntemler
 
@@ -28,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * dizi `yolu`
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 

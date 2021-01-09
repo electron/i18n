@@ -167,7 +167,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos) を参照してください。
+* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` のいずれかにできます。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。
@@ -182,7 +182,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 
 * `key` String
 
-`NSUserDefaults` 内のその `key` を削除します。 This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults` 内のその `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
@@ -192,18 +192,18 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
-let browserOptions = { width: 1000, height: 800 }
+const browserOptions = { width: 1000, height: 800 }
 
-// プラットフォームがサポートしている場合にのみウインドウを透明にする。
+// プラットフォームがサポートしている場合にのみウインドウを透明にします。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
 // ウインドウを作成。
-let win = new BrowserWindow(browserOptions)
+const win = new BrowserWindow(browserOptions)
 
-// 移動。
+// 移動します。
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -228,15 +228,15 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - One of the following values:
-  * On **Windows**:
+* `color` String - 以下の値のいずれか。
+  * **Windows** の場合:
     * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
     * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
     * `3d-highlight` - 3D 表示要素のハイライト色。
     * `3d-light` - 3D 表示要素の光源色。
     * `3d-shadow` - 3D 表示要素の影の色。
     * `active-border` - アクティブなウインドウの縁の色。
-    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption` - アクティブなウインドウのタイトルバーの色。 グラデーション効果が有効な場合は、その左側の色になります。
     * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
     * `button-text` - 押しボタンのテキスト色。
@@ -247,7 +247,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
     * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
     * `inactive-border` - 非アクティブなウインドウの縁の色。
-    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption` - 非アクティブなウインドウのタイトルバーの色。 グラデーション効果が有効な場合は、その左側の色になります。
     * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
     * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
     * `info-background` - ツールチップコントロールの背景色。
@@ -260,8 +260,8 @@ const alpha = color.substr(6, 2) // "dd"
     * `window` - ウインドウの背景色。
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
-  * On **macOS**
-    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _deprecated_
+  * **macOS** の場合
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。 _非推奨_
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -295,13 +295,13 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-background` - ウィンドウの背景
     * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [macOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String - One of the following values:
+* `color` String - 以下の値のいずれか。
   * `blue`
   * `brown`
   * `gray`
@@ -326,7 +326,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**非推奨:** 新しい [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 

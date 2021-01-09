@@ -1,17 +1,17 @@
-# Experimental APIs
+# Експериментальні API
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Деякі з API Electrons помічені `_Experimental_` у документації. Цей тег вказує на те, що API не може бути стабільним, а API може бути видалений або змінений частіше, ніж інші API з меншим попередженням.
 
-## Conditions for an API to be tagged as Experimental
+## Умови для API будуть позначені як Експериментальні
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Будь-хто може запросити API бути відмічений як експериментальний в розділі функцій, розбіжності на експериментальному характері функції можуть бути обговорені в API-WG, якщо вони не можуть бути вирішені в ЦП.
 
-## Process for removing the Experimental tag
+## Процес видалення експериментальної мітки
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Після того, як API буде стабільним та принаймні на двох великих стабільних лініях випуску, її можна призначити з метою видалення його експериментального тега.  Ця дискусія має відбутися на нараді в API WG.  Що варто враховувати при обговоренні / номіналі:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* Повинна бути виконана умова "двох основних станів релізу"
+* За цей час жодних великих помилок / проблем не мали б бути викликані прийняттям цієї функції
+* API досить стабільне і не має сильного впливу на оновлення Chromium
+* Хтось використовує API?
+* Чи відповідає API оригінальним запропонованим усеказам, чи є це в ньому якісь прогалини?

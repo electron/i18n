@@ -2,7 +2,7 @@
 
 > Create TouchBar layouts for native macOS applications
 
-Proces-ul: [Main](../tutorial/application-architecture.md#main-and-renderer-processes) - Principal</0>
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)`
 

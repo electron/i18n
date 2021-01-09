@@ -103,11 +103,18 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 Boş bir `NativeImage` örneği oluşturur.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
-* dizi `yolu`
+* `path` Dizgi
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 `path` yolundaki dosyanın yeni bir `NativeImage` örneğini oluşturur. Bu metot, `path` mevcut değilse, okunamazsa veya geçerli bir görüntü değilse boş bir görüntü döndürür.
 
@@ -126,7 +133,7 @@ console.log(image)
   * `height` Tamsayı
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
@@ -138,7 +145,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
   * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir.
   * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 `buffer`'dan yeni bir `NativeImage` örneği oluşturur. Tries to decode as PNG or JPEG first.
 
@@ -155,7 +162,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 * `imageName` Dizge
 * `hslShift` Number[] (optional)
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
@@ -177,9 +184,9 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Yerel olarak tepsi resimlerini sar, liman aplikasyon ikonları.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Örnek Metodlar
+### Örnek yöntemleri
 
 Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
@@ -229,9 +236,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Çevirme [`Size`](structures/size.md)
+* `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
+
+Çevirme [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +271,17 @@ Returns `NativeImage` - Kırpılan resim.
 
 Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde mevcut en boy oranı korunur.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Float` Döner - Resmin en boy oranı.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 
@@ -275,7 +294,7 @@ Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde m
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

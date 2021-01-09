@@ -356,7 +356,7 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
     <code>kunci</code> senar
   </li>
   <li>
-    <code>type</code> String - See <a href="#systempreferencesgetuserdefaultkey-type-macos"><code>getUserDefault</code></a>.
+    <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code> or <code>dictionary</code>.
   </li>
   <li>
     <code>nilai</code> Senar
@@ -407,19 +407,19 @@ bersama dengan notifikasi. The &lt;code>object</code> is the sender of the notif
   Contoh penggunaannya untuk menentukan apakah Anda harus membuat jendela transparan atau tidak (jendela transparan tidak akan bekerja dengan benar saat komposisi DWM dinonaktifkan):
 </p>
 
-<pre><code class="javascript">const { BrowserWindow, systemPreferences } = require ('elektron')
-biarkan browserOptions = { width: 1000, height: 800 }
+<pre><code class="javascript">const { BrowserWindow, systemPreferences } = require('electron')
+const browserOptions = { width: 1000, height: 800 }
 
-// Buat jendela transparan hanya jika platform mendukungnya.
+// Make the window transparent only if the platform supports it.
 jika (process.platform! == 'win32' || systemPreferences.isAeroGlassEnabled ()) {
   browserOptions.transparent = benar
   browserOptions.frame = salah
 }
 
 // Buat jendela.
-biarkan menang = Browser jendela baru(browserOptions)
+const win = new BrowserWindow(browserOptions)
 
-// Arahkan.
+// Navigate.
 jika (browserOptions.transparent) {
   win.loadURL (`file://${__dirname}/index.html`)
 } lain {
@@ -837,7 +837,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 </code></pre>
 
 <p spaces-before="0">
-  This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc">Access Control Constants</a> like <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc"><code>kSecAccessControlUserPresence</code></a> on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with <a href="https://github.com/atom/node-keytar"><code>node-keytar</code></a>, such that one would store an encryption key with <code>node-keytar</code> and only fetch it if <code>promptTouchID()</code> resolves.
+  This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc">Access Control Constants</a> like <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc"><code>kSecAccessControlUserPresence</code></a> on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with <a href="https://github.com/atom/node-keytar"><code>node-keytar</code></a>, such that one would store an encryption key with <code>node-keytar</code> and only fetch it if <code>promptTouchID()</code> resolves.
 </p>
 
 <p spaces-before="0">

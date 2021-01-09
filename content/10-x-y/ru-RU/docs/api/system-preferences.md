@@ -2,7 +2,7 @@
 
 > Получение системных параметров.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -17,7 +17,7 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
 ### Событие: 'color-changed' _Windows_

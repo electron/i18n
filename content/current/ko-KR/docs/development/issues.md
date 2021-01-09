@@ -22,34 +22,9 @@
 
 버그 보고서를 제출한다면
 
-전자 / 전자 문제 추적기에서 새 문제를 연다면 사용자에게 채워져야하는 템플릿이 표시됩니다.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-```markdown
-이슈를 열어주셔서 감사합니다. 명심해야할 몇 가지 사항 :
-- 이슈 추적은 버그만을 위한 것 입니다.
-- 버그를 보고하기 전에 최선 버전의 Electron에 대해 문제를 재현해 보세요.
-일반적인 충고가 필요하면, Slack : http://atom-slack.herokuapp.com에 가입하세요. -->
-### 실제 행동
-<!== 실제로 일어나면 어떻게 되나요? -->
-
-### How to reproduce
-
-<!--
-
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
-
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
-
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
-
--->
-```
-
-만약 여러분이 Electron의 버그를 찾았다고 확신하시면, 이 양식을 당신의 최고의 기술을 이용해 채워주세요.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
 보고서를 평가하는데 필요한 두 가지 정보는 버그에 대한 설명과 간단한 테스트입니다. 이것을 다시 만들 수 있습니다. 버그를 재현할 수 있으면 수정 하기가 더 쉽습니다.
 

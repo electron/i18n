@@ -35,7 +35,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 
 * `options` Object
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
-  * `productName` String (optional) - Defaults to `app.name`.
+  * `productName` String (opcional) - Por defecto `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Por defecto es `false`.
@@ -86,7 +86,7 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 ### `crashReporter.getCrashesDirectory()` _Deprecated_
 
-Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+Devuelve `String` - El directorio donde los errores son almacenados temporalmente antes de ser cargados.
 
 **Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
 
@@ -121,9 +121,9 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `platform` String - por ejemplo, "win32".
 * `process_type` String - por ejemplo, "renderer".
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
-* `_version` String - La versión en `package.json`.
+* `_version` Cadena - La versión en `package.json`.
 * `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
 * `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
+* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
 * `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

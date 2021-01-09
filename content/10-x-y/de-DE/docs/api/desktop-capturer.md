@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das folgende Beispiel zeigt, wie man Video von einem Desktop Fenster mit dem Titel `Electron` aufnehmen kann:
+The following example shows how to capture video from a desktop window whose title is `Electron`:
 
 ```javascript
 // In the renderer process.

@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Dat'
+title: 'Projeto da Semana: Dat'
 author:
   - karissa
   - yoshuawuyts
@@ -8,86 +8,86 @@ author:
 date: '2017-02-21'
 ---
 
-This week's featured project is [Dat](https://datproject.org/), a [grant-funded](https://changelog.com/rfc/6), open source, decentralized tool for distributing data sets. Dat is built and maintained by a [geodistributed team](https://datproject.org/team), many of whom helped write this post.
+O projeto em destaque desta semana é [Dat](https://datproject.org/), uma [financiada por fundos de financiamento](https://changelog.com/rfc/6), de código aberto e ferramenta descentralizada para distribuir conjuntos de dados. Datal é construído e mantido por uma [equipe geodistribuída](https://datproject.org/team), muitos dos quais ajudaram a escrever esta publicação.
 
 ---
 
-[![A screenshot of the main view of dat-desktop, showing a few rows of shared
-dats](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
+[![Uma captura de tela da visão principal da área de trabalho, exibindo algumas linhas de dados de
+compartilhados](https://cloud.githubusercontent.com/assets/2289/23175925/dbaee7ec-f815-11e6-80cc-3041203c7842.png)](https://github.com/datproject/dat-desktop)
 
-## First off what is Dat?
+## Primeiro o que é Dado?
 
-We wanted to bring the best parts of peer to peer and distributed systems to data sharing. We started with scientific data sharing and then began branching out into research institutions, government, public service, and open source teams as well.
+Queríamos trazer as melhores partes dos sistemas peer-to-peer e distribuídos para o compartilhamento de dados. Começámos com a partilha de dados científicos e começámos a promover instituições de investigação, governo, serviço público e também equipas de fonte aberta.
 
-Another way to think about it is a sync and upload app like Dropbox or BitTorrent Sync, except Dat is [open source](https://github.com/datproject). Our goal is to be a a powerful, open source, non-profit data sharing software for big, small, medium, small-batch and big-batch data.
+Outra maneira de pensar sobre isso é sincronizar e fazer upload de app como Dropbox ou BitTorrent Sync, exceto Dat é [de código aberto](https://github.com/datproject). Nosso objetivo é ser um software de compartilhamento de dados potente e sem fins lucrativos para os dados grandes, pequenos, médios, pequenos lotes e grandes lotes.
 
-To use the `dat` CLI tool, all you have to type is:
+Para usar a ferramenta `dat` CLI, tudo que você tem que digitar é:
 
 ```sh
-dat share path/to/my/folder
+dat share caminho/para/meu/pasta
 ```
 
-And dat will create a link that you can use to send that folder to someone else -- no central servers or third parties get access to your data. Unlike BitTorrent, it's also impossible to sniff who is sharing what ([see the Dat Paper draft for more details](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)).
+E o dat criará um link que você pode usar para enviar essa pasta para outra pessoa -- nenhum servidor central ou terceiros terão acesso aos seus dados. Ao contrário do BitTorrent, é também impossível sniff quem está compartilhando o que ([ver o rascunho do papel Dat para mais detalhes](https://github.com/datproject/docs/blob/master/papers/dat-paper.md)).
 
-## Now we know what Dat is. How does Dat Desktop fit in?
+## Agora sabemos o que é Dat. Como o Dat Desktop se encaixa?
 
-[Dat Desktop](https://github.com/datproject/dat-desktop) is a way to make Dat accessible to people who can't or don't want to use the command line. You can host multiple dats on your machine and serve the data over your network.
+[Dat Desktop](https://github.com/datproject/dat-desktop) é uma maneira de tornar Dat acessível para pessoas que não podem ou não querem usar a linha de comando. Você pode hospedar várias informações no seu computador e servir os dados através da sua rede.
 
-## Can you share some cool use cases?
+## Você consegue compartilhar alguns casos de uso legais?
 
-### DataRefuge + Project Svalbard
+### DataRefuge + Projeto Svalbard
 
-We're working on a thing codenamed [Project Svalbard](https://github.com/datproject/svalbard) that is related to [DataRefuge](http://www.ppehlab.org/datarefuge), a group working to back up government climate data at risk of disappearing. Svalbard is named after the Svalbard Global Seed Vault in the Arctic which has a big underground backup library of plant DNA. Our version of it is a big version controlled collection of public scientific datasets. Once we know and can trust the metadata, we can build other cool projects like a [distributed volunteer data storage network](https://github.com/datproject/datasilo/).
+Estamos trabalhando em uma coisa codificada [Project Svalbard](https://github.com/datproject/svalbard) que está relacionada a [DataRefuge](http://www.ppehlab.org/datarefuge), um grupo que trabalha para apoiar os dados climáticos governamentais, correndo o risco de desaparecer. Svalbard tem o nome de Svalbard Global Seed Vault no Árctico, que tem uma grande biblioteca de backup subterrânea de DNA vegetal. Nossa versão é uma grande coleção controlada de conjuntos de dados científicos públicos. Assim que soubermos e pudermos confiar nos metadados, podemos construir outros projetos legais como uma [rede de armazenamento de dados de voluntários distribuída](https://github.com/datproject/datasilo/).
 
-### California Civic Data Coalition
+### Coligação de Dados Cívicos da Califórnia
 
-[CACivicData](http://www.californiacivicdata.org/) is an open-source archive serving up daily downloads from CAL-ACCESS, California's database tracking money in politics. They do [daily releases](http://calaccess.californiacivicdata.org/downloads/0), which means hosting a lot of duplicate data across their zip files. We're working on hosting their data as a Dat repository which will reduce the amount of hassle and bandwidth needed to refer to specific version or update to a newer version.
+[CACivicData](http://www.californiacivicdata.org/) é um arquivo de código aberto que serve downloads diários do CAL-ACCESS, o rastreamento de banco de dados da Califórnia em política. Eles fazem [lançamentos diários](http://calaccess.californiacivicdata.org/downloads/0), o que significa hospedar muitos dados duplicados em seus arquivos zip. Estamos trabalhando em hospedar os dados deles como um repositório Dat, o que reduzirá a quantidade de aborrecimentos e largura de banda necessária para consultar uma versão específica ou atualizar para uma versão mais recente.
 
-## Electron Updates
+## Atualizações do Electron
 
-This one isn't concrete yet, but we think a fun use case would be putting a compiled Electron app in a Dat repository, then using a Dat client in Electron to pull the latest deltas of the built app binary, to save on download time but also to reduce bandwidth costs for the server.
+Este ainda não é concreto, mas achamos que um caso divertido seria colocar um aplicativo compilado do Electron em um repositório de Dat, em seguida, usar um cliente Dat no Electron para puxar os deltas mais recentes do executável do aplicativo, para economizar tempo de download, mas também para reduzir os custos de banda para o servidor.
 
-## Who should be using Dat Desktop?
+## Quem deve estar usando o Dat Desktop?
 
-Anyone who wants to share and update data over a p2p network. Data scientists, open data hackers, researchers, developers. We're super receptive to feedback if anyone has a cool use case we haven't thought of yet. You can drop by our [Gitter Chat](https://gitter.im/datproject/discussions) and ask us anything!
+Qualquer pessoa que queira compartilhar e atualizar dados em uma rede p2p. Cientistas de dados, hackers abertos, pesquisadores, desenvolvedores. Nós estamos super receptivos a feedback se alguém tiver um caso de uso legal que ainda não imaginámos. Você pode jogar no nosso [Chat do Gitter](https://gitter.im/datproject/discussions) e nos perguntar qualquer coisa!
 
-## What's coming next in Dat and Dat Desktop?
+## O que vem a seguir em Dat e Dat Desktop?
 
-User accounts and metadata publishing. We are working on a Dat registry web app to be deployed at [datproject.org](https://datproject.org/) which will basically be an 'NPM for datasets', except the caveat being we are just going to be a metadata directory and the data can live anywhere online (as opposed to NPM or GitHub where all the data is centrally hosted, because source code is small enough you can fit it all in one system). Since many datasets are huge, we need a federated registry (similar to how BitTorrent trackers work). We want to make it easy for people to find or publish datasets with the registry from Dat Desktop, to make the data sharing process frictionless.
+Contas de usuários e publicação de metadados. Estamos trabalhando em um aplicativo da Web Dat registry para ser implantado no [projeto de dados. rg](https://datproject.org/) que basicamente será um 'NPM para conjuntos de dados', exceto a advertência, nós vamos ser um diretório de metadados e os dados podem ficar em qualquer lugar on-line (ao contrário do NPM ou GitHub, onde todos os dados são hospedados centralmente, porque o código fonte é pequeno o bastante você pode caber tudo em um sistema). Uma vez que muitos conjuntos de dados são enormes, precisamos de um registro federado (semelhante a como os rastreadores do BitTorrent funcionam). Queremos facilitar para as pessoas encontrar ou publicar conjuntos de dados com o registro do Dat Desktop, para tornar o processo de compartilhamento de dados friccional.
 
-Another feature is multi-writer/collaborative folders. We have big plans to do collaborative workflows, maybe with branches, similar to git, except designed around dataset collaboration. But we're still working on overall stability and standardizing our protocols right now!
+Outro recurso são pastas multiescritor/colaborativas. Temos grandes planos de fazer fluxos de trabalho colaborativos, talvez com filiais, semelhantes ao git, exceto projetados em torno da colaboração do conjunto de dados. Mas ainda estamos trabalhando em estabilidade geral e em padronizar nossos protocolos agora!
 
-## Why did you choose to build Dat Desktop on Electron?
+## Por que você escolheu construir um Dat Desktop no Electron?
 
-Dat is built using Node.js, so it was a natural fit for our integration. Beyond this, our users use a variety of machines since scientists, researchers and government officials may be forced to use certain setups for their institutions -- this means we need to be able to target Windows and Linux as well as Mac. Dat Desktop gives us that quite easily.
+Dat é construído usando Node.js, então era um ajuste natural para nossa integração. Além disso, nossos usuários usam uma variedade de máquinas desde cientistas, pesquisadores e oficiais do governo podem ser forçados a usar certas configurações para suas instituições - isso significa que precisamos ser capazes de usar o Windows e o Linux, bem como Mac. Gordo Desktop nos dá isso facilmente.
 
-## What are some challenges you've faced while building Dat and Dat Desktop?
+## Quais são os desafios que você enfrentou ao construir Dat e Dat Desktop?
 
-Figuring out what people want. We started with tabular datasets, but we realized that it was a bit of a complicated problem to solve and that most people don't use databases. So half way through the project, we redesigned everything from scratch to use a filesystem and haven't looked back.
+Descubra o que as pessoas querem. Começamos com conjunto de dados tabular, mas percebemos que era um problema complicado resolver e que a maioria das pessoas não usa banco de dados. Então, a meio do projeto, nós redesenhamos tudo do zero para usar um sistema de arquivos e não olhamos para trás.
 
-We also ran into some general Electron infrastructure problems, including:
+Também encontramos alguns problemas gerais de infraestrutura do Electron, incluindo:
 
-- Telemetry - how to capture anonymous usage statistics
-- Updates - It's kind of piecemeal and magic to set up automatic updates
-- Releases - XCode signing, building releases on Travis, doing beta builds, all were challenges.
+- Telemetria - como capturar estatísticas anônimas de uso
+- Atualizações - É um tipo de forma fragmentada e mágica configurar atualizações automáticas
+- Lançamentos - assinatura de XCode, compilando lançamentos no Travis, fazendo compilações beta, todos foram desafios.
 
-We also use Browserify and some cool Browserify Transforms on the 'front end' code in Dat Desktop (which is kind of weird because we still bundle even though we have native `require` -- but it's because we want the Transforms). To better help manage our CSS we switched from Sass to using [sheetify](https://github.com/stackcss/sheetify). It's greatly helped us modularize our CSS and made it easier to move our UI to a component oriented architecture with shared dependencies. For example [dat-colors](https://github.com/Kriesse/dat-colors) contains all of our colors and is shared between all our projects.
+Também usamos Browserify e algumas Transformas legais do Browserify no código de 'front-end' no Dat Desktop (que é meio estranho, porque ainda temos o pacote nativo `necessário` -- mas é porque queremos as Transformes). Para melhor ajudar a gerenciar nosso CSS mudamos de Sass para [sheetify](https://github.com/stackcss/sheetify). Isso nos ajudou muito a modularizar o nosso CSS e tornou mais fácil mover a nossa interface de usuário para uma arquitetura orientada ao componente com dependências compartilhadas. Por exemplo, [dad-colors](https://github.com/Kriesse/dat-colors) contém todas nossas cores e é compartilhado entre todos os nossos projetos.
 
-We've always been a big fan of standards and minimal abstractions. Our whole interface is built using regular DOM nodes with just a few helper libraries. We've started to move some of these components into [base-elements](https://base.choo.io), a library of low-level reusable components. As with most of our technology we keep iterating on it until we get it right, but as a team we have a feeling we're heading in the right direction here.
+Sempre fomos um grande fã de padrões e abstrações mínimas. Nossa interface é construída utilizando nós do DOM regulares com apenas algumas bibliotecas auxiliares. Começamos a mover alguns desses componentes para [elementos da base](https://base.choo.io), uma biblioteca de componentes de baixo nível. Tal como com a maior parte de nossa tecnologia, nós continuamos iterando sobre ela até acertarmos. mas como equipe temos a sensação de que estamos indo na direção certa aqui.
 
-## In what areas should Electron be improved?
+## Em que áreas o Electron deve ser melhorado?
 
-We think the biggest pain point is native modules. Having to rebuild your modules for Electron with npm adds complexity to the workflow. Our team developed a module called [`prebuild`](http://npmjs.org/prebuild) which handles pre-built binaries, which worked well for Node, but Electron workflows still required a custom step after installing, usually `npm run rebuild`. It was annoying. To address this we recently switched to a strategy where we bundle all compiled binary versions of all platforms inside the npm tarball. This means tarballs get larger (though this can be optimized with `.so` files - shared libraries), this approach avoids having to run post-install scripts and also avoids the `npm run rebuild` pattern completely. It means `npm install` does the right thing for Electron the first time.
+Nós achamos que o maior ponto de dor são os módulos nativos. Ter que reconstruir seus módulos para Electron com npm adiciona complexidade ao fluxo de trabalho. Nossa equipe desenvolveu um módulo chamado [`pré-build`](http://npmjs.org/prebuild) que lida com binários pré-construídos, que funcionou bem para o Node, mas os fluxos de trabalho do Electron ainda exigiam um passo personalizado após a instalação, geralmente `npm run rebuild`. Era irritante. Para resolver isso, mudamos recentemente para uma estratégia em que agrupamos todas as versões binárias compiladas de todas as plataformas dentro do npm tarball. Isso significa que as tarballs ficam maiores (embora isso possa ser otimizado com `. o` arquivos - bibliotecas compartilhadas), essa abordagem evita ter que rodar scripts de pós-instalação e também evita o padrão `npm run rebuild` completamente. Significa que `npm install` faz a coisa certa para o Electron na primeira vez.
 
-## What are your favorite things about Electron?
+## Quais são as suas coisas favoritas sobre o Electron?
 
-The APIs seem fairly well thought out, it's relatively stable, and it does a pretty good job at keeping up to date with upstream Node releases, not much else we can ask for!
+As APIs parecem bastante bem pensadas, é relativamente estável, e faz um excelente trabalho em manter-se atualizado com as versões do Nó a montante, não é muito mais que possamos pedir!
 
-## Any Electron tips that might be useful to other developers?
+## Quaisquer dicas do Electron que possam ser úteis para outros desenvolvedores?
 
-If you use native modules, give [prebuild](https://www.npmjs.com/package/prebuild) a shot!
+Se você usar módulos nativos, dê [pré-construir](https://www.npmjs.com/package/prebuild) uma paz!
 
-## What's the best way to follow Dat developments?
+## Qual é a melhor maneira de acompanhar os desenvolvimentos de Dat?
 
-Follow [@dat_project](https://twitter.com/dat_project) on Twitter, or subscribe to our [email newsletter](https://tinyletter.com/datdata).
+Siga [@dat_project](https://twitter.com/dat_project) no Twitter ou assinar a nossa [newsletter por e-mail](https://tinyletter.com/datdata).
 

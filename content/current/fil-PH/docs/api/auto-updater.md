@@ -85,7 +85,7 @@ Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 * `options` Object
   * `url` Tali
   * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` String (optional) _macOS_ - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Tinatakda ang `url` at nagpapasimula ng auto-updater.
 

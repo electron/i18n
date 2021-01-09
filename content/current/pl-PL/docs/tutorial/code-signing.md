@@ -4,51 +4,51 @@ Code signing is a security technology that you use to certify that an app was cr
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+W systemie Windows, system przypisuje poziom zaufania do certyfikatu podpisywania kodu , który jeśli nie posiadasz, lub jeśli poziom zaufania jest niski, spowoduje pojawienie się okienek , gdy użytkownicy zaczną korzystać z aplikacji.  Zaufaj poziomowi budować w miarę upływu czasu, aby łatwiej było rozpocząć podpisywanie kodu tak szybko, jak to możliwe.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Chociaż możliwe jest dystrybuowanie niepodpisanych aplikacji, nie jest to zalecane. Zarówno Windows, jak i macOS domyślnie uniemożliwią pobranie lub wykonanie niepodpisanych aplikacji. Począwszy od macOS Catalina (wersja 10.15), użytkownicy muszą przejść przez wiele ręcznych kroków, aby otworzyć aplikacje bez podpisu.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![ostrzeżenie macOS Catalina Gatekeeper: Aplikacja nie może być otwarta, ponieważ
+programista nie może zostać zweryfikowana](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Jak widzisz, użytkownicy otrzymują dwie opcje: Przenieś aplikację prosto do kosza lub anuluj uruchamianie. Nie chcesz, aby Twoi użytkownicy widzieli to okno.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+Jeśli budujesz aplikację Electrona, którą zamierzasz pakować i rozpowszechniać, powinna być podpisana kod.
 
-# Signing & notarizing macOS builds
+# Podpisywanie & notarizowanie kompilacji macOS
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+Prawidłowe przygotowanie aplikacji macOS do wydania wymaga dwóch kroków: Najpierw aplikacja musi być podpisana z kodem. Następnie aplikacja musi zostać przesłana do Apple w procesie o nazwie "notarializacja", gdzie zautomatyzowane systemy będą dalej weryfikować, czy aplikacja nie robi nic, aby zagrozić jego użytkownikom.
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+Aby rozpocząć proces, upewnij się, że spełniasz wymagania do podpisywania i notarializowania aplikacji:
 
-1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
-2. Download and install [Xcode](https://developer.apple.com/xcode) - this requires a computer running macOS
-3. Generate, download, and install [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Zapisz się do [programu programistów Apple](https://developer.apple.com/programs/) (wymaga rocznej opłaty)
+2. Pobierz i zainstaluj [Xcode](https://developer.apple.com/xcode) - wymaga to komputera z macOS
+3. Generuj, pobierz i zainstaluj [podpisywanie certyfikatów](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+Ekosystem Electrona faworyzuje konfigurację i wolność, więc istnieje wiele sposobów na podpisanie i notarializację aplikacji.
 
 ## `electron-forge`
 
-If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`], [`electron-osx-sign`], and [`electron-notarize`] under the hood.
+Jeśli używasz ulubionego narzędzia do budowy Electrona, uzyskanie podpisu aplikacji i podpisanie jej w notariacie wymaga kilku dodatków do konfiguracji. [Forge](https://electronforge.io) jest kolekcją oficjalnych narzędzi Electrona, używając [`electron-packer`], [`electron-osx-sign`] i [`electron-notarize`] pod kapturkiem.
 
-Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
+Spójrzmy na przykładową konfigurację ze wszystkimi wymaganymi polami. Nie wszystkie z nich są wymagane: narzędzia będą na tyle sprytne, aby automatycznie znaleźć odpowiednią `tożsamość`, na przykład, ale zalecamy, abyś był jasny.
 
 ```json
 {
   "name": "my-app",
-  "version": "0.0.1",
+  "version": "0.0. ",
   "config": {
     "forge": {
       "packagerConfig": {
         "osxSign": {
           "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
           "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
+          „uprawnienia”: „uprawnienia. wykaz”,
+          „uprawnienia-dziedziczenie”: „uprawnienia. lista",
           "signature-flags": "library"
         },
         "osxNotarize": {
-          "appleId": "felix@felix.fun",
+          "appleId": "felix@felix. un",
           "appleIdPassword": "my-apple-id-password",
         }
       }
@@ -57,35 +57,35 @@ Let's take a look at an example configuration with all required fields. Not all 
 }
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+`Pplist` plik, do którego odwołano się tutaj, potrzebuje następujących uprawnień specyficznych dla macOSa aby zapewnić mechanizmy bezpieczeństwa Apple'a, że aplikacja robi te rzeczy bez szkody dla wszystkich:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow unsigned-executable-memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debuger</key>
     <true/>
   </dict>
 </plist>
 ```
 
-To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+Aby zobaczyć to wszystko w akcji, sprawdź kod źródłowy Electron Fiddle, [zwłaszcza jego `electron-forge` configuration ](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
-If you plan to access the microphone or camera within your app using Electron's APIs, you'll also need to add the following entitlements:
+Jeśli planujesz uzyskać dostęp do mikrofonu lub kamery w aplikacji za pomocą interfejsów API Electrona, musisz również dodać następujące uprawnienia:
 
 ```xml
-<key>com.apple.security.device.audio-input</key>
+<key>com.apple.security.device.Audio-input</key>
 <true/>
 <key>com.apple.security.device.camera</key>
 <true/>
 ```
 
-If these are not present in your app's entitlements when you invoke, for example:
+Jeśli nie są one obecne w uprawnieniach Twojej aplikacji podczas wywoływania, na przykład:
 
 ```js
 const { systemPreferences } = require('electron')
@@ -93,17 +93,17 @@ const { systemPreferences } = require('electron')
 const microphone = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+Twoja aplikacja może ulec awarii. Zobacz sekcję Dostęp do Zasobów w [Utwardzony Czas Runtime](https://developer.apple.com/documentation/security/hardened_runtime) , aby uzyskać więcej informacji i uprawnień, których możesz potrzebować.
 
 ## `electron-builder`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+Electron Builder zawiera niestandardowe rozwiązanie do podpisywania aplikacji. znajdziesz [jego dokumentację tutaj](https://www.electron.build/code-signing).
 
 ## `electron-packager`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`], which includes [`electron-osx-sign`] and [`electron-notarize`].
+Jeśli nie używasz zintegrowanego rurociągu budowy, takiego jak Forge lub Builder, prawdopodobnie używasz [`electron-packer`], który zawiera [`electron-osx-sign`] i [`electron-notarize`].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+Jeśli używasz API Packagera, możesz przekazać [w konfiguracji, która zarówno znakuje jak i notariuje twoją aplikację](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
 ```js
 const packager = require('electron-packager')
@@ -112,30 +112,30 @@ packager({
   dir: '/path/to/my/app',
   osxSign: {
     identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-    'hardened-runtime': true,
-    entitlements: 'entitlements.plist',
-    'entitlements-inherit': 'entitlements.plist',
+    'hartowany czas pracy': true,
+    uprawnienia: 'uprawnienia. wykaz”,
+    „uprawnienia-dziedziczenie”: „uprawnienia”. list',
     'signature-flags': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix.fun',
+    appleId: 'felix@felix. un',
     appleIdPassword: 'my-apple-id-password'
   }
 })
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+`Pplist` plik, do którego odwołano się tutaj, potrzebuje następujących uprawnień specyficznych dla macOSa aby zapewnić mechanizmy bezpieczeństwa Apple'a, że aplikacja robi te rzeczy bez szkody dla wszystkich:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow unsigned-executable-memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debuger</key>
     <true/>
   </dict>
 </plist>
@@ -143,28 +143,28 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Mac App Store
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+Zobacz [Przewodnik Sklepu Mac App](mac-app-store-submission-guide.md).
 
-# Signing Windows builds
+# Podpisywanie wersji Windows
 
-Before signing Windows builds, you must do the following:
+Przed podpisaniem wersji Windows musisz wykonać następujące czynności:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. Pobierz certyfikat podpisywania kodu uwierzytelniania Windows (wymaga rocznej opłaty)
+2. Zainstaluj Visual Studio, aby uzyskać narzędzie podpisujące (darmowa [Społeczność Edycja](https://visualstudio.microsoft.com/vs/community/) jest wystarczająca)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Możesz otrzymać certyfikat podpisywania kodu od wielu sprzedawców. Ceny są różne, więc może być warte twojego czasu na zakupy. Popularni sprzedawcy to:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
+* Między innymi prosimy o znalezienie takiego, który odpowiada Twoim potrzebom, Google jest Twoim znajomym 😄
 
-There are a number of tools for signing your packaged app:
+Istnieje wiele narzędzi do podpisywania spakowanej aplikacji:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+* [`electron-winstaller`] wygeneruje instalator dla okien i podpisze go dla
+* [`electron-forge`] może podpisywać instalatorów, które generuje przez Squirrel.Windows lub MSI.
+* [`electron-builder`] może podpisać niektóre ze swoich celów w oknach
 
 ## Sklep Windows
 
-See the [Windows Store Guide](windows-store-guide.md).
+Zobacz [Przewodnik Sklepu Windows](windows-store-guide.md).

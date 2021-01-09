@@ -12,7 +12,7 @@ The `nativeTheme` module emits the following events:
 
 Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
 
-## Properties
+## Proprietăți
 
 The `nativeTheme` module has the following properties:
 
@@ -49,7 +49,7 @@ Your application should then always use `shouldUseDarkColors` to determine what 
 
 ### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Readonly_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-constrast UI.
+A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-contrast UI.
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Readonly_
 

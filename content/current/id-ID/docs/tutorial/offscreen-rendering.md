@@ -1,48 +1,50 @@
 # Rendering di luar layar
 
-Perenderan di luar layar memungkinkan Anda mendapatkan konten jendela browser dalam bitmap, sehingga dapat ditampilkan di mana saja, misalnya pada tekstur dalam adegan 3D. Perenderan offscreen di Electron menggunakan pendekatan serupa dari proyek
+## Sekilas
 
- Chromium Embedded Framework </ 0> .</p> 
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'cat' </ 0>  acara untuk menjadi lebih efisien. Perenderan bisa dihentikan, dilanjutkan dan frame rate bisa diatur. Frame rate yang ditentukan adalah nilai batas atas, bila tidak ada yang terjadi pada halaman web, tidak ada frame yang dihasilkan. The
-maximum frame rate is 60, because above that there is no benefit, only
-performance loss.</p>
+*Notes*:
 
-<p spaces-before="0"><strong x-id="1"> Catatan: </ 0> Sebuah jendela offscreen selalu dibuat sebagai <a href="../api/frameless-window.md"> Frameless Jendela </ 1> .</p>
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-<h2 spaces-before="0">Rendering Modes</h2>
+### Rendering Modes
 
-<h3 spaces-before="0">GPU dipercepat</h3>
+#### GPU dipercepat
 
-<p spaces-before="0">GPU accelerated rendering berarti GPU digunakan untuk komposisi. Karena itu frame harus disalin dari GPU yang membutuhkan kinerja lebih banyak, sehingga mode ini agak sedikit lebih lambat dari yang lain. The benefit of this
-mode is that WebGL and 3D CSS animations are supported.</p>
+GPU accelerated rendering berarti GPU digunakan untuk komposisi. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
-<h3 spaces-before="0">Perangkat output perangkat lunak</h3>
+#### Perangkat output perangkat lunak
 
-<p spaces-before="0">Mode ini menggunakan perangkat output perangkat lunak untuk rendering di CPU, sehingga generasi frame jauh lebih cepat, sehingga mode ini lebih disukai daripada yang dipercepat GPU.</p>
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-<p spaces-before="0">Untuk mengaktifkan mode ini akselerasi GPU harus dinonaktifkan dengan memanggil
- API <a href="../api/app.md#appdisablehardwareacceleration"><code> app.disableHardwareAcceleration () </ 0>  .</p>
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-<h2 spaces-before="0">Pemakaian</h2>
+## Contoh
 
-<pre><code class="javascript">const { app, BrowserWindow } = require('electron')
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+
+```javascript fiddle='docs/fiddles/features/offscreen-rendering'
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
 let win
 
 app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      offscreen: true
-    }
-  })
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL('http://github.com')
+  win.loadURL('https://github.com')
   win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
+    fs.writeFileSync('ex.png', image.toPNG())
   })
-  win.webContents.setFrameRate(30)
+  win.webContents.setFrameRate(60)
 })
-`</pre>
+```
+
+After launching the Electron application, navigate to your application's working folder.

@@ -1,115 +1,115 @@
 ---
-title: "Electron's New Internationalized Website"
+title: "Nová mezinárodní webová stránka Electronu"
 author: zeke
 date: '2017-11-13'
 ---
 
-Electron has a new website at [electronjs.org](https://electronjs.org)! We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
+Electron má nový web na [electronjs.org](https://electronjs.org)! Nahradili jsme naše statické stránky Jekyll uzlem. s webový server, který nám dává flexibilitu internacionalizovat stránky a vydláždit cestu pro více zajímavých funkcí.
 
 ---
 
-## 🌍 Translations
+## 🌍 Překlady
 
-We've begun the process of internationalizing the website with the goal of making Electron app development accessible to a global audience of developers. We're using a localization platform called [Crowdin](https://crowdin.com/project/electron) that integrates with GitHub, opening and updating pull requests automatically as content is translated into different languages.
-
-<figure>
-  <a href="https://electronjs.org/languages">
-    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav in Simplified Chinese">
-    <figcaption>Electron's Nav in Simplified Chinese</figcaption>
-  </a>
-</figure>
-
-Though we've been working quietly on this effort so far, over 75 Electron community members have already discovered the project organically and joined in the effort to internationalize the website and translate Electron's docs into over 20 languages. We are seeing [daily contributions](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) from people all over the world, with translations for languages like French, Vietnamese, Indonesian, and Chinese leading the way.
-
-To choose your language and view translation progress, visit [electronjs.org/languages](https://electronjs.org/languages)
+Zahájili jsme proces internacionalizace webové stránky s cílem zpřístupnit vývoj aplikace Electron globálnímu publiku vývojářů. Používáme lokalizační platformu s názvem [Crowdin](https://crowdin.com/project/electron) , která integruje s GitHubem, otevírání a aktualizace požadavků na natažení je automaticky přeloženo do různých jazyků.
 
 <figure>
   <a href="https://electronjs.org/languages">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Current target languages on Crowdin">
-    <figcaption>Translations in progress on Crowdin</figcaption>
+    <img src="https://user-images.githubusercontent.com/2289/32803530-a35ff774-c938-11e7-9b98-5c0cfb679d84.png" alt="Electron Nav ve zjednodušené čínštině">
+    <figcaption>Electronův Nav ve zjednodušené čínštině</figcaption>
   </a>
 </figure>
 
-If you're multilingual and interested in helping translate Electron's docs and website, visit the [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) repo, or jump right into translating on [Crowdin](https://crowdin.com/project/electron), where you can sign in using your GitHub account.
+I když jsme na tomto úsilí dosud pracovali v ticho; více než 75 členů Electronové komunity již projekt objevilo organicky a připojilo se k úsilí o internacionalizaci webových stránek a přeložit Electronovy dokumenty do více než 20 jazyků. Vidíme [denní příspěvky](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) od lidí po celém světě, s překlady pro jazyky, jako jsou francouzština, vietnamština, indonéština a čínština, které stojí v čele.
 
-There are currently 21 languages enabled for the Electron project on Crowdin. Adding support for more languages is easy, so if you're interested in helping translate but you don't see your language listed, [let us know](https://github.com/electron/electronjs.org/issues/new) and we'll enable it.
+Chcete-li si vybrat jazyk a zobrazit průběh překladu, navštivte [electronjs.org/languages](https://electronjs.org/languages)
 
-## Raw Translated Docs
+<figure>
+  <a href="https://electronjs.org/languages">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32754734-e8e43c04-c886-11e7-9f34-f2da2bb4357b.png" alt="Aktuální cílové jazyky na Crowdin">
+    <figcaption>Probíhají překlady na Crowdin</figcaption>
+  </a>
+</figure>
 
-If you prefer to read documentation in raw markdown files, you can now do that in any language:
+Pokud máte vícejazyčné a zajímavé pomoci s překladem elektronických dokumentů a webových stránek, navštivte [elektronick/elektron-i18n](https://github.com/electron/electron-i18n#readme) repo, nebo skočit přímo do překladu na [Crowdin](https://crowdin.com/project/electron), kde se můžete přihlásit pomocí svého GitHub účtu.
+
+V současné době je v projektu Electron na Crowdinu povoleno 21 jazyků. Přidávání podpory pro další jazyky je snadné, takže pokud máte zájem o pomoc s překladem, ale nevidíte váš jazyk, [nám dejte vědět](https://github.com/electron/electronjs.org/issues/new) a budeme ho povolit.
+
+## Syrové přeložené dokumenty
+
+Pokud dáváte přednost čtení dokumentace v syrových markdown souborech, to můžete nyní udělat v libovolném jazyce:
 
 ```sh
 git clone https://github.com/electron/electron-i18n
 ls electron-i18n/content
 ```
 
-## App Pages
+## Stránky aplikací
 
-As of today, any Electron app can easily have its own page on the Electron site. For a few examples, check out [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), or [GraphQL Playground](https://electronjs.org/apps/graphql-playground), pictured here on the Japanese version of the site:
+Počínaje dneškem může mít každá aplikace Electron snadno svou vlastní stránku na webu Electron . Pro několik příkladů se podívejte na [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), nebo [GraphQL Playground](https://electronjs.org/apps/graphql-playground), zobrazeno zde na japonské verzi stránky:
 
 <figure>
   <a href="https://electronjs.org/apps/graphql-playground">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871096-f5043292-ca33-11e7-8d03-a6a157aa183d.png" alt="GraphQL Playground">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871096-f5043292-ca33-11e7-8d03-a6a157aa183d.png" alt="GraphQL hřiště">
   </a>
 </figure>
 
-There are some incredible Electron apps out there, but they're not always easy to find, and not every developer has the time or resources to build a proper website to market and distribute their app.
+Existují některé neuvěřitelné Electronové aplikace, ale nejsou vždy snadné najít a ne každý vývojář má čas nebo zdroje na vytvoření vhodné webové stránky pro uvedení na trh a distribuci své aplikace.
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. Using a color palette extracted from each app's icon, we can produce [bold and accessible colors](https://github.com/zeke/pick-a-good-color) to give each app page some visual distinction.
+Použitím pouze [PNG ikony a malého množství metadat aplikace](https://github.com/electron/electron-apps/blob/master/contributing.md), jsme schopni shromáždit spoustu informací o dané aplikaci. Pomocí dat shromážděných z GitHubu mohou stránky aplikací nyní zobrazovat snímky obrazovky, odkazy ke stažení, verze, poznámky k vydání a ČÍTNUTÍ pro každou aplikaci, která má veřejný úložiště. Pomocí barevné palety extrahované z každé ikony aplikace, můžeme vyrobit [tučně a přístupné barvy](https://github.com/zeke/pick-a-good-color) , abychom jednotlivým aplikacím poskytli určitou vizuální odlišnost.
 
-The [apps index page](https://electronjs.org/apps) now also has categories and a keyword filter to find interesting apps like [GraphQL GUIs](https://electronjs.org/apps?q=graphql) and [p2p tools](https://electronjs.org/apps?q=graphql).
+[aplikace index](https://electronjs.org/apps) má nyní také kategorie a filtr klíčových slov pro nalezení zajímavých aplikací, jako je [GraphQL GUI](https://electronjs.org/apps?q=graphql) a [nástrojů p2p](https://electronjs.org/apps?q=graphql).
 
-If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps](https://github.com/electron/electron-apps) repository.
+Pokud máte Electron aplikaci, kterou byste rádi označili na stránce, otevřete požadavek na natažení na [elektronické/elektronické aplikace](https://github.com/electron/electron-apps) repozitáři.
 
-## One-line Installation with Homebrew
+## Jednořádková instalace s Homebrew
 
-The [Homebrew](https://brew.sh) package manager for macOS has a subcommand called [cask](https://caskroom.github.io) that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
+[Homebrew](https://brew.sh) správce balíčků pro macOS má podpříkaz s názvem [cask](https://caskroom.github.io) , který umožňuje snadnou instalaci desktopových aplikací pomocí jednoho příkazu ve vašem terminálu, jako `varovat v sudu atom`.
 
-We've begun collecting Homebrew cask names for popular Electron apps and are now displaying the installation command (for macOS visitors) on every app page that has a cask:
+Začali jsme sbírat jména v kostkách Homebrew pro populární Electron aplikace a nyní zobrazují instalační příkaz (pro macOS návštěvníky) na každé stránce aplikace , která má susk:
 
 <figure>
   <a href="https://electronjs.org/apps/dat">
    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/32871246-c5ef6f2a-ca34-11e7-8eb4-3a5b93b91007.png">
-   <figcaption>Installation options tailored for your platform: macOS, Windows, Linux</figcaption>
+   <figcaption>Možnosti instalace na míru pro vaši platformu: macOS, Windows, Linux</figcaption>
   </a>
 </figure>
 
-To view all the apps that have homebrew cask names, visit [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). If you know of other apps with casks that we haven't indexed yet, [please add them!](https://github.com/electron/electron-apps/blob/master/contributing.md)
+Chcete-li zobrazit všechny aplikace, které mají homebrew cask, navštivte [electronjs.org/apps?q=homebrew](https://electronjs.org/apps?q=homebrew). Pokud znáte jiné aplikace s maskami, které ještě nebyly indexovány, [přidejte je!](https://github.com/electron/electron-apps/blob/master/contributing.md)
 
-## 🌐 A New Domain
+## 🌐 Nová doména
 
-We've moved the site from electron.atom.io to a new domain: [electronjs.org](https://electronjs.org).
+Stránku jsme přesunuli z electron.atom.io do nové domény: [electronjs.org](https://electronjs.org).
 
-The Electron project was born inside [Atom](https://atom.io), GitHub's open-source text editor built on web technologies. Electron was originally called `atom-shell`. Atom was the first app to use it, but it didn't take long for folks to realize that this magical Chromium + Node runtime could be used for all kinds of different applications. When companies like Microsoft and Slack started to make use of `atom-shell`, it became clear that the project needed a new name.
+Projekt Electron se narodil uvnitř [Atom](https://atom.io), GitHubův open-source textový editor postavený na webových technologiích. Electron byl původně nazýván `atom-shell`. Atom byla první aplikací, která ji použila, ale netrvalo dlouho, než si folks uvědomil, že tento kouzelný Chromium + uzel běh lze použít pro všechny druhy různých aplikací. Když společnosti jako Microsoft a Slack začaly používat `atom-shell`, vyšlo najevo, že projekt potřebuje nový název.
 
-And so "Electron" was born. In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+A tak se narodil "Electron". Na počátku roku 2016 GitHub sestavil nový tým, který se zaměří konkrétně na vývoj a údržbu Electronu, kromě společnosti Atom. V době od té doby byl Electron přijat tisíci vývojáři aplikací, a je nyní závislý na mnoha velkých společnostech, z nichž mnohé mají Electron týmy vlastní.
 
-Supporting GitHub's Electron projects like Atom and [GitHub Desktop](https://desktop.github.com) is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
+Podpora GitHubu Electronových projektů, jako je Atom a [GitHub Desktop](https://desktop.github.com) , je pro náš tým stále prioritou, ale tím, že přejdeme do nové domény, doufáme, že pomůže objasnit technické rozlišení mezi Atom a Electron.
 
-## 🐢🚀 Node.js Everywhere
+## 🐢🚀 Node.js všude
 
-The previous Electron website was built with [Jekyll](https://jekyllrb.com), the popular Ruby-based static site generator. Jekyll is a great tool for building static websites, but the website had started to outgrow it. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js](https://nodejs.org) server was the obvious choice.
+Předchozí webové stránky Electronu byly vytvořeny s [Jekyll](https://jekyllrb.com), oblíbeným statickým generátorem webu založeným na pravidlech. Jekyll je skvělý nástroj pro vytváření statických webových stránek, ale webové stránky začaly tento nástroj překonávat. Chtěli jsme dynamičtější možnosti jako správné přesměrování a dynamické vykreslování obsahu, takže samozřejmou volbou byl server [Node.js](https://nodejs.org).
 
-The Electron ecosystem includes projects with components written in many different programming languages, from Python to C++ to Bash. But JavaScript is foundational to Electron, and it's the language used most in our community.
+Electron ekosystém obsahuje projekty s komponenty napsanými v mnoha různých programovacích jazycích, od Pythonu po C++ až po Bash. Ale JavaScript je pro Electron základní, a je to nejpoužívanější jazyk v naší komunitě.
 
-By migrating the website from Ruby to Node.js, we aim to lower the barrier to entry for people wishing to contribute to the website.
+Migrováním webové stránky z Ruby na Node.js se snažíme snížit bariéru na vstup pro lidi, kteří chtějí přispět na webovou stránku.
 
-## ⚡️ Easier Open-Source Participation
+## ⚡ Snadnější Open-Source účast
 
-If you've got [Node.js](https://nodejs.org) (8 or higher) and [git](https://git-scm.org) installed on your system, you can easily get the site running locally:
+Pokud máte [Node. s](https://nodejs.org) (8 nebo vyšší) a [git](https://git-scm.org) nainstalováno ve vašem systému, můžete snadno spustit portál lokálně:
 
 ```sh
-git clone https://github.com/electron/electronjs.org
+git klonone https://github.com/electron/electronjs.org
 cd electronjs.org
 npm install
 npm run dev
 ```
 
-The new website is hosted on Heroku. We use deployment pipelines and the [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature, which automatically creates a running copy of the app for every pull request. This makes it easy for reviewers to view the actual effects of a pull request on a live copy of the site.
+Nový web je hostován na Heroku. Používáme zaváděcí potrubí a funkci [Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps) , která automaticky vytvoří spuštěnou kopii aplikace pro každý požadavek na natažení . To umožňuje recenzentům zobrazit skutečné účinky žádosti o natažení na živou kopii webu.
 
-## 🙏 Thanks to Contributors
+## 🙏 Díky přispěvatelům
 
-We'd like to give special thanks to all the folks around the world who have contributed their own time and energy to help improve Electron. The passion of the open-source community has helped immeasurably in making Electron a success. Thank you!
+Chtěli bychom zvlášť poděkovat všem lidem po celém světě, kteří přispěli svým vlastním časem a energií, aby pomohli vylepšit Electron. Nadšení komunity s otevřeným zdrojovým kódem pomohlo nezměrně přispět k úspěchu Electronu. Děkujeme!
 
 <figure>
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">

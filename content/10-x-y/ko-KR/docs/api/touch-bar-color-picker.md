@@ -2,7 +2,7 @@
 
 > Create a color picker in the touch bar for native macOS applications
 
-프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarColorPicker(options)`
 
@@ -12,7 +12,7 @@
   * `change` Function (optional) - Function to call when a color is selected.
     * `color` String - The color that the user selected from the picker.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 The following properties are available on instances of `TouchBarColorPicker`:
 

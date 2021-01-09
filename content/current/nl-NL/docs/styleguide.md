@@ -13,27 +13,27 @@ Dit zijn de richtlijnen voor het schrijven van Electron documentatie.
 Met `Quick Start` als voorbeeld:
 
 ```markdown
-# Quick Start
+# Snelle Start
 
 ...
 
-## Main process
+## Hoofd Proces
 
 ...
 
-## Renderer process
+## Renderer-proces
 
 ...
 
-## Run your app
+## Voer je app uit
 
 ...
 
-### Run as a distribution
+### Uitvoeren als een distributie
 
 ...
 
-### Manually downloaded Electron binary
+### Handmatig gedownload Electron binary
 
 ...
 ```
@@ -45,7 +45,8 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 * Gebruik `sh` in plaats van `cmd` in codeblokken (vanwege de syntaxis highlighter).
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
-* Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
+* Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Het kiezen van woorden
 
@@ -95,10 +96,10 @@ Gebruik `autoUpdater` als voorbeeld:
 * Constructors moeten worden vermeld met ` ### `-titels op niveau.
 * [Statische methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) moeten worden vermeld onder een `### Static Methods` hoofdstuk.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) moeten worden vermeld onder een `### Instance Methods` hoofdstuk.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Alle methoden met een retourwaarde moeten hun beschrijving beginnen met "Teruggaven `[TYPE]` - Retourbeschrijving"
   * Als de methode een `object` retourneert, kan de structuur worden opgegeven met een dubbele punt gevolgd door een nieuwe regel en vervolgens een ongeordende lijst met eigenschappen in dezelfde stijl als functieparameters.
 * Instantie events moeten vermeld worden onder een `### Instance Events` hoofdstuk.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Instantie Eigenschappen moeten worden vermeld onder een `### Instance Properties` hoofdstuk.
   * Instantie properties moeten beginnen met "A [Property Type] ..."
 
 Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
@@ -140,17 +141,17 @@ Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
 Het hoofdstuk Methoden moet de volgende vorm hebben:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Een parameter beschrijving.
+* `optional` Integer (optioneel) - Een andere parameter beschrijving.
 
 ...
 ```
 
 De titel kan `###` of `####`-niveau zijn, afhankelijk van of het een methode van een module of een klasse.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Voor modules is de `objectName` de naam van de module. Voor klassen moet het de naam zijn van de instantie van de klas, en mag niet hetzelfde zijn als de module naam.
 
 De methoden van de sessie `Session` onder de module `session` moeten bijvoorbeeld `ses` gebruiken als de `objectName`.
 
@@ -160,7 +161,7 @@ De optionele argumenten worden aangegeven door vierkante haakjes `[]` rondom het
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Onder de methode is meer gedetailleerde informatie over elk van de argumenten. Het type argument wordt genoteerd door de beide voorkomende soorten:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

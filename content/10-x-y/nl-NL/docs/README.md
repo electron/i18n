@@ -4,7 +4,7 @@ Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electr
 
 ## Veelgestelde vragen (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Er zijn vragen die heel vaak worden gesteld. Bekijk dit voor het maken van een probleem:
 
 * [Electron FAQ](faq.md)
 
@@ -41,16 +41,16 @@ There are questions that are asked quite often. Check this out before creating a
   * [Toetsencombinaties](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Detectie](tutorial/online-offline-events.md)
   * [Representatief bestand voor macOS BrowserWindows](tutorial/represented-file.md)
-  * [Drag & Drop Bestanden](tutorial/native-file-drag-drop.md)
+  * [Drag & Drop bestand](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Webembeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Toegankelijkheid beschikbaar maken](tutorial/accessibility.md#enabling-accessibility)
 * [Testen en Debuggen](tutorial/application-debugging.md)
-  * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
+  * [Debuggen van het hoofdproces](tutorial/debugging-main-process.md)
   * [Debuggen van het hoofdproces met Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Het gebruik maken van Selenium en WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -134,7 +134,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [protocool](api/protocol.md)
 * [scherm](api/screen.md)
 * [sessie](api/session.md)
-* [systeemVoorkeuren](api/system-preferences.md)
+* [systemPreferences](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)

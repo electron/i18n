@@ -10,7 +10,7 @@ In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only availa
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
-let win = new BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -148,7 +148,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## Proprietăți
 
 ### `remote.process` _Readonly_
 

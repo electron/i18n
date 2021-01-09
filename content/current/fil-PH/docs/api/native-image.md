@@ -103,6 +103,13 @@ Nagbabalik ng `NativeImage`
 
 Gumawa ng bakanteng `NativeImage` na instance.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` na String
@@ -179,7 +186,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase :
 
@@ -230,9 +237,13 @@ Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang na
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Nagbabalik [`Size`](structures/size.md)
+* `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
+
+Nagbabalik [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -261,12 +272,19 @@ Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
 Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng aspeto ay mapapangalagaan sa imaheng binago ang laki.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
-#### `image.addRepresentation(options)
-`
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+
+#### `image.addRepresentation(options)`
 
 * `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
@@ -277,7 +295,7 @@ Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Mga Katangian ng Instance
+### Katangian ng pagkakataon
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

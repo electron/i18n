@@ -2,7 +2,7 @@
 
 > 원격 서버에 충돌 보고서를 제출합니다.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
@@ -27,7 +27,7 @@ Crash reports are stored temporarily before being uploaded in a directory undern
 
 On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
-## 메서드
+## 메소드
 
 `CrashReporter` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 

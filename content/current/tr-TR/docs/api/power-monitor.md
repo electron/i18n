@@ -4,38 +4,23 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-Örneğin:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Etkinlikler
 
 `powerMonitor` modülü aşağıdaki olayları yayar:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Olay: 'suspend' _macOS_ _Windows_
 
 Sistem askıya alındığında yayıldı.
 
-### Event: 'resume' _Linux_ _Windows_
+### Olay: 'resume' _macOS_ _Windows_
 
 Sistem devam ettiğinde yayılan.
 
-### Etinlik: 'on-ac' _Windows_
+### Olay: 'on-ac' _macOS_ _Windows_
 
 Sistem AC güç değiştiğinde yayılan.
 
-### Olay: 'pilde' _Windows_
+### Olay: 'on-battery' _macOS_  _Windows_
 
 Sistem pil gücü değiştiğinde yayılan.
 
@@ -59,7 +44,7 @@ The `powerMonitor` module has the following methods:
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+`String` Döndürür - Sistemin anlık durumu. Bunlardan birisi olabilir `active`, `idle`, `locked` veya `unknown`.
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 

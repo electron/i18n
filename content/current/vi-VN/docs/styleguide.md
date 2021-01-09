@@ -45,7 +45,8 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Một dòng nên chứa tối đa 80 kí tự kể cả khoảng cách.
 * Phân cấp tiêu đề không được quá 2 cấp (vì markdown sẽ không render quá 2 cấp).
-* Tất cả code `js` và `javascript` nên được linted với [tiêu chuẩn của markdown](http://npm.im/standard-markdown).
+* Tất cả code `js` và `javascript` nên được linted với [tiêu chuẩn của markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Chọn từ
 

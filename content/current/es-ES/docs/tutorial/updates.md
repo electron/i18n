@@ -59,7 +59,7 @@ const url = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL({ url })
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Como paso final, compruebe si hay actualizaciones. El siguiente ejemplo comprobará cada minuto:
 
 ```javascript
 setInterval(() => {
@@ -89,7 +89,7 @@ Detalles: Una nueva versión ha sido descargada. Restart the application to appl
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+También asegúrate de que los errores están [siendo manejados](../api/auto-updater.md#event-error). Aquí hay un ejemplo para registrarlos en `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
@@ -98,6 +98,6 @@ autoUpdater.on('error', message => {
 })
 ```
 
-## Handing Updates Manually
+## Administrando actualizaciones manualmente
 
-Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+Porque las solicitudes realizadas por Auto Update no están bajo su control directo, puede encontrar situaciones difíciles de manejar (como si el servidor de actualizaciones está detrás de la autenticación). El campo `url` soporta archivos, lo que significa que con un poco de esfuerzo puedes evadir el aspecto de comunicación del servidor del proceso. [Aquí hay un ejemplo de cómo podría funcionar esto](https://github.com/electron/electron/issues/5020#issuecomment-477636990).

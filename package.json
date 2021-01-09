@@ -11,7 +11,7 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
-    "@octokit/rest": "^16.43.1",
+    "@octokit/rest": "^18.0.3",
     "@types/cheerio": "^0.22.11",
     "@types/lodash": "^4.14.134",
     "@types/node": "^14.0.1",
@@ -20,9 +20,8 @@
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "clean-deep": "^3.0.2",
     "crowdin-glossary": "^1.2.0",
-    "del": "^5.0.0",
+    "del": "^6.0.0",
     "dotenv-safe": "^8.1.0",
     "extract-zip": "^2.0.0",
     "get-crowdin-file-ids": "^1.1.1",
@@ -43,14 +42,14 @@
     "npm-run-all": "^4.1.2",
     "prettier": "^2.0.0",
     "remark": "^12.0.0",
-    "remark-inline-links": "^4.0.0",
+    "remark-inline-links": "^5.0.0",
     "require-yaml": "^0.0.1",
     "rimraf": "^3.0.0",
     "roggy": "^0.1.0",
     "semantic-release": "^17.0.3",
     "simple-statistics": "^7.0.2",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.5.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5",
     "unist-util-visit": "^2.0.1",
     "walk-sync": "^2.0.2"
   },
@@ -73,8 +72,8 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v9.2.1",
-  "electronMasterBranchCommit": "0efcaec4d6ce71221160c96a26a366e9c5bff98a",
+  "electronLatestStableTag": "v11.1.1",
+  "electronMasterBranchCommit": "8c305b4113b4b62e84e847e004e33ba98ec80592",
   "engines": {
     "node": ">=10"
   },
@@ -84,8 +83,8 @@
     }
   },
   "supportedVersions": [
-    "7-3-x",
-    "8-x-y",
-    "10-x-y"
+    "9-x-y",
+    "10-x-y",
+    "12-x-y"
   ]
 }

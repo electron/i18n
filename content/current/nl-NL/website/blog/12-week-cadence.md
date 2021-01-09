@@ -1,40 +1,40 @@
 ---
-title: New Electron Release Cadence
+title: Nieuwe Electron Release Cadence
 author: sofianguy
 date: '2019-05-13'
 ---
 
-🎉 Electron is moving to release a new major stable version every 12 weeks! 🎉
+🎉 Electron beweegt om de 12 weken een nieuwe, belangrijke stabiele versie te publiceren! 🎉
 
 ---
 
-## ⚡️ Wow that's quick! But why?
+## ⚡ Wow is snel! Maar waarom?
 
-Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
+Eenvoudig gezegd: Chromium stopt de verzending niet zodat Electron ook niet zal vertragen.
 
-Chromium releases on a consistent 6-week [schedule](https://www.chromium.org/developers/calendar). To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+Chromium releases op een consistente 6-week [schedule](https://www.chromium.org/developers/calendar). Voor het leveren van de meest recente versies van Chromium in Electro, heeft onze agenda nodig om hun te volgen. Meer informatie over Chromium's release-cyclus kan je [hier](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md) vinden.
 
-## 🚀 Why every 12 weeks?
+## 🚀 Waarom elke 12 weken?
 
-Every 6 weeks, a new Chromium release comes out with new features, bug fixes / security fixes, and V8 improvements. Electron's users have been loud and clear about wanting these changes in a timely manner, so we've adjusted our stable release dates to match every other Chromium stable release. Up first, Electron v6.0.0 will include M76 and is scheduled for stable release on [July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), the same release day as [Chromium M76](https://www.chromestatus.com/features/schedule).
+Elke 6 weken komt er een nieuwe Chromium release met nieuwe functies, bug fixes / security fixes en V8 verbeteringen. De gebruikers van elektronica zijn luid en duidelijk van plan om deze veranderingen tijdig door te voeren. dus hebben we onze stabiele releasedatums aangepast zodat ze overeenkomen met elke andere Chromium stabiele release. Bovenaan, Electron v6.0. zal M76 bevatten en is gepland voor een stabiele release op [30 juli 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), dezelfde dag als [Chromium M76](https://www.chromestatus.com/features/schedule).
 
-## 🚧 What does this mean for me and my Electron app?
+## 🚧 Wat betekent dit voor mij en mijn Electron app?
 
-You'll have access to new Chromium and V8 features and fixes sooner than before. Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+Je hebt sneller dan voorheen toegang tot nieuwe Chromium en V8 functies en fixes. Belangrijk: je weet ook _wanneer_ die nieuwe wijzigingen komen, zodat je met betere informatie kunt plannen dan voorheen.
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
+Het Electron team zal [blijven ondersteunen](https://electronjs.org/docs/tutorial/support#supported-versions) de laatste drie grote versies. Bijvoorbeeld, wanneer [v6.0.0 stabiel wordt op 30 juli 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), ondersteunen we v6.x, v5.x en v4.x, terwijl v3.x Eind-Of-Life bereikt.
 
 ## 💬 App Feedback programma
 
-Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
+Overweeg om aan te sluiten bij ons [App Feedback Programma](https://electronjs.org/blog/app-feedback-program) om ons te helpen onze bèta-releases en stabilisatie te testen. Projecten die deelnemen aan dit programma en Electron betas testen op hun apps; en in ruil daarvoor hebben de nieuwe bugs die ze vinden prioriteit voor de stabiele vrijlating.
 
-## 📝 A brief history of Electron releases
+## 📝 Een korte geschiedenis van Electron releases
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+De beslissingen rond stabiele releases voor v3.0.0 volgden geen schema. We hebben interne schema's aan het project met v3.0.0 en v4.0.0 toegevoegd. Eerder dit jaar hebben we besloten om onze stabiele releasedatum voor de eerste keer bekend te maken voor [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Het bekendmaken van onze stabiele releasedatums is over het algemeen positief ontvangen en we zijn enthousiast om dat te blijven doen voor toekomstige releases.
 
-In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+Om deze upgrade-gerelateerde inspanningen beter te stroomlijnen. onze [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) en [Releases](https://github.com/electron/governance/tree/master/wg-releases) werkgroepen zijn gemaakt binnen ons [Governance](https://electronjs.org/blog/governance) systeem. Zij hebben ons in staat gesteld om meer prioriteiten te stellen en dit werk te delegeren, wat naar wij hopen bij elke daaropvolgende mededeling duidelijker zal worden.
 
-Here is where our new cadence will put us in comparison to Chromium's cadence:
-<img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
+Hier is waar onze nieuwe kadentie ons zal plaatsen in vergelijking met de Chromiumcadence:
+<img alt="lijn grafiek met vergelijken van Electron versus Chromium versies" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+📨 Als u vragen heeft, mail ons dan via [info@electronjs.org](mailto:info@electronjs.org).

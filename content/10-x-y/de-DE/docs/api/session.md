@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -56,16 +56,16 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instanz-Ereignisse
+### Instanz Events
 
 The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-Returns:
+Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>item` [DownloadItem](download-item.md)
+* `event` Event
+* `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
@@ -86,15 +86,15 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><p spaces-before="0"><code>preconnectUrl` String - The URL being requested for preconnection by the renderer.</p>
+* `event` Event
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -105,8 +105,8 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>languageCode` String - The language code of the dictionary file
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
 
@@ -114,8 +114,8 @@ Emitted when a hunspell dictionary file starts downloading
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>languageCode` String - The language code of the dictionary file
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
@@ -123,12 +123,12 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>languageCode` String - The language code of the dictionary file
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 The following methods are available on instances of `Session`:
 
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -397,7 +397,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* `URL` Zeichenfolge
+* `url` String
 
 Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 

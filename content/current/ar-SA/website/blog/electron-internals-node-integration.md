@@ -1,46 +1,47 @@
 ---
-title: 'Electron Internals&#58; Message Loop Integration'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---
 
-This is the first post of a series that explains the internals of Electron. This post introduces how Node's event loop is integrated with Chromium in Electron.
+هذه هي الوظيفة الأولى في سلسلة تشرح الداخليين لشركة إلكترون الإلكترونية. يقدم هذا المنشور كيفية دمج حلقة حدث العقد مع Chromium في Electron.
 
 ---
 
-There had been many attempts to use Node for GUI programming, like [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
+وقد جرت محاولات عديدة لاستخدام العقدة في برمجة واجهة المستخدم (GGI)، مثل [عقدة](https://github.com/zcbenz/node-gui) لربط GTK+، و [عقدة qt](https://github.com/arturadib/node-qt) لربط QT. لكن لا أحد منها يعمل في الإنتاج لأن مجموعات أدوات واجهة المستخدم GI لديها حلقات رسالتها الخاصة بينما العقدة تستخدم ليبوف لحلقة الحدث الخاصة بها، ويمكن للموضوع الرئيسي فقط تشغيل حلقة واحدة في نفس الوقت. لذا فالحيلة الشائعة لتشغيل حلقة رسالة واجهة المستخدم في عقدة هي ضخ حلقة الرسالة في مؤقت بفاصل صغير جداً, والذي يجعل استجابة واجهة الواجهة بطيئة ويشغل الكثير من موارد المعالج.
 
-During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
+خلال تطوير إلكترون واجهنا نفس المشكلة، على الرغم من ذلك بطريقة معكوسة : كان علينا دمج حلقة حدث العقد في حلقة رسالة Chromium .
 
-## The main process and renderer process
+## العملية الرئيسية وعملية العارض
 
-Before we dive into the details of message loop integration, I'll first explain the multi-process architecture of Chromium.
+قبل أن نغوص في تفاصيل تكامل حلقة الرسائل، سأشرح أولاً هندسة تعدد العمليات في كروميوم.
 
-In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). The main process is responsible for GUI work like creating windows, while the renderer process only deals with running and rendering web pages.
+في إلكترون هناك نوعان من العمليات: العملية الرئيسية و عملية المعرض (هذا في الواقع مبسط للغاية, للحصول على عرض كامل، يرجى الاطلاع على [المعماري المتعدد العمليات](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). العملية الرئيسية مسؤولة عن عمل واجهة المستخدم مثل إنشاء النوافذ، في حين أن عملية العرض تتعامل فقط مع تشغيل وعرض صفحات الويب.
 
-Electron allows using JavaScript to control both the main process and renderer process, which means we have to integrate Node into both processes.
+يسمح إلكترون باستخدام جافا سكريبت للتحكم في كل من العملية الرئيسية و عملية المعرض مما يعني أننا يجب أن ندمج العقدة في كلتا العمليتين.
 
-## Replacing Chromium's message loop with libuv
+## استبدال حلقة رسالة Chromium's بـ libuv
 
-My first try was reimplementing Chromium's message loop with libuv.
+كانت محاولتي الأولى إعادة تنفيذ حلقة رسائل Chromium's باستخدام libuv.
 
-It was easy for the renderer process, since its message loop only listened to file descriptors and timers, and I only needed to implement the interface with libuv.
+كان من السهل بالنسبة لعملية العرض، لأن حلقة الرسائل الخاصة بها لم تستمع إلا إلى أوصاف الملفات والمؤقتين، وكنت بحاجة فقط إلى تنفيذ الواجهة مع libuv.
 
-However it was significantly more difficult for the main process. Each platform has its own kind of GUI message loops. macOS Chromium uses `NSRunLoop`, whereas Linux uses glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
+غير أن هذه العملية كانت أصعب بكثير بالنسبة للعملية الرئيسية. كل منصة لديها نوعها الخاص من حلقات رسائل واجهة المستخدم الخاصة بها. يستخدم MacOS Chromium `NSRunLoop`، بينما يستخدم Linux glib. حاولت الكثير من الاختراقات لاستخراج أوصاف الملفات الأساسية من حلقات رسائل واجهة المستخدم المحلية، ثم طعامهم ليحشوا للتكرار، لكنني لا زلت قابلت حالات حادة لم تنجح.
 
-So finally I added a timer to poll the GUI message loop in a small interval. As a result the process took a constant CPU usage, and certain operations had long delays.
+في النهاية قمت بإضافة مؤقت لاستطلاع حلقة رسالة الواجهة الواجهة الواجهة الواجهة الواجهة في فترة صغيرة. نتيجة لذلك، أخذت العملية استخدام وحدة المعالجة المركزية المستمر، وبعض العمليات كان لها تأخيرات طويلة.
 
-## Polling Node's event loop in a separate thread
+## حلقة حدث عقدة الاقتراع في موضوع منفصل
 
-As libuv matured, it was then possible to take another approach.
+ومع نضج الدهشة أصبح من الممكن حينئذ اتباع نهج آخر.
 
-The concept of backend fd was introduced into libuv, which is a file descriptor (or handle) that libuv polls for its event loop. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
+تم إدخال مفهوم fd الخلفية في ليبوف، وهو وصف الملفات (أو هدي) الذي يقوم باستطلاعات الليبوف لحلقة الحدث الخاصة به. إذاً من خلال التصويت على Fd الخلفية ، يمكن الحصول على إشعار عندما يكون هناك حدث جديد في libuv.
 
-So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
+لذا في إلكترون قمت بإنشاء موضوع منفصل لاستطلاع الطعام، وبما أنني كنت أستخدم مكالمات النظام لإجراء التصويت بدلا من الـ libuv API، فقد كان الموضوع آمن. وكلما كان هناك حدث جديد في حلقة حدث ليبوف، ستنشر رسالة في حلقة رسالة كروموم، وستتم بعد ذلك معالجة أحداث الليبوف في الموضوع الرئيسي.
 
-In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
+بهذه الطريقة تجنبت تصحيح الكروم والعقد، وقد استخدمت نفس الكود في العمليات الرئيسية وعمليات العرض.
 
-## The code
+## الكود البرمجي
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). It can be easily reused for projects that want to integrate Node.
+يمكنك العثور على تنفيذ تكامل حلقة الرسائل في `node_bindings` ملفات تحت [`electron/atom/common`](https://github.com/electron/electron/tree/master/atom/common). يمكن أن يكون إعادة استخدامه بسهولة للمشاريع التي تريد دمج العقدة.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

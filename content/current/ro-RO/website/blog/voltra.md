@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: Voltra'
+title: 'Proiectul săptămânii: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,85 +7,85 @@ author:
 date: '2017-03-07'
 ---
 
-This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
+Săptămâna aceasta ne-am întâlnit cu [Aprile Elcich](https://twitter.com/aprileelcich) şi [Paolo Fragomeni](https://twitter.com/0x00A) pentru a vorbi despre Voltra, un player de muzică Electron.
 
 ---
 
-## What is Voltra?
+## Ce este Voltra?
 
-[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
+[Voltra](https://voltra.co/) este un player muzical pentru persoanele care doresc să dețină muzica lor. Este de asemenea un magazin unde poți descoperi și cumpăra muzică nouă pe baza a ceea ce deții deja. Este o platformă încrucișată fără publicitate pentru desktop și mobil. De asemenea, nu te spionează.
 
-[![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
+[![Vulnerabilitate](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Who is Voltra for?
+## Cine este Voltra?
 
-Anyone who listens to music.
+Oricine ascultă muzica.
 
-## What motivated you to create Voltra?
+## Ce te-a motivat să creezi Voltra?
 
-Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
+Radioul a avut întotdeauna o mare parte din ascultători. Se mută de pe unde și pe Internet. Acum poți închiria muzică la cerere — este o revigorare radio! Multe produse și servicii noi au apărut din această cauză. dar transmisiunea prin radio lasă pe altcineva în controlul muzicii tale și al modului în care o simți.
 
-We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
+Am vrut un produs concentrat în întregime pe muzica pe care o deții tu. Ceva care a făcut ușor de descoperit și de cumpărat muzică nouă direct de la artiști sau etichete.
 
-## Is there a free version?
+## Există o versiune gratuită?
 
-The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
+Player-ul desktop este complet gratuit. [Vânzarea muzicii este de asemenea gratuită!](https://voltra.co/artists) Nu suntem sprijiniți de publicitate.
 
-Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
+Deoarece aplicația este gratuită, o putem deschide mai târziu cu sursă deschisă. În acest moment nu avem lăţimea de bandă pentru a gestiona asta. Avem, de asemenea, idei foarte specifice pentru caracteristici şi direcţia în care vrem să mergem lucrurile. Avem o comunitate beta activă și luăm feedback-ul nostru pentru inimă.
 
-## How do you make money?
+## Cum faci bani?
 
-We have premium features!
+Avem caracteristici premium!
 
-Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
+[Arhiva noastră de Voltra Audio](https://voltra.co/premium/) este un serviciu de rezervă cloud conceput special pentru muzică. Nu comprimăm sau distribuim blocuri de date. Colecția ta de muzică este salvată fizic pentru tine.
 
-For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
+Pentru artiști și etichete, [abonamentul nostru Pro](https://voltra.co/artists/pro) oferă instrumente care să îi ajute să ajungă la publicul mai relevant, cum ar fi analitele și paginile web ale artistului profesionist.
 
-## What makes Voltra different?
+## Ce face Voltra diferit?
 
-Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
+Proiectarea și uzabilitatea sunt incredibil de importante pentru noi. Vrem să oferim ascultătorilor o experiență de ascultare fără distracție! Există câteva playere muzicale şi magazine interesante. Dar multe dintre ele sunt mai avansate și mai greu de folosit decât își dau seama creatorii. Vrem să facem Voltra accesibilă cât mai multor persoane.
 
-We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
+De asemenea, nu luăm o tăietură de la artist sau de la etichetă. Acesta este un diferențiator cheie pentru noi. Este foarte important pentru că reduce bariera pentru artişti de a-şi pune muzica pe piaţă.
 
-## What are some design & technical decisions you made?
+## Ce sunt nişte decizii de design & tehnice pe care le-aţi făcut?
 
-While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
+În timp ce proiectam Voltra, am luat în considerare convenţii UI din aplicaţii native şi web, ne-am gândit foarte mult la ceea ce puteam elimina. Avem un grup beta privat activ care ne-a oferit feedback critic în ultimele luni.
 
-We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
+Am descoperit că arta albumului şi fotografia sunt foarte importante pentru oameni. Mulţi jucători sunt doar liste de dosare. Unul dintre lucrurile interesante despre deţinerea de albume fizice este arta albumului, și am vrut să punem accentul pe acest lucru în aplicația Voltra desktop.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
+Ne-am asigurat, de asemenea, să nu ne dezlegăm de dosarele oamenilor. Folosim vizionarea fișierelor pentru a putea pune fișierele tale oriunde dorești și nu le redenumim și nici nu le mutăm pentru tine. Avem o bază de date integrată pentru a urmări starea directoarelor urmărite astfel încât să putem urmări ce este nou, chiar și atunci când procesul nu funcționează.
 
-## What are some challenges you've faced while building Voltra?
+## Care sunt unele provocări cu care te-ai confruntat în timp ce construiești Voltra?
 
-We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
+Petrecem mult timp concentrându-ne pe performanţă. Am început cu cadre dar am trecut la Javascript cu vanilie. În experiența noastră, abstracțiile generalizate pe care le oferă depășesc sancțiunile și ceremonia de performanță pe care le introduc.
 
-We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
+În acest moment ne ocupăm de colecţii foarte mari. Colecţii mari înseamnă probabil zeci de mii de imagini! Nod de prezentare. Modulul sistemului de fişiere disponibil direct din procesul de randare a făcut ca este foarte uşor să se încarce şi să se descarce multe imagini foarte repede pe baza evenimentelor DOM.
 
-In general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* and *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC](https://electronjs.org/docs/glossary/#ipc) to avoid potential interruptions from a busy UI.
+În general *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* şi *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* au fost instrumente super importante pentru efectuarea de procesări în timp ce se păstrează interfața reactivă. Mai exact, distribuirea sarcinilor legate de procesor în procese separate ajută cu adevărat la menţinerea interfeţei utilizatorului. De exemplu, am mutat contextul audio efectiv într-un proces separat, comunicând cu el peste [IPC](https://electronjs.org/docs/glossary/#ipc) pentru a evita eventualele întreruperi ale unei UI aglomerate.
 
-## Why did you choose to build Voltra on Electron?
+## De ce ai ales să construiești Voltra pe Electron?
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
+Căsuța de nisip a browser-ului este prea restricționată pentru aplicația noastră. Dar noi de asemenea dezvoltăm un player web. Deci este o imensă victorie că putem împărți aproape 100% din cod între cele două implementări.
 
-We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
+Am început prin a construi o aplicație nativă cu Swift. Principala problemă pe care am găsit-o a fost că reinventăm multe lucruri. Internetul are cel mai mare ecosistem open source din lume. Aşa că am trecut destul de repede la Electron.
 
-Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
+De asemenea, și cel mai important, cu Electron te dezvolți o dată și ar trebui doar să funcționeze pe toate platformele majore. Nu este garantat, dar costul codificării native pentru fiecare platformă este cu siguranță mai mare decât orice alte costuri pe care le introduce electronul.
 
-## What are your favorite things about Electron?
+## Care sunt lucrurile tale preferate despre Electron?
 
-**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
+**GTD!**: a avea stack în rețea Node.js, iar stratul de prezentare a Chromiumului ambalat împreună este o rețetă pentru a face lucrurile.
 
-**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
+**Competență**: Este doar stiva web, deci întreaga noastră echipă este implicată efectiv în construirea produsului.
 
-**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
+**Comunitate**: Există o comunitate foarte organizată care știe cum să comunice foarte bine! Ne simțim destul de minunați să ne dezvoltăm cu astfel de sprijin.
 
-## In what areas could Electron be improved?
+## În ce domenii ar putea fi îmbunătățit Electron?
 
-We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
+Am dori să vedem că Electron aprobă un singur ambalaj. Ambalatorul este la fel de important pentru Electron ca managerul de pachete pentru Node. Există mai multe pachete de pachete în zona utilizatorului, fiecare cu caracteristici interesante, dar fiecare cu bug-uri. Consensul comunității ar contribui la direcționarea energiei consumate de contribuitori.
 
-## What's coming next?
+## Ce urmează?
 
-We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
+În prezent dezvoltăm o aplicație mobilă și lucrăm cu artiștii și etichetele pentru a-și adăuga muzica în magazinul Voltra. Salut! Dacă ești un artist sau o etichetă, [înregistrează-te acum](https://admin.voltra.co/signup)! Plănuim să deschidem magazinul atunci când atingem obiectivul de 10 milioane de trasee.
 

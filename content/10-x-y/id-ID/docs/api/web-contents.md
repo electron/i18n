@@ -43,7 +43,7 @@ Mengembalikan `isi web` - Contoh isi web dengan INDETITAS yang diberikan.
 
 > Membuat dan mengontrol isi sebuah contoh jendela peramban.
 
-Proses: [utama](../glossary.md#main-process)
+Proses: [Main](../glossary.md#main-process)
 
 ### Contoh peristiwa
 
@@ -53,7 +53,7 @@ Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputa
 
 #### Peristiwa: 'Apakah-gagal-beban'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` Sinyal
 * `kode kesalahan` Bilangan bulat
@@ -67,9 +67,9 @@ This event is like `did-finish-load` but emitted when the load failed. Daftar le
 
 #### Event: 'did-fail-provisional-load'
 
-Pengembalian:
+Mengembalikan:
 
-* `peristiwa` Peristiwa
+* `event` Sinyal
 * `kode kesalahan` Bilangan bulat
 * `Deskripsi kesalahan` Tali
 * `memvalidasi URL` Tali
@@ -81,10 +81,10 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Peristiwa: 'Apakah-frame-selesai-beban'
 
-Pengembalian:
+Mengembalikan:
 
-* `event</ 0> Acara</li>
-<li><code>adalah Bingkai Utama` Boolean
+* `event` Sinyal
+* `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -100,38 +100,38 @@ Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
 #### Peristiwa: 'lokal-siap'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 dipancarkan saat dokumen dalam bingkai yang diberikan dimuat.
 
 #### Acara : 'halaman-judul-diperbarui'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* ` judul </ 0> String</li>
+* `event` Sinyal
+* ` judul</ 0>  String</li>
 <li><code>explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 #### Peristiwa: 'halaman-favicon-diperbarui '
 
-Pengembalian:
+Mengembalikan:
 
-* `event` Acara
+* `event` Sinyal
 * `FAVICONS` String [] - serangkaian URL.
 
 Dibunyikan saat halaman menerima url favicon.
 
 #### Peristiwa: 'baru-jendela'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` NewWindowWebContentsEvent
-* `url` String
-* `nama bingkai` tali
+* ` url </ 0> String</li>
+<li><code>nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `fitur tambahan` String [] - fitur tidak-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `jendela terbuka()`.
@@ -170,10 +170,10 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* ` url </ 0> Tali</li>
+* `event` Sinyal
+* ` url </ 0> String</li>
 </ul>
 
 <p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
@@ -187,11 +187,11 @@ Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
 
 #### Event: 'did-start-navigation'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` Tali
-* `isInPlace` Boolean
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>isInPlace` Boolean
 * `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -200,11 +200,11 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'will-redirect'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `isInPlace` Boolean
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>isInPlace` Boolean
 * `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -217,11 +217,11 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `isInPlace` Boolean
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>isInPlace` Boolean
 * `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -232,11 +232,11 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Peristiwa: 'akan navigasi'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
 Emitted when a main frame navigation is done.
@@ -245,11 +245,11 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
 * `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
@@ -261,11 +261,11 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### peristiwa: 'Apakah-menavigasi-di halaman'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `adalah Bingkai Utama` Boolean
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -275,9 +275,9 @@ Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan nav
 
 #### Peristiwa: 'akan-mencegah-membongkar'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
 
@@ -304,9 +304,9 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed' _Deprecated_
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `terbunuh` Boolean
 
 Dipancarkan ketika proses perender penembak atau terbunuh.
@@ -315,9 +315,9 @@ Dipancarkan ketika proses perender penembak atau terbunuh.
 
 #### Event: 'render-process-gone'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `details` Object
   * `reason` String - The reason the render process is gone.  Nilai yang mungkin:
     * `clean-exit` - Process exited with an exit code of zero
@@ -325,7 +325,7 @@ Pengembalian:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -340,10 +340,10 @@ Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
 
 #### Peristiwa: 'plugin-jatuh'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* ` nama </ 0>  String</li>
+* `event` Sinyal
+* ` nama </ 0>  Deretan</li>
 <li><code>Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
@@ -354,9 +354,9 @@ Dibunyikan apabila `webContents` dihancurkan.
 
 #### Acara: 'sebelum-masukan-event'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `input` Object - Input properties.
   * `jenis` String - baik `keyUp` atau `keyDown`.
   * `kunci` String - setara dengan [KeyboardEvent.key][keyboardevent].
@@ -392,8 +392,8 @@ Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'zoom-changed'
 
-Pengembalian:
-* `acara` Acara
+Mengembalikan:
+* `event` Sinyal
 * `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
@@ -412,11 +412,11 @@ Emitted saat DevTools difokuskan / dibuka.
 
 #### Acara: 'sertifikat-kesalahan'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
-* `error` String - Kode kesalahan.
+* `event` Sinyal
+* ` url </ 0> String</li>
+<li><code>error` String - Kode kesalahan.
 * `sertifikat` [Sertifikat](structures/certificate.md)
 * `callback ` Fungsi
   * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya.
@@ -427,9 +427,9 @@ Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-
 
 #### Acara: 'pilih-klien-sertifikat'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `url` URL
 * `certificateList` [Sertifikat[]](structures/certificate.md)
 * `callback ` Fungsi
@@ -441,9 +441,9 @@ Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#even
 
 #### Acara: 'login'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
@@ -462,9 +462,9 @@ Penggunaannya sama dengan [the `masuk` event of `app`](app.md#event-login).
 
 #### Event: 'ditemukan-di-halaman'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `result` Object
   * `requestId` Bilangan bulat
   * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
@@ -484,9 +484,9 @@ Emitted saat media dijeda atau dilakukan bermain.
 
 #### Event: 'apakah-ganti-tema-warna'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
@@ -497,18 +497,20 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* `url` String
+* `event` Sinyal
+* ` url </ 0> String</li>
+</ul>
 
-Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+<p spaces-before="0">Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
-#### Event: 'kursor-berubah'
+<h4 spaces-before="0">Event: 'kursor-berubah'</h4>
 
-Pengembalian:
+<p spaces-before="0">Mengembalikan:</p>
 
-* `acara` Acara
+<ul>
+<li><code>event` Sinyal
 * `jenis` String
 * ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code>skala` Mengambang (opsional) - skala faktor untuk kursor kustom.
@@ -521,9 +523,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'menu konteks'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `params` Object
   * `x` koordinat Integer - x.
   * ` y </ 0>  Koordinat integer.</li>
@@ -564,9 +566,9 @@ Emitted saat ada menu konteks baru yang perlu ditangani.
 
 #### Event: 'Pilih--perangkat bluetooth'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `perangkat` [[BluetoothDevice]](structures/bluetooth-device.md)
 * `callback ` Fungsi
   * `deviceId` String
@@ -597,9 +599,9 @@ app.whenReady().then(() => {
 
 #### Event: 'cat'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `dirtyRect` [Persegi panjang](structures/rectangle.md)
 * `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
 
@@ -621,9 +623,9 @@ Dibunyikan apabila jendela devtools memerintahkan webContents untuk reload
 
 #### Event: 'akan-melampirkan-webview'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -635,18 +637,18 @@ Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webConte
 
 #### Event: 'did-attach-webview'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-Kembali
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -656,47 +658,48 @@ Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `preloadPath` String
-* Kesalahan `kesalahan`
+* ` error </ 0> Kesalahan</li>
+</ul>
 
-Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+<p spaces-before="0">Emitted when the preload script <code>preloadPath` throws an unhandled exception `error`.</p>
 
 #### Event: 'ipc-message'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `event` Sinyal
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Emitted when the renderer process sends an asynchronous message via <code>ipcRenderer.send()`.</p>
 
 #### Event: 'ipc-message-sync'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `event` Sinyal
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Emitted when the renderer process sends a synchronous message via <code>ipcRenderer.sendSync()`.</p>
 
 #### Event: 'desktop-capturer-get-sources'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
 #### Event: 'remote-require'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -705,7 +708,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 #### Event: 'remote-get-global'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` IpcMainEvent
 * `globalName` String
@@ -714,7 +717,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 #### Event: 'remote-get-builtin'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -723,7 +726,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 #### Event: 'remote-get-current-window'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` IpcMainEvent
 
@@ -731,18 +734,18 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-Pengembalian:
+Mengembalikan:
 
 * `event` IpcMainEvent
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Metode Instance
+### Методы экземпляра
 
 #### `contents.loadURL (url [, opsi])`
 
-* `url` String
-* `options` Object (optional)
+* ` url </ 0> String</li>
+<li><code>options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n".
@@ -787,9 +790,10 @@ win.loadFile('src/index.html')
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* ` url </ 0> String</li>
+</ul>
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating. The `will-download` event of `session` will be triggered.</p>
 
 #### `contents.getURL()`
 
@@ -929,7 +933,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `id` String
+* `code` String
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -1155,9 +1159,9 @@ Mengembalikan [`membuatinfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1194,8 +1198,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -1248,23 +1252,21 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace (path)`
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Adds the specified path to DevTools workspace. Must be used after DevTools
-creation:</p>
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
-<pre><code class="javascript">const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
-`</pre>
+```javascript
+const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
+```
 
 #### `konten.memindahkanruankerja(jalur)`
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
+Menghapus jalur yang ditentukan dari ruang kerja DevTools.
 
-<h4 spaces-before="0"><code>contents.setDevToolsWebContents(devToolsWebContents)`</h4>
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
@@ -1380,8 +1382,8 @@ Membuka alat pengembang untuk konteks pekerja layanan.
 
 #### `contents.send(channel, ...args)`
 
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Send an asynchronous message to the renderer process via <code>channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p>
@@ -1420,9 +1422,9 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Send an asynchronous message to a specific frame in a renderer process via
@@ -1450,8 +1452,8 @@ ipcMain.on('ping', (event) => {
 
 #### `contents.postMessage(channel, message, [transfer])`
 
-* ` saluran </ 0>  String</li>
-<li><code>message` any
+* `channel` String
+* `message` any
 * `transfer` MessagePortMain[] (optional)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
@@ -1569,7 +1571,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
@@ -1625,7 +1627,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### Contoh properti
+### Instance Properties
 
 #### `contents.audioMuted`
 
@@ -1649,7 +1651,7 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
 Only applicable if *offscreen rendering* is enabled.
 

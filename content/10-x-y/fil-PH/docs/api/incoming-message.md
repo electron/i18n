@@ -6,11 +6,11 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang `IncomingMessage` ay ginagamit ang "interface" na [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams), at samakatuwid ay isang [EventEmitter][event-emitter].
 
-### Mga Halimbawa ng "Events"
+### Halimbawa ng mga Event
 
 #### Event: 'data'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
@@ -24,9 +24,9 @@ Nagpapahiwatig na ang "response body" ay tapos na.
 
 Lumalabas kapag ang kahilingan ay biglang itinigil habang nagaganap ang transaksyon ng HTTP.
 
-#### Event: 'error'
+#### Pangyayari: 'error'
 
-Ibinabalik ang:
+Pagbabalik:
 
 `error` Error - Karaniwang hinahawakan ang maling "string" at tutukuyin ang sanhi kung bakit ito hindi nagtagumpay.
 

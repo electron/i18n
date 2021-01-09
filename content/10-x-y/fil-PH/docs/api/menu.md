@@ -48,7 +48,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Mga Pamamaraan ng Instance
+### Mga Halimbawa ng Sistematikong Paraan
 
 Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
@@ -96,17 +96,17 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 
 Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
@@ -120,13 +120,13 @@ Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
 Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
 
-## Halimbawa
+## Mga Halimbawa
 
 Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
 
 ### Pangunahing proseso
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso gamit ang simpleng template ng API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -270,13 +270,13 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 
 ### Mga Aytem na Aksyon ng Istandard na Menu
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang istandard na aksyon, dapat mong itakda ang katangiang `role` ng item ng menu.
+ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
 
 ### Pangalan ng Pangunahing Menu
 
-Sa macOS ang lebel ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist` na file. Tingnan ang [About Information Property List Files][AboutInformationPropertyListFiles] para sa karagdagang impormasyon.
+Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files][AboutInformationPropertyListFiles] para sa karagdagang impormasyon.
 
-## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
 Ang [`setMenu` na pamamaraan][setMenu] ng browser windows ay kayang itakda ang menu ng isang browser windows.
 
@@ -291,7 +291,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Halimbawa
+### Mga Halimbawa
 
 Ang Template:
 

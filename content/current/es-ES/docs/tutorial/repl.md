@@ -9,13 +9,14 @@ El módulo `repl` proporciona una implementación REPL a la que se puede acceder
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
+
 * Si tiene `electron` o `electron-prebuilt` instalados globalmente:
 
   ```sh
   electron --interactive
   ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Esto sólo crea un REPL para el proceso principal. Puede utilizar la pestaña Consola de Dev Tools para obtener un REPL para los procesos de renderizado.
 
 **Nota:** `electron --interactive` no está disponible en Windows.
 

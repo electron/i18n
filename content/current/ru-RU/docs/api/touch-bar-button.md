@@ -4,7 +4,7 @@
 
 Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` _ Экспериментально_
+### `new TouchBarButton(options)`
 
 * `options` Object
   * `label` String (необязаельный) - Текст кнопки.
@@ -36,6 +36,10 @@ A `String` representing the description of the button to be read by a screen rea
 #### `touchBarButton.icon`
 
 `NativeImage,` представляющее текущую иконку кнопки. Изменение этого значения немедленно обновляет кнопку в сенсорной панели.
+
+#### `touchBarButton.iconPosition`
+
+A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
 
 #### `touchBarButton.enabled`
 

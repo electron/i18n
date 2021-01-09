@@ -2,11 +2,11 @@
 
 > 在原生macOS应用程序的触摸栏中创建一个标签
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` _实验功能_
+### `new TouchBarLabel(options)`
 
-* `options` Object
+* `选项` 对象
   * `label` String (可选) - 显示的文本.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。

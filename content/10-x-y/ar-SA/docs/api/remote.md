@@ -2,7 +2,7 @@
 
 > Pltfrom@shliilh. com. autmatic. remote. Google play
 
-shliilhpltfrom
+Процес: [Renderer](../glossary.md#renderer-process)
 
 platform@shliilh.com
 
@@ -144,11 +144,11 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `الإسم`String
+* `name` سلسلة نصية
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## الخصائص
 
 ### `remote.process` _Readonly_
 

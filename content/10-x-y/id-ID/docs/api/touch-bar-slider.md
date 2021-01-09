@@ -14,7 +14,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider.
 
-### Contoh properti
+### Instance Properties
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarSlider`:
 

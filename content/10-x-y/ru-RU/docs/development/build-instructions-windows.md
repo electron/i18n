@@ -11,12 +11,12 @@
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Обычно, это `C:`.
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Обычно, это `C:`.
 * [Python 2.7.10 или выше](http://www.python.org/download/releases/2.7/)
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). Для этого убедитесь, что в **PATH**, ваш локально установленный Python находиться перед папкой `depot_tools`. Сейчас `depot_tools` все еще поставляется с Python 2.7.6, что приведёт к ошибке команды `gclient` (см. https://crbug.com/868864).
+  * Вопреки `depot_tools` приведенным ниже инструкциям по установке, вам понадобится для использования вашего локального Python с версией 2.. 10 (с поддержкой TLS 1.2). Для этого убедитесь, что в **PATH**, ваш локально установленный Python находиться перед папкой `depot_tools`. Сейчас `depot_tools` все еще поставляется с Python 2.7.6, что приведёт к ошибке команды `gclient` (см. https://crbug.com/868864).
   * [Дополнения Python для Windows (pywin32)](https://pypi.org/project/pywin32/#files) также нужны для запуска процесса сборки.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Различные версии SDK могут быть установлены бок о бок. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
+  * Различные версии SDK могут быть установлены бок о бок. Для установки SDK откройте установщик Visual Studio, выберите `Изменить` → `Индивидуальные компоненты`, прокрутите вниз и выберите соответствующий Windows SDK для установки. Другая опция заключается в том, чтобы посмотреть на [Windows SDK и архив эмулятора](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) и скачать отдельную версию SDK соответственно.
   * Также необходимо установить инструменты отладки SDK. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
 
 Если у вас нет установщика Windows, то [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) имеет версии Windows, которые вы можете использовать для сборки Electron.
@@ -91,4 +91,4 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 ### Строить сценарии повесить до Keypress
 
-Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Puisque chaque clic accidentel met en pause le processus de construction, vous pouvez désactiver cette fonctionnalité dans les propriétés de l'invite de commande.

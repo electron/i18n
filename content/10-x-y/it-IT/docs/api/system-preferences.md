@@ -83,7 +83,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Funzione
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -104,7 +104,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Funzione
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -116,7 +116,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Funzione
+* `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
   * `object` String
@@ -400,7 +400,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.

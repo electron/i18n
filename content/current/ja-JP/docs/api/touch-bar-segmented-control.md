@@ -4,7 +4,7 @@
 
 プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSegmentedControl(options)` _実験的_
+### `new TouchBarSegmentedControl(options)`
 
 * `options` Object
   * `segmentStyle` String (任意) - 以下のセグメントのスタイルのいずれかです。
@@ -41,3 +41,7 @@
 #### `touchBarSegmentedControl.selectedIndex`
 
 現在選択されているセグメントを表す `Integer`。 この値を変更すると、タッチバーのコントロールがすぐに更新されます。 ユーザがタッチバーに接触すると、この値が自動的に更新されます。
+
+#### `touchBarSegmentedControl.mode`
+
+コントロールの、現在の選択モードを表す `String`です。  `single`、`multiple`、`buttons` のいずれかにできます。

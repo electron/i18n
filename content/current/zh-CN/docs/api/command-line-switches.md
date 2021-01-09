@@ -14,74 +14,63 @@ app.whenReady().then(() => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## Electron CLI Flags
 
-忽略由`,`分割的`domains`列表的连接限制.
+### --auth-server-whitelist=`url`
 
-## --disable-http-cache
+启用了集成身份验证的以逗号分隔的服务器列表。
 
-禁用HTTP请求的磁盘缓存.
+例如：
 
-## --disable-http2
+```sh
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
-禁用HTTP/2和SPDY/3.1协议.
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
+
+### --auth-negotiate-delegate-whitelist=`url`
+
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ### --disable-ntlm-v2
 
 Disables NTLM v2 for posix platforms, no effect elsewhere.
 
-## --lang
+### --disable-http-cache
 
-设置系统语言环境
+禁用HTTP请求的磁盘缓存.
 
-## --inspect=`port` and --inspect-brk=`port`
+### --disable-http2
 
-调试相关的标识, 更多详细信息请查看 [Debugging the Main Process](../tutorial/debugging-main-process.md)指南.
+禁用HTTP/2和SPDY/3.1协议.
 
-## --remote-debugging-port=`port`
+### --disable-renderer-backgrounding
 
-在指定`端口`开启HTTP远程调试.
+防止Chromium降低不可见的页面渲染进程的优先级.
 
-## --disk-cache-size=`size`
+这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio](https://github.com/atom/atom/pull/9485/files).
+
+### --disk-cache-size=`size`
 
 强制磁盘缓存使用的最大磁盘空间（以字节为单位）。
 
-## --js-flags=`flags`
+### --enable-api-filtering-logging
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Enables caller stack logging for the following APIs (filtering events):
+- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+- `remote.require()` / `remote-require`
+- `remote.getGlobal()` / `remote-get-builtin`
+- `remote.getBuiltin()` / `remote-get-global`
+- `remote.getCurrentWindow()` / `remote-get-current-window`
+- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
-```sh
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
-```
+### --enable-logging
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+在控制台打印Chromium日志.
 
-## --proxy-server=`address:port`
+这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
 
-使用指定的覆盖系统设置的代理服务器. 这个开关只影响HTTP协议请求, 包括HTTPS和WebSocket请求. 值得注意的是并不是所有的代理服务器都支持HTTPS和WebSocket请求. 代理 URL 不支持用户名和密码认证方式 [Chromium 的问题](https://bugs.chromium.org/p/chromium/issues/detail?id=615947)。
-
-## --proxy-bypass-list=`hosts`
-
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
-
-例如：
-
-```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
-```
-
-上面的代码, 除了本地地址(`localhost`,`127.0.0.1`等等.), `google.com`子域名, 包含`foo.com`后缀的主机地址, 以及任何在`1.2.3.4:5678`上的地址以外的所有主机都将使用代理服务器.
-
-## --proxy-pac-url=`url`
-
-在指定`url`中使用PAC脚本.
-
-## --no-proxy-server
-
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
-
-## --host-rules=`rules`
+### --host-rules=`rules`
 
 以逗号分隔的`rules`列表，用于控制主机名的映射方式
 
@@ -94,61 +83,84 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
 
-## --host-resolver-rules=`rules`
+### --host-resolver-rules=`rules`
 
 与`--host-rules`类似, 但是这些`rules`仅适用于主机解析器.
 
-## --auth-server-whitelist=`url`
-
-启用了集成身份验证的以逗号分隔的服务器列表。
-
-例如：
-
-```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
-```
-
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
-
-## --auth-negotiate-delegate-whitelist=`url`
-
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
-
-## --ignore-certificate-errors
+### --ignore-certificate-errors
 
 忽略证书相关的错误.
 
-## --ppapi-flash-path=`path`
+### --ignore-connections-limit=`domains`
 
-设置pepper flash插件的`path`属性.
+忽略由`,`分割的`domains`列表的连接限制.
 
-## --ppapi-flash-version=`version`
+### --js-flags=`flags`
 
-设置pepper flash插件的`version`属性.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
-## --log-net-log=`path`
+```sh
+$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+```
+
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+
+### --lang
+
+设置系统语言环境
+
+### --log-net-log=`path`
 
 启用需要保存的网络日志事件并将其写入`path`路径下.
 
-## --disable-renderer-backgrounding
+### --no-proxy-server
 
-防止Chromium降低不可见的页面渲染进程的优先级.
+Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
-这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio](https://github.com/atom/atom/pull/9485/files).
+### --no-sandbox
 
-## --enable-logging
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
 
-在控制台打印Chromium日志.
+### --proxy-bypass-list=`hosts`
 
-这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
+Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-## --v=`log_level`
+例如：
+
+```javascript
+const { app } = require('electron')
+app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+```
+
+上面的代码, 除了本地地址(`localhost`,`127.0.0.1`等等.), `google.com`子域名, 包含`foo.com`后缀的主机地址, 以及任何在`1.2.3.4:5678`上的地址以外的所有主机都将使用代理服务器.
+
+### --proxy-pac-url=`url`
+
+在指定`url`中使用PAC脚本.
+
+### --proxy-server=`address:port`
+
+使用指定的覆盖系统设置的代理服务器. 这个开关只影响HTTP协议请求, 包括HTTPS和WebSocket请求. 值得注意的是并不是所有的代理服务器都支持HTTPS和WebSocket请求. 代理 URL 不支持用户名和密码认证方式 [Chromium 的问题](https://bugs.chromium.org/p/chromium/issues/detail?id=615947)。
+
+### --remote-debugging-port=`port`
+
+在指定`端口`开启HTTP远程调试.
+
+### --ppapi-flash-path=`path`
+
+设置pepper flash插件的`path`属性.
+
+### --ppapi-flash-version=`version`
+
+设置pepper flash插件的`version`属性.
+
+### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
-## --vmodule=`pattern`
+### --vmodule=`pattern`
 
 给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 例如, `my_module=2,foo*=3`将改变所有`my_module.*`和`foo*.*`源文件的代码的日志等级.
 
@@ -156,16 +168,43 @@ Gives the default maximal active V-logging level; 0 is the default. Normally pos
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
-## --enable-api-filtering-logging
+### --force_high_performance_gpu
 
-Enables caller stack logging for the following APIs (filtering events):
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+Force using discrete GPU when there are multiple GPUs available.
 
-## --no-sandbox
+### --force_low_power_gpu
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Force using integrated GPU when there are multiple GPUs available.
+
+## Node.js Flags
+
+Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+
+**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+
+### --inspect-brk[=[host:]port]
+
+Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+
+Aliased to `--debug-brk=[host:]port`.
+
+### --inspect-port=[host:]port
+
+Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+
+Aliased to `--debug-port=[host:]port`.
+
+### --inspect[=[host:]port]
+
+Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+
+V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+
+See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+
+Aliased to `--debug[=[host:]port`.
+
+### --inspect-publish-uid=stderr,http
+Specify ways of the inspector web socket url exposure.
+
+By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

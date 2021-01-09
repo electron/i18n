@@ -4,38 +4,23 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-
-`app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
-
-例:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## イベント
 
 `powerMonitor` モジュールでは以下のイベントが発生します。
 
-### Event: 'suspend' _Linux_ _Windows_
+### イベント: 'suspend' _macOS_ _Windows_
 
 システムがサスペンドするときに発生します。
 
-### Event: 'resume' _Linux_ _Windows_
+### イベント: 'resume' _macOS_ _Windows_
 
 システムが再開するときに発生します。
 
-### イベント: 'on-ac' _Windows_
+### イベント: 'on-ac' _macOS_ _Windows_
 
 システムが AC 電源に切り替わったときに発生します。
 
-### イベント: 'on-battery' _Windows_
+### イベント: 'on-battery' _macOS_  _Windows_
 
 システムがバッテリー電源に切り替わったときに発生します。
 

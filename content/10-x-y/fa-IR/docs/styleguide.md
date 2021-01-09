@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### روش ها
+### Methods
 
 The methods chapter must be in the following form:
 

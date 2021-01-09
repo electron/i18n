@@ -1,6 +1,6 @@
 # Distribuição de Aplicativos
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Para distribuir seu aplicativo com o Electron, você precisa empacotar e remarcá-lo. A maneira mais fácil de fazer isso é usar uma das seguintes ferramentas de embalagem de terceiros:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -9,7 +9,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 Essas ferramentas cuidarão de todos os passos que você precisa tomar para obter aplicações Electron distribuíveis; como empacotar a aplicação, converter o executável, configurar os ícones corretos e, opcionalmente, criar instaladores.
 
 ## Distribuição manual
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Você também pode optar por preparar seu aplicativo manualmente para a distribuição. Os passos necessários para o fazer estão descritos abaixo.
 
 Para distribuir seu aplicativo com Electron, você precisa baixar os [binários pré-compilados](https://github.com/electron/electron/releases) do Electron. Depois disso, a pasta contendo seu aplicativo deve ser renomeada para `app` e colocada dentro do diretório de recursos (resources) do Electron como mostrado nos seguintes exemplos. Note que a localização dos binários pré-compilados do Electron está indicada com `electron/` nos exemplos abaixo.
 
@@ -78,12 +78,12 @@ Veja como ficaria a estrutura de um aplicativo renomeado:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -92,7 +92,7 @@ Você pode renomear o executável `electron` para qualquer nome que você quiser
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Também é possível remarcar o Electron mudando o nome do produto e construindo a partir fonte. Para fazer isso, você precisa definir o argumento de compilação correspondente ao nome do produto (`electron_product_name = "NomeDoDoProduto"`) nos `argumentos. n` arquivo e reconstruir.
 
 ### Criando um fork personalizado do Electron
 
@@ -108,7 +108,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
     ```sh
     - electron/
-      - symbols/
+      - símbolos/
       - dist/
     ```
 

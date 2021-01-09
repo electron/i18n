@@ -1,12 +1,12 @@
-# Fișier reprezentant pentru macOS BrowserWindows
+# Fișier reprezentat pentru macOS BrowserWindows
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Pe macOS o fereastră poate seta fișierul reprezentat, astfel încât pictograma fișierului să poată fi afișată în bara de titlu și când vor fi afișate comenzile utilizatorilor sau Control-Click pe titlu o cale popup .
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+De asemenea, puteți seta starea editată a unei ferestre, astfel încât pictograma fișierului să poată indica dacă documentul din această fereastră a fost modificat.
 
-__Represented file popup menu:__
+__Reprezentat meniul popup:__
 
-![Represented File][1]
+![Fișier reprezentat][1]
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs:
 
@@ -14,7 +14,7 @@ To set the represented file of window, you can use the [BrowserWindow.setReprese
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
-win.setRepresentedFilename('/etc/passwd')
+win.setReprezentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 

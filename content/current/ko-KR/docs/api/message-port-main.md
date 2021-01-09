@@ -8,6 +8,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
+프로세스:[Main](../glossary.md#main-process)
+
 ### Instance Methods (인스턴스 메소드)
 
 #### `port.postMessage(message, [transfer])`
@@ -29,13 +31,17 @@ Disconnects the port, so it is no longer active.
 
 #### Event: 'message'
 
-Returns:
+반환:
 
 * `messageEvent` Object
   * `data` any
   * `ports` MessagePortMain[]
 
 Emitted when a MessagePortMain object receives a message.
+
+#### 이벤트: 'close'
+
+Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

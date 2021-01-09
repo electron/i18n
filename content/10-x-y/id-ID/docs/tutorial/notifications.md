@@ -35,7 +35,7 @@ Hal ini memungkinkan Anda untuk menentukan sebelumnya apakah Windows diam-diam a
 
 ## macOS
 
-Notifikasi adalah lurus ke depan pada macOS, tetapi Anda harus menyadari [Apple Human Interface panduan mengenai pemberitahuan](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Perhatikan bahwa notifikasi dibatasi hingga 256 byte dan akan terpotong jika melebihi batas tersebut.
 

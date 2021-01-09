@@ -13,7 +13,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`. Defaults to `overlay`.
   * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Ang Default ay `true`.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Ng default ay `tama`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 

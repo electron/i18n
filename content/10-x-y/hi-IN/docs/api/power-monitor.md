@@ -2,25 +2,25 @@
 
 > Monitor power state changes.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emitted when system changes to battery power.
 

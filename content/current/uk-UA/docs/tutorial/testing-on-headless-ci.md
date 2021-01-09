@@ -1,18 +1,18 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# Тестування на віддалених CI системах (Travis CI, Jenkins)
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Для роботи Electron потрібен драйвер для функціонування дисплеїв. Якщо Chromium не може знайти драйвер дисплея, Electron не зможе запустити - і тому не буде виконувати жодне з ваших тестів, незалежно від того, як ви працюєте на їх. Для тестування програм на Travis, Circle, Jenkins або схожих системах потрібно трохи змістити конфігурацію. По суті потрібно використовувати віртуальний диспетчер дисплея.
 
 ## Налаштування Virtual Display Server
 
-Спочатку інсталюйте [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+Спочатку інсталюйте [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Це віртуальний фреймбурф, впровадження протоколу сервера X11 - це виконує всі графічні операції в пам'яті, не показуючи будь-яких виходів, , що саме нам потрібно.
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Потім створіть віртуальний Xvfb екран і експортує змінну середовища під назвою DISPLAY, що вказує на нього. Chromium в Electron автоматично виглядатиме для `$DISPLAY`, тому програма не потрібна додаткова. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. На Windows або macOS, це нічого не робіть.
 
 ```sh
-## On Windows or macOS, this invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## На Windows або macOS, це посилається на electron-mocha
+## на Linux якщо ми перебуваємо у безголовому середовищі, то це буде еквівалентно
+## до xvfb-run electron-mocha . тест/*.js
+xvfb-можливо electron-mocha ./test/*.js
 ```
 
 ### Travis CI
@@ -36,7 +36,7 @@ install:
 
 ### Circle CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI є неймовірним і має Xvfb і `$DISPLAY` [вже встановлено, тому жодна подальша конфігурація не є обов'язковою](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 

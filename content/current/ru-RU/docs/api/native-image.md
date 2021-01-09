@@ -103,6 +103,13 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 Создает пустой экземпляр `NativeImage`.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -229,9 +236,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Возвращает `Boolean` - признак того что изображение пустое.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Возвращает [`Size`](structures/size.md)
+* `scaleFactor` Double (опционально) - По умолчанию 1.0.
+
+Возвращает [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -241,7 +252,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Возвращает `Boolean` - признак того что изображение является шаблоном.
 
 #### `image.crop(rect)`
 
@@ -256,13 +267,21 @@ Returns `Boolean` - Whether the image is a template image.
   * `height` Integer (опционально) - По умолчанию высота изображения.
   * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Returns `NativeImage` - The resized image.
+Возвращает `NativeImage` - измененый размер изображения.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Float` - пропорции изображения.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 
@@ -275,7 +294,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 

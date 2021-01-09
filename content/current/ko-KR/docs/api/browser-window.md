@@ -34,7 +34,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ show: false })
+const win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -51,9 +51,8 @@ Please note that using this event implies that the renderer will be considered "
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
-
 ```
 
 앱이 `ready-to-show`이벤트를 사용하고 있더라도,  여전히 app이 native에 가깝게 보이도록 하기 위해서 `backgroundColor`을 설정하기를 권장한다.
@@ -65,8 +64,8 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({ parent: top })
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -80,7 +79,7 @@ modal 윈도우는 비활성화 가능한 부모 윈도우의 자식 윈도우�
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -118,21 +117,21 @@ child.once('ready-to-show', () => {
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `width` 정수 (선택 인자) - 창의 넓이를 픽셀로 설정합니다. 기본값은 `800`입니다.
+  * `height` 정수 (선택 인자) - 창의 높이를 픽셀로 설정합니다. 기본값은 `600`입니다.
+  * `x` 정수 (선택 인자) - (y가 존재할 시 **필수**) 창의 x좌표를 설정합니다. 기본값은 창을 중앙에 두는 것입니다.
+  * `y` 정수 (선택 인자) - (x가 존재할 시 **필수**) 창의 y좌표를 설정합니다. 기본값은 창을 중앙에 두는 것입니다.
   * `useContentSize` Boolean (선택) - 실제 윈도우의 크기는 윈도우 프레임의 크기를 포함해서 살짝 크기 때문에, `width`와 `height`를 웹 페이지의 크기로 사용하고자 할 때 사용한다. 기본값은 `false`이다.
   * `center` Boolean (선택) - 윈도우를 화면의 중심에 표시한다.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. 기본값은 `true`이다.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. 기본값은 `true`이다.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. 기본값은 `true`이다.
+  * `minWidth` 정수 (선택 인자) - 창의 최소 넓이를 설정합니다. 기본값은 `0`입니다.
+  * `minHeight` 정수 (선택 인자) - 창의 최소 높이를 설정합니다. 기본값은 `0`입니다.
+  * `maxWidth` 정수 (선택 인자) - 창의 최대 넓이를 설정합니다. 기본값은 제한없음 입니다.
+  * `maxHeight` 정수 (선택 인자) - 창의 최대 높이를 설정합니다. 기본값은 제한없음 입니다.
+  * `resizable` 불리언 (선택 인자) - 창의 크기를 조정 가능 여부를 설정합니다. 기본값은 `true`이다.
+  * `movable` 불리언 (선택 인자) - 창의 이동 가능 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `minimizable` 불리언 (선택 인자) - 창을 최소화 가능할지 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `maximizable` 불리언 (선택 인자) - 창을 최대화 가능할지 여부를 설정합니다. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
+  * `closable` Boolean (optional) - Whether window is closable. 리눅스에서는 작동하지 않습니다. 기본값은 `true`이다.
   * `focusable` Boolean (선택) - 창에 초점을 맞출 수 있는지 여부. 기본값은 `true`이다. Windows에서는 `focusable: false`를 설정하는 것은 `skipTaskbar: true`도 설정하는 것을 의미합니다. Linux에서는 `focusable: false`를 설정하는 것이 그 창과 wm과의 상호작용을 중지하게 만듭니다. 따라서 그 창은 항상 워크스페이스의 최상단에 위치하게 됩니다.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. 기본값은 `false`이다.
   * `fullscreen` Boolean (선택) - 창이 전체화면으로 표시되어야 하는지 여부. 명시적으로 `false`로 설정하면 macOS에서는 전체화면 버튼이 비활성화되거나 숨겨집니다. 기본값은 `false`이다.
@@ -154,9 +153,13 @@ child.once('ready-to-show', () => {
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. 기본값은 `true`이다.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK desktop environments. 기본값은 `false`이다.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 기본값은 `false`이다.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 기본값은 `false`이다. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
@@ -175,7 +178,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 기본값은 `true`이다.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 기본값은 `false`이다.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
@@ -326,14 +329,14 @@ Emitted when the window is minimized.
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'will-resize' _macOS_ _Windows_
+#### 이벤트: 'will-resize' _macOS_ _Windows_
 
 Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+윈도우의 크기가 변하기 전에 발생합니다. Calling `event.preventDefault()` will prevent the window from being resized.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -341,9 +344,15 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
+#### Event: 'resized' _macOS_ _Windows_
+
+Emitted once when the window has finished being resized.
+
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+
 #### Event: 'will-move' _macOS_ _Windows_
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -356,11 +365,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is being moved to a new position.
 
-__Note__: On macOS this event is an alias of `moved`.
-
-#### Event: 'moved' _macOS_
+#### Event: 'moved' _macOS_ _Windows_
 
 Emitted once when the window is moved to a new position.
+
+__Note__: On macOS this event is an alias of `move`.
 
 #### Event: 'enter-full-screen'
 
@@ -389,7 +398,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Returns:
+반환:
 
 * `event` Event
 * `command` String
@@ -400,9 +409,9 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // 사용자가 마우스 뒤로 가기 버튼을 누르면 뒤로 돌아갑니다.
+  // Navigate the window back when the user hits their mouse back button
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -428,7 +437,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `direction` String
@@ -439,7 +448,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-Returns:
+반환:
 
 * `event` Event
 * `rotation` Float
@@ -457,6 +466,17 @@ Emitted when the window has closed a sheet.
 #### 이벤트: 'new-window-for-tab' _macOS_
 
 Emitted when the native new tab button is clicked.
+
+#### Event: 'system-context-menu' _Windows_
+
+반환:
+
+* `event` Event
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+
+Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 ### 정적 메서드
 
@@ -486,7 +506,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
@@ -502,7 +522,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a Chrome extension by name.
 
@@ -534,7 +554,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* PrinterInfo Object
+* `name` String
 
 Remove a DevTools extension by name.
 
@@ -551,7 +571,7 @@ To check if a DevTools extension is installed you can run the following:
 ```javascript
 const { BrowserWindow } = require('electron')
 
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
 console.log(installed)
 ```
 
@@ -565,8 +585,8 @@ Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// 이 예제에서는 `win`이 인스턴스입니다.
-let win = new BrowserWindow({ width: 800, height: 600 })
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -1041,9 +1061,9 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
@@ -1155,7 +1175,7 @@ The `url` can be a remote address (e.g. `http://`) or a path to a local HTML fil
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
-let url = require('url').format({
+const url = require('url').format({
   protocol: 'file',
   slashes: true,
   pathname: require('path').join(__dirname, 'index.html')
@@ -1293,7 +1313,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 * `options` Object
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 기본값은 `0`입니다.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
@@ -1341,9 +1361,11 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Sets whether the window should be visible on all workspaces.
 
@@ -1445,13 +1467,13 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_ _Experimental_
+#### `win.setTouchBar(touchBar)` _macOS_
 
 * `touchBar` TouchBar | null
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimental_
 

@@ -136,8 +136,8 @@ const isMac = process.platform === 'darwin'
 const template = [
   // { role: 'appMenu' }
   ...(isMac ? [{
-    мітка: app.name,
-    підменю: [
+    label: app.name,
+    submenu: [
       { role: 'about' },
       { type: 'separator' },
       { role: 'services' },
@@ -151,8 +151,8 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    мітка: 'Файл',
-    підменю: [
+    label: 'File',
+    submenu: [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]
   },
@@ -172,8 +172,8 @@ const template = [
         { role: 'selectAll' },
         { type: 'separator' },
         {
-          мітка: 'Speech',
-          підменю: [
+          label: 'Speech',
+          submenu: [
             { role: 'startspeaking' },
             { role: 'stopspeaking' }
           ]
@@ -187,8 +187,8 @@ const template = [
   },
   // { role: 'viewMenu' }
   {
-    мітка: 'Вид',
-    підменю: [
+    label: 'View',
+    submenu: [
       { role: 'reload' },
       { role: 'forcereload' },
       { role: 'toggledevtools' },
@@ -202,8 +202,8 @@ const template = [
   },
   // { role: 'windowMenu' }
   {
-    мітка: 'Вікно',
-    підменю: [
+    label: 'Window',
+    submenu: [
       { role: 'minimize' },
       { role: 'zoom' },
       ...(isMac ? [

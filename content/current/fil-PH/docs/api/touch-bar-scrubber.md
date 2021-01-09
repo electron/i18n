@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarScrubber(options)` _Experimental_
+### `new TouchBarScrubber(options)`
 
 * `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Isang hanay ng mga aytem na ilalagay sa scrubber na ito.

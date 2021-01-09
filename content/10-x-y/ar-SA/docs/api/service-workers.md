@@ -6,7 +6,7 @@
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-For example:
+وعلى سبيل المثال:
 
 ```javascript
 const { session } = require('electron')
@@ -31,7 +31,7 @@ The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `messageDetails` Object - Information about the console message

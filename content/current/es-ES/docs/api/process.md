@@ -93,7 +93,11 @@ Un `Booleano` que controla si las advertencias de procesos son enviadas a `stder
 
 ### `process.type` _Readonly_
 
-Un `String` representando el tipo actual del proceso, puede ser `"browser"` (ejemplo main processl), `"renderer"`, o `"worker"` (ejemplo web worker).
+A `String` representing the current process's type, can be:
+
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Readonly_
 

@@ -21,6 +21,7 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
      * `~/.config/chromium/Default/Extensions/`
    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
 1. 拡張の場所を `BrowserWindow.addDevToolsExtension` API に渡します。React Developer Tools の場合は、以下のようになります。
+
    ```javascript
    const path = require('path')
    const os = require('os')

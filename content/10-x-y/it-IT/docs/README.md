@@ -4,7 +4,7 @@ Assicuratevi di usare la documentazione corrispondente alla versione in uso di E
 
 ## FAQ (Domande frequenti)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ci sono domande che vengono poste abbastanza spesso. Check this out before creating an issue:
 
 * [Domande frequenti su Electron](faq.md)
 
@@ -21,12 +21,12 @@ There are questions that are asked quite often. Check this out before creating a
   * [Esecuzione della tua App](tutorial/first-app.md#running-your-app)
 * [Boilerplate e CLI](tutorial/boilerplates-and-clis.md)
   * [Boilerplate contro CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forgia](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Altri strumenti e Boilerplate](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architettura Applicazione](tutorial/application-architecture.md)
-  * [Processi di Rendering e Principali](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Principali Processi e di Rendering](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
@@ -50,7 +50,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Attivazione dell'accessibilità](tutorial/accessibility.md#enabling-accessibility)
 * [Test e Debugging](tutorial/application-debugging.md)
-  * [Debuggare il Processo Principale](tutorial/debugging-main-process.md)
+  * [Debug del processo principale](tutorial/debugging-main-process.md)
   * [Debug del Processo Principale con Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Uso di Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -143,7 +143,7 @@ I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 
 * [Catturadesktop](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remoto](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Moduli di entrambi i processi:

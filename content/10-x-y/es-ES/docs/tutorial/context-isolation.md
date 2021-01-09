@@ -1,16 +1,16 @@
-# Context Isolation
+# Aislamiento del contexto
 
-## What is it?
+## ¿Qué es?
 
-Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
+El aislamiento contextual es una característica que asegura que tanto los scripts `pre-cargar` como la lógica interna de Electron se ejecuten en un contexto separado al sitio web que carga en [`webContents`](../api/web-contents.md).  Esto es importante para propósitos de seguridad, ya que ayuda a evitar que el sitio web acceda a los internos de Electron o a las poderosas APIs a las que su script de precarga tiene acceso.
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled `window.hello` will be undefined if the website tries to access it.
+Esto significa que el objeto `ventana` al que tiene acceso el script de precarga es en realidad un objeto **diferente** al que tendría acceso el sitio web.  Por ejemplo, si establece `window.hello = 'wave'` en su script de precarga y aislamiento de contexto está habilitado `ventana. ello` no se definirá si el sitio web intenta acceder a él.
 
-Every single application should have context isolation enabled and from Electron 12 it will be enabled by default.
+Cada aplicación debe tener activado el aislamiento contextual y desde Electron 12 se habilitará por defecto.
 
-## How do I enable it?
+## ¿Cómo puedo activarlo?
 
-From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
+De Electron 12, se habilitará por defecto. Para versiones inferiores es una opción en la opción `webPreferences` al construir `new BrowserWindow`'s.
 
 ```javascript
 const mainWindow = new BrowserWindow({
@@ -20,13 +20,13 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-## Migration
+## Migración
 
-> I used to provide APIs from my preload script using `window.X = apiObject` now what?
+> Usaba para proporcionar APIs de mi pre-carga script usando `window.X = apiObject` ahora ¿qué?
 
-Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
+Exponer APIs de su script de precarga al sitio web cargado es una usecase común y hay un módulo dedicado en Electron para ayudarle a hacerlo de una manera indolora.
 
-**Before: With context isolation disabled**
+**Before: Con aislamiento contextual desactivado**
 
 ```javascript
 window.myAPI = {
@@ -34,7 +34,7 @@ window.myAPI = {
 }
 ```
 
-**After: With context isolation enabled**
+**Después: Con aislamiento contextual activado**
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -44,25 +44,25 @@ contextBridge.exposeInMainWorld('myAPI', {
 })
 ```
 
-The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+El módulo [`contextBridge`](../api/context-bridge.md) puede utilizarse para **exponer de forma segura** APIs del contexto aislado en el que se ejecuta el script de precarga en el contexto en el que se está ejecutando el sitio web. La API también será accesible desde el sitio web en `window.myAPI` como antes.
 
-You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
+Debería leer la documentación de `contextBridge` enlazada arriba para entender completamente sus limitaciones.  Por ejemplo, no puede enviar prototipos o símbolos personalizados sobre el puente.
 
-## Security Considerations
+## Consideraciones de seguridad
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
+Solo activar `contextIsolation` y usar `contextBridge` no significa automáticamente que todo lo que haga sea seguro.  Por ejemplo, este código es **inseguro**.
 
 ```javascript
-// ❌ Bad code
+// ❌ Código incorrecto
 contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+Expone directamente una poderosa API sin ningún tipo de filtrado de argumentos. Esto permitiría a cualquier sitio web enviar mensajes IPC arbitrarios que no desea ser posible. La forma correcta de exponer las APIs basadas en IPC sería proporcionar un método por mensaje IPPC.
 
 ```javascript
-// ✅ Good code
+// ✅ Código correcto
 contextBridge.exposeInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })

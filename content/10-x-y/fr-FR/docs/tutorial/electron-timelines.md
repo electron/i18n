@@ -4,7 +4,7 @@
 <li>Nous nous efforçons d'obtenir des versions bêta hebdomadaires, mais nous publions souvent plus de bêtas que prévu.</li>
 <li>Toutes les dates sont nos objectifs, mais il peut y avoir des raisons d’ajuster la date limite, telles que des problèmes de sécurité.</li>
 <li>Consultez l'article <a href="https://electronjs.org/blog/electron-5-0-timeline">5.0.0 Timeline</a> sur le blog Timeline pour plus d'informations sur la publication de nos dates de publication.</li>
-<li>Since Electron 6.0, we've been targetting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule <a href="https://chromiumdash.appspot.com/schedule">here</a>. See <a href="https://www.electronjs.org/blog/12-week-cadence">Electron's new release cadence blog post</a> for more details on our release schedule.</li>
+<li>Depuis Electron 6.0, nous ciblons toutes les autres versions de Chromium et publions notre stable le même jour que Chrome stable. Vous pouvez référencer le calendrier de publication de Chromium <a href="https://chromiumdash.appspot.com/schedule">ici</a>. Consultez <a href="https://www.electronjs.org/blog/12-week-cadence">le blog de cadence de la nouvelle version d'Electron</a> pour plus de détails sur notre calendrier de publication.</li>
 </ul>
 
 <table spaces-before="0" line-breaks-before="2">
@@ -23,7 +23,7 @@
   <td>2018-02-21</td>
   <td>2018-05-01</td>
   <td>M61</td>
-  <td>v8.9</td>
+  <td>8.9</td>
 </tr>
 <tr>
   <td>3.0.0</td>
@@ -37,7 +37,7 @@
   <td>2018-10-11</td>
   <td>2018-12-20</td>
   <td>M69</td>
-  <td>v10.11</td>
+  <td>10.11</td>
 </tr>
 <tr>
   <td>5.0.0</td>

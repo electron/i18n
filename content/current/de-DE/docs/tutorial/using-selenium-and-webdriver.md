@@ -6,38 +6,38 @@ Aus [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.or
 
 ## Spectron einrichten
 
-[Spectron](https://electronjs.org/spectron) ist das offiziell unterstützte ChromeDriver Test Framework für Electron. Es basiert auf [WebdriverIO](http://webdriver.io/) und hat Helfer, um auf die Electron APIs in Ihren Tests zuzugreifen und ChromeDriver zu bündeln.
+[Spectron](https://electronjs.org/spectron) ist das offiziell unterstützte ChromeDriver Test Framework für Electron. Es basiert auf [WebdriverIO](https://webdriver.io/) und hat Helfer, um auf die Electron APIs in Ihren Tests zuzugreifen und ChromeDriver zu bündeln.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-const Application = require('spectron').Application
+// Ein einfacher Test zur Verifizierung eines sichtbaren Fensters wird mit dem Titel
+const Application = require('spectron') geöffnet. pplication
 const assert = require('assert')
 
 const myApp = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+  path: '/Applications/MyApp. pp/Contents/MacOS/MyApp'
 })
 
 const verifyWindowIsVisibleWithTitle = async (app) => {
-  await app.start()
+  warten app. tart()
   try {
-    // Check if the window is visible
-    const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
-    assert.strictEqual(isVisible, true)
-    // Get the window's title
-    const title = await app.client.getTitle()
-    // Verify the window's title
-    assert.strictEqual(title, 'My App')
+    // Prüfen Sie, ob das Fenster sichtbar ist
+    const isVisible = wait app. rowserWindow. sVisible()
+    // Überprüfen Sie, dass das Fenster sichtbar ist
+    assert. trictEqual(isVisible, true)
+    // Holen Sie sich den Titel des Fensters
+    const title = erwarten App. lient.getTitle()
+    // Überprüfen Sie den Titel des Fensters
+    assert. trictEqual(title, 'Meine App')
   } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+    // Fehler protokollieren
+    Konsole. rror('Test fehlgeschlagen, Fehler. essage)
   }
-  // Stop the application
-  await app.stop()
+  // Anwendung stoppen
+  wartet app.stop()
 }
 
 verifyWindowIsVisibleWithTitle(myApp)
@@ -45,9 +45,9 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Einrichten mit WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) stellt ein Node-Paket, für Tests mit Web-Treiber, zur Verfügung, wir verwenden es als Beispiel.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) stellt ein Node-Paket, für Tests mit Web-Treiber, zur Verfügung, wir verwenden es als Beispiel.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver starten
 
 Zuerst müssen Sie das `chromedriver`-Binary herunterladen und ausführen:
 
@@ -66,7 +66,7 @@ Merken Sie sich die Portnummer `9515`, die später verwendet wird.
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Mit ChromeDriver verbinden
 
 Die Verwendung von `selenium-webdriver` mit Electron ist die gleiche wie bei Upstream, nur dass Sie manuell angeben müssen, wie Sie den Chromtreiber anschließen und wo Sie die Binärdatei von Electron finden:
 
@@ -74,11 +74,11 @@ Die Verwendung von `selenium-webdriver` mit Electron ist die gleiche wie bei Ups
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // Der "9515" ist der vom Chromtreiber geöffnete Port.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // Hier ist der Pfad zur Electron Binärdatei.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -99,9 +99,9 @@ driver.quit()
 
 ## Einrichten mit WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) stellt ein Node Paket zum Testen mit WebDriver zur Verfügung.
+[WebdriverIO](https://webdriver.io/) stellt ein Node Paket zum Testen mit WebDriver zur Verfügung.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver starten
 
 Zuerst müssen Sie das `chromedriver`-Binary herunterladen und ausführen:
 
@@ -114,36 +114,36 @@ Only local connections are allowed.
 
 Merken Sie sich die Portnummer `9515`, die später verwendet wird.
 
-### 2. Install WebdriverIO
+### 2. WebdriverIO installieren
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Mit Chrom-Treiber verbinden
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Verwenden Sie localhost als Chrom-Treiber-Server
+  Port: 9515, // "9515" ist der Port, der vom Chrom-Treiber geöffnet wird.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Pfad zur Electron binary.
+      args: [/* cli Argumente */] // Optional, vielleicht 'app=' + /path/to/your/app/
     }
   }
-}
+} }
 
-const client = webdriverio.remote(options)
+const client = webdriverio. emote(options)
 
 client
   .init()
-  .url('http://google.com')
+  . rl('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle().then((title) => {
+  .getTitle(). hen((title) => {
     console.log('Title was: ' + title)
   })
   .end()
@@ -153,4 +153,4 @@ client
 
 Um Ihre Anwendung ohne Neuaufbau von Electron zu testen, [platzieren](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Sie Ihre App-Quelle in das Ressourcenverzeichnis von Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternativ können Sie ein Argument übergeben, um mit Ihrem Electron-Programm auszuführen, das auf den Ordner Ihrer App verweist. Dies vermeidet die Notwendigkeit, Ihre App in das Ressourcenverzeichnis zu kopieren.

@@ -13,10 +13,10 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Load a remote URL
+// 外部 URL を読み込む
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// またはローカルの HTML ファイルを読み込む
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -121,10 +121,10 @@ child.once('ready-to-show', () => {
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
   * `x` Integer (任意) - (y が使われている場合は **必須**) ウインドウの画面左のオフセット。 省略すると、ウインドウは中央に配置されます。
   * `y` Integer (任意) - (x が使われている場合は **必須**) ウインドウの画面上のオフセット。 省略すると、ウインドウは中央に配置されます。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
-  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 既定値は `0` です。
+  * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 省略値は `0` です。
   * `maxWidth` Integer (任意) - ウインドウの最大の幅。 省略すると無制限です。
   * `maxHeight` Integer (任意) - ウインドウの最大の高さ。 省略すると無制限です。
   * `resizable` Boolean (任意) - ウインドウがリサイズ可能かどうか。 省略値は `true` です。
@@ -138,7 +138,7 @@ child.once('ready-to-show', () => {
   * `fullscreenable` Boolean (任意) - ウインドウをフルスクリーンモードにすることができるかどうか。 macOSでは、さらに、最大化/ズームボタンが、フルスクリーンモードまたはウインドウ最大化に切り替わるかどうか。 省略値は `true` です。
   * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は、`false` です。
   * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。 省略値は `false` です。
-  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 省略値は、`false` です。
+  * `kiosk` Boolean (任意) - ウインドウがキオスクモードかどうか。 省略値は、`false` です。
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。 省略値は `true` です。
@@ -156,6 +156,10 @@ child.once('ready-to-show', () => {
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
   * `type` String (任意) - ウインドウのタイプで、省略すると通常のウインドウになります。 詳しくは後述します。
+  * `visualEffectState` String (任意) - macOS 上のウィンドウのアクティビティ状態をマテリアルの外観に反映させる方法を指定します。 `vibrancy`プロパティと一緒に使用する必要があります。 以下は取りうる値です。
+    * `followWindow` - ウィンドウがアクティブなときにはアクティブに、そうでないときには非アクティブになるよう背景が自動的に表示されます。 これが既定値です。
+    * `active` - 背景が常にアクティブに表示されます。
+    * `inactive` - 背景が常に非アクティブに表示されます。
   * `titleBarStyle` String (任意) - ウインドウタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
     * `default` - 標準の灰色不透明なMacのタイトルバーになります。
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
@@ -177,7 +181,7 @@ child.once('ready-to-show', () => {
     * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。 省略値は、`false` です。
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
-    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _Deprecated_
+    * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _非推奨_
     * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 既定値は `1.0` です。
     * `javascript` Boolean (任意) - JavaScript サポートを有効にします。 省略値は `true` です。
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
@@ -204,7 +208,7 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されるコンテキストでは `document` と `window` グローバル変数に完全にアクセスできますが、それ独自の JavaScript ビルドインセット (`Array`, `Object`, `JSON` など) を使用します。 これによりロードされたページによるグローバル環境の変更を分離します。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト][chrome-content-scripts]で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+    * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。  省略値は `false` です。 Electron 12 から、省略値は `true` に変更されます。 _非推奨_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
@@ -488,7 +492,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 戻り値 `BrowserWindow` - 指定された `id` のウインドウ。
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)` _非推奨_
 
 * `path` String
 
@@ -498,9 +502,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
 
-#### `BrowserWindow.removeExtension(name)` _Deprecated_
+#### `BrowserWindow.removeExtension(name)` _非推奨_
 
 * `name` String
 
@@ -508,17 +512,17 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**注:** このメソッドは非推奨です。 代わりに [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid) を使用してください。
 
-#### `BrowserWindow.getExtensions()` _Deprecated_
+#### `BrowserWindow.getExtensions()` _非推奨_
 
 戻り値 `Record<String, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**注:** このメソッドは非推奨です。 代わりに [`ses.getAllExtensions()`](session.md#sesgetallextensions) を使用してください。
 
-#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
+#### `BrowserWindow.addDevToolsExtension(path)` _非推奨_
 
 * `path` String
 
@@ -530,9 +534,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
 
-#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
+#### `BrowserWindow.removeDevToolsExtension(name)` _非推奨_
 
 * `name` String
 
@@ -540,9 +544,9 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**注:** このメソッドは非推奨です。 代わりに [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid) を使用してください。
 
-#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
+#### `BrowserWindow.getDevToolsExtensions()` _非推奨_
 
 戻り値 `Record<string, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
@@ -557,7 +561,7 @@ console.log(installed)
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**注:** このメソッドは非推奨です。 代わりに [`ses.getAllExtensions()`](session.md#sesgetallextensions) を使用してください。
 
 ### インスタンスプロパティ
 
@@ -578,7 +582,7 @@ win.loadURL('https://github.com')
 
 #### `win.id` _読み出し専用_
 
-`Integer` 型のプロパティです。そのウインドウの一意な ID を表します。 Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+`Integer` 型のプロパティです。そのウインドウの一意な ID を表します。 各 ID は、この Electron アプリケーション全体のすべての `BrowserWindow` インスタンス間で一意です。
 
 #### `win.autoHideMenuBar`
 
@@ -588,47 +592,47 @@ win.loadURL('https://github.com')
 
 #### `win.simpleFullScreen`
 
-A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+`Boolean` 型のプロパティです。これは、ウィンドウがシンプルな (Lion 以前の) フルスクリーンモードかどうかを決定します。
 
 #### `win.fullScreen`
 
-A `Boolean` property that determines whether the window is in fullscreen mode.
+`Boolean` 型のプロパティです。これは、ウィンドウがフルスクリーンモードかどうかを決定します。
 
 #### `win.visibleOnAllWorkspaces`
 
-A `Boolean` property that determines whether the window is visible on all workspaces.
+`Boolean` 型のプロパティです。これは、ウィンドウがすべてのワークスペースで表示されるどうかを決定します。
 
-**Note:** Always returns false on Windows.
+**注:** Windows の場合、常に false を返します。
 
 #### `win.shadow`
 
-A `Boolean` property that determines whether the window has a shadow.
+`Boolean` 型のプロパティです。ウィンドウに影があるかどうかを決定します。
 
 #### `win.menuBarVisible` _Windows_ _Linux_
 
-A `Boolean` property that determines whether the menu bar should be visible.
+`Boolean` 型のプロパティです。メニューバーが表示されるかどうかを決定します。
 
-**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+**注:** メニューバーが自動的に非表示にされている場合でも、ユーザが単に `Alt` キーを押下すれば、依然としてメニューバーを表示させることができます。
 
 #### `win.kiosk`
 
-A `Boolean` property that determines whether the window is in kiosk mode.
+`Boolean` 型のプロパティです。これは、ウィンドウがキオスクモードかどうかを決定します。
 
 #### `win.documentEdited` _macOS_
 
-A `Boolean` property that specifies whether the window’s document has been edited.
+`Boolean` 型のプロパティです。ウィンドウのドキュメントが編集されたかどうかを決定します。
 
-The icon in title bar will become gray when set to `true`.
+`true` にすると、タイトルバーのアイコンが灰色になります。
 
 #### `win.representedFilename` _macOS_
 
-A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+`String` 型のプロパティです。ウィンドウが表すファイルのパス名を決定し、そのファイルのアイコンがウィンドウのタイトルバーに表示されます。
 
 #### `win.title`
 
-A `String` property that determines the title of the native window.
+`String` 型のプロパティです。ネイティブウインドウのタイトルを決定します。
 
-**Note:** The title of the web page can be different from the title of the native window.
+**注:** ウェブページのタイトルとネイティブウインドウのタイトルは異なる可能性があります。
 
 #### `win.minimizable`
 
@@ -664,7 +668,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -775,7 +779,7 @@ Menu.setApplicationMenu(menu)
 
 簡易フルスクリーンモードに設定したり、解除したりします。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
+macOS Lion (10.7) より前のバージョンで見られる簡易フルスクリーンモードはネイティブのフルスクリーン動作をエミュレートします。
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -788,12 +792,11 @@ Returns `Boolean` - ウィンドウが通常の状態 (最大化されていな�
 #### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
- * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
+ * `extraSize` [Size](structures/size.md) (任意) _macOS_ - アスペクト比を維持している間は含まれない余分のサイズ。
 
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
-HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
-{ width: 40, height: 50 }. 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
+HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 プレーヤー内で 16:9 アスペクト比 (HD @1920x1280 の標準的なアスペクト比) を維持するためには、この関数を 16/9 と { width: 40, height: 50 } の引数で呼び出します。 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -839,7 +842,7 @@ console.log(win.getBounds())
 
 #### `win.getBackgroundColor()`
 
-Returns `String` - Gets the background color of the window. [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
+戻り値 `String` - ウインドウの背景色を取得します。 [`backgroundColor` 設定](#setting-backgroundcolor) を参照してください。
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -1063,7 +1066,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Enters or leaves kiosk mode.
+キオスクモードに入ったり出たりします。
 
 #### `win.isKiosk()`
 
@@ -1293,7 +1296,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 * `options` Object
   * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
   * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
-  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 既定値は `0` です。
+  * `appIconIndex` Integer (任意) - `appIconPath` でのアイコンのインデックス。 `appIconPath` が設定されていない場合は無視されます。 省略値は `0` です。
   * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
   * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
@@ -1341,9 +1344,11 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (任意)
+  * `visibleOnFullScreen` Boolean (任意) _macOS_ - ウインドウをフルスクリーンウィンドウの上で表示するかどうかを設定します。
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 

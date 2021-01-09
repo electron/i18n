@@ -1,5 +1,5 @@
 ---
-title: 'Electron の舞台裏&#58: Node をライブラリとして使用する'
+title: 'Electron の舞台裏: Node をライブラリとして使用する'
 author: zcbenz
 date: '2016-08-08'
 ---

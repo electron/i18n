@@ -14,8 +14,6 @@ app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
   })
 })
 ```
@@ -39,17 +37,9 @@ app.whenReady().then(() => {
   ses.protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
   })
 
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      partition: partition
-    }
-  })
+  mainWindow = new BrowserWindow({ webPreferences: { partition } })
 })
 ```
 
@@ -61,12 +51,11 @@ Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-
 **Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+An example of registering a privileged scheme, that bypasses Content Security Policy:
 
 ```javascript
 const { protocol } = require('electron')
@@ -77,7 +66,7 @@ protocol.registerSchemesAsPrivileged([
 
 Ang isang standard na iskema ay sumasang-ayon sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga istandard na iskema, samantalang ang `file` ay hindi.
 
-Ang pagpaparehistro ng iskema bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan na malulutas nang tama kapag isinilbi. Kung hindi man, ang panukala ay kikilos ng kagaya ng `file` na protokol, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
+Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. Kung hindi man, ang panukala ay kikilos ng kagaya ng `file` na protokol, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
 
 Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protokol na hindi inirerehistro ito bilang standard na iskema, ang imahe ay hindi mailoload sapagkat ang hindi istandard na mga iskema ay hindi makakakilala ng may kaugnayang mga URL:
 
@@ -89,145 +78,89 @@ Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protok
 
 Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man, ang taga-render ay magbabato ng isang pang-seguridad na pagkakamali para sa iskema.
 
-Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema.
+By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
-`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
 
-**before (<= v4.x)**
-```javascript
-// Main
-protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
-// Renderer
-webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
-webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
-```
-
-**after (>= v5.x)**
-```javascript
-protocol.registerSchemesAsPrivileged([
-  { scheme: 'scheme1', privileges: { standard: true, secure: true } },
-  { scheme: 'scheme2', privileges: { standard: true, secure: true } }
-])
-```
-
-### `protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
+### `protocol.registerFileProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
+Returns `Boolean` - Whether the protocol was successfully registered
 
-Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
 
-Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({ path: filePath })`. The `filePath` must be an absolute path.
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
+By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
 
-### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
+### `protocol.registerBufferProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
 
-Ang paggamit ay katulad din ng `registerFileProtocol`, maliban lang na ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
 
 Halimbawa:
 
 ```javascript
-const { protocol } = require('electron')
-
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
 })
 ```
 
-### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
+### `protocol.registerStringProtocol(scheme, handler)`
 
 * `scheme` na string
 * `handler` Function
-  * `request` Object
-    * `url` na String
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (optional)
-  * `error` na Kamalian
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
-Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `String` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
 
-### `ang protocol.registerHttpProtocol(panukala, tagahawak[, pagkumpleto])`
+### `protocol.registerHttpProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `redirectRequest` Object
-      * `url` Tali
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` ProtocolResponse
+
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang HTTP na kahilingan bilang isang tugon.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
-
-For POST requests the `uploadData` object must be provided.
-
-### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+### `protocol.registerStreamProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+Returns `Boolean` - Whether the protocol was successfully registered
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+Registers a protocol of `scheme` that will send a stream as a response.
+
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
 
 Halimbawa:
 
@@ -250,131 +183,101 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     },
     data: createStream('<h5>Response</h5>')
   })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
 })
 ```
 
 It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
-const { protocol } = require('electron')
-const fs = require('fs')
-
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
 })
 ```
 
-### `protocol.unregisterProtocol(scheme[, completion])`
+### `protocol.unregisterProtocol(scheme)`
 
 * `scheme` na String
-* `completion` Function (optional)
-  * `error` Error
+
+Returns `Boolean` - Whether the protocol was successfully unregistered
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme)`
+### `protocol.isProtocolRegistered(scheme)`
 
 * `scheme` na String
 
-Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
+Returns `Boolean` - Whether `scheme` is already registered.
 
-### `protocol.interceptFileProtocol(scheme, handler[, completion])`
+### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `baliktawag` ginagawa
-    * `filePath` String
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
-### `protocol.interceptStringProtocol(scheme, handler[, completion])`
+### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `baliktawag` ginagawa
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
-### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
+### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `baliktawag` ginagawa
-    * `buffer` Buffer (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
-### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `baliktawag` ginagawa
-    * `redirectRequest` Object
-      * `url` Tali
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` [ProtocolResponse](structures/protocol-response.md)
+
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
-### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `scheme` na String
 * `handler` Function
-  * `request` Object
-    * `url` Tali
-    * `headers` Record<String, String>
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` na Function
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional)
-  * `error` Error
+    * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
+
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
-### `protocol.uninterceptProtocol(scheme[, completion])`
+### `protocol.uninterceptProtocol(scheme)`
 
 * `scheme` na String
-* `completion` Function (optional)
-  * `error` Error
+
+Returns `Boolean` - Whether the protocol was successfully unintercepted
 
 Remove the interceptor installed for `scheme` and restore its original handler.
+
+### `protocol.isProtocolIntercepted(scheme)`
+
+* `scheme` na String
+
+Returns `Boolean` - Whether `scheme` is already intercepted.

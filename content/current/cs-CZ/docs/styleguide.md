@@ -13,27 +13,27 @@ These are the guidelines for writing Electron documentation.
 Using `Quick Start` as example:
 
 ```markdown
-# Quick Start
+# Rychlý start
 
 ...
 
-## Main process
+## Hlavní proces
 
 ...
 
-## Renderer process
+## Proces vykreslování
+
+
+
+## Spustit aplikaci
 
 ...
 
-## Run your app
+### Spustit jako distribuci
 
 ...
 
-### Run as a distribution
-
-...
-
-### Manually downloaded Electron binary
+### Ručně stažený elektronický binární soubor
 
 ...
 ```
@@ -45,7 +45,8 @@ For API references, there are exceptions to this rule.
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* All `js` and `javascript` code blocks are linted with [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Picking words
 
@@ -95,10 +96,10 @@ Using `autoUpdater` as an example:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Všechny metody, které mají hodnotu návratu, musí začít s popisem "Vrátí se `[TYPE]` - Popis návratu"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Instance musí být uvedena v kapitole `### Vlastnosti instance`.
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -140,17 +141,17 @@ Using the `Session` and `Cookies` classes as an example:
 The methods chapter must be in the following form:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(vyžadováno [, volitelné])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Popis parametru.
+* `Volitelné` Integer (volitelné) - Popis jiného parametru.
 
 ...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pro moduly je název modulu `objektNázev` Pro třídy musí být název instance třídy a nesmí být stejný jako název modulu .
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -160,7 +161,7 @@ The optional arguments are notated by square brackets `[]` surrounding the optio
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Níže je tato metoda podrobnější informace o každém z těchto argumentů. Typ argumentu je uváděn buď podle běžných typů:
 
 * [`Řetězec`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Číslo`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)

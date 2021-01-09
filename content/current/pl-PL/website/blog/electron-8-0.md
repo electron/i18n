@@ -6,103 +6,103 @@ author:
 date: '2020-02-04'
 ---
 
-Electron 8.0.0 has been released! It includes upgrades to Chromium `80`, V8 `8.0`, and Node.js `12.13.0`. We've added Chrome's built-in spellchecker, and much more!
+Electron 8.0.0 został wydany! Zawiera ulepszenia do Chromium `80`, V8 `8.0`i Node.js `12.13.0`. Dodaliśmy wbudowany walidator pisowni Chrome i wiele więcej!
 
 ---
 
-The Electron team is excited to announce the release of Electron 8.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Zespół Electron jest podekscytowany do ogłoszenia wydania Electron 8.0.0! Możesz go zainstalować za pomocą npm za pomocą `npm install electron@latest` lub pobrać z naszej [wersji](https://electronjs.org/releases/stable). Wydanie jest zapakowane z aktualizacjami, poprawkami i nowymi funkcjami. Nie możemy się doczekać, aby zobaczyć co z nimi budujesz! Kontynuuj czytanie, aby uzyskać więcej informacji na temat tej wersji i podziel się swoją opinią!
 
-## Notable Changes
+## Istotne zmiany
 
-### Stack Changes
+### Zmiany stosu
 * Chromium `80.0.3987.86`
-    * [New in Chrome 79](https://developers.google.com/web/updates/2019/12/nic79)
-    * [New in Chrome 80](https://chromereleases.googleblog.com/2020/02/stable-channel-update-for-desktop.html)
+    * [Nowy w Chrome 79](https://developers.google.com/web/updates/2019/12/nic79)
+    * [Nowe w Chrome 80](https://chromereleases.googleblog.com/2020/02/stable-channel-update-for-desktop.html)
 * Node.js `12.13.0`
-    * [Node 12.13.0 blog post](https://nodejs.org/en/blog/release/v12.13.0/)
+    * [Węzeł 12.13.0 wpisu na blogu](https://nodejs.org/en/blog/release/v12.13.0/)
 * V8 `8.0`
-    * [V8 7.9 blog post](https://v8.dev/blog/v8-release-79)
-    * [V8 8.0 blog post](https://v8.dev/blog/v8-release-80)
+    * [Wpis na blogu V8 7.9](https://v8.dev/blog/v8-release-79)
+    * [Wpis na blogu V8 8.0](https://v8.dev/blog/v8-release-80)
 
-### Highlight Features
-* Implemented usage of Chrome's built-in spellchecker feature. See more details in [#20692](https://github.com/electron/electron/pull/20692) and [#21266](https://github.com/electron/electron/pull/21266).
-* IPC communication now uses v8's Structured Clone Algorithm. This is faster, more featureful, and less surprising than the existing logic, and brings about a 2x performance boost for large buffers and complex objects. Latency for small messages is not significantly affected. See more details in [#20214](https://github.com/electron/electron/pull/20214).
+### Podświetl funkcje
+* Zaimplementowane użycie wbudowanej funkcji sprawdzania pisowni Chrome Więcej szczegółów znajdziesz w [#20692](https://github.com/electron/electron/pull/20692) i [#21266](https://github.com/electron/electron/pull/21266).
+* Komunikacja IPC korzysta teraz z algorytmu Klonowania Strukturalnego w wersji 8. Jest to szybsze, bardziej funkcjonalne i mniej zaskakujące niż istniejąca logika i powoduje dwukrotny wzrost wydajności dużych buforów i złożonych obiektów. Opóźnienie w przypadku małych wiadomości nie jest znacząco zagrożone. Zobacz więcej szczegółów w [#20214](https://github.com/electron/electron/pull/20214).
 
-See the [8.0.0 release notes](https://github.com/electron/electron/releases/tag/v8.0.0) for a full list of new features and changes.
+Zobacz [notatki o wydaniu 8.0.0](https://github.com/electron/electron/releases/tag/v8.0.0) , aby uzyskać pełną listę nowych funkcji i zmian.
 
 ## Breaking Changes
 
-* Show module name in deprecation warning for context-aware modules. [#21952](https://github.com/electron/electron/pull/21952)
-    * This is continued work for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Full info and proposed timeline is detailed in [this issue](https://github.com/electron/electron/issues/18397).
-* Values sent over IPC are now serialized with Structured Clone Algorithm.  [#20214](https://github.com/electron/electron/pull/20214)
-* Offscreen Rendering is currently disabled due to lack of a maintainer to work on this feature.  It broke during the Chromium upgrade and was subsequently disabled. [#20772](https://github.com/electron/electron/issues/20772)
+* Pokaż nazwę modułu w ostrzeżeniu o deprekacji dla modułów o konsoli. [#21952](https://github.com/electron/electron/pull/21952)
+    * Jest to kontynuacja pracy dla przyszłego wymagania, aby natywne moduły węzła wczytane w procesie renderowania były albo [N-API](https://nodejs.org/api/n-api.html) albo [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Pełna informacja i proponowana oś czasu są wyszczególnione w [tym problemie](https://github.com/electron/electron/issues/18397).
+* Wartości przesyłane przez IPC są teraz serializowane z Algorytmem Klonowania Strukturalnego.  [#20214](https://github.com/electron/electron/pull/20214)
+* Renderowanie na ekranie jest obecnie wyłączone z powodu braku opiekuna do pracy nad tą funkcją.  Zepsuł się podczas aktualizacji Chromium, a następnie został wyłączony. [#20772](https://github.com/electron/electron/issues/20772)
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Więcej informacji o tych i przyszłych zmianach można znaleźć na stronie [Zaplanowane zmiany](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)
 
 ## Zmiany API
-* `app` API changes:
-    * Added `app.getApplicationNameForProtocol(url)`. [#20399](https://github.com/electron/electron/pull/20399)
-    * Added `app.showAboutPanel()` and `app.setAboutPanelOptions(options)` support on Windows. [#19420](https://github.com/electron/electron/pull/19420)
-* `BrowserWindow` API changes:
-    * Updated docs to note that BrowserWindow options `hasShadow` is available on all platforms [#20038](https://github.com/electron/electron/pull/20038)
-    * Added `trafficLightPosition` option to BrowserWindow options to allow custom positioning for traffic light buttons. [#21781](https://github.com/electron/electron/pull/21781)
-    * Added `accessibleTitle` option to BrowserWindow for setting the accessible window title [#19698](https://github.com/electron/electron/pull/19698)
-    * `BrowserWindow.fromWebContents()` can now return null [#19983](https://github.com/electron/electron/pull/19983)
-    * Added `BrowserWindow.getMediaSourceId()` and `BrowserWindow.moveAbove(mediaSourceId)`. [#18926](https://github.com/electron/electron/pull/18926)
-    * Added support for `will-move` event on macOS. [#19641](https://github.com/electron/electron/pull/19641)
-* Documented previously undocumented `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
-* `dialog` API changes:
-    * Added `dontAddToRecent` property to `dialog.showOpenDialog` and `dialog.showOpenDialogSync` to prevent documents from being added to recent documents on Windows in open dialogs. [#19669](https://github.com/electron/electron/pull/19669)
-    * Added property customization to `dialog.showSaveDialog` and `dialog.showSaveDialogSync`. [#19672](https://github.com/electron/electron/pull/19672)
-* `Notification` API changes:
-    * Added `timeoutType` option to allow Linux/Windows users to set the type of notification timeout. [#20153](https://github.com/electron/electron/pull/20153)
-    * Added `urgency`  option to set urgency on Linux notifications. [#20152](https://github.com/electron/electron/pull/20152)
-* `session` API changes:
-    * Updated documentation on `session.setProxy(config)` and `session.setCertificateVerifyProc(proc)` to note optional options. [#19604](https://github.com/electron/electron/pull/19604)
-    * Added `session.downloadURL(url)` to allow to triggering downloads without a BrowserWindow. [#19889](https://github.com/electron/electron/pull/19889)
-    * Added support for HTTP preconnect resource hints via `session.preconnect(options)` and the `preconnect` event. [#18671](http://github.com/electron/electron/pull/18671)
-    * Added `session.addWordToSpellCheckerDictionary` to allow custom words in the dictionary [#21297](http://github.com/electron/electron/pull/21297)
-* Added option to `shell.moveItemToTrash(fullPath[, deleteOnFail])` on macOS to specify what happens when moveItemToTrash fails. [#19700](https://github.com/electron/electron/pull/19700)
-* `systemPreferences` API changes:
-    * Updated `systemPreferences.getColor(color)` documentation for macOS. [#20611](https://github.com/electron/electron/pull/20611)
-    * Added `screen` media type to `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
-* Added `nativeTheme.themeSource` to allow apps to override Chromium and the OS's theme choice. [#19960](https://github.com/electron/electron/pull/19960)
-* TouchBar API changes:
-    * Added `accessibilityLabel` property to `TouchBarButton` and `TouchBarLabel` to improve TouchBarButton/TouchBarLabel accessibility. [#20454](https://github.com/electron/electron/pull/20454)
-    * Updated TouchBar related documentation [#19444](https://github.com/electron/electron/pull/19444)
-* `tray` API changes:
-    * Added new options to `tray.displayBalloon()`: `iconType`, `largeIcon`, `noSound` and `respectQuietTime`. [#19544](https://github.com/electron/electron/pull/19544)
-    * Added tray.removeBalloon(), which removes an already displayed balloon notification. [#19547](https://github.com/electron/electron/pull/19547)
-    * Added tray.focus(), which returns focus to the taskbar notification area. feat: add tray.focus() [#19548](https://github.com/electron/electron/pull/19548)
-* `webContents` API changes:
-    * Added `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])` to expose executeJavaScriptInIsolatedWorld on the webContents API. [#21190](https://github.com/electron/electron/pull/21190)
-    * Added methods to capture a hidden webContents. [#21679](https://github.com/electron/electron/pull/21679)
-    * Added options to `webContents.print([options], [callback])` to enable customization of print page headers and footers. [#19688](https://github.com/electron/electron/pull/19688)
-    * Added ability to inspect specific shared workers via `webContents.getAllSharedWorkers()` and `webContents.inspectSharedWorkerById(workerId)`. [#20389](https://github.com/electron/electron/pull/20389)
-    * Added the support of `fitToPageEnabled` and `scaleFactor` options in WebContents.printToPDF(). [#20436](https://github.com/electron/electron/pull/20436)
-* Updated `webview.printToPDF` documentation to indicate return type is now Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
+* `aplikacja` zmienia API:
+    * Dodano `app.getApplicationNameForProtocol(url)`. [#20399](https://github.com/electron/electron/pull/20399)
+    * Dodano obsługę `app.showAboutPanel()` i `app.setAboutPanelOptions(options)` na Windows. [#19420](https://github.com/electron/electron/pull/19420)
+* `BrowserWindow` zmienia API:
+    * Zaktualizowano dokumenty, aby zauważyć, że opcje BrowserWindow `hasShadow` są dostępne na wszystkich platformach [#20038](https://github.com/electron/electron/pull/20038)
+    * Dodano opcję `TrafLightPosition` do opcji BrowserWindow aby umożliwić niestandardowe pozycjonowanie przycisków sygnalizacji świetlnej. [#21781](https://github.com/electron/electron/pull/21781)
+    * Dodano opcję `Dostępny Tytuł` do okna przeglądarki, aby ustawić tytuł dostępnego okna [#19698](https://github.com/electron/electron/pull/19698)
+    * `BrowserWindow.fromWebContents()` może teraz zwrócić null [#19983](https://github.com/electron/electron/pull/19983)
+    * Dodano `BrowserWindow.getMediaSourceId()` i `BrowserWindow.moveAbove(mediaSourceId)`. [#18926](https://github.com/electron/electron/pull/18926)
+    * Dodano wsparcie dla zdarzenia `will move` na macOS. [#19641](https://github.com/electron/electron/pull/19641)
+* Dokumentowane wcześniej nieudokumentowane `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
+* `okno dialogowe` Zmiany API:
+    * Dodano właściwość `nie AddToRecent` do okna dialogowego `showOpenDialog` i `. howOpenDialogSync` aby zapobiec dodawaniu dokumentów do najnowszych dokumentów w systemie Windows w oknach otwartych. [#19669](https://github.com/electron/electron/pull/19669)
+    * Dodano właściwości do `dialog.showSaveDialog` i `dialog.showSaveDialogSync`. [#19672](https://github.com/electron/electron/pull/19672)
+* `Powiadomienie` zmienia API:
+    * Dodano opcję `timeoutType` , aby umożliwić użytkownikom Linux/indows ustawianie typu limitu czasu powiadomienia. [#20153](https://github.com/electron/electron/pull/20153)
+    * Dodano opcję `pilności`  , aby ustawić pilność na powiadomieniach Linux. [#20152](https://github.com/electron/electron/pull/20152)
+* `sesja` Zmiany API:
+    * Zaktualizowano dokumentację `session.setProxy(config)` i `session.setCertificateVerifyProc(proc)` aby notać opcjonalne opcje. [#19604](https://github.com/electron/electron/pull/19604)
+    * Dodano `session.downloadURL(url)` , aby umożliwić wyzwalanie pobierania bez okna przeglądarki. [#19889](https://github.com/electron/electron/pull/19889)
+    * Dodano wsparcie dla podłączenia zasobów HTTP poprzez `session.preconnect(options)` i `preconnect` zdarzenie. [#18671](http://github.com/electron/electron/pull/18671)
+    * Dodano `session.addWordToSpellCheckerDictionary` , aby zezwolić na niestandardowe słowa w słowniku [#21297](http://github.com/electron/electron/pull/21297)
+* Dodano opcję do `shell.moveItemToTrash(fullŚcieżka [, deleteOnFail])` na macOS, aby określić co się dzieje, gdy moveItemToTrash nie powiedzie się. [#19700](https://github.com/electron/electron/pull/19700)
+* `systemPreferencje` Zmiany API:
+    * Zaktualizowano `systemPreferences.getColor(color)` dokumentację dla macOS. [#20611](https://github.com/electron/electron/pull/20611)
+    * Dodano `ekran` typ mediów do `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
+* Dodano `nativeTheme.themeSource` , aby umożliwić aplikacjom nadpisanie wyboru motywu Chromium i systemu operacyjnego. [#19960](https://github.com/electron/electron/pull/19960)
+* Interfejs API TouchBar:
+    * Dodano `DostępnośćEtykieta` do `TouchBarButton` i `TouchBarLabel` , aby poprawić dostępność TouchBarButton/TouchBarLabel. [#20454](https://github.com/electron/electron/pull/20454)
+    * Zaktualizowano dokumentację związaną z TouchBar [#19444](https://github.com/electron/electron/pull/19444)
+* `zasobnik` zmienia API:
+    * Dodano nowe opcje do `tray.displayBalloon()`: `iconType`, `largeIcon`, `noSound` i `respectQuietTime`. [#19544](https://github.com/electron/electron/pull/19544)
+    * Dodano tray.removeBalloon(), który usuwa już wyświetlone powiadomienie balonu. [#19547](https://github.com/electron/electron/pull/19547)
+    * Dodano tray.focus(), który zwraca koncentrację do obszaru powiadomień paska zadań. feat: dodaj tray.focus() [#19548](https://github.com/electron/electron/pull/19548)
+* `webContents` zmienia API:
+    * Dodano `contents.executeJavaScriptInsolatedWorld(worldId, scripts[, userGesture])` , aby ujawnić executeJavaScriptInIsolatedWorld na webContents API. [#21190](https://github.com/electron/electron/pull/21190)
+    * Dodano metody do przechwytywania ukrytych treści internetowych. [#21679](https://github.com/electron/electron/pull/21679)
+    * Dodano opcje do `webContents.print([options], [callback])` aby włączyć dostosowywanie nagłówków i stopek strony druku. [#19688](https://github.com/electron/electron/pull/19688)
+    * Dodano możliwość oglądania określonych współdzielonych pracowników za pośrednictwem `webContents.getAllSharedWorkers()` i `webContents.inspectSharedWorkerById(workerId)`. [#20389](https://github.com/electron/electron/pull/20389)
+    * Dodano obsługę opcji `fitToPageEnabled` i `scaleFactor` w WebContents.printToPDF(). [#20436](https://github.com/electron/electron/pull/20436)
+* Zaktualizowano `webview.printToPDF` dokumentacją wskazującą typ zwracany jest teraz Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
 
 ### Przestarzałe API
 Następujące API są teraz przestarzałe:
-* Deprecated the nonfunctional `visibleOnFullScreen` option within `BrowserWindow.setVisibleOnAllWorkspaces` prior to its removal in the next major release version. [#21732](https://github.com/electron/electron/pull/21732)
-* Deprecated `alternate-selected-control-text` on `systemPreferences.getColor(color)` for macOS. [#20611](https://github.com/electron/electron/pull/20611)
-* Deprecated `setLayoutZoomLevelLimits` on `webContents`, `webFrame`, and `<webview> Tag` because Chromium removed this capability. [#21296](https://github.com/electron/electron/pull/21296)
-* The default value of `false` for `app.allowRendererProcessReuse` is now deprecated. [#21287](https://github.com/electron/electron/pull/21287)
-* Deprecated `<webview>.getWebContents()` as it depends on the remote module. [#20726](https://github.com/electron/electron/pull/20726)
+* Przestarzało opcję `visibleOnFullScreen` w `BrowserWindow.setVisibleOnAllWorkspace` przed jej usunięciem w następnej głównej wersji wydania. [#21732](https://github.com/electron/electron/pull/21732)
+* Przestarzały `tekst selected-control-` na `systemPreferences.getColor(color)` dla macOS. [#20611](https://github.com/electron/electron/pull/20611)
+* Przestarzały `setLayoutZoomLevelLimits` na `zawartości webContents`, `webFrame`i `<webview> Tag` , ponieważ Chromium usunął tę funkcję. [#21296](https://github.com/electron/electron/pull/21296)
+* Domyślna wartość `false` dla `app.allowRendererProcessReuse` jest przestarzała. [#21287](https://github.com/electron/electron/pull/21287)
+* Przestarzały `<webview>.getWebContents()` , ponieważ zależy on od modułu zdalnego. [#20726](https://github.com/electron/electron/pull/20726)
 
 ## Koniec wsparcia dla 5.x.y
 
-Electron 5.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 5.x.y osiągnął koniec wsparcia w ramach [polityki wsparcia](https://electronjs.org/docs/tutorial/support#supported-versions). Deweloperzy i aplikacje zachęca się do aktualizacji do nowszej wersji Electron.
 
 ## Program Feedbacku Aplikacji
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Kontynuujemy korzystanie z naszego [programu Informacji zwrotnej o aplikacjach](https://electronjs.org/blog/app-feedback-program) do testowania. Projekty, które uczestniczą w tym programie testują Electrona betas na swoich aplikacjach; i w zamian za nowe błędy, które znajdą są priorytetowe dla stabilnego wydania. Jeśli chcesz wziąć udział lub dowiedzieć się więcej, [sprawdź nasz wpis na blogu dotyczący programu](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co dalej
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+W perspektywie krótkoterminowej możesz się spodziewać, że zespół będzie nadal skupiał się na rozwijaniu głównych komponentów, które tworzą Electron, w tym chrom, węzeł i V8. Chociaż uważamy, aby nie składać obietnic dotyczących dat wydania, nasz plan jest wydawaniem nowych głównych wersji Electrona z nowymi wersjami tych komponentów w przybliżeniu co kwartał. [wstępny harmonogram 9.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapuje daty kluczy w cyklu rozwoju Electron 9. Ponadto [zobacz nasz dokument wersji](https://electronjs.org/docs/tutorial/electron-versioning) , aby uzyskać bardziej szczegółowe informacje na temat wersji w Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+Aby uzyskać informacje na temat planowanych zmian w nadchodzących wersjach Electrona, [zobacz nasze planowane zmiany](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Deprecation of `remote` Module (Starting in Electron 9)
-Due to serious security liabilities, we are beginning plans to deprecate the [`remote` module](https://www.electronjs.org/docs/api/remote) starting in Electron 9. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
+### Deprekacja `zdalnego` Modułu (Rozpoczęcie w Electron 9)
+Ze względu na poważne zobowiązania bezpieczeństwa, zaczynamy plany deprekacji [`zdalnego` modułu](https://www.electronjs.org/docs/api/remote) , zaczynającego się w Electron 9. Możesz przeczytać i śledzić [ten problem](https://github.com/electron/electron/issues/21408) , który szczegółowo opisuje nasze przyczyny i zawiera proponowaną oś czasu dla deprekacji.

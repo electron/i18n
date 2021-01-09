@@ -4,15 +4,15 @@
 
 العملية: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**راجع أيضاً: [دليل تفصيلي حول كيفية تنفيذ التحديثات في التطبيق الخاص بك](../tutorial/updates.md).**
 
 `autoUpdater` is an [EventEmitter][event-emitter].
 
-## Platform Notices
+## إشعارات المنصة
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-In addition, there are some subtle differences on each platform:
+وبالإضافة إلى ذلك، هناك بعض الاختلافات الدقيقة في كل منصة على النحو التالي:
 
 ### نظام macOS
 
@@ -30,13 +30,13 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
 
-## Events
+## أحداث
 
 The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-تراجع:
+Returns:
 
 * `error` Error
 
@@ -56,7 +56,7 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `releaseNotes` String
@@ -76,7 +76,7 @@ This event is emitted after a user calls `quitAndInstall()`.
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## المنهجية
+## Methods
 
 The `autoUpdater` object has the following methods:
 

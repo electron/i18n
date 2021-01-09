@@ -1,5 +1,7 @@
 # 최근 문서 (Windows & macOS)
 
+## 개요
+
 Windows 및 macOS는 각각 JumpList 또는 Dock 메뉴를 통해 애플리케이션에서 열었던 최근 문서 목록에 대한 액세스를 제공합니다.
 
 __JumpList:__
@@ -10,33 +12,47 @@ __dock menu 애플리케이션:__
 
 ![macOS 독 메뉴](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-파일을 최근 문서에 추가하려면 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API를 사용할 수 있습니다:
+To add a file to recent documents, you need to use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API.
 
-```javascript
+## Example
+
+### Add an item to recent documents
+
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following lines to the `main.js` file:
+
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-그리고 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API로 최근 문서 리스트를 비울 수 있습니다:
+After launching the Electron application, right click the application icon. You should see the item you just added. In this guide, the item is a Markdown file located in the root of the project:
+
+![Recent document](../images/recent-documents.png)
+
+### Clear the list of recent documents
+
+To clear the list of recent documents, you need to use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in the `main.js` file:
 
 ```javascript
 onst { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
-## Windows에서 주의할 점
+## Additional information
 
-이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다.  애플리케이션 등록에 관련된 API의 모든 내용은 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx)에서 찾아볼 수 있습니다.
+### Windows에서 주의할 점
+
+To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. 애플리케이션 등록에 관련된 API의 모든 내용은 [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx)에서 찾아볼 수 있습니다.
 
 유저가 JumpList에서 파일을 클릭할 경우 클릭된 파일의 경로가 커맨드 라인 인수로 추가되어 새로운 인스턴스의 애플리케이션이 실행됩니다.
 
-## macOS에서 주의할 점
+### macOS에서 주의할 점
 
-### Adding the Recent Documents list to the application menu:
+#### Add the Recent Documents list to the application menu
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
-
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
 ```json
 {
@@ -54,5 +70,7 @@ You can add menu items to access and clear recent documents by adding the follow
   ]
 }
 ```
+
+![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 파일이 최근 문서 메뉴에서 요청될 경우 `app` 모듈의 `open-file` 이벤트가 호출됩니다.

@@ -2,11 +2,11 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)`
 
-* `options` Object
+* `选项` 对象
   * ` label `String (可选) 按钮文本。
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。

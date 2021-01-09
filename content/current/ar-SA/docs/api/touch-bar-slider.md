@@ -2,9 +2,9 @@
 
 > Create a slider in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+العملية: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarSlider(options)` _Experimental_
+### `new TouchBarSlider(options)`
 
 * `options` Object
   * `label` String (optional) - Label text.

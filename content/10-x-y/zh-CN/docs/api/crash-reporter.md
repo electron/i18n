@@ -1,4 +1,4 @@
-# 崩溃日志报告
+# crashReporter
 
 > 将崩溃日志提交给远程服务器
 
@@ -33,7 +33,7 @@ On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com
 
 ### `crashReporter.start(options)`
 
-* `options` Object
+* `选项` 对象
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.

@@ -6,7 +6,7 @@ Proces: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter][event-emitter].
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 #### Zdarzenie: 'data'
 

@@ -2,54 +2,54 @@
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Op macOS kan het systeem wijzigingen in de app detecteren, of de wijziging nu per ongeluk of door kwaadwillende code is geïntroduceerd.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+In Windows wijst het systeem een vertrouwensniveau toe aan uw code die certificaat als u dat niet hebt, ondertekent of als uw trust level laag is, zal de beveiliging dialogen verschijnen wanneer gebruikers uw applicatie gebruiken.  Vertrouw level bouwt na verloop van tijd, zodat het beter is om zo vroeg mogelijk te beginnen met code-ondertekening.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Hoewel het mogelijk is niet-ondertekende apps te verspreiden, wordt het niet aanbevolen. Zowel Windows als macOS zal standaard de download of uitvoering van niet-ondertekende applicaties voorkomen. Vanaf macOS Catalina (versie 10.15) moeten gebruikers door meerdere handmatige stappen gaan om niet-ondertekende applicaties te openen.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper waarschuwing: de app kan niet worden geopend omdat de ontwikkelaar van
+niet kan worden geverifieerd](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Zoals je kunt zien, krijgen gebruikers twee opties: de app direct naar de prullenbak verplaatsen of het uitvoeren ervan annuleren. U wilt niet dat uw gebruikers dat dialoogvenster zien.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+Als je een Electron app aan het maken bent die je van plan bent te verpakken en te verspreiden, het moet code-signed zijn.
 
-# Signing & notarizing macOS builds
+# MacOS builds ondertekenen & notarizen
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+Het goed voorbereiden van macOS-applicaties voor release vereist twee stappen: ten eerste moet de app worden gecodeerd. Vervolgens moet de app naar Apple worden geüpload voor een proces genaamd "notariisatie", waar geautomatiseerde systemen zullen verifiëren dat uw app niets doet om de gebruikers in gevaar te brengen.
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+Om het proces te starten, zorg ervoor dat je voldoet aan de eisen voor het ondertekenen en je app notariëren:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. Download en installeer [Xcode][] - hiervoor is een computer met macOS vereist
 3. Generate, download, and install [signing certificates][]
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+Elektron's ecosysteem favoriet configuratie en vrijheid, dus er zijn meerdere manieren om je applicatie ondertekend en genotuleerd te krijgen.
 
 ## `electron-forge`
 
-If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`][], [`electron-osx-sign`][], and [`electron-notarize`][] under the hood.
+Als je de favoriete build tool van Electron, moet je sollicitatie ondertekend en genotificeerd krijgen een paar toevoegingen aan je configuratie. [Forge](https://electronforge.io) is een collectie van de officiële Electron tools, met behulp van [`elektron-packager`][], [`electron-osx-sign`][], en [`elektron-notarize`][] onder de kap.
 
-Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
+Laten we een kijkje nemen in een voorbeeldconfiguratie met alle vereiste velden. Niet alle zijn vereist: de gereedschappen zullen slim genoeg zijn om automatisch een geschikte `identiteit`te vinden, , bijvoorbeeld maar wij raden u aan expliciet te zijn.
 
 ```json
 {
   "name": "my-app",
-  "version": "0.0.1",
+  "version": "0.0. ",
   "config": {
     "forge": {
       "packagerConfig": {
         "osxSign": {
-          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
-          "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
-          "signature-flags": "library"
+          "identiek": "Developer ID applicatie: Felix Rieseberg (LT94ZKYDCJ)",
+          "geharde runtime": waar,
+          "rechtsplegingen": "aanspraken. lijst",
+          "rechten -inerv": "aanspraken. lijst",
+          "signer-flags": "bibliotheek"
         },
         "osxNotarize": {
-          "appleId": "felix@felix.fun",
-          "appleIdPassword": "my-apple-id-password",
+          "appleId": "felix@felix. un",
+          "appleIdPassword": "my-apple-id-id-password",
         }
       }
     }
@@ -57,7 +57,7 @@ Let's take a look at an example configuration with all required fields. Not all 
 }
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+Het gerefereerde `plist` bestand heeft de volgende macOS-specifieke rechten nodig om de Apple beveiligingsmechanismen te verzekeren dat je app deze dingen doet zonder dat dit iets betekent:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,18 +74,18 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 </plist>
 ```
 
-To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+Bekijk de broncode van Electron Fiddle's om dit allemaal in actie te zien, [vooral zijn `electron-forge` configuratie bestand](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
 
 ## `electron-builder`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+Electron Builder heeft een aangepaste oplossing voor het ondertekenen van je applicatie. U vindt [de documentatie hier](https://www.electron.build/code-signing).
 
-## `electron-packager`
+## `Elektron-verpakker`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
+Als u geen gebruik maakt van een geïntegreerde bouw pipeline zoals Forge of Builder, u gebruikt waarschijnlijk [`electron-packager`][], met inbegrip van [`elektron-osx-sign`][] en [`elektron-notarize`][].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+Als u de Packager's API gebruikt, kunt u [in configuratie doorsturen dat beide tekens en uw applicatie notariëren](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
 ```js
 const packager = require('electron-packager')
@@ -93,20 +93,20 @@ const packager = require('electron-packager')
 packager({
   dir: '/path/to/my/app',
   osxSign: {
-    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-    'hardened-runtime': true,
-    entitlements: 'entitlements.plist',
-    'entitlements-inherit': 'entitlements.plist',
+    identiteit: 'Developer ID applicatie: Felix Rieseberg (LT94ZKYDCJ)',
+    'hard-runtime': waar,
+    aanspraken: 'aanspraken. lijst',
+    "aanspraken op een erfgoed”: "aanspraken. lijst',
     'signature-flags': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix.fun',
+    appleId: 'felix@felix. un',
     appleIdPassword: 'my-apple-id-password'
   }
 })
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+Het gerefereerde `plist` bestand heeft de volgende macOS-specifieke rechten nodig om de Apple beveiligingsmechanismen te verzekeren dat je app deze dingen doet zonder dat dit iets betekent:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -127,24 +127,24 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 See the [Mac App Store Guide][].
 
-# Signing Windows builds
+# Windows-versies worden ondertekend
 
-Before signing Windows builds, you must do the following:
+Voordat u Windows-versies tekent, moet u het volgende doen:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. Een Windows Authenticode code ondertekeningscertificaat (jaarlijkse kosten vereist)
+2. Installeer Visual Studio om het ondertekeningsinstrument te krijgen (de gratis [Gemeenschap Edition](https://visualstudio.microsoft.com/vs/community/) is genoeg)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Je kunt een code krijgen die een certificaat tekent van veel resellers. Prijzen verschillen, dus het kan uw tijd waard zijn om te winkelen. Populaire resellers zijn:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
+* Koop er onder andere één om er één te vinden die bij u past. Google is uw vriend 😄
 
-There are a number of tools for signing your packaged app:
+Er zijn een aantal tools voor het ondertekenen van je verpakte app:
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`electron-winstaller`][] zal een installatieprogramma voor vensters genereren en deze aan te melden voor u
+- [`Elektron-forge`][] kan installateurs ondertekenen die het genereert via de Squirrel.Windows of MSI-doelen.
 - [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
@@ -153,10 +153,12 @@ See the [Windows Store Guide][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
-[`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`Elektron-forge`]: https://github.com/electron-userland/electron-forge
 [`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
+[`elektron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
+[`elektron-packager`]: https://github.com/electron/electron-packager
 [`electron-packager`]: https://github.com/electron/electron-packager
-[`electron-notarize`]: https://github.com/electron/electron-notarize
+[`elektron-notarize`]: https://github.com/electron/electron-notarize
 [`electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates

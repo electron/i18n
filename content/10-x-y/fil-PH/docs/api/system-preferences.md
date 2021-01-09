@@ -9,42 +9,42 @@ const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Mga event
+## Pangyayari
 
 Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
 ### Pangyayari: 'accent-color-changed' _Windows_
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` Kaganapan
+* `event` na Kaganapan
 * `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
 ### Pangyayari: 'color-changed' _Windows_
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `event` na Kaganapan
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `event` na Pangyayari
+* `event` na Kaganapan
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
 ### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `kaganapan` kaganapan
+* `event` na Kaganapan
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 ### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
@@ -400,7 +400,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.

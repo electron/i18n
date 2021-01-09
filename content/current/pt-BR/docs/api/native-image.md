@@ -103,6 +103,13 @@ Retorna `NativeImage`
 
 Cria uma instância `NativeImage` vazia.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
@@ -229,9 +236,13 @@ Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subja
 
 Returns `Boolean` - Whether the image is empty.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Retorna [`Size`](structures/size.md)
+* `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+
+Retorna [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -260,9 +271,17 @@ Retorna `NativeImage` - A imagem redimensionada.
 
 Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Float` - A proporção de tela da imagem.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 

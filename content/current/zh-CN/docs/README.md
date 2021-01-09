@@ -10,51 +10,55 @@
 
 ## 指南和教程
 
-* [配置开发环境](tutorial/development-environment.md)
-  * [macOS 开发环境配置](tutorial/development-environment.md#setting-up-macos)
-  * [Windows 开发环境配置](tutorial/development-environment.md#setting-up-windows)
-  * [Linux 开发环境配置](tutorial/development-environment.md#setting-up-linux)
-  * [选择一款编辑器](tutorial/development-environment.md#a-good-editor)
-* [创建你的第一个应用](tutorial/first-app.md)
-  * [安装 Electron](tutorial/first-app.md#installing-electron)
-  * [开发一个简易的 Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [启动你的应用](tutorial/first-app.md#running-your-app)
-* [模板和命令行界面](tutorial/boilerplates-and-clis.md)
-  * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [其它工具和模板](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [应用架构](tutorial/application-architecture.md)
-  * [主进程和渲染器进程](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用 Node.js 的API](tutorial/application-architecture.md#using-nodejs-apis)
-  * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
-  * [性能策略](tutorial/performance.md)
+### 快速入门
+
+* [快速启动指南](tutorial/quick-start.md)
+  * [前提条件](tutorial/quick-start.md#prerequisites)
+  * [创建基本应用程序](tutorial/quick-start.md#create-a-basic-application)
+  * [运行您的应用程序](tutorial/quick-start.md#run-your-application)
+  * [打包并分发应用程序](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### 学习基础知识
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [主进程和渲染器进程](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * 为你的应用添加功能
-  * [通知](tutorial/notifications.md)
-  * [最近的文件](tutorial/recent-documents.md)
+  * [通知（Notifications）](tutorial/notifications.md)
+  * [最近文档（Recent Documents）](tutorial/recent-documents.md)
   * [应用程序进程](tutorial/progress-bar.md)
   * [自定义 Dock 菜单](tutorial/macos-dock.md)
   * [自定义 Windows 任务栏](tutorial/windows-taskbar.md)
   * [自定义 Linux 桌面动作](tutorial/linux-desktop-actions.md)
   * [键盘快捷键](tutorial/keyboard-shortcuts.md)
   * [离线/在线 侦测](tutorial/online-offline-events.md)
-  * [针对 macOS 系统 BrowserWindows 的展示文件](tutorial/represented-file.md)
-  * [原生文件拖 & 放](tutorial/native-file-drag-drop.md)
+  * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
+  * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
-  * [支持 macOS 深色模式](tutorial/mojave-dark-mode-guide.md)
-  * [语言](tutorial/web-embeds.md)
+  * [暗黑模式](tutorial/dark-mode.md)
+  * [在 Electron 中嵌入网页](tutorial/web-embeds.md)
+* [模板和命令行界面](tutorial/boilerplates-and-clis.md)
+  * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [其它工具和模板](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* 应用架构
+  * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
+  * [性能策略](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [辅助功能](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [启用辅助功能](tutorial/accessibility.md#enabling-accessibility)
+  * [手动启用辅助功能](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)
   * [调试主进程](tutorial/debugging-main-process.md)
-  * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [开发者工具拓展](tutorial/devtools-extension.md)
+  * [开发工具扩展程序](tutorial/devtools-extension.md)
   * [使用自定义驱动程序进行自动化测试](tutorial/automated-testing-with-a-custom-driver.md)
 * [分发](tutorial/application-distribution.md)
   * [支持平台](tutorial/support.md#supported-platforms)
@@ -62,11 +66,6 @@
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [安全](tutorial/security.md)
-  * [报告安全问题](tutorial/security.md#reporting-security-issues)
-  * [Chromium 安全问题和升级](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron 安全警告](tutorial/security.md#electron-security-warnings)
-  * [安全性检查列表](tutorial/security.md#checklist-security-recommendations)
 * [更新](tutorial/updates.md)
   * [部署更新服务器](tutorial/updates.md#deploying-an-update-server)
   * [在你的应用中实施更新](tutorial/updates.md#implementing-updates-in-your-app)
@@ -84,13 +83,7 @@
 * Electron发布 & 开发者反馈
   * [版本规则](tutorial/electron-versioning.md)
   * [发布时间线](tutorial/electron-timelines.md)
-* [用 asar 打包 App 源代码](tutorial/application-packaging.md)
-  * [生成 asar 档案](tutorial/application-packaging.md#generating-asar-archives)
-  * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
-  * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [测试 Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -102,7 +95,7 @@
 * [进程对象](api/process.md)
 * [支持的命令行开关](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
-* [Chrome 扩展支持](api/extensions.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [重要的API变更](breaking-changes.md)
 
 ### 自定义 DOM 元素:
@@ -119,17 +112,18 @@
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
+* [对话框](api/dialog.md)
+* [系统快捷键](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [网络](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [通知](api/notification.md)
-* [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
+* [电源监视器](api/power-monitor.md)
+* [省电拦截器 | powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
@@ -137,6 +131,7 @@
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 渲染进程（网页）可用的模块:
 
@@ -147,7 +142,7 @@
 
 ### 两种进程都可用的模块:
 
-* [clipboard](api/clipboard.md)
+* [剪贴板](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [shell](api/shell.md)

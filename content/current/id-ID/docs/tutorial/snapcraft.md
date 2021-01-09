@@ -11,27 +11,26 @@ Ada tiga cara untuk membuat file ` .snap </ code>:</p>
 <p spaces-before="0">1) Menggunakan <a href="https://github.com/electron-userland/electron-forge"> <code> electron-forge </ code> </a> atau <a href="https://github.com/electron-userland/electron-builder"> <code> pembangun elektron </ code> </a>, kedua alat yang disertakan dengan <code> snap </ code> dukung di luar kotak. Ini adalah pilihan termudah.
 2) Using <code>electron-installer-snap`, which takes `electron-packager`'s output. 3) Menggunakan paket `.deb` yang sudah dibuat.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft - kelas
-```
-
-Sementara _mungkin_ untuk menginstal `snapcraft` di macos menggunakan Homebrew, itu tidak bisa membangun paket `snap` dan berfokus pada pengelolaan paket di toko.
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Menggunakan `elektron-installer-snap`
 
-Modul ini bekerja seperti [`electron-winstaller`](https://github.com/electron/windows-installer) dan serupa modul dalam lingkup yang terbatas pada bangunan paket snap. Anda bisa menginstal dengan:
+Modul ini bekerja seperti
 
-```sh
-npm install --simpan-dev electron-installer-snap
-```
+ ` electron-winstaller </ code> </a> dan serupa modul dalam lingkup yang terbatas pada bangunan paket snap. Anda bisa menginstal dengan:</p>
+
+<pre><code class="sh">npm install --simpan-dev electron-installer-snap
+`</pre> 
+
+
 
 ### Langkah 1: Kemas Aplikasi Elektron Anda
 
-Kemas aplikasi menggunakan [paket elektron](https://github.com/electron/electron-packager) (atau alat serupa). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron/electron-packager) (atau alat serupa). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Outputnya harus terlihat kira-kira seperti ini:
+
+
 
 ```plaintext
 .
@@ -50,12 +49,15 @@ Outputnya harus terlihat kira-kira seperti ini:
         └── version
 ```
 
+
+
+
 ### Langkah 2: Menjalankan ` electron-installer-snap </ code></h3>
 
 <p spaces-before="0">Dari terminal yang memiliki <code> snapcraft </ code> di <code> PATH </ code>, jalankan <code> electron-installer-snap </ code> dengan hanya parameter yang dibutuhkan <code> - src </ code>, yang merupakan lokasi paket Anda Aplikasi elektron dibuat pada langkah pertama.</p>
 
 <pre><code class="sh">npx electron-installer-snap --src=out/myappname-linux-x64
-`</pre>
+`</pre> 
 
 Jika Anda memiliki jaringan pipa yang ada, Anda dapat menggunakan `` electron-installer-snap </ code> pemrograman. Untuk informasi lebih lanjut, lihat <a href="https://docs.snapcraft.io/build-snaps/syntax">dokumentasi Snapcraft API</a>.</p>
 
@@ -63,7 +65,103 @@ Jika Anda memiliki jaringan pipa yang ada, Anda dapat menggunakan `` electron-in
 
 snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
-``</pre>
+``</pre> 
+
+
+
+## Using `snapcraft` with `electron-packager`
+
+
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add the following to `snap/snapcraft.yaml`:
+
+
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+
+
+### Step 2: Build the snap
+
+
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+
+
+
+### Step 3: Install the snap
+
+
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+
+
+
+### Step 4: Run the snap
+
+
+
+```sh
+electron-packager-hello-world
+```
+
+
+
 
 ## Menggunakan Paket Debian yang Ada
 
@@ -119,15 +217,18 @@ apps:
     # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
-`</pre>
+`</pre> 
 
 As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+
+
 
 ```sh
 #!/bin/sh
 
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
+
 
 Atau, jika Anda membuat ` snap </ code> dengan <code> strict </ code> confinement, Andandapat menggunakan perintah <code> desktop-launch </ code>:</p>
 

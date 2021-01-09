@@ -8,7 +8,7 @@ Process: [主程序](../glossary.md#main-process)
 
 ## 傳送訊息
 
-要從主程序發送訊息給渲染程序也是可以的，請參閱 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)。
+要從主程序發送訊息給渲染程序也是可以的，請參閱 [webContents.send](web-contents.md#contentssendchannel-args)。
 
 * 當需要傳遞一個訊息時，事件名稱就是雙方的 `channel`。
 * 為了回覆一個同步的訊息時，您需要對 `event.returnValue` 指定值。
@@ -80,7 +80,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

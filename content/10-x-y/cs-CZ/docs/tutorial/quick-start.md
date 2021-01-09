@@ -1,8 +1,8 @@
 # Rychlý začátek
 
-Electron vám umožňuje vytvářet desktopové aplikace za pomocí čistého JavaScriptu s použitím bohaté nabídky nativních API (operačního systému). Lze to chápat jako variantu Node.js zaměřenou na vytváření desktopových aplikací namísto webových.
+Electron umožňuje vytvářet desktopové aplikace s čistým JavaScriptem tím, že poskytuje runtime s bohatými nativními (operačními) API. Můžete to vidět jako variantu runtime Node.js, která je zaměřena na desktopové aplikace namísto webových serverů.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+Starý dokument "Rychlé spuštění", který zde dříve žil, byl rozdělen na dva dokumenty:
 
 * To check out how a simple Electron app is built, see [Writing Your First Electron App][first-app]
 * To check out the process architecture, see [Main and Renderer Processes][processes].

@@ -1,6 +1,6 @@
 # Developer Environment
 
-Phát triển electron về cơ bản là phát triển Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Phát triển Electron về cơ bản là phát triển Node.js. Để biến hệ thống của bạn trở thành một môi trường có khả năng xây dựng các ứng dụng máy tính với Electron, bạn chỉ cần cài đặt Node.js, npm, một trình soạn thảo code tuỳ ý, và kiến thức cơ bản về command line của hệ điều hành bạn dùng.
 
 ## Thiết lập trên macOS
 
@@ -22,7 +22,7 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Khởi động cho Windows
+## Setting up Windows
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10][windows-vm] for developers.
 
@@ -42,7 +42,7 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## Khởi động cho Linux
+## Setting up Linux
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 

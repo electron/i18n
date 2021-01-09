@@ -29,7 +29,7 @@ __Platform limitations:__
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. De exemplu:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -212,9 +212,11 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Sets the hover text for this tray icon.
 
-#### `tray.setTitle(title)` _macOS_
+#### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
+* `options` Object (optional)
+  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 

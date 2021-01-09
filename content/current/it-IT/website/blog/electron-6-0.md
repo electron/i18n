@@ -7,32 +7,32 @@ author:
 date: '2019-07-30'
 ---
 
-The Electron team is excited to announce the release of Electron 6.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Il team Electron è entusiasta di annunciare il rilascio di Electron 6.0.0! Puoi installarlo con npm via `npm install electron@latest` o scaricarlo dal nostro sito [releases](https://electronjs.org/releases/stable). Il rilascio è ricco di aggiornamenti, correzioni e nuove funzionalità. Non vediamo l'ora di vedere cosa costruisci con loro! Continua a leggere per dettagli su questa release, e per favore condividi qualsiasi feedback che hai!
 
 ---
 
-## What's New
+## Novità
 
-Today marks a first for the Electron project: this is the first time we've made a stable Electron release **on the same day** as the corresponding [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
+Oggi segna un primo per il progetto Electron: questa è la prima volta che abbiamo realizzato una versione stabile di Electron **lo stesso giorno** come la corrispondente [versione stabile di Chrome](https://www.chromestatus.com/features/schedule)! 🎉
 
-Much of Electron's functionality is provided by the core components of Chromium, Node.js, and V8. Electron keeps up-to-date with these projects to provide our users with new JavaScript features, performance improvements, and security fixes. Each of these packages has a major version bump in Electron 6:
+Gran parte della funzionalità di Electron's è fornita dai componenti principali di Chromium, Node.js, e V8. Electron è aggiornato con questi progetti per fornire ai nostri utenti nuove funzionalità JavaScript, miglioramenti delle prestazioni e correzioni di sicurezza. Ognuno di questi pacchetti ha un importante urto di versione in Electron 6:
 
-- Chromium `76.0.3809.88`
-  - [New in 74](https://developers.google.com/web/updates/2019/04/nic74)
-  - [New in 75](https://developers.google.com/web/updates/2019/06/nic75)
-  - [New in 76](https://developers.google.com/web/updates/2019/07/nic76)
+- Cromo `76.0.3809.88`
+  - [Nuovo in 74](https://developers.google.com/web/updates/2019/04/nic74)
+  - [Nuovo in 75](https://developers.google.com/web/updates/2019/06/nic75)
+  - [Nuovo in 76](https://developers.google.com/web/updates/2019/07/nic76)
 - Node.js `12.4.0`
-  - [Node 12.4.0 blog post](https://nodejs.org/en/blog/release/v12.4.0/)
+  - [Nodo 12.4.0 blog post](https://nodejs.org/en/blog/release/v12.4.0/)
 - V8 `7.6.303.22`
-    - [V8 7.6 blog post](https://v8.dev/blog/v8-release-76)
+    - [V8 7.6 post sul blog](https://v8.dev/blog/v8-release-76)
 
-This release also includes improvements to Electron's APIs. [The release notes](https://github.com/electron/electron/releases/tag/v6.0.0) have a more complete list, but here are the highlights:
+Questa versione include anche miglioramenti alle API di Electron. [Le note di rilascio](https://github.com/electron/electron/releases/tag/v6.0.0) hanno una lista più completa, ma ecco le evidenziazioni:
 
 ### Promisification
 
-Electron 6.0 continues the modernization [initiative](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) started in 5.0 to improve [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) support.
+Electron 6.0 continua l'iniziativa [di modernizzazione](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) avviata in 5.0 per migliorare il supporto [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
-These functions now return Promises and still support older callback-based invocation:
+Queste funzioni ora restituiscono Promesse e supportano ancora vecchie invocazioni basate su callback:
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
  * `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
@@ -60,44 +60,44 @@ These functions now return Promises and still support older callback-based invoc
  * `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
  * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+Queste funzioni ora hanno due forme, sincrone e promessa asincrona:
  * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
  * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
  * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-These functions now return Promises:
+Queste funzioni ora restituiscono Promesse:
  * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
 
-### `Electron Helper (Renderer).app`, `Electron Helper (GPU).app` and `Electron Helper (Plugin).app`
+### `Electron Helper (Rendererer).app`, `Electron Helper (GPU).app` e `Electron Helper (Plugin).app`
 
-In order to enable the [hardened runtime](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), which restricts things like writable-executable memory and loading code signed by a different Team ID, special code signing entitlements needed to be granted to the Helper.
+Al fine di abilitare il [runtime indurito](https://developer.apple.com/documentation/security/hardened_runtime_entitlements?language=objc), che limita cose come memoria scrivibile eseguibile e codice di caricamento firmato da un altro Team ID, i diritti alla firma di un codice speciale devono essere concessi all’aiutante.
 
-To keep these entitlements scoped to the process types that require them, Chromium [added](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) three new variants of the Helper app: one for renderers (`Electron Helper (Renderer).app`), one for the GPU process (`Electron Helper (GPU).app`) and one for plugins (`Electron Helper (Plugin).app`).
+Per mantenere questi diritti campo di applicazione ai tipi di processo che li richiedono, Cromo [ha aggiunto](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) tre nuove varianti dell'app Helper: una per i renderer (`Electron Helper (Rendererer). pp`), uno per il processo GPU (`Electron Helper (GPU). pp`) e uno per i plugin (`Electron Helper (Plugin).app`).
 
-Folks using `electron-osx-sign` to codesign their Electron app shouldn't have to make any changes to their build logic. If you're codesigning your app with custom scripts, you should ensure that the three new Helper applications are correctly codesigned.
+Le persone che usano `electron-osx-sign` per coprogettare la loro app Electron non dovrebbero dover apportare modifiche alla loro logica di costruzione. Se stai coprogettando la tua app con script personalizzati, dovresti assicurarti che le tre nuove applicazioni Helper siano correttamente codificate.
 
-In order to package your application correctly with these new helpers you need to be using `electron-packager@14.0.4` or higher.  If you are using `electron-builder` you should follow [this issue](https://github.com/electron-userland/electron-builder/issues/4104) to track support for these new helpers.
+Per imballare correttamente la tua applicazione con questi nuovi aiutanti devi usare `electron-packager@14.0.4` o superiore.  Se stai usando `electron-builder` dovresti seguire [questo problema](https://github.com/electron-userland/electron-builder/issues/4104) per tracciare il supporto per questi nuovi aiutanti.
 
 ## Breaking Changes
 
- * This release begins laying the groundwork for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). The reasons for this change are faster performance, stronger security, and reduced maintenance workload. Read the full details including the proposed timeline in [this issue](https://github.com/electron/electron/issues/18397). This change is expected to be completed in Electron v11.
+ * Questa release inizia a creare le premesse per un futuro requisito che i moduli nativi Nodo caricati nel processo di renderer siano [N-API](https://nodejs.org/api/n-api.html) o [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Le ragioni di questo cambiamento sono prestazioni più veloci, maggiore sicurezza e ridotto carico di lavoro di manutenzione. Leggi tutti i dettagli includendo la timeline proposta in [questo numero](https://github.com/electron/electron/issues/18397). Questa modifica dovrebbe essere completata in Electron v11.
 
- * `net.IncomingMessage` headers have [changed slightly](https://github.com/electron/electron/pull/17517#issue-263752903) to more closely match [Node.js behavior](https://nodejs.org/api/http.html#http_message_headers), particularly with the value of `set-cookie` and how duplicate headers are handled. [#17517](https://github.com/electron/electron/pull/17517).
+ * `net.IncomingMessage` le intestazioni sono [cambiate leggermente](https://github.com/electron/electron/pull/17517#issue-263752903) per corrispondere più strettamente [Node. s behavior](https://nodejs.org/api/http.html#http_message_headers), in particolare con il valore di `set-cookie` e come vengono gestite le intestazioni duplicate. [#17517](https://github.com/electron/electron/pull/17517).
 
- * `shell.showItemInFolder()` now returns void and is an asynchronous call. [#17121](https://github.com/electron/electron/pull/17121)
+ * `shell.showItemInFolder()` ora restituisce vuoto ed è una chiamata asincrona. [#17121](https://github.com/electron/electron/pull/17121)
 
- * Apps must now explicitly set a log path by calling the new function `app.setAppLogPath()` before using `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
+ * Le app devono ora impostare esplicitamente un percorso di log chiamando la nuova funzione `app.setAppLogPath()` prima di usare `app.getPath('log')`. [#17841](https://github.com/electron/electron/pull/17841)
 
-## End of Support for 3.x.y
+## Fine del supporto per 3.x.y
 
-Per our [support policy](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y has reached end of life. Developers and applications are encouraged to upgrade to a newer version of Electron.
+Per la nostra politica di supporto [](https://electronjs.org/docs/tutorial/support#supported-versions), 3.x.y ha raggiunto la fine della vita. Sviluppatori e applicazioni sono incoraggiati ad aggiornare ad una nuova versione di Electron.
 
 ## Programma Feedback App
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Continuiamo a utilizzare il nostro [App Feedback Program](https://electronjs.org/blog/app-feedback-program) per il test. I progetti che partecipano a questo programma testano le betas di Electron sulle loro app; e in cambio, i nuovi bug che trovano sono prioritari per il rilascio stabile. Se vuoi partecipare o saperne di più, [dai un'occhiata al nostro post sul nostro blog sul programma](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Cosa È Successivo
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 7.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 7 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+A breve termine, ci si può aspettare che il team continui a concentrarsi sul tenere il passo con lo sviluppo dei principali componenti che compongono Electron, inclusi Cromo, Nodo e V8. Anche se siamo attenti a non fare promesse sulle date di rilascio, il nostro piano è il rilascio di nuove principali versioni di Electron con le nuove versioni di quei componenti circa trimestralmente. Il programma [tentativo 7.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mostra le date chiave nel ciclo di vita di sviluppo di Electron 7. Inoltre, [consulta il nostro documento di versionamento](https://electronjs.org/docs/tutorial/electron-versioning) per informazioni più dettagliate sul versionamento in Electron.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Per informazioni sui cambiamenti di rottura pianificati nelle prossime versioni di Electron, [consulta il nostro documento sui cambiamenti di rottura pianificati](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

@@ -27,9 +27,10 @@ app.on('window-all-closed', () => {
 
 戻り値：
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Electron が一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合に `launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持します。 また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
 
 ### イベント: 'window-all-closed'
 
@@ -105,6 +106,14 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 アプリケーションがアクティブになったときに発生します。 アプリケーションが最初に起動される、既に実行中のときにアプリケーションを再起動しようとする、アプリケーションの Dock やタスクバーのアイコンをクリックするなど、いろいろなアクションがこのイベントの引き金となり得ます。
 
+### イベント: 'did-become-active' _macOS_
+
+戻り値:
+
+* `event` Event
+
+macOS のアプリケーションがアクティブになったときに発生します。 `activate`イベントとの違い: `did-become-active` が発生するのはアプリがアクティブになる度に発生します。Dock アイコンがクリックしたり、アプリが再起動したときだけではありません。
+
 ### イベント: 'continue-activity' _macOS_
 
 戻り値:
@@ -154,7 +163,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要があれば、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` 辞書を構築して `app.updateCurrentActivity()` を適切に呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
@@ -289,7 +298,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 GPU 情報の更新がある場合に発生します。
 
-### イベント: 'gpu-process-crashed'
+### イベント: 'gpu-process-crashed' _非推奨_
 
 戻り値:
 
@@ -298,7 +307,9 @@ GPU 情報の更新がある場合に発生します。
 
 GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
-### イベント: 'renderer-process-crashed'
+**非推奨:** このイベントは `child-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。 移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
+
+### イベント: 'renderer-process-crashed' _Deprecated_
 
 戻り値:
 
@@ -308,7 +319,9 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
-#### Event: 'render-process-gone'
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
+
+#### イベント: 'render-process-gone'
 
 戻り値:
 
@@ -321,10 +334,37 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows code integrity checks failed
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
+
+#### イベント: 'child-process-gone'
+
+戻り値:
+
+* `event` Event
+* `details` Object
+  * `type` String - プロセスの種別。 以下の値のいずれかです。
+    * `Utility`
+    * `Zygote`
+    * `Sandbox helper`
+    * `GPU`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - 子プロセスがなくなった理由。 取りうる値:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - プロセスが正常に起動されなかった
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
+  * `name` String (任意) - そのプロセスの名前。 つまり、プラグインの場合はFlashになります。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
+
+子 processが予期せず消えたときに発生します。 This is normally because it was crashed or killed. レンダラープロセスを含みません。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -362,6 +402,8 @@ app.on('session-created', (session) => {
 このイベントは、2 つ目のインスタンスが実行され `app.requestSingleInstanceLock()` が実行されたとき、アプリケーションの1つ目のインスタンス内で発火されます。
 
 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+
+**注意:** 2 番目のインスタンスが最初のインスタンスとは別のユーザーによって起動された場合、 `argv` 配列には引数が含まれません。
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
@@ -469,7 +511,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。 See also `app.whenReady()`.
+戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。 `app.whenReady()` も参照してください。
 
 ### `app.whenReady()`
 
@@ -523,9 +565,10 @@ You should seek to use the `steal` option as sparingly as possible.
   * `music` ユーザのミュージックのディレクトリ。
   * `pictures` ユーザのピクチャのディレクトリ。
   * `videos` ユーザのビデオのディレクトリ。
+  * `recent` ユーザーの最近のファイルのめのディレクトリ(Windows のみ)。
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` クラッシュダンプを格納するディレクトリ。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
@@ -653,6 +696,17 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 戻り値 `String` - そのプロトコルを処理するアプリケーションの名前。ハンドラーがない場合は空の文字列です。 たとえば、Electron がその URL のデフォルトハンドラーである場合、Windows と Mac では `Electron` になります。 ただし、厳密な形式に依存しないでください。変更されている可能性があります。 Linux では、`.desktop` 接尾子を付けた別の形式が必要でしょう。
 
 このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名を返します。
+
+### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
+
+* `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
+
+戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
+  * `icon` NativeImage - プロトコルを処理するアプリの表示アイコン。
+  * `path` String - プロトコルを扱うアプリのインストールパス。
+  * `name` String - プロトコルを扱うアプリの表示名。
+
+このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名、アイコン、パスを含むPromiseを返します。
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -782,6 +836,7 @@ if (!gotTheLock) {
 
   // myWindow を作成したり、アプリの残りをロードしたり、...
   app.whenReady().then(() => {
+    myWindow = createWindow()
   })
 }
 ```
@@ -831,14 +886,14 @@ if (!gotTheLock) {
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` String - 'regular', 'accessory', 'formited' のいずれか。
 
-Sets the activation policy for a given app.
+アプリのアクティベーションポリシーを設定します。
 
-Activation policy types:
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+アクティベーションポリシーの種類は以下のとおりです。
+* 'regular' - Dock に表示される通常のアプリで、ユーザーインターフェースがあったりします。
+* 'accessory' - このアプリケーションはドックに表示されず、メニューバーもありません。プログラムから又はウィンドウをクリックすることでアクティベートできます。
+* 'prohibited' - アプリケーションはドックに表示されず、ウィンドウも作られず、アクティベートできません。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -858,7 +913,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 This function disables that behavior.
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はその振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -882,8 +937,10 @@ Activation policy types:
 
 `infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
 ```js
-{ auxAttributes:
-   { amdSwitchable: true,
+{
+  auxAttributes:
+   {
+     amdSwitchable: true,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -896,12 +953,14 @@ Activation policy types:
      sandboxed: false,
      softwareRendering: false,
      supportsOverlays: false,
-     videoDecodeAcceleratorFlags: 0 },
-gpuDevice:
-   [ { active: true, deviceId: 26657, vendorId: 4098 },
-     { active: false, deviceId: 3366, vendorId: 32902 } ],
-machineModelName: 'MacBookPro',
-machineModelVersion: '11.5' }
+     videoDecodeAcceleratorFlags: 0
+   },
+  gpuDevice:
+   [{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 }],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5'
+}
 ```
 
 `vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
@@ -941,6 +1000,13 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 * `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 * `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
 * `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` アプリはログイン時に開くように設定されており、その実行キーが無効化されていない場合。 `openAtLogin`は`args` オプションを無視する点が異なっています。与えられた実行ファイルがログイン時**なんらか**の引数が与えれた場合にこのプロパティは 真 になります。
+* `launchItems` Object[] _Windows_
+  * `name` String _Windows_ - レジストリエントリの名前の値。
+  * `path` String _Windows_ - レジストリエントリに対応するアプリの実行可能ファイル。
+  * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。
+  * `scope` String _Windows_ - `user` または `machine` のどちらか。 レジストリエントリが `HKEY_CURRENT USER` または `HKEY_LOCAL_MACHINE` の下にあるかどうかを示します。
+  * `enabled` Boolean _Windows_ - 次の場合`true`になります。アプリレジストリキーが承認されているため、タスクマネージャと Windows 設定で `enabled` として表示されている場合。
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
@@ -949,8 +1015,8 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
   * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
   * `path` String (任意) _Windows_ - ログイン時に起動する実行形式。 省略値は `process.execPath` です。
   * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。 省略値は空の配列です。 パスはテンプレート文字列にするようにしましょう。
-
-アプリのログイン項目設定を設定します。
+  * `enabled` Boolean (任意) _Windows_ - `true` の場合、スタートアップが承認したレジストリキーを変更し、 `タスクマネージャと Windows 設定で` アプリを有効/無効にします。 省略値は `true` です。
+  * `name` String (任意) _Windows_ - レジストリに書きこむ値の名前。 デフォルトはアプリの AppUserModelId() です。 アプリのログイン項目設定を設定します。
 
 WindowsでElectronの `autoUpdater` を [Squirrel](https://github.com/Squirrel/Squirrel.Windows) を使って動かす場合、起動パスをUpdate.exeに設定し、アプリケーション名を特定する引数を渡してください。 例:
 
@@ -997,9 +1063,9 @@ app.setLoginItemSettings({
   * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
   * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
-  * `iconPath` String (任意) _Linux_ _Windows_ - アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
+  * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on macOS. 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
@@ -1028,9 +1094,9 @@ stopAccessingSecurityScopedResource()
 
 セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
-### `app.enableSandbox()` _実験的_
+### `app.enableSandbox()`
 
-アプリで完全サンドボックスモードを有効にします。
+アプリの完全なサンドボックスモードを有効にします。これは、WebPreferences の `sandbox` フラグの値に関係なく、すべてのレンダラーがサンドボックスで起動されることを意味します。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -1041,7 +1107,7 @@ stopAccessingSecurityScopedResource()
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (任意)
-  * `conflictHandler` Function<Boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。
+  * `conflictHandler` Function\<Boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。
     * `conflictType` String - ハンドラーが遭遇した移動で起こった競合の種類。`exists` か `existsAndRunning` になります。`exists` は同じ名前のアプリがアプリケーションディレクトリに存在し、`existsAndRunning` は存在し且つ現在実行されていることを意味します。
 
 戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
@@ -1071,6 +1137,24 @@ app.moveToApplicationsFolder({
 
 そのユーザーディレクトリにアプリが既に存在する場合、ユーザーが '移動を続行' を選択すると、関数は既定の動作を続行し、既存のアプリは破棄され、新たなアプリはその場所に移動します。
 
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
+
+戻り値 `Boolean` - `キーボード入力のセキュリティを保護` が有効になっているかどうか。
+
+この API は既定で `false` を返します。
+
+### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
+
+* `enabled` Boolean - `キーボード入力のセキュリティを保護` を有効にするかどうか
+
+アプリケーションの `キーボード入力のセキュリティを保護` の有効化を設定します。
+
+この API を利用すると、パスワードなどの重要な情報や機密情報を他のプロセスの傍受から防げます。
+
+詳しくは [Apple のドキュメント](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) を参照してください。
+
+**注意:** `キーボード入力のセキュリティを保護` は必要なときにのみ有効にし、不要なときには無効にしてください。
+
 ## プロパティ
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
@@ -1095,13 +1179,15 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 **注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
 
+**注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
+
 ### `app.commandLine` _読み出し専用_
 
 [`CommandLine`](./command-line.md) オブジェクトです。Chromium が使用するコマンドライン引数の読み取りと操作ができます。
 
 ### `app.dock` _macOS_ _読み出し専用_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`Dock`](./dock.md) `| undefined` 型のオブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
 
 ### `app.isPackaged` _読み出し専用_
 
@@ -1121,6 +1207,12 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 ### `app.allowRendererProcessReuse`
 
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  The current default value for this property is `true`.
+この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `true` です。
 
 これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
+
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+
+A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.

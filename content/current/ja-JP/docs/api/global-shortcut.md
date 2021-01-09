@@ -6,13 +6,13 @@
 
 `globalShortcut` モジュールは、オペレーティングシステムに対してグローバルショートカットを登録/登録解除することができます。そのため、様々なショートカットに対する操作をカスタマイズすることができます。
 
-**注:** ショートカットはグローバルです。そのため、アプリにキーボードフォーカスがない場合でも機能します。 アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
+**注:** ショートカットはグローバルです。そのため、アプリにキーボードフォーカスがない場合でも機能します。 app モジュールの `ready` イベントが発生するよりも前では、このモジュールは使用できません。
 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 'CommandOrControl+X' ショートカットのリスナーを登録します。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

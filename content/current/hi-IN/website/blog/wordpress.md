@@ -1,63 +1,85 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'सप्ताह की परियोजना: वर्डप्रेस डेस्कटॉप'
 author:
-  - mkaz
-  - johngodley
+  - मकाज़
+  - जॉनगोडले
   - zeke
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+इस सप्ताह हमने [ऑटोमैटिक](https://automattic.com/) में लोगों के साथ वर्डप्रेस डेस्कटॉप</a>
+
+के बारे में बात करने के लिए पकड़ा, जो वर्डप्रेस सामग्री के प्रबंधन के लिए एक ओपन-सोर्स डेस्कटॉप क्लाइंट है।</p> 
+
+
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![वर्डप्रेस ऐप्स](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## वर्डप्रेस के बारे में हर कोई जानता है, लेकिन वर्डप्रेस डेस्कटॉप क्या है?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+[WordPress.com डेस्कटॉप ऐप](https://apps.wordpress.com/desktop/) एक निर्बाध क्रॉस-प्लेटफ़ॉर्म अनुभव प्रदान करता है जो आपको विचलित करने के लिए कोई ब्राउज़र टैब के साथ अपनी सामग्री और डिजाइन पर ध्यान केंद्रित करने की अनुमति देता है - या अपनी साइटों को दरकिनार लेकिन सुलभ रखने के लिए। हमारे ब्राउज़र समर्थन और मोबाइल ऐप के संयोजन में आप अपनी साइट को कहीं भी बना सकते हैं, किसी भी तरह से आपको अपना काम करने में मदद करता है।
 
-## Why did you choose to build WordPress Desktop on Electron?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+## वर्डप्रेस साइटों के प्रबंधन के लिए डेस्कटॉप ऐप क्यों बनाएं? क्या यह सब वेब-आधारित नहीं हो सकता है?
 
-## What are some challenges you've faced while building WordPress Desktop?
+यह वास्तव में उसी तकनीक का उपयोग कर रहा है जो आपको अपने ब्राउज़र में [WordPress.com](https://wordpress.com) पर जाते समय मिलती है। हालांकि, यह सभी स्थानीय रूप से होस्ट किया गया है, इसलिए इसमें न्यूनतम लोड समय है। देशी सुविधाओं जैसे कि आपके डॉक, नोटिफिकेशन आदि में होने के लाभ के साथ, आप वास्तव में अपनी वर्डप्रेस साइटों और ब्लॉगिंग पर ध्यान केंद्रित कर सकते हैं।
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+## आपने इलेक्ट्रॉन पर वर्डप्रेस डेस्कटॉप बनाने का विकल्प क्यों चुना?
+
+2015 के अंत में हमने [कैलिप्सो](https://github.com/automattic/wp-calypso)के रूप में बहुत सारे WordPress.com का पुनर्निर्माण किया, जो प्रतिक्रिया का उपयोग करके एक ओपन-सोर्स आधुनिक जावास्क्रिप्ट ऐप है। हम इलेक्ट्रॉन को देख शुरू कर दिया और Calypso में कुछ परिवर्तन के साथ इसे स्थानीय रूप से चल रहे थे । यह एक सम्मोहक अनुभव था और हमने सोचा कि इसे आगे विकसित करने में बहुत मूल्य था ।
+
+हमारे पास कैलिप्सो पर काम करने वाली कई टीमें थीं । पारंपरिक डेस्कटॉप प्रौद्योगिकियों का उपयोग करके इसका मिलान करने वाले एक पूर्ण बहु-प्लेटफ़ॉर्म जीयूआई क्लाइंट बनाने के लिए अधिक काम लिया होगा। इलेक्ट्रॉन का उपयोग करके, हम में से 2-4 की एक छोटी सी टीम अन्य टीम के प्रयासों का लाभ उठाने और कुछ महीनों में डेस्कटॉप ऐप का निर्माण करने में सक्षम थी।
+
+
+
+## वर्डप्रेस डेस्कटॉप बनाते समय आपने किन चुनौतियों का सामना किया है?
+
+हमें बहुत जल्दी चलने वाले ऐप का एक प्रारंभिक संस्करण मिला, लेकिन डेस्कटॉप ऐप के रूप में बेहतर व्यवहार करने के लिए ट्यूनिंग में बहुत अधिक समय लगा। ऐप के साथ एक बड़ी चुनौती यह है कि आप वास्तव में अपनी मशीन पर कैलिप्सो की एक प्रति चला रहे हैं - यह पूरी तरह से एपीआई संचालित यूआई है। इसमें बहुत सारे ब्रिजिंग काम शामिल थे, और परिवर्तनों को कैलिप्सो में ही वापस खिलाया गया था।
+
+इसके अतिरिक्त विभिन्न प्लेटफार्मों के लिए ऐप को पैकेजिंग करने के लिए बहुत प्रयास किए गए - हम विंडोज, मैकओएस और लिनक्स संस्करण प्रदान करते हैं - और इस मुश्किल को बनाने के लिए पर्याप्त अंतर हैं।
+
+समय इलेक्ट्रॉन अपेक्षाकृत नया था और हम मुद्दों है कि शीघ्र ही तय किया गया में चल रखा (कई बार एक ही दिन!)
+
+
 
 ## In what areas should Electron be improved?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+इलेक्ट्रॉन पहले से ही डेस्कटॉप ऐप के लिए हमें जो चाहिए, उसमें से अधिकांश प्रदान करता है, और जब से हमने इसका उपयोग करना शुरू किया है तब से यह तेजी से आगे बढ़ा है। उस ने कहा, कुछ ऐसे क्षेत्र हैं जिन्हें डेस्कटॉप ऐप में दिया जाता है, जैसे कि स्पेल चेकिंग और फाइंड/रिप्लेस, जो इलेक्ट्रॉन के साथ दोहराना कठिन है।
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+हम कुछ नए क्रोम प्रौद्योगिकियों को इलेक्ट्रॉन में भी फ़िल्टर करना पसंद करेंगे। हम विशेष रूप से वेबवीआर के साथ प्रयोग करने के लिए उत्सुक हैं।
+
+
 
 ## What are your favorite things about Electron?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+मुख्य कारण हम इलेक्ट्रॉन चुना है, और यह सबसे बड़ी ताकत है, बहुत सक्रिय और खुला समुदाय है । ऑटोमैटिक ने हमेशा खुले स्रोत में विश्वास किया है। यह हमारे मूल सिद्धांतों में से एक है, और इलेक्ट्रॉन परियोजना और समुदाय बहुत खुले और सकारात्मक होने के मूल विश्वासों का एक बहुत इस प्रकार है ।
 
-## What's coming next in WordPress Desktop?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
 
-## Are there any teams at Automattic working on other Electron apps?
+## वर्डप्रेस डेस्कटॉप में आगे क्या आ रहा है?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+हमारे मॉडल के बारे में महान बात यह है कि डेस्कटॉप ऐप किसी भी नए कैलिप्सो सुविधा से लाभ उठाता है - लगातार सुधार होते हैं। हम उम्मीद कर रहे हैं कि हम ऑफ़लाइन समर्थन जैसे ऐप में अतिरिक्त सुविधाएं जोड़ सकते हैं, जो वास्तव में ऐप को मूल क्षेत्र में ले जाएंगे, और बेहतर सिस्टम सूचनाएं।
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+
+## क्या ऑटोमैटिक में कोई टीम अन्य इलेक्ट्रॉन ऐप्स पर काम कर रही है?
+
+हां, डेस्कटॉप ऐप पर हमारे प्रयासों के बाद, सिंपलनोट टीम ने विंडोज और लिनक्स (एक देशी मैक क्लाइंट पहले से मौजूद) के लिए डेस्कटॉप ऐप बनाने के लिए इलेक्ट्रॉन का उपयोग करने का फैसला किया। [सिंपलनोट इलेक्ट्रॉन ऐप](https://github.com/Automattic/simplenote-electron) ओपन सोर्स भी है और गिथब पर उपलब्ध है।
+
+हमारे पास एक आगामी रास्पबेरी पीआई एकीकरण भी है जो इलेक्ट्रॉन का उपयोग करता है।
+
+यदि उस में से कोई भी दिलचस्प लगता है तो हम [आप से](https://automattic.com/work-with-us/)सुनना अच्छा लगेगा!
+
+
 
 ## Any Electron tips that might be useful to other developers?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+हस्ताक्षरित डेस्कटॉप सॉफ्टवेयर शिपिंग की प्रक्रिया हमारे लिए अपेक्षाकृत नई है, विशेष रूप से विंडोज के लिए। हमने [कोड साइनिंग एक विंडोज ऐप के लिए एक लेख लिखा](https://mkaz.blog/code/code-signing-a-windows-application/) था जिसमें प्रक्रिया और कुछ बाधाएं शामिल हैं जो हम इसे सही करने के लिए गए थे।
 

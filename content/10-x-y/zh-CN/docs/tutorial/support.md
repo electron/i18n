@@ -5,7 +5,12 @@
 如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
-- [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - 寻求帮助
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
+- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 - `#atom-shell` Freenode上的频道
 - `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
 - [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
@@ -24,11 +29,11 @@
 
 ## 支持版
 
-最新的 3 个*稳定的*的版本受 Electron 团队支持。 例如，如果最新版本是 6.1.x，则包括 5.0.x和 4.2.x系列的同样会被支持  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+最新的 3 个*稳定的*的版本受 Electron 团队支持。 例如，如果最新版本是 6.1.x，则包括 5.0.x和 4.2.x系列的同样会被支持  我们只支持每个稳定版本序列的最新次要版本 。  这意味着在安全修复的情况下 6.1。 我们将收到修复，但我们将不会释放一个新版本的6.0.x。
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+最新的稳定释放单方面从 `master`收到所有修正， 以及此前的版本将在时间和带宽条件下收到这些修复中的绝大多数 。 最早支持的发布线将直接获得 个安全修复。
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+所有支持的发布行将接受外部拉取请求到背港 修复先前合并到 `主`， 但这可能是某些较老的支助线路的个案 基础。 围绕发布 返回线的所有有争议的决定将由 [释放工作组](https://github.com/electron/governance/tree/master/wg-releases) 作为一个议程项目解决，在他们每周的会议上提出了返回线返回线问题。
 
 当一个API的改动或移除会导致某个现有功能被破坏时，这个现有功能在被移除之前，仍然会在至少两个主要版本号内得到尽可能的支持。 比如，某个函数需要三个参数，而在主要版本10中，它被修改为需要两个参数，那么这个函数的三参数版本仍然会被支持，至少持续到主要版本12。 经过两个主要版本后，我们仍会尝试支持后向兼容，直到维护成本高得难以承受而无法继续支持。
 
@@ -43,7 +48,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 这些步骤是用于帮助应用开发者了解他们使用的分支不受支持，而不会过分打扰最终用户。
 
-如果一个应用有特殊情况并需要保持使用一个不受支持的Electron版本，开发者可以通过忽略来自应用的`package.json` `devDependencies`的最终版本以关闭结束支持警告。 For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+如果一个应用有特殊情况并需要保持使用一个不受支持的Electron版本，开发者可以通过忽略来自应用的`package.json` `devDependencies`的最终版本以关闭结束支持警告。 例如，自1-6-x 系列 结束以来，支持终点1.6。 8 次发布， 开发者可以选择 在 1-6-x 序列中停留，无需警告 `devDependency` of `"electron": 1。 0 - 1.6.17`
 
 ## 支持平台
 
@@ -57,7 +62,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 以及更高版本添加了对基于Arm (`arm64`) 架构的Windows设备的原生支持](windows-arm.md)。 Running apps packaged with previous versions is possible using the ia32 binary.
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 以及更高版本添加了对基于Arm (`arm64`) 架构的Windows设备的原生支持](windows-arm.md)。 可以使用 ia32 二进制程序打包前几个版本的应用程序。
 
 ### Linux
 

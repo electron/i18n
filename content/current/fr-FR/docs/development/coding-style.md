@@ -36,7 +36,7 @@ Vous pouvez exécuter `npm run lint-docs` pour vous assurer que vos modification
 
 ## JavaScript
 
-* Écrire [standard](https://npm.im/standard) style JavaScript.
+* Écrire [standard](https://www.npmjs.com/package/standard) style JavaScript.
 * Les noms des fichiers doivent être liés avec `–` au lieu de `_`, par exemple : `fichier-name.js` plutôt que `file_name.js`, parce que dans [github/atome](https://github.com/github/atom) les noms de modules sont généralement sous la forme `nom-du-module`. Cette règle s’applique uniquement aux fichiers `.js`.
 * Utilisez la nouvelle syntaxe ES6/ES2015, le cas écheant
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pour les exigences et d'autres constantes.  Si la valeur est une primitive, utilisez un nom en majuscules (par ex. `const NUMBER_OF_RETRIES = 5`).
@@ -48,9 +48,9 @@ Vous pouvez exécuter `npm run lint-docs` pour vous assurer que vos modification
 
 L'API Electron utilise le même système de capitalisation que Node.js :
 
-- Lorsque le module lui-même est une classe comme `BrowserWindow`, utilisez le `PascalCase`.
-- Lorsque le module est un ensemble d’API, comme `globalShortcut`, utilisez le `camelCase`.
-- Lorsque l’API est une propriété d’objet comme `win.webContents`, utilisez `mixedCase`.
-- Pour d’autres API non-module, utilisez des titres naturels, tels que `<webview>Tag` ou `Process Object`.
+* Lorsque le module lui-même est une classe comme `BrowserWindow`, utilisez le `PascalCase`.
+* Lorsque le module est un ensemble d’API, comme `globalShortcut`, utilisez le `camelCase`.
+* Lorsque l’API est une propriété d’objet comme `win.webContents`, utilisez `mixedCase`.
+* Pour d’autres API non-module, utilisez des titres naturels, tels que `<webview>Tag` ou `Process Object`.
 
 Lorsque vous créez une nouvelle API, il est préférable d’utiliser des getters et setters au lieu du style une-fonction de jQuery. Par exemple, `.getText()` et `.setText(text)` sont préférés aux `.text([text])`. Il y a une [discussion](https://github.com/electron/electron/issues/46) là-dessus.

@@ -104,7 +104,7 @@ Electron은 Chromium의 일부로 V8을 빌드한 다음 V8을 빌드할 때 노
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [v8.dev](https://v8.dev/)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 

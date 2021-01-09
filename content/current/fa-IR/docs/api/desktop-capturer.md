@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> دسترسی به اطلاعات در مورد منابع رسانه ای است که می تواند مورد استفاده قرار گیرد برای گرفتن صدا و ویدیو از دسکتاپ با استفاده از [`navigator.mediaDevices.getUserMedia`] API.
 
-Process: [Renderer](../glossary.md#renderer-process)
+فرآیند: [اصلی](../glossary.md#main-process)، [رندر](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+مثال زیر نشان می دهد که چگونه برای گرفتن ویدیو از پنجره دسکتاپ که عنوان `الکترون`:
 
 ```javascript
 // In the renderer process.
@@ -66,13 +66,13 @@ const constraints = {
 }
 ```
 
-## Methods
+## روش ها
 
 The `desktopCapturer` module has the following methods:
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object
+* `گزینه های` ObjectIrN 98
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.

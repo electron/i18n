@@ -1,46 +1,47 @@
 ---
-title: 'Electron Internals&#58; Message Loop Integration'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---
 
-This is the first post of a series that explains the internals of Electron. This post introduces how Node's event loop is integrated with Chromium in Electron.
+这是解释Electron内部设置的一系列职位中的第一个。 此 介绍了节点事件循环如何在 Electron 中与 Chromium 集成。
 
 ---
 
-There had been many attempts to use Node for GUI programming, like [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
+曾多次尝试在图形界面编程中使用节点。 像 [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 所以在 节点中运行图形界面消息循环的常见技巧是在非常短的时间内抽取消息循环。 这 使得界面响应缓慢，并且占用了大量的 CPU 资源。
 
-During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
+在开发Electron期间，我们遇到了同样的问题。 不过，以 逆向方式：我们必须将诺德的事件循环整合到Chromium的消息 循环中。
 
-## The main process and renderer process
+## 主要进程和渲染过程
 
-Before we dive into the details of message loop integration, I'll first explain the multi-process architecture of Chromium.
+在我们深入到消息循环集成细节之前，我将首先解释 Chromium的多进程结构。
 
-In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). The main process is responsible for GUI work like creating windows, while the renderer process only deals with running and rendering web pages.
+Electron 有两种类型的进程：主进程和渲染器 进程(这实际上是非常简化的, 完整的视图请查看 [多进程架构](http://dev.chromium.org/developers/design-documents/multi-process-architecture)。 主进程负责 GUI 工作像创建窗口，而渲染器进程只处理 运行和渲染网页。
 
-Electron allows using JavaScript to control both the main process and renderer process, which means we have to integrate Node into both processes.
+Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味着我们必须将节点并入两个进程。
 
-## Replacing Chromium's message loop with libuv
+## 使用 libuv 替换Chromium 的消息循环
 
-My first try was reimplementing Chromium's message loop with libuv.
+我的第一次尝试是通过 libuv 重新实现Chromium 的消息循环。
 
-It was easy for the renderer process, since its message loop only listened to file descriptors and timers, and I only needed to implement the interface with libuv.
+它对渲染器过程很容易，因为它的消息循环只听取了 个文件描述符和计时器。 并且我只需要实现与 libuv 的接口。
 
-However it was significantly more difficult for the main process. Each platform has its own kind of GUI message loops. macOS Chromium uses `NSRunLoop`, whereas Linux uses glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
+然而，主要进程要困难得多。 每个平台 都有自己类型的 GUI 消息循环。 macOS Chromium 使用 `NSRunLoop`, ，而Linux 使用 glib。 我尝试了大量黑客，从本地GUI消息循环中提取 个底层文件描述符， 然后喂养 它们以进行迭代，但我仍然遇到了一些不起作用的边缘情况。
 
-So finally I added a timer to poll the GUI message loop in a small interval. As a result the process took a constant CPU usage, and certain operations had long delays.
+因此，我最后添加了一个计时器来投票一个图形界面消息循环。 As a result the process took a constant CPU usage, and certain operations had long delays.
 
-## Polling Node's event loop in a separate thread
+## 在一个单独的线程中投票节点的事件循环
 
-As libuv matured, it was then possible to take another approach.
+随着Libuv 成熟，就有可能采取另一种办法。
 
-The concept of backend fd was introduced into libuv, which is a file descriptor (or handle) that libuv polls for its event loop. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
+后端fd 的概念被引入到libuv中，它是一个文件描述符 (或handle)，是它的事件循环的 libuv 调查。 因此，通过轮询后端可以在 libuv 中出现新事件时获得通知 。
 
-So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
+所以我在 Electron 中创建了一个单独的线程来调查后端， 并且既然我 正在使用系统呼叫进行投票而不是libuv API，它是线程 安全的。 And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
 
-In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
+这样，我避免了对 Chromium 和 Node进行补丁，在 主进程和渲染进程中使用了相同的代码。
 
-## The code
+## 代码
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). It can be easily reused for projects that want to integrate Node.
+您可以在 `node_bindings` 文件中找到消息循环整合的实现方式。 [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common)。 It can be easily reused for projects that want to integrate Node.
 
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

@@ -33,7 +33,7 @@ Electron
 |   |   ├── api/ - API implementation for renderer process modules.
 |   |   ├── extension/ - Code related to use of Chrome Extensions
 |   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   ├── remote/ - Logic that handles use of the remote module in
 |   |   |             the main process.
 |   |   └── web-view/ - Logic that handles the use of webviews in the
 |   |                   renderer process.
@@ -56,12 +56,12 @@ Electron
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
+|   |   |   ├── win/ - исходный код специфичный для Windows GUI.
+|   |   ├── net/ - исходный код специфичный для X11.
 |   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   |   ├── net/ - Код, связанный с сетью.
+|   |   ├── mac/ - Исходный код на Objective-C специфичный для Mac.
+|   |   └── resources/ - Иконки, платформозависимые файлы и т.д.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
 |   └── common/ - Code that used by both the main and renderer processes,
@@ -84,6 +84,7 @@ Electron
 * **npm** - Logic for installation of Electron via npm.
 * **out** - Temporary output directory of `ninja`.
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
+
 ```diff
 script/ - The set of all scripts Electron runs for a variety of purposes.
 ├── codesign/ - Fakes codesigning for Electron apps; used for testing.
@@ -92,31 +93,8 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     ├── notes/ - Generates release notes for new Electron versions.
     └── uploaders/ - Uploads various release-related files during release.
 ```
+
 * **tools** - Helper scripts used by GN files.
   * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
-
-## Keeping Git Submodules Up to Date
-
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
-
-```sh
-$ git status
-
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
-```
-
-To update these vendored dependencies, run the following command:
-
-```sh
-git submodule update --init --recursive
-```
-
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
-
-```sh
-[alias]
-    su = submodule update --init --recursive
-```
+* **vendor** - Source code for some third party dependencies.

@@ -10,27 +10,20 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Gabay at Tutorial
 
-* [Setup para sa Development Environment](tutorial/development-environment.md)
-  * [Setting ng macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting ng Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting ng Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Pagpili ng Editor](tutorial/development-environment.md#a-good-editor)
-* [Pag gawa ng una mong aplikasyon](tutorial/first-app.md)
-  * [Paginstall ng Electron](tutorial/first-app.md#installing-electron)
-  * [Development ng Electron sa Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Pagpapaandar ng yong aplikasyon](tutorial/first-app.md#running-your-app)
-* [Boilerplates at CLIs](tutorial/boilerplates-and-clis.md)
-  * [Boilerplates laban sa CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [pagpipilit ng elektron](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [pagbubuo ng elektron](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Ibang mga tools at boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arkitektura ng aplikasyon](tutorial/application-architecture.md)
-  * [Pangunahin at Proseso ng Renderer](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Paggamit ng Electron APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Paggamit ng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+### Quickstart
+
+* [Quick Start Guide](tutorial/quick-start.md)
+  * [Mga Pangunahing Kailangan](tutorial/quick-start.md#prerequisites)
+  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
+  * [Run your application](tutorial/quick-start.md#run-your-application)
+  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Learning the basics
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [Pangunahin at Proseso ng Renderer](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Pagdagdag ng features sa iyong aplikasyon
   * [Mga Paalala](tutorial/notifications.md)
   * [Kasalukuyang dokumento](tutorial/recent-documents.md)
@@ -40,19 +33,30 @@ There are questions that are asked quite often. Check this out before creating a
   * [Pasadyang Linux Desktop na mga Aksyon](tutorial/linux-desktop-actions.md)
   * [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
   * [Offline/Online Deteksyon](tutorial/online-offline-events.md)
-  * [File na nagrerepresenta sa macOS BrowserWindows](tutorial/represented-file.md)
-  * [Katutubong File Drag& Drop](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
+* [Boilerplates at CLIs](tutorial/boilerplates-and-clis.md)
+  * [Boilerplates laban sa CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [pagpipilit ng elektron](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [pagbubuo ng elektron](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Ibang mga tools at boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* Arkitektura ng aplikasyon
+  * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [Aksesibilidad](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [DevtronDevtron](tutorial/accessibility.md#devtron)
-  * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testing and Debugging](tutorial/application-debugging.md)
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
-  * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Ang Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
@@ -62,15 +66,10 @@ There are questions that are asked quite often. Check this out before creating a
   * [App Store ng Mac](tutorial/mac-app-store-submission-guide.md)
   * [Tindahan ng Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Seguridad](tutorial/security.md)
-  * [Naguulat sa mga Isyung Panseguridad](tutorial/security.md#reporting-security-issues)
-  * [Mga Isyung Panseguridad at Upgrades ng Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Babala sa seguridad ng Electron](tutorial/security.md#electron-security-warnings)
-  * [Listahan ng Seguridad](tutorial/security.md#checklist-security-recommendations)
 * [Updates](tutorial/updates.md)
-  * [Pagbigay ng Update Server](tutorial/updates.md#deploying-an-update-server)
+  * [Pagde-deploy ng isang Update na Server](tutorial/updates.md#deploying-an-update-server)
   * [Pagimplementa ng update sa iyong applikasyon](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Pagapply ng mga updates](tutorial/updates.md#applying-updates)
+  * [Pag-aaplay sa mga Update](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
 
 ## Detalyadong Tutorials
@@ -84,13 +83,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * Electron Releases & Developer Feedback
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Paggawa ng asar archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Pagdagdag ng na unpack na mga file sa asar Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -114,10 +107,10 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 ### Mga modyul para sa pangunahing proseso:
 
-* [app](api/app.md)
-* [awtoUpdeyter](api/auto-updater.md)
+* [ang app](api/app.md)
+* [autoUpdater](api/auto-updater.md)
 * [Kulayan ang kapaligiran](api/browser-view.md)
-* [Ang Browser ng Window](api/browser-window.md)
+* [Kulayan ang bintana](api/browser-window.md)
 * [pagsubaybay ng nilalaman](api/content-tracing.md)
 * [I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.](api/dialog.md)
 * [putulin ng maikli ang global](api/global-shortcut.md)
@@ -127,6 +120,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [Menultem](api/menu-item.md)
 * [ang net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Ang paunawa](api/notification.md)
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
@@ -137,6 +131,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 
@@ -148,7 +143,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 ### Modulo para sa parehong proseso:
 
 * [iipit sa tabla](api/clipboard.md)
-* [kalabog ng tagapagbalita](api/crash-reporter.md)
+* [crashReporter](api/crash-reporter.md)
 * [gupitin ng maikli ang mga litrato](api/native-image.md)
 * [kabibi](api/shell.md)
 

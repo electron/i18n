@@ -2,15 +2,19 @@
 
 > Submit crash reports to a remote server.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية:
+ الرئيسية </ 0> ،  العارض </ 1></p> 
 
 The following is an example of setting up Electron to automatically submit crash reports to a remote server:
+
+
 
 ```javascript
 const { crashReporter } = require('electron')
 
 crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
+
 
 For setting up a server to accept and process crash reports, you can use following projects:
 
@@ -27,14 +31,18 @@ Crash reports are stored temporarily before being uploaded in a directory undern
 
 On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
+
+
 ## Methods
 
 The `crashReporter` module has the following methods:
 
+
+
 ### `crashReporter.start(options)`
 
-* `options` Object
-  * `submitURL` String - URL that crash reports will be sent to as POST.
+* `options` Object 
+    * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Default is `true`.
@@ -56,11 +64,15 @@ This method should be called as early as possible in app startup, preferably bef
 
 **Note:** Calling this method from the renderer process is deprecated.
 
+
+
 ### `crashReporter.getLastCrashReport()`
 
 Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 **Note:** Calling this method from the renderer process is deprecated.
+
+
 
 ### `crashReporter.getUploadedReports()`
 
@@ -70,11 +82,15 @@ Returns all uploaded crash reports. Each report contains the date and uploaded I
 
 **Note:** Calling this method from the renderer process is deprecated.
 
+
+
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **Note:** Calling this method from the renderer process is deprecated.
+
+
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -84,11 +100,15 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 **Note:** Calling this method from the renderer process is deprecated.
 
+
+
 ### `crashReporter.getCrashesDirectory()` _Deprecated_
 
 Returns `String` - The directory where crashes are temporarily stored before being uploaded.
 
 **Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
+
+
 
 ### `crashReporter.addExtraParameter(key, value)`
 
@@ -103,15 +123,21 @@ Parameters added in this fashion (or via the `extra` parameter to `crashReporter
 
 **Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
 
+
+
 ### `crashReporter.removeExtraParameter(key)`
 
 * `key` String - Parameter key, must be no longer than 39 bytes.
 
 Remove a extra parameter from the current set of parameters. Future crashes will not include this parameter.
 
+
+
 ### `crashReporter.getParameters()`
 
 Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
+
+
 
 ## Crash Report Payload
 
@@ -123,7 +149,11 @@ The crash reporter will send the following data to the `submitURL` as a `multipa
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - The version in `package.json`.
 * `_productName` String - The product name in the `crashReporter` `options` object.
+
 * `prod` String - Name of the underlying product. In this case Electron.
+
 * `_companyName` String - The company name in the `crashReporter` `options` object.
+
 * `upload_file_minidump` File - The crash report in the format of `minidump`.
+
 * All level one properties of the `extra` object in the `crashReporter` `options` object.

@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 

@@ -14,8 +14,6 @@ app.whenReady().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
   })
 })
 ```
@@ -39,17 +37,9 @@ app.whenReady().then(() => {
   ses.protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
   })
 
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      partition: partition
-    }
-  })
+  mainWindow = new BrowserWindow({ webPreferences: { partition } })
 })
 ```
 
@@ -61,12 +51,11 @@ app.whenReady().then(() => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API と video/audioのストリーミングをサポートします。 機能を有効にするには、`true` の値で特権を指定します。
 
-機能を有効にするには、`true` の値で特権を指定します。 以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
+以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
 
 ```javascript
 const { protocol } = require('electron')
@@ -89,145 +78,89 @@ protocol.registerSchemesAsPrivileged([
 
 スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
-デフォルトでは、非標準スキームはウェブストレージ API (localStorage, sessionStorage, webSQL, indexedDB, cookies) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
+デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
-`protocol.registerSchemesAsPrivileged` は、Electron 5.0.0 以前に存在していた以前の `protocol.registerStandardSchemes`、`webFrame.registerURLSchemeAs*`、および `protocol.registerServiceWorkerSchemes` 関数の機能を再現するために使用できます。以下に例を示します。
+(http やストリームプロトコルなどの、) ストリームを使用するプロトコルは、 `stream: true` を設定する必要があります。 `<video>` と `<audio>` HTML 要素はプロトコルがデフォルトで レスポンスをバッファすることを期待します。 `stream` フラグは、ストリーミング応答を期待する これらの要素を正しく設定します。
 
-**以前 (<= v4.x)**
-```javascript
-// メイン
-protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
-// レンダラー
-webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
-webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
-```
-
-**以降 (>= v5.x)**
-```javascript
-protocol.registerSchemesAsPrivileged([
-  { scheme: 'scheme1', privileges: { standard: true, secure: true } },
-  { scheme: 'scheme2', privileges: { standard: true, secure: true } }
-])
-```
-
-### `protocol.registerFileProtocol(scheme, handler[, completion])`
+### `protocol.registerFileProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `request` が `scheme` で作成されると、`handler` が `handler(request, callback)` で呼び出されます。 `completion` は、`scheme` が正常に登録された場合は `completion(null)`、失敗した場合は `completion(error)` で呼び出されます。
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
-`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 オブジェクトは、レスポンスヘッダの値にヘッダのマップを与える `headers` プロパティ - 例えば `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})` - を持つこともできます。
+ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `handler` は `request` と `callback` で呼び出されます。この `request` は `scheme` の接続リクエストです。
 
-引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
+`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 `filePath` は絶対パスでなければなりません。
 
-デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違って解析されます。
+デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違った解析がなされます。
 
-### `protocol.registerBufferProtocol(scheme, handler[, completion])`
+### `protocol.registerBufferProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-使用法は `registerFileProtocol` と同じですが、 `callback` を `Buffer` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`Buffer` オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
 ```javascript
-const { protocol } = require('electron')
-
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
 })
 ```
 
-### `protocol.registerStringProtocol(scheme, handler[, completion])`
+### `protocol.registerStringProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-使用法は `registerFileProtocol` と同じですが、 `callback` を `String` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`String` か `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
-### `protocol.registerHttpProtocol(scheme, handler[, completion])`
+### `protocol.registerHttpProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `redirectRequest` Object
-      * `url` String
-      * `method` String (任意)
-      * `session` Session | null (任意)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` ProtocolResponse
+
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-使用法は `registerFileProtocol` と同じですが、 `callback` を `redirectRequest` オブジェクト、または `url`、`method` 、`referrer`、`uploadData`、`session` プロパティを持つオブジェクトで呼び出す必要があります。
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`url` プロパティを持つオブジェクトで呼び出す必要があります。
 
-デフォルト設定で、HTTPリクエストを現在のセッションで再利用します。 リクエストに異なるセッションを設定したい場合は、`session`を`null`に設定してください。
-
-POST リクエストの場合、`uploadData` オブジェクトを提供する必要があります。
-
-### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+### `protocol.registerStreamProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-`Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
-使用法は `register{Any}Protocol` と同じですが、 `callback` を `Readable` オブジェクト、または `data`、`statusCode` 、`headers` プロパティを持つオブジェクトで呼び出す必要があります。
+ストリームをレスポンスとして送信する `scheme` のプロトコルを登録します。
+
+使い方は `registerFileProtocol` と同じですが、 `callback` を、[`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -236,7 +169,7 @@ const { protocol } = require('electron')
 const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough は Readable ストリームでもある
+  const rv = new PassThrough() // PassThrough も ReadableStream の一種
   rv.push(text)
   rv.push(null)
   return rv
@@ -250,131 +183,101 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     },
     data: createStream('<h5>Response</h5>')
   })
-}, (error) => {
-  if (error) console.error('Failed to register protocol')
 })
 ```
 
 Readable ストリーム API (`data` / `end` / `error` イベントが発生するもの) を実装するオブジェクトを渡すことが可能です。 例として、ファイルを返す方法を以下に示します。
 
 ```javascript
-const { protocol } = require('electron')
-const fs = require('fs')
-
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
-}, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
 })
 ```
 
-### `protocol.unregisterProtocol(scheme[, completion])`
+### `protocol.unregisterProtocol(scheme)`
 
 * `scheme` String
-* `completion` Function (任意)
-  * `error` Error
+
+戻り値 `Boolean` - protocol が正常に登録解除されたかどうか
 
 `scheme` のカスタムプロトコルを登録解除します。
 
-### `protocol.isProtocolHandled(scheme)`
+### `protocol.isProtocolRegistered(scheme)`
 
 * `scheme` String
 
-戻り値 `Promise<Boolean>` - `scheme` のハンドラがすでに存在するかどうかを示すブール値が入ります。
+戻り値 `Boolean` - `scheme` がすでに登録されているかどうか。
 
-### `protocol.interceptFileProtocol(scheme, handler[, completion])`
+### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `filePath` String
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
-### `protocol.interceptStringProtocol(scheme, handler[, completion])`
+### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (String | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
-### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
+### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `buffer` Buffer (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
-### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `redirectRequest` Object
-      * `url` String
-      * `method` String (任意)
-      * `session` Session | null (任意)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` [ProtocolResponse](structures/protocol-response.md)
+
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
-### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` Object
-    * `url` String
-    * `headers` Record<String, String>
-    * `referrer` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `request` ProtocolRequest
   * `callback` Function
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (任意)
-* `completion` Function (任意)
-  * `error` Error
+    * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
+
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
 
-### `protocol.uninterceptProtocol(scheme[, completion])`
+### `protocol.uninterceptProtocol(scheme)`
 
 * `scheme` String
-* `completion` Function (任意)
-  * `error` Error
+
+戻り値 `Boolean` - protocol が正常に割り込み解除されたかどうか
 
 `scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
+
+### `protocol.isProtocolIntercepted(scheme)`
+
+* `scheme` String
+
+戻り値 `Boolean` - `scheme` がすでにインターセプトされているかどうか。

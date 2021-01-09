@@ -85,7 +85,7 @@ L'oggetto `autoAggiornatore` ha i seguenti metodi:
 * `options` Object
   * `url` Stringa
   * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
-  * `serverType` Stringa (opzionale) _macOS_ - Uno tra `json` o `default`, Vedi anche [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README per più informazioni.
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Imposta l'`url` e inizializza l'auto aggiornatore.
 

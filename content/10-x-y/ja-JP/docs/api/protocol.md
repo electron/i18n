@@ -88,7 +88,7 @@ protocol.registerSchemesAsPrivileged([
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `handler` は `request` と `callback` で呼び出されます。この `request` は `scheme` の接続リクエストです。
 
@@ -104,7 +104,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
@@ -126,7 +126,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
@@ -140,7 +140,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
   * `callback` Function
     * `response` ProtocolResponse
 
-Returns `Boolean` - Whether the protocol was successfully registered
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
@@ -154,7 +154,7 @@ HTTP リクエストをレスポンスとして送信する `scheme` のプロ�
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+戻り値 `Boolean` - protocol が正常に登録されたかどうか
 
 ストリームをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
@@ -196,7 +196,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unregistered
+戻り値 `Boolean` - protocol が正常に登録解除されたかどうか
 
 `scheme` のカスタムプロトコルを登録解除します。
 
@@ -214,7 +214,7 @@ Returns `Boolean` - Whether the protocol was successfully unregistered
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
@@ -226,7 +226,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
@@ -238,7 +238,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
@@ -250,7 +250,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
 
@@ -262,7 +262,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+戻り値 `Boolean` - protocol が正常に割り込みされたかどうか
 
 `protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
 
@@ -270,7 +270,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unintercepted
+戻り値 `Boolean` - protocol が正常に割り込み解除されたかどうか
 
 `scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
 

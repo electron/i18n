@@ -124,7 +124,7 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+[Mac App Store Guide][] を参照してください。
 
 # Windows ビルドの署名
 
@@ -142,13 +142,13 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`electron-winstaller`][] は Windows 用のインストーラを生成し、 あなたに署名します。
+- [`electron-forge`][] は、 Squirrel.Windows または MSI ターゲットを通じて生成されたインストーラに署名できます。
 - [`electron-builder`][] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+[Windows Store Guide][] を参照してください。
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder

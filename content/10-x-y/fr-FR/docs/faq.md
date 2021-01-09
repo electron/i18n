@@ -12,7 +12,7 @@ Vous pouvez également essayer de télécharger Electron directement depuis [ele
 
 La version Chrome d'Electron est généralement mise à jour entre une et deux semaines après qu'une nouvelle mise à jour stable de Chrome soit disponible. Cette estimation n'est toutefois pas garantie et dépend de l'effort nécessaire pour faire la mise à jour.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Seul le canal stable de Chrome est utilisé. Si un correctif important est dans le canal bêta ou développeur , nous le rétroporterons.
 
 Pour plus d'informations, veuillez voir [l'introduction à la sécurité](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Les nouvelles fonctionnalités de Node.js sont généralement ajoutées dans les
 
 Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d'y accéder depuis les processus de rendu via la propriété `remote` du module `electron` :
+Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d'y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
 
 ```javascript
 // Dans le processus main.
@@ -54,12 +54,12 @@ Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles�
 * [Gestion de la mémoire][memory-management]
 * [Portée des variables][variable-scope]
 
-Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code comme celui-ci :
+Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code de ceci :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
+const { app, Tray } = require('electron')
+app.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -67,8 +67,9 @@ app.on('ready', () => {
 pour cela :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -114,11 +115,11 @@ Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une er
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Il est très probable que vous utilisez le module dans le mauvais processus.francais Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
+Il est très probable que vous utilisez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemple :
+Si [l'anti-aliasing de sous-pixel](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent sembler floues. Exemple :
 
 ![subpixel rendering example][]
 
@@ -133,7 +134,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent le faire. Il est préférable de toujours définir le contexte de cette manière, à moins que vous n'ayez des raisons de ne pas le faire.
 
 Veuillez noter que simplement paramétrer la couleur de fond avec le CSS ne donnera pas l'effet souhaité.
 

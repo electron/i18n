@@ -1,40 +1,40 @@
 ---
-title: New Electron Release Cadence
-author: sofianguy
+title: Nouă lansare Electron Cadence
+author: sofianguie
 date: '2019-05-13'
 ---
 
-🎉 Electron is moving to release a new major stable version every 12 weeks! 🎉
+🎉 Electron se mută pentru a lansa o nouă versiune majoră stabilă la fiecare 12 săptămâni! 🎉
 
 ---
 
-## ⚡️ Wow that's quick! But why?
+## ⚡ Wow e rapid! Dar de ce?
 
-Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
+Mai simplu spus, Chromium nu oprește expedierea așa că nici Electron nu o să încetinească.
 
-Chromium releases on a consistent 6-week [schedule](https://www.chromium.org/developers/calendar). To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+Chromium eliberează într-un program [de 6 săptămâni](https://www.chromium.org/developers/calendar). Pentru a livra cele mai moderne versiuni de Chromium în Electron, programul nostru trebuie să le urmărească pe ale lor. Mai multe informaţii despre ciclul de lansare al Chromium pot fi găsite [aici](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
-## 🚀 Why every 12 weeks?
+## 🚀 De ce la fiecare 12 săptămâni?
 
-Every 6 weeks, a new Chromium release comes out with new features, bug fixes / security fixes, and V8 improvements. Electron's users have been loud and clear about wanting these changes in a timely manner, so we've adjusted our stable release dates to match every other Chromium stable release. Up first, Electron v6.0.0 will include M76 and is scheduled for stable release on [July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), the same release day as [Chromium M76](https://www.chromestatus.com/features/schedule).
+La fiecare 6 săptămâni, o nouă eliberare de Chromium vine cu noi caracteristici, remedieri ale erorilor / remedieri de securitate și îmbunătățiri V8. Utilizatorii de Electron au fost foarte fermi şi clari cu privire la aceste schimbări în timp util, astfel încât am ajustat datele noastre de lansare stabile pentru a se potrivi cu orice altă versiune de Chromium. Mai întâi, Electron v6.0. va include M76 și este programată pentru o lansare stabilă pe [30 iulie, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), aceeași zi de lansare ca [Chromium M76](https://www.chromestatus.com/features/schedule).
 
-## 🚧 What does this mean for me and my Electron app?
+## 🚧 Ce înseamnă asta pentru mine și pentru aplicația mea Electron?
 
-You'll have access to new Chromium and V8 features and fixes sooner than before. Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+Vei avea acces la noi caracteristici de Chromium și V8 mai repede decât înainte. Important este ca vei stii _cand_ aceste schimbari vor apărea, ca sa poti planifica cu informatii mai bune decat inainte.
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
+Echipa Electron va [continua să sprijine](https://electronjs.org/docs/tutorial/support#supported-versions) ultimele trei versiuni majore. De exemplu, când [v6.0.0 va deveni stabil pe 30 iulie 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), vom sprijini v6.x, v5.x și v4.x, în timp ce v3.x va ajunge la End-Of-Life.
 
 ## 💬 Program de FeedBack a Aplicațiilor
 
-Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
+Vă rugăm să luați în considerare alăturarea la [Programul nostru de Feedback Aplicații](https://electronjs.org/blog/app-feedback-program) pentru a ne ajuta să testăm versiunile beta și stabilizarea. Proiecte care participă la acest program testează Electron betas pe aplicațiile lor; iar în schimb, noile erori descoperite de ei sunt prioritare pentru eliberarea stabilă.
 
-## 📝 A brief history of Electron releases
+## 📝 O scurtă istorie de versiuni Electron
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+Deciziile privind eliberarea stabilă înainte de v3.0.0 nu au urmat un program. Am adăugat programe interne la proiect cu v3.0.0 și v4.0.0. La începutul acestui an, am decis să publicăm data de lansare stabilă pentru prima dată pentru [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Anunțarea datelor de lansare stabile a fost primită pozitiv în general și suntem încântați să continuăm să facem asta pentru versiunile viitoare.
 
-In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+Pentru a raționaliza mai bine aceste eforturi legate de modernizare, Grupurile noastre de lucru [Actualizări](https://github.com/electron/governance/tree/master/wg-upgrades) și [Lansări](https://github.com/electron/governance/tree/master/wg-releases) au fost create în cadrul sistemului nostru [Guvernanță](https://electronjs.org/blog/governance). Ne-au permis să prioritizăm mai bine și să delegăm această activitate, care sperăm că va deveni mai evidentă odată cu fiecare eliberare ulterioară.
 
-Here is where our new cadence will put us in comparison to Chromium's cadence:
-<img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
+Aici noua noastră cadenţă ne va pune în comparaţie cu cadenţa lui Chromium:
+<img alt="grafic linie comparând versiunile Electron cu cele de Chromium" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+📨 Dacă ai întrebări, te rugăm să ne trimiți un e-mail la [info@electronjs.org](mailto:info@electronjs.org).

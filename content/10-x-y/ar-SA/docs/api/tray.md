@@ -29,7 +29,7 @@ __Platform limitations:__
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. وعلى سبيل المثال:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -67,7 +67,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -77,7 +77,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' _macOS_ _Windows_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -86,7 +86,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' _macOS_ _Windows_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -111,7 +111,7 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' _macOS_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
@@ -120,7 +120,7 @@ Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' _macOS_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -141,7 +141,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-up' _macOS_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -152,7 +152,7 @@ Note: This will not be emitted if you have set a context menu for your Tray usin
 
 #### Event: 'mouse-down' _macOS_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -161,7 +161,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### Event: 'mouse-enter' _macOS_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -170,7 +170,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' _macOS_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -179,7 +179,7 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' _macOS_ _Windows_
 
-تراجع:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.

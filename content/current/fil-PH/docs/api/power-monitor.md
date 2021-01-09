@@ -4,38 +4,23 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-
-This module cannot be used until the `ready` event of the `app` module is emitted.
-
-Halimbawa ng:
-
-```javascript
-const { app, powerMonitor } = require('electron')
-
-app.whenReady().then(() => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
-})
-```
-
 ## Mga event
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Event: 'suspend' _Linux_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Event: 'resume' _Linux_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Event: 'on-ac' sa _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Event: 'on-battery' sa _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
 

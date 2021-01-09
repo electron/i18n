@@ -16,7 +16,7 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+O leer la imagen desde el portapapeles, lo cual devuelve un `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+Los siguientes sufijos para DPI son soportados:
 
 * `@1x`
 * `@1.25x`
@@ -103,9 +103,16 @@ Devuelve `NativeImage`
 
 Crea una instancia vacía `NativeImage`.
 
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+
 ### `nativeImage.createFromPath(path)`
 
-* `path` Cadena
+* `path` String
 
 Devuelve `NativeImage`
 
@@ -134,7 +141,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (opcional)
-  * `width` Integer (optional) - Required for bitmap buffers.
+  * `width` Integer (opcional) - Requerido para búferes de bipmaps.
   * `height` Entero (opcional) - Necesario para los búferes de mapa de bits.
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
@@ -153,11 +160,11 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` Number[] (opcional)
 
 Devuelve `NativeImage`
 
-Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. Vea [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) para una lista de posibles valores.
 
 El `hslShift` se aplica a la imagen con las siguientes reglas:
 
@@ -192,7 +199,7 @@ Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` Integer - Entre 0 - 100.
 
 Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
 
@@ -229,9 +236,13 @@ Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacent
 
 Devuelve `Boolean` - Si la imagen está vacía.
 
-#### `image.getSize()`
+#### `image.getSize([scaleFactor])`
 
-Devuelve [`Size`](structures/size.md)
+* `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+
+Devuelve [`Size`](structures/size.md).
+
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
@@ -252,17 +263,25 @@ Devuelve `NativeImage` - La imagen recortada.
 #### `image.resize(options)`
 
 * `options` Object
-  * `width` Integer (optional) - Defaults to the image's width.
+  * `width` Integer (opcional) - Por defecto es el ancho de la imagen.
   * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen.
-  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Possible values are `good`, `better`, or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los posibles valores soportados son `good`, `better`, o `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 
 Si solo la `height` o la `width` son especificadas, entonces la relación de aspecto actual se conservará en la imagen redimensionada.
 
-#### `image.getAspectRatio()`
+#### `image.getAspectRatio([scaleFactor])`
+
+* `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Float` - La relación de aspecto de la imagen.
+
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+
+#### `image.getScaleFactors()`
+
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 
@@ -281,4 +300,4 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+Ten en cuenta que esta propiedad solo tiene un efecto en macOS.

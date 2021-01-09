@@ -4,10 +4,9 @@
 
 Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### ` TouchBarLabel baru (pilihan) </ 0> <em x-id="4"> Eksperimental </ 1></h3>
+### `new TouchBarSegmentedControl(options)`
 
-<ul>
-<li><p spaces-before="0"><code>options` Object</p>
+* `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
     * `bulat` - kontrol ditampilkan menggunakan gaya bulat. Maps to `NSSegmentStyleRounded`.
@@ -25,7 +24,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `selectedIndex` Bulat (opsional) - indeks dari segmen yang dipilih, akan diperbarui secara otomatis dengan interaksi pengguna. When the mode is `multiple` it will be the last selected item.
   * `change` Function (optional) - Called when the user selects a new segment.
     * `selectedIndex` Bulat - indeks dari segmen pengguna yang dipilih.
-    * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.</li> </ul>
+    * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.
 
 ### Contoh properti
 
@@ -42,3 +41,7 @@ A `SegmentedControlSegment []` array representing the segments in this control. 
 #### `touchBarSegmentedControl.selectedIndex`
 
 An `Integer` representing the currently selected segment. Mengubah nilai ini segera memperbarui kontrol di bilah sentuh. Interaksi pengguna dengan panel sentuh akan memperbarui nilai ini secara otomatis.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

@@ -8,15 +8,15 @@
 
 ## How to Contribute to Issues
 
-Pour toute question, il y a fondamentalement trois façons pour une personne de Contribuer:
+For any issue, there are fundamentally three ways an individual can contribute:
 
 1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
-2. En aidant à trier le problème : vous pouvez le faire soit en fournissant des détails supplémentaires (un cas de test reproductible qui démontre un bogue) soit en fournissant des suggestions pour résoudre le problème.
-3. En aidant à résoudre le problème : cela peut être fait en démontrant que le problème n'est pas un bug ou qu'il est résolu ; mais plus souvent, en ouvrant une pull request (demande de tirage) qui modifie la source dans `electron/electron` d'une manière concrète et vérifiable.
+2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
+3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
 ## Demander de l'aide générale
 
-["Trouver un soutien"](../tutorial/support.md#finding-support) a un liste de ressources pour obtenir de l’aide à la programmation, signaler les problèmes de sécurité, contribuer, et plus encore. Veuillez utiliser le gestionnaire de tickets uniquement pour les bugs !
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
 ## Envoi d'un rapport de bug
 
@@ -24,14 +24,17 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-```markdown<!--
-Merci d'avoir signaler un problème ! Garder à l'esprit que:
+```markdown
+<!--
+Thanks for opening an issue! A few things to keep in mind:
 
-- Le suivi de tickets est uniquement pour les bugs et les demandes de fonctionnalités.
-- Avant de signaler un bug, veuillez essayer de reproduire votre problème avec
-  la dernière version d'Electron.
+- The issue tracker is only for bugs and feature requests.
+- Before reporting a bug, please try reproducing your issue against
+  the latest version of Electron.
 - If you need general advice, join our Slack: http://atom-slack.herokuapp.com
--->* Electron version:
+-->
+
+* Electron version:
 * Operating system:
 
 ### Expected behavior

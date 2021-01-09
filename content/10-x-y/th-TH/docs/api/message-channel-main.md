@@ -6,7 +6,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
-Messages </a>
+Messages
 
 Example:
 ```js

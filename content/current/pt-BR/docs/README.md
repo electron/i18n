@@ -4,33 +4,26 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 ## Perguntas Frequentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar uma issue:
 
 * [Perguntas Frequentes no Electron](faq.md)
 
 ## Guias e Tutoriais
 
-* [Configurar Ambiente de Desenvolvimento](tutorial/development-environment.md)
-  * [Configurando o macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Configurando o Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Configurando o Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Escolhendo um Editor](tutorial/development-environment.md#a-good-editor)
-* [Criando seu Primeiro Aplicativo](tutorial/first-app.md)
-  * [Instalando o Electron](tutorial/first-app.md#installing-electron)
-  * [Desenvolvimento Electron em um Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Executando Seu Aplicativo](tutorial/first-app.md#running-your-app)
-* [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Arquitetura do Aplicativo](tutorial/application-architecture.md)
-  * [Processos Principais e Renderizados](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Usando Electro APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Usando Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
-  * [Estratégias de Performance](tutorial/performance.md)
+### QuickStart
+
+* [Guia de início rápido](tutorial/quick-start.md)
+  * [Pré-requisitos](tutorial/quick-start.md#prerequisites)
+  * [Criar uma aplicação básica](tutorial/quick-start.md#create-a-basic-application)
+  * [Execute sua aplicação](tutorial/quick-start.md#run-your-application)
+  * [Empacotar e distribuir o aplicativo](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Aprendendo os conceitos básicos
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [Processos Principal e de Renderização](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Adicionando Recursos para Seu Aplicativo
   * [Notificações](tutorial/notifications.md)
   * [Documentos Recentes](tutorial/recent-documents.md)
@@ -40,18 +33,29 @@ There are questions that are asked quite often. Check this out before creating a
   * [Ações Desktop Linux Personalizado](tutorial/linux-desktop-actions.md)
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
   * [Detecção de Offline/Online](tutorial/online-offline-events.md)
-  * [Arquivo Representado para o macOS BrowserWindows](tutorial/represented-file.md)
-  * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
+  * [Drag & Drop de Arquivos Nativo (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [Incorporações da Web no Electron](tutorial/web-embeds.md)
+  * [Dark Mode](tutorial/dark-mode.md)
+  * [Incluir conteúdos Web no Electron](tutorial/web-embeds.md)
+* [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
+  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* Arquitetura do Aplicativo
+  * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
+  * [Estratégias de Performance](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [Acessibilidade](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [Permitindo Acessibilidade](tutorial/accessibility.md#enabling-accessibility)
+  * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
@@ -62,15 +66,10 @@ There are questions that are asked quite often. Check this out before creating a
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Segurança](tutorial/security.md)
-  * [Reportando problemas de Segurança](tutorial/security.md#reporting-security-issues)
-  * [Upgrades e Problemas de Segurança do Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Aviso de Segurança do Electron](tutorial/security.md#electron-security-warnings)
-  * [Checklist de Segurança](tutorial/security.md#checklist-security-recommendations)
 * [Atualizações](tutorial/updates.md)
   * [Implementando um Servidor de Atualizações](tutorial/updates.md#deploying-an-update-server)
   * [Implementando Atualizações em Seu App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Aplicando Upgrades](tutorial/updates.md#applying-updates)
+  * [Aplicando Atualizações](tutorial/updates.md#applying-updates)
 * [Recebendo suporte](tutorial/support.md)
 
 ## Tutoriais Detalhados
@@ -84,13 +83,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * Electron Releases & Developer Feedback
   * [Politica de versão](tutorial/electron-versioning.md)
   * [Linha do Tempo de Lançamentos](tutorial/electron-timelines.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Gerando Arquivos asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Usando Arquivos asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitações](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adicionando Arquivos Descompactados para os Arquivos asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testando Widevine CCDM](tutorial/testing-widevine-cdm.md)
-* [Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -107,9 +100,9 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 ### Elementos de DOM Personalizado:
 
-* [`File` Object](api/file-object.md)
+* [Objeto `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Função](api/window-open.md)
+* [Função `window.open`](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Módulos para o Processo Principal:
@@ -127,7 +120,8 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [Notificações](api/notification.md)
+* [nativeTheme](api/native-theme.md)
+* [Notificação](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -137,6 +131,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### Módulos para o Processo de Renderização (Página Web):
 

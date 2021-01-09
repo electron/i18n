@@ -4,29 +4,29 @@
 
 Când rulezi `npm install electron</ 0>, unii utilizatori întâlnesc ocazional erori de instalare.</p>
 
-<p spaces-before="0">Când rulezi <code>npm instalează electroni`, unii utilizatori întâlnesc ocazional erori de instalare. Errori ca `ELIFECYCLE`,`EAI_AGAIN`, `ECONNRESET`, si `ETIMEDOUT` sunt indicatii ca exista probleme de retea. The best resolution is to try switching networks, or wait a bit and try installing again.
+<p spaces-before="0">Când rulezi <code>npm instalează electroni`, unii utilizatori întâlnesc ocazional erori de instalare. Errori ca `ELIFECYCLE`,`EAI_AGAIN`, `ECONNRESET`, si `ETIMEDOUT` sunt indicatii ca exista probleme de retea. Cea mai bună rezoluție este să încercați să schimbați rețelele, sau să așteptați puțin și să instalați din nou.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Puteți încerca să descărcați Electron direct de pe [electron/electron/releases](https://github.com/electron/electron/releases) dacă instalarea via `npm` eșuează.
 
-## When will Electron upgrade to latest Chrome?
+## Când va face upgrade Electron la cel mai recent Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Versiunea de Chrome al Electron este de obicei bătută în una sau două săptămâni după o nouă versiune de Chrome stabilă. Această estimare nu este garantată și depinde de volumul de muncă implicat în modernizare.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Se utilizează numai canalul stabil al Chrome. Dacă o reparație importantă este în canalul beta sau dev , o vom întoarce spre portare.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Pentru mai multe informații, vă rugăm să consultați [introducerea de securitate](tutorial/security.md).
 
 ## Când va trece Electron la ultimul Node.js?
 
-Atunci când o versiune nouă a Node.js este lansată, așteptăm de obicei aproximativ o lună înainte de a-l moderniza pe cel din Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Atunci când o versiune nouă a Node.js este lansată, așteptăm de obicei aproximativ o lună înainte de a-l moderniza pe cel din Electron. Așa că putem evita să fim afectați de bug-uri introduși în versiunile noi de Node.js, ceea ce se întâmplă foarte des.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Noile caracteristici ale Node.js sunt, de obicei, aduse de upgrade-urile V8, deoarece Electron folosește V8-ul adus de browserul Chrome, nou-nouța caracteristică JavaScript a unei versiuni noi Node.js este, de obicei, deja în Electron.
 
-## How to share data between web pages?
+## Cum se partajează datele între paginile web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+Pentru a partaja date între pagini web (procesele de redare), cea mai ușoară cale este de a utiliza API-urile HTML5 care sunt deja disponibile în browsere. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Sau poți folosi sistemul IPC, care este specific Electron, pentru a stoca obiecte în procesul principal ca variabilă globală, și apoi pentru a le accesa din dispozitive de redare prin `de la distanță` proprietatea `modulului de electroni`:
 
 ```javascript
 // În procesul principal-main.
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## Bara pentru aplicațiile mele a dispărut după câteva minute.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Acest lucru se întâmplă atunci când variabila care este utilizată pentru a stoca bara devine gunoi colectat.
 
-If you encounter this problem, the following articles may prove helpful:
+Dacă întâmpinați această problemă, următoarele articole se pot dovedi utile:
 
-* [Memory Management][memory-management]
-* [Variable Scope][variable-scope]
+* [Gestionare memorie][memory-management]
+* [Domeniu variabil][variable-scope]
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Dacă vrei o rezolvare rapidă, poți face variabilele globale schimbând codul tău din asta:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -64,22 +64,21 @@ app.whenReady().then(() => {
 })
 ```
 
-to this:
+în acest sens:
 
 ```javascript
 const { app, Tray } = require('electron')
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
+nullapp.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Nu pot folosi jQuery/RequireJS/Meteor/AngularJS în Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Datorită integrării Node.js a Electron, există unele simboluri suplimentare inserate în DOM ca `module`, `exports`, `require`. Acest lucru cauzează probleme pentru unele biblioteci, deoarece vor să introducă simboluri cu aceleași nume.
 
-To solve this, you can turn off node integration in Electron:
+Pentru a rezolva acest lucru, puteți dezactiva integrarea nodurilor în Electron:
 
 ```javascript
 // În procesul principal-main.
@@ -92,7 +91,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Dar dacă doriți să păstrați abilitățile de a utiliza API-uri Node.js și Electron, trebui să redenumiți simbolurile din pagină înainte de a include alte biblioteci:
 
 ```html
 <head>
@@ -106,24 +105,24 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `Necesar ('electron').xxx` este nedefinit.
 
-When using Electron's built-in module you might encounter an error like this:
+Când utilizați modulul încorporat Electron este posibil să întâlniți o eroare ca aceasta:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Tip neprins: Imposibil de citit proprietatea 'setZoomLevel' de nedefinit
 ```
 
-It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Este foarte probabil să utilizați modulul într-un proces greșit. De exemplu `electron.app` poate fi utilizat numai în procesul principal, în timp ce `electron.webFrame` este disponibil numai în procesele de redare.
 
-## The font looks blurry, what is this and what can I do?
+## Fontul arată încețoșat, ce pot face și ce pot face?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplu:
+Dacă [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) este dezactivat, atunci fonturile de pe ecranele LCD pot arăta încețoșat. Exemplu:
 
 ![subpixel rendering example][]
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixelii anti-aliasing au nevoie de un fundal netransparent al stratului care conține fontul glicol. (Vezi [această problemă](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pentru mai multe informații).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
@@ -134,9 +133,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Chiar dacă nu vezi nicio diferență, unii dintre utilizatorii tăi ar putea să o facă. Cel mai bine este să setăm întotdeauna fundalul în acest mod, cu excepţia cazului în care există motive pentru a nu face acest lucru.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Observați că doar setarea fundalului în CSS nu are efectul dorit.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

@@ -2,48 +2,53 @@
 
 ## Hilfe finden
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+Wenn Sie Sicherheitsbedenken haben, lesen Sie bitte das [Sicherheitsdokument](https://github.com/electron/electron/tree/master/SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Wenn du nach Programmierhilfe suchst, für Antworten auf Fragen oder um mit anderen Entwicklern zu diskutieren, die Electron verwenden, können Sie an diesen Orten mit der Community interagieren:
+- [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+  - Getting help
+  - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
+  - Sharing ideas with other Electron app developers
+  - And more!
 - [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-- `#atom-shell` channel on Freenode
+- `#atom-Shell` Kanal auf Freenode
 - `#electron` Kanal auf [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-- [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-- [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-- [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-- [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-- [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-- [`electron-pl`](https://electronpl.github.io) *(Poland)*
+- [`Elektron-ru`](https://telegram.me/electron_ru) *(Russisch)*
+- [`Elektron-br`](https://electron-br.slack.com) *(Brasilianisches Portugiesisch)*
+- [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Koreanisch)*
+- [`electron-jp`](https://electron-jp.slack.com) *(Japanisch)*
+- [`Elektron-tr`](https://electron-tr.herokuapp.com) *(Türkisch)*
+- [`Elektron-ID`](https://electron-id.slack.com) *(Indonesien)*
+- [`Elektron-pl`](https://electronpl.github.io) *(Polen)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Wenn Sie zu Electron beitragen möchten, lesen Sie das [Beitragsdokument](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Wenn Sie einen Fehler in einer [unterstützten Version](#supported-versions) von Electron gefunden haben, melden Sie ihn bitte mit dem [Issue-Tracker](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) ist eine von der Community verwaltete Liste von nützlichen Beispiel-Apps, Werkzeugen und Ressourcen.
 
-## Supported Versions
+## Unterstützte Versionen
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.1.x, then the 5.0.x as well as the 4.2.x series are supported.  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
+The latest three *stable* major versions are supported by the Electron team. Wenn zum Beispiel die neueste Version 6.1.x ist, werden sowohl die 5.0.x als auch als auch die 4.2.x Serie unterstützt.  Wir unterstützen nur die neueste kleinere Version für jede stabile Release-Serie.  Dies bedeutet, dass im Falle einer Sicherheitsbehebung 6.1. wird die Korrektur erhalten, aber wir werden keine neue Version von 6.0.x veröffentlichen.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+Die neueste stabile Version erhält einseitig alle Korrekturen von `Master`, und die vorhergehende Version erhält die überwiegende Mehrheit dieser Korrekturen als Zeit- und Bandbreitenanforderungen. Die älteste unterstützte Release-Zeile erhält nur Sicherheits-Korrekturen direkt.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Alle unterstützten Freigabelinien akzeptieren externe Pull-Requests zum Backport Korrekturen, die zuvor mit `Master zusammengeführt wurden`, , obwohl dies von Fall zu Fall für einige ältere unterstützte Zeilen sein kann. Alle angefochtenen Entscheidungen rund um die Version werden von der [Releases Arbeitsgruppe](https://github.com/electron/governance/tree/master/wg-releases) als Tagesordnungspunkt bei ihrer wöchentlichen Sitzung der Woche gelöst, die der Backport PR erhoben wird.
 
-When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
+Wenn eine API in einer Weise geändert oder entfernt wird, die bestehende Funktionalität kaputt macht die vorherige Funktionalität wird für mindestens zwei Hauptversionen unterstützt, wenn möglich ist, bevor sie entfernt werden. Zum Beispiel, wenn eine Funktion drei Argumente benötigt: und diese Zahl ist in Hauptversion 10 auf zwei reduziert die Version mit drei Argumenten würde weiter funktionieren, bis mindestens die Hauptversion 12 funktioniert. Vorher den Mindestwert für zwei Versionen werden wir versuchen, die Rückwärtskompatibilität über zwei Versionen hinaus zu unterstützen, bis die Betreuer das Gefühl haben, dass die Wartungslast zu hoch ist, um dies weiterhin tun zu können.
 
-### Currently supported versions
+### Derzeit unterstützte Versionen
 - 9.x.y
 - 8.x.y
 - 7.x.y
 
-### End-of-life
+### Ende des Lebens
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Wenn ein Release-Zweig das Ende seines Unterstützungszyklus erreicht, die Serie wird in NPM veraltet und ein endgültiges Ende der Support-Version gemacht. Diese Version wird eine Warnung hinzufügen, um mitzuteilen, dass eine nicht unterstützte Version von Electron verwendet wird.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+Diese Schritte sollen den App-Entwicklern helfen, zu lernen, wenn ein Zweig, den sie verwenden, nicht unterstützt wird, aber ohne übermäßig aufdringlich für Endbenutzer zu sein.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Wenn eine Bewerbung außergewöhnliche Umstände hat und auf einer nicht unterstützten Serie von Electron bleiben muss Entwickler können die Warnung zum Ende der Unterstützung verstummen, indem sie die endgültige Veröffentlichung aus dem `Paket weglassen. Sohn` `devDependencies`. Zum Beispiel, da die 1-6-x Serie mit einem Ende der Unterstützung 1.6 endete. 8 Release, Entwickler könnten wählen, um ohne Warnungen in der 1-6-x-Serie zu bleiben mit `devDependency` von `"electron": 1. .0 - 1.6.17`.
 
 ## Unterstützte Plattformen
 
@@ -51,19 +56,19 @@ Die folgenden Plattformen werden durch Electron unterstützt:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+Nur 64Bit-Binärdateien werden für macOS bereitgestellt, und die minimale Unterstützung für macOS ist macOS 10.10 (Yosemite).
 
 ### Windows
 
 Windows 7 und neuere Versionen werden unterstützt. Ältere Betriebssysteme werden nicht unterstützt (und funktionieren nicht zusammen mit Electron).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows bereitgestellt. [Electron 6.0.8 und später native Unterstützung für Windows auf Arm (`arm64`) Geräten](windows-arm.md) hinzufügen. Das Ausführen von Apps, die mit früheren Versionen gepackt wurden, ist mit dem ia32-Programm möglich.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Die vorgebauten `ia32` (`i686`) und `x64` (`amd64`) Binärdateien von Electron sind auf Ubuntu 12. 4, die `armv7l` Binärdatei ist gegen ARM v7 mit hard-float ABI und NEON für Debian Wheezy gebaut.
 
-[Until the release of Electron 2.0][arm-breaking-change], Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0][arm-breaking-change], Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Beide Binärdateien sind identisch.
 
 Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 12.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
 

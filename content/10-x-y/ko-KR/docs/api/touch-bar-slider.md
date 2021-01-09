@@ -2,7 +2,7 @@
 
 > Create a slider in the touch bar for native macOS applications
 
-프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSlider(options)`
 
@@ -14,7 +14,7 @@
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - The value that the user selected on the Slider.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 The following properties are available on instances of `TouchBarSlider`:
 

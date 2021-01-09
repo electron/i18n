@@ -1,55 +1,55 @@
-# Code Signing
+# Podepsání kódu
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Podpis kódu je bezpečnostní technologie, kterou používáte k potvrzení, že jste vytvořili aplikaci .
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Na macOS systém umí detekovat jakékoliv změny aplikace, ať už je změna spuštěna omylem nebo škodlivým kódem.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+V systému Windows systém přiřadí úroveň důvěry vašemu kódu k podepisování certifikátu , který pokud nemáte, nebo pokud je vaše důvěryhodnost nízká, způsobí bezpečnostní dialogová okna, která se budou zobrazovat při používání vaší aplikace.  Trust level buduje v průběhu času, takže je lepší začít podepisovat kód co nejdříve.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+I když je možné distribuovat nepodepsané aplikace, není to doporučeno. Windows i macOS ve výchozím nastavení zabrání stahování nebo spuštění nepodepsaných aplikací. Počínaje macOS Catalina (verze 10.15), musí uživatelé procházet několika manuálními kroky k otevření nepodepsaných aplikací.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper varování: Aplikaci nelze otevřít, protože
+vývojář nelze ověřit](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Jak vidíte, uživatelé dostávají dvě možnosti: přesuňte aplikaci přímo do koše nebo zrušte její spuštění. Nechcete, aby uživatelé viděli tento dialog.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+Pokud budujete Electron aplikaci, kterou hodláte balit a distribuovat, měla by být označena kódem.
 
-# Signing & notarizing macOS builds
+# Podepisuji & notarizuji macOS sestavení
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+Správná příprava macOS aplikací pro vydání vyžaduje dva kroky: Zaprvé, aplikace musí být označena kódem. Pak musí být aplikace nahrána do Apple pro proces nazvaný "notarizace", kde automatizované systémy dále ověří, že vaše aplikace nedělá nic, aby ohrozila její uživatele.
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+Chcete-li spustit proces, ujistěte se, že splníte požadavky pro podepsání a notarizaci vaší aplikace:
 
 1. Enroll in the [Apple Developer Program][] (requires an annual fee)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. Stáhnout a nainstalovat [Xcode][] - to vyžaduje počítač s macOS
 3. Generate, download, and install [signing certificates][]
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+Electronův ekosystém upřednostňuje konfiguraci a svobodu, takže existuje více způsobů, jak podepsat vaši aplikaci a notarizovat.
 
-## `elektronová kovárna`
+## `elektronická forge`
 
-If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`][], [`electron-osx-sign`][], and [`electron-notarize`][] under the hood.
+Pokud používáte Electronův oblíbený nástroj pro sestavení, vyžaduje vaše aplikace podpis a notarizaci několik doplňků k vaší konfiguraci. [Forge](https://electronforge.io) je kolekce oficiálních nástrojů Electronu pomocí [`elektronického balíku`][], [`elektronická osx-značka`][]a [`elektronická notarizace`][] pod hákem.
 
-Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
+Podívejme se na příklad konfigurace se všemi požadovanými poli. Ne všechny z nich jsou povinné: nástroje budou dostatečně chytré, aby automaticky našly vhodnou `identitu`, Například doporučujeme, abyste byli explicitní.
 
 ```json
 {
   "name": "my-app",
-  "version": "0.0.1",
+  "version": "0.0. ",
   "config": {
     "forge": {
       "packagerConfig": {
         "osxSign": {
-          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
-          "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
+          "identity": "Export ID Application: Felix Rieseberg (LT94ZKYDCJ)",
+          "ztížené runtime": true,
+          "nároky": "nároky. list",
+          "entitlements-inherit": "entitlements. list,
           "signature-flags": "library"
         },
         "osxNotarize": {
-          "appleId": "felix@felix.fun",
-          "appleIdPassword": "my-apple-id-password",
+          "appleId": "felix@felix. un",
+          "appleIdPassword": "my-apple-id-heslo",
         }
       }
     }
@@ -57,35 +57,35 @@ Let's take a look at an example configuration with all required fields. Not all 
 }
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+`plist` soubor, na který se zde odkazuje, potřebuje následující oprávnění pro macOS, pro zajištění bezpečnostních mechanismů Apple, že vaše aplikace dělá tyto věci bez ohledu na újmu:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow-unsigned-executable-memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
 
-To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+Chcete-li vše vidět v akci, podívejte se na zdrojový kód Electron Fiddle, [zejména jeho `elektronická forge` konfigurace soubor](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
 
-## `electron-builder`
+## `elektronický stavitel`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+Electron Builder přichází s vlastním řešením pro podepsání vaší žádosti. naleznete [jeho dokumentaci zde](https://www.electron.build/code-signing).
 
-## `electron-packager`
+## `elektronický balík`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
+Pokud nepoužíváte integrovaný vývojový plynovod jako Forge nebo Builder, pravděpodobně používáte [`elektronický balík`][], která obsahuje [`elektronický osx-znak`][] a [`elektronicko-notarize`][].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+Pokud používáte API Packageru, můžete použít [v konfiguraci, že obě značky a notarizuje vaši aplikaci](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
 ```js
 const packager = require('electron-packager')
@@ -93,31 +93,31 @@ const packager = require('electron-packager')
 packager({
   dir: '/path/to/my/app',
   osxSign: {
-    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-    'hardened-runtime': true,
-    entitlements: 'entitlements.plist',
-    'entitlements-inherit': 'entitlements.plist',
+    identita: 'Application of Developer ID: Felix Rieseberg (LT94ZKYDCJ)',
+    'zestátněný pracovní čas': true,
+    oprávnění: 'nároky. list,
+    'entitlements-inherit': 'entitlements. list',
     'signature-flags': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix.fun',
+    appleId: 'felix@felix. un',
     appleIdPassword: 'my-apple-id-password'
   }
 })
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+`plist` soubor, na který se zde odkazuje, potřebuje následující oprávnění pro macOS, pro zajištění bezpečnostních mechanismů Apple, že vaše aplikace dělá tyto věci bez ohledu na újmu:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow-unsigned-executable-memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
@@ -127,24 +127,24 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 See the [Mac App Store Guide][].
 
-# Signing Windows builds
+# Podepisování sestavení Windows
 
-Before signing Windows builds, you must do the following:
+Před podpisem Windows sestavení musíte udělat následující:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. Získejte podepsaný certifikát kódu Windows Authenticode (vyžaduje roční poplatek)
+2. Nainstalujte Visual Studio pro získání podepisovacího nástroje (stačí bezplatná [komunita Edition](https://visualstudio.microsoft.com/vs/community/))
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Můžete získat certifikát s podpisem kódu od mnoha prodejců. Ceny se liší, takže může mít cenu za váš čas nakupovat. Mezi populární prodejce patří:
 
-* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [digikert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
+* Mimo jiné prosím nakupujte a najděte si, co vyhovuje vašim potřebám, Google je Váš přítel 😄
 
-There are a number of tools for signing your packaged app:
+Existuje řada nástrojů pro podepsání vaší zabalené aplikace:
 
-- [`electron-winstaller`][] will generate an installer for windows and sign it for you
-- [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`elektronický instalátor`][] vygeneruje instalační program pro okna a podepíše ho pro
+- [`elektronická forge`][] může podepisovat instalační programy, které generuje prostřednictvím Squirrel.Windows nebo MSI cílů.
 - [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
@@ -153,11 +153,14 @@ See the [Windows Store Guide][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
-[`electron-forge`]: https://github.com/electron-userland/electron-forge
-[`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
-[`electron-packager`]: https://github.com/electron/electron-packager
-[`electron-notarize`]: https://github.com/electron/electron-notarize
-[`electron-winstaller`]: https://github.com/electron/windows-installer
+[`elektronická forge`]: https://github.com/electron-userland/electron-forge
+[`elektronická osx-značka`]: https://github.com/electron-userland/electron-osx-sign
+[`elektronický osx-znak`]: https://github.com/electron-userland/electron-osx-sign
+[`elektronického balíku`]: https://github.com/electron/electron-packager
+[`elektronický balík`]: https://github.com/electron/electron-packager
+[`elektronická notarizace`]: https://github.com/electron/electron-notarize
+[`elektronicko-notarize`]: https://github.com/electron/electron-notarize
+[`elektronický instalátor`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
 [Mac App Store Guide]: mac-app-store-submission-guide.md

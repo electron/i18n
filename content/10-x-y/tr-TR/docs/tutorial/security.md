@@ -429,22 +429,23 @@ const mainWindow = new BrowserWindow()
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. ` allowpopups </ 0> özniteliği
-kullanarak yeni <a href="../api/browser-window.md" f-id="browser-window" lbb="3" fo="1"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
-<code> window.open () </ 0>  <code><webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
 
 
 ### Neden?
 
-op-up'a ihtiyacınız yoksa, dosyanın oluşturulmasına izin vermeyin. varsayılan olarak yeni ` BrowserWindows </ 0>. This follows the principle
-of minimally required access: Don't let a website create new popups unless
-you know it needs that feature.</p>
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
-<h3 spaces-before="0">Nasıl?</h3>
 
-<pre><code class="html"><!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
-`</pre> 
+
+### Nasıl?
+
+
+
+```html<!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
+```
+
 
 
 
@@ -727,6 +728,9 @@ You should strive for always using the latest available version of Electron. Whe
 An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
 
 Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+
+
+[browser-window]: ../api/browser-window.md
 
 
 [browser-window]: ../api/browser-window.md

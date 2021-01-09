@@ -12,12 +12,12 @@ A lista abaixo contém um número de passos razoavelmente diretos e fáceis de i
 
 Dia após dia nós temos visto que a estratégia mais bem sucedida para construir aplicações Electron com bom desempenho é analisar o código rodando, encontrar a parte que mais precisa de recursos e otimizá-la. Repetir esse processo incansavelmente, de novo e de novo vai aumentar drasticamente a performance da sua aplicação. Experiências trabalhando com aplicativos maiores como o Visual Studio Code ou o Slack tem mostrado que essa prática é de longe a estratégia mais confiável para aumentar a performance.
 
-Para aprender mais sobre como analisar o código da sua aplicação se familiarize com as Ferramentas de Desenvolvedor do Chrome. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) tool.
+Para aprender mais sobre como analisar o código da sua aplicação se familiarize com as Ferramentas de Desenvolvedor do Chrome. Para uma análise avançada olhando para vários processos de uma vez, considere a ferramenta [Chrome Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool).
 
 ### Leituras Recomendadas
 
- * [Começando na análise de performance em tempo de execução](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Palestra:  "O primeiro segundo - Visual Studio Code"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Começando na análise de performance em tempo de execução](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+* [Palestra:  "O primeiro segundo - Visual Studio Code"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## Sumário
 
@@ -49,7 +49,8 @@ Em suma, um módulo aparentemente ótimo escrito primordialmente para servidores
 
 Quando considerar um módulo, nos recomendados que você verifique:
 
-1. o tamanho das dependências inclusas. 2) Os recursos necessários para fazer um (`require()`)
+1. the size of dependencies included
+2. the resources required to load (`require()`) it
 3. os recursos requeridos para realizar a ação que você está interessado
 
 Gerar um perfil de consumo de CPU e de memória para carregar um módulo pode ser feito com um simples comando no terminal. No exemplo abaixo, nós estamos observando o popular módulo `request`.
@@ -162,7 +163,6 @@ A poderosa arquitetura multi-procedural fica pronta para ajudar você com suas t
 
 3) Evite usar operações que bloqueiam I/O no processo principal. Em suma, sempre que um módulo Node.js (como `fs` ou `child_process`) oferecer uma versão assíncrona ou síncrona, você deve dar preferência a versão assíncrona e não-bloqueadora.
 
-
 ## 4) Bloqueando o processo de renderização
 
 Desde que o Electron esteja de acordo com a versão do Chrome, você pode usar os mais novos e melhores recursos que a plataforma Web oferece para adiar ou descarregar operações pesadas a fim de manter sua aplicação leve e responsiva.
@@ -180,7 +180,6 @@ Geralmente, todo conselho para construir aplicativos web melhores para navegador
 *`requestIdleCallback()`* permite ao desenvolvedor enfileirar uma função para ser executada assim que o processo estiver entrando em um período ocioso. Ela permite você fazer tarefas de baixa prioridade ou de fundo sem impactar a experiência do usuário. Para mais informações sobre como usar isso, cheque a sua documentação no [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* são uma ferramenta poderosa para rodar um código em uma thread separada. Há algumas ressalvas - consulte a [documentação de multi-thread do Electron](./multithreading.md) e a [documentação do MDN para Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Elas são a solução ideal para qualquer operação que precise de muito poder de CPU por um longo período de tempo.
-
 
 ## 5) Sobrecargas desnecessárias
 
@@ -202,14 +201,13 @@ Além disso, examine cuidadosamente as bibliotecas que você usa. São realmente
 
 Se você estiver usando um compilador/transpilador como TypeScript, examine sua configuração e certifique-se de que esteja utilizando a versão mais recente do ECMAScript suportada pelo Electron.
 
-
 ## 6) Requisições desnecessárias ou bloqueadoras
 
 Evite buscar raramente recursos da internet se eles podem facilmente ser empacotados com seu aplicativo.
 
 ### Por que?
 
-Muitos usuários do Electron começam com um aplicativo inteiramente baseado na web que estão transformando em uma aplicação desktop. Como desenvolvedores web, estamos acostumados a carregar recursos de uma variedade de redes de conteúdo. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
+Muitos usuários do Electron começam com um aplicativo inteiramente baseado na web que estão transformando em uma aplicação desktop. Como desenvolvedores web, estamos acostumados a carregar recursos de uma variedade de redes de conteúdo. Agora que você está enviando uma aplicação desktop adequada, tente "cortar o corte" quando possível e evite deixar seus usuários esperar por recursos que nunca mudam e podem ser facilmente incluídos em seu aplicativo.
 
 Um típico exemplo é o Google Fonts. Muitos desenvolvedores usam a incrível coleção de fontes gratuitas do Google, que vem com um rede de entrega de conteúdo. O tom é direto: Inclua algumas linhas de CSS e o Google cuidará do resto.
 

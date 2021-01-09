@@ -2,7 +2,7 @@
 
 > Gère des fichiers et URLs à l'aide de leurs applications par défaut.
 
-Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 Le module `shell` fournit des fonctions liées à l'intégration bureau.
 
@@ -13,6 +13,8 @@ const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
+
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Méthodes
 
@@ -28,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with an string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
 Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 

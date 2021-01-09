@@ -149,9 +149,9 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false`を使用して、文字列のアイソレーションを強制する場合やNode primitivesの使用を避ける場合であっても、 `contextIsolation` を使用しなければなりません。
 
-### Why & How?
+### なぜ & 方法を？
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+`contextIsolation` が何であるかと、有効にする方法については、 [コンテキストIsolation](context-isolation.md) ドキュメントを参照してください。
 
 
 ## 4) リモートのコンテンツからセッション権限リクエストを利用する
@@ -192,7 +192,7 @@ session
 
 _Electron のデフォルトを推奨しています_
 
-レンダラープロセス ([`BrowserWindow`][browser-window]、[`BrowserView`][browser-view]、[`<webview>`][webview-tag]) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _Electron のデフォルトを推奨しています_
 
-[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`][browser-window] を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
+[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
-ポップアップが必要ない場合は、デフォルトでは新しい [`BrowserWindows`][browser-window] の作成を許可しないほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
 
 ### どうすればいいの？
 
@@ -524,7 +524,7 @@ const mainWindow = new BrowserWindow({
 ### どうすればいいの？
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // ファイルの読み込み機能を公開
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])

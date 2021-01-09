@@ -1,17 +1,17 @@
-# Experimental APIs
+# Experimentele API's
 
-Some of Electrons APIs are tagged with `_Experimental_` in the documentation. This tag indicates that the API may not be considered stable and the API may be removed or modified more frequently than other APIs with less warning.
+Sommige Electrons API's zijn getagd met `_Experimental_` in de documentatie. Deze tag geeft aan dat de API mogelijk niet stabiel is en de API kan worden verwijderd of vaker worden aangepast dan andere API's met minder waarschuwing.
 
-## Conditions for an API to be tagged as Experimental
+## Voorwaarden voor het taggen van een API als Experimenteel
 
-Anyone can request an API be tagged as experimental in a feature PR, disagreements on the experimental nature of a feature can be discussed in the API WG if they can't be resolved in the PR.
+Iedereen kan vragen om een API te taggen als experimenteel in een functie PR, meningsverschillen over de experimentele aard van een functie kunnen worden besproken in de API WG als ze niet kunnen worden opgelost in de PR.
 
-## Process for removing the Experimental tag
+## Proces voor het verwijderen van de Experimentele tag
 
-Once an API has been stable and in at least two major stable release lines it can be nominated to have its experimental tag removed.  This discussion should happen at an API WG meeting.  Things to consider when discussing / nominating:
+Zodra een API stabiel en in ten minste twee belangrijke stabiele releaselijsten is kan hij worden genomineerd om zijn experimentele tag te laten verwijderen.  Deze discussie moet gebeuren tijdens een API WG-vergadering.  Dingen om te bedenken bij het bespreken / voordragen:
 
-* The above "two major stables release lines" condition must have been met
-* During that time no major bugs / issues should have been caused by the adoption of this feature
-* The API is stable enough and hasn't been heavily impacted by Chromium upgrades
-* Is anyone using the API?
-* Is the API fulfilling the original proposed usecases, does it have any gaps?
+* De voorwaarde hierboven "twee grote stallen vrijgavelijnen" moet zijn voldaan
+* Gedurende die tijd hadden er geen grote bugs / problemen mogen ontstaan door de invoering van deze functie
+* De API is stabiel genoeg en is niet zwaar beïnvloed door de Chromium upgrades
+* Is iemand die de API gebruikt?
+* Voldoet de API aan de oorspronkelijk voorgestelde useca's? Zijn er hiaten?

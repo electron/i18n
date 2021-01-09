@@ -2,9 +2,13 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Process: [Renderer](../glossary.md#renderer-process)
+العملية:
+
+ الرئيسية </ 0> ،  العارض </ 1></p> 
 
 The following example shows how to capture video from a desktop window whose title is `Electron`:
+
+
 
 ```javascript
 // In the renderer process.
@@ -47,9 +51,12 @@ function handleError (e) {
 }
 ```
 
+
 To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
 To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+
+
 
 ```javascript
 const constraints = {
@@ -66,20 +73,27 @@ const constraints = {
 }
 ```
 
+
+
+
 ## Methods
 
 The `desktopCapturer` module has the following methods:
 
+
+
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
+* `options` Object 
+    * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
 **Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+
+
 
 ## Caveats
 

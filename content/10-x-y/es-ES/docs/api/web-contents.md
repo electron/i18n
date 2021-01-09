@@ -2,7 +2,7 @@
 
 > Procesamiento y control de páginas webs.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter][event-emitter]. Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
@@ -43,7 +43,7 @@ Devuelve `WebContents` - Una instancia de WebContents con el ID especificado.
 
 > Renderice y controle el contenido de una instancia de BrowserWindow.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ### Eventos de Instancia
 
@@ -59,7 +59,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -73,7 +73,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -83,8 +83,8 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 Devuelve:
 
-* `event` Evento
-* `isMainFrame` Boolean
+* `event` Event
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -102,19 +102,19 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador terminó de g
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 
 Emitido cuando el documento en el frame dado es cargado.
 
-#### Evento: "page-title-updated"
+#### Evento: 'page-title-updated'
 
 Devuelve:
 
 * `event` Event
-* `title` Cadena
+* `title` String
 * `explicitSet` Boolen
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
 #### Evento: 'page-favicon-updated'
 
@@ -136,9 +136,9 @@ Devuelve:
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
-* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+* `postBody` [PostBody](structures/post-body.md) (opcional) - Los datos que serán enviados a la nueva ventana, junto con las cabeceras apropiadas que se establecerán. Si no hay datos para enviar, el valor será `null`. Solo se define cuando la ventana está siendo creada por un formulario que establece `target=_blank`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emitido cuando la página solicita abrir una nueva ventana para una `url`. Puede ser requerido por `window.open` o un link externo como `<a target='_blank'>`.
 
 Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
@@ -173,9 +173,9 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Devuelve:
 
 * `event` Event
-* `url` Cadena
+* `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurrir cuando el objeto `window.location` se cambia o un usuario hace clic en un enlace en la página.
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `webContents.loadURL` y `webContents.back`.
 
@@ -190,7 +190,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -203,7 +203,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -220,7 +220,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -249,7 +249,7 @@ Devuelve:
 * `url` String
 * `httpResponseCode` Integer - -1 para navegaciones no HTTP
 * `httpStatusText` String - vacío para navegaciones no HTTP
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -263,7 +263,7 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -305,7 +305,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Devuelve:
 
 * `event` Event
-* `killed` Booleano
+* `killed` Boolean
 
 Emitido cuando el proceso se crashea o es terminado.
 
@@ -323,7 +323,7 @@ Devuelve:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -410,14 +410,14 @@ Emitido cuando Devtools es cerrado.
 
 Emitido cuando DevTools es centrado o abierto.
 
-#### Evento: 'error-certificado'
+#### Evento: 'certificate-error'
 
 Devuelve:
 
 * `event` Event
 * `url` String
 * `error` cadena - el error del código.
-* `certificate` [certificate](structures/certificate.md)
+* `certificate` [Certificate](structures/certificate.md)
 * `callback` Función
   * `isTrusted` Boolean - indica si el certificado se puede considerar de confianza.
 
@@ -425,7 +425,7 @@ Emitido cuando no se pudo verificar el `certificate` for `url`.
 
 El uso es el mismo con [the `certificate-error` evento de `app`](app.md#event-certificate-error).
 
-#### Evento: 'select--client-certificate'
+#### Evento: 'select-client-certificate'
 
 Devuelve:
 
@@ -725,7 +725,7 @@ Devuelve:
 
 * `event` IpcMainEvent
 
-Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-web-contents'
 
@@ -733,7 +733,7 @@ Devuelve:
 
 * `event` IpcMainEvent
 
-Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ### Métodos de Instancia
 
@@ -741,7 +741,7 @@ Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de render
 
 * `url` String
 * `options` Object (opcional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP Referencia.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
@@ -916,7 +916,7 @@ contents.on('did-finish-load', () => {
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -927,7 +927,7 @@ contents.on('did-finish-load', async () => {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `code` Cadena de caracteres
+* `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
@@ -1159,9 +1159,9 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1173,7 +1173,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `success` Boolean - Indica el éxito de la llamada impresa.
   * `failureReason` String - Descripción del error llamada de nuevo si la impresión falla.
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Ambos anchura y altura deben ser mínimamente 353 microns, pero puede ser más grande en algunos sistemas operativos.
 
 Imprime la página web de la ventana. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -1194,15 +1194,15 @@ win.webContents.print(options, (success, errorType) => {
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
-  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
@@ -1337,7 +1337,7 @@ app.whenReady().then(() => {
 
 * `options` Object (opcional)
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. El valor por defecto es `true`.
 
 Abre las herramientas del desarrolador.
 
@@ -1372,7 +1372,7 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 #### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` String
+* Cadena `workerId`
 
 Inspects the shared worker based on its ID.
 
@@ -1426,7 +1426,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Entero
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` Cadena
 * `...args` any[]
 
@@ -1458,9 +1458,9 @@ ipcMain.on('ping', (event) => {
 * `mensaje` cualquiera
 * `transfer` MessagePortMain[] (optional)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+Envía un mensaje al renderer process, transfiriendo opcionalmente la propiedad de cero o más objetos [`MessagePortMain`][].
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+Los objetos `MessagePortMain` transferidos estarán disponible en el renderer process accediendo a la propiedad `ports` del evento emitido. Cuando llegan al renderer, serán objetos DOM `MessagePort` nativos.
 
 Por ejemplo:
 ```js
@@ -1573,7 +1573,7 @@ Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que e
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Sólo se aceptan valores entre 1 y 240.
 
 #### `contents.getFrameRate()`
 
@@ -1617,7 +1617,7 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. This also affects the Page Visibility API.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
@@ -1653,13 +1653,13 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Sólo se aceptan valores entre 1 y 240.
 
 Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-Un `Integer` representando el ID único de este WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
+Un `Integer` representando el ID único de este WebContents. Cada ID es único entre todas las instancias `WebContents` de toda la aplicación Electron.
 
 #### `contents.session` _Readonly_
 
@@ -1681,7 +1681,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. This also affects the Page Visibility API.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

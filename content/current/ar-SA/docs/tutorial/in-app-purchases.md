@@ -1,116 +1,119 @@
-# In-App Purchase (macOS)
+# شراء داخل التطبيق (macOS)
 
-## Preparing
+## تحضير
 
-### Paid Applications Agreement
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+### اتفاقية التطبيقات المدفوعة
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+إذا لم تكن قد فعلت ذلك بالفعل، فستحتاج إلى توقيع اتفاقية تطبيقات الدفع وإعداد المعلومات المصرفية والضريبية الخاصة بك في iTunes Connect.
 
-### Create Your In-App Purchases
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+[مساعدة مطور توصيل iTunes : الاتفاقات، والجباية الضريبية، والمصرفية](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+### إنشاء عمليات الشراء الخاصة بك في التطبيق
 
-### Change the CFBundleIdentifier
+بعد ذلك، ستحتاج إلى تكوين مشترياتك داخل التطبيق في iTunes Connect، وإدراج تفاصيل مثل الاسم، التسعير، والوصف الذي يسلط الضوء على ميزات ووظائف الشراء داخل التطبيق.
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+[مساعدة مطور توصيل iTunes : إنشاء شراء داخل التطبيق](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+
+### تغيير الـ CFBundleIdentifier
+
+لاختبار عملية الشراء في التطبيق في التطوير باستخدام Electron ، يجب عليك تغيير `CFBundleID` في `node_modules/electron/dist/Electron.app/Contents/Info.plist`. يجب عليك استبدال `com.github.electron` بمعرف الحزمة للتطبيق الذي أنشأته مع اتصال iTunes.
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## مثال الكود
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+هنا مثال يوضح كيفية استخدام عمليات الشراء في التطبيق في إلكترون. يجب عليك استبدال معارف المنتج بمعرفات المنتجات التي تم إنشاؤها بواسطة iTunes Connect (معرف `com. xample.app.product1` هو `منتج1`). لاحظ أنه يجب عليك الاستماع إلى حدث `المعاملات` الذي تم تحديثه في أقرب وقت ممكن في التطبيق الخاص بك.
 
 ```javascript
-const { inAppPurchase } = require('electron').remote
+// العملية الرئيسية
+const { inAppPurchase } = مطلوبة ('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
-inAppPurchase.on('transactions-updated', (event, transactions) => {
-  if (!Array.isArray(transactions)) {
+// الاستماع للمعاملات في أقرب وقت ممكن.
+inAppPurchase.on('المعاملات-updated'، (الحدث، المعاملات) => {
+  إذا (!Array.isArray(المعاملات)) {
     return
   }
 
-  // Check each transaction.
-  transactions.forEach(function (transaction) {
-    const payment = transaction.payment
+  // تحقق من كل معاملة.
+  المعاملات.forEach(وظيفة (معاملة) {
+    الدفع = المعاملة. أيت
 
-    switch (transaction.transactionState) {
-      case 'purchasing':
-        console.log(`Purchasing ${payment.productIdentifier}...`)
-        break
+    تبديل (معاملة). ransactionState) {
+      حالة 'الشراء':
+        وحدة التحكم. og(`شراء ${payment.productIdentifier}... )
+        استراحة
 
-      case 'purchased': {
-        console.log(`${payment.productIdentifier} purchased.`)
+      حالة 'شراء': {
+        وحدة تحكم og(`${payment.productIdentifier} شراء.`)
 
-        // Get the receipt url.
+        // احصل على رابط الإيصال.
         const receiptURL = inAppPurchase.getReceiptURL()
 
-        console.log(`Receipt URL: ${receiptURL}`)
+        console.log(`receieipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
-        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+        // أرسل ملف الإيصال إلى الخادم وتحقق مما إذا كان صحيحا.
+        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStorereceieipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // إذا كان الإيصال صحيحاً، يتم شراء المنتج
         // ...
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // إنهاء المعاملة.
+        inAppPurchase.finishTransactionByDate(المعاملة.transactionDate)
 
         break
       }
 
-      case 'failed':
+      حالة 'فشل':
 
-        console.log(`Failed to purchase ${payment.productIdentifier}.`)
+        console.log('فشل في شراء ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
+        // إنهاء المعاملة.
+        معاملة inAppPurchase.finishTransactionByDate(معاملة). تاريخ الاستراحة)
 
-        break
-      case 'restored':
+        استراحة
+      حالة 'استعادة':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+        وحدة التحكم. og(`تم استعادة شراء ${payment.productIdentifier} ). )
 
-        break
-      case 'deferred':
+        استراحة
+      حالة 'تأجيل':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
+        وحدة بيانات. og(`تم تأجيل شراء ${payment.productIdentifier} ). )
 
-        break
-      default:
-        break
-    }
+        استراحة
+      الافتراضي:
+        استراحة
+
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
+// تحقق مما إذا كان للمستخدم حق الشراء داخل التطبيق.
+إذا كان (!inAppPurchase.canMakePayments()) {
+  console.log('لا يسمح للمستخدم القيام بشراء داخل التطبيق.')
 }
 
-// Retrieve and display the product descriptions.
+// استرداد وعرض أوصاف المنتج.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Check the parameters.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
+  إذا (!Array.isArray(products) <unk> products.length <= 0) {
+    console.log('غير قادر على استرداد معلومات المنتج. )
+    إرجاع
   }
 
-  // Display the name and price of each product.
+  // عرض اسم وسعر كل منتج.
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
   // Ask the user which product he/she wants to purchase.
-  const selectedProduct = products[0]
-  const selectedQuantity = 1
+  قم بتغيير المنتج المختار = المنتجات[0]
+  إلى الكمية المختارة = 1
 
-  // Purchase the selected product.
+  // شراء المنتج المحدد.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')

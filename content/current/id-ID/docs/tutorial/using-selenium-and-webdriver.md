@@ -6,7 +6,7 @@ Dari [ChromeDriver - WebDriver untuk Chrome](https://sites.google.com/a/chromium
 
 ## Menyiapkan Spectron
 
-[Spectron](https://electronjs.org/spectron) adalah kerangka pengujian ChromeDriver yang didukung secara resmi untuk Elektron. Ini dibangun di atas [WebdriverIO](http://webdriver.io/) dan memiliki pembantu untuk mengakses API Elektron dalam pengujian dan kumpulan ChromeDriver Anda.
+[Spectron](https://electronjs.org/spectron) adalah kerangka pengujian ChromeDriver yang didukung secara resmi untuk Elektron. Ini dibangun di atas [WebdriverIO](https://webdriver.io/) dan memiliki pembantu untuk mengakses API Elektron dalam pengujian dan kumpulan ChromeDriver Anda.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Menyiapkan dengan WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) menyediakan Paket Node untuk pengujian dengan driver web, kami akan menggunakannya sebagai contoh.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) menyediakan Paket Node untuk pengujian dengan driver web, kami akan menggunakannya sebagai contoh.
 
 ### 1. Start ChromeDriver
 
@@ -101,7 +101,7 @@ Context | Request Context
 
 ## Menyiapkan dengan WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) menyediakan paket Node untuk pengujian dengan web sopir.
+[WebdriverIO](https://webdriver.io/) menyediakan paket Node untuk pengujian dengan web sopir.
 
 ### 1. Start ChromeDriver
 

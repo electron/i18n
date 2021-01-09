@@ -14,7 +14,7 @@ Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌
 
 "모던 Electron 응용 프로그램을 구축하기위한 완벽한 도구". Electron Forge는 Electron 개발을 위한 기존의 (잘 관리 된) 빌드 툴을 일관된 패키지로 통합하여 누구나 바로 Electron 개발에 뛰어들 수 있습니다.
 
-Forge는 Webpack을 번들러로 사용하는 [즉시 사용 가능한 템플릿](https://electronforge.io/templates)과 함께 제공됩니다. Typescript 설정 예가 포함되어 있는데 사용자가 변경하기 쉽게 2개의 설정 파일을 제공합니다. It includes an example typescript configuration and provides two configuration files to enable easy customization. ([`electron-packager`](https://github.com/electron/electron-packager)와 같은) 더 큰 Electron 커뮤니티에서 사용되는 것과 동일한 핵심 모듈을 사용합니다. - (Slack과 같은) Electron maintainers가 변경 한 사항은 Forge의 사용자에게도 도움이됩니다.
+Forge는 Webpack을 번들러로 사용하는 [즉시 사용 가능한 템플릿](https://electronforge.io/templates)과 함께 제공됩니다. Typescript 설정 예가 포함되어 있는데 사용자가 변경하기 쉽게 2개의 설정 파일을 제공합니다. It includes an example typescript configuration and provides two configuration files to enable easy customization. www.TradeView.Api
 
 [Electronforge.io](https://electronforge.io/)에 더 많은 정보 및 문서를 찾을 수 있습니다.
 

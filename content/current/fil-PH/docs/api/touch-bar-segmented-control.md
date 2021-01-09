@@ -4,7 +4,7 @@
 
 Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `bagong TouchBarSegmentedControl(options)` _Experimental_
+### `new TouchBarSegmentedControl(options)`
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
@@ -41,3 +41,7 @@ Isang `SegmentedControlSegment[]`array ang kumakatawan sa mga segment sa mga kon
 #### `touchBarSegmentedControl.selectedIndex`
 
 Isang`Integer`ang kumakatawan sa kasalukuyang selected segment. Ang agad na pagbabago ng value ay ina-update ang control sa touch bar. Ang pakikipag-ugnayan ng user sa touch bar ay awtomatikong i-update ang value nito.
+
+#### `touchBarSegmentedControl.mode`
+
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.

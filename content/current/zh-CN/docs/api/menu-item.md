@@ -8,7 +8,7 @@
 
 ### `new MenuItem(可选)`
 
-* `options` Object
+* `选项` 对象
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.

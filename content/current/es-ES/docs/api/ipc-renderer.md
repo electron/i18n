@@ -4,7 +4,7 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
+El módulo `ipcRenderer` es un  [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
 
 Ver [ipcMain](ipc-main.md) para ejemplos de códigos.
 
@@ -88,7 +88,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you do not need a respons to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
@@ -103,7 +103,7 @@ Send a message to the main process via `channel` and expect a result synchronous
 
 El processo principal lo controlo por escuchar `channel` con el módulo [`ipcMain`](ipc-main.md), y contesta configurando `event.returnValue`.
 
-> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. Es mucho mejor usar la versión asincróna [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.postMessage(channel, message, [transfer])`
 

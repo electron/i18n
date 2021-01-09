@@ -1,8 +1,8 @@
 ## Class: ClientRequest
 
-> HTTP/HTTPS अनुरोध करें।
+> Make HTTP/HTTPS requests.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter][event-emitter].
 

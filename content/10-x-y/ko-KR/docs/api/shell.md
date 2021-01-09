@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 **Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
-## 메서드
+## 메소드
 
 `shell` 모듈은 아래의 메서드를 가지고 있습니다 :
 

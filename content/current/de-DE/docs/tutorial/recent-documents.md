@@ -1,58 +1,76 @@
-# Recent Documents (Windows & macOS)
+# Zuletzt geöffnete Dokumente (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+## Übersicht
+
+Windos und macOS bieten die Möglichkeit für Apps, die zuletzt geöffneten Dateien in der Taskbar per JumpList oder dock menu anzuzeigen.
 
 __JumpList:__
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList Zuletzt geöffnete Dateien](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 __Dock Menu einer Anwendung:__
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS Dock Menü](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-Um eine Datei zu den zuletzt verwendeten Dokumenten hinzuzufügen können Sie die [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API verwenden:
+Um eine Datei zu den letzten Dokumenten hinzuzufügen, müssen Sie die [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API verwenden.
 
-```javascript
+## Beispiel
+
+### Ein Element zu den letzten Dokumenten hinzufügen
+
+Beginnend mit einer funktionierenden Anwendung aus dem [Quick Start Guide](quick-start.md), fügen Sie folgende Zeilen in die `main.js` Datei ein:
+
+```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')
+
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Und Sie können die [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API verwenden um die Liste der zuletzt verwendeten Dokumente zu leeren:
+Nachdem Sie die Electron-Anwendung gestartet haben, klicken Sie mit der rechten Maustaste auf das Symbol der Anwendung. Sie sollten den Artikel sehen, den Sie gerade hinzugefügt haben. In dieser Anleitung ist das Element eine Markdown Datei im Stammverzeichnis des Projekts:
+
+![Aktuelles Dokument](../images/recent-documents.png)
+
+### Liste der letzten Dokumente löschen
+
+Um die Liste der letzten Dokumente zu löschen, müssen Sie [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API in der `main.js` Datei verwenden:
 
 ```javascript
 const { app } = require('electron')
+
 app.clearRecentDocuments()
 ```
 
-## Bemerkungen zu Windows
+## Zusätzliche Informationen
 
-Um diese Funktion unter Windows zu nutzen, muss die Anwendung als Handler für den Dateityp des Dokuments registriert sein, ansonsten wird die Datei nicht in der JumpList erscheinen, auch nachdem sie hinzugefügt wurde. Alle Informationen zum Registrieren Ihrer Anwendung finden Sie unter [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+### Bemerkungen zu Windows
+
+Um diese Funktion unter Windows nutzen zu können, muss Ihre Anwendung als ein Handler für den Dateityp des Dokuments registriert sein andernfalls wird die Datei nicht in JumpList angezeigt, auch wenn Sie sie hinzugefügt haben. Alle Informationen zum Registrieren Ihrer Anwendung finden Sie unter [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Sobald ein Nutzer auf eine Datei in der JumpList klickt, wird eine neue Instanz Ihrer Anwendung gestartet mit dem Pfad der Datei als Befehlszeilenargument.
 
-## Bemerkungen zu macOS
+### Bemerkungen zu macOS
 
-### Adding the Recent Documents list to the application menu:
+#### Fügen Sie die Liste der letzten Dokumente zum Anwendungsmenü hinzu
 
-![macOS Recent Documents menu item](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
-
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu's template.
+Sie können Menüeinträge zum Zugriff und Löschen von Dokumenten hinzufügen, indem Sie folgenden Code-Snippet zu Ihrer Menüvorlage hinzufügen:
 
 ```json
 {
-  "submenu":[
+  "Untermenü":[
     {
-      "label":"Open Recent",
-      "role":"recentdocuments",
-      "submenu":[
+      "label":"Kürzlich geöffnet",
+      "Rolle":"Letzte Dokumente",
+      "Untermenü":[
         {
-          "label":"Clear Recent",
-          "role":"clearrecentdocuments"
+          "label":"Kürzlich löschen",
+          "Rolle":"clearrecentdocuments"
         }
       ]
     }
   ]
 }
 ```
+
+![macOS Letzte Dokumente Menüpunkt](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
 
 Sobald eine Datei vom Menu der zuletzt hinzugefügten Dateien angefordert wird, so wird dafür das `open-file`-Event des `app`-Moduls ausgeworfen.

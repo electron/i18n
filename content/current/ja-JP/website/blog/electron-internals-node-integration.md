@@ -1,5 +1,5 @@
 ---
-title: 'Electron の舞台裏&#58; メッセージループの統合'
+title: 'Electron の舞台裏: メッセージループの統合'
 author: zcbenz
 date: '2016-07-28'
 ---
@@ -44,3 +44,4 @@ libuv にバックエンドファイル記述子の概念が導入されまし�
 
 メッセージループの統合の実装は [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common) 下の `node_bindings` ファイルで見ることができます。 これは Node を統合したいプロジェクトでも簡単に再利用できます。
 
+*更新: 実装を [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc) に移動しました。*

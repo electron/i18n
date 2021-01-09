@@ -4,7 +4,7 @@
 
 בהרצת `npm install electron`, חווים חלק מהמשתמשים תקלות בהתקנה.
 
-ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. The best resolution is to try switching networks, or wait a bit and try installing again.
+ברוב בהמקרים תקלות אלו הן תוצאה של בעיות בתקשורת האינטרנט ולא בחבילת ה-npm של `electron`. תקלות כמו `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ו-`ETIMEDOUT` הן כולן סימן לתקלות תקשורת. לרוב, הפתרון הוא לנסות לחליף רשת או לנסות להתקין שוב במועד מאוחר יותר.
 
 ניתן גם לנסות להתקין Electron ישירות מ-[electron/electron/releases](https://github.com/electron/electron/releases) אם ההתקנה דרך `npm` נכשלת.
 
@@ -16,17 +16,17 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 למידע נוסף פתח [security introduction](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## מתי תעודכן Electron לגרסה האחרונה של Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+כאשר יוצאת גרסה חדשה של Node.js, אנחנו בדרך כלל מחכים חודש לפני שמשדרגים את הגרסה עבור Electron. ובכך אנו יכולים להימנע מהשפעות של באגים כתוצאה משדרוג הגרסה של Node.js, דבר שקורה לעיתים קרובות.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+מאפיינים חדשים של Node.js בדרך כלל מובאים על ידי שדרוגים של V8, משום שElectorn נעזר בV8 בתוך דפדפן Chrome, המאפיינים החדשים והמעניינים של Node.js בדרך כלל כבר קיימים בElectron.
 
-## How to share data between web pages?
+## כיצד לשתף מידע בין דפי אינטרנט?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+על מנת לשתף מידע בין דפי אינטרנט (ובין תהליכי הגשה) הדרך הפשוטה ביותר היא להשתמש בממשקים של HTML5 שכבר קיימים בדפדפנים. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+או שניתן להשתמש גם במערכת הIPC, שהיא ייחודית לElectorn ומאפשרת לאחסן משתנים בתהליך הראשי כמשתנים גלובליים, ולאחר מכן לגשת אליהם דרך שאר התהליכים באמצעות `remote` מתוך הרכיב `electorn`:
 
 ```javascript
 // In the main process.
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## מגש האפליקציה שלי נעלם אחרי כמה שניות.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+זה קורה כאשר המשתנה שבו משתמשים על מנת לאחסן את המגש עובר Garbage collection.
 
-If you encounter this problem, the following articles may prove helpful:
+אם הינך נתקל בבעיה, המאמרים הבאים עשויים לסייע:
 
 * [ניהול זיכרון][memory-management]
-* [Variable Scope][variable-scope]
+* [תחומי משתנים][variable-scope]
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+על מנת לבצע תיקון מהיר, ניתן להפוך את המשתנים לגלובליים על ידי שינוי הקוד מצורה כזו:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -64,7 +64,7 @@ app.whenReady().then(() => {
 })
 ```
 
-to this:
+לצורה כזאת:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,9 +77,9 @@ app.whenReady().then(() => {
 
 ## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+בגלל האינטגרציה של Electorn עם Node.js, יש מספר סמלים שנוספו לDOM כדוגמת `module`, `exports`, `require`. זה גורם לבעיות בקרב מספר בפריות משום שהן צריכות להשתמש בסמלים אלה, והם בעלי אותו שם.
 
-To solve this, you can turn off node integration in Electron:
+על מנת לפתור זאת, ניתן לבטל את האינטגרציה של Electorn עם Node,js:
 
 ```javascript
 // In the main process.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+אבל אם ברצונך לשמר את היכולות של השימוש בNode.js יחד עם הממשקים של Electorn, יש לשנות את שמם של הסמלים בדף לפני שכוללים את הספריות השונות:
 
 ```html
 <head>
@@ -106,24 +106,24 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` הוא undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+כאשר משתמשים ברכיב הבנוי בתוך Electron עלולים לפגוש שגיאה כגון:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-It is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+סביר להניח שנעשה שימוש ברכיב בתהליך השגוי. לדוגמה, `electron.app` יכול להיות בשימוש אך ורק בתהליך הראשי, בעוד `electron.webFrame` נגיש רק בתהליכים המגישים.
 
-## The font looks blurry, what is this and what can I do?
+## הפונטים נראים מטושטשים, מה זה ומה ניתן לעשות?
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. דוגמה:
 
 ![subpixel rendering example][]
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixel anti-aliasing דורש רקע לע שקוף לשכבת הרקע של תווי הפונט. (צפה [בבעיה הזאת](https://github.com/electron/electron/issues/6344#issuecomment-420371918) למידע נוסף).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
@@ -136,7 +136,7 @@ let win = new BrowserWindow({
 
 The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+יש לשים לב כי רק להגדיר את הרקע באמצעות CSS לא יעניק את ההשפעה הרצויה.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

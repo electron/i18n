@@ -1,19 +1,32 @@
 # الملف الممثّل في نافذة المستعرض في نظام ماك أو إس
 
-يمكن للنافذة في نظام ماك أو إس أن تعيّن ملفّها الممثَّل represented file، وهكذا يمكن لأيقونة الملف أن تظهر في شريط العنوان وعندما النقر على العنوان بواسطة Command-Click أو Control-Click تظهر نافذة منبثقة تتضمّن مسار الملف.
+## النظرة عامة
 
-يمكن كذلك تعيين الحالة المحرَّرة edited state للنافذة وبهذا يمكن لأيقونة الملف أن تعطي إشارة إلى أنّ الملف الموجود في هذه النافذة هو ملفّ يخضع للتعديلات.
-
-__قائمة الملف الممثّل:__
+On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
 
 ![الملف الممثّل](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-يمكن استخدام الواجهات البرمجية [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) و [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) لإضافة الملف الممثَّل إلى النافذة:
+> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
 
-```javascript
-const { BrowserWindow } = require('electron')
+You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
 
-const win = new BrowserWindow()
-win.setRepresentedFilename('/etc/passwd')
-win.setDocumentEdited(true)
+يمكن استخدام الواجهات البرمجية [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) و [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) لإضافة الملف الممثَّل إلى النافذة.
+
+## مثال
+
+بدءاً بتطبيق عمل من [دليل البداية السريعة](quick-start.md)، أضف السطور التالية إلى ملف `main.js`:
+
+```javascript fiddle='docs/fiddles/features/represented-file'
+const { app, BrowserWindow } = require('electron')
+
+app.whenReady().then(() => {
+  const win = new BrowserWindow()
+
+  win.setRepresentedFilename('/etc/passwd')
+  win.setDocumentEdited(true)
+})
 ```
+
+After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+
+![Represented file](../images/represented-file.png)

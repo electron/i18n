@@ -1,4 +1,5 @@
 # Объект MimeTypedBuffer
 
-* `mimeType` String - mimeType буфера, который вы отправляете.
-* `data` Buffer - фактическое содержимое буфера.
+* `mimeType` String (опционально) - MIME тип буфера.
+* `charset` String (опционально) - Кодировка буфера.
+* `data` Buffer - Фактическое содержимое буфера.

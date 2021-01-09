@@ -1,25 +1,25 @@
 ---
-title: Node.js Native Addons and Electron 5.0
+title: Addons natifs de Node.js et Electron 5.0
 author: BinaryMuse
 date: '2019-02-01'
 ---
 
-If you're having trouble using a native Node.js addon with Electron 5.0, there's a chance it needs to be updated to work with the most recent version of V8.
+Si vous rencontrez des difficultés à utiliser un addon natif Node.js avec Electron 5. , il y a une chance qu'il ait besoin d'être mis à jour pour fonctionner avec la version la plus récente de V8.
 
 ---
 
-## Goodbye `v8::Handle`, Hello `v8::Local`
+## Au revoir `v8::Handle`, Bonjour `v8::Local`
 
-In 2014, the V8 team deprecated `v8::Handle` in favor of `v8::Local` for local handles. Electron 5.0 includes a version of V8 that has finally removed `v8::Handle` for good, and native Node.js addons that still use it will need to be updated before they can be used with Electron 5.0.
+En 2014, l'équipe V8 a déprécié `v8::Handle` en faveur de `v8::Local` pour les gestionnaires locaux. Electron 5.0 inclut une version de V8 qui a finalement supprimé `v8::Handle` pour de bon, et Node natif. , les addons qui l'utilisent encore devront être mis à jour avant de pouvoir être utilisés avec Electron 5.0.
 
-The required code change is minimal, but *every* native Node module that still uses `v8::Handle` will fail to build with Electron 5.0 and will need to be modified. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+Le changement de code requis est minimal, mais *chaque* module Node natif qui utilise encore `v8::Handle` échouera à construire avec Electron 5. et devra être modifié. La bonne nouvelle est que Node. s v12 inclura également ce changement V8, donc tous les modules qui utilisent `v8::Handle` devront être mis à jour *de toute façon* pour fonctionner avec la prochaine version de Node.
 
-## I maintain a native addon, how can I help?
+## Je maintiens un module natif, comment puis-je aider ?
 
-If you maintain a native addon for Node.js, ensure you replace all occurrences of `v8::Handle` with `v8::Local`. The former was just an alias of the latter, so no other changes need to be made to address this specific issue.
+Si vous maintenez un addon natif pour Node.js, assurez-vous de remplacer toutes les occurrences de `v8::Handle` par `v8::Local`. Le premier n'était qu'un alias du second, donc aucun autre changement ne doit être apporté pour résoudre ce problème spécifique.
 
-You may also be interested in looking into [N-API](https://nodejs.org/api/n-api.html), which is maintained separately from V8 as a part of Node.js itself, and aims to insulate native addons from changes in the underlying JavaScript engine. You can find more information [in the N-API documentation on the Node.js website](https://nodejs.org/api/n-api.html#n_api_n_api).
+Vous pouvez également être intéressé à regarder dans [N-API](https://nodejs.org/api/n-api.html), qui est maintenu séparément du V8 en tant que partie de Node. s lui-même, et vise à isoler les addons natifs des changements dans le moteur JavaScript sous-jacent. Vous pouvez trouver plus d'informations [dans la documentation N-API sur le site Node.js](https://nodejs.org/api/n-api.html#n_api_n_api).
 
-## Help! I use a native addon in my app and it won't work!
+## Aide! J'utilise un addon natif dans mon application et cela ne fonctionnera pas !
 
-If you're consuming a native addon for Node.js in your app and the native addon will not build because of this issue, check with the author of the addon to see if they've released a new version that fixes the problem. If not, reaching out to the author (or [opening a Pull Request!](https://help.github.com/articles/about-pull-requests/)) is probably your best bet.
+Si vous consommez un addon natif pour Node. s dans votre application et le module natif ne sera pas construit à cause de ce problème, vérifiez avec l'auteur du module pour voir s'ils ont publié une nouvelle version qui corrige le problème. Sinon, contacter l'auteur (ou [en ouvrant une Pull Request !](https://help.github.com/articles/about-pull-requests/)) est probablement votre meilleur pari.

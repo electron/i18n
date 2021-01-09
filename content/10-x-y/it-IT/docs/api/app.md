@@ -27,9 +27,10 @@ Nella maggior parte dei casi, tu farai ogni cosa nel gestore degli eventi `ready
 
 Restituisce:
 
-* `launchInfo` unknown _macOS_
+* `event` Event
+* `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Chiamato un volta, quando Electron ha finito di inizializzarsi. Su macOS, `launchInfo` contiene `userInfo` di `NSUserNotification` che é stato usato per aprire l'applicazione, se é stato aperto da Centro Notifiche. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### Evento: 'window-all-closed'
 
@@ -110,7 +111,7 @@ Emesso quando l'applicazione è attivata. Varie azioni possono generare questo e
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Emesso durante [Handoff][handoff] quando un'attività da un altro dispositivo vuole essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
@@ -122,16 +123,16 @@ Un'attività dell'utente può essere continuata solo in un app con lo stesso dev
 Restituisce:
 
 * `event` Event
-* `type` Stringa - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
 
-Emesso durante [Handoff][handoff], prima che un'attività da un dispositivo differente richieda di essere ripristinata. Se vuoi gestire questo evento dovresti chiamare `event.preventDefault()`.
+Emesso durante [Handoff][handoff], prima che un'attività da un dispositivo differente richieda di essere ripristinata. Dovresti chiamare `event.preventDefault()` se vuoi gestire questo evento.
 
 ### Evento: 'continue-activity-error' _macOS_
 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
 * `error` String - Una stringa contenente la descrizione localizzata dell'errore.
 
 Emesso durante [Handoff][handoff] quando un'attività da un dispositivo diverso fallisce nel ripristino.
@@ -141,7 +142,7 @@ Emesso durante [Handoff][handoff] quando un'attività da un dispositivo diverso 
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emesso durante [Handoff][handoff] dopo che un'attività da questo dispositivo è stata ripristinata con successo su un altro.
@@ -151,7 +152,7 @@ Emesso durante [Handoff][handoff] dopo che un'attività da questo dispositivo è
 Restituisce:
 
 * `event` Event
-* `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
+* `type` String - Una stringa che identifica l'l'attività. In riferimento a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emesso quando [Handoff][handoff] sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActivity()`. Altrimenti l'operazione fallirà e verrà chiamato `continue-activity-error`.
@@ -206,10 +207,10 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `url` String
+* `url` Stringa
 * `error` String - Il codice d'errore
 * `certificate` [Certificato](structures/certificate.md)
-* `callback` Funzione
+* `callback` Function
   * `isTrusted` Boolean - Se considerare il certificato come verificato
 
 Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
@@ -237,7 +238,7 @@ Restituisce:
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Funzione
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (opzionale)
 
 Emesso quando un certificato client è richiesto.
@@ -253,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Evento: 'login'
+### Evento: 'accedi'
 
 Restituisce:
 
@@ -262,12 +263,12 @@ Restituisce:
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Funzione
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
+* `callback` Function
   * `username` String (opzionale)
   * `password` String (opzionale)
 
@@ -305,7 +306,7 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `ucciso` Booleano
+* `killed` Boolean
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
@@ -324,7 +325,7 @@ Restituisce:
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -677,7 +678,7 @@ Restituisce `Boolean` - Se la chiamata ha avuto successo.
 
 ### `app.ottieniImpostazioniJumpList` _Windows_
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -696,7 +697,7 @@ Imposta o rimuovi una JumpList personalizzata per l'app, e restituisci una delle
 
 Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
 
-**Note:** Se un oggetto `JumpListCategory` non ha nè `type` nè `name` impostati, il suo `type` diventa `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. Se la proprietà `name` è impostata ma la proprietà `type` é omessa, il `type` sarà considerato `custom`.
 
 **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
 
@@ -857,7 +858,7 @@ Activation policy types:
 * `options` Object
   * `certificato` Stringa - Percorso per il file pkcs12.
   * `password` Stringa - Frase d'accesso per il certificato.
-* `callback` Funzione
+* `callback` Function
   * `risultato` Numero intero - Risultato dell'importo.
 
 Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -1011,7 +1012,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on macOS. Vedi i [documenti Apple][about-panel-options] per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
+Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on macOS. Vedi i [documenti Apple][about-panel-options] per altri dettagli. Su Linux, i valori devono essere impostati per essere mostrati; non ci sono predefiniti.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1053,7 +1054,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (optional)
-  * `conflictHandler` Function<Boolean> (optional) - A handler for potential conflict in move failure.
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1123,7 +1124,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1165,7 +1166,6 @@ The intention is for these overrides to become disabled by default and then at s
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows

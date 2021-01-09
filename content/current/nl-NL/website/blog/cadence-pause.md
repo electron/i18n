@@ -1,21 +1,21 @@
 ---
-title: Upcoming Electron Releases
+title: Aankomende Electron Releases
 author: codebytere
 date: '2020-03-19'
 ---
 
-Electron is temporarily pausing major releases
+Electron pauzeert tijdelijk belangrijke releases
 
 ---
 
-## What's Happening?
+## Wat is gelukkig?
 
-Our [major release cadence schedule](https://www.electronjs.org/blog/12-week-cadence) moves in lockstep with that of Chromium, and the Chromium project has made the recent decision to [pause its releases](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) due to adjusted work schedules. This means that for the duration of Chromium's altered cadence, Electron will also temporarily pause new major releases.
+Ons [major release cadence schedule](https://www.electronjs.org/blog/12-week-cadence) moves in lockstep met die van Chromium, en het Chromium project heeft de recente beslissing genomen om [zijn releases](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) te onderbreken vanwege aangepaste werkschema's. Dit betekent dat Electron tijdelijk nieuwe grote releases zal pauzeren voor de duur van Chromium.
 
-We feel that our best choice is to follow in Chromium's footsteps, and so in the interim the Electron team will shift to full-time work on bugfixes, security, performance, and stability.
+We denken dat onze beste keuze is om te volgen in Chromium's voetstappen, en dus zal in de tussentijd het Electron team overschakelen naar fulltime werk aan bugfixes, beveiliging, prestaties en stabiliteit.
 
-We want to ensure that both our maintainers and our consumers' wellbeing is prioritized during this time, so we welcome your feedback and look forward to returning to our regular release schedule.
+We willen ervoor zorgen dat zowel onze onderhouders als het welzijn van onze consumenten in deze tijd prioriteit krijgt. dus we verwelkomen jouw feedback en kijken ernaar uit om terug te keren naar onze normale releaseschema.
 
-For more updates, please follow our [Twitter account](https://twitter.com/electronjs).
+Volg ons [Twitter account](https://twitter.com/electronjs) voor meer updates.
 
-Edit (2020-03-30): Electron 9 stable will target Chromium M83 and be released on May 19, 2020, in response to [Chromium's announcement](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) of skipping the M82 stable date and adjusting the M83 stable date.
+Bewerken (2020-03-30): Electron 9 stal zal Chromium M83 richten en worden uitgebracht op 19 mei 2020, als reactie op [Chromium's aankondiging](https://chromereleases.googleblog.com/2020/03/chrome-and-chrome-os-release-updates.html) om de M82 stabiele datum overgeslagen en de stabiele datum van M83 aan te passen.

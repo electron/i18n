@@ -2,7 +2,7 @@
 
 > Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Модуль `session` может быть использован для создания новых объектов `Session`.
 
@@ -46,7 +46,7 @@ console.log(ses.getUserAgent())
 
 > Получает и устанавливает свойства сеанса.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Вы можете создать объект `Session` в модуле `session`:
 
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check

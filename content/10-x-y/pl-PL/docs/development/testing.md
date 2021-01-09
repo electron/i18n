@@ -14,7 +14,7 @@ To ensure that your C++ is in compliance with the Electron coding style, run `np
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
-## Testy jednostkowe
+## Unit Tests
 
 If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
 
@@ -27,7 +27,7 @@ To run only specific tests matching a pattern, run `npm run test --
 
 #### Extra steps to run the unit test:
 
-1. Visual Studio 2019 musi być zainstalowany.
+1. Visual Studio 2019 must be installed.
 2. Node headers have to be compiled for your configuration.
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
@@ -46,7 +46,7 @@ To run only specific tests matching a pattern, run `npm run test --
 2. Click _Add a feature_.
 3. Select _Japanese Supplemental Fonts_ and click _Install_.
 
-#### Pomiary pikseli
+#### Pixel measurements
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 

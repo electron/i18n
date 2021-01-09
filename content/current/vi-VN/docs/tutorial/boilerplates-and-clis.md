@@ -1,20 +1,20 @@
 # Boilerplates và CLIs
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Sự phát triển của Electron thực sự có rất nhiều cách và nhiều lựa chọn - chưa có cách nào được gọi là "một hướng đi chuẩn" khi phát triển, xây dựng, đóng gói, hay phát hành một ứng dụng Electron. Các tính năng phụ trợ cho Electron, cho cả việc xây dựng và chạy (build- and run-time), có thể tìm thấy trên [npm](https://www.npmjs.com/search?q=electron), trong các gói cài đặt riêng lẻ, từ đó cho phép nhà phát triển xây dựng ứng dụng và những đường dẫn lối (pipeline) mà họ cần.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Mức độ của mô đun và khả năng mở rộng nó đảm bảo tất cả nhà phát triển có thể làm việc với Electron, từ những nhóm lớn đến nhóm nhỏ, và không bị cấm đoán về những gì họ có thể hoặc không thể làm trong vòng đời phát triển ứng dụng của mình, bất cứ lúc nào. Tuy vậy, với nhiều lập trình viên, một trong các công cụ về bảng mẫu hay các dòng lệnh do cộng đồng tạo ra có thể khiến việc biên dịch, đóng gói và phát hành ứng dụng trở nên cực kì dễ dàng hơn.
 
 ## Boilerplates và CLIs
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Một bảng mẫu chỉ là một điểm bắt đầu - có thể nói là một bức tranh - mà từ đó bạn xây dựng ứng dụng của mình. Chúng thường được để trong dạng của một kho lưu trữ (a repository) mà bạn có thể nhân bản chúng và tùy chỉnh lại nội dung bằng cả trái tim của mình.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Ở mặt khác, một công cụ dòng lệch sẽ tiếp tục hỗ trợ dự án của bạn trong suốt quá trình xây dựng, phát triển và phát hành. Chúng rất hữu ích và có tính hỗ trợ cao nhưng lại ép bạn phải theo cách cấu trúc và xây dựng dòng code theo hướng dẫn đã đưa ra. *Especially for beginners, using a command line tool is likely to be helpful*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Đây là một "công cụ hoàn chỉnh cho việc xây dựng các ứng dụng Electron hiện đại". Electron Forge thống nhất các công cụ xây dựng sẵn có (và được duy trì tốt) cho việc phát triển Electron, vào một gói thống nhất để ai cũng có thể dễ dàng đi thẳng vào việc phát triển của Electron.
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge đi kèm với [một mẫu sản phẩm có sẵn](https://electronforge.io/templates) bằng cách dùng Webpack như một trình gói. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) – changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
 You can find more information and documentation on [electronforge.io](https://electronforge.io/).
 

@@ -357,11 +357,11 @@ const mainWindow = new BrowserWindow()
 
 _Ang rekomendasyon ay default ng Electron_
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`][browser-window] gamit ang `window.open()` na paraan. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
 ### Bakit?
 
-Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan ang paglikha ng bagong [`BrowserWindows`][browser-window] bilang default. Kasunod nito ang prinsipyo ng minimally required access: Huwag hayaan ang isang website na lumikha ng mga bagong popup maliban kung alam mo na kailangan nito ang tampok na iyon.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Kasunod nito ang prinsipyo ng minimally required access: Huwag hayaan ang isang website na lumikha ng mga bagong popup maliban kung alam mo na kailangan nito ang tampok na iyon.
 
 ### Paano?
 

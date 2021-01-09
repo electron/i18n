@@ -6,7 +6,7 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ASAR steht für Atom-Shell-Archiv-Format. Ein [asar][asar]-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Das ASAR-Format wurde primär für bessere Performance unter Windows entwickelt... TODO
+Das ASAR-Format wurde vor allem zur Verbesserung der Leistung unter Windows entwickelt... TODO
 
 ### CRT
 
@@ -22,7 +22,7 @@ Input Method Editor. Ein Programm, dass dem Benutzer die Eingabe von Buchstaben 
 
 ### IDL
 
-Interface description language. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, mit dem Schnittstellen in Java, C++, JavaScript usw. generiert werden können.
+Sprache der Schnittstellenbeschreibung. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, das verwendet werden kann, um Schnittstellen in Java, C++, JavaScript, etc. zu generieren.
 
 ### IPC
 
@@ -34,19 +34,19 @@ Eine gemeinsame Bibliothek, die das [Chromium Content Modul][] und alle seine Ab
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### Main-Prozess
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Die Datei für den Hauptprozess jeder App ist in der `main` Eigenschaft in `package.json` angegeben. This is how `electron .` knows what file to execute at startup.
+Die Hauptprozessdatei jeder App ist in der Eigenschaft `Haupt` in `package.json` angegeben. So ist `Elektron .` weiß, welche Datei beim Start ausgeführt werden soll.
 
-In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. In Electron wird er umbenannt, um Verwechslung mit Renderer-Prozessen zu vermeiden.
+In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. In Electron wird umbenannt, um Verwirrung mit Renderer-Prozessen zu vermeiden.
 
 Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Abkürzung für Apple's Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung][].
+Acronym für Apple's Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung][].
 
 ### Mojo
 
@@ -68,7 +68,7 @@ Siehe auch: [Nutzen von Native Node Modules][].
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen Rendering) kann verwendet werden, um schwere Seite im Hintergrund zu laden und danach anzuzeigen (es wird viel schneller sein). Es erlaubt Ihnen, die Seite zu rendern, ohne sie auf dem Bildschirm anzuzeigen.
 
 ### process
 
@@ -80,7 +80,7 @@ Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. Sie können auch versteckt werden.
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
@@ -98,11 +98,11 @@ Wie Node fokussiert sich auch Electron darauf, eine relativ einfache API mit all
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 ist die Open-Source-JavaScript-Engine von Google. Es ist in C++ geschrieben und wird in Google Chrome verwendet. V8 kann eigenständig laufen oder in jede C++-Anwendung eingebettet werden.
 
 Electron baut V8 als Teil von Chromium und weist dann Node beim Bauen darauf hin.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8 Versionsnummern entsprechen immer denen von Google Chrome. Chrome 59 enthält V8 5.9, Chrome 58 V8 5.8, etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)

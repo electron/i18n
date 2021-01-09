@@ -16,7 +16,7 @@ Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow
 
 **Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
-### Static Properties
+### Propiedades estáticas
 
 #### `TouchBarButton`
 
@@ -58,7 +58,7 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
-### Propiedades de la instancia
+### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en instancias de `TouchBar`:
 

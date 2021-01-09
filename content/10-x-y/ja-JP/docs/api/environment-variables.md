@@ -51,13 +51,13 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+Electron での地理位置情報サポートには、Google Cloud Platform の地理位置情報ウェブサービスの利用が必要です。 この機能を有効にするには、[Google API キー](https://developers.google.com/maps/documentation/geolocation/get-api-key) を取得し、ジオロケーション要求を行うブラウザウィンドウを開く前に、以下のコードをメインプロセスファイルに配置してください。
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+デフォルトでは、新しく生成された Google API キーではジオロケーションリクエストを行えない場合があります。 プロジェクトで地理位置情報ウェブサービスを有効にするには、[API ライブラリ](https://console.cloud.google.com/apis/library) から有効にしてください。
 
 N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
@@ -69,7 +69,7 @@ ASAR サポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NOD
 
 通常のNode.jsプロセスとしてプロセスを開始します。
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+このモードでは、以下のフラグを除いて、通常の Node.js 実行ファイルを実行しているときと同じように [CLI 引数](https://nodejs.org/api/cli.html) を Node.js に渡せます。
 
 * "--openssl-config"
 * "--use-bundled-ca"
@@ -77,7 +77,7 @@ In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.
 * "--force-fips"
 * "--enable-fips"
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+これらのフラグは、Electron が Node.js の `crypto` モジュール構築に OpenSSL ではなく BoringSSL を使用しているため、設計通りに動作せず無効になっています。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
@@ -91,7 +91,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 Linux でゴミの実装を設定します。 既定値は `gio` です。
 
-オプション:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`

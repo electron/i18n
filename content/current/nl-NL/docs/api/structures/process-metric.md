@@ -11,6 +11,7 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
+* `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `cpu` [CPUUsage](cpu-usage.md) - CPU gebruik van het process.
 * `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - Geheugen informatie voor het process.

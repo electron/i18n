@@ -76,7 +76,7 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
   - They backport a small amount of things as needed
   - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of Electron
-  - Np. Electron, Chromium i Node.js
+  - E.g Electron, Chromium, and Node.js
 - We don’t track upstream closely due to logistics:
    - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
 - Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using.

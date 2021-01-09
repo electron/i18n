@@ -9,7 +9,7 @@ const { systemPreferences } = require ('electron')
 console.log (systemPreferences.isDarkMode ())
 ```
 
-## Kejadian
+## Events
 
 Objek 
 
@@ -20,12 +20,12 @@ Objek
   Acara: 'aksen-berubah warna' <em x-id="4"> Windows </ 0></h3> 
   
   <p spaces-before="0">
-    Pengembalian:
+    Mengembalikan:
   </p>
   
   <ul>
     <li>
-      <code>event</code> Event
+      <code>event</code> Sinyal
     </li>
     <li>
       <code> newColor &lt;/ 0> String - Warna RGBA baru yang ditugaskan pengguna untuk menjadi sistem mereka
@@ -34,7 +34,7 @@ Aksen warna.&lt;/li>
 
 &lt;h3 spaces-before="0" line-breaks-before="2">Event: 'color-changed' &lt;em x-id="4"> Windows &lt;/ 0>&lt;/h3>
 
-&lt;p spaces-before="0" line-breaks-before="2">Pengembalian:&lt;/p>
+&lt;p spaces-before="0" line-breaks-before="2">Mengembalikan:&lt;/p>
 
 &lt;ul spaces="0" level="0" marker="*">
 &lt;li marker="*" level="0" spaces="0" line-breaks-before="3" spaces-after-marker="0">&lt;code>event</code> Sinyal
@@ -46,12 +46,12 @@ Aksen warna.&lt;/li>
 </h3>
 
 <p spaces-before="0">
-  Pengembalian:
+  Mengembalikan:
 </p>
 
 <ul>
   <li>
-    <code>peristiwa</code> Peristiwa
+    <code>event</code> Sinyal
   </li>
   <li>
     <code>invertedColorScheme</code> Boolean - <code>true</code> if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, <code>false</code> otherwise.
@@ -67,13 +67,15 @@ Aksen warna.&lt;/li>
 </h3>
 
 <p spaces-before="0">
-  Pengembalian:
+  Mengembalikan:
 </p>
 
 <ul>
   <li>
-    <code>event&lt;/ 0> Acara&lt;/li>
-&lt;li marker="*" level="0" spaces="0" line-breaks-before="2" spaces-after-marker="0">&lt;code>highContrastColorScheme</code> Boolean - <code>true</code> if a high contrast theme is being used, <code>false</code> otherwise.
+    <code>event</code> Sinyal
+  </li>
+  <li>
+    <code>highContrastColorScheme</code> Boolean - <code>true</code> if a high contrast theme is being used, <code>false</code> otherwise.
   </li>
 </ul>
 
@@ -82,7 +84,7 @@ Aksen warna.&lt;/li>
 </p>
 
 <h2 spaces-before="0">
-  Metode
+  Methods
 </h2>
 
 <h3 spaces-before="0">
@@ -927,7 +929,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 </p>
 
 <h2 spaces-before="0">
-  properti
+  Properti/peralatan
 </h2>
 
 <h3 spaces-before="0">

@@ -2,7 +2,7 @@
 
 > Registrar un protocolo personalizado e interceptar las peticiones de protocolo existentes.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 
@@ -208,7 +208,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
-* `esquema` Cadena
+* `scheme` String
 * `handler` Function
   * `request` ProtocolRequest
   * `callback` Función

@@ -6,7 +6,7 @@
 
 ## Spectronを設定する
 
-[Spectron](https://electronjs.org/spectron)はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](http://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
+[Spectron](https://electronjs.org/spectron)はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](https://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## WebDriverJs の設定
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) は、Web Driver でテストするための Node パッケージを提供します。ここでは例として使用します。
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) は、Web Driver でテストするための Node パッケージを提供します。ここでは例として使用します。
 
 ### 1. ChromeDriver の開始
 
@@ -99,7 +99,7 @@ driver.quit()
 
 ## WebdriverIO で設定する
 
-[WebdriverIO](http://webdriver.io/) は、Web Driver でテストするための Node パッケージを提供します。
+[WebdriverIO](https://webdriver.io/) は、Web Driver でテストするための Node パッケージを提供します。
 
 ### 1. ChromeDriver の開始
 
@@ -131,7 +131,7 @@ const options = {
     browserName: 'chrome',
     'goog:chromeOptions': {
       binary: '/Path-to-Your-App/electron', // Electron バイナリへのパス.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* Cliの引数 */] // オプション、例えば 'app=' + /path/to/your/app/
     }
   }
 }

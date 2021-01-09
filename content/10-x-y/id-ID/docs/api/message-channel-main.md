@@ -15,7 +15,7 @@ w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 ```
 
-### Contoh properti
+### Instance Properties
 
 #### `channel.port1`
 

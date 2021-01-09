@@ -10,7 +10,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
   * `label` Pisi (opsyonal) - Popover na pindutan ng teksto.
   * `icon` [NativeImage](native-image.md) (opsyonal) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Ang Default ay `true`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Ng default ay `tama`.
 
 ### Katangian ng pagkakataon
 

@@ -10,13 +10,7 @@ Canonical은 보다 광범위한 Linux 커뮤니티와 함께 [`snapcraft`](http
 
 <p spaces-before="0">1) <code>snap`과 함께 사용되는 [`electron-forge`](https://github.com/electron-userland/electron-forge) 또는 [`electron-builder`](https://github.com/electron-userland/electron-builder) 두가지 툴 모두 즉시 지원합니다. 이것이 가장 쉬운 방법입니다. 2) `electron-packager`의 결과물을 가지고, `electron-installer-snap`을 사용합니다. 3) 이미 생성된 `.deb` 패키지를 사용합니다.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
-
-```sh
-snap install snapcraft --classic
-```
-
-Homebrew를 사용하여 macOS 상에서 `snapcraft`의 설치는 _가능_하지만, `snap`패키지를 빌드할 수는 없으며 저장소의 패키지 관리에 중점을 둡니다.
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## `electron-installer-snap` 사용
 
@@ -64,6 +58,78 @@ const snap = require('electron-installer-snap')
 
 snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
+```
+
+## Using `snapcraft` with `electron-packager`
+
+### Step 1: Create Sample Snapcraft Project
+
+Create your project directory and add the following to `snap/snapcraft.yaml`:
+
+```yaml
+name: electron-packager-hello-world
+version: '0.1'
+summary: Hello World Electron app
+description: |
+  Simple Hello World Electron app as an example
+base: core18
+confinement: strict
+grade: stable
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: https://github.com/electron/electron-quick-start.git
+    override-build: |
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
+```
+
+If you want to apply this example to an existing project:
+
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
+
+### Step 2: Build the snap
+
+```sh
+$ snapcraft
+
+<output snipped>
+Snapped electron-packager-hello-world_0.1_amd64.snap
+```
+
+### Step 3: Install the snap
+
+```sh
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
+```
+
+### Step 4: Run the snap
+
+```sh
+electron-packager-hello-world
 ```
 
 ## 기존 데비안 패키지 사용하기

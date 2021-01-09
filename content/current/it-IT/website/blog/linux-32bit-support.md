@@ -1,29 +1,29 @@
 ---
-title: Discontinuing support for 32-bit Linux
+title: Interruzione del supporto per Linux a 32-bit
 author: felixrieseberg
 date: '2019-03-04'
 ---
 
-The Electron team will discontinue support for 32-bit Linux (ia32 / i386) starting with Electron v4.0. The last version of Electron that supports 32-bit based installations of Linux is Electron v3.1, which will receive support releases until Electron v6 is released. Support for 64-bit based Linux and `armv7l` will continue unchanged.
+Il team Electron interromperà il supporto per Linux a 32 bit (ia32 / i386) a partire da Electron v4.0. L'ultima versione di Electron che supporta installazioni a 32 bit di Linux è Electron v3.1, che riceverà versioni di supporto fino al rilascio di Electron v6. Il supporto per Linux basato su 64 bit e `armv7l` continuerà inalterato.
 
 ---
 
-## What exactly is Electron no longer supporting?
+## Che cosa esattamente non supporta più Electron?
 
-You may have seen the description "64-bit" and "32-bit" as stickers on your computer or as options for downloading software. The term is used to describe a specific computer architecture. Most computers made in the 1990s and early 2000s were made with CPUs that were based on the 32-bit architecture, while most computers made later were based on the newer and more powerful 64-bit architecture. The Nintendo 64 (get it?) and the PlayStation 2 were the first widely available consumer devices with the new architecture, computers sold after 2010 contained almost exclusively 64-bit processors. As a result, support has been shrinking: Google stopped releasing Chrome for 32-bit Linux in March 2016, Canonical stopped providing 32-bit desktop images in 2017 and dropped support for 32-bit altogether with Ubuntu 18.10. Arch Linux, elementary OS, and other prominent Linux distributions have already dropped support for the aging processor architecture.
+Potresti aver visto la descrizione "64-bit" e "32-bit" come adesivi sul tuo computer o come opzioni per il download di software. Il termine è usato per descrivere una specifica architettura informatica. La maggior parte dei computer realizzati negli anni '90 e all'inizio del 2000 sono stati realizzati con CPU basate sull'architettura a 32 bit, mentre la maggior parte dei computer fatti in seguito erano basati sulla più recente e più potente architettura a 64 bit. Il Nintendo 64 (prenderlo? e PlayStation 2 sono stati i primi dispositivi di consumo ampiamente disponibili con la nuova architettura, i computer venduti dopo il 2010 contenevano quasi esclusivamente processori a 64 bit. Di conseguenza, il supporto è stato in diminuzione: Google ha smesso di rilasciare Chrome per Linux a 32 bit nel marzo 2016, Canonico ha smesso di fornire immagini desktop a 32 bit nel 2017 e ha abbandonato il supporto per 32-bit complessivamente con Ubuntu 18.10. Arch Linux, sistema operativo elementare e altre importanti distribuzioni Linux hanno già abbandonato il supporto per l'architettura del processore di invecchiamento.
 
-Until now, Electron has provided and supported builds that run on the older 32-bit architecture. From release v4.0 onwards, the Electron team will no longer be able to provide binaries or support for 32-bit Linux.
+Fino ad ora, Electron ha fornito e supportato le build che girano sulla vecchia architettura a 32 bit. Dal rilascio v4.0 in poi, il team Electron non sarà più in grado di fornire binari o supporto per Linux a 32 bit.
 
-Electron has always been a vibrant open source project and we continue to support and encourage developers interested in building Electron for exotic architectures.
+Electron è sempre stato un vivace progetto open source e continuiamo a sostenere e incoraggiare gli sviluppatori interessati a costruire Electron per architetture esotiche.
 
-## What does that mean for developers?
+## Cosa significa questo per gli sviluppatori?
 
-If you are not currently providing 32-bit distributions of your app for Linux, no action is required.
+Se al momento non stai fornendo distribuzioni a 32 bit della tua app per Linux, non è necessaria alcuna azione.
 
-Projects which ship 32-bit Linux Electron applications will need to decide how to proceed. 32-bit Linux will be supported on Electron 3 [until](https://electronjs.org/docs/tutorial/support#supported-versions) the release of Electron 6, which gives some time to make decisions and plans.
+I progetti che spediscono le applicazioni Linux Electron a 32 bit dovranno decidere come procedere. Linux a 32 bit sarà supportato su Electron 3 [fino al](https://electronjs.org/docs/tutorial/support#supported-versions) rilascio di Electron 6, che dà un po' di tempo per prendere decisioni e piani.
 
-## What does that mean for users?
+## Cosa significa questo per gli utenti?
 
-If you are a Linux user and not sure whether or not you're running a 64-bit based system, you are likely running on a 64-bit based architecture. To make sure, you can run the `lscpu` or `uname -m` commands in your terminal. Either one will print your current architecture.
+Se sei un utente Linux e non sei sicuro se stai usando o meno un sistema basato su 64 bit, sei probabilmente in esecuzione su un'architettura basata su 64 bit. Per essere sicuro, puoi eseguire i comandi `lscpu` o `uname -m` nel tuo terminale. Entrambi stamperanno la tua architettura corrente.
 
-If you are using Linux on a 32-bit processor, you have likely already encountered difficulties finding recently released software for your operating system. The Electron team joins other prominent members in the Linux community by recommending that you upgrade to a 64-bit based architecture.
+Se si utilizza Linux su un processore a 32 bit, è probabile che si siano già riscontrate difficoltà nel trovare software rilasciato di recente per il sistema operativo. Il team di Electron si unisce ad altri membri di spicco nella comunità Linux raccomandando di aggiornare ad un'architettura basata su 64 bit.

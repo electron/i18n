@@ -7,13 +7,13 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Cũng vui lòng đảm bảo rằng hệ thống và phiên bản Python của bạn hỗ trợ ít nhất TLS 1,2. để kiểm tra nhanh, hãy chạy lệnh sau:
 
   ```sh
-  $ npx @electron/check-python-tls
+  $ npx @electron/Check-Python-TLS
   ```
 
-  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+  Nếu kịch bản trả về cấu hình của bạn đang sử dụng giao thức bảo mật đã lỗi thời, hãy sử dụng trình quản lý gói của hệ thống để Cập Nhật Python lên phiên bản mới nhất trong nhánh 2.7. x. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
 * Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](https://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
@@ -22,11 +22,11 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 Trên Ubuntu, cài đặt các thư viện sau đây:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+$ sudo apt-get cài đặt xây dựng-cần thiết clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock openjdk-8-jre
+                       gperf bò rừng bison python-dbusmock openjdk-8-jre
 ```
 
 Trên RHEL / CentOS, cài đặt các thư viện sau đây:
@@ -45,6 +45,15 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    nss-devel python-dbusmock openjdk-8-jre
+```
+
+On Arch Linux / Manjaro, install the following libraries:
+
+```sh
+$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
+                   libgnome-keyring alsa-lib libcap libcups libxtst \
+                   libxss nss gcc-multilib curl gperf bison \
+                   python2 python-dbusmock jdk8-openjdk
 ```
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
@@ -73,7 +82,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ## Build
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Xem [Build Instructions: GN](build-instructions-gn.md)
 
 ## Xử lý sự cố
 
@@ -85,7 +94,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## Chủ đề nâng cao
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
@@ -101,4 +110,4 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 
 ### Using compilers other than `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Xây dựng Electron với trình biên dịch khác không phải `clang` sẽ không được hỗ trợ.

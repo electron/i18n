@@ -1,30 +1,32 @@
-# Custom Linux Desktop Launcher Actions
+# Користувацькі Linux дії лаунчера робочого столу
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+## Огляд
 
-__Launcher shortcuts of Audacious:__
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![зухвалість](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
-Actions=PlayPause;Next;Previous
+Actions=PlayPause;Next;Попередня
 
-[Desktop Action PlayPause]
-Name=Play-Pause
+[Дія PlayPause]
+Ім'я=Play-Pause
 Exec=audacious -t
-OnlyShowIn=Unity;
+Тільки на:
 
-[Desktop Action Next]
+[Наступна дія робочого столу]
 Name=Next
 Exec=audacious -f
-OnlyShowIn=Unity;
+OnlyShowIn;
 
-[Desktop Action Previous]
-Name=Previous
-Exec=audacious -r
-OnlyShowIn=Unity;
+[Попередня дія робочого столу]
+Назва=Попередньо
+Виконавчий -r
+Тільки ShowIn;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.

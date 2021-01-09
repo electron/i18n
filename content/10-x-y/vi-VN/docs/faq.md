@@ -1,4 +1,4 @@
-# Danh sách các câu hỏi hay gặp của Electron
+# Electron FAQ (các câu hỏi thường gặp)
 
 ## Tại sao tôi lại gặp sự cố trong khi cài đặt Electron?
 
@@ -10,7 +10,7 @@ Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/relea
 
 ## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
-Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được bảo đảm và phụ thuộc vào số lượng công việc liên quan đến nâng cấp.
+Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được đảm bảo và phụ thuộc vào công việc tham gia nâng cấp.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
@@ -64,7 +64,7 @@ app.whenReady().then(() => {
 })
 ```
 
-đến điều này:
+thành:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,7 +77,7 @@ app.whenReady().then(() => {
 
 ## Tại sao tôi không thể sử dụng jQuery/RequireJS/Meteor/AngularJS trong Electron.
 
-Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các ký hiệu cùng với một tên.
+Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các symbols với cùng một tên.
 
 Để giải quyết vấn đề này, bạn có thể tắt tích hợp Node trong Electron:
 
@@ -108,7 +108,7 @@ delete window.module;
 
 ## `require('electron').xxx` bị undefined.
 
-Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn có thể gặp lỗi như sau:
+Khi sử dụng các module được build sẵn trong Electron, bạn có thể gặp phải các lỗi như sau:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)

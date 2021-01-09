@@ -9,9 +9,9 @@ Proceso: [principal](../glossary.md#main-process)</0>
 ```javascript
 // En el proceso principal.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Establece una dirección de guardado, haciendo que Electron no saque una ventana de guardado.
+  // Set the save path, making Electron not to prompt a save dialog.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -114,7 +114,7 @@ Cancela la operación de la descarga.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Devuelve `String` - La URL origen de donde el elemento se descarga.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +152,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Devuelve `String[]` - La cadena URL completa del elemento incluyendo cualquier redirección.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -170,6 +170,6 @@ Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+Una propiedad `String` que determina la ruta del archivo de guardado del elemento de descarga.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+La propiedad solo esta disponible en la función callback `will-download` de la sesión. Si el usuario no establece la ruta de guardado a través de la propiedad, Electron usará la rutina original para determinar la ruta de guardado; esto suele generar un cuadro de diálogo para guardar.

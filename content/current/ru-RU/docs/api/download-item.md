@@ -9,7 +9,7 @@
 ```javascript
 // В основном процессе.
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Установите путь сохранения, чтобы Electron не отображал диалоговое окно сохранения.
   item.setSavePath('/tmp/save.pdf')

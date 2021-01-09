@@ -1,6 +1,6 @@
-# Официално ръководство
+# Официални ръководства
 
-Преди да продължите да четете, уверете се че версията на документа съвпада с версията на Electron от която се интересувате. Версията може да бъде намерена в URL адреса на страницата. Ако не успявате да идентифицирате версията, то най-вероятно четете настоящият документ касаещ версия на продукта която се разработва в момента. Бъдете внимателни защото информацията, която получавате в момента може да не е съвместима с версията на Electron, с която работите в момента. Ако се интересувате от по-стара версия на продукта, ви съветваме да използвате функцията [browse by tag](https://github.com/electron/electron/tree/v1.4.0) в GitHub като отворите менюто "Switch branches/tags" и изберете версията, която ви интересува.
+Моля, уверете се, че използвате документите, които съответстват на вашата версия на Електрон. Номерът на версията трябва да е част от URL адреса на страницата. Ако не успявате да идентифицирате версията, то най-вероятно четете настоящият документ касаещ версия на продукта която се разработва в момента. Бъдете внимателни защото информацията, която получавате в момента може да не е съвместима с версията на Electron, с която работите в момента. Ако се интересувате от по-стара версия на продукта, ви съветваме да използвате функцията [browse by tag](https://github.com/electron/electron/tree/v1.4.0) в GitHub като отворите менюто "Switch branches/tags" и изберете версията, която ви интересува.
 
 ## Често задавани въпроси
 
@@ -32,7 +32,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
 * Добавяне на функции към вашето приложение
-  * [Известия](tutorial/notifications.md)
+  * [Notifications](tutorial/notifications.md)
   * [Последни документи](tutorial/recent-documents.md)
   * [Прогрес на приложението](tutorial/progress-bar.md)
   * [Потребителско док меню](tutorial/macos-dock.md)
@@ -40,17 +40,17 @@ There are questions that are asked quite often. Check this out before creating a
   * [Потребителски настолни действия при Linux](tutorial/linux-desktop-actions.md)
   * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
   * [Offline/Online откриване](tutorial/online-offline-events.md)
-  * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
-  * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
+  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
+  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [5256783105227699](tutorial/application-debugging.md)
-  * [Отстраняване на грешк](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process](tutorial/debugging-main-process.md)
   * [5256783105227699](tutorial/debugging-main-process-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -91,7 +91,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
@@ -99,10 +99,10 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Функционална документация
 
-* [บทย่อ](api/synopsis.md)
+* [Обзор](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
-* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
+* [Променливи на средата](api/environment-variables.md)
 * [Chrome Extensions Support](api/extensions.md)
 * [5256783105227699](breaking-changes.md)
 

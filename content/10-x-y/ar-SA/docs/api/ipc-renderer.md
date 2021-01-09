@@ -2,7 +2,7 @@
 
 > Communicate asynchronously from a renderer process to the main process.
 
-shliilhpltfrom
+Процес: [Renderer](../glossary.md#renderer-process)
 
 The `ipcRenderer` module is an  [EventEmitter][event-emitter]. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
@@ -72,7 +72,7 @@ Send a message to the main process via `channel` and expect a result asynchronou
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
-For example:
+وعلى سبيل المثال:
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
@@ -115,7 +115,7 @@ Send a message to the main process, optionally transferring ownership of zero or
 
 The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
 
-For example:
+وعلى سبيل المثال:
 ```js
 // Renderer process
 const { port1, port2 } = new MessageChannel()

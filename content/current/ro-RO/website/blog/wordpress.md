@@ -1,63 +1,63 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Proiectul săptămânii: WordPress Desktop'
 author:
   - mkaz
-  - johngodley
+  - Johngoley
   - zeke
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+Săptămâna aceasta am ajuns cu oameni la [Automattic](https://automattic.com/) pentru vorbi despre [WordPress Desktop](https://apps.wordpress.com/desktop/), un client desktop open-source pentru gestionarea conţinutului WordPress.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![Aplicatii WordPress](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Toată lumea ştie despre WordPress, dar ce este WordPress Desktop?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[WordPress. om aplicația pentru desktop](https://apps.wordpress.com/desktop/) oferă o experiență perfectă între platforme care îți permite să te concentrezi pe conținutul tău și să proiectezi fără file de browser pentru a te distrage de la browser — sau să îți păstrezi site-urile marginalizate dar accesibile. În combinație cu aplicația noastră de suport pentru browser și mobil, îți poți construi site-ul oriunde, indiferent de modul în care te ajută să îți faci treaba.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## De ce să construiţi o aplicaţie Desktop pentru administrarea site-urilor WordPress? Nu poate fi totul bazat pe web?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+De fapt folosește exact aceeași tehnologie pe care o obții când vizitezi [WordPress.com](https://wordpress.com) în browser-ul tău. Cu toate acestea, totul este găzduit local, deci are timpi de încărcare minimi. Cu avantajul unor caracteristici native cum ar fi a fi in doc, notificari etc., chiar te poti concentra pe site-urile WordPress si blogging.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## De ce ai ales să construiești WordPress Desktop pe Electron?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+La sfârșitul anului 2015 am reconstruit o mare parte din WordPress.com sub forma [Calypso](https://github.com/automattic/wp-calypso), o aplicație JavaScript modernă open-source folosind React. Am început să ne uităm la Electron și cu niște schimbări la Calypso au reușit să-l facă să alerge local. A fost o experienţă convingătoare şi am crezut că există foarte multă valoare în dezvoltarea în continuare.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+Am avut mai multe echipe care lucrau la Calypso. Ar fi fost nevoie de mai multă muncă pentru a face un client complet de interfață GUI multi-platformă, care să se potrivească cu acesta folosind tehnologiile tradiționale de desktop. După utilizarea Electron, o echipă mică de 2-4 dintre noi a reușit să impulsioneze eforturile celeilalte echipe și să construiască aplicația Desktop în câteva luni.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Care sunt unele provocări cu care v-ați confruntat în timp ce construiți WordPress Desktop?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+Am primit o versiune inițială a aplicației foarte rapid, dar reglarea sa se comporte optim ca o aplicație desktop a durat mult mai mult timp. O mare provocare pentru aplicație este că de fapt rulați o copie a Calypso pe propria mașină - este doar o interfață API condusă de API. Au fost implicate multă muncă de punte în asta, iar schimbările au fost readuse la Calypso însuşi.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+În plus, a fost cheltuit mult efort de ambalare a aplicației pentru diferite platforme - oferim Windows, macOS și versiunile Linux - și există suficiente diferențe pentru a face acest truc.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+La momentul în care Electron era relativ nou şi am continuat să ne confruntăm cu probleme care erau în curând rezolvate (uneori în aceeaşi zi!)
 
-## In what areas should Electron be improved?
+## În ce domenii ar trebui îmbunătățit Electron?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron oferă deja cea mai mare parte din ceea ce avem nevoie pentru aplicația Desktop și progresează rapid de când am început să o folosim. Acestea fiind spuse, există unele domenii considerate drept banale într-o aplicație desktop, cum ar fi verificarea ortografică și găsirea/înlocuirea, care sunt mai greu de reprodus cu Electron as-is.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+Ne-ar plăcea de asemenea să vedem că unele dintre noile tehnologii Chrome se filtrează şi în Electron. Suntem deosebit de dornici să experimentăm cu WebVR.
 
-## What are your favorite things about Electron?
+## Care sunt lucrurile tale preferate despre Electron?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Principalul motiv pentru care am ales Electron, şi e cea mai mare putere, este comunitatea foarte activă şi deschisă. Automattic a crezut dintotdeauna în open source. Este unul dintre principiile noastre de bază, iar proiectul Electron și comunitatea urmează multe dintre convingerile fundamentale de a fi foarte deschis și pozitiv.
 
-## What's coming next in WordPress Desktop?
+## Ce urmează în WordPress Desktop?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Cel mai bun lucru la modelul nostru este că aplicația Desktop beneficiază de orice nouă caracteristică Calypso - există îmbunătățiri constante. Sperăm să putem adăuga caracteristici suplimentare în aplicație, cum ar fi suport offline, care ar duce cu adevărat aplicația în teritoriul autohton, și notificări de sistem mai bune.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Există echipe la Automattic care lucrează la alte aplicații Electron?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Da, după eforturile noastre de pe aplicația Desktop echipa Simplenote a decis să folosească Electron pentru a construi aplicații desktop pentru Windows și Linux (un client nativ Mac există deja). Aplicația [Simplenote Electron](https://github.com/Automattic/simplenote-electron) este, de asemenea, open source și disponibilă pe Gî.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+De asemenea, avem o viitoare integrare Raspberry Pi care folosește Electron.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Dacă vreuna dintre acestea pare interesantă, atunci ar trebui [să auzim de la tine](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## Orice sfaturi Electron care ar putea fi utile altor dezvoltatori?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Procesul de livrare a software-ului desktop semnat este relativ nou pentru noi, în special pentru Windows. am scris un articol pentru [Cod Semnând o aplicație Windows](https://mkaz.blog/code/code-signing-a-windows-application/) care include procesul și câteva dintre obstacolele pe care le-am întâmpinat pentru a face acest lucru corect.
 

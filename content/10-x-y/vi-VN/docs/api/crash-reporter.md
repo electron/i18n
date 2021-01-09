@@ -27,7 +27,7 @@ Crash reports are stored temporarily before being uploaded in a directory undern
 
 On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
-## Các phương thức
+## Phương thức
 
 The `crashReporter` module has the following methods:
 

@@ -1,59 +1,59 @@
 # SpellChecker
 
-Electron has built-in support for Chromium's spellchecker since Electron 8.  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
+Electron heeft ingebouwde ondersteuning voor Chromium's spellingcontrole sinds Electron 8.  Dit wordt op Windows en Linux mogelijk gemaakt door Hunspell woordenboeken en op macOS maakt het gebruik van de native spellingcontrole API's.
 
-## How to enable the spellchecker?
+## Hoe de spellingcontrole inschakelen?
 
-For Electron 9 and higher the spellchecker is enabled by default.  For Electron 8 you need to enable it in `webPreferences`.
+Voor Electron 9 en hoger is de spellingscontrole standaard ingeschakeld.  Voor Electron 8 moet u inschakelen in `webVoorkeuren`.
 
 ```js
 const myWindow = new BrowserWindow({
-  webPreferences: {
+  webVoorkeuren: {
     spellcheck: true
   }
 })
 ```
 
-## How to set the languages the spellchecker uses?
+## Hoe stel je de talen in die de spellingcontrole gebruikt?
 
-On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. By default on macOS the native spellchecker will automatically detect the language being used for you.
+Op macOS terwijl we de native API's gebruiken, is er geen manier om de taal in te stellen die de spellingchecker gebruikt. Standaard detecteert de native speller op macOS de taal die voor je wordt gebruikt.
 
-For Windows and Linux there are a few Electron APIs you should use to set the languages for the spellchecker.
+Voor Windows en Linux zijn er enkele Electron API's die u moet gebruiken om de talen voor de spellingchecer in te stellen.
 
 ```js
-// Sets the spellchecker to check English US and French
-myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
+// Stelt de spellingcontrole in om de Engelse VS en Frans
+myWindow.session te controleren. etSpellCheckerLanguages(['en-US', 'fr'])
 
-// An array of all available language codes
-const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
+// Een reeks van alle beschikbare taalcodes
+const possibleTalen = myWindow.session.availableSpellCheckerLanguages
 ```
 
-By default the spellchecker will enable the language matching the current OS locale.
+Standaard zal de spellingscontrole de taal inschakelen die overeenkomt met de huidige OS taalinstelling.
 
-## How do I put the results of the spellchecker in my context menu?
+## Hoe zet ik de resultaten van de spellingcontrole in mijn contextmenu?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  A small example of how to make a context menu with this information is provided below.
+Alle vereiste informatie voor het genereren van een contextmenu wordt verstrekt in het [`context-menu`](../api/web-contents.md#event-context-menu) event op elke `webContents` instantie.  Een klein voorbeeld van hoe je een contextmenu met deze informatie maakt wordt hieronder verstrekt.
 
 ```js
 const { Menu, MenuItem } = require('electron')
 
-myWindow.webContents.on('context-menu', (event, params) => {
+myWindow.webContents. n('context-menu', (event, params) => {
   const menu = new Menu()
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
-      label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
+  // Voeg elke spelling suggestie toe
+  voor (const suggestie van parameters. ictionarySuggess) {
+    menu. ppend(new MenuItem({
+      label: suggestie,
+      click: () => mainWindow.webContents. eplaceMisspelling(suggestie)
     }))
   }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
-      new MenuItem({
-        label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
+  // Sta gebruikers toe om het verkeerd gespelde woord toe te voegen aan het woordenboek
+  als (params. isspelledWord) {
+    menu. ppend(
+      nieuwe MenuItem({
+        label: 'Voeg toe aan woordenboek',
+        klik: () => mainWindow. ebInhoud ession.addWordToSpellCheckerDictionary(params.misspelledWord)
       })
     )
   }
@@ -62,12 +62,12 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## Does the spellchecker use any Google services?
+## Gebruikt de spellingscontrole een Google-services?
 
-Although the spellchecker itself does not send any typings, words or user input to Google services the hunspell dictionary files are downloaded from a Google CDN by default.  If you want to avoid this you can provide an alternative URL to download the dictionaries from.
+Hoewel de spellingcontrole zelf geen typen verzendt, woorden of gebruikersinvoer voor Google services worden de bestanden van het jachtwoordenboek standaard van een Google CDN gedownload.  Als u dit wilt voorkomen, kunt u een alternatieve URL opgeven om het woordenboek van te downloaden.
 
 ```js
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](https://www.electronjs.org/docs/api/session#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.

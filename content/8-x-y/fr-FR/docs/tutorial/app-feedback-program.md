@@ -1,3 +1,0 @@
-# Programme de retours sur les applications Electron
-
-Electron travaille actuellement sur un processus de releases simplifié permettant d'avoir des releases plus rapidement. Pour aider à cela, nous avons le programme de retours sur les applications Electron à grande échelle qui permet de tester nos releases en bêta et signaler des problèmes spécifiques aux applications à l'équipe d'Electron. Nous utilisons ce programme afin de pouvoir prioriser le travail et avoir des applications améliorées vers les prochaines versions stables le plus vite possible. Il y a quelques exigences que nous attendons des participants, tels que des brèves réunions, des vérifications hebdomadaires en ligne. S'il vous plaît visitez le blog pour plus de détails et vous inscrire.

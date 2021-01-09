@@ -1,10 +1,10 @@
-# Fișier nativ drag & drop
+# Fișier nativ Drag & Drop
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
+Anumite tipuri de aplicaţii care manipulează fişierele ar putea dori să suporte caracteristica de fişier nativ al sistemului de operare drag & drop Dragging files into web content is common and supported by many websites. (Automatic Copy) Electron în plus suportă tragerea fișierelor și conținutul din conținutul web în lumea sistemului de operare .
 
-To implement this feature in your app, you need to call `webContents.startDrag(item)` API in response to the `ondragstart` event.
+Pentru a implementa această caracteristică în aplicație, trebuie să apelați la `webContents.startDrag(item)` API ca răspuns la evenimentul `ondragstart`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+În procesul de redare, gestionați evenimentul `ondragstart` și transmiteți informația către procesul dvs. principal.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,14 +16,14 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Apoi, în procesul principal, completați evenimentul cu o cale către fișierul care este tras și o pictogramă.
 
 ```javascript
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {
   event.sender.startDrag({
-    file: filePath,
+    fișier: filePath,
     icon: '/path/to/icon.png'
   })
 })

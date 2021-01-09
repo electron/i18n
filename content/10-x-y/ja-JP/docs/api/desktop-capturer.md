@@ -2,7 +2,7 @@
 
 > [`navigator.mediaDevices.getUserMedia`][] APIを使用して、デスクトップからの音声と映像のキャプチャに利用できるメディアソース関連の情報にアクセスします。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 以下の例では、タイトルが `Electron` であるデスクトップウインドウからビデオをキャプチャする方法を示します。
 
@@ -79,7 +79,7 @@ const constraints = {
 
 戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
+**注釈** 画面コンテンツをキャプチャするには、macOS 10.15 Catalina 以降でのユーザーの同意が必要です。同意しているかどうかは [`systemPreferences.getMediaAccessStatus`][]で検知できます。
 
 ## Caveats
 

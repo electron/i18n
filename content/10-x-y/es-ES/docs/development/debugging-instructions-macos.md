@@ -6,14 +6,14 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 * **Construcción de una depuración de Electron**: La manera más fácil usualmente es construirlo usted mismo, usando las herramientas y prerrequisitos especificados en el [Instrucciones de construcción para macOS](build-instructions-macos.md). Aunque puede adjuntar y depurar Electrón a medida que lo descarga directamente, encontrará que está muy optimizado, lo que dificulta considerablemente la depuración: el depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a las llamadas en línea, las llamadas de cola y otras optimizaciones del compilador.
 
-* **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. Incluyen LLDB, el depurador predeterminado en Xcode en macOS. Admite depuración de C, Objective-C y C++ en el escritorio y los dispositivos y simuladores iOS.
 
 * **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
    ```text
    importar script ~/electron/src/tools/lldb/lldbinit.py
    ```
 
-## A y depuración Electron
+## Adjuntado y depuración de Electron
 
 Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasando al constructo de depuración de Electron como un parámetro.
 
@@ -93,9 +93,9 @@ Para finalizar la depuración en este punto, corra `continuar proceso`. También
 Ahora, si abre las herramientas para desarrolladores y llama `setName`, alcanzará de nuevo el punto de interrupción.
 
 ### Leer más
-LLDB es una herramienta poderosa con una gran documentación. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
+LLDB es una herramienta poderosa con una gran documentación. Para aprender más sobre esto, considera leer la documentación sobre la depuración de Apple, como [LLDB Command Structure Reference][lldb-command-structure] o la introducción de [Using LLDB as a Standalone Debugger][lldb-standalone].
 
-You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
+También puedes consultar el fantástico [manual y tutorial][lldb-tutorial] de LLDB, el cual explica escenarios de depuración más complejos.
 
 [lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html

@@ -43,7 +43,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Metode
+## Methods
 
 Modul ` protocol ` memiliki beberapa metode berikut:
 

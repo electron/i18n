@@ -6,33 +6,33 @@ author:
 date: '2019-10-22'
 ---
 
-Electron 7.0.0 has been released! It includes upgrades to Chromium 78, V8 7.8, and Node.js 12.8.1. We've added a Window on Arm 64 release, faster IPC methods, a new `nativeTheme` API, and much more!
+Electron 7.0.0 byl vydán! Zahrnuje vylepšení na Chromium 78, V8 7.8 a Node.js 12.8.1. Přidali jsme okno pro Arm 64, rychlejší metody IPC, nové `nativeTheme` API a mnohem více!
 
 ---
 
-The Electron team is excited to announce the release of Electron 7.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Tým Electronu je nadšený oznámit vydání Electronu 7.0.0! Můžete ji nainstalovat pomocí npm přes `npm instalovat electron@latest` nebo stáhnout z našich [webových stránek](https://electronjs.org/releases/stable). Vydání je plněno aktualizacemi, opravami a novými funkcemi. Nemůžeme čekat, co s nimi buduješ! Pokračujte ve čtení podrobností o tomto vydání a prosím sdílejte zpětnou vazbu, kterou máte!
 
-## Notable Changes
- * Stack Upgrades:
+## Významné změny
+ * Vylepšení zásobníku:
 
-   | Stack    | Version in Electron 6 | Version in Electron 7 | What's New                                                                                                                                                                                                                                                                |
-   |:-------- |:--------------------- |:--------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | Chromium | 76.0.3809.146         | **78.0.3905.1**       | [77](https://developers.google.com/web/updates/2019/09/nic77), [78](https://developers.google.com/web/updates/2019/10/nic78)                                                                                                                                              |
-   | V8       | 7.6                   | **7.8**               | [7.7](https://v8.dev/blog/v8-release-77), [7.8](https://v8.dev/blog/v8-release-78)                                                                                                                                                                                        |
-   | Node.js  | 12.4.0                | **12.8.1**            | [12.5](https://nodejs.org/en/blog/release/v12.5.0/), [12.6](https://nodejs.org/en/blog/release/v12.6.0/), [12.7](https://nodejs.org/en/blog/release/v12.7.0/), [12.8](https://nodejs.org/en/blog/release/v12.8.0/), [12.8.1](https://nodejs.org/en/blog/release/v12.8.1/) |
- * Added Windows on Arm (64 bit) release. [#18591](https://github.com/electron/electron/pull/18591), [#20112](https://github.com/electron/electron/pull/20112)
- * Added `ipcRenderer.invoke()` and `ipcMain.handle()` for asynchronous request/response-style IPC. These are strongly recommended over the `remote` module. See this "[Electron’s ‘remote’ module considered harmful](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)" blog post for more information. [#18449](https://github.com/electron/electron/pull/18449)
- * Added `nativeTheme` API to read and respond to changes in the OS's theme and color scheme. [#19758](https://github.com/electron/electron/pull/19758), [#20486](https://github.com/electron/electron/pull/20486)
- * Switched to a new TypeScript Definitions [generator](https://github.com/electron/docs-parser). The resulting definitions are more precise; so if your TypeScript build fails, this is the likely cause. [#18103](https://github.com/electron/electron/pull/18103)
+   | Zásobník | Verze v Electron 6 | Verze v Electron 7 | Co je nového                                                                                                                                                                                                                                                              |
+   |:-------- |:------------------ |:------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | Chrom    | 76.0.3809.146      | **78.0.3905.1**    | [77](https://developers.google.com/web/updates/2019/09/nic77), [78](https://developers.google.com/web/updates/2019/10/nic78)                                                                                                                                              |
+   | V8       | 7.6                | **7.8**            | [7.7](https://v8.dev/blog/v8-release-77), [7.8](https://v8.dev/blog/v8-release-78)                                                                                                                                                                                        |
+   | Node.js  | 12.4.0             | **12.8.1**         | [12.5](https://nodejs.org/en/blog/release/v12.5.0/), [12.6](https://nodejs.org/en/blog/release/v12.6.0/), [12.7](https://nodejs.org/en/blog/release/v12.7.0/), [12.8](https://nodejs.org/en/blog/release/v12.8.0/), [12.8.1](https://nodejs.org/en/blog/release/v12.8.1/) |
+ * Přidána Windows na Arm (64 bit) verze. [#18591](https://github.com/electron/electron/pull/18591), [#20112](https://github.com/electron/electron/pull/20112)
+ * Přidáno `ipcRender.invoke()` a `ipcMain.handle()` pro asynchronní požadavek / response-style IPC. Ty jsou důrazně doporučeny přes `vzdálený` modul. Podívejte se na tento "[Electronův modul "dálkový" modul považovaný za škodlivý](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)" blog post pro více informací. [#18449](https://github.com/electron/electron/pull/18449)
+ * Přidáno `nativní téma` API, aby bylo možné číst a reagovat na změny v šabloně a barevném schématu OS. [#19758](https://github.com/electron/electron/pull/19758), [#20486](https://github.com/electron/electron/pull/20486)
+ * Přepnuto na nový generátor TypeScript definic [](https://github.com/electron/docs-parser). Výsledné definice jsou přesnější, takže pokud váš TypeScript sestaví chybu, je to pravděpodobná příčina. [#18103](https://github.com/electron/electron/pull/18103)
 
-See the [7.0.0 release notes](https://github.com/electron/electron/releases/tag/v7.0.0) for a longer list of changes.
+Více změn naleznete v poznámkách [7.0.0](https://github.com/electron/electron/releases/tag/v7.0.0).
 
 ## Breaking Changes
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) page.
+Více informací o těchto a budoucích změnách naleznete na stránce [Plánované změny zlomu](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
 
- * Removed deprecated APIs:
-     * Callback-based versions of functions that now use Promises. [#17907](https://github.com/electron/electron/pull/17907)
+ * Odstraněno zastaralé API:
+     * Verze funkcí, které nyní používají Promises, založené na volání zpět. [#17907](https://github.com/electron/electron/pull/17907)
      * `Tray.setHighlightMode()` (macOS). [#18981](https://github.com/electron/electron/pull/18981)
      * `app.enableMixedSandbox()` [#17894](https://github.com/electron/electron/pull/17894)
      * `app.getApplicationMenu()`,
@@ -42,21 +42,21 @@ More information about these and future changes can be found on the [Planned Bre
      * `webFrame.setIsolatedWorldContentSecurityPolicy()`,
      * `webFrame.setIsolatedWorldHumanReadableName()`,
      * `webFrame.setIsolatedWorldSecurityOrigin()` [#18159](https://github.com/electron/electron/pull/18159)
- * `Session.clearAuthCache()` no longer allows filtering the cleared cache entries. [#17970](https://github.com/electron/electron/pull/17970)
- * Native interfaces on macOS (menus, dialogs, etc.) now automatically match the dark mode setting on the user's machine. [#19226](https://github.com/electron/electron/pull/19226)
- * Updated the `electron` module to use `@electron/get`.  The minimum supported node version is now Node 8. [#18413](https://github.com/electron/electron/pull/18413)
- * The file `electron.asar` no longer exists. Any packaging scripts that depend on its existence should be updated. [#18577](https://github.com/electron/electron/pull/18577)
+ * `Session.clearAuthCache()` již neumožňuje filtrovat vymazané položky mezipaměti. [#17970](https://github.com/electron/electron/pull/17970)
+ * Nativní rozhraní na macOS (menu, dialogy atd.) nyní automaticky odpovídají nastavení tmavého režimu na počítači uživatele. [#19226](https://github.com/electron/electron/pull/19226)
+ * Aktualizován modul `electron` pro použití `@electron/get`.  Minimální podporovaná verze uzlu je nyní uzel 8. [#18413](https://github.com/electron/electron/pull/18413)
+ * Soubor `electron.asar` již neexistuje. Všechny balicí skripty závisející na jeho existenci by měly být aktualizovány. [#18577](https://github.com/electron/electron/pull/18577)
 
-## End of Support for 4.x.y
+## Konec podpory pro 4.x.y
 
-Electron 4.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 4.x.y dosáhl konce podpory v rámci [politiky podpory](https://electronjs.org/docs/tutorial/support#supported-versions). Vývojáři a aplikace jsou vybízeny k aktualizaci na novější verzi Electronu.
 
 ## App Feedback Program
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Pro testování nadále používáme náš [program zpětné vazby k aplikacím](https://electronjs.org/blog/app-feedback-program) . Projekty, které se účastní tohoto programu testování Electron betas na svých aplikacích; a na oplátku nové chyby mají prioritu pro stabilní vydání. Pokud byste se chtěli zúčastnit nebo se dozvědět více, [podívejte se na náš blogový příspěvek o programu](https://electronjs.org/blog/app-feedback-program).
 
-## What's Next
+## Co je další
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 8.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 8 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+Z krátkodobého hlediska můžete očekávat, že se tým bude nadále zaměřovat na udržení pokroku při vývoji hlavních komponentů, které tvoří Electron, včetně chromu, niklu a V8. I když jsme opatrní, abychom neslíbili data zveřejnění, Naším plánem je vydání nových hlavních verzí Electronu s novými verzemi těchto komponentů přibližně čtvrtletně. [předběžný plán 8.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapuje klíčová data ve vývojovém životním cyklu Electronu 8. Také [viz náš dokument s verzemi](https://electronjs.org/docs/tutorial/electron-versioning) pro podrobnější informace o verzích v Electronu.
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
+Informace o plánovaných zlomových změnách v nadcházejících verzích Electronu [naleznete v naší Plánované zlomení změn doc](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).

@@ -1,6 +1,6 @@
 # Powiadomienie
 
-> Tworzy powiadomienia na pulpicie
+> Tworzenie powiadomień na pulpicie
 
 Proces: [Main](../glossary.md#main-process)
 

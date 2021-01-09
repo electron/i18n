@@ -1,4 +1,4 @@
-# bumagsakReporter
+# crashReporter
 
 > Isumite ang mga ulat ng pag bagsak sa isang remote server.
 
@@ -37,7 +37,7 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Ang Default ay `true`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Ng default ay `tama`.
   * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Ang default ay `false`.
   * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Ang default ay `false`.
   * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Ang default ay `false`.

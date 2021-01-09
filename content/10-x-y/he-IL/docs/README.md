@@ -30,28 +30,28 @@ There are questions that are asked quite often. Check this out before creating a
   * [שימוש בפעולות ה־API של Electron](tutorial/application-architecture.md#using-electron-apis)
   * [שימוש בפעולות ה־API של Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [אסטרטגיות ביצועים](tutorial/performance.md)
 * הוספת תכונות לאפליקציה שלך
-  * [התראות](tutorial/notifications.md)
+  * [Notifications](tutorial/notifications.md)
   * [מסמכים אחרונים](tutorial/recent-documents.md)
   * [התקדמות התרגום](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
+  * [תפריט עגינה מותאם אישית](tutorial/macos-dock.md)
   * [שורת משימות מותאמת אישית של Windows](tutorial/windows-taskbar.md)
   * [פעולות מותאמות אישית בסביבת לינוק לשולחן עבודה](tutorial/linux-desktop-actions.md)
   * [קיצורי מקלדת](tutorial/keyboard-shortcuts.md)
   * [זיהוי מקוון/לא מקוון](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [גרירה & נפילה מובנית](tutorial/native-file-drag-drop.md)
+  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [תמיכה במצב כהה של macOS](tutorial/mojave-dark-mode-guide.md)
   * [Web embeds in Electron](tutorial/web-embeds.md)
-* [נגישות](tutorial/accessibility.md)
+* [Accessibility](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [איפשור נגישות](tutorial/accessibility.md#enabling-accessibility)
+  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [בדיקה ואיתור באגים](tutorial/application-debugging.md)
-  * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [דיבוג התהליך הראשי עם Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [שימוש ב-Selenium ו-WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
@@ -66,7 +66,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [דיווח על פרצות אבטחה](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [אזהרות אבטחה של Electron](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
+  * [רשימת אבטחה](tutorial/security.md#checklist-security-recommendations)
 * [עדכונים](tutorial/updates.md)
   * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
   * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
@@ -81,23 +81,23 @@ There are questions that are asked quite often. Check this out before creating a
   * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [פתרון בעיות](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback
-  * [Versioning Policy](tutorial/electron-versioning.md)
+* גרסאות של Electron & משוב מפתחים
+  * [מדיניות גרסאות](tutorial/electron-versioning.md)
   * [ציר זמן הוצאות לאור](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md)
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [תוכנית המשוב](tutorial/app-feedback-program.md)
+* [אריזת קוד המקוד עם asar](tutorial/application-packaging.md)
+  * [לחולל ארכיוני asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [שימוש בארכיוני asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [הוספת קבצים לא ארוזים לארכיוני asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 ---
 
-* [Glossary of Terms](glossary.md)
+* [מילון מונחים](glossary.md)
 
-## API References
+## הפניה לממשק
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
@@ -108,9 +108,9 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### אלמנטי DOM מותאמים אישית:
 
-* [`קובץ` Object](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` תג](api/webview-tag.md)
-* [`window.open` פונקציה](api/window-open.md)
+* [`window.open` Function](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### מודלים עבור ה־Main Process:

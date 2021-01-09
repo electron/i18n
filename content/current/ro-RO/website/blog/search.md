@@ -7,94 +7,94 @@ author:
 date: '2018-06-21'
 ---
 
-The Electron website has a new search engine that delivers instant results for API docs, tutorials, Electron-related npm packages, and more.
+Site-ul Electron are un nou motor de căutare care oferă rezultate instant pentru documente API, tutoriale, pachete npm legate de Electron și multe altele.
 
 <figure>
   <a href="https://electronjs.org/?query=resize" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Electron Search Screenshot">
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/41683719-417ca80a-7490-11e8-9a52-fb145f4251ba.png" alt="Screenshot căutare Electron">
   </a>
 </figure>
 
 ---
 
-Learning a new technology or framework like Electron can be intimidating. Once you get past the [quick-start](https://github.com/electron/electron-quick-start) phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. We want the Electron website to be a better tool for finding the resources you need to build apps faster and more easily.
+Învățarea unei noi tehnologii sau a unui cadru ca Electron poate fi intimidantă. Odată ce ai trecut de etapa [de pornire rapidă](https://github.com/electron/electron-quick-start) , poate fi dificil să înveți cele mai bune practici, găsește API-urile corecte sau descoperă uneltele care te vor ajuta să construiești aplicația viselor tale. Vrem ca site-ul Electron să fie un instrument mai bun pentru a găsi resursele de care ai nevoie pentru a construi aplicații mai repede și mai ușor.
 
-Visit any page on [electronjs.org](https://electronjs.org) and you'll find the new search input at the top of the page.
+Vizitați orice pagină de pe [electronjs.org](https://electronjs.org) și veți găsi noile intrări de căutare în partea de sus a paginii.
 
-## The Search Engine
+## Motorul de Căutare
 
-When we first set about adding search to the website, we rolled our own search engine using GraphQL as a backend. GraphQL was fun to work with and the search engine was performant, but we quickly realized that building a search engine is not a trivial task. Things like multi-word search and typo detection require a lot of work to get right. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia](https://algolia.com).
+Când am setat prima dată să adăugăm căutare pe site, ne-am rostogolit propriul nostru motor de căutare folosind GraphQL ca backend. GraphQL a fost distractiv să lucreze cu și motorul de căutare a fost performant, dar ne-am dat seama rapid că motorul de căutare nu este o sarcină banală. Lucruri precum căutarea de cuvinte multiple și detectarea taximetriștilor necesită multă muncă pentru a fi corecte. În loc să reinventăm roata, am decis să folosim o soluție de căutare existentă: [Algolia](https://algolia.com).
 
-Algolia is a hosted search service that has quickly become the search engine of choice among popular open source projects like React, Vue, Bootstrap, Yarn, and [many others](https://community.algolia.com/docsearch/).
+Algolia este un serviciu de căutare găzduit care a devenit rapid motorul de căutare ales dintre proiectele cu sursă deschisă populară precum React, Vue, Bootstrap, Yarn și [multe alții](https://community.algolia.com/docsearch/).
 
-Here are some of the features that made Algolia a good fit for the Electron project:
+Iată câteva dintre caracteristicile care au făcut din Algolia o potrivire bună pentru proiectul Electron:
 
-- [InstantSearch.js](https://community.algolia.com/instantsearch.js) provides results as you type, usually in about 1ms.
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`].
-- [Advanced query syntax](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) enables `"exact quoted matches"` and `-exclusion`.
-- [API clients](https://www.algolia.com/doc/api-client/javascript/getting-started/) are open source and with well-documented.
-- [Analytics](https://www.algolia.com/doc/guides/analytics/analytics-overview/) tell us what people are searching for most, as well as what they're searching for but not finding. This will give us valuable insight into how Electron's documentation can be improved.
-- Algolia is [free for open source projects](https://www.algolia.com/for-open-source).
+- [InstantSearch.js](https://community.algolia.com/instantsearch.js) oferă rezultate pe măsură ce tastați, de obicei în aproximativ 1 ms.
+- [Toleranța Typo](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) înseamnă că vei obține în continuare rezultate chiar și atunci când tastezi [`widnow`].
+- [Sintaxa avansată de interogare](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) activează `"meciuri citate exact"` și `-excludere`.
+- [Clienții API](https://www.algolia.com/doc/api-client/javascript/getting-started/) sunt cu sursă deschisă și bine documentați.
+- [Analizele](https://www.algolia.com/doc/guides/analytics/analytics-overview/) ne spun ce caută oamenii pentru cei mai mulți, precum și ce caută ei dar nu descoperă. Acest lucru ne va oferi o imagine valoroasă asupra modului în care documentaţia Electron poate fi îmbunătăţită.
+- Algolia este [gratuit pentru proiecte open source](https://www.algolia.com/for-open-source).
 
 ## API Docs
 
-Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron has over 750 API methods, events, and properties. No human can easily remember all of them, but computers are good at this stuff. Using Electron's [JSON API docs](https://electronjs.org/blog/api-docs-json-schema), we indexed all of this data in Algolia, and now you can easily find the exact API you're looking for.
+Câteodată știți *ce* doriți să realizați, dar nu știți exact *cum* să faceți acest lucru. Electron are peste 750 de metode, evenimente și proprietăți API. Nimeni nu îşi poate aminti cu uşurinţă de toate acestea, dar computerele sunt bune la aceste lucruri. Folosind [documentele API-ului JSON al Electron,](https://electronjs.org/blog/api-docs-json-schema), am indexat toate aceste date în Algolia, și acum puteți găsi cu ușurință API-ul exact pe care îl căutați.
 
-Trying to resize a window? Search for [`resize`] and jump straight to the method you need.
+Încercați să redimensionați o fereastră? Căutați [`redimensionați`] și săriți direct la metoda de care aveți nevoie.
 
-## Tutorials
+## Tutoriale
 
-Electron has an ever-growing collection of tutorials to complement its API documentation. Now you can more easily find tutorials on a given topic, right alongside related API documentation.
+Electron are o colecție din ce în ce mai mare de tutoriale pentru a completa documentația API . Acum puteți găsi mai ușor tutoriale pe un subiect dat, împreună cu documentația API conexă.
 
-Looking for security best practices? Search for [`security`].
+Căutați cele mai bune practici în materie de securitate? Căutare pentru [`securitate`].
 
-## npm Packages
+## pachete npm
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. To make it easier to discover these modules, we've created [`electron-npm-packages`], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
+Acum sunt peste 700.000 de pachete în registrul npm şi nu este întotdeauna uşor să le găseşti pe cele de care ai nevoie. Pentru a facilita descoperirea acestor module, am creat [`pachete electronon-npm-`], o colecție a modulelor 3400 + în registrul care sunt construite special pentru a fi utilizat cu Electron.
 
-The folks at [Libraries.io](https://libraries.io) have created [SourceRank](https://docs.libraries.io/overview.html#sourcerank), a system for scoring software projects based on a combination of metrics like code, community, documentation, and usage. We created a [`sourceranks`] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
+Cei de la [Biblioteci. o](https://libraries.io) au creat [SourceRank](https://docs.libraries.io/overview.html#sourcerank), un sistem de notare a proiectelor software bazat pe o combinație de măsurători ca , cod, comunitate, documentație și utilizare. Am creat un modul [`sourceranks`] care include scorul fiecărui modul în registrul npm, și folosim aceste scoruri pentru a sorta rezultatele pachetului.
 
-Want alternatives to Electron's built-in IPC modules? Search for [`is:package ipc`].
+Vrei alternative la modulele IPC integrate ale Electronului? Căutare pentru [`este:package ipc`].
 
 ## Aplicații Electron
 
-It's [easy to index data with Algolia](https://github.com/electron/algolia-indices), so we added the existing apps list from [electron/apps](https://github.com/electron/apps).
+Este [ușor să indexezi date cu Algolia](https://github.com/electron/algolia-indices), așa că am adăugat lista de aplicații existente din [electron/apps](https://github.com/electron/apps).
 
-Try a search for [`music`] or [`homebrew`].
+Încercați să căutați [`muzică`] sau [`homebrew`].
 
-## Filtering Results
+## Filtrare rezultate
 
-If you've used GitHub's [code search](https://github.com/search) before, you're probably aware of its colon-separated key-value filters like `extension:js` or `user:defunkt`. We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
+Dacă ați folosit căutarea de cod [GitHub](https://github.com/search) înainte, Probabil că sunteți conștient de filtrele-cheie separate prin colon, cum ar fi `extensia:js` sau `utilizator:defunkt`. Credem că această tehnică de filtrare este destul de puternică, așa că am adăugat o `este:` cuvânt cheie pentru căutarea lui Electron, care îți permite să filtrezi rezultate pentru a afișa doar un singur tip:
 
-- [`is:api thumbnail`]
-- [`is:tutorial security`]
-- [`is:package ipc`]
-- [`is:app graphql`]
+- [`este:api thumbnail`]
+- [`este:tutorial security`]
+- [`este:package ipc`]
+- [`este:app graphql`]
 
-## Keyboard Navigation
+## Navigare tastatură
 
-People love keyboard shortcuts! The new search can be used without taking your fingers off the keyboard:
+Oamenilor le plac scurtăturile pentru tastaturi! Noua căutare poate fi folosită fără a scoate degetele de pe tastatură:
 
-- <kbd>/</kbd> focuses the search input
-- <kbd>esc</kbd> focuses the search input and clears it
-- <kbd>down</kbd> moves to the next result
-- <kbd>up</kbd> moves to the previous result, or the search input
-- <kbd>enter</kbd> opens a result
+- <kbd>/</kbd> focalizează intrarea în căutare
+- <kbd>o</kbd> focalizează pe intrarea de căutare și o șterge
+- <kbd>în jos</kbd> se mută la rezultatul următor
+- <kbd>în sus</kbd> se mută la rezultatul anterior, sau la intrarea în căutare
+- <kbd>introduceți</kbd> deschide un rezultat
 
-We also open-sourced the [module](https://github.com/electron/search-with-your-keyboard/) that enables this keyboard interaction. It's designed for use with Algolia InstantSearch, but is generalized to enable compatibility with different search implementations.
+De asemenea, am deschis [modulul](https://github.com/electron/search-with-your-keyboard/) care activează această interacțiune a tastaturii. Este proiectat pentru utilizare cu Algolia InstantSearch, dar este generalizat pentru a activa compatibilitatea cu diferite implementări de căutare.
 
-## We want your feedback
+## Dorim feedback-ul dvs.
 
-If you encounter any issues with the new search tool, we want to hear about it!
+Dacă întâmpinați probleme cu noul instrument de căutare, vrem să auzim despre el!
 
-The best way to submit your feedback is by filing an issue on GitHub in the appropriate repository:
+Cea mai bună modalitate de a trimite feedback-ul dumneavoastră este prin depunerea unei probleme pe GitHub în depozitul corespunzător:
 
-- [electron/electronjs.org](https://github.com/electron/electronjs.org) is the Electron website. If you don't know where to file an issue, this your best bet.
-- [electron/algolia-indices](https://github.com/electron/algolia-indices) is where all the searchable Electron data is compiled.
-- [electron/search-with-your-keyboard](https://github.com/electron/search-with-your-keyboard) makes the search interface navigable by keyboard.
-- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) is the browser-side client that enables find-as-you-type search.
-- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) is the Node.js client for uploading data to Algolia's servers.
+- [electron/electronjs.org](https://github.com/electron/electronjs.org) este site-ul Electron. Dacă nu știi unde să trimiți o problemă, acesta este cel mai bun pariu.
+- [electron/algolia-indici](https://github.com/electron/algolia-indices) este locul unde sunt compilate toate datele Electron care pot fi căutate.
+- [electron/search-cu-tastatura](https://github.com/electron/search-with-your-keyboard) face interfața de căutare navigabilă cu tastatura.
+- [algolia/instantsearch.js](https://github.com/algolia/instantsearch.js) este clientul de pe partea de browser care permite căutarea de tip găd-as-tine.
+- [algolia/algoliasearch-client-javascript](https://github.com/algolia/algoliasearch-client-javascript) este clientul Node.js pentru încărcarea datelor pe serverele Algoliei.
 
-## Thanks
+## Mulțumim
 
-Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io](https://libraries.io) for providing [SourceRank](https://docs.libraries.io/overview.html#sourcerank) scores, and to the team at Algolia for helping us get started. 🍹
+Mulțumiri speciale [Emily Iordan](https://github.com/echjordan) și [Vanessa Yuen](https://github.com/vanessayuenn) pentru construirea acestor noi capabilități de căutare, pentru [Biblioteci. o](https://libraries.io) pentru furnizarea de scoruri [SourceRank](https://docs.libraries.io/overview.html#sourcerank) și echipei de la Algolia pentru a ne ajuta să începem. 🍹

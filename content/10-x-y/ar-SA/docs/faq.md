@@ -1,4 +1,4 @@
-# Electron FAQ
+# Electron  - الاسئلة الشائعة
 
 ## لماذا أواجه مشكلة في تثبيت إلكترون؟
 
@@ -12,7 +12,7 @@ Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykaj�
 
 عادة ما يتم صدم نسخة كروم من الإلكترون في غضون أسبوع أو أسبوعين بعد يتم إصدار إصدار Chrome مستقر جديد. هذا التقدير غير مضمون و يعتمد على مقدار العمل المعني بالترقية.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+يتم استخدام قناة كروم المستقرة فقط. إذا كان إصلاح مهم في قناة بيتا أو ديف ، سنقوم بعودة المنبور.
 
 لمزيد من المعلومات، يرجى الاطلاع على [مقدمة الأمان.](tutorial/security.md).
 
@@ -22,11 +22,11 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
-## How to share data between web pages?
+## كيف تشارك البيانات بين صفحات الويب؟
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+لمشاركة البيانات بين صفحات الويب (عملية الرندر) أسهل طريقة هي استخدام HTML5 API, s وهي متاحة سابقاً في المتصفحات. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+أو يمكنك استخدام نظام IPC، وهو خاص إلكترون، لتخزين الكائنات في العملية الرئيسية كمتغير عالمي، ومن ثم الوصول إليها من العارضين من خلال خاصية</code> ` <code>وحدة` الإلكترونات:
 
 ```javascript
 // In the main process.
@@ -45,41 +45,41 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## اختفت صالة تطبيقي بعد بضع دقائق.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+يحدث هذا عندما يتم جمع المتغير الذي يستخدم لتخزين العلامة القمامة.
 
-If you encounter this problem, the following articles may prove helpful:
+إذا واجهت هذه المشكلة، قد تكون المقالات التالية مفيدة:
 
-* [Memory Management][memory-management]
-* [Variable Scope][variable-scope]
+* [إدارة الذاكرة][memory-management]
+* [نطاق المتغير][variable-scope]
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+إذا كنت تريد حل سريع، يمكنك جعل المتغيرات عمومية عن طريق تغيير التعليمات البرمجية من هذا:
 
 ```javascript
 const { app, Tray } = require('electron')
+app.whenReady{()) => {
+  علبة const = علبة جديدة('/path/to/icon.png')
+  tray.setTitle ('مرحبا العالم')
+})
+```
+
+إلى هذا:
+
+```javascript
+const { app, Tray } = مطلوب('electron')
+اسمح باللعبة = null
 app.whenReady().then(() => {
-  const tray = new Tray('/path/to/icon.png')
+  tray = Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-to this:
+## لا يمكنني استخدام jQuery/RequireJS/Meteor/AngularJS في إلكترون.
 
-```javascript
-const { app, Tray } = require('electron')
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
-})
-```
+Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. هذا يسبب مشاكل لبعض المكتبات لأنها تريد إدراج الرموز بنفس الأسماء.
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
-
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
-
-To solve this, you can turn off node integration in Electron:
+لحل هذه المشكلة، يمكنك إيقاف دمج العقدة في Electron:
 
 ```javascript
 // In the main process.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+لكن إذا كنت ترغب في الحفاظ على قدرات استخدام العقدة. s و إلكترون API، يجب عليك إعادة تسمية الرموز في الصفحة قبل تضمين المكتبات الأخرى:
 
 ```html
 <head>
@@ -106,37 +106,37 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `الشرط ('electron').xxx` غير محدد.
 
-When using Electron's built-in module you might encounter an error like this:
+عند استخدام وحدة Electron's المدمجة قد تواجه خطأ مثل هذا:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+> مطلوب('electron').webFrame.setZoomFactor(1.0)
+لم يتم القبض على TypeError: لا يمكن قراءة الخاصية 'setZoomlevel' من غير معرف
 ```
 
-It is very likely you are using the module in the wrong process. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
+من المحتمل جدا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
 متاح فقط في renderer processes.</p>
 
-<h2 spaces-before="0">The font looks blurry, what is this and what can I do?</h2>
+<h2 spaces-before="0">يبدو الخط غير واضح، ما هو هذا وماذا يمكنني أن أفعل؟</h2>
 
-<p spaces-before="0">If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. مثال:</p>
+<p spaces-before="0">إذا تم إلغاء تنشيط <a href="http://alienryderflex.com/sub_pixel/">منع الاستيفاء من الباطن بالبكسل</a> ، يمكن أن تبدو الخطوط على شاشات LCD غير واضحة. مثال:</p>
 
 <p spaces-before="0">!<a href="images/subpixel-rendering-screenshot.gif" fo="9">subpixel rendering example</a></p>
 
-<p spaces-before="0">Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
+<p spaces-before="0">وتحتاج مكافحة التحرر من الباطن إلى خلفية غير شفافة للطبقة التي تحتوي على غليفات الخط. (انظر <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">هذه المشكلة</a> لمزيد من المعلومات).</p>
 
 <p spaces-before="0">To achieve this goal, set the background in the constructor for <a href="api/browser-window.md" f-id="browser-window" fo="8">BrowserWindow</a>:</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
+<pre><code class="javascript">متجر { BrowserWindow } = مطلوبة ('electron')
+اسمح للفوز = متصفح جديد ({
   backgroundColor: '#fff'
 })
 `</pre>
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. حتى لو كنت لا ترى فرقا، قد يرى بعض المستخدمين الخاص بك. ومن الأفضل أن نضع دائماً الخلفية بهذه الطريقة، ما لم تكن لديك أسباب لعدم القيام بذلك.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+لاحظ أن إعداد الخلفية فقط في CSS ليس له التأثير المطلوب.
 
 [memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
 [variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx

@@ -6,7 +6,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
-Process: [Main](../glossary.md#main-process)
+Quá trình: [Main](../glossary.md#main-process)
 
 Ví dụ:
 ```js

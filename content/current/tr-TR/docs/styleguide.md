@@ -45,7 +45,8 @@ API referansları için bazı istisnalar mevcut.
 * Kod bloklarında `sh` yerine `cmd` kullanın. (Sözdizimi işaretleyicisinden dolayı).
 * Satırlar 80. karakterde bitmelidir.
 * İç içe listeleri 2'den fazla kademeyi listelemez (indirim işleyici nedeniyle).
-* Tüm `js` ve `javascript` kod blokları [standard-markdown](http://npm.im/standard-markdown) ile kontrol edilir.
+* Tüm `js` ve `javascript` kod blokları [standard-markdown](https://www.npmjs.com/package/standard-markdown) ile kontrol edilir.
+* For unordered lists, use asterisks instead of dashes
 
 ## Kelime seçimi
 

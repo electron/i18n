@@ -1,12 +1,12 @@
-# Electron FAQ
+# Electron 자주 묻는 질문
 
 ## 왜 Electron을 설치하는데에 문제가 생길까요?
 
-`npm install electron`을 실행할 때, 어떤 사용자에게는 가끔 설치 오류가 발생합니다.
+`npm install electron`을 실행하면 일부 사용자는 설치 오류가 발생할 수 있습니다.
 
-대부분의 경우에는, 이 오류는 네트웍 문제로 인한 것이고 `electron` npm 패키지 자체의 오류는 아닙니다. `ELIFECYCLE`나 `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` 같은 오류는 이런 네트웍 문제임을 나타냅니다. 최선의 방법은 네트웍을 전환하거나 잠시 기다린 후에 다시 설치를 시도하는 것입니다.
+거의 모든 경우, 이러한 오류들은 네트워크 문제의 결과이고 `electron` npm package의 문제가 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 및 `ETIMEDOUT`과 같은 오류는 모두 네트워크 문제를 나타냅니다. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
 
-`npm`을 통해 설치하는 것에 실패한다면 Electron을 [electron/electron/releases](https://github.com/electron/electron/releases)로부터 직접 다운로드할 수 있습니다.
+`npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
 
 ## Electron은 언제 최신 버전의 Chrome으로 업그레이드해야 합니까?
 
@@ -14,7 +14,7 @@ Electron의 Chrome 버전은 대게 새로운 안정적인 Chrome 버전이 출�
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-자세한 내용은 [보안 설명](tutorial/security.md)을 참고하세요.
+자세한 내용은, [보안 소개](tutorial/security.md)를 참조하세요.
 
 ## Electron을 언제 최신 Node.js로 업그레이드해야 합니까?
 
@@ -26,7 +26,7 @@ Node.js의 새 버전이 출시되면, Electron 또한 업그레이드 전에 �
 
 웹페이지(렌더러 프로세스들) 간의 가장 간단한 공유 방법은 이미 모든 브라우저에서 사용가능한 HTML5의 API를 사용하는 것입니다. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-또는 Electron에서만 사용할 수 있는 IPC 시스템을 사용하여 메인 프로세스의 global 변수에 데이터를 저장한 후 다음과 같이 렌더러 프로세스에서 `electron` 모듈의 `remote` 속성을 통하여 접근할 수 있습니다:
+또는 Electron 에 한정되는 IPC 시스템을 사용할 수 있습니다. `electron` 모듈의 `remote` 속성을 통하여 주 프로세스의 객체를 전역 변수로 저장하고, 렌더러에서 그것들에 접근합니다:
 
 ```javascript
 // 메인 프로세스에서.
@@ -49,12 +49,12 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 이 현상은 트레이를 저장하기 위해 사용된 변수가 쓰레기로 수집되었을 때 발생합니다.
 
-이러한 문제를 맞닥뜨린 경우 다음 문서를 읽어보는 것이 좋습니다:
+이 문제가 발생했다면, 다음 글이 도움이 될 것 입니다:
 
 * [메모리 관리][memory-management]
 * [변수 스코프][variable-scope]
 
-만약 빠르게 고치고 싶다면, 다음과 같이 변수를 전역 변수로 만드는 방법이 있습니다:
+빨리 해결하고 싶다면, 코드를 변경 해 변수를 전역으로 만듭니다. 다음 코드에서:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -64,7 +64,7 @@ app.whenReady().then(() => {
 })
 ```
 
-를 이렇게:
+다음으로:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,9 +77,9 @@ app.whenReady().then(() => {
 
 ## Electron에서 jQuery/RequireJS/Meteor/AngularJS를 사용할 수 없습니다.
 
-Node.js가 Electron에 합쳐졌기 때문에, DOM에 `module`, `exports,` `require` 같은 몇 가지 심볼들이 추가됬습니다. 따라서 같은 이름의 심볼을 사용하는 몇몇 라이브러리들과 충돌이 발생할 수 있습니다.
+Electron 의 Node.js 통합으로 인해, DOM 에 `module`, `exports`, `require` 같은 몇 가지 추가 기호가 삽입됐습니다. 이것은 같은 이름의 심볼을 삽입하려는 몇몇 라이브러리에서 문제를 일으킵니다.
 
-이러한 문제를 해결하려면, Electron에서 node 포함을 비활성화시켜야 합니다:
+이것을 해결하기 위해, Electron 에서 노드 통합을 해제 할 수 있습니다:
 
 ```javascript
 // 메인 프로세스에서.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-하지만 Node.js의 기능과 Electron API를 유지하고 싶다면 페이지에 다른 라이브러리를 추가하기 전에 심볼들의 이름을 변경해야 합니다:
+그러나 Node.js 와 Electron API 들의 기능을 유지하려면, 다른 라이브러리를 포함하기 전에 페이지의 심볼 이름을 변경해야 합니다:
 
 ```html
 <head>
@@ -106,9 +106,9 @@ delete window.module;
 </head>
 ```
 
-## require('electron').xxx가 undefined를 반환합니다.
+## `require('electron').xxx` 가 정의되지 않았습니다.
 
-Electron의 빌트인 모듈을 사용할 때, 다음과 같은 오류가 발생할 수 있습니다:
+Electron 의 내장 모듈을 사용하다가 다음과 같은 에러를 만날 수 있습니다:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)

@@ -8,7 +8,7 @@ Ang "Chrome Developer Tools" ay may [special binding](https://chromedevtools.git
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')

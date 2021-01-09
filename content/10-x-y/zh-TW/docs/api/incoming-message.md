@@ -2,7 +2,7 @@
 
 > 處理 HTTP/HTTPS 請求的回應。
 
-Process: [主程序](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter][event-emitter].
 

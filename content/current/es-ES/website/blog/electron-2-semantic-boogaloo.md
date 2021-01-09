@@ -1,14 +1,14 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
-author: groundwater
+title: 'Electron 2.0 y más allá - Versionado semántico'
+author: aguas subterráneas
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+Una nueva versión mayor de Electron está en desarrollo, y con ella algunos cambios en nuestra estrategia de versiones. A partir de la versión 2.0.0, Electron se adhiere estrictamente a la versión semántica.
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+Este cambio significa que verás el salto de la versión principal con más frecuencia, y normalmente será una actualización importante de Chromium. Las versiones de parches también serán más estables, ya que ahora sólo contendrán correcciones de errores sin nuevas características.
 
 **Incrementos de versiones major**
 
@@ -33,6 +33,6 @@ Because Electron's semver ranges will now be more meaningful, we recommend insta
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+Para desarrolladores interesados sólo en correcciones de errores, debe usar el prefijo semver de tilde por ejemplo `~2. .0`, que nunca introducirá nuevas características, sólo corrige para mejorar la estabilidad.
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+Para más detalles, vea [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).

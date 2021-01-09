@@ -10,27 +10,20 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## 使用導引與教學
 
-* [開發環境設定](tutorial/development-environment.md)
-  * [macOS 設定](tutorial/development-environment.md#setting-up-macos)
-  * [Windows 設定](tutorial/development-environment.md#setting-up-windows)
-  * [Linux設定](tutorial/development-environment.md#setting-up-linux)
-  * [選擇編輯器](tutorial/development-environment.md#a-good-editor)
-* [建立你的第一個應用程式](tutorial/first-app.md)
-  * [安裝 Electron](tutorial/first-app.md#installing-electron)
-  * [使用 Nutshell 開發 Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [執行你的應用程式](tutorial/first-app.md#running-your-app)
-* [模版及命令列介面 (CLI)](tutorial/boilerplates-and-clis.md)
-  * [模板 vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [其他工具及模版](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [應用程式架構](tutorial/application-architecture.md)
-  * [主處理序及畫面轉譯處理序](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [使用 Electron API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用 Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
-  * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+### Quickstart
+
+* [Quick Start Guide](tutorial/quick-start.md)
+  * [系統需求](tutorial/quick-start.md#prerequisites)
+  * [Create a basic application](tutorial/quick-start.md#create-a-basic-application)
+  * [Run your application](tutorial/quick-start.md#run-your-application)
+  * [Package and distribute the application](tutorial/quick-start.md#package-and-distribute-the-application)
+
+### Learning the basics
+
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+  * [主處理序及畫面轉譯處理序](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Electron API](tutorial/quick-start.md#electron-api)
+  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * 新增功能進應用程式
   * [通知](tutorial/notifications.md)
   * [最近的文件](tutorial/recent-documents.md)
@@ -43,30 +36,36 @@ There are questions that are asked quite often. Check this out before creating a
   * [macOS BrowserWindows 的代表檔案](tutorial/represented-file.md)
   * [原生檔案拖放](tutorial/native-file-drag-drop.md)
   * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
-  * [支援 macOS 的 Dark Mode](tutorial/mojave-dark-mode-guide.md)
-  * [網路嵌入電子](tutorial/web-embeds.md)
+  * [Dark Mode](tutorial/dark-mode.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
+* [模版及命令列介面 (CLI)](tutorial/boilerplates-and-clis.md)
+  * [模板 vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [其他工具及模版](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+
+### Advanced steps
+
+* 應用程式架構
+  * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
+  * [Security Strategies](tutorial/security.md)
 * [協助工具](tutorial/accessibility.md)
-  * [Spectron](tutorial/accessibility.md#spectron)
-  * [Devtron](tutorial/accessibility.md#devtron)
-  * [啟用協助工具](tutorial/accessibility.md#enabling-accessibility)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [記錄與除錯](tutorial/application-debugging.md)
   * [Debug 主處理序](tutorial/debugging-main-process.md)
-  * [使用 Visual Studio Code debug 主處理序](tutorial/debugging-main-process-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [DevTools 擴充](tutorial/devtools-extension.md)
-  * [使用自訂驅動程式進行自動測試](tutorial/automated-testing-with-a-custom-driver.md)
+  * [DevTools 擴充功能](tutorial/devtools-extension.md)
+  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
 * [分發](tutorial/application-distribution.md)
   * [支援平臺](tutorial/support.md#supported-platforms)
-  * [代碼簽名](tutorial/code-signing.md)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 市集](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [安全性](tutorial/security.md)
-  * [回報安全性問題](tutorial/security.md#reporting-security-issues)
-  * [Chromium 安全性議題及升級](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron 安全性警告](tutorial/security.md#electron-security-warnings)
-  * [安全性檢查清單](tutorial/security.md#checklist-security-recommendations)
 * [更新](tutorial/updates.md)
   * [佈署更新伺服器](tutorial/updates.md#deploying-an-update-server)
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
@@ -84,13 +83,7 @@ There are questions that are asked quite often. Check this out before creating a
 * 電子釋放 & 開發人員回饋
   * [版本控制方針](tutorial/electron-versioning.md)
   * [發佈時間表](tutorial/electron-timelines.md)
-* [使用 asar 打包應用程式原始程式碼](tutorial/application-packaging.md)
-  * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
-  * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
-  * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [測試寬文 CDM](tutorial/testing-widevine-cdm.md)
-* [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---
 
@@ -127,6 +120,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [nativeTheme](api/native-theme.md)
 * [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -137,6 +131,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [觸控條](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
+* [webFrameMain](api/web-frame-main.md)
 
 ### 畫面轉譯處理序 (網頁) 可用的模組:
 

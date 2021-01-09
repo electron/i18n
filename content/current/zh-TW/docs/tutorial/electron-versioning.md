@@ -16,11 +16,11 @@ npm install --save-dev electron@latest
 
 ## 1.x 版
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 Slack, Stride, Teams, Skype, VS Code, Atom 及 Desktop 這些主流應用程式的 QA 測試可能曠日廢時，才能維持住高穩定性。 要同時套用新功能並取得錯誤修正的風險很高。
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 Slack, Stride, Teams, Skype, VS Code, Atom 及 Desktop 這些主流應用程式的 QA 測試可能曠日廢時，才能維持住高穩定性。 要同時套用新功能並取得錯誤修正的風險很高。
 
 這是個 1.x 版定版策略的例子:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
 以 `1.8.1` 開發的應用程式無法直接套 `1.8.3` 版的錯誤修正，而略過 `1.8.2` 新增的功能，除非自己維護一組分隻，當中只套用特定的修正。
 
@@ -48,18 +48,17 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 | Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
 | Chromium version updates      |                                   | fix-related chromium patches  |
 
-
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 穩定分支
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
-![](../images/versioning-sketch-1.png)
+![穩定分支](../images/versioning-sketch-1.png)
 
 自電子 8 以來，穩定分支始終 **主要** 版本行，並針對以下範本命名 `$MAJOR-x-y` 例如。 `8-x-y`.  在此之前，我們使用 **小** 版本行，並命名為 `$MAJOR-$次要-x` 例如。 `2-0-x`
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
@@ -102,16 +101,17 @@ For each major and minor bump, you should expect to see something like the follo
 
 An example lifecycle in pictures:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
 A few examples of how various semver ranges will pick up new releases:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
+
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
@@ -119,6 +119,7 @@ As a future consideration, we may introduce one or both of the following:
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
 
 # 功能標記
+
 功能標記是 Chromium 中常見的作法，也已經在網頁開發生態圈中根深蒂固。 In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
 * it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
@@ -138,7 +139,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+* Release branches are never merged back to master
+* Release branches _do_ contain the correct version in their `package.json`
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

@@ -1,38 +1,38 @@
 ---
 title: Electron App 反馈计划
-author: sofianguy
+author: 索菲亚格文
 date: '2018-10-02'
 ---
 
-Electron is working on making its release cycles faster and more stable. To make that possible, we've started the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to us. This helps us to prioritize work that will get applications upgraded to our next stable release sooner.
+Electron正在努力使其释放周期更快和更稳定。 为了做到这一点，我们已经启动了大型Electron应用的应用反馈方案，以测试我们的 beta 版本，并向我们报告特定的应用问题。 这有助于我们确定工作的优先次序，使应用程序能够更快地升级到我们的下一个稳定版本。
 
-Edit (2020-05-21): This program has been retired.
+编辑 (2020-05-21)：此程序已经退出。
 
 ---
 
-## Who can join?
-Our criteria and expectations for apps joining this program include the following items:
-- Test your app during the beta period for 10,000+ user-hours
-- Have a single point-person who will check in weekly to discuss your app's Electron bugs and app blockers
-- You agree to abide by Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
-- You are willing to share the following information listed in the next question
+## 谁可以加入？
+我们对应用加入此程序的标准和期望包含以下项目：
+- 在测试阶段测试您的应用程序以10,000多个用户小时
+- 有一个单独的点将每周检查来讨论你的应用程序的 Electron bug和应用拦截器
+- 您同意遵守Electron的 [行为准则](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
+- 您愿意分享下一个问题中列出的以下信息
 
-## What info does my Electron app have to share?
-- Total user-hours your app has been running with any beta release
-- Version of Electron that your app is testing with (e.g., 4.0.0-beta.3)
-- Any bugs preventing your application from upgrading to the release line being beta tested
+## 我的 Electron 应用需要分享什么信息？
+- 您的应用程序一直在使用任何测试版运行的用户小时总数
+- 您的应用正在测试的 Electron 版本 (例如，4.0.0-β.3)
+- 任何阻止应用程序升级到发布线的bug被测试的测试版本
 
-## User-hours
-We understand not everyone can share exact user numbers, however better data helps us decide how stable a particular release is. We ask that apps commit to testing a minimum number of user-hours, currently 10,000 across the beta cycle.
-- 10 user-hours could be 10 people testing for one hour, or one person testing for 10 hours
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
-- CI or QA hours do not count towards the total; however, internal releases do count
+## 用户小时数
+我们理解不是每个人都能分享准确的用户数字，但更好的数据帮助我们决定特定版本的稳定性。 我们要求应用承诺测试最低用户小时数，目前是10 000小时测试整个测试周期。
+- 10个用户小时可为10个小时测试，或一个人测试10个小时
+- 您可以在测试版本之间分割测试，例如在3.0-beta测试的5,000个用户小时中。 然后在 3.0.0-β.5 测试5000个用户小时。更多更好，但我们理解一些应用程序不能测试每个测试版本
+- CI 或 QA 小时数不计入总数，但是内部版本数不计。
 
-## Why should my Electron app join?
-Your app's bugs will be tracked and be on the core Electron team's radar. Your feedback helps the Electron team to see how the new betas are doing and what work needs to be done.
+## 我的 Electron 应用程序为什么要加入？
+您的应用程序的bug将会被跟踪并位于Electron核心队雷达上。 您的反馈有助于Electron团队了解新测试是如何进行的以及需要完成哪些工作。
 
-## Will my application's info be shared publicly? Who gets to see this info?
-No, your application's information will not be shared with the general public. Information is kept in a private GitHub repo that is only viewable to members of the App Feedback Program and [Electron Governance](https://github.com/electron/governance). All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+## 我的应用程序的信息是否会公开分享？ 谁可以查看此信息？
+不，您的应用程序的信息将不会与一般公众分享。 信息保存在一个私有的GitHub repo中，它只能被应用反馈方案和 [Electron Governance](https://github.com/electron/governance) 查看。 所有成员都同意遵循Electron的 [行为准则](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)。
 
 ## 注册
-We are currently accepting a *limited number* of signups. If you are interested and are able to fulfill the above requirements, please fill out this [form](https://goo.gl/forms/OpMEKV75ScN6we7g1).
+我们正在接受 *有限数量的注册*。 如果您感兴趣并且能够满足上述要求，请填写 [表单](https://goo.gl/forms/OpMEKV75ScN6we7g1)。

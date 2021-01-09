@@ -13,27 +13,27 @@ Acestea sunt liniile directoare pentru scrierea documentației Electron.
 Folosirea `Inițierii rapide` ca exemplu:
 
 ```markdown
-# Quick Start
+# Începere rapidă
 
 ...
 
-## Main process
+## Procesul principal
 
 ...
 
-## Renderer process
+## Renderer proces
 
 ...
 
-## Run your app
+## Rulează aplicația ta
 
 ...
 
-### Run as a distribution
+### Executați ca o distribuție
 
 ...
 
-### Manually downloaded Electron binary
+### Descărcat manual binar Electron
 
 ...
 ```
@@ -45,7 +45,8 @@ Pentru referințe API există excepții de la această regulă.
 * Folosește `sh` în loc de `cmd` în blocurile de cod (datorită marcatorului de sintaxă).
 * Liniile ar trebui să fie încadrate la 80 de coloane.
 * Fără liste indentate mai mult de 2 niveluri (din cauza redării de marcare).
-* Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](http://npm.im/standard-markdown).
+* Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](https://www.npmjs.com/package/standard-markdown).
+* For unordered lists, use asterisks instead of dashes
 
 ## Alegerea cuvintelor
 
@@ -94,10 +95,10 @@ Exemplu de utilizare a `autoUpdater`:
 * Constructorii trebuie să fie enumerați cu titluri de nivel ` ### `.
 * [ Static Methods-Metode statice ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) trebuie listate la un capitol ` ### Static Methods-Metode statice `.
 * [Instance Methods- Metode de instanță ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) trebuie listate la un capitol ` ### Instance Methods-Metode de instanță `.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
+* Toate metodele care au o valoare de returnare trebuie să înceapă descrierea lor cu "Returnări `[TYPE]` - Descrierea returnării"
   * Dacă metoda returnează un ` Object-Obiect `, structura sa poate fi specificată folosind o colonă urmată de o linie nouă, atunci o listă de proprietăți neordonate în același stil ca și parametrii funcției.
 * Instance Events- Evenimentele de Instanță trebuie să fie listate sub un capitol ca `### Instance Events`.
-* Instance Properties must be listed under an `### Instance Properties` chapter.
+* Proprietățile instanței trebuie să fie listate sub un capitol `### Proprietăți de instanță`.
   * Propietățile de instanță trebuie să înceapă cu "A[Property Type]..."
 
 Exemplu de utilizare a claselor `Session` și `Cookies`:
@@ -127,17 +128,17 @@ Exemplu de utilizare a claselor `Session` și `Cookies`:
 Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(required[, optional])`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* string `required` - O descriere a parametrului.
+* `optional` Integer (opțional) - O altă descriere a parametrului.
 
 ...
 ```
 
 Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pentru module, `objectName` este numele modulului. Pentru clase, trebuie să fie numele al instanței clasei și nu trebuie să fie același cu numele modulului .
 
 De exemplu, metodele clasei ` Session` sub modulul de `session` trebuie să utilizeze `ses` ca și `objectName-Numele Obiectului`.
 
@@ -147,7 +148,7 @@ Argumentele opționale sunt notate sub paranteze pătrate `[]` ce înconjoară a
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Sub această metodă sunt prezentate informații mai detaliate cu privire la fiecare dintre argumente. Tipul de argument este notat de oricare dintre tipurile comune:
 
 * [`String- Șir`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number -Număr`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -168,7 +169,7 @@ Descrierea pentru `Function` tipul argumentelor ar trebuie să lase clar cum ar 
 
 ### Events-Evenimente
 
-The events chapter must be in following form:
+Capitolul evenimentelor trebuie să fie sub următoarea formă:
 
 ```markdown
 ### Event: 'wake-up'
@@ -180,13 +181,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Titlul poate fi `###` or `####`-nivele depinzând dacă este un eveniment al unui modul sau clasă.
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Proprietăți
 
-The properties chapter must be in following form:
+Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
 ### session.defaultSession
@@ -194,8 +195,8 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-## Documentation Translations
+## Traduceri documentație
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Vezi [electron/i18n](https://github.com/electron/i18n#readme)

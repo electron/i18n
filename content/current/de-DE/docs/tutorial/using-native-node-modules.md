@@ -1,24 +1,24 @@
 # Verwendung von Native Node Modules
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Ansonsten bekommst du die folgende Fehlerklasse, wenn du versuchst, deine App auszuführen:
 
 ```sh
-Error: The module '/path/to/native/module.node'
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION $XYZ. This version of Node.js requires
-NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
+Fehler: Das Modul '/path/to/native/module.node'
+wurde mit Hilfe von
+NODE_MODULE_VERSION $XYZ gegen eine andere Node.js-Version kompiliert. Diese Version von Node.js erfordert
+NODE_MODULE_VERSION $ABC. Bitte versuchen Sie
+das Modul neu zu kompilieren oder neu zu installieren (zum Beispiel mit `npm rebuild` oder `npm install`).
 ```
 
-## How to install native modules
+## Wie man native Module installiert
 
-There are several different ways to install native modules:
+Es gibt mehrere verschiedene Möglichkeiten, native Module zu installieren:
 
-### Installing modules and rebuilding for Electron
+### Installation von Modulen und Neuaufbau für Electron
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+Sie können Module wie andere Node-Projekte installieren und dann die Module für Electron mit dem Paket [`Elektron-rebuild`](https://github.com/electron/electron-rebuild) neu erstellen. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -26,96 +26,96 @@ npm install --save-dev electron-rebuild
 # Every time you run "npm install", run this:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
 
-### Using `npm`
+### `npm` verwenden
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Durch das Setzen einiger Umgebungsvariablen können Sie `npm` verwenden, um Module direkt zu installieren.
 
-For example, to install all dependencies for Electron:
+Zum Beispiel, um alle Abhängigkeiten für Electronic zu installieren:
 
 ```sh
-# Electron's version.
+# Elektronische Version.
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# Die Architektur von Electron, siehe https://electronjs.org/docs/tutorial/support#supported-platforms
+# für unterstützte Architekturen.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Header für Electron herunterladen.
 export npm_config_disturl=https://electronjs.org/headers
 # Sage node-pre-gyp das wir fur Electron bauen.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Geben Sie node-pre-gyp an, das Modul aus dem Quellcode zu erstellen.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
+# Installieren Sie alle Abhängigkeiten und speichern Sie den Cache auf ~/.electron-gyp.
+HOME=~/.electron-gyp npm installieren
 ```
 
-### Manually building for Electron
+### Manuelles Erstellen für Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Wenn du ein Entwickler bist, das ein natives Modul entwickelt und es mit Electron testen möchtest, können Sie das Modul für Electron manuell neu erstellen. Sie können `node-gyp` direkt verwenden, um für Electronic zu erstellen:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-* `HOME=~/.electron-gyp` changes where to find development headers.
-* `--target=1.2.3` is the version of Electron.
-* `--dist-url=...` specifies where to download the headers.
-* `--arch=x64` says the module is built for a 64-bit system.
+* `HOME=~/.electron-gyp` ändert, wo die Entwicklungs-Header zu finden sind.
+* `--target=1.2.3` ist die Version von Electron.
+* `--dist-url=...` gibt an, wo die Header heruntergeladen werden sollen.
+* `--arch=x64` sagt, dass das Modul für ein 64-Bit-System gebaut wurde.
 
-### Manually building for a custom build of Electron
+### Manuelles Erstellen für eine benutzerdefinierte Erstellung von Electron
 
-To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Um native Node-Module mit einer benutzerdefinierten Version von Electron zu kompilieren, die nicht mit einer öffentlichen Version übereinstimmt, weist `npm` an, die Version von Knoten zu verwenden, die Sie mit Ihrer benutzerdefinierten Version gebündelt haben.
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm neu erstellen --nodedir=/path/to/electron/vendor/node
 ```
 
 ## Problemlösungen
 
-If you installed a native module and found it was not working, you need to check the following things:
+Wenn Sie ein natives Modul installiert haben und es nicht funktioniert haben, müssen Sie folgende Dinge überprüfen:
 
-* When in doubt, run `electron-rebuild` first.
-* Make sure the native module is compatible with the target platform and architecture for your Electron app.
-* Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-* After you upgrade Electron, you usually need to rebuild the modules.
+* Wenn Zweifel bestehen, führen Sie zuerst `Elektron-Rebuild` aus.
+* Stellen Sie sicher, dass das native Modul mit der Zielplattform und der -Architektur für Ihre Electron-App kompatibel ist.
+* Stellen Sie sicher, dass `win_delay_load_hook` nicht auf `false gesetzt ist` im Modul `binding.gyp`.
+* Nach dem Upgrade von Electron müssen Sie die Module in der Regel neu erstellen.
 
-### A note about `win_delay_load_hook`
+### Eine Notiz über `win_delay_load_hook`
 
-On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+Unter Windows verbindet `node-gyp` standardmäßig native Module mit `node.dll`. In Electron 4.x und höher werden die Symbole, die von nativen Modulen benötigt werden, mit `Elektron exportiert. Axt`und es gibt keine `node.dll`. Um native Module unter Windows zu laden, `node-gyp` installiert einen [Verzögerungslade Hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) , der auslöst, wenn das native Modul geladen wird, und leitet den Knoten `weiter. ll` Referenz für die ausführbare Datei laden statt nach `Knoten zu suchen. ll` in der Bibliothekssuche Pfad (würde nichts auftauchen). Aus diesem Grund wird bei Electron 4.x und höher `'win_delay_load_hook': 'true'` benötigt, um native Module zu laden.
 
 If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  Wenn das Modul mit Knoten gebaut wurde, stellen Sie sicher, dass die `win_delay_load_hook` Variable auf `true` in der `Bindung gesetzt ist. Typ` Datei und wird nirgends überschrieben.  Wenn das Modul mit einem anderen System erstellt wurde müssen Sie sicherstellen, dass Sie mit einem Delayload Hook bauen, der im Haupt `installiert ist. ode` Datei. Ihr `link.exe` Aufruf sollte folgendermaßen aussehen:
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
 
-In particular, it's important that:
+Insbesondere ist es wichtig, dass:
 
-- you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+* Sie verlinken gegen `node.lib` von _Electron_ und nicht Knoten. Wenn Sie gegen das falsche `node.lib` verlinken, werden Sie bei der Anforderung des Moduls in Electron zu Ladefehlern kommen.
+* Sie fügen die Flagge `/DELAYLOAD:node.exe` hinzu. Wenn der `Knoten. Axt` Link ist nicht verzögert, dann wird der Hook mit der Verzögerungslast nicht angefeuert und der Knoten wird nicht korrekt aufgelöst.
+* `win_delay_load_hook.obj` ist direkt mit der finalen DLL verbunden. Wenn der Hook in einer abhängigen DLL eingerichtet ist, wird er nicht zur richtigen Zeit abfeuern.
 
-See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
+Siehe [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) für einen Beispiel Verzögerungs-Load-Hook wenn Sie Ihren eigenen implementieren.
 
-## Modules that rely on `prebuild`
+## Module, die auf `vor Build` angewiesen sind
 
-[`prebuild`](https://github.com/prebuild/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`Prebuild`](https://github.com/prebuild/prebuild) bietet eine Möglichkeit, native Knotenmodule mit vorkompilierten Binärdateien für mehrere Versionen von Knoten und Electron zu veröffentlichen.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
-## Modules that rely on `node-pre-gyp`
+## Module, die auf `Knoten-Pre-gyp angewiesen sind`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+Das [`node-pre-gyp` Tool](https://github.com/mapbox/node-pre-gyp) bietet eine Möglichkeit, native Knoten Module mit vorkompilierten Binärdateien zu verteilen und viele beliebte Module verwenden es.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node and/or there are ABI changes, bad things may happen. So in general, it is recommended to always build native modules from source code. `electron-rebuild` handles this for you automatically.
+Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.

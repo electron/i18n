@@ -10,7 +10,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 ## Class: Notification
 
-> 產生作業系統桌面通知。
+> Criar notificações para o desktop do sistema
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -52,7 +52,7 @@ Objects created with `new Notification` emit the following events:
 
 Retorna:
 
-* Evento `event`
+* `event` Event
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 

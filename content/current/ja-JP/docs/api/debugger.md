@@ -8,7 +8,7 @@ Chromeの開発者ツールは、ページと相互にやり取りをしたり�
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
@@ -49,7 +49,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `event` Event
 * `method` String - メソッド名。
 * `params` any - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `sessionId` String - アタッチされたデバッグセッションの一意な識別子で、`debugger.sendCommand` から送られる値と同じです。
 
 デバッグ対象で計測イベントが生じる毎に発生します。
 
@@ -73,7 +73,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `method` String - メソッド名。[リモートデバッグプロトコル](https://chromedevtools.github.io/devtools-protocol/)で定義されているいずれかのメソッドになります。
 * `commandParams` any (任意) - リクエストパラメータの JSON オブジェクト。
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
+* `sessionId` String (任意) - デバッグセッション ID に関連付けられたターゲットにコマンドを送信します。 初期値は [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) メッセージを送信することで取得できます。
 
 戻り値 `Promise<any>` - リモートデバッグプロトコル内のコマンドの説明の 'returns' 属性で定義されたレスポンスで解決されるか、またはコマンドの失敗を示すために拒否されるプロミス。
 

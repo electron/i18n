@@ -9,6 +9,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+
    ```text
    command script import ~/electron/src/tools/lldb/lldbinit.py
    ```
@@ -98,5 +99,5 @@ Process 25244 stopped
 Apple's debugging documentation, for instance the <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2">LLDB Command Structure Reference</a>
 or the introduction to <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Using LLDB as a Standalone Debugger</a>.</p>
 
-<p spaces-before="0">You can also check out LLDB's fantastic <a href="http://lldb.llvm.org/tutorial.html">manual and tutorial</a>, which
+<p spaces-before="0">You can also check out LLDB's fantastic <a href="https://lldb.llvm.org/tutorial.html">manual and tutorial</a>, which
 will explain more complex debugging scenarios.</p>

@@ -2,7 +2,7 @@
 
 > 管理瀏覽器 Session、Cookie、快取、代理伺服器設定等。
 
-Process: [主程序](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [主程序](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -325,7 +325,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<Boolean> | null
+* `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check

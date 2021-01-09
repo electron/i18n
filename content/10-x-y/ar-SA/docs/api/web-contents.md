@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `errorCode` Integer
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 #### Event: 'did-fail-provisional-load'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `errorCode` Integer
@@ -81,7 +81,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Event: 'did-frame-finish-load'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -100,7 +100,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'dom-ready'
 
-تراجع:
+Returns:
 
 * `event` Event
 
@@ -108,7 +108,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-title-updated'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `title` String
@@ -118,7 +118,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 #### Event: 'page-favicon-updated'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `favicons` String[] - Array of URLs.
@@ -127,7 +127,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-تراجع:
+Returns:
 
 * `event` NewWindowWebContentsEvent
 * `url` String
@@ -142,7 +142,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. وعلى سبيل المثال:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
@@ -170,7 +170,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Event: 'will-navigate'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -185,7 +185,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-start-navigation'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -198,7 +198,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'will-redirect'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -215,7 +215,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -230,7 +230,7 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Event: 'did-navigate'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -243,7 +243,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -259,7 +259,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -273,7 +273,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-تراجع:
+Returns:
 
 * `event` Event
 
@@ -302,7 +302,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed' _Deprecated_
 
-تراجع:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -313,7 +313,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'render-process-gone'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `details` Object
@@ -323,7 +323,7 @@ Emitted when the renderer process crashes or is killed.
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
-    * `launch-failure` - Process never successfully launched
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
 
 Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
@@ -338,10 +338,10 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Event: 'plugin-crashed'
 
-تراجع:
+Returns:
 
 * `event` Event
-* `الإسم`String
+* `name` سلسلة نصية
 * `الإصدار` String
 
 Emitted when a plugin process has crashed.
@@ -352,7 +352,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties.
@@ -392,7 +392,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'zoom-changed'
 
-تراجع:
+Returns:
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
 
@@ -412,7 +412,7 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -427,7 +427,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `رابط` URL
@@ -441,7 +441,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `authenticationResponseDetails` Object
@@ -462,7 +462,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `result` Object
@@ -484,7 +484,7 @@ Emitted when media is paused or done playing.
 
 #### Event: 'did-change-theme-color'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -497,7 +497,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `url` String
@@ -506,7 +506,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `type` String
@@ -521,7 +521,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `params` Object
@@ -564,7 +564,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -597,7 +597,7 @@ app.whenReady().then(() => {
 
 #### Event: 'paint'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -621,7 +621,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -635,7 +635,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -644,7 +644,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `level` Integer
@@ -656,7 +656,7 @@ Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `preloadPath` String
@@ -666,7 +666,7 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 #### Event: 'ipc-message'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `channel` String
@@ -676,7 +676,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 #### Event: 'ipc-message-sync'
 
-تراجع:
+Returns:
 
 * `event` Event
 * `channel` String
@@ -686,7 +686,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 #### Event: 'desktop-capturer-get-sources'
 
-تراجع:
+Returns:
 
 * `event` Event
 
@@ -694,7 +694,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 #### Event: 'remote-require'
 
-تراجع:
+Returns:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -703,7 +703,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 #### Event: 'remote-get-global'
 
-تراجع:
+Returns:
 
 * `event` IpcMainEvent
 * `globalName` String
@@ -712,7 +712,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 #### Event: 'remote-get-builtin'
 
-تراجع:
+Returns:
 
 * `event` IpcMainEvent
 * `moduleName` String
@@ -721,7 +721,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 #### Event: 'remote-get-current-window'
 
-تراجع:
+Returns:
 
 * `event` IpcMainEvent
 
@@ -729,7 +729,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-تراجع:
+Returns:
 
 * `event` IpcMainEvent
 
@@ -1159,9 +1159,9 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the start page.
-    * `to` Number - the end page.
+  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
@@ -1198,8 +1198,8 @@ win.webContents.print(options, (success, errorType) => {
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - the first page to print.
-    * `to` Number - the last page to print (inclusive).
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -1426,7 +1426,7 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
@@ -1462,7 +1462,7 @@ Send a message to the renderer process, optionally transferring ownership of zer
 
 The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
-For example:
+وعلى سبيل المثال:
 ```js
 // Main process
 const { port1, port2 } = new MessageChannelMain()
@@ -1573,7 +1573,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
@@ -1653,7 +1653,7 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
 Only applicable if *offscreen rendering* is enabled.
 

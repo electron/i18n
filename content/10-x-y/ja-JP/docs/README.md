@@ -11,9 +11,9 @@
 ## ガイドとチュートリアル
 
 * [開発環境のセットアップ](tutorial/development-environment.md)
-  * [macOS をセット アップ](tutorial/development-environment.md#setting-up-macos)
-  * [Windows をセットアップ](tutorial/development-environment.md#setting-up-windows)
-  * [Linux をセットアップ](tutorial/development-environment.md#setting-up-linux)
+  * [macOS のセットアップ](tutorial/development-environment.md#setting-up-macos)
+  * [Windows のセットアップ](tutorial/development-environment.md#setting-up-windows)
+  * [Linux のセットアップ](tutorial/development-environment.md#setting-up-linux)
   * [エディタの選択](tutorial/development-environment.md#a-good-editor)
 * [初めてのアプリ制作](tutorial/first-app.md)
   * [Electron のインストール](tutorial/first-app.md#installing-electron)
@@ -33,14 +33,14 @@
   * [パフォーマンス戦略](tutorial/performance.md)
 * アプリに機能を追加する
   * [通知](tutorial/notifications.md)
-  * [最近使用したドキュメント](tutorial/recent-documents.md)
+  * [最近使った書類](tutorial/recent-documents.md)
   * [アプリケーションの進行状況](tutorial/progress-bar.md)
   * [カスタム Dock メニュー](tutorial/macos-dock.md)
   * [カスタム Windows タスクバー](tutorial/windows-taskbar.md)
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
-  * [キーボード ショートカット](tutorial/keyboard-shortcuts.md)
+  * [キーボードショートカット](tutorial/keyboard-shortcuts.md)
   * [オフライン/オンライン検出](tutorial/online-offline-events.md)
-  * [macOS の BrowserWindow の Represented File](tutorial/represented-file.md)
+  * [macOS の BrowserWindow が表すファイル](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
   * [macOS のダークモードのサポート](tutorial/mojave-dark-mode-guide.md)
@@ -54,7 +54,7 @@
   * [VS Code におけるメインプロセスのデバッグ](tutorial/debugging-main-process-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [DevTools エクステンション](tutorial/devtools-extension.md)
+  * [デベロッパー ツール拡張](tutorial/devtools-extension.md)
   * [カスタムドライバを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
 * [配布方法](tutorial/application-distribution.md)
   * [サポートされているプラットフォーム](tutorial/support.md#supported-platforms)
@@ -78,7 +78,7 @@
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
 * [Electron のインストール](tutorial/installation.md)
-  * [プロキシ環境下](tutorial/installation.md#proxies)
+  * [プロキシ](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
 * Electron のリリース & 開発者のフィードバック
@@ -106,9 +106,9 @@
 * [Chrome 拡張機能サポート](api/extensions.md)
 * [API の破壊的変更](breaking-changes.md)
 
-### カスタム DOM 要素
+### カスタム DOM 要素:
 
-* [`File`オブジェクト](api/file-object.md)
+* [`File` オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)
 * [`window.open`関数](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
@@ -128,7 +128,7 @@
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [通知](api/notification.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

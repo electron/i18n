@@ -1,95 +1,94 @@
 # Версії Electron
 
-> A detailed look at our versioning policy and implementation.
+> Детально ознайомтеся з нашою інноваційною політикою та реалізацією.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Починаючи з версії 2.0.0, Electron слідує [semver](#semver). Наступна команда встановить останню стабільну версію Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Щоб оновити існуючий проект для використання останньої стабільної версії:
 
 ```sh
-npm install --save-dev electron@latest
+npm встановити --save-dev electron@latest
 ```
 
-## Version 1.x
+## Версія 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Тоді як зручно для об'єднання розробників, це створює проблеми для розробників клієнтських програм. Тестування QA циклів таких основних додатків, як Slack, Stride, Teams, Skype, VS Code, Атомнія, і ПК може бути довгим і стабільністю є дуже бажаний результат. Існує високий ризик у застосуванні нових функцій при спробі поглинати виправлення помилок.
 
-Here is an example of the 1.x strategy:
+Ось приклад стратегії 1.Х:
 
-![](../images/versioning-sketch-0.png)
+![1.x Versioning](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Додаток розроблено за допомогою `1.8.1` не може взяти `1. .3` помилка була виправлена без поглинання `1. .2` модифікація, або шляхом бекапу виправлення і збереження нового релізу.
 
-## Version 2.0 and Beyond
+## Версія 2.0 й далі
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Наведено кілька суттєвих змін з нашої стратегії 1.х, викладених нижче. Кожна зміна покликана задовольнити потреби та пріоритети розробників та розробників програм.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
+1. Суворе використання напівпровідника
+2. Знайомство з напівсумісними тегами `-beta`
+3. Введення [звичайних повідомлень](https://conventionalcommits.org/)
+4. Добре визначені стабілізаційні гілки
 5. The `master` branch is versionless; only stabilization branches contain version information
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Ми розглянемо детально те, як працює git розгалужує, як npm мітки працює, що розробники повинні очікувати побачити і як можна повернути зміни в портах.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Від 2.0 зсередини, Electron буде йти напівфабрично.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Нижче наведено явно зіставлені типи змін у відповідних категоріях (наприклад, основний, Мінір, Патч).
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| Основну версію               | Незначне збільшення версії          | Приріст Патч-версії         |
+| ---------------------------- | ----------------------------------- | --------------------------- |
+| Зміни Electron порушують API | Зміни Electron нерозривні API       | Виправлено помилку Electron |
+| Основні оновлення Node.js    | Оновлення мінімічних версій Node.js | Оновлення патчу Node.js     |
+| Оновлення Chromium           |                                     | цифрові хромієві патчі      |
 
-
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Зверніть увагу, що більшість оновлень Chromium буде розглядатися про порушення. Виправки, які можуть бути підтримані, швидше за все, будуть підібрані кремезними патчами.
 
 # Стабілізація Гілок
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Стабілізаційні гілки - це галузі, які пов'язані з стабільністю, беруть участь у самих комітах, які пов'язані з безпекою чи стабільністю. Ці гілки ніколи не об'єднуються з майстром.
 
-![](../images/versioning-sketch-1.png)
+![Стабілізація Гілок](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+Починаючи з 8 Electron стабілізація гілок завжди **основні** лінії версій, і названий на честь наступного шаблона `$MAJOR-x-y` e. . `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Ми дозволяємо для декількох стабілізаційних гілок одночасно існувати, і має намір підтримувати принаймні два паралельно кожного разу, резервна підтримка виправлень безпеки в якості необхідності. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Старі лінії не будуть підтримуватися на GitHub, але інші групи можуть самостійно керувати і відновлювати стабільність і виправляти безпеку. Ми стримуємо це, але визнаємо, що це полегшує життя багатьом розробникам програм.
 
 # Бета Релізи і Усування Помилок
 
-Developers want to know which releases are _safe_ to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Developers want to know which releases are _safe_ to use. Навіть на перший погляд невинні функції можуть запровадити регресії у складних програмах. В той же час, Блокування до фіксованої версії небезпечно, тому що Ви ігноруєте патчі безпеки та виправлення помилок, які, можливо, вийшли з моменту вашої версії. Наша мета - дозволити такі стандартні напівколивання в `package.json`:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* Використовуйте `~2.0.0` для перевірки лише стабільності або виправлень з безпекою на вашому `2.0.0` релізу.
+* Використайте `^2.0.0` для встановлення нерозривної функції _зі стабільною_ як і над виправленнями, так і над усуненням помилок.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Важливим у другій точці є те, що програми, які використовують `^` , все одно повинні мати можливість очікувати розумного рівня стабільності. Для цього semver дозволяє ідентифікатору _pre-release_ вказати на конкретну версію поки що не _безпечний_ або _стабільний_.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Незалежно від того, що ви виберете, вам періодично доведеться обміняти версію в `package.json` оскільки останні зміни є фактом життя Chromium.
 
-The process is as follows:
+Процес наступним чином:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
+1. Усі нові основні та незначні релізи починаються з бета-серії, зазначеної напівтегами оренди `бета-тега.`, напр. `2.0.0-beta.1`. Після першого бета-версії наступні бета-релізи повинні відповідати всім наступним умовам:
+    1. Зміна є зворотнім зв'язком API-сумісним (дозволене застарілом)
+    2. Ризик подолати нашу стрічку стабільності повинен бути низьким.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+3. Якщо конкретний бета-реліз _, як правило, вважає_ стабільним, він буде повторно випущений як стабільна збірка, зміна тільки інформації про версію. напр. `2.0.0`. Після першої стабільної версії всі зміни повинні бути виправлені з помилкою чи виправленнями безпеки.
+4. Якщо майбутні помилки виправляються або необхідно зробити виправлені патчі безпеки як тільки є стабільною версією, вони застосовані і _патч_ версія збільшена . . `2.0.1`.
 
-Specifically, the above means:
+Зокрема, вище означає:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+1. Прийняття змін без розриву API до 3 тижня в бета-циклі добре, навіть якщо ці зміни можуть викликати помірні побічні ефекти
+2. Прийняття змін прапорців з функціями, це в іншому випадку не змінює існуючі шляхи кодів, в більшості точок бета-циклу виконується. Користувачі можуть явно вмикати ці позначки в своїх програмах.
+3. Якщо додати функції будь-якого типу після тижня 3 в бета-циклі - це 👎 без дуже вагомої причини.
 
-For each major and minor bump, you should expect to see something like the following:
+Для кожного великого і другорядного удару треба сподіватися побачити щось на зразок цього:
 
 ```plaintext
 2.0.0-beta.1
@@ -100,45 +99,47 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Приклад життєвого циклу на малюнках:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Створено нову гілку, яка включає в себе останній набір функцій. Він опублікований як `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* Виправлення помилки відбувається на головному сервері, що може бути повернуто в гілку релізу. Патч застосований, і нова бета-версія опублікована як `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* Бета вважається _в цілому стабільним_ , і він публікується як не бета-версія нижче `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Пізніше розкривається нульові експлуатації та виправлення застосовуються до майстра. Ми повертаємо значення виправлення до лінії `2-0-x` та реліз `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Кілька прикладів того, як різні напівавтоми діапазони підбирають нові релізи:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+# Відсутні особливості: Альфас
 
-As a future consideration, we may introduce one or both of the following:
+Наша стратегія має кілька компромісів, які поки ми вважаємо, є доречними. Найголовніше, що для досягнення стабільної лінії випуску нових функцій у майсті може зайняти деякий час. Якщо ви хочете спробувати нову функцію негайно, вам потрібно буде створити Electron самотужки.
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+Як майбутній погляд, ми можемо ввести одну, або обидві наступне:
 
-# Feature Flags
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+* альфа-релізи, що мають більш вільні обмеження стабільності для бета-версій; Наприклад, він може дозволити визнання нових функцій під час збуту стабільності в _альфа_
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
-* feature flags are eventually removed after the feature is released
+# Перемикачі функцій
 
-# Semantic Commits
+Перемикачі функцій - звична практика в Chromium, і добре встановлені в екосистемі веб-розробки. У контексті Electron, прапор функції або **м'яка гілка** повинна мати такі властивості:
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+* він увімкнув/вимк за рядком чи за часом будівництва; ми не підтримуємо концепцію прапор облаштованих запитом функцій
+* він повністю segments new and old code path; refactoring старий код, щоб підтримати нову функцію _порушує_ контракт на прапорець функції
+* позначки функції будуть видалені після виходу модифікації
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+# Семантичні коміти
 
-* We allow squashing of commits, provided that the squashed message adheres to the above message format.
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+Ми прагнемо збільшити ясність на всіх рівнях процесу оновлення і релізів. Починаючи з `2.0.0` нам знадобиться пулл-реквест до функції [Звичайних комітів](https://conventionalcommits.org/) специфікації, які можна звести в підсумки наступним чином:
 
-# Versioned `master`
+* Коміти, які призвели б до напівпровідного **головного кумпу** має розпочатись своє тіло з `BREAKING CHANGE:`.
+* Коміти, які призводять до семінуса **minor** bump має починатися з `модифікації:`.
+* Коміти, що призводять до напівача **патчу** дамп має починатися з `виправлення:`.
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* Ми дозволяємо об'єднати коміти, за умови, що повідомленя подається з правильним форматом повідомлень.
+* Для деяких комітів прийнятно в пулл-реквест, щоб не включати семантичний префікс, поки заголовок запиту злиття містить змістовне стиснення семантичного повідомлення.
+
+# Версійний `головний`
+
+* Гілка `майстра` завжди буде містити наступну основну версію `X.0.0-nightly.DATE` у своєму `package.json`
+* Реліз гілок ніколи не об'єднуються до майстра
+* Release branches _do_ contain the correct version in their `package.json`
+* Як тільки гілка стане роздвоєною, то для майстра потрібно буде піднятися на наступну мажорну.  I.e. `майстер` завжди є версійним як наступна теоретична гілка випуску

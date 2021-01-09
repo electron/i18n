@@ -1,95 +1,94 @@
 # Electron Versioning
 
-> A detailed look at our versioning policy and implementation.
+> O analiză detaliată a politicii noastre de versionare și a punerii sale în aplicare.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
-
-```sh
-npm install --save-dev electron
-```
-
-To update an existing project to use the latest stable version:
+Începând cu versiunea 2.0.0, Electron urmează [semver](#semver). Următoarea comandă va instala cea mai recentă versiune stabilă de Electron:
 
 ```sh
-npm install --save-dev electron@latest
+npm instalare --save-dev electron
 ```
 
-## Version 1.x
+Pentru a actualiza un proiect existent pentru a utiliza cea mai recentă versiune stabilă:
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+```sh
+npm instalare --save-dev electron@latest
+```
 
-Here is an example of the 1.x strategy:
+## Versiunea 1.x
 
-![](../images/versioning-sketch-0.png)
+Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Deși este convenabil pentru dezvoltatori să fuzioneze caracteristici, creează probleme pentru dezvoltatorii aplicațiilor cu care se confruntă clienții. Ciclurile de testare a QA ale unor aplicații majore precum Slack, Stride, Teams, Skype, VS Code, Atom, și Desktop pot fi lungi, iar stabilitatea este un rezultat foarte dorit. Există un risc mare în adoptarea noilor caracteristici în timp ce se încearcă absorbirea remediilor erorilor.
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Iată un exemplu de strategie 1.x:
 
-## Version 2.0 and Beyond
+![1.x Versioning](../images/versioning-sketch-0.png)
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+O aplicație dezvoltată cu `1.8.1` nu poate lua `1. .3` rezolvare bug fără a absorbi `1. .2` caracteristică, sau prin backportarea reparației și menținerea unei noi linii de eliberare.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+## Versiunea 2.0 şi Dincolo de
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Mai jos sunt prezentate câteva schimbări majore ale strategiei noastre de 1,x. Fiecare modificare este menită să satisfacă nevoile și prioritățile dezvoltatorilor/întreținătorilor și dezvoltatorilor de aplicații.
+
+1. Utilizarea strictă a materialului seminal
+2. Introducere tag-uri semiconforme `-beta`
+3. Introducere [mesaje convenționale de comitere](https://conventionalcommits.org/)
+4. Ramuri de stabilizare bine definite
+5. Filiala `master` este lipsită de versiuni; numai sucursalele de stabilizare conțin informații despre versiune
+
+Vom prezenta în detaliu modul în care git ramifică funcționează, modul în care funcționează marcarea npm, ceea ce ar trebui să se aștepte dezvoltatorii să vadă și cum se poate schimba cineva în spatele lui.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Începând de la 2.0, Electron va urma semiconductor.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Mai jos este un tabel care mapează în mod explicit tipurile de modificări la categoria corespunzătoare de material seminal (de exemplu, major, minor, patch).
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| Creșteri ale versiunii majore            | Versiune minoră Incremente               | Patch Version Increments           |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------- |
+| Electron rupe modificările API           | Modificări ale Electron fără rupere API  | Remedierea bug-ului Electron       |
+| Actualizări majore ale versiunii Node.js | Actualizări minore ale versiunii Node.js | Actualizare versiune patch Node.js |
+| Actualizări versiune Chromium            |                                          | plasturi cu crom fix               |
 
-
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Țineți cont că majoritatea actualizărilor de Chromium vor fi considerate spargere. Rezolvările care pot fi backportate vor fi probabil selectate ca patch-uri.
 
 # Stabilizarea ramurilor
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Sucursalele de stabilizare sunt sucursale care rulează paralel cu stăpânul, luând numai comitete de tip cherry alese care sunt legate de securitate sau stabilitate. Aceste ramuri nu sunt niciodată fuzionate în stăpân.
 
-![](../images/versioning-sketch-1.png)
+![Stabilizarea ramurilor](../images/versioning-sketch-1.png)
 
-Since Electron 8, stabilization branches are always **major** version lines, and named against the following template `$MAJOR-x-y` e.g. `8-x-y`.  Prior to that we used **minor** version lines and named them as `$MAJOR-$MINOR-x` e.g. `2-0-x`
+De la Electron 8, ramurile de stabilizare sunt întotdeauna **importante** linii de versiuni, și numit împotriva următorului șablon `$MAJOR-x-y` e. . `8-x-y`.  Înainte de aceasta, am folosit **linii de versiune minore** și le-am numit ca `$MAJOR-$MINOR-x` ex. `2-0-x`
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Permitem ca mai multe sucursale de stabilizare să existe simultan, și intenționează să sprijine cel puțin două în paralel în orice moment, reparațiile de securitate backporting, dacă este necesar. ![Multiple Stability Branches](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Liniile mai vechi nu vor fi suportate de GitHub, dar alte grupuri își pot asuma responsabilitatea și pot susține stabilitatea și soluțiile de securitate pe cont propriu. Noi descurajăm acest lucru, dar recunoaştem că face viaţa mai uşoară pentru mulţi dezvoltatori de aplicaţii.
 
 # Lansări beta și fixări de erori
 
-Developers want to know which releases are _safe_ to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Dezvoltatorii vor să știe care versiuni sunt _sigure_ pentru a fi folosite. Chiar şi caracteristici aparent nevinovate pot introduce regrese în aplicaţii complexe. În acelaşi timp, blocarea la o versiune fixă este periculoasă deoarece ignorați patch-urile de securitate și remedierile erorilor care ar fi putut să iasă din versiunea dvs. Obiectivul nostru este de a permite următoarele intervale standard de semiver în `package.json`:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking _reasonably stable_ feature work as well as security and bug fixes.
+* Folosiți `~2.0.0` pentru a admite doar probleme legate de stabilitate sau securitate la versiunea `2.0.0`.
+* Utilizați `^2.0.0` pentru a admite că funcția care nu interferează _este destul de stabilă_ precum și funcțiile de securitate și de rezolvare a erorilor.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+Ce este important la al doilea punct este că aplicațiile care folosesc `^` ar trebui să se poată aștepta la un nivel rezonabil de stabilitate. Pentru a realiza acest lucru, semiver-ul permite ca un _identificator pre-eliberare_ să indice o anumită versiune nu este încă _sigur_ sau _stabil_.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Orice alegi, va trebui să lovești periodic versiunea din `package.json` deoarece schimbările de rupere sunt o realitate a vieții de Chromium.
 
-The process is as follows:
+Procesul este următorul:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
+1. Toate liniile de versiuni noi majore şi minore încep cu o serie beta indicată de tag-urile semiversionale ale `beta.`, ex. `2.0.0-beta.1`. După prima beta, eliberarea ulterioară a beta trebuie să îndeplinească toate condiţiile următoare:
+    1. Schimbarea este compatibilă cu API înapoi (sunt permise dezaprobări)
+    2. Riscul pentru respectarea calendarului nostru de stabilitate trebuie să fie scăzut.
+2. Dacă sunt permise, modificările trebuie făcute odată ce o versiune este beta, acestea sunt aplicate și eticheta de pre-eliberare este incrementată, e. . `2.0.0-beta.2`.
+3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. ex. `2.0.0`. După prima stare stabilă, toate modificările trebuie să fie rezolvate de bug compatibil cu versiunile anterioare.
+4. Dacă viitoare remedieri ale erorilor sau patch-urile de securitate trebuie făcute odată ce o versiune este stabilă, sunt aplicate, iar versiunea _patch_ este incrementată e. . `2.0.1`.
 
-Specifically, the above means:
+Mai precis, cele de mai sus înseamnă:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
+1. Este în regulă să se admită modificări non-breaking-API înainte de Săptămâna 3 în ciclul beta, chiar dacă aceste modificări au potenţialul de a provoca reacţii adverse moderate
+2. Admiterea modificărilor marcate cu caracteristici, care altfel nu modifică căile de cod existente, în majoritatea punctelor din ciclul beta este în regulă. Utilizatorii pot activa în mod explicit aceste steaguri în aplicațiile lor.
+3. Admiterea de caracteristici de orice fel după Săptămâna 3 în ciclul beta este 👎 fără un motiv foarte bun.
 
-For each major and minor bump, you should expect to see something like the following:
+Pentru fiecare umflătură majoră şi minoră, trebuie să vă aşteptaţi să vedeţi următoarele:
 
 ```plaintext
 2.0.0-beta.1
@@ -100,45 +99,47 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Un exemplu de ciclu de viață din imagini:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered _generally stable_ and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* O nouă sucursală de lansare este creată care include ultimul set de caracteristici. Este publicat ca `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
+* O rezolvare a problemei vine în maestru care poate fi backportată la sucursala de lansare. Plasturele se aplică și o versiune beta nouă este publicată ca `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
+* beta este considerată _în general stabilă_ şi este publicată din nou ca non-beta sub `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
+* Mai târziu, un exploit cu zero zile este dezvăluit și o reparație este aplicată stăpânului. Ne întoarcem la linia `2-0-x` și lansăm `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Câteva exemple privind modul în care diferite serii de semiversuri vor prelua noile versiuni:
 
-![](../images/versioning-sketch-7.png)
+![Semvers and Releases](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+# Caracteristici lipsă: Alphas
 
-As a future consideration, we may introduce one or both of the following:
+Strategia noastră are câteva compromisuri pe care le considerăm adecvate. Cel mai important lucru este că noile caracteristici ale maestrului pot dura o vreme înainte de a ajunge la o linie de eliberare stabilă. Dacă vrei să încerci o caracteristică nouă imediat, va trebui să construiești singur Electron.
 
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
+Ca o perspectivă viitoare, putem introduce una sau ambele dintre următoarele:
 
-# Feature Flags
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+* eliberarea de alfa care au constrângeri mai laxe de stabilitate pe pariuri; de exemplu, ar fi permis să admit funcții noi în timp ce un canal de stabilitate este în _alpha_
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
-* feature flags are eventually removed after the feature is released
+# Marcaje caracteristici
 
-# Semantic Commits
+Steagurile caracteristice sunt o practică obişnuită în Chromium şi sunt bine stabilite în ecosistemul de dezvoltare pe internet. În contextul Electron, un steag al unei funcții sau **ramură soft** trebuie să aibă următoarele proprietăți:
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+* este activat/dezactivat fie la ora de rulare, fie la timpul de construcție; nu suportăm conceptul de steag al caracteristicilor ajustate la cerere
+* segmentează complet trasee noi sau vechi; refactoring old code pentru a suporta o caracteristică nouă _violează_ contractul caracteristică-steag
+* steagurile caracteristicilor sunt în cele din urmă eliminate după ce această caracteristică a fost lansată
 
-* Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+# Angajamente semantice
 
-* We allow squashing of commits, provided that the squashed message adheres to the above message format.
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+Încercăm să sporim claritatea la toate nivelurile procesului de actualizare și de diseminare. Începând cu `2.0.0` vom solicita să tragem cereri de aderare la specificațiile [Commits convențional](https://conventionalcommits.org/) , care pot fi rezumate după cum urmează:
 
-# Versioned `master`
+* Comenzi care ar duce la un semiver **major** bump trebuie să pornească corpul cu `REPARTIZARE CHANGE:`.
+* Comenzi care ar duce la un semiver **minor** bump trebuie să înceapă cu `feat:`.
+* Comenzi care ar duce la un **patch pentru sperma **** bump trebuie să înceapă cu `fix:`.</p></li>
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches _do_ contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch
+* Permitem strângerea de angajamente, cu condiţia ca mesajul strivit să adere la formatul de mai sus al mesajului.
+* Este acceptabil ca unele angajamente într-o cerere pull să nu includă un prefix semantic, atât timp cât titlul cererii pull conţine un mesaj semantic semnificativ.</ul>
+
+# Maestru `versionat`
+
+* Filiala `master` va conține întotdeauna următoarea versiune majoră `X.0.0-nightly.DATĂ` în `package.json`
+* Sucursalele de lansare nu sunt niciodată fuzionate la master
+* Filialele de lansare _do_ contine versiunea corecta in `package.json`
+* De îndată ce o ramură de eliberare este tăiată pentru o componentă majoră, căpitanul trebuie bătut la următorul maior.  `stăpânul` este întotdeauna versionat ca următoarea ramură de lansare teoretică

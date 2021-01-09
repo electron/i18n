@@ -8,7 +8,7 @@
 
 ## Отправка сообщений
 
-Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-).
+Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#contentssendchannel-args).
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
@@ -48,7 +48,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function
+* `listener` Function (Функция)
   * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
@@ -80,7 +80,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -107,7 +107,7 @@ async () => {
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function<Promise<void> | any>
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 

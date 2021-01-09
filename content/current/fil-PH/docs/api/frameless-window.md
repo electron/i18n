@@ -12,7 +12,7 @@ Ang isang frameless window ay isang window na walang
 <a href="browser-window.md"> BrowserWindow </ 1> 's <code> options </ 0>:</p>
 
 <pre><code class="javascript">const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 `</pre> 
 
@@ -30,7 +30,7 @@ Mga resulta sa isang nakatagong title bar at isang full size content window , ga
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -45,7 +45,7 @@ Mga resulta sa isang nakatagong title bar  na may isang alternatibong hitsura ku
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -61,7 +61,7 @@ Uses custom drawn close, and miniaturize buttons that display when hovering in t
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -74,7 +74,7 @@ Sa pamamagitan ng pagtatakda ng opsyon na ` transparent </ 0> sa <code> true </ 
 transparent window:</p>
 
 <pre><code class="javascript">const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 `</pre> 
 
@@ -105,7 +105,7 @@ Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansin
 
 ```javascript
 const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
+const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
@@ -119,8 +119,8 @@ Ignoring mouse messages makes the web page oblivious to mouse movement, meaning 
 
 
 ```javascript
-let win = require('electron').remote.getCurrentWindow()
-let el = document.getElementById('clickThroughElement')
+const win = require('electron').remote.getCurrentWindow()
+const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
   win.setIgnoreMouseEvents(true, { forward: true })
 })

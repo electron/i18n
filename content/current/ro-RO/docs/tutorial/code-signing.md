@@ -1,54 +1,54 @@
 # Semnarea codului
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Semnarea codului este o tehnologie de securitate pe care o utilizați pentru a certifica faptul că o aplicație a fost creată de dvs.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+Pe macOS, sistemul poate detecta orice modificare a aplicației, indiferent dacă aceasta este introdusă accidental sau prin cod răuvoitor.
 
-On Windows, the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low, will cause security dialogs to appear when users start using your application.  Trust level builds over time so it's better to start code signing as early as possible.
+Pe Windows, sistemul atribuie un nivel de încredere certificatului tău de semnare cod pe care dacă nu îl ai, sau în cazul în care nivelul dvs. de încredere este scăzut, va face ca dialogurile de securitate să apară atunci când utilizatorii încep să folosească aplicația.  Nivelul de încredere construiește în timp, astfel încât este mai bine să începi semnarea codului cât mai curând posibil.
 
-While it is possible to distribute unsigned apps, it is not recommended. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Deşi este posibilă distribuirea aplicaţiilor nesemnate, aceasta nu este recomandată. Atât Windows cât și macOS vor preveni, în mod implicit, fie descărcarea, fie executarea aplicațiilor nesemnate. Începând cu macOS Catalina (versiunea 10.15), utilizatorii trebuie să parcurgă mai mulți pași manuali pentru a deschide aplicații nesemnate.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![atenționarea macOS Catalina Gatekeeper: Aplicația nu poate fi deschisă deoarece dezvoltatorul
+nu poate fi verificat](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+După cum vedeți, utilizatorii primesc două opțiuni: Mută aplicația direct la gunoi sau anulează rularea. Nu vrei ca utilizatorii să vadă acest dialog.
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed.
+Dacă construiești o aplicație Electron pe care intenționezi să o ambalezi și să o distribuiești, aceasta ar trebui să fie semnată cu cod.
 
-# Signing & notarizing macOS builds
+# Semnarea & notarizând versiunile macOS
 
-Properly preparing macOS applications for release requires two steps: First, the app needs to be code-signed. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
+Pregătirea adecvată a aplicațiilor macOS pentru lansare necesită doi pași: Mai întâi, aplicația trebuie să fie semnată cu cod. Apoi, aplicația trebuie să fie încărcată în Apple pentru un proces numit "notarization", atunci când sistemele automatizate vor verifica în continuare că aplicația dvs. nu face nimic pentru a-i pune în pericol utilizatorii.
 
-To start the process, ensure that you fulfill the requirements for signing and notarizing your app:
+Pentru a începe procesul, asigurați-vă că îndepliniți cerințele pentru semnare și notarizând aplicația dvs.:
 
-1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
-2. Download and install [Xcode](https://developer.apple.com/xcode) - this requires a computer running macOS
-3. Generate, download, and install [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Înscriere în [Programul de dezvoltare Apple](https://developer.apple.com/programs/) (necesită o taxă anuală)
+2. Descărcați și instalați [Xcode](https://developer.apple.com/xcode) - este nevoie de un calculator care să ruleze macOS
+3. Generează, descarcă și instalează [certificatele de semnare](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-Electron's ecosystem favors configuration and freedom, so there are multiple ways to get your application signed and notarized.
+Ecosistemul Electron favorizează configurarea și libertatea, așa că există mai multe modalități de a obține aplicația ta semnată și notarizată.
 
 ## `electron-forge`
 
-If you're using Electron's favorite build tool, getting your application signed and notarized requires a few additions to your configuration. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`], [`electron-osx-sign`], and [`electron-notarize`] under the hood.
+Dacă folosești unealta de construcție favorită a Electron, obținerea semnării aplicației tale și notarizarea necesită câteva completări la configurația ta. [Forge](https://electronforge.io) este o colecție de instrumente Electron oficiale, folosind [`electron-packager`], [`electron-osx-sign`] şi [`electron-notarize`] sub cald.
 
-Let's take a look at an example configuration with all required fields. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
+Hai să aruncăm o privire la o configurație cu toate câmpurile necesare. Nu toate sunt necesare: instrumentele vor fi suficient de inteligente pentru a găsi automat o identitate `potrivită`, de exemplu, dar vă recomandăm să fiţi explicit.
 
 ```json
 {
   "name": "my-app",
-  "version": "0.0.1",
+  "version": "0.0. ",
   "config": {
     "forge": {
       "packagerConfig": {
         "osxSign": {
           "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
-          "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
-          "signature-flags": "library"
+          "timp durat": adevărat,
+          "drepturi": "drepturi. listează",
+          "drepturi-moştenire": "drepturi. listă",
+          "semnătură-steaguri": "bibliotecă"
         },
         "osxNotarize": {
-          "appleId": "felix@felix.fun",
+          "appleId": "felix@felix. un",
           "appleIdPassword": "my-apple-id-password",
         }
       }
@@ -57,26 +57,26 @@ Let's take a look at an example configuration with all required fields. Not all 
 }
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+Fișierul `plist` la care se face referire aici are nevoie de următoarele drepturi specifice macOS pentru a asigura mecanismele Apple de securitate că aplicația ta face aceste lucruri fără să însemne vreo vătămare:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-/Apple///DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow-unsigned-executable-memorie</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
 
-To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
+Pentru a vedea toate acestea în acțiune, verificați codul sursă Electron Fiddle, [în special fișierul `electron-forge` configurație ](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
-If you plan to access the microphone or camera within your app using Electron's APIs, you'll also need to add the following entitlements:
+Dacă plănuiești să accesezi microfonul sau camera foto din cadrul aplicației tale folosind API-urile Electron, va trebui de asemenea să adaugi următoarele drepturi:
 
 ```xml
 <key>com.apple.security.device.audio-input</key>
@@ -85,57 +85,57 @@ If you plan to access the microphone or camera within your app using Electron's 
 <true/>
 ```
 
-If these are not present in your app's entitlements when you invoke, for example:
+În cazul în care acestea nu sunt prezente în aplicația dvs., de exemplu:
 
 ```js
 const { systemPreferences } = require('electron')
 
-const microphone = systemPreferences.askForMediaAccess('microphone')
+const microfon = systemPreferences.askForMediaAccess('microfon')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+Aplicația ta se poate bloca. Vezi secțiunea Acces la Resurse din [Execuție întărită](https://developer.apple.com/documentation/security/hardened_runtime) pentru mai multe informații și drepturi de care ai nevoie.
 
 ## `electron-builder`
 
-Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
+Electron Builder vine cu o soluție personalizată pentru semnarea aplicației tale. puteţi găsi [documentaţia sa aici](https://www.electron.build/code-signing).
 
-## `electron-packager`
+## `ambalator de electroni`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`], which includes [`electron-osx-sign`] and [`electron-notarize`].
+Dacă nu folosiți o conductă de construcții integrată cum ar fi Forge sau Constructor, este foarte probabil să folosiți [`electron-packer`], care include [`electronon-osx-sign`] și [`electron-notarize`].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+Dacă utilizați API-ul Packager, puteți transmite [în configurație că ambele semne și notarizează aplicația dvs. ](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
 ```js
-const packager = require('electron-packager')
+ambalator const = require('electron-packager')
 
 packager({
   dir: '/path/to/my/app',
   osxSign: {
-    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
-    'hardened-runtime': true,
-    entitlements: 'entitlements.plist',
-    'entitlements-inherit': 'entitlements.plist',
-    'signature-flags': 'library'
+    identitate: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
+    „timp silențios”: adevărat,
+    drepturi: „drepturi. listează”,
+    „drepturi-moștenite”: „drepturi. lista',
+    'semnătură-steaguri': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix.fun',
+    appleId: 'felix@felix. un',
     appleIdPassword: 'my-apple-id-password'
   }
 })
 ```
 
-The `plist` file referenced here needs the following macOS-specific entitlements to assure the Apple security mechanisms that your app is doing these things without meaning any harm:
+Fișierul `plist` la care se face referire aici are nevoie de următoarele drepturi specifice macOS pentru a asigura mecanismele Apple de securitate că aplicația ta face aceste lucruri fără să însemne vreo vătămare:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-/Apple///DTD PLIST 1.0//EN" "http://www. pple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com.apple.security.cs. llow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com.apple.security.cs. llow-unsigned-executable-memorie</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. pple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
@@ -143,28 +143,28 @@ The `plist` file referenced here needs the following macOS-specific entitlements
 
 ## Magazin de aplicații Mac
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+Vezi [Ghidul App Store Mac](mac-app-store-submission-guide.md).
 
-# Signing Windows builds
+# Versiuni de semnare Windows
 
-Before signing Windows builds, you must do the following:
+Înainte de a semna versiuni Windows, trebuie să faceți următoarele:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. Obține un certificat de semnare a codului de autentificare Windows (necesită o taxă anuală)
+2. Instalați Visual Studio pentru a obține utilitatea semnării ( [Comunitatea gratuită Ediția](https://visualstudio.microsoft.com/vs/community/) este suficientă)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Poți obține un certificat de cod de la o mulțime de distribuitori. Preţurile variază, deci merită timp să faci cumpărături. Revânzătorii populari includ:
 
-* [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
+* [digicerat](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-* Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
+* Printre altele, vă rugăm să faceți cumpărături pentru a găsi unul care se potrivește nevoilor dvs., Google este prietenul dvs. 😄
 
-There are a number of tools for signing your packaged app:
+Există o serie de unelte pentru semnarea aplicației tale împachetate:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+* [`electron-winstaller`] va genera un instalator pentru ferestre și îl va semna pentru
+* [`electron-forge`] poate semna instalatorii pe care îi generează prin obiectivele Squirrel.Windows sau MSI.
+* [`electron-builder`] poate semna unele dintre țintele sale pentru ferestre
 
 ## Magazin Windows
 
-See the [Windows Store Guide](windows-store-guide.md).
+Vezi ghidul [pentru Windows Store](windows-store-guide.md).

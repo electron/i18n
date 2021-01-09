@@ -2,7 +2,7 @@
 
 > Create a label in the touch bar for native macOS applications
 
-프로세스: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarLabel(options)`
 
@@ -13,7 +13,7 @@
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 The following properties are available on instances of `TouchBarLabel`:
 

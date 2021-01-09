@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -81,16 +80,10 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Hindi Kaaya-aya --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Kaaya-aya --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
-
 
 ## 2) Do not enable Node.js Integration for Remote Content
 
@@ -129,11 +122,9 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
@@ -150,19 +141,17 @@ window.readConfig = function () {
 }
 ```
 
-
 ## 3) Enable Context Isolation for Remote Content
 
 Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong  JavaScript na conteksto. Sa pagsasanay, ibig sabihin nito ay ang pandaigdigang mga bagay gaya ng `Array.prototype.push` o `JSON.parse` ay hindi na maaaring baguhin ng mga manuskritong pinatakbo sa proseso ng renderer.
 
 Gumagamit ang Electron ng parehong teknolohiya sa Chromium na [Mga Manuskritong Nilalaman](https://developer.chrome.com/extensions/content_scripts#execution-environment) para paganahin ang kilos.
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 ## 4) Handle Session Permission Requests From Remote Content
 
@@ -197,7 +186,6 @@ session
   })
 ```
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Ang rekomendasyon ay default ng Electron_
@@ -211,6 +199,7 @@ Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
 Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
 
 ### Paano?
+
 ```js
 // Masama
 const mainWindow = new BrowserWindow({
@@ -225,14 +214,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 6) Define a Content Security Policy
 
@@ -277,7 +263,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Ang rekomendasyon ay default ng Electron_
@@ -305,7 +290,6 @@ const mainWindow = new BrowserWindow({
 // Mabuti
 const mainWindow = new BrowserWindow({})
 ```
-
 
 ## 8) Do Not Enable Experimental Features
 
@@ -335,7 +319,6 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Ang rekomendasyon ay default ng Electron_
@@ -347,6 +330,7 @@ Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. As with `exp
 Sa pangkalahatan, malamang na may mga dahilan kung ang isang tampok ay hindi pinagana bilang default. Ang mga lehitimong kaso ng paggamit para sa pagpapagana ng mga partikular na tampok ay umiiral. Bilang isang developer, dapat mong malaman eksakto kung bakit kailangan mong paganahin ang isang tampok, kung ano ang Ang mga resulta ay, at kung paano ito nakakaapekto sa seguridad ng iyong aplikasyon. Sa ilalim walang mga pangyayari na dapat mong paganahin ang mga tampok na speculatively.
 
 ### Paano?
+
 ```js
 // Bad
 const mainWindow = new BrowserWindow({
@@ -361,12 +345,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-
 ## 10) Do Not Use `allowpopups`
 
 _Ang rekomendasyon ay default ng Electron_
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`](../api/browser-window.md) gamit ang `window.open()` na paraan. `<webview>` tags are otherwise not allowed to create new windows.
 
 ### Bakit?
 
@@ -374,14 +357,11 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 
 ### Paano?
 
-```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
+```html<!-- Hindi Kaaya-aya --><webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
-
 
 ## 11) Verify WebView Options Before Creation
 
@@ -393,11 +373,11 @@ It is a good idea to control the creation of new [`<webview>`](../api/webview-ta
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. Sa karamihan ng mga kaso, hindi kailangan ng mga developer na huwag paganahin ang alinman sa mga tampok na iyon - at dapat mong hindi pinapayagan ang iba't ibang mga pagsasaayos para sa mga bagong nilikha [`<webview>`](../api/webview-tag.md) na mga tag.
 
 ### Paano?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Bago ang isang [`<webview>`](../api/webview-tag.md) tag ay naka-attach, Electron ay sunugin ang `will-attach-webview` kaganapan sa hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -461,29 +441,36 @@ If you have no need to create windows in addition to the ones you know you'll ne
 
 ### Paano?
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
+  contents.setWindowOpenHandler(({ url }) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
-    event.preventDefault()
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    await shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Bakit?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 ### Paano?
 
@@ -492,6 +479,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-ca
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 ```js
 //  Good
 const { shell } = require('electron')
@@ -516,7 +504,11 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 ```js
 // Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 ```js
@@ -528,13 +520,10 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
+```html<!-- Bad if the renderer can run untrusted content  --><webview enableremotemodule="true" src="page.html"></webview><!-- Good --><webview enableremotemodule="false" src="page.html"></webview>
 ```
+
+> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
 ## 16) Filter the `remote` module
 

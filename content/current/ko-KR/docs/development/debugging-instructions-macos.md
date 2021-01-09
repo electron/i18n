@@ -9,6 +9,7 @@
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. macOS에서는 Xcode의 기본 디버거인 LLDB가 포함됩니다. 이것은 데스크톱 C, Objective-C 및 C++와 iOS 기기 및 시뮬레이터 디버깅을 지원합니다.
 
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+
    ```text
    command script import ~/electron/src/tools/lldb/lldbinit.py
    ```
@@ -86,13 +87,14 @@ Process 25244 stopped
    122 	  return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**참고:** 있어야 할 소스 코드가 보이지 않는다면, `~/.lldbinit` 파일을 추가했는지 확인해보세요.
 
 디버깅을 끝내려면, `process continue` 를 실행하세요. 또한 쓰레드에서 실행 줄 수를 지정할 수 있습니다 (`thread until 100`). 이 명령은 현재 프레임에서 100 줄에 도달하거나 현재 프레임을 나가려고 할 때 까지 쓰레드를 실행합니다.
 
 이제, Electron 의 개발자 도구를 열고 `setName` 을 호출하면, 다시 중단점을 만날 것 입니다.
 
 ### 더 읽을거리
+
 LLDB 는 훌륭한 문서가 있는 강력한 도구입니다. 더 학습하기 위해, [LLDB 명령 구조 참고](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) 와 [LLDB 를 독립 실행 디버거로 사용하기](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) 같은 애플의 디버깅 문서를 고려하세요.
 
-LLDB 의 환상적인 [설명서와 학습서](http://lldb.llvm.org/tutorial.html) 를 확인할 수 있습니다. 그것은 더 복잡한 디버깅 시나리오를 설명합니다.
+LLDB 의 환상적인 [설명서와 학습서](https://lldb.llvm.org/tutorial.html) 를 확인할 수 있습니다. 그것은 더 복잡한 디버깅 시나리오를 설명합니다.

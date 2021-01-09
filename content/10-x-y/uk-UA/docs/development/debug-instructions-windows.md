@@ -4,7 +4,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
 
 **See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
-## Вимоги
+## Requirements
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
@@ -20,7 +20,7 @@ To start a debugging session, open up PowerShell/CMD and execute your debug buil
 $ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
-### Встановлення Контрольних Точок
+### Setting Breakpoints
 
 Після цього, відкрийте Visual Studio. Electron не зібраний з Visual Studio, а, отже, не містить файл проєкту; тим не менш, ви можете відкрити вихідні файли "як файл", тобто Visual Studio відкриє їх самі по собі. Тим не менш, ви можете ставити контрольні точки - Visual Studio автоматично визначить, що цей вихідний код відповідає виконуваного коду в підключеному процесі, і зупиниться на зазначеній контрольній точці.
 

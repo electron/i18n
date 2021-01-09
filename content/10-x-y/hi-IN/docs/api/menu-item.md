@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-प्रक्रिया: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 

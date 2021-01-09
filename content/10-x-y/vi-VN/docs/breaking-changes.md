@@ -104,6 +104,52 @@ const w = new BrowserWindow({
 
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
+### `protocol.unregisterProtocol`
+### `protocol.uninterceptProtocol`
+
+The APIs are now synchronous and the optional callback is no longer needed.
+
+```javascript
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
+```
+
+### `protocol.registerFileProtocol`
+### `protocol.registerBufferProtocol`
+### `protocol.registerStringProtocol`
+### `protocol.registerHttpProtocol`
+### `protocol.registerStreamProtocol`
+### `protocol.interceptFileProtocol`
+### `protocol.interceptStringProtocol`
+### `protocol.interceptBufferProtocol`
+### `protocol.interceptHttpProtocol`
+### `protocol.interceptStreamProtocol`
+
+The APIs are now synchronous and the optional callback is no longer needed.
+
+```javascript
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
+```
+
+The registered or intercepted protocol does not have effect on current page until navigation happens.
+
+### `protocol.isProtocolHandled`
+
+This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+
+```javascript
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
+const isRegistered = protocol.isProtocolRegistered(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
+```
+
 ## Planned Breaking API Changes (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
@@ -113,6 +159,45 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
 For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### Deprecated: `BrowserWindow` extension APIs
+
+The following extension APIs have been deprecated:
+* `BrowserWindow.addExtension(path)`
+* `BrowserWindow.addDevToolsExtension(path)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
+* `BrowserWindow.getExtensions()`
+* `BrowserWindow.getDevToolsExtensions()`
+
+Use the session APIs instead:
+* `ses.loadExtension(path)`
+* `ses.removeExtension(extension_id)`
+* `ses.getAllExtensions()`
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
+```
+
+```js
+// Deprecated in Electron 9
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
+```
 
 ### Removed: `<webview>.getWebContents()`
 
@@ -213,6 +298,52 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
+### Các sự kiện không được chấp nhận `hệ thốngPreferences`
+
+Hệ thống `trước các sự kiện` đã không còn được chấp nhận:
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
+
+Sử dụng phiên bản `cập nhật` sự kiện trên mô-đun `bản nativeTheme` thay thế.
+
+```js
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
+```
+
+### 非推奨化した `systemPreferences` のメソッド
+
+The following `systemPreferences` methods have been deprecated:
+* `systemPreferences.isDarkMode()`
+* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isHighContrastColorScheme()`
+
+Use the following `nativeTheme` properties instead:
+* `nativeTheme.shouldUseDarkColors`
+* `nativeTheme.shouldUseInvertedColorScheme`
+* `nativeTheme.shouldUseHighContrastColors`
+
+```js
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
+
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
+nativeTheme.shouldUseInvertedColorScheme
+
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
+```
 
 ## Planned Breaking API Changes (7.0)
 

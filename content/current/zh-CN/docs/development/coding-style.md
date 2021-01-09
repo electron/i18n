@@ -36,7 +36,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 ## JavaScript
 
-* 书写 [标准](https://npm.im/standard) JavaScript 样式
+* 书写 [标准](https://www.npmjs.com/package/standard) JavaScript 样式
 * 文件名应使用 `-` 连接而不是 `_`, 例如. `file-name.js` 而不是 `file_name.js`, 因为在 [github/atom](https://github.com/github/atom)中模块名通常是 `module-name` 形式. 此规则仅适用于 `.js` 文件。
 * 酌情使用更新的 ES6 / ES2015 语法
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
@@ -48,9 +48,9 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 Electron API 使用与 Node.js 相同的大小写方案：
 
-- 当模块本身是class时, 比如 `BrowserWindow`, 使用 `CamelCase`.
-- 当模块是一组 API 时, 比如 `globalShortcut`时，使用 `mixedCase`。
-- 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如 `win.webContents`, 使用 `mixedCase`.
-- 对于其他非模块API, 使用自然标题, 比如 `<webview> Tag` 或 `Process Object`.
+* 当模块本身是class时, 比如 `BrowserWindow`, 使用 `CamelCase`.
+* 当模块是一组 API 时, 比如 `globalShortcut`时，使用 `mixedCase`。
+* 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如 `win.webContents`, 使用 `mixedCase`.
+* 对于其他非模块API, 使用自然标题, 比如 `<webview> Tag` 或 `Process Object`.
 
 当创建新的 API 时， 最好使用 getter 和 setter 而不是 jQuery 的一次性函数。 举个例子, `.getText()` 和 `.setText(text)` 优于 `.text([text])`. 这是一些相关的 [讨论](https://github.com/electron/electron/issues/46)

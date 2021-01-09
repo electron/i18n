@@ -1,85 +1,85 @@
 ---
-title: 'Project of the Week: Kap'
+title: 'مشروع الأسبوع: كاب'
 author:
   - skllcrn
-  - sindresorhus
+  - سنندلادهوس
   - zeke
 date: '2017-01-31'
 ---
 
-The Electron community is growing quickly, and people are creating powerful new apps and tools at an astounding rate. To celebrate this creative momentum and keep the community informed of some of these new projects, we've decided to start a weekly blog series featuring noteworthy Electron-related projects.
+مجتمع إلكترون ينمو بسرعة، والناس ينشئون تطبيقات وأدوات جديدة قوية بمعدل مذهل. للاحتفال بهذا الزخم الإبداعي وإبقاء المجتمع على علم ببعض هذه المشاريع الجديدة، لقد قررنا بدء سلسلة مدونات أسبوعية تحتوي على مشاريع ذات صلة بالإلكترونات جديرة بالملاحظة.
 
 ---
 
-This post is the first in the series, and features [Kap](https://getkap.co/), an open-source screen recording app built by [Wulkano](https://wulkano.com/), a geodistributed team of freelance designers and developers.
+هذه المشاركة هي الأولى في السلسلة، والميزات [كاب](https://getkap.co/)، تطبيق تسجيل الشاشة مفتوح المصدر تم بناؤه بواسطة [وولكانو](https://wulkano.com/)، فريق موزع جغرافيا من المصممين والمطورين المستقلين.
 
-[![Kap Screencast](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
+[![شاشة القص](https://cloud.githubusercontent.com/assets/2289/22439463/8f1e509e-e6e4-11e6-9c32-3a9db63fc9a1.gif)](https://getkap.co/)
 
-## What is Kap?
+## ما هو كاب؟
 
-[Kap is an open-source screen recorder](https://getkap.co) built primarily for designers and developers to easily capture their work. People use it to share animated prototypes, document bugs, create silly GIFs and everything in-between.
+[Kap هو مسجل شاشة مفتوح المصدر](https://getkap.co) تم إنشاؤه أساسا للمصممين والمطورين لالتقاط عملهم بسهولة. يستخدمها الناس لمشاركة النماذج المتحركة، وتوثيق الأخطاء، وإنشاء صور GIF، وكل شيء بينهما.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Even to create production assets! We're completely blown away by how well received our little side project has been.
+لقد رأينا أناسا من جميع الأعمار والخلفيات يستخدمونه في الإعدادات التعليمية، الشاشات، الدروس... القائمة مستمرة. حتى لإنشاء أصول الإنتاج! نحن متفائلون تماما بمدى استقبالنا لمشروعنا الجانبي الصغير.
 
-## Why did you build it?
+## لماذا بنيت ذلك؟
 
-That's a very good question, it's not like there's a lack of screen recorders out there! We felt the alternatives were either too complex, too expensive or too limited. Nothing felt *just right* for our everyday needs. We also think it's great when the tools we use to do our work are open-source, that way everyone can help shape them. [Building Kap ended up being just as much about what we didn't do](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). It's all in the details, an accumulation of small improvements that became the outline of a tool we wanted to use.
+هذا سؤال جيد جداً، ليس مثل وجود نقص في سجلات الشاشة هناك! ورأينا أن البدائل إما مفرطة التعقيد أو مكلفة جدا أو محدودة جدا. لم يشعر أي شيء *على النحو الصحيح* لاحتياجاتنا اليومية. كما نعتقد أنه من الرائع عندما تكون الأدوات التي نستخدمها للقيام بعملنا مفتوحة المصدر، بهذه الطريقة يستطيع الجميع أن يساعدوا في تشكيلها. [بناء كاب انتهى به الأمر إلى كونه بنفس القدر حول ما لم نفعله](https://medium.com/wulkano-friends/from-idea-to-product-and-beyond-a12850403c38). كل شيء في التفاصيل، تراكم من التحسينات الصغيرة التي أصبحت مخططاً لأداة أردنا استخدامها.
 
-However, and maybe most importantly, Kap has become a place for us to leave our worries at the door and just have fun building something for ourselves and people like us. It's so important to create an environment where you get to just vent, try new thins and enjoy your craft. No requirements, no pressure, no expectations. Should designers and developers side project? Why, yes. Yes, they should.
+ومع ذلك، وربما يكون ذلك هو الأهم، لقد أصبح كاب مكانا لنا لنترك قلقنا على الباب ونستمتع ببناء شيء لأنفسنا ولأناس مثلنا. من المهم جدا خلق بيئة حيث يمكنك فقط الفتح، تجرب فكر جديد وتستمتع بحرفيتك. لا توجد متطلبات، لا ضغوط، لا توقعات. هل ينبغي للمصممين والمطورين المشروع الجانبي؟ لماذا، نعم. نعم، يجب عليهم.
 
-## Why did you choose to build Kap on Electron?
+## لماذا اخترت بناء كاب على إلكترون؟
 
-There were a number of reasons:
+وكان هناك عدد من الأسباب:
 
-* Web tech
-* Most of the team are web developers
-* We're invested in JavaScript
-* It opens the door for more people to contribute
-* Electron itself is open-source
-* The power and easily maintainable modularity of `node_modules`
-* Cross-platform possibilities
+* تكنولوجيا الويب
+* معظم أعضاء الفريق هم من مطوري الويب
+* نحن مستثمرون في جافا سكريبت
+* يفتح الباب لمزيد من الناس للمساهمة
+* إلكترون نفسه مفتوح المصدر
+* قوة `node_modules` وسهولة التمكن من التحكم بها
+* إمكانيات عبر المنصة
 
-We think the future of apps are in the browser, but we're not quite there yet. Electron is an important step in the journey towards that future. It not only makes the apps themselves more accessible, but also the code they're built with. An interesting thought is imagining a future where the OS is a browser, and the tabs are essentially Electron apps.
+نحن نعتقد أن مستقبل التطبيقات في المتصفح، لكننا لم نكن هناك بعد. والإلكترون خطوة هامة في الرحلة نحو ذلك المستقبل. إنها لا تجعل التطبيقات نفسها أيسر منالا فحسب، بل أيضا التعليمات البرمجية التي بنيت بها. فكرة مثيرة للاهتمام هي تخيل مستقبل حيث نظام التشغيل هو متصفح، وعلامات التبويب هي في الأساس تطبيقات إلكترون.
 
-Additionally, being primarily web developers, we're big fans of the isomorphic nature of JavaScript, in that you can run JS on the client, server, and now the desktop. With web tech (HTML, CSS and JS), many things are much simpler than native: Faster prototyping, less code, flexbox > auto-layout (macOS/iOS).
+بالإضافة إلى ذلك، كوننا في المقام الأول مطوري شبكة الإنترنت، نحن معجبين كبيرين بالطبيعة الأيزومورفية لجافا سكريبت، حيث يمكنك تشغيل JS على العميل، الخادم، والآن سطح المكتب. مع تقنية الويب (HTML و CSS و JS)، الكثير من الأشياء أبسط بكثير من اللغة الأصلية: النموذج الأسرع، أقل الكود البرمجي، علبة مرنة > تخطيط تلقائي (macOS/iOS).
 
-## What are some challenges you've faced while building Kap?
+## ما هي بعض التحديات التي واجهتها أثناء بناء كاب؟
 
-Using the resources Electron has available to record the screen was the biggest challenge. They simply weren't performant enough to meet our requirements and would render the project a failure in our eyes. Though at no fault of Electron itself, there's still a gap between native development and building desktop apps with web tech.
+استخدام الموارد إلكترون متاح لتسجيل الشاشة كان التحدي الأكبر. ببساطة لم يكن أداؤها كافيا للوفاء بمتطلباتنا وكان من شأنها أن تجعل المشروع فاشلا في أعيننا. على الرغم من عدم وجود خطأ في إلكترون نفسه، لا تزال هناك فجوة بين التطوير المحلي وبناء تطبيقات الحواسيب المكتبية مع تقنية الويب.
 
-We spent a lot of time trying to work around the poor performance of the `getUserMedia` API, an issue originating in Chromium. One of our main goals when we set out to make Kap was to build the entire app with web tech. After trying everything we could to get it working (the minimum requirement being 30 FPS on a Retina screen), we eventually had to find another solution.
+أمضينا الكثير من الوقت في محاولة للعمل حول الأداء السيئ لـ `getUserMedia` API ، وهي مشكلة منشؤها Chromium. أحد أهدافنا الرئيسية عندما بدأنا لعمل كاب كان بناء التطبيق بأكمله باستخدام تقنية الويب. بعد محاولة كل شيء يمكننا أن نجعله يعمل (الحد الأدنى المطلوب هو 30 FPS على شاشة ريتينا)، وفي نهاية المطاف كان علينا أن نجد حلا آخر.
 
-## I see some Swift code in the repo. What's that about?
+## أرى بعض التعليمات البرمجية Swift في المستودع. ما هو ذلك؟
 
-Being forced to look for alternatives to `getUserMedia`, we started experimenting with `ffmpeg`. Besides being one of the best tools for audio and video conversion it has the functionality of recording the screen in almost any OS, and we were able to record crispy video meeting our minimum requirement of 30 FPS on a Retina screen. Problem? The performance was ":weary:", the CPU usage was going haywire. So we went back to the drawing board, discussed our options and realised that we had to make a compromise. That resulted in [Aperture](https://github.com/wulkano/aperture), our own screen recording library for macOS written in Swift.
+عندما أرغمنا على البحث عن بدائل لـ `getUserMedia`، بدأنا في تجربة `ffmpeg`. وإلى جانب كونها واحدة من أفضل الأدوات لتحويل الصوت والفيديو، فإن لها وظيفة تسجيل الشاشة في أي نظام تشغيل تقريبا، وتمكنا من تسجيل فيديو رائع يفي بالحد الأدنى من متطلباتنا وهو 30 FPS على شاشة ريتينا مشكلة؟ كان الأداء ":weary:" ، كان استخدام وحدة المعالجة المركزية يذهب إلى سلك الهلاك. لذا عدنا إلى لوحة الرأي، وناقشنا خياراتنا وأدركنا أنه كان علينا أن نتوصل إلى حل وسط. وأسفر ذلك عن [Aperture](https://github.com/wulkano/aperture)، مكتبة تسجيل الشاشة الخاصة بنا لـ macOS المكتوبة في Swift.
 
-## In what areas should Electron be improved?
+## في أي مجالات ينبغي تحسين إلكترون؟
 
-We all know that Electron apps can have a thing for using RAM, but again, that's really a Chromium thing. It's part of how it works and it really depends on what you're running, for example Kap and Hyper typically use less than 100MB of memory.
+كلنا نعلم أن تطبيقات إلكترون يمكن أن يكون لديها شيء لاستخدام ذاكرة الوصول العشوائي، ولكن مرة أخرى، هذا حقاً شيء كروموم. انه جزء من كيفية عمله وهو يعتمد حقا على ما تقوم به فعلى سبيل المثال، تستخدم كاب وهابر عادة أقل من 100 ميغابايت من الذاكرة.
 
-One of the biggest areas of improvement that we see is payload, particularly how Electron distributes Chromium. One idea would be to have a shared Electron core and make app installers check if it's already present on the system.
+واحد من أكبر مجالات التحسين التي نراها هو الحمولة، خاصة كيف يوزع إلكترون Chromium. واحدة من الأفكار هي أن يكون هناك نواة إلكترون مشتركة وأن يجعل مثبتات التطبيق تتحقق إذا كانت موجودة بالفعل على النظام.
 
-Creating cross-platform Electron apps could be a better experience. Right now there are too many inconsistencies, platform-specific APIs, and missing features between platforms, making your codebase littered with if-else statements. For example, vibrancy is only supported on macOS, the auto-updater works differently on macOS and Windows, and is not even supported on Linux. Transparency is a hit or miss on Linux, usually miss.
+إنشاء تطبيقات إلكترون عبر المنصة يمكن أن يكون تجربة أفضل. الآن هناك الكثير من التناقضات ، واتجاهات برمجة التطبيقات الخاصة بالمنصات ، والمميزات المفقودة بين المنصات ، مما يجعل الكود الخاص بك ممتلئا بعبارات إي - أخرى. على سبيل المثال، لا يتم دعم الحيوية إلا على macOS، يعمل التحديث التلقائي بشكل مختلف على macOS و Windows، ولا يتم حتى دعمه على Linux. الشفافية هي ضربة أو خطأ على لينوكس، عادةً ما تكون مفقودة.
 
-It should also be easier to call native system APIs. Electron comes with a very good set of APIs, but sometimes you need functionality it doesn't provide. Creating a native Node.js addon is an option, but it's painful to work with. Ideally Electron would ship with a good [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) API, like [`fastcall`](https://github.com/cmake-js/fastcall). This would have enabled us to write the Swift part in JavaScript instead.
+كما ينبغي أن يكون من الأسهل الاتصال بنظام API الأصلي. يأتي إلكترون مع مجموعة جيدة جداً من API، ولكن في بعض الأحيان تحتاج إلى وظيفة لا توفرها. إنشاء الإضافة الأصلية Node.js هو خيار، ولكن من المؤلم العمل معها. من الناحية المثالية تقوم إلكترون بشحن مع [FI جيد](https://en.wikipedia.org/wiki/Foreign_function_interface) API ، مثل [`سريع`](https://github.com/cmake-js/fastcall). هذا كان سيمكننا من كتابة جزء Swift في JavaScript بدلا من ذلك.
 
-## What are your favorite things about Electron?
+## ما هي الأشياء المفضلة لديك عن إلكترون؟
 
-Our favorite thing is easily the fact that anyone with knowledge of creating for the web can build and contribute to multi-platform native experiences. Not to mention the ease and joy of developing on it, the excellent documentation and the thriving ecosystem.
+والشيء المفضل لدينا هو بسهولة أن أي شخص لديه معرفة بإنشاء الشبكة يمكن أن يبني ويساهم في التجارب المحلية متعددة المنصات. ناهيك عن سهولة وسعادة تطوير هذه المعلومات والوثائق الممتازة وازدهار النظام الإيكولوجي.
 
-From a front-end perspective, building Kap felt no different than building a simple website using browser APIs. Electron does a really great job of making app development similar (basically identical) to web development. So simple in fact that there was no need for frameworks or similar to help us, just clean and modular JS and CSS.
+من منظور واجهة الأمام، لم يشعر بناء كاب بأي اختلاف عن بناء موقع بسيط باستخدام واجهة برمجة تطبيقات المتصفح. يقوم إلكترون بعمل رائع في جعل تطوير التطبيق مشابه (متطابق بشكل أساسي) لتطوير الويب. في الواقع بسيط جدا بحيث لا توجد حاجة لأطر عمل أو مشابهة لمساعدتنا، فقط JS نظيف وموحد و CSS.
 
-We are also huge fans of the team building it, their dedication and support, and the active and friendly community they maintain. Hugs to all of you!
+ونحن أيضا مشجعون ضخمون للفريق الذي يبنيه، وتفانيهم ودعمهم، والمجتمع النشط والصديق الذي يحافظون عليه. يذهب إليك جميعاً!
 
-## What's coming next in Kap?
+## ما التالي في كاب؟
 
-The next step for us is to review the app in preparation for our 2.0.0 milestone, which includes a React re-write in addition to support for plugins, allowing developers to extend the functionality of Kap! We invite everyone to follow to project and contribute on our [GitHub repository](https://github.com/wulkano/kap). We're listening and want to hear from as many of you as possible, [let us know how we can make Kap the best possible tool it can be for you](https://wulkano.typeform.com/to/BIvJKz)!
+الخطوة التالية بالنسبة لنا هي مراجعة التطبيق في الإعداد لـ 2.0. معلم ، الذي يتضمن إعادة كتابة React بالإضافة إلى دعم الإضافات، مما يسمح للمطورين بتوسيع وظيفة كاب! نحن ندعو الجميع إلى متابعة المشروع والمساهمة في [مستودع GitHub](https://github.com/wulkano/kap) الخاص بنا. نحن نستمع ونريد أن نسمع منكم أكبر عدد ممكن منكم، [أخبرنا كيف يمكننا أن نجعل كاب أفضل أداة ممكنة لك](https://wulkano.typeform.com/to/BIvJKz)!
 
-## What is Wulkano?
+## ما هو وولكانو؟
 
-[Wulkano](https://wulkano.com) is a design studio and digital collective, a team of remote technologists who love working together on both client gigs and our own projects. We're a distributed but tight knit group of people from different places and backgrounds, sharing knowledge, ideas, experiences, but most importantly silly GIFs and memes, in our virtual office (which happens to be the Electron based Slack!).
+[وولكانو](https://wulkano.com) هو استوديو تصميم وجماعة رقمية، فريق من التكنولوجيين عن بعد الذين يحبون العمل معا على كل من خنازير الزبائن ومشاريعنا الخاصة. نحن مجموعة موزعة ولكنها مجموعة منسيكة من الناس من أماكن وخلفيات مختلفة، نتقاسم المعارف، الأفكار، التجارب، و لكن الأهم من ذلك أن الصور المتحركة و الصور المتحركة في مكتبنا الافتراضي (والذي يصادف أن الإلكترون مبني على الإلكترون!).
 
-## Any Electron tips that might be useful to other developers?
+## أي نصائح إلكترون قد تكون مفيدة للمطورين الآخرين؟
 
-Take advantage of and get involved in the fantastic [community](https://discuss.atom.io/c/electron), check out [Awesome Electron](https://github.com/sindresorhus/awesome-electron), look at [examples](https://github.com/electron/electron-api-demos) and make use of the great [docs](https://electronjs.org/docs/)!
+الاستفادة من مجتمع [الرائع](https://discuss.atom.io/c/electron)والمشاركة فيه، تحقق من [Aesome Electron](https://github.com/sindresorhus/awesome-electron)، انظر إلى [أمثلة](https://github.com/electron/electron-api-demos) واستخدم [مستندات رائعة](https://electronjs.org/docs/)!
 

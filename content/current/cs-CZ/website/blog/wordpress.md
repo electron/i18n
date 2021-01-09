@@ -1,5 +1,5 @@
 ---
-title: 'Project of the Week: WordPress Desktop'
+title: 'Projekt týdne: WordPress Desktop'
 author:
   - mkaz
   - johngodley
@@ -7,57 +7,57 @@ author:
 date: '2017-02-28'
 ---
 
-This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
+Tento týden jsme dohnali folky na [Automaticky](https://automattic.com/) a mluvit o [WordPress Desktop](https://apps.wordpress.com/desktop/), open-source desktopový klient pro správu obsahu WordPressu.
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress aplikace](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Everyone knows about WordPress, but what is WordPress Desktop?
+## Každý ví o WordPress, ale co je WordPress plocha?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[WordPress. om Desktop app](https://apps.wordpress.com/desktop/) poskytuje bezproblémový zážitek, který vám umožní zaměřit se na obsah a design bez karet prohlížeče, abyste vás rozptylovali - nebo udržet vaše stránky na straně, ale přístupné. Ve spojení s naší podporou prohlížeče a mobilní aplikací můžete vytvořit své stránky kdekoliv, a to jakýmkoli způsobem vám pomůže dokončit vaši práci.
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## Proč vytvořit aplikaci pro správu WordPress stránek? Nemohl by být vše založeno na webu?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+Ve skutečnosti používá přesně stejnou technologii, kterou dostanete při návštěvě [WordPress.com](https://wordpress.com) ve vašem prohlížeči. Nicméně, vše je hostováno lokálně, takže má minimální dobu zatížení. S výhodou nativních funkcí, jako je být ve vašem doku, oznámení atd., se můžete opravdu soustředit na své WordPress stránky a blogování.
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Proč jste se rozhodli vytvořit WordPress plochu na Electronu?
 
-At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
+Na konci roku 2015 jsme přebudovali mnoho WordPress.com ve formě [Calypso](https://github.com/automattic/wp-calypso), open-source moderní JavaScriptové aplikace pomocí React. Začali jsme se dívat na Electron a s některými změnami v Calypso jsme se mohli dostat do chodu lokálně. Byl to přesvědčivý zážitek a my jsme se domnívali, že jeho další rozvoj má velký význam.
 
-We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+Na Calypso. Pracovalo několik týmů. Pro vytvoření plného multiplatformního GUI klienta, který by to odpovídal s použitím tradičních desktopových technologií, by bylo zapotřebí více práce. Používáním elektroniky malý tým 2-4 z nás byl schopen využít úsilí druhého týmu a během několika měsíců vybudovat aplikaci pro stolní počítače.
 
-## What are some challenges you've faced while building WordPress Desktop?
+## Jaké jsou některé výzvy, kterým jste čelili při budování WordPress plochy?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+Počáteční verze aplikace byla spuštěna velmi rychle, ale ladění aplikace se chová optimálně jako desktopová aplikace trvá mnohem déle. Jednou velkou výzvou pro aplikaci je, že ve skutečnosti používáte kopii Calypso na svém vlastním počítači - je to čistě rozhraní založené na API. Do toho bylo zapojeno mnoho překlenovacích prací a změny byly vpuštěny do samotného Calypso.
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+Navíc bylo vynaloženo mnoho úsilí na balení aplikace pro různé platformy - poskytujeme Windows, macOS a Linux verze - a existují dostatečné rozdíly pro tento trik.
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+V té době byl Electron relativně nový a my jsme neustále narazili na problémy, které byly brzy opraveny (někdy tentýž den!)
 
-## In what areas should Electron be improved?
+## V jakých oblastech by měl být Electron vylepšen?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron již poskytuje většinu toho, co potřebujeme pro aplikaci pro stolní počítač, a od doby, kdy jsme ji začali používat, postupuje rychle. Existují však některé oblasti, které jsou v desktopové aplikaci brány jako samozřejmost. např. kontrola pravopisu a jemné/nahrazení, které jsou obtížnější replikovat elektronickým testem.
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+Rádi bychom také viděli, jak některé novější technologie Chrome se také filtrují do Electronu. Zvláště se snažíme experimentovat s WebVR.
 
-## What are your favorite things about Electron?
+## Co jsou vaše oblíbené věci o Electronu?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Hlavním důvodem, proč jsme si vybrali Electron, a je to největší síla, je velmi aktivní a otevřená komunita. Automatická aplikace vždy věřila v open source. Je to jeden z našich základních principů, a Electron projekt a komunita sleduje spoustu klíčových přesvědčení o velmi otevřeném a pozitivním přístupu.
 
-## What's coming next in WordPress Desktop?
+## Co další přijde ve WordPress počítače?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+Na našem modelu je skvělé, že aplikace pro stolní počítače využívá jakoukoli novou funkci Calypso - dochází k neustálým zlepšením. Doufáme, že můžeme do aplikace přidat další funkce, jako je podpora offline, která by aplikaci skutečně přivedla na původní území a lepší systémová oznámení.
 
-## Are there any teams at Automattic working on other Electron apps?
+## Pracují nějaké týmy na jiných Electronových aplikacích?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+Ano, po našem úsilí v aplikaci pro stolní počítače, Simplenote tým se rozhodl použít Electron pro vytvoření desktopových aplikací pro Windows a Linux (nativní Mac klient již existuje). [Simplenote Electron aplikace](https://github.com/Automattic/simplenote-electron) je také open source a je k dispozici na Githubu.
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+Máme také nadcházející integraci Raspberry Pi, která používá Electron.
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+Pokud kterákoli z těchto funkcí zní zajímavě, pak bychom od vás [rádi slyšeli](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## Jakékoliv tipy Electronu, které by mohly být užitečné pro ostatní vývojáře?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+Proces přepravy podepsaného desktopového softwaru je pro nás relativně nový, zejména pro Windows. napsali jsme článek pro [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) , který zahrnuje proces a několik překážek, kterými jsme prošli, aby to udělali správně.
 

@@ -55,7 +55,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### روشهای نمونه
+### Instance Methods
 
 Objects created with `new BrowserView` have the following instance methods:
 

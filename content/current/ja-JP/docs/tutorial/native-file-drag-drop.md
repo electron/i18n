@@ -1,24 +1,36 @@
 # ネイティブなファイルのドラッグ&ドロップ
 
+## 概要
+
 ファイルを操作する特定の種類のアプリケーションは、オペレーティングシステムのネイティブなファイルのドラッグ&ドロップの機能をサポートしたいでしょう。 ファイルをウェブコンテンツにドラッグすることは一般的であり、多くのウェブサイトでサポートされています。 Electron はさらに、ファイルやコンテンツをウェブコンテンツからオペレーティングシステム側へドラッグすることをサポートしています。
 
-この機能をアプリに実装するには、`ondragstart` イベントへの応答として `webContents.startDrag(item)` API を呼ぶ必要があります。
+この機能をアプリに実装するには、`ondragstart` イベントへの応答として [``webContents.startDrag(item)](../api/web-contents.md#contentsstartdragitem) API を呼ぶ必要があります。
 
-レンダラープロセスでは、`ondragstart` イベントを処理し、その情報をメインプロセスに転送します。
+## サンプル
+
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `index.html` ファイルに以下の行を追加します。
 
 ```html
-<a href="#" id="drag">item</a>
-<script type="text/javascript" charset="utf-8">
-  document.getElementById('drag').ondragstart = (event) => {
-    event.preventDefault()
-    ipcRenderer.send('ondragstart', '/path/to/item')
-  }
-</script>
+<a href="#" id="drag"></a>
+<script src="renderer.js"></script> をドラッグ
 ```
 
-そして、メインプロセスで、ドラッグされているファイルへのパスとアイコンでイベントを補填します。
+そして、 `renderer.js` ファイルに次の行を追加します。
 
 ```javascript
+const { ipcRenderer } = require('electron')
+
+document.getElementById('drag').ondragstart = (event) => {
+  event.preventDefault()
+  ipcRenderer.send('ondragstart', '/absolute/path/to/the/item')
+}
+```
+
+上記のコードはレンダラープロセスに `ondragstart` イベント を処理し、情報をメインプロセスに転送するように指示します。
+
+メインプロセス (`main.js` ファイル) で、以下のように受信したイベントへドラッグしているファイルのパスとアイコンを追加します。
+
+```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
 
 ipcMain.on('ondragstart', (event, filePath) => {
@@ -28,3 +40,7 @@ ipcMain.on('ondragstart', (event, filePath) => {
   })
 })
 ```
+
+Electron アプリケーションを起動したら、BroswerWindow の アイテムをデスクトップにドラッグ&ドロップしてみてください。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。
+
+![ドラッグ＆ドロップ](../images/drag-and-drop.gif)

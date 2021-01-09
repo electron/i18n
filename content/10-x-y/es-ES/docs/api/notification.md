@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter][event-emitter].
 
@@ -68,7 +68,7 @@ Se emite cuando el usuario hace clic en la notificación.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
@@ -78,7 +78,7 @@ No se garantiza que este evento se emita en todos los casos donde se cierre la n
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
@@ -108,31 +108,31 @@ Descarta la notificación.
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Una propiedad `String` que representa el título de la notificación.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Una propiedad `String` que representa el subtítulo de la notificación.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Una propiedad `String` que representa el cuerpo de la notificación.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Una propiedad `String` que representa el marcador de respuesta de la notificación.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Una propiedad `String` que representa el sonido de la notificación.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Una propiedad `String` que representa el texto del botón cerrar en la notificación.
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Una propiedad `Boolean` que representa si la notificación es silenciosa.
 
 #### `notification.hasReply`
 
@@ -142,7 +142,7 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
-Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+Por defecto es 'low' - vea [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) para más información.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
@@ -152,7 +152,7 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+Una propiedad [`NotificationAction[]`](structures/notification-action.md) que representa las acciones de la notificación.
 
 ### Reproducción de Sonidos
 

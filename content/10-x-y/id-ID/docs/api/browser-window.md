@@ -138,7 +138,7 @@ Disarankan agar Anda menghentikan sementara operasi mahal saat keadaan visibilit
 
 
 
-> Buat dan kendalikan jendela peramban.
+> Create and control browser windows.
 
 Proses: [Main](../glossary.md#main-process)
 
@@ -192,6 +192,10 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Defaultnya adalah ` false </ 0> .</li>
 <li><code>transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
 <li><code>type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Nilai yang mungkin adalah: 
+        * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Nilai yang mungkin adalah:
     
         * `default` - Hasil dalam judul Mac buram abu-abu standar.
@@ -321,11 +325,11 @@ The possible values and behaviors of the `type` option are platform dependent. N
 
 <h4 spaces-before="0">Acara : 'halaman-judul-diperbarui'</h4>
 
-<p spaces-before="0">Pengembalian:</p>
+<p spaces-before="0">Mengembalikan:</p>
 
 <ul>
-<li><code>acara` Acara
-* ` title </ 0>  String</li>
+<li><code>event` Sinyal
+* ` judul</ 0>  String</li>
 <li><code>explicitSet` Boolean
 
 Emitted ketika dokumen tersebut mengubah namanya, memanggil ` event.preventDefault () </ 0> 
@@ -336,9 +340,9 @@ akan mencegah perubahan dari jendela asli.
 
 #### Acara : 'dekat'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 
 Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
@@ -396,7 +400,7 @@ Emitted saat window gain fokus.
 
 
 
-#### Acara: 'show'
+#### Acara : 'show'
 
 Emitted saat jendela ditunjukkan.
 
@@ -442,9 +446,9 @@ Emitted saat jendela dipulihkan dari keadaan diminimalkan.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-Pengembalian:
+Mengembalikan:
 
-* `event` Acara
+* `event` Sinyal
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
@@ -461,9 +465,9 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -512,9 +516,9 @@ Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `isAlwaysOnTop` Boolean
 
 Emitted when the window is set or unset to show always on top of other windows.
@@ -523,9 +527,9 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * ` perintah </ 0>  String</li>
 </ul>
 
@@ -568,9 +572,9 @@ Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi ele
 
 #### Acara : 'gesek' _ macOS </ 0></h4> 
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * ` arah </ 0>  String</li>
 </ul>
 
@@ -581,9 +585,9 @@ Pengembalian:
 
 #### Event: 'rotate-gesture' _macOS_
 
-Pengembalian:
+Mengembalikan:
 
-* `acara` Acara
+* `event` Sinyal
 * `rotation` Float
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
@@ -651,21 +655,21 @@ Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
 
 #### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
 
-<p spaces-before="0">Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
-  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-  
-  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-  
-  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-  
-  
+Menambahkan ekstensi Chrome yang terletak di ` path `, dan mengembalikan nama ekstensi.
+
+Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi Chrome dengan nama.</p>
@@ -687,23 +691,22 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
-* ` path </ 0>  String</li>
-</ul>
+* `path` String
+Menambahkan ekstensi DevTools yang terletak di ` path`, dan mengembalikan nama ekstensi.
 
-<p spaces-before="0">Menambahkan ekstensi DevTools yang terletak di <code> path`, dan mengembalikan nama ekstensi.</p> 
-  Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
-  
-  Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-  
-  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-  
-  **Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
-  
-  
+Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+
+Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+
+
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p spaces-before="0">Hapus ekstensi DevTools dengan nama.</p>
@@ -907,7 +910,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 
 
-### Metode Instance
+### Методы экземпляра
 
 Objek yang dibuat dengan ` BrowserWindow baru </ 0> memiliki metode contoh berikut:</p>
 
@@ -1332,7 +1335,7 @@ Mengembalikan `Integer []` - berisi jendela posisi saat ini.
 
 #### `win.setTitle(title)`
 
-* ` judul </ 0> String</li>
+* ` judul</ 0>  String</li>
 </ul>
 
 <p spaces-before="0">Perubahan judul jendela asli <code>judul`.</p> 
@@ -1485,8 +1488,8 @@ Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
 
 #### `win.loadURL (url [, options])`
 
-* `url` String
-* `options` Object (optional) 
+* ` url </ 0> String</li>
+<li><code>options` Object (optional) 
     * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -1542,7 +1545,7 @@ Sama seperti ` webContents.reload </ 0> .</p>
 
 <h4 spaces-before="0"><code>win.setMenu(menu)` _Linux_ _Windows_</h4> 
 
-* `menu` Menu | batal
+* `menu` Menu | null
 
 Sets the `menu` as the window's menu bar.
 
@@ -1732,9 +1735,11 @@ Kembali `Boolean` - Apakah menu bar terlihat.
 
 
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `terlihat` Boolean
+* `options` Object (optional) 
+    * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
 
@@ -1873,7 +1878,7 @@ Set a custom position for the traffic light buttons. Can only be used with `titl
 
 Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
 
-**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 
 

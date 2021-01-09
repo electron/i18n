@@ -24,7 +24,6 @@ It is important to remember that the security of your Electron application is th
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-
 ## Isolation For Untrusted Content
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
@@ -81,16 +80,10 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://example.com/react.js"></script>
+```html<!-- Yanlış --><script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css"><!-- Doğru --><script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
-
 
 ## 2) Do not enable Node.js Integration for Remote Content
 
@@ -129,12 +122,7 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview nodeIntegration src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
 
 Node.js entegrasyonunu devre dışı bırakırken, API'ları web sitenize hala gösterebilirsiniz. Node.js modüllerini veya özelliklerini tüketirler. Önceden yüklenmiş komut dosyalarına erişmeye devam etmek için `require` ve diğer Node.js özellikleri, geliştiricilerin bir özel Uzaktan içerik yüklemeleri için API.
@@ -149,7 +137,6 @@ window.readConfig = function () {
 }
 `</pre>
 
-
 ## 3) Enable Context Isolation for Remote Content
 
 Bağlam izolasyonu, geliştiricilerin önceden yüklenmiş komut dosyalarında ve Electron API'lerinde özel bir JavaScript bağlamında kod çalıştırmasına olanak sağlayan bir Elektron özelliğidir. Pratikte, `Array.prototype.push` veya `JSON.parse` gibi genel nesnelerin, oluşturucu işleminde çalışan komutlarla değiştirilemediği anlamına gelir.
@@ -158,14 +145,13 @@ Elektron, Chromium'un
 
 Bu davranışı etkinleştirmek için. İçerik Komut Dosyaları </ 0> ile aynı teknolojiyi kullanıyor </p> 
 
-Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
 
 
 
 ### Why & How?
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
-
 
 
 
@@ -211,7 +197,6 @@ session
 
 
 
-
 ## 5) Do Not Disable WebSecurity
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -229,6 +214,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 
 
 ### Nasıl?
+
 
 
 ```js
@@ -251,14 +237,8 @@ const mainWindow = new BrowserWindow()
 
 
 
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+```html<!-- İyi--><webview disablewebsecurity src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 ```
-
 
 
 
@@ -319,7 +299,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 
 
-
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -356,7 +335,6 @@ const mainWindow = new BrowserWindow({
 // Doğru
 const mainWindow = new BrowserWindow ({})
 ```
-
 
 
 
@@ -401,7 +379,6 @@ const mainWindow = new BrowserWindow ({})
 
 
 
-
 ## 9) Do Not Use `enableBlinkFeatures`
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
@@ -417,6 +394,7 @@ Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı s
 
 
 ### Nasıl?
+
 
 
 ```js
@@ -439,12 +417,13 @@ const mainWindow = new BrowserWindow()
 
 
 
-
 ## 10) Do Not Use `allowpopups`
 
 _Tavsiye edilen ayar Electron'da varsayılandır_
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. ` allowpopups </ 0> özniteliği
+kullanarak yeni <a href="../api/browser-window.md"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
+<code> window.open () </ 0>  <code><webview>` tags are otherwise not allowed to create new windows.
 
 
 
@@ -456,14 +435,8 @@ you know it needs that feature.</p>
 
 <h3 spaces-before="0">Nasıl?</h3>
 
-<pre><code class="html">
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
+<pre><code class="html"><!-- İyi--><webview allowpopups src="page.html"></webview><!-- Kötü--><webview src="page.html"></webview>
 `</pre> 
-
 
 
 
@@ -479,13 +452,14 @@ Node.js entegrasyonuna sahip olmayan bir oluşturucu işleminde oluşturulan bir
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Elektron, geliştiricilerin çeşitli güvenlik özelliklerini devre dışı bırakmasını sağlar. bir oluşturucu işlemi. Çoğu durumda, geliştiricilerin hiçbirini devre dışı bırakmaları gerekmez. bu özellikler - ve dolayısıyla farklı yapılandırmalara izin vermemelisiniz yeni oluşturulan [`<webview>`](../api/webview-tag.md) etiketleri için.
 
 
 
 ### Nasıl?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Bir [`<webview>`](../api/webview-tag.md) etiketinin eklenmesinden önce, Elektron, ` web içeriği barındırma </ 1> 'nda will-attach-webview </ 1> etkinliği. Use the event to
+prevent the creation of <code>webViews` with possibly insecure options.
 
 
 
@@ -567,7 +541,7 @@ If you have no need to create windows in addition to the ones you know you'll ne
 
 ### Nasıl?
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 
 
@@ -575,12 +549,19 @@ If you have no need to create windows in addition to the ones you know you'll ne
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', async (event, navigationUrl) => {
+  contents.setWindowOpenHandler(({ url }) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
-    event.preventDefault()
+    //
+    // See the following item for considerations regarding what
+    // URLs should be allowed through to shell.openExternal.
+    if (isSafeForExternalOpen(url)) {
+      setImmediate(() => {
+        shell.openExternal(url)
+      })
+    }
 
-    await shell.openExternal(navigationUrl)
+    return { action: 'deny' }
   })
 })
 ```
@@ -590,13 +571,13 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Do not use `openExternal` with untrusted content
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 
 
 ### Neden?
 
-Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
 
 
 
@@ -609,6 +590,7 @@ Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-ca
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
+
 
 
 
@@ -644,8 +626,12 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 
 
 ```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({})
+// İşleyici güvenilmeyen içeriği çalıştırıyorsa sorun oluşturur
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
 ```
 
 
@@ -665,12 +651,16 @@ const mainWindow = new BrowserWindow({
 
 ```html
 <!-- Bad if the renderer can run untrusted content  -->
-<webview src="page.html"></webview>
+<webview enableremotemodule="true" src="page.html"></webview>
 
 <!-- Good -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
+
+
+
+> **Not:** `enableRemoteModule`'ün varsayılan değeri Electron 10'dan beri  `false`dır. For prior versions, you need to explicitly disable the `remote` module by the means above.
 
 
 
