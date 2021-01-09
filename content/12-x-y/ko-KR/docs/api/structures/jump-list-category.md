@@ -8,4 +8,4 @@
 * `name` String (optional) - `type`이 `custom`이면 꼭 설정되어야 하고, 그 외에는 생략합니다.
 * `items` JumpListItem[] (optional) - `type`이 `tasks` 또는 `custom` 이면, [`JumpListItem`](jump-list-item.md) (jump-list-item.md) 객체의 배열, 그 외는 생략합니다.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. `name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
+**참고:** `JumpListCategory` object에</code> `유형 <code>또는 이름` 속성 set이 모두 없는 경우 해당 `유형`은 </code>tasks`로 가정됩니다. <code>name` 속성이 설정되었지만 `type` 속성이 생략된 경우, `type`은 `custom`으로 가정합니다.
