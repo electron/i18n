@@ -1,10 +1,30 @@
-export type $TSFixMe = any
+export type $ TS FixMe = any
 
+<<<<<< master
 export interface IFile {
   locale: string
   slug: string
-  href: string
+  href: h3
 }
+=======
+export interface IParseFile extends WalkEntry {
+  fullyPath?: string
+  locale?: string
+  slug?: string
+  category?: string
+  categoryFancy?: string
+  href?: h3
+  githubUrl?: string
+  crowdinFileId?: string
+  ignore?: boolean
+  version?: string
+  content?: string
+
+  isTutorial?: boolean
+  isApiDoc?: boolean
+  isDevTutorial?: boolean
+  isApiStructureDoc?: boolean
+>>>>>> multi-ver-build
 
 export interface IDocFile extends IFile {
   category: string
@@ -16,7 +36,7 @@ export interface IDocFile extends IFile {
   crowdinFileId: string
   githubUrl: string
   ignore?: boolean
-  sections?: Array<ISection>
+  sections?: Array
   title?: string
   description?: string
 }
@@ -26,7 +46,7 @@ export interface IBlogFile extends IFile {
 }
 
 export interface ISection {
-  name: string
+  name: name 
   slug: string
   level: number
   // TODO(HashimotoYT): Remove that in the final file

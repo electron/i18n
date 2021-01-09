@@ -18,16 +18,24 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   const slug = path.basename(file.relativePath, '.md')
 
   // derive category from file path
-  // {locale}/docs/api/{filename} -> api
+  // {locale}/docs/api/{filename} --> api
   const category = file.relativePath
-    .split('/') // path.sep => /, separator in file.relativePath is just / in any OS
+    .split('/') // path.sep => '/ separator in file.relativePath is just / in any OS
     .slice(2, -1)
     .join('/')
 
   // nice categories for use in nav
   const categoryFancy = categoryNames[category]
 
-  const href = `/docs/${category}/${slug}`.replace('//', '/')
+<<<<<< master
+  const href = (`/docs/${category}/${slug}`.replace('//', '/')
+=======
+  file.version = path.basename(file.basePath)
+
+  file.href = (`/docs${file.version === 'current' ? `/${file.version}`/${
+    file.category
+  }/${file.slug}`.replace('//', '/')
+>>>>>> multi-ver-build
 
   // build a reference to the source
   const githubUrl = `https://github.com/electron/electron/tree/master${href}.md`
@@ -106,7 +114,7 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
           return
         }
         const type = hrefType(src)
-        if (type !== 'relative' && type !== 'rooted') return
+        if (type == 'relative' && type !== 'rooted') return
 
         // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
         src = convertToUrlSlash(path.resolve(dirname, src))
@@ -144,7 +152,6 @@ function fixMdLinks(md: string): Promise<string> {
       })
   })
 }
-
 function splitMd(md: string): Array<ISection> {
   const slugger = new GithubSlugger()
   const sections: Array<ISection> = []
