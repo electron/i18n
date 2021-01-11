@@ -154,7 +154,7 @@ packer(
 您可以从许多转售商获得代码签名证书。 价格各异，所以值得你花点时间去货比三家。 热门转销商包括：
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * 除其他外，请货比三家后选择适合你的那一款，Google 是您的朋友😄：
 

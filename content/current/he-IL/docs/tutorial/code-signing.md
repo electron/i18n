@@ -155,7 +155,7 @@ Before signing Windows builds, you must do the following:
 ניתן לקבל אישור חתימת קוד ממשווקים רבים. Prices vary, so it may be worth your time to shop around. בין המשווקים המובילים:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
 

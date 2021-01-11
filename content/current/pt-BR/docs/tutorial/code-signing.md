@@ -155,7 +155,7 @@ Antes de assinar versões do Windows, faça o seguinte:
 Você pode obter um certificado de assinatura de um grande número de revendedores. Os preços variam, então pode valer a pena comprar ao redor. Revendedores populares incluem:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Entre outros, por favor, faça a loja para encontrar uma que se adapte às suas necessidades, o Google é o seu amigo 😄
 

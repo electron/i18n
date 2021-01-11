@@ -155,7 +155,7 @@ packager({
 Вы можете получить сертификат подписи кода у многих реселлеров. Цены варьируются, поэтому может стоить вашего времени для покупок. Популярные реселлеры включают:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Среди других, пожалуйста, купите, чтобы найти тот, который подходит вашим потребностям, Google является вашим другом 😄
 

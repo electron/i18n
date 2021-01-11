@@ -155,7 +155,7 @@ Voordat u Windows-versies tekent, moet u het volgende doen:
 Je kunt een code krijgen die een certificaat tekent van veel resellers. Prijzen verschillen, dus het kan uw tijd waard zijn om te winkelen. Populaire resellers zijn:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Koop er onder andere één om er één te vinden die bij u past. Google is uw vriend 😄
 

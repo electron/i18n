@@ -155,7 +155,7 @@ Před podpisem Windows sestavení musíte udělat následující:
 Můžete získat certifikát s podpisem kódu od mnoha prodejců. Ceny se liší, takže může mít cenu za váš čas nakupovat. Mezi populární prodejce patří:
 
 * [digikert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Mimo jiné prosím nakupujte a najděte si, co vyhovuje vašim potřebám, Google je Váš přítel 😄
 

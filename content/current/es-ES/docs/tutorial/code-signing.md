@@ -155,7 +155,7 @@ Antes de Firmar Compilaciones Windows, tu debes hacer lo siguiente:
 Usted puede obtener una certificado de firma de código desde muchos revendedores. Los precios varían, así que puede que valga la pena tu tiempo para comprar. Entre los revendedores populares se incluyen:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Por favor, compra uno para encontrar uno que se adapte a tus necesidades, Google es tu amigo 😄
 

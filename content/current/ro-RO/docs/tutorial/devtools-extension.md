@@ -1,18 +1,20 @@
 # Extensia DevTools
 
-Electron suportă [Extensia Chrome DevTools](https://developer.chrome.com/extensions/devtools), care poate fi folosită pentru a extinde abilitatea devuneltelor pentru depanarea cadrelor web populare.
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## Cum să încărcați o extensie DevTools
+## Loading a DevTools extension with tooling
 
-Acest document descrie procesul de încărcare manuală a unei prelungiri. Poți de asemenea să încerci [electron-devs-installer](https://github.com/GPMDP/electron-devtools-installer), o unealtă terță parte care descarcă extensii direct din Chrome WebStore.
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-Pentru a încărca o extensie în Electron, trebuie să o descărcați în browserul Chrome, localizați calea sistemului de fișiere și apoi încărcați-o apelând la `BrowserWindow. ddDevToolsExtension(extensie)` API.
+## Manually loading a DevTools extension
 
-Folosind [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) ca exemplu:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. Instalați-l în browserul Chrome.
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. Navigați spre `chrome://extensions`, și găsiți ID-ul extensiei, care este un hash șir ca `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Aflați locația sistemului de fișiere folosită de Chrome pentru stocarea extensiilor:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * pe Windows este `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * pe Linux ar putea fi:
      * `~/.config/google-chrome/Implicit/Extensii/`
@@ -20,28 +22,38 @@ Folosind [React Developer Tools](https://chrome.google.com/webstore/detail/react
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Implicit/Extensii/`
    * pe macOS este `~/Librărie/Asistență aplicație/Google/Chrome/Default/Extensions`.
-1. Transmite locația extensiei la `BrowserWindow.addDevToolsExtension` API, pentru React Developer Tools, este de genul:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   calea const = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapfadopljbjfkapdkoienihi/4.3.0_0')
-)
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**Notă:** `BrowserWindow.addDevToolsExtension` API nu poate fi apelat înainte ca evenimentul pregătit al modulului aplicației să fie emis.
+**Notes:**
 
-Extensia va fi amintită, așa că trebuie să apelați acest API o singură dată pentru fiecare extensie . Dacă încercați să adăugați o extensie care a fost deja încărcată, această metodă nu se va întoarce şi în schimb va semnala un avertisment către consolă.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### Cum să eliminați o extensie DevTools
+### Removing a DevTools extension
 
-Puteți transmite numele extensiei către `BrowserWindow.removeDevToolsExtension` API pentru a o elimina. Numele extensiei este returnat de `BrowserWindow. ddDevToolsExtensia` și puteți obține numele tuturor extensiilor DevTools folosind `API-ul BrowserWindow.getDevToolsExtensii`.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## Extensii DevTools acceptate
+## DevTools extension support
 
-Electron suportă doar un set limitat de `chrome.*` API-uri, deci unele extensii folosind `chrome.` Este posibil ca API-urile pentru caracteristicile extensiei chrome să nu funcționeze. Extensiile dispozitivelor de mai jos sunt testate și garantate să funcționeze în Electron:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Instrumente de dezvoltare React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ Electron suportă doar un set limitat de `chrome.*` API-uri, deci unele extensii
 * [Extensia Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [Instrumente de dezvoltare MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### Ce ar trebui să fac dacă o extensie DevTools nu funcționează?
+### What should I do if a DevTools extension is not working?
 
-În primul rând, vă rugăm să vă asigurați că extensia este în continuare menținută, unele extensii nici măcar nu pot funcţiona pentru versiunile recente ale browserului Chrome, şi nu putem face nimic pentru ele.
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-Apoi arhivați o eroare la lista de probleme a Electron și descrieți ce parte a extensiei nu funcționează conform așteptărilor.
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.

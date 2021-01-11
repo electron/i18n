@@ -24,7 +24,7 @@ win.webContents.on(
 )
 ```
 
-You can also access frames of existing pages by using the `webFrame` property of [`WebContents`](web-contents.md).
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -54,8 +54,8 @@ These methods can be accessed from the `webFrameMain` module:
 
 ### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Integer - An `Integer` representing the id of the process which owns the frame.
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
 Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
@@ -75,6 +75,16 @@ Returns `Promise<unknown>` - A promise that resolves with the result of the exec
 Sayfadaki `code`'u ölçer.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+
+#### `frame.executeJavaScriptInIsolatedWorld(worldId, code[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
+* `code` Dizgi
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `frame.reload()`
 

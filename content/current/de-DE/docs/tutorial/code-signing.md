@@ -155,7 +155,7 @@ Bevor Sie Windows-Versionen signieren, müssen Sie Folgendes tun:
 Sie können ein Zertifikat von vielen Wiederverkäufern erhalten. Die Preise variieren, so dass es sich lohnt, Ihre Zeit zu nutzen. Beliebte Wiederverkäufer sind:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Unter anderem bitte einkaufen, um einen zu finden, der Ihren Bedürfnissen entspricht. Google ist dein Freund 😄
 

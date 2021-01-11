@@ -24,7 +24,7 @@ win.webContents.on(
 )
 ```
 
-You can also access frames of existing pages by using the `webFrame` property of [`WebContents`](web-contents.md).
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -54,8 +54,8 @@ These methods can be accessed from the `webFrameMain` module:
 
 ### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Integer - An `Integer` representing the id of the process which owns the frame.
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
 戻り値 `WebFrameMain | undefined` - 指定のプロセスとルーティングの ID のフレームです。指定の ID に関連付けられた WebFrameMain がない場合は `undefined` になります。
 
@@ -75,6 +75,16 @@ These methods can be accessed from the `webFrameMain` module:
 ページ内の `code` を評価します。
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
+
+#### `frame.executeJavaScriptInIsolatedWorld(worldId, code[, userGesture])`
+
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。  任意の整数を指定できます。
+* `code` String
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<unknown>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
+
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 #### `frame.reload()`
 

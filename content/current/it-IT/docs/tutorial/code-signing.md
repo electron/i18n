@@ -155,7 +155,7 @@ Prima di firmare le build di Windows, devi fare quanto segue:
 Puoi ottenere un certificato di firma del codice da molti rivenditori. I prezzi variano, quindi potrebbe valere la pena di fare acquisti in giro. I rivenditori popolari includono:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Tra gli altri, si prega di fare acquisti intorno per trovare uno che si adatta alle vostre esigenze, Google è il tuo amico 😄
 
