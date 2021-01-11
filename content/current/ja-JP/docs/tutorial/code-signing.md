@@ -154,7 +154,7 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 多くの再販業者からコード署名証明書を入手できます。 価格はさまざまですので、選ぶのに迷うでしょう。 人気のある再販業者は次のとおりです。
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * とりわけ、あなたのニーズに合ったものを見つけるのであれば探してみてください。Google は友達です 😄
 

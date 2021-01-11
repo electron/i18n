@@ -155,7 +155,7 @@ Przed podpisaniem wersji Windows musisz wykonać następujące czynności:
 Możesz otrzymać certyfikat podpisywania kodu od wielu sprzedawców. Ceny są różne, więc może być warte twojego czasu na zakupy. Popularni sprzedawcy to:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Między innymi prosimy o znalezienie takiego, który odpowiada Twoim potrzebom, Google jest Twoim znajomym 😄
 

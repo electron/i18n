@@ -1,18 +1,20 @@
 # 개발자 도구 확장 기능
 
-Electron은 유명한 웹 프레임워크를 디버깅하기 위해 사용할 수 있는 개발자 도구 확장 기능을 사용할 수 있도록 [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)(크롬 개발자 도구 확장 기능)을 지원합니다.
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## 개발자 도구는 어떻게 로드하나요
+## Loading a DevTools extension with tooling
 
-이 문서는 확장 기능을 수동으로 로드하는 방법의 과정을 설명합니다. 또한 [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)와 같은 Chrome WebStore에서 자동으로 확장 기능을 다운로드하는 서드-파티 도구를 사용할 수도 있습니다.
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운로드 해야 하며, 파일 시스템 경로를 지정해야 합니다. 그리고 `BrowserWindow.addDevToolsExtension(extension)`API를 호출함으로써 기능을 로드할 수 있습니다.
+## Manually loading a DevTools extension
 
-예시로 [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)를 사용한다면:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. Chrome 브라우저를 설치합니다.
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
-1. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * Linux에선:
      * `~/.config/google-chrome/Default/Extensions/`
@@ -20,28 +22,38 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions`
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**참고:** `BrowserWindow.addDevToolsExtension` API는 app 모듈의 ready 이벤트가 발생하기 전까지 사용할 수 없습니다.
+**Notes:**
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### 개발자 도구 제거 방법
+### Removing a DevTools extension
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## 지원하는 개발자 도구 확장 기능
+## DevTools extension support
 
-Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기능이 지원하지 않는 `chrome.*` API를 사용한다면 해당 기능은 작동하지 않을 것입니다. 다음 개발자 도구들은 Electron에서 정상적으로 작동하는 것을 확인했으며 작동 여부를 보장할 수 있는 확장 기능입니다:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기�
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### 개발자 도구 확장 기능이 작동하지 않을 때 어떻게 해야 하나요?
+### What should I do if a DevTools extension is not working?
 
-먼저 해당 확장 기능이 확실히 계속 유지되고 있는지를 확인하세요. 몇몇 확장 기능들은 최신 버전의 Chrome 브라우저에서도 작동하지 않습니다. 그리고 이러한 확장 기능에 대해선 Electron 개발팀에 해줄 수 있는 것이 아무것도 없습니다.
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-위와 같은 상황이 아니라면 Electron의 이슈 리스트에 버그 보고를 추가한 후 예상한 것과 달리 확장 기능의 어떤 부분의 정상적으로 작동하지 않았는지 설명하세요.
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.

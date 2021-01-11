@@ -155,7 +155,7 @@ const { systemPreferences } = مطلوبة ('electron')
 يمكنك أخذ كود مصادقة موقعة من الكثير من الموزعين. تختلف الأسعار، لذا قد يكون من المفيد أن تتسوق حولك. تحتوي على البائعين الشائعين:
 
 * [رقمي](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * من بين الآخرين، يرجى التسوق للعثور على واحد يناسب احتياجاتك، جوجل هو صديقك 😄
 

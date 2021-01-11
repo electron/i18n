@@ -1,18 +1,20 @@
 # Extensão de DevTools
 
-O Electron suporta a [Extensão Chrome DevTools](https://developer.chrome.com/extensions/devtools), que pode ser usada para ampliar a capacidade de devtools para depurar frameworks populares.
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## Como carregar uma extensão do DevTools
+## Loading a DevTools extension with tooling
 
-Este documento descreve o processo de carregamento manual de uma extensão. Você também pode tentar [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), uma ferramenta de terceiros que baixa extensões diretamente da Chrome WebStore.
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-Para carregar uma extensão no Electron, você precisa baixá-la no navegador Chrome, localize seu caminho do sistema de arquivos e então carregue-o chamando o `BrowserWindow. API ddDevToolsExtension(extensão)`.
+## Manually loading a DevTools extension
 
-Usando as [Ferramentas de Desenvolvedor de React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) como exemplo:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. Instalá-lo no navegador Chrome.
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. Navegue até `chrome://extensions`e encontre sua extensão ID, que é uma hash string como `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Descubra a localização do sistema de arquivos usado pelo Chrome para armazenar extensões:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * no Windows, é `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * no Linux, pode ser:
      * `~/.config/google-chrome/Padrão/Extensões/`
@@ -20,28 +22,38 @@ Usando as [Ferramentas de Desenvolvedor de React](https://chrome.google.com/webs
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Padrão/Extensões/`
    * no macOS, ele é `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Passe o local da extensão para `BrowserWindow.addDevToolsExtension` API, para as Ferramentas de Desenvolvedor do React, é algo como:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbkapdkoienihi/4.3.0_0')
-)
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**Nota:** O `BrowserWindow.addDevToolsExtension` API não pode ser chamado antes do evento pronto do módulo de aplicativo ser emitido.
+**Notas:**
 
-A extensão será lembrada então você só precisa chamar essa API uma vez por extensão. Se você tentar adicionar uma extensão que já foi carregada, este método não retornará e, em vez disso, registrará um alerta para o console.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### Como remover uma extensão do DevTools
+### Removing a DevTools extension
 
-Você pode passar o nome da extensão para `BrowserWindow.removeDevToolsExtensões` para removê-la. O nome da extensão é retornado pelo `BrowserWindow. Extensão ddDevTools` e você pode obter nomes de todas as Extensões DevTools instaladas usando a API `BrowserWindow.getDevToolsExtensions`.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## Extensões DevTools Suportadas
+## DevTools extension support
 
-O Electron suporta apenas um conjunto limitado de `chrome.*` APIs, então algumas extensões usando o Chrome `não suportado.` APIs para extensões do Chrome podem não funcionar. As seguintes extensões Devtools são testadas e garantidas para funcionar no Electron:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Ferramentas de Desenvolvedor React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ O Electron suporta apenas um conjunto limitado de `chrome.*` APIs, então alguma
 * [Extensão Redux do DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [Ferramentas do Desenvolvedor MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### O que devo fazer se uma extensão DevTools não estiver funcionando?
+### What should I do if a DevTools extension is not working?
 
-Primeiro, por favor, certifique-se de que a extensão ainda está sendo mantida, algumas extensões não funcionam para versões mais recentes do navegador Chrome, e não podemos fazer nada por elas.
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-Em seguida, registre um bug na lista de problemas do Electron, e descreva qual parte da extensão não está funcionando como esperado.
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.

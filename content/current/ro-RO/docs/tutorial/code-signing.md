@@ -155,7 +155,7 @@ Vezi [Ghidul App Store Mac](mac-app-store-submission-guide.md).
 Poți obține un certificat de cod de la o mulțime de distribuitori. Preţurile variază, deci merită timp să faci cumpărături. Revânzătorii populari includ:
 
 * [digicerat](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Printre altele, vă rugăm să faceți cumpărături pentru a găsi unul care se potrivește nevoilor dvs., Google este prietenul dvs. 😄
 

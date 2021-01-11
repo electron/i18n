@@ -1,18 +1,20 @@
 # DevTools 擴充功能
 
-Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/extensions/devtools)，可擴充 DevTools debug 流行 Web 框架的能力。
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## 如何載入 DevTools 擴充功能
+## Loading a DevTools extension with tooling
 
-本文件將略述手動載入擴充功能的過程。 你也可以試看看 [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer) 這個直接由 Chrome 線上應用程式商店下載擴充功能的第三方工具。
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-要 Electron 中載入擴充功能，你需要將其下載到 Chrome 瀏覽器中，找出檔案路徑，再呼叫 `BrowserWindow.addDevToolsExtension(extension)` API 將其載入。
+## Manually loading a DevTools extension
 
-以 [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 為例:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. 在 Chrome 瀏覽器中安裝。
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. 連到 `chrome://extensions`，找到擴充功能的 ID，它是一串類似 `fmkadmapgofadopljbjfkapdkoienihi` 的雜湊字串。
-1. 找出 Chrome 儲存擴充功能的檔案系統路徑:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * Windows 中是 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * Linux 中可能是:
      * `~/.config/google-chrome/Default/Extensions/`
@@ -20,28 +22,38 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
+**備註:**
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### How to remove a DevTools Extension
+### Removing a DevTools extension
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## 支援的 DevTools 擴充功能
+## DevTools extension support
 
-Electron 只支援有限的 `chrome.*` API，某些用到不支援 `chrome.*` API 的擴充功能可能無法正常運作。 下列 Devtools 擴展功能經過測試可以在 Electron 中運作:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ Electron 只支援有限的 `chrome.*` API，某些用到不支援 `chrome.*` AP
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### DevTools 擴充功能沒反應時該怎麼辦?
+### What should I do if a DevTools extension is not working?
 
-首先請確定擴充功能還有人維護，有些擴充功能甚至不能在最近的 Chrome 瀏覽器上執行，我們對這種情形也無能為力。
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-接著請到 Electron 的議題清單中開一張 bug 單，描述擴充功能是怎樣無法如期運作。
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.

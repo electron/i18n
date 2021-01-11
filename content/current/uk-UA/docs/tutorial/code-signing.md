@@ -155,7 +155,7 @@ packager({
 Ви можете отримати сертифікат про підписання коду від багатьох посередників. Ціни варіюються, отже це може коштувати вам Вашого часу в магазині. Популярні посередники включають у себе:
 
 * [дігісерт](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
+* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Серед інших, будь ласка, пошукайте команду, яка вам потрібна, Google - ваш друг 😄
 

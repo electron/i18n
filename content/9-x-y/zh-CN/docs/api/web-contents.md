@@ -63,7 +63,7 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
+这个事件类似于 `did-finish-load` ，只不过是在加载失败之后触发。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
 #### Event: 'did-fail-provisional-load'
 
@@ -77,7 +77,7 @@ This event is like `did-finish-load` but emitted when the load failed. 完整的
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+这个事件类似于 `did-finish-load`，只不过是在加载失败或取消加载之后触发，例如调用 `window.stop()` 。
 
 #### Event: 'did-frame-finish-load'
 
@@ -133,7 +133,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `url` String
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - 用于创建新的 [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 

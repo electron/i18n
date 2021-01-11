@@ -1,18 +1,20 @@
 # デベロッパー ツール拡張
 
-Electron は、ウェブフレームワークをデバッグするために使われているデベロッパー ツールの機能を拡張することができる、[Chrome デベロッパー ツール拡張](https://developer.chrome.com/extensions/devtools) をサポートしています。
+Electron は [Chrome デベロッパー ツール拡張](https://developer.chrome.com/extensions/devtools) をサポートしています。これは人気ウェブフレームワークのデバッグ向けに Chrome デベロッパー ツールを拡張できます。
 
-## デベロッパー ツール拡張の読み込み方法
+## ツールを使ったデベロッパー ツール拡張の読み込み
 
-このドキュメントは手動で拡張機能を読み込むためのプロセスを概説します。 Chrome ウェブストアから直接拡張機能をダウンロードするサードパーティ製のツール、[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer) を試すこともできます。
+デベロッパー ツール拡張を読み込む最も簡単な方法は、サードパーティ製ツールで手順を自動化することです。 [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) はこれを行うにあたって人気の NPM パッケージです。
 
-Electron に拡張をロードするには、Chrome ブラウザでそれをダウンロードし、そのファイルシステムパスを見つけてから、`BrowserWindow.addDevToolsExtension(extension)` API を呼び出してそれを読み込む必要があります。
+## 手動でのデベロッパー ツール拡張の読み込み
+
+ツールを使う手段をお望みでない場合は、必要な作業すべてを手で行うこともできます。 Electron で拡張機能を読み込むには、Chrome でそれをダウンロードして、そのファイルシステムのパスを探し、[`ses.loadExtension`] API を呼び出して [Session](../api/session.md) にロードします。
 
 以下は [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) を使用する例です。
 
-1. それを Chrome ブラウザでインストールします。
+1. Google Chrome で拡張機能をインストールします。
 1. `chrome://extensions` に移動し、`fmkadmapgofadopljbjfkapdkoienihi` のようなハッシュ文字列であるそれの拡張 ID を探します。
-1. 拡張機能を保存するために Chrome が使用するファイルシステムの場所を調べます。
+1. Chrome が拡張機能の保存に使用している、ファイルシステムの場所を調べます。
    * Windows では `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions` です。
    * Linux では以下のいずれかになります。
      * `~/.config/google-chrome/Default/Extensions/`
@@ -20,28 +22,38 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
-1. 拡張の場所を `BrowserWindow.addDevToolsExtension` API に渡します。React Developer Tools の場合は、以下のようになります。
-
+1. 拡張機能の場所を[`ses.loadExtension`](../api/session.md#sesloadextensionpath) API に渡します。 React Developer Tools `v4.9.0` の場合、以下のようになります。
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+    // macOS の場合
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**注:** `BrowserWindow.addDevToolsExtension` API は、app モジュールの ready イベントが発生する前に呼び出すことはできません。
+**注釈:**
 
-拡張機能は記憶されるため、この API は拡張に付き一度しか呼び出す必要はありません。 既にロードされている拡張機能を追加しようとした場合、このメソッドは何も返さず、代わりにコンソールに警告を出力します。
+* `loadExtension` は [Extension オブジェクト](../api/structures/extension.md) の Promise を返します。これには、読み込まれた拡張機能についてのメタデータが含まれます。 この Promise はページ読み込み前に (`await` 式などで) 解決する必要があります。 さもなくば、拡張の読み込みは保証されません。
+* `loadExtension` は、`app` モジュールの `ready`イベントが発生する前には呼び出せず、インメモリ (非永続) セッションでも呼び出せません。
+* 拡張機能を読み込みたい場合は、アプリを起動するたびに `loadExtension` を呼び出す必要があります。
 
-### デベロッパーツール拡張機能を削除する方法
+### デベロッパー ツール拡張の除去
 
-それを削除するには `BrowserWindow.removeDevToolsExtension` API にその拡張機能の名前を渡すことでできます。 `BrowserWindow.addDevToolsExtension` で拡張機能の名前が返され、`BrowserWindow.getDevToolsExtension` API を用いてインストールされたデベロッパーツール拡張機能らの名前を取得できます。
+拡張の ID を [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API に渡すことで、Session から拡張を削除できます。 これにより、読み込んだ拡張がアプリの次回起動時にも保持されることはなくなります。
 
-## サポートされているデベロッパー ツール拡張
+## デベロッパー ツール拡張サポート
 
-Electron は限られた `chrome.*` API しかサポートしていないため、Chrome 拡張機能のうちサポートされていない `chrome.*` API を使用している拡張は機能しないかもしれません。 以下のデベロッパー ツール拡張は Electron で動作することがテストされ保証されています。
+Electron は [`chrome.*` API のうち限られたいくつか](../api/extensions.md) のみをサポートしています。未サポートの `chrome.*` API を使用した拡張機能は動作しない可能性があります。
+
+以下のデベロッパー ツール拡張は Electron での動作がテストされています。
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ Electron は限られた `chrome.*` API しかサポートしていないため�
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### デベロッパー ツール拡張が機能していない場合はどうすればいいですか?
+### デベロッパー ツール拡張が動作しない場合はどうすればいいですか?
 
-まずは拡張機能がまだメンテナンスされていることを確認してください。最近のバージョンの Chrome ブラウザでも機能しない拡張機能もあります。それらの機能は実行できません。
+まず、拡張がメンテナンスされていて、最新の Google Chrome と互換性があるかどうかを確認してください。 未サポートの拡張については、さらなるサポートを提供できません。
 
-それから、Electron の issue リストにバグを報告し、拡張のどの部分が期待通りに動作していないかを説明してください。
+拡張機能が Chrome で動作しているのに Electron で動作しない場合は、Electron の [Issue トラッカー](https://github.com/electron/electron/issues) にバグ報告し、拡張機能のどの部分が期待通りに動作しないかをご説明ください。

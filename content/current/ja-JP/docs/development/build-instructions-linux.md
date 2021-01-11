@@ -47,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-On Arch Linux / Manjaro, install the following libraries:
+Arch Linux / Manjaro では、以下の通りライブラリをインストールしてください。
 
 ```sh
 $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \

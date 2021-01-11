@@ -1,18 +1,20 @@
 # DevTools Extension
 
-يدعم إلكترون [ملحق Chrome DevTools](https://developer.chrome.com/extensions/devtools)، الذي يمكن استخدامه لتوسيع قدرة الأدوات على تصحيح أخطاء أطر الويب الشعبية.
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## كيفية تحميل ملحق DevTools
+## Loading a DevTools extension with tooling
 
-وتوجز هذه الوثيقة عملية تحميل التمديد يدوياً. يمكنك أيضًا تجربة [Electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)، أداة طرف ثالث تقوم بتنزيل الإضافات مباشرة من متجر Chrome WebStore.
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-لتحميل ملحق في إلكترون، تحتاج إلى تنزيله في متصفح كروم، حدد موقع مسار نظام الملفات، ثم قم بتحميله عن طريق الاتصال بـ `متصفح Window. ddDevToolsExtension(extension)` API.
+## Manually loading a DevTools extension
 
-استخدام [أدوات مطور React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) على سبيل المثال:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. تثبيته في متصفح Chrome.
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. انتقل إلى `chrome://extensions`، وابحث عن معرف ملحقه، وهو عبارة عن سلسلة تجزئة مثل `fmkadmapgofadopljbjfkapdkoienihi`.
-1. اعرف موقع نظام الملفات المستخدم من قبل Chrome لتخزين الملحقات:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * على ويندوز هو `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Exextent`;
    * في Linux يمكن أن يكون:
      * `~/.config/google-chrome/Default/Extensions/`
@@ -20,28 +22,38 @@
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * على macOS هو `~/Library/Application Support/Google/Chrome/Default/Exextent`.
-1. اجتياز موقع الملحق إلى `BrowserWindow.addDevToolsExexten` API، لأدوات React المطور، إنه شيء مثل:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   المسار = المطلوب('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
 
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**ملاحظة:** `BrowserWindow.addDevToolsExexten` لا يمكن استدعاء API قبل أن ينبعث الحدث الجاهز من وحدة التطبيق.
+**Notes:**
 
-سيتم تذكر الملحق حتى تحتاج فقط إلى استدعاء واجهة برمجة التطبيقات هذه مرة واحدة لكل ملحق إذا حاولت إضافة ملحق تم تحميله مسبقا، هذه الطريقة لن تعود وبدلا من ذلك قم بتسجيل تحذير إلى وحدة التحكم.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### كيفية إزالة ملحق DevTools
+### Removing a DevTools extension
 
-يمكنك تمرير اسم الملحق إلى `BrowserWindow.removeDevToolsExexten` API لإزالته. يتم إرجاع اسم الملحق من قبل `المتصفح ويندوز. ddDevToolsExexten` ويمكنك الحصول على أسماء جميع ملحقات DevTools المثبتة باستخدام `BrowserWindow.getDevToolsExexten` API.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## ملحقات الأدوات المدعومة
+## DevTools extension support
 
-يدعم إلكترون فقط مجموعة محدودة من `كروم.*` API، لذلك بعض الملحقات باستخدام كروم `غير مدعوم.` قد لا تعمل واجهات برمجة التطبيقات لميزات تمديد الكروم. يتم اختبار ملحقات Devtools وضمان العمل في Electron:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [أدوات مطور React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@
 * [تقليل ملحق الأدوات](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [أدوات مطور MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### ماذا علي أن أفعل إذا كان ملحق أدوات DevTools لا يعمل؟
+### What should I do if a DevTools extension is not working?
 
-أولاً يرجى التأكد من استمرار الحفاظ على الإضافة، بعض الملحقات لا يمكن أن تعمل حتى للإصدارات الأخيرة من متصفح Chrome ، ونحن غير قادرين على القيام بأي شيء من أجلهم.
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-ثم قم بتسجيل خطأ في قائمة مشكلات Electron، ووصف أي جزء من الملحق لا يعمل كما هو متوقع.
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.

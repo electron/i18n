@@ -1,18 +1,20 @@
 # DevTools Ekstensiyon
 
-Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chrome.com/extensions/devtools), na kung saan ay maaaring gamitin upang palawakin ang mga kakayahan ng devtools sa pagdedebug ng kilalang balangkas sa web.
+Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## Paano i-load ang isang Ekstensiyon ng DevTools
+## Loading a DevTools extension with tooling
 
-Dokumentong ito ay naglalahad ng proseso para sa mano-manong pagloading ng ekstensiyon. Pwede mo ring subukan [elektron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), isang third party tool na nag-dadownload ng ekstensiyon na direkta mula sa Chrome WebStore.
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
 
-Sa pag-load ng ekstensiyon sa elektron, kailangan mong i-download ito sa Chrome browser, hanapin itong filesystem path, at i-load ang mga ito sa pagtawag sa `BrowserWindow.addDevToolsExtension(ekstensiyon)` API.
+## Manually loading a DevTools extension
 
-Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) bilang halimbawa:
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
 
-1. I-install ito sa browser ng Chrome.
+Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+
+1. Install the extension in Google Chrome.
 1. Mag-navigate sa `chrome://ekstensiyon`, at mahanap ito ang ekstensiyon ng ID, kung saan ang hash string tulad ng `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Alamin ang lokasyon ng filesystem lokasyon gamit ang Chrome para sa pag-iimbak ng mga ekstensiyon:
+1. Find out the filesystem location used by Chrome for storing extensions:
    * sa Windows ito ang `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * sa Linux ito ay maaaring:
      * `~/.config/Google-Chrome/default/Extensions/`
@@ -20,28 +22,38 @@ Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/reac
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * sa macOS ito ay `~/Library/Application Support/Google/Chrome/Default/Extension`.
-1. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
-
+1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
-   )
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
+
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
+**Mga Tala:**
 
-The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### How to remove a DevTools Extension
+### Removing a DevTools extension
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+You can pass the extension's ID to the [`ses.removeExtension`](../api/session.md#sesremoveextensionextensionid) API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## Suportado ng DevTools Ekstensiyon
+## DevTools extension support
 
-Elektron lamang ang sumusuporta sa isang limitadong set ng.*`chrome.*` APIs, kaya mayroong ekstensiyon gamit ang hindi suportadong `chrome.*` APIs para sa chrome ekstensiyon na tampok pwedeng hindi gumana. Sumusunod na Devtools Extensions ay sinubukan at garantisadong magbubunga sa Elektron:
+Electron only supports [a limited set of `chrome.*` APIs](../api/extensions.md), so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -53,8 +65,8 @@ Elektron lamang ang sumusuporta sa isang limitadong set ng.*`chrome.*` APIs, kay
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### Ano ang dapat kong gawin kung hindi gumagana ang DevTools Ekstensiyon?
+### What should I do if a DevTools extension is not working?
 
-Una sa lahat mangyaring siguraduhin na ang ekstensiyon ay palaging pangalagaan, ang ilang ekstensiyon ay hindi gumagana kahit bago ang bersyon ng browser ng Chrome, at kami ay walang magawa sa anumang bagay para sa kanila.
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-Saka mag-file ng bug at listahan ng mga isyu ng mga elektron, at ilarawan kung aling bahagi ng ekstensiyon ay hindi gumagana tulad ng inaasahan.
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker](https://github.com/electron/electron/issues) and describe which part of the extension is not working as expected.
