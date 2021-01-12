@@ -814,7 +814,7 @@ Simple fullscreen mode emulates the native fullscreen behavior found in versions
 想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
 
-The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
+当窗口使用类似于 `win.setSize` 这样的 API 调整窗口时，宽高比不会被采用。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
@@ -1092,11 +1092,11 @@ Enters or leaves kiosk mode.
 
 #### `win.isTabletMode()` _Windows_
 
-Returns `Boolean` - Whether the window is in Windows 10 tablet mode.
+返回 `Boolean` - 无论当前窗口是否处在 Windows 10 平板模式
 
-Since Windows 10 users can [use their PC as tablet](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet), under this mode apps can choose to optimize their UI for tablets, such as enlarging the titlebar and hiding titlebar buttons.
+因为 Windows 10 用户可以 [将他们的 PC 作为平板电脑来使用](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet)，在此模式下，应用可以选择为平板电脑的界面做出优化，如扩展标题栏和隐藏标题栏按钮。
 
-This API returns whether the window is in tablet mode, and the `resize` event can be be used to listen to changes to tablet mode.
+此 API 返回 窗口是否在平板电脑模式下，并且 `调整大小` 事件可以用于监听对平板模式的更改。
 
 #### `win.getMediaSourceId()`
 
@@ -1402,7 +1402,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_EXCLUDEFROMCAPTURE`. For Windows 10 version 2004 and up the window will be removed from capture entirely, older Windows versions behave as if `WDA_MONITOR` is applied capturing a black window.
+On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. 在 Windows 上，它以参数为 `WDA_EXCLUDEFROMCAPTURE` 调用 SetWindowDisplayAffinity 。 对于 Windows 10 2004以上版，本窗口将完全从抓取中移除，在低版本 Windows 上其行为就像是 `WDA_MONITOR` 捕捉了黑色窗口。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
