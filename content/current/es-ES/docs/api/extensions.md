@@ -44,7 +44,7 @@ The following properties of `chrome.extension` are supported:
 
 - `chrome.extension.lastError`
 
-The following methods of `chrome.extension` are supported:
+Los siguientes métodos de `chrome.extension` son soportados:
 
 - `chrome.extension.getURL`
 - `chrome.extension.getBackgroundPage`
@@ -56,7 +56,7 @@ The following properties of `chrome.runtime` are supported:
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-The following methods of `chrome.runtime` are supported:
+Los siguientes métodos de `chrome.runtime` son soportados:
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
@@ -79,7 +79,7 @@ Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.stor
 
 ### `chrome.tabs`
 
-The following methods of `chrome.tabs` are supported:
+Los siguientes métodos de `chrome.tabs` son soportados:
 
 - `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`
@@ -97,5 +97,11 @@ Los siguientes métodos de `chrome.management` son soportados:
 - `chrome.management.getPermissionWarningsByManifest`
 - `chrome.management.onEnabled`
 - `chrome.management.onDisabled`
+
+### `chrome.webRequest`
+
+All features of this API are supported.
+
+> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

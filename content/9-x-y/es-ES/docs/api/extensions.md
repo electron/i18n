@@ -44,7 +44,7 @@ The following properties of `chrome.extension` are supported:
 
 - `chrome.extension.lastError`
 
-The following methods of `chrome.extension` are supported:
+Los siguientes métodos de `chrome.extension` son soportados:
 
 - `chrome.extension.getURL`
 - `chrome.extension.getBackgroundPage`
@@ -56,7 +56,7 @@ The following properties of `chrome.runtime` are supported:
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-The following methods of `chrome.runtime` are supported:
+Los siguientes métodos de `chrome.runtime` son soportados:
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
@@ -79,7 +79,7 @@ Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.stor
 
 ### `chrome.tabs`
 
-The following methods of `chrome.tabs` are supported:
+Los siguientes métodos de `chrome.tabs` son soportados:
 
 - `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`

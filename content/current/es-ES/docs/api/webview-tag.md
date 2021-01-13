@@ -2,7 +2,7 @@
 
 ## Advertencia
 
-La etiqueta `webview` de Electron está basada en [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), el cual está experimentado cambios de arquitectura dramáticos. Esto impacta la estabilidad de `webviews`, incluyendo el renderizado, navegación y el enrutamiento de evento. Nosotros actualmente recomendamos no usar la etiqueta `webviews` y considerar alternativas como `iframe`, `BrowserView` de Electron o una arquitectura que evite embeber contenido incrustado.
+La etiqueta `webview` de Electron está basada en [Chromium's `webview`](https://developer.chrome.com/docs/extensions/reference/webviewTag/), el cual está experimentado cambios de arquitectura dramáticos. Esto impacta la estabilidad de `webviews`, incluyendo el renderizado, navegación y el enrutamiento de evento. Nosotros actualmente recomendamos no usar la etiqueta `webviews` y considerar alternativas como `iframe`, `BrowserView` de Electron o una arquitectura que evite embeber contenido incrustado.
 
 ## Activando
 

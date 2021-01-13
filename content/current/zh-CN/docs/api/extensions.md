@@ -98,4 +98,10 @@ The following methods of `chrome.management` are supported:
 - `chrome.management.onEnabled`
 - `chrome.management.onDisabled`
 
+### `chrome.webRequest`
+
+All features of this API are supported.
+
+> **注意：** 如果有冲突需要处理，Electron 的 [`webRequest`](web-request.md) 模块将优先于 `chrome.web` 。
+
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

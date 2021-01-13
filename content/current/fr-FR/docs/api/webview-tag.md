@@ -2,7 +2,7 @@
 
 ## Avertissement
 
-La balise `webview` d'Electron est basée sur la webview [de `Chromium`](https://developer.chrome.com/apps/tags/webview), qui subit des changements architecturaux spectaculaires. Cela affecte la stabilité des `webviews`, y compris le rendu, la navigation et le routage des événements. Nous recommandons actuellement de ne pas utiliser la balise `webview` et de considérer des alternatives, comme `iframe`, Electron's `BrowserView`, ou une architecture qui évite complètement le contenu intégré.
+La balise `webview` d'Electron est basée sur la webview [de `Chromium`](https://developer.chrome.com/docs/extensions/reference/webviewTag/), qui subit des changements architecturaux spectaculaires. Cela affecte la stabilité des `webviews`, y compris le rendu, la navigation et le routage des événements. Nous recommandons actuellement de ne pas utiliser la balise `webview` et de considérer des alternatives, comme `iframe`, Electron's `BrowserView`, ou une architecture qui évite complètement le contenu intégré.
 
 ## Enabling
 
