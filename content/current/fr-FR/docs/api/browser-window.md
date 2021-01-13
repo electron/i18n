@@ -805,7 +805,7 @@ Retourne `Boolean` - Si la fenêtre est en mode plein-écran simple (pré-Lion) 
 
 Retourne `Boolean` - Si la fenêtre est dans son état normal (ni maximisée, ni minimisée, ni en plein écran).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+#### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * `aspectRatio` Float - L'aspect ratio à maintenir pour une partie de la vue de contenu .
  * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
@@ -814,6 +814,8 @@ Cela fera que la fenêtre maintient un ratio d'aspect. La taille supplémentaire
 
 Considérez une fenêtre normale avec un lecteur vidéo HD et des commandes associées. Il y a peut-être 15 pixels de contrôles sur le bord gauche, 25 pixels de contrôles sur le bord droit et 50 pixels de contrôles sous le joueur. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. Le deuxième argument ne se soucie pas du fait que la largeur et la hauteur supplémentaires sont dans la vue de contenu --seulement qu'elles existent. Sommez toute la largeur supplémentaire et les zones de hauteur que vous avez dans la vue de contenu globale.
+
+The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 

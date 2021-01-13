@@ -807,7 +807,7 @@ Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na ful
 
 Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
 
-#### `win.setAspectRatio(aspectRatio[, extraSize])` _macOS_ _Linux_
+#### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * ` aspectRatio ` Float - Ang aspect ratio upang mapanatili para sa ilang bahagi ng nilalaman ng view.
  * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
@@ -816,6 +816,8 @@ Gagawin nitong isang window na mapanatili ang hichura ng ratio. Ang sobrang laki
 
 Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauugnay na kontrol. Siguro ay mayroong 15 pixels ng mga kontrol sa kaliwang gilid, 25 pixels ng mga kontrol sa kanang gilid at 50 pixels ng mga kontrol sa ilalim ng player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. Ang pangalawang argumento ay hindi pinapahalagahan kung saan ang dagdag na lawak at taas ay nasa loob ng tanaw ng nilalaman - na umiiral lamang ang mga ito. Sum any extra width and height areas you have within the overall content view.
+
+The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 

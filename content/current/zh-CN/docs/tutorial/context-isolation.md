@@ -22,7 +22,7 @@ const mainwindow = new BrowserWindow(format@@
 
 ## 移 民
 
-> 我曾经使用 `窗口从预加载脚本中提供 API。X = apiObject` 现在是什么？
+> 以前采用</code>window.X = apiObject</0> 的方式从预加载脚本提供API，那现在该怎么做？
 
 从您的预加载脚本曝光到已加载的网站是一个常见的用法，Electron有一个专门的模块来帮助您以一种痛苦的方式做到这一点。
 

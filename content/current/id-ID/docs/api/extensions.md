@@ -1,12 +1,12 @@
-# Chrome Extension Support
+# Dukukungan Ektensi Chrome
 
 Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
 
-> **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
+> **Catatan:** Electron tidak mendukung ekstensi Chrome dari  luar toko, dan ini  **bukan tujuan ** dari Electron project menjadi kompetibel dengan penerapan Chrome Ekstensi
 
-## Loading extensions
+## Memuat ekstensi
 
-Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath):
+Elektron hanya mendukung ekstensi yang tidak dikemas (yaitu, `.crx` file diluar ekstensi tersebut tidak bekerja) Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath):
 
 ```js
 const { session } = require('electron')
@@ -97,5 +97,11 @@ The following methods of `chrome.management` are supported:
 - `chrome.management.getPermissionWarningsByManifest`
 - `chrome.management.onEnabled`
 - `chrome.management.onDisabled`
+
+### `chrome.webRequest`
+
+All features of this API are supported.
+
+> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index

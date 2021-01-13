@@ -1455,9 +1455,9 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number]
-* ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
+* `channel` String
+* ` ... args </ 0> ada []</li>
 </ul>
 
 <p spaces-before="0">Send an asynchronous message to a specific frame in a renderer process via
