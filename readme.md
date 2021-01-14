@@ -4,7 +4,7 @@
 
 > A home for Electron's translated documentation.
 
-🇵🇭 🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇮🇱 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱
+🇨🇳 🇧🇷 🇪🇸 🇯🇵 🇷🇺 🇫🇷 🇺🇸 🇩🇪
 
 ## Contributing
 
@@ -14,8 +14,7 @@ To get started translating, visit
 [crowdin.com/project/electron](https://crowdin.com/project/electron)
 and log in with your GitHub account.
 
-The following languages are currently being translated, but we can
-[easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
+The following languages are currently being translated:
 
 <!-- start language-table -->
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
@@ -23,27 +22,8 @@ The following languages are currently being translated, but we can
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
-- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
-- [Українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
-- [język polski (Polish)](https://crowdin.com/project/electron/pl)
-- [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
-- [limba română (Romanian)](https://crowdin.com/project/electron/ro)
-- [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
-- [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [čeština (Czech)](https://crowdin.com/project/electron/cs)
-- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
-- [Indonesian](https://crowdin.com/project/electron/id)
-- [한국어 (Korean)](https://crowdin.com/project/electron/ko)
-- [Filipino](https://crowdin.com/project/electron/fil)
-- [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
-- [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
-- [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
-- [Tiếng Việt (Vietnamese)](https://crowdin.com/project/electron/vi)
-- [ไทย (Thai)](https://crowdin.com/project/electron/th)
-- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
-- [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 <!-- end language-table -->
 
 ## Installation
@@ -86,7 +66,7 @@ const i18n = require('electron-i18n')
 
 ```js
 Object.keys(i18n.docs)
-[ 'en-US', 'fr-FR', 'vi-VN', 'ja-JP', 'zh-CN', '...']
+[ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
 Each locale object contains an object with doc HREFs as keys:
@@ -135,7 +115,7 @@ i18n.docs['en-US']['/docs/api/app']
 
 ```js
 Object.keys(i18n.locales)
-[ 'en-US', 'fr-FR', 'vi-VN', 'ja-JP', 'zh-CN', '...']
+[ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
 Each locale object contains language names, country info, and translation
@@ -165,7 +145,7 @@ It is an object with locale strings as keys:
 
 ```js
 Object.keys(i18n.locales)
-[ 'en-US', 'fr-FR', 'vi-VN', 'ja-JP', 'zh-CN', '...']
+[ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
 ```js
