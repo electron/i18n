@@ -57,6 +57,7 @@
     "collect": "ts-node script/collect.ts",
     "build": "npm-run-all build:*",
     "build:stats": "ts-node script/stats.ts",
+    "build:cleanup": "ts-node script/i18n-content-cleanup.ts",
     "build:module": "ts-node script/build-module.ts",
     "build:readme": "ts-node script/readme.ts",
     "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
