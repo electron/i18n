@@ -1,3 +1,0 @@
-# Program opinii aplikacji Electron
-
-Zespół Electron pracuje nad usprawnionym procesem budowania wersji oraz szybszym ich wydawaniem. Aby to pomóc, mamy program informacyjny dla dużych aplikacji Electrona, aby przetestować nasze wersje beta i zgłaszać problemy związane z aplikacją zespołowi Electron. Używamy tego programu, aby pomóc nam nadać priorytet pracy i jak najszybciej zaktualizować aplikacje do następnej stabilnej wersji. Istnieje kilka wymogów, których oczekujemy od uczestników, takich jak udział w cotygodniowych odprawach online. Proszę odwiedzić [wpis na blogu](https://electronjs.org/blog/app-feedback-program) , aby uzyskać więcej informacji i zarejestrować się.
