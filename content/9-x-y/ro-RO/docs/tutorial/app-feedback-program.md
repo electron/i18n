@@ -1,3 +1,0 @@
-# Program de feedback al aplicațiilor Electron
-
-Electron lucrează la construirea unui proces simplificat de lansare și la lansări mai rapide. Pentru a ajuta la asta, avem Programul de Feedback al aplicației pentru aplicații Electron la scară largă pentru a testa versiunile beta și a raporta probleme specifice aplicației pentru echipa Electron. Folosim acest program pentru a ne ajuta să prioritizăm munca și să obținem aplicații actualizate la următoarea versiune stabilă cât mai curând posibil. Există câteva cerințe pe care le așteptăm din partea participanților, cum ar fi participarea săptămânală scurtă, pe scurt. Vă rugăm să vizitați [postul de blog](https://electronjs.org/blog/app-feedback-program) pentru detalii și înscriere.
