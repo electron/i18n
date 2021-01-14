@@ -13,7 +13,7 @@ describe('i18n.docs', () => {
     const locales = Object.keys(i18n.docs)
     locales.should.include('en-US')
     locales.should.include('fr-FR')
-    locales.length.should.be.above(10)
+    locales.length.should.be.above(7)
   })
 
   it('is an object with docs objects as values', () => {
@@ -112,7 +112,7 @@ describe('i18n.blogs', () => {
     const locales = Object.keys(i18n.blogs)
     expect(locales).includes('en-US')
     expect(locales).includes('ru-RU')
-    expect(locales.length).to.be.above(10)
+    expect(locales.length).to.be.above(7)
   })
 
   it('is an object with blogs objects as values', () => {
@@ -127,7 +127,7 @@ describe('i18n.glossary', () => {
     const locales = Object.keys(i18n.glossary)
     locales.should.include('en-US')
     locales.should.include('fr-FR')
-    locales.length.should.be.above(10)
+    locales.length.should.be.above(7)
   })
 
   it('contains localized glossary objects', () => {
@@ -153,7 +153,7 @@ describe('i18n.website', () => {
     const locales = Object.keys(i18n.website)
     locales.should.include('en-US')
     locales.should.include('fr-FR')
-    locales.length.should.be.above(10)
+    locales.length.should.be.above(7)
   })
 
   it('contains localized strings', () => {
@@ -204,7 +204,7 @@ describe('API Docs', () => {
 
   it('sorts docs by slug per locale', () => {
     const locales = Object.keys(i18n.locales)
-    locales.length.should.be.above(10)
+    locales.length.should.be.above(7)
     locales.forEach((locale) => {
       const docs = Object.keys(i18n.docs[locale]).map(
         (key) => i18n.docs[locale][key]
@@ -283,13 +283,13 @@ describe('i18n.locales', () => {
     const keys = Object.keys(i18n.locales)
     keys.should.include('en-US')
     keys.should.include('fr-FR')
-    keys.should.include('zh-TW')
+    keys.should.include('ru-RU')
     keys.should.include('pt-BR')
   })
 
   it('includes countryCode for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       i18n.locales[locale].countryCode.should.be.a('string')
     })
@@ -299,7 +299,7 @@ describe('i18n.locales', () => {
 
   it('includes countryName for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       expect(
         i18n.locales[locale].countryName,
@@ -312,19 +312,19 @@ describe('i18n.locales', () => {
 
   it('includes languageCode for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       i18n.locales[locale].languageCode.should.be.a('string')
     })
     i18n.locales['en-US'].languageCode.should.equal('en')
     i18n.locales['pt-BR'].languageCode.should.equal('pt-BR')
     i18n.locales['zh-CN'].languageCode.should.equal('zh-CN')
-    i18n.locales['zh-TW'].languageCode.should.equal('zh-TW')
+    i18n.locales['ru-RU'].languageCode.should.equal('ru')
   })
 
   it('includes languageName for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       i18n.locales[locale].languageName.should.be.a('string')
     })
@@ -333,13 +333,13 @@ describe('i18n.locales', () => {
   })
 
   it('sets some custom language names', () => {
-    i18n.locales['zh-TW'].languageName.should.equal('Chinese Traditional')
+    i18n.locales['ru-RU'].languageName.should.equal('Russian')
     i18n.locales['zh-CN'].languageName.should.equal('Chinese Simplified')
   })
 
   it('includes languageNativeName for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       i18n.locales[locale].languageNativeName.should.be.a('string')
     })
@@ -349,7 +349,7 @@ describe('i18n.locales', () => {
 
   it('includes stats for every locale', () => {
     const keys = Object.keys(i18n.locales)
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
     keys.forEach((locale) => {
       i18n.locales[locale].stats.should.be.an('object')
       i18n.locales[locale].stats.translated_progress.should.be.a('number')
@@ -364,7 +364,7 @@ describe('i18n.locales', () => {
       (locale) => i18n.locales[locale].stats.translated_progress
     )
     progress[0].should.be.above(progress[4])
-    progress[4].should.be.above(progress[8])
+    progress[3].should.be.above(progress[7])
   })
 })
 
@@ -374,7 +374,7 @@ describe('i18n.navs', () => {
     const keys = Object.keys(i18n.navs)
     keys.should.include('en-US')
     keys.should.include('fr-FR')
-    keys.length.should.be.above(10)
+    keys.length.should.be.above(7)
   })
 
   // TODO: This test starts failed for an undefined reason.
