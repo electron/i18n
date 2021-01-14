@@ -5,13 +5,17 @@ import * as path from 'path'
 import * as walk from 'walk-sync'
 import { sync as rimraf } from 'rimraf'
 import * as allStats from '../stats.json'
+import { supportedVersions } from '../package.json'
 
-const basePath = path.join(__dirname, '..', 'content', 'current')
-const contentPath = (lang: string) => path.join(basePath, lang, 'docs')
+const basePath = (version: string) => path.join(__dirname, '..', 'content', version)
+const contentPath = (version: string, lang: string) => path.join(basePath(version), lang, 'docs')
 
-const locales = fs.readdirSync(basePath)
+const locales = fs.readdirSync(basePath('current'))
 locales.forEach((locale) => {
-  if (locale === 'en-US') return
+  supportedVersions.push('current')
+  if (locale === 'en-US') {
+    return
+  }
 
   // remove entire language directory if it doesn't have stats
   // (absence of stats means the language has been disabled in crowdin)
@@ -23,18 +27,21 @@ locales.forEach((locale) => {
     console.log(
       `language '${locale}' is no longer enabled in Crowdin; deleting`
     )
-    rimraf(path.join(basePath, locale))
+    for (const version of supportedVersions) {
+      rimraf(path.join(basePath(version), locale))
+    }
     return
   }
 
+  for (const version of supportedVersions) {
   // remove individual files that no longer exist in English source directory
-  walk(contentPath(locale))
+  walk(contentPath(version, locale))
     .filter((filePath) => {
-      const enFile = path.join(contentPath('en-US'), filePath)
+      const enFile = path.join(contentPath(version, 'en-US'), filePath)
       return !fs.existsSync(enFile)
     })
     .forEach((filePath) => {
-      const toDelete = path.join(contentPath(locale), filePath)
+      const toDelete = path.join(contentPath(version, locale), filePath)
       fs.unlink(toDelete, (err) => {
         if (err) {
           console.error(`Error deleting ${toDelete}`)
@@ -43,4 +50,5 @@ locales.forEach((locale) => {
         }
       })
     })
+  }
 })
