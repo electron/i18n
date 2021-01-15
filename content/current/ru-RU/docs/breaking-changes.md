@@ -91,11 +91,13 @@ session.defaultSession.getAllExtensions()
 ### Removed: methods in `systemPreferences`
 
 The following `systemPreferences` methods have been deprecated:
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Use the following `nativeTheme` properties instead:
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
@@ -477,6 +479,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 ### Deprecated events in `systemPreferences`
 
 The following `systemPreferences` events have been deprecated:
+
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
@@ -494,11 +497,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 ### Deprecated: methods in `systemPreferences`
 
 The following `systemPreferences` methods have been deprecated:
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Use the following `nativeTheme` properties instead:
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`

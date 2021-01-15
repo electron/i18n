@@ -1,4 +1,4 @@
-# Extension Object
+# Objet d'extension
 
 * `id` String
 * `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).

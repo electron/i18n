@@ -1,4 +1,4 @@
-# ProtocolRequest Object
+# Objet ProtocolRequest
 
 * `url` String
 * `referrer` String

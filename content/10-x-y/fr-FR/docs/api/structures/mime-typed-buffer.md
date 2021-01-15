@@ -1,5 +1,5 @@
 # Objet MimeTypedBuffer
 
-* `mimeType` String (optional) - MIME type of the buffer.
-* `charset` String (optional) - Charset of the buffer.
+* `mimeType` String (facultatif) - Type MIME du buffer.
+* `charset` String (facultatif) - Jeu de caractères du buffer.
 * `data` Buffer - The contenu du Buffer.

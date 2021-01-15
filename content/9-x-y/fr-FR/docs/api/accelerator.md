@@ -26,7 +26,7 @@ app.whenReady().then(() => {
 
 Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows pour définir certaines accélérations.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Utilisez `Alt` au lieu de `Option`. Utilisez Alt au lieu de Option. La touche `Option` n’existe que sur macOS, tandis que la touche `Alt` est disponible sur toutes les plateformes.
 
 La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `Cmd` sur macOS.
 
@@ -46,7 +46,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `0` à `9`
 * `A` à `Z`
 * `F1` à `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* Signes de ponctuation comme `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`

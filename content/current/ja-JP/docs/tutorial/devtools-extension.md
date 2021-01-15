@@ -23,6 +23,7 @@ Electron は [Chrome デベロッパー ツール拡張](https://developer.chrom
      * `~/.config/chromium/Default/Extensions/`
    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
 1. 拡張機能の場所を[`ses.loadExtension`](../api/session.md#sesloadextensionpath) API に渡します。 React Developer Tools `v4.9.0` の場合、以下のようになります。
+
    ```javascript
     const { app, session } = require('electron')
     const path = require('path')

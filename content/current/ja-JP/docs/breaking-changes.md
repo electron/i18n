@@ -91,11 +91,13 @@ session.defaultSession.getAllExtensions()
 ### 削除した `systemPreferences` のメソッド
 
 以下の `systemPreferences` のメソッドは非推奨になりました。
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 代わりに、次の `nativeTheme` プロパティを使用します。
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
@@ -478,6 +480,7 @@ Chromium は、レイアウトのズームレベル制限を変更するサポ�
 ### 非推奨化した `systemPreferences` のイベント
 
 以下の `systemPreferences` のイベントは非推奨になりました。
+
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
@@ -495,11 +498,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 ### 非推奨化した `systemPreferences` のメソッド
 
 以下の `systemPreferences` のメソッドは非推奨になりました。
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 代わりに、次の `nativeTheme` プロパティを使用します。
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
