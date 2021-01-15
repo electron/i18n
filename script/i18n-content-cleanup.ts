@@ -7,8 +7,10 @@ import { sync as rimraf } from 'rimraf'
 import * as allStats from '../stats.json'
 import { supportedVersions } from '../package.json'
 
-const basePath = (version: string) => path.join(__dirname, '..', 'content', version)
-const contentPath = (version: string, lang: string) => path.join(basePath(version), lang, 'docs')
+const basePath = (version: string) =>
+  path.join(__dirname, '..', 'content', version)
+const contentPath = (version: string, lang: string) =>
+  path.join(basePath(version), lang, 'docs')
 
 const locales = fs.readdirSync(basePath('current'))
 locales.forEach((locale) => {
@@ -34,21 +36,21 @@ locales.forEach((locale) => {
   }
 
   for (const version of supportedVersions) {
-  // remove individual files that no longer exist in English source directory
-  walk(contentPath(version, locale))
-    .filter((filePath) => {
-      const enFile = path.join(contentPath(version, 'en-US'), filePath)
-      return !fs.existsSync(enFile)
-    })
-    .forEach((filePath) => {
-      const toDelete = path.join(contentPath(version, locale), filePath)
-      fs.unlink(toDelete, (err) => {
-        if (err) {
-          console.error(`Error deleting ${toDelete}`)
-        } else {
-          console.log(`Deleted ${toDelete}`)
-        }
+    // remove individual files that no longer exist in English source directory
+    walk(contentPath(version, locale))
+      .filter((filePath) => {
+        const enFile = path.join(contentPath(version, 'en-US'), filePath)
+        return !fs.existsSync(enFile)
       })
-    })
+      .forEach((filePath) => {
+        const toDelete = path.join(contentPath(version, locale), filePath)
+        fs.unlink(toDelete, (err) => {
+          if (err) {
+            console.error(`Error deleting ${toDelete}`)
+          } else {
+            console.log(`Deleted ${toDelete}`)
+          }
+        })
+      })
   }
 })

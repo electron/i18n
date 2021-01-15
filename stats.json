@@ -16,14 +16,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "14549",
-    "translated": "10924",
+    "translated": "10956",
     "approved": "2280",
     "words": "175849",
-    "words_translated": "131239",
+    "words_translated": "131559",
     "words_approved": "24218",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 3714
+    "qa_issues": 3729
   },
   {
     "name": "German",
@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14549",
-    "translated": "11889",
+    "translated": "11894",
     "approved": "3149",
     "words": "175849",
-    "words_translated": "142634",
+    "words_translated": "142690",
     "words_approved": "34958",
     "translated_progress": 81,
     "approved_progress": 19,
-    "qa_issues": 5098
+    "qa_issues": 5101
   }
 ]
