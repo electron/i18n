@@ -23,6 +23,7 @@ Exemple utilisant [React Developer Tools](https://chrome.google.com/webstore/det
      * `~/.config/chromium/Default/Extensions/`
    * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 1. Transmettre l'emplacement de l'extension à l'API [`ses.loadExtension`](../api/session.md#sesloadextensionpath) . Pour les outils de développement React `v4.9.0`, cela ressemble à quelque chose comme :
+
    ```javascript
     const { app, session } = require('electron')
     const path = require('path')

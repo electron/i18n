@@ -2,11 +2,11 @@
 
 * `datos<`ArrayPostData (Datos)-El post data deben ser enviado a la nueva ventana.</p></li> 
   
-  * `Tipodecontenido`El `El titulo del tipo de contenido usado para los datos. <code>Uno dato <code>de aplicacion/x-wwww-form-urlencoded`o<0>mulipart/form-data</code>. Corresponds to the `enctype` attribute of the submitted HTML form.
+  * `Tipodecontenido`El `El titulo del tipo de contenido usado para los datos. <code>Uno dato <code>de aplicacion/x-wwww-form-urlencoded`o<0>mulipart/form-data</code>. Corresponde a el atributo`enctype` del formulario HTML enviado.
 
-* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.</ul> 
+* `boundary` String (opcional) - El límite utilizado para separar varias partes de el mensaje. Solo es válido cuando `contentType` es `multipart/form-data`.</ul> 
 
-Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
+Tenga en cuenta que las claves que empiezan con `--` no están soportadas actualmente. Por ejemplo, el siguiente ejemplo se enviará incorrectamente como `multipart/form-data` cuando `nativeWindowOpen` tiene valor `false` en webPreferences:
 
 
 

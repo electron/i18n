@@ -1,18 +1,20 @@
 # 开发工具扩展程序
 
-Electron支持[Chrome  DevTools 扩展程序][devtools-extension]，可增强开发工具调试流行web框架的能力
+Electron supports [Chrome DevTools extensions][devtools-extension], which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
-## 如何加载一个 DevTools 扩展程序
+## Loading a DevTools extension with tooling
 
-本文简要描述了手动加载一个扩展程序的过程 你也可以尝试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，这个第三方工具可以直接从Chrome的WebStore下载扩展程序
+The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer][electron-devtools-installer] is a popular NPM package that does just that.
 
-为了在Electron中加载一个扩展程序，你需要在Chrome浏览器中下载它，找到它在系统目录中位置，然后调用`BrowserWindow.addDevToolsExtension(extension)`API 加载它
+## Manually loading a DevTools extension
 
-下面以[React Developer Tools][react-devtools]为例：
+If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session][session] by calling the [`ses.loadExtension`] API.
 
-1. 在 Chrome 中安装React Developer Tools 。
+Using the [React Developer Tools][react-devtools] as an example:
+
+1. Install the extension in Google Chrome.
 1. 打开`chrome://extensions`，找到扩展程序的ID，形如`fmkadmapgofadopljbjfkapdkoienihi`的hash字符串。
-1. 找到Chrome 扩展程序 的存放目录：
+1. Find out the filesystem location used by Chrome for storing extensions:
    * 在Ｗindows 下为 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * 在 Linux下为：
      * `~/.config/google-chrome/Default/Extensions/`
@@ -20,27 +22,38 @@ Electron支持[Chrome  DevTools 扩展程序][devtools-extension]，可增强开
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
-1. 将扩展的位置传递到 `BrowserWindow.addDevToolsExtension` API，用于React开发者工具，这样做很好：
+1. Pass the location of the extension to the [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
-   const path = require('path')
-   const os = require('os')
+    const { app, session } = require('electron')
+    const path = require('path')
+    const os = require('os')
 
-   BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
+    // on macOS
+    const reactDevToolsPath = path.join(
+      os.homedir(),
+      '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
+    )
 
+    app.whenReady().then(async () => {
+      await session.defaultSession.loadExtension(reactDevToolsPath)
+    })
    ```
 
-**注意：**只有在app模块的ready事件触发之后，才可以调用`BrowserWindow.addDevToolsExtension` API
+**注意：**
 
-这个扩展将被记住，所以你只需要在 扩展中调用此 API 一次。 如果您试图添加一个已加载的扩展， 这个方法 不会返回，而是将警告记录到控制台。
+* `loadExtension` returns a Promise with an [Extension object][extension-structure], which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
+* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
+* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
-### 如何移除一个 DevTools 扩展程序
+### Removing a DevTools extension
 
-您可以传递扩展程序的名称到 `BrowserWindow.removeDevToolsExtension` API 移除它。 扩展名名由 `BrowserWindow返回. ddDevToolsExtension` 您可以通过 `BrowserWindow.getDevToolsExtenes` API获取所有已安装的 DevTools 扩展的名称。
+You can pass the extension's ID to the [`ses.removeExtension`][remove-extension] API to remove it from your Session. Loaded extensions are not persisted between app launches.
 
-## 支持的 DevTools 扩展程序
+## DevTools extension support
 
-Electron 只支持有限的`chrome.*` API，所以，一些扩展程序如果使用了不支持的`chrome.*` API，它可能会无法正常工作。 以下  DevTools 扩展程序已经通过测试，可以在Electron中正常工作：
+Electron only supports [a limited set of `chrome.*` APIs][supported-extension-apis], so extensions using unsupported `chrome.*` APIs under the hood may not work.
+
+The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -52,11 +65,18 @@ Electron 只支持有限的`chrome.*` API，所以，一些扩展程序如果使
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### 如果 DevTools 扩展不工作, 我该怎么办？
+### What should I do if a DevTools extension is not working?
 
-首先请确保扩展仍在维护中, 有些扩展甚至不支持 Chrome 浏览器的最新版本, 对此我们也无能为力。
+First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
 
-然后在Electron的问题列表中提交一个 bug, 并描述扩展程序的哪个部分没有按预期的方式工作。
+If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker][issue-tracker] and describe which part of the extension is not working as expected.
 
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
+[session]: ../api/session.md
 [react-devtools]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+[load-extension]: ../api/session.md#sesloadextensionpath
+[extension-structure]: ../api/structures/extension.md
+[remove-extension]: ../api/session.md#sesremoveextensionextensionid
+[electron-devtools-installer]: https://github.com/MarshallOfSound/electron-devtools-installer
+[supported-extension-apis]: ../api/extensions.md
+[issue-tracker]: https://github.com/electron/electron/issues

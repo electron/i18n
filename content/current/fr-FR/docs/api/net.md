@@ -36,7 +36,7 @@ app.whenReady().then(() => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+L'API `net` ne peut être utilisée qu'après que l'application ait émit un événement `ready`. Trying to use the module before the `ready` event will throw an error.
 
 ## Méthodes
 

@@ -1,7 +1,7 @@
 # ShortcutDetails 对象
 
 * ` target `字符串-该快捷方式启动的目标。
-* `cwd` String (optional) - The working directory. 默认值为空。
+* `workingDirectory` String(可选) - 当前工作目录。 默认值为空。
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. 默认值为空。
 * `description` String (optional) - The description of the shortcut. Default is empty.
 * `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.

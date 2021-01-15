@@ -91,11 +91,13 @@ session.defaultSession.getAllExtensions()
 ### Méthodes supprimées dans `systemPreferences`
 
 Les méthodes suivantes de `systemPreferences` ont été dépréciées :
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Veuillez utiliser à la place les propriétés de `nativeTheme` suivantes :
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
@@ -477,6 +479,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 ### Événements obsolètes dans `systemPreferences`
 
 Les événements `systemPreferences` suivants ont été dépréciés :
+
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
@@ -494,11 +497,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 ### Méthodes obsolètes dans `systemPreferences`
 
 Les méthodes suivantes de `systemPreferences` ont été dépréciées :
+
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Veuillez utiliser à la place les propriétés de `nativeTheme` suivantes :
+
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
