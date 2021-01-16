@@ -30,7 +30,7 @@ Retourne :
 * `event` Événement
 * `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Émis lorsqu'Electron a terminé l’initialisation. Sur macOS, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été activé et `application. henReady()` pour obtenir une Promesse qui est remplie lorsque Electron est initialisé.
 
 ### Événement : 'window-all-closed'
 
@@ -519,7 +519,7 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 * `options` Object (optional)
   * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
-Sous Linux, donne le focus à la première fenêtre visible. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, elle se concentre sur la première fenêtre de l'application.
 
 Il vaut mieux utiliser l'option `steal` aussi parcimonieusement que possible.
 
@@ -1093,7 +1093,7 @@ Commencez à accéder à une ressource périmée de sécurité. Avec cette méth
 
 ### `app.enableSandbox()`
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Active le mode bac à sable complet sur l'application. Cela signifie que tous les moteurs de rendu seront lancés en bac à sable, quelle que soit la valeur du drapeau `sandbox` dans les préférences Web.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 

@@ -30,7 +30,7 @@ Retourne :
 * `event` Événement
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été activé et `application. henReady()` pour obtenir une Promesse qui est remplie lorsque Electron est initialisé.
 
 ### Événement : 'window-all-closed'
 

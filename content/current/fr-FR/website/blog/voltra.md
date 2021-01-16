@@ -47,7 +47,7 @@ Le design et la facilité d'utilisation sont extrêmement importants pour nous. 
 
 Nous ne prenons pas non plus une coupure de l'artiste ou de l'étiquette. C’est un différentiateur clé pour nous. C’est vraiment important parce qu’il réduit la barrière pour que les artistes mettent leur musique sur le marché.
 
-## What are some design & technical decisions you made?
+## Quels sont les aspects de design & décisions techniques que vous avez prises?
 
 En concevant Voltra, nous avons envisagé des conventions de l'interface utilisateur à partir d'applications natives et du web, nous avons également beaucoup réfléchi à ce que nous pouvions supprimer. Nous avons un groupe bêta privé actif qui nous a donné des commentaires critiques au cours de ces derniers mois.
 

@@ -88,7 +88,7 @@ Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments su
 
 * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
 * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur. If the dialog is cancelled this will be an empty array.
-* `signets` String[] (facultatif) _macOS_ _mas_ - Un tableau correspondant au tableau `filePaths` de chaînes encodées en base64 qui contient des données de marque-pages à portée de sécurité. `securityScopedBookmarks` doit être activé pour que ceci soit rempli. (For return values, see [table here](#bookmarks-array).)
+* `signets` String[] (facultatif) _macOS_ _mas_ - Un tableau correspondant au tableau `filePaths` de chaînes encodées en base64 qui contient des données de marque-pages à portée de sécurité. `securityScopedBookmarks` doit être activé pour que ceci soit rempli. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -168,7 +168,7 @@ Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments su
 
 * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
 * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
+* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -250,16 +250,16 @@ Sous Windows, les options sont plus limitées, en raison des API Win32 utilisée
 * L'argument `message` n'est pas utilisé, car l'OS fournit sa propre boîte de dialogue de confirmation.
 * L'argument `browserWindow` est ignoré car il n'est pas possible de rendre cette fenêtre de confirmation modale.
 
-## Bookmarks array
+## Tableau des signets
 
 `showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 
-| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
-| ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas  | False                           |     NA      | `[]` (empty array)             |
-| non mas    | any                             |     NA      | `[]` (empty array)             |
+| Type de compilation | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ------------------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas           | True                            |   Succès    | `['LONGBOOKMARKSTRING']`       |
+| macOS mas           | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas           | False                           |     NA      | `[]` (empty array)             |
+| non mas             | any                             |     NA      | `[]` (empty array)             |
 
 ## Feuilles
 

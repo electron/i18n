@@ -50,7 +50,7 @@ Vous recherchez les meilleures pratiques en matière de sécurité ? Rechercher 
 
 ## Paquets npm
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. Pour faciliter la découverte de ces modules, nous avons créé [`electron-npm-packages`], une collection des plus de 3400 modules dans le registre qui sont construits spécifiquement pour être utilisés avec Electron.
+Il y a maintenant plus de 700 000 packages dans le registre npm et ce n'est pas toujours facile de trouver celui dont vous avez besoin. Pour faciliter la découverte de ces modules, nous avons créé [`electron-npm-packages`], une collection des plus de 3400 modules dans le registre qui sont construits spécifiquement pour être utilisés avec Electron.
 
 Les gens de [Bibliothèques. o](https://libraries.io) ont créé [SourceRank](https://docs.libraries.io/overview.html#sourcerank), un système de notation de projets logiciels basé sur une combinaison de métriques comme code, communauté, documentation et utilisation. Nous avons créé un module [`source`] qui inclut le score de chaque module dans le registre npm, et nous utilisons ces scores pour trier les résultats du paquet.
 

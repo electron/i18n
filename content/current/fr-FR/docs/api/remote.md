@@ -43,7 +43,7 @@ Les types de valeurs primaires comme les chaînes de caractères et les nombres,
 
 Le code dans le processus principal peut accepter les callbacks du moteur de rendu - par exemple le module `distant` - mais vous devriez être extrêmement prudent lorsque vous utilisez cette fonctionnalité .
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Premièrement, afin éviter les blocages, les callbacks passés au processus principal sont appelés de manière asynchrone. Vous ne devez pas vous attendre à ce que le processus principal récupère la valeur de retour des callbacks passés.
 
 Par exemple, vous ne pouvez pas utiliser une fonction du processus de rendu dans un `Array.map` appelé dans le processus principal :
 
@@ -72,7 +72,7 @@ Comme vous pouvez le voir, la valeur synchrone de la fonction de rappel du moteu
 
 Deuxièmement, les callbacks passés au processus principal persisteront jusqu'à ce que le processus principal les ramasse.
 
-Par exemple, le code suivant semble innocent à première vue. It installs a callback for the `close` event on a remote object:
+Par exemple, le code suivant semble innocent à première vue. Il installe un callback pour l'évènement de `fermeture` sur un objet distant :
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -153,4 +153,4 @@ Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans
 
 ### `remote.process` _Readonly_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Un objet `NodeJS.Process`.  L'objet `process` dispose des méthodes suivantes. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
