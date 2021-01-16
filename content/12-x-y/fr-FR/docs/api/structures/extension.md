@@ -1,7 +1,7 @@
 # Objet d'extension
 
 * `id` String
-* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
+* `manifest` any - Copie des [données manifeste de l'extension](https://developer.chrome.com/extensions/manifest).
 * `name` String
 * `path` String - Chemin du fichier de l'extension.
 * `version` String

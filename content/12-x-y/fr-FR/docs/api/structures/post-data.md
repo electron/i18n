@@ -1,12 +1,12 @@
 # PostData Object
 
 * `type` String - One of the following:
-  * `rawData` - The data is available as a `Buffer`, in the `rawData` field.
-  * `file` - The object represents a file. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+  * `rawData` - Les données sont disponibles en tant que `Buffer`, dans le champ `rawData`.
+  * `file` - L'objet représente un fichier. Les champs `filePath`, `offset`, `length` et `modificationTime` seront utilisés pour décrire le fichier.
+  * `blob` - L'objet représente un `Blob`. Le champ `blobUID` sera utilisé pour décrire le `Blob`.
+* `bytes` String (facultatif) - Les octets bruts des données du post dans un `Buffer`. Requis pour le type de `rawData`.
+* `path` String (facultatif) - Le chemin du fichier en cours de téléchargement. Requis pour le type de `fichier`.
+* `blobUUID` String (facultatif) - Le `UUID` du `Blob` en cours de téléchargement. Requis pour le type de `blob`.
+* `offset` Integer (facultatif) - Le décalage depuis le début du fichier étant téléchargé, en octets. Uniquement valable pour les types `fichiers`.
+* `longueur` Integer (facultatif) - La longueur du fichier en cours de téléchargement, en octets. Si réglé sur `-1`, le fichier entier sera téléchargé. Uniquement valable pour les types `fichiers`.
+* `modificationTime` Double (facultatif) - L'heure de modification du fichier représenté par un double, qui est le nombre de secondes depuis l'`Epoque UNIX` (1 janvier 1970). Uniquement valable pour les types `fichiers`.

@@ -64,7 +64,7 @@ pour (let i = 0; i < 10000; ++i) {
 
 La gestion des ressources dans le module `distant` est simple. À chaque fois qu'un objet est demandé, un message est envoyé au processus principal et Electron stockera l'objet dans une carte et assignera un ID pour cela, puis renvoyer l'ID au processus de rendu . Dans le processus de rendu le module `distant` recevra l'ID et l'enveloppera avec un objet proxy et lorsque l'objet proxy sera déchainé collecté, un message sera envoyé au processus principal pour libérer l'objet.
 
-Using `remote.require` API as an example, a simplified implementation looks like this:
+En utilisant l'API `remote.require` comme exemple, une implémentation simplifiée semble comme cela:
 
 ```javascript
 remote.require = function (nom) {

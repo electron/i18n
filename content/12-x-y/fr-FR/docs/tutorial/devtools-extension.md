@@ -69,7 +69,7 @@ Les Extensions Devtools suivantes ont été testées et sont garanties de foncti
 
 Tout d'abord, assurez-vous que l'extension est toujours maintenue, et qu'elle est compatible avec la dernière version de Google Chrome. Nous ne pouvons pas fournir de support supplémentaire pour les extensions non prises en charge.
 
-If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker][issue-tracker] and describe which part of the extension is not working as expected.
+Si l'extension fonctionne sur Chrome mais pas sur Electron, signalez une bug dans le traqueur de tickets d'Electron en décrivant quelle partie de l'extension ne fonctionne pas comme prévu.
 
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
 [session]: ../api/session.md
@@ -79,4 +79,3 @@ If the extension works on Chrome but not on Electron, file a bug in Electron's [
 [remove-extension]: ../api/session.md#sesremoveextensionextensionid
 [electron-devtools-installer]: https://github.com/MarshallOfSound/electron-devtools-installer
 [supported-extension-apis]: ../api/extensions.md
-[issue-tracker]: https://github.com/electron/electron/issues

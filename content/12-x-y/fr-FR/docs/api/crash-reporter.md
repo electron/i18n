@@ -12,7 +12,7 @@ const { crashReporter } = require('electron')
 crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
-Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser projets suivants :
+Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser les projets suivants :
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)

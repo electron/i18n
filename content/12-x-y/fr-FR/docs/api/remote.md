@@ -4,11 +4,11 @@
 
 Processus : [Rendu](../glossary.md#renderer-process)
 
-> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ ATTENTION ⚠️ Le module `remote` est [obsolète](https://github.com/electron/electron/issues/21408). Au lieu de `remote`, utilisez [`ipcRenderer`](ipc-renderer.md) et [`ipcMain`](ipc-main.md).
 > 
-> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> En savoir plus sur pourquoi le module `remote` est obsolète [ici](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+> Si vous voulez toujours utiliser `remote` malgré les problèmes de performance et de sécurité , voir [@electron/remote](https://github.com/electron/remote).
 
 Le module `remote` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
@@ -50,7 +50,7 @@ Les types de valeurs primaires comme les chaînes de caractères et les nombres,
 
 Le code dans le processus principal peut accepter les callbacks du moteur de rendu - par exemple le module `distant` - mais vous devriez être extrêmement prudent lorsque vous utilisez cette fonctionnalité .
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Premièrement, afin éviter les blocages, les callbacks passés au processus principal sont appelés de manière asynchrone. Vous ne devez pas vous attendre à ce que le processus principal récupère la valeur de retour des callbacks passés.
 
 Par exemple, vous ne pouvez pas utiliser une fonction du processus de rendu dans un `Array.map` appelé dans le processus principal :
 
@@ -79,7 +79,7 @@ Comme vous pouvez le voir, la valeur synchrone de la fonction de rappel du moteu
 
 Deuxièmement, les callbacks passés au processus principal persisteront jusqu'à ce que le processus principal les ramasse.
 
-Par exemple, le code suivant semble innocent à première vue. It installs a callback for the `close` event on a remote object:
+Par exemple, le code suivant semble innocent à première vue. Il installe un callback pour l'évènement de `fermeture` sur un objet distant :
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -158,7 +158,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _Readonly_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Un objet `NodeJS.Process`.  L'objet `process` dispose des méthodes suivantes. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties

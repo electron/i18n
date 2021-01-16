@@ -12,7 +12,7 @@ const { crashReporter } = require('electron')
 crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
-Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser projets suivants :
+Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser les projets suivants :
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
@@ -86,7 +86,7 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 ### `crashReporter.getCrashesDirectory()` _Deprecated_
 
-Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+Retourne `String` - Le répertoire où les plantages sont temporairement stockés avant d'être téléchargés.
 
 **Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
 

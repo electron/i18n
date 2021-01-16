@@ -42,7 +42,7 @@ Les options non supportées sont :
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées :
 
 ```sh
 --max-http-header-size

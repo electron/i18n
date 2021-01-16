@@ -34,7 +34,7 @@ Ou si vous utilisez [yarn](https://yarnpkg.com/lang/en/docs/migrating-from-npm/#
 yarn add electron --dev --exact
 ```
 
-If you were already using third-party definitions like `@types/electron` and `@types/node`, you should remove them from your Electron project to prevent any collisions.
+Si vous utilisiez déjà des définitions tierces telles que `@types/electron ` et `@types/node`, vous devez les supprimer de votre projet Electron pour éviter toutes collisions.
 
 Le fichier de définition est dérivé de notre documentation API structurée [](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), donc il sera toujours cohérent avec la documentation API de [Electron](https://electronjs.org/docs/api/). Installez simplement `electron` et vous obtiendrez toujours les définitions TypeScript qui sont à jour avec la version d'Electron que vous utilisez.
 
