@@ -1,4 +1,4 @@
-## Class: ServiceWorkers
+## ServiceWorkerを有効にする
 
 > session のアクティブなサービスワーカーからのイベントを問い合わせて受信します。
 
