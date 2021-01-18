@@ -522,7 +522,7 @@ app.exit(0)
 * `options` Object (опционально)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+On Linux, focuses on the first visible window. В macOS делает приложение активным. В Windows фокусируется на первом окне приложения.
 
 You should seek to use the `steal` option as sparingly as possible.
 

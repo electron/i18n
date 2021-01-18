@@ -70,7 +70,7 @@ Note the third parameter `true` indicates that the listener will always receive 
 
 #### Intercepting events in the main process
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Может быть использовано для захвата и управления ярлыками, которые не видны в меню.
+Событие [` before-input-event `](../api/web-contents.md#event-before-input-event) генерируется перед отправкой событий ` keydown ` и ` keyup ` на странице. Может быть использовано для захвата и управления ярлыками, которые не видны в меню.
 
 ##### Пример
 
