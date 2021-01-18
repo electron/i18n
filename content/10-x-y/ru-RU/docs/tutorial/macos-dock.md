@@ -8,7 +8,7 @@ __Dock меню из Terminal.app:__
 
 ![Меню док-станции][3]
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Чтобы настроить собственное Dock меню, вы можете использовать API ` app.dock.setMenu `, которое доступно только в macOS:
 
 ```javascript
 const { app, Menu } = require('electron')

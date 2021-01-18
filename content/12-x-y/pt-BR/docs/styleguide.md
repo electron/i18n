@@ -167,15 +167,15 @@ Abaixo do método, há informações mais detalhadas sobre cada um dos argumento
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Booleano`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Ou um tipo customizado como o [`WebContent`](api/web-contents.md) do Electron
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+Se um argumento ou um método for exclusivo para determinadas plataformas, essas plataformas são denotadas usando uma lista itálica delimitada pelo espaço seguindo o tipo de dados. Os valores podem ser `macOS`, `Windows` ou `Linux`.
 
 ```markdown
 * 'animar' Boolean (opcional) _macOS_ _Windows_ - Animar a coisa.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Os argumentos do tipo `Array` devem especificar quais elementos a array pode incluir na descrição abaixo.
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 

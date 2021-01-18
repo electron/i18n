@@ -6,7 +6,7 @@
 
 Если ваше приложение не использует родные модули, то создать версию приложения очень просто.
 
-1. Make sure that your app's `node_modules` directory is empty.
+1. Убедитесь, что каталог `node_modules` вашего приложения пуст.
 2. Используя _Command Prompt_, запустите `set npm_config_arch=arm64` перед запуском `npm install`/`yarn install` как обычно.
 3. [Если Electron установлен в качестве разработчика зависимостей](quick-start.md#prerequisites), npm загрузит и распакует версию arm64. После этого вы можете распространять ваше приложение нормально.
 
