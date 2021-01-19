@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14558",
-    "translated": "11894",
+    "translated": "11922",
     "approved": "3149",
     "words": "176011",
-    "words_translated": "142690",
+    "words_translated": "143123",
     "words_approved": "34958",
     "translated_progress": 81,
     "approved_progress": 19,
-    "qa_issues": 5102
+    "qa_issues": 5118
   }
 ]
