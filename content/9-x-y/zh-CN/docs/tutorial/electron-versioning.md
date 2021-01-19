@@ -102,10 +102,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 图片中的生命周期示例:
 
-* 创建了一个新的发行分支，包括最新的功能。 它已发布为 `2.0.0-beta.1`。 ![](../images/versioning-sketch-3.png)
+* 创建了一个新的发行分支，包括最新的功能。 它会被发布为 `2.0.0-beta.1`。 ![](../images/versioning-sketch-3.png)
 * Bug 修复会被导入主，可以返回发布分支。 补丁已应用，一个新测试版已发布为 `2.0.0-beta.2`。 ![](../images/versioning-sketch-4.png)
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
-* 后来，揭露了零天的利用情况，并对大师采取了补救措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![](../images/versioning-sketch-6.png)
+* 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![](../images/versioning-sketch-6.png)
 
 几个不同的 semver 范围将如何接收新版本的示例:
 
