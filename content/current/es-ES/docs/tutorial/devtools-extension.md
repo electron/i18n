@@ -1,20 +1,20 @@
 # Extensión de Chrome DevTools
 
-Electron supports [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
+Electron soporta [Chrome DevTools extensions](https://developer.chrome.com/extensions/devtools), el cual puede ser usado para extender la habilidad de las herramientas de desarrollo de Chrome para depurar web frameworks populares.
 
-## Loading a DevTools extension with tooling
+## Cargando una extensión DevTools con herramientas
 
-The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) is a popular NPM package that does just that.
+La forma más fácil de cargar una extensión DevTools es utilizar herramientas de terceros para automatizar el proceso por usted. [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) es un popular paquete NPM que hace justamente eso.
 
-## Manually loading a DevTools extension
+## Cargando una extensión DevTools manualmente
 
-If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session](../api/session.md) by calling the [`ses.loadExtension`] API.
+Si no quiere usar el enfoque de herramientas, también puede hacer todas las operaciones necesarias a mano. Para cargar una extensión en Electron, necesitas descargarlo a través Chrome, localiza la ruta de su sistema de archivo y luego cárgalo dentro de tu [Session](../api/session.md) llamando a la API [`ses.loadExtension`].
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as an example:
+Usando el [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) como un ejemplo:
 
-1. Install the extension in Google Chrome.
+1. Instala la extensión en Google Chrome.
 1. Acceder a `chrome://extensions`, e identificar el ID de la extensión, que es una cadena de texto como `fmkadmapgofadopljbjfkapdkoienihi`.
-1. Find out the filesystem location used by Chrome for storing extensions:
+1. Encuentra la ubicación del sistema de archivo usado por Chrome para alamacenar las extensiones:
    * en Windows es `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * en Linux pueden ser:
      * `~/.config/google-chrome/Default/Extensions/`
@@ -22,14 +22,14 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * en macOS es `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pass the location of the extension to the [`ses.loadExtension`](../api/session.md#sesloadextensionpath) API. For React Developer Tools `v4.9.0`, it looks something like:
+1. Pasa la ubicación de la extensión a la API [`ses.loadExtension`](../api/session.md#sesloadextensionpath). Para React Developer Tools `v4.9.0`, se ve algo como:
 
    ```javascript
     const { app, session } = require('electron')
     const path = require('path')
     const os = require('os')
 
-    // on macOS
+    // en macOS
     const reactDevToolsPath = path.join(
       os.homedir(),
       '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
@@ -42,9 +42,9 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 **Notas:**
 
-* `loadExtension` returns a Promise with an [Extension object](../api/structures/extension.md), which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
-* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
-* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+* `loadExtension` devuelve una Promise con un [Extension object](../api/structures/extension.md), que contiene metadatos sobre la extensión que fue cargada. Esta promise necesita resolver (p. ej. con una expresión `await`) antes de cargar una página. De lo contrario, no estará garantizada la carga de la extensión.
+* `loadExtension` no puede ser llamada antes de que el evento `ready` del módulo `app`sea emitido, ni puede ser llamado en sesiones en memoria (no persistente).
+* `loadExtension` debe ser llamado en cada arranque de tu aplicación si quieres que la extensión sea cargada.
 
 ### Removing a DevTools extension
 

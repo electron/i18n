@@ -4,9 +4,9 @@
 
 Все [встроенные модули Node.js](https://nodejs.org/api/) доступны в Electron и сторонних модулях (включая [нативные модули](../tutorial/using-native-node-modules.md)).
 
-Кроме того, Electron предоставляет дополнительные встроенные модули для разработки нативных дестопных приложений. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
+Кроме того, Electron предоставляет дополнительные встроенные модули для разработки нативных дестопных приложений. Некоторые модули доступны только в главном процессе, некоторые доступны только в процессе отрисовки (веб-страницы), а некоторые могут быть использованы в обоих процессах.
 
-Основное правило: если модуль связан с [GUI][gui] или системой низкого уровня, то должно быть доступно только в основном процессе. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
+Основное правило: если модуль связан с [GUI][gui] или системой низкого уровня, то должно быть доступно только в основном процессе. Вам нужно быть знакомым с концепцией скриптов [главного процесса и процесса отрисовки](../tutorial/quick-start.md#main-and-renderer-processes), чтобы иметь возможность использовать эти модули.
 
 Скрипт основного процесса похож на обычный скрипт Node.js:
 
@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules if `nodeIntegration` is enabled:
+Процесс отрисовки ничем не отличается от обычной веб-страницы, за исключением дополнительной возможности использования модулей node, если параметр `nodeIntegration` имеет значение "Включён":
 
 ```html
 <!DOCTYPE html>

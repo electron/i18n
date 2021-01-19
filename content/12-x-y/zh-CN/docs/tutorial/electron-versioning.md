@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-*小于 2.0*的 Electron 版本编号并不遵循 [semver](https://semver.org) 规范: major 版本对应最终用户 API 的变更, minor 版本更新对应 Chromium 的主版本更新, patch 版本更新会带来新功能和 bug 修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+*小于 2.0 * 的 Electron 版本编号并不遵循 [semver](https://semver.org) 规范: major 版本对应最终用户 API 的变更, minor 版本更新对应 Chromium 的主版本更新, patch 版本更新会带来新功能和 bug 修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -56,7 +56,7 @@ npm install --save-dev electron@latest
 
 ![](../images/versioning-sketch-1.png)
 
-既然Electron 8, 稳定分支总是 **个主要版本行** 并根据以下模板 `$MAJOR-x-y` e命名。 。 `8-x-y`  在此之前，我们使用 **个次要的** 版本行，并将它们命名为 `$MAJOR-$MINOR-x` 例如： `2-0-x`
+自 Electron 8 以来，稳定分支始终为 **marjar** 版本，并且根据以下模板 `$MAJOR-x-y` 例如： `8-x-y`。  在此之前，我们使用 **minor** 版本行，并将它们命名为 `$MAJOR-$MINOR-x` 例如： `2-0-x`
 
 我们允许同时存在多个稳定分支，并且打算在任何时候至少支持两个并行支持安全修复。 ![](../images/versioning-sketch-2.png)
 
@@ -84,7 +84,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 特别地，上述步骤意味着：
 
-1. 允许在测试周期第三周之前进行非拆解-API更改，即使这些更改有可能造成适度的副效果
+1. 在测试周期的第 3 周前允许非破坏性的 API 更改，即使这些变化有可能造成适度的副影响。
 2. 接受特征标记的更改，这些更改不会改变现有的代码路径。在测试周期中的大多数点都是好的。 用户可以在他们的应用中明确启用那些标记。
 3. 第三周之后在测试周期内接纳任何类型的功能是 👎 没有很好的理由。
 
@@ -101,10 +101,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 图片中的生命周期示例:
 
-* 创建了一个新的发行分支，包括最新的功能。 它已发布为 `2.0.0-beta.1`。 ![](../images/versioning-sketch-3.png)
+* 创建了一个新的发行分支，包括最新的功能。 它会被发布为 `2.0.0-beta.1`。 ![](../images/versioning-sketch-3.png)
 * Bug 修复会被导入主，可以返回发布分支。 补丁已应用，一个新测试版已发布为 `2.0.0-beta.2`。 ![](../images/versioning-sketch-4.png)
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
-* 后来，揭露了零天的利用情况，并对大师采取了补救措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![](../images/versioning-sketch-6.png)
+* 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![](../images/versioning-sketch-6.png)
 
 几个不同的 semver 范围将如何接收新版本的示例:
 

@@ -79,7 +79,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 * `id` String
 
-Returns `MenuItem | null` the item with the specified `id`
+Возвращает элемент `MenuItem` с указанным `id`
 
 #### `menu.insert(pos, menuItem)`
 
