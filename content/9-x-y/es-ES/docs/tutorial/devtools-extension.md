@@ -45,15 +45,15 @@ Usando el [React Developer Tools][react-devtools] como un ejemplo:
 * `loadExtension` no puede ser llamada antes de que el evento `ready` del módulo `app`sea emitido, ni puede ser llamado en sesiones en memoria (no persistente).
 * `loadExtension` debe ser llamado en cada arranque de tu aplicación si quieres que la extensión sea cargada.
 
-### Removing a DevTools extension
+### Eliminando una extensión DevTools
 
-Puedes pasar la ID de la extensión a la API [`ses.removeExtension`][remove-extension] para eliminarla de tu Session. Loaded extensions are not persisted between app launches.
+Puedes pasar la ID de la extensión a la API [`ses.removeExtension`][remove-extension] para eliminarla de tu Session. Las extensiones cargadas no son persistidas entre los lanzamientos de la aplicación.
 
-## DevTools extension support
+## Soporte de extensión DevTools
 
 Electron sólo soporta [un limitado conjunto de APIs de `chrome.*`][supported-extension-apis], así que las extensiones usando APIs de `chrome.*` no soportadas bajo el capo puede que no funcione.
 
-The following Devtools extensions have been tested to work in Electron:
+Las siguientes extensiones Devtools han siso probadas para funcionar en Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -65,9 +65,9 @@ The following Devtools extensions have been tested to work in Electron:
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools extension is not working?
+### ¿Qué debería hacer si una extensión DevTools no está funcionando?
 
-First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
+Primero, por favor asegúrese que la extensión todavía sigue siendo mantenida y es compatible con la última versión de Google Chrome. No podemos proveer soporte adicional para extensiones no soportadas.
 
 Si la extensión funciona en Chrome pero no en Electron, registra el error en el [issue tracker][issue-tracker] de Electron y describe que parte de la extensión no esta funcionando como se espera.
 

@@ -41,17 +41,17 @@ window.electron.doThing()
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _実験的_
 
 * `apiKey` String - `window` に API を注入するキー。  その API には `window[apiKey]` でアクセスできます。
-* `api` Record<String, any> - API オブジェクトです。この詳細と動作については下記を参照してください。
+* `api` Record - あなたの API です。この詳細と動作については下記を参照してください。
 
 ## 使い方
 
-### API オブジェクト
+### API
 
-[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` オブジェクトは、キーが文字列で値が `Function`、`String`、`Number`、`Array`、`Boolean`、または同じ条件を満たすオブジェクトがネストされたものです。
+[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` は、`Function`、`String`、`Number`、`Array`、`Boolean`、または文字列のキーで `Function`、`String`、`Number`、`Array`、`Boolean`、同じ条件を満たすオブジェクトのいずれかの値の、入れ子でなければなりません。
 
-`Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。 API オブジェクトで送信されるデータ/プリミティブはイミュータブルであり、ブリッジの一方で更新しても、他方のものは更新されません。
+`Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。 API で送信されるデータ/プリミティブはイミュータブルであり、ブリッジの一方で更新しても他方のものは更新されません。
 
-複合的な API オブジェクトの例を以下に示します。
+複雑な API の例を以下に示します。
 
 ```javascript
 const { contextBridge } = require('electron')

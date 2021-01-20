@@ -41,17 +41,17 @@ When `contextIsolation` is enabled in your `webPreferences`, your `preload` scri
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
 * `apiKey` String - Ключ для вставки API в `window`.  API будет доступен в `window[apiKey]`.
-* `api` Record<String, any> - Ваш объект API, более подробная информация о том, что это и как он будет работать, доступна ниже.
+* `api` any - Your API, more information on what this API can be and how it works is available below.
 
 ## Использование
 
-### API Objects
+### API
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+The `api` provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be a `Function`, `String`, `Number`, `Array`, `Boolean`, or an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
 
-Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
+Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. Any data / primitives sent in the API become immutable and updates on either side of the bridge do not result in an update on the other side.
 
-Пример сложного объекта API показан ниже:
+An example of a complex API is shown below:
 
 ```javascript
 const { contextBridge } = require('electron')
