@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-启动 Electron 应用程序后，尝试将该项从 BroswerWindow 拖放到桌面上。 在本指南中，本项是位于项目根目录下的 Markdown 文件：
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. 在本指南中，本项是位于项目根目录下的 Markdown 文件：
 
 ![拖动](../images/drag-and-drop.gif)

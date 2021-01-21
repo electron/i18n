@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Après avoir lancé l'application Electron, essayez de glisser-déposer l'élément depuis la BroswerWindow jusqu'à votre bureau. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet :
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet :
 
 ![Glisser-déposer](../images/drag-and-drop.gif)
