@@ -3,14 +3,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "14563",
-    "translated": "10283",
+    "translated": "10287",
     "approved": "2263",
     "words": "176121",
-    "words_translated": "122796",
+    "words_translated": "122851",
     "words_approved": "24937",
     "translated_progress": 69,
     "approved_progress": 14,
-    "qa_issues": 1144
+    "qa_issues": 1145
   },
   {
     "name": "French",
