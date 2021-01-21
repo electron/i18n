@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Nachdem Sie die Electron-Anwendung gestartet haben, versuchen Sie das Element aus dem Broswer-Fenster auf Ihren Desktop zu ziehen. In dieser Anleitung ist das Element eine Markdown-Datei, die sich im Stammverzeichnis des Projekts befindet:
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. In dieser Anleitung ist das Element eine Markdown-Datei, die sich im Stammverzeichnis des Projekts befindet:
 
 ![Ziehen und Ablegen](../images/drag-and-drop.gif)

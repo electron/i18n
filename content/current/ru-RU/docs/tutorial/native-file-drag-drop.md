@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-После запуска приложения Electron попробуйте перетащить элемент с BroswerWindow на рабочий стол. В этом руководстве элемент является Markdown файлом, расположенным в корне проекта:
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. В этом руководстве элемент является Markdown файлом, расположенным в корне проекта:
 
 ![Перетаскивание](../images/drag-and-drop.gif)

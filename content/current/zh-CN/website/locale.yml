@@ -53,7 +53,7 @@ community:
     get_started: "通过阅读<a href='/docs/tutorial/first-app'>快速入门指南</a>来开始构建一个应用。"
     updates: "通过关注Twitter账号<a href='https://twitter.com/electronjs'>@electronjs</a> 和订阅<a href='/blog'>博客Feed</a>来获取最新消息。"
     localized_docs: "通过访问<a href='/languages'>语言页面</a>来阅读你<a href='/languages'><b>本地语言的文档</b></a>。"
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "通过加入 <a href='https://discord.gg/electron'>Discord server</a>, 发送 <a href='https://discuss.atom.io/c/electron'>Discuss</a>, 或者访问<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a><b>来获取帮助和反馈</b>。"
     security: "发送邮件到<a href='mailto:security@electronjs.org'>security@electronjs.org</a>来<a href='mailto:security@electronjs.org'><b>报告安全问题</b></a> 。"
     bugs: "通过在 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交 issues 来<a href='https://github.com/electron/electron/issues'><b>报告 BUG</b></a>。"
     feature_requests: "通过在<a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交issues来<a href='https://github.com/electron/electron/issues'><b>提交功能申请</b></a>。"
@@ -89,7 +89,7 @@ releases:
   back_to_index: 返回索引
 electron_is_good:
   title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  description: 数千个跨行业的组织使用 Electron 构建跨平台软件。
 electron_is_easy:
   title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
@@ -117,7 +117,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示例程序</a>采用交互式界面展示了 Electron API 最关键的功能。通过代码样例和提示发掘 Electron 的无限可能，踏上你的开发之旅。"
   fiddle_title: 借助 Electron Fiddle 深入探索
   see_more_info: 详细了解
-download: Download
+download: 下载
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:

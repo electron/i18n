@@ -4,7 +4,7 @@ Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-
 
 > **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-## Loading extensions
+## Cargar extensiones
 
 Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath):
 

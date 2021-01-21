@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Después de lanzar la aplicación Electron, trata de arrastrar y soltar el elemento de la ventana a su escritorio. En esta guía, el elemento es un archivo Markdown ubicado en la raíz del proyecto:
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. En esta guía, el elemento es un archivo Markdown ubicado en la raíz del proyecto:
 
 ![Arrastre y suelte](../images/drag-and-drop.gif)
