@@ -81,18 +81,23 @@ Then edit `.env` and add your token.
 npm run build
 ```
 
-### Adding a Language
+### Adding or Removing Languages
 
-Occasionally people ask for new languages to be enabled for translation. The 
-process for this is simple:
+To modify the list of supported languages:
 
 1. Visit https://crowdin.com/project/electron/settings#translations
 1. Click the [Target Languages] button.
 1. Choose your language(s) you wish to add (or remove):
 
-<img src="https://user-images.githubusercontent.com/2289/34370816-40f085bc-ea7c-11e7-9700-8d346d61113f.png">
+![CrowdIn Language UI]("https://user-images.githubusercontent.com/2289/34370816-40f085bc-ea7c-11e7-9700-8d346d61113f.png")
 
-That's it! The Crowdin stats and language list in the README will be updated automatically when `npm run build` is run.
+Afterwards, when `npm build is run`, the language list in the README will be updated and
+the `content` folder will be cleaned up to remove any stale languages.
+
+**N.B.** When modifying the language list, tests may fail both in this repository and on
+[electron/electronjs.org](https://github.com/electron/electronjs.org). Please modify any
+tests that previously relied on removed languages or that counted the number of available
+localizations.
 
 ### Source Content
 
