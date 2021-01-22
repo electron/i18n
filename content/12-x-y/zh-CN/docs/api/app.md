@@ -968,9 +968,9 @@ For `infoType` equal to `complete`: Promise is fulfilled with `Object` containin
 
 如果只需要基本信息，如` vendorId `或` driverId `，则应优先使用` basic `。
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
 
 返回 ` Boolean `-是否成功调用。
 

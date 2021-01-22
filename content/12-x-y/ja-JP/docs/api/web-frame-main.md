@@ -90,6 +90,39 @@ These methods can be accessed from the `webFrameMain` module:
 
 Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
 
+#### `frame.send(channel, ...args)`
+
+* `channel` String
+* `...args` any[]
+
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
+
+#### `frame.postMessage(channel, message, [transfer])`
+
+* `channel` String
+* `message` any
+* `transfer` MessagePortMain[] (任意)
+
+レンダラープロセスにメッセージを送信し、任意で 0 個以上の [`MessagePortMain`][] オブジェクトの所有権を転送します。
+
+転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
+
+例:
+
+```js
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
+
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
+})
+```
+
 ### インスタンスプロパティ
 
 #### `frame.url` _読み出し専用_
