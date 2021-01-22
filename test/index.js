@@ -4,7 +4,7 @@ const chai = require('chai')
 chai.should()
 chai.use(require('chai-date-string'))
 const { expect } = chai
-const { describe, it, xit } = require('mocha')
+const { describe, it } = require('mocha')
 const i18n = require('../dist')
 const cheerio = require('cheerio')
 
@@ -13,7 +13,7 @@ describe('i18n.docs', () => {
     const locales = Object.keys(i18n.docs)
     locales.should.include('en-US')
     locales.should.include('fr-FR')
-    locales.length.should.be.above(7)
+    locales.length.should.equal(8)
   })
 
   it('is an object with docs objects as values', () => {
@@ -47,17 +47,6 @@ describe('i18n.docs', () => {
     html.should.not.contain('</body>')
   })
 
-  // disabled until we come up with a nice strategy for
-  // dealing with renamed files in electron/electron and how to redirect
-  //
-  // it('ignores files that have a special <!-- i18n-ignore --> HTML comment', () => {
-  //   fs.existsSync(path.join(__dirname, '../content/en-US/docs/tutorial/electron-versioning.md')).should.eq(true)
-
-  //   const filenames = Object.keys(i18n.docs['en-US'])
-  //   filenames.should.include('/docs/tutorial/versioning')
-  //   filenames.should.not.include('/docs/tutorial/electron-versioning')
-  // })
-
   describe('sections', () => {
     it('breaks up HTML into sections, for language-toggling on the website', () => {
       const { sections } = i18n.docs['en-US']['/docs/api/accelerator']
@@ -66,7 +55,7 @@ describe('i18n.docs', () => {
       sections.every((section) => section.name && section.html).should.eq(true)
     })
 
-    xit('does not contain empty sections', function () {
+    it('does not contain empty sections', function () {
       this.timeout(15 * 1000)
       const locales = Object.keys(i18n.docs)
       locales.length.should.be.above(0)
@@ -247,11 +236,7 @@ describe('API Docs', () => {
       .should.eq(true)
   })
 
-  /** *********************************** FIXME **************************************
-   ** enable this test when the next stable release (> 1.8.3) of electron comes out **
-   ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
-   ***********************************************************************************/
-  it.skip('contains no empty links', () => {
+  it('contains no empty links', () => {
     Object.keys(i18n.docs['en-US']).forEach((href) => {
       const doc = i18n.docs['en-US'][href]
       doc.sections.forEach((section) => {
@@ -377,9 +362,7 @@ describe('i18n.navs', () => {
     keys.length.should.be.above(7)
   })
 
-  // TODO: This test starts failed for an undefined reason.
-  // Please try to re-enable after some time.
-  it.skip('has a value and has valid html content as values', () => {
+  it('has a value and has valid html content as values', () => {
     const values = Object.values(i18n.navs)
     values.every((value) => value.should.be.a('string'))
     values.every((value) => value.should.contain('<ul>'))
