@@ -2,7 +2,7 @@
 
 > 详细查看我们的版本控制策略和实现。
 
-自 2.0.0 版本起，Electron 遵循 [SemVer](#semver)。 以下命令将安装最新稳定版的 Electron：
+As of version 2.0.0, Electron follows [SemVer](#semver). 以下命令将安装最新稳定版的 Electron：
 
 ```sh
 npm install --save-dev electron
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-*小于 2.0 * 的 Electron 版本编号并不遵循 [semver](https://semver.org) 规范: major 版本对应最终用户 API 的变更, minor 版本更新对应 Chromium 的主版本更新, patch 版本更新会带来新功能和 bug 修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+Electron versions *< 2.0* did not conform to the [SemVer](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -28,7 +28,7 @@ npm install --save-dev electron@latest
 
 我们的1.x战略有以下几项重大变化。 每次更改都是为了满足开发者/维护者和应用开发者的需要和优先事项。
 
-1. 严格使用 semver
+1. Strict use of SemVer
 2. 引入符合 semver 的 `-beta` 标签
 3. 引入[常规提交消息](https://conventionalcommits.org/)
 4. 明确定义的稳定分支
@@ -36,11 +36,11 @@ npm install --save-dev electron@latest
 
 我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
 
-# semver
+# SemVer
 
-从 2.0 开始，Electron 将遵循 semver。
+From 2.0 onward, Electron will follow SemVer.
 
-下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
+Below is a table explicitly mapping types of changes to their corresponding category of SemVer (e.g. Major, Minor, Patch).
 
 | Major 版本增量          | Minor 版本增量           | Patch 版本增量         |
 | ------------------- | -------------------- | ------------------ |
@@ -69,13 +69,13 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
 * 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 _ 合理稳定 _ 功能以及安全性和 bug 修复。
 
-第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 _pre-release 标识_ 来表示一个特定的版本还不 _安全_ 或 _稳定_.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 To accomplish this, SemVer allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
 无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 
 过程如下:
 
-1. 所有新的主要和次要的版本行都以 `beta 的分号预发布标签表示的测试系列开头。`, 例如 `2.0.0-beta.1`。 在第一次测试后，测试版随后的释放必须满足以下所有条件：
+1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. 在第一次测试后，测试版随后的释放必须满足以下所有条件：
     1. 更改是落后的 API 兼容 (允许废弃)
     2. 实现我们稳定的时间表的危险必须是低的。
 2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
@@ -84,7 +84,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 特别地，上述步骤意味着：
 
-1. 在测试周期的第 3 周前允许非破坏性的 API 更改，即使这些变化有可能造成适度的副影响。
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects.
 2. 接受特征标记的更改，这些更改不会改变现有的代码路径。在测试周期中的大多数点都是好的。 用户可以在他们的应用中明确启用那些标记。
 3. 第三周之后在测试周期内接纳任何类型的功能是 👎 没有很好的理由。
 
@@ -106,7 +106,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![测试版至稳定版](../images/versioning-sketch-5.png)
 * 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![安全移植](../images/versioning-sketch-6.png)
 
-几个不同的 semver 范围将如何接收新版本的示例:
+A few examples of how various SemVer ranges will pick up new releases:
 
 ![Semvers 和发行版](../images/versioning-sketch-7.png)
 
@@ -130,9 +130,9 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-* 会导致 semver **major** 版本改变的提交必须以`BREAKING CHANGE:`开头。
-* 提交会导致 semver **minor** 必须以 `feat:` 开头。
-* 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
+* Commits that would result in a SemVer **major** bump must start their body with `BREAKING CHANGE:`.
+* Commits that would result in a SemVer **minor** bump must start with `feat:`.
+* Commits that would result in a SemVer **patch** bump must start with `fix:`.
 
 * 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 * 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的

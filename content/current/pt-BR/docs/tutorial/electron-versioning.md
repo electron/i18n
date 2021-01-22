@@ -2,7 +2,7 @@
 
 > Uma visão detalhada da nossa política de versionamento e implementação.
 
-A partir da versão 2.0.0, o Electron segue [semver](#semver). O seguinte comando instalará a versão estável mais recente do Electron:
+As of version 2.0.0, Electron follows [SemVer](#semver). O seguinte comando instalará a versão estável mais recente do Electron:
 
 ```sh
 npm install --save-dev electron
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Versão 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Por mais que isso seja conveniente para que desenvolvedores do Electron mesclassem funcionalidades, isso cria problemas para desenvolvedores de aplicativos para o usuário final. Os ciclos de testes de QA de grandes aplicativos como Slack, Stride, Teams, Skype, VS Code, Atom e Desktop podem se tornar demorados, e a estabilidade é um resultado bastante desejado. Existe um alto risco ao se adotar novas funcionalidades ao mesmo tempo em que se tenta absorver correções de bugs.
+Electron versions *< 2.0* did not conform to the [SemVer](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Por mais que isso seja conveniente para que desenvolvedores do Electron mesclassem funcionalidades, isso cria problemas para desenvolvedores de aplicativos para o usuário final. Os ciclos de testes de QA de grandes aplicativos como Slack, Stride, Teams, Skype, VS Code, Atom e Desktop podem se tornar demorados, e a estabilidade é um resultado bastante desejado. Existe um alto risco ao se adotar novas funcionalidades ao mesmo tempo em que se tenta absorver correções de bugs.
 
 Aqui está um exemplo da estratégia da era 1.x:
 
@@ -28,7 +28,7 @@ Um app desenvolvido com o Electron versão `1.8.1` não pode receber as correç�
 
 Há várias mudanças importantes da nossa estratégia de 1,x descritas abaixo. Cada alteração tem a intenção de satisfazer as necessidades e prioridades dos desenvolvedores/mantenedores e desenvolvedores de aplicativos.
 
-1. Uso rigoroso do semver
+1. Strict use of SemVer
 2. Uso de tags `-beta` em conformidade com o semver
 3. Uso de [mensagens de commit convencionais](https://conventionalcommits.org/)
 4. Branches de estabilização bem definidas
@@ -36,11 +36,11 @@ Há várias mudanças importantes da nossa estratégia de 1,x descritas abaixo. 
 
 Explicaremos em detalhes como funcionam o esquema de branches do git, o esquema de tags do npm, o que desenvolvedores devem esperar ver e como é possível fazer o backport de alterações.
 
-# semver
+# SemVer
 
-Da versão 2.0 em diante, o Electron segue o padrão semver.
+From 2.0 onward, Electron will follow SemVer.
 
-Abaixo está uma tabela explicitamente mapeando os tipos de alterações correspondentes a sua categoria de semver (por exemplo, Grande, Menor, Patch).
+Below is a table explicitly mapping types of changes to their corresponding category of SemVer (e.g. Major, Minor, Patch).
 
 | Incrementos maiores de versão                | Incrementos de versão secundária        | Incrementos da versão de correção       |
 | -------------------------------------------- | --------------------------------------- | --------------------------------------- |
@@ -69,13 +69,13 @@ Desenvolvedores querem saber quais lançamentos são _seguros_ para usar. Até r
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` para admitir que recurso _razoavelmente estável_ não funciona assim como correções de segurança e erros.
 
-O que é importante no segundo ponto é que aplicativos que usam o `^` ainda devem esperar um nível razoável de estabilidade. Para fazer isso, semver permite que um _identificador de pré-lançamento_ indique uma determinada versão ainda não é _segura_ ou _estável._.
+O que é importante no segundo ponto é que aplicativos que usam o `^` ainda devem esperar um nível razoável de estabilidade. To accomplish this, SemVer allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
 
 Não importa o que escolher, você terá que subir periodicamente a versão no seu `package.json` pois as alterações de quebra são um fato da vida do Chromium.
 
 O processo é o seguinte:
 
-1. Todas as novas linhas de lançamentos principais e menores começam com uma série beta indicada pelas tags de pré-lançamento do beta `.`, por exemplo, `2.0.0-beta.1`. Após o primeiro beta, os lançamentos beta subsequentes devem satisfazer todas as seguintes condições:
+1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. Após o primeiro beta, os lançamentos beta subsequentes devem satisfazer todas as seguintes condições:
     1. A alteração é compatível com API anterior (deprecations são permitidas)
     2. O risco de cumprir o nosso tempo de estabilidade tem de ser baixo.
 2. Se permitidas alterações precisam ser feitas uma vez que o lançamento é beta, elas são aplicadas e a tag de pré-lançamento é aumentada, e. . `2.0.0-beta.2`. .
@@ -84,7 +84,7 @@ O processo é o seguinte:
 
 Especificamente, o significado acima significa:
 
-1. Admitir alterações que não quebram API antes da Semana 3 no ciclo beta está tudo bem, mesmo que essas mudanças tenham o potencial de causar efeitos colaterais moderados
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects.
 2. Admitindo alterações sinalizadas em recursos, que não alteram de outra forma caminhos de código existentes, na maior parte dos pontos do ciclo beta está tudo bem. Usuários podem habilitar explicitamente essas bandeiras em seus apps.
 3. Admitir recursos de qualquer tipo após a Semana 3 no ciclo beta é 👎 sem uma razão muito boa.
 
@@ -106,7 +106,7 @@ Um ciclo de vida de exemplo nas imagens:
 * A versão beta é considerada _geralmente estável_ e é publicada novamente como uma não-beta em `2.0.0`. ![Beta to Stable](../images/versioning-sketch-5.png)
 * Mais tarde, um exploit de dia zero é revelado e uma correção é aplicada ao mestre. Fazemos backup da correção para a linha `2-0-x` e lançamos `2.0.1`. ![Security Backports](../images/versioning-sketch-6.png)
 
-Alguns exemplos de como vários intervalos de sementes escolherão novos lançamentos:
+A few examples of how various SemVer ranges will pick up new releases:
 
 ![Semvers and Releases](../images/versioning-sketch-7.png)
 
@@ -130,9 +130,9 @@ As bandeiras de recursos são uma prática comum no Chromium, e estão bem estab
 
 Procuramos aumentar a clareza em todos os níveis da atualização e do processo de lançamento. Começando com `2.0.0` precisaremos de aderir às especificações de [Commits Convencionais](https://conventionalcommits.org/) , que podem ser resumidas da seguinte forma:
 
-* Commits que resultariam em uma semver **grande** explosiva deve iniciar seu corpo com `CHANGAR CHANGE:`.
-* Commits que resultariam em um sorvete **menor** deve começar com `feat:`.
-* Commits que resultariam em uma protuberância de **patch** semver deve começar com `fix:`.
+* Commits that would result in a SemVer **major** bump must start their body with `BREAKING CHANGE:`.
+* Commits that would result in a SemVer **minor** bump must start with `feat:`.
+* Commits that would result in a SemVer **patch** bump must start with `fix:`.
 
 * Autorizamos o esbanjamento de commits, desde que a mensagem esmagada adira ao formato da mensagem acima.
 * É aceitável para alguns commits em uma pull request não incluir um prefixo semântico, Contanto que o título do pull request contenha uma mensagem semântica significativa.
