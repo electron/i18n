@@ -969,9 +969,9 @@ Para `infoType` igual a `complete`: La promesa es completada con `Object` conten
 
 El uso de `basic` debería ser preferido si sólo se necesita información básica como `vendorId` o `driverId`.
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Entero
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 

@@ -90,6 +90,39 @@ Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 Devuelve `boolean` - Si la recarga fue iniciada correctamente. Solo resulta en `false` cuando el frame no tiene historial.
 
+#### `frame.send(channel, ...args)`
+
+* `channel` Cadena
+* `...args` any[]
+
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
+
+#### `frame.postMessage(channel, message, [transfer])`
+
+* `channel` Cadena
+* `mensaje` cualquiera
+* `transfer` MessagePortMain[] (optional)
+
+Envía un mensaje al renderer process, transfiriendo opcionalmente la propiedad de cero o más objetos [`MessagePortMain`][].
+
+Los objetos `MessagePortMain` transferidos estarán disponible en el renderer process accediendo a la propiedad `ports` del evento emitido. Cuando llegan al renderer, serán objetos DOM `MessagePort` nativos.
+
+Por ejemplo:
+
+```js
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
+
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
+})
+```
+
 ### Propiedades de Instancia
 
 #### `frame.url` _Readonly_

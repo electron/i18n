@@ -968,9 +968,9 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 Использование `basics` должно быть предпочтительным, если требуется только основная информация, такая как `vendorId` или `driverId`.
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
 
 Возвращает `Boolean` - был ли вызов успешным.
 

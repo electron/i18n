@@ -968,9 +968,9 @@ if (!gotTheLock) {
 
 `vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). Linux で値を指定しない場合、バッジは表示されません。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 

@@ -965,9 +965,9 @@ Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moin
 
 `basic` devrait être priorisé si vous n'avez besoin que d'informations basiques telles que `vendorId` ou `driverId`.
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
 
 Returns `Boolean` - Si l'appel a réussi.
 
