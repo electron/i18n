@@ -1096,7 +1096,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Включает режим песочницы во всём приложении. Это означает, что все рендереры будут запущены в песочнице, независимо от значения флага `sandbox` в WebPreferences.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
