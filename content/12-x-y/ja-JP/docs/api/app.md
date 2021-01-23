@@ -970,7 +970,7 @@ if (!gotTheLock) {
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). Linux で値を指定しない場合、バッジは表示されません。
+* `count` Integer (任意) - 値が指定されている場合は、指定された値のバッジを設定します。そうでない場合、macOS では無地の白点 (通知数不明などの意味) を表示します。 Linux で値を指定しない場合、バッジは表示されません。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
