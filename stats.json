@@ -68,14 +68,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "14585",
-    "translated": "10453",
+    "translated": "10454",
     "approved": "3465",
     "words": "176413",
-    "words_translated": "124144",
+    "words_translated": "124170",
     "words_approved": "35163",
     "translated_progress": 70,
     "approved_progress": 19,
-    "qa_issues": 3899
+    "qa_issues": 3900
   },
   {
     "name": "Spanish",
