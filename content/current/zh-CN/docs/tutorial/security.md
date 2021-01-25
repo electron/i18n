@@ -431,7 +431,7 @@ app.on('web-contents-created', (evidences, contents) => format@@
 
 ### 怎么做？
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`](../api/web-contents.md)将会在新窗口创建前传递给 [打开窗口的处理函数](../api/web-contents.md#contentssetwindowopenhandlerhandler)。 The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
@@ -536,7 +536,7 @@ const mainwindow = new BrowserWindow(
 const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
 
 const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const proxiedModules = new Map([['fs', readOnlyFsProxy]])
 const allowedElectronModules = new Set(['shell'])
 const allowedGlobals = new Set()
 

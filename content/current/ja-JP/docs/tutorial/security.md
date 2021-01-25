@@ -532,7 +532,7 @@ const mainWindow = new BrowserWindow({
 const readOnlyFsProxy = require(/* ... */) // ファイル読み込み機能のみを公開します
 
 const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const proxiedModules = new Map([['fs', readOnlyFsProxy]])
 const allowedElectronModules = new Set(['shell'])
 const allowedGlobals = new Set()
 
