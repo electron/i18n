@@ -617,36 +617,36 @@ Notez que l'option la plus sûre est de [désactiver complètement le module dis
 
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // n'expose que la fonctionnalité de lecture de fichier
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
 
 const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const proxiedModules = new Map([['fs', readOnlyFsProxy]])
 const allowedElectronModules = new Set(['shell'])
 const allowedGlobals = new Set()
 
-app. n('remote-require', (event, webContents, moduleName) => {
+app.on('remote-require', (event, webContents, moduleName) => {
   if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules. et(moduleName)
+    event.returnValue = proxiedModules.get(moduleName)
   }
   if (!allowedModules.has(moduleName)) {
     event.preventDefault()
   }
 })
 
-app. n('remote-get-builtin', (event, webContents, moduleName) => {
+app.on('remote-get-builtin', (event, webContents, moduleName) => {
   if (!allowedElectronModules.has(moduleName)) {
-    event. reventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals. as(globalName)) {
     event.preventDefault()
   }
 })
 
-app. n('remote-get-current-window', (event, webContents) => {
-  événement. reventDefault()
+app.on('remote-get-global', (event, webContents, globalName) => {
+  if (!allowedGlobals.has(globalName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-current-window', (event, webContents) => {
+  event.preventDefault()
 })
 
 app.on('remote-get-current-web-contents', (event, webContents) => {

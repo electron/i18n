@@ -534,36 +534,36 @@ Beachten Sie, dass die sicherste Option ist, [das Remote-Modul vollständig deak
 ### Wie?
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // Nur Dateien gelesen Funktionalität
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
 
-const allowedModule = new Set(['crypto'])
-const proxiedModule = new Map(['fs', readOnlyFsProxy])
+const allowedModules = new Set(['crypto'])
+const proxiedModules = new Map([['fs', readOnlyFsProxy]])
 const allowedElectronModules = new Set(['shell'])
 const allowedGlobals = new Set()
 
-app. n('remote-require', (event, webContents, moduleName) => {
+app.on('remote-require', (event, webContents, moduleName) => {
   if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules. et(moduleName)
+    event.returnValue = proxiedModules.get(moduleName)
   }
   if (!allowedModules.has(moduleName)) {
     event.preventDefault()
   }
 })
 
-app. n('remote-get-builtin', (event, webContents, moduleName) => {
+app.on('remote-get-builtin', (event, webContents, moduleName) => {
   if (!allowedElectronModules.has(moduleName)) {
-    event. reventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals. as(globalName)) {
     event.preventDefault()
   }
 })
 
-app. n('remote-get-current-window', (event, webContents) => {
-  Event. reventDefault()
+app.on('remote-get-global', (event, webContents, globalName) => {
+  if (!allowedGlobals.has(globalName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-current-window', (event, webContents) => {
+  event.preventDefault()
 })
 
 app.on('remote-get-current-web-contents', (event, webContents) => {
