@@ -65,7 +65,7 @@ Devuelve:
 
 This event is like `did-finish-load` but emitted when the load failed. La lista completa de los códigos de error y su significado está disponible [aquí](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
-#### Event: 'did-fail-provisional-load'
+#### Evento: 'did-fail-provisional-load'
 
 Devuelve:
 
@@ -409,7 +409,7 @@ Aparece cuando la ventana entra en un estado pantalla completa activado por la A
 
 Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
 
-#### Event: 'zoom-changed'
+#### Evento: 'zoom-changed'
 
 Devuelve:
 

@@ -114,7 +114,7 @@ Devuelve:
 
 Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
 
-#### Event: 'preconnect'
+#### Evento: 'preconnect'
 
 Devuelve:
 

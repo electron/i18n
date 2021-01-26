@@ -518,7 +518,7 @@ const mainwindow = new BrowserWindow(
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-> **注意**：从 Electron 10 开始 `enableRemoteModule` 选项默认为 `false`. 对于之前的版本，您需要显式禁用 `remote` 模块。
+> **注意**：从 Electron 10 开始 `enableRemoteModule` 选项默认为 `false`。 对于之前的版本，你需要显式禁用 `remote` 模块。
 
 ## 16) 筛选 `远程` 模块
 
@@ -572,7 +572,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) 使用当前版本的 Electron
 
-您应该努力始终使用最新版本的 Electron。 每当发布新的主要版本时，您应该尝试尽快更新您的应用。
+你应该努力始终去使用最新版本的 Electron。 每当发布新的主要版本时，你应该尝试尽快更新您的应用。
 
 ### 为什么？
 

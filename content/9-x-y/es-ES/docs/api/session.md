@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect'
+#### Evento: 'preconnect'
 
 Devuelve:
 

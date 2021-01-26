@@ -390,7 +390,7 @@ Aparece cuando la ventana entra en un estado pantalla completa activado por la A
 
 Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
 
-#### Event: 'zoom-changed'
+#### Evento: 'zoom-changed'
 
 Devuelve:
 * `event` Event

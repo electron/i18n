@@ -141,7 +141,7 @@ Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorksp
 
 ### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
+* `defaults` Record<String, String | Boolean | Number> - un diccionario de valores por de defectos del usuario (`key: value`)
 
 Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
 
@@ -278,7 +278,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `selected-content-background` - El fondo para el contenido seleccionado en una ventana clave o en una vista.
     * `selected-control` - La superficie de un control seleccionado.
     * `selected-control-text` - El texto un control seleccionado.
-    * `selected-menu-item-text` - The text of a selected menu.
+    * `selected-menu-item-text` - El texto del menú seleccionado.
     * `selected-text-background` - El fondo de un texto seleccionado.
     * `selected-text` - Texto seleccionado.
     * `separator` - Un separado entre las diferentes secciones del contenido.

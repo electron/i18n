@@ -95,7 +95,7 @@ Devuelve `boolean` - Si la recarga fue iniciada correctamente. Solo resulta en `
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Los argumentos serán serializados con la \[Structured Clone Algorithm\]\[SCA\], al igual que [`postMessage`][], así que las cadenas de prototipos no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
@@ -112,11 +112,11 @@ Los objetos `MessagePortMain` transferidos estarán disponible en el renderer pr
 Por ejemplo:
 
 ```js
-// Main process
+// Proceso Principal
 const { port1, port2 } = new MessageChannelMain()
 webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// Renderer process
+// Proceso Renderer 
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...

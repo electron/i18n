@@ -971,7 +971,7 @@ El uso de `basic` debería ser preferido si sólo se necesita información bási
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
+* `count` Integer (opcional) - Si un valor es proporcionado, establece el badge al valor proporcionado de lo contrario en macOS, muestra un simple punto blanco (p. ej. número desconocido de notificaciones). En Linux, si un valor no es proporcionado el badge no se mostrará.
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
