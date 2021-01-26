@@ -125,8 +125,8 @@ child.once('ready-to-show', () => {
   * `center` Boolean (可选) - 窗口是否在屏幕居中.
   * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
   * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
+  * `maxWidth `Integer(可选)-窗口的最大宽度。 默认值不限
+  * `maxHeight` Integer (optional) - Window's maximum height. 默认值不限
   * `resizable` Boolean (optional) - Whether window is resizable. 默认值为 `true`。
   * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. 默认值为 `true`。
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. 默认值为 `true`。
@@ -151,16 +151,16 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. 默认值为 `false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小使之大于屏幕的尺寸. 仅适用于 macOS，因为其它操作系统默认允许 大于屏幕的窗口。 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. 默认值为 `true`。
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `hasShadow` Boolean (可选) - 窗口是否有阴影. 默认值为 `true`。
+  * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。 目前仅支持Windows 和 macos
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+  * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
@@ -229,10 +229,10 @@ child.once('ready-to-show', () => {
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+` type ` 选项的候选值和行为与平台相关。 可能的值有
 
 * 在 Linux 上, 可能的类型有 ` desktop `、` dock `、` toolbar `、` splash `、` notification `。
-* On macOS, possible types are `desktop`, `textured`.
+* 在 macOS 上，可能的类型是 `desktop`, `textured`。
   * `textured` 类型增加金属色泽的外观 (`NSTexturedBackgroundWindowMask`).
   * `desktop` 类型将窗口置于桌面背景级别 (`kCGDesktopWindowLevel - 1`). 注意，桌面窗口不会接收焦点、键盘或鼠标事件，但您可以使用< 0> globalShortcut < /0 >接收快捷键的消息
 * 在 Windows 上, 可能的类型为 `toolbar`.
@@ -277,7 +277,7 @@ _**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('bef
 
 #### 事件： 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+在窗口关闭时触发 当你接收到这个事件的时候, 你应当移除相应窗口的引用对象，避免再次使用它.
 
 #### 事件: 'session-end' _Windows_
 

@@ -41,17 +41,17 @@ The `contextBridge` module has the following methods:
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
 * `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
-* `api` any - Your API, more information on what this API can be and how it works is available below.
+* `api` any - Tu API más información sobre qué puede ser esta API y como funciona esta disponible a continuación.
 
 ## Uso
 
 ### API
 
-The `api` provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be a `Function`, `String`, `Number`, `Array`, `Boolean`, or an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+La `api` proveeida a [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) debe ser una `Function`, `String`, `Number`, `Array`, `Boolean`, o un objeto cuya llaves son strings y los valores son una `Function`, `String`, `Number`, `Array`, `Boolean`, u otro objeto anidado que cumpa con las mismas condiciones.
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Any data / primitives sent in the API become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Cualquier dato / primitivos enviado en la API se vuelve inmutable y las actualizaciones de una lado del puente no resulta en una actualización en el otro lado.
 
-An example of a complex API is shown below:
+A continuación se muestra un ejemplo de una API compleja:
 
 ```javascript
 const { contextBridge } = require('electron')

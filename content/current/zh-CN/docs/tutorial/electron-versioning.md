@@ -2,7 +2,7 @@
 
 > 详细查看我们的版本控制策略和实现。
 
-As of version 2.0.0, Electron follows [SemVer](#semver). 以下命令将安装最新稳定版的 Electron：
+自 2.0.0 版本起，Electron 遵循 [SemVer](#semver)。 以下命令将安装最新稳定版的 Electron：
 
 ```sh
 npm install --save-dev electron
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron versions *< 2.0* did not conform to the [SemVer](https://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
+*小于 2.0 * 的 Electron 版本编号并不遵循 [SemVer](https://semver.org) 规范: major 版本对应最终用户 API 的变更, minor 版本更新对应 Chromium 的主版本更新, patch 版本更新会带来新功能和 bug 修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
 以下是 1.x 策略的一个例子：
 
@@ -28,7 +28,7 @@ Electron versions *< 2.0* did not conform to the [SemVer](https://semver.org) sp
 
 我们的1.x战略有以下几项重大变化。 每次更改都是为了满足开发者/维护者和应用开发者的需要和优先事项。
 
-1. Strict use of SemVer
+1. 严格使用 SemVer
 2. 引入符合 semver 的 `-beta` 标签
 3. 引入[常规提交消息](https://conventionalcommits.org/)
 4. 明确定义的稳定分支
@@ -38,7 +38,7 @@ Electron versions *< 2.0* did not conform to the [SemVer](https://semver.org) sp
 
 # SemVer
 
-From 2.0 onward, Electron will follow SemVer.
+从 2.0 开始，Electron 将遵循 SemVer。
 
 Below is a table explicitly mapping types of changes to their corresponding category of SemVer (e.g. Major, Minor, Patch).
 
@@ -69,7 +69,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
 * 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 _ 合理稳定 _ 功能以及安全性和 bug 修复。
 
-第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 To accomplish this, SemVer allows for a _pre-release identifier_ to indicate a particular version is not yet _safe_ or _stable_.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，SemVer允许使用一个 _pre-release 标识_ 来表示一个特定的版本还不够 _安全_ 或 _稳定_。
 
 无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 
@@ -84,7 +84,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 特别地，上述步骤意味着：
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects.
+1. 在测试周期的第 3 周前允许非破坏性的 API 更改，即使这些变化有可能造成适度的副影响。
 2. 接受特征标记的更改，这些更改不会改变现有的代码路径。在测试周期中的大多数点都是好的。 用户可以在他们的应用中明确启用那些标记。
 3. 第三周之后在测试周期内接纳任何类型的功能是 👎 没有很好的理由。
 
@@ -130,9 +130,9 @@ A few examples of how various SemVer ranges will pick up new releases:
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-* Commits that would result in a SemVer **major** bump must start their body with `BREAKING CHANGE:`.
-* Commits that would result in a SemVer **minor** bump must start with `feat:`.
-* Commits that would result in a SemVer **patch** bump must start with `fix:`.
+* 会导致 SemVer **major** 版本改变的提交必须以`BREAKING CHANGE:`开头。
+* 会导致 SemVer **minor** 版本改变的提交必须以 `feat:` 开头。
+* 会导致 SemVer ** patch ** 版本改变的提交必须以 ` fix:` 开头。
 
 * 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 * 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的

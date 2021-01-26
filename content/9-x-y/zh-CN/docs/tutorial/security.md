@@ -598,7 +598,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 ## 17) 使用当前版本的 Electron
 
-您应该努力始终使用最新版本的 Electron。 每当发布新的主要版本时，您应该尝试尽快更新您的应用。
+你应该努力始终去使用最新版本的 Electron。 每当发布新的主要版本时，你应该尝试尽快更新您的应用。
 
 ### 为什么？
 

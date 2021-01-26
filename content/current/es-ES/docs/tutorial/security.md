@@ -529,7 +529,7 @@ Tenga en cuenta que la opción más segura es [fully disable the remote module](
 ### ¿Còmo?
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // expone sólo la funcionalidad de lectura de archivo
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map([['fs', readOnlyFsProxy]])

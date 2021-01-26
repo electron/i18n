@@ -14,9 +14,9 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `índice destacado` Entero - El índice del elemento que el usuario tocó.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `showArrowButtons` Boolean (opcional) - Por defecto a `false`.
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `continuous` Boolean (opcional) - Por defecto a `true`.
 
 ### Propiedades de Instancia
 
@@ -32,7 +32,7 @@ Una `Cadena` que representa el estilo que deben tener los elementos seleccionado
 
 * `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `none` - Elimina todos los estilos.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Una `Cadena` que representa el estilo que deben tener los elementos seleccionado
 
 * `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `none` - Elimina todos los estilos.
 
 #### `touchBarScrubber.showArrowButtons`
 
