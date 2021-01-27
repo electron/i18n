@@ -1658,8 +1658,7 @@ included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will
 throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or
-> special Electron objects is deprecated, and will begin throwing an exception
-> starting with Electron 9.
+> special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the
 [`ipcRenderer`](ipc-renderer.md) module.
@@ -1707,9 +1706,8 @@ Send an asynchronous message to a specific frame in a renderer process via
 chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or
 WeakSets will throw an exception.
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or
-> special Electron objects is deprecated, and will begin throwing an exception
-> starting with Electron 9.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or
+> special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the
 [`ipcRenderer`](ipc-renderer.md) module.
@@ -1872,7 +1870,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 * `fps` Integer
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number.
-Only values between 1 and 60 are accepted.
+Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
@@ -1970,7 +1968,7 @@ The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 #### `contents.frameRate`
 
 An `Integer` property that sets the frame rate of the web contents to the specified number.
-Only values between 1 and 60 are accepted.
+Only values between 1 and 240 are accepted.
 
 Only applicable if *offscreen rendering* is enabled.
 
