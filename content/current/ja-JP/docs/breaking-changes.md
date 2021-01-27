@@ -12,6 +12,15 @@
 * **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
 * **削除:** API または機能が削除され、Electron でサポートされなくなりました。
 
+## 予定されている破壊的なAPIの変更 (14.0)
+
+### 削除: `worldSafeExecuteJavaScript`
+
+Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティを有効にしてコードの動作を確認してください。  It has been enabled by default since Electron
+12.
+
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
 ## 予定されている破壊的なAPIの変更 (13.0)
 
 ### API 変更: `session.setPermissionCheckHandler(handler)`
@@ -124,6 +133,12 @@ nativeTheme.shouldUseHighContrastColors
 ### 削除: Pepper(ペッパー)フラッシュ対応
 
 ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
+
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+
+Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+
+This option will be removed in Electron 14 so please migrate your code to support the default value.
 
 ### Default Changed: `contextIsolation` default to `true`
 

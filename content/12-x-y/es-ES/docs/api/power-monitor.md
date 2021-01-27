@@ -36,11 +36,11 @@ Emitido cuando el sistema está a punto de bloquear la pantalla.
 
 Emitido tan pronto como el sistema desbloquea la pantalla.
 
-### Event: 'user-did-become-active' _macOS_
+### Evento: 'user-did-become-active' _macOS_
 
 Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
 
-### Event: 'user-did-resign-active' _macOS_
+### Evento: 'user-did-resign-active' _macOS_
 
 Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
 

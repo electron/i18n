@@ -345,7 +345,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitido después que la ventana se haya redimensionada.
 
-#### Event: 'will-move' _macOS_ _Windows_
+#### Evento: 'will-move' _macOS_ _Windows_
 
 Devuelve:
 
@@ -441,7 +441,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 El método subyacente a este evento esta construido para manejar el viejo estilo de desplazamiento del trackpad de macOS, donde el contenido de la pantalla no se mueve con el manotazo. La mayoría de los trackpads de macOS ya no están configurados para permitir este tipo de movimiento,  así que para emitir correctamente la preferencia 'Desplazamiento entre paginas' en `System Preferences > Trackpad > More Gestures` debe establecer a 'Desplazar con dos o tres dedos'.
 
-#### Event: 'rotate-gesture' _macOS_
+#### Evento: 'rotate-gesture' _macOS_
 
 Devuelve:
 
@@ -1184,7 +1184,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (opcional)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (opcional) - Pasado a `url.format()`.
   * `search` String (opcional) - Pasado a `url.format()`.
   * `hash` String (opcional) - Pasado a `url.format()`.
 

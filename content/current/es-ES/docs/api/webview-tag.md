@@ -317,13 +317,13 @@ Devuelve `String` - El agente usuario para la página de invitado.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 
 ### `<webview>.removeInsertedCSS(key)`
 
 * `llave` Cadena
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
 Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
@@ -680,7 +680,7 @@ Devuelve:
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - Coordenadas de la primera región de coincidencia.
   * `finalUpdate` Boolean
 
 Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).

@@ -321,7 +321,7 @@ Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
 **Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-process-gone'
 
 Devuelve:
 
@@ -339,7 +339,7 @@ Devuelve:
 
 Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
-#### Event: 'child-process-gone'
+#### Evento: 'child-process-gone'
 
 Devuelve:
 

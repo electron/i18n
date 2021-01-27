@@ -300,7 +300,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### Evento: 'crashed' _Obsoleto_
 
 Devuelve:
 
@@ -311,7 +311,7 @@ Emitido cuando el proceso se crashea o es terminado.
 
 **Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-process-gone'
 
 Devuelve:
 
@@ -394,9 +394,9 @@ Aparece cuando la ventana sale de un estado pantalla completa activado por la AP
 
 Devuelve:
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Puede ser `in` o `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Emitido cuando es usuario esta solicitando cambiar el nivel del zoom usando la rueda del ratón.
 
 #### Evento: 'devtools-opened'
 
@@ -469,7 +469,7 @@ Devuelve:
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - Coordenadas de la primera región de coincidencia.
   * `finalUpdate` Boolean
 
 Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
@@ -538,7 +538,7 @@ Devuelve:
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
   * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - Un array de palabras sugeridas para mostrar al usuario para remplazar el `misspelledWord`.  Solo disponible si hay una palabra mal escrita y el corrector está habilitado.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -651,7 +651,7 @@ Devuelve:
 * `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
-Emitted when the associated window logs a console message.
+Emitido cuando la ventana asociada registra un mensaje de consola.
 
 #### Evento: 'error-preload'
 
@@ -760,7 +760,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (opcional)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (opcional) - Pasado a `url.format()`.
   * `search` String (opcional) - Pasado a `url.format()`.
   * `hash` String (opcional) - Pasado a `url.format()`.
 
@@ -922,7 +922,7 @@ Devuelve `String` - El agente usuario para esta página web.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 
 ```js
 contents.on('did-finish-load', () => {
@@ -934,7 +934,7 @@ contents.on('did-finish-load', () => {
 
 * `llave` Cadena
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
 Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
@@ -1659,23 +1659,23 @@ Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`,
 
 #### `contents.audioMuted`
 
-A `Boolean` property that determines whether this page is muted.
+Una propiedad `Boolean` que determina si esta página esta silenciada o no.
 
 #### `contents.userAgent`
 
-A `String` property that determines the user agent for this web page.
+Una propiedad `String` que determina el agente de usuario para esta página web.
 
 #### `contents.zoomLevel`
 
-A `Number` property that determines the zoom level for this web contents.
+Una propiedad `Number` que determina el nivel de zoom para web contents.
 
-The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+El tamaño original es 0 y en cada incremento arriba o abajo representa un 20% más grande o más pequeño para los limites por defecto que son de 300% y 50% del tamaño original respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-A `Number` property that determines the zoom factor for this web contents.
+Una propiedad `Number` que determina el facto de zoom para este web contents.
 
-The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+El factor de zoom es el porcentaje de zoom dividido por 100, así que 300% = 3.0.
 
 #### `contents.frameRate`
 
@@ -1703,7 +1703,7 @@ Una propiedad `WebContents | null` que representa el `WebContents` de la DevTool
 
 #### `contents.debugger` _Readonly_
 
-A [`Debugger`](debugger.md) instance for this webContents.
+Una instancia [`Debugger`](debugger.md) para este webContents.
 
 #### `contents.backgroundThrottling`
 

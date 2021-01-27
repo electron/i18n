@@ -12,6 +12,15 @@
 * **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
 * **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
+## Запланированные критические изменения API (14.0)
+
+### Removed: `worldSafeExecuteJavaScript`
+
+In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+12.
+
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
 ## Запланированные критические изменения API (13.0)
 
 ### API Changed: `session.setPermissionCheckHandler(handler)`
@@ -124,6 +133,12 @@ nativeTheme.shouldUseHighContrastColors
 ### Удалено: Поддержка Pepper Flash
 
 Chromium удалил поддержку Flash, и поэтому мы должны следовать этому примеру. Смотрите Chromium [Flash Roadmap](https://www.chromium.org/flash-roadmap) для получения более подробной информации.
+
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+
+In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+
+This option will be removed in Electron 14 so please migrate your code to support the default value.
 
 ### Default Changed: `contextIsolation` defaults to `true`
 
@@ -322,7 +337,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Запланированные критические изменения API (9.0)
+## Запланированные API изменения (9.0)
 
 ### По умолчанию изменено: Загрузка неконтекстных собственных модулей в процессе визуализации по умолчанию отключена
 

@@ -26,7 +26,7 @@ Devuelve:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
+### Evento: 'inverted-color-scheme-changed' _Windows_ _Obsoleto_
 
 Devuelve:
 
@@ -35,7 +35,7 @@ Devuelve:
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
+### Evento: 'high-contrast-color-scheme-changed' _Windows_ _Obsoleto_
 
 Devuelve:
 
@@ -310,7 +310,7 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
   * `rojo`
   * `amarillo`
 
-Returns `String` - The standard system color formatted as `#RRGGBBAA`.
+Devuelve `String` - El sistema de color estándar formateado como `#RRGGBBAA`.
 
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 

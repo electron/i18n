@@ -139,7 +139,7 @@ Emitido cuando una operación de arrastre sale del icono de bandeja.
 
 Emitido cuando termina una operación de arrastre en la bandeja o termina en otra ubicación.
 
-#### Event: 'mouse-up' _macOS_
+#### Evento: 'mouse-up' _macOS_
 
 Devuelve:
 
@@ -150,7 +150,7 @@ Emitted when the mouse is released from clicking the tray icon.
 
 Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
 
-#### Event: 'mouse-down' _macOS_
+#### Evento: 'mouse-down' _macOS_
 
 Devuelve:
 
@@ -177,7 +177,7 @@ Devuelve:
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
-#### Event: 'mouse-move' _macOS_ _Windows_
+#### Evento: 'mouse-move' _macOS_ _Windows_
 
 Devuelve:
 
