@@ -60,11 +60,13 @@ Electronは以下のプラットフォームをサポートしています。
 
 macOS 向けには 64bit バイナリのみが提供されます。対応する macOS のバージョンは macOS 10.10 (Yosemite) 以降です。
 
+Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+
 ### Windows
 
 Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 [Electron 6.0.8 以降では、Arm (`arm64`) デバイス上 Windows のネイティブサポートを追加します](windows-arm.md)。 ia32 バイナリを使用すると、以前のバージョンでパッケージ化されたアプリを実行できます。
+Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). ia32 バイナリを使用すると、以前のバージョンでパッケージ化されたアプリを実行できます。
 
 ### Linux
 

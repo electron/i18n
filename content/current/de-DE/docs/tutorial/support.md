@@ -60,11 +60,13 @@ Die folgenden Plattformen werden durch Electron unterstützt:
 
 Nur 64Bit-Binärdateien werden für macOS bereitgestellt, und die minimale Unterstützung für macOS ist macOS 10.10 (Yosemite).
 
+Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+
 ### Windows
 
 Windows 7 und neuere Versionen werden unterstützt. Ältere Betriebssysteme werden nicht unterstützt (und funktionieren nicht zusammen mit Electron).
 
-Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows bereitgestellt. [Electron 6.0.8 und später native Unterstützung für Windows auf Arm (`arm64`) Geräten](windows-arm.md) hinzufügen. Das Ausführen von Apps, die mit früheren Versionen gepackt wurden, ist mit dem ia32-Programm möglich.
+Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows bereitgestellt. [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). Das Ausführen von Apps, die mit früheren Versionen gepackt wurden, ist mit dem ia32-Programm möglich.
 
 ### Linux
 

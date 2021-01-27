@@ -12,6 +12,15 @@
 * **已废弃：** 一个 API 被标记为过时状态。 API将继续运行，但将发出一个废弃警告，并将在未来的发布中删除。
 * **已移除：** 一个 API 或功能已被删除，不再被 Electron 支持。
 
+## 计划重写的 API (14.0)
+
+### Removed: `worldSafeExecuteJavaScript`
+
+In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+12.
+
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
 ## 计划重写的 API (13.0)
 
 ### API Changed: `session.setPermissionCheckHandler(handler)`
@@ -125,6 +134,12 @@ nativeTheme.shouldUseHighContrastColors
 
 Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 详情请参阅 Chromium的 [Flash Roadmap](https://www.chromium.org/flash-roadmap)
 
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+
+In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+
+This option will be removed in Electron 14 so please migrate your code to support the default value.
+
 ### 默认更改： `上下文隔离` 默认为 `true`
 
 在 Electron 12, `上下文隔离` 默认情况下将被启用。  若要恢复 上一个行为， `上下文孤立：false` 必须在 Web 首选项中指定。
@@ -201,7 +216,7 @@ The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllView
 
 For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
-## 计划重写的 API (10.0)
+## 计划破解API更改(10.0)
 
 ### Deprecated: `companyName` argument to `crashReporter.start()`
 
@@ -322,7 +337,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## 计划重写的 API (9.0)
+## 计划破解API更改(9.0)
 
 ### 默认更改：默认禁用在渲染器进程中加载不了解上下文的本地模块
 

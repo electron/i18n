@@ -12,6 +12,15 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 * **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
 * **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
 
+## Changements majeurs prévus de l'API (14.0)
+
+### Removed: `worldSafeExecuteJavaScript`
+
+In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+12.
+
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
 ## Changements majeurs prévus de l'API (13.0)
 
 ### API modifiée : `session.setPermissionCheckHandler(handler)`
@@ -125,6 +134,12 @@ nativeTheme.shouldUseHighContrastColors
 
 Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la feuille de route Flash [de Chromium](https://www.chromium.org/flash-roadmap) pour plus de détails.
 
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+
+In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+
+This option will be removed in Electron 14 so please migrate your code to support the default value.
+
 ### Par défaut modifié : `contextIsolation` par défaut à `true`
 
 Dans Electron 12, `contextIsolation` sera activé par défaut.  Pour restaurer le comportement précédent, `contextIsolation: false` doit être spécifié dans WebPreferences.
@@ -201,7 +216,7 @@ Les API expérimentales `BrowserView.{destroy, fromId, fromWebContents, getAllVi
 
 Pour des informations plus détaillées, voir [#23578](https://github.com/electron/electron/pull/23578).
 
-## Changements majeurs prévus de l'API (10.0)
+## Changements prévus de l'API (10.0)
 
 ### Déprécié : l'argument `companyName` de `crashReporter.start()`
 
@@ -322,7 +337,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Changements majeurs prévus de l'API (9.0)
+## Changements d'API prévus (9.0)
 
 ### Par défaut modifié : le chargement des modules natifs non contextuels dans le processus de rendu est désactivé par défaut
 

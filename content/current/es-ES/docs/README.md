@@ -135,6 +135,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 ### Módulos para el proceso de renderizado (Página Web):
 
+* [contextBridge](api/context-bridge.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)

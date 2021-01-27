@@ -321,7 +321,7 @@ Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
 **Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-process-gone'
 
 Devuelve:
 
@@ -339,7 +339,7 @@ Devuelve:
 
 Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
-#### Event: 'child-process-gone'
+#### Evento: 'child-process-gone'
 
 Devuelve:
 
@@ -419,7 +419,7 @@ Devuelve:
 
 Emitido cuando `desktopCapturer.getSources()` es llamado en el render process del `webContents`. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
-### Event: 'remote-require' _Deprecated_
+### Evento: 'remote-require' _Obsoleto_
 
 Devuelve:
 
@@ -429,7 +429,7 @@ Devuelve:
 
 Emitido cuando `remote.require()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Event: 'remote-get-global' _Deprecated_
+### Evento: 'remote-get-global' _Obsoleto_
 
 Devuelve:
 
@@ -439,7 +439,7 @@ Devuelve:
 
 Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del `webContents`. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Event: 'remote-get-builtin' _Deprecated_
+### Evento: 'remote-get-builtin' _Obsoleto_
 
 Devuelve:
 
@@ -449,7 +449,7 @@ Devuelve:
 
 Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Event: 'remote-get-current-window' _Deprecated_
+### Evento: 'remote-get-current-window' _Obsoleto_
 
 Devuelve:
 
@@ -458,7 +458,7 @@ Devuelve:
 
 Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### Evento: 'remote-get-current-web-contents' _Obsoleto_
 
 Devuelve:
 

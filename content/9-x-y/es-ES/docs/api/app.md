@@ -309,7 +309,7 @@ Devuelve:
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-process-gone'
 
 Devuelve:
 

@@ -91,7 +91,7 @@ Devuelve:
 * `event` Event
 * `index` Númerp - El indice de la acción que fue activado.
 
-#### Event: 'failed' _Windows_
+#### Evento: 'failed' _Windows_
 
 Devuelve:
 

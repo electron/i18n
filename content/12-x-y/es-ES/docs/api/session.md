@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'extension-loaded'
+#### Evento: 'extension-loaded'
 
 Devuelve:
 
@@ -96,7 +96,7 @@ Emitted after an extension is loaded. This occurs whenever an extension is added
   * from a crash.
   * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
-#### Event: 'extension-unloaded'
+#### Evento: 'extension-unloaded'
 
 Devuelve:
 
@@ -105,7 +105,7 @@ Devuelve:
 
 Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
 
-#### Event: 'extension-ready'
+#### Evento: 'extension-ready'
 
 Devuelve:
 
@@ -160,7 +160,7 @@ Devuelve:
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-#### Event: 'select-serial-port' _Experimental_
+#### Evento: 'select-serial-port' _Experimental_
 
 Devuelve:
 
@@ -202,7 +202,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added' _Experimental_
+#### Evento: 'serial-port-added' _Experimental_
 
 Devuelve:
 
@@ -212,7 +212,7 @@ Devuelve:
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Event: 'serial-port-removed' _Experimental_
+#### Evento: 'serial-port-removed' _Experimental_
 
 Devuelve:
 

@@ -49,7 +49,7 @@ Revise la sección *Size requirements* en [este artículo](https://msdn.microsof
 
 En las plataformas compatibles con altos PPP como las pantallas Apple Retina, se puede anexar `@2x` luego del nombre del archivo base de la imagen para marcarlo como una imagen de alta resolución.
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Por ejemplo, si `icon.png` es una imagen normal que tiene resolución estándar, entonces `icon@2x.png` será tratado como una imagen de alta resolución que tiene densidad DPI.
 
 If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Por ejemplo:
 
@@ -84,7 +84,7 @@ Los siguientes sufijos para DPI son soportados:
 
 Template images consist of black and an alpha channel. Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+El caso mas común es usar imágenes de plantillas para el icono de una barra de menú, así este se puede adaptar a ambas barras de menú clara y oscura.
 
 **Nota:** La imagen de plantilla sólo es soportada en macOS.
 

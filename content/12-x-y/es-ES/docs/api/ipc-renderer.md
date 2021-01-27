@@ -55,7 +55,7 @@ Send an asynchronous message to the main process via `channel`, along with argum
 
 > **NOTE:** Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+El main process maneja esto escuchando por `channel` con el módulo [`ipcMain`](ipc-main.md).
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
@@ -74,7 +74,7 @@ Send a message to the main process via `channel` and expect a result asynchronou
 
 > **NOTE:** Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+El main process debería escuchar por el `channel` con [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Por ejemplo:
 

@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-`webContents` es un [EventEmitter][event-emitter]. Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
+`webContents` es un [EventEmitter][event-emitter]. Es responsable de renderizar y controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso al objeto `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -290,7 +290,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### Evento: 'crashed' _Obsoleto_
 
 Devuelve:
 
@@ -301,7 +301,7 @@ Emitido cuando el proceso se crashea o es terminado.
 
 **Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-process-gone'
 
 Devuelve:
 
@@ -384,9 +384,9 @@ Aparece cuando la ventana sale de un estado pantalla completa activado por la AP
 
 Devuelve:
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Puede ser `in` o `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Emitido cuando es usuario esta solicitando cambiar el nivel del zoom usando la rueda del ratón.
 
 #### Evento: 'devtools-opened'
 
@@ -459,7 +459,7 @@ Devuelve:
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - Coordenadas de la primera región de coincidencia.
   * `finalUpdate` Boolean
 
 Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
@@ -528,7 +528,7 @@ Devuelve:
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
   * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - Un array de palabras sugeridas para mostrar al usuario para remplazar el `misspelledWord`.  Solo disponible si hay una palabra mal escrita y el corrector está habilitado.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -642,7 +642,7 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Emitted when the associated window logs a console message.
+Emitido cuando la ventana asociada registra un mensaje de consola.
 
 #### Evento: 'error-preload'
 
@@ -751,7 +751,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (opcional)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (opcional) - Pasado a `url.format()`.
   * `search` String (opcional) - Pasado a `url.format()`.
   * `hash` String (opcional) - Pasado a `url.format()`.
 
