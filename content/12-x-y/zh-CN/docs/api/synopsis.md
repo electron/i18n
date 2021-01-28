@@ -4,9 +4,9 @@
 
 Node. js 的所有 [ 内置模块 ](https://nodejs.org/api/) 都在Electron中可用， 第三方 node 模块中也完全支持 (包括 [ 原生模块 ](../tutorial/using-native-node-modules.md))。
 
-Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
+Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 某些模块仅在主进程中可用, 有些仅在渲染进程 (web 页) 中可用, 而有些在这两个进程中都可以使用。
 
-基本规则是: 如果一个模块是 [ GUI ][gui] 或底层系统相关的, 那么它应该只在主进程中可用。 You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
+基本规则是: 如果一个模块是 [ GUI ][gui] 或底层系统相关的, 那么它应该只在主进程中可用。 你需要熟悉 [主进程和渲染进程](../tutorial/quick-start.md#main-and-renderer-processes) 的概念，才能更好的使用这些模块。
 
 主进程脚本就像一个普通的Node.js脚本：
 
@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules if `nodeIntegration` is enabled:
+如果 `nodeIntegration` 被启用，那么渲染进程除了额外能够使用node模块的能力外，与普通网页没有什么区别
 
 ```html
 <!DOCTYPE html>

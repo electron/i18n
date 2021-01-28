@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 返回`Boolean` - 快捷键注册是否成功
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+注册 `accelerator` 的全局快捷键。 当用户按下注册快捷键时， `callbak` 会被调用。
 
 如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 

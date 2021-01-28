@@ -62,7 +62,7 @@ win.show()
 ### 局限性
 
 * 你不能点击穿透透明区域。 我们将引入一个 API 来设置窗口形状以解决此问题, 请参阅 [ our issue ](https://github.com/electron/electron/issues/1335) 以了解详细信息。
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* 透明窗口不可调整大小。 在某些平台上，将 ` resizable ` 设置为 ` true ` 可能会使透明窗口停止工作。
 * `blur ` 筛选器仅适用于网页, 因此无法对位于透明窗口下方的内容应用模糊效果 (例如在用户系统上打开的其他应用程序) 。
 * 在 windows 操作系统上, 当 DWM 被禁用时, 透明窗口将无法工作。
 * 在 linux 上, 用户必须在命令行中设置 `--enable-transparent-visuals --disable-gpu ` 来禁用GPU, 启用 ARGB，用以实现窗体透明。 这是由一个上游的 bug 导致的, 即 [ 在Linux机上，透明度通道（alpha channel ）在一些英伟达的驱动（NVidia drivers）中无法运行](https://code.google.com/p/chromium/issues/detail?id=369209)。
@@ -120,7 +120,7 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 
 ## 文本选择
 
-In a frameless window the dragging behavior may conflict with selecting text. 例如, 当您拖动标题栏时, 您可能会意外地选择标题栏上的文本。 为防止此操作, 您需要在可区域中禁用文本选择, 如下所选:
+在无框窗口中, 拖动行为可能与选择文本冲突。 例如, 当您拖动标题栏时, 您可能会意外地选择标题栏上的文本。 为防止此操作, 您需要在可区域中禁用文本选择, 如下所选:
 
 ```css
 .titlebar {
