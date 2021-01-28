@@ -14,16 +14,16 @@
 
 ## 计划重写的 API (14.0)
 
-### Removed: `worldSafeExecuteJavaScript`
+### 已移除： `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
 
 ## 计划重写的 API (13.0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### API 更改： `session.setPermissionCheckHandler(handler)`
 
 The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
 
@@ -56,9 +56,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### 已移除： `BrowserWindow` 扩展 API
 
-The deprecated extension APIs have been removed:
+移除已弃用的扩展 API：
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -97,7 +97,7 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: methods in `systemPreferences`
+### 已移除： `systemPreferences` 中的方法
 
 The following `systemPreferences` methods have been deprecated:
 
@@ -134,9 +134,9 @@ nativeTheme.shouldUseHighContrastColors
 
 Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 详情请参阅 Chromium的 [Flash Roadmap](https://www.chromium.org/flash-roadmap)
 
-### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. 请注意，设置此选项为 `false` 是**不安全**的。
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 

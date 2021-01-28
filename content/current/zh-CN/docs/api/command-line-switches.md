@@ -200,7 +200,7 @@ Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+调试相关的标识, 更多详细信息请查看 [Debugging the Main Process](../tutorial/debugging-main-process.md)指南。
 
 Aliased to `--debug[=[host:]port`.
 

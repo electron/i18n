@@ -60,13 +60,13 @@
 
 对 macOS 仅提供64位版本，并且只支持 macOS 10.10 (Yosemite) 以及更高版本。
 
-Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+Electron 11.0.0 已原生支持 Apple Silicon (`arm64`) 设备。
 
 ### Windows
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). 可以使用 ia32 二进制程序打包前几个版本的应用程序。
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 已原生支持 Windows on Arm (`arm64`) 设备。](windows-arm.md) 可以使用 ia32 二进制程序打包前几个版本的应用程序。
 
 ### Linux
 

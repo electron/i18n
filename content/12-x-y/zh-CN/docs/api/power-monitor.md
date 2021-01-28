@@ -36,13 +36,13 @@
 
 当系统屏幕解锁，立即触发。
 
-### Event: 'user-did-become-active' _macOS_
+### 事件: 'user-did-groupe-active' _macOS_
 
-Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+当应用被激活时发出。 更多信息请访问 [文档](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc)。
 
-### Event: 'user-did-resign-active' _macOS_
+### 事件: 'user-did-resign-active' _macOS_
 
-Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+当应用被激活时发出。 更多信息请访问 [文档](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc)。
 
 ## 方法
 
@@ -64,14 +64,14 @@ Returns `Integer` - Idle time in seconds
 
 ### `powerMonitor.isOnBatteryPower()`
 
-Returns `Boolean` - Whether the system is on battery power.
+返回`Boolean`，表示系统是否使用电池电源。
 
-To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+要监视此属性的变化，请使用 `on-battery` 和 `on-ac<` 事件。
 
 ## Properties
 
 ### `powerMonitor.onBatteryPower`
 
-A `Boolean` property. True if the system is on battery power.
+A `Boolean` property. 如果系统处于电池电源状态，则为 true。
 
-See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+参见 [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower)。
