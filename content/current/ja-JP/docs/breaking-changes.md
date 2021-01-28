@@ -16,10 +16,10 @@
 
 ### 削除: `worldSafeExecuteJavaScript`
 
-Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティを有効にしてコードの動作を確認してください。  It has been enabled by default since Electron
+Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。  これは Electron 12 からデフォルトで有効になっています。
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+`webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。
 
 ## 予定されている破壊的なAPIの変更 (13.0)
 
@@ -134,11 +134,11 @@ nativeTheme.shouldUseHighContrastColors
 
 ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
 
-### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+### 省略値変更: `worldSafeExecuteJavaScript` の省略値を `true` に
 
-Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  以前の動作に戻すには、WebPreferences で `worldSafeExecuteJavaScript: false` を指定する必要があります。 このオプションを `false` に設定すると **安全ではなくなる** ことに注意してください。
 
-This option will be removed in Electron 14 so please migrate your code to support the default value.
+このオプションは Electron 14 で削除予定なので、デフォルト値をサポートするようにコードを移行してください。
 
 ### Default Changed: `contextIsolation` default to `true`
 

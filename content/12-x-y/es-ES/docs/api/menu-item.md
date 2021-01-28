@@ -132,7 +132,7 @@ Una `String` (opcional) indicando el rol del elemento, si está establecido. Can
 
 #### `menuItem.accelerator`
 
-A `Accelerator` (optional) indicating the item's accelerator, if set.
+Un `Accelerator` (opcional) indicando el acelerador del elemento, si está establecido.
 
 #### `menuItem.icon`
 

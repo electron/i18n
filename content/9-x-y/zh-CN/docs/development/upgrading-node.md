@@ -8,7 +8,7 @@ Chromium 和 Node.js 都依赖于 V8 ， Electron 只包含 了 V8 的一个副�
 
 Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 构建细节进行修改, 并用于暴露Electron所需的 API。 一旦选择了一个上游Node的发布版本, 它就被放置在Electron的Node克隆的一个分支中，并且任何Electron Node的补丁会被应用在那里。
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+另一个因素是Node项目修补了它的V8版本 如上所述，Electron 使用单个 V8 生成所有内容，因此 Node 的 V8 修补程序必须移植到该副本。
 
 一旦所有电子的依赖建立和使用相同的副本 V8, 下一步是修复任何电子代码问题引起的节点升级。
 

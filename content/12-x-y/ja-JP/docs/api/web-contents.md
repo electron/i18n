@@ -1470,7 +1470,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 
 引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1511,7 +1511,7 @@ app.whenReady().then(() => {
 
 引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1653,7 +1653,7 @@ win.webContents.on('did-finish-load', async () => {
 
 * `fps` Integer
 
-もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。 1 から 60 の値のみを受け取ります。
+もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。 1 から 240 の値のみを受け取ります。
 
 #### `contents.getFrameRate()`
 
@@ -1733,7 +1733,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.frameRate`
 
-`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。 1 から 60 の値のみを受け取ります。
+`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。 1 から 240 の値のみを受け取ります。
 
 *オフスクリーンレンダリング* が有効な場合にのみ適用されます。
 

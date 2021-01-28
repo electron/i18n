@@ -192,7 +192,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` por defecto.
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
@@ -215,7 +215,7 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` por defecto.
   * `icon` [NativeImage](native-image.md) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.

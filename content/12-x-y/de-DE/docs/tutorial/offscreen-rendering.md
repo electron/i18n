@@ -2,7 +2,7 @@
 
 Offscreen rendering ermöglicht es, den Inhalt eines Browser Fensters in einer Bitmap darzustellen um diesen, beispielsweise, auf einer Oberfläche in einer 3D Szene anzuzeigen. Offscreen rendering in Electron verwendet einen ähnlichen Ansatz wie das [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) Projekt.
 
-Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty area an das `'paint'` Event weitergegeben um hohe Effizienz zu bewaren. Das Rendering kann pausiert und fortgesetzt werden. Die Bildrate kann ebenfalls gesetzt werden. Die angegebene Bildrate ist der Maximalwert. Wenn auf einer Seite nichts passiert, werden auch keine Bilder generiert. Die Bildrate hat einen absoluten Maximalwert von 60 da es darüber keine Vorteile gibt, jedoch ein substanzieller Leistungsverlust vorhanden ist.
+Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty area an das `'paint'` Event weitergegeben um hohe Effizienz zu bewaren. Das Rendering kann pausiert und fortgesetzt werden. Die Bildrate kann ebenfalls gesetzt werden. Die angegebene Bildrate ist der Maximalwert. Wenn auf einer Seite nichts passiert, werden auch keine Bilder generiert. Die Bildrate hat einen absoluten Maximalwert von 240 da es darüber keine Vorteile gibt, jedoch ein substanzieller Leistungsverlust vorhanden ist.
 
 **Notiz:** Ein offscreen Fenster wird immer als ein [Frameless Window](../api/frameless-window.md) erzeugt.
 

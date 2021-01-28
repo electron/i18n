@@ -64,7 +64,7 @@ If you want to receive a single response from the main process, like the result 
 * `channel` Cadena
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+Devuelve `Promise<any>` - Resuelve con la respuesta desde el main process.
 
 Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
