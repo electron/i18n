@@ -243,8 +243,8 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (optional) - Do not play the associated sound. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Por defecto es `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Muestra un globo de la bandeja.

@@ -170,7 +170,7 @@ El `hslShift` se aplica a la imagen con las siguientes reglas:
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = Dejar sin cambios. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
+* `hsl_shift[2]` (luminosidad): Un cambio en la luminosidad para la imagen, con los siguientes valores  claves: 0 = elimina toda la luminosidad (hace que todos los pixeles sean negros). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
@@ -286,10 +286,10 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 #### `image.addRepresentation(options)`
 
 * `options` Object
-  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `scaleFactor` Double - El factor de escala para agregar a la representación de la imagen.
   * `width` Entero (opcional) - Por defecto es 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Entero (opcional) - Por defecto es 0. Required if a bitmap buffer is specified as `buffer`.
-  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `buffer` Buffer (opcional) - El buffer que contiene los datos de la imagen sin procesar.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
@@ -298,6 +298,6 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+Una propiedad `Boolean` que determina si la imagen es considerada una [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Ten en cuenta que esta propiedad solo tiene un efecto en macOS.

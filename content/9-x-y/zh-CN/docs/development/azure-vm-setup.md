@@ -5,14 +5,14 @@ Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.
 Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
 
 Example Use Case:
-    * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
+    * 我们需要安装`VS15.9`或者我们已安装好`VS15.7`；然后可能会请求我们去更新Azure镜像
 
 1. Identify the image you wish to modify.
-    * In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*.
-        * The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    * Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key.
+    * 在 [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml)文件中，镜像通过该文件来识别 *镜像* 配置。
+        * *“images”*该命名被对应用来定义云构建，例如：[libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8)
+    * 找到你希望去修改构建在云端的镜像并且注意镜像的 **VHD Blob Path**（标签），它是对应键值对的值
         * You will need this URI path to copy into a new image.
-    * You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+    * 同时需要的的存储账号名，在AppVeyor中被标记为 **Disk Storage Account Name**
 
 2. Get the Azure storage account key
     * Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor.

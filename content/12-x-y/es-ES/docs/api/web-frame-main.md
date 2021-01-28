@@ -59,7 +59,7 @@ These methods can be accessed from the `webFrameMain` module:
 
 Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
-## Class: WebFrameMain
+## Clase: WebFrameMain
 
 Proceso: [Main](../glossary.md#main-process)
 

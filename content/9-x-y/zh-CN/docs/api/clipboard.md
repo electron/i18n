@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+在 Linux 上，还有一个 `selection`粘贴板 。 To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')

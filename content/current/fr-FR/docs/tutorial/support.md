@@ -60,13 +60,13 @@ Les plateformes suivantes sont prises en charge par Electron :
 
 Seul les binaires 64bit sont fournit pour macOs, et la version minimale de macOs supportée est macOS 10.10 (Yosemite).
 
-Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+Le support natif des appareils Apple Silicon (`arm64`) a été ajouté dans Electron 11.0.0.
 
 ### Windows
 
 Windows 7 et versions ultérieures sont pris en charge, les systèmes d’exploitation plus anciens ne sont pas pris en charge (et ne fonctionnent pas).
 
-Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). L'exécution d'applications empaquetées avec des versions précédentes est possible en utilisant le binaire ia32.
+Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [Le support natif pour Windows sur les appareils Arm (`arm64`) a été ajouté dans Electron 6.0.8.](windows-arm.md). L'exécution d'applications empaquetées avec des versions précédentes est possible en utilisant le binaire ia32.
 
 ### Linux
 
@@ -75,5 +75,5 @@ The prebuilt binaries of Electron are built on Ubuntu 18.04.
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 18.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
 * Ubuntu 14.04 et supérieur
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 et supérieur
+* Debian 8 et supérieur

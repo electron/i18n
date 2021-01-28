@@ -136,7 +136,7 @@ Una propiedad `Boolean` que representa si la notificación es silenciosa.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Una propiedad `Boolean` que representa si al notificación tiene a una acción de respuesta.
 
 #### `notification.urgency` _Linux_
 
