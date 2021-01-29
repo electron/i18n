@@ -8,7 +8,7 @@
 
 > 注：上面的截图是 Audacious 音频播放器中启动器快捷方式的一个例子
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity 将在用户点击快捷菜单项后执行 `Exec` 字段定义的命令。 `.desktop` 文件的示例如下：
+若要创建快捷方式，你需要为添加到快捷菜单的条目提供 `Name` 和 `Exec` 属性。 Unity 将在用户点击快捷菜单项后执行 `Exec` 字段定义的命令。 `.desktop` 文件的示例如下：
 
 ```plaintext
 Actions=PlayPause;Next;Previous

@@ -28,7 +28,7 @@ We'll start with a working application from the [Quick Start Guide](quick-start.
 
 首先，让我们编辑我们的接口，以便用户可以在光线和暗色的 模式之间切换。  这个基本的界面包含更改 `原生主题源` 设置的按钮，并且包含一个文本元素，指明了哪些 `主题源` 值被选中。 By default, Electron follows the system's dark mode preference, so we will hardcode the theme source as "System".
 
-Add the following lines to the `index.html` file:
+将以下内容添加到 `index.html` 文件：
 
 ```html
 <!DOCTYPE html>

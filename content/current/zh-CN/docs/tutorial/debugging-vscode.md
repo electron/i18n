@@ -1,4 +1,4 @@
-# Debugging in VSCode
+# 使用 VsCode调试
 
 This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
 

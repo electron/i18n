@@ -37,7 +37,7 @@ $ pip install pyobjc
 
 Electron を開発していて独自の Electron ビルドを再配布する予定がない場合は、このセクションを飛ばして構いません。
 
-公式の Electron ビルドは、[Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) と macOS 10.13 SDK でビルドされています。  より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
+公式の Electron ビルドは、[Xcode 12.2](https://download.developer.apple.com/Developer_Tools/Xcode_12.2/Xcode_12.2.xip) と macOS 11.0 SDK でビルドされています。 より新しい SDK でビルドして同様に動いても、現在のリリースは 11.0 SDK を使用します。
 
 ## Electron のビルド
 

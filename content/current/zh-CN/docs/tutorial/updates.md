@@ -4,7 +4,7 @@
 
 ## 使用 `update.electronjs.org`
 
-Electron团队保留 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费的开源 网络服务，Electron应用可以用来自我更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
+Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
 
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库

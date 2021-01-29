@@ -40,7 +40,7 @@ npm install --save-dev electron@latest
 
 从 2.0 开始，Electron 将遵循 SemVer。
 
-Below is a table explicitly mapping types of changes to their corresponding category of SemVer (e.g. Major, Minor, Patch).
+下面是一个表格，明确地将变化的类型映射到它们对应的 SemVer 类别 (例如Major，Minor，Patch)。
 
 | Major 版本增量          | Minor 版本增量           | Patch 版本增量         |
 | ------------------- | -------------------- | ------------------ |
@@ -106,7 +106,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![测试版至稳定版](../images/versioning-sketch-5.png)
 * 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![安全移植](../images/versioning-sketch-6.png)
 
-A few examples of how various SemVer ranges will pick up new releases:
+几个不同的 SemVer 范围将如何接收新版本的示例:
 
 ![Semvers 和发行版](../images/versioning-sketch-7.png)
 
