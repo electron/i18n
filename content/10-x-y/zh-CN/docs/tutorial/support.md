@@ -9,8 +9,8 @@
   - 寻求帮助
   - Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   - Sharing ideas with other Electron app developers
-  - And more!
-- [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+  - 以及更多！
+- [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 - `#atom-shell` Freenode上的频道
 - `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
 - [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*

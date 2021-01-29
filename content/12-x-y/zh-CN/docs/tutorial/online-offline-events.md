@@ -51,7 +51,7 @@ alertOnlineStatus()
 
 ### 主进程中的事件探测
 
-在某些情况下，您可能还希望响应主进程中的在线/离线事件探测 但是，主进程没有 `navigator` 对象，无法直接检测这些事件。 In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+在某些情况下，您可能还希望响应主进程中的在线/离线事件探测 但是，主进程没有 `navigator` 对象，无法直接检测这些事件。 在这种情况下，你需要使用 Electron's interprocess communication (IPC) 将事件转发到主进程。
 
 从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
 
