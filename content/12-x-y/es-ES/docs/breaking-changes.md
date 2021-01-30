@@ -12,6 +12,15 @@ Este documento utiliza la siguiente convención para clasificar los cambios de r
 - **Obsoleto:** Una API fue marcada como obsoleta. La API continuará funcionando, pero emitirá una advertencia de desaprobación y será eliminada en una futura versión.
 - **Eliminado:** Se ha eliminado una API o característica y ya no es compatible con Electron.
 
+## Cambios planeados en la API(14.0)
+
+### Eliminado: `worldSafeExecuteJavaScript`
+
+En Electron 14 `worldSafeExecuteJavaScript` será eliminado.  No hay alternativa, por favor asegúrese que su código trabaja con esta propiedad activada.  Ha sido activada por defecto desde Electron
+12.
+
+Será afectado por este cambio si usted utliza `webFrame.executeJavaScript` o `webFrame.executeJavaScriptInIsolatedWorld`. Necesitará asegurase que los valores devueltos por cualquiera de esos métodos son soportados por [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) ya que estos métodos utilizan la misma semántica de paso de valores.
+
 ## Cambios planeados en la API(13.0)
 
 ### Eliminado: `shell.moveItemToTrash()`
@@ -30,6 +39,12 @@ shell.trashItem(path).then(/* ... */)
 ### Eliminado: Soporte de Pepper Flash
 
 Chromium a eliminado el soporte para Flash, por lo tanto nosotros debemos seguir el ejemplo. Vea el [Flash Roadmap](https://www.chromium.org/flash-roadmap) de Chromium para más detalles.
+
+### Valor por defecto moidificado: `worldSafeExecuteJavaScript` por defecto a `true`
+
+En Electron 12, `worldSafeExecuteJavaScript` será activado por defecto.  Para restuaurar el comportamiento anterior, `worldSafeExecuteJavaScript: false` debe especificarse en WebPreferences. Por favor tenga en cuenta que estableciendo esta opción a `false` es **inseguro**.
+
+Esta opción sera removida en Electron 14, así que por favor migra tu código para soportar el valor por defecto.
 
 ### Valor por defecto modificado: `contextIsolation` por defecto a `true`
 

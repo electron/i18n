@@ -12,6 +12,15 @@
 - **已废弃：** 一个 API 被标记为过时状态。 API将继续运行，但将发出一个废弃警告，并将在未来的发布中删除。
 - **已移除：** 一个 API 或功能已被删除，不再被 Electron 支持。
 
+## 计划重写的 API (14.0)
+
+### 已移除： `worldSafeExecuteJavaScript`
+
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+12.
+
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
 ## 计划重写的 API (13.0)
 
 ### 已移除： `shell.moveItemToTrash()`
@@ -30,6 +39,12 @@ shell.trashItem(path).then(/* ... */)
 ### 已删除：Pepper Flash 支持
 
 Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 详情请参阅 Chromium的 [Flash Roadmap](https://www.chromium.org/flash-roadmap)
+
+### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
+
+在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. 请注意，设置此选项为 `false` 是**不安全**的。
+
+This option will be removed in Electron 14 so please migrate your code to support the default value.
 
 ### 默认更改： `上下文隔离` 默认为 `true`
 
