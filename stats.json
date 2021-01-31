@@ -55,14 +55,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "14605",
-    "translated": "7580",
+    "translated": "7586",
     "approved": "1079",
     "words": "176707",
-    "words_translated": "92557",
+    "words_translated": "92631",
     "words_approved": "10929",
     "translated_progress": 52,
     "approved_progress": 6,
-    "qa_issues": 2598
+    "qa_issues": 2602
   },
   {
     "name": "Russian",
