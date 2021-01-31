@@ -22,7 +22,7 @@ A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is bei
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
+A `String` property that can be `system`, `light` or `dark`.  Ela é usada para sobrepor e substituir o valor que o Chromium escolheu para usar internamente.
 
 Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
 
@@ -41,9 +41,9 @@ Settings this property to `light` will have the following effects:
 * The `updated` event will be emitted
 
 The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
-* `Follow OS` --> `themeSource = 'system'`
-* `Dark Mode` --> `themeSource = 'dark'`
-* `Light Mode` --> `themeSource = 'light'`
+* `Padrão do Sistema` --> `themeSource = 'system'`
+* `Modo Escuro` --> `themeSource = 'dark'`
+* `Modo Claro` --> `themeSource = 'light'`
 
 Your application should then always use `shouldUseDarkColors` to determine what CSS to apply.
 

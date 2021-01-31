@@ -7,7 +7,7 @@
 * `isDefault` Boolean - se uma determinada impressora está definida como a impressora padrão no SO.
 * `options` Object - um objeto contendo uma número variável de informações da impressora específicas da plataforma.
 
-The number represented by `status` means different things on different platforms: on Windows it's potential values can be found [here](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), and on Linux and macOS they can be found [here](https://www.cups.org/doc/cupspm.html).
+O número representado por `status` significa coisas diferentes em diferentes plataformas: no Windows seus valores potenciais podem ser encontrados [aqui](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), e no Linux e macOS eles podem ser encontrados [aqui](https://www.cups.org/doc/cupspm.html).
 
 ## Exemplo
 
