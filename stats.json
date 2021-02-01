@@ -3,10 +3,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "14605",
-    "translated": "10386",
+    "translated": "10387",
     "approved": "2267",
     "words": "176707",
-    "words_translated": "123981",
+    "words_translated": "123990",
     "words_approved": "24984",
     "translated_progress": 70,
     "approved_progress": 14,
@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14605",
-    "translated": "12132",
+    "translated": "12174",
     "approved": "3174",
     "words": "176707",
-    "words_translated": "145500",
+    "words_translated": "146036",
     "words_approved": "35255",
     "translated_progress": 82,
     "approved_progress": 19,
-    "qa_issues": 5500
+    "qa_issues": 5509
   }
 ]
