@@ -17,7 +17,7 @@ app.dock.bounce()
 
 * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Returns `Integer` - an ID representing the request.
+Devuelve `Integer` - un ID que representa la solicitud.
 
 Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
 
@@ -67,7 +67,7 @@ Sets the application's \[dock menu\]\[dock-menu\].
 
 #### `dock.getMenu()` _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+Devuelve `Menu | null` -El \[dock menu\]\[dock-menu\] de la aplicación.
 
 #### `dock.setIcon(image)` _macOS_
 

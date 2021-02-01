@@ -28,7 +28,7 @@ Vea [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registrar
   * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
-Returns `Promise<void>` - resolves when the net log has begun recording.
+Devuelve `Promise<void>` - se resuelve cuando el net log ha comenzado a grabar.
 
 Comienza la agravación de eventos de red en `path`.
 

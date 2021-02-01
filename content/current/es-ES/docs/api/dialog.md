@@ -201,7 +201,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 Devuelve `Integer` - el índice del botón pulsado.
 
-Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. It returns the index of the clicked button.
+Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. Devuelve el indice del botón pulsado.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 

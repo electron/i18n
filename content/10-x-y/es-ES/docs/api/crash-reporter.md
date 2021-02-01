@@ -58,7 +58,7 @@ This method should be called as early as possible in app startup, preferably bef
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. En caso de que no haya reportes subidos, `null` es retornado.
+Devuelve [`CrashReport`](structures/crash-report.md) - La fecha y el ID del último reporte de error. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. En caso de que no haya reportes subidos, `null` es retornado.
 
 **Note:** Calling this method from the renderer process is deprecated.
 
@@ -111,7 +111,7 @@ Remove a extra parameter from the current set of parameters. Future crashes will
 
 ### `crashReporter.getParameters()`
 
-Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
+Devuelve `Record<String, String>` - Los parámetros 'extra' actuales del reportador de errores.
 
 ## Carga útil del informe de fallos
 

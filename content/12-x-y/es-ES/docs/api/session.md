@@ -507,7 +507,7 @@ Esto no afecta el `contenido web` existente, y cada `contenido web` puede usar `
 
 #### `ses.isPersistent()`
 
-Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
+Devuelve `Boolean` - Si la sesión es persistente o no. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
 
 #### `ses.getUserAgent()`
 
@@ -600,7 +600,7 @@ Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `h
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
-Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
+Devuelve `Promise<String[]>` - Un array de todas las palabras en el diccionario personalizado de la aplicación. Resolves when the full dictionary is loaded from disk.
 
 #### `ses.addWordToSpellCheckerDictionary(palabra)`
 
@@ -614,7 +614,7 @@ Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario pers
 
 * `word` String - The word you want to remove from the dictionary
 
-Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
+Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
 
 **Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
@@ -622,7 +622,7 @@ Returns `Boolean` - Whether the word was successfully removed from the custom di
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
 
-Returns `Promise<Extension>` - resolves when the extension is loaded.
+Devuelve `Promise<Extension>` - se resuelve cuando la extensión está cargada.
 
 This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
@@ -659,13 +659,13 @@ Unloads an extension.
 
 * `extensionId` String - ID of extension to query
 
-Returns `Extension` | `null` - The loaded extension with the given ID.
+Devuelve `Extension` | `null` - La extensión cargada con el ID dado.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `ses.getAllExtensions()`
 
-Returns `Extension[]` - A list of all loaded extensions.
+Devuelve `Extension[]` - Una lista de todas las extensiones cargadas.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 

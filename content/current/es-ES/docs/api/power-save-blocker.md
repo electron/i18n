@@ -27,7 +27,7 @@ El módulo `powerSaveBlocker` tiene los siguientes métodos:
 
 Devuelve `Integer` - El ID bloqueador que se asigna al bloqueador de energía.
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Starts preventing the system from entering lower-power mode. Devuelve un entero que identifica el bloqueador de ahorro de energía.
 
 **Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Solo el tipo de mayor prioridad tiene efecto. En otras palabras, `prevent-display-sleep` tiene mayor prioridad sobre `prevent-app-suspension`.
 

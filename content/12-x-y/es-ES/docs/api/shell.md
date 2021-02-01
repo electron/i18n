@@ -50,7 +50,7 @@ Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (P
 * `fullPath` Cadena
 * `deleteOnFail` Boolean (opcional) - Si eliminar o no eliminar unilateralmente el elemento si la papelera está desactivada o no es soportada en el volumen. _macOS_
 
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
+Devuelve `Boolean` - Si el elemento fue movido con éxito a la papelera o de lo contrario fue eliminado.
 
 > NOTE: This method is deprecated. Use `shell.trashItem` instead.
 

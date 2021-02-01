@@ -40,7 +40,7 @@ Recupera las descripciones del producto.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean` - whether a user can make a payment.
+Devuelve `Boolean` - si un usuario puede realizar un pago.
 
 ### `inAppPurchase.restoreCompletedTransactions()`
 
@@ -50,7 +50,7 @@ Restores finished transactions. This method can be called either to install purc
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String` - the path to the receipt.
+Devuelve `String` - la ruta para el recibo.
 
 ### `inAppPurchase.finishAllTransactions()`
 

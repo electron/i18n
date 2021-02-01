@@ -119,7 +119,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
 
 ### `process.getCPUUsage()`
 
@@ -143,7 +143,7 @@ Devuelve `Objecto`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Toma en cuenta que todas las estadísticas son reportadas en Kilobytes.
+Devuelve un objeto con estadísticas de la pila V8. Toma en cuenta que todas las estadísticas son reportadas en Kilobytes.
 
 ### `process.getBlinkMemoryInfo()`
 
