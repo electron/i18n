@@ -593,7 +593,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. El valor es tomado desde APIs nativas del sistema operativo.
+Devuelve `String` - El código de país [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) de dos letras del sistema operativo del usuario. El valor es tomado desde APIs nativas del sistema operativo.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -758,7 +758,7 @@ Devuelve `Boolean`
 
 El valor devuelto de este método indica si esta instancia de su aplicación obtuvo con éxito el bloqueo.  Si no se puede obtener el bloqueo, puedes asumir que otra instancia de tu aplicación ya está corriendo con el bloqueo y salir inmediatamente.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
+I.e. Este método devuelve `true` si el proceso es la instancia principal de tu aplicación y tu aplicación debe seguir cargando.  Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
 
 En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuario intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` seran emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en la linea de comando, el mecanismo de instancias única del sistema del sistema serán puenteadas, y tendrás que usar este método para asegurar una única instancia.
 
@@ -1038,7 +1038,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` _macOS_
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Devuelve `Boolean` - Si la aplicación esta actualmente ejecutándose desde la carpeta de Aplicación del sistema. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
@@ -1046,7 +1046,7 @@ Returns `Boolean` - Whether the application is currently running from the system
   * `conflictHandler` Function\<Boolean> (opcional) - Un controlador para el potencial conflicto en el fallo de movimiento.
     * `conflictType` String - El tipo de conflicto de movimiento encontrado por el controlador; puede ser `exists` o `existsAndRunning`, donde `exists` quiere decir que una aplicación con el mismo nombre está presente el directorio de las Aplicaciones y `existsAndRunning` quiere decir que que existe y que se está ejecutando actualmente.
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Please note that if the move is successful, your application will quit and relaunch.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
@@ -1091,7 +1091,7 @@ Una propiedad `Menu | null` que devuelve [`Menu`](menu.md) si uno ha sido establ
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+Una propiedad `Integer` que devuelve el recuento de insignias para la aplicación actual. Setting the count to `0` will hide the badge.
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 

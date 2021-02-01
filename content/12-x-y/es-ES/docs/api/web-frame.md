@@ -96,7 +96,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS codigo de origen.
 
-Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+Devuelve `String` - Una llave para el CSS insertado que puede ser utilizado más tarde para eliminar el CSS a través de `webFrame.removeInsertedCSS(key)`.
 
 Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 

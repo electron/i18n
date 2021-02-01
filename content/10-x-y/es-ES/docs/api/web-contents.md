@@ -900,7 +900,7 @@ Devuelve `String` - El agente usuario para esta página web.
 * `options` Object (opcional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser utilizado más tarde para eliminar el CSS a través `contents.removeInsertedCSS(key)`.
 
 Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 
@@ -1378,7 +1378,7 @@ Inspects the shared worker based on its ID.
 
 #### `contents.getAllSharedWorkers()`
 
-Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+Devuelve [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Información sobre todos los Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1391,7 +1391,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 
 Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
@@ -1432,7 +1432,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 

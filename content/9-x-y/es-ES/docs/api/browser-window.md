@@ -866,7 +866,7 @@ Habilita o deshabilita la ventana.
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+Devuelce `Boolean` -si la ventana está activada.
 
 #### `win.setSize(width, height[, animate])`
 

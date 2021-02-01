@@ -198,7 +198,7 @@ Anula el registro del protocolo predeterminado de `esquema`.
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already registered.
+Devuelve `Boolean` - Si el `scheme` ya está registrado.
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
@@ -260,6 +260,6 @@ Elimina el interceptor instalado para el `scheme` y restaura su controlador orig
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already intercepted.
+Devuelve `Boolean` - Si el `scheme` ya está interceptado.
 
 [file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem

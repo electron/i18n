@@ -315,7 +315,7 @@ Devuelve `String` - El agente usuario para la página de invitado.
 
 * `css` Cadena
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
+Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser utilizado más tarde para eliminar el CSS a través `<webview>contents.removeInsertedCSS(key)`.
 
 Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 

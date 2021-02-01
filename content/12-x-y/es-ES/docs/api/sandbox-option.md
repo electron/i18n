@@ -30,7 +30,7 @@ app.whenReady().then(() => {
 })
 ```
 
-En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene Node.js deshabilitado y solo puede comunicarse a través de IPC. El uso de esta opción impide que Electron cree un tiempo de ejecución de Node.js en el renderizador. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene Node.js deshabilitado y solo puede comunicarse a través de IPC. El uso de esta opción impide que Electron cree un tiempo de ejecución de Node.js en el renderizador. Además, dentro de esta nueva ventana `window.open` sigue el comportamiento nativo (por defecto Electron crea un [`BrowserWindow`](browser-window.md) y devuelve un proxy a este a través de `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox) puede ser usado para forzar `sandbox: true` para todas las instancias de`BrowserWindow`.
 
