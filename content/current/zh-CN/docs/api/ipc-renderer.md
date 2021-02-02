@@ -28,7 +28,7 @@
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+添加一次性 `listener` 函数。 这个 `listener` 只会在 `channel`下一次收到消息的时候被调用，之后这个监听器会被移除。
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
@@ -88,7 +88,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+如果你不需要回复此消息，请考虑使用 [`ipcRender.sent`](#ipcrenderersendchannel-args)。
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 

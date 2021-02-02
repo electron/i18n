@@ -299,7 +299,7 @@ Emitted whenever there is a GPU info update.
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### 事件: 'renderer-process-crashed' _已废弃_
 
 返回:
 
