@@ -309,7 +309,7 @@ Emitted whenever there is a GPU info update.
 
 **已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### 事件: 'renderer-process-crashed' _已废弃_
 
 返回:
 

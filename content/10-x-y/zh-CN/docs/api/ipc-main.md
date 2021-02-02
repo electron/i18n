@@ -61,7 +61,7 @@ IpcMain模块有以下方法来侦听事件：
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+添加一次性 `listener` 函数。 这个 `listener` 只会在 `channel`下一次收到消息的时候被调用，之后这个监听器会被移除。
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -84,7 +84,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+为一个 `invoke`able IPC 添加一个处理器。 每当一个渲染进程调用 `ipcRenderer.invoke(channel, ...args)` 时这个处理器就会被调用。
 
 If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
 
