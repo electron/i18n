@@ -1418,7 +1418,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 
 引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1459,7 +1459,7 @@ app.whenReady().then(() => {
 
 引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 

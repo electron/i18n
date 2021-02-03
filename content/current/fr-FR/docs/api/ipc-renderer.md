@@ -51,7 +51,9 @@ Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 
 Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: L'envoi de types non standards en Javascript tels que des objets DOM ou des objets spéciaux Electron est déprécié, et lancera une exception à partir d'Electron 9.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> 
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md).
 
@@ -68,7 +70,9 @@ Retourne `Promise<any>` - résout avec la réponse du processus principal.
 
 Envoie un message au processus principal via `channel` et attend un résultat asynchrone. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: L'envoi de types non standards en Javascript tels que des objets DOM ou des objets spéciaux Electron est déprécié, et lancera une exception à partir d'Electron 9.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> 
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Le processus principal devrait écouter le `canal` avec [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -99,7 +103,9 @@ Retourne `any` - La valeur renvoyé par l'écouteur du [`ipcMain`](ipc-main.md).
 
 Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE**: L'envoi de types non standards en Javascript tels que des objets DOM ou des objets spéciaux Electron est déprécié, et lancera une exception à partir d'Electron 9.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> 
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md) , et répond en définissant `event.returnValue`.
 
