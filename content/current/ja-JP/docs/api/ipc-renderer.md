@@ -51,7 +51,9 @@
 
 引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
+> 
+> メインプロセスでは `ImageBitmap`、`File`、`DOMMatrix` などの DOM オブジェクトをサポートしていません。そのため、これらのオブジェクトをメインプロセスでデコードする方法がなく、Electron の IPC を介してメインプロセスに送信することはできません。 IPC 経由でこのようなオブジェクトを送信するとエラーになります。
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
@@ -68,7 +70,9 @@
 
 `channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
+> 
+> メインプロセスでは `ImageBitmap`、`File`、`DOMMatrix` などの DOM オブジェクトをサポートしていません。そのため、これらのオブジェクトをメインプロセスでデコードする方法がなく、Electron の IPC を介してメインプロセスに送信することはできません。 IPC 経由でこのようなオブジェクトを送信するとエラーになります。
 
 メインプロセスは、[`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) で `channel` をリッスンする必要があります。
 
@@ -99,7 +103,9 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 `channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
+> **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
+> 
+> メインプロセスでは `ImageBitmap`、`File`、`DOMMatrix` などの DOM オブジェクトをサポートしていません。そのため、これらのオブジェクトをメインプロセスでデコードする方法がなく、Electron の IPC を介してメインプロセスに送信することはできません。 IPC 経由でこのようなオブジェクトを送信するとエラーになります。
 
 メインプロセスは [`ipcMain`](ipc-main.md) オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
