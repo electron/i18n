@@ -631,6 +631,53 @@ Dans Electron 7, cela retourne maintenant une `FileList` avec un objet `Fichier`
 
 Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionné. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
+### API Changed: Callback-based versions of promisified APIs
+
+Electron 5 et Electron 6 ont introduit des versions des API asynchrones existantes basées sur les promise et déprécié leurs homologues basées sur les callback. Dans Electron 7, toutes les APIs obsolètes basées sur les callback sont maintenant supprimées.
+
+Les fonctions suivantes ne retournent plus que des promesses :
+
+* `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
+* `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
+* `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
+* `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
+* `contentTracing.startRecording()` [#16584](https://github.com/electron/electron/pull/16584)
+* `contentTracing.stopRecording()` [#16584](https://github.com/electron/electron/pull/16584)
+* `contents.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `cookies.flushStore()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.get()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.remove()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.set()` [#16464](https://github.com/electron/electron/pull/16464)
+* `debugger.sendCommand()` [#16861](https://github.com/electron/electron/pull/16861)
+* `dialog.showCertificateTrustDialog()` [#17181](https://github.com/electron/electron/pull/17181)
+* `inAppPurchase.getProducts()` [#17355](https://github.com/electron/electron/pull/17355)
+* `inAppPurchase.purchaseProduct()`[#17355](https://github.com/electron/electron/pull/17355)
+* `netLog.stopLogging()` [#16862](https://github.com/electron/electron/pull/16862)
+* `session.clearAuthCache()` [#17259](https://github.com/electron/electron/pull/17259)
+* `session.clearCache()`  [#17185](https://github.com/electron/electron/pull/17185)
+* `session.clearHostResolverCache()` [#17229](https://github.com/electron/electron/pull/17229)
+* `session.clearStorageData()` [#17249](https://github.com/electron/electron/pull/17249)
+* `session.getBlobData()` [#17303](https://github.com/electron/electron/pull/17303)
+* `session.getCacheSize()`  [#17185](https://github.com/electron/electron/pull/17185)
+* `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
+* `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
+* `shell.openExternal()` [#16176](https://github.com/electron/electron/pull/16176)
+* `()` [#15855](https://github.com/electron/electron/pull/15855)
+* `()` [#15855](https://github.com/electron/electron/pull/15855)
+* `webContents.hasServiceWorker()` [#16535](https://github.com/electron/electron/pull/16535)
+* `webContents.printToPDF()` [#16795](https://github.com/electron/electron/pull/16795)
+* `webContents.savePage()` [#16742](https://github.com/electron/electron/pull/16742)
+* `webFrame.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
+* `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
+
+Ces fonctions ont maintenant deux formes, synchrone et asynchrone basées sur Promis:
+
+* `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
+* `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
+* `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
+
 ## Changements majeurs prévus de l'API (6.0)
 
 ### API modifiée : `win.setMenu(null)` est maintenant `win.removeMenu()`
@@ -640,19 +687,6 @@ Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionn�
 win.setMenu(null)
 // Replace with
 win.removeMenu()
-```
-
-### API modifiée : `contentTracing.getTraceBufferUsage()` est maintenant une promesse
-
-```js
-// Deprecated
-contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
-})
-// Replace with
-contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
-})
 ```
 
 ### API modifiée : `electron.screen` dans le processus de rendu doit être accédé via `remote`
@@ -789,6 +823,30 @@ webFrame.setSpellCheckProvider('en-US', {
     callback(words.filter(text => spellchecker.isMisspelled(text)))
   }
 })
+```
+
+### API modifiée : `webContents.getZoomLevel` et `webContents.getZoomFactor` sont désormais synchrones
+
+`webContents.getZoomLevel` et `webContents.getZoomFactor` n'ont plus de callback en paramètre et retournent directement leurs valeur numérique.
+
+```js
+// Déprécié:
+webContents.getZoomLevel((level) => {
+  console.log(level)
+})
+// Remplacer par
+const level = webContents.getZoomLevel()
+console.log(level)
+```
+
+```js
+// Déprécié:
+webContents.getZoomLevel((level) => {
+  console.log(factor)
+})
+// Remplacer par
+const level = webContents.getZoomLevel()
+console.log(factor)
 ```
 
 ## Changements majeurs prévus de l'API (4.0)

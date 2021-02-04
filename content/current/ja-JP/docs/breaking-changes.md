@@ -632,6 +632,53 @@ Electron 7 では、以下のような `File` オブジェクトが入った `Fi
 
 `webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
+### API 変更: Promise ベースの API の Callback ベース版
+
+Electron 5 とElectron 6 では、既存の非同期 API の Promise ベース版を導入し、対応する古いコールバックベースのものは非推奨にしました。 Electron 7 では、非推奨のコールバックベースの API がすべて削除されます。
+
+これらの関数は Promise を返すようになりました。
+
+* `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
+* `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
+* `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
+* `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
+* `contentTracing.startRecording()` [#16584](https://github.com/electron/electron/pull/16584)
+* `contentTracing.stopRecording()` [#16584](https://github.com/electron/electron/pull/16584)
+* `contents.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `cookies.flushStore()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.get()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.remove()` [#16464](https://github.com/electron/electron/pull/16464)
+* `cookies.set()` [#16464](https://github.com/electron/electron/pull/16464)
+* `debugger.sendCommand()` [#16861](https://github.com/electron/electron/pull/16861)
+* `dialog.showCertificateTrustDialog()` [#17181](https://github.com/electron/electron/pull/17181)
+* `inAppPurchase.getProducts()` [#17355](https://github.com/electron/electron/pull/17355)
+* `inAppPurchase.purchaseProduct()`[#17355](https://github.com/electron/electron/pull/17355)
+* `netLog.stopLogging()` [#16862](https://github.com/electron/electron/pull/16862)
+* `session.clearAuthCache()` [#17259](https://github.com/electron/electron/pull/17259)
+* `session.clearCache()`  [#17185](https://github.com/electron/electron/pull/17185)
+* `session.clearHostResolverCache()` [#17229](https://github.com/electron/electron/pull/17229)
+* `session.clearStorageData()` [#17249](https://github.com/electron/electron/pull/17249)
+* `session.getBlobData()` [#17303](https://github.com/electron/electron/pull/17303)
+* `session.getCacheSize()`  [#17185](https://github.com/electron/electron/pull/17185)
+* `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
+* `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
+* `shell.openExternal()` [#16176](https://github.com/electron/electron/pull/16176)
+* `webContents.loadFile()` [#15855](https://github.com/electron/electron/pull/15855)
+* `webContents.loadURL()` [#15855](https://github.com/electron/electron/pull/15855)
+* `webContents.hasServiceWorker()` [#16535](https://github.com/electron/electron/pull/16535)
+* `webContents.printToPDF()` [#16795](https://github.com/electron/electron/pull/16795)
+* `webContents.savePage()` [#16742](https://github.com/electron/electron/pull/16742)
+* `webFrame.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
+* `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
+* `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
+
+これらの関数には、同期と Promise ベースの非同期、2 つの形式があります。
+
+* `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
+* `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
+* `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
+
 ## 予定されている破壊的なAPIの変更 (6.0)
 
 ### API 変更: `win.setMenu(null)` は `win.removeMenu()` に
@@ -641,19 +688,6 @@ Electron 7 では、以下のような `File` オブジェクトが入った `Fi
 win.setMenu(null)
 // こちらに置換
 win.removeMenu()
-```
-
-### API 変更: `contentTracing.getTraceBufferUsage()` が Promise に
-
-```js
-// 非推奨
-contentTracing.getTraceBufferUsage((percentage, value) => {
-  // なにかする
-})
-// こちらに置換
-contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject に percentage と value のフィールドがあります
-})
 ```
 
 ### API 変更: レンダラープロセスの `electron.screen` が `remote` を介してアクセスするように
@@ -790,6 +824,30 @@ webFrame.setSpellCheckProvider('en-US', {
     callback(words.filter(text => spellchecker.isMisspelled(text)))
   }
 })
+```
+
+### API 変更: `webContents.getZoomLevel` と `webContents.getZoomFactor` が同期実行に
+
+`webContents.getZoomLevel` と `webContents.getZoomFactor` はコールバック引数を受け取らなくなり、代わりに数値を直接返すようになります。
+
+```js
+// 非推奨
+webContents.getZoomLevel((level) => {
+  console.log(level)
+})
+// こちらに置換
+const level = webContents.getZoomLevel()
+console.log(level)
+```
+
+```js
+// 非推奨
+webContents.getZoomFactor((factor) => {
+  console.log(factor)
+})
+// こちらに置換
+const factor = webContents.getZoomFactor()
+console.log(factor)
 ```
 
 ## 予定されている破壊的なAPIの変更 (4.0)
