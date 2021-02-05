@@ -68,10 +68,10 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "14623",
-    "translated": "10457",
+    "translated": "10458",
     "approved": "3468",
     "words": "176930",
-    "words_translated": "124205",
+    "words_translated": "124215",
     "words_approved": "35198",
     "translated_progress": 70,
     "approved_progress": 19,
@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14623",
-    "translated": "12174",
+    "translated": "12206",
     "approved": "3175",
     "words": "176930",
-    "words_translated": "146036",
+    "words_translated": "146333",
     "words_approved": "35265",
     "translated_progress": 82,
     "approved_progress": 19,
-    "qa_issues": 5508
+    "qa_issues": 5520
   }
 ]
