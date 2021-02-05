@@ -22,7 +22,7 @@ Usando el [React Developer Tools](https://chrome.google.com/webstore/detail/reac
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * en macOS es `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pasa la ubicación de la extensión a la API [`ses.loadExtension`](../api/session.md#sesloadextensionpath). Para React Developer Tools `v4.9.0`, se ve algo como:
+1. Pasa la ubicación de la extensión a la API [`ses.loadExtension`](../api/session.md#sesloadextensionpath-options). Para React Developer Tools `v4.9.0`, se ve algo como:
 
    ```javascript
     const { app, session } = require('electron')
