@@ -41,7 +41,7 @@ Electron 2.0.0 también representa una mejora a la forma en que Electron se esta
 
  * Se han eliminado [APIs obsoletas](https://github.com/electron/electron/blob/v2.0.0-beta.8/docs/tutorial/planned-breaking-changes.md), incluyendo:
    * Se ha cambiado la firma `menu.popup`. [#11968](https://github.com/electron/electron/pull/11968)
-   * Removed deprecated `crashReporter.setExtraParameter` [#11972](https://github.com/electron/electron/pull/11972)
+   * Eliminado obsoleto `crashReporter.setExtraParameter` [#11972](https://github.com/electron/electron/pull/11972)
    * Eliminado `webContents.setZoomLevelLimits` y `webFrame.setZoomLevelLimits`. [#11974](https://github.com/electron/electron/pull/11974)
    * Se eliminaron los métodos del `portapapeles` desaprobados. [#11973](https://github.com/electron/electron/pull/11973)
    * Se ha eliminado el soporte para parámetros booleanos para `tray.setHighlightMode`. [#11981](https://github.com/electron/electron/pull/11981)

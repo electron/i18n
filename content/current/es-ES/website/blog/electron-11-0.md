@@ -60,7 +60,7 @@ Para obtener información sobre los cambios de ruptura planificados en las próx
 ### Continued Work for Deprecation of `remote` Module
 We started work to remove the `remote` module in [Electron 9](https://www.electronjs.org/blog/electron-9-0). We plan to remove the `remote` module itself in Electron 14.
 
-Read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
+Sigue y lee [este asunto](https://github.com/electron/electron/issues/21408) para conocer los planes completo y detalles para la desaprobación.
 
 ### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
 From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12.

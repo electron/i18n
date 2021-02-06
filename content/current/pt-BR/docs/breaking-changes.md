@@ -14,6 +14,12 @@ Este documento usa a seguinte convenção para categorizar as alterações mais 
 
 ## Alterações planejadas na API (14.0)
 
+### API Changed: `window.(open)`
+
+The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+
+If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+
 ### Removed: `worldSafeExecuteJavaScript`
 
 In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron

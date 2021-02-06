@@ -14,6 +14,12 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(14.0)
 
+### API Changed: `window.(open)`
+
+The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+
+If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+
 ### Eliminado: `worldSafeExecuteJavaScript`
 
 En Electron 14 `worldSafeExecuteJavaScript` será eliminado.  No hay alternativa, por favor asegúrese que su código trabaja con esta propiedad activada.  Ha sido activada por defecto desde Electron
@@ -501,7 +507,7 @@ The following `systemPreferences` events have been deprecated:
 Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-// Deprecated
+// Obsoleto
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
@@ -524,19 +530,19 @@ Use the following `nativeTheme` properties instead:
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Deprecated
+// Obsoleto
 systemPreferences.isDarkMode()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseDarkColors
 
-// Deprecated
+// Obsoleto
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseInvertedColorScheme
 
-// Deprecated
+// Obsoleto
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseHighContrastColors
 ```
 
@@ -631,11 +637,11 @@ En Electron 7, esto ahora devuelve una `Lista de archivos` con un objeto `File` 
 
 Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API Changed: Callback-based versions of promisified APIs
+### API Modificada: Versiones basadas en Callback de APIs promisificadas
 
-Electron 5 and Electron 6 introduced Promise-based versions of existing asynchronous APIs and deprecated their older, callback-based counterparts. In Electron 7, all deprecated callback-based APIs are now removed.
+Electron 5 y Electron 6 introdujeron versiones basadas en Promise de las API asíncornas existentes y desaprobaron sus contrapartes antiguas basadas en callback. En Electron 7, todas las APIs desaprobadas basadas en callback ahora están eliminadas.
 
-These functions now only return Promises:
+Estas funciones ahora sólo devuelven Promises:
 
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
@@ -825,26 +831,26 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
-### API Changed: `webContents.getZoomLevel` and `webContents.getZoomFactor` are now synchronous
+### API Modificada: `webContents.getZoomLevel` y `webContents.getZoomFactor` ahora son síncrono
 
-`webContents.getZoomLevel` and `webContents.getZoomFactor` no longer take callback parameters, instead directly returning their number values.
+`webContents.getZoomLevel` y `webContents.getZoomFactor` ya no toman parámetros callback, en su lugar devuelven directamente sus valores numéricos.
 
 ```js
-// Deprecated
+// Obsoleto
 webContents.getZoomLevel((level) => {
   console.log(level)
 })
-// Replace with
+// Reemplazar con
 const level = webContents.getZoomLevel()
 console.log(level)
 ```
 
 ```js
-// Deprecated
+// Obsoleto
 webContents.getZoomFactor((factor) => {
   console.log(factor)
 })
-// Replace with
+// Reemplazar con
 const factor = webContents.getZoomFactor()
 console.log(factor)
 ```

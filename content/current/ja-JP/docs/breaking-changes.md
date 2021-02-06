@@ -14,6 +14,12 @@
 
 ## 予定されている破壊的なAPIの変更 (14.0)
 
+### API 変更: `window.(open)`
+
+任意引数 `frameName` は、ウィンドウのタイトルに設定されなくなります。 これにより、[ネイティブの document](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) に対応するパラメータ `windowName` で説明されている仕様に従うことになりました。
+
+この引数でウィンドウのタイトルを設定していた場合は、代わりに [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) を利用できます。
+
 ### 削除: `worldSafeExecuteJavaScript`
 
 Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。  これは Electron 12 からデフォルトで有効になっています。
