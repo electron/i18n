@@ -393,11 +393,11 @@ The following `systemPreferences` events have been deprecated:
 Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-// Deprecated
+// Obsoleto
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Replace with
+// Reemplazar con
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
@@ -414,19 +414,19 @@ Use the following `nativeTheme` properties instead:
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Deprecated
+// Obsoleto
 systemPreferences.isDarkMode()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseDarkColors
 
-// Deprecated
+// Obsoleto
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseInvertedColorScheme
 
-// Deprecated
+// Obsoleto
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Reemplazar con
 nativeTheme.shouldUseHighContrastColors
 ```
 

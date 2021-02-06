@@ -1146,7 +1146,7 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 
 Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
-This also affects the Page Visibility API.
+Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
@@ -1456,7 +1456,7 @@ app.whenReady().then(() => {
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1643,13 +1643,13 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. This also affects the Page Visibility API.
+Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.getType()`
 
@@ -1707,4 +1707,4 @@ Una instancia [`Debugger`](debugger.md) para este webContents.
 
 #### `contents.backgroundThrottling`
 
-Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. This also affects the Page Visibility API.
+Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de la página.
