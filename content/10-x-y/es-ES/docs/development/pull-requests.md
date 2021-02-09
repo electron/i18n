@@ -51,7 +51,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+La mayoría de los pull requests abiertos contra el repositorio `electron/electron` incluyen cambios al código C/C++ ne la carpeta `shell/`, el código JavaScript en la carpeta `lib/`, la documentación en `docs/api/` o a los tests en la carpeta `spec/`.
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 

@@ -87,7 +87,7 @@ Por ejemplo cuando usted carga la siguiente carga con un protocolo personalizado
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API][file-system-api]. De otra manera el renderizador arrojará un error de seguridad en el sistema.
+Registrar un esquema como estándar puede permitir el acceso a los archivos a través[API FileSystem][file-system-api]. De otra manera el renderizador arrojará un error de seguridad en el sistema.
 
 Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar.
 

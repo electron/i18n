@@ -24,7 +24,7 @@ Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que 
 
 ## ¿Cómo compartir datos entre páginas web?
 
-Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. Buenos candidatos son [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], y [IndexedDB][indexed-db].
 
 Alternativamente, puede utilizar los primitivos IPC proporcionados por Electron. Para compartir datos entre los procesos principales y renderizadores, puedes usar los módulos [`ipcMain`](api/ipc-main.md) y [`ipcRenderer`](api/ipc-renderer.md). Para comunicarte directamente entre páginas web, puedes enviar un [`MessagePort`][message-port] de uno a otro. posiblemente a través del proceso principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La comunicación posterior a través de los puertos de mensajes es directa y no se desvía a través de el proceso principal.
 

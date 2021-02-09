@@ -129,6 +129,6 @@ Rendering untrusted content in Electron is still somewhat uncharted territory, t
 
 Here are some things to consider before rendering untrusted content:
 
-- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
-- Some bug in the V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
+- Un script de precarga puede debilitar accidentalmente APIs privilegiadas a código no confiable, a menos que [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) también esté habilitado.
+- Algunos errores en el motor V8 pueden permitir a códigos maliciosos acceder a los APIs de precarga del renderer, otorgando de manera efectiva acceso completo al sistema a través del módulo `remote`. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
 - While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Your best chance at staying secure is to be on the latest stable version of Electron.

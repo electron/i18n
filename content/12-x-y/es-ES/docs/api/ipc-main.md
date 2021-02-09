@@ -86,7 +86,7 @@ Elimina los oyentes del `channel` especificado.
 
 Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
-Si `listener` devuelve una Promise, el eventual resultado de la promise será devuelto como una respuesta al controlador remoto. Otherwise, the return value of the listener will be used as the value of the reply.
+Si `listener` devuelve una Promise, el eventual resultado de la promise será devuelto como una respuesta al controlador remoto. De lo contrario, el valor de retorno del listener será usado como el valor de la respuesta.
 
 ```js
 // Main process
@@ -111,7 +111,7 @@ The `event` that is passed as the first argument to the handler is the same as t
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Maneja un solo `invoke`able mensaje IPC, luego elimina el listener. See `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 

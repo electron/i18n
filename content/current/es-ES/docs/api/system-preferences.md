@@ -50,7 +50,7 @@ Devuelve:
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`.  Vea la [guía de modo oscuro](../tutorial/mojave-dark-mode-guide.md) para más información.
+**Nota:** En macOS 10.15 Catalina para que esta API devuelva el valor correcto cuando el modo Dark "automático" está configurado debe tener `NSRequiresAquaSystemAppearance=false` en su `Info.plist` o estar en Electron `>=7.0.0`.  Vea la [guía de modo oscuro](../tutorial/mojave-dark-mode-guide.md) para más información.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
@@ -182,7 +182,7 @@ Algún `key` y `type`s populares:
 
 * `llave` Cadena
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 

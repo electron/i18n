@@ -122,7 +122,7 @@ Se pueden agregar más si se necesitan para exponer más APIs de Electron en el 
 
 Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Nosotros todavía no estamos seguros de las implicaciones de seguridad al exponer algunas APIs renderer de Electron a un script de precarga, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
 
-- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
+- Un script de precarga puede debilitar accidentalmente APIs privilegiadas a código no confiable, a menos que [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) también esté habilitado.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
 
 Dado que el renderizado de contenido no confiable en Electron sigue siendo un territorio inexplorado, las APIs expuestas al script de pre carga del sandbox deben ser consideradas más inestables que el resto de las APIs de Electron, y pueden tener cambios repentinos para solucionar problemas de seguridad.

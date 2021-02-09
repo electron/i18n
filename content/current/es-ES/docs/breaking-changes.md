@@ -14,11 +14,11 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(14.0)
 
-### API Changed: `window.(open)`
+### API Modificada: `window.(open)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+El parámetro opcional `frameName` ya no se establecerá como el título de la ventana. Esto ahora sigue la especificación descrita por la [documentación nativa](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) bajo el correspondiente parámetro `windowName`.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Si estaba usando este parámetro para establecer el título de una ventana, puede usar [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) en su lugar.
 
 ### Eliminado: `worldSafeExecuteJavaScript`
 
@@ -291,7 +291,7 @@ Recomendamos [alejarnos del módulo remoto](https://medium.com/@nornagon/electro
 
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
 // Deprecated
@@ -320,7 +320,7 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
 // Deprecated
@@ -333,7 +333,7 @@ The registered or intercepted protocol does not have effect on current page unti
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
 ```javascript
 // Deprecated
@@ -424,7 +424,7 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 
 ### Comportamiento cambiado: Los valores enviados a través de IPC ahora se serializan con el algoritmo de clon estructurado
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+El algoritmo usado para serializar los objetos enviados sobre IPC (mediante `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` y métodos relacionados) han sido cambiados de un algoritmo personalizado a los de V8 [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), el mismo algoritmo usado para serializar los mensajes para `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
@@ -455,7 +455,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsoleto: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+Esta API está implementada usando el módulo `remote`, el cual tiene implicaciones de rendimiento y seguridad. Therefore its usage should be explicit.
 
 ```js
 // Deprecated
@@ -558,7 +558,7 @@ Reemplazar con: https://electronjs.org/headers
 
 ### API cambiada: `session.clearAuthCache()` ya no acepta opciones
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+La API `session.clearAuthCache` ya no acepta opciones de que limpiar y en su lugar incondicionalmente limpia la cache entera.
 
 ```js
 // Deprecated
@@ -635,7 +635,7 @@ En Electron 7, esto ahora devuelve una `Lista de archivos` con un objeto `File` 
 /path/to/folder/file1
 ```
 
-Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. Si necesita la ruta a la carpeta seleccionada en lugar de los contenidos de la carpeta, vea la API `Dialog. showOpenDialog` ([Link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Modificada: Versiones basadas en Callback de APIs promisificadas
 

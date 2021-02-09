@@ -350,7 +350,7 @@ Devuelve:
   * `key` String - Es igual a [KeyboardEvent.key][keyboardevent].
   * `code` String - Es igual a [KeyboardEvent.code][keyboardevent].
   * `isAutoRepeat` Boolean - Es igual a [KeyboardEvent.repeat][keyboardevent].
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `isComposing` Boolean - Equivalente a [KeyboardEvent.isComposing][keyboardevent].
   * `shift` Boolean - Es igual a [KeyboardEvent.shiftKey][keyboardevent].
   * `control` Boolean - Es igual a [KeyboardEvent.controlKey][keyboardevent].
   * `alt` Boolean - Es igual a [KeyboardEvent.altKey][keyboardevent].

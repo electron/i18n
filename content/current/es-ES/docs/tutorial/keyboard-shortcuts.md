@@ -8,7 +8,7 @@ This feature allows you to configure local and global keyboard shortcuts for you
 
 ### Accesos directos locales
 
-Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md) within the [Menu](../api/menu.md) module.
+Local keyboard shortcuts are triggered only when the application is focused. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`] cuando crea un [MenuItem](../api/menu-item.md) con el módulo [Menu](../api/menu.md).
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -38,7 +38,7 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 ### Accesos directos globales
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Para configurar un atajo de teclado global, necesita usar el módulo [globalShortcut](../api/global-shortcut.md) para detecta los eventos del teclado cuando la aplicación no tiene el focus del teclado.
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -60,7 +60,7 @@ After launching the Electron application, if you press the defined key combinati
 
 #### Using web APIs
 
-If you want to handle keyboard shortcuts within a [BrowserWindow](../api/browser-window.md), you can listen for the `keyup` and `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) inside the renderer process using the [addEventListener() API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+Si quieres manejar los atajos de teclado dentro de un [BrowserWindow](../api/browser-window.md), puedes escuchar por los [Eventos DOM](https://developer.mozilla.org/en-US/docs/Web/Events) `keyup` y `keydown` dentro del renderer process usando la [API addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 window.addEventListener('keyup', doSomething, true)
