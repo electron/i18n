@@ -142,7 +142,7 @@ Devuelve `String` - El valor de un nombre de cabecera extra establecido anterior
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Elimina un nombre de cabecera establecido previamente. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 

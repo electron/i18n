@@ -36,7 +36,7 @@ However, we understand that requirements outside our wildest imagination may exi
 
 There are numerous differences in the amount of supported features. Electron tiene una comunidad más grande, con más aplicaciones en producción usándolo y [una mayor cantidad de módulos userland disponibles en npm][electron-modules].
 
-As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. As an example in favor of NW.js, NW.js supports more `Chrome.*` APIs for the development of Chrome Apps.
+As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. Como ejemplo a favor de NW.js, NW.js soporta más APIs de `Chrome.*` para el desarrollo de aplicaciones Chrome.
 
 Naturally, we believe that Electron is the better platform for polished production applications built with web technologies (like Visual Studio Code, Slack, or Facebook Messenger); however, we want to be fair to our web technology friends. If you have feature needs that Electron does not meet, you might want to try NW.js.
 

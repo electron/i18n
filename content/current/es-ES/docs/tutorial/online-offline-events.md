@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-[Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the Renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API.
+La detección de [Evento en línea y fuera de líena ](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) puede ser implementado en el Renderer process usando el atributo [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), parte de la API HTML5 estándar.
 
 El atributo `navigator.onLine` devuelve:
 

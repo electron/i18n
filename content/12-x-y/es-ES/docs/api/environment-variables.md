@@ -69,7 +69,7 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 Inicia el proceso como un proceso normal de Node.js.
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+En este modo, podrás ser capaz de pasar [opciones cli](https://nodejs.org/api/cli.html) a Node.js como lo harías cuando corres el ejecutable normal de Node.js, con la excepción de las siguientes banderas:
 
 * "--openssl-config"
 * "--use-bundled-ca"

@@ -177,9 +177,9 @@ Orquestar el flujo de operaciones en el código de tu renderizador es particular
 
 Generalmente, todos los consejos para construir aplicaciones web con rendimiento para navegadores modernos también se aplican a los renderizadores de Electron. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
 
-*`requestIdleCallback()`* permite a los desarrolladores hacer cola una función ejecutada tan pronto como el proceso esté entrando en un período inactivo. Le permite realizar trabajos de baja prioridad o en segundo plano sin afectar a la experiencia del usuario. For more information about how to use it, [check out its documentation on MDN][request-idle-callback].
+*`requestIdleCallback()`* permite a los desarrolladores hacer cola una función ejecutada tan pronto como el proceso esté entrando en un período inactivo. Le permite realizar trabajos de baja prioridad o en segundo plano sin afectar a la experiencia del usuario. Para más información sobre como usarlo, [revise su documentación en MDN][request-idle-callback].
 
-*Web Workers* son una herramienta poderosa para correr código en un hilo separado. There are some caveats to consider – consult Electron's [multithreading documentation][multithreading] and the [MDN documentation for Web Workers][web-workers]. Son una solución ideal para cualquier operación que requiera mucha potencia de CPU durante un período extendido de tiempo.
+*Web Workers* son una herramienta poderosa para correr código en un hilo separado. Hay algunas advertencias a considerar - consulte la [documentación de multihilos][multithreading] y la [documentación de MDN para trabajadores Web][web-workers] de Electron. Son una solución ideal para cualquier operación que requiera mucha potencia de CPU durante un período extendido de tiempo.
 
 ## 5) Polyfills innecesarios
 
@@ -223,7 +223,7 @@ Las herramientas ahora registrarán meticulosamente todas las peticiones de red.
 
 Como siguiente paso, habilita `lanzamiento de red`. Encuentra el menú desplegable que actualmente lee `Online` y selecciona una velocidad más lenta como `Fast 3G`. Recarga tu renderizador y mira si hay recursos que tu aplicación está innecesariamente esperando. En muchos casos, una aplicación esperará a que se complete una solicitud de red a pesar de no necesitar realmente el recurso involucrado.
 
-Como consejo, cargar recursos de Internet que tal vez quieras cambiar sin enviar una actualización de la aplicación es una estrategia poderosa. For advanced control over how resources are being loaded, consider investing in [Service Workers][service-workers].
+Como consejo, cargar recursos de Internet que tal vez quieras cambiar sin enviar una actualización de la aplicación es una estrategia poderosa. Para un control avanzado sobre como los recursos se cargan, considere invertir en [Service Workers][service-workers].
 
 ## 7) Conjunto de tu código
 

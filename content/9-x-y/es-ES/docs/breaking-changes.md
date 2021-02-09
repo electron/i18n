@@ -245,7 +245,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsoleto: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+Esta API está implementada usando el módulo `remote`, el cual tiene implicaciones de rendimiento y seguridad. Therefore its usage should be explicit.
 
 ```js
 // Deprecated
@@ -345,7 +345,7 @@ Reemplazar con: https://electronjs.org/headers
 
 ### API cambiada: `session.clearAuthCache()` ya no acepta opciones
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+La API `session.clearAuthCache` ya no acepta opciones de que limpiar y en su lugar incondicionalmente limpia la cache entera.
 
 ```js
 // Deprecated
@@ -419,7 +419,7 @@ En Electron 7, esto ahora devuelve una `Lista de archivos` con un objeto `File` 
 /path/to/folder/file1
 ```
 
-Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. Si necesita la ruta a la carpeta seleccionada en lugar de los contenidos de la carpeta, vea la API `Dialog. showOpenDialog` ([Link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Cambios planeados en la API(6.0)
 

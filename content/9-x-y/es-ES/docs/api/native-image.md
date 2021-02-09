@@ -217,7 +217,7 @@ Devuelve `String` - El URL de información de la imagen.
 
 Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+La diferencia entre `getBitmap()` y `toBitmap()` es que `getBitmap()` no copia los datos bitmap, por lo que debe utilizar inmediatamente el Búfer devuelto en el ciclo del evento actual; de lo contrario, los datos podrían modificarse o destruirse.
 
 #### `image.getNativeHandle()` _macOS_
 

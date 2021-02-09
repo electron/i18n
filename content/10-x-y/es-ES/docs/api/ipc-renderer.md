@@ -4,7 +4,7 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an  [EventEmitter][event-emitter]. Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
+El módulo `ipcRenderer` es un [EventEmitter][event-emitter]. Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
 
 Ver [ipcMain](ipc-main.md) para ejemplos de códigos.
 
@@ -134,7 +134,7 @@ ipcMain.on('port', (e, msg) => {
 })
 ```
 
-For more information on using `MessagePort` and `MessageChannel`, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
+Para más información sobre el uso de `MessagePort` y `MessageChannel`, vea la [Documentación MDN](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

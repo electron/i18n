@@ -463,7 +463,7 @@ Devuelve `Promise<String[]>` - Un array de todas las palabras en el diccionario 
 
 * `word` String - La palabra que desea agregar al diccionario
 
-Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
+Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado. Esta API no funcionará en sesiones no persistentes (en-memoría).
 
 **Note:** En macOS y Windows 10 esta palabra será escrita al diccionario personalizado del sistema operativo también
 
@@ -471,7 +471,7 @@ Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario pers
 
 * `word` String - The word you want to remove from the dictionary
 
-Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
+Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario personalizado. Esta API no funcionará en sesiones no persistentes (en-memoría).
 
 **Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
@@ -483,7 +483,7 @@ Devuelve `Promise<Extension>` - se resuelve cuando la extensión está cargada.
 
 This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
+Note that Electron does not support the full range of Chrome extensions APIs. Vea el [APIs de extensiones soportadas](extensions.md#supported-extensions-apis) para más detalles sobre que es soportado.
 
 Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 

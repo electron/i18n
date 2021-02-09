@@ -12,7 +12,7 @@ Proceso: [Main](../glossary.md#main-process)
 
 Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow.setTouchBar` para agregar la `TouchBar` a una ventana.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** La API TouchBar API actualmente es experimental y puede cambiar o ser eliminada en futuras versiones de Electron.
 
 **Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 

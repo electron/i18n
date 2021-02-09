@@ -24,7 +24,7 @@ Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que 
 
 ## ¿Cómo compartir datos entre páginas web?
 
-Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. Buenos candidatos son [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], y [IndexedDB][indexed-db].
 
 O puede usar el sistema IPC, el cual es específico para Electron, para almacenar objetos en el proceso principal como variables globales, y después y después accesar a ellos desde los renderizadores a través de la propiedad `remote` u el módulo `electron`:
 

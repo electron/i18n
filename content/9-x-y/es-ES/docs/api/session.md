@@ -461,7 +461,7 @@ Devuelve `Promise<String[]>` - Un array de todas las palabras en el diccionario 
 
 * `word` String - La palabra que desea agregar al diccionario
 
-Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
+Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario personalizado. Esta API no funcionará en sesiones no persistentes (en-memoría).
 
 **Note:** En macOS y Windows 10 esta palabra será escrita al diccionario personalizado del sistema operativo también
 
@@ -469,7 +469,7 @@ Devuelve `Boolean` - Si la palabra fue correctamente escrita al diccionario pers
 
 * `word` String - The word you want to remove from the dictionary
 
-Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario personalizado. This API will not work on non-persistent (in-memory) sessions.
+Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario personalizado. Esta API no funcionará en sesiones no persistentes (en-memoría).
 
 **Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 

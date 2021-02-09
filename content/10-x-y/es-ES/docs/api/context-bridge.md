@@ -41,7 +41,7 @@ The `contextBridge` module has the following methods:
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
 * `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
-* `api` Record<String, any> - Your API object, more information on what this API can be and how it works is available below.
+* `api` Registro<String, any> - Tu objeto API, más información sobre que puede ser esta API y como funciona está disponible a continuación.
 
 ## Uso
 

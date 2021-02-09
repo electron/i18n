@@ -17,7 +17,7 @@ console.log(clipboard.readText ('selección'))
 
 El módulo `portapapeles` tiene los siguientes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentales son marcadas como tales y podría ser removidas en el futuro.
 
 ### `clipboard.readText([type])`
 

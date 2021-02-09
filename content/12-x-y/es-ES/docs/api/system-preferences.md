@@ -180,7 +180,7 @@ Algún `key` y `type`s populares:
 
 * `llave` Cadena
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 

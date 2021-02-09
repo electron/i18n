@@ -249,11 +249,11 @@ Muestra un globo de la bandeja.
 
 #### `tray.removeBalloon()` _Windows_
 
-Removes a tray balloon.
+Elimina un globo de la bandeja.
 
 #### `tray.focus()` _Windows_
 
-Devuelve el foco al área de notificación de la barra de tarea. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+Devuelve el foco al área de notificación de la barra de tarea. Notification area icons should use this message when they have completed their UI operation. Por ejemplo, si el icono muestra un menú de acceso directo, pero el usuario presiona ESC para cancelarlo, use `tray.focus()` para devolver el focus a la área de notificación.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 

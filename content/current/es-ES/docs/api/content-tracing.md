@@ -52,13 +52,13 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 * `resultFilePath` String (opcional)
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Devuelve `Promise<String>` - resuleve con una ruta al archivo que contiene los datos rastreados una vez que los procesos hijos han reconocido la solicitud `stopRecording`
 
 Dejar de grabar en todos los procesos.
 
 Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-Los datos de rastreo se escribirán dentro de `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+Los datos de rastreo se escribirán dentro de `resultFilePath`. Si `resultFilePath` está vacío o no es proporcionado, los datos de rastreo serán escrito en un archivo temporal, y la ruta será retornada en el promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
