@@ -10,7 +10,7 @@ Proceso: [Main](../glossary.md#main-process)
 
 ## Noticias de la plataforma
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Actualmente, sólo macOS y Windows son soportados. No hay soporte para auto actualizaciones en Linux, por lo que es recomendable que use el gestor de paquetes de la distribución para actualizar su aplicación.
 
 Adicionalmente, hay algunas diferencias sutiles en cada plataforma:
 
@@ -18,7 +18,7 @@ Adicionalmente, hay algunas diferencias sutiles en cada plataforma:
 
 En macOS, el módulo `autoUpdater` está construido sobre [Squirrel.Mac][squirrel-mac], lo que significa que no necesita ninguna configuración especial para que funcione. Para los requisitos de servidor, puede leer [Soporte de servidor][server-support]. Tenga en cuenta que [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) se aplica para todas las solicitudes creadas como parte del proceso de actualizaciones. Aplicaciones que necesitan para desactivar ATS pueden agregar la clave de `NSAllowsArbitraryLoads` a su .plist de su aplicación.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Nota:** Su aplicación debe ser firmada para actualizaciones automáticas en macOS. Este es un requerimiento de `Squirrel.Mac`.
 
 ### Windows
 
@@ -58,7 +58,7 @@ Aparece al comprobar si una actualización ya ha empezado.
 
 ### Evento: "actualización disponible"
 
-Emitted when there is an available update. The update is downloaded automatically.
+Emitido cuando hay una actualización disponible. La actualización es descargada automáticamente.
 
 
 
@@ -82,7 +82,7 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Nota:** No es estrictamente necesario manejar este evento. Una actualización descargada con éxito se aplicará la próxima vez que la aplicación inicie.
 
 
 
@@ -104,7 +104,7 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 * `options` Object 
     * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `headers` Record<String, String> (opcional) _macOS_ - Cabeceras de peticiones HTTP.
   * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
 
 Configura el `url` e inicializa la actualización automática.
@@ -119,13 +119,13 @@ Devuelve `String` - La actualización actual provee el URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Pregunta al servidor si hay una actualización. Debes llamar a `setFeedURL` antes de usar esta API.
 
 
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Reinicia la aplicación e instala la actualización después que esta ha sido descargada. Sólo debería llamarse después de que `update-downloaded` ha sido emitido.
 
 Llamar a `autoUpdater.quitAndInstall()` bajo la capucha cerrará todas las ventanas de la aplicación, y llamará automáticamente a `app.quit()` después de que se hayan cerrado todas las ventanas.
 

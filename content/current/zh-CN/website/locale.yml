@@ -36,11 +36,10 @@ docs:
   main_proc_modules: Main Process 模块
   renderer_proc_modules: Renderer Process 模块
   both_proc_modules: 两种进程都可用的模块
-  footer:
-    propose_change: 改进此文档
-    version_history: 版本历史
-    translate: 翻译此文档
-    view_all_docs: 在一页查看所有文档
+  propose_change: 改进此文档
+  version_history: 版本历史
+  translate: 翻译此文档
+  view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
   view_more_details: 查看更多语言

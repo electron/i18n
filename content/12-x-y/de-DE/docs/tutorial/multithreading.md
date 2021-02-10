@@ -4,7 +4,7 @@ With [Web Workers][web-workers], it is possible to run JavaScript in OS-level th
 
 ## Multithreaded Node.js
 
-Es ist möglich Knoten zu verwenden. s Funktionen in elektronischen Webarbeitern, , damit die Option `nodeIntegrationInWorker` auf `true` in `WebPreferences` gesetzt werden soll.
+Es ist möglich `Node.js features` in `Electrons Webworkers` zu verwenden. Dazu muss die Option `nodeIntegrationInWorker` in den <0>WebPreferences</0> auf <0>true</0> gesetzt werden.
 
 ```javascript
 const gewinnen = new BrowserWindow({

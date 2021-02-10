@@ -36,11 +36,10 @@ docs:
   main_proc_modules: メインプロセスモジュール
   renderer_proc_modules: レンダラープロセスモジュール
   both_proc_modules: 両プロセスタイプのモジュール
-  footer:
-    propose_change: このドキュメントを改善する
-    version_history: 過去のバージョン
-    translate: ドキュメントの翻訳に参加する
-    view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
+  propose_change: このドキュメントを改善する
+  version_history: 過去のバージョン
+  translate: ドキュメントの翻訳に参加する
+  view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
 languages:
   choose_language: 言語選択
   view_more_details: 言語の詳細をもっと表示する

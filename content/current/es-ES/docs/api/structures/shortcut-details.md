@@ -1,9 +1,9 @@
 # Objeto ShortcutDetails
 
 * `target` String - El objetivo a lanzar desde este acceso directo.
-* `cwd` String (optional) - The working directory. Por defecto está vació.
-* `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Por defecto está vació.
-* `description` String (optional) - The description of the shortcut. Default is empty.
-* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
-* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
-* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
+* `cwd` String (opcional) - El directorio de trabajo. Por defecto está vació.
+* `args` String (opcional) - Los argumentos a ser aplicados al `target` cuando se lanza desde este acceso directo. Por defecto está vació.
+* `description` String (opcional) - La descripción del acceso directo. Por defecto es vacío.
+* `icon` String (opcional) - La ruta al icono, pude ser a un DLL o EXE. `icon` y `iconIndex` tienen que ser establecidos juntos. Por defecto es vacío, el cual usa el icono del objetivo.
+* `iconIndex` Number (opcional) - El ID de recurso del icono cuando `icon` es un DLL o un EXE. Por defecto es 0.
+* `appUserModelId` String (opcional) - El ID del User Model de la aplicación. Por defecto es vacío.
