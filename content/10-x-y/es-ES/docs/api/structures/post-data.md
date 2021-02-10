@@ -1,12 +1,12 @@
-# PostData Object
+# Objeto PostData
 
 * `type` String - One of the following:
-  * `rawData` - The data is available as a `Buffer`, in the `rawData` field.
-  * `file` - The object represents a file. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+  * `rawData` - Los Datos están disponibles como un `Buffer`, en el campo `rawData`.
+  * `file` - El objeto representa un archivo. Los campos `filePath`, `offset`, `length` y `modificationTime` se utilizarán para describir el archivo.
+  * `blob` - El objeto representa un `Blob`. El campo `blobUUID` se utilizará para describir el `Blob`.
+* `bytes` String (opcional) - Los bytes sin procesar del post data en un `Buffer`. Requerido para el tipo `rawData`.
+* `filePath` String (opcional) - La ruta del archivo que se está cargando. Requerido para el tipo `file`.
+* `blobUUID` String (opcional) - El `UUID` del `Blob` que está siendo cargado. Requerido para el tipo `blob`.
+* `offset` Integer (opcional) - El desplazamiento desde el principio del archivo que esta siendo cargado, en bytes. Sólo válido para tipos `file`.
+* `length` Integer (opcional) - La longitud del archivo que se está cargando, en bytes. Si se establece a `-1`, el archivo entero se cargará. Sólo válido para tipos `file`.
+* `modificationTime` Double (opcional) - El tiempo de modificación del archivo representado por un double, el cual es el número de segundo desde `UNIX Epoch` (Enero 1, 1970). Sólo válido para tipos `file`.

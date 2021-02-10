@@ -30,7 +30,7 @@ Devuelve:
 * `event` Event
 * `launchInfo` Record<string, any> _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Emitido una vez, cuando Electron ha terminado de iniciarse. En macOS, `launchInfo` almacena el `userInfo` de `NSUserNotification` que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificación. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido disparado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -1097,7 +1097,7 @@ Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplic
 
 ### `app.enableSandbox()`
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Habilita el modo sandbox completo en la apliacación. Esto significa que todos los renderer serán lanzados en un espacio aislado, independientemente del valor de la bandera `sandbox` en WebPreferences.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 

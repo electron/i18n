@@ -117,45 +117,45 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
 ### `new BrowserWindow([options])`
 
 * `options` Object (opcional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `width` Integer (opcional) - El ancho de la ventana en pixeles. Por defecto es `800`.
+  * `height` Integer (opcional) - La altura de la ventana en pixeles. Por defecto es `600`.
+  * `x` Integer (opcional) - (**required** si y es usado) Desplazamiento a la izquierda de la ventana de la pantalla. Por defecto es centrar en la ventana.
+  * `y` Integer (opcional) - (**required** si x es usado) Desplazamiento superior de la ventana desde la pantalla. Por defecto es centrar en la ventana.
   * `useContentSize` Boolean (opcional) - `width` y `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
   * `center` Boolean (opcional) - Muestra la ventana en el centro de la pantalla.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Por defecto es `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Por defecto es `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Por defecto es `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Por defecto es `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Por defecto es `true`.
+  * `minWidth` Integer (opcional) - Ancho mínimo de a ventana. Por defecto es `0`.
+  * `minHeight` Integer (opcional) - Altura mínima de la ventana. Por defecto es `0`.
+  * `maxWidth` Integer (opcional) - Ancho máximo de la ventana. Por defecto no hay limite.
+  * `maxHeight` Integer (opcional) - Altura máxima de la ventana. Por defecto no hay limite.
+  * `resizable` Boolean (opcional) - Si la ventana puede ser redimencionada. Por defecto es `true`.
+  * `movable` Boolean (opcional) - Si la ventana puede ser movida. Esto no está implementado en Linux. Por defecto es `true`.
+  * `minimizable` Boolean (opcional) - Si la ventana puede ser minimizada. Esto no está implementado en Linux. Por defecto es `true`.
+  * `maximizable` Boolean (opcional) - Si la ventana puede ser maximizada. Esto no está implementado en Linux. Por defecto es `true`.
+  * `closable` Boolean (opcional) - Si la ventana puede ser cerrada. Esto no está implementado en Linux. Por defecto es `true`.
   * `focusable` Boolean (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Por defecto es `false`.
+  * `alwaysOnTop` Boolean (opcional) - Si la ventana debería permanecer siempre por ensima de otras ventanas. Por defecto es `false`.
   * `fullscreen` Boolean(opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
   * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Por defecto es `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Por defecto es `false`.
+  * `simpleFullscreen` Boolean (opcional) - Usa pantalla completa pre-Lion en macOS. Por defecto es `false`.
+  * `skipTaskbar` Boolean (opcional) - Si mostrar la ventana en la barra de tarea. Por defecto es `false`.
+  * `kiosk` Boolean (opcional) - Si la ventana está en modo kiosk. Por defecto es `false`.
   * `title` String (opcional) - Titulo de la ventana por defecto. Por defecto es `"Electron"`. Si la etiqueta HTML `<title>` es definida en el archivo HTML cargado por `loadURL()`, esta propiedad será ignorada.
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
-  * `show` Boolean (optional) - Whether window should be shown when created. Por defecto es `true`.
+  * `show` Boolean (opcional) - Si la ventana debería ser mostrada cuando se crea. Por defecto es `true`.
   * `paintWhenInitiallyHidden` Boolean (opcional) - Si el renderer debería estar activo cuando `show` es `false` y recién ha sido creado.  Para que `document.visibilityState` funcione correctamente en la primera carga con `show: false` debería establecer esto a `false`.  Estableciendo esto a `false` causará que el evento `ready-to-show` no se dispare.  Por defecto es `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Por defecto es `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Por defecto es `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Por defecto es `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Por defecto es `false`.
+  * `frame` Boolean (opcional) - Especifica `false` para crear un [Frameless Window](frameless-window.md). Por defecto es `true`.
+  * `parent` BrowserWindow (opcional) - Especifica la ventana padre. Por defecto es `null`.
+  * `modal` Boolean (opcional) - Si es una ventana modal. Esto sólo funciona cuando la ventana es una ventana hija. Por defecto es `false`.
+  * `acceptFirstMouse` Boolean (opcional) - Si la vista web acepta un solo evento de mouse hacia abajo que activa simultáneamente la ventana. Por defecto es `false`.
+  * `disableAutoHideCursor` Boolean (opcional) - Si ocultar el cursor cuando se está escriniendo. Por defecto es `false`.
+  * `autoHideMenuBar` Boolean (opcional) - Auto ocultar la barra de menú a menos que la tecla `Alt` este presionada. Por defecto es `false`.
   * `enableLargerThanScreen` Boolean (opcional) - Permite que la ventana se redimensione mayor que la pantalla. Solo relevante para macOS, ya que los otros sistemas operativos permiten ventanas más grandes que la pantalla por defecto. Por defecto es `false`.
   * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Por defecto es `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `hasShadow` Boolean (opcional) - Si la ventana debería tener una sombra. Por defecto es `true`.
+  * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (totalmente transparente) y 1.0 (totalmente opaco). Esto sólo está implementado en Windows y macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Por defecto es `false`.
   * `transparent` Boolean (opcional) - Hace la ventana [tranparente](frameless-window.md#transparent-window). Por defecto es `false`. En Windows, no funciona a menos que la ventana sea sin marco.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `type` String (opcional) - El tipo de ventana, por defecto es una ventana normal. Vea más sobre esto a continuación.
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Los valores posibles son:
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
@@ -229,10 +229,10 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Los valores posibles son:
+Los posibles valores y comportamientos de la opción `type` son dependientes de la plataforma. Los valores posibles son:
 
 * En linux, los tipos posibles son `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`.
+* En macOS, los posibles tipos son `desktop`, `textured`.
   * El tipo `textured` añade una aspecto de tono metálico (`NSTexturedBackgroundWindowMask`).
   * El tipo `desktop` coloca la ventana en el nivel de la ventana de fondo de escritorio (`kCGDesktopWindowLevel - 1`). Tenga en cuenta que la ventana de escritorio no recibirá enfoque alguno, ni eventos del ratón o del teclado, pero se puede utilizar `globalShortcut` para recibir input con moderación.
 * En Windows, el tipo posible es `toolbar`.
@@ -278,7 +278,7 @@ _**Nota**: Hay una diferencia sutil entre el comportamiento de `window.onbeforeu
 
 #### Evento: "closed"
 
-Emitido cuando la ventana es cerrada. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emitido cuando la ventana es cerrada. Después de haber recibido este evento, debe eliminar la referencia a la ventana y evitar volverla a usar.
 
 #### Evento: "session-end" _Windows_
 
@@ -337,9 +337,9 @@ Devuelve:
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Tamaño de la ventana en que esta siendo redimensionada.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+Emitido antes de que la ventana sea redimensionada. Llamar a `event.preventDefault()` evitará que la ventana sea redimensionada.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Tenga en cuenta que esto solo es emitido cuando la venta está siendo redimensionada de forma manual. Redimensionar la ventana con `setBounds`/`setSize` no emitirá este evento.
 
 #### Evento: "resize"
 
@@ -354,7 +354,7 @@ Devuelve:
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Tenga en cuenta que esto solo es emitido cuando la venta está siendo redimensionada de forma manual. Redimensionar la ventana con `setBounds`/`setSize` no emitirá este evento.
 
 #### Evento: "move"
 
@@ -502,7 +502,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -512,7 +512,7 @@ Elimina una extensión de Chrome por su nombre.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
@@ -520,7 +520,7 @@ Devuelve `Record<String, ExtensionInfo>` - Las llaves son nombres de extensiones
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
@@ -534,7 +534,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -544,7 +544,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
@@ -561,7 +561,7 @@ console.log(installed)
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Propiedades de Instancia
 
@@ -1297,7 +1297,7 @@ Configura la descripción emergente que se muestra cuando se pasa sobre la vista
 * `options` Object
   * `appId` String (opcional) - El [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) de Windows. Tiene que estar configurado, de lo contrario las otras opciones no tendrán efecto.
   * `appIconPath` String (opcional) - El [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) de Windows.
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Por defecto es `0`.
   * `relaunchCommand` String (opcional) - El [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) de Windows.
   * `relaunchDisplayName` String (opcional) - El [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) de Windows.
 

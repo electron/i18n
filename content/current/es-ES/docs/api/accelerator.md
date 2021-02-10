@@ -46,7 +46,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* Puntuación como `~`, `!`, `@`, `#`, `$`, etc.
 * `Más`
 * `Espacio`
 * `Tab`

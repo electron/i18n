@@ -297,7 +297,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
 
 Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
-The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
+Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 

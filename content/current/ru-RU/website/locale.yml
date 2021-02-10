@@ -36,11 +36,10 @@ docs:
   main_proc_modules: Модули основного процесса
   renderer_proc_modules: Модули графического процесса
   both_proc_modules: Модули для обоих процессов
-  footer:
-    propose_change: Улучшить этот документ
-    version_history: История версий
-    translate: Перевести этот документ
-    view_all_docs: Вся документация на одной странице
+  propose_change: Улучшить этот документ
+  version_history: История версий
+  translate: Перевести этот документ
+  view_all_docs: Вся документация на одной странице
 languages:
   choose_language: Выберите язык сайта
   view_more_details: Узнать больше о языке

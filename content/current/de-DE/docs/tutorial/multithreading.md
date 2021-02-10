@@ -1,10 +1,10 @@
 # Multithreading
 
-Mit [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)ist es möglich, JavaScript in OS-Level Threads auszuführen.
+Mit [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) ist es möglich, JavaScript in OS-Level Threads auszuführen.
 
 ## Multithreaded Node.js
 
-Es ist möglich Knoten zu verwenden. s Funktionen in elektronischen Webarbeitern, , damit die Option `nodeIntegrationInWorker` auf `true` in `WebPreferences` gesetzt werden soll.
+Es ist möglich `Node.js features` in `Electrons Webworkers` zu verwenden. Dazu muss die Option `nodeIntegrationInWorker` in den <0>WebPreferences</0> auf <0>true</0> gesetzt werden.
 
 ```javascript
 const gewinnen = new BrowserWindow({

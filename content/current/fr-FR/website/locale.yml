@@ -36,11 +36,10 @@ docs:
   main_proc_modules: Modules pour le Main Process
   renderer_proc_modules: Modules pour le Renderer Process
   both_proc_modules: Modules pour les deux types de processus
-  footer:
-    propose_change: Améliorer ce document
-    version_history: Historique des versions
-    translate: Traduire ce document
-    view_all_docs: Toute la documentation sur une seule page
+  propose_change: Améliorer ce document
+  version_history: Historique des versions
+  translate: Traduire ce document
+  view_all_docs: Toute la documentation sur une seule page
 languages:
   choose_language: Choisissez votre langue pour le site
   view_more_details: Voir plus de détails sur les langues
