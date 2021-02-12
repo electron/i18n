@@ -1,6 +1,6 @@
-# 自定义 Linux 桌面启动器行为
+# 自定义 Linux 桌面动作i
 
-在很多的 Linux 环境中，你可以通过修改文件 `.desktop` 来在它的启动器中添加自定义条目。 关于Canonical 的 Unity 启动器文档, 参考 [Adding Shortcuts to a Launcher][unity-launcher]. 可以通过 [freedesktop.org Specification][spec]网站，找到更详细的参考信息。
+在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 关于Canonical 的 Unity 启动器文档, 参考 [Adding Shortcuts to a Launcher][unity-launcher]. 可以通过 [freedesktop.org Specification][spec]网站，找到更详细的参考信息。
 
 __Audacious 的启动器快捷方式:__
 

@@ -1,17 +1,16 @@
-# MessagePorts in Electron
+# Nachrichtenanschlüsse in Electron
 
-[`MessagePort`][]s are a web feature that allow passing messages between different contexts. It's like `window.postMessage`, but on different channels. The goal of this document is to describe how Electron extends the Channel Messaging model, and to give some examples of how you might use MessagePorts in your app.
+[`Nachrichtschluss`][]ist ein Kennzeichen von Internet, das die Nachrichte erlaubt durch verschiedene Texte einzugehen. Es ist wie `Fenster. Nachricht Post`, aber auf verschiedene Kanaelen. Das Ziel dieses Dokumentes ist zu beschreiben, wie Electron die Nachrichten einem Kanal uebertraegt, und Beispiele geben, wie Nachrichtschluesse in einem App verwenden.
 
-Here is a very brief example of what a MessagePort is and how it works:
+Hier ist ein kurzes Beispiel, was ein Nachrichtschluss genau ist und seine Funktion:
 
 ```js
-// renderer.js ///////////////////////////////////////////////////////////////
-// MessagePorts are created in pairs. A connected pair of message ports is
-// called a channel.
-const channel = new MessageChannel()
-
-// The only difference between port1 and port2 is in how you use them. Messages
-// sent to port1 will be received by port2 and vice-versa.
+// Geraet.js ///////////////////////////////////////////////////////////////
+//Nachrichtschluesse sind in Kuppeln geschaffen. Ein Kuppel von Nachrichtschluessen in Verbindung heisst
+//Kanal.
+dauernder. Kanal=neuer Nachrichtkanal()
+//Der eigene Unterschied zwischen Schluss 1 und Schluss2 ist wie Sie sie verwenden. Nachrichte
+//die dem Schluss1 gesendet sind, werden vom Schluss2 bekommen werden und umgekehrt.
 const port1 = channel.port1
 const port2 = channel.port2
 
@@ -292,5 +291,5 @@ window.onmessage = (event) => {
 [`WebContents.postMessage`]: ../api/web-contents.md#contentspostmessagechannel-message-transfer
 [`MessagePortMain`]: ../api/message-port-main.md
 [`MessageChannelMain`]: ../api/message-channel-main.md
-[`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[`Nachrichtschluss`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

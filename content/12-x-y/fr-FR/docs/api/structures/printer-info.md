@@ -1,11 +1,11 @@
 # Objet PrinterInfo
 
-* `name` String - the name of the printer as understood by the OS.
-* `displayName` String - the name of the printer as shown in Print Preview.
-* `description` String - a longer description of the printer's type.
-* `status` Number - the current status of the printer.
-* `isDefault` Boolean - whether or not a given printer is set as the default printer on the OS.
-* `options` Object - an object containing a variable number of platform-specific printer information.
+* `nom`Fiche-le nom de l'imprimante comme il est concu par OS.
+* `afficherNom`Fiche-le nom de l'imprimante comme elle montree dans Print View. ('Vue Imprimee').
+* `description`Fiche-une description plus longue du type d'imprimante.
+* `etat`Numero-l'etat courant de l'imprimante.
+* `estDefaut`Boolean-soit ou non une certane imprimante est installee comme imprimante defaut sur OS.
+* `options`Objet-un objet qui contient un nombre variable d'information imprimee sur la plateforme specifique.
 
 Le nombre représenté par `status` a des significations différentes selon la plateforme: sur Windows, il peut prendre les valeurs que l'on peut trouver [ici](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) et sur Linux et macOS [ici](https://www.cups.org/doc/cupspm.html).
 

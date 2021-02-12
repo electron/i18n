@@ -1,54 +1,49 @@
-# MessagePorts in Electron
+# MessagePorts dans Electron
 
-[`MessagePort`][]s are a web feature that allow passing messages between different contexts. It's like `window.postMessage`, but on different channels. The goal of this document is to describe how Electron extends the Channel Messaging model, and to give some examples of how you might use MessagePorts in your app.
+Un [`MessagePort`][]s est une fonctionnalité web permettant l'échange de messages entre différents contextes. C'est un peu comme `window.postMessage`, mais sur différents canaux. The goal of this document is to describe how Electron extends the Channel Messaging model, and to give some examples of how you might use MessagePorts in your app.
 
-Here is a very brief example of what a MessagePort is and how it works:
+Voici un petit exemple de MessagePort et de son fonctionnement:
 
 ```js
-// renderer.js ///////////////////////////////////////////////////////////////
-// MessagePorts are created in pairs. A connected pair of message ports is
-// called a channel.
+// rendererer.js ///////////////////////////////////////////////////////////////////
+// Les MessagePorts sont créés par paires. On appelle canal une paire de MessagePort connectés .
 const channel = new MessageChannel()
 
-// The only difference between port1 and port2 is in how you use them. Messages
-// sent to port1 will be received by port2 and vice-versa.
+// La seule différence entre port1 et port2 est dans la façon dont vous les utilisez. Les messages envoyés à port1 seront reçus par port2 et vice-versa.
 const port1 = channel.port1
-const port2 = channel.port2
+const port2 = channel. ort2
 
-// It's OK to send a message on the channel before the other end has registered
-// a listener. Messages will be queued until a listener is registered.
+// Il est possible d'envoyer un message sur le canal avant que l'autre extrémité n'ait enregistré un écouteur. Les messages seront dans ce cas mis en file d'attente jusqu'à ce qu'un écouteur soit enregistré.
 port2.postMessage({ answer: 42 })
 
-// Here we send the other end of the channel, port1, to the main process. It's
-// also possible to send MessagePorts to other frames, or to Web Workers, etc.
+// Ici nous envoyons l'autre extrémité du canal, port1, au processus principal. //Il est également possible d'envoyer des MessagePorts à d'autres frames, Web Workers, etc.
 ipcRenderer.postMessage('port', null, [port1])
 ```
 
 ```js
-// main.js ///////////////////////////////////////////////////////////////////
-// In the main process, we receive the port.
+// main.js ///////////////////////////////////////////////////////////////////////////
+// Dans le processus principal, nous recevons le port.
 ipcMain.on('port', (event) => {
-  // When we receive a MessagePort in the main process, it becomes a
+  // Lorsque nous recevons un MessagePort dans le processus principal, il devient un
   // MessagePortMain.
   const port = event.ports[0]
 
-  // MessagePortMain uses the Node.js-style events API, rather than the
-  // web-style events API. So .on('message', ...) instead of .onmessage = ...
+  // MessagePortMain utilise une API des événements du style Node.js plutôt que web. So .on('message', ...) instead of .onmessage = ...
   port.on('message', (event) => {
     // data is { answer: 42 }
     const data = event.data
   })
 
-  // MessagePortMain queues messages until the .start() method has been called.
+  // MessagePortMain met les messages en attente jusqu'à ce que la méthode .start() soit invoquée.
   port.start()
 })
 ```
 
-The [Channel Messaging API][] documentation is a great way to learn more about how MessagePorts work.
+La documentation de [Channel Messaging API][] est un excellent moyen d'en apprendre plus sur le fonctionnement des MessagePorts.
 
-## MessagePorts in the main process
+## Les MessagePorts dans le processus principal
 
-In the renderer, the `MessagePort` class behaves exactly as it does on the web. The main process is not a web page, though—it has no Blink integration—and so it does not have the `MessagePort` or `MessageChannel` classes. In order to handle and interact with MessagePorts in the main process, Electron adds two new classes: [`MessagePortMain`][] and [`MessageChannelMain`][]. These behave similarly to the analogous classes in the renderer.
+Dans le moteur de rendu, la classe `MessagePort` se comporte exactement comme pour le Web. Le processus principal n'étant pas pas une page web, il n'y a pas l'intégration de Blink — et donc pas de classe `MessagePort` ou `MessageChannel`. Afin de gérer et interagir à l'aide de MessagePorts avec le processus principal, Electron ajoute deux nouvelles classes : [`MessagePortMain`][] et [`MessageChannelMain`][]. Celles-ci se comportent comme les classes analogues dans le moteur de rendu.
 
 `MessagePort` objects can be created in either the renderer or the main process, and passed back and forth using the [`ipcRenderer.postMessage`][] and [`WebContents.postMessage`][] methods. Note that the usual IPC methods like `send` and `invoke` cannot be used to transfer `MessagePort`s, only the `postMessage` methods can transfer `MessagePort`s.
 
