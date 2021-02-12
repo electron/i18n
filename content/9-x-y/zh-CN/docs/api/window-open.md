@@ -2,7 +2,7 @@
 
 > 打开一个新窗口并加载 URL。
 
-当调用 ` window.open` 以在网页中创建新窗口时，将为`url `创建一个新的[BrowserWindow](browser-window.md) 实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
+`window.open` [ `BrowserWindow` ](browser-window.md) `url` `window.open`
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
