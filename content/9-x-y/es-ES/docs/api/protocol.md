@@ -121,7 +121,7 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
-    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (opcional)
 * `completion` Function (optional)
   * `error` Error
 
@@ -175,7 +175,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (opcional)
 * `completion` Function (optional)
   * `error` Error
 
@@ -196,9 +196,9 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
   * `callback` Función
     * `redirectRequest` Object
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
+      * `method` String (opcional)
+      * `session` Session | null (opcional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (opcional)
 * `completion` Function (optional)
   * `error` Error
 
@@ -310,7 +310,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (opcional)
 * `completion` Function (optional)
   * `error` Error
 
@@ -346,9 +346,9 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
   * `callback` Función
     * `redirectRequest` Object
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
+      * `method` String (opcional)
+      * `session` Session | null (opcional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (opcional)
 * `completion` Function (optional)
   * `error` Error
 

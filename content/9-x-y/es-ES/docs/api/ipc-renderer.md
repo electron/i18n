@@ -97,7 +97,7 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
-Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 

@@ -51,7 +51,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 ## Wörter auswählen
 
 * "Wird" sollte statt "würde" verwendet werden, um Ergebnisse zu beschreiben.
-* Prefer "in the ___ process" over "on".
+* Debuggen des Hauptprozesses in VSCode".
 
 ## API Referenzen
 
@@ -59,7 +59,7 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Seitentitel
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+` ` ` ` ` ` ` `
 
 Under the page title must be a one-line description starting with `>`.
 

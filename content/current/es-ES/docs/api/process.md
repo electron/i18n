@@ -153,9 +153,9 @@ Devuelve un objeto con estadísticas de la pila V8. Toma en cuenta que todas las
 
 Devuelve `Objeto`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` Integer - Tamaño de todos los objetos asignados en Kilobytes.
+* `marked` Integer - Tamaño de todos los objetos marcados en Kilobytes.
+* `total` Integer - Espacio total asignado en Kilobytes.
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
