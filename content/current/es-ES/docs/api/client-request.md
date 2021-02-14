@@ -8,13 +8,13 @@ Proceso: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+* `options` (Object | String) - Si `options` es un String, es interpretado como la URL de la solicitud. Si es un objeto, se espera que especifique completamente una solicitud HTTP a través de las siguientes propiedades:
+  * `method` String (opcional) - El método de la solicitud HTTP. Por defecto es el método GET.
+  * `url` String (opcional) - La URL de la solicitud. Debe ser proporcionada de forma absoluta con el esquema del protocolo especificado como http o https.
   * `session` Session (opcional) - La instancia de [`Session`](session.md) con la cual la solicitud esta asociada.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
   * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada.  Esto hará que el comportamiento cookie de la solicitud `net` coincida con una solicitud `fetch`. Por defecto es `false`.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `protocol` String (opcional) - El esquema del protocolo en la forma 'scheme:'. Los valores soportados actualmente son 'http:' o 'https:'. Por defecto 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
@@ -89,7 +89,7 @@ Emitido justo antes de que el último paquete de los datos de la `solicitud` hay
 
 #### Evento: "abortar"
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Emitido cuando la `request` es abortada. El evento `abort` no será lanzado si la `request` ya está cerrada.
 
 #### Evento: "error"
 
@@ -113,7 +113,7 @@ Devuelve:
 * `Redirigir Url` Cadena
 * `responseHeaders` Record<String, String[]>
 
-Emitido cuando el servidor devuelve una respuesta redirect (por ejemplo 301 Moved Permanently). Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emitido cuando el servidor devuelve una respuesta redirect (por ejemplo 301 Moved Permanently). Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.  Si este evento es manejado, [`request.followRedirect`](#requestfollowredirect) debe ser llamado **synchronously**, de otra manera la solicitud será cancelada.
 
 ### Propiedades de Instancia
 

@@ -1,6 +1,6 @@
 # Zwischenablage (clipboard)
 
-> Ausführung von Kopier- und Einfüge-Operationen von der Zwischenablage des Betriebssystems.
+> Perform copy and paste operations on the system clipboard.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

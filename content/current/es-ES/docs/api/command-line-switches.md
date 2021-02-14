@@ -14,7 +14,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Electron CLI Flags
+## Banderas de la CLI de Electron
 
 ### --auth-server-whitelist=`url`
 
@@ -176,7 +176,7 @@ Force using discrete GPU when there are multiple GPUs available.
 
 Force using integrated GPU when there are multiple GPUs available.
 
-## Node.js Flags
+## Banderas Node.js
 
 Electron soporta algunas de las [CLI flags](https://nodejs.org/api/cli.html) soportadas por Node.js.
 
