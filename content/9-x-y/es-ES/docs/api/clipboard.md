@@ -21,7 +21,7 @@ El módulo `portapapeles` tiene los siguientes métodos:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
@@ -38,7 +38,7 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `texto` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `texto` en el portapapeles como texto sin formato.
 
@@ -51,7 +51,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markupo[, type])`
 
 * `markup` Cadena
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe `markup` en el portapapeles.
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
 ### `clipboard.writeImage(imageo[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe `image` en el portapapeles.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
@@ -110,7 +110,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(texto[, type])`
 
 * `texto` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `text` en el portapapeles en RTF.
 
@@ -134,7 +134,7 @@ Devuelve un Objeto que contiene las claves `title` y `url` que representan el ma
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `título` y la `url` en el portapapeles como un marcador.
 
@@ -153,7 +153,7 @@ clipboard.writeBookmark({
 
 Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
 
-Este método usa IPC síncrono cuando se llama desde el renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Este método usa IPC síncrono cuando se llama desde el renderer process. El valor almacenado en el cache es re leído desde portapapeles de búsqueda cada vez que la aplicación se activa.
 
 ### `clipboard.writeFindText(text)` _macOS_
 
@@ -163,13 +163,13 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Borra el contenido del portapapeles.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `type`.
 
@@ -184,7 +184,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` _Experimental_
 
 * `format` Cadena
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
@@ -224,7 +224,7 @@ console.log(buffer.equals(out))
 
 * `format` Cadena
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `buffer` en el portapapeles como `formato`.
 
@@ -243,7 +243,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `image` [NativeImage](native-image.md) (opcional)
   * `rtf` Cadena (opcional)
   * `bookmark` String (opcional) - El título de la URL en `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe `datos` en el portapapeles.
 

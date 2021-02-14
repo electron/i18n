@@ -63,7 +63,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 #### `cookies.get(filter)`
 
 * `filter` Object
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+  * `url` String (opcional) - Recupera las cookies las cuales están asociadas con la `url`. Vacío implica recuperar las cookies de todas las URLs.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
   * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
@@ -77,13 +77,13 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
 #### `cookies.set(details)`
 
 * `details` Object
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - El dominio de la cookie; este será normalizado por precediéndolo con un punto para que también sea valido para el uso de subdominios. Empty by default if omitted.
-  * `path` String (opcional) - La ruta de la cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Por defecto a false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Por defecto es false.
+  * `url` String - La URL con la que asociar la cookie. La promise será rechazada si la URL es invalida.
+  * `name` String (opcional) - El nombre de la cookie. Vacío por defecto si se omite.
+  * `value` String (opcional) - El valor de la cookie. Vacío por defecto si se omite.
+  * `domain` String (optional) - El dominio de la cookie; este será normalizado por precediéndolo con un punto para que también sea valido para el uso de subdominios. Vacío por defecto si se omite.
+  * `path` String (opcional) - La ruta de la cookie. Vacío por defecto si se omite.
+  * `secure` Boolean (opcional) - Si la cookie debería ser marcado como Segura o no. Por defecto a false.
+  * `httpOnly` Boolean (opcional) - Si la cookie debería ser marcada como sólo HTTP. Por defecto es false.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
 
 Returns `Promise<void>` - Una promesa que resuelve cuando la cookie ha sido establecida
