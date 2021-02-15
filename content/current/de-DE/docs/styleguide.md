@@ -61,7 +61,7 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ` ` ` ` ` ` ` `
 
-Under the page title must be a one-line description starting with `>`.
+Mango- - มะม่วง
 
 Using `session` as example:
 

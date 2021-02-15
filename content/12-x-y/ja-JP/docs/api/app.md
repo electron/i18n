@@ -336,6 +336,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
     * `oom` - Process ran out of memory
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
 renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
 
