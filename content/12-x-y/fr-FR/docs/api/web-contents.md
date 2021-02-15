@@ -344,6 +344,7 @@ Retourne :
     * `oom` - Le processus est tombé à cours de mémoire
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
 Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 

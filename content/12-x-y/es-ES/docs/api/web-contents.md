@@ -344,6 +344,7 @@ Devuelve:
     * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
 Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
