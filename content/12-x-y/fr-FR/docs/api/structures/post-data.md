@@ -1,4 +1,4 @@
-# PostData Object
+# Objet PostData
 
 * `type` String - One of the following:
   * `rawData` - Les données sont disponibles en tant que `Buffer`, dans le champ `rawData`.

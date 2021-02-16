@@ -46,7 +46,7 @@ Iniciar la grabación en todos los procesos.
 
 La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación.
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+Si una grabación ya está corriendo, la promesa será inmediatamente resulta, ya que sólo un operación de seguimiento puede estar en progrese a la vez.
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
@@ -56,7 +56,7 @@ Devuelve `Promise<String>` - resuleve con una ruta al archivo que contiene los d
 
 Dejar de grabar en todos los procesos.
 
-Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar un seguimiento, Chromium solicita de forma asíncrona a todos los procesos hijos que eliminen cualquier seguimiento de datos pendiente.
 
 Los datos de rastreo se escribirán dentro de `resultFilePath`. Si `resultFilePath` está vacío o no es proporcionado, los datos de rastreo serán escrito en un archivo temporal, y la ruta será retornada en el promise.
 
