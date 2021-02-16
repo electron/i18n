@@ -151,7 +151,7 @@ clipboard.writeBookmark({
 
 ### `clipboard.readFindText()` _macOS_
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Devuelve `String` - El texto en el portapapeles de búsqueda, el cual es el portapapeles que contiene información sobre el estado actual del panel de búsqueda de la aplicación.
 
 Este método usa IPC síncrono cuando se llama desde el renderer process. El valor almacenado en el cache es re leído desde portapapeles de búsqueda cada vez que la aplicación se activa.
 
@@ -159,7 +159,7 @@ Este método usa IPC síncrono cuando se llama desde el renderer process. El val
 
 * `texto` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. Este método usa IPC síncrono cuando se llama desde el renderer process.
+Escribe el `text` portapapeles de búsqueda ( portapapeles que contiene información sobre el estado actual del panel de búsqueda de la aplicación) como texto plano. Este método usa IPC síncrono cuando se llama desde el renderer process.
 
 ### `clipboard.clear([type])`
 

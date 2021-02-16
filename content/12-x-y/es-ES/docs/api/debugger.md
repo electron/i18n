@@ -51,7 +51,7 @@ Devuelve:
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
-Emitted whenever the debugging target issues an instrumentation event.
+Emitido cada vez que el objetivo de depuración emite un evento de instrumentación.
 
 ### Métodos de Instancia
 

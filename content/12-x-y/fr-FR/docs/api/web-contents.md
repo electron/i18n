@@ -344,7 +344,7 @@ Retourne :
     * `oom` - Le processus est tombé à cours de mémoire
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+  * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
 Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
@@ -1018,9 +1018,9 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   * `details` Object
-    * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
-    * `frameName` String - Name of the window provided in `window.open()`
-    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+    * `url`Fiche-La _version_resolue du URL envoyee a`fenetre.ouverte{}`. par ex. ouvrir une fenetre avec`fenetre.ouverte ('foo')`va generer une chose comme`https://the-origin/the/current/path/foo`.
+    * `Nommarge`Fiche-Nom de fenetre fourni a `window.open=fenetre.ouverte()`
+    * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`. Va donner `{action: 'deny'} | {action: 'permettre', surpasserOptionsduNavigateurFenetreBrowser?: OptionsConstructeurNavigateursFenetre}`- - `refuser` va supprimer la creation dans la fenetre nouvelle. `permettre`va permettre la creation d'une fenetre nouvelle. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
 Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 

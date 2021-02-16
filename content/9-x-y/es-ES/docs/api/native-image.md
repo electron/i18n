@@ -161,7 +161,7 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 
 El `hslShift` se aplica a la imagen con las siguientes reglas:
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[0]` (hue): El valor de hue absoluto para la imagen - 0 y 1 mapea a 0 y 360 en la rueda de color hue  (rojo).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = Dejar sin cambios. 1 = fully saturate the image.
 * `hsl_shift[2]` (luminosidad): Un cambio en la luminosidad para la imagen, con los siguientes valores  claves: 0 = elimina toda la luminosidad (hace que todos los pixeles sean negros). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
 
@@ -254,7 +254,7 @@ Devuelve `NativeImage` - La imagen recortada.
 * `options` Object
   * `width` Integer (opcional) - Por defecto es el ancho de la imagen.
   * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen.
-  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los posibles valores soportados son `good`, `better`, o `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los posibles valores soportados son `good`, `better`, o `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 

@@ -203,7 +203,7 @@ Devuelve `Integer` - el índice del botón pulsado.
 
 Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. Devuelve el indice del botón pulsado.
 
-El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. If `browserWindow` is not shown dialog will not be attached to it. En tal caso será mostrado como una ventana independiente.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. Si `browserWindow` no es mostrado no se le adjuntará el dialog. En tal caso será mostrado como una ventana independiente.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 

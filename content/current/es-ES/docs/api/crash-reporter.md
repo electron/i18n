@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of setting up Electron to automatically submit crash reports to a remote server:
+El siguiente es un ejemplo de como configurar Electron para que envié automáticamente reportes de error a un servidor remoto:
 
 ```javascript
 const { crashReporter } = require('electron')
@@ -23,9 +23,9 @@ O utilice una solución alojada por terceros:
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+Los reportes de errores son almacenados temporalmente antes de ser alzados en un directorio debajo del directorio de datos del usuario (llamado 'Crashpad' en Windows y Mac o 'Crash Reports' en Linux). Puedes sobrescribir este directorio llamando a `app.setPath('crashDumps', '/path/to/crashes')` antes de iniciar al crash reporter.
 
-On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
+En Windows y macOS, Electron usa [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) para monitorear y reportar fallos. En Linux, Electron usa [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). Este es un detalle de implementación impulsado por Chromium y puede cambiar en el futuro. En particular, crashpad es más nuevo y es probable que eventualmente reemplace a breakpad en todas las plataformas.
 
 ## Métodos
 
@@ -36,15 +36,15 @@ El módulo `crashReporter` tiene los siguientes métodos:
 * `options` Object
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto `app.name`.
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Por defecto es `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Por defecto es `false`.
-  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Por defecto es `false`.
-  * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Por defecto es `false`.
-  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
-  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
+  * `companyName` String (opcional) _Deprecated_ - Obsoleto alias para `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (octional) - Si los reportes de fallos deberían ser enviados a un servidor. Si es false, los reportes de fallos serán recolectados y almacenados en un directorio de fallas, pero no serán subidos. Por defecto es `true`.
+  * `ignoreSystemCrashHandler` Boolean (opcional) - Si es true, los fallos generados en el main process no serán reenviados al gestor de gallos del sistema. Por defecto es `false`.
+  * `rateLimit` Boolean (opcional) _macOS_ _Windows_ - Si es true, limita el numero de fallos subidos a 1/hora. Por defecto es `false`.
+  * `compress` Boolean (opcional) - Si es true, los reportes de fallos serán comprimidos y subidos con `Content-Encoding: gzip`. Por defecto es `false`.
+  * `extra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos en el main process. Sólo se admiten valores de cadena. Los fallos generados en los procesos hijos no contendrán estos parámetros extras, para reportes de fallos generados desde los procesos hijos, llame [`addExtraParameter`](#crashreporteraddextraparameterkey-value) desde el proceso hijo.
+  * `globalExtra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos generados en cualquier proceso. Estas anotaciones no pueden ser cambiadas una vez que el crash reporter ha sido iniciado. Si una clave esta presente en los parámetros global extra y en los parámetros extra process-specific, entonces el parámetro global tomará precedencia. Por defecto, `productName` y la versión de la aplicación son incluidas, así como la versión de Electron.
 
-This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
+Este método debe ser llamada antes de usar cualquier otra APIs `crashReporter`. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
 
 This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
 

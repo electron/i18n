@@ -49,7 +49,7 @@ Elimina todos los oyentes, o aquellos del `channel` especificado.
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to the main process via `channel`, along with arguments. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envía un mensaje asíncrono al main process a través de `channel`, junto con los argumentos. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -68,7 +68,7 @@ If you want to receive a single response from the main process, like the result 
 
 Devuelve `Promise<any>` - Resuelve con la respuesta desde el main process.
 
-Send a message to the main process via `channel` and expect a result asynchronously. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envía un mensaje al main process a través de `channel` y espera un resultado asíncrono. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -101,7 +101,7 @@ If you do not need a response to the message, consider using [`ipcRenderer.send`
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
-Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Los argumentos serán serializados con el [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), al igual que [`postMessage`][], así que la cadena de prototype no serán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 

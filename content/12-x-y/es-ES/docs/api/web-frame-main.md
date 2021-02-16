@@ -95,7 +95,7 @@ Devuelve `boolean` - Si la recarga fue iniciada correctamente. Solo resulta en `
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Los argumentos serán serializados con la \[Structured Clone Algorithm\]\[SCA\], al igual que [`postMessage`][], así que las cadenas de prototipos no serán incluidas. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Los argumentos serán serializados con la \[Structured Clone Algorithm\]\[SCA\], al igual que [`postMessage`][], así que las cadenas de prototipos no serán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
