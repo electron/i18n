@@ -24,7 +24,7 @@ Using the [React Developer Tools][react-devtools] as an example:
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * в macOS это `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li>
-1 Pass the location of the extension to the [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
+1 Передайте местоположение расширения в [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
    ```javascript
     const { app, session } = require('electron')
     const path = require('path')
@@ -77,7 +77,7 @@ If the extension works on Chrome but not on Electron, file a bug in Electron's [
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
 [session]: ../api/session.md
 [react-devtools]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
-[load-extension]: ../api/session.md#sesloadextensionpath
+[load-extension]: ../api/session.md#sesloadextensionpath-options
 [extension-structure]: ../api/structures/extension.md
 [remove-extension]: ../api/session.md#sesremoveextensionextensionid
 [electron-devtools-installer]: https://github.com/MarshallOfSound/electron-devtools-installer

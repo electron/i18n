@@ -518,7 +518,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options) を使用してください。
 
 #### `BrowserWindow.removeExtension(name)` _非推奨_
 
@@ -550,7 +550,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options) を使用してください。
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _非推奨_
 

@@ -518,7 +518,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -550,7 +550,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
