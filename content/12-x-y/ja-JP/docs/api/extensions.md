@@ -6,7 +6,7 @@ Electron は [Chrome 拡張機能 API][chrome-extensions-api-index] のサブセ
 
 ## 拡張機能の読み込み
 
-Electron は解凍された拡張機能のみの読み込みをサポートしています (例えば `.crx` ファイルは動作しません)。 拡張機能は `session` ごとにインストールされます。 拡張機能を読み込むには、以下のように [`ses.loadExtension`](session.md#sesloadextensionpath) を呼び出します。
+Electron は解凍された拡張機能のみの読み込みをサポートしています (例えば `.crx` ファイルは動作しません)。 拡張機能は `session` ごとにインストールされます。 拡張機能を読み込むには、以下のように [`ses.loadExtension`](session.md#sesloadextensionpath-options) を呼び出します。
 
 ```js
 const { session } = require('electron')

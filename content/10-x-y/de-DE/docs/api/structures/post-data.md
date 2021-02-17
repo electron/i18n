@@ -1,11 +1,11 @@
-# PostData Object
+# PostDaten Objekt
 
 * `type` String - One of the following:
-  * `rawData` - The data is available as a `Buffer`, in the `rawData` field.
-  * `file` - The object represents a file. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
+  * `rawData` - Die Daten stehen als `Puffer`im `rawData` Feld zur Verfügung.
+  * `Datei`-Das Objekt entspricht einer Datei. Der`DateiPfad``Offset`,`Laenge` und`ModifikationZeit` Felder sind zur Beschreibung dieser Datei benutzt.
+  * `Blob`-Das Objekt entspricht einem`Blob`. Das`blobUUID`Feld wird zur Beschreibung von `Blob` verwendet werden.
+* `Bytes`Zeile (Optional)-Die rohen Bytes von Beitragsdaten in einem `Puffer`. Ist zum Typ `von rohen Daten `erfordert.
+* `PfadDatei`Zeile (optional)- Pfad von Datei die jetzt hochgeladen wird. Required for the `file` type.
 * `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
 * `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
 * `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.

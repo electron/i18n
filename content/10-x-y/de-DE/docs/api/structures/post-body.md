@@ -1,10 +1,11 @@
-# PostBody Object
+# Objekt Nach dem Text
 
-* `data` Array<[PostData](./post-data.md)> - The post data to be sent to the new window.
-* `contentType` String - The `content-type` header used for the data. One of `application/x-www-form-urlencoded` or `multipart/form-data`. Entspricht dem `enctype` Attribut des übermittelten HTML-Formulars.
-* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.
+* `Daren`Pfeil[PostDaten](./post-data.md)-Die Post Daten um der neuen Fenster gesendet zu werden.
+* `Inhalt Typ`Zeile- Das`Etikett von Inhalt Typ fuer die Daten verwendet. Eine
+<code>Anwendung/x-www-Forme-mit Urlcode`oder`vielteilig`/Form-von Daten. Entspricht dem `enctype` Attribut des übermittelten HTML-Formulares.
+* `Grenze`Zeile (optional)-Die verwendete Grenze um diese Nachricht zu teilen. Anwendbar nur wenn`Inhalt Typ <code>vielteilig/Form-Daten`ist.
 
-Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
+Beachten Sie, dass Schlüssel, die mit `beginnen --` beginnen, derzeit nicht benutzt werden. Zum Beispiel, wird dies falsch als`vielteilig/Form-Daten senden wird`, wenn `NativeOffeneFenster` falsch </code>in WebOptionen eingestellt ist:
 
 ```html
 <form

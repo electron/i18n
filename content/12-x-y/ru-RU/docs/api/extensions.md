@@ -6,7 +6,7 @@ Electron частично поддерживает [Chrome Extensions API][chrom
 
 ## Загрузка расширений
 
-Electron поддерживает загрузку только распакованных расширение (т.е. файлы `.crx` не будут работать). Расширения устанавливаются с помощью объекта `session`. Для загрузки расширения вызовите [`ses.loadExtension`](session.md#sesloadextensionpath):
+Electron поддерживает загрузку только распакованных расширение (т.е. файлы `.crx` не будут работать). Расширения устанавливаются с помощью объекта `session`. Для загрузки расширения вызовите [`ses.loadExtension`](session.md#sesloadextensionpath-options):
 
 ```js
 const { session } = require('electron')

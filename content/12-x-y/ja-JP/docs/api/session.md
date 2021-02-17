@@ -418,6 +418,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - 要求されたパーミッションのタイプ。
     * `clipboard-read` - Request access to read from the clipboard.
     * `media` - カメラ、マイク、スピーカーなどのメディアデバイスへのアクセスを要求する。
+    * `display-capture` - 画面キャプチャへのアクセスをリクエストします。
     * `mediaKeySystem` - DRM で保護されたコンテンツへのアクセスを要求します。
     * `geolocation` - ユーザーの現在地へのアクセスを要求する。
     * `notifications` - 通知の作成とユーザーのシステムトレイに表示する機能を要求します。
@@ -618,9 +619,11 @@ Returns `Boolean` - Whether the builtin spell checker is enabled.
 
 **注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書からも削除されます
 
-#### `ses.loadExtension(path)`
+#### `ses.loadExtension(path[, options])`
 
 * `path` String - 解凍されていない Chrome 拡張機能を含んだディレクトリへのパス
+* `options` Object (任意)
+  * `allowFileAccess` Boolean - 拡張機能が `file://` プロトコルでローカルファイルを読み込んで `file://` ページにコンテンツスクリプトを注入することを許可するかどうか。 これは、例えば `file://` URL でデベロッパー ツール拡張機能を読み込むために必要です。 省略値は false 。
 
 戻り値 `Promise<Extension>` - 拡張機能が読み込まれたときに解決されます。
 
@@ -635,9 +638,13 @@ const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', async () => {
-  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
-  // 注意として、この React デベロッパー ツール拡張機能を使用するには、
-  // 拡張機能のコピーをダウンロードして解凍する必要があります
+  await session.defaultSession.loadExtension(
+    path.join(__dirname, 'react-devtools'),
+    // allowFileAccess は、file:// URL でのデベロッパー ツール拡張機能の読み込みに必要です。
+    { allowFileAccess: true }
+  )
+  // 注意として、React デベロッパー ツール拡張機能を使用するにはそのコピーを
+  // ダウンロードして解凍する必要があります。
 })
 ```
 
