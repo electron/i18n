@@ -16,14 +16,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "14723",
-    "translated": "11101",
+    "translated": "11110",
     "approved": "2303",
     "words": "178511",
-    "words_translated": "133142",
+    "words_translated": "133297",
     "words_approved": "24493",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 4112
+    "qa_issues": 4117
   },
   {
     "name": "German",
