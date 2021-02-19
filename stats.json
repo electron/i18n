@@ -16,27 +16,27 @@
     "name": "French",
     "code": "fr",
     "phrases": "14726",
-    "translated": "11111",
+    "translated": "11110",
     "approved": "2304",
     "words": "178532",
-    "words_translated": "133300",
+    "words_translated": "133288",
     "words_approved": "24496",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 4117
+    "qa_issues": 4115
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "14726",
-    "translated": "7397",
+    "translated": "7395",
     "approved": "844",
     "words": "178532",
-    "words_translated": "85437",
+    "words_translated": "85404",
     "words_approved": "6402",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 3989
+    "qa_issues": 3988
   },
   {
     "name": "Japanese",
