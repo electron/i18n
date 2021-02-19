@@ -1477,6 +1477,12 @@ Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `nul
 
 * `browserView` [BrowserView](browser-view.md)
 
+#### `win.setTopBrowserView(browserView)` _Экспериментально_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+
 #### `win.getBrowserViews()` _Экспериментально_
 
 Возвращает `BrowserView[]` - массив всех BrowserViews которые были присоединены с `addBrowserView` или `setBrowserView`.

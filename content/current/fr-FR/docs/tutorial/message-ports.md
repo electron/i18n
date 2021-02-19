@@ -45,18 +45,17 @@ La documentation de [Channel Messaging API][] est un excellent moyen d'en appren
 
 Dans le moteur de rendu, la classe `MessagePort` se comporte exactement comme pour le Web. Le processus principal n'étant pas pas une page web, il n'y a pas l'intégration de Blink — et donc pas de classe `MessagePort` ou `MessageChannel`. Afin de gérer et interagir à l'aide de MessagePorts avec le processus principal, Electron ajoute deux nouvelles classes : [`MessagePortMain`][] et [`MessageChannelMain`][]. Celles-ci se comportent comme les classes analogues dans le moteur de rendu.
 
-`MessagePort` objects can be created in either the renderer or the main process, and passed back and forth using the [`ipcRenderer.postMessage`][] and [`WebContents.postMessage`][] methods. Note that the usual IPC methods like `send` and `invoke` cannot be used to transfer `MessagePort`s, only the `postMessage` methods can transfer `MessagePort`s.
+Les objets de type `MessagePort` peuvent être créés soit dans le moteur de rendu soit dans le processus principal, et passés dans les deux sens en utilisant les méthodes [`ipcRenderer. ostMessage`][] et [`WebContents.postMessage`][] . Notez bien que les méthodes IPC usuelles telles que `send` et `invoke` ne peuvent pas être utilisées pour transférer des `MessagePort`, seules la méthode `postMessage` le peut pour transférer des `MessagePort`.
 
-By passing `MessagePort`s via the main process, you can connect two pages that might not otherwise be able to communicate (e.g. due to same-origin restrictions).
+En transmettant un `MessagePort`s via le processus principal, vous pouvez connecter deux pages qui sans cela n'auraient pas été en mesure de communiquer (par ex à cause de restrictions sur une même origine).
 
 ## Extension: `close` event
 
-Electron adds one feature to `MessagePort` that isn't present on the web, in order to make MessagePorts more useful. That is the `close` event, which is emitted when the other end of the channel is closed. Ports can also be implicitly closed by being garbage-collected.
+Electron ajoute une fonctionnalité à `MessagePort` non présente pour le web afin de rendre MessagePorts plus utile. Il s'agit de l'événement `close` , qui est émis lorsque l'autre extrémité du canal est fermée. Les ports peuvent également être implicitement fermés par une purge du garbage-collector.
 
-In the renderer, you can listen for the `close` event either by assigning to `port.onclose` or by calling `port.addEventListener('close', ...)`. In the main process, you can listen for the `close` event by calling `port.on('close',
-...)`.
+Dans le moteur de rendu, vous pouvez ajouter des écouteurs sur l'événement `close` soit par assignation avec `port.onclose` ou en invoquant la méthode `port.addEventListener('close', ...)`. Dans le processus , vous pouvez le faire appelant `port.on ('close',...)`.
 
-## Example use cases
+## Exemple de cas d'utilisation
 
 ### Worker process
 
@@ -283,7 +282,7 @@ window.onmessage = (event) => {
 ```
 
 [context isolation]: context-isolation.md
-[`ipcRenderer.postMessage`]: ../api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer
+[`ipcRenderer. ostMessage`]: ../api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer
 [`WebContents.postMessage`]: ../api/web-contents.md#contentspostmessagechannel-message-transfer
 [`MessagePortMain`]: ../api/message-port-main.md
 [`MessageChannelMain`]: ../api/message-channel-main.md
