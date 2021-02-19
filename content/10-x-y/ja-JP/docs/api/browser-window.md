@@ -1476,6 +1476,12 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 * `browserView` [BrowserView](browser-view.md)
 
+#### `win.setTopBrowserView(browserView)` _実験的_
+
+* `browserView` [BrowserView](browser-view.md)
+
+`browserView` を `win` にアタッチされた他の `BrowserView` の上へと持ち上げます。 `browserView` が `win` にアタッチされていない場合, エラーを送出します。
+
 #### `win.getBrowserViews()` _実験的_
 
 戻り値 `BrowserView[]` - `addBrowserView` または `setBrowserView` でアタッチされたすべての BrowserView の配列。

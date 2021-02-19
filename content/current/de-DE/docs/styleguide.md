@@ -59,9 +59,9 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Seitentitel
 
-` ` ` ` ` ` ` `
+Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Mango- - มะม่วง
+Under the page title must be a one-line description starting with `>`.
 
 Using `session` as example:
 

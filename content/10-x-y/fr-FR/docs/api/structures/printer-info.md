@@ -1,6 +1,6 @@
 # Objet PrinterInfo
 
-* `nom`Fiche-le nom de l'imprimante comme il est concu par OS.
+* `name` String - the name of the printer as understood by the OS.
 * `afficherNom`Fiche-le nom de l'imprimante comme elle montree dans Print View. ('Vue Imprimee').
 * `description`Fiche-une description plus longue du type d'imprimante.
 * `etat`Numero-l'etat courant de l'imprimante.

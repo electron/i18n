@@ -1475,6 +1475,12 @@ Remplacement de l'API pour setBrowserView prenant en charge le travail avec des 
 
 * `browserView` [BrowserView](browser-view.md)
 
+#### `win.setTopBrowserView(browserView)` _Experimental_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+
 #### `win.getBrowserViews()` _Expérimental_
 
 Retourne `BrowserView[]` - un tableau de toutes les BrowserViews qui ont été attachées avec `addBrowserView` ou `setBrowserView`.
