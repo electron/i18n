@@ -29,14 +29,14 @@
     "name": "German",
     "code": "de",
     "phrases": "14726",
-    "translated": "7404",
+    "translated": "7408",
     "approved": "844",
     "words": "178532",
-    "words_translated": "85511",
+    "words_translated": "85557",
     "words_approved": "6402",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 3996
+    "qa_issues": 4000
   },
   {
     "name": "Japanese",
