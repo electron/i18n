@@ -79,34 +79,23 @@ app.whenReady().then(() => {
 
 ```js
 // 一旦javascript上下文创建，这个文件就会被自动加载 它在一个
-//私有环境内运行, 可以访问 electron 渲染器的 api的子集 。 我们必须小心, 
-//不要泄漏任何对象到全局范围!
-const { ipcRenderer, remote } = require('electron')
-const fs = remote.require('fs')
-
-// read a configuration file using the `fs` module
-const buf = fs.readFileSync('allowed-popup-urls.json')
-const allowedUrls = JSON.parse(buf.toString('utf8'))
+//私有环境内运行, 可以访问 electron 渲染器的 api的子集 。 Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
 const defaultWindowOpen = window.open
 
-function customWindowOpen (url, ...args) {
-  if (allowedUrls.indexOf(url) === -1) {
-    ipcRenderer.sendSync('blocked-popup-notification', location.origin, url)
-    return null
-  }
-  return defaultWindowOpen(url, ...args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 
 在预加载脚本中要注意的重要事项:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
-
-- 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。
 
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
@@ -130,13 +119,12 @@ window.open = customWindowOpen
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
   - `webFrame`
 - `事件`
 - `timers`
 - `url`
 
-可以根据需要添加更多的electron api 以在沙箱中使用, 但主进程中的任何模块都可以通过 ` electron.remote.require ` 使用。
+More may be added as needed to expose more Electron APIs in the sandbox.
 
 
 

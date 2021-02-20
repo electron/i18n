@@ -418,7 +418,7 @@ app.on('session-created', (session) => {
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
-### 事件: 'remote-require'
+### Event: 'remote-require' _Deprecated_
 
 返回:
 
@@ -428,7 +428,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件: 'remote-get-global'
+### Event: 'remote-get-global' _Deprecated_
 
 返回:
 
@@ -438,7 +438,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件: 'remote-get-builtin'
+### Event: 'remote-get-builtin' _Deprecated_
 
 返回:
 
@@ -448,7 +448,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件: 'remote-get-current-window'
+### Event: 'remote-get-current-window' _Deprecated_
 
 返回:
 
@@ -457,7 +457,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件: 'remote-get-current-web-contents'
+### Event: 'remote-get-current-web-contents' _Deprecated_
 
 返回:
 

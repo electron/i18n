@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 
 ## Preload
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+An app can make customizations to sandboxed renderers using a preload script. Aqui está um exemplo:
 
 ```js
 let win

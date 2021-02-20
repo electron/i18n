@@ -18,7 +18,9 @@ The `Menu` class has the following static methods:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
+
+In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -122,11 +124,7 @@ Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem`
 
 ## Exemplos
 
-A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
-
-### Processo principal
-
-Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
+An example of creating the application menu with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -236,24 +234,34 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
+To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
 
-```html
-<!-- index.html -->
-<script>
-const { remote } = require('electron')
-const { Menu, MenuItem } = remote
+Below is an example of showing a menu when the user right clicks the page:
 
-const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
-menu.append(new MenuItem({ type: 'separator' }))
-menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
-
+```js
+// renderer
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({ window: remote.getCurrentWindow() })
-}, false)
-</script>
+  ipcRenderer.send('show-context-menu')
+})
+
+ipcRenderer.on('context-menu-command', (e, command) => {
+  // ...
+})
+
+// main
+ipcMain.on('show-context-menu', (event) => {
+  const template = [
+    {
+      label: 'Menu Item 1',
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
+    },
+    { type: 'separator' },
+    { label: 'Menu Item 2', type: 'checkbox', checked: true }
+  ]
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
+})
 ```
 
 ## Notas sobre o Menu de aplicativo no macOS

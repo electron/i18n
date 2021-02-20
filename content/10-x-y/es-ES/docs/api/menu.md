@@ -18,7 +18,9 @@ La clase `Menu` tiene los siguientes métodos estáticos:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón entonces aparecerá subrayado, y el carácter `&` no se mostrará en la etiqueta del botón.
+
+Para poder saltar el carácter `&` en el nombre de un objeto, usa un `&` procedural. Por ejemplo, `&&Archivo` abrirá `&Archivo` en la etiqueta del botón.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -276,7 +278,7 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files][AboutInformationPropertyListFiles].
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
 El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 

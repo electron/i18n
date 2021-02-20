@@ -692,7 +692,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### 事件: 'remote-require'
+#### Event: 'remote-require' _Deprecated_
 
 返回:
 
@@ -701,7 +701,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Emitted when `remote.require()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件: 'remote-get-global'
+#### Event: 'remote-get-global' _Deprecated_
 
 返回:
 
@@ -710,7 +710,7 @@ Emitted when `remote.require()` is called in the renderer process. 调用 `event
 
 Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件: 'remote-get-builtin'
+#### Event: 'remote-get-builtin' _Deprecated_
 
 返回:
 
@@ -719,7 +719,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `eve
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件: 'remote-get-current-window'
+#### Event: 'remote-get-current-window' _Deprecated_
 
 返回:
 
@@ -727,7 +727,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `ev
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件: 'remote-get-current-web-contents'
+#### Event: 'remote-get-current-web-contents' _Deprecated_
 
 返回:
 
@@ -1324,7 +1324,7 @@ An example of showing devtools in a `<webview>` tag:
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { webContents } = require('electron').remote
+    const { ipcRenderer } = require('electron')
     const emittedOnce = (element, eventName) => new Promise(resolve => {
       element.addEventListener(eventName, event => resolve(event), { once: true })
     })
@@ -1333,14 +1333,24 @@ An example of showing devtools in a `<webview>` tag:
     const browserReady = emittedOnce(browserView, 'dom-ready')
     const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
     Promise.all([browserReady, devtoolsReady]).then(() => {
-      const browser = webContents.fromId(browserView.getWebContentsId())
-      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
-      browser.setDevToolsWebContents(devtools)
-      browser.openDevTools()
+      const targetId = browserView.getWebContentsId()
+      const devtoolsId = devtoolsView.getWebContentsId()
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
     })
   </script>
 </body>
 </html>
+```
+
+```js
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
 An example of showing devtools in a `BrowserWindow`:

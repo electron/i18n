@@ -4,7 +4,7 @@
 
 All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
 
-O Electron também fornece alguns módulos extras para o desenvolvimento de aplicativos desktop. Alguns módulos só estão disponíveis no processo principal, alguns só estão disponíveis no processo de renderização (página web), e alguns podem ser usados em ambos os processos.
+O Electron também fornece alguns módulos extras para o desenvolvimento de aplicativos desktop. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
 A regra básica é: se um módulo for [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou relacionado ao sistema de baixo nível, então deve estar disponível apenas no processo principal. Você precisa estar familiarizado com o conceito de [ processo principal vs. processo de renderização ](../tutorial/application-architecture.md#main-and-renderer-processes) scripts para poder usar esses módulos.
 
@@ -20,15 +20,15 @@ app.whenReady().then(() => {
 })
 ```
 
-O processo de renderização não é diferente de uma página web normal, com exceção da capacidade adicional de usar módulos de nó:
+The renderer process is no different than a normal web page, except for the extra ability to use node modules if `nodeIntegration` is enabled:
 
 ```html
 <!DOCTYPE html>
 <html>
 <body>
 <script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
+  const fs = require('fs')
+  console.log(fs.readFileSync(__filename, 'utf8'))
 </script>
 </body>
 </html>

@@ -418,7 +418,7 @@ app.on('session-created', (session) => {
 
 Возникает, когда `desktopCapturer.getSources()` вызывается в процессе рендерера `webContents`. Вызов `event.preventDefault()` вернет пустые источники.
 
-### Событие: 'remote-require'
+### Event: 'remote-require' _Deprecated_
 
 Возвращает:
 
@@ -428,7 +428,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Событие: 'remote-get-global'
+### Event: 'remote-get-global' _Deprecated_
 
 Возвращает:
 
@@ -438,7 +438,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Событие: 'remote-get-builtin'
+### Event: 'remote-get-builtin' _Deprecated_
 
 Возвращает:
 
@@ -448,7 +448,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Событие: 'remote-get-current-window'
+### Event: 'remote-get-current-window' _Deprecated_
 
 Возвращает:
 
@@ -457,7 +457,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Событие: 'remote-get-current-web-contents'
+### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Возвращает:
 

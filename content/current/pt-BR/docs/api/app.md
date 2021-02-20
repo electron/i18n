@@ -418,7 +418,7 @@ Retorna:
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
-### Evento: 'remote-require'
+### Event: 'remote-require' _Deprecated_
 
 Retorna:
 
@@ -428,7 +428,7 @@ Retorna:
 
 Este evento será emitido quando `remote.require()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Evento: 'remote-get-global'
+### Event: 'remote-get-global' _Deprecated_
 
 Retorna:
 
@@ -438,7 +438,7 @@ Retorna:
 
 Este evento será emitido quando `remote.getGlobal()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Evento: 'remote-get-builtin'
+### Event: 'remote-get-builtin' _Deprecated_
 
 Retorna:
 
@@ -448,7 +448,7 @@ Retorna:
 
 É emitido quando `remote.getBuiltin()` é chamado pelo processo de renderização de `webContents`. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Evento: 'remote-get-current-window'
+### Event: 'remote-get-current-window' _Deprecated_
 
 Retorna:
 
@@ -457,7 +457,7 @@ Retorna:
 
 É emitido quando `remote.getCurrentWindow()` é chamado pelo processo de renderização de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Retorna:
 

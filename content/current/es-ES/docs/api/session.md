@@ -485,9 +485,11 @@ Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario pers
 
 **Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
-#### `ses.loadExtension(path)`
+#### `ses.loadExtension(path[, options])`
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
+* `options` Object (opcional)
+  * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Por defecto es false.
 
 Devuelve `Promise<Extension>` - se resuelve cuando la extensión está cargada.
 
@@ -502,7 +504,11 @@ const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', async () => {
-  await session.defaultSession.loadExtension(path.join(__dirname, 'react-devtools'))
+  await session.defaultSession.loadExtension(
+    path.join(__dirname, 'react-devtools'),
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
+    { allowFileAccess: true }
+  )
   // Note that in order to use the React DevTools extension, you'll need to
   // download and unzip a copy of the extension.
 })

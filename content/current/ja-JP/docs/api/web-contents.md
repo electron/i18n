@@ -692,7 +692,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-#### イベント: 'remote-require'
+#### イベント: 'remote-require' _非推奨_
 
 戻り値:
 
@@ -701,7 +701,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.require()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### イベント: 'remote-get-global'
+#### イベント: 'remote-get-global' _非推奨_
 
 戻り値:
 
@@ -710,7 +710,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### イベント: 'remote-get-builtin'
+#### イベント: 'remote-get-builtin' _非推奨_
 
 戻り値:
 
@@ -719,7 +719,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### イベント: 'remote-get-current-window'
+#### イベント: 'remote-get-current-window' _非推奨_
 
 戻り値:
 
@@ -727,7 +727,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### イベント: 'remote-get-current-web-contents'
+#### イベント: 'remote-get-current-web-contents' _非推奨_
 
 戻り値:
 
@@ -1324,7 +1324,7 @@ win.webContents.on('devtools-opened', () => {
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { webContents } = require('electron').remote
+    const { ipcRenderer } = require('electron')
     const emittedOnce = (element, eventName) => new Promise(resolve => {
       element.addEventListener(eventName, event => resolve(event), { once: true })
     })
@@ -1333,14 +1333,24 @@ win.webContents.on('devtools-opened', () => {
     const browserReady = emittedOnce(browserView, 'dom-ready')
     const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
     Promise.all([browserReady, devtoolsReady]).then(() => {
-      const browser = webContents.fromId(browserView.getWebContentsId())
-      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
-      browser.setDevToolsWebContents(devtools)
-      browser.openDevTools()
+      const targetId = browserView.getWebContentsId()
+      const devtoolsId = devtoolsView.getWebContentsId()
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
     })
   </script>
 </body>
 </html>
+```
+
+```js
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
 `BrowserWindow` 内で開発者向けツールを表示する例:

@@ -83,13 +83,19 @@ win.setIgnoreMouseEvents(true)
 Игнорирование сообщений мыши заставляет веб-страницу забыть о движении мыши, что означает, что события движения мыши не будут вырабатываться. В операционных системах Windows дополнительный параметр может быть использован для передачи сообщений о перемещении мыши на веб-странице, что позволяют такие события как `mouseleave`:
 
 ```javascript
-const win = require('electron').remote.getCurrentWindow()
+const { ipcRenderer } = require('electron')
 const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, { forward: true })
+  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
-  win.setIgnoreMouseEvents(false)
+  ipcRenderer.send('set-ignore-mouse-events', false)
+})
+
+// Main process
+const { ipcMain } = require('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
 })
 ```
 

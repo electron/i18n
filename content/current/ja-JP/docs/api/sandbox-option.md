@@ -65,32 +65,22 @@ app.whenReady().then(() => {
 
 ```js
 // Javascript のコンテキストを作成するときにこのファイルが読み込まれます。 
-// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 
-// グローバルスコープにオブジェクトをリークしないように注意する必要があります。
-const { ipcRenderer, remote } = require('electron')
-const fs = require('fs')
-
-// `fs` モジュールを使用してコンフィグファイルを読む
-const buf = fs.readFileSync('allowed-popup-urls.json')
-const allowedUrls = JSON.parse(buf.toString('utf8'))
+// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
 const defaultWindowOpen = window.open
 
-function customWindowOpen (url, ...args) {
-  if (allowedUrls.indexOf(url) === -1) {
-    ipcRenderer.sendSync('blocked-popup-notification', location.origin, url)
-    return null
-  }
-  return defaultWindowOpen(url, ...args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 以下はプリロードスクリプトで注意すべき重要な点です。
 
 - サンドボックス化されたレンダラーには Node.js が実行されていませんが、`Buffer`、`process`、`setImmediate`、`clearImmediate`、および `require` が利用可能な、制限された Node 風の環境にはまだアクセスできます。
-- プリロードスクリプトは、`remote` および `ipcRenderer` モジュールを介してメインプロセスからすべての API に間接的にアクセスできます。
 - プリロードスクリプトは単一のスクリプトに含まれていなければなりませんが、以下で説明するように webpack や browserify のようなツールを使用すると複雑なプリロードコードを複数のモジュールで構成することができます。 browserify を用いる例は以下のとおりです。
 
 browserify バンドルを作成してプリロードスクリプトとして使用するには、以下のようなものを使用する必要があります。
@@ -110,13 +100,12 @@ browserify バンドルを作成してプリロードスクリプトとして使
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
   - `webFrame`
 - `イベント`
 - `timers`
 - `url`
 
-より多くの Electron API をサンドボックスに公開するために、必要に応じて追加することができますが、メインプロセスのどのモジュールも `electron.remote.require` で既に使用できます。
+More may be added as needed to expose more Electron APIs in the sandbox.
 
 ## 信頼できないコンテンツの描画
 

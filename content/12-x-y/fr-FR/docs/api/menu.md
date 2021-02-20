@@ -282,7 +282,7 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information][AboutInformationPropertyListFiles] pour plus d'informations.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
 
 La [`setMenu` méthode][setMenu] des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 

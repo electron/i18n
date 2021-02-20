@@ -8,15 +8,12 @@
 // В основном процессе.
 const { BrowserWindow } = require('electron')
 
-// Или используйте 'remote' в графическом процессе.
-// const { BrowserWindow } = require('electron').remote
-
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Загрузка удаленного URL
+// Load a remote URL
 win.loadURL('https://github.com')
 
-// Или загрузка локального HTML файла
+// Or load a local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -519,7 +516,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -551,7 +548,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -1495,6 +1492,12 @@ Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `nul
 #### `win.removeBrowserView(browserView)` _Экспериментально_
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.setTopBrowserView(browserView)` _Экспериментально_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
 #### `win.getBrowserViews()` _Экспериментально_
 

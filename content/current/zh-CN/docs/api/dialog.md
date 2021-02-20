@@ -11,13 +11,6 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-这个对话框从Electron主线程打开。 如果你想要从一个渲染线程使用对话框对象，记得通过remote去访问它。
-
-```javascript
-const { dialog } = require('electron').remote
-console.log(dialog)
-```
-
 ## 方法
 
 ` dialog ` 模块具有以下方法:

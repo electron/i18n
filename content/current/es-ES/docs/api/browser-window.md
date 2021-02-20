@@ -8,9 +8,6 @@ Proceso: [principal](../glossary.md#main-process)</0>
 // En el proceso principal.
 const { BrowserWindow } = require('electron')
 
-// O usa "remote" desde el proceso de renderizado.
-// const { BrowserWindow } = require('electron').remote
-
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 // Load a remote URL
@@ -519,7 +516,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -551,7 +548,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -1495,6 +1492,12 @@ API de reemplazo para setBrowserView soporta el trabajo con múltiples vistas de
 #### `win.removeBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.setTopBrowserView(browserView)` _Experimental_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
 #### `win.getBrowserViews()` _Experimental_
 

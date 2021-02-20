@@ -18,7 +18,9 @@
 
 Устанавливает `меню` в качестве меню приложения на macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
+Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
+
+In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -122,11 +124,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 ## Примеры
 
-Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
-
-### Главный процесс
-
-Пример создания меню приложения в основном процессе с API простого шаблона:
+An example of creating the application menu with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -236,24 +234,34 @@ Menu.setApplicationMenu(menu)
 
 ### Графический процесс
 
-Ниже приведен пример динамического создания меню на веб-странице (графический процесс) используя модуль [`remote`](remote.md) и показывает его, когда пользователь нажимает правую кнопку мыши на странице:
+To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
 
-```html
-<!-- index.html -->
-<script>
-const { remote } = require('electron')
-const { Menu, MenuItem } = remote
+Below is an example of showing a menu when the user right clicks the page:
 
-const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
-menu.append(new MenuItem({ type: 'separator' }))
-menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
-
+```js
+// renderer
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({ window: remote.getCurrentWindow() })
-}, false)
-</script>
+  ipcRenderer.send('show-context-menu')
+})
+
+ipcRenderer.on('context-menu-command', (e, command) => {
+  // ...
+})
+
+// main
+ipcMain.on('show-context-menu', (event) => {
+  const template = [
+    {
+      label: 'Menu Item 1',
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
+    },
+    { type: 'separator' },
+    { label: 'Menu Item 2', type: 'checkbox', checked: true }
+  ]
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
+})
 ```
 
 ## Замечания о меню приложения в macOS
@@ -276,7 +284,7 @@ macOS представляет стандартные действия для н
 
 На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. См. [О информации свойств списка файлов](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) для большей информации.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Настройка меню для конкретного окна браузера (*Linux* *Windows*)
 
 [Метод `setMenu`](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) окна браузера может установить меню определенных окон браузера.
 
