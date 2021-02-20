@@ -6,10 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // No processo main.
-const { BrowserWindow } = require('electron') 
-
-// Ou utilize `remote` de renderer process.
-// const { BrowserWindow } = require('electron').remote
+const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
@@ -519,7 +516,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -551,7 +548,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -1495,6 +1492,12 @@ Replacement API for setBrowserView supporting work with multi browser views.
 #### `win.removeBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.setTopBrowserView(browserView)` _Experimental_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
 #### `win.getBrowserViews()` _Experimental_
 

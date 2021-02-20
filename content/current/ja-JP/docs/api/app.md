@@ -418,7 +418,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-### イベント: 'remote-require'
+### イベント: 'remote-require' _非推奨_
 
 戻り値:
 
@@ -428,7 +428,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### イベント: 'remote-get-global'
+### イベント: 'remote-get-global' _非推奨_
 
 戻り値:
 
@@ -438,7 +438,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### イベント: 'remote-get-builtin'
+### イベント: 'remote-get-builtin' _非推奨_
 
 戻り値:
 
@@ -448,7 +448,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### イベント: 'remote-get-current-window'
+### イベント: 'remote-get-current-window' _非推奨_
 
 戻り値:
 
@@ -457,7 +457,7 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### イベント: 'remote-get-current-web-contents'
+### イベント: 'remote-get-current-web-contents' _非推奨_
 
 戻り値:
 

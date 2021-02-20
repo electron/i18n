@@ -418,7 +418,7 @@ Retourne :
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-### Événement : 'remote-require'
+### Event: 'remote-require' _Deprecated_
 
 Retourne :
 
@@ -428,7 +428,7 @@ Retourne :
 
 Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Évènement : 'remote-get-global'
+### Event: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -438,7 +438,7 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Événement : 'remote-get-builtin'
+### Event: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -448,7 +448,7 @@ Retourne :
 
 Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Événement : 'remote-get-current-window'
+### Event: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -457,7 +457,7 @@ Retourne :
 
 Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Événement : 'remote-get-current-web-contents'
+### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Retourne :
 

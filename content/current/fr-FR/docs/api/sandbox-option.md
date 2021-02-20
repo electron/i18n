@@ -65,32 +65,22 @@ et preload.js:
 
 ```js
 // Ce fichier est chargé chaque fois qu'un contexte javascript est créé. Il s'exécute dans une portée privée
-// qui peut accéder à un sous-ensemble d'API de rendu Electron. Nous devons être
-// attentifs à ne pas fuir aucun objet dans la portée globale !
-const { ipcRenderer, remote } = require('electron')
-const fs = distante. equire('fs')
+// qui peut accéder à un sous-ensemble d'API de rendu Electron. Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
-// lit un fichier de configuration en utilisant le module `fs`
-const buf = fs. eadFileSync('allowed-popup-urls.json')
-const allowedUrls = JSON.parse(buf.toString('utf8'))
+const defaultWindowOpen = window.open
 
-const defaultWindowOpen = window. stylo
-
-fonction customWindowOpen (url, ...args) {
-  if (allowedUrls.indexOf(url) === -1) {
-    ipcRenderer.sendSync('blocked-popup-notification', emplacement. rigin, url)
-    return null
-  }
-  return defaultWindowOpen(url, ...args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 Choses importantes à remarquer dans le script de préchargement :
 
 - Même si le moteur de rendu en bac à sable n'a pas de Node. , il a encore accès à un environnement de type noeud limité : `Buffer`, `process`, `setImmediate`, `clearImmediate` et `require` sont disponibles.
-- Le script de préchargement peut indirectement accéder à toutes les APIs du processus principal via les modules `distance` et `ipcRender`.
 - Le script de préchargement doit être contenu dans un seul script, mais il est possible d'avoir un code de préchargement complexe composé de plusieurs modules en utilisant un outil comme webpack ou browserify. Un exemple d'utilisation de browserify est ci-dessous.
 
 Pour créer un paquet browserify et l'utiliser comme un script de préchargement, quelque chose comme devrait être utilisé :
@@ -110,13 +100,12 @@ Actuellement la fonction `require` fournie dans la portée de préchargement exp
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
   - `webFrame`
 - `événements`
 - `timers`
 - `url`
 
-Plus peut être ajouté si nécessaire pour exposer plus d'API Electron dans le bac à sable, mais n'importe quel module dans le processus principal peut déjà être utilisé via `electron. emote.require`.
+More may be added as needed to expose more Electron APIs in the sandbox.
 
 ## Rendering untrusted content
 

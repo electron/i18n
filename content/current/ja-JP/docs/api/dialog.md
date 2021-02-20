@@ -11,13 +11,6 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
-ダイアログは Electron のメインスレッドから開かれます。 レンダラプロセスからダイアログオブジェクトを使いたい場合は、リモートを使ってアクセスすることを忘れないでください。
-
-```javascript
-const { dialog } = require('electron').remote
-console.log(dialog)
-```
-
 ## メソッド
 
 `dialog` モジュールには以下のメソッドがあります。

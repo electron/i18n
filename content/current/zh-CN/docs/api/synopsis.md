@@ -20,15 +20,15 @@ app.whenReady().then(() => {
 })
 ```
 
-渲染进程除了额外能够使用node模块的能力外，与普通网页没有什么区别
+如果 `nodeIntegration` 被启用，那么渲染进程除了额外能够使用node模块的能力外，与普通网页没有什么区别
 
 ```html
 <!DOCTYPE html>
 <html>
 <body>
 <script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
+  const fs = require('fs')
+  console.log(fs.readFileSync(__filename, 'utf8'))
 </script>
 </body>
 </html>

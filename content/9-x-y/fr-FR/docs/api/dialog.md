@@ -143,7 +143,7 @@ dialog.showOpenDialog(mainWindow, {
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `showOverwriteConfirmation` _Linux_ - Définit si une boîte de dialogue de confirmation sera affichée lorsque l’utilisateur tape un nom de fichier déjà existant.
-    * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
+    * `dontAddToRecent` _Windows_ - N'ajoutez pas l'élément en cours d'ouverture à la liste des documents récents.
   * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `String | undefined`, le chemin du fichier choisi par l'utilisateur ; si la boîte de dialogue est annulée, elle retourne `undefined`.
@@ -162,13 +162,13 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
+  * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte, par défaut à `true`.
   * `properties` String[] (optional)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `showOverwriteConfirmation` _Linux_ - Définit si une boîte de dialogue de confirmation sera affichée lorsque l’utilisateur tape un nom de fichier déjà existant.
-    * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
+    * `dontAddToRecent` _Windows_ - N'ajoutez pas l'élément en cours d'ouverture à la liste des documents récents.
   * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :

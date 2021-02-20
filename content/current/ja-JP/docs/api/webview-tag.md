@@ -100,7 +100,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-`Boolean`。 この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
+`Boolean`。 この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 The remote module is unavailable by default.
 
 ### `plugins`
 

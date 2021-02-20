@@ -6,7 +6,8 @@
   * `Blob`-Das Objekt entspricht einem`Blob`. Das`blobUUID`Feld wird zur Beschreibung von `Blob` verwendet werden.
 * `Bytes`Zeile (Optional)-Die rohen Bytes von Beitragsdaten in einem `Puffer`. Ist zum Typ `von rohen Daten `erfordert.
 * `PfadDatei`Zeile (optional)- Pfad von Datei die jetzt hochgeladen wird. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+* `BlobUUID`Zeile (optional)-Das `UUID`von `Blob`hochgeladen. Fuer `Blob`Typ erfordert.
+* `Offset`Integer (optional)-Das Offset vom Anfang der Datei in Bytes hochgeladen. Gilt nur fuer` Typen von Datei.</p></li>
+<li><p spaces-before="0"><code>Laenge`Integer (optional)-Die Laenge von Datei in Bytes hochgeladen. Wenn zu`1`eingestellt, wird die ganze Datei hochgeladen. Gilt nur fuer` Typen von Datei.</p></li>
+<li><p spaces-before="0"><code>ZeitvonModifikation`Doppel (optional)-Die Zeit von Modifikation der Datei von einer Doppelnummer vertreten, welche die Nummer von Sekunden seit dem `UNIX Epoch`ist. Gilt nur fuer Typen von Datei.</p></li>
+</ul>

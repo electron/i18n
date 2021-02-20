@@ -418,7 +418,7 @@ Devuelve:
 
 Emitido cuando `desktopCapturer.getSources()` es llamado en el render process del `webContents`. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
-### Evento: 'remote-require'
+### Evento: 'remote-require' _Obsoleto_
 
 Devuelve:
 
@@ -428,7 +428,7 @@ Devuelve:
 
 Emitido cuando `remote.require()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Evento: 'remote-get-global'
+### Evento: 'remote-get-global' _Obsoleto_
 
 Devuelve:
 
@@ -438,7 +438,7 @@ Devuelve:
 
 Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del `webContents`. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Evento: 'remote-get-builtin'
+### Evento: 'remote-get-builtin' _Obsoleto_
 
 Devuelve:
 
@@ -448,7 +448,7 @@ Devuelve:
 
 Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Evento: 'remote-get-current-window'
+### Evento: 'remote-get-current-window' _Obsoleto_
 
 Devuelve:
 
@@ -457,7 +457,7 @@ Devuelve:
 
 Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-### Evento: 'remote-get-current-web-contents'
+### Evento: 'remote-get-current-web-contents' _Obsoleto_
 
 Devuelve:
 

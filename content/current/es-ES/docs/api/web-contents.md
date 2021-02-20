@@ -691,7 +691,7 @@ Devuelve:
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
-#### Event: 'remote-require'
+#### Evento: 'remote-require' _Obsoleto_
 
 Devuelve:
 
@@ -700,7 +700,7 @@ Devuelve:
 
 Emitido cuando `remote.require()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-#### Evento: 'remote-get-global'
+#### Evento: 'remote-get-global' _Obsoleto_
 
 Devuelve:
 
@@ -709,7 +709,7 @@ Devuelve:
 
 Emitido cuando `remote.getGlobal()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-#### Evento: 'remote-get-builtin'
+#### Evento: 'remote-get-builtin' _Obsoleto_
 
 Devuelve:
 
@@ -718,7 +718,7 @@ Devuelve:
 
 Emitido cuando `remote.getBuiltin()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-#### Evento: 'remote-get-current-window'
+#### Evento: 'remote-get-current-window' _Obsoleto_
 
 Devuelve:
 
@@ -726,7 +726,7 @@ Devuelve:
 
 Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
-#### Evento: 'remote-get-current-web-contents'
+#### Evento: 'remote-get-current-web-contents' _Obsoleto_
 
 Devuelve:
 
@@ -1323,7 +1323,7 @@ Un ejemplo de mostrar devtools en una etiqueta `<webview>`:
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { webContents } = require('electron').remote
+    const { ipcRenderer } = require('electron')
     const emittedOnce = (element, eventName) => new Promise(resolve => {
       element.addEventListener(eventName, event => resolve(event), { once: true })
     })
@@ -1332,14 +1332,24 @@ Un ejemplo de mostrar devtools en una etiqueta `<webview>`:
     const browserReady = emittedOnce(browserView, 'dom-ready')
     const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
     Promise.all([browserReady, devtoolsReady]).then(() => {
-      const browser = webContents.fromId(browserView.getWebContentsId())
-      const devtools = webContents.fromId(devtoolsView.getWebContentsId())
-      browser.setDevToolsWebContents(devtools)
-      browser.openDevTools()
+      const targetId = browserView.getWebContentsId()
+      const devtoolsId = devtoolsView.getWebContentsId()
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
     })
   </script>
 </body>
 </html>
+```
+
+```js
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
 Un ejemplo de mostrar devtools en un `BrowserWindow`:
@@ -1443,7 +1453,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // Imprime '¡Suuuuuuuuuuuuuu!'
     })
   </script>
 </body>

@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 
 ## Precargado
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+An app can make customizations to sandboxed renderers using a preload script. Aquí hay un ejemplo:
 
 ```js
 let win
@@ -65,32 +65,22 @@ y preload.js:
 
 ```js
 // Este archivo se carga cada vez que se crea un contexto de javascript. Corre en un
-// ámbito privado que puede acceder a un subconjunto de APIs de rendererizado de Electron. Debemos ser
-// cuidadosos de no dejar salir ningún objeto en el ámbito global!
-const { ipcRenderer, remote } = require('electron')
-const fs = remote.require('fs')
-
-// read a configuration file using the `fs` module
-const buf = fs.readFileSync('allowed-popup-urls.json')
-const allowedUrls = JSON.parse(buf.toString('utf8'))
+// ámbito privado que puede acceder a un subconjunto de APIs de rendererizado de Electron. Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
 const defaultWindowOpen = window.open
 
-function customWindowOpen (url, ...args) {
-  if (allowedUrls.indexOf(url) === -1) {
-    ipcRenderer.sendSync('blocked-popup-notification', location.origin, url)
-    return null
-  }
-  return defaultWindowOpen(url, ...args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 Cosas importantes que notar en el script precargado:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
-- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
@@ -110,13 +100,12 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
   - `webFrame`
 - `eventos`
 - `contadores`
 - `url`
 
-Se pueden agregar más si se necesitan para exponer más APIs de Electron en el sandbox, pero cualquier módulo en el proceso principal puede ser usado a través de `electron.remote.require`.
+More may be added as needed to expose more Electron APIs in the sandbox.
 
 ## Rendering untrusted content
 

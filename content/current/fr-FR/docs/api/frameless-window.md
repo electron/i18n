@@ -83,13 +83,19 @@ win.setIgnoreMouseEvents(true)
 Ignorer les messages de la souris rend la page Web inaccessible au mouvement de la souris, ce qui signifie que les événements de déplacement de la souris ne seront pas émis. Sur les systèmes d'exploitation Windows, un paramètre optionnel peut être utilisé pour déplacer les messages de la souris vers la page web, permettant d'émettre des événements tels que `souris` :
 
 ```javascript
-const win = require('electron').remote.getCurrentWindow()
+const { ipcRenderer } = require('electron')
 const el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, { forward: true })
+  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
-  win.setIgnoreMouseEvents(false)
+  ipcRenderer.send('set-ignore-mouse-events', false)
+})
+
+// Main process
+const { ipcMain } = require('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
 })
 ```
 

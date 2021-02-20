@@ -18,7 +18,9 @@ La clase `Menu` tiene los siguientes métodos estáticos:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón entonces aparecerá subrayado, y el carácter `&` no se mostrará en la etiqueta del botón.
+
+Para poder saltar el carácter `&` en el nombre de un objeto, usa un `&` procedural. Por ejemplo, `&&Archivo` abrirá `&Archivo` en la etiqueta del botón.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -122,11 +124,7 @@ Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem
 
 ## Ejemplos
 
-La clase `Menu` solo está disponible en el proceso principal, pero también se puede usar en el proceso de renderizado a través del módulo [`remote`](remote.md).
-
-### Proceso principal
-
-Ejemplo de la creación del menú de la aplicación en el proceso principal con la API de plantilla:
+Un ejemplo de creación de una menú de la aplicación con el API simple template:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -236,24 +234,34 @@ Menu.setApplicationMenu(menu)
 
 ### Proceso de renderizado
 
-A continuación, un ejemplo de cómo crear un menú dinámicamente en una página web (proceso de renderizado) utilizando el módulo [`remote`](remote.md), y mostrarlo cuando el usuario le dé clic derecho a la ventana:
+Para crear menús iniciados por el renderer process, envía la información requerida al main process usando IPC y haz que main process muestre el menú en nombre del renderer.
 
-```html
-<!-- index.html -->
-<script>
-const { remote } = require('electron')
-const { Menu, MenuItem } = remote
+A continuación un ejemplo de mostrar un menú cuando el usuario pulsa el botón derecho en la página:
 
-const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
-menu.append(new MenuItem({ type: 'separator' }))
-menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
-
+```js
+// renderer
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({ window: remote.getCurrentWindow() })
-}, false)
-</script>
+  ipcRenderer.send('show-context-menu')
+})
+
+ipcRenderer.on('context-menu-command', (e, command) => {
+  // ...
+})
+
+// main
+ipcMain.on('show-context-menu', (event) => {
+  const template = [
+    {
+      label: 'Menu Item 1',
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
+    },
+    { type: 'separator' },
+    { label: 'Menu Item 2', type: 'checkbox', checked: true }
+  ]
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
+})
 ```
 
 ## Notas sobre el menú de la aplicación en macOS
@@ -276,7 +284,7 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
 El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 

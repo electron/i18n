@@ -8,9 +8,6 @@
 // 在主进程中.
 const { BrowserWindow } = require('electron')
 
-// 或者从渲染进程中使用 `remote`.
-// const { BrowserWindow } = require('electron').remote
-
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 // Load a remote URL
@@ -518,7 +515,7 @@ Returns `BrowserWindow | null` - The window with the given `id`.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -550,7 +547,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -1494,6 +1491,12 @@ Replacement API for setBrowserView supporting work with multi browser views.
 #### `win.removeBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.setTopBrowserView(browserView)` _实验_
+
+* `browserView` [BrowserView](browser-view.md)
+
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
 #### `win.getBrowserViews()` _实验功能_
 

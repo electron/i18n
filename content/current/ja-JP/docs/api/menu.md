@@ -18,7 +18,9 @@
 
 macOS では、 `menu` をアプリケーションメニューとして設定します。 Windows と Linux では、 `menu` は各ウィンドウのトップメニューとして設定されます。
 
-更に Windows と Linux では、最上位のアイテム名に `&` を使用して、アクセラレータを生成させるときに取得する文字を指定できます。 たとえば、ファイルメニューに `&File` を使用すると、その関連付けされたメニューを開く `Alt-F` アクセラレータが生成されます。 そのボタンラベルの指定された文字には下線が引かれます。 `&` 文字はボタンラベル上に表示されません。
+更に Windows と Linux では、最上位のアイテム名に `&` を使用して、アクセラレータを生成させるときに取得する文字を指定できます。 たとえば、ファイルメニューに `&File` を使用すると、その関連付けされたメニューを開く `Alt-F` アクセラレータが生成されます。 ボタンラベルでその指定をした文字には下線が引かれ、`&` 文字はボタンラベルに表示されません。
+
+メニューアイテム名の `&` 文字をエスケープするには、`&` を続けて書きます。 例えば、`&&File` とするとボタンラベルに `&File` が表示されます。
 
 `null` を渡すと、既定のメニューが表示されなくなります。 Windows と Linux では、さらにウィンドウからメニューバーを削除します。
 
@@ -122,11 +124,7 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 ## サンプル
 
-`Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
-
-### メインプロセス
-
-シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
+An example of creating the application menu with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -236,24 +234,34 @@ Menu.setApplicationMenu(menu)
 
 ### レンダープロセス (render process)
 
-以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
+To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
 
-```html
-<!-- index.html -->
-<script>
-const { remote } = require('electron')
-const { Menu, MenuItem } = remote
+Below is an example of showing a menu when the user right clicks the page:
 
-const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
-menu.append(new MenuItem({ type: 'separator' }))
-menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
-
+```js
+// renderer
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({ window: remote.getCurrentWindow() })
-}, false)
-</script>
+  ipcRenderer.send('show-context-menu')
+})
+
+ipcRenderer.on('context-menu-command', (e, command) => {
+  // ...
+})
+
+// main
+ipcMain.on('show-context-menu', (event) => {
+  const template = [
+    {
+      label: 'Menu Item 1',
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
+    },
+    { type: 'separator' },
+    { label: 'Menu Item 2', type: 'checkbox', checked: true }
+  ]
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
+})
 ```
 
 ## macOS アプリケーションメニューについて

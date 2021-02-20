@@ -4,7 +4,7 @@
 
 [Node.js の組み込みモジュール](https://nodejs.org/api/) のすべては、Electron およびサードパーティの Node モジュール ([ネイティブモジュール](../tutorial/using-native-node-modules.md) を含む) でも完全にサポートされています。
 
-Electron はネイティブのデスクトップアプリケーションを開発するためのモジュールもいくつか追加しています。 一部のモジュールはメインプロセスでのみ使用でき、一部はレンダラープロセス (ウェブページ) でのみ使用でき、一部は両方のプロセスで使用できます。
+Electron はネイティブのデスクトップアプリケーションを開発するためのモジュールもいくつか追加しています。 Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
 基本的なルールはとしては、モジュールが [GUI](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9) または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 これらのモジュールを使用できるようにするには、[メインプロセスと レンダラプロセス](../tutorial/application-architecture.md#main-and-renderer-processes) のスクリプトの概念に精通している必要があります。
 
@@ -20,15 +20,15 @@ app.whenReady().then(() => {
 })
 ```
 
-レンダラープロセスは、Node モジュールを使用する追加の機能を除いて、通常のウェブページと変わりません。
+The renderer process is no different than a normal web page, except for the extra ability to use node modules if `nodeIntegration` is enabled:
 
 ```html
 <!DOCTYPE html>
 <html>
 <body>
 <script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
+  const fs = require('fs')
+  console.log(fs.readFileSync(__filename, 'utf8'))
 </script>
 </body>
 </html>

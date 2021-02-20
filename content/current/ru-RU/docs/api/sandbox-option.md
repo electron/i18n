@@ -65,32 +65,22 @@ app.whenReady().then(() => {
 
 ```js
 // Этот файл загружается каждый раз в контексте javascript. Он запускается в 
-// приватной области, которая может получить доступ к подмножеству API рендерера Electron. Мы должны быть
-// осторожны, чтобы не допустить утечки каких-либо объектов в глобальную область!
-const { ipcRenderer, remote } = require('electron')
-const fs = remote.require('fs')
-
-// чтение конфигурационного файла с помощью модуля `fs`
-const buf = fs.readFileSync('allowed-popup-urls.json')
-const allowedUrls = JSON.parse(buf.toString('utf8'))
+// приватной области, которая может получить доступ к подмножеству API рендерера Electron. Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
 const defaultWindowOpen = window.open
 
-function customWindowOpen (url, ...args) {
-  if (allowedUrls.indexOf(url) === -1) {
-    ipcRenderer.sendSync('blocked-popup-notification', location.origin, url)
-    return null
-  }
-  return defaultWindowOpen(url, ...args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 Важные вещи, на которые следует обратить внимание в скрипте предварительной загрузки:
 
 - Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
 - Скрипт для предварительной загрузки должен содержаться в одном скрипте, но может иметь сложный код для предварительной загрузки, состоящий из нескольких модулей, используя такие инструменты, как webpack или browserify. Ниже приведен пример использования browserify.
 
 Чтобы создать пакет browserify пакета и использовать его в качестве скрипта предварительной загрузки, можно сделать что-то вроде этого:
@@ -110,13 +100,12 @@ window.open = customWindowOpen
   - `desktopCapturer`
   - `ipcRenderer`
   - `nativeImage`
-  - `remote`
   - `webFrame`
 - `events`
 - `timers`
 - `url`
 
-При необходимости в песочницу можно добавить больше возможностей Electron API, но любой модуль в основном процессе уже может быть использован через `electron.remote.require`.
+More may be added as needed to expose more Electron APIs in the sandbox.
 
 ## Rendering untrusted content
 

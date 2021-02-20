@@ -8,15 +8,12 @@
 // メインプロセス
 const { BrowserWindow } = require('electron')
 
-// レンダラープロセスからは `remote` を使用します。
-// const { BrowserWindow } = require('electron').remote
-
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// 外部 URL を読み込む
+// Load a remote URL
 win.loadURL('https://github.com')
 
-// またはローカルの HTML ファイルを読み込む
+// Or load a local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -519,7 +516,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options) を使用してください。
 
 #### `BrowserWindow.removeExtension(name)` _非推奨_
 
@@ -551,7 +548,7 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
-**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath) を使用してください。
+**注:** このメソッドは非推奨です。 代わりに [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options) を使用してください。
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _非推奨_
 
@@ -1494,6 +1491,12 @@ macOS ではウィンドウからフォーカスは除去されません。
 #### `win.removeBrowserView(browserView)` _実験的_
 
 * `browserView` [BrowserView](browser-view.md)
+
+#### `win.setTopBrowserView(browserView)` _実験的_
+
+* `browserView` [BrowserView](browser-view.md)
+
+`browserView` を `win` にアタッチされた他の `BrowserView` の上へと持ち上げます。 `browserView` が `win` にアタッチされていない場合, エラーを送出します。
 
 #### `win.getBrowserViews()` _実験的_
 
