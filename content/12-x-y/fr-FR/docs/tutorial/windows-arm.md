@@ -1,4 +1,4 @@
-# Windows 10 sur Arme
+# Windows 10 sur Arm
 
 Si votre application fonctionne avec Electron 6.0.8 ou supérieur, vous pouvez maintenant la compiler pour Windows 10 sur Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 

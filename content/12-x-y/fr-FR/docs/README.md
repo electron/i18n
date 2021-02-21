@@ -21,7 +21,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
 ### Apprendre les bases
 
 * [Modèle des processus d'Electron](tutorial/quick-start.md#application-architecture)
-  * [فرآیندهای اصلی و رندرینگparsian](tutorial/quick-start.md#main-and-renderer-processes)
+  * [Processus Principal et de Rendu](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Ajouter des fonctionnalités à votre App

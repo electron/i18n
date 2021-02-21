@@ -2,7 +2,7 @@
 
 Avant de se plonger dans les APIs Electron, discutons des deux types de processus disponibles dans Electron.فارسی ترجمه شود They are fundamentally different and important to understand.فارسی ترجمه زبان.
 
-## فرآیندهای اصلی و رندرینگparsian
+## Processus Principal et de Rendu
 
 Dans Electron, le processus qui exécute le script `main` dans le `package.json` est appelé le __processus principal__. Le script qui exécute le processus principal peut afficher une interface graphique en créant des pages web. Une application Electron possède toujours un processus principal, jamais plus.
 

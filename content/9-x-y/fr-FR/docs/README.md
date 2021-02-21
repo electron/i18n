@@ -27,7 +27,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Autres outils et boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architecture d'une application](tutorial/application-architecture.md)
-  * [فرآیندهای اصلی و رندرینگparsian](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Processus Principal et de Rendu](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Utilisation des APIs Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Utilisation des APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Utilisation des Modules Natifs de Node.js](tutorial/using-native-node-modules.md)
