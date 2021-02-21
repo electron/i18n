@@ -219,7 +219,7 @@ Electron se compose de trois piliers principaux:
 
 Développer une application avec Electron est comme construire une application Node.js avec une interface web ou construire des pages web avec une intégration transparente de Node.js.
 
-#### فرآیندهای اصلی و رندرینگparsian
+#### Processus Principal et de Rendu
 
 Comme il a été mentionné précédemment, Electron a deux types de processus : Main et Renderer.
 
