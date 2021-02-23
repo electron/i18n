@@ -2,7 +2,7 @@
 
 > Goma is a distributed compiler service for open-source projects such as Chromium and Android.
 
-Electron has a deployment of a custom Goma Backend that we make available to all Electron Maintainers.  See the [Access](#access) section below for details on authentication.
+Electron hat ein eigenes Goma-Backend, das wir allen Electron-Betreuern zur Verfügung stellen.  See the [Access](#access) section below for details on authentication.
 
 ## Enabling Goma
 
