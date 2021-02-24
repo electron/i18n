@@ -3,10 +3,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "14737",
-    "translated": "10411",
+    "translated": "10414",
     "approved": "2278",
     "words": "178813",
-    "words_translated": "124335",
+    "words_translated": "124419",
     "words_approved": "25089",
     "translated_progress": 69,
     "approved_progress": 14,
@@ -36,7 +36,7 @@
     "words_approved": "6452",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 4001
+    "qa_issues": 4003
   },
   {
     "name": "Japanese",
@@ -88,6 +88,6 @@
     "words_approved": "35487",
     "translated_progress": 85,
     "approved_progress": 19,
-    "qa_issues": 5740
+    "qa_issues": 5736
   }
 ]
