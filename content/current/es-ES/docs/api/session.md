@@ -489,7 +489,7 @@ Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario pers
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
 * `options` Object (opcional)
-  * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Por defecto es false.
+  * `allowFileAccess` Boolean - Si permitir que la extensión lea los archivos locales sobre el protocolo `file://` e inyecte scripts contenido dentro de las páginas `file://`. Esto es necesario por ejemplo para cargar las extensiones devtools en las URLs `file://`. Por defecto es false.
 
 Devuelve `Promise<Extension>` - se resuelve cuando la extensión está cargada.
 
@@ -506,11 +506,11 @@ const path = require('path')
 app.on('ready', async () => {
   await session.defaultSession.loadExtension(
     path.join(__dirname, 'react-devtools'),
-    // allowFileAccess is required to load the devtools extension on file:// URLs.
+    // allowFileAccess es necesario para cargar la extensión  devtools en las URLs  file://.
     { allowFileAccess: true }
   )
-  // Note that in order to use the React DevTools extension, you'll need to
-  // download and unzip a copy of the extension.
+  // Tenga en cuenta que para usar la extensión  React DevTools, necesitaras
+  // descargar y descomprimir una copia de la extensión.
 })
 ```
 

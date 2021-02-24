@@ -58,7 +58,7 @@ Devuelve:
 * `event` Event
 * `state` String - Puede ser `completado`, `cancelado` o `interrumpido`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Emitido cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y descargas interrumpidas que no pueden ser reanudadas.
 
 El `state` puede ser uno de los siguientes:
 

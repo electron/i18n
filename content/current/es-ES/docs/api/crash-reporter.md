@@ -44,23 +44,23 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `extra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos en el main process. Sólo se admiten valores de cadena. Los fallos generados en los procesos hijos no contendrán estos parámetros extras, para reportes de fallos generados desde los procesos hijos, llame [`addExtraParameter`](#crashreporteraddextraparameterkey-value) desde el proceso hijo.
   * `globalExtra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos generados en cualquier proceso. Estas anotaciones no pueden ser cambiadas una vez que el crash reporter ha sido iniciado. Si una clave esta presente en los parámetros global extra y en los parámetros extra process-specific, entonces el parámetro global tomará precedencia. Por defecto, `productName` y la versión de la aplicación son incluidas, así como la versión de Electron.
 
-Este método debe ser llamada antes de usar cualquier otra APIs `crashReporter`. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
+Este método debe ser llamada antes de usar cualquier otra APIs `crashReporter`. Una vez inicializado de esta manera, el crashpad handler recopila los fallos desde todos los procesos creados posteriormente. El crash reporter no puede ser desactiva una vez iniciado.
 
-This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
+Este método debería ser llamado tan pronto como sea posible al iniciar la aplicación, preferentemente antes de `app.on('ready')`. Si el crash reporter no está iniciado al tiempo que un renderer process este creado, entonces ese renderer process no será monitoreado por el crash reporter.
 
-**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
+**Nota:** Puedes probar el crash reporter generando un fallo usando `process.crash()`.
 
-**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
+**Nota:** Si necesitas enviar parámetros `extra` adicionales/actualizados después de tu primera llamada `start` puedes llamar a `addExtraParameter`.
 
-**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+**Nota:** Los parámetros pasados en `extra`, `globalExtra` o establecidos con `addExtraParameter` tienen un limite en la longitud de la llaves y los valores. Los nombre de la llaves deben ser como máximo de 39 bytes de largo, y los valores no deben ser mayor que 127 bytes. Las llaves con nombres más largo que el máximo serán ignoradas de forma silenciosa. Los valores de las llaves más largo que la longitud máxima serán truncados.
 
-**Note:** Calling this method from the renderer process is deprecated.
+**Nota:** Llamar a este método desde el renderer process esta obsoleto.
 
 ### `crashReporter.getLastCrashReport()`
 
-Devuelve [`CrashReport`](structures/crash-report.md) - La fecha y el ID del último reporte de error. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. En caso de que no haya reportes subidos, `null` es retornado.
+Devuelve [`CrashReport`](structures/crash-report.md) - La fecha y el ID del último reporte de error. Solo los reportes de fallos que han sido alzados serán retornados; incluso si un reporte de fallo esta presente en el disco este no sera retornado a menos que este alzado. En caso de que no haya reportes subidos, `null` es retornado.
 
-**Note:** Calling this method from the renderer process is deprecated.
+**Nota:** Llamar a este método desde el renderer process esta obsoleto.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -68,46 +68,46 @@ Devuelve [`CrashReport []`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-**Note:** Calling this method from the renderer process is deprecated.
+**Nota:** Llamar a este método desde el renderer process esta obsoleto.
 
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** Calling this method from the renderer process is deprecated.
+**Nota:** Llamar a este método desde el renderer process esta obsoleto.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean - Si los reportes deben enviarse o no al servidor.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** Calling this method from the renderer process is deprecated.
+**Nota:** Llamar a este método desde el renderer process esta obsoleto.
 
 ### `crashReporter.getCrashesDirectory()` _Deprecated_
 
 Devuelve `String` - El directorio donde los errores son almacenados temporalmente antes de ser cargados.
 
-**Note:** This method is deprecated, use `app.getPath('crashDumps')` instead.
+**Nota:** Este método está, en su lugar use `app.getPath('crashDumps')`.
 
 ### `crashReporter.addExtraParameter(key, value)`
 
-* `key` String - Parameter key, must be no longer than 39 bytes.
-* `value` String - Parameter value, must be no longer than 127 bytes.
+* `key` String - La clave del parámetro, debe tener menos de 39 bytes.
+* `key` String - La clave del parámetro, debe tener menos de 127 bytes.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí serán enviados, adicionalmente cualquier valor establecidos a través de la opción `extra` cuando fue llamado `start`.
 
-Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+Los parámetros agregados de esta manera (o a través del parámetro `extra` al `crashReporter.start`) son específicos del proceso de llamada. Agregar parámetros extras en el main process no causarán que esos parámetros sean enviado junto con los fallos del renderer u otros procesos hijos. De manera similar, agregar parámetros extras en un renderer process no dará como resultado que esos parámetros sean enviados con los fallos que ocurren en otros renderer processes o en el main process.
 
-**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+**Nota:** Los parámetros tienen límites de longitud de llaves y valores. Los nombre de la llaves deben ser como máximo de 39 bytes de largo, y los valores no deben ser mayor que 127 bytes. Las llaves con nombres más largo que el máximo serán ignoradas de forma silenciosa. Los valores de las llaves más largo que la longitud máxima serán truncados.
 
-**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+**Nota:** En linux los valores que son más grandes que 127 bytes se dividirá en varias claves, cada una de 127 bytes de longitud.  Por ejemplo, `addExtraParameter('foo', 'a'.repeat(130))` serán dividirán en dos llaves `foo__1` y `foo__2`, el primero contendrá los primeros 127 bytes y el segundo contendrá los restantes 3 bytes.  En el backend de informes de fallos, debería unir las claves en este formato.
 
 ### `crashReporter.removeExtraParameter(key)`
 
-* `key` String - Parameter key, must be no longer than 39 bytes.
+* `key` String - La clave del parámetro, debe tener menos de 39 bytes.
 
-Remove an extra parameter from the current set of parameters. Future crashes will not include this parameter.
+Remove an extra parameter from the current set of parameters. Los fallos futuros no incluirán este parámetro.
 
 ### `crashReporter.getParameters()`
 
@@ -123,7 +123,7 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
 * `_version` String - La versión en `package.json`.
 * `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` String - Name of the underlying product. In this case Electron.
+* `prod` String - Nombre del producto subyacente. En esta caso Electron.
 * `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
 * `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

@@ -6,7 +6,7 @@
 <li>Consultez l'article <a href="https://electronjs.org/blog/electron-5-0-timeline">5.0.0 Timeline</a> sur le blog Timeline pour plus d'informations sur la publication de nos dates de publication.</li>
 </ul>
 
-<table spaces-before="0" line-breaks-before="2">
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Version</th>

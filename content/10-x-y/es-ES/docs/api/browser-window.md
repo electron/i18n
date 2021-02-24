@@ -1481,7 +1481,7 @@ API de reemplazo para setBrowserView soporta el trabajo con múltiples vistas de
 
 * `browserView` [BrowserView](browser-view.md)
 
-Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+Levanta un `browserView` sobre otro `BrowserView` adjunto a `win`. Lanza un error si `browserView` no está adjunto a `win`.
 
 #### `win.getBrowserViews()` _Experimental_
 

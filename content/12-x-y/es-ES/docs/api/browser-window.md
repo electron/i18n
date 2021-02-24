@@ -518,7 +518,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -550,7 +550,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -1507,7 +1507,7 @@ API de reemplazo para setBrowserView soporta el trabajo con múltiples vistas de
 
 * `browserView` [BrowserView](browser-view.md)
 
-Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+Levanta un `browserView` sobre otro `BrowserView` adjunto a `win`. Lanza un error si `browserView` no está adjunto a `win`.
 
 #### `win.getBrowserViews()` _Experimental_
 
