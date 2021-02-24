@@ -40,7 +40,7 @@ Devuelve:
 * `event` Event
 * `reason` Cadena - Razón para desasociar el depurador.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Emitido cuando la sesión de depuración es terminada. Esto ocurre cuando `webContents` es cerrado o el devtools es invocado para el `webContents` adjunto.
 
 #### Evento: 'message'
 

@@ -2,9 +2,9 @@
 
 ## Schnellstart
 
-Electron ist ein Framework, mit dem Sie Desktop-Anwendungen mit JavaScript, HTML und CSS erstellen können. Diese Anwendungen können dann direkt auf macOS, Windows oder Linux verpackt oder über den Mac App Store oder den Microsoft Store verteilt werden.
+Electron ist ein Framework, mit dem Sie Desktop-Anwendungen mit JavaScript, HTML und CSS erstellen können. Diese Anwendungen können dann so gebildet werden, dass sie direkt auf macOS, Windows oder Linux laufen. Zudem können sie direkt über den Mac App Store sowie den Microsoft Store verteilt werden.
 
-Normalerweise erstellen Sie eine Desktop-Anwendung für ein Betriebssystem unter Verwendung der jeweiligen native Anwendungs-Frameworks jedes Betriebssystems. Electron ermöglicht es, Ihre Anwendung einmal mit Technologien zu schreiben, die Sie bereits kennen.
+Normalerweise erstellt man eine Desktop-Anwendung separat für jedes Betriebssystem unter Verwendung von dessen spezifischem Applikations-Framework. Electron ermöglicht es Ihnen, Ihre Anwendung nur einmal unter Anwendung von Ihnen bereits bekannten Technologien schreiben zu müssen.
 
 ### Vorrausetzungen
 
@@ -12,18 +12,18 @@ Before proceeding with Electron you need to install [Node.js][node-download]. Wi
 
 > Bitte installieren Sie Node.js mit vorkompilierten Installern für Ihre Plattform. Andernfalls könnten Inkompatibilitätsprobleme mit verschiedenen Entwicklungstools auftreten.
 
-Um zu überprüfen, ob Node.js korrekt installiert wurde, geben Sie die folgenden Befehle in Ihrem Terminal-Client ein:
+Um zu überprüfen, ob Node.js korrekt installiert wurde, geben Sie die folgenden Befehle in Ihrem Terminalfenster ein:
 
 ```sh
 node -v
 npm -v
 ```
 
-Die Befehle sollten die Versionen von Node.js und npm entsprechend ausgeben. Wenn beide Befehle erfolgreich waren, sind Sie bereit, Electron zu installieren.
+Die Befehle sollten die entsprechenden Versionen von Node.js und npm ausgeben. Wenn beide Befehle erfolgreich waren, sind Sie bereit, Electron zu installieren.
 
 ### Erstelle eine Basisanwendung
 
-Aus der Entwicklungsperspektive ist eine Electron-Anwendung im Wesentlichen eine Node.js-Anwendung. Das bedeutet, dass der Ausgangspunkt Ihrer Electron-Anwendung eine `package.json` Datei sein wird, wie in jeder anderen Node.js Anwendung. Eine minimale Elektronenanwendung hat folgende Struktur:
+Aus der Entwicklungsperspektive ist eine Electron-Anwendung im Wesentlichen eine Node.js-Anwendung. Das bedeutet, dass der Ausgangspunkt Ihrer Electron-Anwendung eine `package.json` Datei sein wird, wie in jeder anderen Node.js Anwendung. Eine minimale Electron-Anwendung hat folgende Struktur:
 
 ```plain
 my-electron-app/
@@ -32,7 +32,7 @@ my-electron-app/
 └── index.html
 ```
 
-Erstellen wir eine Basisanwendung basierend auf der obigen Struktur.
+Lassen Sie uns eine Basisanwendung basierend auf der obigen Struktur erstellen.
 
 #### Electron Installieren
 

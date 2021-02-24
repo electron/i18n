@@ -1,9 +1,9 @@
-# Objeto Task
+# Task Object
 
-* `program` String - Ruta del programa a ejecutar, generalmente debe especificar ` process.execPath ` que abre el programa actual.
-* `arguments` String - El argumento de la linea de comandos cuando el `program` es ejecutado.
-* `title` String - La cadena que se mostrará en JumpList.
-* `description` String - Descripción de la tarea.
-* `iconPath` String - El camino absoluto a un ícono a ser mostrado en una JumpList, que puede ser un archivo de recurso arbitrario que contiene un ícono. Usualmente usted puede especificar el `process.execPath` para motrar el ícono del programa.
-* `iconIndex` Number - El índice del ícono en el archivo del ícono. Si un archivo de icono consta de dos o más íconos, establezca este valor para identificar el ícono. Si un archivo de icono consta de un ícono, este valor es 0.
+* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
+* `arguments` String - The command line arguments when `program` is executed.
+* `title` String - The string to be displayed in a JumpList.
+* `description` String - Description of this task.
+* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. Usualmente usted puede especificar el `process.execPath` para motrar el ícono del programa.
+* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
 * `Directoriodetrabajo`String (optional)-El directorio de trabajo. Por defecto está vació.

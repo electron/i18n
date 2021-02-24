@@ -7,7 +7,7 @@
 <li>Depuis Electron 6.0, nous ciblons toutes les autres versions de Chromium et publions notre stable le même jour que Chrome stable. Vous pouvez référencer le calendrier de publication de Chromium <a href="https://chromiumdash.appspot.com/schedule">ici</a>. Consultez <a href="https://www.electronjs.org/blog/12-week-cadence">le blog de cadence de la nouvelle version d'Electron</a> pour plus de détails sur notre calendrier de publication.</li>
 </ul>
 
-<table spaces-before="0" line-breaks-before="2">
+<table spaces-before="0">
 <thead>
 <tr>
   <th>Version</th>

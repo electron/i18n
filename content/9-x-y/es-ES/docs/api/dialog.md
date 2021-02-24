@@ -30,14 +30,14 @@ El módulo `dialogo` tiene los siguientes métodos:
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (opcional) - Contiene cuales características del dialog que debe usar. Los siguientes valores son soportados:
     * `openFile` - Le permite a los archivos ser seleccionados.
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `promptToCreate` _Windows_ - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Deshabilite la resolución automática de la ruta de alias (enlace simbólico). Los alias seleccionados ahora devolverán la ruta de alias en lugar de la ruta de destino.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `dontAddToRecent` _Windows_ - No agregar el elemento que se esta abriendo a la lista de documentos recientes.
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar encima de las cajas de entrada.
@@ -78,14 +78,14 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[] (opcional) - Contiene cuales características del dialog que debe usar. Los siguientes valores son soportados:
     * `openFile` - Le permite a los archivos ser seleccionados.
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `promptToCreate` _Windows_ - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Deshabilite la resolución automática de la ruta de alias (enlace simbólico). Los alias seleccionados ahora devolverán la ruta de alias en lugar de la ruta de destino.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
     * `dontAddToRecent` _Windows_ - No agregar el elemento que se esta abriendo a la lista de documentos recientes.
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar encima de las cajas de entrada.
@@ -94,7 +94,7 @@ dialog.showOpenDialogSync(mainWindow, {
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
-* `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario. If the dialog is cancelled this will be an empty array.
+* `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario. Si es dialog es cancelado esto será un array vacío.
 * `bookmarks` String[] (opcional) _macOS_ _mas_ - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
@@ -138,7 +138,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) _macOS_ - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (opcional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
@@ -163,7 +163,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) _macOS_ - Muestra las etiquetas input box, por defecto `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (opcional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
@@ -173,8 +173,8 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
   * `canceled` Boolean - si el diálogo fue o no cancelado.
-  * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` deben estar activados para estar presentes. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
+  * `filePath` String (opcional) - Si el dialog es cancelado, esto será `undefined`.
+  * `bookmark` String (opcional) _macOS_ _mas_ - Cadena codificada en Base64 que contiene los datos del marcador con ámbito de seguridad para el archivo guardado. `securityScopedBookmarks` deben estar activados para estar presentes. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -187,13 +187,13 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` por defecto.
+  * `checkboxChecked` Boolean (opcional) - Estado inicial checked del checkbox. `false` por defecto.
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si no existen tales botones etiquetados y esta opción no esta configurada, `0` será usada como el valor de retorno.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
@@ -210,21 +210,21 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` por defecto.
+  * `checkboxChecked` Boolean (opcional) - Estado inicial checked del checkbox. `false` por defecto.
   * `icon` [NativeImage](native-image.md) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si no existen tales botones etiquetados y esta opción no esta configurada, `0` será usada como el valor de retorno.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
 Devuelve `Promise<Object>` - resuelve con una promesa conteniendo lo siguiente:
-  * `response` Number - The index of the clicked button.
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `response` Number - El índice del botón pulsado.
+  * `checkboxChecked` Boolean - El estado checked state del checkbox si `checkboxLabel` fue establecido. De lo contrario `false`.
 
 Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado.
 

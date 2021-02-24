@@ -6,7 +6,7 @@ Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-
 
 ## Cargar extensiones
 
-Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
+Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. Para cargar una extensión, llame a [`ses.loadExtension`](session.md#sesloadextensionpath-options):
 
 ```js
 const { session } = require('electron')

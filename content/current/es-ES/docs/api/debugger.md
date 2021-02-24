@@ -40,7 +40,7 @@ Devuelve:
 * `event`
 * `reason` Cadena - Razón para desasociar el depurador.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Emitido cuando la sesión de depuración es terminada. Esto ocurre cuando `webContents` es cerrado o el devtools es invocado para el `webContents` adjunto.
 
 #### Evento: 'message'
 
@@ -73,7 +73,7 @@ Desasocia el depurador de la `webContents`.
 
 * `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. El valor inicial puede ser obtenido enviando el mensaje [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget).
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 
