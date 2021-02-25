@@ -91,7 +91,7 @@ Cosas importantes que notar en el script precargado:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
 - El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
+- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. Un ejemplo de uso de browserify está a continuación.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 

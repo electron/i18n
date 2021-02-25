@@ -14,7 +14,7 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ## Cambios planeados en la API(14.0)
 
-### API Modificada: `window.(open)`
+### API Changed: `window.(open)`
 
 El parámetro opcional `frameName` ya no se establecerá como el título de la ventana. Esto ahora sigue la especificación descrita por la [documentación nativa](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) bajo el correspondiente parámetro `windowName`.
 

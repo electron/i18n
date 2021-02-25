@@ -1,4 +1,4 @@
-# Electron Release Timelines
+# Графики выпуска Electron
 
 * Die `-beta.1` und `stabilen` Daten sind unsere festen Veröffentlichungsdaten.
 * Wir streben wöchentliche Beta-Releases an, aber oft veröffentlichen wir mehr Betas als geplant.
