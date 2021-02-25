@@ -321,7 +321,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+### Event: 'render-process-gone'
 
 戻り値:
 
@@ -340,7 +340,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
 
-#### イベント: 'child-process-gone'
+### イベント: 'child-process-gone'
 
 戻り値:
 

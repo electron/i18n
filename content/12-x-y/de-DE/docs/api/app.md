@@ -321,7 +321,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 **Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+### Event: 'render-process-gone'
 
 Rückgabewert:
 
@@ -340,7 +340,7 @@ Rückgabewert:
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-#### Event: 'child-process-gone'
+### Event: 'child-process-gone'
 
 Rückgabewert:
 

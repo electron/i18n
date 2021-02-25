@@ -260,7 +260,7 @@ const win = new BrowserWindow()
 // 在主进程中
 const { ipcMain } = require('electron')
 
-ipcMain.handle('exper-action', (evidence, ...args) =>
+ipcMain.handle('perform-action', (event, ...args) => {
   // ... 代表渲染器操作
 })
 ```
@@ -269,7 +269,7 @@ ipcMain.handle('exper-action', (evidence, ...args) =>
 // 在渲染过程中
 const { ipcRenderer } = require('electron')
 
-ipcRender.invotrake('exper-action', ...args)
+ipcRenderer.invoke('perform-action', ...args)
 ```
 
 > 注意：由于渲染过程可能会运行不受信任的代码(特别是第三方的代码)， 重要的是要认真验证主要进程中提出的请求。

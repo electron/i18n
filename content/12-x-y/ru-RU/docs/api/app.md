@@ -321,7 +321,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 **Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+### Event: 'render-process-gone'
 
 Возвращает:
 
@@ -340,7 +340,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-#### Событие 'child-process-gone'
+### Событие 'child-process-gone'
 
 Возвращает:
 

@@ -321,7 +321,7 @@ Emitted whenever there is a GPU info update.
 
 **已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Event: 'render-process-gone'
+### Event: 'render-process-gone'
 
 返回:
 
@@ -340,7 +340,7 @@ Emitted whenever there is a GPU info update.
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-#### Event: 'child-process-gone'
+### Event: 'child-process-gone'
 
 返回:
 
