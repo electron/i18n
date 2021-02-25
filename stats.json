@@ -29,14 +29,14 @@
     "name": "German",
     "code": "de",
     "phrases": "14737",
-    "translated": "7412",
+    "translated": "7413",
     "approved": "847",
     "words": "178813",
-    "words_translated": "85624",
+    "words_translated": "85655",
     "words_approved": "6452",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 4003
+    "qa_issues": 4004
   },
   {
     "name": "Japanese",
@@ -68,26 +68,26 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "14737",
-    "translated": "10467",
+    "translated": "10479",
     "approved": "3476",
     "words": "178813",
-    "words_translated": "124303",
+    "words_translated": "124505",
     "words_approved": "35282",
     "translated_progress": 69,
     "approved_progress": 19,
-    "qa_issues": 3895
+    "qa_issues": 3898
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "14737",
-    "translated": "12635",
+    "translated": "12644",
     "approved": "3196",
     "words": "178813",
-    "words_translated": "152027",
+    "words_translated": "152197",
     "words_approved": "35491",
     "translated_progress": 85,
     "approved_progress": 19,
-    "qa_issues": 5735
+    "qa_issues": 5739
   }
 ]
