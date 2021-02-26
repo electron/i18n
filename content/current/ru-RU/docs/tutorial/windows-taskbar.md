@@ -2,11 +2,11 @@
 
 ## Обзор
 
-Electron имеет API для настройки значка приложения на панели задач Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron имеет API для настройки значка приложения на панели задач Windows. Этот API поддерживает обе функции только для Windows, такие как [`JumpList`](#jumplist), [пользовательские миниатюры и панели инструментов](#thumbnail-toolbars), [наложение значков](#icon-overlays-in-taskbar), и так называемый эффект ["Flash Frame"](#flash-frame), так и кросс-платформенные функции, такие как [последние документы](./recent-documents.md) и [прогресс приложения](./progress-bar.md).
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Это контекстное меню называется `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
+Windows позволяет приложениям определять пользовательское контекстное меню, которое появляется, когда пользователи щелкают правой кнопкой мыши значок приложения на панели задач. Это контекстное меню называется `JumpList`. Вы указываете пользовательские действия в категории `Задач` JumpList, как указано в [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
 
 > Приложения определяют задачи, основанные как на функциях программы, так и на ключевых моментах, которые пользователь должен делать с ними. Задачи должны быть контекстно-свободными, в данном случае, приложению не потребуется запускать их для работы. Они также должны быть статистически наиболее распространенными действиями, которые обычный пользователь будет выполнять в приложении, например, составить сообщение электронной почты или открыть календарь в почтовой программе, создать новый документ в текстовом редакторе, запустить приложение в определенном режиме, или запустить одну из своих подкоманд. Приложение не должно загромождать меню с расширенными функциями, которые не требуются обычным пользователям или одноразовыми действиями, такими как регистрация. Не используйте задачи для рекламных материалов, таких как обновления или специальные предложения.
 > 
@@ -14,9 +14,9 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-> NOTE: The screenshot above is an example of general tasks of Internet Explorer
+> ПРИМЕЧАНИЕ: Скриншот выше является примером общих задач  Internet Explorer
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+В отличие от меню dock в macOS, которое является реальным меню, пользовательские задачи в Windows работают как ярлыки приложений. Например, когда пользователь нажимает на задачу, программа будет выполняться с заданными аргументами.
 
 Чтобы установить пользовательские задачи для своего приложения, вы можете использовать [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
 
