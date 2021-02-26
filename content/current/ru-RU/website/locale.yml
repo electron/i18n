@@ -52,7 +52,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Начните</b></a> создание приложения с прочтения <a href='/docs/tutorial/first-app'>инструкции по началу работы</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a>, отслеживая <a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Получите помощь и обратную связь</b>, присоединившись к <a href='https://discord.gg/electron'>серверу Discord</a>, разместив сообщение на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Сообщите о проблемах безопасности</b></a> по электронной почте <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -87,8 +87,8 @@ releases:
   all_releases: Все релизы
   back_to_index: Вернуться к содержанию
 electron_is_good:
-  title: Apps users love, built with Electron
-  description: Thousands of organizations spanning all industries use Electron to build cross-platform software.
+  title: Приложения, которые любят пользователи, созданные с помощью Electron
+  description: Тысячи организаций, охватывающих все отрасли промышленности, используют Electron для создания кросс-платформенного программного обеспечения.
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать настольное приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что Вы можете сосредоточиться на главных элементах Вашего приложения.'
@@ -116,7 +116,7 @@ explore:
   description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение Electron API</a> интерактивно демонстрирует наиболее важные функции Electron API. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
   fiddle_title: Попробуйте более мощные эксперименты с Electron Fiddle
   see_more_info: Подробнее
-download: Download
+download: Скачать
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
@@ -128,7 +128,7 @@ quick_start:
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Задавайте вопросы на форуме <a href='https://discuss.atom.io/c/electron'>Discuss</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter. Если Вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Языки
 taglines:
@@ -221,7 +221,7 @@ landing:
   get_started: Начать работу
   fiddle:
     lead_desc: Самый лёгкий способ начать работу с Electron
-    different_os: "Not the right operating system? See:"
+    different_os: "Не та операционная система? Посмотрите:"
     create_app: Создание Вашего приложения
     description: Electron Fiddle позволяет Вам создавать и пробовать небольшие эксперименты с Electron. По открытию, Вас приветствуют шаблоном ускоренного запуска - Вы можете изменить несколько установок, выбрать желаемую версию Electron и поиграть с разными вариантами. После, сохраните Ваш Fiddle как GitHub Gist или в локальную папку. При опубликовании в GitHub, Ваш Fiddle доступен любому и всё, что нужно сделать, чтобы попробовать Ваш Fiddle это ввести его в адресную строку браузера.
     explore: Исследуйте Electron
