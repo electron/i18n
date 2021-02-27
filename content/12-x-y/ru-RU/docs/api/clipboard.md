@@ -4,7 +4,7 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-На Linux есть еще один тип буфера обмена под названием `selection`. Для работы с ним необходимо передать `selection` каждому методу:
+В Linux также есть буфер обмена `selection`. Для работы с ним необходимо передать `selection` каждому методу:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Модуль `clipboard` имеет следующие методы:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
