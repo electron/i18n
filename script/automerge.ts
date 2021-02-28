@@ -4,7 +4,7 @@ const OWNER = 'electron'
 const REPO = 'i18n'
 const BOTNAME = 'github-actions[bot]'
 const ORIGINAL_TITLE = 'New Crowdin translations by Github Action'
-const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merging 🤖)'
+const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merged 🤖)'
 const MERGEABILITY_RETRY_WAIT_TIME = 5_000
 
 enum Mergeability {
