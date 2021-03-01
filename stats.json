@@ -55,11 +55,11 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "14737",
-    "translated": "7587",
-    "approved": "1080",
+    "translated": "7595",
+    "approved": "1082",
     "words": "178813",
-    "words_translated": "92634",
-    "words_approved": "10932",
+    "words_translated": "92745",
+    "words_approved": "10943",
     "translated_progress": 51,
     "approved_progress": 6,
     "qa_issues": 2602
@@ -68,14 +68,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "14737",
-    "translated": "10484",
+    "translated": "10489",
     "approved": "3476",
     "words": "178813",
-    "words_translated": "124559",
+    "words_translated": "124709",
     "words_approved": "35282",
     "translated_progress": 69,
     "approved_progress": 19,
-    "qa_issues": 3900
+    "qa_issues": 3903
   },
   {
     "name": "Spanish",
