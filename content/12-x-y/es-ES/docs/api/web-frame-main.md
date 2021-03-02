@@ -76,16 +76,6 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-#### `frame.executeJavaScriptInIsolatedWorld(worldId, code[, userGesture])`
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  Puede aquí suministrar cualquier entero.
-* `codigo` String
-* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-
-Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
-
-Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
-
 #### `frame.reload()`
 
 Devuelve `boolean` - Si la recarga fue iniciada correctamente. Solo resulta en `false` cuando el frame no tiene historial.
