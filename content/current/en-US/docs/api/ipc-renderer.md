@@ -101,6 +101,7 @@ The main process should listen for `channel` with
 [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 For example:
+
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
@@ -161,6 +162,7 @@ The transferred `MessagePort` objects will be available in the main process as
 property of the emitted event.
 
 For example:
+
 ```js
 // Renderer process
 const { port1, port2 } = new MessageChannel()
