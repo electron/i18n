@@ -1,10 +1,10 @@
 # webFrameMain
 
-> Control web pages and iframes.
+> ウェブページと iframe を制御します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
+`webFrameMain` モジュールは、既存の [`WebContents`](web-contents.md) インスタンスを横断したフレームの探索に利用できます。 ナビゲーションイベントがよくあるユースケースでしょう。
 
 ```javascript
 const { BrowserWindow, webFrameMain } = require('electron')
@@ -24,7 +24,7 @@ win.webContents.on(
 )
 ```
 
-You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
+また、[`WebContents`](web-contents.md) の `mainFrame` プロパティを使用することでも既存ページのフレームへアクセスできます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -50,16 +50,16 @@ main()
 
 ## メソッド
 
-These methods can be accessed from the `webFrameMain` module:
+これらのメソッドは、`webFrameMain` モジュールからアクセスできます。
 
 ### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
-* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
+* `processId` Integer - `Integer` 型で、そのフレームを所有しているプロセスの内部 ID を表します。
+* `routingId` Integer - `Integer` 型で、現在のレンダラープロセスでの一意なフレーム ID を表します。 ルーティング ID は、`WebFrameMain` インスタンス (`frame.routingId`) から取得できるほか、フレーム固有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) によっても渡されます。
 
 戻り値 `WebFrameMain | undefined` - 指定のプロセスとルーティングの ID のフレームです。指定の ID に関連付けられた WebFrameMain がない場合は `undefined` になります。
 
-## Class: WebFrameMain
+## クラス: WebFrameMain
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -76,26 +76,16 @@ These methods can be accessed from the `webFrameMain` module:
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-#### `frame.executeJavaScriptInIsolatedWorld(worldId, code[, userGesture])`
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。  任意の整数を指定できます。
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
-
-戻り値 `Promise<unknown>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
-
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
 #### `frame.reload()`
 
-Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
+戻り値 `boolean` - リロードが正常に開始されたかどうか。 フレームに履歴がない場合のみ `false` になります。
 
 #### `frame.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`]\[] と同様に [構造化複製アルゴリズム\]\[SCA\] でシリアライズされるので、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -112,11 +102,11 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 例:
 
 ```js
-// Main process
+// メインプロセス
 const { port1, port2 } = new MessageChannelMain()
 webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// Renderer process
+// レンダラープロセス
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
@@ -127,40 +117,40 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `frame.url` _読み出し専用_
 
-A `string` representing the current URL of the frame.
+`string` 型で、そのフレームの現在の URL を表します。
 
 #### `frame.top` _読み出し専用_
 
-A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
+`WebFrameMain | null` 型で、`frame` が属するフレーム階層の最上位フレームを表します。
 
 #### `frame.parent` _読み出し専用_
 
-A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
+`WebFrameMain | null` 型で、`frame` の親フレームを表します。`frame` がそのフレーム階層の最上位フレームであれば、このプロパティは `null` です。
 
 #### `frame.frames` _読み出し専用_
 
-A `WebFrameMain[]` collection containing the direct descendents of `frame`.
+`WebFrameMain[]` 型で、`frame` の直接の子フレームを格納するコレクションです。
 
 #### `frame.framesInSubtree` _読み出し専用_
 
-A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
+`WebFrameMain[]` 型で、`frame` のサブツリーのうち自身を含んだ全フレームのコレクションです。 これは、すべてのフレームをトラバースするときに便利です。
 
 #### `frame.frameTreeNodeId` _読み出し専用_
 
-An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
+`Integer` 型で、フレーム内部の FrameTreeNode インスタンスの ID を表します。 この ID はブラウザー内で共通となっており、コンテンツをホストするフレームを一意に識別します。 識別子はフレーム作成時に固定され、フレームが有効である間は変化しません。 フレームが削除されると、その ID が再び使用されることはありません。
 
 #### `frame.name` _読み出し専用_
 
-A `String` representing the frame name.
+`String` 型で、そのフレームの名前を表します。
 
 #### `frame.osProcessId` _読み出し専用_
 
-An `Integer` representing the operating system `pid` of the process which owns this frame.
+`Integer` 型で、このフレームを所有するプロセスのオペレーティングシステムの `pid` を表します。
 
 #### `frame.processId` _読み出し専用_
 
-An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
+`Integer` 型で、このフレームを所有するプロセスの Chromium 内部の `pid` を表します。 これは OS のプロセス ID と同じではありません。それを読み出すには `frame.osProcessId` を使用してください。
 
 #### `frame.routingId` _読み出し専用_
 
-現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
+現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する `WebFrameMain` インスタンスすべては、それぞれ同じ `routingId` になります。

@@ -76,16 +76,6 @@ Returns `Promise<unknown>` - A promise that resolves with the result of the exec
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
-#### `frame.executeJavaScriptInIsolatedWorld(worldId, code[, userGesture])`
-
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
-* `code` String
-* `userGesture` Boolean (facultatif) - `false` par défaut.
-
-Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
-
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
-
 #### `frame.reload()`
 
 Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
