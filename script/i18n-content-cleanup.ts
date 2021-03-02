@@ -37,20 +37,28 @@ locales.forEach((locale) => {
 
   for (const version of supportedVersions) {
     // remove individual files that no longer exist in English source directory
-    walk(contentPath(version, locale))
-      .filter((filePath) => {
-        const enFile = path.join(contentPath(version, 'en-US'), filePath)
-        return !fs.existsSync(enFile)
+    let filePaths
+
+    try {
+      console.log(`Version: ${version}, Locale: ${locale}`)
+      filePaths = walk(contentPath(version, locale))
+    } catch {
+      // ignore content paths which don't exist
+      continue
+    }
+    filePaths.filter((filePath) => {
+      const enFile = path.join(contentPath(version, 'en-US'), filePath)
+      return !fs.existsSync(enFile)
+    })
+    .forEach((filePath) => {
+      const toDelete = path.join(contentPath(version, locale), filePath)
+      fs.unlink(toDelete, (err) => {
+        if (err) {
+          console.error(`Error deleting ${toDelete}`)
+        } else {
+          console.log(`Deleted ${toDelete}`)
+        }
       })
-      .forEach((filePath) => {
-        const toDelete = path.join(contentPath(version, locale), filePath)
-        fs.unlink(toDelete, (err) => {
-          if (err) {
-            console.error(`Error deleting ${toDelete}`)
-          } else {
-            console.log(`Deleted ${toDelete}`)
-          }
-        })
-      })
+    })
   }
 })
