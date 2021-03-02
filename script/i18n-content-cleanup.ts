@@ -42,7 +42,7 @@ locales.forEach((locale) => {
       filePaths = walk(contentPath(version, locale))
     } catch {
       // ignore content paths which don't exist
-      continue;
+      continue
     }
     
     // remove individual files that no longer exist in English source directory
