@@ -36,9 +36,17 @@ locales.forEach((locale) => {
   }
 
   for (const version of supportedVersions) {
+    let filePaths
+    
+    try {
+      filePaths = walk(contentPath(version, locale))
+    } catch {
+      // ignore content paths which don't exist
+      continue;
+    }
+    
     // remove individual files that no longer exist in English source directory
-    walk(contentPath(version, locale))
-      .filter((filePath) => {
+    filePaths.filter((filePath) => {
         const enFile = path.join(contentPath(version, 'en-US'), filePath)
         return !fs.existsSync(enFile)
       })
