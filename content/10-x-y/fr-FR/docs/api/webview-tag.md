@@ -545,7 +545,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 * `factor` Number - Facteur de zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Modifie le facteur de zoom en utilisant le facteur spécifié. Le Zoom factor est égal à la valeur du zoom exprimée en pourcent divisée par 100, donc 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 

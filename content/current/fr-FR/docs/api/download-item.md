@@ -74,7 +74,7 @@ L'objet `downloadItem` dispose des méthodes suivantes :
 
 * `path` String - Définit le chemin d'accès pour le téléchargement.
 
-Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
+Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. If `path` doesn't exist, Electron will try to make the directory recursively. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
 
 #### `downloadItem.getSavePath()`
 

@@ -165,9 +165,10 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
   * `securityScopedBookmarks` Boolean (可选) _macOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
-  * `canceled` Boolean - whether or not the dialog was canceled.
-  * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String(optional) _macOS_ _mas_ - 包含了安全作用域的书签数据 Base64 编码的字符串来保存文件。 `securityScopedBookmarks` 必须启用才有效。 (For return values, see [table here](#bookmarks-array).)
+
+* `canceled` Boolean - whether or not the dialog was canceled.
+* `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
+* `bookmark` String(optional) _macOS_ _mas_ - 包含了安全作用域的书签数据 Base64 编码的字符串来保存文件。 `securityScopedBookmarks` 必须启用才有效。 (For return values, see [table here](#bookmarks-array).)
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
@@ -179,11 +180,11 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
+  * `message` String - message box 的内容.
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
   * `title` String (可选) - message box 的标题，一些平台不显示.
-  * `message` String - message box 的内容.
   * `detail` String (可选) - 额外信息.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (可选) - checkbox 的初始值。 默认值为 `false`
@@ -202,11 +203,11 @@ Shows a message box, it will block the process until the message box is closed. 
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
+  * `message` String - message box 的内容.
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
   * `title` String (可选) - message box 的标题，一些平台不显示.
-  * `message` String - message box 的内容.
   * `detail` String (可选) - 额外信息.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (可选) - checkbox 的初始值。 默认值为 `false`
@@ -216,10 +217,11 @@ Shows a message box, it will block the process until the message box is closed. 
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
 Returns `Promise<Object>` - resolves with a promise containing the following properties:
-  * `response` Number - The index of the clicked button.
-  * `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。 否则，返回 `false`。
 
-Shows a message box, it will block the process until the message box is closed.
+* `response` Number - The index of the clicked button.
+* `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。 否则，返回 `false`。
+
+显示一个消息框
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 

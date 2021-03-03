@@ -2,7 +2,7 @@
 
 > Electron支持的命令行开关.
 
-您可以在[app](app.md) 模块的[ready](app.md#event-ready)事件生效之前，使用[app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value)将它们附加到您的应用程序的主要脚本中：
+您可以在[app](app.md) 模块的[ready](app.md#event-ready)事件生效之前，使用[app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value)将它们附加到您的应用程序的主要脚本中：
 
 ```javascript
 const { app } = require('electron')
@@ -57,6 +57,7 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 ### --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
+
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -146,14 +147,6 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 在指定`端口`开启HTTP远程调试.
 
-### --ppapi-flash-path=`path`
-
-设置pepper flash插件的`path`属性.
-
-### --ppapi-flash-version=`version`
-
-设置pepper flash插件的`version`属性.
-
 ### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
@@ -205,6 +198,7 @@ V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug 
 Aliased to `--debug[=[host:]port`.
 
 ### --inspect-publish-uid=stderr,http
+
 Specify ways of the inspector web socket url exposure.
 
 By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

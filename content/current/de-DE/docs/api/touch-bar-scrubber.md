@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-Prozess: [Haupt](../tutorial/application-architecture.md#main-and-renderer-processes)
+Prozess: [Main](../glossary.md#main-process)
 
 ### `new TouchBarScrubber(options)`
 

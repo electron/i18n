@@ -4,6 +4,12 @@
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
+> ⚠️ ATTENTION ⚠️ Le module `remote` est [obsolète](https://github.com/electron/electron/issues/21408). Au lieu de `remote`, utilisez [`ipcRenderer`](ipc-renderer.md) et [`ipcMain`](ipc-main.md).
+> 
+> En savoir plus sur pourquoi le module `remote` est obsolète [ici](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> 
+> Si vous voulez toujours utiliser `remote` malgré les problèmes de performance et de sécurité , voir [@electron/remote](https://github.com/electron/remote).
+
 Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
 Dans Electron, les modules liés à l'interface graphique (comme `dialogue`, `menu` etc.) ne sont disponibles que dans le processus principal, pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
@@ -17,6 +23,7 @@ win.loadURL('https://github.com')
 **Remarque :** Pour l'inverse (accédez au processus de rendu depuis le processus principal), vous pouvez utiliser [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Remarque :** Le module distant peut être désactivé pour des raisons de sécurité dans les contextes suivants :
+
 - [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
 - [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
 </ul>
@@ -99,11 +106,27 @@ console.log(app)
 
 Le module `remote` dispose des méthodes suivantes :
 
-### `remote.require(module)`
+### `remote.getCurrentWindow()`
 
-* `module` String
+Retourne [`BrowserWindow`](browser-window.md) - La fenêtre à laquelle cette page web appartient.
 
-Retourne `any` - L'objet retourné par `require(module)` dans le processus principal. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
+**Remarque :** N'utilisez pas `removeAllListeners` sur [`BrowserWindow`](browser-window.md). L'utilisation de ceci peut supprimer tous les auditeurs [`flou`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) , désactiver les événements de clic sur les boutons de la barre tactile, et d'autres conséquences involontaires.
+
+### `remote.getCurrentWebContents()`
+
+Retourne [`WebContents`](web-contents.md) - Le contenu web de cette page web.
+
+### `remote.getGlobal(name)`
+
+* `name` String
+
+Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans le processus principal.
+
+## Propriétés
+
+### `Exiger`
+
+A `NodeJS.Require` function equivalent to `require(module)` in the main process. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
 
 exemple :
 
@@ -132,24 +155,6 @@ module.exports = 'bar'
 // renderer process: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
-
-### `remote.getCurrentWindow()`
-
-Retourne [`BrowserWindow`](browser-window.md) - La fenêtre à laquelle cette page web appartient.
-
-**Remarque :** N'utilisez pas `removeAllListeners` sur [`BrowserWindow`](browser-window.md). L'utilisation de ceci peut supprimer tous les auditeurs [`flou`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) , désactiver les événements de clic sur les boutons de la barre tactile, et d'autres conséquences involontaires.
-
-### `remote.getCurrentWebContents()`
-
-Retourne [`WebContents`](web-contents.md) - Le contenu web de cette page web.
-
-### `remote.getGlobal(name)`
-
-* `name` String
-
-Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans le processus principal.
-
-## Propriétés
 
 ### `remote.process` _Readonly_
 

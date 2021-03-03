@@ -86,7 +86,7 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -102,7 +102,7 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -138,7 +138,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
 
@@ -152,7 +152,7 @@ HTTP リクエストをレスポンスとして送信する `scheme` のプロ�
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
@@ -212,7 +212,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -224,7 +224,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -236,7 +236,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -248,7 +248,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
@@ -260,7 +260,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 

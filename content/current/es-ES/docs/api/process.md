@@ -9,6 +9,7 @@ El objeto `process` de Electron es heredado del [objeto `process` de Node.js](ht
 ## Sandbox
 
 En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ Un `Boolean` que controla si las advertencias de depreciación serán lanzadas c
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
+
 Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
 ### `process.type` _Readonly_

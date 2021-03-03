@@ -2,7 +2,7 @@
 
 > Параметры командной строки поддерживаемые Electron.
 
-Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value), для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready](app.md#event-ready) модуля [app](app.md):
+Вы можете использовать [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value), для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready](app.md#event-ready) модуля [app](app.md):
 
 ```javascript
 const { app } = require('electron')
@@ -57,6 +57,7 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 ### --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
+
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -146,14 +147,6 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 Включает удалённую отладку через HTTP для указанного `порта`.
 
-### --ppapi-flash-path=`путь`
-
-Устанавливает `путь` до плагина pepper flash.
-
-### --ppapi-flash-version=`версия`
-
-Устанавливает `версию` плагина pepper flash.
-
 ### --v=`уровень_логирования`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
@@ -205,6 +198,7 @@ V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug 
 Aliased to `--debug[=[host:]port`.
 
 ### --inspect-publish-uid=stderr,http
+
 Specify ways of the inspector web socket url exposure.
 
 By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

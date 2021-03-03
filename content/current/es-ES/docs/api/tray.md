@@ -49,10 +49,10 @@ app.whenReady().then(() => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
+
 * En Windows se recomienda utilizar los iconos `ICO` para obtener mejores efectos visuales.
 
 Si se quiere mantener los mismos comportamientos en todas las plataformas, no se debe confiar en el evento `click` y siempre hay que adjuntar el menú de contexto al icono de bandeja.
-
 
 ### `new Tray(image, [guid])`
 

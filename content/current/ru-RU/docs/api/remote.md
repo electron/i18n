@@ -4,6 +4,12 @@
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
+> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> 
+> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> 
+> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+
 Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
 
 В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. Для того, чтобы использовать их в рендер-процессе, необходим модуль `ipc`, чтобы посылать межпроцессные сообщения в основной процесс. С модулем `remote` вы можете вызывать методы объекта основного процесса без явной отправки межпроцессных сообщений, это похоже на Java [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). Пример создания окна браузера из рендер-процесса:
@@ -17,6 +23,7 @@ win.loadURL('https://github.com')
 **Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
+
 - [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
 - [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
@@ -98,11 +105,27 @@ console.log(app)
 
 Модуль `remote` имеет следующие методы:
 
-### `remote.require(module)`
+### `remote.getCurrentWindow()`
 
-* `module` String
+Возвращает [`BrowserWindow`](browser-window.md) - Окно, которому принадлежит эта страница.
 
-Возвращает `any` - Объект, возвращаемый `require(module)` в основном процессе. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
+**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Это может удалить все слушатели [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), выключить события нажатия на кнопках сенсорных панелей и вызвать другие непредвиденные последствия.
+
+### `remote.getCurrentWebContents()`
+
+Возвращает [`WebContents`](web-contents.md) - Веб-содержимое этой веб-страницы.
+
+### `remote.getGlobal(name)`
+
+* `name` String
+
+Возвращает `any` - глобальную переменную с именем `name` (например `global[name]`) в основном процессе.
+
+## Свойства
+
+### `remote.require`
+
+A `NodeJS.Require` function equivalent to `require(module)` in the main process. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
 
 например
 
@@ -131,24 +154,6 @@ module.exports = 'bar'
 // renderer process: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
-
-### `remote.getCurrentWindow()`
-
-Возвращает [`BrowserWindow`](browser-window.md) - Окно, которому принадлежит эта страница.
-
-**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Это может удалить все слушатели [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), выключить события нажатия на кнопках сенсорных панелей и вызвать другие непредвиденные последствия.
-
-### `remote.getCurrentWebContents()`
-
-Возвращает [`WebContents`](web-contents.md) - Веб-содержимое этой веб-страницы.
-
-### `remote.getGlobal(name)`
-
-* `name` String
-
-Возвращает `any` - глобальную переменную с именем `name` (например `global[name]`) в основном процессе.
-
-## Свойства
 
 ### `remote.process` _Только чтение_
 

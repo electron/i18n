@@ -18,7 +18,7 @@ The `data` event is the usual method of transferring response data into applicat
 
 #### Event: 'end'
 
-Indicates that response body has ended.
+Indicates that response body has ended. Must be placed before 'data' event.
 
 #### Event: 'aborted'
 

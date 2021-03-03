@@ -60,6 +60,7 @@ Los siguientes métodos de `chrome.runtime` son soportados:
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
+- `chrome.runtime.getPlatformInfo`
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`

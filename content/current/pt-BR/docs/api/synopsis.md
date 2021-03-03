@@ -6,7 +6,7 @@ All of [Node.js's built-in modules](https://nodejs.org/api/) are available in El
 
 O Electron também fornece alguns módulos extras para o desenvolvimento de aplicativos desktop. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-A regra básica é: se um módulo for [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou relacionado ao sistema de baixo nível, então deve estar disponível apenas no processo principal. Você precisa estar familiarizado com o conceito de [ processo principal vs. processo de renderização ](../tutorial/application-architecture.md#main-and-renderer-processes) scripts para poder usar esses módulos.
+A regra básica é: se um módulo for [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou relacionado ao sistema de baixo nível, então deve estar disponível apenas no processo principal. Você precisa estar familiarizado com o conceito de [ processo principal vs. processo de renderização ](../tutorial/quick-start.md#main-and-renderer-processes) scripts para poder usar esses módulos.
 
 The main process script is like a normal Node.js script:
 
@@ -34,7 +34,7 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-Para executar o seu aplicativo, leia [executar seu aplicativo](../tutorial/first-app.md#running-your-app).
+Para executar o seu aplicativo, leia [executar seu aplicativo](../tutorial/quick-start.md#run-your-application).
 
 ## Atribuição de desestruturação
 

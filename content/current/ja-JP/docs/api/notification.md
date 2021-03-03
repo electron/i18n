@@ -29,9 +29,9 @@
 ### `new Notification([options])`
 
 * `options` Object (任意)
-  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (任意) _macOS_ - タイトルの下に表示される、通知のサブタイトル。
-  * `body` String - タイトルやサブタイトルの下に表示さる、通知の本文。
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
   * `hasReply` Boolean (任意) _macOS_ - 通知に埋め込み返信オプションを追加するかどうか。
@@ -41,6 +41,7 @@
   * `urgency` String (任意) _Linux_ - 通知の緊急度レベル。 'normal'、'critical'、'low' のいずれかにできます。
   * `actions` [NotificationAction[]](structures/notification-action.md) (任意) _macOS_ - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
   * `closeButtonText` String (任意) _macOS_ - 通知を閉じるボタンのカスタムタイトル。 空の文字列の場合は、既定のローカライズされたテキストが使用されます。
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### インスタンスイベント
 
@@ -89,6 +90,15 @@
 
 * `event` Event
 * `index` Number - アクティベートされたアクションのインデックス.
+
+#### Event: 'failed' _Windows_
+
+戻り値:
+
+* `event` Event
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### インスタンスメソッド
 
@@ -153,6 +163,10 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 #### `notification.actions`
 
 通知のアクションを表す [`NotificationAction[]`](structures/notification-action.md) プロパティ。
+
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
 
 ### サウンドの再生
 

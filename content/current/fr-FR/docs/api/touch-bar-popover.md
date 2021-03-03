@@ -2,7 +2,7 @@
 
 > Créer un popover dans la touch bar pour les applications native macOS
 
-Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Processus : [Main](../glossary.md#main-process)
 
 ### `new TouchBarPopover(options)`
 

@@ -60,6 +60,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
+- `chrome.runtime.getPlatformInfo`
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`

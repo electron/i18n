@@ -74,7 +74,7 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+该API仅能在`will-download` 方法的回调中使用。 If `path` doesn't exist, Electron will try to make the directory recursively. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
 
 #### `downloadItem.getSavePath()`
 

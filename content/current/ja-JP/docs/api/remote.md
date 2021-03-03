@@ -4,6 +4,12 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
+> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> 
+> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> 
+> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
 Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
@@ -17,6 +23,7 @@ win.loadURL('https://github.com')
 **注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) が使用できます。
 
 **注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
+
 - [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
 - [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
 
@@ -99,11 +106,27 @@ console.log(app)
 
 `remote` オブジェクトには以下のメソッドがあります
 
-### `remote.require(module)`
+### `remote.getCurrentWindow()`
 
-* `module` String
+戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
 
-戻り値 `any` - メインプロセス内の `require(module)` によって返されるオブジェクト。 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
+**注:** [`BrowserWindow`](browser-window.md) 上で `removeAllListeners` を使用しないでください。 これを使用すると、すべての [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) リスナの削除、Touch Bar ボタン上のクリックイベントの無効化、その他意図しない結果が起こりえます。
+
+### `remote.getCurrentWebContents()`
+
+戻り値 [`WebContents`](web-contents.md) - このウェブページの webContents。
+
+### `remote.getGlobal(name)`
+
+* `name` String
+
+戻り値 `any` - メインプロセス内の `name` (例: `global[name]`) のグローバル変数。
+
+## プロパティ
+
+### `remote.require`
+
+A `NodeJS.Require` function equivalent to `require(module)` in the main process. 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
 
 例
 
@@ -132,24 +155,6 @@ module.exports = 'bar
 // レンダラープロセス: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
-
-### `remote.getCurrentWindow()`
-
-戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
-
-**注:** [`BrowserWindow`](browser-window.md) 上で `removeAllListeners` を使用しないでください。 これを使用すると、すべての [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) リスナの削除、Touch Bar ボタン上のクリックイベントの無効化、その他意図しない結果が起こりえます。
-
-### `remote.getCurrentWebContents()`
-
-戻り値 [`WebContents`](web-contents.md) - このウェブページの webContents。
-
-### `remote.getGlobal(name)`
-
-* `name` String
-
-戻り値 `any` - メインプロセス内の `name` (例: `global[name]`) のグローバル変数。
-
-## プロパティ
 
 ### `remote.process` _読み出し専用_
 

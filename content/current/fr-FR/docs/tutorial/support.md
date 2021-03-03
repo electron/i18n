@@ -40,9 +40,9 @@ Lorsqu'une API est modifiée ou supprimée d'une manière qui casse les fonction
 
 ### Versions actuellement supportées
 
+* 12.x.y
 * 11.x.y
 * 10.x.y
-* 9.x.y
 
 ### Fin de vie
 

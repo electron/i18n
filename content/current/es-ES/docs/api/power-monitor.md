@@ -36,6 +36,14 @@ Emitido cuando el sistema está a punto de bloquear la pantalla.
 
 Emitido tan pronto como el sistema desbloquea la pantalla.
 
+### Evento: 'user-did-become-active' _macOS_
+
+Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+
+### Evento: 'user-did-resign-active' _macOS_
+
+Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+
 ## Métodos
 
 El modulo `powerMonitor` tiene los siguientes métodos:
@@ -53,3 +61,17 @@ Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiemp
 Devuelve `Integer` - Tiempo inactivo en segundos
 
 Calcular tiempo inactivo del sistema en segundos.
+
+### `powerMonitor.isOnBatteryPower()`
+
+Returns `Boolean` - Whether the system is on battery power.
+
+To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+
+## Propiedades
+
+### `powerMonitor.onBatteryPower`
+
+Una propiedad `Boolean`. True if the system is on battery power.
+
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).

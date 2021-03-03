@@ -6,7 +6,7 @@ Todos los [módulos incorporados de Node.js](https://nodejs.org/api/) está disp
 
 Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Usted necesita estar familiarizado con el concepto de [main process vs. proceso de renderizado](../tutorial/application-architecture.md#main-and-renderer-processes) códigos para ser capaz de usar los módulos.
+La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Necesitas estar familiarizado con el concepto de [ proceso principal vs. proceso de renderizado](../tutorial/quick-start.md#main-and-renderer-processes) códigos para ser capaz de usar los módulos.
 
 El scrip del proceso principal es como un script normal de Node.js:
 
@@ -34,7 +34,7 @@ El renderer process no es diferente a una página web normal, excepto por la hab
 </html>
 ```
 
-Para ejecutar su aplicación, lea [Ejecutar su aplicación](../tutorial/first-app.md#running-your-app).
+Para ejecutar su aplicación, lea [Ejecutar su aplicación](../tutorial/quick-start.md#run-your-application).
 
 ## Asignación de desestructuración
 
