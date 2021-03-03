@@ -18,7 +18,7 @@
 
 #### Event: 'end'
 
-指示响应正文已结束。
+指示响应正文已结束。 Must be placed before 'data' event.
 
 #### Event: 'aborted'
 

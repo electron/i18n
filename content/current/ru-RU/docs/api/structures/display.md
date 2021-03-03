@@ -9,6 +9,7 @@
 * `colorSpace` String -  представляет пространство цвета (трехмерный объект, который содержит все реализуемые цветовые комбинации) с целью преобразования цвета
 * `colorDepth` Number - количество битов на пиксель.
 * `depthPerComponent` Number - количество битов на цветовой компонент.
+* `displayFrequency` Number - The display refresh rate.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)

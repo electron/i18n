@@ -74,7 +74,7 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 * `path` String - Установить путь сохраняемого элемента загрузки.
 
-API доступен только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
+API доступен только в сессии `will-download` функции обратного вызова. If `path` doesn't exist, Electron will try to make the directory recursively. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
 
 #### `downloadItem.getSavePath()`
 

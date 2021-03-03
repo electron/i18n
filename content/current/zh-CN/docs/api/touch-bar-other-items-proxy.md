@@ -4,6 +4,6 @@
 > 
 > Note: Only one instance of this class can be added per TouchBar.
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../glossary.md#main-process)
 
 ### `new TouchBarOtherItemsProxy()`

@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - ウインドウが開かれていないときは undefined になります。
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (任意) - `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` のいずれかにできます。メニューアイテムのアクションを定義します。指定すると `click` プロパティは無視されます。 [役割 (roles)](#roles) を参照してください。
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. [役割 (roles)](#roles) を参照してください。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
@@ -25,6 +25,7 @@
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
   * `registerAccelerator` Boolean (任意) _Linux_ _Windows_ - false の場合、アクセラレータはシステムに登録されませんが、それでも表示はされます。 省略値は true です。
+  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
   * `id` String (任意) - 単一のメニューの中でユニーク。 宣言されている場合は、位置属性によってこのアイテムへの参照として使用できます。
   * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
@@ -65,6 +66,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
+* `toggleSpellChecker` - Enable/disable builtin spell checker.
 * `fileMenu` - デフォルト"ファイル" メニュー全体 (Close / Quit)
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
 * `viewMenu` - デフォルトの"表示"メニュー全体 (リロード、開発ツールON/OFF等)
@@ -90,6 +92,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 これはこのアプリケーションのメニューにのみ使うことを意図しており、macOSアプリのコンテキストメニューで使用される "サービス"サブメニューと同じでは*ありません*。この"サービス"サブメニューはElectronでは実装しません。
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
+* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
@@ -110,6 +113,7 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 #### `menuItem.click`
 
 MenuItem がクリックイベントを受け取った時に発火される `Function`。 これは `menuItem.click(event, focusedWindow, focusedWebContents)` で呼び出されます。
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -163,6 +167,12 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 #### `menuItem.registerAccelerator`
 
 アクセラレータをシステムに登録する必要があるのか、ただ表示するだけなのかを示す `Boolean`。
+
+このプロパティは動的に変更できます。
+
+#### `menuItem.sharingItem` _macOS_
+
+A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
 
 このプロパティは動的に変更できます。
 

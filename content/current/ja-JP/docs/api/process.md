@@ -9,6 +9,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 ## サンドボックス
 
 サンドボックス化されたレンダラーでは、`process` オブジェクトには以下に示す一部の API のみが含まれます。
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ process.once('loaded', () => {
 `stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のスタックトレースが出力されます。 `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.traceProcessWarnings`
+
 `stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.type` _読み出し専用_

@@ -9,6 +9,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 ## Sandbox
 
 在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 ` Boolean `类型，用于控制打印到 ` stderr ` 的弃用中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印对弃用的堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
+
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
 ### `process.type` _Readonly_

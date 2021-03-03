@@ -49,10 +49,10 @@ app.whenReady().then(() => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
+
 * 在 Windows 上, 建议使用 ` ICO ` 图标来获得最佳视觉效果。
 
 如果要在所有平台上保持完全相同的行为, 则不应依赖 ` click ` 事件, 并且始终将上下文菜单附加到任务栏图标。
-
 
 ### `new Tray(image, [guid])`
 

@@ -29,9 +29,9 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
 ### `new Notification([options])`
 
 * `options` Object (opcional)
-  * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.
+  * `title` String (opcional) - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación cuando sea mostrado.
   * `subtitle` String (opcional) _macOS_ - Un subtítulo para la notificación, la cual aparecerá debajo del título.
-  * `body` String - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo.
+  * `body` String (opcional) - El texto del cuerpo de la notificación, el cual será mostrado debajo del título o del subtítulo.
   * `silent` Boolean (opcional) - Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación.
   * `icon` (String | [NativeImage](native-image.md)) (opcional) - Icono para usar en la notificación.
   * `hasReply` Boolean (opcional) _macOS_ - Si se agrega o no una opción de respuesta insertada en la notificación.
@@ -41,6 +41,7 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) _macOS_ - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (opcional) _Windows_ - Una descripción personalizada de la notificación en Windows sustituyendo todas las propiedades anteriores. Ofrece una personalización completa del diseño y el comportamiento de la notificación.
 
 ### Eventos de Instancia
 
@@ -89,6 +90,15 @@ Devuelve:
 
 * `event` Event
 * `index` Númerp - El indice de la acción que fue activado.
+
+#### Evento: 'failed' _Windows_
+
+Devuelve:
+
+* `event` Event
+* `error` String - El error encontrado durante la ejecución del método `show()`.
+
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### Métodos de Instancia
 
@@ -153,6 +163,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 #### `notification.actions`
 
 Una propiedad [`NotificationAction[]`](structures/notification-action.md) que representa las acciones de la notificación.
+
+#### `notification.toastXml` _Windows_
+
+Una propiedad `String` que representa el Toast XML de la notificación.
 
 ### Reproducción de Sonidos
 

@@ -28,9 +28,9 @@ app.on('window-all-closed', () => {
 戻り値：
 
 * `event` Event
-* `launchInfo` Record<string, any> _macOS_
+* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Electron が一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合に `launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持します。 また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
+Electron が一度、初期化処理を完了したときに発生します。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
 
 ### イベント: 'window-all-closed'
 
@@ -321,7 +321,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### イベント: 'render-process-gone'
+### Event: 'render-process-gone'
 
 戻り値:
 
@@ -336,10 +336,11 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
     * `oom` - Process ran out of memory
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
 renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
 
-#### イベント: 'child-process-gone'
+### イベント: 'child-process-gone'
 
 戻り値:
 
@@ -362,7 +363,8 @@ renderer processが予期せず消えたときに発生します。  This is nor
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
-  * `name` String (任意) - そのプロセスの名前。 つまり、プラグインの場合はFlashになります。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
+  * `serviceName` String (任意) - そのプロセスのローカライズされていない名前。
+  * `name` String (任意) - そのプロセスの名前。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
 子 processが予期せず消えたときに発生します。 This is normally because it was crashed or killed. レンダラープロセスを含みません。
 
@@ -567,7 +569,6 @@ You should seek to use the `steal` option as sparingly as possible.
   * `videos` ユーザのビデオのディレクトリ。
   * `recent` ユーザーの最近のファイルのめのディレクトリ(Windows のみ)。
   * `logs` アプリのログフォルダのディレクトリ。
-  * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
   * `crashDumps` クラッシュダンプを格納するディレクトリ。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
@@ -702,9 +703,10 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 * `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
-  * `icon` NativeImage - プロトコルを処理するアプリの表示アイコン。
-  * `path` String - プロトコルを扱うアプリのインストールパス。
-  * `name` String - プロトコルを扱うアプリの表示名。
+
+* `icon` NativeImage - プロトコルを処理するアプリの表示アイコン。
+* `path` String - プロトコルを扱うアプリのインストールパス。
+* `name` String - プロトコルを扱うアプリの表示名。
 
 このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名、アイコン、パスを含むPromiseを返します。
 
@@ -891,6 +893,7 @@ if (!gotTheLock) {
 アプリのアクティベーションポリシーを設定します。
 
 アクティベーションポリシーの種類は以下のとおりです。
+
 * 'regular' - Dock に表示される通常のアプリで、ユーザーインターフェースがあったりします。
 * 'accessory' - このアプリケーションはドックに表示されず、メニューバーもありません。プログラムから又はウィンドウをクリックすることでアクティベートできます。
 * 'prohibited' - アプリケーションはドックに表示されず、ウィンドウも作られず、アクティベートできません。
@@ -903,7 +906,7 @@ if (!gotTheLock) {
 * `callback` Function
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -936,6 +939,7 @@ if (!gotTheLock) {
 `infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
 `infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
+
 ```js
 {
   auxAttributes:
@@ -965,9 +969,9 @@ if (!gotTheLock) {
 
 `vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer
+* `count` Integer (任意) - 値が指定されている場合は、指定された値のバッジを設定します。そうでない場合、macOS では無地の白点 (通知数不明などの意味) を表示します。 Linux で値を指定しない場合、バッジは表示されません。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 

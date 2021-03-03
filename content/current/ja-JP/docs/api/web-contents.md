@@ -63,7 +63,7 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
+このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) です。
 
 #### イベント: 'did-fail-provisional-load'
 
@@ -125,7 +125,7 @@ console.log(webContents)
 
 ページがファビコンの URL を受け取ると発行されます。
 
-#### イベント: 'new-window'
+#### Event: 'new-window' _Deprecated_
 
 戻り値:
 
@@ -137,6 +137,8 @@ console.log(webContents)
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+
+Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -168,6 +170,23 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
+#### Event: 'did-create-window'
+
+戻り値:
+* `window` BrowserWindow
+* `details` Object
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. 送信する POST データが無い場合、値は `null` になります。 Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+
 #### イベント: 'will-navigate'
 
 戻り値:
@@ -194,7 +213,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInplace` が `true` になります。
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 `isInPlace` will be `true` for in-page navigations.
 
 #### イベント: 'will-redirect'
 
@@ -311,22 +330,23 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### イベント: 'render-process-gone'
+#### Event: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
-  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
-    * `clean-exit` - 終了コード 0 でプロセスが終了した
-    * `clean-exit` - 終了コードが非 0 でプロセスが終了した
-    * `killed` - プロセスに SIGTERM シグナルが送信されたなどの方法でキルされた
-    * `crashed` - プロセスがクラッシュした
-    * `oom` - プロセスがメモリ不足になった
+  * `reason` String - The reason the render process is gone.  取りうる値:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows コードの整合性チェックに失敗した
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
-renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
+renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
 
 #### イベント: 'unresponsive'
 
@@ -393,6 +413,7 @@ win.webContents.on('before-input-event', (event, input) => {
 #### イベント: 'zoom-changed'
 
 戻り値:
+
 * `event` Event
 * `zoomDirection` String - `in` か `out` にできます。
 
@@ -735,6 +756,17 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
+#### Event: 'preferred-size-changed'
+
+戻り値:
+
+* `event` Event
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+
+Emitted when the `WebContents` preferred size has changed.
+
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
 ### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
@@ -744,7 +776,7 @@ win.loadURL('http://github.com')
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -982,6 +1014,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 この WebContents がフォーカスされている間、アプリケーションのメニューショートカットを無視します。
 
+#### `contents.setWindowOpenHandler(handler)`
+
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  * `details` Object
+    * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
+    * `frameName` String - `window.open()` で指定されたウインドウ名
+    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。 戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
+
+レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
+
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
@@ -1013,6 +1055,8 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 * `level` Number - 拡大レベル。
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
+
+> **注意**: Chromium でのズームポリシーはドメインごとです。すなわち、特定ドメインのズームレベルは、同じドメインのウィンドウの全インスタンスに伝播します。 ウインドウの URL が別々であれば、ウインドウごとのズームになります。
 
 #### `contents.getZoomLevel()`
 
@@ -1102,8 +1146,6 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。 省略値は `false` 。
-  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -1179,7 +1221,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[] (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
+  * `pageRanges` Object[]  (optional) - The page range to print. macOS では 1 つの範囲のみが許可されています。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
@@ -1500,6 +1542,7 @@ ipcMain.on('ping', (event) => {
 転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
 
 例:
+
 ```js
 // メインプロセス
 const { port1, port2 } = new MessageChannelMain()
@@ -1719,3 +1762,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 #### `contents.backgroundThrottling`
 
 `Boolean` 型のプロパティです。ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうかを決定します。 これは Page Visibility API にも影響を与えます。
+
+#### `contents.mainFrame` _読み出し専用_
+
+[`WebFrameMain`](web-frame-main.md) 型のプロパティで、ページの最上位階層のフレームを表します。

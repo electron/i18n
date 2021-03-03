@@ -41,17 +41,17 @@ The `contextBridge` module has the following methods:
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
 * `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
-* `api` Registro<String, any> - Tu objeto API, más información sobre que puede ser esta API y como funciona está disponible a continuación.
+* `api` any - Tu API más información sobre qué puede ser esta API y como funciona esta disponible a continuación.
 
 ## Uso
 
-### API Objects
+### API
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+La `api` proveeida a [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) debe ser una `Function`, `String`, `Number`, `Array`, `Boolean`, o un objeto cuya llaves son strings y los valores son una `Function`, `String`, `Number`, `Array`, `Boolean`, u otro objeto anidado que cumpa con las mismas condiciones.
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Cualquier dato / primitivos enviado en la API se vuelve inmutable y las actualizaciones de una lado del puente no resulta en una actualización en el otro lado.
 
-An example of a complex API object is shown below:
+A continuación se muestra un ejemplo de una API compleja:
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -99,6 +99,5 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Function`                                                                                                     | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
 | `Símbolo`                                                                                                      | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
-
 
 If the type you care about is not in the above table, it is probably not supported.

@@ -2,7 +2,7 @@
 
 > Befehlszeilenoptionen unterstützt von Electron.
 
-[app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kann benutzt werden um die Befehlszeilenoptionen zu dem Hauptskript der App, bevor das [ready](app.md#event-ready)-Ereignis des [app](app.md)-Moduls eintritt, hinzuzufügen:
+[app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) kann benutzt werden um die Befehlszeilenoptionen zu dem Hauptskript der App, bevor das [ready](app.md#event-ready)-Ereignis des [app](app.md)-Moduls eintritt, hinzuzufügen:
 
 ```javascript
 const { app } = require('electron')
@@ -57,6 +57,7 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 ### --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
+
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -146,14 +147,6 @@ Use a specified proxy server, which overrides the system setting. This switch on
 
 Enables remote debugging over HTTP on the specified `port`.
 
-### --ppapi-flash-path=`path`
-
-Sets the `path` of the pepper flash plugin.
-
-### --ppapi-flash-version=`version`
-
-Sets the `version` of the pepper flash plugin.
-
 ### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
@@ -205,6 +198,7 @@ See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guid
 Aliased to `--debug[=[host:]port`.
 
 ### --inspect-publish-uid=stderr,http
+
 Specify ways of the inspector web socket url exposure.
 
 By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.

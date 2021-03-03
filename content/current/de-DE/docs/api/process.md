@@ -9,6 +9,7 @@ Electron's `process` object is extended from the [Node.js `process` object](http
 ## Sandbox
 
 In sandboxed renderers the `process` object contains only a subset of the APIs:
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ A `Boolean` that controls whether or not deprecation warnings will be thrown as 
 A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
 ### `process.traceProcessWarnings`
+
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type` _Readonly_

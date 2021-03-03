@@ -92,6 +92,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
+
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -100,7 +101,6 @@ Options:
 ## 开发环境相关变量
 
 以下环境变量主要用于开发和调试目的。
-
 
 ### `ELECTRON_ENABLE_LOGGING`
 

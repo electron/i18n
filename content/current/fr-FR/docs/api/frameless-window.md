@@ -8,7 +8,6 @@ Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://develop
 
 Pour créer une fenêtre sans cadre, vous devez définir `frame` à `false` dans [BrowserWindow](browser-window.md)'s `options`:
 
-
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -65,7 +64,7 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * Le filtre `flur` ne s'applique qu'à la page web, donc il n'y a aucun moyen d'appliquer l'effet de flou au contenu en dessous de la fenêtre (i. . d'autres applications s'ouvrent sur le système de l'utilisateur).
 * Sur les systèmes d'exploitation Windows, les fenêtres transparentes ne fonctionneront pas lorsque DWM est désactivé.
-* Sous Linux, les utilisateurs doivent mettre `--enable-transparent-visuals --disable-gpu` dans la ligne de commande pour désactiver le GPU et permettre à ARGB de rendre une fenêtre transparente, ceci est causé par un bogue amont que [canal alpha ne fonctionne pas sur certains pilotes NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) sur Linux.
+* Sous Linux, les utilisateurs doivent mettre `--enable-transparent-visuals --disable-gpu` dans la ligne de commande pour désactiver le GPU et permettre à ARGB de rendre une fenêtre transparente, ceci est causé par un bogue amont que [canal alpha ne fonctionne pas sur certains pilotes NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) sur Linux.
 * Sur Mac, l'ombre native de la fenêtre ne sera pas affichée sur une fenêtre transparente.
 
 ## Fenêtre non cliquable

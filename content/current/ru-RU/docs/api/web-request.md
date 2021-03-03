@@ -44,6 +44,8 @@ The following methods are available on instances of `WebRequest`:
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -84,6 +86,8 @@ Some examples of valid `urls`:
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -107,6 +111,8 @@ The `callback` has to be called with a `response` object.
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -124,6 +130,8 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -151,6 +159,8 @@ The `callback` has to be called with a `response` object.
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -171,6 +181,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -193,6 +205,8 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -214,6 +228,8 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double

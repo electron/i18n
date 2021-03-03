@@ -36,6 +36,14 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
+### Event: 'user-did-become-active' _macOS_
+
+Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+
+### Event: 'user-did-resign-active' _macOS_
+
+Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+
 ## Métodos
 
 The `powerMonitor` module has the following methods:
@@ -53,3 +61,17 @@ Calculate the system idle state. `idleThreshold` is the amount of time (in secon
 Returns `Integer` - Idle time in seconds
 
 Calculate system idle time in seconds.
+
+### `powerMonitor.isOnBatteryPower()`
+
+Returns `Boolean` - Whether the system is on battery power.
+
+To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+
+## Propriedades
+
+### `powerMonitor.onBatteryPower`
+
+A `Boolean` property. True if the system is on battery power.
+
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).

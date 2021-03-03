@@ -29,9 +29,9 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 ### `new Notification([options])`
 
 * `options` Object (可选)
-  * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。_ macOS _
-  * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
   * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 _ macOS _
@@ -41,6 +41,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (可选) _macOS_ - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### 实例事件
 
@@ -89,6 +90,15 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 * `event` Event
 * `index` Number - 已激活的操作的索引.
+
+#### Event: 'failed' _Windows_
+
+返回:
+
+* `event` Event
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### 实例方法
 
@@ -153,6 +163,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 #### `notification.actions`
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
 
 ### 播放声音
 

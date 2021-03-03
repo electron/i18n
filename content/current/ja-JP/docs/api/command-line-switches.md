@@ -2,7 +2,7 @@
 
 > Electronによってサポートされているコマンドラインスイッチ。
 
-[app](app.md) モジュールで [ready](app.md#event-ready) イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) を使って、コマンドラインスイッチを追加することができます。
+[app](app.md) モジュールで [ready](app.md#event-ready) イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) を使って、コマンドラインスイッチを追加することができます。
 
 ```javascript
 const { app } = require('electron')
@@ -57,6 +57,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 ### --enable-api-filtering-logging
 
 以下の API の呼び出し元スタックログを有効にします (イベントのフィルタリング)。
+
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -146,14 +147,6 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 指定された `port` でHTTP越しのリモートデバッグを有効にします。
 
-### --ppapi-flash-path=`path`
-
-Pepper Flashプラグインの `path` を設定します。
-
-### --ppapi-flash-version=`version`
-
-Pepper Flashプラグインの `version` を設定します。
-
 ### --v=`log_level`
 
 既定で有効な最高の V ロギングレベルを設定します。既定値は 0 です。 通常、正の値は V ロギングレベルに使用されます。
@@ -205,6 +198,7 @@ V8 インスペクタの統合により、Chrome デベロッパー ツールや
 `--debug[=[host:]port]` のエイリアスです。
 
 ### --inspect-publish-uid=stderr,http
+
 インスペクタの WebSocket URL の公開方法を指定します。
 
 デフォルトでは、インスペクタの WebSocket URL は標準エラーで、http://host:port/json/list の /json/list エンドポイント下にあります。

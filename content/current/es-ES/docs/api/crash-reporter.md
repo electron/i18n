@@ -27,6 +27,28 @@ Los reportes de errores son almacenados temporalmente antes de ser alzados en un
 
 En Windows y macOS, Electron usa [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) para monitorear y reportar fallos. En Linux, Electron usa [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). Este es un detalle de implementación impulsado por Chromium y puede cambiar en el futuro. En particular, crashpad es más nuevo y es probable que eventualmente reemplace a breakpad en todas las plataformas.
 
+### Note about Node child processes on Linux
+
+If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
+
+Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+
+#### `process.crashReporter.start(options)`
+
+See [`crashReporter.start()`](#crashreporterstartoptions).
+
+#### `process.crashReporter.getParameters()`
+
+See [`crashReporter.getParameters()`](#crashreportergetparameters).
+
+#### `process.crashReporter.addExtraParameter(key, value)`
+
+See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+
+#### `process.crashReporter.removeExtraParameter(key)`
+
+See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+
 ## Métodos
 
 El módulo `crashReporter` tiene los siguientes métodos:
@@ -40,7 +62,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `uploadToServer` Boolean (octional) - Si los reportes de fallos deberían ser enviados a un servidor. Si es false, los reportes de fallos serán recolectados y almacenados en un directorio de fallas, pero no serán subidos. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Boolean (opcional) - Si es true, los fallos generados en el main process no serán reenviados al gestor de gallos del sistema. Por defecto es `false`.
   * `rateLimit` Boolean (opcional) _macOS_ _Windows_ - Si es true, limita el numero de fallos subidos a 1/hora. Por defecto es `false`.
-  * `compress` Boolean (opcional) - Si es true, los reportes de fallos serán comprimidos y subidos con `Content-Encoding: gzip`. Por defecto es `false`.
+  * `compress` Boolean (opcional) - Si es true, los reportes de fallos serán comprimidos y subidos con `Content-Encoding: gzip`. Por defecto es `true`.
   * `extra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos en el main process. Sólo se admiten valores de cadena. Los fallos generados en los procesos hijos no contendrán estos parámetros extras, para reportes de fallos generados desde los procesos hijos, llame [`addExtraParameter`](#crashreporteraddextraparameterkey-value) desde el proceso hijo.
   * `globalExtra` Record<String, String> (opcional) - Extra string con anotaciónes clave/valor que serán enviados junto con los reportes de fallos generados en cualquier proceso. Estas anotaciones no pueden ser cambiadas una vez que el crash reporter ha sido iniciado. Si una clave esta presente en los parámetros global extra y en los parámetros extra process-specific, entonces el parámetro global tomará precedencia. Por defecto, `productName` y la versión de la aplicación son incluidas, así como la versión de Electron.
 
@@ -54,13 +76,13 @@ Este método debería ser llamado tan pronto como sea posible al iniciar la apli
 
 **Nota:** Los parámetros pasados en `extra`, `globalExtra` o establecidos con `addExtraParameter` tienen un limite en la longitud de la llaves y los valores. Los nombre de la llaves deben ser como máximo de 39 bytes de largo, y los valores no deben ser mayor que 127 bytes. Las llaves con nombres más largo que el máximo serán ignoradas de forma silenciosa. Los valores de las llaves más largo que la longitud máxima serán truncados.
 
-**Nota:** Llamar a este método desde el renderer process esta obsoleto.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getLastCrashReport()`
 
 Devuelve [`CrashReport`](structures/crash-report.md) - La fecha y el ID del último reporte de error. Solo los reportes de fallos que han sido alzados serán retornados; incluso si un reporte de fallo esta presente en el disco este no sera retornado a menos que este alzado. En caso de que no haya reportes subidos, `null` es retornado.
 
-**Nota:** Llamar a este método desde el renderer process esta obsoleto.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -68,13 +90,13 @@ Devuelve [`CrashReport []`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-**Nota:** Llamar a este método desde el renderer process esta obsoleto.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Nota:** Llamar a este método desde el renderer process esta obsoleto.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -82,13 +104,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Nota:** Llamar a este método desde el renderer process esta obsoleto.
-
-### `crashReporter.getCrashesDirectory()` _Deprecated_
-
-Devuelve `String` - El directorio donde los errores son almacenados temporalmente antes de ser cargados.
-
-**Nota:** Este método está, en su lugar use `app.getPath('crashDumps')`.
+**Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.addExtraParameter(key, value)`
 

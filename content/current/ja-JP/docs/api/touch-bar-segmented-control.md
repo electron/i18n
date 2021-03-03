@@ -2,7 +2,7 @@
 
 > 1つのボタンが選択状態になっているセグメントコントロール (ボタングループ) を作成します
 
-プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+プロセス: [Main](../glossary.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)`
 

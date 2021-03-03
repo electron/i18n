@@ -1,12 +1,17 @@
-# `window.open` 関数
+# Opening windows from the renderer
 
-> 新しいウインドウを開き、URL をロードします。
+There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
 
-ウェブページで新しいウィンドウを作成するために `window.open` が呼び出されると、[`BrowserWindow`](browser-window.md) の新しいインスタンスが `url` に対して作成され、 ページの制御が制限されるように、プロキシが `window.open` に返されます。
+- clicking on links or submitting forms adorned with `target=_blank`
+- JavaScript calling `window.open()`
 
-プロキシは、従来のウェブページと互換性があるように実装された、限定された標準機能を有します。 新しいウィンドウを完全に制御するには、`BrowserWindow` を直接作成する必要があります。
+In non-sandboxed renderers, or when `nativeWindowOpen` is false (the default), this results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
 
-新しく作成された `BrowserWindow` は、デフォルトで親ウィンドウのオプションを継承します。 `features` 文字列の中に設定することで、継承されたオプションを上書きできます。
+However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `Window` instance is created, as you'd expect in the browser. For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent.
+
+Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
+
+BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -14,13 +19,16 @@
 * `frameName` String (任意)
 * `features` String (任意)
 
-戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) - 新しいウインドウを作成し、`BrowserWindowProxy` クラスのインスタンスを返します。
+Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
-`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。 `features` 文字列を通してセットできる機能は、 `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag` になります。
+`features` is a comma-separated key-value list, following the standard format of the browser. Electron will parse `BrowserWindowConstructorOptions` out of this list where possible, for convenience. For full control and better ergonomics, consider using `webContents.setWindowOpenHandler` to customize the BrowserWindow creation.
+
+A subset of `WebPreferences` can be set directly, unnested, from the features string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, and `webviewTag`.
 
 例:
+
 ```js
-window.open('https://github.com', '_blank', 'nodeIntegration=no')
+window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
 ```
 
 **注釈:**
@@ -28,55 +36,67 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
 * JavaScript は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
-* `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`additionalFeatures` 引数内の登録された `webContents` の `new-window` イベントハンドラに渡されます。
+* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
 
-### `window.opener.postMessage(message, targetOrigin)`
+To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
 
-* `message` String
-* `targetOrigin` String
-
-指定したオリジンか、オリジン未設定を意味する `*` で、親ウインドウにメッセージを送信します。
-
-### Chrome の `window.open()` 実装の使用
-
-Chrome の組み込み `window.open()` 実装を使用する場合は、`webPreferences` オプションオブジェクトで `nativeWindowOpen` を `true` に設定します。
-
-ネイティブの `window.open()` は、開いたウィンドウに同期アクセスを許可するので、ダイアログや環境設定ウィンドウを開く必要がある場合に便利です。
-
-このオプションは `<webview>` タグでも設定できます。
-
-```html
-<webview webpreferences="nativeWindowOpen=yes"></webview>
-```
-
-`BrowserWindow` の作成は `WebContents` の `new-window` イベントを介してカスタマイズできます。
+### `BrowserWindowProxy` example
 
 ```javascript
-// メインプロセス
+
+// main.js
+const mainWindow = new BrowserWindow()
+
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url.startsWith('https://github.com/')) {
+    return true
+  }
+  return false
+})
+
+mainWindow.webContents.on('did-create-window', (childWindow) => {
+  // For example...
+  childWindow.webContents('will-navigate', (e) => {
+    e.preventDefault()
+  })
+})
+```
+
+```javascript
+// renderer.js
+const windowProxy = window.open('https://github.com/', null, 'minimizable=false')
+windowProxy.postMessage('hi', '*')
+```
+
+### Native `Window` example
+
+```javascript
+// main.js
 const mainWindow = new BrowserWindow({
-  width: 800,
-  height: 600,
   webPreferences: {
     nativeWindowOpen: true
   }
 })
-mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
-  if (frameName === 'modal') {
-    // モーダルとしてウインドウを開きます
-    event.preventDefault()
-    Object.assign(options, {
-      modal: true,
-      parent: mainWindow,
-      width: 100,
-      height: 100
-    })
-    event.newGuest = new BrowserWindow(options)
+
+// In this example, only windows with the `about:blank` url will be created.
+// All other urls will be blocked.
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url === 'about:blank') {
+    return {
+      frame: false,
+      fullscreenable: false,
+      backgroundColor: 'black',
+      webPreferences: {
+        preload: 'my-child-window-preload-script.js'
+      }
+    }
   }
+  return false
 })
 ```
 
 ```javascript
 // renderer process (mainWindow)
-const modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+const childWindow = window.open('', 'modal')
+childWindow.document.write('<h1>Hello</h1>')
 ```

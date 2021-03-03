@@ -29,9 +29,9 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 ### `new Notification([options])`
 
 * `options` Object (optional)
-  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
-  * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
   * `icon` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
@@ -41,6 +41,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### Événements d’instance
 
@@ -89,6 +90,15 @@ Retourne :
 
 * `event` Événement
 * `index` Number - L'indice de l'action qui a été activée.
+
+#### Event: 'failed' _Windows_
+
+Retourne :
+
+* `event` Événement
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### Méthodes d’instance
 
@@ -153,6 +163,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 #### `notification.actions`
 
 Une propriété [`NotificationAction[]`](structures/notification-action.md) représentant les actions de la notification.
+
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
 
 ### Lire un son
 

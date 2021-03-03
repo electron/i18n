@@ -74,7 +74,7 @@ El objeto `downloadItem` tiene los siguientes métodos:
 
 * `path` Cadena - Configura la ruta del archivo de guardado del elemento descargado.
 
-La API solo está disponible en la función callback `will-download` de la sesión. Si el usuario no establece una ruta para guardar a través de la API, Electron usará la rutina original para determinar la ruta para guardar; esto usualmente genera un cuadro de dialogo para guardar.
+La API solo está disponible en la función callback `will-download` de la sesión. If `path` doesn't exist, Electron will try to make the directory recursively. Si el usuario no establece una ruta para guardar a través de la API, Electron usará la rutina original para determinar la ruta para guardar; esto usualmente genera un cuadro de dialogo para guardar.
 
 #### `downloadItem.getSavePath()`
 

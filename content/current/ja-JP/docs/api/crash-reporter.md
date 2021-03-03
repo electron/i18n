@@ -27,6 +27,28 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 
 Windows と macOS において、Electron は [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) を使用してクラッシュを監視し報告します。 Linux では、Electron は [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/) を使用します。 これは Chromium が動かす内部実装によるもので、将来的に変更される可能性があります。 特に crashpad は新しく、最終的には全プラットフォームで breakpad を置き換える可能性が高いです。
 
+### Note about Node child processes on Linux
+
+If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
+
+Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+
+#### `process.crashReporter.start(options)`
+
+See [`crashReporter.start()`](#crashreporterstartoptions).
+
+#### `process.crashReporter.getParameters()`
+
+See [`crashReporter.getParameters()`](#crashreportergetparameters).
+
+#### `process.crashReporter.addExtraParameter(key, value)`
+
+See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+
+#### `process.crashReporter.removeExtraParameter(key)`
+
+See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+
 ## メソッド
 
 `crashReporter` モジュールには以下のメソッドがあります。
@@ -40,7 +62,7 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。 false の場合、クラッシュレポートは収集されてクラッシュのディレクトリに保存されますが、アップロードされません。 省略値は `true` です。
   * `ignoreSystemCrashHandler` Boolean (任意) - true の場合、メインプロセスで発生したクラッシュをシステムクラッシュハンドラに転送しません。 省略値は `false` です。
   * `rateLimit` Boolean (任意) _macOS_ _Windows_ - true の場合、アップロードされるクラッシュの数を 1 時間につき 1 つに制限します。 省略値は、`false` です。
-  * `compress` Boolean (任意) - true の場合、クラッシュレポートは圧縮され `Content-Encoding: gzip` でアップロードされます。 省略値は、`false` です。
+  * `compress` Boolean (任意) - true の場合、クラッシュレポートは圧縮され `Content-Encoding: gzip` でアップロードされます。 省略値は `true` です。
   * `extra` Record<String, String> (任意) - メインプロセスが生成するクラッシュレポートと一緒に送信される追加のキー/バリューアノテーションの文字列。 文字列のみをサポートしています。 子プロセスから生成されたクラッシュレポートはこれらの追加パラメータを含みません。子プロセスが生成したクラッシュにこれらを含める場合は、子プロセスから [`addExtraParameter`](#crashreporteraddextraparameterkey-value) を呼び出してください。
   * `globalExtra` Record<String, String> (任意) - 任意のプロセスが生成したクラッシュレポートと一緒に送信される、追加のキー/バリューアノテーションの文字列。 これらのアノテーションは、クラッシュレポーターを起動すると変更できません。 グローバル追加パラメータとプロセス固有の追加パラメータの両方に同じキーが存在する場合、グローバルのものが優先されます。 デフォルトでは、 `productName` と、Electron のバージョンと同様のアプリのバージョンが含まれています。
 
@@ -54,13 +76,13 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 
 **注:** `extra`、`globalExtra` で渡すパラメータや `addExtraParameter` で設定するパラメータは、キーと値の長さに制限があります。 キー名の長さは最大 39 バイト、値の長さは 127 バイト以下でなければなりません。 最大値より長い名前を持つキーは警告を出さずに無視されます。 キーの値が最大長より長ければ切り捨てられます。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getLastCrashReport()`
 
 戻り値 [`CrashReport`](structures/crash-report.md) - 最後のクラッシュレポートの日付と ID。 アップロードされたクラッシュレポートだけを返します。例えば、クラッシュレポートがディスク上に存在したとしても、アップロードしていなければそれを返しません。 アップロードされたレポートがない場合これは、`null` を返します。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -68,13 +90,13 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 
 アップロードされたすべてのクラッシュレポートを返します。 各レポートには、日付とアップロードされた ID が含まれています。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.getUploadToServer()`
 
 戻り値 `Boolean` - レポートがサーバに送信されるべきかどうか。 `start` メソッドまたは `setUploadToServer` を通して設定されます。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
@@ -82,13 +104,7 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 
 これは通常、ユーザーの設定によって制御されます。 `start` が呼ばれるまでは何もしません。
 
-**注:** レンダラープロセスからこのメソッドを呼び出すことは非推奨です。
-
-### `crashReporter.getCrashesDirectory()` _非推奨_
-
-戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
-
-**注:** このメソッドは非推奨です。代わりに `app.getPath('crashDumps')` を使用してください。
+**Note:** This method is only available in the main process.
 
 ### `crashReporter.addExtraParameter(key, value)`
 

@@ -1,6 +1,6 @@
 # Объект ProtocolResponse
 
-* `error` Integer (опционально) - Когда назначен `request` завершится ошибкой с номером `error`. Доступные номера ошибок, которые вы можете использовать, смотрите в [списке ошибок сети](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+* `error` Integer (опционально) - Когда назначен `request` завершится ошибкой с номером `error`. For the available error numbers you can use, please see the [net error list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 * `statusCode` Number (опционально) - Код ответа HTTP, по умолчанию 200.
 * `charset` String (опционально) - Кодировка тела ответа, по умолчанию `"utf-8"`.
 * `mimeType` String (опционально) - Тип MIME тела ответа, по умолчанию `"text/html"`. Установка `mimeType` неявно установит `content-type` в ответе, но если `content-type` уже установлен `headers`, `mimeType` будет проигнорирован.
@@ -11,4 +11,4 @@
 * `referrer` String (опционально) - Это `referrer` URL. Это используется только для файлов и URL ответов.
 * `method` String (опционально) - Это HTTP `method`. Это используется только для файлов и URL ответов.
 * `session` Session (опционально) -Сессия, используемая для запроса URL, по умолчанию HTTP-запрос будет повторно использовать текущую сессию. Установка `session` в `null` будет использовать случайную независимую сессию. Это используется только для URL ответов.
-* `uploadData` ProtocolResponseUploadData (опционально) - Данные, используемые в качестве загружаемых данных. Это используется только для URL ответов, когда `method` является `"POST"`.
+* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (optional) - The data used as upload data. Это используется только для URL ответов, когда `method` является `"POST"`.

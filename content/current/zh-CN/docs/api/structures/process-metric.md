@@ -11,7 +11,8 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
-* `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+* `serviceName` String (optional) - The non-localized name of the process.
+* `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `cpu` [CPUUsage](cpu-usage.md) - CPU使用率
 * `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - 进程的内存信息。

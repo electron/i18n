@@ -7,3 +7,4 @@
 * `icon` String (опционально) - Путь к значку, может быть DLL или EXE. `icon` и `iconIndex` должны быть установлены вместе. По умолчанию пусто, будет использоваться значок цели.
 * `iconIndex` Number (опционально) - Идентификатор ресурса иконки, когда `icon` берется из DLL или EXE. По умолчанию 0.
 * `appUserModelId` String (опционально) - Идентификатор пользовательской модели приложения. По умолчанию пусто.
+* `toastActivatorClsid` String (optional) - The Application Toast Activator CLSID. Needed for participating in Action Center.

@@ -2,7 +2,7 @@
 
 > Crea un seleccionador de color en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proceso: [Main](../glossary.md#main-process)
 
 ### `new TouchBarColorPicker(options)`
 
