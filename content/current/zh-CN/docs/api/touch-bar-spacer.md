@@ -2,7 +2,7 @@
 
 > 在mac os应用中，为touch bar中的相邻项之间留白
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../glossary.md#main-process)
 
 ### `new TouchBarSpacer(options)`
 

@@ -86,7 +86,7 @@ Protocols that use streams (http and stream protocols) should set `stream: true`
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -102,7 +102,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -138,7 +138,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
 
@@ -152,7 +152,7 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
@@ -212,7 +212,7 @@ Returns `Boolean` - Whether the protocol was successfully unregistered
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -224,7 +224,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -236,7 +236,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -248,7 +248,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
@@ -260,7 +260,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 

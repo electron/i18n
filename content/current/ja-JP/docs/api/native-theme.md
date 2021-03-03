@@ -27,6 +27,7 @@ OS / Chromium で現在ダークモードが有効になっている、または
 このプロパティを `system` に設定するとオーバーライドが削除され、すべてが OS のデフォルトにリセットされます。  既定の `themeSource` は `system` です。
 
 このプロパティを `dark` に設定すると、以下の効果があります。
+
 * `nativeTheme.shouldUseDarkColors` はアクセス時に `true` になります
 * Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ダーク UI を使用します。
 * OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ダーク UI を使用します。
@@ -34,6 +35,7 @@ OS / Chromium で現在ダークモードが有効になっている、または
 * `updated` イベントが発生します。
 
 このプロパティを `light` に設定すると、以下の効果があります。
+
 * `nativeTheme.shouldUseDarkColors` はアクセス時に `false` になります
 * Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ライト UI を使用します。
 * OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ライト UI を使用します。
@@ -41,6 +43,7 @@ OS / Chromium で現在ダークモードが有効になっている、または
 * `updated` イベントが発生します。
 
 このプロパティを使用するにあたって、ユーザーに以下のような 3 つの選択肢がある、古典的なアプリケーションの "ダークモード" ステートマシンに合わせるべきです。
+
 * `Follow OS` --> `themeSource = 'system'`
 * `Dark Mode` --> `themeSource = 'dark'`
 * `Light Mode` --> `themeSource = 'light'`

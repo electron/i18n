@@ -6,7 +6,7 @@
 
 Electron はネイティブのデスクトップアプリケーションを開発するためのモジュールもいくつか追加しています。 Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-基本的なルールはとしては、モジュールが [GUI](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9) または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 これらのモジュールを使用できるようにするには、[メインプロセスと レンダラプロセス](../tutorial/application-architecture.md#main-and-renderer-processes) のスクリプトの概念に精通している必要があります。
+基本的なルールはとしては、モジュールが [GUI](https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%A6%E3%83%BC%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9) または低レベルのシステムに関わる場合、メインプロセスでのみ使用可能にする必要があります。 これらのモジュールを使用できるようにするには、[メインプロセスと レンダラプロセス](../tutorial/quick-start.md#main-and-renderer-processes) のスクリプトの概念に精通している必要があります。
 
 メインプロセスのスクリプトは、通常の Node.js スクリプトとほぼ同じです。
 
@@ -34,7 +34,7 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-アプリを実行するには、[アプリを実行](../tutorial/first-app.md#running-your-app) 参照してください。
+アプリを実行するには、[アプリを実行](../tutorial/quick-start.md#run-your-application) 参照してください。
 
 ## 分割代入
 

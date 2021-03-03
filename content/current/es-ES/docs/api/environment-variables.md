@@ -92,6 +92,7 @@ No utilizar la barra de menú global en Linux.
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
+
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -100,7 +101,6 @@ Options:
 ## Variables de desarrollo
 
 Las siguientes variables de entorno están principalmente diseñadas para propósitos de desarrollo y depuración.
-
 
 ### `ELECTRON_ENABLE_LOGGING`
 

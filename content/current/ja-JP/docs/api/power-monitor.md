@@ -36,6 +36,14 @@
 
 システムスクリーンがアンロックされたときに発行されます。
 
+### Event: 'user-did-become-active' _macOS_
+
+Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+
+### Event: 'user-did-resign-active' _macOS_
+
+Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+
 ## メソッド
 
 `powerMonitor` モジュールには以下のメソッドがあります。
@@ -53,3 +61,17 @@
 戻り値 `Integer` - アイドル状態の秒数
 
 システムのアイドル時間を計算します。
+
+### `powerMonitor.isOnBatteryPower()`
+
+Returns `Boolean` - Whether the system is on battery power.
+
+To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+
+## プロパティ
+
+### `powerMonitor.onBatteryPower`
+
+A `Boolean` property. True if the system is on battery power.
+
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).

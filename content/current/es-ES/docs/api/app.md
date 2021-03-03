@@ -28,9 +28,9 @@ En la mayoría de los casos usted debe hacer todo desde el controlador del event
 Devuelve:
 
 * `event` Event
-* `launchInfo` Record<string, any> _macOS_
+* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Emitido una vez, cuando Electron ha terminado de iniciarse. En macOS, `launchInfo` almacena el `userInfo` de `NSUserNotification` que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificación. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido disparado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Emitido una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido disparado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -321,7 +321,7 @@ Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
 **Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Evento: 'render-process-gone'
+### Evento: 'render-process-gone'
 
 Devuelve:
 
@@ -336,10 +336,11 @@ Devuelve:
     * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
 Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
-#### Evento: 'child-process-gone'
+### Evento: 'child-process-gone'
 
 Devuelve:
 
@@ -362,7 +363,8 @@ Devuelve:
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `name` String (optional) - The name of the process. i.e. for plugins it might be Flash. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `serviceName` String (optional) - The non-localized name of the process.
+  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
 Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
@@ -567,7 +569,6 @@ Devuelve `String` - al directorio de la aplicación actual.
   * `videos` Directorio para las imágenes del usuario.
   * `recent` Directory for the user's recent files (Windows only).
   * `logs` Directorio para los archivos de registro de la aplicación.
-  * `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
   * `crashDumps` Directory where crash dumps are stored.
 
 Devuelve `String` - Una ruta a un directorio especial o un archivo asociado con `name`. En caso de falla, un `Error` es lanzado.
@@ -702,9 +703,10 @@ Este método devuelve el nombre de la aplicación del controlador para el protoc
 * `url` String - un URL con el nombre del protocolo para verificar. A diferencia de otros métodos de esta familia, este acepta una URL entera, incluyendo `://` a un mínimo de (por ejemplo `https://`).
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
-  * `icon` NativeImage - the display icon of the app handling the protocol.
-  * `path` String  - installation path of the app handling the protocol.
-  * `name` String - display name of the app handling the protocol.
+
+* `icon` NativeImage - the display icon of the app handling the protocol.
+* `path` String  - installation path of the app handling the protocol.
+* `name` String - display name of the app handling the protocol.
 
 Este método devuelve una promesa que contiene el nombre, ícono y ruta de la aplicación del manejador predeterminado para el protocolo (esquema URI) de una URL.
 
@@ -892,6 +894,7 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 Sets the activation policy for a given app.
 
 Activation policy types:
+
 * 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
 * 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
 * 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
@@ -904,7 +907,7 @@ Activation policy types:
 * `callback` Función
   * `resultado` Entero - Resultado del importe.
 
-Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con el `result` de la operación de importación, un valor `0` indica que fue exitoso mientras que cualquier otro valor indica que fallo de acuerdo a Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con el `result` de la operación de importación, un valor `0` indica que fue exitoso mientras que cualquier otro valor indica que fallo de acuerdo a Chromium [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -937,6 +940,7 @@ Devuelve `Promise<unknown>`
 Para `infoType` igual a `complete`: La promesa es completada con `Object` conteniendo toda la información de la GPU como [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Esto incluye la versión y la información del controlador que es mostrada en la pagina `chrome://gpu</0.</p>
 
 <p spaces-before="0">Para <code>infoType` igual a `basic`: La promesa se cumple con  `Object` que contiene pocos atributos que son solicitados con `complete`. Aquí hay un ejemplo de respuesta básica:
+
 ```js
 {
   auxAttributes:
@@ -966,9 +970,9 @@ Para `infoType` igual a `complete`: La promesa es completada con `Object` conten
 
 El uso de `basic` debería ser preferido si sólo se necesita información básica como `vendorId` o `driverId`.
 
-### `app.setBadgeCount(count)` _Linux_ _macOS_
+### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Entero
+* `count` Integer (opcional) - Si un valor es proporcionado, establece el badge al valor proporcionado de lo contrario en macOS, muestra un simple punto blanco (p. ej. número desconocido de notificaciones). En Linux, si un valor no es proporcionado el badge no se mostrará.
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 

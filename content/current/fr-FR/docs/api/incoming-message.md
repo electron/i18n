@@ -18,7 +18,7 @@ L'événement `data` est la méthode habituelle de transfert des données de ré
 
 #### Événement : 'end'
 
-Indique que le corps de réponse est terminée.
+Indique que le corps de réponse est terminée. Must be placed before 'data' event.
 
 #### Événement : 'aborted'
 

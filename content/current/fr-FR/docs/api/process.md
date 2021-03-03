@@ -9,6 +9,7 @@ L'objet `process` d'Electron une extension de l'[objet `process` de Node.js](htt
 ## Mode bac à sable
 
 Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un sous-ensemble des APIs :
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation s
 Un `Booléen` qui contrôle si les dépréciations affichées sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les dépréciations. Cette propriété est à la place du drapeau `--trace-deprecation`.
 
 ### `process.traceProcessWarnings`
+
 Un `Booléen` qui contrôle si oui ou non les avertissements affichés sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les avertissements de processus (y compris les dépréciations). Cette propriété est à la place du drapeau de ligne `--trace-warnings` de la commande .
 
 ### `process.type` _Readonly_

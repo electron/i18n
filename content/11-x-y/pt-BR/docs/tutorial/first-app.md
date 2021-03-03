@@ -1,0 +1,182 @@
+# Escrevendo Seu Primeiro Aplicativo com Electron
+
+Electron permite criar aplicações desktop com JavaScript puro, fornecendo em tempo de execução uma API rica e nativa do sistema operacional. Você pode vê-lo como uma variação da runtime do Node.js com foco em aplicações de desktop em vez de servidores web.
+
+Isso não significa que o Electron é uma ligação de Javascript a bibliotecas de interface gráfica de usuário (GUI). Pelo contrário, o Electron utiliza páginas web como sua interface gráfica, de modo que você pode vê-lo como um simples navegador Chromium, controlado por Javascript.
+
+**Nota**: Este exemplo também está disponível como um repositório, você pode [baixar e executar imediatamente](#trying-this-example).
+
+O desenvolvimento pode ser preocupante, porém, uma aplicação Electron é essencialmente uma aplicação Node.js. O ponto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
+
+```plaintext
+seu-app/
+├── package.json
+├── main.js
+└── index.html
+```
+
+Crie uma nova pasta vazia para seu novo aplicativo em Electron. Abra seu terminal e execute `npm init` nessa mesma pasta.
+
+```sh
+npm init
+```
+
+npm vai guiá-lo para criação de um arquivo básico o `package.json`. O script especificado pelo campo `main` é o script de inicialização do seu app, que irá executar o processo principal. Um exemplo de como seu `package.json` possa parecer:
+
+```json
+{
+  "name": "your-app",
+  "version": "0.1.0",
+  "main": "main.js"
+}
+```
+
+__Nota__: Se o campo `main` não se encontra em `package.json`, Electron tentará carregar um `index.js` (assim como Node.js faz).
+
+Por padrão, `npm start` executaria o script principal com Node.js. Para fazer ser executado com o Electron, você pode adicionar um `script iniciar` script:
+
+```json
+{
+  "name": "your-app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}
+```
+
+## Instalando o Electron
+
+Nesse ponto, você precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, permite que você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
+
+```sh
+npm install --save-dev electron
+```
+
+Há outros meios para instalar o Electron. Por favor, consulte o [guia de instalação ](installation.md) para aprender mais sobre com usar com proxies, espelhos e caches personalizados.
+
+## Desenvolvimento Electron em um Nutshell
+
+Os apps em Electron são desenvolvidos em JavaScript usando os mesmos princípios e métodos encontrados no desenvolvimento com Node.js. Todas as APIs e funcionalidades encontradas no Electron estão acessíveis através do módulo do `electron`, que pode ser necessário, como qualquer outro módulo Node.js:
+
+```javascript
+const electron = require('electron')
+```
+
+O módulo de `electron` expõe recursos em namespaces. Como exemplos, o ciclo de vida da aplicação é gerenciado pelo `electron.app`, janelas podem ser criadas utilizando a classe `electron.BrowserWindow`. Um simples arquivo `main.js` que espera a aplicação estar pronta para então abrir uma janela:
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+function createWindow () {
+  // Cria uma janela de navegação.
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // e carrega o arquivo index.html do seu aplicativo.
+  win.loadFile('index.html')
+}
+
+app.whenReady().then(createWindow)
+```
+
+O `main.js` deve conter a criação de janelas e manipular todos os eventos que seu sistema possa conter. Uma versão mais completa do exemplo acima poderia abrir ferramentas de desenvolvedores, armazenar a janela que está sendo fechada ou recriar janelas no macOS caso o usuário clique no ícone do aplicativo.
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+function createWindow () {
+  // Cria uma janela de navegação.
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // e carrega o arquivo index.html do seu aplicativo.
+  win.loadFile('index.html')
+
+  // Abrir o DevTools (aba de ferramentas para desenvolvedores).
+  win.webContents.openDevTools()
+}
+
+// Este método será chamado quando Electron terminar de inicializar
+// e também estiver pronto para criar novas janelas do navegador.
+// Algumas APIs podem ser usadas somente depois que este evento ocorre.
+app.whenReady().then(createWindow)
+
+// Encerra quando todas as janelas são fechadas, exceto no macOS. Lá, é comum
+// para aplicativos e sua barra de menu permanecerem ativos até que o usuário saia da
+// explicitamente com Cmd + Q.
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app. uit()
+  }
+})
+
+aplicativo. n('ativar', () => {
+  // No macOS, é comum recriar uma janela no aplicativo quando
+  // ícone na dock é clicado e não há outras janelas abertas.
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
+
+// Nesse arquivo, você pode incluir o resto do código principal
+// de processos do seu aplicativo.
+// Você também pode colocar eles em arquivos separados e requeridos-as aqui.
+```
+
+Finalmente, o `index.html` é a pagina da web que você quer mostrar:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
+```
+
+## Executando Seu Aplicativo
+
+Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, você pode tentar executar seu aplicativo com `npm start` no diretório do seu aplicativo.
+
+## Experimente esse Exemplo
+
+Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`][quick-start].
+
+**Nota**: Executando as dependências [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
+
+```sh
+# Clone o repositório
+$ git clone https://github.com/electron/electron-quick-start
+# Vá para o repositório
+$ cd electron-quick-start
+# Instale as dependências
+$ npm install
+# Execute o aplicativo
+$ npm start
+```
+
+Para uma lista de padrões e ferramentas para iniciar seu processo de desenvolvimento, consulte [Boilerplates e documentação CLI][boilerplates].
+
+[quick-start]: https://github.com/electron/electron-quick-start
+[boilerplates]: ./boilerplates-and-clis.md

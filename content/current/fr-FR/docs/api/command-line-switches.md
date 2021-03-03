@@ -2,7 +2,7 @@
 
 > Paramètres de ligne de commande pris en charge par Electron.
 
-Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) pour l'ajouter au script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
+Vous pouvez utiliser [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) pour l'ajouter au script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
 
 ```javascript
 const { app } = require('electron')
@@ -57,6 +57,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 ### --enable-api-filtering-logging
 
 Enables caller stack logging for the following APIs (filtering events):
+
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
 - `remote.getGlobal()` / `remote-get-builtin`
@@ -146,14 +147,6 @@ Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet in
 
 Active le débogage distant via HTTP sur le `port` spécifié.
 
-### --ppapi-flash-path=`path`
-
-Définit le chemin (`path`) du plugin pepper flash.
-
-### --ppapi-flash-version=`version`
-
-Définit la `version` du plugin pepper flash.
-
 ### --v=`log_level`
 
 Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
@@ -205,6 +198,7 @@ See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guid
 Aliased to `--debug[=[host:]port`.
 
 ### --inspect-publish-uid=stderr,http
+
 Specify ways of the inspector web socket url exposure.
 
 Par défaut, l'url du websocket de l'inspecteur est disponible dans stderr et dans /json/list endpoint sur http://host:port/json/list.

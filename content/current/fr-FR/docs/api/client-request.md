@@ -12,14 +12,16 @@ Processus : [Main](../glossary.md#main-process)
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (facultatif) - l'instance [`Session`](session.md) avec à laquelle la requête est associée.
-  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. L'option `session` prévaut sur `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session.  This will make the `net` request's cookie behavior match a `fetch` request. Par défaut la valeur est `false`.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. The `session` option supersedes `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
+  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Par défaut la valeur est `false`.
+  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
   * `host` String (facultatif) - L'hôte du serveur fourni en concaténation de le nom d'hôte et le numéro de port 'hostname:port'.
   * `hostname` String (facultatif) - Le nom d'hôte du serveur.
   * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
   * `path` String (facultatif) - La partie chemin de l'URL de la requête.
-  * `redirect` String (optionnel) - Le mode de redirection pour cette requête. Doit être l'un des `follow`, `erreur` ou `manuel`. Par défaut, `follow`. Lorsque le mode est `erreur`, toute redirection sera abandonnée. Lorsque le mode est `manuel,` la redirection sera annulée à moins que [`request.followRedirect`](#requestfollowredirect) ne soit invoquée de façon synchronisée pendant l'événement [`redirect`](#event-redirect).
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Par défaut, `follow`.
+  * `origin` String (optional) - The origin URL of the request.
 
 `options` propriétés telles que `protocole`, `host`, `hostname`, `port` et `path` suivent strictement le modèle Node.js comme décrit dans le module [URL](https://nodejs.org/api/url.html).
 
@@ -69,6 +71,7 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
+
 Fournir des identifiants vides annulera la demande et signalera une erreur d'authentification sur l'objet de réponse :
 
 ```JavaScript
@@ -102,7 +105,6 @@ Retourne :
 #### Événement : 'close'
 
 Émis en tant que dernier événement dans la transaction de réponse de requête HTTP. L'événement `close` indique qu'aucun événement ne sera émis sur les objets `request` ou `response`.
-
 
 #### Événement : 'redirect'
 

@@ -37,7 +37,7 @@ Returns `Promise<String>` - Resolves with an string containing the error message
 * `url` String - Max 2081 characters on windows.
 * `options` Object (可选)
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 默认值为 `true`。
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
+  * `workingDirectory`字符串 (可选的) _Windows_ - 工作目录
 
 Returns `Promise<void>`
 

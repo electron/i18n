@@ -1,4 +1,4 @@
-# 对象：PostBody
+# PostData Object
 
 * `type` String - One of the following:
   * `rawData` - The data is available as a `Buffer`, in the `rawData` field.

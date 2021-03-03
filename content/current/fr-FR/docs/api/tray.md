@@ -49,10 +49,10 @@ app.whenReady().then(() => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
+
 * Sur Windows, il est recommandé d'utiliser des icônes du type `ICO` pour obtenir les meilleurs effets visuels.
 
 Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
-
 
 ### `new Tray(image, [guid])`
 

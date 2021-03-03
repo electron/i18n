@@ -8,7 +8,6 @@
 
 Для создания безрамного окна, нужно установить `frame: false` в `параметрах` [BrowserWindow](browser-window.md):
 
-
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -65,7 +64,7 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
 * В операционных системах Windows прозрачные окна не будут работать, когда DWM отключена.
-* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) на Linux.
+* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) на Linux.
 * На Mac, тень родного окна не будет отображаться в прозрачном окне.
 
 ## Невзаимодействующее окно

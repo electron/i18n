@@ -40,7 +40,7 @@ Am Beispiel von `Schnellstart`:
 
 Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
-## Regeln für Markdown
+## Markdown-Dateien
 
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.

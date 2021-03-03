@@ -165,9 +165,10 @@ dialog.showOpenDialog(mainWindow, {
   * `securityScopedBookmarks` Boolean (任意) _macOS_ _mas_ - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
-  * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
-  * `filePath` String (任意) - ダイアログがキャンセルされると、これは `undefined` になります。
-  * `bookmark` String (任意)_macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
+
+* `canceled` Boolean - dialog がキャンセルされたかそうでないか。
+* `filePath` String (任意) - ダイアログがキャンセルされると、これは `undefined` になります。
+* `bookmark` String (任意)_macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -179,11 +180,11 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
+  * `message` String - メッセージボックスの内容。
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
   * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
-  * `message` String - メッセージボックスの内容。
   * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。
   * `checkboxChecked` Boolean (任意) - チェックボックスの初期のチェック状態。 省略値は `false` です。
@@ -202,11 +203,11 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
+  * `message` String - メッセージボックスの内容。
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
   * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
-  * `message` String - メッセージボックスの内容。
   * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。
   * `checkboxChecked` Boolean (任意) - チェックボックスの初期のチェック状態。 省略値は `false` です。
@@ -216,10 +217,11 @@ dialog.showOpenDialog(mainWindow, {
   * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は、`false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
 
 戻り値 `Promise<Object>` - 以下のプロパティを含む Promise で解決されます。
-  * `response` Number - クリックされたボタンのインデックス。
-  * `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。 そうでない場合は `false` になります。
 
-メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。
+* `response` Number - クリックされたボタンのインデックス。
+* `checkboxChecked` Boolean - `checkboxLabel` が設定された場合、チェックボックスのチェック状態。 そうでない場合は `false` になります。
+
+メッセージボックスを表示します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 

@@ -86,7 +86,7 @@ Protocols that use streams (http and stream protocols) should set `stream: true`
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -102,7 +102,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -138,7 +138,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` ProtocolResponse
 
@@ -152,7 +152,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
@@ -212,7 +212,7 @@ Devuelve `Boolean` - Si el `scheme` ya está registrado.
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -224,7 +224,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -236,7 +236,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -248,7 +248,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
@@ -260,7 +260,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 

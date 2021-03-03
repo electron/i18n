@@ -1,4 +1,3 @@
-# NewWindowWebContentsEvent Object extends `Event`
+# Objeto NewWindowWebContentsEvent herda de `Event`
 
 * `newGuest` BrowserWindow (optional)
-

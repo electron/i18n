@@ -18,7 +18,7 @@ Das `data` Event ist die gewöhnliche Methode um Antwortdaten in Anwendungscode 
 
 #### Event: 'end'
 
-Gibt an dass der Body der Antwort endet.
+Gibt an dass der Body der Antwort endet. Must be placed before 'data' event.
 
 #### Event: 'aborted'
 

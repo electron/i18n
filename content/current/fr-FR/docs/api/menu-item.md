@@ -13,7 +13,7 @@ Voir [`Menu`](menu.md) pour des exemples.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Voir [rôles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Voir [rôles](#roles).
   * `type` String (facultatif) - Peut être `normal`, `séparateur`, `sous-menu`, `checkbox` ou `radio`.
   * `label` String (optionnel)
   * `sublabel` String (optionnel)
@@ -25,6 +25,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `visible` Boolean (facultatif) - Si false, l'élément de menu sera entièrement masqué.
   * `coché` Booléen (facultatif) - Ne doit être spécifié que pour `case à cocher` ou `radio` type des liens de menu .
   * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Par défaut, true.
+  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `sous-menu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (facultatif) - Doit être spécifié pour `sous-menu` type éléments de menu. Si `sous-menu` est spécifié, le `type: 'submenu'` peut être omis. Si la valeur n'est pas un [`Menu`](menu.md) alors elle sera automatiquement convertie en un en utilisant `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `avant` String[] (facultatif) - Insère cet élément avant l'élément avec le libellé spécifié. Si l'élément référencé n'existe pas, l'élément sera inséré à la fin du menu. Implique également que l'élément de menu en question doit être placé dans le même « groupe » que l'élément.
@@ -65,6 +66,7 @@ La propriété `role` peut avoir les valeurs suivantes :
 * `resetZoom` - Réinitialise le niveau de zoom de la page ciblée à la taille d'origine.
 * `zoomIn` - Zoom sur la page ciblée par 10%.
 * `zoomOut` - Zoom arrière de la page ciblée de 10%.
+* `toggleSpellChecker` - Enable/disable builtin spell checker.
 * `fileMenu` - Menu par défaut entier "Fichier" (Close / Quitter)
 * `editMenu` - Tout le menu "Edit" par défaut (Annuler, Copier, etc.).
 * `viewMenu` - Menu "Affichage" par défaut (Recharger, Activer/désactiver les outils de développement, etc.)
@@ -90,6 +92,7 @@ Les rôles supplémentaires suivants sont disponibles sur _macOS_:
 * `services` - Le sous-menu est un menu ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Ceci est uniquement destiné à être utilisé dans le menu de l'application et n'est *pas* le même que le sous-menu "Services" utilisé dans les menus contextuels des applications macOS, qui n'est pas implémentée dans Electron.
 * `recentDocuments` - Le sous-menu est un menu "Ouvrir Récents".
 * `clearRecentDocuments` - Carte à l'action `clearRecentDocuments`.
+* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
 
 Lorsque vous spécifiez un `rôle` sur macOS, `label` et `accélérateur` sont les seules options qui affecteront l'élément de menu. Toutes les autres options seront ignorées. La minuscule `rôle`, par exemple `toggledevtools`, est toujours supportée.
 
@@ -110,6 +113,7 @@ A `String` indicating the item's visible label.
 #### `menuItem.click`
 
 Une `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -163,6 +167,12 @@ Vous pouvez ajouter une fonction `clic` pour un comportement supplémentaire.
 #### `menuItem.registerAccelerator`
 
 A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
+
+#### `menuItem.sharingItem` _macOS_
+
+A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
 
 This property can be dynamically changed.
 

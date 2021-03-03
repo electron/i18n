@@ -165,9 +165,10 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
-  * `canceled` Boolean - whether or not the dialog was canceled.
-  * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
+
+* `canceled` Boolean - whether or not the dialog was canceled.
+* `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
+* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
@@ -179,11 +180,11 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
+  * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
   * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
-  * `message` String - Conteúdo da caixa de mensagem.
   * `detail` String (opcional) - Informações adicionais da mensagem.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -202,11 +203,11 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
+  * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
   * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
-  * `message` String - Conteúdo da caixa de mensagem.
   * `detail` String (opcional) - Informações adicionais da mensagem.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -216,10 +217,11 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
   * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
 
 Returns `Promise<Object>` - resolves with a promise containing the following properties:
-  * `response` Number - The index of the clicked button.
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
-Shows a message box, it will block the process until the message box is closed.
+* `response` Number - The index of the clicked button.
+* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+
+Shows a message box.
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 

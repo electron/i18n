@@ -165,9 +165,10 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `securityScopedBookmarks` Boolean (opcional) _macOS_ _mas_ - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
-  * `canceled` Boolean - si el diálogo fue o no cancelado.
-  * `filePath` String (opcional) - Si el dialog es cancelado, esto será `undefined`.
-  * `bookmark` String (opcional) _macOS_ _mas_ - Cadena codificada en Base64 que contiene los datos del marcador con ámbito de seguridad para el archivo guardado. `securityScopedBookmarks` deben estar activados para estar presentes. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
+
+* `canceled` Boolean - si el diálogo fue o no cancelado.
+* `filePath` String (opcional) - Si el dialog es cancelado, esto será `undefined`.
+* `bookmark` String (opcional) _macOS_ _mas_ - Cadena codificada en Base64 que contiene los datos del marcador con ámbito de seguridad para el archivo guardado. `securityScopedBookmarks` deben estar activados para estar presentes. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -179,11 +180,11 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
+  * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
-  * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
   * `checkboxChecked` Boolean (opcional) - Estado inicial checked del checkbox. `false` por defecto.
@@ -202,11 +203,11 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
+  * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
-  * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
   * `checkboxChecked` Boolean (opcional) - Estado inicial checked del checkbox. `false` por defecto.
@@ -216,10 +217,11 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
 Devuelve `Promise<Object>` - resuelve con una promesa conteniendo lo siguiente:
-  * `response` Number - El índice del botón pulsado.
-  * `checkboxChecked` Boolean - El estado checked state del checkbox si `checkboxLabel` fue establecido. De lo contrario `false`.
 
-Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado.
+* `response` Number - El índice del botón pulsado.
+* `checkboxChecked` Boolean - El estado checked state del checkbox si `checkboxLabel` fue establecido. De lo contrario `false`.
+
+Shows a message box.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 

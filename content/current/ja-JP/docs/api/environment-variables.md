@@ -92,6 +92,7 @@ Linuxのグローバルメニューバーを使用しません。
 Linux でゴミの実装を設定します。 既定値は `gio` です。
 
 Options:
+
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -100,7 +101,6 @@ Options:
 ## 開発用の変数
 
 以下の環境変数は、主に開発とデバッグを目的としています。
-
 
 ### `ELECTRON_ENABLE_LOGGING`
 

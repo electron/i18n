@@ -77,6 +77,7 @@ Send a message to the main process via `channel` and expect a result asynchronou
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Ein Beispiel:
+
 ```javascript
 // Renderer process
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
@@ -122,6 +123,7 @@ Send a message to the main process, optionally transferring ownership of zero or
 The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
 
 Ein Beispiel:
+
 ```js
 // Renderer process
 const { port1, port2 } = new MessageChannel()

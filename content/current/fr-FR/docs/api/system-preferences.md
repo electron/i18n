@@ -50,8 +50,6 @@ Retourne :
 
 Retourne `Boolean` - Si le système est en mode sombre.
 
-**Note:** Sur macOS 10. 5 Catalina pour que cette API renvoie la valeur correcte lorsque dans le paramètre de mode sombre "automatique" vous devez avoir `NSRequiresAquaSystemAppearance=false` dans votre `Info. liste` ou être sur Electron `>=7.0.0`.  Voir le [guide du mode sombre](../tutorial/mojave-dark-mode-guide.md) pour plus d'informations.
-
 **Déprécié :** Doit utiliser le nouveau [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_

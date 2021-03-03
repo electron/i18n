@@ -2,7 +2,7 @@
 
 > Создает кнопку в сенсорной панели для нативных приложений macOS
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarButton(options)`
 

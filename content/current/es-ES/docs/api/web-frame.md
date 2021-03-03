@@ -20,7 +20,7 @@ La clase `WebFrame` tiene los siguientes métodos de instancia:
 
 * `factor` Double - Zoom factor; default is 1.0.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Cambia el nivel de zoom al nivel especificado. Factor de zoom es porcentaje de zoom dividido entre 100, así que 300% = 3.0.
 
 The factor must be greater than 0.0.
 
@@ -33,6 +33,8 @@ Devuelve `Número` - El factor de zoom actual.
 * `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
+
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `webFrame.getZoomLevel()`
 
@@ -139,6 +141,7 @@ Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
 * `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `info` Object
   * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
@@ -204,6 +207,18 @@ Deveulve `WebFrame` - Un hijo de `webFrame` con el `name` suministrado, `null` s
 * `routingId` Integer - Un `Integer` representando el id único del frame en el proceso renderer actual. Las IDs de rutas se pueden recuperar de `WebFrame` instancias (`webFrame.routingId`) y también son pasados por el frame `WebContents` específicos eventos de navegación (por ejemplo, `did-frame-navigate`)
 
 Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se encuentra.
+
+### `webFrame.isWordMisspelled(word)`
+
+* `word` String - The word to be spellchecked.
+
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+
+### `webFrame.getWordSuggestions(word)`
+
+* `word` String - The misspelled word.
+
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
 
 ## Propiedades
 

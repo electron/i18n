@@ -82,6 +82,38 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
+#### Event: 'extension-loaded'
+
+Retorna:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. This includes:
+
+- Extensions being loaded from `Session.loadExtension`.
+- Extensions being reloaded:
+  * from a crash.
+  * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
+
+#### Event: 'extension-unloaded'
+
+Retorna:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
+
+#### Event: 'extension-ready'
+
+Retorna:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
+
 #### Event: 'preconnect'
 
 Retorna:
@@ -128,6 +160,68 @@ Retorna:
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
+#### Event: 'select-serial-port' _Experimental_
+
+Retorna:
+
+* `event` Event
+* `portList` [SerialPort[]](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+* `callback` Function
+  * `portId` String
+
+Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
+
+Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
+
+app.whenReady().then(() => {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      enableBlinkFeatures: 'Serial'
+    }
+  })
+  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
+    event.preventDefault()
+    const selectedPort = portList.find((device) => {
+      return device.vendorId === 0x2341 && device.productId === 0x0043
+    })
+    if (!selectedPort) {
+      callback('')
+    } else {
+      callback(result1.portId)
+    }
+  })
+})
+```
+
+#### Event: 'serial-port-added' _Experimental_
+
+Retorna:
+
+* `event` Event
+* `port` [SerialPort](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
+
+#### Event: 'serial-port-removed' _Experimental_
+
+Retorna:
+
+* `event` Event
+* `port` [SerialPort](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
+
 ### Métodos de Instância
 
 The following methods are available on instances of `Session`:
@@ -158,6 +252,12 @@ Writes any unwritten DOMStorage data to disk.
 #### `ses.setProxy(config)`
 
 * `config` Object
+  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
+    * `direct` In direct mode all connections are created directly, without any proxy involved.
+    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
+    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
+    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
+    * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
   * `pacScript` String (optional) - The URL associated with the PAC file.
   * `proxyRules` String (optional) - Rules indicating which proxies to use.
   * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
@@ -166,7 +266,9 @@ Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
 Sets the proxy settings.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+When `mode` is unspecified, `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+
+You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
 
 The `proxyRules` has to follow the rules below:
 
@@ -196,7 +298,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
    Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
- * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+* `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
    Match a particular domain suffix.
 
@@ -223,6 +325,10 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 * `url` URL
 
 Returns `Promise<String>` - Resolves with the proxy information for `url`.
+
+#### `ses.forceReloadProxyConfig()`
+
+Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -260,6 +366,12 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 Preconnects the given number of sockets to an origin.
 
+#### `ses.closeAllConnections()`
+
+Returns `Promise<void>` - Resolves when all connections are closed.
+
+**Note:** It will terminate / fail all requests currently in flight.
+
 #### `ses.disableNetworkEmulation()`
 
 Disables any network emulation already active for the `session`. Resets to the original network configuration.
@@ -274,7 +386,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Function
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
@@ -297,6 +409,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
+> **NOTE:** The result of this procedure is cached by the network service.
+
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null
@@ -304,6 +418,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - The type of requested permission.
     * `clipboard-read` - Request access to read from the clipboard.
     * `media` -  Request access to media devices such as camera, microphone and speakers.
+    * `display-capture` - Request access to capture the screen.
     * `mediaKeySystem` - Request access to DRM protected content.
     * `geolocation` - Request access to user's current location.
     * `notifications` - Request notification creation and the ability to display them in the user's system tray.
@@ -337,7 +452,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `handler` Function\<Boolean> | nulo
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
-  * `permission` String - Enum of 'media'.
+  * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - The security origin of the `media` check.
@@ -399,6 +514,15 @@ Returns `Boolean` - Whether or not this session is a persistent one. The default
 
 Returns `String` - The user agent for this session.
 
+#### `ses.setSSLConfig(config)`
+
+* `config` Object
+  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
+  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
+
+Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
+
 #### `ses.getBlobData(identifier)`
 
 * `identifier` String - Valid UUID.
@@ -440,6 +564,16 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 #### `ses.getPreloads()`
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
+
+#### `ses.setSpellCheckerEnabled(enable)`
+
+* `enable` Boolean
+
+Sets whether to enable the builtin spell checker.
+
+#### `ses.isSpellCheckerEnabled()`
+
+Returns `Boolean` - Whether the builtin spell checker is enabled.
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
@@ -548,7 +682,11 @@ As seguintes propriedades estão disponíveis em instâncias de `Session`:
 
 #### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Uma matriz `String[]` que consiste em todas as linguagens de correção ortográfica disponíveis.  Fornecer um código de idioma para a API `setSpellCheckerLanaguages` que não está nesta matriz resultará em um erro.
+Uma matriz `String[]` que consiste em todas as linguagens de correção ortográfica disponíveis.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
+
+#### `ses.spellCheckerEnabled`
+
+A `Boolean` indicating whether builtin spell checker is enabled.
 
 #### `ses.cookies` _Readonly_
 
@@ -572,12 +710,12 @@ const path = require('path')
 
 app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', (request, callback) => {
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
-  })
+  })) {
+    console.error('Failed to register protocol')
+  }
 })
 ```
 

@@ -44,6 +44,8 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -84,6 +86,8 @@ Algunos ejemplos de `urls` válidas:
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -107,6 +111,8 @@ The `callback` has to be called with a `response` object.
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -124,6 +130,8 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -151,6 +159,8 @@ The `callback` has to be called with a `response` object.
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -171,6 +181,8 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -193,6 +205,8 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -214,6 +228,8 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
+    * `webContents` WebContents (opcional)
+    * `frame` WebFrameMain (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble

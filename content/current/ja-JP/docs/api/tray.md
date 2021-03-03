@@ -49,10 +49,10 @@ app.whenReady().then(() => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
+
 * Windows では、最適な視覚効果を得るために `ICO` 形式のアイコンファイルを使用することが推奨されています。
 
 すべてのプラットフォームでまったく同じ動作を維持したい場合は、`click` イベントに頼らず、tray アイコンに常にコンテキストメニューを適用して下さい。
-
 
 ### `new Tray(image, [guid])`
 

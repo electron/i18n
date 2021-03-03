@@ -1,6 +1,6 @@
 # ProtocolResponse オブジェクト
 
-* `error` Integer (任意) - 代入すると、その `request` は `error` の番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
+* `error` Integer (任意) - 代入すると、その `request` は `error` の番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) を参照してください。
 * `statusCode` Number (任意) - HTTP レスポンスコード。省略値は、200 です。
 * `charset` String (任意) - レスポンスの本文の文字集合。省略値は、`"utf-8"` です。
 * `mimeType` String (任意) - レスポンスの本文の MIME タイプ。省略値は、`"text/html"` です。 `mimeType` を設定すると、レスポンスで暗黙的に `content-type` ヘッダーが設定されますが、`content-type` が既に `headers` で設定されている場合、`mimeType` は無視されます。
@@ -11,4 +11,4 @@
 * `referrer` String (任意) - `referrer` の URL。 これはファイルと URL のレスポンスにのみ使用されます。
 * `method` String (任意) - HTTP の `method`。 これはファイルと URL のレスポンスにのみ使用されます。
 * `session` Session (任意) - URL のリクエストに使用されるセッション。省略すると、HTTP リクエストには現在のセッションを再利用します。 `session` を `null` に設定すると、ランダムな独立したセッションが使用されます。 これは URL レスポンスにのみ使用されます。
-* `uploadData` ProtocolResponseUploadData (任意) - アップロードに使われるデータ。 これは、`method` が `"POST"` の場合の URL レスポンスにのみ使用されます。
+* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (任意) - アップロードデータとして使用されるデータ。 これは、`method` が `"POST"` の場合の URL レスポンスにのみ使用されます。
