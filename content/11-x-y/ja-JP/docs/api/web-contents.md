@@ -1697,7 +1697,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.id` _読み出し専用_
 
-この WebContents の一意のIDを表す `Integer`。 Each ID is unique among all `WebContents` instances of the entire Electron application.
+この WebContents の一意のIDを表す `Integer`。 各 ID は、この Electron アプリケーション全体のすべての `WebContents` インスタンス間で一意です。
 
 #### `contents.session` _読み出し専用_
 

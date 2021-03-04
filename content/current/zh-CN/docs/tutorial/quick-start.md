@@ -239,7 +239,7 @@ Electron 包含三个核心：
 
 ##### Electron API
 
-Electron API 是根据流程类型分配的。这意味着某些模块可以在主进程或渲染进程中使用，有些模块两者中皆可使用。 Electron 的 API 文档指明了每个模块可以使用的进程。
+Electron API 是根据进程类型分配的。这意味着某些模块可以在主进程或渲染进程中使用，有些模块两者中皆可使用。 Electron 的 API 文档注明了各个模块可以分别用在哪个进程中。
 
 例如，需要同时在两个进程中访问 Electron API，require 包含的模块：
 

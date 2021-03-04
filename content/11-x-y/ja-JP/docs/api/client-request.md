@@ -136,13 +136,13 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 * `Content-Length`
 * `ホスト`
-* `Trailer` or `Te`
+* `Trailer` または `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
 * `Transfer-Encoding`
 
-Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+さらに、`Connection` ヘッダを `upgrade` の値に設定することも禁止されています。
 
 #### `request.getHeader(name)`
 

@@ -1213,9 +1213,9 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
-A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+`Boolean` 型で、`true` の場合アプリが [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) 下で動作していることを示します。
 
-You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
 
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
