@@ -49,7 +49,7 @@
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -57,7 +57,7 @@
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用してください。
 
 メソッド呼び出しの結果のようにメインプロセスから応答を一つだけ受け取りたい場合は、[`ipcRenderer.invoke`](#ipcrendererinvokechannel-args) の使用を検討してください。
 
@@ -68,7 +68,7 @@ If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRender
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -90,7 +90,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 })
 ```
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用してください。
 
 メッセージの応答が必要ない場合は、[`ipcRenderer.send`](#ipcrenderersendchannel-args) の使用を検討してください。
 
@@ -101,7 +101,7 @@ If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRender
 
 戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -117,7 +117,7 @@ If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRender
 * `message` any
 * `transfer` MessagePort[] (任意)
 
-Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
+メッセージをメインプロセスに送信し、任意でゼロ個以上の [ `MessagePort`][] オブジェクトの所有権を転送します。
 
 転送した `MessagePort` オブジェクトは、発生したイベントの `ports` プロパティにアクセスすることで、[`MessagePortMain`](messageport-main.md) オブジェクトとしてメインプロセスで利用可能になります。
 
@@ -159,3 +159,4 @@ ipcMain.on('port', (e, msg) => {
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`window.postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[ `MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort

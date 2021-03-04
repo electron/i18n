@@ -476,7 +476,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 システムコンテキストメニューがウィンドウ上でトリガーされたときに発生します。 通常ユーザーがウィンドウのクライアントエリア以外を右クリックしたときにトリガーされます。  これは、フレームレスウィンドウで`-webkit-app-region: drag`と宣言したウィンドウタイトルバーまたは任意の領域です。
 
-Calling `event.preventDefault()` will prevent the menu from being displayed.
+`event.preventDefault()` を呼ぶと、そのメニューは表示されなくなります。
 
 ### 静的メソッド
 

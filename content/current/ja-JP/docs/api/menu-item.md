@@ -92,7 +92,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 これはこのアプリケーションのメニューにのみ使うことを意図しており、macOSアプリのコンテキストメニューで使用される "サービス"サブメニューと同じでは*ありません*。この"サービス"サブメニューはElectronでは実装しません。
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
-* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - このサブメニューは [共有メニュー](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/) です。 The `sharingItem` property must also be set to indicate the item to share.
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 

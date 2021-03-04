@@ -36,7 +36,7 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 * `options` Object
   * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
   * `productName` String (任意) - 省略値は、`app.name` です。
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `companyName` String (任意) _非推奨_ - `{ globalExtra: { _companyName: ... } }` の非推奨な別名です。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。 false の場合、クラッシュレポートは収集されてクラッシュのディレクトリに保存されますが、アップロードされません。 省略値は `true` です。
   * `ignoreSystemCrashHandler` Boolean (任意) - true の場合、メインプロセスで発生したクラッシュをシステムクラッシュハンドラに転送しません。 省略値は、`false` です。
   * `rateLimit` Boolean (任意) _macOS_ _Windows_ - true の場合、アップロードされるクラッシュの数を 1 時間につき 1 つに制限します。 省略値は、`false` です。
@@ -101,7 +101,7 @@ Windows と macOS において、Electron は [crashpad](https://chromium.google
 
 **注:** パラメータはキーと値の長さに制限があります。 キー名の長さは 39 バイト未満、値の長さは 20320 バイト未満でなければなりません。 最大値より長い名前を持つキーは警告を出さずに無視されます。 キーの値が最大長より長ければ切り捨てられます。
 
-**注:** Linux では、127 バイトより長い値は複数のキーに分割され、それぞれの長さが 127 バイトになります。  以下は例です。 `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  クラッシュレポートのバックエンドでは、この形式のキーをつなぎ合わせる必要があります。
+**注:** Linux では、127 バイトより長い値は複数のキーに分割され、それぞれの長さが 127 バイトになります。  以下は例です。 `addExtraParameter('foo', 'a'.repeat(130))` の場合、2 つにチャンク化されたキー `foo__1` と `foo__2` が生成され、1 つ目のキーには最初の 127 バイトが、2 つ目のキーには残りの 3 バイトが含まれます。  クラッシュレポートのバックエンドでは、この形式のキーをつなぎ合わせる必要があります。
 
 ### `crashReporter.removeExtraParameter(key)`
 
