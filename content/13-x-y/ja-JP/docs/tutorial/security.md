@@ -144,7 +144,7 @@ window.readConfig = function () {
 
 Electron は Chromium の [コンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) と同じ技術を使用してこの動作を可能にしています。
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+`nodeIntegration: false` を使用している場合でも、真に強力なアイソレーションを強制し Node プリミティブの使用を防ぐためには、`contextIsolation` も使用 **しなければなりません**。
 
 ### なぜ & 方法を？
 
@@ -529,7 +529,7 @@ const mainWindow = new BrowserWindow({
 ### どうすればいいの？
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // ファイル読み込み機能だけを公開します
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map([['fs', readOnlyFsProxy]])
@@ -574,7 +574,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 古いバージョンの Electron、Chromium、Node.js で構築されたアプリケーションは、最新バージョンのこれらコンポーネントを使用しているアプリケーションよりも容易な標的です。 一般的に、古いバージョンの Chromium と Node.js ではより広いセキュリティ問題とエクスプロイトが適用できます。
 
-Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
+Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 これら研究者の多くは、[脆弱性を責任を持って開示][responsible-disclosure] しています。これは一般に、研究者が問題を公開する前に Chromium と Node.js に問題を修正する時間を与えることを意味します。 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
 
 [browser-window]: ../api/browser-window.md
 

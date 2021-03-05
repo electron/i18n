@@ -82,37 +82,37 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'extension-loaded'
+#### イベント: 'extension-loaded'
 
 戻り値:
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
 
-Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. これは以下のものが含まれます。
+拡張機能が読み込まれた後に発生します。 これは、拡張機能が "有効な" 拡張機能のセットに追加されるたびに発生します。 これは以下のものが含まれます。
 
-* Extensions being loaded from `Session.loadExtension`.
-* Extensions being reloaded:
-  * from a crash.
-  * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
+* `Session.loadExtension` から拡張機能が読み込まれるとき。
+* 拡張機能が再読み込みされるとき。
+  * クラッシュによって。
+  * 拡張機能が要求したことで ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload))。
 
-#### Event: 'extension-unloaded'
-
-戻り値:
-
-* `event` Event
-* `extension` [Extension](structures/extension.md)
-
-Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
-
-#### Event: 'extension-ready'
+#### イベント: 'extension-unloaded'
 
 戻り値:
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
 
-Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
+拡張機能が取り除かれた後に発生します。 これは `Session.removeExtension` が呼ばれたときに発生します。
+
+#### イベント: 'extension-ready'
+
+戻り値:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+拡張機能が読み込まれ、必要なブラウザの状態がすべて初期化され、拡張機能のバックグラウンドページの開始をサポートするようになった後に発生します。
 
 #### イベント: 'preconnect'
 
@@ -160,7 +160,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
-#### Event: 'select-serial-port' _Experimental_
+#### イベント: 'select-serial-port' _実験的_
 
 戻り値:
 
@@ -170,9 +170,9 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 * `callback` Function
   * `portId` String
 
-Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
+`navigator.serial.requestPort` の呼び出し時にシリアルポートを選択する必要がある場合に発生します。 `callback` は選んだ `portId` で呼び出されなければなりません。空の文字列を `callback` に渡すとリクエストがキャンセルされます。  さらに、[ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) を `serial` パーミッションで使用することで `navigator.serial` のパーミッションを管理できます。
 
-Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
+これは実験的な機能であるため、デフォルトでは無効になっています。  この機能を有効にするには、`--enable-features=ElectronSerialChooser` コマンドラインスイッチを使用する必要があります。  加えて、これは実験的な Chromium の機能なので、BrowserWindow を開くとき`webPreferences` プロパティに `enableBlinkFeatures: 'Serial'` を設定する必要があります。
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -202,7 +202,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added' _Experimental_
+#### イベント: 'serial-port-added' _Experimental_
 
 戻り値:
 
@@ -210,9 +210,9 @@ app.whenReady().then(() => {
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
+`navigator.serial.requestPort` が呼び出され新しいシリアルポートが利用可能になった場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは新しい USB デバイスが接続されたときに発生します。
 
-#### Event: 'serial-port-removed' _Experimental_
+#### イベント: 'serial-port-removed' _実験的_
 
 戻り値:
 
@@ -220,7 +220,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
+`navigator.serial.requestPort` が呼び出されシリアルポートが削除された場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは USB デバイスが取り除かれたときに発生します。
 
 ### インスタンスメソッド
 
@@ -252,12 +252,12 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
-    * `direct` In direct mode all connections are created directly, without any proxy involved.
-    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
-    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
-    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
-    * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
+  * `mode` String (任意) - そのプロキシのモードです。 `direct`、`auto_detect`、`pac_script`、`fixed_servers`、`system` のうちの一つであるべきです。 指定しない場合は、他の指定オプションに基づいて自動決定されます。
+    * `direct` direct モードでは、すべての接続はプロキシを介さずに直接作成されます。
+    * `auto_detect` auto_detect モードでは、プロキシの設定は http://wpad/wpad.dat でダウンロードできる PAC スクリプトによって決定されます。
+    * `pac_script` pac_script モードでは、プロキシの設定は `pacScript` で指定された URL から取得される PAC スクリプトによって決定されます。 これは `pacScript` が指定されている場合のデフォルトモードです。
+    * `fixed_servers` fixed_servers モードでは、プロキシの設定を `proxyRules` で指定します。 これは `proxyRules` が指定されている場合のデフォルトモードです。
+    * `system` system モードでは、プロキシ構成をオペレーティングシステムから取得します。 system モードはプロキシ構成を設定しない場合とは異なりますのでご注意ください。 後者の場合、プロキシ設定に影響を与えるコマンドラインオプションがない場合にのみ、 Electron はシステム設定にフォールバックします。
   * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
   * `proxyRules` String (任意) - 使用するプロキシを示すルール。
   * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
@@ -266,9 +266,9 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 プロキシ設定を設定します。
 
-When `mode` is unspecified, `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+`mode` を指定せずに `pacScript` と`proxyRules` をどちらも一緒に指定した場合、`proxyRules` は オプションは無視され `pacScript` の設定が適用されます。
 
-You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
+以前のプロキシでプールされたソケットが将来のリクエストで再利用されるのを防ぐには、現在フライト中の接続を閉じるために `ses.closeAllConnections` が必要でしょう。
 
 `proxyRules` は以下のルールに従う必要があります。
 
@@ -302,7 +302,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    特定のドメインサフィックスのマッチ。
 
-   Examples: ".google.com", ".com", "http://.google.com"
+   例: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
@@ -328,7 +328,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.forceReloadProxyConfig()`
 
-Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
+戻り値 `Promise<void>` - プロキシサービスのすべての内部状態がリセットされたときに解決します。すでに利用可能な場合は最新のプロキシ設定が再適用されます。 プロキシモードが `pac_script` の場合、再び `pacScript` から PAC スクリプトが取得されます。
 
 #### `ses.setDownloadPath(path)`
 
@@ -368,9 +368,9 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.closeAllConnections()`
 
-Returns `Promise<void>` - Resolves when all connections are closed.
+戻り値 `Promise<void>` - すべての接続が閉じられた時に解決されます。
 
-**Note:** It will terminate / fail all requests currently in flight.
+**注:** 現在フライト中のすべてのリクエストが終了/失敗します。
 
 #### `ses.disableNetworkEmulation()`
 
@@ -409,7 +409,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-> **NOTE:** The result of this procedure is cached by the network service.
+> **注意:** このプロシージャの結果は、ネットワークサービスによってキャッシュされます。
 
 #### `ses.setPermissionRequestHandler(handler)`
 
@@ -427,7 +427,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `pointerLock` - 入力方法としてマウスの動きを直接解釈するよう要求する。 詳細は[こちら ](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) をクリックしてください。
     * `fullscreen` - アプリがフルスクリーンモードになるよう要求する。
     * `openExternal` - 外部アプリケーションでリンクを開くように要求する。
-    * `unknown` - An unrecognized permission request
+    * `unknown` - 認識されない認可リクエスト
   * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
@@ -436,7 +436,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
-`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。  Please note that you must also implement `setPermissionCheckHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied.
+`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。  注意として、完全な認可処理にするには `setPermissionCheckHandler` も実装しなければなりません。 ほとんどのウェブ API は権限の確認を行い、確認が拒否されている場合は認可のリクエストを行います。
 
 ```javascript
 const { session } = require('electron')
@@ -452,27 +452,27 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  Cross origin sub frames making permission checks will pass a `null` webContents to this handler.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
-  * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
+  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  権限を確認しているのがクロスオリジンのサブフレームの場合、このハンドラには `null` の webContents が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
+  * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
-    * `embeddingOrigin` String (optional) - The origin of the frame embedding the frame that made the permission check.  Only set for cross-origin sub frames making permission checks.
-    * `securityOrigin` String (optional) - The security origin of the `media` check.
-    * `mediaType` String (optional) - The type of media access being requested, can be `video`, `audio` or `unknown`
-    * `requestingUrl` String (optional) - The last URL the requesting frame loaded.  This is not provided for cross-origin sub frames making permission checks.
+    * `embeddingOrigin` String (任意) - 権限の確認をしたフレームのオリジン。  権限の確認を行うクロスオリジンのサブフレームでのみ設定されます。
+    * `securityOrigin` String (任意) - `media` の確認でのセキュリティオリジン。
+    * `mediaType` String (任意) - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
+    * `requestingUrl` String (任意) - リクエストしているフレームが読み込んだ最後の URL.  権限の確認を行うクロスオリジンのサブフレームでは提供されません。
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
-`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。  Please note that you must also implement `setPermissionRequestHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied. ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
+`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。  注意として、完全な認可処理にするには `setPermissionRequestHandler` も実装しなければなりません。 ほとんどのウェブ API は権限の確認を行い、確認が拒否されている場合は認可のリクエストを行います。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
 
 ```javascript
 const { session } = require('electron')
 const url = require('url')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'some-host' && permission === 'notifications') {
-    return true // granted
+    return true // 認可
   }
 
-  return false // denied
+  return false // 拒否
 })
 ```
 
@@ -520,11 +520,11 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setSSLConfig(config)`
 
 * `config` Object
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
-  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
-  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
+  * `minVersion` String (任意) - `tls1`、`tls1.1`、`tls1.2`、`tls1.3` のいずれかにできます。 これはリモートサーバーに接続する際に許可する最小の SSL バージョンです。 省略値は `tls1` です。
+  * `maxVersion` String (任意) - `tls1.2` か `tls1.3` にできます。 これはリモートサーバーに接続する際に許可する最大の SSL バージョンです。 省略値は `tls1.3` です。
+  * `disabledCipherSuites` Integer[] (任意) - ネット組み込みポリシーで無効化されたものに加えて、使用を禁止すべき暗号スートを明示したリスト。 0xAABB のようなリテラルの形式をサポートしています。ここで AA は `cipher_suite[0]` であり、BB は `cipher_suite[1]` です。これは RFC 2246 のセクション 7.4.1.2 で定義されています。 識別不可かつパース可能な暗号スートの形式であっても、エラーは返しません。 例: TLS_RSA_WITH_RC4_128_MD5 を無効にするには、0x0004 を指定し、TLS_ECDSA_WITH_RC4_128_SHA を無効にするには 0xC002 を指定します。 注意として、TLSv1.3 の暗号化方式はこの仕組みで無効にできません。
 
-Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
+セッションの SSL 構成を設定します。 それ以降のネットワークリクエストではすべて新しい構成を使用します。 既存のネットワーク接続 (WebSocket 接続など) は終了しませんが、プール内の古いソケットは新しい接続に再利用されません。
 
 #### `ses.getBlobData(identifier)`
 
@@ -572,11 +572,11 @@ Sets the SSL configuration for the session. All subsequent network requests will
 
 * `enable` Boolean
 
-Sets whether to enable the builtin spell checker.
+組み込みスペルチェッカーを有効にするかどうかを設定します。
 
 #### `ses.isSpellCheckerEnabled()`
 
-Returns `Boolean` - Whether the builtin spell checker is enabled.
+戻り値 `Boolean` - 組み込みスペルチェッカーが有効化されているかどうか。
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
@@ -584,13 +584,13 @@ Returns `Boolean` - Whether the builtin spell checker is enabled.
 
 組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
+**注:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
 戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。  このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。  この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。  この設定は再起動後も持続します。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  この API は、macOS では何もしません。
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
@@ -600,7 +600,7 @@ Returns `Boolean` - Whether the builtin spell checker is enabled.
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
+**注:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
@@ -685,11 +685,11 @@ app.on('ready', async () => {
 
 #### `ses.availableSpellCheckerLanguages` _読み出し専用_
 
-この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanguages` API に提供すると、エラーが発生します。
 
 #### `ses.spellCheckerEnabled`
 
-A `Boolean` indicating whether builtin spell checker is enabled.
+`Boolean` 型で、組み込みスペルチェッカーが有効かどうかを示します。
 
 #### `ses.cookies` _読み出し専用_
 

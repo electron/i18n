@@ -192,7 +192,7 @@ session
 
 _Electron のデフォルトを推奨しています_
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
+レンダラープロセス ([`BrowserWindow`][browser-window]、[`BrowserView`][browser-view]、[`<webview>`][webview-tag]) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
 
 製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _Electron のデフォルトを推奨しています_
 
-[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. そうでなければ、`<webview>` は新しいウインドウを作成できません。
+[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindow`][browser-window] を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
+ポップアップが必要ない場合は、デフォルトで新しい [`BrowserWindow`][browser-window] の作成を許可しないようにしたほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
 
 ### どうすればいいの？
 
@@ -569,10 +569,7 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 古いバージョンの Electron、Chromium、Node.js で構築されたアプリケーションは、最新バージョンのこれらコンポーネントを使用しているアプリケーションよりも容易な標的です。 一般的に、古いバージョンの Chromium と Node.js ではより広いセキュリティ問題とエクスプロイトが適用できます。
 
-Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
-
-
-[browser-window]: ../api/browser-window.md
+Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 これら研究者の多くは、[脆弱性を責任を持って開示][responsible-disclosure] しています。これは一般に、研究者が問題を公開する前に Chromium と Node.js に問題を修正する時間を与えることを意味します。 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
 
 
 [browser-window]: ../api/browser-window.md

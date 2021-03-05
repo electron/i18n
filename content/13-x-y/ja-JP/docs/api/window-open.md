@@ -1,17 +1,17 @@
-# Opening windows from the renderer
+# レンダラーからウインドウを開く
 
-There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
+レンダラー内での信頼されたもしくは信頼されていないコンテンツからのウインドウ作成を制御する方法がいくつかあります。 ウインドウはレンダラーから以下の 2 つの方法で作成できます。
 
-* clicking on links or submitting forms adorned with `target=_blank`
-* JavaScript calling `window.open()`
+* `target=_blank` が付加された、リンクのクリックやフォームの送信
+* JavaScript での `window.open()` 呼び出し
 
-In non-sandboxed renderers, or when `nativeWindowOpen` is false (the default), this results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
+サンドボックス化されていないレンダラーや `nativeWindowOpen` が false (既定値) の場合、[`BrowserWindowProxy`](browser-window-proxy.md) という `BrowserWindow` の軽いラッパーが作成されます。
 
-However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `Window` instance is created, as you'd expect in the browser. For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent.
+しかし、`sandbox` (または `nativeWindowOpen` に直接) オプションが設定されている場合、ブラウザーで期待されるような `Window` インスタンスが作成されます。 同一オリジンコンテンツの場合、新しいウィンドウは同じプロセス内で作成され、親が子ウィンドウに直接アクセスできるようになります。 これは親ウインドウ内の `div` であるかのようにできるため、設定パネルとして機能するアプリのサブウインドウなどで非常に便利です。
 
-Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
+Electron は、このネイティブの Chrome `Window` と BrowserWindow をペアリングします。 レンダラーで作成されたウインドウに対して `webContents.setWindowOpenHandler()` を使用することで、メインプロセスでの BrowserWindow 作成と同じすべてのカスタマイズを活用できます。
 
-BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
+BrowserWindow コンストラクタのオプションは、親から継承したオプション、`window.open()` の `features` 文字列から解析したオプション、親から継承したセキュリティ関連の webPreferences、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) の順で指定したものが設定されます。 注意として、`webContents.setWindowOpenHandler` はメインプロセスで呼び出されるため、最終的な決定権と完全なアクセス権限があります。
 
 ### `window.open(url[, frameName][, features])`
 
@@ -19,11 +19,11 @@ BrowserWindow constructor options are set by, in increasing precedence order: op
 * `frameName` String (任意)
 * `features` String (任意)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
-`features` is a comma-separated key-value list, following the standard format of the browser. Electron will parse `BrowserWindowConstructorOptions` out of this list where possible, for convenience. For full control and better ergonomics, consider using `webContents.setWindowOpenHandler` to customize the BrowserWindow creation.
+`features` は、ブラウザの標準フォーマットに従ったカンマ区切りのキーバリューリストです。 Electron は便宜上、このリストから `BrowserWindowConstructorOptions` をできるだけ解析します。 完全な制御とより良い人間工学を実現するため、`webContents.setWindowOpenHandler` で BrowserWindow の作成をカスタマイズするようにご検討ください。
 
-A subset of `WebPreferences` can be set directly, unnested, from the features string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, and `webviewTag`.
+`WebPreferences` のうちのいくつかは、次の features 文字列から直接フラットに設定できます。`zoomFactor`、`nodeIntegration`、`preload`、`javascript`、`contextIsolation`、`webviewTag` が設定できます。
 
 例:
 
@@ -36,11 +36,11 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
 * JavaScript は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
+* `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`additionalFeatures` 引数内の登録された `webContents` の `did-create-window` イベントハンドラに渡されます。
 
-To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
+ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 `false` を返すとそのウインドウをキャンセルし、オブジェクトを返すとそのウインドウ作成時に使用する `BrowserWindowConstructorOptions` に返したオブジェクトを設定します。 これは、オプションを features 文字列に渡すよりも強力であることに注意しましょう。 レンダラーがセキュリティ設定を決定する場合は、メインプロセスよりも権限が制限されています。
 
-### `BrowserWindowProxy` example
+### `BrowserWindowProxy` のサンプル
 
 ```javascript
 
@@ -68,7 +68,7 @@ const windowProxy = window.open('https://github.com/', null, 'minimizable=false'
 windowProxy.postMessage('hi', '*')
 ```
 
-### Native `Window` example
+### ネイティブの `Window` のサンプル
 
 ```javascript
 // main.js

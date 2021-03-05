@@ -44,8 +44,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -86,8 +86,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -111,8 +111,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -130,8 +130,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -159,8 +159,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -181,8 +181,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -205,8 +205,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -228,8 +228,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
-    * `webContents` WebContents (optional)
-    * `frame` WebFrameMain (optional)
+    * `webContents` WebContents (任意)
+    * `frame` WebFrameMain (任意)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double

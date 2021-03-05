@@ -124,7 +124,7 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 ## サンプル
 
-An example of creating the application menu with the simple template API:
+以下は簡易テンプレート API でアプリケーションメニューを作成した例です。
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -234,9 +234,9 @@ Menu.setApplicationMenu(menu)
 
 ### レンダープロセス (render process)
 
-To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+レンダラープロセスが起点となってメニューを作成するには、IPC を使用して必要な情報をメインプロセスに送信し、メインプロセスがレンダラーに代わってメニューを表示するようにします。
 
-Below is an example of showing a menu when the user right clicks the page:
+以下は、ユーザーがページを右クリックしたときにメニューを表示する例です。
 
 ```js
 // renderer

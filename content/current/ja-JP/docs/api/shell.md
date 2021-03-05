@@ -45,24 +45,24 @@ shell.openExternal('https://github.com')
 
 指定した外部プロトコルの URL をデスクトップ既定の方法で開きます。 (例えば、mailto: の URL はユーザのデフォルトのメールエージェントになります)。
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _非推奨_
 
 * `fullPath` String
 * `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。 _macOS_
 
 戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+> 注意: このメソッドは非推奨です。 代わりに `shell.trashItem` を使用してください。
 
 指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
 
 ### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
+* `path` String - ゴミ箱へ送るアイテムのパス。
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+戻り値 `Promise<void>` - 操作が完了したときに解決します。 要求されたアイテムの削除中にエラーが発生した場合に拒否します。
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+これにより、パスのものを OS 固有のゴミ箱の場所 (macOS ではゴミ箱、Windows ではごみ箱、Linux ではデスクトップ環境固有の場所) へ移動させます。
 
 ### `shell.beep()`
 

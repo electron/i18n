@@ -105,7 +105,7 @@ browserify バンドルを作成してプリロードスクリプトとして使
 - `timers`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox.
+サンドボックスでより多くの Electron API を公開するために、必要に応じて追加される可能性があります。
 
 ## 信頼できないコンテンツの描画
 

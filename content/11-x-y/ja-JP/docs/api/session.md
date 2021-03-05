@@ -447,13 +447,13 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
+**注:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
 戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。  このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。  この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。  この設定は再起動後も持続します。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。  この API は、macOS では何もしません。
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
@@ -463,7 +463,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
+**注:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 

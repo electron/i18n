@@ -36,13 +36,13 @@
 
 システムスクリーンがアンロックされたときに発行されます。
 
-### Event: 'user-did-become-active' _macOS_
+### イベント: 'user-did-become-active' _macOS_
 
-Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+ログインセッションがアクティブになったときに発生します。 詳細は [ドキュメント](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) をご参照ください。
 
-### Event: 'user-did-resign-active' _macOS_
+### イベント: 'user-did-resign-active' _macOS_
 
-Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+ログインセッションが非アクティブになったときに発生します。 詳細は [ドキュメント](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) をご参照ください。
 
 ## メソッド
 
@@ -64,14 +64,14 @@ Emitted when a login session is deactivated. See [documentation](https://develop
 
 ### `powerMonitor.isOnBatteryPower()`
 
-Returns `Boolean` - Whether the system is on battery power.
+戻り値 `Boolean` - システムがバッテリー電源状態かどうか。
 
-To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+このプロパティの変更を監視するには、`on-battery` および `on-ac` イベントを使用します。
 
 ## プロパティ
 
 ### `powerMonitor.onBatteryPower`
 
-A `Boolean` property. True if the system is on battery power.
+`Boolean` 型のプロパティです。 システムがバッテリー電源状態ならば true です。
 
-See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+[`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower) をご参照ください。

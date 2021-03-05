@@ -47,11 +47,11 @@ shell.openExternal('https://github.com')
 
 ### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
+* `path` String - ゴミ箱へ送るアイテムのパス。
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+戻り値 `Promise<void>` - 操作が完了したときに解決します。 要求されたアイテムの削除中にエラーが発生した場合に拒否します。
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+これにより、パスのものを OS 固有のゴミ箱の場所 (macOS ではゴミ箱、Windows ではごみ箱、Linux ではデスクトップ環境固有の場所) へ移動させます。
 
 ### `shell.beep()`
 

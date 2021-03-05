@@ -26,7 +26,7 @@ Only the stable channel of Chrome is used. إذا كان إصلاح مهم في 
 
 ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], [IndexedDB][indexed-db] といった良い選択肢があります。
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. ウェブページ間で直接通信するには、[`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer) でメインプロセスを経由して一方から他方に [`MessagePort`][message-port] を送ることによってできます。 Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 数分経つとアプリの tray が消失します。
 

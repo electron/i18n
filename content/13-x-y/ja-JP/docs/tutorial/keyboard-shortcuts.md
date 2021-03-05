@@ -8,7 +8,7 @@
 
 ### ローカルショートカット
 
-ローカルキーボードショートカットは、アプリケーションにフォーカスしているときのみトリガーされます。 To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
+ローカルキーボードショートカットは、アプリケーションにフォーカスしているときのみトリガーされます。 ローカルキーボードショートカットを設定するには、[Menu][] モジュール内の [MenuItem][] 作成時に [`accelerator`][] プロパティを指定する必要があります。
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 

@@ -4,11 +4,11 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ WARNING ⚠️ `remote` モジュールは [非推奨](https://github.com/electron/electron/issues/21408) です。 `remote` の代わりに、[`ipcRenderer`](ipc-renderer.md) と [`ipcMain`](ipc-main.md) を使用してください。
 > 
-> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> `remote` モジュールが非推奨になった理由についての詳細は [こちら](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31) をご覧ください。
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+> パフォーマンスやセキュリティ上の懸念があるにもかかわらず `remote` を使用したいのであれば、[@electron/remote](https://github.com/electron/remote) を参照してください。
 
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
@@ -126,7 +126,7 @@ console.log(app)
 
 ### `remote.require`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
+メインプロセスにおける `require(module)` と等価な `NodeJS.Require` 関数です。 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
 
 例
 

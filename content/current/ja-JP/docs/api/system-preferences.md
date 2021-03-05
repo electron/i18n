@@ -324,7 +324,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**非推奨:** 新しい [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用するようにしてください。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -384,7 +384,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 macOS 10.13 High Sierra 以前では、このユーザーの同意は必要なかったので、このメソッドは常に `granted` を返します。 macOS 10.14 Mojave 以降では、`microphone` と `camera` へのアクセスに同意が必要です。 macOS 10.15 Catalina 以降では、`screen` へのアクセスに同意が必要です。
 
-Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
+Windows 10 には、すべての win32 アプリケーションの `microphone` と `camera` へのアクセスを制御するグローバル設定があります。 これは `screen` と古いバージョンの Windows すべてのメディアタイプに対して常に `granted` を返します。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 

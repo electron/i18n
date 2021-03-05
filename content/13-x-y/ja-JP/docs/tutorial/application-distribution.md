@@ -42,7 +42,7 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on Windows, and Electron will start as your app. The `electron` directory will then be your distribution to deliver to users.
+その後、macOS では `Electron.app`、Linux では `electron`、Windows では `electron.exe` を実行すると、Electron がアプリとして起動します。 そして、その `electron` ディレクトリがユーザーに頒布する頒布物となります。
 
 ### アプリソースコードのアーカイブの利用
 

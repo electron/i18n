@@ -12,7 +12,7 @@ __アプリケーションの Dock メニュー:__
 
 ![macOS の Dock メニュー][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
+最近の使った書類にファイルを追加するには、[app.addRecentDocument][addrecentdocument] API を使用する必要があります。
 
 ## サンプル
 
@@ -32,7 +32,7 @@ Electron アプリケーションを起動した後、アプリケーション�
 
 ### 最近使ったドキュメントのリストをクリアする
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
+最近使った書類のリストをクリアするには、以下のように [app.clearRecentDocuments][clearrecentdocuments] API を `main.js` ファイル内で使う必要があります。
 
 ```javascript
 const { app } = require('electron')

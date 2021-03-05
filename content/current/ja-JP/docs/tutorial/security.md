@@ -144,7 +144,7 @@ window.readConfig = function () {
 
 Electron は Chromium の [コンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) と同じ技術を使用してこの動作を可能にしています。
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+`nodeIntegration: false` を使用している場合でも、真に強力なアイソレーションを強制し Node プリミティブの使用を防ぐためには、`contextIsolation` も使用 **しなければなりません**。
 
 ### なぜ & 方法を？
 

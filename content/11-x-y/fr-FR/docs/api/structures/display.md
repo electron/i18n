@@ -1,6 +1,6 @@
-# Objet Display
+# Objet d'Affichage
 
-* `id` Number - Identificateur unique associé à l'affichage.
+* `id` Nombre - Identifiant unique associé à l'affichage.
 * `rotation` Number - Peut être 0, 90, 180, 270, représente la rotation de l'écran en degrés dans le sens horaire.
 * `scaleFactor` Number - Facteur d'échelle en pixel du périphérique de sortie.
 * `touchSupport` String - Peut être `available`, `unavailable`, `unknown`.

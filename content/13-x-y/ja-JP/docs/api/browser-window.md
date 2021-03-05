@@ -161,12 +161,12 @@ child.once('ready-to-show', () => {
     * `default` - 標準の灰色不透明なMacのタイトルバーになります。
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
-    * `customButtonsOnHover` - Results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **注:** 現在、これは実験的な機能です。
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
-  * `roundedCorners` Boolean (optional) - Whether frameless window should have rounded corners on macOS. 省略値は `true` です。
-  * `fullscreenWindowTitle` Boolean (optional) _Deprecated_ - Shows the title in the title bar in full screen mode on macOS for `hiddenInset` titleBarStyle. 省略値は、`false` です。
+    * `customButtonsOnHover` - タイトルバーが非表示になり、フルサイズコンテンツのウインドウが表示されます。ウィンドウの左上にカーソルを置くと信号機ボタンが表示されるようになります。  **注:** 現在、これは実験的な機能です。
+  * `trafficLightPosition` [Point](structures/point.md) (任意) - フレームレスウインドウにおける信号機ボタンのカスタム位置を設定します。
+  * `roundedCorners` Boolean (任意) - macOS でのフレームレスウインドウが丸角であるべきかどうか。 省略値は `true` です。
+  * `fullscreenWindowTitle` Boolean (任意) _非推奨_ - macOSで titleBarStyle が `hiddenInset` のフルスクリーンモードでタイトルバーにタイトルを表示するかどうか。 省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
-  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。  曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` are deprecated and have been removed in macOS Catalina (10.15).
+  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。  曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light`、`ultra-dark` は非推奨になっており、macOS Catalina (10.15) で削除されました。
   * `zoomToPageWidth` Boolean (任意) - macOS で、option キーを押しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は、`false` です。
   * `tabbingIdentifier` String (任意) - タブのグループ名で、macOS 10.12以上の場合、ネイティブのタブとしてウインドウを開くことができます。 同一のタブ識別子を持つウインドウは、一緒にグループ化されます。 これはネイティブのタブボタンをウインドウのタブバーに追加し、`app` とウインドウが `new-window-for-tab` イベントを受け取ることができるようになります。
   * `webPreferences` Object (任意) - ウェブページの機能の設定です。
@@ -205,7 +205,7 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト][chrome-content-scripts] のものと同じ技術を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
     * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。  省略値は `false` です。 Electron 12 から、省略値は `true` に変更されます。 _非推奨_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
@@ -219,12 +219,12 @@ child.once('ready-to-show', () => {
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
     * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
     * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
-      * `none` - Disables code caching
-      * `code` - Heuristic based code caching
-      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
-      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
-    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. 省略値は、`false` です。
+    * `v8CacheOptions` String (任意) - blink が使用する v8 コードキャッシュポリシーを強制します。 以下は取りうる値です。
+      * `none` - コードキャッシュ無効化
+      * `code` - ヒューリスティックベースのコードキャッシュ
+      * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
+      * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
+    * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は、`false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -817,7 +817,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+戻り値 `Boolean` - そのウインドウが有効かどうか。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -1102,7 +1102,7 @@ Windows 10 ユーザーは [PC をタブレットとして使用できる](https
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTP リファラの URL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
   * `baseURLForDataURL` String (任意) - データ URL によってロードされたファイルの (最後のパス区切り文字を含む) ベース URL。 これは指定された `url` がデータ URL で、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
@@ -1302,8 +1302,8 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `visible` Boolean
 * `options` Object (任意)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows.
-  * `skipTransformProcessType` Boolean (optional) _macOS_ - Calling setVisibleOnAllWorkspaces will by default transform the process type between UIElementApplication and ForegroundApplication to ensure the correct behavior. However, this will hide the window and dock for a short time every time it is called. If your window is already of type UIElementApplication, you can bypass this transformation by passing true to skipTransformProcessType.
+  * `visibleOnFullScreen` Boolean (任意) _macOS_ - ウインドウをフルスクリーンウィンドウの上で表示するかどうかを設定します。
+  * `skipTransformProcessType` Boolean (任意) _macOS_ - setVisibleOnAllWorkspaces を呼ぶと、デフォルトでは UIElementApplication と ForegroundApplication の間でプロセスタイプが変換され、正しい動作を保証します。 しかし、これでは呼び出されるたびに短時間だけウインドウが非表示になり、Dock も非表示になってしまいます。 ウインドウが既に UIElementApplication 型である場合、skipTransformProcessType に true を渡すことでこの変換をバイパスできます。
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1399,11 +1399,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons in frameless window.
+フレームレスウインドウにおける信号機ボタンのカスタム位置を設定します。
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The custom position for the traffic light buttons in frameless window.
+戻り値 `Point` - フレームレスウインドウにおける現在の信号機ボタンの位置。
 
 #### `win.setTouchBar(touchBar)` _macOS_
 

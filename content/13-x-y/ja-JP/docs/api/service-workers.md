@@ -44,15 +44,15 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 サービスワーカーがコンソールに何かをロギングしたときに発生します。
 
-#### Event: 'registration-completed'
+#### イベント: 'registration-completed'
 
 戻り値:
 
 * `event` Event
-* `details` Object - Information about the registered service worker
-  * `scope` String - The base URL that a service worker is registered for
+* `details` Object - 登録されているサービスワーカーに関する情報
+  * `scope` String - サービスワーカーが登録している基底 URL
 
-Emitted when a service worker has been registered. Can occur after a call to [`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) successfully resolves or when a Chrome extension is loaded.
+サービスワーカーが登録されてたときに発生します。 [`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) の呼び出しが成功した後や、Chrome 拡張機能が読み込まれた後に発生することがあります。
 
 ### インスタンスメソッド
 
