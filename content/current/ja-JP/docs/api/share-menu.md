@@ -1,22 +1,22 @@
-## Class: ShareMenu
+## クラス: ShareMenu
 
-> Create share menu on macOS.
+> macOS での共有メニューを作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
+`ShareMenu` クラスは、macOS 上で [共有メニュー][share-menu] を作成し、現在のコンテキストからアプリやソーシャルメディアアカウント、その他のサービスに情報を共有するために使用できます。
 
-For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
+他のメニューのサブメニューとして共有メニューを含めるには、[`MenuItem`](menu-item.md) の `shareMenu` ロールを使用してください。
 
 ### `new ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem - The item to share.
+* `sharingItem` SharingItem - 共有するアイテム。
 
-Creates a new share menu.
+新しい共有メニューを作成します。
 
 ### インスタンスメソッド
 
-The `shareMenu` object has the following instance methods:
+`shareMenu` オブジェクトには以下のメソッドがあります。
 
 #### `shareMenu.popup([options])`
 

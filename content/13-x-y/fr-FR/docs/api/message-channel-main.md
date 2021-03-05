@@ -2,7 +2,7 @@
 
 `MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+Pour plus d'informations sur l'utilisation de la messagerie de canal, consultez la documentation de [Channel Messaging API][].
 
 ## Class: MessageChannelMain
 

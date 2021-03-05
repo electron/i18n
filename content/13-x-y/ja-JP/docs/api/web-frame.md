@@ -141,7 +141,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
+スクリプトの実行そのものが失敗した場合、返された Promise 拒否されず `result` は `undefined` になることに注意してください。 これは、Chromium が隔離されたワールドから外のワールドへエラーを転送しないためです。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
@@ -213,15 +213,15 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.isWordMisspelled(word)`
 
-* `word` String - The word to be spellchecked.
+* `word` String - スペルチェックされる単語。
 
-Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+戻り値 `Boolean` - 組み込みスペルチェッカーでスペルミスを検知した場合は true、そうでない場合は false です。 辞書が読み込まれていない場合は、常に false を返します。
 
 ### `webFrame.getWordSuggestions(word)`
 
-* `word` String - The misspelled word.
+* `word` String - スペルミスのある単語。
 
-Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
+戻り値 `String[]` - 指定の単語に対する候補のリスト。 単語のスペルが正しければ、結果は空です。
 
 ## プロパティ
 

@@ -12,16 +12,16 @@
   * `method` String (任意) - HTTP リクエストのメソッド。 既定では GET メソッドです。
   * `url` String (任意) - リクエスト URL 。 http または https のプロトコルスキームを含む絶対形式である必要があります。
   * `session` Session (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
-  * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 The `session` option supersedes `partition`. そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。 If `credentials` is specified, this option has no effect. 省略値は、`false` です。
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. 既定値は 'http:' です。
+  * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは `partition` を上書きします。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
+  * `credentials` String (任意) - `include` か `omit` にできます。 このリクエストと一緒に [資格情報](https://fetch.spec.whatwg.org/#credentials) を送信するかどうか。 `include` に設定した場合、リクエストに関連付けられたセッションからの資格情報が使用されます。 `omit` に設定した場合、資格情報はリクエストと一緒に送信されません (そして 401 の場合に `'login'` イベントが発生しません)。 これは、同名の [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) オプションの動作と同じです。 このオプションを指定しない場合、セッションからの認証データは送信され、(`useSessionCookies` を設定しない限り) Cookie は送信されません。
+  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。 `credentials` を指定した場合、このオプションの効果はありません。 省略値は、`false` です。
+  * `protocol` String (任意) - `http:` か `https:` にできます。 これは 'scheme:' という形式のプロトコルスキームです。 既定値は 'http:' です。
   * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
   * `hostname` String (任意) - サーバーホスト名。
   * `port` Integer (任意) - サーバーのリスニングポート番号。
   * `path` String (任意) - リクエストURLのパスの部分。
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  省略値は、`follow` です。
-  * `origin` String (optional) - The origin URL of the request.
+  * `redirect` String (任意) - `follow`、`error`、`manual` のいずれかにできます。 これはこのリクエストのリダイレクトモードです。 モードが `error` のとき、リダイレクトは中止されます。 モードが `manual` のときは、[`request.followRedirect`](#requestfollowredirect) が呼び出されるまで [`redirect`](#event-redirect) イベントは同期的に中止されます。  省略値は、`follow` です。
+  * `origin` String (任意) - リクエストのオリジン URL。
 
 `protocol`、`host`、`hostname`、`port` や `path` といった `options` プロパティは、[URL](https://nodejs.org/api/url.html) モジュールで説明されている Node.js モデルに厳密に従うようにしてください。
 

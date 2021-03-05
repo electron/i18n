@@ -221,11 +221,11 @@ child.once('ready-to-show', () => {
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
     * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。 省略値は `true` です。
     * `enableWebSQL` Boolean (任意) - [WebSQL API](https://www.w3.org/TR/webdatabase/) を有効にするかどうか。 省略値は `true` です。
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
-      * `none` - Disables code caching
-      * `code` - Heuristic based code caching
-      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
-      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
+    * `v8CacheOptions` String (任意) - blink が使用する v8 コードキャッシュポリシーを強制します。 以下は取りうる値です。
+      * `none` - コードキャッシュ無効化
+      * `code` - ヒューリスティックベースのコードキャッシュ
+      * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
+      * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -869,7 +869,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+戻り値 `Boolean` - そのウインドウが有効かどうか。
 
 #### `win.setSize(width, height[, animate])`
 

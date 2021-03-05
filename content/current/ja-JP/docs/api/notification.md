@@ -29,9 +29,9 @@
 ### `new Notification([options])`
 
 * `options` Object (任意)
-  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String (任意) - 通知ウィンドウの上部に表示される通知のタイトル.
   * `subtitle` String (任意) _macOS_ - タイトルの下に表示される、通知のサブタイトル。
-  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` String (任意) - タイトルやサブタイトルの下に表示さる、通知の本文。
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
   * `hasReply` Boolean (任意) _macOS_ - 通知に埋め込み返信オプションを追加するかどうか。
@@ -41,7 +41,7 @@
   * `urgency` String (任意) _Linux_ - 通知の緊急度レベル。 'normal'、'critical'、'low' のいずれかにできます。
   * `actions` [NotificationAction[]](structures/notification-action.md) (任意) _macOS_ - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
   * `closeButtonText` String (任意) _macOS_ - 通知を閉じるボタンのカスタムタイトル。 空の文字列の場合は、既定のローカライズされたテキストが使用されます。
-  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
+  * `toastXml` String (任意) _Windows_ - Windows 通知のカスタム記述は、上記のプロパティすべてを上書きします。 これは通知のデザインと動作の完全なカスタマイズを提供します。
 
 ### インスタンスイベント
 
@@ -91,14 +91,14 @@
 * `event` Event
 * `index` Number - アクティベートされたアクションのインデックス.
 
-#### Event: 'failed' _Windows_
+#### イベント: 'failed' _Windows_
 
 戻り値:
 
 * `event` Event
-* `error` String - The error encountered during execution of the `show()` method.
+* `error` String - `show()` メソッドの実行中に発生したエラー。
 
-Emitted when an error is encountered while creating and showing the native notification.
+ネイティブ通知の作成および表示でエラーに遭遇した場合に発生します。
 
 ### インスタンスメソッド
 
@@ -166,7 +166,7 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 
 #### `notification.toastXml` _Windows_
 
-A `String` property representing the custom Toast XML of the notification.
+`String` 型のプロパティで、通知のカスタム Toast XML を表します。
 
 ### サウンドの再生
 

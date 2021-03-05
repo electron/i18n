@@ -98,7 +98,7 @@ contextBridge.exposeInMainWorld(
 | `Promise`                                                                                            | 複雑  | ✅      | ✅       | Promise は、戻り値や実引数である場合にのみプロキシされます。  配列やオブジェクトにネストされた Promise は削除されます。                                                |
 | `Function`                                                                                           | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  クラスまたはコンストラクターを送信しても動作しません。                                                                       |
 | [複製可能型](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 単純  | ✅      | ✅       | 複製可能型に関してはリンクのドキュメントを参照してください                                                                                        |
-| `Element`                                                                                            | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  Sending custom elements will not work.                                                            |
+| `Element`                                                                                            | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  カスタム要素の送信は動作しません。                                                                                 |
 | `Symbol`                                                                                             | なし  | ❌      | ❌       | Symbol はコンテキスト間でコピーできないため、削除されます                                                                                     |
 
 関心のある型が上記の表にない場合、それはおそらくサポートされていません。

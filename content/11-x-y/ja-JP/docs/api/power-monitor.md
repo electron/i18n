@@ -8,19 +8,19 @@
 
 `powerMonitor` モジュールでは以下のイベントが発生します。
 
-### Event: 'suspend' _macOS_ _Windows_
+### イベント: 'suspend' _macOS_ _Windows_
 
 システムがサスペンドするときに発生します。
 
-### Event: 'resume' _macOS_ _Windows_
+### イベント: 'resume' _macOS_ _Windows_
 
 システムが再開するときに発生します。
 
-### Event: 'on-ac' _macOS_ _Windows_
+### イベント: 'on-ac' _macOS_ _Windows_
 
 システムが AC 電源に切り替わったときに発生します。
 
-### Event: 'on-battery' _macOS_  _Windows_
+### イベント: 'on-battery' _macOS_  _Windows_
 
 システムがバッテリー電源に切り替わったときに発生します。
 

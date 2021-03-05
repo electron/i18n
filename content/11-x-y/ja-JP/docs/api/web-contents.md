@@ -360,7 +360,7 @@ Webページが応答しなくなるときに発生します。
   * `key` String - [KeyboardEvent.key][keyboardevent] と同等。
   * `code` String - [KeyboardEvent.code][keyboardevent] と同等。
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat][keyboardevent] と同等。
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `isComposing` Boolean - [KeyboardEvent.isComposing][keyboardevent] と等価です。
   * `shift` Boolean - [KeyboardEvent.shiftKey][keyboardevent] と同等。
   * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と同等。
   * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と同等。
@@ -888,7 +888,7 @@ win.loadURL('http://github.com').then(() => {
 
 この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
 
-メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 これは、このプロセスが不安定または使用不可の場合、例えば `unresponsive` イベントから回復する際に使用されるべきです。
 
 ```js
 contents.on('unresponsive', async () => {
@@ -1143,7 +1143,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1194,7 +1194,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
+カスタムの `pageSize` を渡すと、Chromium は `width_microns` と `height_microns` それぞれのプラットフォーム固有の最小値を検証しようとします。 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1427,7 +1427,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1468,7 +1468,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 

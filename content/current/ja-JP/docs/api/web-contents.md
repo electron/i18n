@@ -125,7 +125,7 @@ console.log(webContents)
 
 ページがファビコンの URL を受け取ると発行されます。
 
-#### Event: 'new-window' _Deprecated_
+#### イベント: 'new-window' _非推奨_
 
 戻り値:
 
@@ -138,7 +138,7 @@ console.log(webContents)
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
-Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+これは [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) に代わって非推奨となりました。
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -170,22 +170,22 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
-#### Event: 'did-create-window'
+#### イベント: 'did-create-window'
 
 戻り値:
 * `window` BrowserWindow
 * `details` Object
-    * `url` String - URL for the created window.
-    * `frameName` String - Name given to the created window in the `window.open()` call.
-    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
-    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 May or may not result in the `Referer` header being sent, depending on the referrer policy.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. 送信する POST データが無い場合、値は `null` になります。 Only defined when the window is being created by a form that set `target=_blank`.
-    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+    * `url` String - 作成したウインドウの URL。
+    * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
+    * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
+    * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
+    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
+    * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+    * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
 
-Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+レンダラーで `window.open` を使用したウィンドウの作成に成功した _後_ に発生します。 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) からウインドウの作成がキャンセルされた場合には発生しません。
 
-See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+詳細や `webContents.setWindowOpenHandler` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 
 #### イベント: 'will-navigate'
 
@@ -213,7 +213,7 @@ See [`window.open()`](window-open.md) for more details and how to use this in co
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレーム (メインを含む) がナビゲーションを始めているときに発生します。 `isInPlace` will be `true` for in-page navigations.
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInPlace` が `true` になります。
 
 #### イベント: 'will-redirect'
 
@@ -330,23 +330,23 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
   * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
   * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
-renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -756,16 +756,16 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'preferred-size-changed'
+#### イベント: 'preferred-size-changed'
 
 戻り値:
 
 * `event` Event
-* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+* `preferredSize` [Size](structures/size.md) - スクロールなしでドキュメントのレイアウトを格納するのに必要な最小サイズ。
 
-Emitted when the `WebContents` preferred size has changed.
+`WebContents` の優先サイズが変更された場合に発生します。
 
-This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+このイベントは、`webPreferences` で `enablePreferredSizeMode` が `true` に設定されている場合にのみ発生します。
 
 ### インスタンスメソッド
 
@@ -776,7 +776,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -920,7 +920,7 @@ win.loadURL('http://github.com').then(() => {
 
 この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
 
-メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 これは、このプロセスが不安定または使用不可の場合、例えば `unresponsive` イベントから回復する際に使用されるべきです。
 
 ```js
 contents.on('unresponsive', async () => {
@@ -1184,7 +1184,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1235,7 +1235,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
+カスタムの `pageSize` を渡すと、Chromium は `width_microns` と `height_microns` それぞれのプラットフォーム固有の最小値を検証しようとします。 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 

@@ -125,7 +125,7 @@ console.log(webContents)
 
 ページがファビコンの URL を受け取ると発行されます。
 
-#### Event: 'new-window' _Deprecated_
+#### イベント: 'new-window' _非推奨_
 
 戻り値:
 
@@ -138,7 +138,7 @@ console.log(webContents)
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
-Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+これは [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) に代わって非推奨となりました。
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -170,23 +170,23 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
-#### Event: 'did-create-window'
+#### イベント: 'did-create-window'
 
 戻り値:
 
 * `window` BrowserWindow
 * `details` Object
-  * `url` String - URL for the created window.
-  * `frameName` String - Name given to the created window in the `window.open()` call.
-  * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
-  * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-  * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 May or may not result in the `Referer` header being sent, depending on the referrer policy.
-  * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. 送信する POST データが無い場合、値は `null` になります。 Only defined when the window is being created by a form that set `target=_blank`.
-  * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+  * `url` String - 作成したウインドウの URL。
+  * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
+  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
+  * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
+  * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
+  * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+  * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
 
-Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+レンダラーで `window.open` を使用したウィンドウの作成に成功した _後_ に発生します。 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) からウインドウの作成がキャンセルされた場合には発生しません。
 
-See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+詳細や `webContents.setWindowOpenHandler` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 
 #### イベント: 'will-navigate'
 
@@ -214,7 +214,7 @@ See [`window.open()`](window-open.md) for more details and how to use this in co
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレーム (メインを含む) がナビゲーションを始めているときに発生します。 `isInPlace` will be `true` for in-page navigations.
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInPlace` が `true` になります。
 
 #### イベント: 'will-redirect'
 
@@ -331,23 +331,23 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
   * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
   * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
-renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -381,7 +381,7 @@ Webページが応答しなくなるときに発生します。
   * `key` String - [KeyboardEvent.key][keyboardevent] と同等。
   * `code` String - [KeyboardEvent.code][keyboardevent] と同等。
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat][keyboardevent] と同等。
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `isComposing` Boolean - [KeyboardEvent.isComposing][keyboardevent] と等価です。
   * `shift` Boolean - [KeyboardEvent.shiftKey][keyboardevent] と同等。
   * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と同等。
   * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と同等。
@@ -558,18 +558,18 @@ win.webContents.on('before-input-event', (event, input) => {
   * `hasImageContents` Boolean - 空でないコンテンツ画像の上でコンテキストメニューが呼び出されたかどうか。
   * `isEditable` Boolean - コンテキストが編集可能かどうか。
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
-  * `titleText` String - Title text of the selection that the context menu was invoked on.
-  * `altText` String - Alt text of the selection that the context menu was invoked on.
-  * `suggestedFilename` String - Suggested filename to be used when saving file through 'Save Link As' option of context menu.
-  * `selectionRect` [Rectangle](structures/rectangle.md) - Rect representing the coordinates in the document space of the selection.
-  * `selectionStartOffset` Number - Start position of the selection text.
-  * `referrerPolicy` [Referrer](structures/referrer.md) - The referrer policy of the frame on which the menu is invoked.
+  * `titleText` String - コンテキストメニューが呼び出された選択範囲のタイトルテキスト。
+  * `altText` String - コンテキストメニューが呼び出された選択範囲の代替テキスト。
+  * `suggestedFilename` String - コンテキストメニューの 'リンク先を名前を付けて保存' オプションでファイルを保存する際に使用されるファイル名の候補。
+  * `selectionRect` [Rectangle](structures/rectangle.md) - 選択範囲の document 空間における座標を表す矩形。
+  * `selectionStartOffset` Number - 選択テキストの開始位置。
+  * `referrerPolicy` [Referrer](structures/referrer.md) - メニューが呼び出されるフレームのリファラポリシー。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
   * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。  単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
-  * `spellcheckEnabled` Boolean - If the context is editable, whether or not spellchecking is enabled.
-  * `menuSourceType` String - コンテキストメニューを呼び出した入力ソース。 Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`, `longPress`, `longTap`, `touchHandle`, `stylus`, `adjustSelection`, or `adjustSelectionReset`.
+  * `spellcheckEnabled` Boolean - そのコンテキストが編集可能な場合に、スペルチェックが有効かどうか。
+  * `menuSourceType` String - コンテキストメニューを呼び出した入力ソース。 `none`, `mouse`, `keyboard`, `touch`, `touchMenu`, `longPress`, `longTap`, `touchHandle`, `stylus`, `adjustSelection`, `adjustSelectionReset` のいずれかになります。
   * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。
     * `inError` Boolean - メディア要素がクラッシュしたかどうか。
     * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
@@ -578,21 +578,21 @@ win.webContents.on('before-input-event', (event, input) => {
     * `isLooping` Boolean - メディア要素をループしているかどうか。
     * `isControlsVisible` Boolean - メディア要素のコントロールが見えるかどうか。
     * `canToggleControls` Boolean - メディア要素のコントロールがトグル切り替えできるかどうか。
-    * `canPrint` Boolean - Whether the media element can be printed.
-    * `canSave` Boolean - Whether or not the media element can be downloaded.
-    * `canShowPictureInPicture` Boolean - Whether the media element can show picture-in-picture.
-    * `isShowingPictureInPicture` Boolean - Whether the media element is currently showing picture-in-picture.
+    * `canPrint` Boolean - そのメディア要素が印刷できるかどうか。
+    * `canSave` Boolean - そのメディア要素がダウンロードできるかどうか。
+    * `canShowPictureInPicture` Boolean - そのメディア要素がピクチャインピクチャ表示できるかどうか。
+    * `isShowingPictureInPicture` Boolean - そのメディア要素をピクチャインピクチャ表示しているかどうか。
     * `canRotate` Boolean - メディア要素を回転できるかどうか。
-    * `canLoop` Boolean - Whether the media element can be looped.
+    * `canLoop` Boolean - そのメディア要素をループ再生できるかどうか。
   * `editFlags` Object - これらのフラグは、レンダラーが対応するアクションを実行できると信頼しているかどうかを示します。
     * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
     * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
     * `canCut` Boolean - レンダラーが、カットできると信頼しているかどうか。
-    * `canCopy` Boolean - Whether the renderer believes it can copy.
+    * `canCopy` Boolean - レンダラーがコピーできると信頼しているかどうか。
     * `canPaste` Boolean - レンダラーが、ペーストできると信頼しているかどうか。
     * `canDelete` Boolean - レンダラーが、削除できると信頼しているかどうか。
     * `canSelectAll` Boolean - レンダラーが、全選択できると信頼しているかどうか。
-    * `canEditRichly` Boolean - Whether the renderer believes it can edit text richly.
+    * `canEditRichly` Boolean - レンダラーがテキストをリッチ編集できると信頼しているかどうか。
 
 処理が必要な新しいコンテキストメニューがあるときに発行されます。
 
@@ -769,16 +769,16 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'preferred-size-changed'
+#### イベント: 'preferred-size-changed'
 
 戻り値:
 
 * `event` Event
-* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+* `preferredSize` [Size](structures/size.md) - スクロールなしでドキュメントのレイアウトを格納するのに必要な最小サイズ。
 
-Emitted when the `WebContents` preferred size has changed.
+`WebContents` の優先サイズが変更された場合に発生します。
 
-This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+このイベントは、`webPreferences` で `enablePreferredSizeMode` が `true` に設定されている場合にのみ発生します。
 
 ### インスタンスメソッド
 
@@ -789,7 +789,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -933,7 +933,7 @@ win.loadURL('http://github.com').then(() => {
 
 この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
 
-メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 これは、このプロセスが不安定または使用不可の場合、例えば `unresponsive` イベントから回復する際に使用されるべきです。
 
 ```js
 contents.on('unresponsive', async () => {
@@ -1198,7 +1198,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1249,7 +1249,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
+カスタムの `pageSize` を渡すと、Chromium は `width_microns` と `height_microns` それぞれのプラットフォーム固有の最小値を検証しようとします。 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1482,7 +1482,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1523,7 +1523,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 

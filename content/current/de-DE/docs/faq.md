@@ -28,7 +28,7 @@ Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste W
 
 Alternativ können Sie auch die von Electron zur Verfügung gestellten IPC-Primitive verwenden. Um Daten zwischen Haupt- und Renderer-Prozessen zu teilen, Sie können die [`ipcMain`](api/ipc-main.md) und [`ipcRenderer`](api/ipc-renderer.md) Module verwenden. Um direkt zwischen den Webseiten zu kommunizieren, können Sie einen [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) von einem zur anderen senden möglicherweise über den Hauptprozess mit [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Nachträgliche Kommunikation über Nachrichten-Ports ist direkt und zieht nicht durch den Hauptprozess um.
 
-## 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 API-Schlüsselstatus: aktiv Dein API-Schlüssel: cdcadfe6a25125e3a1a8e12eae924944 Private key Papier wallet: Kwnd42XQ8c2wQDidNbw7kt9wnjac1GDH4ArnnMk37Bzhw9xkLat4 Revaller: 1D6D 5622 531C B0D4 3268 97DB B172 TXID PUBKEY 0x6694D8DE7BE8EE5631BED9502BD5824B7F9470E6 585636460874565370753570386791880216602985394406 HANDY KEY C:WALLET 0x9f11e2d02668749520.
+## Das Fenster/Icon meiner App verschwindet nach ein paar Minuten.
 
 Dies geschieht, wenn die Variable die das Fenster speichert abgeräumt wird.
 

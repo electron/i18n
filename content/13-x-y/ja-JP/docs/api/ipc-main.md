@@ -104,7 +104,7 @@ async () => {
 
 ハンドラーの最初の引数として渡される `event` は、通常のイベントリスナーに渡されるものと同じです。 どの WebContents が呼び出しリクエスト元であるかに関する情報が含まれています。
 
-Errors thrown through `handle` in the main process are not transparent as they are serialized and only the `message` property from the original error is provided to the renderer process. Please refer to [#24427](https://github.com/electron/electron/issues/24427) for details.
+メインプロセスの `handle` から投げられたエラーはシリアライズされ、元のエラーからの `message` プロパティのみがレンダラープロセスに提供されるため、非透過的です。 詳細は [#24427](https://github.com/electron/electron/issues/24427) をご参照ください。
 
 ### `ipcMain.handleOnce(channel, listener)`
 

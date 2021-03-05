@@ -30,7 +30,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Electron が一度、初期化処理を完了したときに発生します。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
+Electron が一度、初期化処理を完了したときに発生します。 macOS で通知センターから起動された場合、`launchInfo` は、`NSUserNotification` の `userInfo`、またはアプリケーションを開く際に使用された [`UNNotificationResponse`](structures/notification-response.md) からの情報を保持しています。 また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
 
 ### イベント: 'window-all-closed'
 
@@ -321,7 +321,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 **非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-### Event: 'render-process-gone'
+### イベント: 'render-process-gone'
 
 戻り値:
 
@@ -329,16 +329,16 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
   * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
   * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
-renderer processが予期せず消えたときに発生します。  This is normally because it was crashed or killed.
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 ### イベント: 'child-process-gone'
 
@@ -355,18 +355,18 @@ renderer processが予期せず消えたときに発生します。  This is nor
     * `Pepper Plugin Broker`
     * `Unknown`
   * `reason` String - 子プロセスがなくなった理由。 取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
   * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
   * `serviceName` String (任意) - そのプロセスのローカライズされていない名前。
   * `name` String (任意) - そのプロセスの名前。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
-子 processが予期せず消えたときに発生します。 This is normally because it was crashed or killed. レンダラープロセスを含みません。
+子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やキルされた場合は正常です。 レンダラープロセスを含みません。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -522,11 +522,11 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 ### `app.focus([options])`
 
 * `options` Object (任意)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、レシーバをアクティブにします。
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS ではアプリケーションをアクティブなアプリにします。Windows では、アプリケーションの最初のウインドウにフォーカスを当てます。
 
-You should seek to use the `steal` option as sparingly as possible.
+`steal` オプションはできるだけ慎重に使用してください。
 
 ### `app.hide()` _macOS_
 

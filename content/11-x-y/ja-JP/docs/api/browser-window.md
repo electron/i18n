@@ -885,7 +885,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+戻り値 `Boolean` - そのウインドウが有効かどうか。
 
 #### `win.setSize(width, height[, animate])`
 

@@ -1,7 +1,7 @@
-# Objet PostBody
+# Objet PostCorps
 
-* `data` Array<[PostData](./post-data.md)> - Les données post à envoyer à la nouvelle fenêtre.
-* `contentType` String - L'en-tête `content-type` utilisé pour les données. Une des applications `application/x-www-form-urlencoded` ou `multipart/form-data`. Correspond à l'attribut `enctype` du formulaire HTML soumis.
+* `donnees` Fleche[PostData](./post-data.md)> - Les données post à envoyer à la nouvelle fenêtre.
+* `Typecontenu` Fiche - Le titre `typecontenu` utilisé pour les données. Une des applications `application/x-www-form-urlencoded` ou ` forme-donnees multipart/`. Correspond à l'attribut `enctype` du formulaire HTML soumis.
 * `boundary` String (facultatif) - La limite utilisée pour séparer plusieurs parties du message. Uniquement valide lorsque `contentType` est `multipart/form-data`.
 
 Notez que les clés commençant par `--` ne sont pas prises en charge actuellement. Par exemple, cela soumettra erronément comme `multipart/form-data` lorsque `nativeWindowOpen` est défini à `false` dans webPreferences :

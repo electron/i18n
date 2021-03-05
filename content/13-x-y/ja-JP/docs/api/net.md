@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`net` モジュールは HTTP(S) リクエストを発行するクライアントサイド API です。 これは Node.js の [HTTP](https://nodejs.org/api/http.html) および [HTTPS](https://nodejs.org/api/https.html) モジュールに似ていますが、Node.js 実装の代わりに Chromium のネイティブネットワークライブラリを使用し、ウェブプロキシをより効果的にサポートします。 It also supports checking network status.
+`net` モジュールは HTTP(S) リクエストを発行するクライアントサイド API です。 これは Node.js の [HTTP](https://nodejs.org/api/http.html) および [HTTPS](https://nodejs.org/api/https.html) モジュールに似ていますが、Node.js 実装の代わりに Chromium のネイティブネットワークライブラリを使用し、ウェブプロキシをより効果的にサポートします。 また、ネットワーク状況の確認にも対応しています。
 
 以下は、完全に網羅しているわけではありませんが、ネイティブ Node.js モジュールの代わりに `net` モジュールを使用することを検討する理由のリストです。
 
@@ -52,14 +52,14 @@ app.whenReady().then(() => {
 
 ### `net.isOnline()`
 
-Returns `Boolean` - Whether there is currently internet connection.
+戻り値 `Boolean` - 現在インターネットに接続しているかどうか。
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+戻り値が `false` の場合、ユーザーがリモートサイトに接続できないことをかなり強く示しています。 しかし、`true` の戻り値は決定的ではありません。いくつかのリンクが見当たらなくても、特定リモートサイトへの特定の接続試行が成功するかどうかは不確かです。
 
 ## プロパティ
 
 ### `net.online` _読み出し専用_
 
-A `Boolean` property. Whether there is currently internet connection.
+`Boolean` 型のプロパティです。 これは現在インターネットに接続しているかどうかです。
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+戻り値が `false` の場合、ユーザーがリモートサイトに接続できないことをかなり強く示しています。 しかし、`true` の戻り値は決定的ではありません。いくつかのリンクが見当たらなくても、特定リモートサイトへの特定の接続試行が成功するかどうかは不確かです。

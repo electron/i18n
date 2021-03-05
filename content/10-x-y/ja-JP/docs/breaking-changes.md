@@ -31,13 +31,13 @@
 
 ### デフォルトの変更: `crashReporter.start({ compress: true })`
 
-`compress` オプションの `crashReporter.start` のデフォルト値が `false` から `true` に変更されました。 This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+`compress` オプションの `crashReporter.start` のデフォルト値が `false` から `true` に変更されました。 つまり、クラッシュのダンプは `Content-Encoding: gzip` ヘッダで、本文が圧縮されてクラッシュ収集サーバーにアップロードされます。
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+クラッシュ収集サーバーが圧縮形式のペイロードをサポートしていない場合、クラッシュレポーターのオプションで `{ compress: false }` を指定すれば圧縮をオフにできます。
 
 ## 予定されている破壊的なAPIの変更 (11.0)
 
-11.0に予定されている破壊的な変更はありません。
+11.0 で予定されている破壊的な変更はありません。
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
@@ -83,7 +83,7 @@ app.getPath('crashDumps')
 
 ### 非推奨: `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. ほぼ すべてのクラッシュ受信サーバーはgzip圧縮をサポートしています。 This option will be removed in a future version of Electron.
+`crashReporter.start` に `{ compress: false }` を指定することは非推奨です。 ほぼすべてのクラッシュ収集サーバーは gzip 圧縮をサポートしているためです。 このオプションは将来バージョンの Electron で削除されます。
 
 ### 削除: Browser Window の Affinity
 

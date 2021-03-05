@@ -16,7 +16,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### モジュールをインストールしてElectronをリビルド
 
-他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`][electron-rebuild] パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。 If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`][electron-rebuild] パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。 [Electron Forge][electron-forge] を使用している場合、このツールは開発モードでも頒布物の作成でも自動で使用されます。
 
 例えば、スタンドアローンの `electron-rebuild` ツールをインストールして、コマンドラインからモジュールを再ビルドするには、以下のようにします。
 
