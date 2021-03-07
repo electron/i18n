@@ -51,7 +51,7 @@ Las opciones no respaldadas son:
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+El soporte de geolocalización en Electron requiere el uso del servicio web de Google Cloud Platform. Para habilitar esta función, adquiera una [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) y coloque el siguiente código en su archivo de proceso principal, antes de abrir cualquier ventana de buscador que vaya a realizar solicitudes de geolocalización:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
