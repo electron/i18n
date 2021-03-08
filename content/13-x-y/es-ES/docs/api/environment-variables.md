@@ -57,7 +57,7 @@ El soporte de geolocalización en Electron requiere el uso del servicio web de G
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+Por defecto, una clave API de Google recientemente generada podría no tener permitido hacer solicitudes de geolocalización. Para habilitar el servicio web de geolocalización para su proyecto, habilítelo a través de la [API library](https://console.cloud.google.com/apis/library).
 
 N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
