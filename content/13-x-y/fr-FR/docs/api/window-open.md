@@ -44,18 +44,18 @@ To customize or cancel the creation of the window, you can optionally set an ove
 
 ```javascript
 
-// main.js
-const mainWindow = new BrowserWindow()
+main.js
+const Fenetreprincipale = nouvelleFenetreNavigation ()
 
-mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-  if (url.startsWith('https://github.com/')) {
-    return true
+mainWindow.webContents.setGestionnairedeFenetreOuverte (({ url }) => {
+  si (url.commencePar('https://github.com/')) {
+    retour { action: 'allow' }
   }
-  return false
+  retour { action: 'deny' }
 })
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // For example...
+  // Par exemple...
   childWindow.webContents('will-navigate', (e) => {
     e.preventDefault()
   })

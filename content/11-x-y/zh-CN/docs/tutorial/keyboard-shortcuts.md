@@ -4,7 +4,7 @@
 
 ## 本地快捷键
 
-You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
+你可以使用 [Menu][] 模块来配置键盘快捷键，只有在app获得焦点的时候才可以触发快捷键。 为此，在创建 [MenuItem][] 的时候为其指定一个 [`accelerator`][] 属性。
 
 ```js
 const { Menu, MenuItem } = require('electron')

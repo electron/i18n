@@ -185,7 +185,7 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation][boilerplates].
+快速上手开发的有关模板文件和工具列表, 请参阅[模板文件和 CLI 文档][boilerplates] 。
 
 [quick-start]: https://github.com/electron/electron-quick-start
 [boilerplates]: ./boilerplates-and-clis.md

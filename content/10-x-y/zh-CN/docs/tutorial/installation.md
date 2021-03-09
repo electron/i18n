@@ -1,6 +1,6 @@
 # 安装
 
-To install prebuilt Electron binaries, use [`npm`][npm]. 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
+要安装预编译的 Electron 二进制文件，请使用 [`npm`][npm]。 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
 
 ```sh
 npm install electron --save-dev
@@ -116,11 +116,11 @@ ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 
 在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+如果通过`npm`安装失败，您也可以尝试通过从[electron/electron/release][releases]直接下载Electron。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+如果安装失败并报错`EACCESS`，您可能需要[修复npm权限][npm-permissions]。
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+如果上述报错持续出现，[unsafe-perm][unsafe-perm] 标志可能需要被设置为 true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
