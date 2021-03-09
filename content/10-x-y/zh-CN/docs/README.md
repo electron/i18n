@@ -137,7 +137,7 @@
 * [systemPreferences](api/system-preferences.md)
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
-* [webContents](api/web-contents.md)
+* [网络控制](api/web-contents.md)
 
 ### 渲染进程（网页）可用的模块:
 
