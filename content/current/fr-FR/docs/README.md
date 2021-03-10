@@ -138,7 +138,6 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [contextBridge](api/context-bridge.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Modules pour les deux processus :

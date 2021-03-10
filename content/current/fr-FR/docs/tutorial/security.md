@@ -18,7 +18,7 @@ Electron se tient à jour avec les versions alternatives de Chromium. Pour plus 
 
 Il est important de se rappeler que la sécurité de votre application Electron dépend de la sécurité globalement de la fondation du framework (*Chromium*, *Node.js*), Electron lui-même, toutes les dépendances NPM et votre code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
 
-* **Gardez votre application à jour avec la dernière version de framework Electron. /0> Lorsque vous libérez votre produit, vous expédiez également un paquet composé d'Electron, bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)".</p></li>
+* **Gardez votre application à jour avec la dernière version de framework Electron. /0> Lorsque vous libérez votre produit, vous expédiez également un paquet composé d'Electron, bibliothèque partagée Chromium et Node.js. Les vulnérabilités affectant ces composants peuvent affecter la sécurité de votre application. En mettant à jour Electron vers la dernière version vous vous assurez que les vulnérabilités critiques (telles que *nodeIntegration bypasses*) sont déjà corrigées et ne peuvent pas être exploitées dans votre application. Pour plus d'informations, voir "[Utiliser une version actuelle d'Electron](#15-use-a-current-version-of-electron)".</p></li>
 
 * **Évaluez vos dépendances.** Alors que NPM fournit un demi-million de paquets réutilisables, il est de votre responsabilité de choisir des bibliothèques de tiers de confiance. Si vous utilisez des bibliothèques obsolètes affectées par des vulnérabilités connues ou si vous comptez sur un code mal géré, la sécurité de votre application pourrait être compromise.
 
@@ -54,9 +54,7 @@ Un problème de sécurité existe chaque fois que vous recevez du code d'une sou
 > 12. [Désactiver ou limiter la navigation](#12-disable-or-limit-navigation)
 > 13. [Désactiver ou limiter la création de nouvelles fenêtres](#13-disable-or-limit-creation-of-new-windows)
 > 14. [Ne pas utiliser `openExternal` avec un contenu non fiable](#14-do-not-use-openexternal-with-untrusted-content)
-> 15. [Désactiver le module `distance`](#15-disable-the-remote-module)
-> 16. [Filtrer le module `distant`](#16-filter-the-remote-module)
-> 17. [Utiliser une version actuelle d'Electron](#17-use-a-current-version-of-electron)
+> 15. [Utiliser une version actuelle d'Electron](#15-use-a-current-version-of-electron)
 > 
 > Pour automatiser la détection de mauvaises configurations et de patrons non sécurisés, il est possible d'utiliser [electronegativity](https://github.com/doyensec/electronegativity). Pour plus de détails sur les faiblesses potentielles et les bogues d'implémentation lorsque développant des applications utilisant Electron, veuillez vous référer à ce [guide pour développeurs et auditeurs](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 > 
@@ -554,113 +552,12 @@ shell.openExternal('https://example.com/index.html')
 ```
 
 
-## 15) Désactiver le module `distant`
-
-Le module `distant` fournit un moyen pour les processus de rendu d'accéder aux APIs normalement disponibles uniquement dans le processus principal. En l'utilisant, un moteur de rendu peut appeler des méthodes d'un objet de processus principal sans envoyer explicitement messages inter-processus. Si votre application de bureau n'exécute pas le contenu non approuvé, ceci peut être un moyen utile d'avoir l'accès à vos processus de rendu et de travailler avec des modules qui ne sont disponibles que pour le processus principal, tels que les modules liés à l'interface graphique (dialogues, menus, etc.).
-
-Cependant, si votre application peut exécuter du contenu non approuvé et même si vous [sandbox](../api/sandbox-option.md) vos processus de rendu en conséquence, le module `distance` permet aux codes malveillants d'échapper facilement au bac à sable et d'avoir accès aux ressources système via les privilèges supérieurs du processus principal. Par conséquent, il devrait être désactivé dans de telles circonstances.
-
-### Pourquoi ?
-
-`distance` utilise un canal IPC interne pour communiquer avec le processus principal. Les attaques "pollutions par prototype" peuvent donner un accès de code malveillant au canal IPC interne , qui peut alors être utilisé pour échapper au sandbox en imitant `distant` messages IPC et en obtenant l'accès aux modules de processus principaux fonctionnant avec des privilèges plus élevés.
-
-De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
-
-La désactivation du module `remote` élimine ces vecteurs d'attaque. L'activation de l'isolation de contexte empêche également les attaques de "pollution de prototype" de réussir.
-
-### Comment ?
-
-
-
-```js
-// Mauvais si le processus de rendu peut exécuter un contenu non fiable
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-
-
-
-```js
-// Bon
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-
-
-
-```html<!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable --><webview enableremotemodule="true" src="page.html"></webview><!-- Bon --><webview enableremotemodule="false" src="page.html"></webview>
-```
-
-
-> **Remarque :** La valeur par défaut de `enableRemoteModule` est `false` à partir d'Electron 10. Pour les versions antérieures, vous devez désactiver explicitement le module `remote` par les moyens ci-dessus.
-
-## 16) Filtrer le module `distant`
-
-Si vous ne pouvez pas désactiver le module `distant`, vous devez filtrer les globales, Node, et les modules Electron (dits intégrés) accessibles via `distance` que votre application ne requiert pas. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
-
-### Pourquoi ?
-
-En raison des privilèges d'accès au système du processus principal, la fonctionnalité fournie par les modules du processus principal peut être dangereuse entre les mains de code malveillant exécuté dans un processus de rendu compromis. En limitant l'ensemble de modules accessibles au minimum dont votre application a besoin et en filtrant les autres, vous réduisez le jeu d'outils que le code malveillant peut utiliser pour attaquer le système.
-
-Notez que l'option la plus sûre est de [désactiver complètement le module distant](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent pour vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à dépasser le filtre.
-
-### Comment ?
-
-
-
-```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-
-## 17) Utiliser une version actuelle d'Electron
+## 15) Utiliser une version actuelle d'Electron
 
 Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. Chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
 
 ### Pourquoi ?
 
-Une application construite avec une ancienne version d'Electron, Chromium et Node. s est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composantes. De manière générale, les problèmes de sécurité et les exploits pour les anciennes versions de Chromium et de Node.js sont plus largement disponibles.
+Une application construite avec une ancienne version d'Electron, de Chromium ou de Node.js est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composants. De manière générale, les problèmes de sécurité et les exploitation de failles pour les anciennes versions de Chromium et de Node.js sont plus fréquentes.
 
-Chromium et Node.js sont des prouesses impressionnantes d'ingénierie construites par milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Beaucoup de ces chercheurs [révèlent des vulnérabilités de manière responsable](https://en.wikipedia.org/wiki/Responsible_disclosure), ce qui signifie généralement que les chercheurs donneront Chromium et Node. s un peu de temps pour résoudre les problèmes avant de les publier. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node. s) pour quels problèmes de sécurité potentiels ne sont pas aussi connus.
+Chromium et Node.js représentent des prouesses impressionnantes d'ingénierie produites par des milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Beaucoup de ces chercheurs [révèlent des vulnérabilités de manière responsable](https://en.wikipedia.org/wiki/Responsible_disclosure), ce qui signifie généralement que les chercheurs donnent de leur temps à Chromium et Node.js pour résoudre les problèmes avant de les publier. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node.js) dont les problèmes de sécurité potentiels ne sont pas aussi connus.

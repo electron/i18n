@@ -1094,7 +1094,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
-Захватывает снимок страницы в границах `rect`. Пропустив `rect`, будет сделан захват всей видимой страницы.
+Захватывает снимок страницы в границах `rect`. Пропустив `rect`, будет сделан захват всей видимой страницы. If the page is not visible, `rect` may be empty.
 
 #### `win.loadURL(url[, options])`
 

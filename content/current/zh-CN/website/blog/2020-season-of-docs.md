@@ -5,7 +5,7 @@ author:
 date: '2020-05-21'
 ---
 
-Electron感到自豪的是，它正在参与谷歌的赛季倡议第二版。 它对开源组织的导师与技术作者对应，以改进项目文档。
+Electron is proud to be participating in the second edition of Google's Season of Docs initiative, which pairs mentors from open source organizations with technical writers to improve project documentation.
 
 ---
 

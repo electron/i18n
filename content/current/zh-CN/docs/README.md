@@ -130,7 +130,7 @@
 * [systemPreferences](api/system-preferences.md)
 * [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
-* [webContents](api/web-contents.md)
+* [网络控制](api/web-contents.md)
 * [webFrameMain](api/web-frame-main.md)
 
 ### 渲染进程（网页）可用的模块:
@@ -138,7 +138,6 @@
 * [contextBridge](api/context-bridge.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### 两种进程都可用的模块:

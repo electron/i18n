@@ -138,7 +138,6 @@
 * [contextBridge](api/context-bridge.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### メインプロセス・レンダラープロセスのモジュール
