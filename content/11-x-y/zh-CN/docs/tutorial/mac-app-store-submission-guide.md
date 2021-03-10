@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+如果你刚接触 macOS 下的应用沙箱，应当仔细阅读 Apple 的 [Enabling App Sandbox][enable-app-sandbox] 了解一些基本概念，然后在 entitlements 文件内添加你的应用需要的权限。
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
+除了手动给你的应用签名，你也可以选择使用 [electron-osx-sign][electron-osx-sign] 模块来做这件事。
 
 #### 原生模块签名
 
@@ -128,15 +128,15 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. 版本8.1.0以及之后的版本默认忽略这些文件.
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用的 [electron-packager][electron-packager] 是8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 参数以忽略这些文件。 版本8.1.0以及之后的版本默认忽略这些文件.
 
 ### 上传你的应用
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+在给你的应用签名之后，你可以使用 Application Loader 上传到 iTunes Connect 进行处理。请确保在上传之前你已经进行了 [created a record][create-record] 操作。
 
 ### 检查并提交你的应用
 
-After these steps, you can [submit your app for review][submit-for-review].
+在这些步骤之后，你可以 [提交你的应用程序进行审核][submit-for-review]。
 
 ## MAS 构建限制
 
@@ -151,7 +151,7 @@ After these steps, you can [submit your app for review][submit-for-review].
 * 某些辅助功能无法访问。
 * 应用无法检测 DNS 变化。
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
+此外，由于应用沙盒的使用，应用程序可以访问的资源受到严格限制；您可以阅读 [应用沙盒][app-sandboxing] ，了解更多信息。
 
 ### 附加授权
 
@@ -173,7 +173,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 <true/>
 ```
 
-See the [Enabling Network Access documentation][network-access] for more details.
+有关更多 详细信息，请参阅[启用网络访问文档][network-access]。
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ See the [Enabling Network Access documentation][network-access] for more details
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+有关更多详细信息，请参阅["启用访问用户选择的文件"文档][user-selected]。
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ See the [Enabling User-Selected File Access documentation][user-selected] for mo
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+有关更多详细信息，请参阅["启用访问用户选择的文件"文档][user-selected]。
 
 ## Electron 使用的加密算法
 
-根据你发布应用所在的国家或地区，你可能需要提供您软件使用的加密算法的信息。 See the [encryption export compliance docs][export-compliance] for more information.
+根据你发布应用所在的国家或地区，你可能需要提供您软件使用的加密算法的信息。 更多信息，请参阅[ 加密导出合规性文档 ][export-compliance]。
 
 Electron 使用下列加密算法：
 

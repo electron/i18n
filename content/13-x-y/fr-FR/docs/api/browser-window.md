@@ -114,10 +114,10 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional)
-  * `largeur` Integre (facultatif) - Largeur de la fenêtre en pixels. Le Defaut est`800`.
-  * `hauteur` Integre (facultatif) - Hauteur de la fenêtre en pixels. Defaut es `600`.
-  * `x`Integre (optionel)-**est requis** si y n'est pas utilise) Le decalage de la Fenetre a ete efface de l'ecran. Le defaut est de centrer la fenetre.
-  * `y`Integre (optionel)- **est requis** si x y est utilise) Le decalage de la partie superieure de la fentre a ete efface de l'ecran. Le defaut est de centrer la fenetre.
+  * `width` Entier (facultatif) - Largeur de la fenêtre en pixels. Le Defaut est`800`.
+  * `height` Entier (facultatif) - Hauteur de la fenêtre en pixels. Defaut es `600`.
+  * `x` Entier (optionel) - (**obligatoire** si y n'est pas utilise) Le décalage de la fenêtre a été effacé de l'écran. Le defaut est de centrer la fenetre.
+  * `y` Entier (optionel) - (**obligatoire** si x est utilisé) Le décalage de la partie supérieure de la fenêtre a été efface de l'écran. Le defaut est de centrer la fenetre.
   * `useContentSize` Boolean (facultatif) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
   * `center` Boolean (facultatif) - afficher la fenêtre dans le centre de l’écran.
   * `Largeurmin`Integre (optionel)-La largeur minimum de la Fenetre. La valeur par defaut en est ``.
@@ -1093,7 +1093,7 @@ Retourne `Boolean` - Si le document de la fenêtre a été modifié.
 
 Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page. If the page is not visible, `rect` may be empty.
 
 #### `win.loadURL(url[, options])`
 

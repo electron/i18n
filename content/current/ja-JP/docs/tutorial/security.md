@@ -18,7 +18,7 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 あなたの Electron アプリケーションのセキュリティは、フレームワーク (*Chromium*、*Node.js*)、Electron 自身、NPM の依存関係、あなたのコード のセキュリティの結果であることを覚えておくことが大事です。 そのため、いくつかの重要なベストプラックティスに従う、責任があります。
 
-* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)" を参照してください。
+* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)" を参照してください。
 
 * **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
@@ -54,9 +54,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
 13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
 14. [信用されないコンテンツで `openExternal` を使用しない](#14-do-not-use-openexternal-with-untrusted-content)
-15. [`remote` モジュールの無効化](#15-disable-the-remote-module)
-16. [`remote` モジュールをフィルタ](#16-filter-the-remote-module)
-17. [現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)
+15. [現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)
 
 設定ミスやセキュアでないパターンを自動的に検出するには、[electronegativity](https://github.com/doyensec/electronegativity)が使用できます。 Electronを使用したアプリケーション開発時の潜在的な脆弱性やバグの埋め込みについてのより詳しい情報は、[開発者承認者向けガイドguide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)を参照してください。
 
@@ -477,96 +475,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) `remote` モジュールの無効化
-
-`remote`モジュールは、レンダラープロセスに、通常メインプロセスでのみ利用可能な APIへのアクセスを提供します。 これを使用すると、明示的にプロセス間メッセージを送信することなく、メインプロセスオブジェクトのメソッドを起動できます。 もしあなたのデスクトップアプリケーションが信頼できないコンテンツを実行していない場合、このモジュールはあなたのレンダラープロセスにアクセス方法を提供し、メインプロセスでのみ利用可能な、例えばGUIに関連したモジュール(dialogs, menu 等) と動作できます。
-
-しかし、一方で、あなたのアプリケーションが信頼できないコンテンツを実行する場合、例えあなたのレンダラープロセスを[sandbox](../api/sandbox-option.md)化していたとしても、`remote`モジュールは悪意のあるコードにそのサンドボックスを抜けだす方法を提供し、メインプロセスの、より高い権限を通じてシステムリソースへアクセス可能にしてしまいます。 そのため、そのような状況ではこのモジュールは無効化しておくべきです。
-
-### なぜ？
-
-`remote` は内部の IPC チャンネルを使用して、メインプロセスと通信します。 「プロトタイプ汚染」攻撃は、内部 IPC チャンネルへの悪意のあるコードアクセスを許可する可能性があります。サンドボックスを回避して、`remote` IPC メッセージに擬態してより高い特権で実行されているメインプロセスモジュールにアクセスすることができます。
-
-さらに、プリロードスクリプトが誤ってサンドボックス化されたレンダラーにモジュールをリークさせる可能性があります。 `remote` をリークすると、攻撃を実行するため、多数の主要なプロセスモジュールに悪意のあるコードが仕掛けられます。
-
-`remote` モジュールを無効にすれば、これらの攻撃手段を排除できます。 コンテキストイソレーションの有効化も、これに続く "プロトタイプ汚染" 攻撃を防ぎます。
-
-### どうすればいいの？
-
-```js
-// レンダラーが信頼されていないコンテンツを実行してしまうと Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// 安全
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **注:** `enableRemoteModule` のデフォルト値は、Electron 10 から `false` になっています。 それ以前のバージョンでは、上記の方法で `remote` モジュールを明示的に無効にする必要があります。
-
-## 16) `remote` モジュールをフィルタ
-
-`remote` モジュールを無効にすることができない場合は、アプリケーションで必要のない `remote` を介してアクセス可能なもの、グローバル変数、Node、Electron モジュール (いわゆる組み込み) をフィルタリングする必要があります。 これは、特定のモジュールを完全にブロックし、他のモジュールをそのうちのアプリが必要とする機能だけを公開するプロキシで置き換えることで実現できます。
-
-### なぜ？
-
-メインプロセスのシステムアクセス特権のために、メインプロセスモジュールによって提供される機能は、レンダラプロセスで実行される悪意のあるコードの手に渡る危険があるかもしれません。 アクセス可能なモジュールのセットをアプリケーションが必要とする最小限のものに制限し、他のものを除外することで、悪意のあるコードがシステムの攻撃に使用できるツール群を減らすことができます。
-
-最も安全な選択は [remote モジュールの無効化](#15-disable-the-remote-module) であることに注意してください。 モジュールを完全に無効にするのではなくアクセスをフィルタすることを選択した場合、フィルタを通過することを許可したモジュールを介して特権の昇格が不可能になるように、細心の注意を払う必要があります。
-
-### どうすればいいの？
-
-```js
-const readOnlyFsProxy = require(/* ... */) // ファイル読み込み機能のみを公開します
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) 現行バージョンの Electron を使う
+## 15) 現行バージョンの Electron を使う
 
 常に最新バージョンの Electron を使用するように努力してください。 新しいメジャーバージョンがリリースされる度に、できるだけ早くアプリを更新しましょう。
 

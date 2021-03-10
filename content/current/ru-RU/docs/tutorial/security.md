@@ -18,7 +18,7 @@ Electron обновляется с чередованием релизов Chrom
 
 Важно помнить, что безопасность вашего Electron приложения является результатом общей безопасности основы платформы (*Chromium*, *Node.js*), самого Electron, всех NPM-зависимостей и вашего кода. Поэтому вы обязаны следовать нескольким важным рекомендациям:
 
-* **Будьте в курсе последних выпусков Electron.** При выпуске вашего продукта, вы также можете отправить пакет из Electron, разделяемой библиотеки Chromium и Node.js. Уязвимости, влияющие на эти компоненты могут повлиять на безопасность вашего приложения. Обновив Electron до последней версии , вы гарантируете, что критические уязвимости (такие как *nodeIntegration bypasses*) уже пропатчены и не могут быть использованы в вашем приложении. Для получения дополнительной информации, см. в[Используйте текущую версию Electron](#17-use-a-current-version-of-electron)".
+* **Будьте в курсе последних выпусков Electron.** При выпуске вашего продукта, вы также можете отправить пакет из Electron, разделяемой библиотеки Chromium и Node.js. Уязвимости, влияющие на эти компоненты могут повлиять на безопасность вашего приложения. Обновив Electron до последней версии , вы гарантируете, что критические уязвимости (такие как *nodeIntegration bypasses*) уже пропатчены и не могут быть использованы в вашем приложении. For more information, see "[Use a current version of Electron](#15-use-a-current-version-of-electron)".
 
 * **Оценить зависимости.** Хотя Музей предоставляет полмиллиона повторно используемых пакетов, он несет ответственность за выбор доверенных сторонних библиотек. Если вы используете устаревшие библиотеки, затронутые известными уязвимостями, или полагаетесь на плохо поддерживаемый код, ваша безопасность приложения может быть поставлена под угрозу.
 
@@ -54,9 +54,7 @@ Electron обновляется с чередованием релизов Chrom
 12. [Отключить или ограничить навигацию](#12-disable-or-limit-navigation)
 13. [Отключить или ограничить создание новых окон](#13-disable-or-limit-creation-of-new-windows)
 14. [Не используйте `openExternal` с ненадежным содержимым](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Отключить удаленный модуль ``](#15-disable-the-remote-module)
-16. [Фильтровать удаленный модуль ``](#16-filter-the-remote-module)
-17. [Использовать текущую версию Electron](#17-use-a-current-version-of-electron)
+15. [Использовать текущую версию Electron](#15-use-a-current-version-of-electron)
 
 Для автоматизации определения неправильных конфигураций и небезопасных шаблонов можно использовать [электронное выражение](https://github.com/doyensec/electronegativity). для дополнительной информации о потенциальных недостатках и ошибках реализации при разработке приложений с помощью Electron, пожалуйста, обратитесь к этому [руководству для разработчиков и аудиторов](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -492,101 +490,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Выключить удаленный модуль ``
-
-The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. С его помощью рендерер может вызвать методы основного объекта процесса без явной отправки межпроцессорных сообщений. Если ваше приложение рабочего стола не запускает ненадежное содержимое, это может быть полезным способом получить доступ к вашим процессам рендерера и работать с модулями, которые доступны только для главного процесса, такие как связанные с GUI модули (диалоги, меню и т.д.).
-
-Однако, если ваше приложение может запускать ненадежный контент и даже если вы [песочница](../api/sandbox-option.md) ваш рендерер соответственно обрабатывает модуль `удалённый` позволяет вредоносному коду избежать "песочницы" и получить доступ к системным ресурсам через более высокие привилегии основного процесса. Поэтому он должен быть недоступен в таких обстоятельствах.
-
-### Почему?
-
-`удаленный` использует внутренний IPC канал для связи с основным процессом. Атаки "Прототип загрязнения" могут предоставить вредоносный код внутреннему каналу IPC, , которые могут быть использованы для выхода из песочницы путем имитации `удаленного` сообщений IPC и получения доступа к основным технологическим модулям, работающим с более высокими правами.
-
-Кроме того, скрипты могут случайно перехватить модули в песочнице рендерера. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
-
-Отключение удаленного модуля `` удаляет эти вектора атаки. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
-
-### Как?
-
-```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// Хороший
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview enableremotemodule="true" src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
-## 16) Фильтровать `удаленный` модуль
-
-Если вы не можете отключить `удаленный модуль` , вы должны фильтровать глобальные, узел, и модули Electron (так называемые встроенные модули), доступные через `удаленный` , что ваше приложение не требует. Это можно сделать, заблокировав некоторые модули полностью и заменив другие на прокси-серверы, показывающие только те функции, которые необходимы приложению.
-
-### Почему?
-
-Из-за системных привилегий главного процесса, функциональность , предоставляемая основными модулями процесса, может быть опасной в руках вредоносного кода, выполняемого в рамках взломанного процесса рендерера. Ограничив набор доступных модулей минимум для вашего приложения и фильтровав других, уменьшает набор инструментов, которые вредоносный код может использовать для атаки системы.
-
-Обратите внимание, что самым безопасным вариантом является [полностью отключить удаленный модуль](#15-disable-the-remote-module). Если вы решили фильтровать доступ, а не полностью отключить модуль, вы должны быть предельно внимательными, чтобы не допустить эскалации привилегий через модули, которые вы допускаете прошедший фильтр.
-
-### Как?
-
-```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) Использовать текущую версию Electron
+## 15) Use a current version of Electron
 
 Вы должны стремиться всегда использовать последнюю доступную версию Electron. Всякий раз, когда будет выпущена новая основная версия, вы должны попытаться обновить ваше приложение как можно скорее.
 

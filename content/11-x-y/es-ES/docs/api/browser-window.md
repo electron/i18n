@@ -1154,7 +1154,7 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 
 Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
+Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible. If the page is not visible, `rect` may be empty.
 
 #### `win.loadURL(url[, options])`
 
