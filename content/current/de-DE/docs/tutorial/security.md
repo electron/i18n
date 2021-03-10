@@ -18,7 +18,7 @@ Electron hält auf dem Laufenden mit wechselnden Chrom-Releases. For more inform
 
 Es ist wichtig daran zu erinnern, dass die Sicherheit Ihrer Electron-Anwendung das Ergebnis der allgemeinen Sicherheit der Rahmen-Stiftung (*Chromium*, *Knoten. s*), Electron selbst, alle NPM-Abhängigkeiten und Ihren Code. Daher liegt es in Ihrer Verantwortung, ein paar wichtige Best Methoden zu verfolgen:
 
-* **Halten Sie Ihre Anwendung auf dem Laufenden mit der neuesten Version von Electron Framework.** Wenn Sie Ihr Produkt freigeben, versenden Sie auch ein Paket aus Electron, Chromium shared library und Node.js. Verwundbarkeiten, die diese Komponenten betreffen, können die Sicherheit Ihrer Anwendung beeinflussen. Durch Aktualisieren von Electron auf die neueste Version stellen Sie sicher, dass kritische Verwundbarkeiten (wie *nodeIntegration umgangen*) bereits gepatcht sind und nicht in Ihrer Anwendung ausgenutzt werden können. Weitere Informationen finden Sie unter "[Aktuelle Version von Electron verwenden](#17-use-a-current-version-of-electron)".
+* **Halten Sie Ihre Anwendung auf dem Laufenden mit der neuesten Version von Electron Framework.** Wenn Sie Ihr Produkt freigeben, versenden Sie auch ein Paket aus Electron, Chromium shared library und Node.js. Verwundbarkeiten, die diese Komponenten betreffen, können die Sicherheit Ihrer Anwendung beeinflussen. Durch Aktualisieren von Electron auf die neueste Version stellen Sie sicher, dass kritische Verwundbarkeiten (wie *nodeIntegration umgangen*) bereits gepatcht sind und nicht in Ihrer Anwendung ausgenutzt werden können. For more information, see "[Use a current version of Electron](#15-use-a-current-version-of-electron)".
 
 * **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
 
@@ -54,9 +54,7 @@ Sie sollten zumindest diesen Schritten folgen, um die Sicherheit Ihrer Anwendung
 12. [Navigation deaktivieren oder beschränken](#12-disable-or-limit-navigation)
 13. [Deaktivieren oder beschränken Sie die Erstellung neuer Fenster](#13-disable-or-limit-creation-of-new-windows)
 14. [`openExtern` nicht mit nicht vertrauenswürdigen Inhalten verwenden](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Deaktiviere das `Remote-` Modul](#15-disable-the-remote-module)
-16. [Filtern Sie das `Remote-` Modul](#16-filter-the-remote-module)
-17. [Aktuelle Version von Electron verwenden](#17-use-a-current-version-of-electron)
+15. [Aktuelle Version von Electron verwenden](#15-use-a-current-version-of-electron)
 
 Um Fehlkonfigurationen und unsichere Muster zu automatisieren, ist es möglich, [Elektronik](https://github.com/doyensec/electronegativity) zu verwenden. Für zusätzliche Details zu potenziellen Schwächen und Implementierungsfehlern bei der Entwicklung von Anwendungen mit Electron bitte lesen Sie diese [Anleitung für Entwickler und Auditoren](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -477,101 +475,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Deaktiviere das `Remote-` Modul
-
-Das `-Remote-` Modul bietet eine Möglichkeit, um die Renderer-Prozesse auf APIs zuzugreifen, die normalerweise nur im Hauptprozess verfügbar sind. Mit dieser Funktion kann ein Renderer Methoden eines Hauptprozess-Objekts aufrufen, ohne explizit zu senden. Wenn Ihre Desktop-Anwendung nicht vertrauenswürdiger Inhalt ausführt dies kann ein nützlicher Weg sein, um Zugriff auf Renderer Prozesse zu haben und mit Modulen zu arbeiten, die nur für den Hauptprozess verfügbar sind wie z. B. GUI-bezogene Module (Dialoge, Menüs, etc.).
-
-Wenn Ihre App jedoch nicht vertrauenswürdige Inhalte ausführen kann und selbst wenn Sie [Sandbox](../api/sandbox-option.md) Ihr Renderer entsprechend verarbeitet, das `entfernte` Modul macht es böswilligen Code leicht die Sandbox zu entkommen und Zugriff auf Systemressourcen über die höheren Privilegien des Hauptprozesses zu haben. Daher sollte unter solchen Umständen deaktiviert werden.
-
-### Warum?
-
-`remote` verwendet einen internen IPC-Kanal zur Kommunikation mit dem Hauptprozess. Angriffe mit "Prototyp-Verschmutzung" können bösartigen Code Zugriff auf den internen IPC-Kanal gewähren die dann verwendet werden kann, um die Sandbox zu entschärfen, indem `remote` IPC-Nachrichten nachgeahmt und Zugriff auf die Hauptprozess-Module mit höheren Privilegien erlangt wird.
-
-Zusätzlich ist es möglich, Skripte vorab zu laden, um versehentlich Module an einen gerenderten Renderer zu lecken. Legen von `entfernt` aktiviert bösartigen Code mit einer Vielzahl von Hauptprozessmodulen, mit denen ein Angriff ausgeführt werden kann.
-
-Das Deaktivieren des `Remote-` Moduls entfernt diese Angriffsvektoren. Durch die Aktivierung von Kontext-Isolierung wird auch verhindert, dass die "Prototyp-Verschmutzung"-Angriffe erfolgreich sind.
-
-### Wie?
-
-```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// Gut
-const mainWindow = new BrowserWindow({
-  webEinstellungen: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview enableremotemodule="true" src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **Note:** The default value of `enableRemoteModule` is `false` starting from Electron 10. For prior versions, you need to explicitly disable the `remote` module by the means above.
-
-## 16) Filtern Sie das `Remote-` Modul
-
-Wenn Sie das `Remote-` Modul nicht deaktivieren können, sollten Sie die Globale filtern, Knoten, und Electron-Module (so genannte eingebaute Module) zugänglich über `Remote` , die Ihre Anwendung nicht benötigt. Dies kann erreicht werden, indem bestimmte Module komplett blockiert und andere durch Proxies ersetzt werden, die nur die Funktionalität freigeben, die Ihre App benötigt.
-
-### Warum?
-
-Aufgrund der Systemzugriffsrechte des Hauptprozesses Funktionalität , die von den Hauptprozessmodulen zur Verfügung gestellt wird, kann in den Händen von böswilligem Code in einem kompromittierten Renderer-Prozess gefährlich sein. Durch die Begrenzung von auf das Minimum der verfügbaren Module Ihrer App und die anderen ausfiltern Sie reduzieren den Toolset, den böswilligen Code verwenden kann, um das System anzugreifen.
-
-Beachten Sie, dass die sicherste Option ist, [das Remote-Modul vollständig deaktivieren](#15-disable-the-remote-module). Wenn Sie den Zugriff filtern möchten, anstatt das Modul komplett zu deaktivieren, Sie müssen sehr vorsichtig sein, um sicherzustellen, dass keine Erweiterung der Berechtigungen durch die Module, die Sie hinter dem Filter erlauben, möglich ist.
-
-### Wie?
-
-```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) Eine aktuelle Version von Electron verwenden
+## 15) Use a current version of Electron
 
 Sie sollten bestrebt sein, immer die aktuellste Version von Electron zu verwenden. Wann immer eine neue Hauptversion veröffentlicht wird, solltest du versuchen, deine -App so schnell wie möglich zu aktualisieren.
 

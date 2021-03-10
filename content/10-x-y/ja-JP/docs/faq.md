@@ -75,7 +75,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
+## jQuery/RequireJS/Meteor/AngularJS が Electron で使えません。
 
 Electron の Node.js 組み込みの影響で、`module`、`exports`、`require` のような余分なシンボルが DOM に追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
