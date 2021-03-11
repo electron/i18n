@@ -1,6 +1,6 @@
 # MessagePortMain
 
-`MessagePortMain` est l’équivalent de [`MessagePort`][] du DOM mais coté processus principal. Il se comporte de la même manière que la version DOM, avec l'exception qu'il utilise le système d'événements de Node.js `EventEmitter` au lieu du système `EventTarget` du DOM. Cela signifie que vous devrez utiliser `port.on('message', ...)` pour écouter les événements, au lieu de `port. nmessage = ...` ou `port.addEventListener('message', ...)`
+`MessagePortMain` est l’équivalent de [`MessagePort`][] du DOM mais coté processus principal. Il se comporte de la même manière que la version DOM, sauf qu'il utilise le système d'événements de Node.js `EventEmitter` au lieu du système `EventTarget` du DOM. Cela signifie que vous devrez utiliser `port.on('message', ...)` pour écouter les événements, au lieu de `port. nmessage = ...` ou `port.addEventListener('message', ...)`
 
 Pour plus d'informations sur l'utilisation de la messagerie de canal, consultez la documentation de [Channel Messaging API][].
 
@@ -34,7 +34,7 @@ Déconnecte le port qui ne sera donc plus actif.
 Retourne :
 
 * `messageEvent` Object
-  * `data` any
+  * `data` {any}
   * `ports` MessagePortMain[]
 
 Émis lorsqu'un objet MessagePortMain reçoit un message.

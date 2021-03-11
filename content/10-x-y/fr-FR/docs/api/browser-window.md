@@ -124,7 +124,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `useContentSize` Boolean (facultatif) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
   * `center` Boolean (facultatif) - afficher la fenêtre dans le centre de l’écran.
   * `Largeurmin`Integre (optionel)-La largeur minimum de la Fenetre. La valeur par defaut en est ``.
-  * `minHeight` Integer (optional) - Window's minimum height. La valeur par defaut en est ``.
+  * `minHeight` Integer (facultatif) - Hauteur minimale de la fenêtre en pixels. La valeur par defaut en est ``.
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. La valeur par défaut est `true`.

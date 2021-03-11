@@ -329,7 +329,7 @@ Retourne :
 
 Émis lorsque le processus renderer crash ou est interrompu.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
 #### Event: 'render-process-gone'
 

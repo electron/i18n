@@ -30,7 +30,7 @@ Devuelve:
 * `event` Event
 * `launchInfo` Record<string, any> _macOS_
 
-Emitido una vez, cuando Electron ha terminado de iniciarse. En macOS, `launchInfo` almacena el `userInfo` de `NSUserNotification` que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificación. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido disparado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Se emite una vez, cuando Electron ha terminado de iniciarse. En macOS, `launchInfo` almacena el `userInfo` de `NSUserNotification` que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificación. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -309,7 +309,7 @@ Devuelve:
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. No siempre se debe a que haya dejado de funcionar.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. No siempre se debe a que haya dejado de funcionar.  El booleano `killed` puede ser reemplazado al comprobar que `reason === 'killed'` cuando se cambie a ese evento.
 
 #### Evento: 'render-process-gone'
 

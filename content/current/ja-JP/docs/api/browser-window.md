@@ -204,8 +204,8 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) のものと同じ手法を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
-    * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。  省略値は `false` です。 Electron 12 から、省略値は `true` に変更されます。 _非推奨_
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は `true` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) のものと同じ手法を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
+    * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。 省略値は `true` です。 _非推奨_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
@@ -1163,7 +1163,7 @@ Windows 10 ユーザーは [PC をタブレットとして使用できる](https
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。 ページが見えないのであれば、 `rect` の領域が空なのかもしれません。
 
 #### `win.loadURL(url[, options])`
 

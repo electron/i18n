@@ -30,7 +30,7 @@ Retourne :
 * `event` Événement
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été activé et `application. henReady()` pour obtenir une Promesse qui est remplie lorsque Electron est initialisé.
+Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
 
 ### Événement : 'window-all-closed'
 
@@ -307,7 +307,7 @@ Retourne :
 
 Émis lorsque le processus GPU plante ou est tué.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -319,7 +319,7 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
 ### Event: 'render-process-gone'
 
@@ -521,7 +521,7 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 * `options` Object (optional)
   * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
-Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, elle se concentre sur la première fenêtre de l'application.
+Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, donne le focus à la première fenêtre de l'application.
 
 Il vaut mieux utiliser l'option `steal` aussi parcimonieusement que possible.
 

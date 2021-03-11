@@ -30,7 +30,7 @@ Devuelve:
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Emitido una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido disparado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Se emite una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -307,7 +307,7 @@ Devuelve:
 
 Emitido cuando el proceso de la GPU se crashea o es terminado.
 
-**Obsoleto:** Este evento es reemplazado por el evento `child-process-gone` el cual contiene más información acerca de porque desapareció el proceso secundario. No siempre se debe a que haya dejado de funcionar. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Obsoleto:** Este evento es reemplazado por el evento `child-process-gone` el cual contiene más información acerca de porque desapareció el proceso secundario. No siempre se debe a que haya dejado de funcionar. El booleano `killed` puede ser reemplazado al comprobar que `reason === 'killed'` cuando se cambie a ese evento.
 
 ### Evento: 'renderer-process-crashed' _Obsoleto_
 
@@ -319,7 +319,7 @@ Devuelve:
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
-**Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. No siempre se debe a que haya dejado de funcionar.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Obsoleto:** Este evento es reemplazado por el evento `render-process-gone` el cual contiene más información acerca de porque desapareció el renderer process. No siempre se debe a que haya dejado de funcionar.  El booleano `killed` puede ser reemplazado al comprobar que `reason === 'killed'` cuando se cambie a ese evento.
 
 ### Evento: 'render-process-gone'
 

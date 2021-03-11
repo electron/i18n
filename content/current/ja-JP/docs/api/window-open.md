@@ -49,13 +49,13 @@ const mainWindow = new BrowserWindow()
 
 mainWindow.webContents.setWindowOpenHandler(({ url }) => {
   if (url.startsWith('https://github.com/')) {
-    return true
+    return { action: 'allow' }
   }
-  return false
+  return { action: 'deny' }
 })
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // For example...
+  // 例えば...
   childWindow.webContents('will-navigate', (e) => {
     e.preventDefault()
   })
