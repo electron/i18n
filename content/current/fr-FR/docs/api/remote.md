@@ -158,4 +158,4 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _Readonly_
 
-Un objet `NodeJS.Process`.  L'objet `process` dispose des méthodes suivantes. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
+Un objet `NodeJS.Process`.  L'objet `process` dans le processus principal. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.

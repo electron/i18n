@@ -309,7 +309,7 @@ Devuelve:
 
 Emitido cuando el proceso se crashea o es terminado.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. No siempre se debe a que haya dejado de funcionar.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. No siempre se debe a que haya dejado de funcionar.  El booleano `killed` puede ser reemplazado al comprobar que `reason === 'killed'` cuando se cambie a ese evento.
 
 #### Evento: 'render-process-gone'
 
