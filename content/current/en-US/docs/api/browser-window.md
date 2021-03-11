@@ -337,7 +337,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and
       the specified `preload` script in a separate JavaScript context. Defaults
-      to `false`. The context that the `preload` script runs in will only have
+      to `true`. The context that the `preload` script runs in will only have
       access to its own dedicated `document` and `window` globals, as well as
       its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.),
       which are all invisible to the loaded content. The Electron API will only
@@ -349,8 +349,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       context in the dev tools by selecting the 'Electron Isolated Context'
       entry in the combo box at the top of the Console tab.
     * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values
-      can't unsafely cross between worlds when using `contextIsolation`.  The default
-      is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+      can't unsafely cross between worlds when using `contextIsolation`. Defaults to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (optional) - Whether to use native
       `window.open()`. Defaults to `false`. Child windows will always have node
       integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently
@@ -1457,7 +1456,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page. If the page is not visible, `rect` may be empty.
 
 #### `win.loadURL(url[, options])`
 
