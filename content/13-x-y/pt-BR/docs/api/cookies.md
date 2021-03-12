@@ -44,6 +44,8 @@ Os seguintes eventos estão disponíveis em instâncias de `Cookies`:
 
 #### Evento: 'changed'
 
+Retorna:
+
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - O cookie que foi modificado.
 * `cause` String - The cause of the change with one of the following values:
