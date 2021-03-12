@@ -2,7 +2,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
-import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
+import { fiddleUrls, plaintextFix } from '../transfomers'
 import { IDocFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
@@ -66,7 +66,7 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   docFile.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async (section) => {
       const parsed = await hubdown(section.body, {
-        runBefore: [plaintextFix, bashFix, fiddleUrls],
+        runBefore: [plaintextFix, fiddleUrls],
         highlight: {
           ignoreMissing: true,
         },
