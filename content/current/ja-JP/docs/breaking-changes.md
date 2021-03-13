@@ -152,6 +152,8 @@ Electron 12 では、 `contextIsolation` がデフォルトで有効になりま
 
 [アプリケーションのセキュリティのためにコンテキスト分離を有効にする](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) をお勧めします。
 
+これは、`nodeIntegration` が `true` かつ `contextIsolation` が `false` でない限り、`require()` がレンダラープロセスで使用できなくなるということでもあります。
+
 詳細は以下をご覧ください: https://github.com/electron/electron/issues/23506
 
 ### 削除: `crashReporter.getCrashesDirectory()`

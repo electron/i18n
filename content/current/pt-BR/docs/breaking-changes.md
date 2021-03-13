@@ -152,6 +152,8 @@ Em Electron 12, `contextIsolamento` será ativado por padrão.  Para restaurar o
 
 Recomendamos [ter contextIsolamento ativado](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) para a segurança do seu aplicativo.
 
+Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
+
 Para mais detalhes veja: https://github.com/electron/electron/issues/23506
 
 ### Removido: `crashReporter.getCrashesDirectory()`

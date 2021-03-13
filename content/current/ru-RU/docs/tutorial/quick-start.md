@@ -163,16 +163,17 @@ npm start
 1. Импорт Electron Forge в папку приложений:
 
     ```sh
-    npx @electron-forge/cli import
+    npm install --save-dev @electron-forge/cli
+    npx electron-forge import
 
-    ✔ Проверка системы
-    ✔ Инициализация Git репозитория
-    ✔ Запись измененного пакета. файл son
-    ✔ Установка зависимостей
-    ✔ Запись измененного пакета. son файл
-    ✔ Исправление . itignore
+    ✔ Checking your system
+    ✔ Initializing Git Repository
+    ✔ Writing modified package.json file
+    ✔ Installing dependencies
+    ✔ Writing modified package.json file
+    ✔ Fixing .gitignore
 
-    У нас есть ATTEMPTED для преобразования вашего приложения в формат, который понимает кузница электронов.
+    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
     Спасибо за использование "electron-forge"!!!
     ```
