@@ -163,7 +163,8 @@ npm start
 1. Electron Forge をアプリケーションフォルダにインポートします。
 
     ```sh
-    npx @electron-forge/cli import
+    npm install --save-dev @electron-forge/cli
+    npx electron-forge import
 
     ✔ Checking your system
     ✔ Initializing Git Repository

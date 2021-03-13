@@ -163,16 +163,17 @@ Der einfachste und schnellste Weg, Ihre neu erstellte App zu verteilen, ist [Ele
 1. Importiere Electron Forge in deinen App-Ordner:
 
     ```sh
-    npx @electron-forge/cli import
+    npm install --save-dev @electron-forge/cli
+    npx electron-forge import
 
-    ✔ Überprüfe dein System
-    ✔ Initialisiere Git Repository
-    ✔ Schreiben modifiziertes Paket. son file
-    ✔ Installiere Abhängigkeiten
-    ✔ Schreiben des modifizierten Pakets. son file
-    ✔ Fixing . itignore
+    ✔ Checking your system
+    ✔ Initializing Git Repository
+    ✔ Writing modified package.json file
+    ✔ Installing dependencies
+    ✔ Writing modified package.json file
+    ✔ Fixing .gitignore
 
-    Wir haben AUSSCHLIESSLICH, um Ihre App in ein Format umzuwandeln, das Elektron-forge versteht.
+    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
     Vielen Dank für die Verwendung von "electron-forge"!!!
     ```
