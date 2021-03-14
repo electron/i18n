@@ -54,11 +54,10 @@ async function main() {
   await createSupportedBranches()
   await deleteUnsupportedBranches(supportedVersions)
   await fetchSubrepos()
+  await fetchMeta()
   await fetchAPIDocs()
   // await fetchApiData()
-  // await getMasterBranchCommit()
-  // await fetchTutorialsFromMasterBranch()
-  // await fetchTutorialsFromSupportedBranch()
+  await fetchTutorials()
   // await fetchWebsiteContent()
   // await fetchWebsiteBlogPosts()
 
@@ -170,8 +169,27 @@ async function fetchSubrepos() {
   execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
 }
 
-async function fetchAPIDocs() {
+async function fetchMeta() {
+  console.log(
+    `Fetching Electron master branch commit SHA and latest stable tag`
+  )
+  const master = await github.repos.getBranch({
+    owner: 'electron',
+    repo: 'electron',
+    branch: 'master',
+  })
+
+  if (typeof master.data.commit.sha !== 'string') {
+    throw new Error(
+      `Could not fetch Electron master branch commit SHA (found "${master.data.commit.sha})"`
+    )
+  }
+
+  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
+}
+
+async function fetchAPIDocs() {
   for (const version of supportedVersions) {
     console.log(`  - from electron/electron#${version}`)
     const docs = await roggy(
@@ -184,7 +202,7 @@ async function fetchAPIDocs() {
 
     docs
       .filter((doc) => doc.filename.startsWith('api/'))
-      .forEach((doc) => writeNewDoc(doc, version))
+      .forEach((doc) => writeDoc(doc, version))
   }
 
   return Promise.resolve()
@@ -218,46 +236,12 @@ async function fetchApiData() {
   return Promise.resolve(apis)
 }
 
-async function getMasterBranchCommit() {
-  console.log(`Fetching Electron master branch commit SHA`)
-  const master = await github.repos.getBranch({
-    owner: 'electron',
-    repo: 'electron',
-    branch: 'master',
-  })
-
-  if (typeof master.data.commit.sha !== 'string') {
-    throw new Error(
-      `Could not fetch Electron master branch commit SHA (found "${master.data.commit.sha})"`
-    )
-  }
-
-  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
-}
-
-async function fetchTutorialsFromMasterBranch() {
-  console.log(`Fetching tutorial docs from electron/electron#master`)
-
-  const docs = await roggy('master', {
-    owner: 'electron',
-    repository: 'electron',
-  })
-
-  docs
-    .filter((doc) => !doc.filename.startsWith('api/'))
-    .filter((doc) => !doc.filename.includes('images/'))
-    .filter((doc) => !doc.filename.includes('fiddles/'))
-    .forEach((doc) => writeDoc(doc))
-
-  return Promise.resolve()
-}
-
-async function fetchTutorialsFromSupportedBranch() {
-  console.log(`Feching tutorial docs from supported branches`)
+async function fetchTutorials() {
+  console.log(`Feching tutorial docs`)
 
   for (const version of supportedVersions) {
     console.log(`  - from electron/electron#${version}`)
-    const docs = await roggy(version, {
+    const docs = await roggy(version === 'current' ? 'master' : version, {
       owner: 'electron',
       repository: 'electron',
     })
@@ -266,9 +250,7 @@ async function fetchTutorialsFromSupportedBranch() {
       .filter((doc) => !doc.filename.startsWith('api/'))
       .filter((doc) => !doc.filename.includes('images/'))
       .filter((doc) => !doc.filename.includes('fiddles/'))
-      .forEach((doc) => {
-        writeDoc(doc, version)
-      })
+      .forEach((doc) => writeDoc(doc, version))
   }
 
   return Promise.resolve()
@@ -302,23 +284,12 @@ async function fetchWebsiteBlogPosts() {
 
 // Utility functions
 
-function writeDoc(doc: IRoggyResponse, version?: string) {
-  let basepath = currentEnglishBasePath
-  if (version) {
-    basepath = englishBasePath(version)
-  }
-  const filename = path.join(basepath, 'docs', doc.filename)
-  mkdir(path.dirname(filename))
-  fs.writeFileSync(filename, doc.markdown_content)
-  // console.log('   ' + path.relative(englishBasepath, filename))
-}
-
-function writeNewDoc(doc: IRoggyResponse, version: string) {
+function writeDoc(doc: IRoggyResponse, version: string) {
   const basepath = newEnglishBasePath(version)
   const filename = path.join(basepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
-  console.log('   ' + path.relative(basepath, filename))
+  // console.log('   ' + path.relative(basepath, filename))
 }
 
 function writeBlog(doc: IRoggyResponse) {
