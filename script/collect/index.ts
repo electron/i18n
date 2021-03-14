@@ -34,7 +34,7 @@ const currentEnglishBasePath = path.join(
 const basePath = (version: string) =>
   path.join(__dirname, '../..', 'temp', `i18n-${version}`)
 const newEnglishBasePath = (version: string) =>
-  path.join(__dirname, '../..', 'temp', `i18n-${version}`, 'content', 'en-US')
+  path.join(basePath(version), 'content', 'en-US')
 
 const NUM_SUPPORTED_VERSIONS = 4
 
