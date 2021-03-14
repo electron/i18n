@@ -12,7 +12,7 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
-import { generateCrowdinConfig } from '../lib/generate-crowdin-config'
+import { generateCrowdinConfig } from '../../lib/generate-crowdin-config'
 const currentEnglishBasePath = path.join(
   __dirname,
   '..',
