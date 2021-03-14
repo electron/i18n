@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
-import { IBlogFile } from '../interfaces'
+import { IBlogFile } from '../types'
 import { Entry } from 'walk-sync'
 
 export async function parseBlogFile(file: Entry) {

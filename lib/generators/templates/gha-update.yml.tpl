@@ -17,7 +17,7 @@ jobs:
       - name: Fetch latest source content
         env:
           CROWDIN_KEY: $\{{ secrets.CROWDIN_KEY }}
-          GH_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: $\{{ secrets.GH_TOKEN }}
           NODE_OPTIONS: --max_old_space_size=4096
         run: npm run update-source-content
       {{#each versions}}
@@ -28,7 +28,7 @@ jobs:
           crowdin_branch_name: {{this}}
           config: temp/i18n-{{this}}/config.yml
         env:
-          GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: $\{{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: $\{{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: $\{{ secrets.CROWDIN_PERSONAL_TOKEN }}
       {{/each}}

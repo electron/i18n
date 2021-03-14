@@ -10,5 +10,21 @@ export async function generateUploader(versions: SupportedVersions) {
   )
   const generated = hbs.compile(template)({ versions })
 
-  return await fs.writeFile(path.join(__dirname, '../../.github/workflows/update-content.yml'), generated)
+  return await fs.writeFile(
+    path.join(__dirname, '../../.github/workflows/update-content.yml'),
+    generated
+  )
+}
+
+export async function generateDownloader(versions: SupportedVersions) {
+  const template = await fs.readFile(
+    path.join(__dirname, './templates/gha-download.yml.tpl'),
+    { encoding: 'utf-8' }
+  )
+  const generated = hbs.compile(template)({ versions })
+
+  return await fs.writeFile(
+    path.join(__dirname, '../../.github/workflows/download-content.yml'),
+    generated
+  )
 }

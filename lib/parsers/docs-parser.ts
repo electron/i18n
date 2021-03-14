@@ -1,17 +1,17 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as URL from 'url'
-import * as packageJSON from '../../package.json'
-import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
-import { IDocFile, ISection } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
-import { categoryNames, IGNORE_PATTERN } from '../constants'
 import { Entry } from 'walk-sync'
 const GithubSlugger = require('github-slugger')
 const remark = require('remark')
 const links = require('remark-inline-links')
 const hrefType = require('href-type')
+import { categoryNames, IGNORE_PATTERN } from '../constants'
+import * as packageJSON from '../../package.json'
+import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
+import { IDocFile, ISection } from '../types'
 
 export async function parseFile(file: Entry, ids: Record<string, string>) {
   const locale = file.relativePath.split('/')[0]

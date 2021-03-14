@@ -17,7 +17,7 @@ jobs:
       - name: Fetch latest source content
         env:
           CROWDIN_KEY: ${{ secrets.CROWDIN_KEY }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_OPTIONS: --max_old_space_size=4096
         run: npm run update-source-content
       - name: Upload Content To Crowdin (10-x-y)
@@ -27,7 +27,7 @@ jobs:
           crowdin_branch_name: 10-x-y
           config: temp/i18n-10-x-y/config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Upload Content To Crowdin (11-x-y)
@@ -37,7 +37,7 @@ jobs:
           crowdin_branch_name: 11-x-y
           config: temp/i18n-11-x-y/config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Upload Content To Crowdin (13-x-y)
@@ -47,7 +47,7 @@ jobs:
           crowdin_branch_name: 13-x-y
           config: temp/i18n-13-x-y/config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
       - name: Upload Content To Crowdin (current)
@@ -57,6 +57,6 @@ jobs:
           crowdin_branch_name: current
           config: temp/i18n-current/config.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

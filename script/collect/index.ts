@@ -1,15 +1,9 @@
 #!/usr/bin/env ts-node
 
-// TODO:
-//  - Add the current branch
-//  - Do the git magic
-//  - Do another magic stuff
-
 if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
   require('dotenv-safe').config()
 }
 
-import * as del from 'del'
 import * as fs from 'fs'
 import got from 'got'
 import { sync as mkdir } from 'make-dir'
@@ -17,23 +11,17 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
+import * as simpleGit from 'simple-git/promise'
+
 import { generateCrowdinConfig } from '../../lib/generators/crowdin-yml'
 import { generateSubreposYML } from '../../lib/generators/subrepos-yml'
 import { generateTYPES } from '../../lib/generators/types'
-import { generateUploader } from '../../lib/generators/gh-actions'
-import { SupportedVersions } from '../../lib/types'
+import { generateUploader, generateDownloader } from '../../lib/generators/gh-actions'
+import { SupportedVersions, versions } from '../../lib/types'
 
-const currentEnglishBasePath = path.join(
-  __dirname,
-  '..',
-  'content',
-  'current',
-  'en-US'
-)
-
-const basePath = (version: string) =>
+const basePath = (version: versions) =>
   path.join(__dirname, '../..', 'temp', `i18n-${version}`)
-const newEnglishBasePath = (version: string) =>
+const englishBasePath = (version: versions) =>
   path.join(basePath(version), 'content', 'en-US')
 
 const NUM_SUPPORTED_VERSIONS = 4
@@ -56,17 +44,15 @@ async function main() {
   await fetchRelease()
   await getSupportedBranches(release.tag_name)
   await createSupportedBranches()
-  await deleteUnsupportedBranches(supportedVersions)
+  await deleteUnsupportedBranches()
   await fetchSubrepos()
-  await createMetaConfigs(supportedVersions)
+  await createMetaConfigs()
   await fetchAPIDocs()
-  // await fetchApiData()
+  await fetchAPIData()
   await fetchTutorials()
-  // await fetchWebsiteContent()
-  // await fetchWebsiteBlogPosts()
-
-  // TODO
-  // await doGitMagic()
+  await fetchWebsiteContent()
+  await fetchWebsiteBlogPosts()
+  await doGitMagic()
 }
 
 async function fetchRelease() {
@@ -119,11 +105,11 @@ async function getSupportedBranches(current: string) {
     .slice(-NUM_SUPPORTED_VERSIONS)
     .filter((arr) => arr !== currentVersion && arr !== 'current')
 
-  writeToPackageJSON('supportedVersions', filteredBranches)
-  await generateSubreposYML(filteredBranches)
-
   supportedVersions = filteredBranches as any
   supportedVersions.push('current')
+
+  writeToPackageJSON('supportedVersions', supportedVersions)
+  await generateSubreposYML(supportedVersions)
   await generateTYPES(supportedVersions)
   console.log('Successfully written `supportedVersions` into package.json')
 }
@@ -147,16 +133,16 @@ async function createSupportedBranches() {
   }
 }
 
-async function deleteUnsupportedBranches(versions: Array<string>) {
+async function deleteUnsupportedBranches() {
   const { data: branches } = await github.git.listMatchingRefs({
     owner: 'vhashimotoo',
     repo: 'i18n-content',
     ref: 'heads/content/',
   })
 
-  if (branches.length !== versions.length) {
+  if (branches.length !== supportedVersions.length) {
     const difference = branches.filter(
-      (x) => !versions.includes(x.ref.replace('refs/heads/content/', ''))
+      (x) => !supportedVersions.includes(x.ref.replace('refs/heads/content/', '') as versions)
     )
 
     for (const dif of difference) {
@@ -173,7 +159,7 @@ async function fetchSubrepos() {
   execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
 }
 
-async function createMetaConfigs(supportedVersions: SupportedVersions) {
+async function createMetaConfigs() {
   console.log(
     `Fetching Electron master branch commit SHA and latest stable tag`
   )
@@ -193,6 +179,7 @@ async function createMetaConfigs(supportedVersions: SupportedVersions) {
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
 
   await generateUploader(supportedVersions)
+  await generateDownloader(supportedVersions)
   for (const version of supportedVersions) {
     await generateCrowdinConfig(basePath(version))
   }
@@ -217,7 +204,7 @@ async function fetchAPIDocs() {
   return Promise.resolve()
 }
 
-async function fetchApiData() {
+async function fetchAPIData() {
   console.log(
     `Fetching API definitions from electron/electron#${release.tag_name}`
   )
@@ -233,11 +220,11 @@ async function fetchApiData() {
   }
 
   const apis = await got(asset.browser_download_url).json()
-  const filename = path.join(currentEnglishBasePath, 'electron-api.json')
+  const filename = path.join(englishBasePath('current'), 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(
     `Writing ${path.relative(
-      currentEnglishBasePath,
+      englishBasePath('current'),
       filename
     )} (without changes)`
   )
@@ -272,9 +259,9 @@ async function fetchWebsiteContent() {
     'https://cdn.jsdelivr.net/gh/electron/electronjs.org@master/data/locale.yml'
   const response = await got(url)
   const content = response.body
-  const websiteFile = path.join(currentEnglishBasePath, 'website', `locale.yml`)
+  const websiteFile = path.join(englishBasePath('current'), 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
-  console.log(`Writing ${path.relative(currentEnglishBasePath, websiteFile)}`)
+  console.log(`Writing ${path.relative(englishBasePath('current'), websiteFile)}`)
   await fs.promises.writeFile(websiteFile, content)
   return Promise.resolve()
 }
@@ -291,10 +278,28 @@ async function fetchWebsiteBlogPosts() {
   blogs.forEach(writeBlog)
 }
 
+
+async function doGitMagic() {
+  for (const version of supportedVersions) {
+    const git = simpleGit(basePath(version))
+    await git.fetch()
+    await git.add('.')
+    await git.commit(`Update source files (${version}, ${new Date().toUTCString()})`)
+
+    try {
+      await git.checkout(`content/${version}`, ['-b'])
+    } catch {
+      await git.checkout(`content/${version}`)
+    }
+
+    await git.push('origin', `content/${version}`, ['--force'])
+  }
+}
+
 // Utility functions
 
-function writeDoc(doc: IRoggyResponse, version: string) {
-  const basepath = newEnglishBasePath(version)
+function writeDoc(doc: IRoggyResponse, version: versions) {
+  const basepath = englishBasePath(version)
   const filename = path.join(basepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
@@ -303,7 +308,7 @@ function writeDoc(doc: IRoggyResponse, version: string) {
 
 function writeBlog(doc: IRoggyResponse) {
   const filename = path.join(
-    currentEnglishBasePath,
+    englishBasePath('current'),
     'website/blog',
     doc.filename
   )

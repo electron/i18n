@@ -16,3 +16,9 @@
   branch: content/13-x-y
   # TODO: Remove this, we don't need hard reset
   commit: 7c1792ea27f262e51a19608d405961fe4362d37d
+- name: i18n/current
+  directory: temp/i18n-current
+  url: https://github.com/vhashimotoo/i18n-content.git
+  branch: content/current
+  # TODO: Remove this, we don't need hard reset
+  commit: 7c1792ea27f262e51a19608d405961fe4362d37d

@@ -1,0 +1,92 @@
+on:
+  schedule:
+    - cron: 0 */1 * * *
+  workflow_dispatch: {}
+
+name: Fetch translated content
+
+jobs:
+  content-10-x-y:
+    name: Fetch latest translated content (10-x-y)
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+        with:
+          repo: vhashimotoo/i18n-content
+          ref: content/10-x-y
+      - name: Download content from Crowdin
+        uses: crowdin/github-actions@1.0.9
+        with:
+          upload_sources: false
+          download_translations: true
+          localization_branch_name: translated/10-x-y
+          crowdin_branch_name: 10-x-y
+          commit_message: 'feat: new Crowdin translation (10-x-y)'
+          config: crowdin.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+  content-11-x-y:
+    name: Fetch latest translated content (11-x-y)
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+        with:
+          repo: vhashimotoo/i18n-content
+          ref: content/11-x-y
+      - name: Download content from Crowdin
+        uses: crowdin/github-actions@1.0.9
+        with:
+          upload_sources: false
+          download_translations: true
+          localization_branch_name: translated/11-x-y
+          crowdin_branch_name: 11-x-y
+          commit_message: 'feat: new Crowdin translation (11-x-y)'
+          config: crowdin.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+  content-13-x-y:
+    name: Fetch latest translated content (13-x-y)
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+        with:
+          repo: vhashimotoo/i18n-content
+          ref: content/13-x-y
+      - name: Download content from Crowdin
+        uses: crowdin/github-actions@1.0.9
+        with:
+          upload_sources: false
+          download_translations: true
+          localization_branch_name: translated/13-x-y
+          crowdin_branch_name: 13-x-y
+          commit_message: 'feat: new Crowdin translation (13-x-y)'
+          config: crowdin.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+  content-current:
+    name: Fetch latest translated content (current)
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+        with:
+          repo: vhashimotoo/i18n-content
+          ref: content/current
+      - name: Download content from Crowdin
+        uses: crowdin/github-actions@1.0.9
+        with:
+          upload_sources: false
+          download_translations: true
+          localization_branch_name: translated/current
+          crowdin_branch_name: current
+          commit_message: 'feat: new Crowdin translation (current)'
+          config: crowdin.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
