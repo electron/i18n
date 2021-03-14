@@ -32,7 +32,6 @@ const englishBasePath = (version: string) =>
 const newEnglishBasePath = (version: string) =>
   path.join(__dirname, '../..', 'temp', `i18n-${version}`, 'content', 'en-US')
 
-
 const NUM_SUPPORTED_VERSIONS = 4
 
 const github = new Octokit({
@@ -53,11 +52,9 @@ async function main() {
   await fetchRelease()
   await getSupportedBranches(release.tag_name)
   await createSupportedBranches()
+  await deleteUnsupportedBranches(supportedVersions)
   await fetchSubrepos()
-  // await deleteUnsupportedBranches(supportedVersions)
-  // await deleteContent(supportedVersions)
-  // await fetchAPIDocsFromLatestStableRelease()
-  await fetchAPIDocsFromSupportedVersions()
+  await fetchAPIDocs()
   // await fetchApiData()
   // await getMasterBranchCommit()
   // await fetchTutorialsFromMasterBranch()
@@ -120,8 +117,10 @@ async function getSupportedBranches(current: string) {
     .filter((arr) => arr !== currentVersion && arr !== 'current')
 
   writeToPackageJSON('supportedVersions', filteredBranches)
+  await generateSubreposYML(filteredBranches)
+
   supportedVersions = filteredBranches
-  generateSubreposYML(supportedVersions)
+  supportedVersions.push('current')
   console.log('Successfully written `supportedVersions` into package.json')
 }
 
@@ -131,16 +130,38 @@ async function createSupportedBranches() {
       await github.git.getRef({
         owner: 'vhashimotoo',
         repo: 'i18n-content',
-        ref: `refs/heads/content/${version}`,
+        ref: `heads/content/${version}`,
       })
     } catch {
-      // await github.git.createRef({
-      //   owner: 'vhashimotoo',
-      //   repo: 'i18n-content',
-      //   ref: `refs/heads/content/${version}`,
-      //   // TODO: SHA is required to create a reference
-      //   sha: '7c1792ea27f262e51a19608d405961fe4362d37d',
-      // })
+      await github.git.createRef({
+        owner: 'vhashimotoo',
+        repo: 'i18n-content',
+        ref: `refs/heads/content/${version}`,
+        // TODO: SHA is required to create a reference
+        sha: '7c1792ea27f262e51a19608d405961fe4362d37d',
+      })
+    }
+  }
+}
+
+async function deleteUnsupportedBranches(versions: Array<string>) {
+  const { data: branches } = await github.git.listMatchingRefs({
+    owner: 'vhashimotoo',
+    repo: 'i18n-content',
+    ref: 'heads/content/',
+  })
+
+  if (branches.length !== versions.length) {
+    const difference = branches.filter(
+      (x) => !versions.includes(x.ref.replace('refs/heads/content/', ''))
+    )
+
+    for (const dif of difference) {
+      await github.git.deleteRef({
+        owner: 'vhashimotoo',
+        repo: 'i18n-content',
+        ref: dif.ref.replace('refs/', ''),
+      })
     }
   }
 }
@@ -149,60 +170,21 @@ async function fetchSubrepos() {
   execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
 }
 
-async function deleteUnsupportedBranches(versions: Array<string>) {
-  const folders = await fs.promises.readdir('content')
-  folders.pop()
-  if (folders.length !== versions.length) {
-    versions.push('current')
-    const difference = folders.filter((x) => !versions.includes(x)).toString()
-    del(path.join(__dirname, '..', 'content', difference))
-    await generateCrowdinConfig(versions)
-    versions.pop()
-  }
-}
-
-async function deleteContent(branches: Array<string>) {
-  console.log('Deleting content:')
-
-  console.log('  - Deleting current content')
-  await del(currentEnglishBasePath)
-  for (const branch of branches) {
-    console.log(`  - Deleting content for ${branch}`)
-    await del(englishBasePath(branch))
-  }
-}
-
-async function fetchAPIDocsFromLatestStableRelease() {
-  console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
-
+async function fetchAPIDocs() {
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
-  const docs = await roggy(release.tag_name, {
-    owner: 'electron',
-    repository: 'electron',
-  })
-
-  docs
-    .filter((doc) => doc.filename.startsWith('api/'))
-    .forEach((doc) => writeDoc(doc))
-
-  return Promise.resolve()
-}
-
-async function fetchAPIDocsFromSupportedVersions() {
-  console.log('Fetching API docs from supported branches')
-
   for (const version of supportedVersions) {
     console.log(`  - from electron/electron#${version}`)
-    const docs = await roggy(version, {
-      owner: 'electron',
-      repository: 'electron',
-    })
+    const docs = await roggy(
+      version === 'current' ? release.tag_name : version,
+      {
+        owner: 'electron',
+        repository: 'electron',
+      }
+    )
 
     docs
       .filter((doc) => doc.filename.startsWith('api/'))
-      .forEach((doc) => {
-        writeNewDoc(doc, version)
-      })
+      .forEach((doc) => writeNewDoc(doc, version))
   }
 
   return Promise.resolve()
