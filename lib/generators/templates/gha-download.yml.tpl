@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repo: vhashimotoo/i18n-content
+          repository: vhashimotoo/i18n-content
           ref: content/{{this}}
       - name: Download content from Crowdin
         uses: crowdin/github-actions@1.0.9

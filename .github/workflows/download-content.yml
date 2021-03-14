@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repo: vhashimotoo/i18n-content
+          repository: vhashimotoo/i18n-content
           ref: content/10-x-y
       - name: Download content from Crowdin
         uses: crowdin/github-actions@1.0.9
@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repo: vhashimotoo/i18n-content
+          repository: vhashimotoo/i18n-content
           ref: content/11-x-y
       - name: Download content from Crowdin
         uses: crowdin/github-actions@1.0.9
@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repo: vhashimotoo/i18n-content
+          repository: vhashimotoo/i18n-content
           ref: content/13-x-y
       - name: Download content from Crowdin
         uses: crowdin/github-actions@1.0.9
@@ -75,7 +75,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repo: vhashimotoo/i18n-content
+          repository: vhashimotoo/i18n-content
           ref: content/current
       - name: Download content from Crowdin
         uses: crowdin/github-actions@1.0.9
