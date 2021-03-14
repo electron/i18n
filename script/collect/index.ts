@@ -1,5 +1,10 @@
 #!/usr/bin/env ts-node
 
+// TODO:
+//  - Add the current branch
+//  - Do the git magic
+//  - Do another magic stuff
+
 if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
   require('dotenv-safe').config()
 }
@@ -13,6 +18,8 @@ import { execSync } from 'child_process'
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 import { generateCrowdinConfig } from '../../lib/generate-crowdin-config'
+import { generateSubreposYML } from '../../lib/generate-subrepos'
+
 const currentEnglishBasePath = path.join(
   __dirname,
   '..',
@@ -22,6 +29,9 @@ const currentEnglishBasePath = path.join(
 )
 const englishBasePath = (version: string) =>
   path.join(__dirname, '..', 'content', version, 'en-US')
+const newEnglishBasePath = (version: string) =>
+  path.join(__dirname, '../..', 'temp', `i18n-${version}`, 'content', 'en-US')
+
 
 const NUM_SUPPORTED_VERSIONS = 4
 
@@ -42,16 +52,21 @@ main().catch((err: Error) => {
 async function main() {
   await fetchRelease()
   await getSupportedBranches(release.tag_name)
-  await deleteUnsupportedBranches(supportedVersions)
-  await deleteContent(supportedVersions)
-  await fetchAPIDocsFromLatestStableRelease()
+  await createSupportedBranches()
+  await fetchSubrepos()
+  // await deleteUnsupportedBranches(supportedVersions)
+  // await deleteContent(supportedVersions)
+  // await fetchAPIDocsFromLatestStableRelease()
   await fetchAPIDocsFromSupportedVersions()
-  await fetchApiData()
-  await getMasterBranchCommit()
-  await fetchTutorialsFromMasterBranch()
-  await fetchTutorialsFromSupportedBranch()
-  await fetchWebsiteContent()
-  await fetchWebsiteBlogPosts()
+  // await fetchApiData()
+  // await getMasterBranchCommit()
+  // await fetchTutorialsFromMasterBranch()
+  // await fetchTutorialsFromSupportedBranch()
+  // await fetchWebsiteContent()
+  // await fetchWebsiteBlogPosts()
+
+  // TODO
+  // await doGitMagic()
 }
 
 async function fetchRelease() {
@@ -106,7 +121,32 @@ async function getSupportedBranches(current: string) {
 
   writeToPackageJSON('supportedVersions', filteredBranches)
   supportedVersions = filteredBranches
+  generateSubreposYML(supportedVersions)
   console.log('Successfully written `supportedVersions` into package.json')
+}
+
+async function createSupportedBranches() {
+  for (const version of supportedVersions) {
+    try {
+      await github.git.getRef({
+        owner: 'vhashimotoo',
+        repo: 'i18n-content',
+        ref: `refs/heads/content/${version}`,
+      })
+    } catch {
+      // await github.git.createRef({
+      //   owner: 'vhashimotoo',
+      //   repo: 'i18n-content',
+      //   ref: `refs/heads/content/${version}`,
+      //   // TODO: SHA is required to create a reference
+      //   sha: '7c1792ea27f262e51a19608d405961fe4362d37d',
+      // })
+    }
+  }
+}
+
+async function fetchSubrepos() {
+  execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
 }
 
 async function deleteUnsupportedBranches(versions: Array<string>) {
@@ -161,7 +201,7 @@ async function fetchAPIDocsFromSupportedVersions() {
     docs
       .filter((doc) => doc.filename.startsWith('api/'))
       .forEach((doc) => {
-        writeDoc(doc, version)
+        writeNewDoc(doc, version)
       })
   }
 
@@ -282,11 +322,21 @@ async function fetchWebsiteBlogPosts() {
 
 function writeDoc(doc: IRoggyResponse, version?: string) {
   let basepath = currentEnglishBasePath
-  if (version) basepath = englishBasePath(version)
+  if (version) {
+    basepath = englishBasePath(version)
+  }
   const filename = path.join(basepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
+}
+
+function writeNewDoc(doc: IRoggyResponse, version: string) {
+  const basepath = newEnglishBasePath(version)
+  const filename = path.join(basepath, 'docs', doc.filename)
+  mkdir(path.dirname(filename))
+  fs.writeFileSync(filename, doc.markdown_content)
+  console.log('   ' + path.relative(basepath, filename))
 }
 
 function writeBlog(doc: IRoggyResponse) {
@@ -300,10 +350,10 @@ function writeBlog(doc: IRoggyResponse) {
 }
 
 function writeToPackageJSON(key: string, value: string | string[]) {
-  const pkg = require('../package.json')
+  const pkg = require('../../package.json')
   pkg[key] = value
   fs.writeFileSync(
-    require.resolve('../package.json'),
+    require.resolve('../../package.json'),
     JSON.stringify(pkg, null, 2)
   )
 }

@@ -1,0 +1,18 @@
+- name: i18n/10-x-y
+  directory: temp/i18n-10-x-y
+  url: https://github.com/vhashimotoo/i18n-content.git
+  branch: content/10-x-y
+  # TODO: Remove this, we don't need hard reset
+  commit: 7c1792ea27f262e51a19608d405961fe4362d37d
+- name: i18n/11-x-y
+  directory: temp/i18n-11-x-y
+  url: https://github.com/vhashimotoo/i18n-content.git
+  branch: content/11-x-y
+  # TODO: Remove this, we don't need hard reset
+  commit: 7c1792ea27f262e51a19608d405961fe4362d37d
+- name: i18n/13-x-y
+  directory: temp/i18n-13-x-y
+  url: https://github.com/vhashimotoo/i18n-content.git
+  branch: content/13-x-y
+  # TODO: Remove this, we don't need hard reset
+  commit: 7c1792ea27f262e51a19608d405961fe4362d37d

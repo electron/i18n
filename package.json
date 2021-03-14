@@ -47,6 +47,7 @@
     "roggy": "^0.1.0",
     "semantic-release": "^17.0.3",
     "simple-statistics": "^7.0.2",
+    "subrepos": "^0.0.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",
     "unist-util-visit": "^2.0.1",

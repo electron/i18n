@@ -6,11 +6,11 @@
       "es2018",
       "esnext"
     ],
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noImplicitAny": true,
     "noEmit": true
   }
