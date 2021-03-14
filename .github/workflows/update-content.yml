@@ -25,7 +25,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 10-x-y
-          config: temp/i18n-10-x-y/config.yml
+          config: module/temp/i18n-10-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -35,7 +35,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 11-x-y
-          config: temp/i18n-11-x-y/config.yml
+          config: module/temp/i18n-11-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -45,7 +45,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 13-x-y
-          config: temp/i18n-13-x-y/config.yml
+          config: module/temp/i18n-13-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -55,7 +55,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: current
-          config: temp/i18n-current/config.yml
+          config: module/temp/i18n-current/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

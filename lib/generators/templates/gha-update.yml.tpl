@@ -26,7 +26,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: {{this}}
-          config: temp/i18n-{{this}}/config.yml
+          config: module/temp/i18n-{{this}}/crowdin.yml
         env:
           GH_TOKEN: $\{{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: $\{{ secrets.CROWDIN_PROJECT_ID }}
