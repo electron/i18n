@@ -8,7 +8,7 @@ import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
 import { parseBlogFile, parseFile, parseNav } from '../lib/parsers'
-import { IBlogFile, IDocFile } from '../lib/interfaces'
+import { IBlogFile, IDocFile } from '../lib/types'
 import locales from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
 import {

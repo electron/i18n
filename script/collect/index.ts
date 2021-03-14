@@ -17,8 +17,11 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
-import { generateCrowdinConfig } from '../../lib/generate-crowdin-config'
-import { generateSubreposYML } from '../../lib/generate-subrepos'
+import { generateCrowdinConfig } from '../../lib/generators/crowdin-yml'
+import { generateSubreposYML } from '../../lib/generators/subrepos-yml'
+import { generateTYPES } from '../../lib/generators/types'
+import { generateUploader } from '../../lib/generators/gh-actions'
+import { SupportedVersions } from '../../lib/types'
 
 const currentEnglishBasePath = path.join(
   __dirname,
@@ -27,8 +30,9 @@ const currentEnglishBasePath = path.join(
   'current',
   'en-US'
 )
-const englishBasePath = (version: string) =>
-  path.join(__dirname, '..', 'content', version, 'en-US')
+
+const basePath = (version: string) =>
+  path.join(__dirname, '../..', 'temp', `i18n-${version}`)
 const newEnglishBasePath = (version: string) =>
   path.join(__dirname, '../..', 'temp', `i18n-${version}`, 'content', 'en-US')
 
@@ -41,7 +45,7 @@ const github = new Octokit({
 let release: RestEndpointMethodTypes['repos']['getRelease']['response']['data']
 // This used to share `supportedVersions` between this file,
 // and not use the cached version from package.json.
-let supportedVersions: string[] = []
+let supportedVersions: SupportedVersions = []
 
 main().catch((err: Error) => {
   console.log('Something goes wrong. Error: ', err)
@@ -54,7 +58,7 @@ async function main() {
   await createSupportedBranches()
   await deleteUnsupportedBranches(supportedVersions)
   await fetchSubrepos()
-  await fetchMeta()
+  await createMetaConfigs(supportedVersions)
   await fetchAPIDocs()
   // await fetchApiData()
   await fetchTutorials()
@@ -118,8 +122,9 @@ async function getSupportedBranches(current: string) {
   writeToPackageJSON('supportedVersions', filteredBranches)
   await generateSubreposYML(filteredBranches)
 
-  supportedVersions = filteredBranches
+  supportedVersions = filteredBranches as any
   supportedVersions.push('current')
+  await generateTYPES(supportedVersions)
   console.log('Successfully written `supportedVersions` into package.json')
 }
 
@@ -136,8 +141,7 @@ async function createSupportedBranches() {
         owner: 'vhashimotoo',
         repo: 'i18n-content',
         ref: `refs/heads/content/${version}`,
-        // TODO: SHA is required to create a reference
-        sha: '7c1792ea27f262e51a19608d405961fe4362d37d',
+        sha: '4b825dc642cb6eb9a060e54bf8d69288fbee4904',
       })
     }
   }
@@ -169,7 +173,7 @@ async function fetchSubrepos() {
   execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
 }
 
-async function fetchMeta() {
+async function createMetaConfigs(supportedVersions: SupportedVersions) {
   console.log(
     `Fetching Electron master branch commit SHA and latest stable tag`
   )
@@ -187,6 +191,11 @@ async function fetchMeta() {
 
   writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
+
+  await generateUploader(supportedVersions)
+  for (const version of supportedVersions) {
+    await generateCrowdinConfig(basePath(version))
+  }
 }
 
 async function fetchAPIDocs() {

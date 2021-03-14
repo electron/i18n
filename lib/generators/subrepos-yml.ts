@@ -9,5 +9,5 @@ export async function generateSubreposYML(versions: Array<string>) {
   )
   const generated = hbs.compile(template)({ versions })
 
-  return await fs.writeFile(path.join(__dirname, '../subrepos.yml'), generated)
+  return await fs.writeFile(path.join(__dirname, '../../subrepos.yml'), generated)
 }
