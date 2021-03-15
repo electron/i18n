@@ -16,11 +16,30 @@ jobs:
         with:
           node-version: '14.x'
       - name: Fetch latest source content
+        run: |
+          npm ci
+          npm run collect
+          npm run content-cleanup
+
+          if [ "$(git status --porcelain)" = "" ]; then
+            echo "no new content found; goodbye!"
+            exit
+          else
+            echo "found some new content! committing changes to git"
+          fi
+
+          # `pretest` script will run the build first
+          npm test
+
+          git config user.email electron@github.com
+          git config user.name electron-bot
+          git add .
+          git commit -am "feat: update source content"
+          git pull --rebase && git push origin master --follow-tags
         env:
           CROWDIN_KEY: $\{{ secrets.CROWDIN_KEY }}
           GH_TOKEN: $\{{ secrets.GH_TOKEN }}
           NODE_OPTIONS: --max_old_space_size=4096
-        run: npm run update-source-content
 
   {{#each versions}}
   upload-{{this}}:
@@ -35,7 +54,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: |
-          git pull origin master --force
+          git pull --rebase
           npm ci
           yarn run subrepos
       - name: Upload Content To Crowdin ({{this}})

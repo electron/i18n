@@ -16,11 +16,30 @@ jobs:
         with:
           node-version: '14.x'
       - name: Fetch latest source content
+        run: |
+          npm ci
+          npm run collect
+          npm run content-cleanup
+
+          if [ "$(git status --porcelain)" = "" ]; then
+            echo "no new content found; goodbye!"
+            exit
+          else
+            echo "found some new content! committing changes to git"
+          fi
+
+          # `pretest` script will run the build first
+          npm test
+
+          git config user.email electron@github.com
+          git config user.name electron-bot
+          git add .
+          git commit -am "feat: update source content"
+          git pull --rebase && git push origin master --follow-tags
         env:
           CROWDIN_KEY: ${{ secrets.CROWDIN_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_OPTIONS: --max_old_space_size=4096
-        run: npm run update-source-content
 
   upload-10-x-y:
     name: Upload source content (10-x-y)
@@ -34,7 +53,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: |
-          git pull origin master
+          git pull --rebase
           npm ci
           yarn run subrepos
       - name: Upload Content To Crowdin (10-x-y)
@@ -42,7 +61,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 10-x-y
-          config: module/temp/i18n-10-x-y/crowdin.yml
+          config: temp/i18n-10-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -59,7 +78,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: |
-          git pull origin master
+          git pull --rebase
           npm ci
           yarn run subrepos
       - name: Upload Content To Crowdin (11-x-y)
@@ -67,7 +86,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 11-x-y
-          config: module/temp/i18n-11-x-y/crowdin.yml
+          config: temp/i18n-11-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -84,7 +103,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: |
-          git pull origin master
+          git pull --rebase
           npm ci
           yarn run subrepos
       - name: Upload Content To Crowdin (13-x-y)
@@ -92,7 +111,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: 13-x-y
-          config: module/temp/i18n-13-x-y/crowdin.yml
+          config: temp/i18n-13-x-y/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
@@ -109,7 +128,7 @@ jobs:
         with:
           node-version: '14.x'
       - run: |
-          git pull origin master
+          git pull --rebase
           npm ci
           yarn run subrepos
       - name: Upload Content To Crowdin (current)
@@ -117,7 +136,7 @@ jobs:
         with:
           upload_sources: true
           crowdin_branch_name: current
-          config: module/temp/i18n-current/crowdin.yml
+          config: temp/i18n-current/crowdin.yml
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

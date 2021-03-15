@@ -54,7 +54,7 @@
     "walk-sync": "^2.0.2"
   },
   "scripts": {
-    "collect": "ts-node script/collect.ts",
+    "collect": "ts-node script/collect/index.ts",
     "build": "npm-run-all build:*",
     "build:stats": "ts-node script/stats.ts",
     "build:cleanup": "ts-node script/i18n-content-cleanup.ts",
