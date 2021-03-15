@@ -127,7 +127,7 @@ async function createSupportedBranches() {
         owner: 'vhashimotoo',
         repo: 'i18n-content',
         ref: `refs/heads/content/${version}`,
-        sha: '4b825dc642cb6eb9a060e54bf8d69288fbee4904',
+        sha: '379e9bf26c8627c17e42dbe43e2c72d7f1844d61',
       })
     }
   }
