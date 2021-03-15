@@ -7,7 +7,7 @@ import * as walk from 'walk-sync'
 import * as path from 'path'
 import { sync as mkdir } from 'make-dir'
 import { writeHelper } from '../lib/write-helper'
-import { parseBlogFile, parseFile, parseNav } from '../lib/parsers'
+import { parseBlogFile, parseFile } from '../lib/parsers'
 import { IBlogFile, IDocFile } from '../lib/interfaces'
 import locales from '../lib/locales'
 import { writeIndexFiles } from '../lib/generate-js'
@@ -104,11 +104,6 @@ async function main() {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 
-  const navsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    acc[locale] = parseNav(docsByLocale, locale)
-    return acc
-  }, {} as Record<string, string>)
-
   mkdir(path.resolve(__dirname, '../dist'))
 
   // Writes locales.json
@@ -125,9 +120,6 @@ async function main() {
 
   // Writes glossary.json
   writeHelper('glossary', glossary)
-
-  // Writes navs.json
-  writeHelper('navs', navsByLocale)
 
   // Writes index.js and index.d.ts
   writeIndexFiles()

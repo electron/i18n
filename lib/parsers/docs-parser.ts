@@ -1,14 +1,11 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import { fixRelativeLinks, fiddleUrls, plaintextFix } from '../transfomers'
-import { IDocFile, ISection } from '../interfaces'
+import { IDocFile } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
 import { categoryNames, IGNORE_PATTERN } from '../constants'
 import { Entry } from 'walk-sync'
-const GithubSlugger = require('github-slugger')
-const remark = require('remark')
-const links = require('remark-inline-links')
 
 export async function parseFile(file: Entry, ids: Record<string, string>) {
   const locale = file.relativePath.split('/')[0]
@@ -60,82 +57,21 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
     return docFile
   }
 
-  docFile.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async (section) => {
-      const parsed = await hubdown(section.body, {
-        runBefore: [fixRelativeLinks(docFile), plaintextFix, fiddleUrls],
-        highlight: {
-          ignoreMissing: true,
-        },
-      })
-      const $ = cheerio.load(parsed.content || '')
-      docFile.title =
-        docFile.title ||
-        $('h1').first().text().trim() ||
-        $('h2').first().text().replace('Class: ', '')
-      docFile.description =
-        docFile.description || $('blockquote').first().text().trim()
+  const parsed = await hubdown(markdown, {
+    runBefore: [fixRelativeLinks(docFile), plaintextFix, fiddleUrls],
+    highlight: {
+      ignoreMissing: true,
+    },
+  })
 
-      section.html = $('body').html()
-
-      return section
-    })
-  )
+  docFile.html = parsed.content
+  const $ = cheerio.load(parsed.content || '')
+  docFile.title =
+    docFile.title ||
+    $('h1').first().text().trim() ||
+    $('h2').first().text().replace('Class: ', '')
+  docFile.description =
+    docFile.description || $('blockquote').first().text().trim()
 
   return docFile
-}
-
-function fixMdLinks(md: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    remark()
-      .use(links)
-      .process(md, (err: Error, file: { contents: string }) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(file.contents)
-        }
-      })
-  })
-}
-
-function splitMd(md: string): Array<ISection> {
-  const slugger = new GithubSlugger()
-  const sections: Array<ISection> = []
-  let section: ISection = { name: '', slug: '', body: '', level: 0, html: null }
-  let bodyArray: Array<string> = []
-  let isInCodeBlock = false
-
-  const isHeading = (line: string) =>
-    !isInCodeBlock && line.trim().startsWith('#')
-
-  // TODO(erickzhao): Remove opening .trim() call because heading should never be tabbed in
-  const cleanHeading = (heading: string) => ({
-    text: heading.replace(/^\#{1,6}\ /, ''),
-    level: (heading.trim().match(/^\#{1,6}\ /) as Array<string>)[0].trim()
-      .length,
-  })
-
-  md.split('\n').forEach((curr, i, lines) => {
-    if (curr.startsWith('```')) {
-      isInCodeBlock = !isInCodeBlock
-    }
-    if (isHeading(curr)) {
-      const heading = cleanHeading(curr)
-      section.name = heading.text
-      section.slug = slugger.slug(heading.text)
-      section.level = heading.level
-    }
-    bodyArray.push(curr)
-
-    let next = lines[i + 1]
-    if (next === undefined || isHeading(next)) {
-      section.body = bodyArray.join('\n')
-      sections.push(section)
-      section = { name: '', slug: '', body: '', level: 0, html: null }
-      bodyArray.length = 0
-    }
-  })
-
-  return sections
 }

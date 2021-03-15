@@ -9,7 +9,6 @@ const JSTemplate = `module.exports = {
   docs: require('./docs.json'),
   glossary: require('./glossary.json'),
   locales: require('./locales.json'),
-  navs: require('./navs.json'),
   website: require('./website.json'),
 
   electronLatestStableTag: \'${packageJSON.electronLatestStableTag}\',
@@ -22,7 +21,6 @@ const TSTemplate = `export declare const blogs: typeof import('./blogs.json')
 export declare const docs: typeof import('./docs.json')
 export declare const glossary: typeof import('./glossary.json')
 export declare const locales: typeof import('./locales.json')
-export declare const navs: typeof import('./navs.json')
 export declare const website: typeof import('./website.json')
 
 export declare const electronLatestStableTag: string

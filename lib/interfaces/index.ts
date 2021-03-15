@@ -19,6 +19,7 @@ export interface IDocFile extends IFile {
   sections?: Array<ISection>
   title?: string
   description?: string
+  html?: string
 }
 
 export interface IBlogFile extends IFile {
