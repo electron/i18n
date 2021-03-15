@@ -1,12 +1,12 @@
 # Problemas en Electron
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [Cómo contribuir a problemas](#how-to-contribute-to-issues)
 * [Pedir ayuda general](#asking-for-general-help)
 * [Presentar un informe de error](#submitting-a-bug-report)
 * [Seguimiento de un Informe de Error](#triaging-a-bug-report)
 * [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## Cómo contribuir a problemas
 
 Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
@@ -20,7 +20,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 ## Presentar un informe de error
 
-To submit a bug report:
+Para enviar un informe de error:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 

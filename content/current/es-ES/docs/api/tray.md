@@ -239,13 +239,13 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) - Icono a usar cuando `iconType` es `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` Cadena
   * `content` String
   * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Mapea a [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Mapea a [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Por defecto es `false`. Mapea a [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
+  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Mapea a [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Muestra un globo de la bandeja.
 
@@ -255,7 +255,7 @@ Elimina un globo de la bandeja.
 
 #### `tray.focus()` _Windows_
 
-Devuelve el foco al área de notificación de la barra de tarea. Notification area icons should use this message when they have completed their UI operation. Por ejemplo, si el icono muestra un menú de acceso directo, pero el usuario presiona ESC para cancelarlo, use `tray.focus()` para devolver el focus a la área de notificación.
+Devuelve el foco al área de notificación de la barra de tarea. Los iconos del área de notificación deben usar este mensaje cuando hayan completado su operación UI. Por ejemplo, si el icono muestra un menú de acceso directo, pero el usuario presiona ESC para cancelarlo, use `tray.focus()` para devolver el focus a la área de notificación.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 

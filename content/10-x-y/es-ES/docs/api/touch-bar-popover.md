@@ -9,7 +9,7 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 * `options` Object
   * `Etiqueta` Cadena (opcional) - tecto del botón en la notificación.
   * `ícono` [imagen nativa](native-image.md) (opcional) - ícono del botón de la notificación.
-  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
+  * `items` [TouchBar](touch-bar.md) - Elementos a mostrar en el popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Por defecto es `true`.
 
 ### Propiedades de Instancia

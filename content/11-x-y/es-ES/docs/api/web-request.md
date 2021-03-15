@@ -91,11 +91,11 @@ Algunos ejemplos de `urls` válidas:
   * `callback` Función
     * `beforeSendResponse` Object
       * `cancelar` Booleano (opcional)
-      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (opcional) -Cuando es proveído, la solicitud será hecha con esas cabeceras.
 
 El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
-The `callback` has to be called with a `response` object.
+El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -134,12 +134,12 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
   * `callback` Función
     * `headersReceivedResponse` Object
       * `cancelar` Booleano (opcional)
-      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string | string[]> (opcional) - Cuando es proveído, el servidor se asume que ha respondido con estas cabeceras.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
 
-The `callback` has to be called with a `response` object.
+El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 

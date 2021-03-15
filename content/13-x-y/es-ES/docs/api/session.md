@@ -119,10 +119,10 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 Devuelve:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - La URL que esta siendo solicitada para preconexión por el renderer.
+* `allowCredentials` Boolean - True si el renderer está solicitando que la conexión incluya las credenciales (vea el [especificación](https://w3c.github.io/resource-hints/#preconnect) para más detalles.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Emitido cuando un render process solicita preconexión a una URL, generalmente debido a [resource hint](https://w3c.github.io/resource-hints/).
 
 #### Evento: 'spellcheck-dictionary-initialized'
 
@@ -427,7 +427,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `pointerLock` - Request to directly interpret mouse movements as an input method. Pulse [aquí](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) para saber más.
     * `fullscreen` - Request for the app to enter fullscreen mode.
     * `openExternal` - Request to open links in external applications.
-    * `unknown` - An unrecognized permission request
+    * `unknown` - Una solicitud de premiso no reconocida
   * `callback` Función
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Some properties are only available on certain permission types.
@@ -436,7 +436,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.  Please note that you must also implement `setPermissionCheckHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.  Por favor, tenga en cuenta que debe implementar también `setPermissionCheckHandler` para obtener el manejo completo de los permisos. La mayoría de las APIs web hacen una verificación de permiso y luego hacen una solicitud de permiso si la verificación es denegada.
 
 ```javascript
 const { session } = require('electron')
@@ -452,27 +452,27 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.  Cross origin sub frames making permission checks will pass a `null` webContents to this handler.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
+  * `webContents` ([WebContents](web-contents.md) | null) - WebContents verificando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.  Los subframes de origen cruzado que hacen chequeos de permisos pasarán un contenido web `null` a este manejador.  Debería usar `embeddingOrigin` y `requestingOrigin` para determinar que origen se encuentra en el marco propietario y en el marco solicitante respectivamente.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos
   * `details` Object - Some properties are only available on certain permission types.
-    * `embeddingOrigin` String (optional) - The origin of the frame embedding the frame that made the permission check.  Only set for cross-origin sub frames making permission checks.
-    * `securityOrigin` String (optional) - The security origin of the `media` check.
-    * `mediaType` String (optional) - The type of media access being requested, can be `video`, `audio` or `unknown`
-    * `requestingUrl` String (optional) - The last URL the requesting frame loaded.  This is not provided for cross-origin sub frames making permission checks.
+    * `embeddingOrigin` String (opcional) - El origen del marco que incrusta el marco que hizo la verificación de permisos.  Sólo se establece cross-origin submarcos haciendo comprobaciones de permisos.
+    * `securityOrigin` String (opcional) - El origen de seguridad de la comprobación `media`.
+    * `mediaType` String (opcional) - El tipo de acceso a los medios que se solicita puede ser `video`, `audio` o `unknown`
+    * `requestingUrl` String (opcional) - La última URL que representa el marco cargado.  Esto no es proveído para cross-origin submarcos haciendo comprobaciones de permiso.
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará.  Please note that you must also implement `setPermissionRequestHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
+Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará.  Por favor, tenga en cuenta que debe implementar también `setPermissionRequestHandler` para obtener el manejo completo de los permisos. La mayoría de las APIs web hacen una verificación de permiso y luego hacen una solicitud de permiso si la verificación es denegada. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
 const url = require('url')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'some-host' && permission === 'notifications') {
-    return true // granted
+    return true // concedido
   }
 
-  return false // denied
+  return false // denegado
 })
 ```
 

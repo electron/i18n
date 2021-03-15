@@ -14,7 +14,7 @@ Hay varias formas diferentes de instalar los módulos nativos:
 
 ### Instalación de módulos y reconstrucción para Electron
 
-Puedes instalar los módulos como otro proyecto Node, luego reconstruir el modulo para Electron con el paquete [`electron-rebuild`][electron-rebuild]. Este módulo puede determinar automáticamente la versión de Electron y manejar los pasos manuales de descargar las cabeceras y reconstruir los módulos nativos para tu app. If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+Puedes instalar los módulos como otro proyecto Node, luego reconstruir el modulo para Electron con el paquete [`electron-rebuild`][electron-rebuild]. Este módulo puede determinar automáticamente la versión de Electron y manejar los pasos manuales de descargar las cabeceras y reconstruir los módulos nativos para tu app. Si está usando [Electron Forge][electron-forge], esta herramienta se utiliza automáticamente tanto en desarrollo como al hacer distribuibles.
 
 Por ejemplo, para instalar la herramienta independiente `electron-rebuild` y recompilar los módulos con este a través de la linea de comando:
 

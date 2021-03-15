@@ -747,7 +747,7 @@ Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de render
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
-Devuelve `Promise<void>` - la promesa se resolverá cuando la página ha finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y rechaza si la página falla al cargar (mira[`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
+Devuelve `Promise<void>` - la promesa se resolverá cuando la página ha finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y rechaza si la página falla al cargar (mira[`did-fail-load`](web-contents.md#event-did-fail-load)). Un manejador de rechazo noop ya esta adjunto, el cual evita errores de rechazo no controlados.
 
 Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
 
@@ -936,7 +936,7 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-Code execution will be suspended until web page stop loading.
+La ejecución de código se suspenderá hasta que la pagina pare de cargarse.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -947,7 +947,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  Puede aquí suministrar cualquier entero.
+* `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica `contextIsolation` de Electron.  Puede aquí suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
@@ -977,11 +977,11 @@ Devuelve `Boolean` - Si el audio se esta reproduciendo actualmente.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Double - Zoom factor; default is 1.0.
+* `factor` Double - Factor de zoom; por defecto es 1.0.
 
 Cambia el nivel de zoom al nivel especificado. Factor de zoom es porcentaje de zoom dividido entre 100, así que 300% = 3.0.
 
-The factor must be greater than 0.0.
+El factor debe ser mayor que 0.0.
 
 #### `contents.getZoomFactor()`
 
@@ -1122,18 +1122,18 @@ Returns `Boolean` - Whether this page is being captured. It returns true when th
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
-* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
+* `size` [Size](structures/size.md) (opcional) - El tamaño preferido para el capturador.
+* `stayHidden` Boolean (opcional) - Mantiene la página oculta en lugar de visible.
 
-Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+Incrementa el contador de captura en uno. La página es considerada visible cuando su ventana de navegador está oculta y el recuento del capturador no es cero. Si le gustaría que la página permanezca oculta, debería asegurarse que `stayHidden` está establecido a true.
 
 Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
+* `stayHidden` Boolean (opcional) - Mantiene la página en estado oculto en lugar de visible.
 
-Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+Disminuye el recuento del capturador en uno. La página se establecerá en el estado oculto u ocluido cuando la ventana del navegador esté oculta u ocluida y el recuento del capturador llegue a cero. Si quiere disminuir el contador del caputador en su lugar debería establecer `stayHidden` a true.
 
 #### `contents.getPrinters()`
 
@@ -1149,25 +1149,25 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
   * `margins` Object (optional)
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+    * `marginType` String (opcional) - Puede ser `default`, `none`, `printableArea`, o `custom`. Si `custom` es elegido, además necesitar especificar `top`, `bottom`, `left`, y `right`.
+    * `top` Number (opcional) - El margen superior de la página web impresa, en píxeles.
+    * `bottom` Number (opcional) - El margen inferior de la página web impresa, en píxeles.
+    * `left` Number (opcional) - El margen izquierdo de la página web impresa, en píxeles.
+    * `right` Number (opcional) - El margen derecho de la página web impresa, en píxeles.
   * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por defecto es `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web.
+  * `pagesPerSheet` Number (opcional) - El número de páginas a imprimir por hoja de página.
+  * `collate` Boolean (opcional) - Si la página web debe ser intercalada.
+  * `copies` Number (opcional) - El número de copias de la página web a imprimir.
   * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
-  * `header` String (optional) - String to be printed as page header.
-  * `footer` String (optional) - String to be printed as page footer.
+    * `horizontal` Number (opcional) - El dpi horizontal.
+    * `vertical` Number (opcional) - El dpi vertical.
+  * `header` String (opcional) - Cadena a ser impresa como cabecera de la página.
+  * `footer` String (opcional) - Cadena a ser impresa como pie de página.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `retrocallback` Funcion (opcional)
   * `success` Boolean - Indica el éxito de la llamada impresa.
@@ -1175,7 +1175,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 
 When a custom `pageSize` is passed, Chromium attempts to validate platform specific minumum values for `width_microns` and `height_microns`. Ambos anchura y altura deben ser mínimamente 353 microns, pero puede ser más grande en algunos sistemas operativos.
 
-Imprime la página web de la ventana. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Imprime la página web de la ventana. Cuando `silent` es establecido a `true`, Electron tomará la impresora por defecto del sistema si `deviceName` está vacío y la configuraciones por defecto para imprimir.
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
@@ -1196,7 +1196,7 @@ win.webContents.print(options, (success, errorType) => {
     * `url` String - the url for the PDF footer.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
@@ -1374,7 +1374,7 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 * Cadena `workerId`
 
-Inspects the shared worker based on its ID.
+Inspecciona el shared worker basado en su ID.
 
 #### `contents.getAllSharedWorkers()`
 
@@ -1389,7 +1389,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1430,7 +1430,7 @@ app.whenReady().then(() => {
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1519,8 +1519,8 @@ Finalizar suscripción para eventos de presentación de marcos.
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
+  * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
+  * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
 Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
 

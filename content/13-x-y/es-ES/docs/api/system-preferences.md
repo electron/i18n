@@ -88,7 +88,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Devuelve `Number` - El ID de la suscripción
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. El `object` es el remitente de la notificación y solo soporta valores `NSString` por ahora.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
@@ -378,7 +378,7 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - Puede ser `microphone`, `camera` o `screen`.
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 

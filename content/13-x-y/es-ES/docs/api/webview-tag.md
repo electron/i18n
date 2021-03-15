@@ -84,7 +84,7 @@ El atributo `src` puede aceptar data de URL, como `data:text/plain,Hello, world!
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-A `Boolean`. Cuando este atributo esté presente, la página de invitado en `webview` tendrá integración de nodo y puede usar nodos APIs como `require` y `process` para acceder a bajos niveles de recursos de sistemas. La integración de nodo está desactivada por defecto en la página de invitado.
+Un `Boolean`. Cuando este atributo esté presente, la página de invitado en `webview` tendrá integración de nodo y puede usar nodos APIs como `require` y `process` para acceder a bajos niveles de recursos de sistemas. La integración de nodo está desactivada por defecto en la página de invitado.
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ A `Boolean`. Cuando este atributo esté presente, la página de invitado en `web
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
+Un `Boolean` para habilitar la opción experimental soporte NodeJS en sub frames tal como iframes dentro de `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-A `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). The remote module is unavailable by default.
+Un `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). The remote module is unavailable by default.
 
 ### `complementos`
 
@@ -108,7 +108,7 @@ A `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview` 
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Un `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `precarga`
 
@@ -128,7 +128,7 @@ Cuando la página de invitado no tiene integración de nodo, este guión todaví
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-A `String` that sets the referrer URL for the guest page.
+Un `String` que establece la URL de referencia para la página de invitado.
 
 ### `useragent`
 
@@ -144,7 +144,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-A `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+Un `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -153,7 +153,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
+Un `String` que representa la sesión utilizada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -163,7 +163,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-A `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Un `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -171,7 +171,7 @@ A `Boolean`. When this attribute is present the guest page will be allowed to op
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. La lista completa de cuerdas preferenciales soportadas puede ser encontradas en [BrowserWindow](browser-window.md#new-browserwindowoptions).
+Un `String` el cual es una lista de cadenas separada por coma que especifica las web preferences a ser establecidas en el webview. La lista completa de cuerdas preferenciales soportadas puede ser encontradas en [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
 La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. Un nombre por sí mismo es dado a `true` por valores booleanos. Una preferencia puede ser establecida por otro valor incluyendo un `=`, seguido por el valor. Valores especiales como `yes` y `1` son interpretados como `true`, mientras que `no` y `0` son interpretados como `false`.
 
@@ -465,25 +465,25 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
   * `margins` Object (optional)
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+    * `marginType` String (opcional) - Puede ser `default`, `none`, `printableArea`, o `custom`. Si `custom` es elegido, además necesitar especificar `top`, `bottom`, `left`, y `right`.
+    * `top` Number (opcional) - El margen superior de la página web impresa, en píxeles.
+    * `bottom` Number (opcional) - El margen inferior de la página web impresa, en píxeles.
+    * `left` Number (opcional) - El margen izquierdo de la página web impresa, en píxeles.
+    * `right` Number (opcional) - El margen derecho de la página web impresa, en píxeles.
   * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por defecto es `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web.
+  * `pagesPerSheet` Number (opcional) - El número de páginas a imprimir por hoja de página.
+  * `collate` Boolean (opcional) - Si la página web debe ser intercalada.
+  * `copies` Number (opcional) - El número de copias de la página web a imprimir.
   * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
-  * `header` String (optional) - String to be printed as page header.
-  * `footer` String (optional) - String to be printed as page footer.
+    * `horizontal` Number (opcional) - El dpi horizontal.
+    * `vertical` Number (opcional) - El dpi vertical.
+  * `header` String (opcional) - Cadena a ser impresa como cabecera de la página.
+  * `footer` String (opcional) - Cadena a ser impresa como pie de página.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Devuelve `Promise<void>`
@@ -498,7 +498,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
     * `url` String - the url for the PDF footer.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
-  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
@@ -701,7 +701,7 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - Las opciones que deberían ser usadas para crear el nuevo [`BrowserWindow`](browser-window.md).
 
 Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
