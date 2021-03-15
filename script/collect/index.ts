@@ -11,12 +11,16 @@ import * as path from 'path'
 import { execSync } from 'child_process'
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
+import { install as subreposInstall } from 'subrepos'
 import * as simpleGit from 'simple-git/promise'
 
 import { generateCrowdinConfig } from '../../lib/generators/crowdin-yml'
 import { generateSubreposYML } from '../../lib/generators/subrepos-yml'
 import { generateTYPES } from '../../lib/generators/types'
-import { generateUploader, generateDownloader } from '../../lib/generators/gh-actions'
+import {
+  generateUploader,
+  generateDownloader,
+} from '../../lib/generators/gh-actions'
 import { SupportedVersions, versions } from '../../lib/types'
 
 const basePath = (version: versions) =>
@@ -142,7 +146,10 @@ async function deleteUnsupportedBranches() {
 
   if (branches.length !== supportedVersions.length) {
     const difference = branches.filter(
-      (x) => !supportedVersions.includes(x.ref.replace('refs/heads/content/', '') as versions)
+      (x) =>
+        !supportedVersions.includes(
+          x.ref.replace('refs/heads/content/', '') as versions
+        )
     )
 
     for (const dif of difference) {
@@ -156,7 +163,7 @@ async function deleteUnsupportedBranches() {
 }
 
 async function fetchSubrepos() {
-  execSync('yarn subrepos', { cwd: path.resolve(__dirname, '../..') })
+  await subreposInstall()
 }
 
 async function createMetaConfigs() {
@@ -259,9 +266,15 @@ async function fetchWebsiteContent() {
     'https://cdn.jsdelivr.net/gh/electron/electronjs.org@master/data/locale.yml'
   const response = await got(url)
   const content = response.body
-  const websiteFile = path.join(englishBasePath('current'), 'website', `locale.yml`)
+  const websiteFile = path.join(
+    englishBasePath('current'),
+    'website',
+    `locale.yml`
+  )
   mkdir(path.dirname(websiteFile))
-  console.log(`Writing ${path.relative(englishBasePath('current'), websiteFile)}`)
+  console.log(
+    `Writing ${path.relative(englishBasePath('current'), websiteFile)}`
+  )
   await fs.promises.writeFile(websiteFile, content)
   return Promise.resolve()
 }
@@ -278,22 +291,13 @@ async function fetchWebsiteBlogPosts() {
   blogs.forEach(writeBlog)
 }
 
-
 async function doGitMagic() {
   for (const version of supportedVersions) {
     const git = simpleGit(basePath(version))
-    await git.removeRemote('origin')
-    await git.addRemote('origin', `https://vhashimotoo:${process.env.GH_TOKEN}@github.com/vhashimotoo/i18n-content.git`)
-    await git.fetch()
     await git.add('.')
-    await git.commit(`Update source files (${version}, ${new Date().toUTCString()})`)
-
-    try {
-      await git.checkout(`content/${version}`, ['-b'])
-    } catch {
-      await git.checkout(`content/${version}`)
-    }
-
+    await git.commit(
+      `Update source files (${version}, ${new Date().toUTCString()})`
+    )
     await git.push('origin', `content/${version}`, ['--force'])
   }
 }
