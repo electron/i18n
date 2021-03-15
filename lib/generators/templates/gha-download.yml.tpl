@@ -21,7 +21,7 @@ jobs:
           repository: vhashimotoo/i18n-content
           ref: content/{{this}}
       - name: Download content from Crowdin
-        uses: crowdin/github-actions@1.0.21
+        uses: crowdin/github-action@1.0.21
         with:
           upload_sources: false
           download_translations: true
