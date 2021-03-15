@@ -161,12 +161,12 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
-    * `customButtonsOnHover` - Results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **Note:** Esta opción es experimental actualmente.
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
-  * `roundedCorners` Boolean (optional) - Whether frameless window should have rounded corners on macOS. Por defecto es `true`.
-  * `fullscreenWindowTitle` Boolean (optional) _Deprecated_ - Shows the title in the title bar in full screen mode on macOS for `hiddenInset` titleBarStyle. Por defecto es `false`.
+    * `customButtonsOnHover` - Resulta en una barra de titulo oculta y en una ventana de contenido de tamaño completo, los botones del semáforo se mostrarán al pasar el cursor sobre la parte superior izquierda de la ventana.  **Note:** Esta opción es experimental actualmente.
+  * `trafficLightPosition` [Point](structures/point.md) (opcional) - Establece una posición para los botones del semáforo en ventanas sin marco.
+  * `roundedCorners` Boolean (opcional) - Si la ventana sin marco debería tener o no esquinas redondeadas macOS. Por defecto es `true`.
+  * `fullscreenWindowTitle` Boolean (opcional) _Obsoleto_ - Muestra el título en la barra de título en el modo de pantalla completa en macOS para `hiddenInset` titleBarStyle. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
-  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` are deprecated and have been removed in macOS Catalina (10.15).
+  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Además tenga en cuenta que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` son obsoletos y han sido eliminados en macOS Catalina (10.15).
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
   * `tabbingIdentifier` String (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
   * `webPreferences` Object (optional) - Settings of web page's features.
@@ -1094,7 +1094,7 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 
 Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible. If the page is not visible, `rect` may be empty.
+Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible. Si la página no es visible, `rect` puede estar vacía.
 
 #### `win.loadURL(url[, options])`
 
@@ -1304,7 +1304,7 @@ Devuelve `Boolean` - Si la barra de menú es visible o no.
 * `visible` Boolean
 * `options` Object (opcional)
   * `visibleOnFullScreen` Boolean (opcional) _macOS_ - Establece si la ventana debe ser visible encima de la ventanas de pantalla completas.
-  * `skipTransformProcessType` Boolean (optional) _macOS_ - Calling setVisibleOnAllWorkspaces will by default transform the process type between UIElementApplication and ForegroundApplication to ensure the correct behavior. However, this will hide the window and dock for a short time every time it is called. If your window is already of type UIElementApplication, you can bypass this transformation by passing true to skipTransformProcessType.
+  * `skipTransformProcessType` Boolean (opcional) _macOS_ - Llamando a setVisibleOnAllWorkspaces por defecto transformará el tipo de proceso entre UIElementApplication y ForegroundApplication para asegurar el comportamiento correcto. Sin embargo, esto ocultará la ventana y el dock por un tiempo corto cada vez que es llamado. Si su ventana ya es de tipo UIElementApplication, puede saltarse esta tranformación pasando true a skipTransformProcessType.
 
 Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
@@ -1400,11 +1400,11 @@ Note que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` han
 
 * `position` [Punto](structures/point.md)
 
-Set a custom position for the traffic light buttons in frameless window.
+Establece una posición personalizada para los botones del semáforo en la ventana sin marco.
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The custom position for the traffic light buttons in frameless window.
+Devuelve `Point` - La posición personalizada para los botones del semáforo en la ventana sin marco.
 
 #### `win.setTouchBar(touchBar)` _macOS_
 

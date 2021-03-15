@@ -87,10 +87,10 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 Devuelve:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - La URL que esta siendo solicitada para preconexión por el renderer.
+* `allowCredentials` Boolean - True si el renderer está solicitando que la conexión incluya las credenciales (vea el [especificación](https://w3c.github.io/resource-hints/#preconnect) para más detalles.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Emitido cuando un render process solicita preconexión a una URL, generalmente debido a [resource hint](https://w3c.github.io/resource-hints/).
 
 #### Evento: 'spellcheck-dictionary-initialized'
 

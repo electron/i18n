@@ -119,10 +119,10 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 Devuelve:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - La URL que esta siendo solicitada para preconexión por el renderer.
+* `allowCredentials` Boolean - True si el renderer está solicitando que la conexión incluya las credenciales (vea el [especificación](https://w3c.github.io/resource-hints/#preconnect) para más detalles.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Emitido cuando un render process solicita preconexión a una URL, generalmente debido a [resource hint](https://w3c.github.io/resource-hints/).
 
 #### Evento: 'spellcheck-dictionary-initialized'
 
@@ -519,7 +519,7 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 * `config` Object
   * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
   * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
-  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
+  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Formas literales soportadas: 0xAABB, donde AA es `cipher_suite[0]` y BB es `cipher_suite[1]`, como está definida en RFC 2246, Sección 7.4.1.2. Los conjuntos de cifrado no reconocidos pero analizables en este formulario no devolverán un error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
 Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
 

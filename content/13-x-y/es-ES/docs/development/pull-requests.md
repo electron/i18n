@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
 
-* [Building on macOS](build-instructions-macos.md)
+* [Compilando en macOS](build-instructions-macos.md)
 * [Compilado en Linux](build-instructions-linux.md)
 * [Compilado en Windows](build-instructions-windows.md)
 
