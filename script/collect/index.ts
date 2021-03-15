@@ -123,15 +123,15 @@ async function createSupportedBranches() {
     try {
       await github.git.getRef({
         owner: 'vhashimotoo',
-        repo: 'i18n-content',
+        repo: 'i18n-jrti',
         ref: `heads/content/${version}`,
       })
     } catch {
       await github.git.createRef({
         owner: 'vhashimotoo',
-        repo: 'i18n-content',
+        repo: 'i18n-jrti',
         ref: `refs/heads/content/${version}`,
-        sha: '379e9bf26c8627c17e42dbe43e2c72d7f1844d61',
+        sha: 'dac809a6b54e652fc5dee8d344f4a5b07d13d169',
       })
     }
   }
@@ -140,7 +140,7 @@ async function createSupportedBranches() {
 async function deleteUnsupportedBranches() {
   const { data: branches } = await github.git.listMatchingRefs({
     owner: 'vhashimotoo',
-    repo: 'i18n-content',
+    repo: 'i18n-jrti',
     ref: 'heads/content/',
   })
 
@@ -155,7 +155,7 @@ async function deleteUnsupportedBranches() {
     for (const dif of difference) {
       await github.git.deleteRef({
         owner: 'vhashimotoo',
-        repo: 'i18n-content',
+        repo: 'i18n-jrti',
         ref: dif.ref.replace('refs/', ''),
       })
     }

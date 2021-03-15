@@ -56,7 +56,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repository: vhashimotoo/i18n-content
           ref: content/10-x-y
       - name: Upload Content To Crowdin (10-x-y)
         uses: crowdin/github-action@1.0.21
@@ -77,7 +76,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repository: vhashimotoo/i18n-content
           ref: content/11-x-y
       - name: Upload Content To Crowdin (11-x-y)
         uses: crowdin/github-action@1.0.21
@@ -98,7 +96,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repository: vhashimotoo/i18n-content
           ref: content/13-x-y
       - name: Upload Content To Crowdin (13-x-y)
         uses: crowdin/github-action@1.0.21
@@ -119,7 +116,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          repository: vhashimotoo/i18n-content
           ref: content/current
       - name: Upload Content To Crowdin (current)
         uses: crowdin/github-action@1.0.21

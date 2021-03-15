@@ -6,6 +6,6 @@
 {{#each versions}}
 - name: i18n/{{this}}
   directory: temp/i18n-{{this}}
-  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-content.git
+  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-jrti.git
   branch: content/{{this}}
 {{/each}}

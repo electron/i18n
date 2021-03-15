@@ -5,17 +5,17 @@
 
 - name: i18n/10-x-y
   directory: temp/i18n-10-x-y
-  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-content.git
+  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-jrti.git
   branch: content/10-x-y
 - name: i18n/11-x-y
   directory: temp/i18n-11-x-y
-  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-content.git
+  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-jrti.git
   branch: content/11-x-y
 - name: i18n/13-x-y
   directory: temp/i18n-13-x-y
-  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-content.git
+  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-jrti.git
   branch: content/13-x-y
 - name: i18n/current
   directory: temp/i18n-current
-  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-content.git
+  url: https://vhashimotoo:GH_TOKEN@github.com/vhashimotoo/i18n-jrti.git
   branch: content/current
