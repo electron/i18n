@@ -59,13 +59,6 @@ jobs:
         with:
           repository: vhashimotoo/i18n-content
           ref: content/{{this}}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: |
-          git pull --rebase
-          npm ci
-          yarn run subrepos
       - name: Upload Content To Crowdin ({{this}})
         uses: crowdin/github-action@1.0.21
         with:

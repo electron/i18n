@@ -58,13 +58,6 @@ jobs:
         with:
           repository: vhashimotoo/i18n-content
           ref: content/10-x-y
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: |
-          git pull --rebase
-          npm ci
-          yarn run subrepos
       - name: Upload Content To Crowdin (10-x-y)
         uses: crowdin/github-action@1.0.21
         with:
@@ -86,13 +79,6 @@ jobs:
         with:
           repository: vhashimotoo/i18n-content
           ref: content/11-x-y
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: |
-          git pull --rebase
-          npm ci
-          yarn run subrepos
       - name: Upload Content To Crowdin (11-x-y)
         uses: crowdin/github-action@1.0.21
         with:
@@ -114,13 +100,6 @@ jobs:
         with:
           repository: vhashimotoo/i18n-content
           ref: content/13-x-y
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: |
-          git pull --rebase
-          npm ci
-          yarn run subrepos
       - name: Upload Content To Crowdin (13-x-y)
         uses: crowdin/github-action@1.0.21
         with:
@@ -142,13 +121,6 @@ jobs:
         with:
           repository: vhashimotoo/i18n-content
           ref: content/current
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: |
-          git pull --rebase
-          npm ci
-          yarn run subrepos
       - name: Upload Content To Crowdin (current)
         uses: crowdin/github-action@1.0.21
         with:
