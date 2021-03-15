@@ -282,6 +282,8 @@ async function fetchWebsiteBlogPosts() {
 async function doGitMagic() {
   for (const version of supportedVersions) {
     const git = simpleGit(basePath(version))
+    await git.removeRemote('origin')
+    await git.addRemote('origin', `https://vhashimotoo:${process.env.GH_TOKEN}@github.com/vhashimotoo/i18n-content.git`)
     await git.fetch()
     await git.add('.')
     await git.commit(`Update source files (${version}, ${new Date().toUTCString()})`)

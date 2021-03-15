@@ -17,6 +17,9 @@ jobs:
           node-version: '14.x'
       - name: Fetch latest source content
         run: |
+          git config --global user.email electron@github.com
+          git config --global user.name electron-bot
+
           npm ci
           npm run collect
           npm run content-cleanup
@@ -31,8 +34,6 @@ jobs:
           # `pretest` script will run the build first
           npm test
 
-          git config user.email electron@github.com
-          git config user.name electron-bot
           git add .
           git commit -am "feat: update source content"
           git pull --rebase && git push origin master --follow-tags
