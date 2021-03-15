@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: content/10-x-y
+      - run: |
+          git fetch
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.21
         with:
@@ -25,10 +27,11 @@ jobs:
           download_translations: true
           localization_branch_name: translated/10-x-y
           crowdin_branch_name: 10-x-y
+          pull_request_title: 'feat: new Crowdin translations (10-x-y)'
           commit_message: 'feat: new Crowdin translation (10-x-y)'
           config: crowdin.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
   content-11-x-y:
@@ -38,6 +41,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: content/11-x-y
+      - run: |
+          git fetch
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.21
         with:
@@ -45,10 +50,11 @@ jobs:
           download_translations: true
           localization_branch_name: translated/11-x-y
           crowdin_branch_name: 11-x-y
+          pull_request_title: 'feat: new Crowdin translations (11-x-y)'
           commit_message: 'feat: new Crowdin translation (11-x-y)'
           config: crowdin.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
   content-13-x-y:
@@ -58,6 +64,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: content/13-x-y
+      - run: |
+          git fetch
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.21
         with:
@@ -65,10 +73,11 @@ jobs:
           download_translations: true
           localization_branch_name: translated/13-x-y
           crowdin_branch_name: 13-x-y
+          pull_request_title: 'feat: new Crowdin translations (13-x-y)'
           commit_message: 'feat: new Crowdin translation (13-x-y)'
           config: crowdin.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
   content-current:
@@ -78,6 +87,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: content/current
+      - run: |
+          git fetch
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.21
         with:
@@ -85,9 +96,10 @@ jobs:
           download_translations: true
           localization_branch_name: translated/current
           crowdin_branch_name: current
+          pull_request_title: 'feat: new Crowdin translations (current)'
           commit_message: 'feat: new Crowdin translation (current)'
           config: crowdin.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

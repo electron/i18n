@@ -1,4 +1,4 @@
-import { Octokit } from '@octokit/rest'
+import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 
 const OWNER = 'electron'
 const REPO = 'i18n'
@@ -30,21 +30,23 @@ const getPRData = async (prNumber: number) => {
 }
 
 /**
- * Gets the number of opened pull request by the bot or user.
+ * Gets the pull requests opened by the bot or user.
  */
-const findPRNumber = async (): Promise<{ found: boolean; number: number }> => {
-  const prs = await github.pulls.list({
+const findPullRequests = async (): Promise<{
+  found: boolean
+  prs?: RestEndpointMethodTypes['pulls']['list']['response']['data']
+}> => {
+  const { data: PRs } = await github.pulls.list({
     owner: OWNER,
     repo: REPO,
     per_page: 100,
   })
-  const glotbot = prs.data.filter((pr) => pr.user?.login === BOTNAME)
-  const title = prs.data.filter((pr) => pr.title === ORIGINAL_TITLE)
-  if (glotbot.length > 0 && title.length > 0) {
-    const prNumber = glotbot[0].number
-    return { found: true, number: prNumber }
+  const filtered = PRs.filter((pr) => pr.user?.login === BOTNAME)
+  const title = PRs.filter((pr) => pr.title === ORIGINAL_TITLE)
+  if (filtered.length > 0 && title.length > 0) {
+    return { found: true, prs: filtered }
   } else {
-    return { found: false, number: 0 }
+    return { found: false }
   }
 }
 
@@ -124,24 +126,25 @@ const mergeAndDeleteBranch = async (pr: number) => {
 
 async function autoMerger() {
   console.log(`Searching for a ${BOTNAME} PR...`)
-  const pr = await findPRNumber()
-  if (!pr.found) {
+  const { prs, found } = await findPullRequests()
+  if (!found) {
     console.log(`Cound not find a ${BOTNAME} PR to merge`)
     process.exit(0)
   }
-  const prNumber = pr.number
 
-  console.log(`Updating PR ${prNumber} to have a semantic title...`)
-  await updateTitle(prNumber)
+  for (const { number: prNumber } of prs!) {
+    console.log(`Updating PR ${prNumber} to have a semantic title...`)
+    await updateTitle(prNumber)
 
-  console.log(`Determining mergeability of PR ${prNumber}`)
-  const isMergeable = await ableToMerge(prNumber)
+    console.log(`Determining mergeability of PR ${prNumber}`)
+    const isMergeable = await ableToMerge(prNumber)
 
-  if (isMergeable) {
-    console.log(`Merging PR ${prNumber}`)
-    await mergeAndDeleteBranch(prNumber)
-  } else {
-    throw new Error(`PR ${prNumber} is not mergeable`)
+    if (isMergeable) {
+      console.log(`Merging PR ${prNumber}`)
+      await mergeAndDeleteBranch(prNumber)
+    } else {
+      throw new Error(`PR ${prNumber} is not mergeable`)
+    }
   }
 }
 

@@ -20,6 +20,7 @@ import { generateTYPES } from '../../lib/generators/types'
 import {
   generateUploader,
   generateDownloader,
+  generateAutoMerge,
 } from '../../lib/generators/gh-actions'
 import { SupportedVersions, versions } from '../../lib/types'
 
@@ -187,6 +188,7 @@ async function createMetaConfigs() {
 
   await generateUploader(supportedVersions)
   await generateDownloader(supportedVersions)
+  await generateAutoMerge()
   for (const version of supportedVersions) {
     await generateCrowdinConfig(basePath(version))
   }

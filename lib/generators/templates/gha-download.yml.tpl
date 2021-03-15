@@ -19,6 +19,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           ref: content/{{this}}
+      - run: |
+          git fetch
       - name: Download content from Crowdin
         uses: crowdin/github-action@1.0.21
         with:
@@ -26,10 +28,11 @@ jobs:
           download_translations: true
           localization_branch_name: translated/{{this}}
           crowdin_branch_name: {{this}}
+          pull_request_title: 'feat: new Crowdin translations ({{this}})'
           commit_message: 'feat: new Crowdin translation ({{this}})'
           config: crowdin.yml
         env:
-          GITHUB_TOKEN: $\{{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: $\{{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: $\{{ secrets.CROWDIN_PERSONAL_TOKEN }}
   {{/each}}
