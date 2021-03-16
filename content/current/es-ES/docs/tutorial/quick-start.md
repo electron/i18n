@@ -173,7 +173,7 @@ La forma más simple y rápida de distribuir su aplicación recién creada es us
     ✔ Writing modified package.json file
     ✔ Fixing .gitignore
 
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
+    Hemos INTENTADO convertir tu aplicación a un formato que electron-forge entiende.
 
     Gracias por usar "electron-forge"!!!
     ```

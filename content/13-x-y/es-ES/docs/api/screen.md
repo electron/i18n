@@ -88,7 +88,7 @@ Devuelve [`Point`](structures/point.md)
 
 La actual y absoluta posición del cursor del mouse.
 
-**Note:** The return value is a DIP point, not a screen physical point.
+**Nota:** El valor devuelto es un punto DIP, no una punto físico de la pantalla.
 
 ### `screen.getPrimaryDisplay()`
 

@@ -8,14 +8,14 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `options` Object
   * `Etiqueta` cadena (opcional) - Texto del fondo.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `accessibilityLabel` String (opcional) - Una breve descripción del botón para su uso por lectores de pantalla como VoiceOver.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
+  * `icon` [NativeImage](native-image.md) | String (opcional) - Icono del botón.
   * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`. Defaults to `overlay`.
   * `click` Función (opcional) - Función a llamar cuando se hace click en el fondo.
   * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Por defecto es `true`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Al definir `accessibilityLabel`, asegúrese de que ha considerado las [mejores prácticas](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc) de macOS.
 
 ### Propiedades de Instancia
 

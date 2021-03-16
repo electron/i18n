@@ -54,7 +54,7 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` _Readonly_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Un `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -62,7 +62,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Un `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `proceso.noAsar`
 
@@ -78,7 +78,7 @@ Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed` _Readonly_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `proceso.desechoDegradación`
 
@@ -109,7 +109,7 @@ Una `cadena` representando la versión de cadena de Electron.
 
 ### `process.windowsStore` _Readonly_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Métodos
 
@@ -123,7 +123,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
+Indicates the creation time of the application. El tiempo es representado como número de milisegundos desde la época. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
 
 ### `process.getCPUUsage()`
 

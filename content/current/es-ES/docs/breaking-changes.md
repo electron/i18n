@@ -152,7 +152,7 @@ En Electron 12, `contextIsolation` será activado por defecto.  Para restaurar e
 
 Nosotros [recomendamos tener contextIsolation activado](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) por la seguridad de su aplicación.
 
-Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
+Otra implicación es que `require()` no puede ser usada en el renderer process a menos que `nodeIntegration` sea `true` y `contextIsolation` sea `false`.
 
 Para más detalles ver: https://github.com/electron/electron/issues/23506
 

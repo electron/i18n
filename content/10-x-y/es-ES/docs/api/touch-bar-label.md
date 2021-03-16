@@ -8,10 +8,10 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `options` Object
   * `etiqueta` Cadena (opcional) - texto a mostrar.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `accessibilityLabel` String (opcional) - Una breve descripción del botón para su uso por lectores de pantalla como VoiceOver.
   * `Color del texto` cadena (opcional) - color del texto en hex, ejemplo `#ABCDEF`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Al definir `accessibilityLabel`, asegúrese de que ha considerado las [mejores prácticas](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc) de macOS.
 
 ### Propiedades de Instancia
 
@@ -23,7 +23,7 @@ A `String` representing the label's current text. Changing this value immediatel
 
 #### `touchBarLabel.accessibilityLabel`
 
-A `String` representing the description of the label to be read by a screen reader.
+Un `String` que representa la descripción de la etiqueta a ser leído por un lector de pantalla.
 
 #### `touchBarLabel.textColor`
 

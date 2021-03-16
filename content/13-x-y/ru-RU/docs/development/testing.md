@@ -1,6 +1,6 @@
 # Тестирование
 
-Мы стремимся сохранить покрытие кода тестами на высоком уровне. Мы просим всех кто делает pull requests не только прогонять все существующие тесты, но также в идеале добавлять новые тесты на внесённые изменения и новые сценария тестирования. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
+Мы стремимся сохранить кодовое покрытие Electron высоким. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. https://crowdin.com/translate/electron/159/en-ru#13105.
 
 This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 

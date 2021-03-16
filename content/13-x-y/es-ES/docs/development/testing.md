@@ -16,7 +16,7 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 ## Pruebas unitarias
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Sin estos conjuntos, Electron fallará al realizar algunos pasos previos a la prueba.
 
 Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas de unidad son una aplicación de Electrón(¡sorpresa!) que puede encontrarse en la carpeta de `spec`. Tenga en cuenta que tiene su propio `package.json` y que sus dependencias por lo tanto no se definen en el nivel superior `package.json`.
 
@@ -24,16 +24,16 @@ Para correr solo pruebas especificas que coincidan con un patrón, corra `npm ru
 
 ### Probando en dispositivos Windows 10
 
-#### Extra steps to run the unit test:
+#### Pasos adicionales para ejecutar prueba unitaria:
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration.
+1. Visual Studio 2019 debe estar instalado.
+2. Las cabeceras de Node han de estar compiladas para tu configuración.
 
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
    ```
 
-3. The electron.lib has to be copied as node.lib.
+3. El electron.lib ha de ser copiada como node.lib.
 
    ```powershell
    cd out\Testing
@@ -49,7 +49,7 @@ Para correr solo pruebas especificas que coincidan con un patrón, corra `npm ru
 2. Haga clic en _Añadir una herramienta_.
 3. Seleccione _Fuentes suplementarias japonesas_ y haga clic en _Instalar_.
 
-#### Pixel measurements
+#### Medidas de píxeles
 
 Algunas pruebas que dependen de medidas precisas a nivel de píxel pueden no funcionar correctamente en dispositivos con ajustes de pantalla Hi-DPI debido a errores de precisión de puntos flotantes. Para ejecutar correctamente estas pruebas, asegúrese de que el dispositivo está fijado para escalar el 100%.
 

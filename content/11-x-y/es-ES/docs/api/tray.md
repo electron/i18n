@@ -239,13 +239,13 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) - Icono a usar cuando `iconType` es `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Por defecto es `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Muestra un globo de la bandeja.
 
@@ -255,7 +255,7 @@ Elimina un globo de la bandeja.
 
 #### `tray.focus()` _Windows_
 
-Devuelve el foco al área de notificación de la barra de tarea. Notification area icons should use this message when they have completed their UI operation. Por ejemplo, si el icono muestra un menú de acceso directo, pero el usuario presiona ESC para cancelarlo, use `tray.focus()` para devolver el focus a la área de notificación.
+Devuelve el foco al área de notificación de la barra de tarea. Los iconos del área de notificación deben usar este mensaje cuando hayan completado su operación UI. Por ejemplo, si el icono muestra un menú de acceso directo, pero el usuario presiona ESC para cancelarlo, use `tray.focus()` para devolver el focus a la área de notificación.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 

@@ -88,7 +88,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Devuelve `Number` - El ID de la suscripción
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. El `object` es el remitente de la notificación y solo soporta valores `NSString` por ahora.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
@@ -293,7 +293,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-background` - El fondo de una ventana.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Vea el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) y el [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) para más detalles.
 
 Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
@@ -378,7 +378,7 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - Puede ser `microphone`, `camera` o `screen`.
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 

@@ -104,7 +104,7 @@ async () => {
 
 El `event` que es pasado como primer argumento al handler es el mismo que es pasado a un event listener normal. Incluye información sobre cual WebContents es el origen de la solicitud invocada.
 
-Errors thrown through `handle` in the main process are not transparent as they are serialized and only the `message` property from the original error is provided to the renderer process. Please refer to [#24427](https://github.com/electron/electron/issues/24427) for details.
+Los errores lanzados a través de `handle` en el main process no son transparentes, ya que se serializan y solo la propiedad `message` del error original es proveído al renderer process. Por favor, consulte [#24427](https://github.com/electron/electron/issues/24427) para más detalles.
 
 ### `ipcMain.handleOnce(channel, listener)`
 

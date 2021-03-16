@@ -18,11 +18,11 @@ La clase `WebFrame` tiene los siguientes métodos de instancia:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Double - Zoom factor; default is 1.0.
+* `factor` Double - Factor de zoom; por defecto es 1.0.
 
 Cambia el nivel de zoom al nivel especificado. Factor de zoom es porcentaje de zoom dividido entre 100, así que 300% = 3.0.
 
-The factor must be greater than 0.0.
+El factor debe ser mayor que 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -62,7 +62,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
 
-If you want to use this method you must disable the builtin spellchecker when you construct the window.
+Si quiere utilizar este método debe deshabilitar el corrector ortográfico incorporado cuando construya la ventana.
 
 ```js
 const mainWindow = new BrowserWindow({
@@ -210,23 +210,23 @@ Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se en
 
 ### `webFrame.top` _Readonly_
 
-A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+Un `WebFrame | null` que representa el frame superior en la jerarquía de frames al cual pertenece el `webFrame`, la propiedad debe ser `null` si el frame superior no está en el renderer process actual.
 
 ### `webFrame.opener` _Readonly_
 
-A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+Un `WebFrame` representa el frame `webFrame` que abrió, la propiedad debería ser `null` si no hay abridores o si el abridor no está en el proceso renderer actual.
 
 ### `webFrame.parent` _Readonly_
 
-A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+Un `WebFrame | null` que representa el frame padre de `webFrame`, la propiedad debería ser `null` si `webFrame` es superior o el padre no está en renderer process actual.
 
 ### `webFrame.firstChild` _Readonly_
 
-A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+Un `WebFrame | null` que representa al primer frame hijo de `webFrame`, la propiedad debería ser `null` si `webFrame` no tiene hijos o el primer hijo no esta en el renderer process actual.
 
 ### `webFrame.nextSibling` _Readonly_
 
-A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+Un `WebFrame | null` que representa el siguiente frame hermano, la propiedad debería ser `null` si `webFrame` es el último frame en su padre o si el siguiente hermano no está en el renderer process actual.
 
 ### `webFrame.routingId` _Readonly_
 

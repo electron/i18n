@@ -108,13 +108,13 @@ Imprime el registro interno de Chrome a la consola.
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 
-Adds coloration to draggable regions on [`BrowserView`](./browser-view.md)s on macOS - draggable regions will be colored green and non-draggable regions will be colored red to aid debugging.
+Agrega coloración a regiones arrastrables en [`BrowserView`](./browser-view.md) en macOS - Las regiones que se pueden arrastrar se colorearán en verde y las regiones que no se pueden arrastrar se colorearán en rojo para facilitar la depuración.
 
 ### `ELECTRON_DEBUG_NOTIFICATIONS`
 
-Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common actions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
+Agrega registros adicionales al ciclos de vida [`Notification`](./notification.md) en macOS para ayudar a depurar. Se mostrará un registro adicional cuando se creen o activen nuevas notificaciones. También se mostraran cuando acciones comunes son realizadas: se muestra una notificación, se descarga, su botón es pulsado, o responde a.
 
-Sample output:
+Ejemplo de salida:
 
 ```sh
 Notification created (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
