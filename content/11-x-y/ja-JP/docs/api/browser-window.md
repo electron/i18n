@@ -1153,7 +1153,7 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。 ページが見えないのであれば、 `rect` の領域が空なのかもしれません。
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。 ページが表示されない場合、 `rect` が空である可能性があります。
 
 #### `win.loadURL(url[, options])`
 
