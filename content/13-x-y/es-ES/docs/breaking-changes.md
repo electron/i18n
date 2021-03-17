@@ -408,7 +408,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Eliminado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La función fue marcada como obsoleta en Electron 8.x, y ha sido eliminada en Electron 9.x. Los niveles de zoom limites ahora están fijados a un mínimo de 0.25 y un máximo de 5.0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función fue marcada como obsoleta en Electron 8.x, y ha sido eliminada en Electron 9.x. Los niveles de zoom limites ahora están fijados a un mínimo de 0.25 y un máximo de 5.0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportamiento cambiado: Enviar objetos no JS sobre IPC ahora arroja una excepción
 
@@ -424,9 +424,9 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 
 ### Comportamiento cambiado: Los valores enviados a través de IPC ahora se serializan con el algoritmo de clon estructurado
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* Enviar Functions, Promises, WeakMaps, WeakSets, o objetos que contengan tales valores sobre IPC no lanzará ninguna excepción, en lugar de convertir las funciones a `undefined`.
 
 ```js
 // Previously:
@@ -438,24 +438,24 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+* `NaN`, `Infinity` y `-Infinity` ahora serán correctamente serializados en lugar de ser convertidos a `null`.
+* Los objectos que contengan referencias cíclicas ahora serán correctamente serializados en lugar de ser convertidos a `null`.
+* Los valores `Set`, `Map`, `Error` y `RegExp` ahora serán correctamente serializados en lugar de ser convertidos a `{}`.
+* Los valores `BigInt` ahora serán correctamente serializados en lugar de ser convertidos a `null`.
+* Las matrices dispersas se serializarán como tales, en lugar de convertirse en matrices densas con `null`s.
+* Los objetos `Date` serán transferidos como objetos `Date`, en lugar de ser convertidos en su representación de cadena ISO.
+* Los Arrays con tipo (tales como `Uint8Array`, `Uint16Array`, `Uint32Array` y así sucesivamente) serán transferidas como tales, en lugar de ser convertida a Node.js `Buffer`.
+* Los objetos Node.js `Buffer` serán transferidos como `Uint8Array`s. Puedes convertir un `Uint8Array` de nuevo a un Node.js `Buffer` envolviendo el `ArrayBuffer` subyacente:
 
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
 
-Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+Enviar objetos que no son de tipos nativos de JS, tales como objetos DOM (p.ej. `Element`, `Location`, `DOMMatrix`),objetos Node.js (p.ej. `process.env`, `Stream`), u objetos Electron (p.ej. `WebContents`, `BrowserWindow`, `WebFrame`) es obsoleto. En Electron 8, estos objetos serán serializados como antes con un mensaje DeprecationWarning, pero a partir de Electron 9, enviar estos tipos de objetos lanzará un error 'could not be cloned'.
 
 ### Obsoleto: `<webview>.getWebContents()`
 
-Esta API está implementada usando el módulo `remote`, el cual tiene implicaciones de rendimiento y seguridad. Therefore its usage should be explicit.
+Esta API está implementada usando el módulo `remote`, el cual tiene implicaciones de rendimiento y seguridad. Por lo tanto, su uso debe ser explícito.
 
 ```js
 // Deprecated
@@ -465,7 +465,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+Sin embargo, es recomendado evitar el uso por completo del modulo `remote`.
 
 ```js
 // main
@@ -495,7 +495,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Desaprobado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Deprecated events in `systemPreferences`
 
@@ -550,7 +550,7 @@ nativeTheme.shouldUseHighContrastColors
 
 ### Obsoleto: URL de Encabezados de Nodo Atom.io
 
-Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.  Both will be supported for the foreseeable future but it is recommended that you switch.
+Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.  Ambos serán admitidos para el futuro previsible, pero se recomienda que cambies.
 
 Cambiar: https://atom.io/download/electron
 
@@ -604,11 +604,11 @@ webFrame.setIsolatedWorldInfo(
 
 ### Eliminado: `marcó la propiedad` en `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Esta propiedad fue eliminada en Chromium 77, y como tal ya no está disponible.
 
 ### Comportamiento modificado: `atributo webkitdirectory` para `<input type="file"/>` ahora muestra contenido del directorio
 
-La propiedad `webkitdirectory` en las entradas de archivos HTML les permite seleccionar carpetas. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+La propiedad `webkitdirectory` en las entradas de archivos HTML les permite seleccionar carpetas. Las versiones anteriores de Electron tenían una implementación incorrecta donde la entrada de `event.target.files` retornaba un `FileList` que retornaba un `File` correspondiente a la carpeta seleccionada.
 
 A partir de Electron 7, esa `Lista de archivos` ahora es la lista de todos los archivos contenidos dentro de la carpeta, similar a Chrome, Firefox, and Edge ([enlace a los documentos MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 

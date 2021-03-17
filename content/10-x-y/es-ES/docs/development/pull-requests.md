@@ -179,7 +179,7 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
 
@@ -195,5 +195,5 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
-CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+CI inicia automáticamente cuando abres una pull request, pero solo los mantenedores principales puede reiniciar una ejecución CI. Si crees que el CI está dando un falso negativo, pida a un mantenedor que reinicie las pruebas.
 

@@ -22,7 +22,7 @@
 
 バグレポートを送信するには:
 
-[`electron/electron` の Issue トラッカー](https://github.com/electron/electron/issues/new/choose) で新しい Issue を開くと、記入すべき [テンプレート](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) が表示されます。
+[`electron/electron` Issue トラッカー](https://github.com/electron/electron/issues/new/choose) 内で新しい Issue を開くとき、ユーザには記入するべきテンプレートが表示されます。
 
 Electron のバグを発見したと思われる方は、できるだけテンプレートの記入にご協力ください。
 

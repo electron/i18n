@@ -27,9 +27,10 @@ Desde una perspectiva de desarrollo, una aplicación Electron es esencialmente u
 
 ```plaintext
 my-electron-app/
-Ningés; package.json
-mañanose.com, main.js
-Ninguno. index.html
+├── package.json
+├── main.js
+├── preload.js
+└── index.html
 ```
 
 Vamos a crear una aplicación básica basada en la estructura anterior.
@@ -52,30 +53,33 @@ El script principal puede verse de la siguiente manera:
 
 ```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
   win.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
   }
 })
 ```
@@ -83,14 +87,15 @@ app.on('activate', () => {
 ##### ¿Qué está ocurriendo anteriormente?
 
 1. Línea 1: En primer lugar, importas `los módulos` y `Navegador` del paquete `electrón` para poder gestionar los eventos del ciclo de vida de tu aplicación así como crear y controlar las ventanas del navegador.
-2. Line 3: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with node integration enabled, loads `index.html` file into this window (line 12, we will discuss the file later).
-3. Line 15: You create a new browser window by invoking the `createWindow` function once the Electron application [is initialized](../api/app.md#appwhenready).
-4. Line 17: You add a new listener that tries to quit the application when it no longer has any open windows. Este oyente es un no-op en macOS debido al [comportamiento de administración de ventanas](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) del sistema operativo.
-5. Line 23: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Por ejemplo, después de lanzar la aplicación por primera vez, o volver a lanzar la aplicación en ejecución.
+2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
+3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+4. Línea 16: Se crea una nueva ventana del navegador invocando la función `createWindow` una vez inicializada la aplicación Electron [](../api/app.md#appwhenready).
+5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Por ejemplo, después de lanzar la aplicación por primera vez, o volver a lanzar la aplicación en ejecución.
+6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Este oyente es un no-op en macOS debido al [comportamiento de administración de ventanas](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) del sistema operativo.
 
 #### Crear una página web
 
-Esta es la página web que desea mostrar una vez inicializada la aplicación. Esta página web representa el proceso de Renderer. Puede crear múltiples ventanas de navegador, donde cada ventana utiliza su propio Renderer independiente. Cada ventana se puede otorgar opcionalmente con acceso completo a la API de Node.js a través de la preferencia `nodeIntegration`.
+Esta es la página web que desea mostrar una vez inicializada la aplicación. Esta página web representa el proceso de Renderer. Puede crear múltiples ventanas de navegador, donde cada ventana utiliza su propio Renderer independiente. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
 
 La página `index.html` se ve como sigue:
 
@@ -99,19 +104,43 @@ La página `index.html` se ve como sigue:
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hola mundo!</title>
+    <title>Hello World!</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body style="background: white;">
-    <h1>Hola mundo!</h1>
+    <h1>Hello World!</h1>
     <p>
-        Estamos usando node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        y Electron <script>document.write(process.versions.electron)</script>.
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
+
+#### Define a preload script
+
+Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+
+```javascript fiddle='docs/fiddles/quick-start'
+window.addEventListener('DOMContentLoaded', () => {
+  const replaceText = (selector, text) => {
+    const element = document.getElementById(selector)
+    if (element) element.innerText = text
+  }
+
+  for (const type of ['chrome', 'node', 'electron']) {
+    replaceText(`${type}-version`, process.versions[type])
+  }
+})
+```
+
+##### What's going on above?
+
+1. On line 1: First you define an event listener that tells you when the web page has loaded
+2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
+3. On line 7: Next you loop through the list of components whose version you want to display
+4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
 
 #### Modifica tu archivo package.json
 
@@ -258,11 +287,11 @@ const win = new BrowserWindow()
 Para llamar al proceso principal desde el Renderer, utilice el módulo IPC:
 
 ```js
-// En el proceso principal
+// In the Main process
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... hacer acciones en nombre del Renderer
+  // ... do actions on behalf of the Renderer
 })
 ```
 
@@ -277,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTA: Para acceder a la API de Node.js desde el proceso de Renderer, necesita establecer la preferencia `nodeIntegration` a `true`.
+> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron expone el acceso completo a la API de Node.js y sus módulos tanto en los procesos Principales como en los Procesos de Renderer. Por ejemplo, puede leer todos los archivos del directorio raíz:
 

@@ -22,7 +22,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 Para enviar un informe de error:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+Cuando abre una nueva incidencia en el [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), los usuarios se les presentará una plantilla que debe ser completada.
 
 ```markdown
 <!--
@@ -60,7 +60,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 Si cree que ha encontrado un fallo en Electron, por favor rellene este formulario lo mejor posible.
 
-Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. It is easier to fix a bug if it can be reproduced.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil resolver un problema si este se puede reproducir.
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 

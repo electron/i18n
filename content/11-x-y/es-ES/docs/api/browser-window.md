@@ -1105,6 +1105,8 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 
 * `message` Integer
 * `callback` Función
+  * `wParam` any - The `wParam` provided to the WndProc
+  * `lParam` any - The `lParam` provided to the WndProc
 
 Engancha una ventana de mensaje. The `callback` is called when the message is received in the WndProc.
 
