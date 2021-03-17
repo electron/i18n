@@ -22,7 +22,7 @@
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 如果你确信自己发现了Electron的bug，请尽可能详细的填写一份表单。
 

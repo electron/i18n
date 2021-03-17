@@ -12,7 +12,7 @@
   * `Broker de Plugin de Pepper`
   * `Desconocido`
 * `CPU` [CPUUsage](cpu-usage.md) - uso de CPU del proceso.
-* `creationTime` Number - Tiempo de creación para este proceso. El tiempo es representado como número de milisegundos desde la época. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
+* `creationTime` Number - Tiempo de creación para este proceso. El tiempo es representado como número de milisegundos desde la época. Dado que el  `pid` puede ser usada después que un proceso muere, es útil usar  tanto el `pid` y el `creationTime` para identificar de forma única un proceso.
 * `memory` [MemoryInfo](memory-info.md) - información de la memoria para el proceso.
 * `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
 * `integrityLevel` String (optional) _Windows_ - One of the following values:

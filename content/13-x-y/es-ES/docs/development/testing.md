@@ -16,7 +16,7 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 ## Pruebas unitarias
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Sin estos conjuntos, Electron fallará al realizar algunos pasos previos a la prueba.
+Si no está usando [build-tools](https://github.com/electron/build-tools), asegúrese de que el nombre que ha configurado para su compulación local de Electron is uno de `Testing`, `Release`, `Default`, `Debug`, o ha establecido `process.env.ELECTRON_OUT_DIR`. Sin estos conjuntos, Electron fallará al realizar algunos pasos previos a la prueba.
 
 Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas de unidad son una aplicación de Electrón(¡sorpresa!) que puede encontrarse en la carpeta de `spec`. Tenga en cuenta que tiene su propio `package.json` y que sus dependencias por lo tanto no se definen en el nivel superior `package.json`.
 

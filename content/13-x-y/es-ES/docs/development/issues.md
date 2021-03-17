@@ -26,7 +26,7 @@ When opening a new issue in the [`electron/electron` issue tracker](https://gith
 
 If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
-Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. It is easier to fix a bug if it can be reproduced.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil resolver un problema si este se puede reproducir.
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 

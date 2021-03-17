@@ -80,7 +80,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. Usted puede reemplazar `Testing` con otro nombre, pero debería ser a subdirectorio de `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+Esto generará un directorio de compilación `out/Testing` under `src/` con la configuración de compilación de pruebas. Usted puede reemplazar `Testing` con otro nombre, pero debería ser a subdirectorio de `out`. Además no deberías ejecutar `gn gen` de nuevo — si quieres cambiar los argumentos de compilación, puedes ejecutar `gn args out/Testing` para traer un editor.
 
 Para ver la lista de opciones de configuraciones disponible, ejecute `gn args out/Testing --list`.
 

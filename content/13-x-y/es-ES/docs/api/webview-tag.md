@@ -116,7 +116,7 @@ Un `Boolean`. When this attribute is present the guest page in `webview` will be
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-A `String` that specifies a script that will be loaded before other scripts run in the guest page. El protocolo de guiones de URL deben ser `file:` o `asar:`, porque será cargado por `require` en la página de invitado debajo de la capucha.
+Un `String` que especifica un script que será cargada antes que se ejecuten otros scripts en la página de invitado. El protocolo de guiones de URL deben ser `file:` o `asar:`, porque será cargado por `require` en la página de invitado debajo de la capucha.
 
 Cuando la página de invitado no tiene integración de nodo, este guión todavía tendrá acceso a todos los nodos APIs, pero los objetos globales inyectados por Nodo serán eliminados luego de que el guión haya finalizado de ejecutarse.
 
@@ -181,7 +181,7 @@ La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. 
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
+Un `String` que es una lista de cadenas que especifica las funciones de parpadeo que se habilitarán separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
+Un `String` que es una lista de cadenas que especifica las funciones de parpadeo a ser desactivadas separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
 
 ## Métodos
 
