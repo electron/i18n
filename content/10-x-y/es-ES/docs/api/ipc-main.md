@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter][event-emitter]. Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
+El módulo `ipcMain` es un [Event Emitter][event-emitter]. Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
 
 ## Enviando mensajes
 

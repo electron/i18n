@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Es responsable de renderizar y controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso al objeto `webContents`:
+`webContents` es un [EventEmitter][event-emitter]. Es responsable de renderizar y controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso al objeto `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')

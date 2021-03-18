@@ -7,7 +7,7 @@ Proceso: [Main](../glossary.md#main-process)
 ### `new TouchBar(options)`
 
 * `options` Object
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (opcional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (opcional)
 
 Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow.setTouchBar` para agregar la `TouchBar` a una ventana.
@@ -20,43 +20,43 @@ Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow
 
 #### `TouchBarButton`
 
-A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+Un [`typeof TouchBarButton`](./touch-bar-button.md) referencia a la clase `TouchBarButton`.
 
 #### `TouchBarColorPicker`
 
-A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+Un [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) referencia a la clase `TouchBarColorPicker`.
 
 #### `TouchBarGroup`
 
-A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+Un [`typeof TouchBarGroup`](./touch-bar-group.md) referencia a la clase `TouchBarGroup`.
 
 #### `TouchBarLabel`
 
-A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+Un [`typeof TouchBarLabel`](./touch-bar-label.md) referencia a la clase `TouchBarLabel`.
 
 #### `TouchBarPopover`
 
-A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+Un [`typeof TouchBarPopover`](./touch-bar-popover.md) referencia a la clase `TouchBarPopover`.
 
 #### `TouchBarScrubber`
 
-A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+Un [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) referencia a la clase `TouchBarScrubber`.
 
 #### `TouchBarSegmentedControl`
 
-A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+Un [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) referencia a la clase `TouchBarSegmentedControl`.
 
 #### `TouchBarSlider`
 
-A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+Un [`typeof TouchBarSlider`](./touch-bar-slider.md) referencia a la clase `TouchBarSlider`.
 
 #### `TouchBarSpacer`
 
-A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+Un [`typeof TouchBarSpacer`](./touch-bar-spacer.md) referencia a la clase `TouchBarSpacer`.
 
 #### `TouchBarOtherItemsProxy`
 
-A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
+Un [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) referencia a la clase `TouchBarOtherItemsProxy`.
 
 ### Propiedades de la instancia
 

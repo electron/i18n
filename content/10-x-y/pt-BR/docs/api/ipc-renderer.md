@@ -42,14 +42,14 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 * `channel` String
 
-Removes all listeners, or those of the specified `channel`.
+Remove todos os listeners, ou apenas os do `channel` especificado.
 
 ### `ipcRenderer.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Envie uma mensagem assíncrona para o processo principal através do `channel`, juntamente com argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 
@@ -68,7 +68,7 @@ If you want to receive a single response from the main process, like the result 
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
-Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 
@@ -101,7 +101,7 @@ If you do not need a respons to the message, consider using [`ipcRenderer.send`]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 

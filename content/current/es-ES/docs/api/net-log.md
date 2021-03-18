@@ -25,8 +25,8 @@ Vea [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registrar
 
 * `path` String - Ruta de archivo para guardar los registros de red.
 * `options` Object (opcional)
-  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
-  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+  * `captureMode` String (opcional) - Que tipos de datos deberían ser capturados. Por defecto, solo metadatos sobre las solicitudes serán capturados. Estableciendo esto a `includeSensitive` incluirá cookies y datos de autenticación. Estableciéndolo a `everything` incluirá todos los bytes transferidos en los sockets. Puede ser `default`, `includeSensitive` o `everything`.
+  * `maxFileSize` Number (opcional) - Cunado el registro crece más allá de este tamaño el registro se detendrá automáticamente. Por defecto ilimitado.
 
 Devuelve `Promise<void>` - se resuelve cuando el net log ha comenzado a grabar.
 

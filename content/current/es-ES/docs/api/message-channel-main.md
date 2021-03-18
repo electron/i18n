@@ -4,7 +4,7 @@
 
 See the [Channel Messaging API][] documentation for more information on using channel messaging.
 
-## Class: MessageChannelMain
+## Clase: MessageChannelMain
 
 Proceso: [Main](../glossary.md#main-process)
 

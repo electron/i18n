@@ -1,4 +1,4 @@
-## Class: ShareMenu
+## Clase: ShareMenu
 
 > Create share menu on macOS.
 

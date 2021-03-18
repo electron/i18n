@@ -1044,8 +1044,8 @@ Windows 10 ユーザーは [PC をタブレットとして使用できる](https
 
 * `message` Integer
 * `callback` Function
-  * `wParam` any - The `wParam` provided to the WndProc
-  * `lParam` any - The `lParam` provided to the WndProc
+  * `wParam` any - WndProc に指定された `wParam`
+  * `lParam` any - WndProc に指定された `lParam`
 
 ウィンドウメッセージをフックします。 メッセージが WndProc で受信されると、 `callback` が呼び出されます。
 

@@ -87,15 +87,15 @@ app.on('window-all-closed', () => {
 ##### ¿Qué está ocurriendo anteriormente?
 
 1. Línea 1: En primer lugar, importas `los módulos` y `Navegador` del paquete `electrón` para poder gestionar los eventos del ciclo de vida de tu aplicación así como crear y controlar las ventanas del navegador.
-2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
-3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+2. Línea 2: Segundo, importas el paquete `path` el cual proporciona funciones de utilidad para rutas de archivos.
+3. Línea 4: Después de eso, defines una función que crea un [new browser window](../api/browser-window.md#new-browserwindowoptions) con un script de precarga, se carga el archivo `index.html` en esta ventana (línea 13, discutiremos el archivo más tarde).
 4. Línea 16: Se crea una nueva ventana del navegador invocando la función `createWindow` una vez inicializada la aplicación Electron [](../api/app.md#appwhenready).
-5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Por ejemplo, después de lanzar la aplicación por primera vez, o volver a lanzar la aplicación en ejecución.
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Este oyente es un no-op en macOS debido al [comportamiento de administración de ventanas](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) del sistema operativo.
+5. Línea 18: Agregas un nuevo oyente que crea una nueva ventana del navegador sólo si la aplicación no tiene ventanas visibles después de ser activada. Por ejemplo, después de lanzar la aplicación por primera vez, o volver a lanzar la aplicación en ejecución.
+6. Línea 25: Agregas un nuevo oyente que trata de cerrar la aplicación cuando esta ya no tiene ninguna ventanas abiertas. Este oyente es un no-op en macOS debido al [comportamiento de administración de ventanas](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) del sistema operativo.
 
 #### Crear una página web
 
-Esta es la página web que desea mostrar una vez inicializada la aplicación. Esta página web representa el proceso de Renderer. Puede crear múltiples ventanas de navegador, donde cada ventana utiliza su propio Renderer independiente. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Esta es la página web que desea mostrar una vez inicializada la aplicación. Esta página web representa el proceso de Renderer. Puede crear múltiples ventanas de navegador, donde cada ventana utiliza su propio Renderer independiente. Opcionalmente puedes conceder acceso adicional a las APIs de Node.js exponiéndolos desde tu script de precarga.
 
 La página `index.html` se ve como sigue:
 
@@ -118,9 +118,9 @@ La página `index.html` se ve como sigue:
 </html>
 ```
 
-#### Define a preload script
+#### Definir un script de precarga
 
-Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+Su script de precarga actúa como un puente entre Node.js y su página web. Le permite exponer APIs y comportamientos específicos a su página web en lugar de exponer de forma insegura toda la API de Node.js. En este ejemplo usaremos el script de precarga para leer la información de la versión desde el objeto `process` y actualizar la página web con esa información.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -135,12 +135,12 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-##### What's going on above?
+##### ¿Qué está pasando arriba?
 
-1. On line 1: First you define an event listener that tells you when the web page has loaded
-2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
-3. On line 7: Next you loop through the list of components whose version you want to display
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+1. En la línea 1: Primero, define un detector de eventos que le indica cuándo se ha cargado la página web
+2. En la línea 2: Segundo, define una función de utilidad usada para establecer el texto de los marcadores de posición en el `index.html`
+3. En la línea 7: A continuación recorres la lista de los componentes cuya versión quieres mostrar
+4. En la línea 8: Finalmente, llamas `replaceText` para buscar los marcadores de posición en el `index.html` y establecer sus valores de texto a los valores de `process.versions`
 
 #### Modifica tu archivo package.json
 
@@ -287,11 +287,11 @@ const win = new BrowserWindow()
 Para llamar al proceso principal desde el Renderer, utilice el módulo IPC:
 
 ```js
-// In the Main process
+// En el proceso principal
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+  // ... hacer acciones en el nombre del Renderer
 })
 ```
 
@@ -306,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> NOTA: Para acceder a la API de Node.js API desde el proceso Renderer, necesitas establecer la preferencia `nodeIntegration` a `true` y la preferencia `contextIsolation` a `false`.  Tenga en cuenta que no se recomienda el acceso a la API de Node.js en cualquier renderer que cargue contenido remoto por [razones de seguridad](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron expone el acceso completo a la API de Node.js y sus módulos tanto en los procesos Principales como en los Procesos de Renderer. Por ejemplo, puede leer todos los archivos del directorio raíz:
 

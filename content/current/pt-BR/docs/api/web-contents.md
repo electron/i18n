@@ -1468,7 +1468,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Os argumentos serão serializados com o [Algoritmo de Clone Estruturado](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), assim como [`postMessage`][], para que as cadeias de protótipos não sejam incluídas. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
