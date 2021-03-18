@@ -140,7 +140,7 @@ window.addEventListener('DOMContentLoaded', () => {
 1. 1 行目: まず、ウェブページのロード完了を知らせるイベントリスナーを定義します。
 2. 2 行目: 次に、`index.html` でプレースホルダテキストの設定に使用するユーティリティ関数を定義します。
 3. 7 行目: そしてバージョンを表示したいコンポーネントのリストをループします
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+4. 8 行目: 最後に、`replaceText` を呼び出して `index.html` 内のバージョンプレースホルダーを検索し、そのテキスト値を `process.versions` の中の値に設定します。
 
 #### package.json ファイルの変更
 
@@ -287,11 +287,11 @@ const win = new BrowserWindow()
 レンダラープロセスからメインプロセスを呼び出すには、IPC モジュールを使用します。
 
 ```js
-// In the Main process
+// メインプロセス内
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+  // ... レンダラーの代理でアクションを実行する
 })
 ```
 
@@ -306,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> 注意: レンダラープロセスから Node.js API にアクセスするには、`nodeIntegration` の設定を `true` に、`contextIsolation` の設定を `false` にする必要があります。  注意として、リモートコンテンツを読み込むレンダラーでの Node.js API へのアクセスは [セキュリティ上の理由](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content) につき非推奨です。
 
 Electron は Node.js API とそのモジュールへのフルアクセスをメインおよびレンダラープロセスの両方で公開します。 たとえば、ルートディレクトリからすべてのファイルを読み込むことができます。
 

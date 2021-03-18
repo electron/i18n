@@ -14,7 +14,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 Proceso: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` es un [EventEmitter][event-emitter].
 
 Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 

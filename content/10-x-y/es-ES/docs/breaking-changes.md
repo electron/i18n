@@ -136,7 +136,7 @@ protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+El protocolo registrado o interceptado no tiene efecto en la página actual hasta que ocurra la navegación.
 
 ### `protocol.isProtocolHandled`
 
@@ -515,7 +515,7 @@ const idleTime = powerMonitor.getSystemIdleTime()
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+El modo Mixed-sandox ahora está activado por defecto.
 
 ### Desaprobado: `Tray.setHighlightMode`
 
@@ -575,7 +575,7 @@ webFrame.setIsolatedWorldInfo(
 ```
 
 ### API cambiada: `webFrame.setSpellCheckProvider` ahora toma un callback asincrónico
-The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+El callback `spellCheck` ahora es asíncrono, y el parametro `autoCorrectWord` ha sido eliminado.
 ```js
 // Deprecated
 webFrame.setSpellCheckProvider('en-US', true, {
@@ -890,7 +890,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Cada versión de Electrón incluye dos versiones de ARM idénticas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. Se agregó el archivo con el prefijo `v7l` para aclarar a los usuarios qué versión de ARM soporta y desambiguar los futuros archivos de armv6l y arm64 que pueden ser producidos.
 
-El archivo _sin el prefijo_ todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. Starting at 2.0, the unprefixed file will no longer be published.
+El archivo _sin el prefijo_ todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. A partir de 2.0, el archivo sin prefijo ya no será publicado.
 
 Para más detalles, vea: [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).
 
