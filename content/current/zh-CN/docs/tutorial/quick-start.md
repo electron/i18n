@@ -75,7 +75,7 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -90,8 +90,8 @@ app.on('window-all-closed', () => {
 2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
 3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
 4. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
-5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. 例如，在首次启动应用程序后或重启运行中的应用程序。
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
+5. 第 18 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
+6. 第 25 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
 
 #### 创建网页
 

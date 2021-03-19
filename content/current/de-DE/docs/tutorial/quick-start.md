@@ -75,7 +75,7 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -91,7 +91,7 @@ app.on('window-all-closed', () => {
 3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
 4. Zeile 16: Sie erstellen ein neues Browserfenster, indem Sie die Funktion `createWindow` aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
 5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
+6. Zeile 25: Sie fügen einen neuen "listener" hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
 
 #### Webseite erstellen
 

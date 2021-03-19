@@ -28,11 +28,13 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 * `arch`
 * `platform`
 * `沙盒化`
+* `contextIsolated`
 * `type`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## 事件
 
@@ -82,6 +84,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Readonly_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 `Boolean`类型，用于控制是否将弃用警告当做例外。 设置它为 `true` 时会抛出错误。 使用此属性代替 `--throw-deprecation ` 命令行标志。
@@ -113,6 +119,10 @@ A `String` representing the current process's type, can be:
 ### `process.windowsStore` _Readonly_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Readonly_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## 方法
 

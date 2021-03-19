@@ -77,12 +77,12 @@ const driver = new webdriver.Builder()
   // "9515" 是ChromeDriver使用的端口
   .usingServer('http://localhost:9515')
   .withCapabilities({
-    chromeOptions: {
-      // 这里设置Electron的路径
+    'goog:chromeOptions': {
+      // Here is the path to your Electron binary.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('electron')
+  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
   .build()
 
 driver.get('http://www.google.com')

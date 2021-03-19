@@ -28,11 +28,13 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `arch`
 * `platform`
 * `sandboxed`
+* `contextIsolated`
 * `tipo`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## Eventos
 
@@ -82,6 +84,10 @@ Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Readonly_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `proceso.desechoDegradación`
 
 Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
@@ -113,6 +119,10 @@ Una `cadena` representando la versión de cadena de Electron.
 ### `process.windowsStore` _Readonly_
 
 Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Readonly_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Métodos
 

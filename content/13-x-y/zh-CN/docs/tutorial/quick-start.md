@@ -29,6 +29,7 @@ npm -v
 my-electron-app/
 ├── package.json
 ├── main.js
+├── preload.js
 └── index.html
 ```
 
@@ -52,30 +53,33 @@ npm i --save-dev electron
 
 ```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
   win.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
   }
 })
 ```
@@ -83,14 +87,15 @@ app.on('activate', () => {
 ##### 上面发生了什么？
 
 1. 第 1 行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
-2. 第 3 行：在此之后，你定义了一个创建 [新的浏览窗口](../api/browser-window.md#new-browserwindowoptions)的函数并将 nodeIntegration 设置为 true，将 `index.html` 文件加载到窗口中（第 12 行，稍后我们将讨论该文件）
-3. 第 15 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
-4. 第 17 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
-5. 第 23 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
+2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
+3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+4. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
+5. 第 18 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
+6. 第 25 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
 
 #### 创建网页
 
-这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染进程。 每个窗口都可以通过 `nodeIntegration` 选项完全访问 Node.js API。
+这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染进程。 You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
 
 `index.html` 页面如下所示：
 
@@ -105,13 +110,37 @@ app.on('activate', () => {
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
+
+#### Define a preload script
+
+Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+
+```javascript fiddle='docs/fiddles/quick-start'
+window.addEventListener('DOMContentLoaded', () => {
+  const replaceText = (selector, text) => {
+    const element = document.getElementById(selector)
+    if (element) element.innerText = text
+  }
+
+  for (const type of ['chrome', 'node', 'electron']) {
+    replaceText(`${type}-version`, process.versions[type])
+  }
+})
+```
+
+##### What's going on above?
+
+1. On line 1: First you define an event listener that tells you when the web page has loaded
+2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
+3. On line 7: Next you loop through the list of components whose version you want to display
+4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
 
 #### 修改您的 package.json 文件
 
@@ -276,7 +305,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> 注意：要从渲染过程中访问Node.js API，您需要设置 ` nodeIntegration ` 选项为 `true`。
+> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron 在主进程和渲染进程中都暴露了对 Node.js API 及其模块的完全访问权限。 例如，您可以从根目录读取所有文件：
 
