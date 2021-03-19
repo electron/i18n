@@ -28,11 +28,13 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `arch`
 * `plataforma`
 * `sandboxed`
+* `contextIsolated`
 * `tipo`
 * `versão`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## Eventos
 
@@ -82,6 +84,10 @@ Uma `String` que representa o caminho para o diretório de recursos.
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Readonly_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
@@ -113,6 +119,10 @@ A `String` representing Electron's version string.
 ### `process.windowsStore` _Readonly_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Readonly_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Métodos
 

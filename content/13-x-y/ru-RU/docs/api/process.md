@@ -28,11 +28,13 @@
 * `arch`
 * `platform`
 * `sandboxed - Запущена ли песочница`
+* `contextIsolated`
 * `type`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
 * `mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
+* `contextId`
 
 ## События
 
@@ -82,6 +84,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Только чтение_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 `Boolean`, определяет, будут ли предупреждения об устаревании выдаваться как исключения. Установка значения `true` приведет к выдаче ошибок при устаревании. Это свойство используется вместо флага командной строки `--throw-deprecation`.
@@ -113,6 +119,10 @@ A `String` representing the current process's type, can be:
 ### `process.windowsStore` _Только чтение_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Только чтение_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Методы
 

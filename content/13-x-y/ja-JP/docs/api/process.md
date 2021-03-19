@@ -28,11 +28,13 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `arch`
 * `platform`
 * `sandboxed`
+* `contextIsolated`
 * `type`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## イベント
 
@@ -82,6 +84,10 @@ process.once('loaded', () => {
 
 `Boolean`。 レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
+### `process.contextIsolated` _読み出し専用_
+
+`Boolean` 型で、現在のレンダラーコンテキストで `contextIsolation` が有効かどうかを示します。 これはメインプロセスでは `undefined` です。
+
 ### `process.throwDeprecation`
 
 非推奨の警告が例外としてスローされるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のエラーがスローされます。 `--throw-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
@@ -113,6 +119,10 @@ Electron のバージョン文字列を表す `String`。
 ### `process.windowsStore` _読み出し専用_
 
 `Boolean`。 アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
+
+### `process.contextId` _読み出し専用_
+
+`String` 型 (任意) で、現在の JavaScript コンテキストにおけるグローバルな一意の ID を表します。 各フレームにはそれぞれ JavaScript コンテキストがあります。 contextIsolation が有効な場合、隔離ワールドにも個別の JavaScript コンテキストがあります。 このプロパティはレンダラープロセスでのみ利用可能です。
 
 ## メソッド
 

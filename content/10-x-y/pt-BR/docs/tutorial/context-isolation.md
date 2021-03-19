@@ -2,11 +2,11 @@
 
 ## O que é isso?
 
-Isolamento de Contexto é um recurso que garante que ambos seus `pré-carregar` scripts e a lógica interna do Electron's sejam executados em um contexto separado para o site que você carregar em um [`conteúdo web`](../api/web-contents.md).  Isso é importante para fins de segurança, pois ajuda a impedir que o site acesse os internos do Electron ou as poderosas APIs que seu script de pré-carregamento tem acesso.
+Isolamento de Contexto é um recurso que garante que tanto os seus `scripts do preload` quanto a lógica interna do Electron sejam executados em um contexto separado para a pagina que você carregar em um [`webContent`](../api/web-contents.md).  Isso é importante por questões de segurança, pois ajuda a impedir que a pagina web acesse os módulos internos do Electron ou aos privelégios de APIs que seu script de preload tem acesso.
 
-Isto significa que o objeto `janela` ao qual seu script de pré-carga tem acesso é realmente um objeto **diferente** do que o site teria acesso.  Por exemplo, se você definir `window.hello = 'wave'` em seu script de pré-carga e o isolamento de contexto está habilitado na janela `. ello` será indefinido se o site tentar acessá-lo.
+Isto significa que o objeto `window` ao qual seu script de preload tem acesso seja realmente um objeto **diferente** do qual a sua pagina web teria acesso.  Por exemplo, se você definir `window.hello = 'wave'` em seu script de preload e o contextIsolation esteja habilitado na janela `window.hello` será undefined se a pagina web tentar acessa-la.
 
-Cada aplicação deve ter o isolamento de contexto habilitado e do Electron 12, ele será ativado por padrão.
+Cada aplicação deve ter o contextIsolation habilitado a partir da versão 12 do Electron, esse parâmetro estará habilitado por padrão.
 
 ## Como faço para habilitá-lo?
 

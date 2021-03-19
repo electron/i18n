@@ -26,10 +26,11 @@ Les commandes doivent afficher les versions de Node.js et npm en conséquence. S
 Du point de vue du développement, une application Electron est essentiellement une application Node.js. Cela signifie que le point de départ de votre application Electron sera un fichier `package.json` comme dans toute autre application Node.js. Une application Electron minimale a la structure suivante :
 
 ```plaintext
-mon-electron-app/
-── package.json
-── main.js
-<unk> ─ index.html
+my-electron-app/
+├── package.json
+├── main.js
+├── preload.js
+└── index.html
 ```
 
 Créons une application de base basée sur la structure ci-dessus.
@@ -52,30 +53,33 @@ Le script principal peut ressembler à ceci :
 
 ```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
   win.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
   }
 })
 ```
@@ -83,14 +87,15 @@ app.on('activate', () => {
 ##### Que se passe-t-il ci-dessus?
 
 1. Ligne 1 : Tout d'abord, importez les modules `app` et `BrowserWindow` du package `electron` afin de pouvoir gérer les événements du cycle de vie de votre application et créer ou contrôler les fenêtres du navigateur.
-2. Ligne 3: Définissez ensuite une fonction qui créera une nouvelle [BrowserWindow](../api/browser-window.md#new-browserwindowoptions) avec l'intégration de Node activée puis chargez `index.html` dans cette fenêtre (ligne 12, nous discuterons du fichier plus tard).
-3. Ligne 15 : Créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois l'application Electron initialisée.
-4. Ligne 17 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
-5. Ligne 23 : Ajoutez un nouvel écouteur qui créera une nouvelle fenêtre de navigateur seulement si l'application n'a pas de fenêtres visibles après avoir été activée. Par exemple lors du premier lancement de l'application ou du rechargement de l'application en cours.
+2. Ligne 2 : Puis, vous importez le paquet `path` qui fournit des fonctions utilitaires pour les chemins de fichiers.
+3. Ligne 4: Après cela, définir une fonction qui crée une nouvelle [browser window](../api/browser-window.md#new-browserwindowoptions) avec un script de préchargement, charger le fichier `index. html` dans cette fenêtre (ligne 13, nous discuterons du fichier plus tard).
+4. Ligne 16 : Vous créez une nouvelle fenêtre de navigateur en appelant la fonction `createWindow` une fois que l'application Electron [est initialisée](../api/app.md#appwhenready).
+5. Ligne 18 : Vous ajoutez un nouvel écouteur qui créera une nouvelle fenêtre de navigateur seulement si l'application n'a pas de fenêtre visible après avoir été activée. Par exemple lors du premier lancement de l'application ou du rechargement de l'application en cours.
+6. Ligne 25 : Vous ajoutez un nouveau listener qui tente de quitter l'application quand il n'a plus de fenêtres ouvertes. Ce listener est un non-op sur macOS en raison du comportement [window management behavior](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) du système d'exploitation.
 
 #### Créer une page web
 
-Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Chaque fenêtre peut éventuellement avoir son accès complet à l'API Node.js autorisé via la préférence `nodeIntegration`.
+Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
 
 La page `index.html` ressemble à ceci:
 
@@ -105,13 +110,37 @@ La page `index.html` ressemble à ceci:
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
+
+#### Définir un script de préchargement
+
+Votre script de préchargement agit comme un pont entre Node.js et votre page web. Il vous permet d'exposer des API et des comportements spécifiques sur votre page web plutôt que d'exposer de manière non sécurisée la totalité de l'API Node.js. Dans cet exemple, nous utiliserons le script de préchargement pour lire les informations de version à partir de l'objet `process` et mettre à jour la page web avec ces informations.
+
+```javascript fiddle='docs/fiddles/quick-start'
+window.addEventListener('DOMContentLoaded', () => {
+  const replaceText = (selector, text) => {
+    const element = document.getElementById(selector)
+    if (element) element.innerText = text
+  }
+
+  for (const type of ['chrome', 'node', 'electron']) {
+    replaceText(`${type}-version`, process.versions[type])
+  }
+})
+```
+
+##### Que se passe-t-il avec le code ci dessus?
+
+1. Ligne 1 : Tout d'abord, vous définissez un event listener qui vous indiquera que la page web a été chargée
+2. Ligne 2: Puis vous définissez une fonction utilitaire utilisée pour définir le texte des espaces réservés dans l' `index.html`
+3. Ligne 7 : On boucle alors dans la liste des composants dont on veux afficher la version
+4. Ligne 8 : Enfin, vous appelez `replaceText` pour rechercher les espaces réservés à la version dans `index.html` et attribuez les valeurs de `process.versions` à leur propriété text.
 
 #### Modifier votre fichier package.json
 
@@ -129,7 +158,7 @@ Votre application Electron utilise le fichier `package.json` comme point d'entr�
 
 > REMARQUE : Si le champ `main` est omis, Electron tentera de charger le fichier `index.js` à partir du répertoire contenant `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> NOTE : Les champs `author` et `description` sont requis pour l'emballage, en leur absence une erreur se produira lors de l'exécution de `npm run make`.
 
 Par défaut, la commande `npm start` exécutera le script principal avec Node.js. Pour exécuter le script avec Electron, vous devez le modifier comme suit:
 
@@ -276,7 +305,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> REMARQUE : Pour accéder à l'API Node.js à partir du processus Renderer, vous devez définir la préférence `nodeIntegration` à `true`.
+> REMARQUE : Pour accéder à l’API Node.js à partir du processus Renderer, vous devez définir la préférence `nodeIntegration` à `true` et la préférence `contextIsolation` à `false`.  Veuillez noter que l'accès à l'API Node.js dans n'importe quel moteur de rendu qui charge du contenu distant n'est pas recommandé pour [des raisons de sécurité](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron expose un accès complet à l'API Node.js et à ses modules dans les processus Main et Renderer. Par exemple, vous pouvez lire tous les fichiers du répertoire racine :
 
