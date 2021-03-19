@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Download content from Crowdin
-        uses: crowdin/github-action@1.0.9
+        uses: crowdin/github-action@1.1.0
         with:
           upload_sources: false
           download_translations: true

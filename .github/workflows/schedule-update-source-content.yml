@@ -22,7 +22,7 @@ jobs:
         run: npm run update-source-content
       - run: git pull origin master
       - name: Upload Content To Crowdin
-        uses: crowdin/github-action@1.0.9
+        uses: crowdin/github-action@1.1.0
         with:
           upload_sources: true
 
