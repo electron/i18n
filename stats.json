@@ -29,14 +29,14 @@
     "name": "German",
     "code": "de",
     "phrases": "15030",
-    "translated": "7443",
+    "translated": "7448",
     "approved": "858",
     "words": "181869",
-    "words_translated": "86101",
+    "words_translated": "86156",
     "words_approved": "6566",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 4007
+    "qa_issues": 4008
   },
   {
     "name": "Japanese",
@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "15030",
-    "translated": "13253",
+    "translated": "13316",
     "approved": "3291",
     "words": "181869",
-    "words_translated": "159369",
+    "words_translated": "160101",
     "words_approved": "36242",
-    "translated_progress": 87,
+    "translated_progress": 88,
     "approved_progress": 19,
-    "qa_issues": 6042
+    "qa_issues": 6060
   }
 ]
