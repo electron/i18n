@@ -6,8 +6,7 @@ project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
 
 files:
-  {{#each versions}}
-  # Content generate for version: "{{this}}"
+  # Content generate for lastest stable
   - source: /content/{{this}}/en-US/docs/*.md
     translation: /content/{{this}}/%locale%/docs/%original_file_name%
   - source: /content/{{this}}/en-US/docs/development/*.md
@@ -18,10 +17,9 @@ files:
     translation: /content/{{this}}/%locale%/docs/api/%original_file_name%
   - source: /content/{{this}}/en-US/docs/api/structures/*.md
     translation: /content/{{this}}/%locale%/docs/api/structures/%original_file_name%
-  {{/each}}
 
   # Website Content
-  - source: /content/current/en-US/website/blog/*.md
-    translation: /content/current/%locale%/website/blog/%original_file_name%
-  - source: /content/current/en-US/website/*.yml
-    translation: /content/current/%locale%/website/%original_file_name%
+  - source: /content/en-US/website/blog/*.md
+    translation: /content/%locale%/website/blog/%original_file_name%
+  - source: /content/en-US/website/*.yml
+    translation: /content/%locale%/website/%original_file_name%

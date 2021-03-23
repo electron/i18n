@@ -17,7 +17,7 @@ import {
 } from '../lib/parse-electron-glossary'
 const getIds = require('get-crowdin-file-ids')
 
-const contentDir = path.join(__dirname, '../content/current')
+const contentDir = path.join(__dirname, '../content')
 
 let ids: Record<string, string> = {}
 
@@ -27,8 +27,10 @@ async function parseDocs(): Promise<IDocFile[]> {
   console.time('parsed docs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter((file) => file.relativePath.includes('/docs'))
-    .filter((file) => file.relativePath.endsWith('.md'))
+    .filter((file) => {
+      return file.relativePath.includes('/docs') && file.relativePath.endsWith('.md')
+    })
+
   console.log(
     `processing ${markdownFiles.length} docs files in ${
       Object.keys(locales).length
@@ -49,8 +51,9 @@ async function parseBlogs() {
   console.time('parsed blogs in')
   const markdownFiles = walk
     .entries(contentDir)
-    .filter((file) => file.relativePath.includes('website/blog'))
-    .filter((file) => file.fullPath.endsWith('.md'))
+    .filter((file) => {
+      return file.relativePath.includes('website/blog') && file.fullPath.endsWith('.md')
+    })
   console.log(
     `processing ${markdownFiles.length} blog files in ${
       Object.keys(locales).length
@@ -91,7 +94,7 @@ async function main() {
   }, {} as Record<string, Record<string, IBlogFile>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    acc[locale] = require(`../content/current/${locale}/website/locale.yml`)
+    acc[locale] = require(`../content/${locale}/website/locale.yml`)
     return acc
   }, {} as Record<string, string>)
 

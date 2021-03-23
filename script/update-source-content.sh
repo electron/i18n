@@ -15,7 +15,6 @@ git clone "https://electron-bot:$GH_TOKEN@github.com/electron/i18n" module
 cd module
 npm ci
 npm run collect
-npm run content-cleanup
 
 if [ "$(git status --porcelain)" = "" ]; then
   echo "no new content found; goodbye!"

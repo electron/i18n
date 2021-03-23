@@ -56,12 +56,10 @@
     "collect": "ts-node script/collect.ts",
     "build": "npm-run-all build:*",
     "build:stats": "ts-node script/stats.ts",
-    "build:cleanup": "ts-node script/i18n-content-cleanup.ts",
     "build:module": "ts-node script/build-module.ts",
     "build:readme": "ts-node script/readme.ts",
     "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
     "update-source-content": "script/update-source-content.sh",
-    "content-cleanup": "ts-node script/i18n-content-cleanup.ts",
     "get-cache": "ts-node ./script/get-cache.ts",
     "test": "npm run test-only",
     "prettier": "prettier --check \"./**/*.{ts,js}\"",
@@ -73,13 +71,7 @@
     "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v12.0.2",
-  "electronMasterBranchCommit": "976222b509ce81585340575a7e988af499d32b4e",
   "engines": {
     "node": ">=10"
-  },
-  "supportedVersions": [
-    "10-x-y",
-    "11-x-y",
-    "13-x-y"
-  ]
+  }
 }
