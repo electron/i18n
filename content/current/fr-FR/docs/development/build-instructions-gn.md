@@ -10,20 +10,20 @@ Check the build prerequisites for your platform before proceeding
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## Construire des outils
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[outils de build d’Electron](https://github.com/electron/build-tools) une grande partie de la configuration pour compiler Electron à partir de sources avec différentes configurations et construire des cibles. Si vous souhaitez configurer l’environnement manuellement, les instructions sont énumérées ci-dessous.
 
 ## GN prerequisites
 
-You'll need to install [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Vous aurez besoin d’installer [`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), l' utilisé pour aller chercher chrome et ses dépendances.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
 
-### Setting up the git cache
+### Mise en place du cache git
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si vous prévoyez de vérifier Electron plus d’une fois (par exemple, pour avoir plusieurs répertoires parallèles vérifiés à différentes branches), en utilisant le cache git va accélérer les appels ultérieurs vers `gclient`. Pour ce faire, définissez une variable `GIT_CACHE_PATH` 'environnement :
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -213,7 +213,7 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Résolution de problème
 
-### gclient sync complains about rebase
+### synchronisation gclient se plaint de rebase
 
 If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
 

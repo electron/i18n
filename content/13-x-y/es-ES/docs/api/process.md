@@ -86,7 +86,7 @@ Un `Boolean`. When the renderer process is sandboxed, this property is `true`, o
 
 ### `process.contextIsolated` _Readonly_
 
-A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+Un `Boolean` que indica si el renderer context acutal tiene el `contextIsolation` activado. Es `undefined` en el main process.
 
 ### `proceso.desechoDegradación`
 
@@ -122,7 +122,7 @@ Un `Boolean`. If the app is running as a Windows Store app (appx), this property
 
 ### `process.contextId` _Readonly_
 
-A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
+Un `String` (opcional) que representa un único global ID del contexto JavaScript actual. Cada frame tiene su propio contexto JavaScript. Cuando el contextIsolation está activado, el isolated world además tiene un contexto JavaScript separado. Esta propiedad solo está disponible en el renderer process.
 
 ## Métodos
 

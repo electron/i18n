@@ -30,7 +30,7 @@ Estableciendo esta propiedad a `dark` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `true` cuando se accede
 * Cualquier UI de Electron renderiza en Linux y Windows incluyendo menús contextuales, devtools, etc. empleará la IU oscura.
-* Any UI the OS renders on macOS including menus, window frames, etc. empleará la IU oscura.
+* Cualquier interfaz de usuario que el sistema operativo muestre en macOS, incluyendo menús, marcos de ventanas, etc. empleará la IU oscura.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `dark`.
 * El evento `updated` será emitido
 
@@ -38,7 +38,7 @@ Estableciendo esta propiedad a `light` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `false` cuando se acceda
 * Cualquier UI de Electron renderiza en Linux y Windows incluyendo menús contextuales, devtools, etc. usará el UI light.
-* Any UI the OS renders on macOS including menus, window frames, etc. usará el UI light.
+* Cualquier interfaz de usuario que el sistema operativo muestre en macOS, incluyendo menús, marcos de ventanas, etc. usará el UI light.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `light`.
 * El evento `updated` será emitido
 

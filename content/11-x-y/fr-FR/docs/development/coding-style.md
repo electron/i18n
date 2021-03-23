@@ -17,7 +17,7 @@ Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style d
 * Évitez le code dépendant de la plateforme :
   * Utilisez `path.join()` pour concaténer les noms de fichiers.
   * Utilisez `os.tmpdir()` au lieu de `/tmp` lorsque vous devez référencer le répertoire temporaire.
-* Using a plain `return` when returning explicitly at the end of a function.
+* Utilisation d’un `return` lorsqu’il revient explicitement à la fin d’une fonction.
   * Pas de `return null`, `return undefined`, `null` ou `undefined`
 
 ## C++ et Python

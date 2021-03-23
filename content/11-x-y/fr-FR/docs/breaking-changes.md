@@ -441,7 +441,7 @@ Dans Electron 7, cela retourne maintenant une `FileList` avec un objet `Fichier`
 
 Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionné. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API Changed: Callback-based versions of promisified APIs
+### Modification de l’API : versions basées sur rappel d’API promisifiées
 
 Electron 5 et Electron 6 ont introduit des versions des API asynchrones existantes basées sur les promise et déprécié leurs homologues basées sur les callback. Dans Electron 7, toutes les APIs obsolètes basées sur les callback sont maintenant supprimées.
 

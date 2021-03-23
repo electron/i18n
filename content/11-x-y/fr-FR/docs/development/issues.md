@@ -74,7 +74,7 @@ Il est fréquent que les questions ouvertes impliquent des discussions. Certains
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. Pour beaucoup, de telles réponses sont ennuyeuses et peu amicales.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. Si vous rencontrez un problème que vous estimez invalide, ou qui contient des informations incorrectes, expliquez *pourquoi* vous pensez de cette façon avec un contexte de soutien supplémentaire, et être prêt à être convaincu que vous pouvez avoir tort. By doing so, we can often reach the correct outcome faster.
 
 ## Résolution d'un rapport de bug
 

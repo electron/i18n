@@ -24,7 +24,7 @@ Para enviar un informe de error:
 
 Cuando abre una nueva incidencia en el [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), los usuarios se les presentará una plantilla que debe ser completada.
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+Si crees que has encontrado un error en Electron, rellena la plantilla lo mejor de tu habilidad.
 
 Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil resolver un problema si este se puede reproducir.
 
