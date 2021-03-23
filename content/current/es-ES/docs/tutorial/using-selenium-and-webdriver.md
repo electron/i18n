@@ -78,7 +78,7 @@ const driver = new webdriver.Builder()
   .usingServer('http://localhost:9515')
   .withCapabilities({
     'goog:chromeOptions': {
-      // Here is the path to your Electron binary.
+      // Aquí va  la dirección de tu binario Electron.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })

@@ -17,7 +17,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 * Evitar código dependiente de la plataforma:
   * Use `path.join()` para concatenar nombres de archivos.
   * Use `os.tmpdir()` en lugar de `/tmp` cuando necesite referencias el directorio temporal.
-* Using a plain `return` when returning explicitly at the end of a function.
+* Usar una `return` simple cuando se devuelve explícitamente al final de una función.
   * No `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ y Python

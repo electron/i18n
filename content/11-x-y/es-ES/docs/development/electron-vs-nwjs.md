@@ -26,7 +26,7 @@ Nota: NW.js ha apoyado de manera opcional multi-contexto desde la versión 0.13.
 
 ## 4) Soporte Heredado
 
-NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
+NW.js still offers a "legacy release" that supports Windows XP. No recibe actualizaciones de seguridad.
 
 Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
 

@@ -24,7 +24,7 @@ To submit a bug report:
 
 When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+Si vous croyez avoir trouvé un bogue dans Electron, veuillez remplir le modèle au mieux de vos capacités.
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
@@ -36,7 +36,7 @@ Il est fréquent que les questions ouvertes impliquent des discussions. Certains
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. Pour beaucoup, de telles réponses sont ennuyeuses et peu amicales.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. Si vous rencontrez un problème que vous estimez invalide, ou qui contient des informations incorrectes, expliquez *pourquoi* vous pensez de cette façon avec un contexte de soutien supplémentaire, et être prêt à être convaincu que vous pouvez avoir tort. By doing so, we can often reach the correct outcome faster.
 
 ## Résolution d'un rapport de bug
 

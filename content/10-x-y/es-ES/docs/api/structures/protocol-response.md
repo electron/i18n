@@ -3,14 +3,14 @@
 * `error` Integer (opcional) - Cuando se asigna, el `request` fallará con el número `error`. For the available error numbers you can use, please see the [net error list][net-error].
 * `statusCode` Number (opcional) - El código de repuesta HTTP, por defecto es 200.
 * `charset` String (opcional) - El conjunto de caracteres del cuerpo de respuesta, por defecto es `"utf-8"`.
-* `mimeType` String (opcional) - El tipo MIME de cuerpo de respuesta, por defecto es `"text/html"`. Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.
-* `headers` Record<string, string | string[]> (optional) - An object containing the response headers. The keys must be String, and values must be either String or Array of String.
-* `data` (Buffer | String | ReadableStream) (optional) - The response body. When returning stream as response, this is a Node.js readable stream representing the response body. When returning `Buffer` as response, this is a `Buffer`. When returning `String` as response, this is a `String`. This is ignored for other types of responses.
-* `path` String (optional) - Path to the file which would be sent as response body. This is only used for file responses.
-* `url` String (optional) - Download the `url` and pipe the result as response body. This is only used for URL responses.
-* `referrer` String (optional) - The `referrer` URL. This is only used for file and URL responses.
-* `method` String (optional) - The HTTP `method`. This is only used for file and URL responses.
-* `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Setting `session` to `null` would use a random independent session. This is only used for URL responses.
-* `uploadData` ProtocolResponseUploadData (optional) - The data used as upload data. This is only used for URL responses when `method` is `"POST"`.
+* `mimeType` String (opcional) - El tipo MIME de cuerpo de respuesta, por defecto es `"text/html"`. Establecer `mimeType` establecería de forma implícita la cabecera `content-type` en la respuesta, pero si `content-type` ya esta configurada en las `headers`, el `mimeType` sería ignorado.
+* `headers` Record<string, string | string[]> (opcional) - Un objeto que contiene las cabeceras de la respuesta. Las llaves deben ser String, y los valores deben ser String o Array de String.
+* `data` (Buffer | String | ReadableStream) (opcional) - El cuerpo de la respuesta. Cuando se devuelve un stream como respuesta, este es una stream legible por Node.js que representa el cuerpo de la respuesta. Cuando se devuelve `Buffer` como respuesta, esto es un `Buffer`. Cuando se devuelve un `String` como respuesta, esto es un `String`. Esto es ignorado por otros tipos de respuestas.
+* `path` String (opcional) - Ruta al archivo el cual se enviaría como cuerpo de la respuesta. Esto solo es usado para respuestas de archivos.
+* `url` String (opcional) - Descarga la `url` y canaliza el resultado como cuerpo de la respuesta. Esto sólo es usado para respuestas URL.
+* `referrer` String (opcional) - La URL `referrer`. Esto solo se usa para respuestas de archivos y URL.
+* `method` String (opcional) - El `method` HTTP. Esto solo se usa para respuestas de archivos y URL.
+* `session` Session (opcional) - La sesión usada para solicitar una URL, por defecto la solicitud HTTP reutilizará la sesión actual. Establecer `session` a `null` usaría una sesión aleatoria independiente. Esto sólo es usado para respuestas URL.
+* `uploadData` ProtocolResponseUploadData (opcional) - Los datos utilizados como datos de carga. Esto sólo se respuestas URL cuando el `method` es `"POST"`.
 
 [net-error]: https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h

@@ -17,7 +17,7 @@ Electron hérite de cette option de compilation de Chromium. Dans les versions `
 
 ## Tests
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _cette section est obsolète et contient des informations qui ne sont plus pertinentes pour l’électron construit par GN._
 
 Pour tester que vos changements soient conforme avec le code style du projet :
 

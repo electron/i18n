@@ -6,7 +6,7 @@ Se recomienda formatear su código C++ modificado antes de abrir solicitudes de 
 
 Puede instalar `clang-format` y `git-clang-format` a través de `npm install -g clang-format`.
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Para dar formato automáticamente a un archivo de acuerdo con el estilo de código de Electron C++, ejecuta `clang-format -i path/to/electron/file.cc`. Debería funcionar en macOS/Linux/Windows.
 
 El flujo de trabajo para formatear su código modificado:
 
@@ -16,11 +16,11 @@ El flujo de trabajo para formatear su código modificado:
 4. Ejecute `git agregue su_archivo_registrado.cc` y confirme su cambio.
 5. Ahora la rama está lista para abrirse como una solicitud de extracción.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Si deseas formatear el código modificado en tu última confirmación de Git (HEAD), puedes ejecutar `git-clang-format HEAD~1`. Consulta `git-clang-format -h` para obtener más detalles.
 
 ## Integración del Editor
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+También puedes integrar `clang-format` directamente en tus editores favoritos. Para obtener más información sobre cómo configurar la integración del editor, consulta estas páginas:
 
 * [Atom](https://atom.io/packages/clang-format)
 * [Vim & Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
