@@ -1,3 +1,0 @@
-# Electron App Feedback Program
-
-Electron está trabalhando para constituir um processo organizado de liberação, a fim de liberar versões de maneira mais ágil. Para ajudar com isso, temos o Programa de Feedback do App para que aplicativos Electron de larga escala testem nossas versões beta e reportem, à equipe do Electron, problemas específicos de aplicativos. Usamos este programa para nos ajudar a priorizar o trabalho e melhorar as aplicações para a próxima versão estável o mais rapidamente possível. Há algumas exigências que esperamos dos participantes, como a participação em curtos check-ins semanais online. Por favor, visite o [post do blog](https://electronjs.org/blog/app-feedback-program) para detalhes e cadastro.
