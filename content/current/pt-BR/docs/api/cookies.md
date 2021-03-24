@@ -44,6 +44,8 @@ Os seguintes eventos estão disponíveis em instâncias de `Cookies`:
 
 #### Evento: 'changed'
 
+Retorna:
+
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - O cookie que foi modificado.
 * `cause` String - The cause of the change with one of the following values:
@@ -85,7 +87,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Padrão sendo false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.  Default is `no_restriction`.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 

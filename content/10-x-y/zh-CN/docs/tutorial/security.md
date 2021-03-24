@@ -255,7 +255,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资源时，不可能使用此方法。 It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资源时，不可能使用此方法。 在某些用例下, 例如使用`file://`协议时, 在页面的`<meta>`的标签中设置CSP是非常有用的.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -412,7 +412,7 @@ app.on('web-contents-created', (event, contents) => {
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
 
-我们建议您使用 Node的 URL 解析器。 Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+我们建议您使用 Node的 URL 解析器。 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
 
 ```js
 const URL = require('url').URL

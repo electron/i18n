@@ -34,7 +34,7 @@ However, we understand that requirements outside our wildest imagination may exi
 
 ## 5) Características
 
-There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm](https://www.npmjs.com/search?q=electron).
+Hay numerosas diferencias en la cantidad de características soportadas. Electron tiene un comunidad más grande, más aplicaciones en producción usándolo y [una gran cantidad de módulos de usuario disponibles en npm](https://www.npmjs.com/search?q=electron).
 
 As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. Como ejemplo a favor de NW.js, NW.js soporta más APIs de `Chrome.*` para el desarrollo de aplicaciones Chrome.
 

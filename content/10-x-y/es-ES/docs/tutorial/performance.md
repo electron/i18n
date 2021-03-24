@@ -175,7 +175,7 @@ Orquestar el flujo de operaciones en el código de tu renderizador es particular
 
 ### ¿Cómo?
 
-Generalmente, todos los consejos para construir aplicaciones web con rendimiento para navegadores modernos también se aplican a los renderizadores de Electron. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+Generalmente, todos los consejos para construir aplicaciones web con rendimiento para navegadores modernos también se aplican a los renderizadores de Electron. Las dos herramientas principales a su disposición actualmente son  `requestIdleCallback()` para pequeñas operaciones y `Web Workers` para operaciones de ejecución prolongada.
 
 *`requestIdleCallback()`* permite a los desarrolladores hacer cola una función ejecutada tan pronto como el proceso esté entrando en un período inactivo. Le permite realizar trabajos de baja prioridad o en segundo plano sin afectar a la experiencia del usuario. Para más información sobre como usarlo, [revise su documentación en MDN][request-idle-callback].
 

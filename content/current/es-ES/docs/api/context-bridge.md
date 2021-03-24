@@ -1,10 +1,10 @@
 # contextBridge
 
-> Create a safe, bi-directional, synchronous bridge across isolated contexts
+> Cree un puente seguro, bidireccional y sincrónico a través de contextos aislados
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-An example of exposing an API to a renderer from an isolated preload script is given below:
+A continuación se muestra un ejemplo de exponer una API a un renderer desde un script de precarga aislado:
 
 ```javascript
 // Preload (Isolated World)
@@ -28,19 +28,19 @@ window.electron.doThing()
 
 ### Main World
 
-El "Main World" es el contexto de JavaScript que corre tu código renderer principal. By default, the page you load in your renderer executes code in this world.
+El "Main World" es el contexto de JavaScript que corre tu código renderer principal. Por defecto, la página que cargas en el tu renderer ejecuta código en este mundo.
 
-### Isolated World
+### Mundo aislado
 
-When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+Cuando `contextIsolation` está activado en tu `webPreferences`, tus scripts `preload` se ejecutan en un "Mundo Aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
 
 ## Métodos
 
-The `contextBridge` module has the following methods:
+El módulo `contextBridge` tiene los siguientes métodos:
 
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
-* `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
+* `apiKey` String - La clave para inyectar la API en la ventana `window`.  La API será accesible en `window[apiKey]`.
 * `api` any - Tu API más información sobre qué puede ser esta API y como funciona esta disponible a continuación.
 
 ## Uso
@@ -79,25 +79,25 @@ contextBridge.exposeInMainWorld(
 )
 ```
 
-### API Functions
+### Funciones API
 
-`Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
+Los valores de `Function` que enlazas a través de `contextBridge` son proxyados a través de Electron para asegurar que los contextos permanezcan aislados.  Esto da como resultado algunas limitaciones claves que hemos descrito a continuación.
 
-#### Parameter / Error / Return Type support
+#### Parámetro / Error / Tipo de Retorno soportado
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
+Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A continuación, se incluye una tabla de soporte de tipo para que esté completa:
 
-| Type                                                                                                           | Complexity | Parameter Support | Valor de Retorno Soportado | Limitaciones                                                                                                                                                                                                       |
-| -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `String`                                                                                                       | Simple     | ✅                 | ✅                          | N/A                                                                                                                                                                                                                |
-| `Number`                                                                                                       | Simple     | ✅                 | ✅                          | N/A                                                                                                                                                                                                                |
-| `Boolean`                                                                                                      | Simple     | ✅                 | ✅                          | N/A                                                                                                                                                                                                                |
-| `Objeto`                                                                                                       | Complejo   | ✅                 | ✅                          | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Enviar clases personalizadas copiará valores pero no el prototipo. |
-| `Array`                                                                                                        | Complejo   | ✅                 | ✅                          | Same limitations as the `Object` type                                                                                                                                                                              |
-| `Error`                                                                                                        | Complejo   | ✅                 | ✅                          | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                                   |
-| `Promise`                                                                                                      | Complejo   | ✅                 | ✅                          | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                                  |
-| `Function`                                                                                                     | Complejo   | ✅                 | ✅                          | Prototype modifications are dropped.  Enviar clases o constructores no funcionará.                                                                                                                                 |
-| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                          | See the linked document on cloneable types                                                                                                                                                                         |
-| `Símbolo`                                                                                                      | N/A        | ❌                 | ❌                          | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                       |
+| Tipo                                                                                                           | Complejidad | Soporte de parámetros | Valor de Retorno Soportado | Limitaciones                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------- | ----------- | --------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `String`                                                                                                       | Simple      | ✅                     | ✅                          | N/A                                                                                                                                                                                                                |
+| `Number`                                                                                                       | Simple      | ✅                     | ✅                          | N/A                                                                                                                                                                                                                |
+| `Boolean`                                                                                                      | Simple      | ✅                     | ✅                          | N/A                                                                                                                                                                                                                |
+| `Objeto`                                                                                                       | Complejo    | ✅                     | ✅                          | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Enviar clases personalizadas copiará valores pero no el prototipo. |
+| `Array`                                                                                                        | Complejo    | ✅                     | ✅                          | Same limitations as the `Object` type                                                                                                                                                                              |
+| `Error`                                                                                                        | Complejo    | ✅                     | ✅                          | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                                   |
+| `Promise`                                                                                                      | Complejo    | ✅                     | ✅                          | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                                  |
+| `Function`                                                                                                     | Complejo    | ✅                     | ✅                          | Prototype modifications are dropped.  Enviar clases o constructores no funcionará.                                                                                                                                 |
+| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple      | ✅                     | ✅                          | See the linked document on cloneable types                                                                                                                                                                         |
+| `Símbolo`                                                                                                      | N/A         | ❌                     | ❌                          | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                       |
 
 If the type you care about is not in the above table, it is probably not supported.

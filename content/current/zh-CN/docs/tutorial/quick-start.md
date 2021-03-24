@@ -87,7 +87,7 @@ app.on('window-all-closed', () => {
 ##### 上面发生了什么？
 
 1. 第 1 行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
-2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
+2. 第2行: 导入 `path` 包，该包为操作文件路径提供了实用的功能。
 3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
 4. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
 5. 第 18 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### Define a preload script
 
-Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+您的预加载脚本就像是Node.js和您的网页之间的桥梁。 它允许你将特定的 API 和行为暴露到你的网页上，而不是不安全地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -135,7 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-##### What's going on above?
+##### 上面发生了什么？
 
 1. On line 1: First you define an event listener that tells you when the web page has loaded
 2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
