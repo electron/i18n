@@ -83,15 +83,15 @@ Ejemplos de mensajes de confirmación con prefijos semánticos:
 
 Prefijos usuales:
 
-* fix: A bug fix
-* feat: A new feature
-* docs: Documentation changes
-* test: Adding missing tests or correcting existing tests
-* build: Changes that affect the build system
-* ci: Changes to our CI configuration files and scripts
-* perf: A code change that improves performance
-* refactor: A code change that neither fixes a bug nor adds a feature
-* style: Changes that do not affect the meaning of the code (linting)
+* fix: Una corrección de error
+* feat: Una nueva característica
+* docs: Cambios en la documentación
+* test: Agrega pruebas faltantes o corrige las pruebas exixtentes
+* build: Cambios que afectan el sistema de construccion
+* ci: Cambios a nuestros archivos de configuración y scripts CI
+* perf: Un cambio en el código que mejora el rendimiento
+* refactor: Un cambio en el código que no corrige un error ni agrega una característica
+* style: Cambios que no afectan el significado del código (linting)
 * vendor: Bumping a dependency like libchromiumcontent or node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:

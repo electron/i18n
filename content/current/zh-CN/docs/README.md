@@ -136,7 +136,6 @@
 ### 渲染进程（网页）可用的模块:
 
 * [contextBridge](api/context-bridge.md)
-* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
@@ -144,6 +143,7 @@
 
 * [剪贴板](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [nativeImage](api/native-image.md)
 * [shell](api/shell.md)
 
