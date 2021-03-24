@@ -136,7 +136,6 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 ### Module für den Renderer-Prozess (Webseite):
 
 * [contextBridge](api/context-bridge.md)
-* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
@@ -144,6 +143,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 
 * [Zwischenablage (clipboard)](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [nativeImage](api/native-image.md)
 * [Shell](api/shell.md)
 
