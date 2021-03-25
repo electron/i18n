@@ -56,19 +56,36 @@ main().catch((err: Error) => {
   process.exit(1)
 })
 
+/**
+ * Returns the correct branch name ("`major-x-y`") for a given Electron version.
+ */
+function versionToBranch(version: string) {
+  const major = version.split('.')[0]
+
+  return `${major}-x-y`
+}
+
 async function main() {
-  const release = await fetchLatestStableRelease()
+  const latestPublishedVersion = execSync('npm show electron version')
+    .toString()
+    .trim()
+
+  const release = await fetchRelease(latestPublishedVersion)
 
   await writeToPackageJSON('electronLatestStableTag', release.tag_name)
 
-  const electronContents = await roggy(release.tag_name, {
+  const stableContents = await roggy(release.tag_name, {
     owner: 'electron',
     repository: 'electron',
   })
 
-  const apiDocs = await filterAPIDocs(electronContents)
+  const latestBranchContents = await fetchLatestContentForBranch(
+    versionToBranch(latestPublishedVersion)
+  )
+
+  const apiDocs = await filterAPIDocs(stableContents)
   const apiDefinitions = await fetchApiDefinitions(release)
-  const tutorials = await filterTutorials(electronContents)
+  const tutorials = await filterTutorials(latestBranchContents)
   const websiteContent = await fetchWebsiteContent()
   const blogposts = await fetchWebsiteBlogPosts()
 
@@ -90,11 +107,10 @@ async function main() {
   await writeContent(content)
 }
 
-async function fetchLatestStableRelease(): Promise<Release> {
+async function fetchRelease(version: string): Promise<Release> {
   console.log(`Determining 'latest' version dist-tag on npm`)
-  const version = execSync('npm show electron version').toString().trim()
 
-  console.log(`Fetching release data from GitHub`)
+  console.log(`Fetching data for release "${version}"`)
 
   const repo = {
     owner: 'electron',
@@ -103,7 +119,17 @@ async function fetchLatestStableRelease(): Promise<Release> {
   }
 
   const res = await github.repos.getReleaseByTag(repo)
+
   return res.data
+}
+
+function fetchLatestContentForBranch(branch: string) {
+  console.log(`Fetching tutorial docs from "electron/electron#${branch}"`)
+
+  return roggy(branch, {
+    owner: 'electron',
+    repository: 'electron',
+  })
 }
 
 async function deleteContent(files: string[]) {
