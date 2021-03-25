@@ -56,7 +56,7 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 ### `crashReporter.start(options)`
 
 * `选项` 对象
-  * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
+  * `submitURL` String (optional) - URL that crash reports will be sent to as POST. Required unless `uploadToServer` is `false`.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. 默认值为 `true`。

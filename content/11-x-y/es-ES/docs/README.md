@@ -141,7 +141,6 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 ### Módulos para el proceso de renderizado (Página Web):
 
 * [contextBridge](api/context-bridge.md)
-* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
@@ -150,6 +149,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [NativeImage](api/native-image.md)
 * [shell](api/shell.md)
 

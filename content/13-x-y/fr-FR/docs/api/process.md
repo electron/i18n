@@ -42,18 +42,6 @@ Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un s
 
 Émis lorsque Electron a chargé son script d'initialisation interne et que commence à charger la page web ou le script principal.
 
-Il peut être utilisé par le script de préchargement pour ajouter des symboles globaux de Node supprimés à la portée globale lorsque l'intégration des noeuds est désactivée :
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Propriétés
 
 ### `process.defaultApp` _Readonly_

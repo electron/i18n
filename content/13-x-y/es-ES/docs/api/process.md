@@ -42,18 +42,6 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 
 Emitido cuando Electron ha cargado su script de inicialización interno y está empezando a carga la página web o el script principal.
 
-Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados de Node de nuevo al scope global cuando la integración de Node está desactivada:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Propiedades
 
 ### `process.defaultApp` _Readonly_
