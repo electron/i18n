@@ -56,7 +56,7 @@ Node.js の `child_process` モジュールを使用していて、Linux 上で�
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
+  * `submitURL` String (任意) - POSTでクラッシュレポートが送信されるURL。 `uploadToServer` が `false` でなければ必須です。
   * `productName` String (任意) - 省略値は、`app.name` です。
   * `companyName` String (任意) _非推奨_ - `{ globalExtra: { _companyName: ... } }` の非推奨な別名です。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。 false の場合、クラッシュレポートは収集されてクラッシュのディレクトリに保存されますが、アップロードされません。 省略値は `true` です。

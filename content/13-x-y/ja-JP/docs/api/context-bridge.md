@@ -32,7 +32,7 @@ window.electron.doThing()
 
 ### 隔離ワールド
 
-`webPreferences` で `contextIsolation` が有効になっている場合、`preload` スクリプトは "隔離ワールド" で実行されます。  コンテキスト分離とその影響の詳細については、[BrowserWindow](../tutorial/security.md#3-enable-context-isolation-for-remote-content) のドキュメントを参照してください。
+`webPreferences` で `contextIsolation` が有効 (これは Electron 12.0.0 からの既定の動作) になっている場合、`preload` スクリプトは "隔離ワールド" で実行されます。  コンテキスト分離とその影響の詳細については、[BrowserWindow](../tutorial/security.md#3-enable-context-isolation-for-remote-content) のドキュメントを参照してください。
 
 ## メソッド
 
@@ -102,3 +102,19 @@ contextBridge.exposeInMainWorld(
 | `Symbol`                                                                                             | なし  | ❌      | ❌       | Symbol はコンテキスト間でコピーできないため、削除されます                                                                                     |
 
 関心のある型が上記の表にない場合、それはおそらくサポートされていません。
+
+### Node のグローバルシンボルの公開
+
+`contextBridge` はプリロードスクリプトで使用でき、レンダラーが Node API へアクセスできるようにします。 上記のサポート型の表は、 `contextBridge` を介して公開する Node API にも適用されます。 注意として、Node API の多くはローカルシステムのリソースへのアクセスを許してしまいます。 信頼できない外部コンテンツにおいては、公開するグローバルや API について注意が必要です。
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```

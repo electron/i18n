@@ -42,18 +42,6 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
-当node集成被关闭时，预加载脚本可以使用它将删除的 Node global symbols 添加回全局范围：
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Properties
 
 ### `process.defaultApp` _Readonly_

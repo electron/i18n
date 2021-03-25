@@ -42,18 +42,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 Emitido quando o Electron já carregou seu script de inicialização interno e começa a carregar a página da web ou o script principal.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Propriedades
 
 ### `process.defaultApp` _Readonly_

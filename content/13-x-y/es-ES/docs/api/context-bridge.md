@@ -32,7 +32,7 @@ El "Main World" es el contexto de JavaScript que corre tu código renderer princ
 
 ### Mundo aislado
 
-Cuando `contextIsolation` está activado en tu `webPreferences`, tus scripts `preload` se ejecutan en un "Mundo Aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
+When `contextIsolation` is enabled in your `webPreferences` (this is the default behavior since Electron 12.0.0), your `preload` scripts run in an "Isolated World".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
 
 ## Métodos
 
@@ -102,3 +102,19 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Símbolo`                                                                                                      | N/A         | ❌                     | ❌                          | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                       |
 
 If the type you care about is not in the above table, it is probably not supported.
+
+### Exposing Node Global Symbols
+
+The `contextBridge` can be used by the preload script to give your renderer access to Node APIs. The table of supported types described above also applies to Node APIs that you expose through `contextBridge`. Please note that many Node APIs grant access to local system resources. Be very cautious about which globals and APIs you expose to untrusted remote content.
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```
