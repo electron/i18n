@@ -10,20 +10,20 @@
     "words_approved": "25381",
     "translated_progress": 68,
     "approved_progress": 13,
-    "qa_issues": 1144
+    "qa_issues": 1145
   },
   {
     "name": "French",
     "code": "fr",
     "phrases": "15040",
-    "translated": "11304",
+    "translated": "11309",
     "approved": "2345",
     "words": "181998",
-    "words_translated": "135772",
+    "words_translated": "135813",
     "words_approved": "24930",
     "translated_progress": 74,
     "approved_progress": 13,
-    "qa_issues": 4191
+    "qa_issues": 4194
   },
   {
     "name": "German",
