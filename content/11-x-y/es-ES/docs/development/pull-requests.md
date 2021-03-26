@@ -91,12 +91,12 @@ Prefijos usuales:
   - perf: Un cambio en el código que mejora el rendimiento
   - refactor: Un cambio en el código que no corrige un error ni agrega una característica
   - style: Cambios que no afectan el significado del código (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+  - vendor: Cambiar una dependencia como libchromiumcontent o node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 1. La primera linea debe:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - contener una breve descripción del cambio (preferiblemente de 50 caracteres o menos, y no más de 72 caracteres)
    - estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
@@ -179,9 +179,9 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Se espera que sean útiles, pero puede que a veces no lo sean, especialmente si no incluyen sugerencias concretas sobre *cómo* cambiarlas.
 
-Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. That said, reviewers should be expected to provide helpful feedback.
+Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los revisores ofrezcan una crítica útil.
 
 ### Paso 11: Ejecutado
 
