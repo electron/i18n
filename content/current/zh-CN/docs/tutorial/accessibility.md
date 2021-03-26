@@ -34,13 +34,13 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## 手动启用辅助功能
 
-Electron 应用程序将自动启用 辅助技术中的辅助功能(e). 。 [JAWS](https://www.freedomscientific.com/products/software/jaws/) 在 Windows 或 [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) 在 macOS 上)。 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
+当辅助技术存在时，Electron 应用程序将自动启用辅助功能（例如 Windows 上的 [JAWS](https://www.freedomscientific.com/products/software/jaws/) 或 macOS 上的 [VoiceOver](https://help.apple.com/voiceover/mac/10.15/)）。 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
 您也可以在您的 Electron 应用程序 中手动切换这些功能，或者在第三方本机软件中设置标记。
 
 ### 使用 Electron 的 API
 
-通过使用 [`app.setAccessibilityUported(启用)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API，您可以手动向应用程序首选项中的用户暴露Chrome的访问树。 请注意，用户的系统辅助工具优先于此设置， 将覆盖它。
+通过使用 [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API，您可以在应用程序首选项中的手动向用户暴露Chrome的访问树。 请注意，用户的系统辅助工具优先于此设置并将覆盖它。
 
 ### 在第三方软件内
 
