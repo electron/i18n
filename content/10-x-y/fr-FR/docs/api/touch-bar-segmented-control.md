@@ -8,7 +8,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 
 * `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
+    * `automatique` - Par défaut. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
     * `rounded` - Le contrôle est affiché en utilisant le style arrondi. Maps to `NSSegmentStyleRounded`.
     * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé. Maps to `NSSegmentStyleTexturedRounded`.
     * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect. Maps to `NSSegmentStyleRoundRect`.
