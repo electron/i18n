@@ -98,7 +98,7 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
 * `options` Object 
     * `url` String
-  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP-Anfrage-Header.
   * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>

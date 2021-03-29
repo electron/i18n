@@ -30,7 +30,7 @@ Rückgabewert:
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+Wird einmal ausgesendet, wenn Electron die Initialisierung beendet hat. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Sie können auch `app.isReady()` um zu prüfen, ob dieses Ereignis bereits ausgelöst wurde und `app.whenReady()` um ein Promise zu initialisieren, das ausgeführt wird, wenn Electron initialisiert wird.
 
 ### Event: 'window-all-closed'
 
@@ -316,7 +316,7 @@ Rückgabewert:
 
 Emitted when the GPU process crashes or is killed.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ist es nicht immer, wenn es abgestürzt ist. Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
 ### Event: 'renderer-process-crashed' _Deprecated_
 
@@ -328,7 +328,7 @@ Rückgabewert:
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
 ### Event: 'render-process-gone'
 
@@ -533,7 +533,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 * `options` Object (optional)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+On Linux, focuses on the first visible window. Macht unter macOS die Anwendung zur aktiven Anwendung. Unter Windows: Fokussiert es das erste Fenster der Anwendung.
 
 Du solltest versuchen, die `steal` Option so selten wie möglich zu verwenden.
 
@@ -988,7 +988,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1060,7 +1060,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Hinweis:** Das Rendern des Barrierefreiheits-Baums kann die Leistung Ihrer App erheblich beeinträchtigen. Es sollte nicht standardmäßig aktiviert sein.
 
 ### `app.showAboutPanel()`
 
@@ -1109,7 +1109,7 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 ### `app.enableSandbox()`
 
-Enables full sandbox mode on the app. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Aktiviert den vollständigen Sandbox-Modus für die App. Das bedeutet, dass alle Renderer in der Sandbox gestartet werden, unabhängig vom Wert des Flags `sandbox` in den WebPreferences.
 
 Diese Methode kann nur vor dem Start der App aufgerufen werden.
 
@@ -1178,7 +1178,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Hinweis:** Das Rendern des Barrierefreiheits-Baums kann die Leistung Ihrer App erheblich beeinträchtigen. Es sollte nicht standardmäßig aktiviert sein.
 
 ### `app.applicationMenu`
 
@@ -1190,7 +1190,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 

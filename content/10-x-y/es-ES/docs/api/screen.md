@@ -8,7 +8,7 @@ Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es
 
 `screen` es un [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Nota:** En el renderer / DevTools, `window.screen` propiedad reservada DOM, así que escribir `let { screen } = require('electron')` no funcionará.
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
@@ -114,7 +114,7 @@ Devuelve [`Display`](structures/display.md) - La muestra que es más cercana int
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+Convierte un punto físico en la pantalla a un punto DIP de la pantalla. La escala DPI se realiza en relación a la pantalla que contiene el punto físico.
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
@@ -122,7 +122,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+Convierte un punto DIP de pantalla a un punto físico de la pantalla. La escala DPI se realiza en relación a la pantalla que contiene el punto DIP.
 
 ### `screen.screenToDipRect(window, rect)` _Windows_
 

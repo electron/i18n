@@ -27,7 +27,7 @@ Este cambio significa que verás el salto de la versión principal con más frec
 * parches de chromium relacionados con soluciones de problemas
 * Solución a fallos de Electron
 
-Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
+Dado a que los rangos de SemVer de Electron ahora serán mas significativos, recomendamos instalar Electron usando la opción de npm `--save-dev`, que prefijará su versión con `^`, manteniéndote de forma segura con las actualizaciones mirror y patch:
 
 ```sh
 npm install --save-dev electron

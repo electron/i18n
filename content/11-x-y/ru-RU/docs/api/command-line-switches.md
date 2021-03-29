@@ -70,6 +70,12 @@ Enables caller stack logging for the following APIs (filtering events):
 
 Этот параметр не может быть использован в `app.commandLine.appendSwitch`, с тех пор как он парсится раньше, чем приложение пользователя загружается, но Вы можете установить переменную окружения `ELECTRON_ENABLE_LOGGING`, чтобы достичь того же эффекта.
 
+## --force-fieldtrials=`trials`
+
+Field trials to be forcefully enabled or disabled.
+
+For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`правила`
 
 Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
