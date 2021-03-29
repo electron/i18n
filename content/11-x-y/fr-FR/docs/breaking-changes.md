@@ -47,7 +47,7 @@ Si votre serveur d'ingestion crash ne supporte pas les charges compressées, vou
 
 Il n’y a pas de changement entraînant des modifications prévus pour 11.0.
 
-## Changements majeurs prévus de l'API (10.0)
+## Changements prévus de l'API (10.0)
 
 ### Déprécié : l'argument `companyName` de `crashReporter.start()`
 
@@ -110,12 +110,12 @@ const w = new BrowserWindow({
 })
 ```
 
-Nous vous recommandons d'éviter d'utiliser le module [distant](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+Nous [vous recommandons de vous éloigner du module distant](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
 // Deprecated
@@ -135,7 +135,7 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
 // Deprecated
@@ -148,7 +148,7 @@ The registered or intercepted protocol does not have effect on current page unti
 
 ### `protocol.isProtocolHandled`
 
-Cette API est dépréciée et les utilisateurs doivent utiliser à la place `protocol.isProtocolRegistered` et `protocol.isProtocolIntercepted`.
+This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
 
 ```javascript
 // Deprecated
@@ -158,13 +158,13 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Changements majeurs prévus de l'API (9.0)
+## Changements d'API prévus (9.0)
 
-### Fonctionnement par défaut modifié : le chargement des modules natifs non contextuels dans le processus de rendu est désactivé par défaut
+### Par défaut modifié : le chargement des modules natifs non contextuels dans le processus de rendu est désactivé par défaut
 
-À partir d’Electron 9, nous n’autorisons plus le chargement de modules natifs insensibles au contexte dans le processus de rendu.  Ceci est pour améliorer la sécurité, les performances et la maintenabilité d'Electron en tant que projet.
+Depuis Electron 9, nous n'autorisons pas le chargement de modules natifs non contextuels dans le processus de rendu .  Ceci est pour améliorer la sécurité, les performances et la maintenabilité d'Electron en tant que projet.
 
-Si cela vous impacte, vous pouvez définir temporairement `app.allowRenderererProcessReuse` à `false` pour revenir à l'ancien comportement.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être sensible au contexte.
+Si cela vous impacte, vous pouvez définir temporairement `app.allowRenderererProcessReuse` à `false` pour revenir à l'ancien comportement.  Ce drapeau ne sera une option que jusqu'à Electron 11 donc vous devriez planifier de mettre à jour vos modules natifs pour être conscients du contexte.
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
