@@ -72,9 +72,9 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
-### `process.contextIsolated` _Readonly_
+### `process.contextIsolated` _只读_
 
-A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+一个`Boolean`类型的值指明当前渲染上下文是否启用了`contextIsolation`。 这在主进程中是`undefined`的。
 
 ### `process.throwDeprecation`
 
@@ -108,9 +108,9 @@ A `String` representing the current process's type, can be:
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-### `process.contextId` _Readonly_
+### `process.contextId` _只读_
 
-A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
+一个`字符串` (可选) 代表当前JavaScript 上下文中的全局唯一ID。 每个对话框都有自己的 JavaScript 上下文。 当上下文隔离被启用，被隔离的环境中也有单独的JavaScript上下文。 该属性仅在渲染进程中可用。
 
 ## 方法
 

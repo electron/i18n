@@ -78,11 +78,11 @@ const driver = new webdriver.Builder()
   .usingServer('http://localhost:9515')
   .withCapabilities({
     'goog:chromeOptions': {
-      // Here is the path to your Electron binary.
+      // 这里填您的Electron二进制文件路径。
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
+  .forBrowser('chrome') // 注意: 使用 .forBrowser('electron') for selenium-webdriver <= 3.6.0
   .build()
 
 driver.get('http://www.google.com')

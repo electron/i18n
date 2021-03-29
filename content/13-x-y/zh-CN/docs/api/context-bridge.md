@@ -32,7 +32,7 @@ The "Main World" is the JavaScript context that your main renderer code runs in.
 
 ### Isolated World
 
-When `contextIsolation` is enabled in your `webPreferences` (this is the default behavior since Electron 12.0.0), your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+当你在`webPreferences`属性中启用`contextIsolation` (Electron 12.0.0 及以上版本默认启用)，你的`预加载`脚本将运行在一个“被隔离的环境”中。  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
 
 ## 方法
 
@@ -98,14 +98,14 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
 | `Function - 回调函数`                                                                                              | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
-| `Element`                                                                                                      | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending custom elements will not work.                                                                                                                                   |
+| `Element`                                                                                                      | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  发送自定义元素将不生效。                                                                                                                                                             |
 | `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
 
 If the type you care about is not in the above table, it is probably not supported.
 
-### Exposing Node Global Symbols
+### 暴露Node Global Symbols
 
-The `contextBridge` can be used by the preload script to give your renderer access to Node APIs. The table of supported types described above also applies to Node APIs that you expose through `contextBridge`. Please note that many Node APIs grant access to local system resources. Be very cautious about which globals and APIs you expose to untrusted remote content.
+`contextBridge` 可以被预加载脚本用来让您的渲染器访问Node API。 上面所述的支持类型表也适用于您通过 `contextBridge`暴露的Node API。 请注意许多Node的API授权访问本地系统资源。 请非常谨慎地暴露全局变量和api给不受信任的远程内容。
 
 ```javascript
 const { contextBridge } = require('electron')
