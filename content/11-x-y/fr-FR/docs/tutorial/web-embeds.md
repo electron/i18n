@@ -1,4 +1,4 @@
-# Les web embeds dans Electron
+# Intégrer le Web dans Electron
 
 Si vous voulez intégrer du contenu web (tiers) dans une `BrowserWindow d'Electron`, il y a trois options disponibles pour vous : `<iframe>` balises, `<webview>` balises et `BrowserViews`. Chacune offre une fonctionnalité légèrement différente et est utile dans différentes situations. Pour vous aider à choisir entre ceux-ci, ce guide vous expliquera les différences et les capacités de chacun.
 
