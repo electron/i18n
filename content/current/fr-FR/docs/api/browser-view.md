@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 Un `BrowserView` peut être utilisé pour intégrer des contenus web supplémentaires dans un [`BrowserWindow`](browser-window.md). C'est comme une fenêtre enfant, sauf qu'il est positionné par rapport à sa fenêtre propriétaire. Il se veut être une alternative à la balise `webview`.
 
-### Example
+### Exemple
 
 ```javascript
 // Dans le processus main.
