@@ -150,7 +150,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. La valeur par défaut est `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optionnel) - Force l'utilisation du thème sombre pour la fenêtre, fonctionne uniquement sur certains environnements de bureau GTK+3. Par défaut la valeur est `false`.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Par défaut la valeur est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
