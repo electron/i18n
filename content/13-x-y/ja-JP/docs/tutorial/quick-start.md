@@ -29,7 +29,8 @@ npm -v
 my-electron-app/
 ├── package.json
 ├── main.js
-Documentation
+├── preload.js
+└── index.html
 ```
 
 上記の構造に基づいて基本的なアプリケーションを作成しましょう。
@@ -52,30 +53,33 @@ npm i --save-dev electron
 
 ```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
   win.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
   }
 })
 ```
@@ -83,14 +87,15 @@ app.on('activate', () => {
 ##### 上記は何を行っているのですか?
 
 1. 1 行目: まず、`electron` パッケージの `app` と `BrowserWindow` モジュールをインポートして、アプリケーションのライフサイクルイベントを管理したり、ブラウザーウインドウを作成して制御したりできるようにします。
-2. 3 行目: その後、Node インテグレーションを有効にした [新しいブラウザーウインドウ](../api/browser-window.md#new-browserwindowoptions) を作成し、`index.html` ファイルをこのウインドウに読み込む (12行目、このファイルについては後述) という関数を定義します。
-3. 15 行目: Electron アプリケーション `` が初期化されたときに [createWindow](../api/app.md#appwhenready) 関数を呼び出し、新しいブラウザーウインドウを作成します。
-4. 17 行目: 開いたウインドウが無い場合にアプリケーションを終了しようとするリスナーを新規追加します。 このリスナーはオペレーティングシステムの [ウインドウ管理動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) であり、macOS 上では動作しません。
-5. 23 行目: アプリケーションがアクティブにされた後で表示するウインドウがない場合にのみ新しいブラウザーウインドウを作成する、というリスナーを追加します。 例えば、アプリケーションを初めて起動した後や、既に起動しているアプリケーションを再びアクティブした場合などがこれにあたります。
+2. 2 行目: 次に、ファイルパスのユーティリティ関数を提供する `path` パッケージをインポートします。
+3. 4 行目: その後、プリロードスクリプト付きの [新しいブラウザーウインドウ](../api/browser-window.md#new-browserwindowoptions) を作成し、`index.html` ファイルをこのウインドウに読み込む (13行目、このファイルについては後述) 関数を定義します。
+4. 16 行目: Electron アプリケーション `` が初期化されたときに [createWindow](../api/app.md#appwhenready) 関数を呼び出し、新しいブラウザーウインドウを作成します。
+5. 18 行目: アプリケーションがアクティブにされてから表示ウインドウがない場合だけ、新しいブラウザーウインドウを作成する、というリスナーを新規追加します。 例えば、アプリケーションを初めて起動した後や、既に起動しているアプリケーションを再びアクティブした場合などがこれにあたります。
+6. 25 行目: 開いたウインドウが無い場合にアプリケーションを終了しようとするリスナーを新規追加します。 このリスナーはオペレーティングシステムの [ウインドウ管理動作](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) であり、macOS 上では動作しません。
 
 #### ウェブページの作成
 
-ここでは、アプリケーションの初期時に表示したいウェブページを作成します。 このウェブページはレンダラープロセスを表します。 複数のブラウザーウインドウを作成でき、各ウィンドウはそれぞれ個別のレンダラーを使用します。 必要に応じて、 `nodeIntegration` の設定から Node.js API へのフルアクセス権限を付与できます。
+ここでは、アプリケーションの初期時に表示したいウェブページを作成します。 このウェブページはレンダラープロセスを表します。 複数のブラウザーウインドウを作成でき、各ウィンドウはそれぞれ個別のレンダラーを使用します。 プリロードスクリプトにて追加の Node.js API へのアクセスを任意で許可できます。
 
 `index.html` ページは以下のようになります。
 
@@ -105,13 +110,37 @@ app.on('activate', () => {
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
+
+#### プリロードスクリプトの定義
+
+プリロードスクリプトは、Node.js とウェブページ間のブリッジとして機能します。 Node.js API 全体を公開するのは危険なので、特定の API や動作をウェブページに公開するようにできます。 この例では、プリロードスクリプトで `process` オブジェクトからバージョン情報を読み取り、その情報でウェブページを更新します。
+
+```javascript fiddle='docs/fiddles/quick-start'
+window.addEventListener('DOMContentLoaded', () => {
+  const replaceText = (selector, text) => {
+    const element = document.getElementById(selector)
+    if (element) element.innerText = text
+  }
+
+  for (const type of ['chrome', 'node', 'electron']) {
+    replaceText(`${type}-version`, process.versions[type])
+  }
+})
+```
+
+##### 上記は何を行っているのですか?
+
+1. 1 行目: まず、ウェブページのロード完了を知らせるイベントリスナーを定義します。
+2. 2 行目: 次に、`index.html` でプレースホルダテキストの設定に使用するユーティリティ関数を定義します。
+3. 7 行目: そしてバージョンを表示したいコンポーネントのリストをループします
+4. 8 行目: 最後に、`replaceText` を呼び出して `index.html` 内のバージョンプレースホルダーを検索し、そのテキスト値を `process.versions` の中の値に設定します。
 
 #### package.json ファイルの変更
 
@@ -276,7 +305,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> 注意: レンダラープロセスから Node.js API にアクセスするには、`nodeIntegration` の設定を `true` にする必要があります。
+> 注意: レンダラープロセスから Node.js API にアクセスするには、`nodeIntegration` の設定を `true` に、`contextIsolation` の設定を `false` にする必要があります。  注意として、リモートコンテンツを読み込むレンダラーでの Node.js API へのアクセスは [セキュリティ上の理由](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content) につき非推奨です。
 
 Electron は Node.js API とそのモジュールへのフルアクセスをメインおよびレンダラープロセスの両方で公開します。 たとえば、ルートディレクトリからすべてのファイルを読み込むことができます。
 

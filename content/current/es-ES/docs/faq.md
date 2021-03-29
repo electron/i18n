@@ -102,7 +102,7 @@ It is very likely you are using the module in the wrong process. Por ejemplo `el
 
 ## La fuente se ve borrosa, ¿qué es esto y qué puedo hacer?
 
-If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Ejemplo:
+Si [](https://alienryderflex.com/sub_pixel/) de suavizado de subpíxeles está desactivado, las fuentes en las pantallas LCD pueden verse borrosas. Ejemplo:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

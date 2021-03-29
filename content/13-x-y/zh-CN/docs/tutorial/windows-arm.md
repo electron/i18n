@@ -1,6 +1,6 @@
-# 臂上的Windows 10
+# Windows 10 ARM
 
-如果您的应用与 Electron 6.0.8 或更高版本运行，您现在可以在Arm 上构建Windows10。 This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 
 ## 运行基本应用
 

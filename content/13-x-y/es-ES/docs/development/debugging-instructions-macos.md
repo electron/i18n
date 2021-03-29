@@ -87,7 +87,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**Nota:** si no ves el código fuente cuando creas que deberías hacerlo, es posible que no hayas agregado el archivo `~/.lldbinit` anterior.
 
 Para finalizar la depuración en este punto, corra `continuar proceso`. También puede continuar hasta cierta linea es tocada en este hilo (`hilo hasta 100`). Este comando correrá el hilo en la estructura actual hasta que alcance la linea 100 en este, o se detiene si deja la estructura en la que se encuentra.
 

@@ -9,7 +9,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Windows.
   * Voir [la documentation de construction de Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) pour plus de détails sur les composants de Visual Studio.
   * Si votre Visual Studio est installé dans un autre répertoire que celui par défaut, vous aurez besoin de définir quelques variables d'environnement pour pointer les chaînes de compilation vers votre chemin d'installation.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, remplaçant `2019` et `Communauté` par vos versions installées et remplaçant `DRIVE:` par le lecteur sur lequel Visual Studio est allumé. Souvent, ce sera `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Souvent, ce sera `C:`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, en `DRIVE:` par le lecteur que Windows Kits est sur. Souvent, ce sera `C:`.
   * [Les extensions Python pour Windows (pywin32) ](https://pypi.org/project/pywin32/#files) sont également nécessaires pour exécuter le processus de compilation.
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
@@ -23,9 +23,9 @@ La compilation d'Electron se fait entièrement avec des scripts en ligne de comm
 
 **Remarque :** Même si Visual Studio n’est pas utilisé pour la compilation, il est toujours **nécessaire** car nous avons besoin du build toolchains qu'il fournit.
 
-## Exclude source tree from Windows Security
+## Exclure l’arbre source de Windows Security
 
-Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+Windows Security n’aime pas l’un des fichiers dans le code source chrome (voir https://crbug.com/441184), de sorte qu’il sera constamment le supprimer, provoquant `gclient sync` problèmes. Vous pouvez exclure l’arbre source d’être surveillé par Windows Security par [suivre ces instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
 ## Compilation
 

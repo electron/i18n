@@ -513,7 +513,7 @@ Use the new `updated` event on the `nativeTheme` module instead.
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Replace with
+// Reemplazar con
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 

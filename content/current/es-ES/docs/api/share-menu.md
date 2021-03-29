@@ -22,9 +22,9 @@ The `shareMenu` object has the following instance methods:
 
 * `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `y` es declarado.
+  * `y` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `x` es declarado.
+  * `positioningItem` Número (opcional) _macOS_ - El índice del elemento del menú que debe ser posicionado debajo del cursor en las coordenadas específicas. El valor predeterminado es -1.
   * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
 Este menú aparece como un menú contextual en el [`BrowserWindow`](browser-window.md).

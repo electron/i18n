@@ -28,29 +28,19 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `arch`
 * `platform`
 * `sandboxed`
+* `contextIsolated`
 * `tipo`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## Eventos
 
 ### Evento: 'loaded'
 
 Emitido cuando Electron ha cargado su script de inicialización interno y está empezando a carga la página web o el script principal.
-
-Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados de Node de nuevo al scope global cuando la integración de Node está desactivada:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
 
 ## Propiedades
 
@@ -81,6 +71,10 @@ Una `cadena` que representa la ruta de acceso al directorio de recursos.
 ### `process.sandboxed` _Readonly_
 
 Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
+### `process.contextIsolated` _Readonly_
+
+Un `Boolean` que indica si el renderer context acutal tiene el `contextIsolation` activado. Es `undefined` en el main process.
 
 ### `proceso.desechoDegradación`
 
@@ -113,6 +107,10 @@ Una `cadena` representando la versión de cadena de Electron.
 ### `process.windowsStore` _Readonly_
 
 Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Readonly_
+
+Un `String` (opcional) que representa un único global ID del contexto JavaScript actual. Cada frame tiene su propio contexto JavaScript. Cuando el contextIsolation está activado, el isolated world además tiene un contexto JavaScript separado. Esta propiedad solo está disponible en el renderer process.
 
 ## Métodos
 

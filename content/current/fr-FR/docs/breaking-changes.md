@@ -14,11 +14,11 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 
 ## Changements majeurs prévus de l'API (14.0)
 
-### API Changed: `window.(open)`
+### Modification de l’API : `window.(open)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+Le paramètre `frameName` ne définira plus le titre de la fenêtre. Cela fait maintenant suite à la spécification décrite par [documentation native](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sous le paramètre correspondant `windowName`.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous pouvez plutôt utiliser [win.setTitle (titre)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
 ### Removed: `worldSafeExecuteJavaScript`
 
@@ -62,9 +62,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### Supprimé : API `BrowserWindow` 'extension
 
-The deprecated extension APIs have been removed:
+Les API d’extension dépréciées ont été supprimées :
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -80,26 +80,26 @@ Use the session APIs instead:
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
-BrowserWindow.addExtension(path)
-BrowserWindow.addDevToolsExtension(path)
-// Replace with
+Supprimé dans Electron 13
+BrowserWindow.addExtension (path)
+BrowserWindow.addDevToolsExtension (path)
+// Remplacer par
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+Supprimé dans Electron 13
+BrowserWindow.removeExtension (nom)
+BrowserWindow.removeDevToolsExtension (nom)
+// Remplacer par
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+Supprimé dans Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Remplacer par
 session.defaultSession.getAllExtensions()
 ```
 
@@ -639,7 +639,7 @@ Dans Electron 7, cela retourne maintenant une `FileList` avec un objet `Fichier`
 
 Notez que `webkitdirectory` n'expose plus le chemin vers le dossier sélectionné. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API Changed: Callback-based versions of promisified APIs
+### Modification de l’API : versions basées sur rappel d’API promisifiées
 
 Electron 5 et Electron 6 ont introduit des versions des API asynchrones existantes basées sur les promise et déprécié leurs homologues basées sur les callback. Dans Electron 7, toutes les APIs obsolètes basées sur les callback sont maintenant supprimées.
 

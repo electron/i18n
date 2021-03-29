@@ -32,7 +32,7 @@ window.electron.doThing()
 
 ### Isolated World
 
-Si`contextIsolation` est activé dans votre `webPreferences`, vos scripts `preload` s'exécutent dans un "Isolated World".  Vous pourrez en savoir plus sur l'isolement du contexte et ce qu'il affecte dans la partie [sécurité](../tutorial/security.md#3-enable-context-isolation-for-remote-content) de la documentation. .
+Votre script `preload` s'exécute dans un "Isolated World" lorsque `contextIsolation` est activé dans votre `webPreferences` (ce qui est le comportement par défaut depuis Electron 12.0.0).  Vous pourrez en savoir plus sur l'isolement du contexte et ce qu'il affecte dans la partie [sécurité](../tutorial/security.md#3-enable-context-isolation-for-remote-content) de la documentation. .
 
 ## Méthodes
 
@@ -98,7 +98,23 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
 | `Function`                                                                                                     | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
-| `Element`                                                                                                      | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending custom elements will not work.                                                                                                                                   |
+| `Element`                                                                                                      | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  L'envoi d'éléments personnalisés ne fonctionnera pas.                                                                                                                    |
 | `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
 
 If the type you care about is not in the above table, it is probably not supported.
+
+### Exposition des symboles globaux de Node
+
+The `contextBridge` can be used by the preload script to give your renderer access to Node APIs. The table of supported types described above also applies to Node APIs that you expose through `contextBridge`. Please note that many Node APIs grant access to local system resources. Be very cautious about which globals and APIs you expose to untrusted remote content.
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```

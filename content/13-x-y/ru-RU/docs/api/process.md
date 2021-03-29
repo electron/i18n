@@ -28,29 +28,19 @@
 * `arch`
 * `platform`
 * `sandboxed - Запущена ли песочница`
+* `contextIsolated`
 * `type`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
 * `mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
+* `contextId`
 
 ## События
 
 ### Событие: 'loaded'
 
 Срабатывает, когда Electron загрузил свой скрипт внутренней инициализации и начинает загружать веб-страницу или основной скрипт.
-
-Это событие может использоваться preload скриптом, чтобы вернуть удаленные Node global symbols в глобальную область видимости, когда node integration выключен:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
 
 ## Свойства
 
@@ -81,6 +71,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 ### `process.sandboxed` _Только чтение_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
+### `process.contextIsolated` _Только чтение_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
 
 ### `process.throwDeprecation`
 
@@ -113,6 +107,10 @@ A `String` representing the current process's type, can be:
 ### `process.windowsStore` _Только чтение_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Только чтение_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Методы
 

@@ -26,7 +26,7 @@ Nota: NW.js ha apoyado de manera opcional multi-contexto desde la versión 0.13.
 
 ## 4) Soporte Heredado
 
-NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
+NW.js still offers a "legacy release" that supports Windows XP. No recibe actualizaciones de seguridad.
 
 Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
 
@@ -34,7 +34,7 @@ However, we understand that requirements outside our wildest imagination may exi
 
 ## 5) Características
 
-There are numerous differences in the amount of supported features. Electron tiene una comunidad más grande, con más aplicaciones en producción usándolo y [una mayor cantidad de módulos userland disponibles en npm][electron-modules].
+Hay numerosas diferencias en la cantidad de características soportadas. Electron tiene una comunidad más grande, con más aplicaciones en producción usándolo y [una mayor cantidad de módulos userland disponibles en npm][electron-modules].
 
 As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. Como ejemplo a favor de NW.js, NW.js soporta más APIs de `Chrome.*` para el desarrollo de aplicaciones Chrome.
 

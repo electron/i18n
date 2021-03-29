@@ -1033,7 +1033,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `details` Object
     * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
     * `frameName` String - `window.open()` で指定されたウインドウ名
-    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。 戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
+    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。
+
+  戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
 レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 

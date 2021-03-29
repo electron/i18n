@@ -154,9 +154,9 @@ child.once('ready-to-show', () => {
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
-    * `active` - The backdrop should always appear active.
-    * `inactive` - The backdrop should always appear inactive.
+    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 This is the default.
+    * `active` - 后台应一直显示为激活状态。
+    * `inactive` - 后台应一直显示为非激活状态。
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
@@ -174,7 +174,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. 默认值为 `false`.
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (可选项)(实验性)，是否允许在子页面(iframe)或子窗口(child window)中集成Node.js； 预先加载的脚本会被注入到每一个iframe，你可以用 `process.isMainFrame` 来判断当前是否处于主框架（main frame）中。
-    * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
+    * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md).
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 默认值为 `false`.
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
@@ -344,11 +344,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 调整窗口大小后触发。
 
-#### Event: 'resized' _macOS_ _Windows_
+#### 事件：'resized' _macOS_ _Windows_
 
-Emitted once when the window has finished being resized.
+当窗口完成调整大小后触发一次。
 
-This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+这通常在手动调整窗口大小后触发。 在 macOS 系统上，使用`setBounds`/`setSize`调整窗口大小并将`animate`参数设置为`true`也会在调整大小完成后触发此事件。
 
 #### Event: 'will-move' _macOS_ _Windows_
 

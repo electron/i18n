@@ -73,7 +73,7 @@ Au final lorsqu'ils sont revus, de nombreux commit sont fusionnés.
 
 Un bon message de modification/commit doit décrire le changement et sa raison. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Avant qu’une demande de traction puisse être fusionnée, **doit** avoir un titre de demande de traction avec un préfixe sémantique.
 
 Examples of commit messages with semantic prefixes:
 
@@ -83,21 +83,21 @@ Examples of commit messages with semantic prefixes:
 
 Common prefixes:
 
-* fix: A bug fix
-* feat: A new feature
-* docs: Documentation changes
-* test: Adding missing tests or correcting existing tests
-* build: Changes that affect the build system
-* ci: Changes to our CI configuration files and scripts
-* perf: A code change that improves performance
-* refactor: A code change that neither fixes a bug nor adds a feature
-* style: Changes that do not affect the meaning of the code (linting)
-* vendor: Bumping a dependency like libchromiumcontent or node
+* correction: Un correctif de bogue
+* feat: Une nouvelle fonctionnalité
+* docs: Modifications de la documentation
+* test : Ajout de tests manquants ou correction des tests existants
+* build: Modifications qui affectent le système de construction
+* ci : Modifications apportées à nos fichiers et scripts de configuration CI
+* perf: Un changement de code qui améliore les performances
+* refactor: Un changement de code qui ne corrige pas un bogue ni ajoute une fonctionnalité
+* style: Changements qui n’affectent pas la signification du code (linting)
+* fournisseur: Bumping une dépendance comme libchromiumcontent ou nœud
 
 Other things to keep in mind when writing a commit message:
 
 1. La première ligne doit :
-   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * contenir une courte description du changement (de préférence 50 caractères ou moins, et pas plus de 72 caractères)
    * être entièrement en minuscules à l’exception des noms propres, acronymes et les mots qui font référence au code, comme les noms de variable/fonction
 2. Garder vide la deuxième ligne.
 3. Ne pas dépasser 72 caractères pour les lignes suivantes.
@@ -180,9 +180,9 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 #### Procédure de validation et de demandes d'évolutions
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Ces demandes sont destinées à être utiles, mais les peuvent parfois être considérées comme abruptes ou inutiles, surtout si elles n’incluent pas de suggestions concrètes sur *la façon dont* les modifier.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
+Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. Cela dit, il devrait s’attendre à ce que les examinateurs fournissent des commentaires utiles.
 
 ### Étape 11 : Approbation
 

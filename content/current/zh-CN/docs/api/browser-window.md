@@ -154,9 +154,9 @@ child.once('ready-to-show', () => {
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
-    * `active` - The backdrop should always appear active.
-    * `inactive` - The backdrop should always appear inactive.
+    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 This is the default.
+    * `active` - 后台应一直显示为激活状态。
+    * `inactive` - 后台应一直显示为非激活状态。
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
@@ -343,11 +343,11 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 调整窗口大小后触发。
 
-#### Event: 'resized' _macOS_ _Windows_
+#### 事件：'resized' _macOS_ _Windows_
 
-Emitted once when the window has finished being resized.
+当窗口完成调整大小后触发一次。
 
-This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+这通常在手动调整窗口大小后触发。 在 macOS 系统上，使用`setBounds`/`setSize`调整窗口大小并将`animate`参数设置为`true`也会在调整大小完成后触发此事件。
 
 #### Event: 'will-move' _macOS_ _Windows_
 
@@ -1114,6 +1114,8 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 * `message` Integer
 * `callback` Function
+  * `wParam` any - The `wParam` provided to the WndProc
+  * `lParam` any - The `lParam` provided to the WndProc
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 

@@ -44,6 +44,8 @@ session.defaultSession.cookies.set(cookie)
 
 #### イベント: 'changed'
 
+戻り値:
+
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - 変更された cookie。
 * `cause` String - 以下のいずれかの値となる変更の原因。

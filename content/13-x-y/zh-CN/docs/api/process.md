@@ -28,29 +28,19 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 * `arch`
 * `platform`
 * `沙盒化`
+* `contextIsolated`
 * `type`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## 事件
 
 ### 事件: 'loaded'
 
 当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
-
-当node集成被关闭时，预加载脚本可以使用它将删除的 Node global symbols 添加回全局范围：
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
 
 ## Properties
 
@@ -81,6 +71,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 ### `process.sandboxed` _Readonly_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
+### `process.contextIsolated` _只读_
+
+一个`Boolean`类型的值指明当前渲染上下文是否启用了`contextIsolation`。 这在主进程中是`undefined`的。
 
 ### `process.throwDeprecation`
 
@@ -113,6 +107,10 @@ A `String` representing the current process's type, can be:
 ### `process.windowsStore` _Readonly_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _只读_
+
+一个`字符串` (可选) 代表当前JavaScript 上下文中的全局唯一ID。 每个对话框都有自己的 JavaScript 上下文。 当上下文隔离被启用，被隔离的环境中也有单独的JavaScript上下文。 该属性仅在渲染进程中可用。
 
 ## 方法
 

@@ -56,7 +56,7 @@ The `crashReporter` module has the following methods:
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `submitURL` String - URL that crash reports will be sent to as POST.
+  * `submitURL` String (optional) - URL that crash reports will be sent to as POST. Required unless `uploadToServer` is `false`.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Standard ist `true`.

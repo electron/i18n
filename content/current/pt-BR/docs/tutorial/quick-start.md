@@ -2,28 +2,28 @@
 
 ## QuickStart
 
-Electron é um framework que permite criar aplicações desktop com JavaScript, HTML e CSS. Essas aplicações podem ser empacotadas para serem executadas diretamente no macOS, Windows, ou Linux, ou distribuídas através da Mac App Store ou da Microsoft Store.
+Electron é um framework que te permite criar aplicações desktop com JavaScript, HTML e CSS. Essas aplicações podem então ser empacotadas para executar diretamente no macOS, Windows, ou Linux, ou distribuídas através da Mac App Store ou da Microsoft Store.
 
-Normalmente, você cria um aplicativo no computador para um sistema operacional (OS) usando frameworks de aplicativo nativos específicos de cada sistema operacional. Electron torna possível escrever seu aplicativo uma vez usando tecnologias que você já conhece.
+Normalmente, você cria um aplicativo desktop para um sistema operacional (OS) usando frameworks de aplicativo nativos específicos de cada sistema operacional. Electron torna possível escrever seu aplicativo uma vez usando tecnologias que você já conhece.
 
 ### Pré-requisitos
 
-Antes de prosseguir com o Electron você precisa instalar o [Node.js](https://nodejs.org/en/download/). Recomendamos que você instale a versão mais recente `LTS` ou `atual` disponível.
+Antes de prosseguir com o Electron você precisa instalar o [Node.js](https://nodejs.org/en/download/). Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
 
-> Por favor, instale o Node.js usando instaladores pré-construídos para sua plataforma. Você pode encontrar problemas de incompatibilidade com diferentes ferramentas de desenvolvimento caso contrário.
+> Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
-Para verificar se o Node.js foi instalado corretamente, digite os seguintes comandos em seu cliente de terminal:
+Para verificar se o Node.js foi instalado corretamente, digite os seguintes comandos em seu terminal de comando:
 
 ```sh
 node -v
 npm -v
 ```
 
-Os comandos devem imprimir as versões do Node.js e npm de acordo. Se ambos os comandos forem bem-sucedidos, você estará pronto para instalar o Electron.
+Os comandos devem imprimir as versões do Node.js e npm, respectivamente. Se ambos os comandos forem bem-sucedidos, você estará pronto para instalar o Electron.
 
-### Criar uma aplicação básica
+### Crie uma aplicação básica
 
-De uma perspectiva de desenvolvimento, um aplicativo Electron é essencialmente um aplicativo Node.js. Isso significa que o ponto de partida de sua aplicação Electron será um arquivo `package.json` como em qualquer outro aplicativo Node.js. Uma aplicação mínima do Electron tem a seguinte estrutura:
+De uma perspectiva de desenvolvimento, um aplicativo Electron é essencialmente um aplicativo Node.js. Isso significa que o ponto de partida de sua aplicação Electron será um arquivo `package.json` como em qualquer outro aplicativo Node.js. A estrutura mínima de uma aplicação Electron é a seguinte:
 
 ```plaintext
 my-electron-app/
@@ -33,11 +33,11 @@ my-electron-app/
 └── index.html
 ```
 
-Vamos criar uma aplicação básica baseada na estrutura acima.
+Vamos criar um aplicativo básico baseado na estrutura acima.
 
-#### Install Electron
+#### Instalando Electron
 
-Crie uma pasta para seu projeto e instale o Electron lá:
+Crie uma pasta para seu projeto e instale o Electron nela:
 
 ```sh
 mkdir my-electron-app && cd my-electron-app
@@ -45,11 +45,11 @@ npm init -y
 npm i --save-dev electron
 ```
 
-#### Criar o arquivo de script principal
+#### Crie o arquivo de script principal
 
-O script principal especifica o ponto de entrada da sua aplicação Electron (no nosso caso, o arquivo `main.js` que irá executar o processo principal. Normalmente, o script que é executado no processo principal controla o ciclo de vida da aplicação, exibe a interface gráfica do usuário e seus elementos, executa interações nativas do sistema operacional e cria processos de Renderização nas páginas web. Uma aplicação Electron pode ter apenas um processo principal.
+O script principal especifica o ponto de entrada da sua aplicação Electron (no nosso caso, o arquivo `main.js`) que irá executar o processo principal. Normalmente, o script que executa o processo principal controla o ciclo de vida da aplicação, exibe a interface gráfica do usuário e seus elementos, executa interações nativas do sistema operacional e cria processos de Renderização nas páginas web. Uma aplicação Electron só pode ter apenas um processo principal.
 
-O script principal pode ser assim:
+O script principal pode ser como a seguir:
 
 ```javascript fiddle='docs/fiddles/quick-start'
 const { app, BrowserWindow } = require('electron')
@@ -75,7 +75,7 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -84,20 +84,20 @@ app.on('window-all-closed', () => {
 })
 ```
 
-##### O que se está a passar?
+##### O que está acontecendo acima?
 
-1. Linha 1: Primeiro, você importa os módulos de aplicativo `` e `BrowserWindow` do pacote `electron` para ser capaz de gerenciar os eventos do ciclo de vida de seu aplicativo, Além de criar e controlar janelas do navegador.
-2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
-3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+1. Linha 1: Primeiro, você importa os módulos `app` e `BrowserWindow` do pacote `electron` para ser capaz de gerenciar os eventos do ciclo de vida de seu aplicativo, bem como criar e controlar janelas do navegador.
+2. Linha 2: Segundo, você importa o pacote `path`, o qual fornece funções úteis para caminhos de arquivos.
+3. Linha 4: Após isso, você define uma função que cria uma [nova janela de navegador](../api/browser-window.md#new-browserwindowoptions) com um script de pré-carregamento, carrega o arquivo `index.html` nesta janela (linha 13, falaremos sobre este arquivo mais tarde).
 4. Linha 16: Você cria uma nova janela do navegador invocando a função `createWindow` quando o aplicativo Electron [for inicializado](../api/app.md#appwhenready).
-5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Por exemplo, depois de lançar o aplicativo pela primeira vez, ou reiniciando o aplicativo já em execução.
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Este listener é um no-op no macOS devido ao [comportamento de gerenciamento de janelas do sistema operacional](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Linha 19: Você adiciona um novo listener que cria uma nova janela de navegador somente se a aplicação não tem janela visível sendo ativada. Por exemplo, depois de iniciar a aplicação pela primeira vez, ou reiniciando a aplicação já em execução.
+6. Linha 26: Você adiciona um novo listener que tenta sair da aplicação quando ela não tem mais nenhuma janela aberta. Este listener é um no-op no macOS devido ao [comportamento de gerenciamento de janelas do sistema operacional](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
 
-#### Criar uma página da web
+#### Crie uma página web
 
-Esta é a página da web que você deseja exibir uma vez que o aplicativo é inicializado. Esta página web representa o processo Renderer. Você pode criar várias janelas do navegador, onde cada janela usa seu próprio Renderizador independente. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Esta é a página da web que você deseja exibir uma vez que o aplicativo é inicializado. Esta página web representa o processo renderizador. Você pode criar várias janelas de navegador, onde cada janela usa seu próprio renderizador independente. Opcionalmente, você pode permitir o acesso a APIs Node.js adicionais, expondo-as a partir de seu script de pré-carregamento.
 
-A página `index.html` será a seguinte:
+A página `index.html` parece com a seguinte:
 
 ```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
@@ -118,9 +118,9 @@ A página `index.html` será a seguinte:
 </html>
 ```
 
-#### Define a preload script
+#### Defina um script de pré-carregamento
 
-Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+Seu script de pré-carregamento atua como uma ponte entre Node.js e sua página web. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -135,12 +135,12 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-##### What's going on above?
+##### O que está acontecendo acima?
 
-1. On line 1: First you define an event listener that tells you when the web page has loaded
-2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
-3. On line 7: Next you loop through the list of components whose version you want to display
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+1. Na linha 1: Primeiro você define um event listener que te informa quando a página web carregou
+2. Na linha 2: Segundo, você define uma função útil usada para definir o texto dos espaços reservados no arquivo `index.html`
+3. Na linha 7: Em seguida, você faz um loop através da lista de componentes cuja versão deseja exibir
+4. Na linha 8: Finalmente, você chama `replaceText` para procurar os espaços reservados no `index.html` e definir seus valores de texto para os valores de `process.versions`
 
 #### Modifique seu arquivo package.json
 
@@ -156,9 +156,9 @@ Sua aplicação Electron usa o arquivo `package.json` como ponto de entrada prin
 }
 ```
 
-> NOTA: Se o campo `principal` for omitido, o Electron tentará carregar um índice `. s` arquivo do diretório que contém `package.json`.
+> NOTA: Se o campo `main` é omitido, o Electron tentará carregar um arquivo `index.js` do diretório contendo o arquivo `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> NOTA: Os campos `author` e `description` são necessários para fazer o empacotamento, caso contrário, um erro irá ocorrer quando executar o comando `npm run make`.
 
 Por padrão, o comando `npm start` executará o script principal com Node.js. Para executar o script com o Electron, você precisa alterá-lo como tal:
 
@@ -185,7 +185,7 @@ Seu aplicativo Electron em execução deve se parecer com o seguinte:
 
 ![Simplesmente aplicativo Electron](../images/simplest-electron-app.png)
 
-### Empacotar e distribuir o aplicativo
+### Empacote e distribua a aplicação
 
 A maneira mais simples e mais rápida de distribuir seu recém-criado aplicativo é usando [Electron Forge](https://www.electronforge.io).
 
@@ -253,13 +253,13 @@ Desenvolver um aplicativo com Electron é como construir um aplicativo Node.js c
 
 Como foi mencionado anteriormente, o Electron tem dois tipos de processos: Principal e Renderizador.
 
-* O processo principal **cria** páginas web criando instâncias de `BrowserWindow`. Cada `instância do BrowserWindow` executa a página web em seu processo de renderização. Quando uma instância de `BrowserWindow` é destruída, o processo de renderização correspondente também é encerrado.
+* O processo principal **cria** páginas web criando instâncias de `BrowserWindow`. Cada instância do `BrowserWindow` executa a página web em seu processo de renderização. Quando uma instância de `BrowserWindow` é destruída, o processo de renderização correspondente também é encerrado.
 * O processo principal **gerencia** todas as páginas web e seus processos de renderização correspondentes.
 
 ----
 
-* O processo Renderer **gerencia** apenas a página web correspondente. Uma falha num processo de Renderização não afecta outros processos de Renderização.
-* O processo Renderer **se comunica** com o processo principal através do IPC para executar operações GUI em uma página web. Chamadas nativas de APIs relacionadas a interface GUI do processo Renderer são restringidas diretamente devido a preocupações de segurança e potencial vazamento de recursos.
+* O processo de renderização **gerencia** apenas a página web correspondente. Uma falha num processo de renderização não afeta outros processos de renderização.
+* O processo de renderização **se comunica** com o processo principal através de IPC (instruções por ciclo) para executar operações na GUI (interface gráfica do usuário) em uma página web. Chamar APIs relacionadas a GUI nativas diretamente do processo de renderização é restrito, devido a questões de segurança e potencial vazamento de recursos.
 
 ----
 
@@ -306,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> NOTA: Para acessar a API do Node.js do processo de renderização, você precisa definir a preferência `nodeIntegration` para `true` e a preferência `contextIsolation` para `false`.  Por favor, note que o acesso à API do Node.js em qualquer renderizador que carrega conteúdo remoto não é recomendado por [razões de segurança](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron expõe acesso total à API do Node.js e seus módulos nos processos Principal e Renderer. Por exemplo, você pode ler todos os arquivos do diretório raiz:
 

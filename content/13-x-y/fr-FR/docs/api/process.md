@@ -28,29 +28,19 @@ Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un s
 * `arc`
 * `plateforme`
 * `bac à sable`
+* `contextIsolated`
 * `type`
 * `version`
 * `versions`
 * `mas`
 * `windowsStore`
+* `contextId`
 
 ## Événements
 
 ### Événement : 'loaded'
 
 Émis lorsque Electron a chargé son script d'initialisation interne et que commence à charger la page web ou le script principal.
-
-Il peut être utilisé par le script de préchargement pour ajouter des symboles globaux de Node supprimés à la portée globale lorsque l'intégration des noeuds est désactivée :
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
 
 ## Propriétés
 
@@ -81,6 +71,10 @@ Une `String` représentant le chemin vers le répertoire des ressources.
 ### `process.sandboxed` _Readonly_
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
+### `process.contextIsolated` _Readonly_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
 
 ### `process.throwDeprecation`
 
@@ -113,6 +107,10 @@ Un `String` représentant la version d'Electron.
 ### `process.windowsStore` _Readonly_
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Readonly_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Méthodes
 
