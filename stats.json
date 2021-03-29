@@ -3,10 +3,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "15040",
-    "translated": "10521",
+    "translated": "10544",
     "approved": "2307",
     "words": "181998",
-    "words_translated": "125686",
+    "words_translated": "126151",
     "words_approved": "25381",
     "translated_progress": 69,
     "approved_progress": 13,
@@ -29,14 +29,14 @@
     "name": "German",
     "code": "de",
     "phrases": "15040",
-    "translated": "7451",
+    "translated": "7459",
     "approved": "860",
     "words": "181998",
-    "words_translated": "86189",
+    "words_translated": "86323",
     "words_approved": "6576",
     "translated_progress": 47,
     "approved_progress": 3,
-    "qa_issues": 4009
+    "qa_issues": 4013
   },
   {
     "name": "Japanese",
@@ -81,13 +81,13 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "15040",
-    "translated": "13399",
+    "translated": "13414",
     "approved": "3298",
     "words": "181998",
-    "words_translated": "161140",
+    "words_translated": "161446",
     "words_approved": "36306",
     "translated_progress": 88,
     "approved_progress": 19,
-    "qa_issues": 6085
+    "qa_issues": 6094
   }
 ]
