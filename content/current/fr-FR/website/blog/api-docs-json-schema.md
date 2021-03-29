@@ -16,19 +16,19 @@ Voici un extrait du schéma qui décrit la classe `BrowserWindow`:
 
 ```js
 {
-  name : 'BrowserWindow',
-  description: 'Créer et contrôler les fenêtres du navigateur. ,
-  processus : {
+  name: 'BrowserWindow',
+  description: 'Create and control browser windows.',
+  process: {
     main: true,
     renderer: false
   },
-  type: 'Classe',
+  type: 'Class',
   instanceName: 'win',
   slug: 'browser-window',
-  websiteUrl : 'https://electronjs. rg/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window'. d',
-  staticMethods : [...],
-  instanceMethods : [...],
+  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
+  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
+  staticMethods: [...],
+  instanceMethods: [...],
   instanceProperties: [...],
   instanceEvents: [...]
 }
