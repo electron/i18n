@@ -3,12 +3,12 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "15040",
-    "translated": "10483",
+    "translated": "10521",
     "approved": "2307",
     "words": "181998",
-    "words_translated": "125269",
+    "words_translated": "125686",
     "words_approved": "25381",
-    "translated_progress": 68,
+    "translated_progress": 69,
     "approved_progress": 13,
     "qa_issues": 1145
   },
@@ -55,14 +55,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "15040",
-    "translated": "7618",
+    "translated": "7635",
     "approved": "1087",
     "words": "181998",
-    "words_translated": "93107",
+    "words_translated": "93428",
     "words_approved": "10996",
     "translated_progress": 51,
     "approved_progress": 6,
-    "qa_issues": 2600
+    "qa_issues": 2592
   },
   {
     "name": "Russian",
