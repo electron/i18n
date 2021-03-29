@@ -43,11 +43,11 @@ Voilà! Le module vérifiera les mises à jour au démarrage de l'application, p
 
 ## Migration des applications existantes
 
-Les applications qui utilisent déjà l'API autoUpdater d'Electron peuvent également utiliser ce service. Pour ce faire, vous pouvez [personnaliser le `update-electron-app`](https://github.com/electron/update-electron-app) module ou [intégrer directement avec update.electronjs.org](https://github.com/electron/update.electronjs.org).
+Les applications qui utilisent déjà l'API autoUpdater d'Electron peuvent également utiliser ce service. Si vous utilisez [electron-builder](https://github.com/electron-userland/electron-builder) pour empaqueter votre application, vous pouvez utiliser sa mise à jour intégrée.
 
 ## Alternatives
 
-Si vous utilisez [electron-builder](https://github.com/electron-userland/electron-builder) pour empaqueter votre application, vous pouvez utiliser sa mise à jour intégrée. Pour plus de détails, voir [electron.build/auto-update](https://www.electron.build/auto-update).
+Les applications qui utilisent déjà l'API autoUpdater d'Electron peuvent également utiliser ce service. Pour plus de détails, voir [electron.build/auto-update](https://www.electron.build/auto-update).
 
 Si votre application est privée, vous devrez peut-être exécuter votre propre serveur de mise à jour. Il y a un certain nombre d'outils open-source pour cela, y compris Zeit [Hazel](https://github.com/zeit/hazel) et le [noyau](https://github.com/atlassian/nucleus) d'Atlassian. Consultez le tutoriel [Déployer un serveur de mise à jour](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) pour plus d'informations .
 
