@@ -44,7 +44,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu Offscreen](tutorial/offscreen-rendering.md)
   * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Les web embeds dans Electron](tutorial/web-embeds.md)
+  * [Intégrer le Web dans Electron](tutorial/web-embeds.md)
 * [Accessibilité](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
