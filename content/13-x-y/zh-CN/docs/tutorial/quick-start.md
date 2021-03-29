@@ -88,14 +88,14 @@ app.on('window-all-closed', () => {
 
 1. 第 1 行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
 2. 第2行: 导入 `path` 包，该包为操作文件路径提供了实用的功能。
-3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+3. 第 4 行：在此之后，你定义一个方法用来创建一个带有预加载脚本的[新的浏览器窗口](../api/browser-window.md#new-browserwindowoptions)，并加载`index.html`文件进入该窗口 (第 13 行，我们将在后面探讨这个文件)。
 4. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
 5. 第 18 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
 6. 第 25 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
 
 #### 创建网页
 
-这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染进程。 You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染进程。 你可以选择性地从您的预加载脚本中公开额外的 Node.js API 来授予对它们访问权限。
 
 `index.html` 页面如下所示：
 
@@ -118,7 +118,7 @@ app.on('window-all-closed', () => {
 </html>
 ```
 
-#### Define a preload script
+#### 定义一个预加载脚本
 
 您的预加载脚本就像是Node.js和您的网页之间的桥梁。 它允许你将特定的 API 和行为暴露到你的网页上，而不是不安全地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
 
@@ -137,10 +137,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 ##### 上面发生了什么？
 
-1. On line 1: First you define an event listener that tells you when the web page has loaded
-2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
-3. On line 7: Next you loop through the list of components whose version you want to display
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+1. 第 1 行：首先定义了一个事件监听器，当web页面加载完成后通知你。
+2. 第 2 行：接着您定义了一个功能函数用来为`index.html`中的所有placeholder设置文本。
+3. 第 7 行：接下来您遍历了您想展示版本号的组件列表。
+4. 第 8 行：最终，您调用 `replaceText` 来查找`index.html`中的版本占位符并将其文本值设置为`process.versions`的值。
 
 #### 修改您的 package.json 文件
 
@@ -305,7 +305,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> 注意：从渲染进程访问 Node.js API，您需要设置 `nodeIntegration` 的值为 `true` 同时 `contextIsolation` 的值为 `false`。  请注意，出于[安全因素](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content)，不建议任何渲染器访问Node.js API加载远程内容。
 
 Electron 在主进程和渲染进程中都暴露了对 Node.js API 及其模块的完全访问权限。 例如，您可以从根目录读取所有文件：
 

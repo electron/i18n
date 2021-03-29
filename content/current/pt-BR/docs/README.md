@@ -14,9 +14,9 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
 
 * [Guia de início rápido](tutorial/quick-start.md)
   * [Pré-requisitos](tutorial/quick-start.md#prerequisites)
-  * [Criar uma aplicação básica](tutorial/quick-start.md#create-a-basic-application)
+  * [Crie uma aplicação básica](tutorial/quick-start.md#create-a-basic-application)
   * [Execute sua aplicação](tutorial/quick-start.md#run-your-application)
-  * [Empacotar e distribuir o aplicativo](tutorial/quick-start.md#package-and-distribute-the-application)
+  * [Empacote e distribua a aplicação](tutorial/quick-start.md#package-and-distribute-the-application)
 
 ### Aprendendo os conceitos básicos
 
