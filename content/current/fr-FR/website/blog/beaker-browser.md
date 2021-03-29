@@ -44,8 +44,8 @@ Et voici le forking d'un site :
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "Mon fork n'a aucune considération pour l'index précédent. tml!" > index.html
-$ bkr publier
+$ echo "Mon fork n'a aucune considération pour l'index précédent. > index.html
+$ bkr publish
 ```
 
 Ces sites sont ensuite hébergés à partir de votre navigateur. C'est un peu comme BitTorrent; vous partagez les sites dans un maillage P2P.
