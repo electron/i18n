@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`DownloadItem` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) qui représente un élément de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
+`DownloadItem` est un [EventEmitter][event-emitter] qui représente un élément de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
 // Dans le processus main.
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `state` Chaîne de caratères - Peut être `progressing` ou `interrupted`.
 
 Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
@@ -55,7 +55,7 @@ Le `state` peut être un de ces cas :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `state` Chaîne de caratères - Peut être `completed`, `cancelled` ou `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -173,3 +173,5 @@ Retourne `Double` - Le nombre de secondes depuis l'époch UNIX lorsque le télé
 Une propriété `String` qui détermine le chemin du fichier de sauvegarde de l'élément téléchargé.
 
 La propriété n'est disponible que dans la fonction de rappel `will-download` de la session. Si l'utilisateur ne définit pas le chemin de sauvegarde via la propriété, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
