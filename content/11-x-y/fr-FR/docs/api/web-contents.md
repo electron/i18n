@@ -923,7 +923,7 @@ Returns `String` - The user agent for this web page.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Injecte du CSS dans la page Web actuelle et renvoie une clé unique pour la feuille de style insérée .
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', () => {
@@ -957,7 +957,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
-L'exécution du code sera suspendue jusqu'à la fin du chargement de la page web.
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1002,7 +1002,7 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Modifie le facteur de zoom en utilisant le facteur spécifié. Le Zoom factor est égal à la valeur du zoom exprimée en pourcent divisée par 100, donc 300% = 3.0.
 
-Le rapport doit être supérieur à 0.0.
+The factor must be greater than 0.0.
 
 #### `contents.getZoomFactor()`
 
@@ -1012,7 +1012,7 @@ Returns `Number` - the current zoom factor.
 
 * `level` Number - Niveau de zoom.
 
-Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. La formule pour cela est `'scale:= 1,2 ^ level`.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.getZoomLevel()`
 
@@ -1100,7 +1100,7 @@ Insère le `text` à l'élément ciblé.
 
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
-  * `forward` Boolean (facultatif) - Rechercher soit en avant soit en arrière, la valeur par défaut est `true`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. par défaut, `faux`.
@@ -1108,7 +1108,7 @@ Insère le `text` à l'élément ciblé.
 
 Returns `Integer` - The request id used for the request.
 
-Starts a request to find all matches for the `text` in the web page. Le résultat de la requête peut être obtenu en s'abonnant à l'événement [`found-in-page`](web-contents.md#event-found-in-page).
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -1282,7 +1282,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Ajoute le chemin spécifié à l'espace de travail des DevTools. Doit être utilisé après la création des DevTools :
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
