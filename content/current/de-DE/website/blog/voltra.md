@@ -63,11 +63,11 @@ Wir verbringen viel Zeit mit Schwerpunkt auf Leistung. Wir begannen mit Framewor
 
 Wir bearbeiten sehr große Sammlungen an dieser Stelle recht gut. Große Sammlungen bedeuten möglicherweise Zehntausende von Bildern! Knoten haben. s’ Dateisystem-Modul direkt aus dem Rendering-Prozess zur Verfügung gestellt, machte es wirklich einfach, viele Bilder super schnell zu laden und zu entladen, basierend auf DOM-Events.
 
-Im Allgemeinen sind *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* und *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* extrem wichtige Werkzeuge für die Durchführung einer Vielzahl von Verarbeitungen, während die UI auf dem Laufenden bleibt. Genauer gesagt, die Verteilung von CPU-gebundenen Aufgaben in separate Prozesse trägt dazu bei, dass die Benutzerschnittstelle auf dem Laufenden bleibt. Zum Beispiel haben wir den eigentlichen Audio-Kontext in einen separaten Prozess verschoben über [IPC](https://electronjs.org/docs/glossary/#ipc) kommunizieren, um mögliche Unterbrechungen durch eine belebte Benutzeroberfläche zu vermeiden.
+In general *[setImmediate][]* and *[requestIdleCallback][]* have been super important tools for performing lots of processing while keeping the UI responsive. Genauer gesagt, die Verteilung von CPU-gebundenen Aufgaben in separate Prozesse trägt dazu bei, dass die Benutzerschnittstelle auf dem Laufenden bleibt. For example, we moved the actual audio context into a separate process, communicating with it over [IPC][] to avoid potential interruptions from a busy UI.
 
 ## Warum haben Sie beschlossen, Voltra auf Electronic zu bauen?
 
-Die Sandbox des Browsers ist für unsere App zu beschränkt. Aber wir entwickeln auch einen Webplayer. Es ist also ein großer Gewinn, dass wir fast 100% des Codes zwischen den beiden Implementierungen teilen können.
+The browser’s sandbox is too restricted for our app. But we are also developing a web player. Es ist also ein großer Gewinn, dass wir fast 100% des Codes zwischen den beiden Implementierungen teilen können.
 
 Wir haben tatsächlich mit dem Erstellen einer native App mit Swift begonnen. Das Hauptproblem, das wir feststellten, war, dass wir viele Dinge neu erfunden haben. Das Web verfügt über das weltweit größte Open-Source-Ökosystem. Also haben wir ziemlich schnell zu Electron gewechselt.
 
@@ -88,4 +88,8 @@ Wir möchten, dass Electron einen einzigen Packager befürwortet. Der Packager i
 ## Was kommt als Nächstes?
 
 Wir entwickeln derzeit eine mobile App und arbeiten mit Künstlern und Labels zusammen, um ihre Musik dem Voltra Shop hinzuzufügen. Hallo! Wenn du Künstler oder Label bist, melde dich jetzt [an](https://admin.voltra.co/signup)! Wir planen, den Shop zu öffnen, wenn wir unser Ziel von 10 Millionen Spuren erreichen.
+
+[setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+[requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[IPC]: https://electronjs.org/docs/glossary/#ipc
 
