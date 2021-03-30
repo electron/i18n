@@ -49,8 +49,9 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -75,7 +76,7 @@ const mainWindow = new BrowserWindow({
 
 El `provider` debe ser un objeto que tiene un método `spellCheck` que acepte un array de palabras individuales para revisión ortográfica. La función `spellCheck` corre cronológicamente y llama a la función `callback` con un array de palabras mal escritas cuando se completa.
 
-Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
+Un ejemplo de uso de [node-spellchecker][spellchecker] como proveedor:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -113,7 +114,7 @@ Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Cadena de caracteres
+* `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `resultado` Cualquiera
@@ -152,7 +153,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -245,3 +246,5 @@ Un `WebFrame | null` que representa el siguiente frame hermano, la propiedad deb
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker
