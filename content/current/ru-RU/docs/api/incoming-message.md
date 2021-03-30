@@ -2,9 +2,9 @@
 
 > Обрабатывает запросы на HTTP/HTTPS-запросы.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`IncomingMessage` реализует интерфейс [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) и, тем самым, также и [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` реализует интерфейс [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) и, тем самым, также и [EventEmitter][event-emitter].
 
 ### События экземпляра
 
@@ -32,7 +32,7 @@
 
 Возникает при обнаружении ошибки во время потоковой передачи ответных данных. Например, если сервер закрывает базовый объект во время потоковой передачи ответа, объекту ответа будет выдано `error`, а событие `close` впоследствии будет выдано объекту запроса.
 
-### Instance Properties
+### Свойства экземпляра
 
 `IncomingMessage` имеет следующие свойства для чтения:
 
@@ -65,3 +65,5 @@ A `Record<string, string | string[]>` representing the HTTP response headers. Th
 #### `response.httpVersionMinor`
 
 `Integer`, указание номера младшей версии протокола HTTP.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
