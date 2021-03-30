@@ -4,7 +4,7 @@ author: sofiangria
 date: '2019-01-25'
 ---
 
-Pela primeira vez, a Electron está animada em divulgar nosso cronograma de lançamento a partir do v5.0.0. Este é o nosso primeiro passo para ter uma linha do tempo pública e de longo prazo.
+Pela primeira vez, o Electron está animado para divulgar a nossa programação de lançamento, começando com a v5. Este é nosso primeiro passo para ter um cronograma público de longo prazo.
 
 ---
 
@@ -17,6 +17,6 @@ Na última metade de 2018, nossa principal prioridade estava lançando mais ráp
 
 Gostaríamos de prometer datas futuras como [nó. s](https://github.com/nodejs/Release) e [Chromium](https://chromiumdash.appspot.com/schedule) , mas ainda não estamos naquele lugar __. Estamos optimistas quanto à possibilidade de, no futuro, alcançarmos um calendário a longo prazo.
 
-Com isso em mente, estamos dando os primeiros passos postando publicamente nosso cronograma de lançamento para v5.0.0. Você pode encontrar esse [aqui](https://electronjs.org/docs/tutorial/electron-timelines).
+Com isso em mente, estamos tomando os primeiros passos postando publicamente nossa agenda de lançamento para v5.0.0. Você pode encontrar [aqui](https://electronjs.org/docs/tutorial/electron-timelines).
 
 Para nos ajudar a testar nossas versões beta e estabilização, por favor, considere participar do nosso [Programa de Feedback de Aplicativos](https://electronjs.org/blog/app-feedback-program).
