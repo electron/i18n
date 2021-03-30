@@ -22,7 +22,7 @@ const mainWindow = new BrowserWindow({
 
 ## Migração
 
-> Eu fornecia APIs a partir do meu script de pré-carregamento usando a janela `.X = apiObject` agora o quê?
+> Costumava fornecer APIs do meu script de pré-carregamento usando `window.X = apiObject` agora, o que?
 
 Expor APIs do seu script de pré-carga para o site carregado é um usecase comum e há um módulo dedicado no Electron para ajudá-lo a fazer isso de uma maneira indolor.
 
