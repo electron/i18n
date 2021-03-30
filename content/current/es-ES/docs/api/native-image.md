@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (200% DPI scale)
   * 256x256
 
-Revise la sección *Size requirements* en [este artículo](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Revise la sección *Size requirements* en [este artículo][icons].
 
 ## Imagen de alta resolución
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `alto` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (opcional)
   * `width` Integer (opcional) - Requerido para búferes de bipmaps.
   * `height` Entero (opcional) - Necesario para los búferes de mapa de bits.
@@ -195,20 +195,20 @@ Los siguientes métodos están disponibles para las distancias de la clase `Nati
 * `options` Object (opcional)
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
-Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información codificada de la imagen `PNG`.
+Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información codificada de la imagen `PNG`.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer - Entre 0 - 100.
 
-Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
+Devuelve `Buffer` - Un [Buffer][buffer]que contiene la información codificada de la imagen `JPEG`.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (opcional)
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
-Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene una copia de la información sin procesar de pixeles del mapa de bits de la imagen.
+Devuelve `Buffer` - Un [Buffer][buffer] que contiene una copia de la información sin procesar de pixeles del mapa de bits de la imagen.
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ Devuelve `String` - El URL de información de la imagen.
 * `options` Object (opcional)
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
-Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
+Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
 
 La diferencia entre `getBitmap()` y `toBitmap()` es que `getBitmap()` no copia los datos bitmap, por lo que debe utilizar inmediatamente el Búfer devuelto en el ciclo del evento actual; de lo contrario, los datos podrían modificarse o destruirse.
 
 #### `image.getNativeHandle()` _macOS_
 
-Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que almacena el puntero C en el controlador nativo subyacente de la imagen. En macOS, se devolverá un puntero a la instancia `NSImage`.
+Devuelve `Buffer` - Un [Buffer][buffer] que almacena el puntero C en el controlador nativo subyacente de la imagen. En macOS, se devolverá un puntero a la instancia `NSImage`.
 
 Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacente en lugar de una copia. Por lo tanto, _debe _ asegurarse que la instancia asociada `nativeImage` se encuentre cerca.
 
@@ -300,4 +300,8 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 Una propiedad `Boolean` que determina si la imagen es considerada una [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Ten en cuenta que esta propiedad solo tiene un efecto en macOS.
+Por favor note que esta propiedad solo tiene efecto en macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
