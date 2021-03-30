@@ -18,28 +18,28 @@ As a language with garbage collection, JavaScript frees users from managing reso
 
 Используя класс `NativeImage` в Electron в качестве примера, каждый раз при вызове `родного изображения. reate()` API, возвращается экземпляр `NativeImage` и он сохраняет данные изображения в C++. Once you are done with the instance and the JavaScript engine (V8) has garbage collected the object, code in C++ will be called to free the image data in memory, so there is no need for users manage this manually.
 
-Another example is [the window disappearing problem](https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes), which visually shows how the window is garbage collected when all the references to it are gone.
+Another example is [the window disappearing problem][window-disappearing], which visually shows how the window is garbage collected when all the references to it are gone.
 
 ## Тестирование слабых ссылок в Electron
 
-Не существует способа напрямую тестировать слабые ссылки в JavaScript на необработанный JavaScript, так как у языка нет способа назначать слабые ссылки. Единственный API в JavaScript, связанный со слабыми ссылками - [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), Но поскольку он только создает слабые ключи ссылок, невозможно знать, когда был собран объект мусора.
+Не существует способа напрямую тестировать слабые ссылки в JavaScript на необработанный JavaScript, так как у языка нет способа назначать слабые ссылки. The only API in JavaScript related to weak references is [WeakMap][WeakMap], but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
 
 В версиях Electron до версии 0.37.8, вы можете использовать внутренний `v8Util. etDestructor` API для проверки слабых ссылок, добавляет слабые ссылки на передаваемый объект и вызывает обратный вызов, когда объект собран в мусоре:
 
 ```javascript
-// Код ниже может быть запущен только на Electron < v0.37.8.
-v8Util = process.atomBinding('v8_util')
+// Code below can only run on Electron < v0.37.8.
+var v8Util = process.atomBinding('v8_util')
 
 var object = {}
-v8Util. etDestructor(object, function () {
-  console.log('Объект собран в мусоре')
+v8Util.setDestructor(object, function () {
+  console.log('The object is garbage collected')
 })
 
-// Удалить все ссылки на объект.
+// Remove all references to the object.
 object = undefined
-// Ручной запуск GC.
+// Manually starts a GC.
 gc()
-// Консоль печатает "Объект собран мусором".
+// Console prints "The object is garbage collected".
 ```
 
 Note that you have to start Electron with the `--js-flags="--expose_gc"` command switch to expose the internal `gc` function.
@@ -48,7 +48,7 @@ API был удален в более поздних версиях, потом�
 
 ## Слабые ссылки в удаленном модуле ``
 
-Помимо управления родными ресурсами с помощью C++, Electron также нуждается в слабых ссылках для управления JavaScript-ресурсами. Примером является `удаленный` модуль Electron, который является [модуль Remote Procedure Call](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) , который позволяет использовать объекты в основном процессе из процессов визуализации.
+Помимо управления родными ресурсами с помощью C++, Electron также нуждается в слабых ссылках для управления JavaScript-ресурсами. An example is Electron's `remote` module, which is a [Remote Procedure Call][remote-procedure-call] (RPC) module that allows using objects in the main process from renderer processes.
 
 One key challenge with the `remote` module is to avoid memory leaks. Когда пользователи приобретают удаленный объект в процессе визуализации, `удаленный модуль` должен гарантировать, что объект продолжает жить в основном процессе до тех пор, пока ссылки в процессе рендерера не будут удалены. Кроме того, он также должен удостовериться, что объект может быть собран в случае отсутствия ссылки на него в процессах визуализации.
 
@@ -120,7 +120,7 @@ const {remote} = require('electron')
 
 Очевидной оптимизацией является кэширование удаленных объектов: когда уже есть удалённый объект с тем же ID, предыдущий удаленный объект будет возвращен вместо создания нового.
 
-Это невозможно с API в ядре JavaScript. Используя обычную карту для кэширования объектов не позволит V8 собирать объекты, в то время как класс [Слабая карта](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) может использовать объекты только как слабые ключи.
+Это невозможно с API в ядре JavaScript. Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap][WeakMap] class can only use objects as weak keys.
 
 Чтобы решить эту проблему, добавляется тип карты со значениями по мере слабых ссылок, что идеально подходит для кэширования объектов с идентификаторами. Теперь `удален.require` выглядит как так:
 
@@ -154,4 +154,8 @@ Note that the `remoteObjectCache` stores objects as weak references, so there is
 
 * [`key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)
+
+[window-disappearing]: https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+[remote-procedure-call]: https://en.wikipedia.org/wiki/Remote_procedure_call
 
