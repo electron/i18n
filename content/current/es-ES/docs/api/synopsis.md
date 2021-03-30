@@ -6,7 +6,7 @@ Todos los [módulos incorporados de Node.js](https://nodejs.org/api/) está disp
 
 Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Necesitas estar familiarizado con el concepto de [ proceso principal vs. proceso de renderizado](../tutorial/quick-start.md#main-and-renderer-processes) códigos para ser capaz de usar los módulos.
+La regla básica es: si un módulo es [ GUI][gui] o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Debes estar familiarizado con el concepto de los scripts [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) para ser capaz de usar esos módulos.
 
 El scrip del proceso principal es como un script normal de Node.js:
 
@@ -38,7 +38,7 @@ Para ejecutar su aplicación, lea [Ejecutar su aplicación](../tutorial/quick-st
 
 ## Asignación de desestructuración
 
-Respecto al 0.37, puedes usar [ asignación de desestruturación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) para hacer más fácil el uso de los módulos incorporados.
+Respecto al 0.37, puedes usar [ asignación de desestruturación][destructuring-assignment] para hacer más fácil el uso de los módulos incorporados.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -78,3 +78,6 @@ app.whenReady().then(() => {
   win.loadURL('https://github.com')
 })
 ```
+
+[gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
+[destructuring-assignment]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
