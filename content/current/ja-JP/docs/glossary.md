@@ -4,7 +4,7 @@
 
 ### ASAR
 
-ASARはAtom Shell Archive Formatの略語です。 [asar](https://github.com/electron/asar)アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
+ASARはAtom Shell Archive Formatの略語です。 [asar][asar]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
 ASAR 形式は、主に Windows でのパフォーマンス向上を目的に作成されました… 要加筆
 
@@ -14,7 +14,7 @@ C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準�
 
 ### DMG
 
-Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。 [electron-builder](https://github.com/electron-userland/electron-builder)は`dmg`形式をビルドターゲットとしてサポートしています。
+Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。 [electron-builder][]は`dmg`形式をビルドターゲットとしてサポートしています。
 
 ### IME
 
@@ -26,17 +26,17 @@ Interface description language、インターフェイス記述言語のこと�
 
 ### IPC
 
-IPC は Inter-Process Communication、プロセス間通信の略です。 Electron は、シリアライズされた JSON メッセージを [メインプロセス](#main-process) と [レンダラプロセス](#renderer-process) 間で送信する際に IPC を使用します。
+IPC は Inter-Process Communication、プロセス間通信の略です。 Electron は、シリアライズされた JSON メッセージを [メインプロセス][] と [レンダラプロセス][] 間で送信する際に IPC を使用します。
 
 ### libchromiumcontent
 
-[Chromium Content module](https://www.chromium.org/developers/content-module) および 全ての依存関係（Blink や [V8](#v8)）を含む共有ライブラリです。 libcc とも呼ばれます。
+[Chromium Content module][] および 全ての依存関係（Blink や [V8][]）を含む共有ライブラリです。 libcc とも呼ばれます。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### メインプロセス (main process)
 
-メインプロセスは通常、 `main.js` というファイル名で配置され、Electron アプリのエントリポイントになります。アプリケーションが開始されてから終了されるまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ中におけるレンダラプロセスの生成も担当しています。完全なNode APIを使用できます。
+メインプロセスは通常 `main.js` というファイル名で配置され、Electron アプリのエントリポイントになります。 これはアプリが開始してから終了するまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ内のレンダラプロセスの作成も担います。 完全な Node API を使用できます。
 
 各アプリのメインプロセスファイルは、`package.json` の `main` プロパティに指定します。 `electron .` はここから起動時に実行するファイルを取得します。
 
@@ -46,7 +46,7 @@ Chromium では、このプロセスを "ブラウザプロセス" と呼びま�
 
 ### MAS
 
-Apple の Mac App Store の頭文字をつなげたものです。 MAS へのアプリ登録の詳細は、[Mac App Store 登録ガイド](tutorial/mac-app-store-submission-guide.md) を参照してください。
+Apple の Mac App Store の頭文字をつなげたものです。 MAS へのアプリ登録の詳細は、[Mac App Store 登録ガイド][] を参照してください。
 
 ### Mojo
 
@@ -56,23 +56,23 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 ### ネイティブモジュール (native module)
 
-ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++で書かれたモジュールです。通常のNode.jsモジュールと同様に使用することが出来ます。 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
+ネイティブ モジュールはNode.js では[アドオン][] とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++で書かれたモジュールです。通常のNode.jsモジュールと同様に使用することが出来ます。 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
 
 Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-[ネイティブNodeモジュールを使用する](tutorial/using-native-node-modules.md)についても参照してください.
+[ネイティブNodeモジュールを使用する][]についても参照してください.
 
 ### NSIS
 
-Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト駆動型インストーラー作成ツールです。(訳注: NullsoftはWinampの開発元の企業です) フリーソフトウェアライセンスの元でリリースされており、InstallShieldのようなプロプライエタリな商用製品の代替として広く使用されています。 [electron-builder](https://github.com/electron-userland/electron-builder)はNSISをビルドターゲットとしてサポートしています。
+Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト駆動型インストーラー作成ツールです。(訳注: NullsoftはWinampの開発元の企業です) フリーソフトウェアライセンスの元でリリースされており、InstallShieldのようなプロプライエタリな商用製品の代替として広く使用されています。 [electron-builder][]はNSISをビルドターゲットとしてサポートしています。
 
 ### OSR
 
 OSR (Off-screen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
 
-### プロセス
+### process
 
-プロセスは、実行されているプログラムのインスタンスです。 Electronでは、[メインプロセス](#main-process)と 1つ以上の[レンダラープロセス](#renderer-process)が動作しており、実際には同時に複数のプログラムが実行されていることになります。
+プロセスは、実行されているプログラムのインスタンスです。 Electronでは、[メインプロセス][]と 1つ以上の[レンダラープロセス][]が動作しており、実際には同時に複数のプログラムが実行されていることになります。
 
 Node.jsとElectronでは、実行中のプロセスは、`process`オブジェクトをもっています。 このオブジェクトは現在のプロセスに関する情報を提供し、また制御を行う広域変数です。 広域変数であるため、require() を使用せずにいつでもアクセスできます。
 
@@ -80,15 +80,15 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 ### レンダラプロセス (renderer process)
 
-レンダラープロセスは、アプリ中のブラウザウィンドウです。メインプロセスと違って複数存在でき、それぞれが別のプロセスとして動作します。 また、非表示にもできます。
+レンダラープロセスは、アプリ内のブラウザウインドウです。 メインプロセスと違って複数存在でき、それぞれ別のプロセスとして動作します。 また、非表示にもできます。
 
-通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
+通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electron を使用している場合は、Node.js API をウェブページ内で使用して、OS へ作用できるローレベル API を使用することが出来ます。
 
 [プロセス](#process)、[レンダラープロセス](#main-process)についても参照してください。
 
 ### Squirrel
 
-Squirrelは、Electronアプリケーションの新しいバージョンに対する自動更新を可能にするオープンソースフレームワークです。 Squirrelについては [autoUpdater](api/auto-updater.md) APIを参照してください。
+Squirrelは、Electronアプリケーションの新しいバージョンに対する自動更新を可能にするオープンソースフレームワークです。 Squirrelについては [autoUpdater][] APIを参照してください。
 
 ### ユーザーランド (userland)
 
@@ -110,4 +110,16 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 
 ### webview
 
-`webview`タグはElectron上のあなたのアプリ上に、外部ページなどの'guest'コンテンツを埋め込むために使用されます。`iframe`のような物ですが、それぞれのwebviewが別々のプロセスで動作する点が異なります。 あなたのウェブページとは同じ権限はもっておらず、アプリと埋め込まれたコンテンツのやりとりは非同期的な物になります。 アプリはこれにより埋め込みコンテンツから安全を保たれます。
+`webview` タグは、Electron アプリに 'ゲスト' コンテンツ (外部のウェブページなど) を埋め込むために使用します。 これらは `iframe` に似ていますが、それぞれの webview が別のプロセスで実行されるという点が異なります。 あなたのウェブページとは同じ権限はもっておらず、アプリと埋め込まれたコンテンツのやりとりは非同期的な物になります。 アプリはこれにより埋め込みコンテンツから安全を保たれます。
+
+[アドオン]: https://nodejs.org/api/addons.html
+[asar]: https://github.com/electron/asar
+[autoUpdater]: api/auto-updater.md
+[Chromium Content module]: https://www.chromium.org/developers/content-module
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[Mac App Store 登録ガイド]: tutorial/mac-app-store-submission-guide.md
+[メインプロセス]: #main-process
+[レンダラプロセス]: #renderer-process
+[レンダラープロセス]: #renderer-process
+[ネイティブNodeモジュールを使用する]: tutorial/using-native-node-modules.md
+[V8]: #v8
