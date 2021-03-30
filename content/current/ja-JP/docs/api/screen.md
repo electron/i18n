@@ -6,7 +6,7 @@
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
 
-`screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
+`screen` は [EventEmitter][event-emitter] です。
 
 **注意:** レンダラー / デベロッパー ツールでは、`window.screen` は予約された DOM プロパティなので、`let { screen } = require('electron')` と書くことはできません。
 
@@ -141,3 +141,5 @@ app.whenReady().then(() => {
 戻り値 [`Rectangle`](structures/rectangle.md)
 
 スクリーンの DIP 矩形をスクリーンのの物理矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
