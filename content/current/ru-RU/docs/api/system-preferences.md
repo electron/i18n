@@ -2,7 +2,7 @@
 
 > Получение системных параметров.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -17,7 +17,7 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
 ### Событие: 'color-changed' _Windows_
@@ -184,7 +184,7 @@ Removes the `key` in `NSUserDefaults`. This can be used to restore the default o
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Returns `Boolean` - `true` if [DWM composition][dwm-composition] (Aero Glass) is enabled, and `false` otherwise.
 
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
@@ -195,9 +195,10 @@ const browserOptions = { width: 1000, height: 800 }
 // Make the window transparent only if the platform supports it.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
-  browserOptions.frame = false 
+  browserOptions.frame = false
 }
-// Создание окна.
+
+// Create the window.
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
@@ -292,7 +293,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -420,3 +421,8 @@ This property is only available on macOS 10.14 Mojave or newer.
 A `String` property that can be `dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
