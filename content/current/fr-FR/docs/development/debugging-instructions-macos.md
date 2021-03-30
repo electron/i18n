@@ -64,10 +64,10 @@ Le processus 25244 s'est arrêté
 Pour afficher les arguments et les variables locales pour le frame en cours, exécutez `frame variable` (ou `fr v`), qui vous montrera que l'app est en train de mettre le nom à "Electron".
 
 ```sh
-(lldb) frame variable 
-(atom::Browser *) this = 0x0000000108b14f20 
+(lldb) frame variable
+(atom::Browser *) this = 0x0000000108b14f20
 (const string &) name = "Electron": {
-   [...]
+    [...]
 }
 ```
 
@@ -95,6 +95,10 @@ Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `s
 
 ### Lectures additionnelles
 
-LLDB est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examinez la documentation de débogage d'Apple, par exemple, la [Structure de référence des commandes de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) ou l’introduction de [Utiliser LLDB à l'aide d'un débogueur autonome](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB est un outil puissant, avec une excellente documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
 
-Vous pouvez également consulter les fantastiques [manuel et didacticiel](https://lldb.llvm.org/tutorial.html) pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.
+Vous pouvez également consulter les fantastiques [manuel et didacticiel][lldb-tutorial] pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.
+
+[lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
+[lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
+[lldb-tutorial]: https://lldb.llvm.org/tutorial.html
