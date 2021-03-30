@@ -9,12 +9,12 @@ const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // Prozess spawnen
-const env = { /* ... */ }
+const env = { /* . . */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
+const appProcess = childProcess. pawn(electronPath, ['./app'], { stdio, env })
 
-// IPC-Nachrichten von der App
-appProcess.on('message', (msg) => {
+// IPC-Nachrichten aus der App
+appProcess hören. n('message', (msg) => {
   // ...
 })
 
@@ -44,34 +44,34 @@ Klasse TestDriver {
     dies. pcalls = []
 
     // Kindprozess starten
-    env. PP_TEST_DRIVER = 1 // Lassen Sie die App wissen, dass sie auf Nachrichten hören sollte
-    diese. rocess = Kindprozess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    env. PP_TEST_DRIVER = 1 // Lassen Sie die App wissen, dass sie auf Nachrichten lauschen sollte
+    this.process = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // rpc Antworten behandeln
-    das. rotzig. n('Nachricht', (message) => {
+    // rpc-Antworten handhaben
+    this.process n('Nachricht', (message) => {
       // Laden Sie den Handler
       const rpcCall = dies. pcalls[message.msgId]
       wenn (!rpcCall)
       zurückgibt. pcalls[message.msgId] = null
       // zurückweisen/auflösen
       if (message). eject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.reject) esolve)
+      else rpcCall. esolve(message.resolve)
     })
 
     // warten auf bereit
     this.isReady = this.rpc('isReady'). atch((err) => {
-      console.error('Anwendung konnte nicht start', err)
-      dies. top()
+      Konsole. rror('Anwendung konnte nicht starten', err)
+      this.stop()
       Prozess. xit(1)
     })
   }
 
   // einfacher RPC-Aufruf
-  // zum Benutzen: Treiber. pc('method', 1, 2, 3).then(. .)
-  async rpc (cmd, ... rgs) {
-    // rpc request senden
-    const msgId = dies. pcCalls.length
-    this.process end({ msgId, cmd, args })
+  // zum Benutzen: Treiber. pc('Methode', 1, 2, 3).then(...)
+  async rpc (cmd, ...args) {
+    // rpc request
+    const msgId = this senden. pcCalls.length
+    this .process end({ msgId, cmd, args })
     return new Promise(resolve, reject) => this.rpcCalls. ush({ resolve, reject }))
   }
 
