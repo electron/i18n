@@ -22,7 +22,7 @@ GPU加速渲染意味着使用GPU用于合成。 Because of that, the frame has 
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
 ## 示例
 
@@ -48,3 +48,5 @@ app.whenReady().then(() => {
 ```
 
 启动 Electron 应用程序后，导航到应用程序文件夹。
+
+[disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
