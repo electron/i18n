@@ -30,11 +30,7 @@ Ghost 成立于2013年4月，这是在一次非常成功的Kickstarter运动，�
 
 ## 什么是主机桌面？
 
-虚拟桌面允许作者一次管理多个博客-并集中精力写入。 像常见的写作快捷方式这样的简单东西无法在浏览器中实现，但我们的桌面应用程序中可以使用。 它允许其他应用程序通过 deeplinks</a> 与博客直接联系
-
-。</p> 
-
-
+虚拟桌面允许作者一次管理多个博客-并集中精力写入。 Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
 ## 什么是新闻的幽灵？
 
@@ -44,37 +40,25 @@ Ghost 成立于2013年4月，这是在一次非常成功的Kickstarter运动，�
 
 从长远来看，我们希望幽灵成为世界上最好的新闻工作的一个令人难以置信的平台。 这意味着我们需要建立一些特色来吸引这些人。 今年，我们正在作出非常有意识的决定，集中注意这个问题。
 
-
-
 ## 您为什么选择在 Electron 上构建Ghost 桌面？
 
 Ghost 使用 JavaScript 和节点。 s 在后端和前端，所以能够使用相同的技术和技能集，使我们的团队能够更快地移动， • 建立更多的机构，并最终提供更好的经验。 此外，能够在 macOS, Windows之间分享超过95%的代码， 及 Linux 版本的应用程序使我们能够专注于建立一个优秀的核心用户体验， 无需为每个平台维持一个代码库。
-
-
 
 ## 构建主机桌面时面临什么挑战？
 
 拼写检查可能仍然是提供的最困难的服务之一，我们可以很容易地利用许多在线服务之一。 但在保护我们用户的隐私和自主权的同时正确地用多种语言拼写文本并非易事。
 
-
-
 ## 应在哪些领域改进Electron？
 
 我们很乐意看到Electron将操作系统本机拼写检查能力带到他们的应用中。 我们正在梦想一个世界，在这个世界里， `<input>` 字段获得与 `NSTextView`相同的服务， 但我们也清楚地意识到这是多么困难。
-
-
 
 ## 您最喜欢的 Electron？
 
 JavaScript 因为是一个庞大的生态系统而著称，它涉及无数的工具和框架，但它给我们带来的便利是很难过分的。 Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
 
-
-
 ## 幽灵完成了吗？ 如果没有，接下来是什么？
 
 幽灵桌面也是一个正在进行的项目 - 我们远远没有完成。 我们一直在谈论为我们的用户带来一个完整的离线模式，我们已经相当接近。 其他值得注意的工作领域包括扩展和与其他文本编辑应用程序的整合(例如单词或Atom)， 最终允许人们使用他们最喜欢的工具撰写文章。 一般来说，一旦我们发运了离线模式功能，我们正在寻找与操作系统更深入的整合。 如果你有兴趣听到， [加入我们](https://github.com/tryghost/ghost-desktop)！
-
-
 
 ## 您最喜欢的 Electron 应用程序是什么？
 
