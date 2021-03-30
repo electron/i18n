@@ -33,10 +33,10 @@ Beaker是一个参与式浏览器。 它是供indie 黑客使用的浏览器。
 我们有 [个命令行工具，叫做bkr](https://github.com/beakerbrowser/bkr) 这种类型就像git + npm。 下面正在创建站点：
 
 ```bash
-$cd~/我的网站
-$bkr init
-$回声"你好，世界！ > 指数.html
-$bkr 发布
+$ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
+$ cd ~/my-fork
+echo "我的叉不考虑上一个索引。 tml!" > index.html
+$ bkr 发布
 ```
 
 下面是一个站点：
@@ -44,8 +44,8 @@ $bkr 发布
 ```bash
 $bkr叉 dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/~/我的叉
 $cd~/我的叉
-$回声"我的叉子没有考虑到以前的索引.html！ > 指数.html
-$bkr 发布
+$回声"我的叉子没有考虑到以前的索引.html！ tml!" > index.html
+$ bkr 发布
 ```
 
 然后这些网站从您的浏览器中托管。 这点就像BitTorren；你分享一个P2P网格中的网站。
