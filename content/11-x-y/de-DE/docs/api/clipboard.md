@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -138,7 +138,7 @@ Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys re
 
 Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
-**Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
+**Hinweis:** Die meisten Apps unter Windows unterstützen das Einfügen von Lesezeichen nicht in sie, sodass Sie `clipboard.write` verwenden können, um sowohl ein Lesezeichen als auch einen Fallbacktext in die Zwischenablage zu schreiben.
 
 ```js
 const { clipboard } = require('electron')
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimentell_
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimentell_
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
 
-### `clipboard.readBuffer(format)` _Experimentell_
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimentell_
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Puffer
