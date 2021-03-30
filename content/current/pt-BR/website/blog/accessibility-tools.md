@@ -10,7 +10,7 @@ Fazer aplicativos acessíveis é importante e ficamos felizes em apresentar nova
 
 Preocupações de acessibilidade no Electron são semelhantes às dos sites porque ambos são, no final, HTML. Com apps Electron, no entanto, você não pode usar os recursos on-line para auditorias de acessibilidade porque o seu aplicativo não tem uma URL para apontar o auditor.
 
-Esses novos recursos trazem essas ferramentas de auditoria para seu app Electron. Você pode optar por adicionar auditorias aos seus testes com Spectron ou usá-las em DevTools com Devtron. Leia para um resumo das ferramentas ou verifique nossa [documentação de acessibilidade](https://electronjs.org/docs/tutorial/accessibility/) para obter mais informações.
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Leia para um resumo das ferramentas ou verifique nossa [documentação de acessibilidade](https://electronjs.org/docs/tutorial/accessibility/) para obter mais informações.
 
 ### Spectron
 
