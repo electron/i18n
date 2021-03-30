@@ -82,7 +82,7 @@ En macOS, ahora puedes llamar a `app. howAboutPanel()` para mostrar programátic
 ```javascript
 let win = new BrowserWindow(...)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+Win. webContents. Setbackgroundestrangulamiento (Enablebackgroundestrangulamiento)
 ```
 
 Vea [la documentación de `setBackgroundThrottling`](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) para más información.
