@@ -10,7 +10,7 @@ date: '2016-08-23'
 
 Проблемы доступности в приложениях Electron похожи на веб-сайты, потому что они оба в конечном итоге HTML. Однако в приложениях Electron вы не можете использовать онлайн-ресурсы для аудита доступности, так как у вашего приложения нет URL-адреса, на который будет ссылаться аудитор.
 
-Эти новые возможности приносят эти инструменты аудита в ваше приложение Electron. Вы можете добавить аудит в тесты со Spectron или использовать их в DevTools с Devtron. Читайте краткую информацию об инструментах или посмотрите нашу [документацию по доступности](https://electronjs.org/docs/tutorial/accessibility/) для получения дополнительной информации.
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Читайте краткую информацию об инструментах или посмотрите нашу [документацию по доступности](https://electronjs.org/docs/tutorial/accessibility/) для получения дополнительной информации.
 
 ### Spectron
 
