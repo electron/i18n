@@ -8,7 +8,7 @@ Este é o primeiro post de uma série que explica os internos da Electron. Esta 
 
 ---
 
-Houve muitas tentativas de usar o Node para programação de GUI, como [][node-gui] de nó-gui para as vinculações GTK+, e [][node-qt] de node-qt para as vinculações QT. Mas nenhum deles funciona em produção porque as ferramentas da GUI têm sua própria mensagem de laços enquanto o Node usa libuv para seu próprio laço de evento, e o thread principal pode apenas executar um loop ao mesmo tempo. Assim o truque comum de executar o loop de mensagens de GUI no Node é bombar o loop de mensagem em um temporizador com um intervalo muito pequeno, que faz com que a resposta da interface GUI seja lenta e ocupe muitos recursos da CPU.
+Houve muitas tentativas de usar o Node para a programação da GUI, como [node-gui](https://github.com/zcbenz/node-gui) para ligações GTK+, e [node-qt](https://github.com/arturadib/node-qt) para ligações de TQ. Mas nenhum deles funciona em produção porque as ferramentas da GUI têm sua própria mensagem de laços enquanto o Node usa libuv para seu próprio laço de evento, e o thread principal pode apenas executar um loop ao mesmo tempo. Assim o truque comum de executar o loop de mensagens de GUI no Node é bombar o loop de mensagem em um temporizador com um intervalo muito pequeno, que faz com que a resposta da interface GUI seja lenta e ocupe muitos recursos da CPU.
 
 Durante o desenvolvimento do Electron enfrentamos o mesmo problema, embora de um jeito invertido: tivemos que integrar o loop de eventos do Node no loop de mensagens do Chromium .
 
@@ -16,7 +16,7 @@ Durante o desenvolvimento do Electron enfrentamos o mesmo problema, embora de um
 
 Antes de aprofundarmos os detalhes da integração de laços de mensagens, eu primeiro explicarei a arquitetura multi-processo do Chromium.
 
-Na Electron existem dois tipos de processos: o processo principal e o processo de renderizador (isso é realmente extremamente simplificado, para uma visão completa, consulte [Arquitetura Multiprocesso][multi-process]). O processo principal é responsável pela GUI funciona como a criação de janelas, enquanto o processo de renderização lida apenas com executando e renderizando páginas da web.
+No Electron existem dois tipos de processos: o processo principal e o processo de renderização (isso é realmente extremamente simplificado, para uma visualização completa, por favor veja [Arquitetura Multiprocesso](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). O processo principal é responsável pela GUI funciona como a criação de janelas, enquanto o processo de renderização lida apenas com executando e renderizando páginas da web.
 
 O Electron permite o uso de JavaScript para controlar tanto o processo principal quanto o processo de renderização , o que significa que temos que integrar o Node em ambos os processos.
 
@@ -42,15 +42,6 @@ Dessa forma, eu evitei remendar o Chromium e o Node, e o mesmo código foi usado
 
 ## O código
 
-Você pode encontrar a implementação da integração do loop de mensagem nos arquivos `node_bindings` sob [`electron/atom/common/`][node-bindings]. Ele pode ser facilmente reutilizado para projetos que querem integrar o Node.
+Você pode encontrar a implementação da integração do loop de mensagem no `node_bindings` arquivos sob [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Ele pode ser facilmente reutilizado para projetos que querem integrar o Node.
 
-*Atualização: Implementação movida para [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
-
-[node-gui]: https://github.com/zcbenz/node-gui
-
-[node-gui]: https://github.com/zcbenz/node-gui
-[node-qt]: https://github.com/arturadib/node-qt
-[node-qt]: https://github.com/arturadib/node-qt
-[multi-process]: http://dev.chromium.org/developers/design-documents/multi-process-architecture
-[node-bindings]: https://github.com/electron/electron/tree/master/atom/common
-[node-bindings-updated]: https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
