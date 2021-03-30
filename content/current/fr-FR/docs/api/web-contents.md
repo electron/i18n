@@ -1,10 +1,10 @@
 # webContents
 
-> Fait le rendu et contrôle des pages web.
+> Gère les pages web et leur rendu.
 
 Processus : [Main](../glossary.md#main-process)
 
-`webContents` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
+`webContents` est un [EventEmitter][event-emitter]. Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Exemple d'accès à l'objet `webContents` :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -27,11 +27,11 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Retourne `WebContents[]` - Un tableau de toutes les instances de `WebContents`. Celui-ci contiendra le contenu web de toutes les fenêtres, webviews, devtools ouverts et pages devtools d'extention en arrière-plan.
+Retourne `WebContents[]` - Un tableau de toutes les instances de `WebContents`. Celui-ci contiendra le contenu web de toutes les fenêtres, webviews, devtools ouvertes et pages d'extention d'arrière-plan des devtools .
 
 ### `webContents.getFocusedWebContents()`
 
-Retourne `WebContents` - Le contenu web qui est au premier-plan dans cette application, autrement cela retourne `null`.
+Retourne `WebContents` - Le contenu web qui a le focus dans cette application, sinon retourne `null`.
 
 ### `webContents.fromId(id)`
 
@@ -49,7 +49,7 @@ Processus : [Main](../glossary.md#main-process)
 
 #### Événement : 'did-finish-load'
 
-Émis lorsque la navigation est fini, par exemple le loader de l'onglet a cessé de tourner, et l'événement `onload` a été émis.
+Émis lorsque la navigation a abouti, c'est à dire que le loader de l'onglet a cessé de tourner, et l'événement `onload` a été émis.
 
 #### Événement : 'did-fail-load'
 
@@ -77,13 +77,13 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Cet événement est comme `did-fail-load` mais émis lorsque la charge a été annulée (par exemple `window.stop()` a été appelé).
+Cet événement est comme `did-fail-load` mais émis lorsque la chargement a été annulé (par exemple lorsque `window.stop()` a été invoqué).
 
 #### Événement : 'did-frame-finish-load'
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -135,7 +135,7 @@ Retourne :
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` BrowserWindowConstructorOptions - Les options qui seront utilisées pour créer le nouveau [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
+* `referrer` [Referrer](structures/referrer.md) - Le référant transmis à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
 * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
 Obsolète, utiliser [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) à la place.
@@ -377,14 +377,14 @@ Retourne :
 * `event` Événement
 * `input` Object - Input properties.
   * `type` String - `keyUp` ou `keyDown`.
-  * `key` String - Équivalent à [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Équivalent à [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Équivalent à [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Équivalent à [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Équivalent à [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Équivalent à [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Équivalent à [KeyboardEvent.metakey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `key` String - Équivalent à [KeyboardEvent.key][keyboardevent].
+  * `code` String - Équivalent à [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Équivalent à [KeyboardEvent.repeat][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Boolean - Équivalent à [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Équivalent à [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Équivalent à [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Équivalent à [KeyboardEvent.metakey][keyboardevent].
 
 Émis avant d'envoyer les événements `keydown` et `keyup` dans la page. Appeler `event.preventDefault` empêchera les événements `keydown`/`keyup` et les raccourcis du menu dans la page.
 
@@ -520,7 +520,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
@@ -699,7 +699,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `channel` String
 * `...args` any[]
 
@@ -1073,8 +1073,9 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
 > **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.undo()`
 
@@ -1468,7 +1469,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1509,7 +1510,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1766,3 +1767,22 @@ A `Boolean` property that determines whether or not this WebContents will thrott
 #### `contents.mainFrame` _Readonly_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
