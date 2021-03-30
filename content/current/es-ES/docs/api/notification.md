@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ## Utilizando el proceso de renderizado
 
@@ -12,9 +12,9 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-`Notification` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` es un [EventEmitter][event-emitter].
 
 Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 
@@ -69,7 +69,7 @@ Se emite cuando el usuario hace clic en la notificación.
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
@@ -79,7 +79,7 @@ No se garantiza que este evento se emita en todos los casos donde se cierre la n
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
@@ -178,3 +178,5 @@ En macOS, se puede especificar el nombre del sonido que se desee reproducir cuan
 * `/System/Library/Sounds`
 
 Ver la documentación [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para más información.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
