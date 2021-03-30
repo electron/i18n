@@ -32,7 +32,7 @@ Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom Level.
+* `level` Number - Zoom level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -51,8 +51,9 @@ Setzt das Maximum und Minimum pinch-to-zoom Level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -77,7 +78,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+An example of using [node-spellchecker][spellchecker] as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -115,7 +116,7 @@ Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Zeichenkette
+* `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
@@ -251,3 +252,5 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker
