@@ -24,18 +24,18 @@ Only the stable channel of Chrome is used. إذا كان إصلاح مهم في 
 
 ## どうやってウェブページ間でデータを共有するのでしょうか?
 
-ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 良い候補として、[Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage)、[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)、[`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)、[IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) があります。
+ウェブページ (レンダラープロセス) 間でデータを共有する最も単純な方法は、ブラウザで既に提供されている HTML5 API を使用することです。 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], [IndexedDB][indexed-db] といった良い選択肢があります。
 
-Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. ウェブページ間で直接通信するには、[`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer) でメインプロセスを経由して一方から他方に [`MessagePort`][message-port] を送ることによってできます。 Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## 数分経つとアプリの tray が消失します。
 
 これは、tray を格納している変数がガベージコレクトされると発生します。
 
-以下のドキュメントが参考になるはずです。
+この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
 
-* [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [メモリ管理][memory-management]
+* [変数スコープ][variable-scope]
 
 もし簡単に修正したい場合は、コードを以下のように修正して変数をグローバルにすると良いでしょう。以下の部分を
 
@@ -58,7 +58,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
+## jQuery/RequireJS/Meteor/AngularJS が Electron で使えません。
 
 Electron の Node.js 組み込みの影響で、`module`、`exports`、`require` のような余分なシンボルが DOM に追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
@@ -104,11 +104,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 [サブピクセルアンチエイリアス](https://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
-![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
+![サブピクセル レンダリングの例][]
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-目的を達成するには、[BrowserWindow](api/browser-window.md) のコンストラクタで背景を設定します。
+この目的を達成するには、 [BrowserWindow][browser-window] のコンストラクタで背景を設定してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -120,3 +120,13 @@ const win = new BrowserWindow({
 この効果は (一部の?) 液晶画面でしか見られません。 違いが見えなくても、ユーザーの中には違って見える人がいるかもしれません。 こうしてはいけない理由がなければ、背景は基本的にこのように設定するのが良いでしょう。
 
 CSS で背景を設定するだけでは期待する効果はないことに注意してください。
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+[message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[browser-window]: api/browser-window.md
+[サブピクセル レンダリングの例]: images/subpixel-rendering-screenshot.gif
