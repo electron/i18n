@@ -16,7 +16,7 @@ Beaker是一个参与式浏览器。 它是供indie 黑客使用的浏览器。
 
 网络是封闭源. 如果你想要影响社交媒体的工作方式，你必须在 Facebook 或 Twitter 上工作。 搜索，Google。 控制权掌握在公司而不是用户自己手中。
 
-通过Beaker，我们有一个新的 Web 协议： [分散存档传输](https://datprotocol.com)。 "数据." 它可以免费创建站点，然后从设备中共享。 无需服务器。 这是我们的创新。
+通过Beaker，我们有一个新的 Web 协议： [分散存档传输](https://datprotocol.com)。 "Dat." It creates sites on demand, for free, and then shares them from the device. 无需服务器。 这是我们的创新。
 
 ![贝克尔人协议](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
@@ -33,10 +33,10 @@ Beaker是一个参与式浏览器。 它是供indie 黑客使用的浏览器。
 我们有 [个命令行工具，叫做bkr](https://github.com/beakerbrowser/bkr) 这种类型就像git + npm。 下面正在创建站点：
 
 ```bash
-$cd ~/my-site
-$bkr init
-$echo "Hello, world!" > index.html
-$bkr 发布
+$ cd ~/my-site
+$ bkr init
+$ echo "Hello, world!" > index.html
+$ bkr publish
 ```
 
 下面是一个站点：
@@ -44,8 +44,8 @@ $bkr 发布
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-echo "我的叉不考虑上一个索引。 tml!" > index.html
-$ bkr 发布
+$ echo "My fork has no regard for the previous index.html!" > index.html
+$ bkr publish
 ```
 
 然后这些网站从您的浏览器中托管。 这点就像BitTorren；你分享一个P2P网格中的网站。
