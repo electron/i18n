@@ -13,25 +13,27 @@
 举一个`Quick Start`的例子:
 
 ```markdown
-# 快速入门
+# 快速启动
 
 ...
 
-## 主进程
+## 主要进程
+
+...
 
 ## 渲染进程
 
 ...
 
-## 运行应用程序
+## 运行您的应用程序
 
 ...
 
-### 作为分发版本运行
+### 以发行版
 
-...
+ 运行...
 
-### 手动下载二进制格式的 Electron
+### 手动下载 Electron 二进制文件
 
 ...
 ```
@@ -93,10 +95,10 @@
 * 构造函数必须用 `###` 级标题列出.
 * [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
 * [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
-* 所有具有返回值的方法都必须以“Returns `[TYPE]` - Return description”开始
+* 所有具有返回值的方法必须以“返回 `[TYPE]` - 返回描述”
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须在 `### Instance Properties` 章节中列出。
+* 实例属性必须列在 `### 实例属性` 章节下。
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
