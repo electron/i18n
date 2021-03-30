@@ -4,7 +4,7 @@ author: 菲克斯里塞堡
 date: '2019-03-04'
 ---
 
-The Electron team will discontinue support for 32-bit Linux (ia32 / i386) starting with Electron v4.0. The last version of Electron that supports 32-bit based installations of Linux is Electron v3.1, which will receive support releases until Electron v6 is released. 基于64 位的Linux和 `armv7l` 的支持将继续保持不变。
+电子团队将从电子 v4.0 开始停止对 32 位 Linux （ia32 / i386） 的支持。 支持 Linux 32 位安装的电子的最后一个版本是电子 v3.1，它将接收支持版本，直到电子 v6 发布。 基于64 位的Linux和 `armv7l` 的支持将继续保持不变。
 
 ---
 
