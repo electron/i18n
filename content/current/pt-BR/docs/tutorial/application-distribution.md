@@ -46,7 +46,7 @@ Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on 
 
 ### With an app source code archive
 
-Instead of from shipping your app by copying all of its source files, you can package your app into an [asar](https://github.com/electron/asar) archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
+Instead of from shipping your app by copying all of its source files, you can package your app into an [asar][] archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
 
 Para usar um arquivo `asar` para substituir a pasta `app`, você precisa renomear o arquivo para `app.asar` e colocá-lo dentro da pasta de recursos do Electron como mostrado abaixo, e o Electron irá então ler o arquivo e executar seu app.
 
@@ -64,7 +64,7 @@ electron/resources/
 └── app.asar
 ```
 
-You can find more details on how to use `asar` in the [`electron/asar` repository](https://github.com/electron/asar).
+You can find more details on how to use `asar` in the [`electron/asar` repository][asar].
 
 ### Rebranding with downloaded binaries
 
@@ -104,3 +104,7 @@ Você pode renomear o executável `electron` para qualquer nome que você quiser
 ### Rebranding by rebuilding Electron from source
 
 Também é possível remarcar o Electron mudando o nome do produto e construindo a partir fonte. Para fazer isso, você precisa definir o argumento de compilação correspondente ao nome do produto (`electron_product_name = "NomeDoDoProduto"`) nos `argumentos. n` arquivo e reconstruir.
+
+[asar]: https://github.com/electron/asar
+
+[asar]: https://github.com/electron/asar
