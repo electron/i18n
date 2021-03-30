@@ -60,8 +60,7 @@ const spin = new TouchBarButton({
         finishSpin()
       } else {
         // Ralentit un peu à chaque spin
-        timeout *= 1.
-        setTimeout(spinReels, timeout)
+        timeout *= 1. setTimeout(spinReels, timeout)
       }
     }
 
@@ -85,15 +84,11 @@ const finishSpin = () => {
   if (uniqueValues === 1) {
     // Toutes les 3 valeurs sont le même
     résultat. abel = '💰 Jackpot!'
-    résultat. extColor = '#FDFF00'
-  } sinon si (uniqueValues === 2) {
-    // 2 valeurs sont les mêmes
-    résultats. abel = '😍 Gagnant !'
-    résultat. extColor = '#FDFF00'
-  } else {
-    // Aucune valeur n'est la même
-    résultat. abel = ':légèrement_frowning_face: Faire tourner'
-    résultat. extColor = null
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    extColor = null
   }
   spinning = false
 }

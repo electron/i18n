@@ -1,8 +1,8 @@
 # Guide Windows Store
 
-Avec Windows 10, le bon vieux executable win32 a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
+Avec Windows 10, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
 
-Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`](https://github.com/catalystcode/electron-windows-store), permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
+Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`][electron-windows-store], permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
 
 ## Contexte et exigences
 
@@ -13,7 +13,7 @@ En addition, le exe est lancé à l'intérieur du modèle appx - ce qui signifie
 Pour compiler n’importe quelle app Electron existante, assurez-vous que vous avez les exigences suivantes :
 
 * Windows 10 avec Anniversary Update (sorti le 2 Août 2016)
-* Le SDK Windows 10, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Le SDK Windows 10, [downloadable here][windows-sdk]
 * Au minimum Node 4 (pour vérifier, exécutez `node -v`)
 
 Ensuite, installez `electron-windows-store` CLI:
@@ -24,27 +24,27 @@ npm install -g electron-windows-store
 
 ## Étape 1 : Empaqueter votre Application Electron
 
-Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron/electron-packager) (ou un outil similaire). Assurez vous de supprimer `node_modules` que vous n'avez pas besoin dans votre application finale, puisque n'importe quel module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
+Empaquetez l’application à l’aide de [electron-packager][electron-packager] (ou un outil similaire). Assurez vous de supprimer `node_modules` que vous n'avez pas besoin dans votre application finale, puisque n'importe quel module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
 
 La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
-── Ghost.exe
-── LICENSE
-── content_resources_200_percent.pak
-── content_shell.pak
-── d3dcompiler_47. l
-── ffmpeg.dll
-── icudtl.dat
-── libEGL.dll
-── libGLESv2.dll
-<unk> ── locales
-<unk> ── am. ak
-── ar.pak
-décesseur [...]
-── noeud. l
-── ressources
-Ω<unk> ─ app. sar
+├── Ghost.exe
+├── LICENSE
+├── content_resources_200_percent.pak
+├── content_shell.pak
+├── d3dcompiler_47.dll
+├── ffmpeg.dll
+├── icudtl.dat
+├── libEGL.dll
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
+── node.dll
+── resources
+文<unk> ─ app.asar
 ── v8_context_snapshot.bin
 ── squirrel.exe
 <unk> ─ ui_resources_200_percent.pak
@@ -68,9 +68,9 @@ Une fois les fichiers AppX élargis sont créés, l’outil utilise le Windows A
 
 ## Étape 3 : Utiliser le Package AppX
 
-Afin d’exécuter votre paquet, vos utilisateurs auront besoin de Windows 10 "Anniversaire Update" - plus de détails sur comment mettre à jour Windows peuvent être trouvés [ici](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Afin d’exécuter votre paquet, vos utilisateurs auront besoin de Windows 10 "Anniversaire Update" - plus de détails sur comment mettre à jour Windows peuvent être trouvés [ici][how-to-update].
 
-En opposition aux traditionelles apps UWP, actuellement les apps empaquetées doivent subir un processus de vérification manuelle, pour lequel vous pouvez appliquer [ici](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). En attendant, tous les utilisateurs seront en mesure d’installer votre paquet en double-cliquant dessus, donc une soumission au store ne sera ne peut-être pas nécessaire si vous cherchez simplement une méthode d’installation plus facile. Dans des environnements gérés (généralement des entreprises), l'`Add-AppxPackage` [applet de commande PowerShell permet de l'installer de façon automatisée](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+En opposition aux traditionelles apps UWP, actuellement les apps empaquetées doivent subir un processus de vérification manuelle, pour lequel vous pouvez appliquer [ici][centennial-campaigns]. En attendant, tous les utilisateurs seront en mesure d’installer votre paquet en double-cliquant dessus, donc une soumission au store ne sera ne peut-être pas nécessaire si vous cherchez simplement une méthode d’installation plus facile. Dans des environnements gérés (généralement des entreprises), l'`Add-AppxPackage` [applet de commande PowerShell permet de l'installer de façon automatisée][add-appxpackage].
 
 Une autre limitation importante est que le paquet AppX compilé contient un fichier exécutable win32 - toujours et qu’il ne fonctionnera donc pas sur Xbox, HoloLens ou téléphones.
 
@@ -78,16 +78,25 @@ Une autre limitation importante est que le paquet AppX compilé contient un fich
 
 Vous pouvez coupler votre app Electron avec une tâche en arrière-plan UWP invisible qui vous permet de tirer pleinement parti des fonctionnalités de Windows 10 - comme notifications push, ou les tuiles vivantes.
 
-Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer des notifications toast et tuiles vivantes, [consultez l'exemple fourni par Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
+Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer des notifications toast et tuiles vivantes, [consultez l'exemple fourni par Microsoft][background-task].
 
 ## Optionnel: Conversion en utilisant la virtualisation de conteneur
 
 Pour générer le package AppX, l'`electron-windows-store` CLI utilise un modèle qui devrait fonctionner pour la plupart des applications Electron. Toutefois, si vous utilisez un programme d’installation personnalisé, ou si vous rencontrez des problèmes avec le paquet généré, vous pouvez essayer de créer un package à l’aide de compilation avec un conteneur Windows - dans ce mode, le CLI va installer et exécuter votre application dans un conteneur vide de Windows pour déterminer quelles modifications votre application fait au système d’exploitation.
 
-Avant d'exécuter le CLI pour la première fois, vous devrez configurer le "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Téléchargez le Desktop App Converter [ici](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Vous recevrez deux fichiers: `DesktopAppConverter.zip` et `BaseImage-14316.wim`.
+Avant d'exécuter le CLI pour la première fois, vous devrez configurer le "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Téléchargez le Desktop App Converter [ici][app-converter]. Vous recevrez deux fichiers: `DesktopAppConverter.zip` et `BaseImage-14316.wim`.
 
 1. Décompressez `DesktopAppConverter.zip`. Depuis un PowerShell élevé (ouvert avec "exécuter en tant qu'administrateur"), faire en sorte que votre stratégie d'exécution de systèmes nous permet d'exécuter tout que nous avons besoin d'exécuter en appelant `Set-ExecutionPolicy bypass`.
 2. Ensuite, exécutez l'installation du Desktop App Converter, en lui passant l'emplacement du Windows base Image (téléchargé comme `BaseImage-14316.wim`), en exécutant la commande `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. Si la commande ci-dessus vous demande un redémarrage, veuillez redémarrer votre machine et exécuter la commande ci-dessus une nouvelle fois après le redémarrage réussi.
 
 Une fois l’installation réussie, vous pouvez passer à la compilation de votre app Electron.
+
+[windows-sdk]: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+[app-converter]: https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter
+[add-appxpackage]: https://technet.microsoft.com/en-us/library/hh856048.aspx
+[electron-packager]: https://github.com/electron/electron-packager
+[electron-windows-store]: https://github.com/catalystcode/electron-windows-store
+[background-task]: https://github.com/felixrieseberg/electron-uwp-background
+[centennial-campaigns]: https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge
+[how-to-update]: https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update

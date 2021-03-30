@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> [`navigator.mediaDevices.getUserMedia`] APIを使用して、デスクトップからオーディオとビデオをキャプチャするのに使用できるメディアソースに関する情報にアクセスします。
+> [`navigator.mediaDevices.getUserMedia`][] APIを使用して、デスクトップからの音声と映像のキャプチャに利用できるメディアソース関連の情報にアクセスします。
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-`desktopCapturer` によって提供されるソースからビデオをキャプチャするには、[`navigator.mediaDevices.getUserMedia`] に渡される制約に、`chromeMediaSource: 'desktop'` と `audio: false` を含めなければなりません。
+`desktopCapturer` が提供するソースから映像をキャプチャするには、[`navigator.mediaDevices.getUserMedia`][] に渡す制約に、`chromeMediaSource: 'desktop'` と `audio: false` を含める必要があります。
 
-デスクトップ全体からオーディオとビデオの両方をキャプチャするには、[`navigator.mediaDevices.getUserMedia`] に渡される制約に、`audio` と `video` の両方に対して `chromeMediaSource: 'desktop'` を含めなければなりませんが、`chromeMediaSourceId` の制約を含める必要はありません。
+デスクトップ全体から音声と映像の両方をキャプチャするには、[`navigator.mediaDevices.getUserMedia`][] に渡す制約に、`audio` と `video` の両方に対して `chromeMediaSource: 'desktop'` を含める必要がありますが、`chromeMediaSourceId` 制約は不要です。
 
 ```javascript
 const constraints = {
@@ -79,10 +79,13 @@ const constraints = {
 
 戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
-**注釈** 画面コンテンツをキャプチャするには、macOS 10.15 Catalina 以降でのユーザーの同意が必要です。同意しているかどうかは [`systemPreferences.getMediaAccessStatus`] で検知できます。
+**注釈** 画面コンテンツをキャプチャするには、macOS 10.15 Catalina 以降でのユーザーの同意が必要です。同意しているかどうかは [`systemPreferences.getMediaAccessStatus`][]で検知できます。
 
 ## Caveats
 
 `navigator.mediaDevices.getUserMedia` はシステムのオーディオにアクセスしたいアプリが[署名付きカーネル拡張](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html)を必要とするという基本的な制限のため、macOS ではオーディオキャプチャが動作しません。 Chrome、ひいては Electron はこれを提供していません。
 
 Soundflower のような他の macOS アプリでシステムオーディオをキャプチャし、それを仮想オーディオ入力デバイスに渡すことでこの制限を回避することが可能です。 この仮想デバイスは、 `navigator.mediaDevices.getUserMedia`.を使用して照会できます。
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
+[`systemPreferences.getMediaAccessStatus`]: system-preferences.md#systempreferencesgetmediaaccessstatusmediatype-windows-macos

@@ -82,6 +82,38 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
+#### イベント: 'extension-loaded'
+
+戻り値:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+拡張機能が読み込まれた後に発生します。 これは、拡張機能が "有効な" 拡張機能のセットに追加されるたびに発生します。 これは以下のものが含まれます。
+
+- `Session.loadExtension` から拡張機能が読み込まれるとき。
+- 拡張機能が再読み込みされるとき。
+  * クラッシュによって。
+  * 拡張機能が要求したことで ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload))。
+
+#### イベント: 'extension-unloaded'
+
+戻り値:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+拡張機能が取り除かれた後に発生します。 これは `Session.removeExtension` が呼ばれたときに発生します。
+
+#### イベント: 'extension-ready'
+
+戻り値:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+拡張機能が読み込まれ、必要なブラウザの状態がすべて初期化され、拡張機能のバックグラウンドページの開始をサポートするようになった後に発生します。
+
 #### イベント: 'preconnect'
 
 戻り値:
@@ -128,6 +160,68 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
+#### イベント: 'select-serial-port' _実験的_
+
+戻り値:
+
+* `event` Event
+* `portList` [SerialPort[]](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+* `callback` Function
+  * `portId` String
+
+`navigator.serial.requestPort` の呼び出し時にシリアルポートを選択する必要がある場合に発生します。 `callback` は選んだ `portId` で呼び出されなければなりません。空の文字列を `callback` に渡すとリクエストがキャンセルされます。  さらに、[ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) を `serial` パーミッションで使用することで `navigator.serial` のパーミッションを管理できます。
+
+これは実験的な機能であるため、デフォルトでは無効になっています。  この機能を有効にするには、`--enable-features=ElectronSerialChooser` コマンドラインスイッチを使用する必要があります。  加えて、これは実験的な Chromium の機能なので、BrowserWindow を開くとき`webPreferences` プロパティに `enableBlinkFeatures: 'Serial'` を設定する必要があります。
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
+
+app.whenReady().then(() => {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      enableBlinkFeatures: 'Serial'
+    }
+  })
+  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
+    event.preventDefault()
+    const selectedPort = portList.find((device) => {
+      return device.vendorId === 0x2341 && device.productId === 0x0043
+    })
+    if (!selectedPort) {
+      callback('')
+    } else {
+      callback(result1.portId)
+    }
+  })
+})
+```
+
+#### イベント: 'serial-port-added' _Experimental_
+
+戻り値:
+
+* `event` Event
+* `port` [SerialPort](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+
+`navigator.serial.requestPort` が呼び出され新しいシリアルポートが利用可能になった場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは新しい USB デバイスが接続されたときに発生します。
+
+#### イベント: 'serial-port-removed' _実験的_
+
+戻り値:
+
+* `event` Event
+* `port` [SerialPort](structures/serial-port.md)
+* `webContents` [WebContents](web-contents.md)
+
+`navigator.serial.requestPort` が呼び出されシリアルポートが削除された場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは USB デバイスが取り除かれたときに発生します。
+
 ### インスタンスメソッド
 
 `Session` のインスタンスでは、以下のメソッドが利用できます。
@@ -158,6 +252,12 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 #### `ses.setProxy(config)`
 
 * `config` Object
+  * `mode` String (任意) - そのプロキシのモードです。 `direct`、`auto_detect`、`pac_script`、`fixed_servers`、`system` のうちの一つであるべきです。 指定しない場合は、他の指定オプションに基づいて自動決定されます。
+    * `direct` direct モードでは、すべての接続はプロキシを介さずに直接作成されます。
+    * `auto_detect` auto_detect モードでは、プロキシの設定は http://wpad/wpad.dat でダウンロードできる PAC スクリプトによって決定されます。
+    * `pac_script` pac_script モードでは、プロキシの設定は `pacScript` で指定された URL から取得される PAC スクリプトによって決定されます。 これは `pacScript` が指定されている場合のデフォルトモードです。
+    * `fixed_servers` fixed_servers モードでは、プロキシの設定を `proxyRules` で指定します。 これは `proxyRules` が指定されている場合のデフォルトモードです。
+    * `system` system モードでは、プロキシ構成をオペレーティングシステムから取得します。 system モードはプロキシ構成を設定しない場合とは異なりますのでご注意ください。 後者の場合、プロキシ設定に影響を与えるコマンドラインオプションがない場合にのみ、 Electron はシステム設定にフォールバックします。
   * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
   * `proxyRules` String (任意) - 使用するプロキシを示すルール。
   * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
@@ -166,7 +266,9 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 
 プロキシ設定を設定します。
 
-`pacScript` と `proxyRules` が一緒に提供されると、`proxyRules` オプションは無視され、`pacScript` コンフィグが適用されます。
+`mode` を指定せずに `pacScript` と`proxyRules` をどちらも一緒に指定した場合、`proxyRules` は オプションは無視され `pacScript` の設定が適用されます。
+
+以前のプロキシでプールされたソケットが将来のリクエストで再利用されるのを防ぐには、現在フライト中の接続を閉じるために `ses.closeAllConnections` が必要でしょう。
 
 `proxyRules` は以下のルールに従う必要があります。
 
@@ -196,7 +298,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
- * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+* `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
    特定のドメインサフィックスのマッチ。
 
@@ -223,6 +325,10 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `url` URL
 
 戻り値 `Promise<String>` - `url` のプロキシ情報で実行されます。
+
+#### `ses.forceReloadProxyConfig()`
+
+戻り値 `Promise<void>` - プロキシサービスのすべての内部状態がリセットされたときに解決します。すでに利用可能な場合は最新のプロキシ設定が再適用されます。 プロキシモードが `pac_script` の場合、再び `pacScript` から PAC スクリプトが取得されます。
 
 #### `ses.setDownloadPath(path)`
 
@@ -260,6 +366,12 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 指定された数のソケットをオリジンに事前接続します。
 
+#### `ses.closeAllConnections()`
+
+戻り値 `Promise<void>` - すべての接続が閉じられた時に解決されます。
+
+**注:** 現在フライト中のすべてのリクエストが終了/失敗します。
+
 #### `ses.disableNetworkEmulation()`
 
 `session` に対して既にアクティブなネットワークエミュレーションを無効にします。 元のネットワーク構成にリセットします。
@@ -274,7 +386,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
   * `callback` Function
-    * `verificationResult` Integer - [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の証明書エラーコードのうち一つの値を取ります。 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
       * `0` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
@@ -297,13 +409,16 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
+> **注意:** このプロシージャの結果は、ネットワークサービスによってキャッシュされます。
+
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null
   * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 要求されたパーミッションのタイプ。
-    * `clipboard-read` - Request access to read from the clipboard.
+    * `clipboard-read` - クリップボードからの読み取りアクセスを要求する。
     * `media` - カメラ、マイク、スピーカーなどのメディアデバイスへのアクセスを要求する。
+    * `display-capture` - 画面キャプチャへのアクセスをリクエストします。
     * `mediaKeySystem` - DRM で保護されたコンテンツへのアクセスを要求します。
     * `geolocation` - ユーザーの現在地へのアクセスを要求する。
     * `notifications` - 通知の作成とユーザーのシステムトレイに表示する機能を要求します。
@@ -337,7 +452,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `handler` Function\<Boolean> | null
   * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
-  * `permission` String - 'media' の列挙。
+  * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
     * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
@@ -399,6 +514,15 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String` - このセッションのユーザエージェント。
 
+#### `ses.setSSLConfig(config)`
+
+* `config` Object
+  * `minVersion` String (任意) - `tls1`、`tls1.1`、`tls1.2`、`tls1.3` のいずれかにできます。 これはリモートサーバーに接続する際に許可する最小の SSL バージョンです。 省略値は `tls1` です。
+  * `maxVersion` String (任意) - `tls1.2` か `tls1.3` にできます。 これはリモートサーバーに接続する際に許可する最大の SSL バージョンです。 省略値は `tls1.3` です。
+  * `disabledCipherSuites` Integer[] (任意) - ネット組み込みポリシーで無効化されたものに加えて、使用を禁止すべき暗号スートを明示したリスト。 0xAABB のようなリテラルの形式をサポートしています。ここで AA は `cipher_suite[0]` であり、BB は `cipher_suite[1]` です。これは RFC 2246 のセクション 7.4.1.2 で定義されています。 識別不可かつパース可能な暗号スートの形式であっても、エラーは返しません。 例: TLS_RSA_WITH_RC4_128_MD5 を無効にするには、0x0004 を指定し、TLS_ECDSA_WITH_RC4_128_SHA を無効にするには 0xC002 を指定します。 注意として、TLSv1.3 の暗号化方式はこの仕組みで無効にできません。
+
+セッションの SSL 構成を設定します。 それ以降のネットワークリクエストではすべて新しい構成を使用します。 既存のネットワーク接続 (WebSocket 接続など) は終了しませんが、プール内の古いソケットは新しい接続に再利用されません。
+
 #### `ses.getBlobData(identifier)`
 
 * `identifier` String - 有効な UUID。
@@ -441,13 +565,23 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
+#### `ses.setSpellCheckerEnabled(enable)`
+
+* `enable` Boolean
+
+組み込みスペルチェッカーを有効にするかどうかを設定します。
+
+#### `ses.isSpellCheckerEnabled()`
+
+戻り値 `Boolean` - 組み込みスペルチェッカーが有効化されているかどうか。
+
 #### `ses.setSpellCheckerLanguages(languages)`
 
 * `languages` String[] - スペルチェッカーを有効にする言語コードの配列。
 
 組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
+**注:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
@@ -463,7 +597,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
+**注:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
@@ -548,7 +682,11 @@ app.on('ready', async () => {
 
 #### `ses.availableSpellCheckerLanguages` _読み出し専用_
 
-この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanguages` API に提供すると、エラーが発生します。
+
+#### `ses.spellCheckerEnabled`
+
+`Boolean` 型で、組み込みスペルチェッカーが有効かどうかを示します。
 
 #### `ses.cookies` _読み出し専用_
 
@@ -572,12 +710,12 @@ const path = require('path')
 
 app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', (request, callback) => {
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
-  })
+  })) {
+    console.error('Failed to register protocol')
+  }
 })
 ```
 

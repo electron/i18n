@@ -18,7 +18,7 @@ Sehen Sie sich die [Fortschrittsbalkendokumentation](progress-bar.md) an.
 
 ## Einheitswerfer
 
-Siehe die [Unity Launcher Dokumentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+See the [Unity Launcher documentation][unity-launcher].
 
 ## Repräsentierte Datei für MacOS Fenster
 
@@ -27,3 +27,5 @@ Sehen Sie sich die [Repräsentierte Dateidokumentation](represented-file.md) an.
 ## Dateien aus dem Fenster ziehen
 
 Siehe [Native File Drag & Drop Dokumentation](native-file-drag-drop.md).
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

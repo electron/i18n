@@ -1,6 +1,6 @@
 # Windows 10 sur Arm
 
-Si votre application fonctionne avec Electron 6.0.8 ou supérieur, vous pouvez maintenant la compiler pour Windows 10 sur Arm. Cela améliore considérablement les performances, mais nécessite une recompilation de tous les modules natifs utilisés dans votre application. Il peut également nécessiter de petites corrections pour vos scripts de compilation et d'empaquetage.
+Si votre application fonctionne avec Electron 6.0.8 ou supérieur, vous pouvez maintenant la compiler pour Windows 10 sur Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 
 ## Exécution d'une application basique
 
@@ -14,7 +14,7 @@ Si votre application n'utilise aucun module natif, alors il est vraiment facile 
 
 ### Code spécifique à l'architecture
 
-Beaucoup de code spécifique à Windows contient si... sinon logique qui sélectionne entre les architectures x64 ou x86.
+Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
 
 ```js
 if (process.arch === 'x64') {
@@ -75,7 +75,7 @@ Si vous voulez développer votre application directement sur un périphérique A
 
 ### Liaison avec le `node.lib correct`
 
-Par défaut, `node-gyp` décompile les entêtes de noeuds d'Electron et télécharge les versions x86 et x64 de `noeud. ib` dans `%APPDATA%\. \Local\node-gyp\Cache`, mais il ne télécharge pas la version arm64 ([un correctif est en cours de développement](https://github.com/nodejs/node-gyp/pull/1875). Pour corriger ceci:
+By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) Pour corriger ceci:
 
 1. Téléchargez l’arm64 `node.lib` depuis https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
 2. Déplacez-la vers `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`

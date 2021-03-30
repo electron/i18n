@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,9 +12,9 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` is an [EventEmitter][event-emitter].
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -29,9 +29,9 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 ### `new Notification([options])`
 
 * `options` Object (optional)
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
@@ -41,8 +41,9 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
-### Instanz-Ereignisse
+### Instanz Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -52,28 +53,23 @@ Objects created with `new Notification` emit the following events:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is shown to the user, note this could be fired
-multiple times as a notification can be shown multiple times through the
-<code>show()` method.</p>
+Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Ereignis: 'click'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is clicked by the user.</p>
+Emitted when the notification is clicked by the user.
 
-<h4 spaces-before="0">Event: 'close'</h4>
+#### Event: 'close'
 
-<p spaces-before="0">Rückgabewert:</p>
+Rückgabewert:
 
-<ul>
-<li><code>event` Event
+* `event` Event
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -83,8 +79,8 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>reply` String - The string the user entered into the inline reply field.
+* `event` Event
+* `reply` String - The string the user entered into the inline reply field.
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
@@ -92,10 +88,19 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>index` Number - The index of the action that was activated.
+* `event` Event
+* `index` Number - The index of the action that was activated.
 
-### Beispiel Methoden
+#### Event: 'failed' _Windows_
+
+Rückgabewert:
+
+* `event` Event
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
+
+### Instanz Methoden
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -159,6 +164,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
+
 ### Playing Sounds
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
@@ -169,3 +178,5 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/System/Library/Sounds`
 
 See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

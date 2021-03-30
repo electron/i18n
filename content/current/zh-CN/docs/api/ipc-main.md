@@ -4,11 +4,11 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`ipcMain` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。
+`ipcRenderer` 是一个 [EventEmitter][event-emitter] 的实例。 当在主进程中使用时，它处理从渲染器进程（网页）发送出来的异步和同步信息。 从渲染器进程发送的消息将被发送到该模块。
 
 ## 发送消息
 
-也可以从主进程向渲染进程发送消息，查阅[ebContents.send](web-contents.md#contentssendchannel-args)获取更多信息。
+也可以从主进程向渲染进程发送消息，查阅[ebContents.send][web-contents-send]获取更多信息。
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
@@ -126,3 +126,6 @@ The documentation for the `event` object passed to the `callback` can be found i
 ## IpcMainInvokeEvent object
 
 The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[web-contents-send]: web-contents.md#contentssendchannel-args

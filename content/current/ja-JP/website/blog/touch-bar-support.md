@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-Electron の [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) ベータリリースは macOS の [Touch Bar](https://developer.apple.com/macos/touch-bar) に対する初期サポートを含みます。
+Electron の [1.6.3][] ベータリリースは macOS の [Touch Bar][] に対する初期サポートを含みます。
 
 ---
 
@@ -88,41 +88,14 @@ const finishSpin = () => {
     result.label = '💰 ジャックポット!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
+    // 2 つの値が同じ場合
+    result.label = '😍 やったね!'
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
     // 2 つの値が同じ
     result.label = '😍 勝利!'
-    result.textColor = '#FDFF00'
-  } else {
-    // すべて違う値
-    result.label = '🙁 もう一回'
-    result.textColor = null
-  }
-  spinning = false
-}
-
-const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({size: 'large'}),
-  reel1,
-  new TouchBarSpacer({size: 'small'}),
-  reel2,
-  new TouchBarSpacer({size: 'small'}),
-  reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
-])
-
-let window
-
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
-  })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
 ```
+
+[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
+[Touch Bar]: https://developer.apple.com/macos/touch-bar
 

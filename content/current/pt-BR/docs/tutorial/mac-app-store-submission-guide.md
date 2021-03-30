@@ -2,15 +2,15 @@
 
 Desde a v0.34.0, Electron permite o envio de aplicativos empacotados para a Mac App Store (MAS). Este guia fornece informações sobre como enviar seu aplicativo e as limitações da compilação do MAS.
 
-**Nota:** Enviar um aplicativo para Mac App Store requer a inscrição no [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), que custa dinheiro.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
 ## Como enviar seu aplicativo
 
-As etapas a seguir apresentam uma maneira simples de enviar seu app para Mac App Store. No entanto, esses passos não garantem que seu aplicativo seja aprovado pela Apple; você ainda precisa ler o [envio do seu aplicativo](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) da Apple sobre como atender os requisitos da Mac App Store.
+As etapas a seguir apresentam uma maneira simples de enviar seu app para Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
 ### Obter certificado
 
-Para enviar seu aplicativo para a Mac App Store, primeiro você deve obter um certificado da Apple. Você pode seguir esses [guias existentes](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) na web.
+Para enviar seu aplicativo para a Mac App Store, primeiro você deve obter um certificado da Apple. You can follow these [existing guides][nwjs-guide] on web.
 
 ### Obter ID da equipe
 
@@ -86,9 +86,9 @@ E então assine seu aplicativo com o seguinte script:
 ```sh
 #!/bin/bash
 
-# Nome do seu aplicativo.
-APP="SeuApp"
-# O caminho do seu aplicativo para assinar.
+# Name of your app.
+APP="YourApp"
+# The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
 # O caminho para o local que você deseja colocar o pacote assinado.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-Se você for novo no macOS da sandboxing, você também deve ler A [Ativando o App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) para ter uma ideia básica, então adicione chaves para as permissões necessárias ao seu aplicativo para os ficheiros titulares.
+If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
 
-Além de assinar manualmente seu aplicativo, você também pode optar por usar o módulo [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) para fazer o trabalho.
+Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
 #### Assinar Módulos Nativos
 
@@ -128,15 +128,15 @@ Módulos nativos utilizados no seu aplicativo também precisam ser assinados. Se
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Também note que módulos nativos podem ter produzidos arquivos intermediários que não devem ser incluídos (já que eles também precisariam ser assinados). Se você usar [electron-packager](https://github.com/electron/electron-packager) antes da versão 8.1.0, adicione `--ignore=.+\.o$` para a etapa de compilação para ignorar esses arquivos. Versões 8.1.0 e mais tarde ignoram esses arquivos por padrão.
+Também note que módulos nativos podem ter produzidos arquivos intermediários que não devem ser incluídos (já que eles também precisariam ser assinados). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versões 8.1.0 e mais tarde ignoram esses arquivos por padrão.
 
 ### Envie seu aplicativo
 
-Após assinar seu aplicativo, você pode usar o Carregador de Aplicativos para enviá-lo para o iTunes Conectar-se para processamento, certifica-se de que você [criou um registro](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) antes de fazer o upload.
+After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
 ### Envie seu aplicativo para análise
 
-Após estes passos, você pode [enviar seu aplicativo para análise](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+After these steps, you can [submit your app for review][submit-for-review].
 
 ## Limitações de compilação do MAS
 
@@ -151,7 +151,7 @@ e os seguintes comportamentos foram alterados:
 * Certos recursos de acessibilidade podem não funcionar.
 * Os aplicativos não estarão cientes das alterações de DNS.
 
-Além disso, devido ao uso de sandbox de aplicativos, os recursos que podem ser acessados por a aplicação são estritamente limitados; você pode ler o [App Sandboxing](https://developer.apple.com/app-sandboxing/) para obter mais informações.
+Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
 ### Título adicional
 
@@ -173,7 +173,7 @@ Permitir conexões de rede recebidas para permitir que seu aplicativo abra uma r
 <true/>
 ```
 
-Consulte a [Habilitar a documentação](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) de acesso à rede para mais detalhes .
+See the [Enabling Network Access documentation][network-access] for more details.
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ Consulte a [Habilitar a documentação](https://developer.apple.com/library/ios/
 <true/>
 ```
 
-Veja a [Habilitando a documentação de Acesso de Arquivos Selecionados por Usuário](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para mais detalhes.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ Veja a [Habilitando a documentação de Acesso de Arquivos Selecionados por Usu�
 <true/>
 ```
 
-Veja a [Habilitando a documentação de Acesso de Arquivos Selecionados por Usuário](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para mais detalhes.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 ## Algoritmos criptográficos usados pelo Electron
 
-Dependendo dos países em que você esteja liberando seu aplicativo, você pode ser obrigado a fornecer informações sobre os algoritmos criptográficos usados em seu software. Veja a [documentação de conformidade com a criptografia](https://help.apple.com/app-store-connect/#/devc3f64248f) para mais informações.
+Dependendo dos países em que você esteja liberando seu aplicativo, você pode ser obrigado a fornecer informações sobre os algoritmos criptográficos usados em seu software. See the [encryption export compliance docs][export-compliance] for more information.
 
 O Electron usa os seguintes algoritmos criptográficos:
 
@@ -222,3 +222,16 @@ O Electron usa os seguintes algoritmos criptográficos:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
+
+[developer-program]: https://developer.apple.com/support/compare-memberships/
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
+[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
+[electron-packager]: https://github.com/electron/electron-packager
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
+[user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
+[network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9

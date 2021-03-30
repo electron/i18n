@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Dans Electron, pour les API d'acquisition d'images, vous pouvez passer des chemins de fichiers ou des instances de tyipe `NativeImage`. Une image vide sera utilisée lorsque `null` sera transmise.
 
 For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
 
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## Formats supportés
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Actuellement, les formats d'image `PNG` et `JPEG` sont pris en charge. `PNG` est recommandé en raison de son support de la transparence et de la compression sans perte.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+Sous Windows, vous pouvez également charger les icônes `ICO` à partir de chemins de fichier. Pour une meilleure qualité visuelle , il est recommandé d'inclure au moins les tailles suivantes dans les :
 
 * Petite icône
   * 16x16 (100% DPI scale)
@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (200% DPI scale)
   * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Check the *Size requirements* section in [this article][icons].
 
 ## Images à haute résolution
 
@@ -51,7 +51,7 @@ On platforms that have high-DPI support such as Apple Retina displays, you can a
 
 For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Par exemple :
+Si vous voulez prendre en charge simultanément les écrans avec des densités DPI différentes, vous pouvez mettre des images de tailles différentes dans le même dossier et utiliser le nom de fichier sans le suffixe des DPI. Par exemple :
 
 ```plaintext
 images/
@@ -82,11 +82,11 @@ Les suffixes suivants pour le DPI sont également pris en charge :
 
 ## Template Image
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Les templates d'image sont constituées de noir et d'un canal alpha. Elles ne sont pas destinées à être utilisées comme des images autonomes mais sont généralement mélangées avec d'autres contenus pour créer l'apparence finale désirée.
 
 The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
-**Note:** Template image is only supported on macOS.
+**Remarque :** Les template d'image ne sont pas prise en charge que sur macOS.
 
 To mark an image as a template image, its filename should end with the word `Template`. Par exemple :
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
@@ -155,7 +155,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Crée une nouvelle instance `NativeImage` à partir de `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
@@ -174,7 +174,7 @@ The `hslShift` is applied to the image with the following rules:
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Par conséquent, vous devrez déterminer la bonne représentation de votre image avant de la passer. Cela peut être fait avec les éléments suivants :
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
@@ -195,20 +195,20 @@ The following methods are available on instances of the `NativeImage` class:
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées `PNG` de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées `PNG` de l'image.
 
 #### `image.toJPEG(quality)`
 
 * `qualité` Entier - Entre 0 - 100.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées en `JPEG` de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées en `JPEG` de l'image.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient une copie des données du pixel brut bitmap de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ Retourne `String` - L'URL des données de l'image.
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données brutes des pixels bitmap de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données brutes des pixels bitmap de l'image.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` _macOS_
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui stocke le pointeur C sur la gestion native sous-jacente de l'image . Sur macOS, un pointeur vers `NSImage` serait retourné.
+Retourne `Buffer` - Un [tampon][buffer] qui stocke le pointeur C sur la gestion native sous-jacente de l'image . Sur macOS, un pointeur vers `NSImage` serait retourné.
 
 Note que le pointeur retourné est un pointeur faible vers l'image native sous-jacente au lieu d'une copie, donc vous _devez_ vous assurer que l'instance associée `nativeImage` est conservée.
 
@@ -301,3 +301,9 @@ Add an image representation for a specific scale factor. This can be used to exp
 Une propriété `Boolean` qui détermine si l'image est considérée comme une [image de modèle](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Veuillez noter que cette propriété n'a qu'un effet sur macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer

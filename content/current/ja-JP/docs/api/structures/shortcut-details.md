@@ -7,3 +7,4 @@
 * `icon` String (任意) - アイコンへのパス、DLL または EXE にできます。 `icon` と `iconIndex` を共に設定する必要があります。 省略値は空文字列で、target のアイコンが使用されます。
 * `iconIndex` Number (任意) - `icon` が DLL もしくは EXE の場合のアイコンのリソース ID。 既定値は 0 です。
 * `appUserModelId` String (任意) - アプリケーションユーザーモデル ID。 省略値は空文字列です。
+* `toastActivatorClsid` String (任意) - アプリケーショントーストアクティベーターCLSID。 アクションセンターに参加するには必要です。

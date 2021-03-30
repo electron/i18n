@@ -2,9 +2,9 @@
 
 > Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Une des fonctionnalités de sécurité majeure de Chromium est que tous les rendements de Blink/le code JavaScript sont éxécutés isolé dans un bac à sable (sandbox). Ce bac à sable utilise des fonctionnalités spécifiques au système pour s’assurer que les exploits dans le processus de redement ne puissent pas nuire au système.
 
-In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
+En d’autres termes, lorsque le bac à sable est activé, les processus de rendement ne peuvent apporter des modifications au système qu’en déléguant des tâches au processus principal via IPC. [Voici](https://www.chromium.org/developers/design-documents/sandbox) plus d'informations sur le bac à sable.
 
 Étant donné qu'une fonctionnalité majeure d'Electron est la possibilité d'exécuter Node. s dans le processus de rendu (facilitant le développement d'applications de bureau en utilisant les technologies web ), le bac à sable est désactivé par electron. Ceci est dû au fait que la plupart des API Node.js nécessitent un accès au système. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
 

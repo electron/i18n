@@ -8,7 +8,6 @@ Una ventana sin bordes es una ventana que no tiene [chrome](https://developer.mo
 
 Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las `options` de [BrowserWindow](browser-window.md):
 
-
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -65,12 +64,12 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * El filtro `blur` solo aplica a la página web, por lo que no hay manera de aplicar el efecto blur al contenido debajo de la ventana (por ejemplo, otras aplicaciones abiertas en el sistema del usuario).
 * En los sistemas operativos Windows, las ventanas transparentes no funcionarán cuando DWM está deshabilitado.
-* En Linux, los usuarios tienen que poner `--enable-transparent-visuals --disable-gpu` en la línea de comandos para deshabilitar el GPU y permitir ARGB para hacer transparente la ventana, esto es causado por un bug ascendente donde [el canal alfa no funciona en algunos controladores NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) en Linux.
+* En Linux, los usuarios tienen que poner `--enable-transparent-visuals --disable-gpu` en la línea de comandos para deshabilitar el GPU y permitir ARGB para hacer transparente la ventana, esto es causado por un bug ascendente donde [el canal alfa no funciona en algunos controladores NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) en Linux.
 * En Mac, la sombra nativa no se mostrará en una ventana transparente.
 
 ## Ventana Click-through
 
-Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options):
+Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -138,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Po
 ## Menú de contexto
 
 En algunas plataformas, el área desplazable puede ser considerada como un borde que no forma parte del cliente, de esta manera cuando se haga clic sobre él, aparecerá un menú del sistema. Para que el menú de contexto se comporte correctamente en todas las plataformas, nunca debe usarse un menú de contexto personalizado en áreas desplazables.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

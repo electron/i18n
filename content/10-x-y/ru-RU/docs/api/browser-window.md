@@ -1457,7 +1457,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 Sets the touchBar layout for the current window. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 #### `win.setBrowserView(browserView)` _Экспериментально_
 

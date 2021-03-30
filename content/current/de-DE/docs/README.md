@@ -1,6 +1,6 @@
 # Offizielle Anleitungen
 
-Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
 ## Häufig gestellte Fragen
 
@@ -136,15 +136,14 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 ### Module für den Renderer-Prozess (Webseite):
 
 * [contextBridge](api/context-bridge.md)
-* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Module für beide Prozesse:
 
 * [Zwischenablage (clipboard)](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [nativeImage](api/native-image.md)
 * [Shell](api/shell.md)
 

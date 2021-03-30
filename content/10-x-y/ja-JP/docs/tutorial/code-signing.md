@@ -28,7 +28,7 @@ Electron のエコシステムでは構成とその自由度を重視してい�
 
 ## `electron-forge`
 
-好きな Electron のビルドツールを使用している場合、アプリケーションの署名と公証を行うにあたって、設定にいくつか追加する必要があります。 [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`][], [`electron-osx-sign`][], and [`electron-notarize`][] under the hood.
+好きな Electron のビルドツールを使用している場合、アプリケーションの署名と公証を行うにあたって、設定にいくつか追加する必要があります。 [forge](https://electronforge.io) は、内部で [`electron-packager`][]、[`electron-osx-sign`][]、[`electron-notarize`][] を使っている、Electron 公式のツールの集合体です。
 
 ここでは、すべての必須フィールドを設定した例を見てみましょう。 すべてが必須というわけでは無いのです。お使いのツールは適切な `identity` を自動的に見つけられるでしょう。それでも明示的に指定することを推奨します。
 
@@ -82,7 +82,7 @@ Electron Builder にはアプリケーションに署名するためのカスタ
 
 ## `electron-packager`
 
-If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
+Forge や Builder のような統合されたビルドパイプラインを使用しない場合、[`electron-packager`][] を使用することが多く、これは [`electron-osx-sign`][] や [`electron-notarize`][] を同梱しています。
 
 Packager の API を使用している場合、[アプリケーションに署名と公証の両方を行う設定](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) を渡すことができます。
 

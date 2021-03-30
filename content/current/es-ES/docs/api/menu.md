@@ -16,11 +16,9 @@ La clase `Menu` tiene los siguientes métodos estáticos:
 
 * `menu` Menu | null
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Establece `menu` como el menú de la aplicación en macOS. En Windows y Linux el `menu` será establecido como el menú superior de la ventana.
 
-Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón entonces aparecerá subrayado, y el carácter `&` no se mostrará en la etiqueta del botón.
-
-Para poder saltar el carácter `&` en el nombre de un objeto, usa un `&` procedural. Por ejemplo, `&&Archivo` abrirá `&Archivo` en la etiqueta del botón.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -58,9 +56,9 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 
 * `options` Object (opcional)
   * `window` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `y` es declarado.
+  * `y` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `x` es declarado.
+  * `positioningItem` Número (opcional) _macOS_ - El índice del elemento del menú que debe ser posicionado debajo del cursor en las coordenadas específicas. El valor predeterminado es -1.
   * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
 Este menú aparece como un menú contextual en el [`BrowserWindow`](browser-window.md).
@@ -282,11 +280,11 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 ### Nombre del menú principal
 
-En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
+En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files][AboutInformationPropertyListFiles].
 
 ## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
-El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
+El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 
 ## La posición del elemento del menú
 
@@ -363,3 +361,6 @@ Menú:
 - 2
 - 1
 ```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows

@@ -43,11 +43,11 @@ require('update-electron-app')()
 
 ## Migrando aplicaciones existentes
 
-Las aplicaciones que ya usan la API autoUpdater de Electron también pueden usar este servicio. Para ello, puede [personalizar el `update-electron-app`](https://github.com/electron/update-electron-app) module o [integrar directamente con update.electronjs.org](https://github.com/electron/update.electronjs.org).
+Las aplicaciones que ya usan la API autoUpdater de Electron también pueden usar este servicio. Si estás usando [electron-builder](https://github.com/electron-userland/electron-builder) para empaquetar tu aplicación, puedes usar su actualizador integrado.
 
 ## Alternativos
 
-Si estás usando [electron-builder](https://github.com/electron-userland/electron-builder) para empaquetar tu aplicación, puedes usar su actualizador integrado. Para más detalles, vea [electron.build/auto-update](https://www.electron.build/auto-update).
+Las aplicaciones que ya usan la API autoUpdater de Electron también pueden usar este servicio. Para más detalles, vea [electron.build/auto-update](https://www.electron.build/auto-update).
 
 Si tu aplicación es privada, puede que necesites ejecutar tu propio servidor de actualizaciones. Hay un número de herramientas de código abierto para esto, incluyendo Zeit's [Hazel](https://github.com/zeit/hazel) y Atlassian [Nucleus](https://github.com/atlassian/nucleus). Vea el tutorial [Desplegando un servidor de actualización](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) para más información .
 

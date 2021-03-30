@@ -18,7 +18,7 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 あなたの Electron アプリケーションのセキュリティは、フレームワーク (*Chromium*、*Node.js*)、Electron 自身、NPM の依存関係、あなたのコード のセキュリティの結果であることを覚えておくことが大事です。 そのため、いくつかの重要なベストプラックティスに従う、責任があります。
 
-* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)" を参照してください。
+* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)" を参照してください。
 
 * **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
@@ -26,9 +26,9 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 ## 信用されないコンテンツの隔離
 
-信用されていないソース (例えばリモートサーバー) からコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトがデフォルト [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって) 得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
+信用されていないソース (例えばリモートサーバー) からコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトがデフォルト [`BrowserWindow`][browser-window] 内に表示されていると考えてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって) 得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
 
-> :警告:  Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 remote コンテンツを表示するには、[`<webview>`](../api/webview-tag.md) tag または [`BrowserView`](../api/browser-view.md)を使用します。その時`nodeIntegration`を無効に、`contextIsolation`を有効にすることを確認してください。
+> :警告:  Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 remote コンテンツを表示するには、[`<webview>`][webview-tag] tag または [`BrowserView`][browser-view]を使用します。その時`nodeIntegration`を無効に、`contextIsolation`を有効にすることを確認してください。
 
 ## Electron のセキュリティ警告
 
@@ -54,9 +54,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
 13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
 14. [信用されないコンテンツで `openExternal` を使用しない](#14-do-not-use-openexternal-with-untrusted-content)
-15. [`remote` モジュールの無効化](#15-disable-the-remote-module)
-16. [`remote` モジュールをフィルタ](#16-filter-the-remote-module)
-17. [現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)
+15. [現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)
 
 設定ミスやセキュアでないパターンを自動的に検出するには、[electronegativity](https://github.com/doyensec/electronegativity)が使用できます。 Electronを使用したアプリケーション開発時の潜在的な脆弱性やバグの埋め込みについてのより詳しい情報は、[開発者承認者向けガイドguide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)を参照してください。
 
@@ -89,7 +87,7 @@ browserWindow.loadURL('https://example.com')
 
 _この推奨は、Electron 5.0.0 からデフォルトの振舞いです。_
 
-リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を有効にしないことが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
+リモートコンテンツをロードするレンダラー ([`BrowserWindow`][browser-window]、[`BrowserView`][browser-view]、[`<webview>`][webview-tag]) で Node.js integration を有効にしないことが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
 その後、特定のホストに対して追加の権限を与えることができます。 例えば、`https://example.com/` を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な権限を正確に与えることができますが、それ以上は与えられません。
 
@@ -144,7 +142,7 @@ window.readConfig = function () {
 
 Electron は Chromium の [コンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment) と同じ技術を使用してこの動作を可能にしています。
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+`nodeIntegration: false` を使用している場合でも、真に強力なアイソレーションを強制し Node プリミティブの使用を防ぐためには、`contextIsolation` も使用 **しなければなりません**。
 
 ### なぜ & 方法を？
 
@@ -187,7 +185,7 @@ session
 
 _Electron のデフォルトを推奨しています_
 
-レンダラープロセス ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
+レンダラープロセス ([`BrowserWindow`][browser-window]、[`BrowserView`][browser-view]、[`<webview>`][webview-tag]) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
 
 製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
@@ -343,11 +341,11 @@ const mainWindow = new BrowserWindow()
 
 _Electron のデフォルトを推奨しています_
 
-[`<webview>`](../api/webview-tag.md) を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
+[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`][browser-window] を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
-ポップアップが必要ない場合は、デフォルトでは新しい [`BrowserWindows`](../api/browser-window.md) の作成を許可しないほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
+ポップアップが必要ない場合は、デフォルトでは新しい [`BrowserWindows`][browser-window] の作成を許可しないほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
 
 ### どうすればいいの？
 
@@ -358,17 +356,17 @@ _Electron のデフォルトを推奨しています_
 
 Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
-メインプロセスから新しい [`<webview>`](../api/webview-tag.md) タグの作成を制御し、webPreferences でセキュリティ機能を無効にしていないことを確認することを推奨します。
+メインプロセスから新しい [`<webview>`][webview-tag] タグの作成を制御し、webPreferences でセキュリティ機能を無効にしていないことを確認することを推奨します。
 
 ### なぜ？
 
 `<webview>` は DOM 内に存在するので、Node.js integration が無効になっていても、WebView はウェブサイトで実行されているスクリプトによって作成できます。
 
-Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 ほとんどの場合、開発者はこれらの機能を無効にする必要はありません。したがって、新しく作成した [`<webview>`](../api/webview-tag.md) タグを使用します。
+Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 ほとんどの場合、開発者はこれらの機能を無効にする必要はありません。したがって、新しく作成した [`<webview>`][webview-tag] タグを使用します。
 
 ### どうすればいいの？
 
-[`<webview>`](../api/webview-tag.md) タグが適用される前に、Electron は `will-attach-webview` イベントを `webContents` ホスト上で発火します。 安全性の低いオプションを使用して `webViews` を作成しないようにするには、このイベントを使用します。
+[`<webview>`][webview-tag] タグが適用される前に、Electron は `will-attach-webview` イベントを `webContents` ホスト上で発火します。 安全性の低いオプションを使用して `webViews` を作成しないようにするには、このイベントを使用します。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -402,7 +400,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-アプリにナビゲーションが不要な場合は、[`will-navigate`](../api/web-contents.md#event-will-navigate) ハンドラ内 `event.preventDefault()` を呼び出すことができます。 アプリがどのページに移動するかがわかっている場合は、イベントハンドラで URL を確認し、予期している URL と一致する場合にのみナビゲーションを許可します。
+アプリにナビゲーションが不要な場合は、[`will-navigate`][will-navigate] ハンドラ内 `event.preventDefault()` を呼び出すことができます。 アプリがどのページに移動するかがわかっている場合は、イベントハンドラで URL を確認し、予期している URL と一致する場合にのみナビゲーションを許可します。
 
 URL には Node のパーサーを使用することを推奨します。 単純な文字列比較は時々だまされる可能性があります - `startsWith('https://example.com')` テストは `https://example.com.attacker.com` を通過させます 。
 
@@ -432,7 +430,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー](../api/web-contents.md#contentssetwindowopenhandlerhandler) に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
+[`webContents`][web-contents] は、新しいウインドウを作成する前に、[ウインドウを開くハンドラー][window-open-handler] に委譲します。 ハンドラーは、他のパラメータの中の、ウィンドウを開くように要求された `url` とそのウィンドウを作成するために使用されたオプションを受け取ります。 ウインドウの作成を監視するハンドラを登録し、予期せぬウィンドウの作成は拒否するよう推奨します。
 
 ```js
 const { shell } = require('electron')
@@ -457,11 +455,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) 信用されないコンテンツで `openExternal` を使用しない
 
-シェルの [`openExternal`](../api/shell.md#shellopenexternalurl-options) は、指定されたプロトコル URI を デスクトップのネイティブユーティリティで開くことができます。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
+Shellの [`openExternal`][open-external] はデスクトップのネィティブユーティリティの指定した protocol URI で開けるようにします。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
 
 ### なぜ？
 
-[`openExternal`](../api/shell.md#shellopenexternalurl-options) の不適切な利用によって、そのユーザーのホストを危険に曝す可能性があります。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
+[`openExternal`][open-external]の不適切な利用によって、そのユーザーホストを危険に曝すことがありえます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
 
 ### どうすればいいの？
 
@@ -477,96 +475,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) `remote` モジュールの無効化
-
-`remote`モジュールは、レンダラープロセスに、通常メインプロセスでのみ利用可能な APIへのアクセスを提供します。 これを使用すると、明示的にプロセス間メッセージを送信することなく、メインプロセスオブジェクトのメソッドを起動できます。 もしあなたのデスクトップアプリケーションが信頼できないコンテンツを実行していない場合、このモジュールはあなたのレンダラープロセスにアクセス方法を提供し、メインプロセスでのみ利用可能な、例えばGUIに関連したモジュール(dialogs, menu 等) と動作できます。
-
-しかし、一方で、あなたのアプリケーションが信頼できないコンテンツを実行する場合、例えあなたのレンダラープロセスを[sandbox](../api/sandbox-option.md)化していたとしても、`remote`モジュールは悪意のあるコードにそのサンドボックスを抜けだす方法を提供し、メインプロセスの、より高い権限を通じてシステムリソースへアクセス可能にしてしまいます。 そのため、そのような状況ではこのモジュールは無効化しておくべきです。
-
-### なぜ？
-
-`remote` は内部の IPC チャンネルを使用して、メインプロセスと通信します。 「プロトタイプ汚染」攻撃は、内部 IPC チャンネルへの悪意のあるコードアクセスを許可する可能性があります。サンドボックスを回避して、`remote` IPC メッセージに擬態してより高い特権で実行されているメインプロセスモジュールにアクセスすることができます。
-
-さらに、プリロードスクリプトが誤ってサンドボックス化されたレンダラーにモジュールをリークさせる可能性があります。 `remote` をリークすると、攻撃を実行するため、多数の主要なプロセスモジュールに悪意のあるコードが仕掛けられます。
-
-`remote` モジュールを無効にすれば、これらの攻撃手段を排除できます。 コンテキストイソレーションの有効化も、これに続く "プロトタイプ汚染" 攻撃を防ぎます。
-
-### どうすればいいの？
-
-```js
-// レンダラーが信頼されていないコンテンツを実行してしまうと Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// 安全
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  --><webview enableremotemodule="true" src="page.html"></webview><!-- 安全 --><webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **注:** `enableRemoteModule` のデフォルト値は、Electron 10 から `false` になっています。 それ以前のバージョンでは、上記の方法で `remote` モジュールを明示的に無効にする必要があります。
-
-## 16) `remote` モジュールをフィルタ
-
-`remote` モジュールを無効にすることができない場合は、アプリケーションで必要のない `remote` を介してアクセス可能なもの、グローバル変数、Node、Electron モジュール (いわゆる組み込み) をフィルタリングする必要があります。 これは、特定のモジュールを完全にブロックし、他のモジュールをそのうちのアプリが必要とする機能だけを公開するプロキシで置き換えることで実現できます。
-
-### なぜ？
-
-メインプロセスのシステムアクセス特権のために、メインプロセスモジュールによって提供される機能は、レンダラプロセスで実行される悪意のあるコードの手に渡る危険があるかもしれません。 アクセス可能なモジュールのセットをアプリケーションが必要とする最小限のものに制限し、他のものを除外することで、悪意のあるコードがシステムの攻撃に使用できるツール群を減らすことができます。
-
-最も安全な選択は [remote モジュールの無効化](#15-disable-the-remote-module) であることに注意してください。 モジュールを完全に無効にするのではなくアクセスをフィルタすることを選択した場合、フィルタを通過することを許可したモジュールを介して特権の昇格が不可能になるように、細心の注意を払う必要があります。
-
-### どうすればいいの？
-
-```js
-const readOnlyFsProxy = require(/* ... */) // ファイル読み込み機能のみを公開します
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) 現行バージョンの Electron を使う
+## 15) 現行バージョンの Electron を使う
 
 常に最新バージョンの Electron を使用するように努力してください。 新しいメジャーバージョンがリリースされる度に、できるだけ早くアプリを更新しましょう。
 
@@ -574,4 +483,15 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 古いバージョンの Electron、Chromium、Node.js で構築されたアプリケーションは、最新バージョンのこれらコンポーネントを使用しているアプリケーションよりも容易な標的です。 一般的に、古いバージョンの Chromium と Node.js ではより広いセキュリティ問題とエクスプロイトが適用できます。
 
-Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 これら研究者の多くは、[脆弱性を責任を持って開示](https://en.wikipedia.org/wiki/Responsible_disclosure) しています。これは一般に、研究者が問題を公開する前に Chromium と Node.js に問題を修正する時間を与えることを意味します。 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
+Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 これら研究者の多くは、[脆弱性を責任を持って開示][responsible-disclosure] しています。これは一般に、研究者が問題を公開する前に Chromium と Node.js に問題を修正する時間を与えることを意味します。 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
+
+[browser-window]: ../api/browser-window.md
+
+[browser-window]: ../api/browser-window.md
+[browser-view]: ../api/browser-view.md
+[webview-tag]: ../api/webview-tag.md
+[web-contents]: ../api/web-contents.md
+[window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandlerhandler
+[will-navigate]: ../api/web-contents.md#event-will-navigate
+[open-external]: ../api/shell.md#shellopenexternalurl-options
+[responsible-disclosure]: https://en.wikipedia.org/wiki/Responsible_disclosure

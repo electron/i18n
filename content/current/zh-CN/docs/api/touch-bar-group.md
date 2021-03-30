@@ -2,7 +2,7 @@
 
 > 为本地mac os创建一个触控条组
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../glossary.md#main-process)
 
 ### `new TouchBarGroup(options)`
 

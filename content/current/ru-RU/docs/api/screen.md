@@ -2,11 +2,11 @@
 
 > Предоставляет информацию о размере экрана, дисплеях, позиции курсора.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` is an [EventEmitter][event-emitter].
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
@@ -54,7 +54,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Возникает при добавлении `newDisplay`.
@@ -141,3 +141,5 @@ app.whenReady().then(() => {
 Возвращает [`Rectangle`](structures/rectangle.md)
 
 Преобразовывает DIP-прямоуголник экрана в физический прямоугольник экрана. Шкала DPI выполняется относительно дисплея, ближайшего к `window`. Если `window` равен нулю, то масштабирование будет производиться до ближайшего к `rect`.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

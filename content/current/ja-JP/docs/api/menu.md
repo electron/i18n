@@ -18,9 +18,7 @@
 
 macOS では、 `menu` をアプリケーションメニューとして設定します。 Windows と Linux では、 `menu` は各ウィンドウのトップメニューとして設定されます。
 
-更に Windows と Linux では、最上位のアイテム名に `&` を使用して、アクセラレータを生成させるときに取得する文字を指定できます。 たとえば、ファイルメニューに `&File` を使用すると、その関連付けされたメニューを開く `Alt-F` アクセラレータが生成されます。 ボタンラベルでその指定をした文字には下線が引かれ、`&` 文字はボタンラベルに表示されません。
-
-メニューアイテム名の `&` 文字をエスケープするには、`&` を続けて書きます。 例えば、`&&File` とするとボタンラベルに `&File` が表示されます。
+更に Windows と Linux では、最上位のアイテム名に `&` を使用して、アクセラレータを生成させるときに取得する文字を指定できます。 たとえば、ファイルメニューに `&File` を使用すると、その関連付けされたメニューを開く `Alt-F` アクセラレータが生成されます。 そのボタンラベルの指定された文字には下線が引かれます。 `&` 文字はボタンラベル上に表示されません。
 
 `null` を渡すと、既定のメニューが表示されなくなります。 Windows と Linux では、さらにウィンドウからメニューバーを削除します。
 
@@ -124,7 +122,7 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 ## サンプル
 
-An example of creating the application menu with the simple template API:
+以下は簡易テンプレート API でアプリケーションメニューを作成した例です。
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -234,9 +232,9 @@ Menu.setApplicationMenu(menu)
 
 ### レンダープロセス (render process)
 
-To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+レンダラープロセスが起点となってメニューを作成するには、IPC を使用して必要な情報をメインプロセスに送信し、メインプロセスがレンダラーに代わってメニューを表示するようにします。
 
-Below is an example of showing a menu when the user right clicks the page:
+以下は、ユーザーがページを右クリックしたときにメニューを表示する例です。
 
 ```js
 // renderer
@@ -282,11 +280,11 @@ macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`
 
 ### メインメニュー名
 
-macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) を参照して下さい。
+macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて][AboutInformationPropertyListFiles] を参照して下さい。
 
 ## 特定のブラウザウィンドウのメニューの設定 (*Linux* *Windows*)
 
-ブラウザウインドウの [`setMenu` メソッド](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) は、特定のブラウザウインドウのメニューを設定できます。
+ブラウザウインドウの [`setMenu` メソッド][setMenu] は、特定のブラウザウインドウのメニューを設定できます。
 
 ## メニューアイテムの位置
 
@@ -363,3 +361,6 @@ Menu:
 - 2
 - 1
 ```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows

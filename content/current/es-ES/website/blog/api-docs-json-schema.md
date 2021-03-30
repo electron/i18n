@@ -32,6 +32,7 @@ Aquí hay un fragmento del esquema que describe la clase `BrowserWindow`:
   instanceProperties: [...],
   instanceEvents: [...]
 }
+}
 ```
 
 Y aquí hay un ejemplo de la descripción de un método, en este caso el método de instancia `apis.BrowserWindow.instanceMethods.setMaximumSize`:

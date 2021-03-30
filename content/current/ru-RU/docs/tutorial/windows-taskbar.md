@@ -2,11 +2,11 @@
 
 ## Обзор
 
-Electron имеет API для настройки значка приложения на панели задач Windows. Этот API поддерживает обе функции только для Windows, такие как [`JumpList`](#jumplist), [пользовательские миниатюры и панели инструментов](#thumbnail-toolbars), [наложение значков](#icon-overlays-in-taskbar), и так называемый эффект ["Flash Frame"](#flash-frame), так и кросс-платформенные функции, такие как [последние документы](./recent-documents.md) и [прогресс приложения](./progress-bar.md).
+Electron имеет API для настройки значка приложения на панели задач Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 ## JumpList
 
-Windows позволяет приложениям определять пользовательское контекстное меню, которое появляется, когда пользователи щелкают правой кнопкой мыши значок приложения на панели задач. Это контекстное меню называется `JumpList`. Вы указываете пользовательские действия в категории `Задач` JumpList, как указано в [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks):
+Windows позволяет приложениям определять пользовательское контекстное меню, которое появляется, когда пользователи щелкают правой кнопкой мыши значок приложения на панели задач. Это контекстное меню называется `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
 
 > Приложения определяют задачи, основанные как на функциях программы, так и на ключевых моментах, которые пользователь должен делать с ними. Задачи должны быть контекстно-свободными, в данном случае, приложению не потребуется запускать их для работы. Они также должны быть статистически наиболее распространенными действиями, которые обычный пользователь будет выполнять в приложении, например, составить сообщение электронной почты или открыть календарь в почтовой программе, создать новый документ в текстовом редакторе, запустить приложение в определенном режиме, или запустить одну из своих подкоманд. Приложение не должно загромождать меню с расширенными функциями, которые не требуются обычным пользователям или одноразовыми действиями, такими как регистрация. Не используйте задачи для рекламных материалов, таких как обновления или специальные предложения.
 > 
@@ -18,7 +18,7 @@ Windows позволяет приложениям определять поль�
 
 В отличие от меню dock в macOS, которое является реальным меню, пользовательские задачи в Windows работают как ярлыки приложений. Например, когда пользователь нажимает на задачу, программа будет выполняться с заданными аргументами.
 
-Чтобы установить пользовательские задачи для своего приложения, вы можете использовать [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API.
+To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
 
 #### Примеры
 
@@ -57,7 +57,7 @@ app.setUserTasks([])
 
 On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars):
+As quoted from [MSDN][msdn-thumbnail]:
 
 > Эта панель инструментов является обычным управлением стандартной панелью инструментов. У него максимум из семи кнопок. Идентификатор каждой кнопки, изображение, подсказка и состояние определены в структуре, которая затем передается на панель задач. Приложение может показать, включить, отключить или скрыть кнопки из панели инструментов эскизов, как это требуется текущего состояния.
 > 
@@ -67,7 +67,7 @@ As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskb
 
 > NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows)
+To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
 #### Примеры
 
@@ -81,16 +81,16 @@ const path = require('path')
 
 const win = new BrowserWindow()
 
-победы. etThumbarButtons([
+win.setThumbarButtons([
   {
     tooltip: 'button1',
-    icon: путь. oin(__dirname, 'button1.png'),
-    click () { console. og('button1 clicked') }
+    icon: path.join(__dirname, 'button1.png'),
+    click () { console.log('button1 clicked') }
   }, {
     tooltip: 'button2',
-    icon: path.join(__dirname, 'button2. ng'),
+    icon: path.join(__dirname, 'button2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console. og('button2 клик.') }
+    click () { console.log('button2 clicked.') }
   }
 ])
 ```
@@ -110,7 +110,7 @@ win.setThumbarButtons([])
 
 On Windows, a taskbar button can use a small overlay to display application status.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays):
+As quoted from [MSDN][msdn-icon-overlay]:
 
 > Наслоения иконок служат контекстуальным уведомлением о статусе, и предназначены для отказа от необходимости отдельной иконки статуса области уведомлений, чтобы сообщить пользователю эту информацию. Например, новый статус почты в Microsoft Outlook, в настоящее время отображается в области уведомлений, можно указывать через накладываемое изображение на кнопку панели задач. Опять же, вы должны решить в течение цикла разработки , какой метод лучше подходит для вашего приложения. Накладываемые иконки предназначены для предоставления важных, давно существующих статусов или уведомлений, таких как сетевой статус, статус сообщения или новая почта. Пользователь не должен быть с постоянно меняющимися наслоениями или анимацией.
 
@@ -118,7 +118,7 @@ As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/shell/taskb
 
 > NOTE: The screenshot above is an example of overlay on a taskbar button
 
-To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API.
+To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
 
 #### Пример
 
@@ -136,11 +136,11 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-As quoted from [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks):
+As quoted from [MSDN][msdn-flash-frame]:
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
-To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API.
+To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
 
 #### Пример
 
@@ -156,3 +156,18 @@ win.flashFrame(true)
 ```
 
 > NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+
+[msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
+
+[msdn-thumbnail]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#thumbnail-toolbars
+
+[msdn-icon-overlay]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#icon-overlays
+
+[msdn-flash-frame]: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindow#remarks
+
+[setthumbarbuttons]: ../api/browser-window.md#winsetthumbarbuttonsbuttons-windows
+[setusertaskstasks]: ../api/app.md#appsetusertaskstasks-windows
+[setoverlayicon]: ../api/browser-window.md#winsetoverlayiconoverlay-description-windows
+[flashframe]: ../api/browser-window.md#winflashframeflag
+[recent-documents]: ./recent-documents.md
+[progress-bar]: ./progress-bar.md

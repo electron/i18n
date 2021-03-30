@@ -36,6 +36,14 @@
 
 当系统屏幕解锁，立即触发。
 
+### 事件: 'user-did-groupe-active' _macOS_
+
+当应用被激活时发出。 更多信息请访问 [文档](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc)。
+
+### 事件: 'user-did-resign-active' _macOS_
+
+当应用被激活时发出。 更多信息请访问 [文档](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc)。
+
 ## 方法
 
 `电源监视器` 模块具有以下方法：
@@ -53,3 +61,17 @@ Returns `String` - The system's current state. Can be `active`, `idle`, `locked`
 Returns `Integer` - Idle time in seconds
 
 计算系统空闲时间以秒为单位。
+
+### `powerMonitor.isOnBatteryPower()`
+
+返回`Boolean`，表示系统是否使用电池电源。
+
+要监视此属性的变化，请使用 `on-battery` 和 `on-ac<` 事件。
+
+## Properties
+
+### `powerMonitor.onBatteryPower`
+
+A `Boolean` property. 如果系统处于电池电源状态，则为 true。
+
+参见 [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower)。

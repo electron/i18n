@@ -30,7 +30,7 @@ NW.js和Electron很早的版本正在使用这种方式建造。
 
 作为内容模块的用户，Electron在大多数情况下不需要修改 Chromium 的代码 这样一个改进Electron构建的明显方法是 构建Chromium作为一个共享的库， 然后在 Electron 中链接它。 在这种 的方式下，开发者在为 Electron 贡献时不再需要构建全部的Chromium。
 
-[libchromiumcontent](https://github.com/electron/libchromiumcontent) 项目是由 [@aroben](https://github.com/aroben) 为此目的创建的。 它构建Chromium的内容 模块作为共享的库，然后提供Chromium的标题 并预建二进制二进制文件供下载。 The code of the initial version of libchromiumcontent can be found [in this link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+[libchromiumcontent](https://github.com/electron/libchromiumcontent) 项目是由 [@aroben](https://github.com/aroben) 为此目的创建的。 它构建Chromium的内容 模块作为共享的库，然后提供Chromium的标题 并预建二进制二进制文件供下载。 它构建Chromium的内容 模块作为共享的库，然后提供Chromium的标题 并预建二进制二进制文件供下载。
 
 [亮度](https://github.com/electron/brightray) 项目也是作为libchromiumcontent的一部分生来的， 它提供了内容模块周围的薄层。
 

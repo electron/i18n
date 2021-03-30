@@ -2,7 +2,7 @@
 
 > Создает разделитель между двумя элементами в сенсорной панели для нативных приложений macOS
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarSpacer(options)`
 

@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`webContents` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
+`webContents` は [EventEmitter][event-emitter] を継承しています。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
+このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) です。
 
 #### イベント: 'did-fail-provisional-load'
 
@@ -125,7 +125,7 @@ console.log(webContents)
 
 ページがファビコンの URL を受け取ると発行されます。
 
-#### イベント: 'new-window'
+#### イベント: 'new-window' _非推奨_
 
 戻り値:
 
@@ -137,6 +137,8 @@ console.log(webContents)
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+
+これは [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) に代わって非推奨となりました。
 
 ページが `url` のための新しいウィンドウを開く要求をすると発生します。 `window.open` か `<a target='_blank'>` のような外部リンクによるリクエストである可能性があります。
 
@@ -168,6 +170,23 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
+#### イベント: 'did-create-window'
+
+戻り値:
+* `window` BrowserWindow
+* `details` Object
+    * `url` String - 作成したウインドウの URL。
+    * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
+    * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
+    * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
+    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
+    * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+    * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
+
+レンダラーで `window.open` を使用したウィンドウの作成に成功した _後_ に発生します。 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) からウインドウの作成がキャンセルされた場合には発生しません。
+
+詳細や `webContents.setWindowOpenHandler` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
+
 #### イベント: 'will-navigate'
 
 戻り値:
@@ -194,7 +213,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInplace` が `true` になります。
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInPlace` が `true` になります。
 
 #### イベント: 'will-redirect'
 
@@ -317,14 +336,15 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
-    * `clean-exit` - 終了コード 0 でプロセスが終了した
-    * `clean-exit` - 終了コードが非 0 でプロセスが終了した
-    * `killed` - プロセスに SIGTERM シグナルが送信されたなどの方法でキルされた
+  * `reason` String - The reason the render process is gone.  取りうる値:
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
     * `integrity-failure` - Windows コードの整合性チェックに失敗した
+  * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
 renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
@@ -357,14 +377,14 @@ Webページが応答しなくなるときに発生します。
 * `event` Event
 * `input` Object - 入力プロパティ。
   * `type` String - `keyUp` か `keyDown`。
-  * `key` String - [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `code` String - [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `isAutoRepeat` Boolean - [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `isComposing` Boolean - [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `shift` Boolean - [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `control` Boolean - [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `alt` Boolean - [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
-  * `meta` Boolean - [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) と同等。
+  * `key` String - [KeyboardEvent.key][keyboardevent] と同等。
+  * `code` String - [KeyboardEvent.code][keyboardevent] と同等。
+  * `isAutoRepeat` Boolean - [KeyboardEvent.repeat][keyboardevent] と同等。
+  * `isComposing` Boolean - [KeyboardEvent.isComposing][keyboardevent] と等価です。
+  * `shift` Boolean - [KeyboardEvent.shiftKey][keyboardevent] と同等。
+  * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と同等。
+  * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と同等。
+  * `meta` Boolean - [KeyboardEvent.metaKey][keyboardevent] と同等。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
@@ -393,6 +413,7 @@ win.webContents.on('before-input-event', (event, input) => {
 #### イベント: 'zoom-changed'
 
 戻り値:
+
 * `event` Event
 * `zoomDirection` String - `in` か `out` にできます。
 
@@ -735,6 +756,17 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
+#### イベント: 'preferred-size-changed'
+
+戻り値:
+
+* `event` Event
+* `preferredSize` [Size](structures/size.md) - スクロールなしでドキュメントのレイアウトを格納するのに必要な最小サイズ。
+
+`WebContents` の優先サイズが変更された場合に発生します。
+
+このイベントは、`webPreferences` で `enablePreferredSizeMode` が `true` に設定されている場合にのみ発生します。
+
 ### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
@@ -744,7 +776,7 @@ win.loadURL('http://github.com')
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -888,7 +920,7 @@ win.loadURL('http://github.com').then(() => {
 
 この`webContents` を現在ホスティングしているレンダラープロセスを強制終了します。 これにより、 `reason=kill || reason=crashed` である、`render-process-gone` イベントが発生します。 レンダラープロセスを共有しているWebContents の中には、このメソッドを呼び出すと、他のウェブコンテンツのホストプロセスがクラッシュする場合がありますのでご注意ください。
 
-メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 これは、このプロセスが不安定または使用不可の場合、例えば `unresponsive` イベントから回復する際に使用されるべきです。
 
 ```js
 contents.on('unresponsive', async () => {
@@ -982,6 +1014,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 この WebContents がフォーカスされている間、アプリケーションのメニューショートカットを無視します。
 
+#### `contents.setWindowOpenHandler(handler)`
+
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  * `details` Object
+    * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
+    * `frameName` String - `window.open()` で指定されたウインドウ名
+    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。 戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
+
+レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
+
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
@@ -1014,6 +1056,8 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
+> **注意**: Chromium でのズームポリシーはドメインごとです。すなわち、特定ドメインのズームレベルは、同じドメインのウィンドウの全インスタンスに伝播します。 ウインドウの URL が別々であれば、ウインドウごとのズームになります。
+
 #### `contents.getZoomLevel()`
 
 戻り値 `Number` - 現在の拡大レベル。
@@ -1029,8 +1073,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 > **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.undo()`
 
@@ -1102,8 +1147,6 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。 省略値は `false` 。
-  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -1142,7 +1185,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
@@ -1179,7 +1222,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[] (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
+  * `pageRanges` Object[]  (optional) - The page range to print. macOS では 1 つの範囲のみが許可されています。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
@@ -1193,7 +1236,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷に失敗した場合に呼び戻されるエラーの説明。
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
+カスタムの `pageSize` を渡すと、Chromium は `width_microns` と `height_microns` それぞれのプラットフォーム固有の最小値を検証しようとします。 幅、高さともに最低 353 ミクロンでなければなりませんが、オペレーティングシステムによってはそれ以上になることがあります。
 
 ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
@@ -1426,7 +1469,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1454,7 +1497,7 @@ app.whenReady().then(() => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // 'whoooooooh!' と出力される
+      console.log(message) // Prints 'whoooooooh!'
     })
   </script>
 </body>
@@ -1467,7 +1510,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1500,6 +1543,7 @@ ipcMain.on('ping', (event) => {
 転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
 
 例:
+
 ```js
 // メインプロセス
 const { port1, port2 } = new MessageChannelMain()
@@ -1696,7 +1740,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.id` _読み出し専用_
 
-この WebContents の一意のIDを表す `Integer`。 Each ID is unique among all `WebContents` instances of the entire Electron application.
+この WebContents の一意のIDを表す `Integer`。 各 ID は、この Electron アプリケーション全体のすべての `WebContents` インスタンス間で一意です。
 
 #### `contents.session` _読み出し専用_
 
@@ -1719,3 +1763,26 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 #### `contents.backgroundThrottling`
 
 `Boolean` 型のプロパティです。ページがバックグラウンドになったときに、この WebContents がアニメーションやタイマーを抑制するかどうかを決定します。 これは Page Visibility API にも影響を与えます。
+
+#### `contents.mainFrame` _読み出し専用_
+
+[`WebFrameMain`](web-frame-main.md) 型のプロパティで、ページの最上位階層のフレームを表します。
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage

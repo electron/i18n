@@ -18,9 +18,7 @@
 
 在macOS上将 `menu`设置成应用内菜单 在windows和Linux上，`menu` 将会被设置成窗口顶部菜单
 
-在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
-
-In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
+在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 被绑定快捷键的字母将会以下划线标出。 `&`并不会在运行时显示
 
 传递 `null` 值可以禁用默认菜单。 在 Windows 和 Linux 上，使用此方法移除窗口上的菜单栏可能会有额外的效果。
 
@@ -413,7 +411,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </h3>
 
 <p spaces-before="0">
-  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 有关详细信息, 请参阅 <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </a>。
+  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 有关详细信息, 请参阅 <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1"> About Information Property List Files </a>。
 </p>
 
 
@@ -423,7 +421,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </h2>
 
 <p spaces-before="0">
-  浏览器窗口的 <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
+  浏览器窗口的 <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
 </p>
 
 

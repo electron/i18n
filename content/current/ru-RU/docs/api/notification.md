@@ -2,7 +2,7 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ## Использование в Рендерер-процессе
 
@@ -12,9 +12,9 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`Notification` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` является [EventEmitter][event-emitter].
 
 Так создается новый экземпляр `BrowserWindow` с собственными свойствами, установленными в `options`.
 
@@ -29,9 +29,9 @@
 ### `new Notification([options])`
 
 * `options` Object (опционально)
-  * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (опционально) _macOS_ - Подзаголовок для уведомления, который будет отображаться под заголовком.
-  * `body` String - Текст уведомления, который будет отображаться под заголовком или подзаголовком.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
   * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
   * `hasReply` Boolean (опционально) _macOS_ - Нужно ли добавлять встроенный ответ к уведомлению.
@@ -41,6 +41,7 @@
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) _macOS_ - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### События экземпляра
 
@@ -90,6 +91,15 @@
 * `event` Event
 * `index` Number - Индекс действия, которое было активировано.
 
+#### Event: 'failed' _Windows_
+
+Возвращает:
+
+* `event` Event
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
+
 ### Методы экземпляра
 
 Объекты, созданные с помощью `New Notification`, имеют следующие методы экземпляра:
@@ -104,7 +114,7 @@
 
 Отклоняет уведомление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `notification.title`
 
@@ -154,6 +164,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 A [`NotificationAction[]`](structures/notification-action.md) свойство, представляющее действия уведомления.
 
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
+
 ### Воспроизведение звуков
 
 В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
@@ -164,3 +178,5 @@ A [`NotificationAction[]`](structures/notification-action.md) свойство, 
 * `/System/Library/Sounds (/Система/Библиотека/Звуки)`
 
 Смотрите документацию [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) для получения дополнительной информации.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

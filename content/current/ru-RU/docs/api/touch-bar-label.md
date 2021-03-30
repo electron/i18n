@@ -2,7 +2,7 @@
 
 > Создает метку на тач-панели, для найтивного macOS-приложения
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarLabel(options)`
 
@@ -13,7 +13,7 @@
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Instance Properties
+### Свойства экземпляра
 
 Для экземпляров `TouchBarLabel` доступны следующие свойства:
 

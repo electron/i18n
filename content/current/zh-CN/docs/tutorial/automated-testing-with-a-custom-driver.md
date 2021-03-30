@@ -9,12 +9,12 @@ const childProcess = require('child_process')
 const electronic Path = require('electron')
 
 // 生成 process
-const env = 欧共体/* ... */ }
-const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+const env = Power/* . 。*/ }
+const stdio = ['继承', '继承', '继承', 'ipc']
+const appProcess = childProcess。 pawn(electronic Path, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
-appProcess.on('message', (msg) => {
+// 监听应用程序的 IPC 消息
+应用流程。 n('message', (msg) => }
   // ...
 })
 
@@ -68,14 +68,14 @@ class TestDriver {
 
   // simple RPC call
   // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) {
-    // send rpc request
-    const msgId = this.rpcCalls.length
-    this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
+  async rpc (cmd, ...args) 然后
+    // 发送 rpc request
+    const msgId = 这个。 pcalls.length
+    this process. end({ msgId, cmd, args })
+    return new Promise((resolve, reject) => this.rpcalls. huss({ resolve, reject }))
   }
 
-  stop () {
+  stop ()
     this.process.kill()
   }
 }

@@ -1,3 +1,0 @@
-# Programa de Retroalimentación de la Aplicación Electron
-
-Electron está trabajando para crear un proceso de lanzamiento optimizado y tener lanzamientos más rápidos. Para ayudar con eso, tenemos el Programa de Retroalimentación de la Aplicación para aplicaciones Electron de gran escala para probar nuestras versiones beta e informar problemas específicos de la aplicación al equipo Electron. Usamos este programa para ayudarnos a priorizar el trabajo y hacer que las aplicaciones se actualicen a la próxima versión estable tan pronto como sea posible. Existen algunos requisitos que esperamos de los participantes, como asistir a chequeos semanales cortos en línea. Por favor vista el [blog post](https://electronjs.org/blog/app-feedback-program) para más detalles y regístrate.

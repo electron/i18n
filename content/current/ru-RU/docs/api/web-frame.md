@@ -36,6 +36,8 @@ The factor must be greater than 0.0.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+
 ### `webFrame.getZoomLevel()`
 
 Возвращает `Number` - текущего уровня маштаба.
@@ -49,8 +51,9 @@ The factor must be greater than 0.0.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -75,7 +78,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
+Пример использования [node-spellchecker][spellchecker] как поставщик:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -141,6 +144,7 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
@@ -207,6 +211,18 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
+### `webFrame.isWordMisspelled(word)`
+
+* `word` String - The word to be spellchecked.
+
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+
+### `webFrame.getWordSuggestions(word)`
+
+* `word` String - The misspelled word.
+
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
+
 ## Свойства
 
 ### `webFrame.top` _Readonly_
@@ -232,3 +248,5 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker

@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
@@ -33,8 +33,8 @@ The following events are available on instances of `ServiceWorkers`:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>messageDetails` Object - Information about the console message
+* `event` Event
+* `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
   * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.

@@ -6,7 +6,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 `MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
 
-## Class: MessagePortMain
+## Clase: MessagePortMain
 
 Proceso: [Main](../glossary.md#main-process)
 

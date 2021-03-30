@@ -4,9 +4,15 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
+> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> 
+> Lea más sobre porque el módulo `remote` es obsoleto [aquí](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> 
+> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+
 El módulo `remote` proporciona una manera sencilla de hacer una comunicación (IPC) entre el proceso de renderizado (página web) y el proceso principal.
 
-En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
+En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI][rmi] de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -17,6 +23,7 @@ win.loadURL('https://github.com')
 **Note:** Para lo contrario (acceder al renderer process desde el main process), puede usar [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** El módulo remote puede ser deshabilitado por razones de seguridad en los siguientes contextos:
+
 - [`BrowserWindow`](browser-window.md) - estableciendo la opción `enableRemoteModule` a `false`.
 - [`<webview>`](webview-tag.md) - estableciendo el atributo `enableremotemodule` a `false`.
 
@@ -26,7 +33,7 @@ Cada objeto (incluidas las funciones) devuelto por el módulo `remote` represent
 
 En el ejemplo anterior, tanto [`BrowserWindow`](browser-window.md) y `win` fueron objetos remotos y `new BrowserWindow` no creó un objeto `BrowserWindow` en el proceso de renderizado. En cambio, creó un objeto `BrowserWindow` en el proceso principal y devolvió el objeto remoto correspondiente en el proceso de renderizado, concretamente el objeto `win`.
 
-**Nota:** Solamente las [enumarable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) que están presentes cuando primero se hace referencia al objeto remoto son accesibles vía el remota.
+**Nota:** Solamente las [enumarable properties][enumerable-properties] que están presentes cuando primero se hace referencia al objeto remoto son accesibles vía el remota.
 
 **Note:** Los arreglos y búferes son copiados sobre el IPC cuando son accedidas a través del módulo `remote`. Cuando se modifican en el proceso de renderizado no se modifican en el proceso principal y viceversa.
 
@@ -98,11 +105,27 @@ console.log(app)
 
 El módulo `remote` tiene los siguientes métodos:
 
-### `remote.require(module)`
+### `remote.getCurrentWindow()`
 
-* `module` Cadena
+Devuelve [`BrowserWindow`](browser-window.md) - La ventana a la cual pertenece esta página web.
 
-Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
+**Note:** No use `removeAllListeners` en [`BrowserWindow`](browser-window.md). El uso de esto puede remover todo los listeners [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), desactivar los eventos click de los botones en la barra táctil y otras consecuencias no deseadas.
+
+### `remote.getCurrentWebContents()`
+
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web de esta página web.
+
+### `remote.getGlobal(name)`
+
+* `name` String
+
+Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el proceso principal.
+
+## Propiedades
+
+### `remoto.require`
+
+A `NodeJS.Require` function equivalent to `require(module)` in the main process. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
 por ejemplo.
 
@@ -132,24 +155,9 @@ module.exports = 'bar'
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
-### `remote.getCurrentWindow()`
-
-Devuelve [`BrowserWindow`](browser-window.md) - La ventana a la cual pertenece esta página web.
-
-**Note:** No use `removeAllListeners` en [`BrowserWindow`](browser-window.md). El uso de esto puede remover todo los listeners [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), desactivar los eventos click de los botones en la barra táctil y otras consecuencias no deseadas.
-
-### `remote.getCurrentWebContents()`
-
-Devuelve [`WebContents`](web-contents.md) - Los contenidos web de esta página web.
-
-### `remote.getGlobal(name)`
-
-* `name` String
-
-Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el proceso principal.
-
-## Propiedades
-
 ### `remote.process` _Readonly_
 
 A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+
+[rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
+[enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties

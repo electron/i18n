@@ -2,7 +2,7 @@
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
@@ -23,7 +23,7 @@ Para crear una ventana sin usar chrome, o una vertana transparente de cualquier 
 
 ## Mostrar ventana con elegancia
 
-Cuando los usuarios cargan una página directamente en la ventana, pueden ver como se carga gradualmente la página, lo cual no es una buena experiencia para una aplicación nativa. Para hacer que la ventana aparezca sin fogonazos, hay dos soluciones para distintas situaciones.
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
 ## Usando el evento `ready-to-show`
 
@@ -85,7 +85,7 @@ child.once('ready-to-show', () => {
 
 ## La visibilidad de la página
 
-La [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona de la siguiente manera:
+La [Page Visibility API][page-visibility-api] funciona de la siguiente manera:
 
 * En todas las plataformas, el estado de visibilidad identifica si la ventana está oculta/minimizada o si no lo está.
 * Además, en macOS, el estado de visibilidad también indica el estado de oclusión de la ventana. Si la ventana esta tapada, es decir, completamente cubierta por otra ventana, el estado de visibilidad será `hidden`. En otras plataformas, el estado de visibilidad será `hidden` solo si la ventana esta minimizada o explícitamente oculta con `win.hide()`.
@@ -105,9 +105,9 @@ Se recomienda detener operaciones costosas cuando el estado de visibilidad está
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-`BrowserWindow` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`BrowserWindow` es un [EventEmitter][event-emitter].
 
 Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por las `options`.
 
@@ -189,8 +189,8 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Por defecto es `false`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Por defecto es `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Por defecto es `false`.
-    * `enableBlinkFeatures` String (opcional) - Una lista de cadenas de características separadas por `,`, para habilitar como `CSSVariables,KeyboardEventKey`. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `disableblinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `enableBlinkFeatures` String (opcional) - Una lista de cadenas de características separadas por `,`, para habilitar como `CSSVariables,KeyboardEventKey`. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
+    * `disableblinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
       * `standard` String (opcional) - Por defecto es `Times New Roman`.
       * `serif` String (opcional) - Por defecto es `Times New Roman`.
@@ -204,11 +204,11 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta a [Page Visibility API](#page-visibility). Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
-    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Por defecto es `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (opcional) - Si se usa el nativo `window.open()`. Por defecto es `false`. Las ventanas hijas siempre tienen la integración con node desabilidata a menos que `nodeIntegrationInSubFrames` es true. **Note:** Esta opción es experimental actualmente.
     * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto es `false`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
-    * `additionalArguments` String[] (opcional) - Una lista de string que se agregarán a `process.argv` en el proceso de renderización de esta aplicación. Útil para pasar pequeños bits de datos hasta los scripts de precarga del proceso del renderizador.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Por defecto es `false`.
     * `safeDialogsMessage` String (opcional) - El mensaje a mostrar cuando la protección de diálogo consecutivo es lanzada. So no se define el mensaje por defecto sería utilizado, note que actualmente el mensaje por defecto esta en Inglés y no localizado.
     * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Por defecto es `false`.
@@ -223,6 +223,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
       * `code` - Heuristic based code caching
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
       * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
+    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Por defecto es `false`.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -240,17 +241,17 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
-#### Evento: "page-title-updated"
+#### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `evento` Evento
-* `title` Cadena
+* `event` Event
+* `title` String
 * `explicitSet` Boolen
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` es falso cuando el título se sintetiza a partir de la URL del archivo.
 
-#### Evento: 'close'
+#### Evento: "close"
 
 Devuelve:
 
@@ -271,6 +272,7 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // equivalente a `return false` pero no es recomendado
 }
 ```
+
 _**Nota**: Hay una diferencia sutil entre el comportamiento de `window.onbeforeunload = handler` y `window.addEventListener('beforeunload', handler)`. Se recomienda siempre establecer el `event.returnValue` explícitamente, en lugar de devolver sólo un valor, ya que el primero funciona más consistentemente dentro de Electron._
 
 #### Evento: "closed"
@@ -806,7 +808,7 @@ Devuelve `Boolean` - Si la ventana esta en estado normal (no maximizada, no mini
 #### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * `aspectRatio` Flotador - La relación de aspecto para mantener parte de la vista de contenido.
- * `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
 
 Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra permite al desarrollador tener espacio especificado en píxeles, el cual no está incluido dentro de los cálculos de la relación de aspecto. Esta API ya toma en cuenta la diferencia entre el tamaño de la ventana y el tamaño del contenido.
 
@@ -826,11 +828,11 @@ Establece el color de fondo de la ventana. Ver [Setting `backgroundColor`](#sett
 * `path` Cadena - La ruta de acceso absoluta al archivo para vista previa con QuickLook. Esto es importante a medida que Quick Look utiliza el nombre del archivo y la extensión del archivo en la ruta para determinar el tipo de contenido del archivo que se va a abrir.
 * `displayName` Cadena (opcional) - El nombre del archivo a mostrar en la vista modal de Quick Look. Esto es puramente visual y no afecta el tipo de contenido del archivo. Por defecto es `path`.
 
-Utiliza [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) para previsualizar un archivo de una ruta determinada.
+Utiliza [Quick Look][quick-look] para previsualizar un archivo de una ruta determinada.
 
 #### `win.closeFilePreview()` _macOS_
 
-Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look).
+Cierra el panel actual de [Quick Look][quick-look].
 
 #### `win.setBounds(bounds[, animate])`
 
@@ -1005,7 +1007,7 @@ En Linux siempre devuelve `true`.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). Por defecto es `floating` cuando `flag` es true. El `level` se restablece a `normal` cuando la bandera es false. Tenga en cuenta que desde `floating` a `status` incluido, la venta está colocada debajo del Dock en macOS y debajo de la barra de tarea en Windows. Desde `pop-up-menu` a un superior se muestra sobre el Dock en macOS y sobre la barra de tareas en Windows. Vea la [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) para más detalles.
+* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). Por defecto es `floating` cuando `flag` es true. El `level` se restablece a `normal` cuando la bandera es false. Tenga en cuenta que desde `floating` a `status` incluido, la venta está colocada debajo del Dock en macOS y debajo de la barra de tarea en Windows. Desde `pop-up-menu` a un superior se muestra sobre el Dock en macOS y sobre la barra de tareas en Windows. See the [macOS docs][window-levels] for more details.
 * `relativeLevel` Integer (opcional) _macOS_ - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es `0`. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -1089,6 +1091,14 @@ Enters or leaves kiosk mode.
 
 Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
 
+#### `win.isTabletMode()` _Windows_
+
+Returns `Boolean` - Whether the window is in Windows 10 tablet mode.
+
+Since Windows 10 users can [use their PC as tablet](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet), under this mode apps can choose to optimize their UI for tablets, such as enlarging the titlebar and hiding titlebar buttons.
+
+This API returns whether the window is in tablet mode, and the `resize` event can be be used to listen to changes to tablet mode.
+
 #### `win.getMediaSourceId()`
 
 Returns `String` - Window id in the format of DesktopCapturerSource's id. Por ejemplo "window:1234:0".
@@ -1105,6 +1115,8 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 
 * `message` Integer
 * `callback` Función
+  * `wParam` any - El `wParam` proveído al WndProc
+  * `lParam` any - El `lParam` proveído al WndProc
 
 Engancha una ventana de mensaje. The `callback` is called when the message is received in the WndProc.
 
@@ -1154,7 +1166,7 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 
 Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
+Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible. Si la página no es visible, `rect` puede estar vacía.
 
 #### `win.loadURL(url[, options])`
 
@@ -1163,7 +1175,7 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una URL de referencia HTTP.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (opcional) - URL base (con separador de ruta final) para archivos a ser cargados por el data URL. Esto solo es necesario si la `url` especificada es una data URL y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -1393,7 +1405,7 @@ Todos los eventos del ratón ocurridos en esta ventana se pasarán a la ventana 
 
 Evita que los contenidos de la ventana sean capturados por otras aplicaciones.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_EXCLUDEFROMCAPTURE`. For Windows 10 version 2004 and up the window will be removed from capture entirely, older Windows versions behave as if `WDA_MONITOR` is applied capturing a black window.
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
@@ -1451,7 +1463,7 @@ Añade una ventana como pestaña de la ventana actual, después de la pestaña p
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`. Para más detalles, ver [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc).
+* `type` String | null - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`. Para más detalles, ver [macOS documentation][vibrancy-docs].
 
 Añade un efecto de vibración a la ventana del navegador. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
@@ -1504,3 +1516,11 @@ Levanta un `browserView` sobre otro `BrowserView` adjunto a `win`. Lanza un erro
 Devuelve `BrowserView[]` - Un array de todos los BrowserViews que han sido adjuntados con `addBrowserView` or `setBrowserView`.
 
 **Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en versiones futuras de Electron.
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[page-visibility-api]: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+[quick-look]: https://en.wikipedia.org/wiki/Quick_Look
+[vibrancy-docs]: https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc
+[window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
+[chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

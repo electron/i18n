@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarScrubber(options)`
 
@@ -18,7 +18,7 @@
   * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `TouchBarScrubber`:
 

@@ -1,10 +1,10 @@
-## Class: Dock
+## Clase: Dock
 
-> Control your app in the macOS dock
+> Controla tu aplicación en el dock de macOS
 
 Proceso: [Main](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+El siguiente ejemplo muestra como rebotar tu ícono en el dock.
 
 ```javascript
 const { app } = require('electron')
@@ -15,15 +15,15 @@ app.dock.bounce()
 
 #### `dock.bounce([type])` _macOS_
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (opcional) - Puede ser `critical` o `informational`. Por defecto es `informational`
 
 Devuelve `Integer` - un ID que representa la solicitud.
 
 Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Cuando `informational` es pasado, el icono del dock rebotará por un segundo. Sin embargo, la solicitud permanece activa hasta que la aplicación se vuelta activa o la solicitud sea cancelada.
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**Nota Bene:** Este método solo puede ser usada mientras la aplicación no este enfocada; cuando la aplicación está enfocada retornará -1.
 
 #### `dock.cancelBounce(id)` _macOS_
 
@@ -63,7 +63,7 @@ Devuelve `Boolean` - Si el icono del dock es visible.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+Establece el \[dock menu\]\[dock-menu\] de la aplicación.
 
 #### `dock.getMenu()` _macOS_
 

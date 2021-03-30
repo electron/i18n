@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内にポップオーバーを作成する
 
-プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+プロセス: [Main](../glossary.md#main-process)
 
 ### `new TouchBarPopover(options)`
 

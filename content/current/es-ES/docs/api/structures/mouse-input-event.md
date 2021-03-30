@@ -1,4 +1,4 @@
-# MouseInputEvent Object extends `InputEvent`
+# El objeto MouseInputEvent extiende de `InputEvent`
 
 * `type` String - El tipo del evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
 * `x` Integer

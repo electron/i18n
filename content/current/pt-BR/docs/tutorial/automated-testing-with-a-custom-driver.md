@@ -9,12 +9,12 @@ const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // spawna o processo
-const env = { /* ... */ }
+const env = { /* . . */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
+const appProcess = childProcess. pawn(electronPath, ['./app'], { stdio, env })
 
-// escuta mensagens IPC do app
-appProcess.on('message', (msg) => {
+// escuta mensagens IPC do processo app
+do aplicativo. n('message', (msg) => {
   // ...
 })
 
@@ -40,42 +40,42 @@ Para conveniência, você pode querer encapsular o `appProcess` em um objeto de 
 
 ```js
 class TestDriver {
-  constructor ({ path, args, env }) {
-    this.rpcCalls = []
+  construtor ({ path, args, env }) {
+    este. pcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    // inicia processo filho
+    env. PP_TEST_DRIVER = 1 // avise o aplicativo que deve ouvir mensagens
+    this.process = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
-    this.process.on('message', (message) => {
-      // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
+    // manipula respostas rpc
+    this.process. n('mensagem', (message) => {
+      // aparece o manipulador
+      const rpcCall = isso. PcCalls[message.msgId]
+      if (!rpcCall) retornam
+      . pcCalls[message.msgId] = null
+      // rejeitar/resolver
+      se (mensagem. eject) rpcCall.reject(message.reject)
+      else rpcCall. esolve(message.resolve)
     })
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
+    // espera por pronto
+    this.isReady = this.rpc('isReady'). atch((err) => {
+      console. rror('Aplicativo falhou ao iniciar', err)
       this.stop()
-      process.exit(1)
+      process. xit(1)
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) {
-    // send rpc request
-    const msgId = this.rpcCalls.length
-    this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
+  // chamado de RPC simples
+  // para usar: driver. pc('método', 1, 2, 3).then(...)
+  rpc async (cmd, ...args) {
+    // envia solicitação rpc
+    const msgId = this. pcCalls.length
+    this.process. end({ msgId, cmd, args })
+    retornar nova Promise((resolve, reject) => this.rpcCalls. ush({ resolve, reject }))
   }
 
-  stop () {
+  parar () {
     this.process.kill()
   }
 }

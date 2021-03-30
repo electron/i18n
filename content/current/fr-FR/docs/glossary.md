@@ -4,17 +4,17 @@ Cette page définit certaines terminologies qui sont couramment utilisées dans 
 
 ### ASAR
 
-ASAR signifie Atom Shell Archive Format. Une archive [asar](https://github.com/electron/asar) est un simple fichier `.tar`, comme le format de compression de fichiers. Electron peut lire les fichiers sans avoir à décompresser l'archive.
+ASAR signifie Atom Shell Archive Format. Une archive [asar][asar] est un simple fichier `.tar`, comme le format de compression de fichiers. Electron peut lire les fichiers sans avoir à décompresser l'archive.
 
 Le format ASAR a été créé principalement pour améliorer les performances sous Windows... TODO
 
 ### CRT
 
-La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C++ qui intègre la bibliothèque standard ISO C99. Les bibliothèques Visual C++ qui implémentent le CRT soutiennent le développement de code natif et code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
+La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C++ qui intègre la bibliothèque standard ISO C99. Les bibliothèques Visual C++ qui implémentent le CRT supportent le développement de code natif, de code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
 
 ### DMG
 
-Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un  "installateur" d'une application. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge le `dmg` comme format de compilation.
+Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un  "installateur" d'une application. [electron-builder][] prend en charge le `dmg` comme format de compilation.
 
 ### IME
 
@@ -26,17 +26,17 @@ Langue de description de l'interface. Écrire les signatures de fonctions et les
 
 ### IPC
 
-La CIP est synonyme de communication interprocessus. Electron utilise IPC pour envoyer des messages JSON sérialisés entre les processus [principal](#main-process) et [renderer](#renderer-process).
+La CIP est synonyme de communication interprocessus. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
 
 ### libchromiumcontent
 
-Une bibliothèque partagée qui inclut le [module Chromium Content](https://www.chromium.org/developers/content-module) et toutes ses dépendances (par exemple Blink, [V8](#v8), etc.). Aussi dénommé "libcc".
+Une bibliothèque partagée qui inclut le [module Chromium Content][] et toutes ses dépendances (par exemple Blink, [V8][], etc.). Aussi dénommé "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process (processus principal)
 
-Le processus principal (main process en Anglais), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. Le processus principal est responsable de la création de chaque nouveau processus de rendu dans l'application. L'API Node y est complètement intégrée.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Le fichier de processus principal de chaque application est spécifié dans la propriété `principale` dans `package.json`. Voici comment `electron .` sait quel fichier exécuter au démarrage.
 
@@ -46,7 +46,7 @@ Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 ### MAS
 
-Acronyme pour le Mac App Store d'Apple. Pour plus de détails sur l'envoi de votre application à la MAS, consultez le [Guide de soumission de l'App Store pour Mac](tutorial/mac-app-store-submission-guide.md).
+Acronyme pour le Mac App Store d'Apple. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
 
 ### Mojo
 
@@ -56,15 +56,15 @@ Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modules natifs
 
-Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules ordinaires de Node.js. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
+Les modules natifs (également appelés [addons][] dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules ordinaires de Node.js. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l'emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
-Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-modules.md).
+Voir aussi [Utilisation des modules natifs de Node][].
 
 ### NSIS
 
-Nullsoft Scriptable Install System est un programme d'installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge NSIS comme format de build.
+Nullsoft Scriptable Install System est un programme d'installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder][] prend en charge NSIS comme format de build.
 
 ### OSR
 
@@ -72,7 +72,7 @@ OSR (Off-screen rendering) peut être utilisé pour charger une page lourde en a
 
 ### processus (process)
 
-Un processus est une instance d'un programme d'ordinateur en execution. Les apps Electron qui utilisent le processus [principal](#main-process) et un ou plusieurs processus [de rendu](#renderer-process) font tourner plusieurs programmes en même temps.
+Un processus est une instance d'un programme d'ordinateur en execution. Les apps Electron qui utilisent le processus [principal][] et un ou plusieurs processus [de rendu][] font tourner plusieurs programmes en même temps.
 
 Dans Node.js et Electron, chaque processus en execution ont un objet `processus`. Cet objet global donne des informations et permet de contrôler le processus current. Comme une variable global, cet objet est disponible dans l'application sans utiliser require().
 
@@ -80,15 +80,15 @@ Voir aussi : [processus principal](#main-process), [processus de rendu](#render
 
 ### processus de rendu (renderer process)
 
-Le processus de rendu est une fenêtre de navigateur dans votre application. Contrairement au processus principal, il peut y avoir plusieurs d'entre eux et chacun est exécuté dans un processus séparé. Ils peuvent également être cachés.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. Ils peuvent également être cachés.
 
-Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions de niveau bas avec le système d'exploitation.
+Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions bas niveau avec le système d'exploitation.
 
 Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### Squirrel
 
-Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. Voir l'API [autoUpdater](api/auto-updater.md) pour plus d'informations sur comment démarrer avec Squirrel.
+Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. Voir l'API [autoUpdater][] pour plus d'informations sur comment démarrer avec Squirrel.
 
 ### userland
 
@@ -110,4 +110,17 @@ Les numéros de version de V8 correspondent toujours à ceux de Google Chrome. C
 
 ### webview
 
-Les balises `webview` sont utilisées pour l'intégration du contenu 'guest' (par exemple, des pages web externes) dans votre application Electron. Ils sont similaires aux `iframes`, mais diffèrent par le fait que chaque webview s'exécute dans un processus séparé. Il n’a pas les mêmes autorisations que votre page web et toutes les interactions entre votre application et le contenu incorporé seront asynchrones. Cela protège votre application du contenu incorporé.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Il n’a pas les mêmes autorisations que votre page web et toutes les interactions entre votre application et le contenu incorporé seront asynchrones. Cela protège votre application du contenu incorporé.
+
+[addons]: https://nodejs.org/api/addons.html
+[asar]: https://github.com/electron/asar
+[autoUpdater]: api/auto-updater.md
+[module Chromium Content]: https://www.chromium.org/developers/content-module
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
+[main]: #main-process
+[principal]: #main-process
+[renderer]: #renderer-process
+[de rendu]: #renderer-process
+[Utilisation des modules natifs de Node]: tutorial/using-native-node-modules.md
+[V8]: #v8

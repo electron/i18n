@@ -63,7 +63,6 @@ O GitHubber [Amy Palamountain](https://github.com/ammeep) fez uma excelente intr
 
 
 #### Construindo aplicações nativas com Electron por Amy Palomountain
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
 [Ogle](https://github.com/benogle)Ben, também na equipe Atom , falou com Electron na [Ásia YAPC](http://yapcasia.org/2015/):
@@ -71,7 +70,6 @@ O GitHubber [Amy Palamountain](https://github.com/ammeep) fez uma excelente intr
 
 
 #### Construindo Aplicativos de Desktop com Tecnologias Web por Ben Ogle
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
 O membro da Atom [Kevin Sawicki](https://github.com/kevinsawicki) e outros deram palestras no Electron na [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) encontro recentemente. Os [vídeos](http://www.wagonhq.com/blog/electron-meetup) foram postados, aqui está um casal:
@@ -79,10 +77,8 @@ O membro da Atom [Kevin Sawicki](https://github.com/kevinsawicki) e outros deram
 
 
 #### A História do Electron por Kevin Sawicki
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
 #### Fazer com que um aplicativo da web se sinta nativo por Ben Gotow
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

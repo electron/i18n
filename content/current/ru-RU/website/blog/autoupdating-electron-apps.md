@@ -43,11 +43,11 @@ require('update-electron-app')()
 
 ## Миграция существующих приложений
 
-Приложения уже используют API autoUpdater Electron и могут использовать этот сервис. Для этого вы можете [настроить `update-electron-app`](https://github.com/electron/update-electron-app) модуль или [интегрировать напрямую с update.electronjs.org](https://github.com/electron/update.electronjs.org).
+Приложения уже используют API autoUpdater Electron и могут использовать этот сервис. Если вы используете [встроенный](https://github.com/electron-userland/electron-builder) для пакетирования вашего приложения, вы можете использовать его встроенное обновление.
 
 ## Альтернативы
 
-Если вы используете [встроенный](https://github.com/electron-userland/electron-builder) для пакетирования вашего приложения, вы можете использовать его встроенное обновление. Подробнее см. [electron.build/auto-update](https://www.electron.build/auto-update).
+Приложения уже используют API autoUpdater Electron и могут использовать этот сервис. Подробнее см. [electron.build/auto-update](https://www.electron.build/auto-update).
 
 Если ваше приложение является приватным, вам может потребоваться запустить свой собственный сервер обновлений. Есть ряд инструментов с открытым исходным кодом, включая Zeit [Hazel](https://github.com/zeit/hazel) и Atlassian's [Nucleus](https://github.com/atlassian/nucleus). Смотрите учебник [Установка сервера обновления](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) для получения дополнительной информации .
 

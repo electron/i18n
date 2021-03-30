@@ -4,13 +4,13 @@ author: zeke
 date: '2017-06-01'
 ---
 
-The `electron` npm package now includes a TypeScript definition file that provides detailed annotations of the entire Electron API. Эти аннотации могут улучшить разработку Electron **даже если вы пишете обычный JavaScript**. Просто `npm установить электрон` для получения актуальных типов Electron в вашем проекте.
+`electron` npm package теперь включает в себя файл определения TypeScript, который содержит подробные аннотации всего Electron API. Эти аннотации могут улучшить разработку Electron **даже если вы пишете обычный JavaScript**. Просто `npm установить электрон` для получения актуальных типов Electron в вашем проекте.
 
 ---
 
 TypeScript - это язык программирования с открытым исходным кодом, созданный Microsoft. Это суперсет JavaScript, который расширяет язык, добавив поддержку статических типов. Сообщество TypeScript быстро выросло в последние годы, и TypeScript был включен в число [наиболее любимых языков программирования](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) в опросе разработчиков Stack Overflow.  TypeScript описан как "JavaScript масштабов", и команды в [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), и [Microsoft](https://github.com/Microsoft/vscode) использует его для написания масштабируемых приложений Electron, используемых миллионами людей.
 
-TypeScript поддерживает многие из новых возможностей языка в JavaScript, такие как классы , уничтожение объектов, и async/await, но его реальная дифференцированная функция является **аннотации типа**. Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
+TypeScript поддерживает многие из новых возможностей языка в JavaScript, такие как классы , уничтожение объектов, и async/await, но его реальная дифференцированная функция является **аннотации типа**. Объявление типов входных и выходных данных, ожидаемых вашей программой, может [уменьшить количество ошибок](https://slack.engineering/typescript-at-slack-a81307fa288d), помогая вам находить ошибки во время компиляции, а аннотации могут также служить формальным заявлением о том, [как ваша программа работает](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
 
 Когда библиотеки написаны на ванильном Javascript, эти типы часто расплывчатываются в качестве последующего вывода при написании документации. Функции часто могут принимать больше типов, чем было задокументировано, или функция может иметь невидимые ограничения, которые не документированы, что может привести к ошибкам во время выполнения.
 

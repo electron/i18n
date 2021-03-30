@@ -61,22 +61,18 @@ Atom se ha actualizado a Electron `v0.30.6` ejecutando Chrome 44. Una actualizac
 GitHubber [Amy Palamountain](https://github.com/ammeep) dio una gran introducción a Electron en una charla en [Nordic.js](https://nordicjs2015.confetti.events). También creó la librería [electron-accelerator](https://github.com/ammeep/electron-accelerator).
 
 #### Construyendo aplicaciones nativas con Electron por Amy Palomountain
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
 [Ben Ogle](https://github.com/benogle), también en el equipo de Atom, dio una charla de Electron en [YAPC Asia](http://yapcasia.org/2015/):
 
 #### Crear aplicaciones de escritorio con tecnologías web de Ben Ogle
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
 Miembro del equipo Atom [Kevin Sawicki](https://github.com/kevinsawicki) y otros dieron charlas en Electron en la reunión [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) recientemente. Los [vídeos](http://www.wagonhq.com/blog/electron-meetup) han sido publicados, aquí hay un parámetro:
 
 #### La historia de Electron por Kevin Sawicki
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
 #### Hacer que una aplicación web se sienta nativa por Ben Gotow
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

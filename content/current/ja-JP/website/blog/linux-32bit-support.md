@@ -4,7 +4,7 @@ author: felixrieseberg
 date: '2019-03-04'
 ---
 
-Electron チームは 32 ビット Linux (ia32 / i386) に対するサポートを Electron v4.0 から中止します。 32 ビットを元にした Linux 環境をサポートする最後のバージョンは Electron v3.1 です。このバージョンでは、 Electron v6 がリリースされるまでサポートリリースを受けられます。 64 ビット Linux 及び `armv7l` のサポートは変わらず続行されます。
+Electron チームは 32 ビット Linux (ia32 / i386) に対するサポートを Electron v4.0 から中止します。 32 ビットを元にした Linux 環境をサポートする最後のバージョンは Electron v3.1 です。 このバージョンでは、 Electron v6 がリリースされるまでサポートリリースを受けられます。 64 ビット Linux 及び `armv7l` のサポートは変わらず続行されます。
 
 ---
 

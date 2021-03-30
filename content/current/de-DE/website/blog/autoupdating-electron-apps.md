@@ -43,11 +43,11 @@ Das war's! Das Modul prüft beim Start der App nach Aktualisierungen, dann alle 
 
 ## Migration bestehender Apps
 
-Anwendungen, die bereits die autoUpdater API von Electrone verwenden, können diesen Dienst auch nutzen. Dazu können Sie [die `update-electron-app anpassen`](https://github.com/electron/update-electron-app) Modul oder [direkt mit update.electronjs.org](https://github.com/electron/update.electronjs.org) integrieren.
+Anwendungen, die bereits die autoUpdater API von Electrone verwenden, können diesen Dienst auch nutzen. Wenn Sie [Electron-Builder](https://github.com/electron-userland/electron-builder) verwenden, um Ihre App zu paketieren, können Sie die eingebaute Aktualisierung verwenden.
 
 ## Alternativen
 
-Wenn Sie [Electron-Builder](https://github.com/electron-userland/electron-builder) verwenden, um Ihre App zu paketieren, können Sie die eingebaute Aktualisierung verwenden. Details hierzu finden Sie unter [electron.build/auto-update](https://www.electron.build/auto-update).
+Anwendungen, die bereits die autoUpdater API von Electrone verwenden, können diesen Dienst auch nutzen. Details hierzu finden Sie unter [electron.build/auto-update](https://www.electron.build/auto-update).
 
 Wenn Ihre App privat ist, müssen Sie möglicherweise Ihren eigenen Update-Server ausführen. Es gibt eine Reihe von Open-Source-Tools, darunter Zeit's [Hazel](https://github.com/zeit/hazel) und Atlassian's [Nucleus](https://github.com/atlassian/nucleus). Siehe [Verteilen eines Update-Servers](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) Tutorials für weitere Infos.
 

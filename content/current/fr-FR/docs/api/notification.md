@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` est un [EventEmitter][event-emitter].
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -29,11 +29,11 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 ### `new Notification([options])`
 
 * `options` Object (optional)
-  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
-  * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
-  * `silent` Boolean (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
-  * `icon` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
+  * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (facultatif) _macOS_ - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
@@ -41,6 +41,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### Événements d’instance
 
@@ -50,7 +51,7 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 #### Événement : 'show'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 
@@ -68,7 +69,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
@@ -89,6 +90,15 @@ Retourne :
 
 * `event` Événement
 * `index` Number - L'indice de l'action qui a été activée.
+
+#### Event: 'failed' _Windows_
+
+Retourne :
+
+* `event` Événement
+* `error` String - The error encountered during execution of the `show()` method.
+
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### Méthodes d’instance
 
@@ -154,6 +164,10 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 Une propriété [`NotificationAction[]`](structures/notification-action.md) représentant les actions de la notification.
 
+#### `notification.toastXml` _Windows_
+
+A `String` property representing the custom Toast XML of the notification.
+
 ### Lire un son
 
 Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
@@ -164,3 +178,5 @@ Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'
 * `/System/Library/Sounds`
 
 Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

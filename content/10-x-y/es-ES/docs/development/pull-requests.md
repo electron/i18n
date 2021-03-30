@@ -33,7 +33,7 @@ $ git fetch upstream
 ### Paso 2: Compilado
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
-* [Building on macOS](https://electronjs.org/docs/development/build-instructions-macos)
+* [Compilando en macOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
@@ -82,21 +82,21 @@ Ejemplos de mensajes de confirmación con prefijos semánticos:
 
 Prefijos usuales:
 
-  - fix: A bug fix
-  - feat: A new feature
-  - docs: Documentation changes
-  - test: Adding missing tests or correcting existing tests
-  - build: Changes that affect the build system
-  - ci: Changes to our CI configuration files and scripts
-  - perf: A code change that improves performance
-  - refactor: A code change that neither fixes a bug nor adds a feature
-  - style: Changes that do not affect the meaning of the code (linting)
-  - vendor: Bumping a dependency like libchromiumcontent or node
+  - fix: Una corrección de error
+  - feat: Una nueva característica
+  - docs: Cambios en la documentación
+  - test: Agrega pruebas faltantes o corrige las pruebas exixtentes
+  - build: Cambios que afectan el sistema de construccion
+  - ci: Cambios a nuestros archivos de configuración y scripts CI
+  - perf: Un cambio en el código que mejora el rendimiento
+  - refactor: Un cambio en el código que no corrige un error ni agrega una característica
+  - style: Cambios que no afectan el significado del código (linting)
+  - vendor: Cambiar una dependencia como libchromiumcontent o node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 1. La primera linea debe:
-   - contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   - contener una breve descripción del cambio (preferiblemente de 50 caracteres o menos, y no más de 72 caracteres)
    - estar completamente en minúsculas con la excepción de nombres propios, acrónimos, y las palabras que refieren a un código, como nombres de función/variables
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
@@ -179,7 +179,7 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Se espera que sean útiles, pero puede que a veces no lo sean, especialmente si no incluyen sugerencias concretas sobre *cómo* cambiarlas.
 
 Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
 
@@ -195,5 +195,5 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
-CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+CI inicia automáticamente cuando abres una pull request, pero solo los mantenedores principales puede reiniciar una ejecución CI. Si crees que el CI está dando un falso negativo, pida a un mantenedor que reinicie las pruebas.
 

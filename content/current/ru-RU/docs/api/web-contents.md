@@ -2,9 +2,9 @@
 
 > Render and control web pages.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -43,7 +43,7 @@ Returns `WebContents` | undefined - A WebContents instance with the given ID, or
 
 > Рендерит и управляет контент экземпляра BrowserWindow.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### События экземпляра
 
@@ -63,7 +63,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
 #### Event: 'did-fail-provisional-load'
 
@@ -125,7 +125,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Emitted when page receives favicon urls.
 
-#### Событие: 'new-window'
+#### Event: 'new-window' _Deprecated_
 
 Возвращает:
 
@@ -137,6 +137,8 @@ Emitted when page receives favicon urls.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+
+Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
@@ -168,6 +170,23 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
+#### Event: 'did-create-window'
+
+Возвращает:
+* `window` BrowserWindow
+* `details` Object
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+
 #### Событие: 'will-navigate'
 
 Возвращает:
@@ -194,7 +213,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
 #### Event: 'will-redirect'
 
@@ -325,12 +344,13 @@ Emitted when the renderer process crashes or is killed.
     * `oom` - Process ran out of memory
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Событие: 'unresponsive'
 
-Вызывается, когда страница "не отвечает".
+Происходит, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -357,14 +377,14 @@ Emitted when `webContents` is destroyed.
 * `event` Event
 * `input` Object - Input properties.
   * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
+  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -393,6 +413,7 @@ win.webContents.on('before-input-event', (event, input) => {
 #### Event: 'zoom-changed'
 
 Возвращает:
+
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
 
@@ -435,7 +456,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Возникает при запросе сертификата клиента.
+Происходит, когда запрошен сертификат клиента.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -456,7 +477,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String (опционально)
   * `password` String (опционально)
 
-Возникает `webContents`, когда делается базовый auth.
+Происходит, когда `webContents` выполняет базовую аутентификацию.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -735,17 +756,28 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Вы
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
+#### Event: 'preferred-size-changed'
+
+Возвращает:
+
+* `event` Event
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+
+Emitted when the `WebContents` preferred size has changed.
+
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
 ### Методы экземпляра
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (опционально)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
+  * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
@@ -978,9 +1010,19 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `contents.setIgnoreMenuShortcuts(ignore)`
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 
 Ignore application menu shortcuts while this web contents is focused.
+
+#### `contents.setWindowOpenHandler(handler)`
+
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  * `details` Object
+    * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
+    * `frameName` String - Name of the window provided in `window.open()`
+    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -1014,6 +1056,8 @@ Returns `Number` - the current zoom factor.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. The formula for this is `scale := 1.2 ^ level`.
 
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
@@ -1029,8 +1073,9 @@ Returns `Number` - the current zoom level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.undo()`
 
@@ -1102,8 +1147,6 @@ Executes the editing command `replaceMisspelling` in web page.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -1179,7 +1222,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
@@ -1426,7 +1469,7 @@ Opens the developer tools for the service worker context.
 * `channel` String (Строка)
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1467,7 +1510,7 @@ app.whenReady().then(() => {
 * `channel` String (Строка)
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1500,6 +1543,7 @@ Send a message to the renderer process, optionally transferring ownership of zer
 The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Например:
+
 ```js
 // Main process
 const { port1, port2 } = new MessageChannelMain()
@@ -1666,7 +1710,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `contents.audioMuted`
 
@@ -1719,3 +1763,26 @@ A [`Debugger`](debugger.md) instance for this webContents.
 #### `contents.backgroundThrottling`
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.mainFrame` _Только чтение_
+
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage

@@ -157,9 +157,9 @@ child.once('ready-to-show', () => {
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
-    * `active` - The backdrop should always appear active.
-    * `inactive` - The backdrop should always appear inactive.
+    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 This is the default.
+    * `active` - 后台应一直显示为激活状态。
+    * `inactive` - 后台应一直显示为非激活状态。
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
@@ -1456,7 +1456,7 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
 #### `win.setBrowserView(browserView)` _实验_
 

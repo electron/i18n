@@ -4,7 +4,7 @@ author: zeke
 date: '2018-05-01'
 ---
 
-Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
+Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
 
 ---
 
@@ -43,11 +43,11 @@ require('update-electron-app')()
 
 ## 迁移现有应用
 
-已经使用Electron的自动更新器 API 的应用也可以使用此服务。 要这样做，您可以 [定制 `update-electron-app`](https://github.com/electron/update-electron-app) module or [直接整合update.electronjs.org](https://github.com/electron/update.electronjs.org)
+已经使用Electron的自动更新器 API 的应用也可以使用此服务。 如果您正在使用 [电子生成器](https://github.com/electron-userland/electron-builder) 打包您的应用，您可以使用它 内置更新。
 
 ## 替代办法
 
-如果您正在使用 [电子生成器](https://github.com/electron-userland/electron-builder) 打包您的应用，您可以使用它 内置更新。 详情见 [electron.build/auto-update](https://www.electron.build/auto-update)。
+已经使用Electron的自动更新器 API 的应用也可以使用此服务。 详情见 [electron.build/auto-update](https://www.electron.build/auto-update)。
 
 如果您的应用是私密的，您可能需要运行自己的更新服务器。 这里有 个开源工具，包括Zeit的 [Hazel](https://github.com/zeit/hazel) 和 Atlassian的 [Nucleus](https://github.com/atlassian/nucleus)。 查看 [部署一个更新服务器](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) 教程以获取更多 信息。
 

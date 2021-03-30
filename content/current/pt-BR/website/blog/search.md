@@ -17,7 +17,7 @@ O site do Electron tem um novo motor de busca que oferece resultados instantâne
 
 ---
 
-Aprender uma nova tecnologia ou quadro, como o Electron pode intimidar tudo. Uma vez que você passe da fase [de início rápido](https://github.com/electron/electron-quick-start) , pode ser difícil aprender as melhores práticas, encontre as APIs certas, ou descubra as ferramentas que ajudarão você a construir o aplicativo dos seus sonhos. Queremos que o site do Electron seja uma ferramenta melhor para encontrar os recursos que você precisa para criar aplicativos mais rápido e mais facilmente.
+Aprender uma nova tecnologia ou quadro, como o Electron pode intimidar tudo. Aprender uma nova tecnologia ou quadro, como o Electron pode intimidar tudo. Queremos que o site do Electron seja uma ferramenta melhor para encontrar os recursos que você precisa para criar aplicativos mais rápido e mais facilmente.
 
 Visite qualquer página no [electronjs.org](https://electronjs.org) e você encontrará a nova entrada de pesquisa no topo da página.
 
@@ -66,10 +66,10 @@ Tente uma busca por [`música`] ou [`homebrew`].
 
 Se você usou a pesquisa de código [do GitHub](https://github.com/search) antes, você provavelmente está ciente de seus filtros de chave-valor separados por vírgula, como `extensão:js` ou `user:defunkt`. Nós achamos que essa técnica de filtragem é bastante poderosa, então adicionamos uma `é:` palavra-chave na pesquisa do Electron, que permite que você os resultados do filtro para mostrar somente um único tipo:
 
-- [`é:api thumbnail`]
-- [`é:segurança do tutorial`]
-- [`é:package ipc`]
-- [`é:app graphql`]
+- [`[<code>é:api thumbnail`]</code>][]
+- [`[<code>é:segurança do tutorial`]</code>][]
+- [`[<code>é:package ipc`]</code>][]
+- [`[<code>é:app graphql`]</code>][]
 
 ## Navegação do teclado
 
@@ -97,4 +97,11 @@ A melhor maneira de enviar seu feedback é deixando um problema no GitHub no rep
 
 ## Agradecimentos
 
-Um agradecimento especial a [Emmily Jordan](https://github.com/echjordan) e [Vanessa Yuen](https://github.com/vanessayuenn) por construir estas novas capacidades de pesquisa, para [Bibliotecas. o](https://libraries.io) para fornecer [SourceRank](https://docs.libraries.io/overview.html#sourcerank) pontuações, e para a equipe do Algolia por nos ajudar a começar. 🍹
+Agradecimentos especiais à [Emily Jordan](https://github.com/echjordan) e à [Vanessa Yuen](https://github.com/vanessayuenn) para construir essas novas capacidades de busca, para [Libraries.io][] para fornecer [SourceRank][] pontuações, e para a equipe da Algolia para nos ajudar a começar. 🍹
+
+[`[&lt;code>é:api thumbnail`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>é:app graphql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>é:package ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>é:segurança do tutorial`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security
+[Libraries.io]: https://libraries.io
+[SourceRank]: https://docs.libraries.io/overview.html#sourcerank

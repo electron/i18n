@@ -30,7 +30,7 @@ NW.js и очень ранние версии Electron используют эт
 
 Как пользователю модуля контента, Electron не нужно изменять код Chromium в большинстве случаев, так что очевидным способом улучшить построение Electron является построить Chromium в качестве общей библиотеки, , а затем связать с ним в Electron. Таким образом, разработчикам больше не нужно выводить все приложения Chromium, когда они вносят свой вклад в Electron.
 
-Проект [libchromiumcontent](https://github.com/electron/libchromiumcontent) был создан [@aroben](https://github.com/aroben) для этой цели. Он строит модуль содержимого Chromium в качестве общей библиотеки, а затем предоставляет заголовки Chromium и готовые бинарные файлы для скачивания. Код исходной версии libchromiumcontent можно найти [в этой ссылке](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+Проект [libchromiumcontent](https://github.com/electron/libchromiumcontent) был создан [@aroben](https://github.com/aroben) для этой цели. Он строит модуль содержимого Chromium в качестве общей библиотеки, а затем предоставляет заголовки Chromium и готовые бинарные файлы для скачивания. Он строит модуль содержимого Chromium в качестве общей библиотеки, а затем предоставляет заголовки Chromium и готовые бинарные файлы для скачивания.
 
 Проект [brightray](https://github.com/electron/brightray) также родился как часть libchromiumсодержания, который обеспечивает тонкий слой вокруг Content Module.
 

@@ -9,6 +9,7 @@ El objeto `process` de Electron es heredado del [objeto `process` de Node.js](ht
 ## Sandbox
 
 En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -26,7 +27,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 - `arch`
 - `platform`
 - `sandboxed`
-- `type`
+- `tipo`
 - `version`
 - `versions`
 - `mas`
@@ -54,7 +55,7 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` _Readonly_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Un `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -62,7 +63,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Un `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `proceso.noAsar`
 
@@ -70,7 +71,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `process.resourcesPath` _Readonly_
 
@@ -78,17 +79,18 @@ Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed` _Readonly_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `proceso.desechoDegradación`
 
-Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
 ### `proceso.ubicarDegradación`
 
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
+
 Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
 ### `process.type` _Readonly_
@@ -109,7 +111,7 @@ Una `cadena` representando la versión de cadena de Electron.
 
 ### `process.windowsStore` _Readonly_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Métodos
 
@@ -123,7 +125,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
+Indicates the creation time of the application. El tiempo es representado como número de milisegundos desde la época. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
 
 ### `process.getCPUUsage()`
 
@@ -135,7 +137,7 @@ Devuelve [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -151,7 +153,7 @@ Devuelve un objeto con estadísticas de la pila V8. Toma en cuenta que todas las
 
 ### `process.getBlinkMemoryInfo()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `allocated` Integer - Tamaño de todos los objetos asignados en Kilobytes.
 * `marked` Integer - Tamaño de todos los objetos marcados en Kilobytes.
@@ -169,7 +171,7 @@ Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS reali
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.

@@ -14,7 +14,7 @@
 2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
 3. 通过帮助解决问题：这可以通过演示问题不是一个bug或已修复来完成；但更通常，打开一个通过一个具体和可审查的方式改变`electron/electron`中的源代码的拉取请求。
 
-## 请求一般的帮助
+## Https://crowdin.com/translate/electron/156/en-vi#12327
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. 请仅对漏洞使用问题追踪器！
 
@@ -22,7 +22,7 @@
 
 To submit a bug report:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 如果你确信自己发现了Electron的bug，请尽可能详细的填写一份表单。
 

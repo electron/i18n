@@ -32,6 +32,7 @@ Hier ist ein Auszug aus dem Schema, das die `BrowserWindow` Klasse beschreibt:
   Instanzeigenschaften: [...],
   Instanzereignisse: [...]
 }
+}
 ```
 
 Und hier ist ein Beispiel für eine Methodenbeschreibung, in diesem Fall die `apis.BrowserWindow.instanceMethods.setMaximumSize` Instanz Methode:

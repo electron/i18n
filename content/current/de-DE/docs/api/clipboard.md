@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+Unter Linux gibt es auch eine `selection` Zwischenablage. Zum Bearbeiten müssen Sie `selection` an jede Methode übergeben:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -21,7 +21,7 @@ Das `clipboard` Modul besitzt die folgenden Methoden:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Klartext vor.
 
@@ -38,7 +38,7 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt den `text` als Klartext in die Zwischenablage.
 
@@ -51,7 +51,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Auszeichnungssprache (markup language) vor.
 
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt `markup` in die Zwischenablage.
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt in der Zwischenablage vor.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt das `image` in die Zwischenablage.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text Format (RTF) vor.
 
@@ -110,7 +110,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
 
@@ -134,11 +134,11 @@ Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys re
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Hinweis:** Die meisten Apps unter Windows unterstützen das Einfügen von Lesezeichen nicht in sie, sodass Sie `clipboard.write` verwenden können, um sowohl ein Lesezeichen als auch einen Fallbacktext in die Zwischenablage zu schreiben.
 
 ```js
 const { clipboard } = require('electron')
@@ -163,13 +163,13 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Löscht den Inhalt aus der Zwischenablage.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
 
@@ -184,7 +184,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
 
@@ -224,7 +224,7 @@ console.log(buffer.equals(out))
 
 * `format` String
 * `buffer` Puffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
 
@@ -243,7 +243,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt `data` in die Zwischenablage.
 

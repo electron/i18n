@@ -2,7 +2,7 @@
 
 > Добавляет элементы в основное меню и контекстное меню приложения.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Просмотрите [`Menu`](menu.md) для примеров использования.
 
@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Смотрите [роли](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Смотрите [роли](#roles).
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
   * `sublabel` String (опционально)
@@ -25,6 +25,7 @@
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
   * `checked` Boolean (опционально) - Должно быть указано только для `checkbox` или `radio` типов элементов меню.
   * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (опционально) - Необходимо указать для `submenu` типы элементов меню. Если `submenu` указано, то `type: 'submenu'` может быть опущен. Если значение не является [`Menu`](menu.md) то оно будет автоматически преобразовано в значение `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (опционально) - Вставляет этот элемент перед элементом с указанным названием. Если указанный элемент не существует, то элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
@@ -65,6 +66,7 @@
 * `resetZoom` - Сброс измененного масштаба страницы до исходного размера.
 * `zoomIn` - Увеличение масштаба страницы на 10%.
 * `zoomOut` - Уменьшение масштаба страницы на 10%.
+* `toggleSpellChecker` - Enable/disable builtin spell checker.
 * `fileMenu` - Полное меню "Файл" по умолчанию (Закрыть/Выйти)
 * `editMenu` - Полное меню "Редактировать" (Отменить, копировать и т. д.).
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
@@ -73,29 +75,30 @@
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
+* `hide` -Сопоставляется с `hide`.
+* `hideOthers` - Сопоставляется с `hideOtherApplications`.
+* `unhide` - Сопоставляется с `unhideAllApplications`.
+* `startSpeaking` - Сопоставляется с `startSpeaking`.
+* `stopSpeaking` - Сопоставляется с `stopSpeaking`.
+* `front` - Сопоставляется с `arrangeInFront`.
+* `zoom` - Сопоставляется с `performZoom`.
+* `toggleTabBar` - Сопоставляется с `toggleTabBar`.
+* `selectNextTab` - Сопоставляется с `selectNextTab`.
+* `selectPreviousTab` - Сопоставляется с `selectPreviousTab`.
+* `mergeAllWindows` - Сопоставляется с `mergeAllWindows`.
+* `moveTabToNewWindow` - Сопоставляется с `moveTabToNewWindow`.
+* `window` - Подменю в меню "Окно".
+* `help` - Подменю в меню "Help".
 * `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
+* `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
-### Instance Properties
+### Свойства экземпляра
 
 Для экземпляров `MenuItem` доступны следующие свойства:
 
@@ -110,6 +113,7 @@ A `String` indicating the item's visible label.
 #### `menuItem.click`
 
 A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
@@ -124,7 +128,7 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.role`
 
-`Строка` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -156,13 +160,19 @@ A `String` indicating the item's sublabel.
 
 Элемент меню `checkbox` будет включать и выключать свойство `checked` при его выборе.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
 
 Вы можете добавить функцию `click` для дополнительного поведения.
 
 #### `menuItem.registerAccelerator`
 
 A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+
+This property can be dynamically changed.
+
+#### `menuItem.sharingItem` _macOS_
+
+A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
 
 This property can be dynamically changed.
 
@@ -173,3 +183,5 @@ This property can be dynamically changed.
 #### `menuItem.menu`
 
 `Меню`, частью которого является элемент.
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
