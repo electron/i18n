@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (com escala de DPI com 200%)
   * 256x256
 
-Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Confira a seção *Size requirements* [nesse artigo][icons].
 
 ## Imagem em Alta Resolução
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (opicional) - Necessário para buffers de bitmap.
@@ -195,20 +195,20 @@ Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage
 * `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `PNG` da imagem.
+Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `PNG` da imagem.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer - Between 0 - 100.
 
-Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `JPG` da imagem.
+Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `JPG` da imagem.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
+Retorna `Buffer` - Um [Buffer][buffer] que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ Retorna `String` - Os dados de URL da imagem.
 * `options` Object (optional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
+Retorna `Buffer` - Um [Buffer][buffer] que contém os dados de bitmap crus (sem alterações) da imagem.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` no _macOS_
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Returns `Buffer` - A [Buffer][buffer] that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
 Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subjacente invés de uma cópia, então você _deve_ se certificar de que a instância `nativeImage` esteja próxima.
 
@@ -301,3 +301,7 @@ Add an image representation for a specific scale factor. This can be used to exp
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Please note that this property only has an effect on macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
