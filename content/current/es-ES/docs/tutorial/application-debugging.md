@@ -13,13 +13,13 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google ofrece [documentación excelente para sus herramientas de desarrollo](https://developer.chrome.com/devtools). Recomendamos que se familiarice con ello - son usualmente una de las utilidades más poderosas en cualquier cinturón de herramientas de un desarrollador Electron.
+Google ofrece [documentación excelente para sus herramientas de desarrollo][devtools]. Recomendamos que se familiarice con ello - son usualmente una de las utilidades más poderosas en cualquier cinturón de herramientas de un desarrollador Electron.
 
 ## Proceso Principal
 
-La depuración del proceso principal es un poco más complicada, porque no se pueden abrir las developer tools en este caso. Las Herramientas de Desarrollo Chromium pueden [ser usadas para depurar el proceso principal de Electron](https://nodejs.org/en/docs/inspector/) gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculos como un `require` no presente en la consola.
+La depuración del proceso principal es un poco más complicada, porque no se pueden abrir las developer tools en este caso. Las Herramientas de Desarrollo Chromium pueden [ser usadas para depurar el proceso principal de Electron][node-inspect] gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculos como un `require` no presente en la consola.
 
-Para mas información, ve el [Depurando la documentación de proceso principal](./debugging-main-process.md).
+Para mas información, ve el [Depurando la documentación de proceso principal][main-debug].
 
 ## Bloqueos V8
 
@@ -30,3 +30,7 @@ Si el contexto V8 se bloquea, el DevTools mostrará este mensaje.
 Los registros de Chromium puden ser habilitados a través de la variable de entorno `ELECTRON_ENABLE_LOGGING`. Para más información, vea la [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
 Alternativamente, el argumento de linea de comando `--enable-logging` puede ser pasado. Más información esta disponible en la [command line switches documentation](../api/command-line-switches.md#--enable-logging).
+
+[node-inspect]: https://nodejs.org/en/docs/inspector/
+[devtools]: https://developer.chrome.com/devtools
+[main-debug]: ./debugging-main-process.md
