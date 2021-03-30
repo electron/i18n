@@ -8,19 +8,19 @@ Processo: [Main](../glossary.md#main-process)
 
 The `powerMonitor` module emits the following events:
 
-### Evento: 'suspend' _macOS_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Evento: 'resume' _macOS_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Emitted when system is resuming.
 
-### Evento: 'on-ac' _macOS_ _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Emitted when the system changes to AC power.
 
-### Evento: 'on-battery' _macOS_  _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Emitted when system changes to battery power.
 
