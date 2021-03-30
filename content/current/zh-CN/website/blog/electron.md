@@ -4,13 +4,13 @@ author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell 现在叫做Electron。 您可以了解更多关于 Electron 以及人们正在其新家居 [electron](https://electronjs.org) 的构建。
+Atom Shell 现在叫做Electron。 You can learn more about Electron and what people are building with it at its new home [electronjs.org][electron].
 
 ---
 
-[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
+[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)][electron]
 
-Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台应用程序外壳，以处理Chromium/Node.js 事件循环集成和原生API。
+Electron is the cross-platform application shell we originally built for the [Atom editor][atom] to handle the Chromium/Node.js event loop integration and native APIs.
 
 当我们开始时，我们的目标不仅仅是支持文本编辑器的需要。 我们还希望建立一个简单明了的框架，使人们能够使用网络技术来构建具有所有本机修剪的跨平台桌面应用。
 
@@ -18,9 +18,14 @@ Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台
 
 迄今为止，个人开发者、早期启动者和大公司已经在 Electron 上构建了应用。 他们创建了大量应用 &mdash; ，包括聊天应用、数据库探索者、地图设计者、协作设计工具和移动原型应用。
 
-看看新的 [electronjs. rg](https://electronjs.org) 查看更多人们在 Electron 上构建的应用，或查看 [文档](https://github.com/electron/electron/tree/master/docs#readme) 以了解更多关于您可以做什么的信息。
+Check out the new [electronjs.org][electron] to see more of the apps people have built on Electron or take a look at the [docs][docs] to learn more about what else you can make.
 
 如果您已经开始了，我们很乐意与您聊天，了解您在 Electron 上正在开发的应用程序。 电子邮件 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) 告诉我们更多。 您也可以关注新的 [@ElectronJS](https://twitter.com/electronjs) Twitter 帐户以保持与项目的连接。
 
 :zap: :blue_heart: :electric_plug:
+
+[atom]: https://atom.io
+[docs]: https://github.com/electron/electron/tree/master/docs#readme
+[electron]: https://electronjs.org
+[electron]: https://electronjs.org
 
