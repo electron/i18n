@@ -2,7 +2,7 @@
 
 > Регистрация пользовательского протокола и перехват существующих запросов протокола.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
@@ -76,7 +76,7 @@ protocol.registerSchemesAsPrivileged([
 </body>
 ```
 
-Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). В противном случае программа для схемы выдаст ошибку безопасности.
+Registering a scheme as standard will allow access to files through the [FileSystem API][file-system-api]. В противном случае программа для схемы выдаст ошибку безопасности.
 
 По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
 
@@ -281,3 +281,5 @@ Returns `Boolean` - Whether the protocol was successfully unintercepted
 * `scheme` String
 
 Возвращает `Boolean` - является ли `scheme` уже перехваченной.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
