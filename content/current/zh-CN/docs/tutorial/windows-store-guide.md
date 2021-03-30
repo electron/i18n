@@ -1,8 +1,8 @@
-# Windows 商店指南
+# Windows 商店提交指南
 
 在 Windows 10 中，一些不错的旧 win32 程序迎来了一个新朋友：通用 Windows 平台。 新的 `.appx` 格式不仅启用了许多新的强大的 API，如 Cortana 或推送通知，而且通过 Windows 应用商店，也同时简化了安装和更新。
 
-Microsoft [开发了一个工具，将 Electron 应用程序编译为 `.appx` 软件包](https://github.com/catalystcode/electron-windows-store)，使开发人员能够使用新应用程序模型中的一些好东西。 本指南解释了如何使用它 - 以及 Electron AppX 包的功能和限制。
+Microsoft [开发了一个工具，将 Electron 应用程序编译为 `.appx` 软件包][electron-windows-store]，使开发人员能够使用新应用程序模型中的一些好东西。 本指南解释了如何使用它 - 以及 Electron AppX 包的功能和限制。
 
 ## 背景和要求
 
@@ -13,7 +13,7 @@ Windows 10 的 "周年更新" 能够运行 win32 `.exe` 程序并且它们的虚
 要编译任何现有的 Electron 应用程序，请确保满足以下要求:
 
 * Windows 10及周年更新 (2016年8月2日发布的)
-* Windows 10 SDK, [这里下载](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Windows 10 SDK, [这里下载][windows-sdk]
 * 最新的 Node 4 (运行 `node -v` 来确认)
 
 然后, 安装 `electron-windows-store` CLI:
@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron/electron-packager) (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
+打包应用程序使用 [electron-packager][electron-packager] (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
 
 结构输出应该看起来大致像这样:
 
@@ -68,9 +68,9 @@ electron-windows-store `
 
 ## 步骤 3: 使用 AppX 包
 
-为了运行您的软件包，您的用户将需要将 Windows 10 安装“周年纪念更新” - 有关如何更新Windows的详细信息可以在[这里](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)找到
+为了运行您的软件包，您的用户将需要将 Windows 10 安装“周年纪念更新” - 有关如何更新Windows的详细信息可以在[这里][how-to-update]找到
 
-与传统的UWP应用程序不同，打包应用程序目前需要进行手动验证过程，您可以在[这里](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)申请. 在此期间，所有用户都能够通过双击安装包来安装您的程序，所以如果您只是寻找一个更简单的安装方法，可能不需要提交到商店。 在受管理的环境中(通常是企业), `Add-AppxPackage` [PowerShell Cmdlet 可用于以自动方式安装它](https://technet.microsoft.com/en-us/library/hh856048.aspx)。
+与传统的UWP应用程序不同，打包应用程序目前需要进行手动验证过程，您可以在[这里][centennial-campaigns]申请. 在此期间，所有用户都能够通过双击安装包来安装您的程序，所以如果您只是寻找一个更简单的安装方法，可能不需要提交到商店。 在受管理的环境中(通常是企业), `Add-AppxPackage` [PowerShell Cmdlet 可用于以自动方式安装它][add-appxpackage]。
 
 另一个重要的限制是编译的 AppX 包仍然包含一个 win32 可执行文件，因此不会在 Xbox，HoloLens 或 Phones 中运行。
 
@@ -78,16 +78,25 @@ electron-windows-store `
 
 您可以将 Electron 应用程序与不可见的 UWP 后台任务配对，以充分利用 Windows 10 功能，如推送通知，Cortana 集成或活动磁贴。
 
-如何使用 Electron 应用程序通过后台任务发送 Toast 通知和活动磁贴, 请[查看微软提供的案例](https://github.com/felixrieseberg/electron-uwp-background).
+如何使用 Electron 应用程序通过后台任务发送 Toast 通知和活动磁贴, 请[查看微软提供的案例][background-task].
 
 ## 可选: 使用容器虚拟化进行转换
 
 要生成 AppX 包，`electron-windows-store` CLI 使用的模板应该适用于大多数 Electron 应用程序。 但是，如果您使用自定义安装程序，或者您遇到生成的包的任何问题，您可以尝试使用 Windows 容器编译创建包 - 在该模式下，CLI 将在空 Windows 容器中安装和运行应用程序，以确定应用程序正在对操作系统进行哪些修改。
 
-在第一次运行 CLI 之前，您必须安装 “Windows Desktop App Converter” 。 这将需要几分钟，但不要担心 - 你只需要这样做一次。 从[这里](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter)下载 Desktop App Converter 您将得到两个文件： `DesktopAppConverter.zip` 和 `BaseImage-14316.wim`.
+在第一次运行 CLI 之前，您必须安装 “Windows Desktop App Converter” 。 这将需要几分钟，但不要担心 - 你只需要这样做一次。 从[这里][app-converter]下载 Desktop App Converter 您将得到两个文件： `DesktopAppConverter.zip` 和 `BaseImage-14316.wim`.
 
 1. 解压 `DesktopAppConverter.zip`. 打开提权的 PowerShell (用"以管理员权限运行"打开, 确保您的系统执行策略允许我们通过调用 `Set-ExecutionPolicy bypass` 来运行我们想要运行的一切).
 2. 然后, 通过调用 `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`, 运行 Desktop App Converter 安装，并传递 Windows 基本映像的位置 (下载的 `BaseImage-14316.wim`).
 3. 如果运行以上命令提示您重新启动，请重新启动计算机，并在成功重新启动后再次运行上述命令。
 
 当安装成功后，您可以继续编译你的 Electron 应用程序。
+
+[windows-sdk]: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+[app-converter]: https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter
+[add-appxpackage]: https://technet.microsoft.com/en-us/library/hh856048.aspx
+[electron-packager]: https://github.com/electron/electron-packager
+[electron-windows-store]: https://github.com/catalystcode/electron-windows-store
+[background-task]: https://github.com/felixrieseberg/electron-uwp-background
+[centennial-campaigns]: https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge
+[how-to-update]: https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update
