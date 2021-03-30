@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
 **Nota:** Voce nao deve usar este modulo ate que o '`ready` event' do modulo da aplicacao esteja finalizado e emitido.
 
@@ -68,3 +68,5 @@ Returns `Promise<Object>` - Resolves with an object containing the `value` and `
 * `percentage` Number
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.
+
+[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
