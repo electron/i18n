@@ -96,7 +96,7 @@ if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Recupera y muestra las descripciones de los productos.
+// Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Verificar los parámetros.
   if (!Array.isArray(products) || products.length <= 0) {
@@ -104,7 +104,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
     return
   }
 
-  // Muestra el nombre y precio de cada producto.
+  // Display the name and price of each product.
   products.forEach(product => {
     console.log(`El precio de  ${product.localizedTitle} es ${product.formattedPrice}.`)
   })
@@ -116,11 +116,11 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Compra el producto seleccionado.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
-      console.log('El producto no es válido.')
+      console.log('The product is not valid.')
       return
     }
 
-    console.log('El pago se ha añadido a la cola de pagos.')
+    console.log('The payment has been added to the payment queue.')
   })
 })
 ```
