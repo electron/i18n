@@ -2,9 +2,9 @@
 
 ## 概要
 
-多くの Linux 環境では、`.desktop` ファイルを変更することでシステムランチャーにカスタムエントリを追加できます。 Canonical の Unity ドキュメントについては、[ランチャーにショートカットを追加する](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) を参照してください。 より一般的な実装については、[freedesktop.org 仕様](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html) を参照してください。
+多くの Linux 環境では、`.desktop` ファイルを変更することでシステムランチャーにカスタムエントリを追加できます。 Canonical の Unity ドキュメントについては、[ランチャーにショートカットを追加する][unity-launcher] を参照してください。 より一般的な実装については、[freedesktop.org 仕様][spec] を参照してください。
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audacious][3]
 
 > 注意: 上のスクリーンショットは Audacious オーディオプレーヤーのランチャーショートカットの例です。
 
@@ -30,3 +30,8 @@ OnlyShowIn=Unity;
 ```
 
 Unity がアプリケーションにやることを指定する好ましい方法は、引数の利用です。 これはアプリケーション内からグローバル変数 `process.argv` で参照できます。
+
+[3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
+[spec]: https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html
