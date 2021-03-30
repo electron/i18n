@@ -4,13 +4,13 @@ author: zeke
 date: '2017-11-13'
 ---
 
-电子有一个新的网站在 [electronjs.org][]！ We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
+Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
 
 ---
 
 ## 🌍 翻译
 
-我们已经开始了网站国际化的进程，目标是 使Electron应用程序开发能够为全球的 开发者所访问。 我们使用的是名为 [Crowdin][] 的本地化平台，该平台将 与 GitHub 集成在一起，当内容被翻译成不同的语言时，会自动打开和更新拉拔请求。
+我们已经开始了网站国际化的进程，目标是 使Electron应用程序开发能够为全球的 开发者所访问。 我们正在使用一个名为 [Crowdin](https://crowdin.com/project/electron) 的本地化平台，它与GitHub集成了 当内容被翻译成不同语言时，打开和更新拉取请求。
 
 <figure>
   <a href="https://electronjs.org/languages">
@@ -30,7 +30,7 @@ date: '2017-11-13'
   </a>
 </figure>
 
-如果您是多语种的，并有兴趣帮助翻译电子的文档 和网站，访问 [电子/电子-i18n][] 回购，或跳入 翻译 [克劳丁][]，在那里你可以登录使用您的GitHub帐户。
+如果你想要帮助翻译Electron的文档 和网站，请访问 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) repo， 或向右跳转到 翻译于 [Crowdin](https://crowdin.com/project/electron), 您可以在那里登录使用您的 GitHub 帐户。
 
 目前在 Crowdin 上的 Electron 项目启用了21种语言。 添加对更多语言的支持是很容易的，所以如果您对 的帮助翻译感兴趣，但您看不到您的语言列表， [让我们知道](https://github.com/electron/electronjs.org/issues/new) 和 我们会启用它。
 
@@ -55,15 +55,15 @@ ls electron-i18n/content
 
 这里有一些令人难以置信的 Electron 应用，但它们并非总是容易找到 ， 而不是每个开发者都有时间或资源来构建一个合适的 网站来推销和分发他们的应用。
 
-只需使用一个 [PNG图标文件和少量的应用程序元数据](https://github.com/electron/electron-apps/blob/master/contributing.md)， ，我们能够收集很多有关给定应用程序的信息。 使用从 GitHub 收集的数据，应用页面现在可以显示屏幕截图、 下载链接、版本、发布说明和 READMEs，用于 拥有公共存储库的每个应用。 使用从每个应用图标中提取的调色板 我们可以生成 [粗胆和可访问的颜色](https://github.com/zeke/pick-a-good-color) 给每个应用页面一些可视化的特性。
+仅使用 [PNG 图标文件和少量应用元数据](https://github.com/electron/electron-apps/blob/master/contributing.md)， 我们能够收集很多关于某个应用的信息。 使用从 GitHub 收集的数据，应用程序页面现在可以显示屏幕截图， 下载链接， 有公共仓库的每个应用程序的版本、发布笔记和README。 使用从每个应用图标中提取的调色板 我们可以生成 [粗胆和可访问的颜色](https://github.com/zeke/pick-a-good-color) 给每个应用页面一些可视化的特性。
 
 [应用程序索引页面](https://electronjs.org/apps) 现在也有类别 和关键字过滤器来查找有趣的应用，如 [GraphQL GUIs](https://electronjs.org/apps?q=graphql) 和 [p2p 工具](https://electronjs.org/apps?q=graphql)。
 
-如果您有一个电子应用程序，你想在网站上特色，打开一个 拉请求 [电子/电子应用程序][] 存储库。
+如果您有一个您喜欢在网站上推荐的 Electron 应用程序，请在 [electron/electron-apps](https://github.com/electron/electron-apps) 仓库中打开一个 拉取请求。
 
 ## Homebrew 的一行安装
 
-macOS 的 [自制][] 包管理器有一个名为 [木桶][] 的子通信，便于在 终端中使用单个命令安装桌面应用程序，如 `brew cask install atom`。
+macOS 的 [Homebrew](https://brew.sh) 软件包管理器有一个叫做 [cask](https://caskroom.github.io) 的子命令，这使得在您的 终端中使用单个命令安装桌面应用程序变得容易， 像 `酿造箱安装原子`。
 
 我们已经开始为热门的 Electron 应用程序收集Homebrew 卡片名，并且现在 在有卡片的每个应用程序页 上显示安装命令(对于macOS 访客)：
 
@@ -78,17 +78,17 @@ macOS 的 [自制][] 包管理器有一个名为 [木桶][] 的子通信，便�
 
 ## 🌐 一个新域
 
-我们已经将网站从 electron.atom.io 移到了一个新的领域： [electronjs.org][]。
+我们已经将站点从electron.atom.io移动到一个新域： [electronjs.org](https://electronjs.org)。
 
-电子项目诞生于 [原子][]，GitHub的开源文本编辑器 建立在网络技术之上。 Electron 原来叫做 `atom-shell`。 Atom 是第一个使用它的应用。 但民间并不需要很长时间才能认识到 这个神奇的 Chromium + 节点运行时间可以用于各种不同的 应用程序。 当像Microsoft 和 Slack这样的公司开始使用 `atom-shell`, 项目显然需要一个新名称。
+Electron 项目生于 [Atom](https://atom.io), GitHub的开源文本编辑器 建立在网页技术上。 Electron 原来叫做 `atom-shell`。 Atom 是第一个使用它的应用。 但民间并不需要很长时间才能认识到 这个神奇的 Chromium + 节点运行时间可以用于各种不同的 应用程序。 当像Microsoft 和 Slack这样的公司开始使用 `atom-shell`, 项目显然需要一个新名称。
 
 所以“电子”诞生了。 In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
 
-支持 GitHub 的电子项目，如 Atom 和 [GitHub 桌面][] 仍然是我们团队 优先事项，但通过转向新领域，我们希望帮助澄清 Atom 和 Electron 之间的技术区别 。
+支持 GitHub 的 Electron 项目，例如Atom 和 [GitHub 桌面](https://desktop.github.com) 仍然是我们团队的 优先事项。 但通过移到一个新域，我们希望帮助澄清 Atom和 Electron之间的技术区别。
 
 ## 🐢:ro火箭: Node.js
 
-以前的电子网站是由 [杰基尔][]，流行的红宝石为基础的 静态网站发生器。 Jekyl是建立静态网站的一个伟大工具，但 网站已经开始扩展。 我们希望拥有更动态的功能，如适当的重定向和动态内容渲染，因此 [节点.js][] 服务器是明显的选择。
+上一个 Electron 网站是使用 [Jekyll](https://jekyllrb.com)、流行的 静态网站生成器构建的。 Jekyl是建立静态网站的一个伟大工具，但 网站已经开始扩展。 我们想要更多的动态能力，如正确的重定向和动态内容渲染，所以 [Node.js](https://nodejs.org) 服务器是一个明显的选择。
 
 Electron 生态系统包括组件用许多 不同编程语言编写的项目，从Python到C++到Bash。 但JavaScript是Electron的基础，而它是我们社区中使用最多的语言。
 
@@ -96,7 +96,7 @@ Electron 生态系统包括组件用许多 不同编程语言编写的项目，�
 
 ## :hig_voltage: 更容易打开源代码的参与
 
-如果您的系统上安装了 [节点.js][] （8 或更高）和 [git](https://git-scm.org) ，您可以轻松地让 站点在本地运行：
+如果你有 [个节点。 s](https://nodejs.org) (8或更高)和 [git](https://git-scm.org) 安装在您的系统上 您可以轻松获取本地运行的 站点：
 
 ```sh
 git clone https://github.com/electron/electronijs.org
@@ -114,14 +114,3 @@ npm rune dev
 <figure>
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">
 </figure>
-[原子]: https://atom.io
-[木桶]: https://caskroom.github.io
-[Crowdin]: https://crowdin.com/project/electron
-[克劳丁]: https://crowdin.com/project/electron
-[电子/电子应用程序]: https://github.com/electron/electron-apps
-[电子/电子-i18n]: https://github.com/electron/electron-i18n#readme
-[electronjs.org]: https://electronjs.org
-[GitHub 桌面]: https://desktop.github.com
-[自制]: https://brew.sh
-[杰基尔]: https://jekyllrb.com
-[节点.js]: https://nodejs.org
