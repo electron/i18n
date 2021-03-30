@@ -58,7 +58,7 @@ Un [`typeof TouchBarSpacer`](./touch-bar-spacer.md) referencia a la clase `Touch
 
 Un [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) referencia a la clase `TouchBarOtherItemsProxy`.
 
-### Propiedades de la instancia
+### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en instancias de `TouchBar`:
 
