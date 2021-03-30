@@ -16,7 +16,7 @@ date: '2015-11-17'
 
 ## Новый способ использования встроенных модулей
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
+Встроенные модули теперь сгруппированы в один модуль, а не разделены на независимые модули, так что вы можете использовать их [без конфликтов с другими модулями](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
@@ -94,6 +94,4 @@ new BrowserWindow({ minWidth: 800, minHeight: 600 })
 * `нажат` переименован в `нажмите`
 * `двойной щелчок` переименован в `двойной щелчок`
 * `правый клик` переименован в `правый клик`
-
-[issue-387]: https://github.com/electron/electron/issues/387
 
