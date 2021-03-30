@@ -79,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // y carga el index.html de la aplicación.
+  // y cargar el index.html de la aplicación.
   win.loadFile('index.html')
 }
 
@@ -101,15 +101,15 @@ function createWindow () {
     }
   })
 
-  // y carga el index.html de la aplicación.
+  // y cargar el index.html de la aplicación.
   win.loadFile('index.html')
 
   // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools()
 }
 
-// Este método se llamará cuando Electron haya finalizado
-// la inicialización y esté preparado para crear la ventana del navegador.
+// Este método será llamado cuando Electron haya finalizado
+// inicialización y esté listo para crear ventanas del navegador.
 // Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.whenReady().then(createWindow)
 
@@ -125,13 +125,13 @@ app.on('window-all-closed', () => {
 aplicación. n('activar', () => {
   // En macOS es común volver a crear una ventana en la aplicación cuando el
   // icono de acoplamiento se hace clic y no hay otras ventanas abiertas.
-  if (BrowserWindow.getAllWindows().length === 0) {
+  if (BrowserWindow.getAllWindows(). ength === 0) {
     createWindow()
   }
 })
 
-// En este archivo puede incluir el resto del código del proceso principal específico
-// de su aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
+// En este archivo puedes incluir el resto del proceso principal específico de tu aplicación
+// código. También puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
 Finalmente el archivo `index.html` es la página web que quieres mostrar:
