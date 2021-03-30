@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`ClientRequest` implementa a interface [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) e deste modo um [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` implementa a interface [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) e deste modo um [EventEmitter][event-emitter].
 
 ### `new ClientRequest(opções)`
 
@@ -194,3 +194,5 @@ Retorna `Object`:
 * `total` Integer - The number of bytes that will be uploaded this request
 
 You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
