@@ -2,7 +2,7 @@
 
 > 在渲染进程中使用主进程模块。
 
-进程: [ Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
 > ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
 > 
@@ -12,7 +12,7 @@
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
-在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ](https://en.wikipedia.org/wiki/Java_remote_method_invocation)。 <br>例如：从渲染进程创建浏览器窗口
+在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ][rmi]。 <br>例如：从渲染进程创建浏览器窗口
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -33,7 +33,7 @@ win.loadURL('https://github.com')
 
 在上面的示例中, [ BrowserWindow ` 和 ` win ](browser-window. md) 都是远程对象, ` new BrowserWindow ` 在渲染过程中没有创建 ` BrowserWindow ` 对象。 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
-<p spaces-before="0"><strong x-id="1">注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
+<p spaces-before="0"><strong x-id="1">注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties" f-id="enumerable-properties" fo="2">可枚举的属性</a>可以通过远程访问。</p>
 
 <p spaces-before="0"><strong x-id="1">注意：</strong> 当通过<code> remote `模块访问时，数组和缓冲区在IPC上复制。 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
 
@@ -121,7 +121,7 @@ console.log(app)
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
-## 属性
+## Properties
 
 ### `需要`
 
@@ -158,3 +158,5 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.process` _Readonly_
 
 A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+
+[rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
