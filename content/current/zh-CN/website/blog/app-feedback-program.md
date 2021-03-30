@@ -25,7 +25,7 @@ Electron正在努力使其释放周期更快和更稳定。 为了做到这一�
 ## 用户小时数
 我们理解不是每个人都能分享准确的用户数字，但更好的数据帮助我们决定特定版本的稳定性。 我们要求应用承诺测试最低用户小时数，目前是10 000小时测试整个测试周期。
 - 10个用户小时可为10个小时测试，或一个人测试10个小时
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
+- 您可以将测试分为测试版，例如在 3.0.0-beta.2 上测试 5，000 个用户小时，然后在 3.0.0-beta.5 上测试 5，000 个用户小时。 更多更好，但我们理解某些应用程序无法测试每个测试版版本
 - CI 或 QA 小时数不计入总数，但是内部版本数不计。
 
 ## 我的 Electron 应用程序为什么要加入？
