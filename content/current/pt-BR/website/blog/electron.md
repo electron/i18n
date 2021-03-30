@@ -4,13 +4,13 @@ author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell agora é chamado de Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org][electron].
+Atom Shell agora é chamado de Electron. Você pode aprender mais sobre a Electron e o que as pessoas estão construindo com ele em sua nova casa [electronjs.org][electron].
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)][electron]
 
-Electron is the cross-platform application shell we originally built for the [Atom editor][atom] to handle the Chromium/Node.js event loop integration and native APIs.
+Electron é o shell de aplicação multiplataforma que originalmente construímos para o editor [Atom][atom] para lidar com o Chromium/Node.js integração de loop de eventos e APIs nativas.
 
 Quando começamos, nosso objetivo não foi apenas suportar as necessidades de um editor de texto. Também quisemos criar um framework simples que permitiria que as pessoas usassem tecnologias web para construir aplicativos desktop multiplataforma com todos os cortes nativos.
 
@@ -18,7 +18,7 @@ Em dois anos, a Electron cresceu imenso. Agora isso inclui atualizações autom�
 
 Até agora, desenvolvedores individuais, startups iniciais e grandes empresas criaram aplicativos no Electron. Criaram uma enorme variedade de aplicativos &mdash; incluindo aplicativos de bate-papo, exploradores de banco de dados, designers de mapas, ferramentas de design colaborativo e aplicativos de prototipagem móveis.
 
-Check out the new [electronjs.org][electron] to see more of the apps people have built on Electron or take a look at the [docs][docs] to learn more about what else you can make.
+Confira a nova [electronjs.org][electron] para ver mais dos aplicativos que as pessoas construíram na Electron ou dar uma olhada no [docs][docs] para saber mais sobre o que mais você pode fazer.
 
 Se você já começou, adoraríamos conversar com você sobre os apps que você está criando no Electron. E-mail [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) para nos dizer mais. Você também pode seguir a nova conta do Twitter [@ElectronJS](https://twitter.com/electronjs) para permanecer conectado ao projeto.
 
