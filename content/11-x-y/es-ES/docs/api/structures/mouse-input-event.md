@@ -1,6 +1,6 @@
 # El objeto MouseInputEvent extiende de `InputEvent`
 
-* `tipo` String - El tipo del evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `rueda del ratón` o `mouseMove`.
+* `type` String - El tipo del evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
 * `x` Integer
 * `y` Integer
 * `button` String (opcional) - El botón pulsado, puede ser `left`, `middle`, `right`.
