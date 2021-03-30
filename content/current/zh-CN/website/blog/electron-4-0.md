@@ -80,8 +80,8 @@ browserWin.webContents.on('remote-get-global'，函数(formatter, requestedGloba
 `Web Content` 实例现在有一个 `setBackgroundThrotling(允许)` 启用或禁用页面背景下的计时器和动画节流管。
 
 ```javascript
-let win = new BrowserWindow(...)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+让我们赢=新的浏览器窗口（。。。）
+赢。网络控制。设置后地转盘（启用后地转盘）
 ```
 
 See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
