@@ -14,18 +14,18 @@ This guide explains how to integrate your application into those desktop environ
 
 ## Индикаторы выполнения
 
-See the [Progress Bar documentation](progress-bar.md).
+Смотрите [Документ прогресс-бара](progress-bar.md).
 
-## Unity Launcher
+## Лаунчер Unity
 
 See the [Unity Launcher documentation][unity-launcher].
 
-## Represented File for macOS Window
+## Представлен файл для окна macOS
 
-See the [Represented File documentation](represented-file.md).
+Смотрите [Представленную файловую документацию](represented-file.md).
 
-## Dragging files out of the window
+## Перетаскивание файлов из окна
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+См. [Native File Drag & Drop документация](native-file-drag-drop.md).
 
 [unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
