@@ -16,7 +16,7 @@ Por padrão, os avisos serão mostrados se você estiver usando APIs obsoletas. 
 
 ## Nova maneira de usar módulos integrados
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
+Os módulos incorporados são agora agrupados em um módulo, em vez de serem separados em módulos independentes, para que você possa usá-los [sem conflitos com outros módulos][issue-387]:
 
 ```javascript
 aplicativo = require('electron').app
