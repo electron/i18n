@@ -1,7 +1,7 @@
 ---
 title: Programa de Retroalimentación de la Aplicación Electron
 author: sofianguía
-date: '02-10-2018'
+date: '2018-10-02'
 ---
 
 Electron está trabajando en hacer que sus ciclos de liberación sean más rápidos y estables. Para hacerlo posible, hemos iniciado el Programa de Comentarios de Aplicaciones para aplicaciones Electron a gran escala para probar nuestras versiones beta y reportarnos problemas específicos de la aplicación. Esto nos ayuda a priorizar el trabajo que hará que las aplicaciones se actualicen antes a nuestra próxima versión estable.
