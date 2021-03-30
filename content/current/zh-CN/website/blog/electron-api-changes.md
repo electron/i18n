@@ -16,7 +16,7 @@ date: '2015-11-17'
 
 ## 使用内置模块的新方式
 
-内置模块现在被分组到一个模块中，而不是被分成独立的模块，因此您可以 [使用它们，而无需与其他模块][issue-387]冲突：
+内置模块现在分成一个模块，而不是分成独立模块， 这样您就可以使用它们 [而不会与其他模块](https://github.com/electron/electron/issues/387) 相冲突：
 
 ```javascript
 var app = require('electron').app
@@ -94,6 +94,4 @@ Electron中用于所有API名称的 API 名称， 像 `Url` to `URL`, 但DOM 有
 * `点击` 重新命名为 `点击`
 * `双击` 被重命名为 `双击`
 * `右键点击` 已重命名为 ``
-
-[issue-387]: https://github.com/electron/electron/issues/387
 
