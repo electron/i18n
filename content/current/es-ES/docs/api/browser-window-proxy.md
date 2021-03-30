@@ -20,7 +20,7 @@ Cierra a la fuerza la ventana secundaria sin llamar a su evento de descarga.
 
 #### `win.eval(code)`
 
-* `code` Cadena de caracteres
+* `codigo` String
 
 Evalúa el código en la ventana secundaria.
 
