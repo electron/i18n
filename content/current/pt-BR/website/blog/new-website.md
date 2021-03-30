@@ -4,13 +4,13 @@ author: zeke
 date: '2017-11-13'
 ---
 
-Electron has a new website at [electronjs.org][]! Substituímos nosso site estático do Jekyll por um nó. s webserver, dando-nos flexibilidade para internacionalizar o site e pavimentando o caminho para novas funcionalidades mais emocionantes.
+A Electron tem um novo site em [electronjs.org][]! Substituímos nosso site estático do Jekyll por um nó. s webserver, dando-nos flexibilidade para internacionalizar o site e pavimentando o caminho para novas funcionalidades mais emocionantes.
 
 ---
 
 ## 🌍 Traduções
 
-Iniciamos o processo de internacionalização do site com o objetivo de tornar o desenvolvimento de aplicativos do Electron acessível para um público global de desenvolvedores. We're using a localization platform called [Crowdin][] that integrates with GitHub, opening and updating pull requests automatically as content is translated into different languages.
+Iniciamos o processo de internacionalização do site com o objetivo de tornar o desenvolvimento de aplicativos do Electron acessível para um público global de desenvolvedores. Estamos usando uma plataforma de localização chamada [Crowdin][] que integra com o GitHub, abrindo e atualizando solicitações de tração automaticamente à medida que o conteúdo é traduzido para diferentes idiomas.
 
 <figure>
   <a href="https://electronjs.org/languages">
@@ -30,7 +30,7 @@ Para escolher o seu idioma e visualizar o progresso da tradução, acesse [elect
   </a>
 </figure>
 
-If you're multilingual and interested in helping translate Electron's docs and website, visit the [electron/electron-i18n][] repo, or jump right into translating on [Crowdin][], where you can sign in using your GitHub account.
+Se você está multilíngue e interessado em ajudar a traduzir os e site de documentos da Electron, visite o [elétron/elétron-i18n][] repo, ou pule direto para traduzindo em [][]Crowdin , onde você pode fazer login usando sua conta gitHub.
 
 Atualmente existem 21 idiomas ativados para o projeto Electron no Crowdin. Adicionar suporte para mais idiomas é fácil, então se você estiver interessado em ajudando a traduzir, mas você não vê sua língua listada, [nos conte](https://github.com/electron/electronjs.org/issues/new) e que o habilitaremos.
 
@@ -55,15 +55,15 @@ A partir de hoje, qualquer app do Electron pode ter facilmente sua própria pág
 
 Existem alguns aplicativos incríveis do Electron por aí, mas nem sempre são fáceis de encontrar, e nem todos os desenvolvedores têm tempo ou recursos para construir um site adequado para comercializar e distribuir seu aplicativo.
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. Usando uma paleta de cores extraída do ícone de cada aplicativo, nós podemos produzir [cores negritas e acessíveis](https://github.com/zeke/pick-a-good-color) para dar alguma distinção visual a cada página da aplicação.
+Usando apenas um arquivo de ícone PNG [e uma pequena quantidade de metadados de aplicativos](https://github.com/electron/electron-apps/blob/master/contributing.md), somos capazes de coletar muitas informações sobre um determinado aplicativo. Usando dados coletados do GitHub, as páginas do aplicativo agora podem exibir capturas de tela, baixar links, versões, notas de lançamento e READMEs para cada aplicativo que tem um repositório público. Usando uma paleta de cores extraída do ícone de cada aplicativo, nós podemos produzir [cores negritas e acessíveis](https://github.com/zeke/pick-a-good-color) para dar alguma distinção visual a cada página da aplicação.
 
 A página de índice de aplicativos [](https://electronjs.org/apps) agora também tem categorias e um filtro de palavra-chave para encontrar aplicativos interessantes como [GraphQL GUIs](https://electronjs.org/apps?q=graphql) e ferramentas [p2p](https://electronjs.org/apps?q=graphql).
 
-If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps][] repository.
+Se você tem um aplicativo Electron que você gostaria de apresentar no site, abra uma solicitação de puxar no [][] repositório de elétrons/elétrons.
 
 ## Instalação em uma linha com o Homebrew
 
-The [Homebrew][] package manager for macOS has a subcommand called [cask][] that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
+O [Homebrew][] o gerenciador de pacotes para macOS tem um subcomand chamado [][] de barril que facilita a instalação de aplicativos de desktop usando um único comando em seu terminal de , como `brew cask install atom`.
 
 Nós começamos a coletar nomes do Homebrew cask para apps Electron populares e agora estamos exibindo o comando de instalação (para visitantes do macOS) em todas as páginas de aplicativo que possuem um dinheiro:
 
@@ -78,17 +78,17 @@ Para ver todos os aplicativos que têm nomes de casco homebrew, visite [electron
 
 ## 🌐 Um Novo Domínio
 
-We've moved the site from electron.atom.io to a new domain: [electronjs.org][].
+Mudamos o site de electron.atom.io para um novo domínio: [electronjs.org][].
 
-The Electron project was born inside [Atom][], GitHub's open-source text editor built on web technologies. O Electron foi originalmente chamado `atom-shell`. Atom foi o primeiro aplicativo a usá-lo, mas não demorou muito para que as pessoas percebessem que este Chromium mágico + tempo de execução do nó poderia ser usado para todos os tipos de aplicativos diferentes. Quando empresas como Microsoft e Slack começaram a usar `atom-shell`, ficou claro que o projeto precisava de um novo nome.
+O projeto Electron nasceu dentro [Atom][], editor de texto de código aberto do GitHub construído sobre tecnologias web. O Electron foi originalmente chamado `atom-shell`. Atom foi o primeiro aplicativo a usá-lo, mas não demorou muito para que as pessoas percebessem que este Chromium mágico + tempo de execução do nó poderia ser usado para todos os tipos de aplicativos diferentes. Quando empresas como Microsoft e Slack começaram a usar `atom-shell`, ficou claro que o projeto precisava de um novo nome.
 
 E então nasceu o "Electron". No início de 2016, o GitHub montou uma nova equipe para se concentrar especificamente no desenvolvimento e manutenção do Electron, além do Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
 
-Supporting GitHub's Electron projects like Atom and [GitHub Desktop][] is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
+Apoiar projetos de Elétrons do GitHub, como o Átomo e o [gitHub Desktop][] ainda é uma prioridade para nossa equipe, mas ao passar para um novo domínio esperamos ajudar a esclarecer a distinção técnica entre Átomo e Elétron.
 
 ## 🐢:foguete: Node.js Everywhere
 
-The previous Electron website was built with [Jekyll][], the popular Ruby-based static site generator. O Jekyll é uma ótima ferramenta para construir sites estáticos, mas o site começou a crescer. We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js][] server was the obvious choice.
+O site anterior da Electron foi construído com [Jekyll][], o popular gerador de estático baseado em Ruby. O Jekyll é uma ótima ferramenta para construir sites estáticos, mas o site começou a crescer. Queríamos recursos mais dinâmicos, como redirecionamentos adequados e renderização dinâmica de conteúdo, então um [Node.js][] servidor era a escolha óbvia.
 
 O ecossistema do Electron inclui projetos com componentes escritos em muitas linguagens de programação diferentes, desde Python até C++ até Bash. Mas JavaScript é fundamental para o Electron, e é o idioma mais usado em nossa comunidade.
 
@@ -96,7 +96,7 @@ Ao migrar o site do Ruby para Node.js, buscamos diminuir a barreira para a entra
 
 ## ⚡ Participação Aberta Mais fácil
 
-If you've got [Node.js][] (8 or higher) and [git](https://git-scm.org) installed on your system, you can easily get the site running locally:
+Se você tiver [Node.js][] (8 ou mais) e [](https://git-scm.org) de git instalado em seu sistema, você pode facilmente obter o site em execução local:
 
 ```sh
 git clone https://github.com/electron/electronjs.org
@@ -115,12 +115,16 @@ Gostaríamos de dar um agradecimento especial a todas as pessoas em todo o mundo
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">
 </figure>
 [Atom]: https://atom.io
-[cask]: https://caskroom.github.io
+[9]: https://caskroom.github.io
+[10]: https://caskroom.github.io
 [Crowdin]: https://crowdin.com/project/electron
-[electron/electron-apps]: https://github.com/electron/electron-apps
-[electron/electron-i18n]: https://github.com/electron/electron-i18n#readme
+[4]: https://crowdin.com/project/electron
+[5]: https://crowdin.com/project/electron
+[6]: https://github.com/electron/electron-apps
+[7]: https://github.com/electron/electron-apps
+[elétron/elétron-i18n]: https://github.com/electron/electron-i18n#readme
 [electronjs.org]: https://electronjs.org
-[GitHub Desktop]: https://desktop.github.com
+[gitHub Desktop]: https://desktop.github.com
 [Homebrew]: https://brew.sh
 [Jekyll]: https://jekyllrb.com
 [Node.js]: https://nodejs.org
