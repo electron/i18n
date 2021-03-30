@@ -39,7 +39,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
 **Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
@@ -184,7 +184,7 @@ Removes the `key` in `NSUserDefaults`. This can be used to restore the default o
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Retourne `Boolean` - `true` si la [composition DWM ](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) est activée, et `false` sinon.
+Retourne `Boolean` - `true` si la [composition DWM ][dwm-composition] (Aero Glass) est activée, et `false` sinon.
 
 Un exemple d'utilisation pour déterminer si vous devez créer une fenêtre transparente ou non (les fenêtres transparentes ne fonctionneront pas correctement lorsque la composition DWM est désactivée) :
 
@@ -198,7 +198,7 @@ if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.frame = false
 }
 
-// Créer la fenêtre.
+// Create the window.
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
@@ -293,7 +293,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-background` - L'arrière-plan d'une fenêtre.
     * `window-frame-text` - Le texte dans la barre de titre de la fenêtre.
 
-Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -421,3 +421,8 @@ Cette propriété n'est disponible que sur macOS 10.14 Mojave ou plus récent.
 Une propriété `String` qui peut être `dark`, `light` ou `unknown`.
 
 Retourne le paramètre d'apparence macOS qui est actuellement appliqué à votre application, correspond à [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
