@@ -86,7 +86,7 @@ Um dos co-fundadores do Brave é na verdade Brendan Eich, o criador de JavaScrip
   <img alt="Janela principal do WebTorrent" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-Há um meme de que os aplicativos Electron estão "inchados" porque incluem todo o módulo de conteúdo do Chrome em todos os aplicativos. Em alguns casos, isso é parcialmente verdade (um instalador de aplicativo Electron geralmente é ~40MB, onde um instalador de aplicativo específico do SISTEMA É geralmente ~20MB).
+Há um meme que os apps do Electron estão "bloate" porque eles incluem todo o módulo de conteúdo do Chrome em cada aplicativo. Em alguns casos, isso é parcialmente verdade (um instalador de aplicativos do Electron normalmente é ~40MB, onde o instalador de aplicativo específico para Sistema Operacional geralmente é ~20MB).
 
 No entanto, no caso do WebTorrent Desktop, usamos quase todos os recursos do Electron e muitas dezenas de recursos do Chrome no decurso da operação normal. Se quiséssemos implementar esses recursos do zero para cada plataforma, teria levado meses ou anos mais para construir nosso aplicativo, ou só poderíamos liberar para uma única plataforma.
 
@@ -126,7 +126,7 @@ Se você estiver interessado em se envolver no projeto, confira [nossa página n
 
 ## Quaisquer dicas de desenvolvimento do Electron que possam ser úteis para outros desenvolvedores?
 
-[Feross](http://feross.org/), um dos colaboradores do WebTorrent Desktop, recentemente deu uma palestra *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* na NodeConf Argentina que contém dicas úteis para lançar um aplicativo Electron polido. A conversa é especialmente útil se você estiver no estágio em que você tem um aplicativo básico de trabalho e você está tentando levá-lo para o próximo nível de polimento e profissionalismo.
+[Feross](http://feross.org/), um dos contribuidores da WebTorrent Desktop, recentemente deu uma palestra de *"Real mundo Electron: Construindo aplicativos multiplataforma desktop com JavaScript"* em NodeConf Argentina que contém dicas úteis para lançar um aplicativo Electron polido. A palestra é especialmente útil se você estiver no estágio onde você tem um aplicativo básico de trabalho e está tentando levá-la para o próximo nível de polimento e profissionalismo.
 
 [Assista aqui](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
