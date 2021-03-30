@@ -33,6 +33,8 @@ Electron 5 の最新ベータ版は Chromium 73 を追っていたので、パ�
 
 この脆弱性は Google の Threat Analysis Group の Clement Lecigne によって発見され、Chrome チームに報告されました。  その Chrome ブログ記事は [こちら](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html) です。
 
-Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル][] を参照してください。
 
 Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
+
+[セキュリティチュートリアル]: https://electronjs.org/docs/tutorial/security
