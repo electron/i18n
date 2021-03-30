@@ -16,13 +16,13 @@ Voici un extrait du schéma qui décrit la classe `BrowserWindow`:
 
 ```js
 {
-  name: 'BrowserWindow',
-  description: 'Create and control browser windows.',
-  process: {
+  nom: 'BrowserWindow', description
+  : 'Créer et contrôler les fenêtres du navigateur.', processus
+  : {
     main: true,
     renderer: false
-  },
-  type: 'Class',
+  }, type
+  : 'Class',
   instanceName: 'win',
   slug: 'browser-window',
   websiteUrl: 'https://electronjs.org/docs/api/browser-window',
