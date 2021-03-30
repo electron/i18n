@@ -96,7 +96,7 @@ if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// 检索并显示产品描述.
+// Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // 检查参数.
   if (!Array.isArray(products) || products.length <= 0) {
@@ -104,7 +104,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
     return
   }
 
-  // 显示每个产品的名称和价格.
+  // Display the name and price of each product.
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
