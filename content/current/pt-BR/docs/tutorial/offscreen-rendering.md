@@ -22,7 +22,7 @@ Renderização acelerada pela GPU significa que a GPU é usada para composição
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
 ## Exemplo
 
@@ -48,3 +48,5 @@ app.whenReady().then(() => {
 ```
 
 After launching the Electron application, navigate to your application's working folder.
+
+[disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
