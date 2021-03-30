@@ -29,6 +29,8 @@ date: '2018-12-18'
 
 Эта уязвимость была обнаружена командой Tencent Blade, которые опубликовали [сообщение в блоге, в котором обсуждается уязвимость](https://blade.tencent.com/magellan/index_en.html).
 
-Чтобы узнать больше о лучших методах обеспечения безопасности приложений Electron, смотрите [наш учебник по безопасности](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 Если вы хотите сообщить об уязвимости в Electron, напишите на security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
