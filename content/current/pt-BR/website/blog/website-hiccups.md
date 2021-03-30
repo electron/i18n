@@ -8,7 +8,7 @@ Na semana passada, o site [electronjs.org](https://electronjs.org) teve alguns m
 
 ---
 
-Para evitar esse tipo de tempo de inatividade no futuro, nós permitimos [Heroku Alertas](https://devcenter.heroku.com/articles/metrics#threshold-alerting) em nossa aplicação. Sempre que nosso servidor web acumular solicitações falhadas ou respostas lentas além de um determinado limite, nossa equipe será notificada para que possamos resolver o problema rapidamente.
+To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
 
 ## Documentação Offline em Todos os Idiomas
 
