@@ -352,7 +352,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `GPU`
     * `Pepper Plugin`
     * `Pepper Plugin Broker`
-    * `未知`
+    * `Unknown`
   * `reason` String - The reason the child process is gone. 可选值：
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -741,7 +741,7 @@ Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -996,10 +996,10 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` Boolean _macOS_ - `true` 表示应用在登录时以隐藏的方式启动。 该配置在 [ MAS 构建 ][mas-builds]时不可用。
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` 表示应用在自动登录后已经启动。 该配置在 [ MAS 构建 ][mas-builds]时不可用。
-* ` wasOpenedAsHidden `Boolean _macOS_ - 如果应用在登录时已经隐藏启动, 则为 ` true `。 这表示应用程序在启动时不应打开任何窗口。 该配置在 [ MAS 构建 ][mas-builds]时不可用。
-* `restoreState` Boolean _macOS_ - `true` 表示应用作为登录启动项并且需要恢复之前的会话状态。 这表示程序应该还原上次关闭时打开的窗口。 该配置在 [ MAS 构建 ][mas-builds]时不可用。
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1012,13 +1012,13 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. 默认值为 `false`.
-  * `openAsHidden` Boolean (可选) _macOS_ - `true` 表示以隐藏的方式启动应用。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 该配置在 [ MAS 构建 ][mas-builds]时不可用。
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. 默认值为 `true`。
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). 设置应用程序的登录项设置。
 
-如果需要在使用[Squirrel][Squirrel-Windows]的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如：
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1178,7 +1178,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1226,7 +1226,6 @@ You can use this property to prompt users to download the arm64 version of your 
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
