@@ -2,7 +2,7 @@
 
 > Electron支持的命令行开关.
 
-您可以在[app](app.md) 模块的[ready](app.md#event-ready)事件生效之前，使用[app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value)将它们附加到您的应用程序的主要脚本中：
+您可以在[app][app] 模块的[ready][ready]事件生效之前，使用[app.commandLine.appendSwitch][append-switch]将它们附加到您的应用程序的主要脚本中：
 
 ```javascript
 const { app } = require('electron')
@@ -48,7 +48,7 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 防止Chromium降低不可见的页面渲染进程的优先级.
 
-这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio](https://github.com/atom/atom/pull/9485/files).
+这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio][play-silent-audio].
 
 ### --disk-cache-size=`size`
 
@@ -104,7 +104,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ### --lang
 
@@ -155,9 +155,9 @@ Gives the default maximal active V-logging level; 0 is the default. Normally pos
 
 ### --vmodule=`pattern`
 
-给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 例如, `my_module=2,foo*=3`将改变所有`my_module.*`和`foo*.*`源文件的代码的日志等级.
+给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 例如, `*/foo/bar/*=2`会改变`foo/bar`目录下源文件的所有代码的日志等级.
+任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
@@ -171,7 +171,7 @@ Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 
-Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+Electron supports some of the [CLI flags][node-cli] supported by Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
@@ -193,7 +193,7 @@ Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-调试相关的标识, 更多详细信息请查看 [Debugging the Main Process](../tutorial/debugging-main-process.md)指南。
+See the [Debugging the Main Process][debugging-main-process] guide for more details.
 
 Aliased to `--debug[=[host:]port`.
 
@@ -202,3 +202,11 @@ Aliased to `--debug[=[host:]port`.
 Specify ways of the inspector web socket url exposure.
 
 By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+
+[app]: app.md
+[append-switch]: command-line.md#commandlineappendswitchswitch-value
+[ready]: app.md#event-ready
+[play-silent-audio]: https://github.com/atom/atom/pull/9485/files
+[debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
+[node-cli]: https://nodejs.org/api/cli.html
