@@ -30,7 +30,7 @@ Ghost 成立于2013年4月，这是在一次非常成功的Kickstarter运动，�
 
 ## 什么是主机桌面？
 
-虚拟桌面允许作者一次管理多个博客-并集中精力写入。 Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+虚拟桌面允许作者一次管理多个博客-并集中精力写入。 常见编写快捷方式等简单内容无法在浏览器中实现，但在我们的桌面应用中可用。 它允许其他应用程序直接 [通过](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md)的深链接与博客进行通信。
 
 ## 什么是新闻的幽灵？
 
