@@ -4,9 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-A versão beta de [Electron 1.6.3][] contém suporte inicial para o</a>detouch bar do macOS .</p> 
-
-
+A versão beta do Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) contém suporte inicial para o macOS [Barra de Toque](https://developer.apple.com/macos/touch-bar).
 
 ---
 
@@ -18,57 +16,52 @@ Você pode instalar esta versão via `npm install electron@beta` e aprender mais
 
 Um grande agradecimento para [@MarshallOfSound](https://github.com/MarshallOfSound) por contribuir com o Electron. :tada:
 
-
-
 ## Exemplo da Barra de Toque
 
 ![Barra de toque Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
 Abaixo está um exemplo de criação de um jogo de máquina de slot simples na barra de toque. Isso demonstra como criar uma barra de toque, estilize os itens, associe-a a uma janela , Gerencie eventos de botão e atualize os rótulos de forma dinâmica.
 
-
-
 ```js
-const {app, BrowserWindow, TouchBar} = require ('electron')
+const {app, BrowserWindow, TouchBar} = require('electron')
 
 const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
-deixar girar = falso
+let girando = false
 
-// Etiquetas de bobina
-bobina const1 = novo TouchBarLabel()
-reel2 = novo TouchBarLabel()
-bobina const3 = novo TouchBarLabel()
+// Etiquetas de realm
+const reel1 = new TouchBarLabel()
+const reel2 = new TouchBarLabel()
+const reel3 = new TouchBarLabel()
 
-// Rótulo de resultado de spin
-resultado const = novo TouchBarLabel()
+// Rótulo de resultado de giração
+const result = new TouchBarLabel()
 
-// Botão de spin
-giro const = novo touchbarbutton({
-  rótulo: '🎰 Spin',
-  backgroundColor: '#7851A9',
+// Botão de girar
+const spin = new TouchBarButton({
+  rótulo: '🎰 Giro ',
+  fundoCor: '#7851A9',
   clique: () => {
     // Ignore cliques se já estiver girando
-    se (girando) {
+    if (girando) {
       return
     }
 
-    girando = resultado verdadeiro
-    .label = ''
+    giros = true
+    result . abel = ''
 
-    deixar o tempo limite = 10
-    giro constLength = 4 * 100 0 // 4 segundos
-    const startTime = Date.now()
+    let timeout = 10
+    const spinLength = 4 * 1000 // 4 segundos
+    const startTime = Date. ow()
 
     const spinReels = () => {
       updateReels()
 
-      se (((Date.now() - startTime) >= spinLength) {
+      if ((Date. ow() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Desacelere um pouco em cada rodada
-        tempo limite *= 1,1
-        setTimeout (spinReels, tempo limite)
+        // Desacelere um pouco em cada giro
+        timeout *= 1. setTimeout(spinReels, timeout)
       }
     }
 
@@ -77,60 +70,58 @@ giro const = novo touchbarbutton({
 })
 
 const getRandomValue = () => {
-  valores de const = ['🍒', '💎', '7️', '🍊', '🔔', '⭐', '🍇', '🍀']
-  valores de retorno[Math.floor(Math.random() * values.length)]
+  const values = ['🍒', ':gem_pedra:', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  valores de retorno[Matemática. loor(Math.random() * valores.length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
+  reel1. abel = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label
+  reel3. abel = getRandomValue()
 }
 
-acabamento constSpin = () => {
-  const uniqueValues = novo Conjunto ([reel1.label, reel2.label, reel3.label]).tamanho
-  se (uniqueValues === 1) {
-    // Todos os valores 3 são os mesmos
-    resultado.label = '💰 jackpot!'
+const finishSpin = () => {
+  const uniqueValues = new Set([reel1. abel, reel2.label, reel3.label]). ize
+  if (uniqueValues === 1) {
+    // Todos os 3 valores são o mesmo resultado
+    . abel = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
     // 2 values are the same
     result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
+    extColor = '#FDFF00'
   } else {
-    // Nenhum valor é o mesmo
-    resultado.rótulo = '🙁 Spin Again'
-    resultado.textColor = nulo
+    // Nenhum valor é o mesmo resultado
+    . abel = '🙁 Girar Novamente'
+    resultados. extColor = null
   }
-  spinning = falso
+  giros = false
 }
 
-const touchBar = novo TouchBar([
-  spin,
+const touchBar = new TouchBar([
+  giros,
   novo TouchBarSpacer({size: 'large'}),
-  bobina1,
+  fileira,
   novo TouchBarSpacer({size: 'small'}),
-  bobina2,
-  novo TouchBarSpacer({size: 'small'}),
-  bobina3,
-  novo TouchBarSpacer({size: 'large'}), resultado
-
+  fileiras2,
+  new TouchBarSpacer({size: 'small'}),
+  fileiras 3
+  novos TouchBarSpacer({size: 'large'}),
+  resultado
 ])
 
-deixar janela
+let janela
 
-app.once('ready', () => { janela
-  = novo BrowserWindow({
-    quadro : falso,
-    títuloBarStyle: 'hidden-inset',
+app. nce('ready', () => {
+  janela = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hidden-inset',
     largura: 200,
-    altura: 200,
-    fundoColor: '#000'
+    de altura: 200,
+    backgroundColor: '#000'
   })
-  janela.loadURL('about:blank')
-  window.setTouchBar (touchBar)
+  janela. oadURL('about:blank')
+  window.setTouchBar(touchBar)
 })
 ```
-
-[Electron 1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
 
