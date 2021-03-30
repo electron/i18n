@@ -4,7 +4,7 @@ Les développeurs demandent fréquemment des stratégies pour optimiser les perf
 
 La sagesse et les informations sur la façon de construire des sites Web performants avec JavaScript s'appliquent généralement aussi aux applications Electron. Dans une certaine mesure, les ressources discutant de la façon de construire un nœud performant. s applications aussi s'appliquent, mais faites attention à comprendre que le terme "performance" signifie des choses différentes pour un nœud. s backend que pour une application exécutée sur un client.
 
-Cette liste est fournie pour votre commodité – et est, comme notre liste de contrôle de sécurité [](./security.md) – pas destinée à être exhaustive. Il est probablement possible de construire une application Electron lente qui suit toutes les étapes décrites ci-dessous. Electron est une puissante plate-forme de développement qui vous permet, en tant que développeur, de faire plus de ou moins ce que vous voulez. Tout ce que la liberté signifie que la performance est largement votre responsabilité.
+This list is provided for your convenience – and is, much like our [security checklist][security] – not meant to exhaustive. Il est probablement possible de construire une application Electron lente qui suit toutes les étapes décrites ci-dessous. Electron est une puissante plate-forme de développement qui vous permet, en tant que développeur, de faire plus de ou moins ce que vous voulez. Tout ce que la liberté signifie que la performance est largement votre responsabilité.
 
 ## Mesure, Mesure, Mesurer
 
@@ -16,8 +16,8 @@ Pour en savoir plus sur la façon de profiler le code de votre application, fami
 
 ### Lecture recommandée
 
-* [Commencer avec l'analyse des performances d'exécution](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
-* [Conférence: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Commencer avec l'analyse des performances d'exécution][chrome-devtools-tutorial]
+* [Conférence: "Visual Studio Code - The First Second"][vscode-first-second]
 
 ## Liste de contrôle
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 L'exécution de cette commande aboutit à un fichier `.cpuprofile` et un fichier `.heapprofile` dans le répertoire dans lequel vous l'avez exécuté. Les deux fichiers peuvent être analysés en utilisant les outils de développement Chrome, en utilisant respectivement les onglets `Performance` et `Mémoire` .
 
-![performance-cpu-prof](../images/performance-cpu-prof.png)
+![performance-cpu-prof][]
 
-![performance-heap-prof](../images/performance-heap-prof.png)
+![performance-heap-prof][]
 
 Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement du module Request `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
 
@@ -90,12 +90,12 @@ const fs = require('fs')
 const fooParser = require('foo-parser')
 
 class Parser {
-  constructeur () {
-    ceci. iles = fs.readdirSync('. )
+  constructor () {
+    this.files = fs.readdirSync('.')
   }
 
   getParsedFiles () {
-    return fooParser.parse(ceci. iles)
+    return fooParser.parse(this.files)
   }
 }
 
@@ -115,14 +115,14 @@ class Parser {
     // Touchez le disque dès que `getFiles` est appelé, pas plus tôt.
     // Assurez-vous également que nous ne bloquons pas les autres opérations en utilisant
     // la version asynchrone.
-    this.files = this.files || Attendre fs.readdir('.')
+    this.files = this.files || await fs.readdir('.')
 
-    retourne ceci. iles
+    return this.files
   }
 
   async getParsedFiles () {
-    // Notre outil fictif foo-parser est un module gros et coûteux à charger, donc
-    // diffère ce travail jusqu'à ce que nous ayons réellement besoin d'analyser les fichiers.
+    // Our fictitious foo-parser is a big and expensive module to load, so
+    // defer that work until we actually need to parse files.
     // Puisque `require()` est fourni avec un cache de module, l'appel `require()`
     // ne sera coûteux qu'une seule fois - les appels suivants de `getParsedFiles()`
     // seront plus rapides.
@@ -143,13 +143,13 @@ En bref, allouer des ressources « juste à temps » plutôt que de les allouer 
 
 ## 3) Blocage du processus principal
 
-Le processus principal d'Electron (parfois appelé "processus de navigateur") est spécial : c'est le processus parent de tous les autres processus de votre application et le processus primaire avec lequel le système d'exploitation interagit. Il gère les fenêtres, les interactions et la communication entre les différents composants de votre application. Il héberge également le fil de l'interface utilisateur.
+Le processus principal d'Electron (parfois appelé "processus de navigateur") est spécial : c'est le processus parent de tous les autres processus de votre application et le processus primaire avec lequel le système d'exploitation interagit. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
 En aucun cas vous ne devez bloquer ce processus et le fil de discussion de l'interface utilisateur avec des opérations de longue durée. Bloquer le fil de discussion de l'interface signifie que toute votre application se figera jusqu'à ce que le processus principal soit prêt à continuer le traitement.
 
 ### Pourquoi ?
 
-Le processus principal et son fil d'interface sont essentiellement la tour de contrôle pour les opérations principales de dans votre application. Quand le système d'exploitation indique à votre application un clic de souris de , il passera par le processus principal avant d'atteindre votre fenêtre. Si votre fenêtre affiche une animation lisse au beurre, il aura besoin de parler à le processus GPU à ce sujet - une fois de plus passer par le processus principal.
+The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. Si votre fenêtre affiche une animation lisse au beurre, il aura besoin de parler à le processus GPU à ce sujet - une fois de plus passer par le processus principal.
 
 Electron et Chromium veillent à placer des opérations lourdes d'E/S disque et de liaison avec le processeur sur de nouveaux threads pour éviter de bloquer le fil d'interface utilisateur. Vous devriez en faire de même.
 
@@ -157,7 +157,7 @@ Electron et Chromium veillent à placer des opérations lourdes d'E/S disque et 
 
 Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
 
-1) Pour les tâches lourdes du processeur à long terme, utilisez [threads de travail](https://nodejs.org/api/worker_threads.html), envisagez de les déplacer vers le BrowserWindow, ou (en dernier recours) engendrent un processus dédié.
+1) For long running CPU-heavy tasks, make use of [worker threads][worker-threads], consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
 
 2) Évitez d'utiliser l'IPC synchrone et le module `distant` autant que possible. Bien qu'il y ait des cas d'utilisation légitimes, il est beaucoup trop facile de bloquer inconsciemment le thread de l'interface en utilisant le module `distant`.
 
@@ -177,9 +177,9 @@ L'orchestration du flux d'opérations dans le code de votre moteur de rendu est 
 
 De manière générale, tous les conseils pour créer des applications web performantes pour les navigateurs modernes s'appliquent également aux moteurs de rendu d'Electron. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
 
-*`requestIdleCallback()`* permet aux développeurs de mettre en file d'attente une fonction à exécuter dès que le processus entre une période d'inactivité. Il vous permet de effectuer des tâches de faible priorité ou en arrière-plan sans affecter l'expérience utilisateur. Pour plus d'informations sur la façon de l'utiliser, [consultez sa documentation sur MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* permet aux développeurs de mettre en file d'attente une fonction à exécuter dès que le processus entre une période d'inactivité. Il vous permet de effectuer des tâches de faible priorité ou en arrière-plan sans affecter l'expérience utilisateur. For more information about how to use it, [check out its documentation on MDN][request-idle-callback].
 
-*Les Web Workers* sont un outil puissant pour exécuter du code sur un fil de discussion séparé. Il y a des avertissements à considérer – consulter la documentation [multithreading d'Electron](./multithreading.md) et la documentation [MDN pour les WebWorkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Ils sont une solution idéale pour toute opération qui nécessite beaucoup de puissance CPU pendant une période prolongée de temps.
+*Les Web Workers* sont un outil puissant pour exécuter du code sur un fil de discussion séparé. There are some caveats to consider – consult Electron's [multithreading documentation][multithreading] and the [MDN documentation for Web Workers][web-workers]. Ils sont une solution idéale pour toute opération qui nécessite beaucoup de puissance CPU pendant une période prolongée de temps.
 
 ## 5) Remplissage inutile
 
@@ -197,7 +197,7 @@ Il est rare qu'un polyremplissage basé sur JavaScript soit plus rapide que la f
 
 Opère en supposant que les polyfills dans les versions actuelles d'Electron ne sont pas nécessaires. Si vous avez des doutes, cochez [caniuse. om](https://caniuse.com/) et vérifiez si la version [de Chromium utilisée dans votre version d'Electron](../api/process.md#processversionschrome-readonly) prend en charge la fonctionnalité que vous désirez.
 
-En outre, examinez attentivement les bibliothèques que vous utilisez. Sont-ils vraiment nécessaires? `jQuery`, par exemple, a été un tel succès que beaucoup de ses fonctionnalités font maintenant partie du [jeu de fonctionnalités JavaScript standard disponible](http://youmightnotneedjquery.com/).
+En outre, examinez attentivement les bibliothèques que vous utilisez. Sont-ils vraiment nécessaires? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available][jquery-need].
 
 Si vous utilisez un transpiler/compilateur comme TypeScript, vérifiez sa configuration et assurez-vous que vous visez la dernière version de ECMAScript supportée par Electron.
 
@@ -223,7 +223,7 @@ Les outils enregistreront minutieusement toutes les requêtes sur le réseau. Da
 
 En tant que prochaine étape, activez `Réalisation du réseau`. Trouvez le menu déroulant qui lit actuellement `en ligne` et sélectionnez une vitesse plus lente comme `Fast 3G`. Rechargez votre moteur de rendu et vérifiez s'il y a des ressources que votre application attend inutilement. Dans de nombreux cas, une application attendra qu'une demande de réseau soit complétée bien qu'elle n'ait pas besoin de la ressource concernée.
 
-En guise de conseil, charger des ressources depuis Internet que vous pourriez vouloir changer sans expédier une mise à jour de l'application est une stratégie puissante. Pour un contrôle avancé sur la façon dont les ressources sont chargées, envisagez d'investir dans [employés de service](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+En guise de conseil, charger des ressources depuis Internet que vous pourriez vouloir changer sans expédier une mise à jour de l'application est une stratégie puissante. For advanced control over how resources are being loaded, consider investing in [Service Workers][service-workers].
 
 ## 7) Empaquetez votre code
 
@@ -237,4 +237,19 @@ Le développement moderne de JavaScript implique généralement de nombreux fich
 
 Il y a de nombreux bundles JavaScript là-bas et nous savons mieux que de irriter la communauté en recommandant un outil plutôt qu'un autre. Cependant, nous recommandons d'utiliser un bundler capable de gérer l'environnement unique d'Electron qui a besoin de gérer les deux nœuds. s et environnements du navigateur.
 
-Au moment d'écrire cet article, les choix populaires incluent [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/)et [rollup.js](https://rollupjs.org/).
+As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
+
+[security]: ./security.md
+[performance-cpu-prof]: ../images/performance-cpu-prof.png
+[performance-heap-prof]: ../images/performance-heap-prof.png
+[chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
+[worker-threads]: https://nodejs.org/api/worker_threads.html
+[web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[request-idle-callback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[multithreading]: ./multithreading.md
+[jquery-need]: http://youmightnotneedjquery.com/
+[service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
+[parcel]: https://parceljs.org/
+[rollup]: https://rollupjs.org/
+[vscode-first-second]: https://www.youtube.com/watch?v=r0OeHRUCCb4
