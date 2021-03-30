@@ -63,11 +63,11 @@ date: '2017-03-07'
 
 我们目前处理非常大量的收藏。 大型收藏可能意味着数以万计的图像！ 拥有节点。 sh 文件系统模块可直接从渲染过程中获取，使得快速在 DOM 事件的基础上下载和卸载大量图像非常容易。
 
-一般来说， *[设置立即](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* 和 *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* 已经成为在保持界面响应的同时进行大量处理的超重要工具。 更具体地说，将受CPU约束的任务分配到单独的进程确实有助于保持用户界面的响应性。 例如，我们将实际音频环境移动到一个单独的过程中。 通过 [IPC](https://electronjs.org/docs/glossary/#ipc) 与它通信，以避免忙碌用户界面可能出现的中断。
+In general *[setImmediate][]* and *[requestIdleCallback][]* have been super important tools for performing lots of processing while keeping the UI responsive. 更具体地说，将受CPU约束的任务分配到单独的进程确实有助于保持用户界面的响应性。 For example, we moved the actual audio context into a separate process, communicating with it over [IPC][] to avoid potential interruptions from a busy UI.
 
 ## 为什么你选择在Electron上建造Voltra？
 
-浏览器的沙盒对我们的应用过于限制。但我们也正在开发一个 web 播放器。 所以这是一个巨大的胜利，我们可以在两个实现之间分享几乎100%的代码。
+The browser’s sandbox is too restricted for our app. But we are also developing a web player. 所以这是一个巨大的胜利，我们可以在两个实现之间分享几乎100%的代码。
 
 我们实际上是通过使用 Swift 构建本地应用程序开始的。 我们发现的主要问题是，我们正在重新塑造许多东西。 该网络拥有世界上最大的开放源码生态系统。 所以我们很快切换到 Electron。
 
@@ -88,4 +88,8 @@ date: '2017-03-07'
 ## 接下来是什么？
 
 我们目前正在开发一个移动应用，与艺术家和标签合作，将他们的音乐添加到Voltra 商店。 嘿！ 如果您是艺术家或标签， [现在注册](https://admin.voltra.co/signup)！ 当我们达到1 000万条轨道的目标时，我们计划开办这家商店。
+
+[setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+[requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[IPC]: https://electronjs.org/docs/glossary/#ipc
 
