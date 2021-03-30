@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-El efecto es visible sólo en (algunos?) Pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
+The effect is visible only on (some?) LCD screens. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.
 
