@@ -69,7 +69,7 @@ win.show()
 
 ## 点击穿透窗口
 
-要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ](browser-window.md#winsetignoremouseeventsignore-options) API：
+要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ][ignore-mouse-events] API：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 ## 右键菜单
 
 在某些平台上，可拖拽区域不被视为窗口的实际内容，而是作为窗口边框处理，因此在右键单击时会弹出系统菜单。 要使上下文菜单在所有平台上都正确运行, 您永远也不要在可拖拽区域上使用自定义上下文菜单。
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
