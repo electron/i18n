@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,9 +12,9 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` is an [EventEmitter][event-emitter].
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -43,7 +43,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
   * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
-### Instanz-Ereignisse
+### Instanz Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -53,28 +53,23 @@ Objects created with `new Notification` emit the following events:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is shown to the user, note this could be fired
-multiple times as a notification can be shown multiple times through the
-<code>show()` method.</p>
+Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Ereignis: 'click'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the notification is clicked by the user.</p>
+Emitted when the notification is clicked by the user.
 
-<h4 spaces-before="0">Event: 'close'</h4>
+#### Event: 'close'
 
-<p spaces-before="0">Rückgabewert:</p>
+Rückgabewert:
 
-<ul>
-<li><code>event` Event
+* `event` Event
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -84,8 +79,8 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>reply` String - The string the user entered into the inline reply field.
+* `event` Event
+* `reply` String - The string the user entered into the inline reply field.
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
@@ -93,8 +88,8 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>index` Number - The index of the action that was activated.
+* `event` Event
+* `index` Number - The index of the action that was activated.
 
 #### Event: 'failed' _Windows_
 
@@ -105,7 +100,7 @@ Rückgabewert:
 
 Emitted when an error is encountered while creating and showing the native notification.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -183,3 +178,5 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/System/Library/Sounds`
 
 See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
