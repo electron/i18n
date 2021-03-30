@@ -10,7 +10,7 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 ## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
-A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
+A versão do Chrome utilizada no Electron normalmente é disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
 Somente a versão estável do Chrome é usada. Se uma correção importante estiver em um canal beta ou de desenvolvimento , retornaremos a porta.
 
@@ -24,9 +24,9 @@ Novos recursos do Node.js geralmente são trazidos por atualização da V8, desd
 
 ## Como compartilhar dados entre página da web?
 
-Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Bons candidatos são [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) e [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Como alternativa, você pode usar os primitivos IPC que são fornecidos pelo Electron. Para compartilhar dados entre os processos principal e de renderização, você pode usar os módulos [`ipcMain`](api/ipc-main.md) e [`ipcRenderer`](api/ipc-renderer.md). Para comunicar diretamente entre páginas da web, você pode enviar uma [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) de uma para a outra possivelmente através do processo principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). A comunicação subsequente sobre as portas da mensagem é direta e não destaca o processo principal.
+Como alternativa, você pode usar os primitivos IPC que são fornecidos pelo Electron. Para compartilhar dados entre os processos principal e de renderização, você pode usar os módulos [`ipcMain`](api/ipc-main.md) e [`ipcRenderer`](api/ipc-renderer.md). Para comunicar diretamente entre páginas da web, você pode enviar uma [`MessagePort`][message-port] de uma para a outra possivelmente através do processo principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). A comunicação subsequente sobre as portas da mensagem é direta e não destaca o processo principal.
 
 ## A minha bandeja de aplicativo desapareceu depois de alguns minutos.
 
@@ -34,8 +34,8 @@ Isto acontece quando a variável que é usada para armazenar a bandeja é coleta
 
 Se você encontrar esse problema, esses artigos podem ser úteis:
 
-* [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Escopo de Variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gerenciamento de Memória][memory-management]
+* [Escopo de Variável][variable-scope]
 
 Se você quer uma solução rápida, você pode fazer as variáveis globais, alterando seu código:
 
@@ -104,11 +104,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplo:
 
-![Exemplo de renderização do subpixel](images/subpixel-rendering-screenshot.gif)
+![exemplo de renderização de subpixel][]
 
 A anti-aliasing de sub-pixel precisa de um fundo não transparente na camada que contem os glyphs de texto. (Veja [esta publicação](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para mais informações).
 
-Para alcançar este objetivo, defina o plano de fundo do construtor para [BrowserWindow](api/browser-window.md):
+Para alcançar este objetivo, defina o fundo do construtor para [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,6 +117,16 @@ const win = new BrowserWindow({
 })
 ```
 
-O efeito é visível apenas em (algumas?) telas LCD. Mesmo se você não ver uma diferença, alguns de seus usuários podem fazê-lo. É melhor definir sempre os antecedentes desta forma, a menos que tenham razões para não o fazer.
+The effect is visible only on (some?) LCD screens. Mesmo se você não ver uma diferença, alguns de seus usuários podem fazê-lo. É melhor definir sempre os antecedentes desta forma, a menos que tenham razões para não o fazer.
 
 Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+[message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[browser-window]: api/browser-window.md
+[exemplo de renderização de subpixel]: images/subpixel-rendering-screenshot.gif

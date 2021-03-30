@@ -2,7 +2,7 @@
 
 > 在原生macOS应用程序的触摸栏中创建一个标签
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+进程：[主进程](../glossary.md#main-process)
 
 ### `new TouchBarLabel(options)`
 

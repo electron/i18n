@@ -18,7 +18,7 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 
 需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
 
-* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#17-use-a-current-version-of-electron)”以获取更多信息。
+* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#15-use-a-current-version-of-electron)”以获取更多信息。
 
 * **评估你的依赖项目**NPM提供了五百万可重用的软件包，而你应当承担起选择可信任的第三方库。 如果你使用了受已知漏洞的过时的库，或是依赖于维护的很糟糕的代码，你的程序安全就可能面临威胁。
 
@@ -26,9 +26,9 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 
 ## 隔离不信任的内容
 
-每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
+每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`][browser-window]中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
 
-> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 如果你想要显示远程内容，请使用 [`<webview>`](../api/webview-tag.md) Tag或者 [`BrowserView`](../api/browser-view.md)，并确保禁用 `nodeIntegration` 并启用 `contextIsolation`
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 如果你想要显示远程内容，请使用 [`<webview>`][webview-tag] Tag或者 [`BrowserView`][browser-view]，并确保禁用 `nodeIntegration` 并启用 `contextIsolation`
 
 ## Electron 安全警告
 
@@ -42,7 +42,7 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-do-not-enable-nodejs-integration-for-remote-content)
-3. [做所有显示远程内容的渲染器中启用上下文隔离。](#3-enable-context-isolation-for-remote-content)
+3. [在所有显示远程内容的渲染器中启用上下文隔离。](#3-enable-context-isolation-for-remote-content)
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
 6. [定义一个`Content-Security-Policy`](#6-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
@@ -54,9 +54,7 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
 13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
 14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
-15. [禁用 `remote` 模块](#15-disable-the-remote-module)
-16. [限制 `remote` 模块](#16-filter-the-remote-module)
-17. [使用当前版本的 Electron](#17-use-a-current-version-of-electron)
+15. [使用当前版本的 Electron](#15-use-a-current-version-of-electron)
 
 如果你想要自动检测错误的配置或是不安全的模式，可以使用[electronegativity](https://github.com/doyensec/electronegativity) 关于在使用Electron进行应用程序开发中的潜在薄弱点或者bug，您可以参考[开发者与审核人员指南](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -88,7 +86,7 @@ browserWindow.loadURL ('https://example.com')
 
 _此建议是 Electron 从 5.0.0 开始的默认行为。_
 
-加载远程内容时，不论使用的是哪一种渲染器（[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 或者 [`<webview>`](../api/webview-tag.md)），最重要的就是绝对不要启用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
+加载远程内容时，不论使用的是哪一种渲染器（[`BrowserWindow`][browser-window]，[`BrowserView`][browser-view] 或者 [`<webview>`][webview-tag]），最重要的就是绝对不要启用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
 在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 `https://example.com/` 的 BrowserWindow，那么你可以给他刚刚好足够的权限，但是绝对不要超出这个范围。
 
@@ -184,9 +182,9 @@ session
 
 ## 5) 不要禁用WebSecurity
 
-_Electron的默认值就是建议值。_
+_Electron的默认值即是建议值。_
 
-在渲染进程（[`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md) 和 [`<webview>`](../api/webview-tag.md)）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
+在渲染进程（[`BrowserWindow`][browser-window]、[`BrowserView`][browser-view] 和 [`<webview>`][webview-tag]）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
 
 不要在生产环境中禁用`webSecurity`。
 
@@ -250,7 +248,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资源时，不可能使用此方法。 It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资源时，不可能使用此方法。 在某些用例下, 例如使用`file://`协议时, 在页面的`<meta>`的标签中设置CSP是非常有用的.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -258,7 +256,7 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
-_Electron的默认值就是建议值。_
+_Electron的默认值即是建议值。_
 
 默认情况下，Electron不允许网站在`HTTPS`中加载或执行非安全源(`HTTP`) 中的脚本代码、CSS或插件。 将`allowRunningInsecureContent`属性设为`true`将禁用这种保护。
 
@@ -286,7 +284,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 8) 不要开启实验室特性
 
-_Electron的默认值就是建议值。_
+_Electron的默认值即是建议值。_
 
 Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chromium 实验性功能。
 
@@ -314,7 +312,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) 不要使用`enableBlinkFeatures`
 
-_Electron的默认值就是建议值。_
+_Electron的默认值即是建议值。_
 
 Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样，`enableBlinkFeatures`属性将使开发者启用被默认禁用的特性。
 
@@ -340,13 +338,13 @@ const mainWindow = new BrowserWindow()
 
 ## 10) 不要使用`allowpopups`
 
-_Electron的默认值就是建议值。_
+_Electron的默认值即是建议值。_
 
-如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
+如果您正在使用 [`<webview>`][webview-tag] ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`][browser-window]可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
 
 ### 为什么？
 
-如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`](../api/browser-window.md)的创建。 以下是最低的权限要求原则：若非必要，不要再网站中创建新窗口。
+如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`][browser-window]的创建。 以下是最低的权限要求原则：若非必要，不要再网站中创建新窗口。
 
 ### 怎么做？
 
@@ -357,17 +355,17 @@ _Electron的默认值就是建议值。_
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
-控制主进程创建新的 [`<webview>`](../api/webview-tag.md) 标签 并验证他们的 web 首选项没有禁用 安全功能，这是一个好主意。
+It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
 
 ### 为什么？
 
 从 `<webview>` 生活在DOM中 即使是节点也可以通过运行在您的 网站上的脚本创建它们。 s 集成被禁用。
 
-Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<webview>`](../api/webview-tag.md)标签
+Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<webview>`][webview-tag]标签
 
 ### 怎么做？
 
-在 [`<webview>`](../api/webview-tag.md)标签生效前，Electron将产生一个`will-attach-webview`事件到`webContents`中。 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
+在 [`<webview>`][webview-tag]标签生效前，Electron将产生一个`will-attach-webview`事件到`webContents`中。 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -401,9 +399,9 @@ app.on('web-contents-created', (event, contents) => {
 
 ### 怎么做？
 
-如果您的应用不需要导航，您可以调用 `event.preventDefault()` 在 [`将导航`](../api/web-contents.md#event-will-navigate) 处理器。 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
+If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
 
-我们建议您使用 Node的 URL 解析器。 Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+我们建议您使用 Node的 URL 解析器。 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
 
 ```js
 const URL = require('url').URL
@@ -431,7 +429,7 @@ app.on('web-contents-created', (evidences, contents) => format@@
 
 ### 怎么做？
 
-[`webContents`](../api/web-contents.md)将会在新窗口创建前传递给 [打开窗口的处理函数](../api/web-contents.md#contentssetwindowopenhandlerhandler)。 The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents]将会在新窗口创建前传递给 [打开窗口的处理函数][window-open-handler]。 The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
@@ -456,11 +454,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) 不要使用含有不可信任内容的 `openExterne`
 
-Shell 的 [`openExternal`](../api/shell.md#shellopenexternalurl-options) 允许使用 桌面的原生工具打开指定的协议 URI。 On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### 为什么？
 
-错误使用 [`openExternal`](../api/shell.md#shellopenexternalurl-options) 可以影响用户的主机 当OpenExtern使用内容不受信任时，它可以使用 来执行任意命令。
+Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. 当OpenExtern使用内容不受信任时，它可以使用 来执行任意命令。
 
 ### 怎么做？
 
@@ -476,101 +474,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) 禁用 `远程` 模块
-
-`远程` 模块为渲染器访问 的 API 提供了一种途径，通常只能在主流程中使用。 使用 渲染器可以调用一个主进程对象的方法，而不会明确发送 进程间信息。 如果您的桌面应用程序没有运行不信任的 内容 这可以是一个有用的方式，让您的渲染器进程访问和 只适用于主进程的模块。 例如： GUI相关模块(对话框、菜单等)。
-
-然而，如果您的应用可以运行不受信任的内容，甚至您 [sandbox](../api/sandbox-option.md) 相应的渲染程序。 `远程` 模块 使得恶意代码很容易逃脱沙盒，并通过主进程的更高权限访问 系统资源。 因此， 应该在这种情况下禁用。
-
-### 为什么？
-
-`远程` 使用内部IPC 通道与主进程进行通信。 “原型污染”攻击可以让恶意代码访问内部 IPC 通道， 然后可以通过模仿 `远程`来逃避沙盒。 IPC 消息并访问运行更高的 权限的主要流程模块。
-
-此外，预加载脚本可能意外泄露模块到 沙盒渲染器。 跳跃 `遥控` 武器恶意代码，包含大量 的主进程模块来进行攻击。
-
-禁用 `remote` 模块会消除这些攻击向量。 启用上下文隔离也会阻止 “prototype pollution” 攻击成功。
-
-### 怎么做？
-
-```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// 良好
-const mainwindow = new BrowserWindow(
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview enableremotemodule="true" src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **注意**：从 Electron 10 开始 `enableRemoteModule` 选项默认为 `false`。 对于之前的版本，你需要显式禁用 `remote` 模块。
-
-## 16) 筛选 `远程` 模块
-
-如果您不能禁用 `远程` 模块，您应该筛选全局， 节点， 和 Electron 模块 (所谓内置) 可以通过 `远程` 访问您的应用程序不需要的。 This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
-
-### 为什么？
-
-由于主要过程的系统访问权限， 主流程模块提供的功能 可能在渲染过程中运行的 恶意代码手中具有危险性。 限制您的应用程序所需的 套可访问的模块以及 过滤其他模块。 您可以减少恶意代码 用于攻击系统的工具集。
-
-请注意，最安全的选项是 [完全禁用远程模块](#15-disable-the-remote-module)。 If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
-
-### 怎么做？
-
-```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) 使用当前版本的 Electron
+## 15) 使用当前版本的 Electron
 
 你应该努力始终去使用最新版本的 Electron。 每当发布新的主要版本时，你应该尝试尽快更新您的应用。
 
@@ -578,4 +482,15 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 使用旧版本Electron、Chromium和节点构建的应用程序。 s 比使用较新版本的 这些组件的应用程序更容易成为目标。 一般来说，较旧的 版本的 Chromium 和 Node.js 的安全问题和开发范围更广。
 
-Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深刻的工程精英。 Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. 许多 这些研究人员 [负责任地披露脆弱性](https://en.wikipedia.org/wiki/Responsible_disclosure) 这通常意味着研究人员会给Chromium和节点。 s 一些时间 来解决发布前的问题。 如果 运行最新版本的 Electron (因而，Chromium 和 Node)，您的应用程序将更加安全。 对于那些潜在的安全问题不那么广为人知的 来说也是如此。
+Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深刻的工程精英。 Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. 如果 运行最新版本的 Electron (因而，Chromium 和 Node)，您的应用程序将更加安全。 对于那些潜在的安全问题不那么广为人知的 来说也是如此。
+
+[browser-window]: ../api/browser-window.md
+
+[browser-window]: ../api/browser-window.md
+[browser-view]: ../api/browser-view.md
+[webview-tag]: ../api/webview-tag.md
+[web-contents]: ../api/web-contents.md
+[window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandlerhandler
+[will-navigate]: ../api/web-contents.md#event-will-navigate
+[open-external]: ../api/shell.md#shellopenexternalurl-options
+[responsible-disclosure]: https://en.wikipedia.org/wiki/Responsible_disclosure

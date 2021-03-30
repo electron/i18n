@@ -2,7 +2,7 @@
 title: Electron 10.0.0
 author:
   - VerteDinde
-  - sofianguy
+  - 索菲亚格文
 date: '2020-08-25'
 ---
 
@@ -10,7 +10,7 @@ Electron 10.0.0 已发布！ 它包括升级到 Chromium `85`, V8 `8.5`, 和 Nod
 
 ---
 
-Electron 团队很高兴发布了 Electron 10.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 这次发布包含升级、修复和新功能。
+Electron 团队很高兴发布了 Electron 10.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 发行版装有升级、修复和新功能。
 
 在 Electron 10 发布版中，我们还修改了我们的版本说明。 为了让它更容易知道Electron 10中的全新内容和Electron 10与过去版本之间可能发生的变化， 我们现在还包括了对Electron 10的修改，但是支持了以前的版本。 我们希望这将使应用程序在升级 Electron 时更容易找到新的功能和错误修复。
 

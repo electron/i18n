@@ -30,7 +30,7 @@ Retourne :
 * `event` Événement
 * `launchInfo` Record<string, any> _macOS_
 
-Émis une fois, lorsque Electron a fini d'initialiser. Sur macOS, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été activé et `application. henReady()` pour obtenir une Promesse qui est remplie lorsque Electron est initialisé.
+Émis lorsqu'Electron a terminé l’initialisation. Sur macOS, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
 
 ### Événement : 'window-all-closed'
 
@@ -309,7 +309,7 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process dissapeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
 #### Event: 'render-process-gone'
 
@@ -690,7 +690,7 @@ Définit ou supprime une JumpList personnalisée pour l'application et renvoie l
 
 Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (si existante) sera remplacée par la JumpList standard de l'application (gérée par Windows).
 
-**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est supposé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
+**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` définie le `type` est donc supposé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
 **Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 

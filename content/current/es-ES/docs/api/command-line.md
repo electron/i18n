@@ -1,17 +1,17 @@
-## Class: CommandLine
+## Clase: CommandLine
 
-> Manipulate the command line arguments for your app that Chromium reads
+> Manipula los argumentos de la línea de comandos para tu aplicación que Chromium lee
 
 Proceso: [Main](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+El siguiente ejemplo muestra como comprobar si la bandera `--disable-gpu` está activada.
 
 ```javascript
 const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
+Para más información sobre que tipos de banderas e interruptores puedes usar, revisa el documento [Command Line Switches](./command-line-switches.md).
 
 ### Métodos de Instancia
 
@@ -22,17 +22,17 @@ For more information on what kinds of flags and switches you can use, check out 
 
 Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
-**Nota:** Esto no afectará a `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Nota:** Esto no afectará a `process.argv`. El uso previsto de esta función is controlar el comportamiento de Chromium.
 
 #### `commandLine.appendArgument(value)`
 
 * `valor` Cadena - El argumento a adjuntar a la línea de comando
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Agrega un argumento a la línea de comando de Chromium. El argumento será citado correctamente. Los interruptores precederán a los argumentos independientemente de orden agregado.
 
 Si estas añadiendo un argumento como `--switch=value`, considere usar en su lugar `appendSwitch('switch', 'value')`.
 
-**Nota:** Esto no afectará a `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Nota:** Esto no afectará a `process.argv`. El uso previsto de esta función is controlar el comportamiento de Chromium.
 
 #### `commandLine.hasSwitch(switch)`
 

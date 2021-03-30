@@ -2,7 +2,7 @@
 
 > 自定义渲染当前网页
 
-进程: [ Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -35,6 +35,8 @@ Returns `Number` - 当前的缩放比例。
 
 更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+
 ### `webFrame.getZoomLevel()`
 
 Returns `Number` - The current zoom level.
@@ -48,8 +50,9 @@ Returns `Number` - The current zoom level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -74,7 +77,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+An example of using [node-spellchecker][spellchecker] as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -140,6 +143,7 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
@@ -196,7 +200,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` 字符串
+* `name` String
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
@@ -206,7 +210,19 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-## 属性
+### `webFrame.isWordMisspelled(word)`
+
+* `word` String - The word to be spellchecked.
+
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+
+### `webFrame.getWordSuggestions(word)`
+
+* `word` String - The misspelled word.
+
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
+
+## Properties
 
 ### `webFrame.top` _Readonly_
 
@@ -231,3 +247,5 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker

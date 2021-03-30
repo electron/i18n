@@ -165,9 +165,10 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `securityScopedBookmarks` Boolean (facultatif) _macOS_ _mas_ - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
-  * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
-  * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-  * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
+
+* `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
+* `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
+* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -179,11 +180,11 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
 * `options` Object
+  * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
-  * `message` Chaîne - Contenu de la boîte de message.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -202,11 +203,11 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
 * `options` Object
+  * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
-  * `message` Chaîne - Contenu de la boîte de message.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -216,10 +217,11 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
   * `normalizeAccessKeys` Boolean (facultatif) - Normalise les clés d'accès au clavier sur toutes les plateformes. Par défaut la valeur est `false`. Activer ceci suppose que `&` est utilisé dans les étiquettes des boutons pour le placement de la touche d'accès du raccourci clavier et les étiquettes seront converties pour qu'elles fonctionnent correctement sur chaque plateforme, `&` les caractères sont supprimés sur macOS, convertis en `_` sous Linux, et intactés sur Windows. Par exemple, une étiquette de bouton de `Vie&w` sera converti en `Vie_w` sous Linux et `Vie` sous macOS et peut être sélectionné via `Alt-W` sur Windows et Linux.
 
 Retourne `Promise<Object>` - résout avec une promesse contenant les propriétés suivantes :
-  * `response` Number - The index of the clicked button.
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
-Affiche une boîte de message, elle bloque le processus jusqu'à ce que la boîte de message soit fermée.
+* `response` Number - The index of the clicked button.
+* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+
+Shows a message box.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 

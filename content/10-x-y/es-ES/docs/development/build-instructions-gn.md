@@ -76,12 +76,11 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+Esto generará un directorio de compilación `out/Testing` under `src/` con la configuración de compilación de pruebas. Usted puede reemplazar `Testing` con otro nombre, pero debería ser a subdirectorio de `out`. Además no deberías ejecutar `gn gen` de nuevo — si quieres cambiar los argumentos de compilación, puedes ejecutar `gn args out/Testing` para traer un editor.
 
-To see the list of available build configuration options, run `gn args
-out/Testing --list`.
+Para ver la lista de opciones de configuraciones disponible, ejecute `gn args out/Testing --list`.
 
-**For generating Testing build config of Electron:**
+**Para generar la configuración de compilación de prueba de Electron:**
 
 ```sh
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
@@ -95,7 +94,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **Para compilar, corra `ninja` con el `electron` target:** Nota Bene: Esto también tomará un tiempo y probablemente calentará tu regazo.
 
-For the testing configuration:
+Para la configuración de depuración:
 ```sh
 $ ninja -C out/Testing electron
 ```
@@ -107,9 +106,9 @@ $ ninja -C out/Release electron
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-Para acelerar las compilaciones posteriores, puedes usar [ sccache ][sccache]. Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
+Para acelerar las compilaciones posteriores, puedes usar [ sccache ][sccache]. Agregue el arg GN `cc_wrapper = "sccache"` ejecutando `gn args out/Testing` para traer un editor y agregar una linea al final del archivo.
 
-The built executable will be under `./out/Testing`:
+El ejecutable compilado estará en `./out/Testing`:
 
 ```sh
 $ ./out/Testing/Electron.app/Contents/MacOS/Electron
@@ -177,7 +176,7 @@ Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en l
 $ ninja -C out/Testing third_party/electron_node:headers
 ```
 
-You can now [run the tests](testing.md#unit-tests).
+Ahora puede ejecutar [run the tests](testing.md#unit-tests).
 
 Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
 

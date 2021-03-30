@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Получает информацию о медиа ресурсах, которые могут быть использованы для записи аудио и видео с рабочего стола, при использовании API [`navigator.mediaDevices.getUserMedia`].
+> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-Для захвата видео из источника, предоставленного `desktopCapturer` ограничения, передаваемые [`navigator.mediaDevices.getUserMedia`] должны включать `chromeMediaSource: 'desktop'`, и `audio: false`.
+To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
-Для захвата аудио и видео со всего рабочего стола ограничения, принятые в [`navigator.mediaDevices. etUserMedia`] должны включать `chromeMediaSource: 'Desktop'`, для `аудио` и `видео`, но не должны включать ограничение `chromeMediaSourceId`.
+To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
 
 ```javascript
 const constraints = {
@@ -79,10 +79,13 @@ const constraints = {
 
 Возвращает `Promise<DesktopCapturerSource[]>` - разрешается с массивом объектов [`DesktopCapturerSource`](structures/desktop-capturer-source.md), каждый `DesktopCapturerSource ` представляет экран или отдельное окно, которое может быть захвачено.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
 
 ## Предупреждения
 
 `navigator.mediaDevices. etUserMedia` не работает в macOS из-за фундаментального ограничения, из-за которого приложениям, желающим получить доступ к звуку системы, требуется [подписанное расширение ядра](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, и расширение Electron, не предоставляет этого.
 
 Это ограничение можно обойти путем захвата системного звука с помощью другого приложения macOS вроде Soundflower и передачи его через виртуальное устройство ввода. Это виртуальное устройство может быть запрошено с помощью `navigator.mediaDevices.getUserMedia`.
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
+[`systemPreferences.getMediaAccessStatus`]: system-preferences.md#systempreferencesgetmediaaccessstatusmediatype-windows-macos

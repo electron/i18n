@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
-Por exemplo:
+Como por exemplo:
 
 ```javascript
 const { session } = require('electron')

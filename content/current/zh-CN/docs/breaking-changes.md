@@ -2,9 +2,9 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](tutorial/electron-versioning.md#semver).
 
-### 重大更改的类型
+### 打破更改类型
 
-本文档使用以下约定对重大更改进行分类：
+本文件利用以下公约对重大变化进行分类：
 
 * **API 更改：** 一个 API 更改的方式使得尚未更新的代码保证会丢弃异常。
 * **行为有所改变：** Electron的行为已经改变，但并不是一定会抛出例外情况。
@@ -151,6 +151,8 @@ This option will be removed in Electron 14 so please migrate your code to suppor
 在 Electron 12, `上下文隔离` 默认情况下将被启用。  若要恢复 上一个行为， `上下文孤立：false` 必须在 Web 首选项中指定。
 
 We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+
+Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
 详情见：https://github.com/electron/electron/issues/23506
 
@@ -408,7 +410,7 @@ remote.webContents.from(webview.getWebContentsId())
 
 ### 已删除： `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. 此函数在 Electron 8.x 中被废弃，并在 Electron 9.x 中被删除。 布局缩放级别限制 现在被固定为 0。 5 和最多5.0，定义为 [这里](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11)
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### 行为改变：现在在 IPC 上发送非JS 对象给异常。
 
@@ -424,7 +426,7 @@ Chromium has removed support for changing the layout zoom level limits, and it i
 
 ### 行为改变：通过 IPC 发送的值现在被结构化的克隆算法序列化
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
@@ -777,7 +779,7 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                          | `false` |
 | `webviewTag`       | `nodeIntegration` 未设置过则是 `true` | `false` |
 
-例如，重新启用 webviewTag
+如下: Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -862,11 +864,11 @@ console.log(factor)
 ### `app.makeSingleInstance`
 
 ```js
-// 弃用
+// Deprecated
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// 替换为
+// Replace with
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -1030,7 +1032,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-### `webContents`
+### `网络控制`
 
 ```js
 // 弃用
@@ -1123,7 +1125,7 @@ nativeImage.toJPEG()
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
-### `webContents`
+### `网络控制`
 
 ```js
 // 移除
@@ -1157,3 +1159,5 @@ webview.setVisualZoomLevelLimits(1, 2)
 为了防止可能导致安装器毁坏的中断，_不带前缀_的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
+
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm

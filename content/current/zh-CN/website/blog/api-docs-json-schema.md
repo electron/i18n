@@ -32,6 +32,7 @@ date: '2016-09-27'
   instanceProperties: [...],
   instanceEvents: [...]
 }
+}
 ```
 
 这里是方法描述的示例，在这种情况下， `apis.BrowserWindow.instanceMethods.setMaximumsize` 实例方法：

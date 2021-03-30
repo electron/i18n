@@ -6,7 +6,7 @@
 
 ## 提示
 
-为确保您的JavaScript符合Electron编码风格，请执行`npm run lint-js`，它将针对Electron本身以及单元测试运行`standard`测试。 如果您正在使用带有插件/插件系统的编辑器，那么可以使用[StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins)之类的插件在你提交代码前来检查编码规范。
+为确保您的JavaScript符合Electron编码风格，请执行`npm run lint-js`，它将针对Electron本身以及单元测试运行`standard`测试。 如果您正在使用带有插件/插件系统的编辑器，那么可以使用[StandardJS addons][standard-addons]之类的插件在你提交代码前来检查编码规范。
 
 若要用参数运行`standard`测试，首先执行`npm run lint-js --` 然后输入要传递给`standard`测试的参数。
 
@@ -58,3 +58,5 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 
 1. 按下Windows key并搜索_显示设置_.
 2. 在_Scale and layout_下，确保缩放比为100%。
+
+[standard-addons]: https://standardjs.com/#are-there-text-editor-plugins

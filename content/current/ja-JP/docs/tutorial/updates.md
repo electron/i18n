@@ -4,14 +4,14 @@ Electronアプリケーションを更新する方法がいくつかあります
 
 ## `update.electronjs.org`の使用
 
-Electron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org) をメンテナンスしています。これは、Electron を自己更新するためのオープンソースウェブサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
+Electron チームは [update.electronjs.org][] をメンテナンスしています。これは、Electron を自己更新するためのオープンソースウェブサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
 
 - macOSまたはWindowsで動作するアプリである。
 - アプリはGitHubのパブリックなリポジトリである。
 - ビルド成果物は、GitHub Releases で提供する。
 - ビルド成果物はコード署名されています。
 
-このサービスを使う最も簡単な方法は[update-electron-app](https://github.com/electron/update-electron-app)をインストールすることで、update.electronjs.orgをつかって、事前調整されたNode.js モジュールを使う方法です。
+このサービスを使う最も簡単な方法は[update-electron-app][]をインストールすることで、update.electronjs.orgをつかって、事前調整されたNode.js モジュールを使う方法です。
 
 モジュールのインストール
 
@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 デフォルト設定で、このモジュールはアプリの起動時に更新をチェックします。または10分毎にチェックします。 アップデートがみつかったとき、自動的にバックグラウンドでダウンロードします。 そのダウンロードが完了したとき、ダイアログを表示してユーザーにアプリの再起動許可を取ります。
 
-設定をカスタマイズしたい場合、[`update-electron-app`にオプションを渡す](https://github.com/electron/update-electron-app)か、または[アップデートサービスを直接使用](https://github.com/electron/update.electronjs.org)ができます。
+設定をカスタマイズしたい場合、[`update-electron-app`にオプションを渡す][update-electron-app]か、または[アップデートサービスを直接使用][update.electronjs.org]ができます。
 
 ## アップロードサーバーを配備
 
@@ -35,10 +35,10 @@ require('update-electron-app')()
 
 ニーズに応じて、次のいずれかから選択できます。
 
-- [Hazel](https://github.com/zeit/hazel) – [今すぐ](https://zeit.co/now)に無料でデプロイできるプライベートまたはオープンソースのアプリ用にサーバーを更新します。 それは [GitHub Releases](https://help.github.com/articles/creating-releases/) から引き出され、GitHub の CDN の力を活用します。
-- [Nuts](https://github.com/GitbookIO/nuts) – [GitHub Releases](https://help.github.com/articles/creating-releases/) も使用しますが、アプリの更新をディスクにキャッシュし、プライベートリポジトリをサポートします。
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – リリースを処理するためのダッシュボードを提供します。リリースを GitHub で作成する必要はありません。
-- [Nucleus](https://github.com/atlassian/nucleus) – Atlassian がメンテナンスしている Electron アプリのための完全なアップデートサーバー。 複数のアプリケーションとチャンネルをサポートします。サーバーのコストを最小限に抑えるために静的ファイルストアを使用します。
+- [Hazel][hazel] – [今すぐ][now]に無料でデプロイできるプライベートまたはオープンソースのアプリ用にサーバーを更新します。 それは [GitHub Releases][gh-releases] から引き出され、GitHub の CDN の力を活用します。
+- [Nuts][nuts] – [GitHub Releases][gh-releases] も使用しますが、アプリの更新をディスクにキャッシュし、プライベートリポジトリをサポートします。
+- [electron-release-server][electron-release-server] – リリースを処理するためのダッシュボードを提供します。リリースを GitHub で作成する必要はありません。
+- [Nucleus][nucleus] – Atlassian がメンテナンスしている Electron アプリのための完全なアップデートサーバー。 複数のアプリケーションとチャンネルをサポートします。サーバーのコストを最小限に抑えるために静的ファイルストアを使用します。
 
 ## アプリケーションでの更新の実装
 
@@ -80,7 +80,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. アプリケーションを再起動して更新を適用します。'
+    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -101,3 +101,14 @@ autoUpdater.on('error', message => {
 ## 手動で更新を処理する
 
 自動更新によって行われた要求は、あなたの直接制御下にありませんので。 処理が困難な状況(更新サーバーが認証の背後にある場合など)を見つけることができます。 `url` フィールドはファイルをサポートします。つまり、何らかの労力をかけると、プロセスのサーバー通信の側面を避けることができます。 [これがどのように機能するかの例を示します](https://github.com/electron/electron/issues/5020#issuecomment-477636990)。
+
+[now]: https://zeit.co/now
+[hazel]: https://github.com/zeit/hazel
+[nuts]: https://github.com/GitbookIO/nuts
+[gh-releases]: https://help.github.com/articles/creating-releases/
+[electron-release-server]: https://github.com/ArekSredzki/electron-release-server
+[nucleus]: https://github.com/atlassian/nucleus
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app

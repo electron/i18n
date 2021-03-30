@@ -2,7 +2,7 @@
 
 > Читайте и реагируйте на изменения в родной цветовой теме Chromium.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ## События
 
@@ -27,20 +27,23 @@
 Установка этого свойства на `system` удалит переопределение и все будет сброшено на установленное ОС по умолчанию.  По умолчанию `themeSource` является `system`.
 
 Параметры свойства `dark` имеют следующие эффекты:
+
 * `nativeTheme.shouldUseDarkColors` при обращении будет `true`
-* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь темный интерфейс.
-* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь темный интерфейс.
+* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
+* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
 * Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `dark`.
 * Возникнет событие `updated`
 
 Параметры свойства `light` имеют следующие эффекты:
+
 * `nativeTheme.shouldUseDarkColors` при обращении будет `false`
-* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь светлый интерфейс.
-* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь светлый интерфейс.
+* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
+* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
 * Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `light`.
 * Возникнет событие `updated`
 
 Использование этого свойства должно совпадать с классическим "темным режимом" машины в вашем приложении, где у пользователя есть три варианта.
+
 * `Follow OS` --> `themeSource = 'system'`
 * `Dark Mode` --> `themeSource = 'dark'`
 * `Light Mode` --> `themeSource = 'light'`

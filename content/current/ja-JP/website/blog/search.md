@@ -17,13 +17,13 @@ Electron のウェブサイトに、APIドキュメント、チュートリア�
 
 ---
 
-Electron のような新しい技術やフレームワークを覚えるのは大変なことです。 [クイックスタート](https://github.com/electron/electron-quick-start) の段階を過ぎると、ベストプラクティスを学んだり、適切な API を見つけたり、夢のアプリを構築するのに役立つツールを発見したりするのが難しくなっていきます。 Electron のウェブサイトを、より早く、より簡単なアプリ構築のために必要なリソースを探せるより良いツールにしたいと考えています。
+Electron のような新しい技術やフレームワークを覚えるのは大変なことです。 [クイックスタート][] の段階を過ぎると、ベストプラクティスを学んだり、適切な API を見つけたり、夢のアプリを構築するのに役立つツールを発見したりするのが難しくなっていきます。 Electron のウェブサイトを、より早く、より簡単なアプリ構築のために必要なリソースを探せるより良いツールにしたいと考えています。
 
 [electronjs.org](https://electronjs.org) の任意のページにアクセスすると、ページ上部に新しい検索欄が表示されます。
 
 ## 検索エンジン
 
-ウェブサイトに検索を追加しようと思った当初は、バックエンドに GraphQL を使った独自の検索エンジンを試運転しました。 GraphQL の作業は楽しく、検索エンジンは高パフォーマンスでしたが、この構築は分かりきった作業ではないとすぐに気づきました。 複数語での検索やタイプミス検出のようなものは、正しく動くために多くの作業を必要とします。 車輪を再発明するのではなく、既存の検索ソリューション [アAlgolia](https://algolia.com) を使用することにしました。
+ウェブサイトに検索を追加しようと思った当初は、バックエンドに GraphQL を使った独自の検索エンジンを試運転しました。 GraphQL の作業は楽しく、検索エンジンは高パフォーマンスでしたが、この構築は分かりきった作業ではないとすぐに気づきました。 複数語での検索やタイプミス検出のようなものは、正しく動くために多くの作業を必要とします。 車輪を再発明するのではなく、既存の検索ソリューション [アAlgolia][] を使用することにしました。
 
 Algolia は、React、Vue、Bootstrap、Yarn、[その他多数](https://community.algolia.com/docsearch/) の人気オープンソースプロジェクトの間で急速に選ばれる検索エンジンとなったホスト型検索サービスです。
 
@@ -52,7 +52,7 @@ Electron では、API ドキュメントを補完するチュートリアルの�
 
 npm レジストリには現在 70 万以上のパッケージがあり、必要なパッケージを見つけるのは簡単ではありません。 これらのモジュールをより簡単に探せるように、Electron 向けに特別に作られた 3400 以上のモジュールを集めた [`electron-npm-packages`] を作成しました。
 
-[Libraries.io](https://libraries.io) の方々は、コード、コミュニティ、ドキュメント、使用状況などのメトリクスの組み合わせに基づいてソフトウェアプロジェクトをスコアリングするシステム、[SourceRank](https://docs.libraries.io/overview.html#sourcerank) を作成しています。 これらのスコアを使って、npm レジストリ内のすべてのモジュールのスコアを含む [`sourceranks`] モジュールを作成しパッケージの結果をソートしています。
+[Libraries.io][] の方々は、コード、コミュニティ、ドキュメント、使用状況などのメトリクスの組み合わせに基づいてソフトウェアプロジェクトをスコアリングするシステム、[SourceRank][] を作成しています。 これらのスコアを使って、npm レジストリ内のすべてのモジュールのスコアを含む [`sourceranks`] モジュールを作成しパッケージの結果をソートしています。
 
 Electron 内蔵の IPC モジュールの代替品をお探しですか? [`is:package ipc`] と検索しましょう。
 
@@ -66,10 +66,10 @@ Electron 内蔵の IPC モジュールの代替品をお探しですか? [`is:pa
 
 GitHub の [コード検索](https://github.com/search) を使ったことがある人なら、`extension:js` や `user:defunkt` のようなコロンで区切られたキーバリューフィルタが存在すると気づいているでしょう。 このフィルタリング技術は非常に強力なものであると考えており、Electron の検索に `is:` キーワードを追加しました。これにより、一種類の結果のみを表示するようにフィルタできます。
 
-- [`is:api thumbnail`]
-- [`is:tutorial security`]
-- [`is:package ipc`]
-- [`is:app graphql`]
+- [`[<code>is:api thumbnail`]</code>][]
+- [`[<code>is:tutorial security`]</code>][]
+- [`[<code>is:package ipc`]</code>][]
+- [`[<code>is:app graphql`]</code>][]
 
 ## キーボードナビゲーション
 
@@ -97,4 +97,13 @@ GitHub の [コード検索](https://github.com/search) を使ったことがあ
 
 ## 謝辞
 
-これらの新しい検索機能を構築してくださった [Emily Jordan](https://github.com/echjordan) と [Vanessa Yuen](https://github.com/vanessayuenn)、[Libraries.io](https://libraries.io) のスコアを提供してくださった [SourceRank](https://docs.libraries.io/overview.html#sourcerank) 、そして私たちの活動を支援してくださった Algolia のチームに感謝します。 🍹
+これらの新しい検索機能を構築してくださった [Emily Jordan](https://github.com/echjordan) と [Vanessa Yuen](https://github.com/vanessayuenn)、[Libraries.io][] のスコアを提供してくださった [SourceRank][] 、そして私たちの活動を支援してくださった Algolia のチームに感謝します。 🍹
+
+[`[&lt;code>is:api thumbnail`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>is:app graphql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>is:package ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>is:tutorial security`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security
+[アAlgolia]: https://algolia.com
+[Libraries.io]: https://libraries.io
+[クイックスタート]: https://github.com/electron/electron-quick-start
+[SourceRank]: https://docs.libraries.io/overview.html#sourcerank

@@ -27,6 +27,7 @@ Another example is [the window disappearing problem](https://electronjs.org/docs
 В версиях Electron до версии 0.37.8, вы можете использовать внутренний `v8Util. etDestructor` API для проверки слабых ссылок, добавляет слабые ссылки на передаваемый объект и вызывает обратный вызов, когда объект собран в мусоре:
 
 ```javascript
+Код ниже может работать только на Electron < v0.37.8.
 // Код ниже может быть запущен только на Electron < v0.37.8.
 v8Util = process.atomBinding('v8_util')
 
@@ -37,8 +38,7 @@ v8Util. etDestructor(object, function () {
 
 // Удалить все ссылки на объект.
 object = undefined
-// Ручной запуск GC.
-gc()
+// Ручной запуск GC. gc()
 // Консоль печатает "Объект собран мусором".
 ```
 

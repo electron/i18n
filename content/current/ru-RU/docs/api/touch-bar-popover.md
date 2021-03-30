@@ -2,7 +2,7 @@
 
 > Create a popover in the touch bar for native macOS applications
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarPopover(options)`
 
@@ -12,7 +12,7 @@
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. По умолчанию - `true`.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `TouchBarPopover`:
 

@@ -311,22 +311,22 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 **非推奨:** このイベントは `render-process-gone` イベントに置き換えられます。そのイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
-#### Event: 'render-process-gone'
+#### イベント: 'render-process-gone'
 
 戻り値:
 
 * `event` Event
 * `details` Object
   * `reason` String - The reason the render process is gone.  取りうる値:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `crashed` - プロセスがクラッシュした
+    * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-Emitted when the renderer process unexpectedly dissapears.  This is normally because it was crashed or killed.
+レンダラープロセスが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 #### イベント: 'unresponsive'
 
@@ -360,7 +360,7 @@ Webページが応答しなくなるときに発生します。
   * `key` String - [KeyboardEvent.key][keyboardevent] と同等。
   * `code` String - [KeyboardEvent.code][keyboardevent] と同等。
   * `isAutoRepeat` Boolean - [KeyboardEvent.repeat][keyboardevent] と同等。
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `isComposing` Boolean - [KeyboardEvent.isComposing][keyboardevent] と等価です。
   * `shift` Boolean - [KeyboardEvent.shiftKey][keyboardevent] と同等。
   * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と同等。
   * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と同等。
@@ -1389,7 +1389,7 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意**: DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1430,7 +1430,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 
@@ -1659,7 +1659,7 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.id` _読み出し専用_
 
-この WebContents の一意のIDを表す `Integer`。 Each ID is unique among all `WebContents` instances of the entire Electron application.
+この WebContents の一意のIDを表す `Integer`。 各 ID は、この Electron アプリケーション全体のすべての `WebContents` インスタンス間で一意です。
 
 #### `contents.session` _読み出し専用_
 

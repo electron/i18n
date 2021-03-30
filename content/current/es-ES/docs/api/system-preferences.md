@@ -2,7 +2,7 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = requiere('electron')
@@ -17,7 +17,7 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' _Windows_
@@ -33,24 +33,22 @@ Devuelve:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondos oscuros) se esta usando, de otra manera `false`.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
 
 ### Evento: 'high-contrast-color-scheme-changed' _Windows_ _Obsoleto_
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
 
 ## Métodos
 
 ### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
-
-**Nota:** En macOS 10.15 Catalina para que esta API devuelva el valor correcto cuando el modo Dark "automático" está configurado debe tener `NSRequiresAquaSystemAppearance=false` en su `Info.plist` o estar en Electron `>=7.0.0`.  Vea la [guía de modo oscuro](../tutorial/mojave-dark-mode-guide.md) para más información.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
@@ -90,7 +88,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Devuelve `Number` - El ID de la suscripción
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. El `object` es el remitente de la notificación y solo soporta valores `NSString` por ahora.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
@@ -186,7 +184,7 @@ Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
+Devuelve `Boolean` - `true` si [DWM composition][dwm-composition] (Aero Glass) está habilitada, y `false` de lo contrario.
 
 Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
 
@@ -195,12 +193,12 @@ const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
 // Make the window transparent only if the platform supports it.
-si (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
-  browserOptions.transparent = verdad
-  browserOptions.frame = falso
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+  browserOptions.transparent = true
+  browserOptions.frame = false
 }
 
-// Crea la  ventana.
+// Create the window.
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
@@ -295,7 +293,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-background` - El fondo de una ventana.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
@@ -316,7 +314,7 @@ Devuelve `String` - El sistema de color estándar formateado como `#RRGGBBAA`.
 
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Obsoleto_
 
 Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
@@ -334,7 +332,7 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Obsoleto_
 
 Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
@@ -362,7 +360,7 @@ Devuelve `Promise<void>` - Se resuelve si el usuario se ha autenticado con éxit
 const { systemPreferences } = require('electron')
 
 systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
-  console.log('Te has autenticado exitosamente correctamente con Touch ID!')
+  console.log('You have successfully authenticated with Touch ID!')
 }).catch(err => {
   console.log(err)
 })
@@ -380,7 +378,7 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - Puede ser `microphone`, `camera` o `screen`.
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 
@@ -400,7 +398,7 @@ Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo
 
 ### `systemPreferences.getAnimationSettings()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `shouldRenderRichAnimation` Boolean - Devuelve verdadero is animaciones ricas deben ser renderizadas. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
 * `scrollAnimationsEnabledBySystem` Boolean - Determina sobre una base por plataforma si las animaciones de desplazamiento (por ejemplo, producidas por la clave home/end) deben estar habilitadas.
@@ -423,3 +421,8 @@ Esta propiedad solo está disponible en macOS 10.14 Mojave o posteriores.
 Una propiedad `String` que puede ser `dark`, `light` o `unknown`.
 
 Devuelve la configuración de apariencia de macOS que esta aplicada actualmente a tu aplicación mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors

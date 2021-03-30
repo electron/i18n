@@ -60,6 +60,7 @@ Los siguientes métodos de `chrome.runtime` son soportados:
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
+- `chrome.runtime.getPlatformInfo`
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
@@ -88,7 +89,7 @@ Los siguientes métodos de `chrome.tabs` son soportados:
 
 ### `chrome.management`
 
-Los siguientes métodos de `chrome.management` son soportados:
+The following methods of `chrome.management` are supported:
 
 - `chrome.management.getAll`
 - `chrome.management.get`

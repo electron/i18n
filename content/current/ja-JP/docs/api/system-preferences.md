@@ -50,8 +50,6 @@ console.log(systemPreferences.isDarkMode())
 
 戻り値 `Boolean` - システムがダークモードかどうか。
 
-**注:** macOS 10.15 Catalina で "自動" ダークモード設定のときにこの API が正しい値を返すためには、`Info.plist` に `NSRequiresAquaSystemAppearance=false` があるか、Electron `>=7.0.0` である必要があります。  より詳しい情報については、[ダークモードガイド](../tutorial/mojave-dark-mode-guide.md) を参照してください。
-
 **非推奨:** 新しく [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API を使用する必要があります。
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
@@ -186,7 +184,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-戻り値 `Boolean` - [DWM Composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) が有効な場合は `true`、それ以外は `false`。
+戻り値 `Boolean` - [DWM Composition][dwm-composition] (Aero Glass) が有効な場合は `true`、それ以外は `false`。
 
 透明なウィンドウを作成するかどうかを決定するためにこのメソッドを使用する例です (透明なウィンドウは、DWM Composition が無効のときは正しく動作しません)。
 
@@ -194,13 +192,13 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
-// プラットフォームがサポートしている場合にのみウインドウを透明にします。
+// Windowを透明にする。ただしプラットフォームがサポートしている場合に限る。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// ウインドウを作成。
+// windowを作成します。
 const win = new BrowserWindow(browserOptions)
 
 // 移動します。
@@ -295,7 +293,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-background` - ウィンドウの背景
     * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [macOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細は [Windows ドキュメント][windows-colors] 及び [macOS ドキュメント][macos-colors] をご参照ください。
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
@@ -326,7 +324,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
-**非推奨:** 新しい [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
+**非推奨:** 新しい [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用するようにしてください。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -386,7 +384,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 macOS 10.13 High Sierra 以前では、このユーザーの同意は必要なかったので、このメソッドは常に `granted` を返します。 macOS 10.14 Mojave 以降では、`microphone` と `camera` へのアクセスに同意が必要です。 macOS 10.15 Catalina 以降では、`screen` へのアクセスに同意が必要です。
 
-Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
+Windows 10 には、すべての win32 アプリケーションの `microphone` と `camera` へのアクセスを制御するグローバル設定があります。 これは `screen` と古いバージョンの Windows すべてのメディアタイプに対して常に `granted` を返します。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
@@ -423,3 +421,8 @@ Windows 10 has a global setting controlling `microphone` and `camera` access for
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を返します。
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors

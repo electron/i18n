@@ -14,7 +14,7 @@ date: '2016-08-08'
 
 节点和 Electron 都使用 [`GYP`](https://gyp.gsrc.io) 作为他们的构建系统。 如果你想把 个节点嵌入到你的应用中，你也必须把它用作你的构建系统。
 
-新建 `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
+新建 `GYP`? 新建 `GYP`? Read [this guide](https://gyp.gsrc.io/docs/UserDocumentation.md) before you continue further in this post.
 
 ## 节点标志
 
@@ -36,7 +36,7 @@ Since Electron uses the V8 library shipped with Chromium, the V8 library include
 
 Electron，节点是作为静态库长期构建的。 This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
 
-然而，Chrome切换到使用 [BoringSSL](https://boringssl.googlesource.com/boringssl) 后改变了这种情况。 BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。
+然而，Chrome切换到使用 [BoringSSL](https://boringssl.googlesource.com/boringssl) 后改变了这种情况。 BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。
 
 Electron 无法在节点中使用 BoringSSL 或在 Chromium 中使用 OpenSSL 所以唯一的 选项是切换到构建节点作为共享库， 和 [隐藏每个组件中的 BoringSSL 和 OpenSSL 符号](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218)
 

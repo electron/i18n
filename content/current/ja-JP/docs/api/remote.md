@@ -4,9 +4,15 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
+> ⚠️ WARNING ⚠️ `remote` モジュールは [非推奨](https://github.com/electron/electron/issues/21408) です。 `remote` の代わりに、[`ipcRenderer`](ipc-renderer.md) と [`ipcMain`](ipc-main.md) を使用してください。
+> 
+> `remote` モジュールが非推奨になった理由についての詳細は [こちら](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31) をご覧ください。
+> 
+> パフォーマンスやセキュリティ上の懸念があるにもかかわらず `remote` を使用したいのであれば、[@electron/remote](https://github.com/electron/remote) を参照してください。
+
 `remote` モジュールは、レンダラープロセス (ウェブページ) とメインプロセスの間で、簡単にプロセス間通信 (IPC) をする方法を提供します。
 
-Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
+Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI][rmi] のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -17,6 +23,7 @@ win.loadURL('https://github.com')
 **注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) が使用できます。
 
 **注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
+
 - [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
 - [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
 
@@ -26,7 +33,7 @@ win.loadURL('https://github.com')
 
 上記のサンプルでは、[`BrowserWindow`](browser-window.md) と `win` の両方がリモートオブジェクトで、レンダラープロセス内の `new BrowserWindow` では、`BrowserWindow` オブジェクトは作成されていません。 代わりに、`BrowserWindow` オブジェクトはメインプロセス内で作成され、レンダラープロセス内の対応するリモートオブジェクト、すなわち `win` オブジェクトを返しました。
 
-**注釈:** リモートオブジェクトが最初に参照された時に存在する、[列挙可能なプロパティ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)だけが、remote を経由してアクセスできます。
+**注釈:** リモートオブジェクトが最初に参照された時に存在する、[列挙可能なプロパティ][enumerable-properties]だけが、remote を経由してアクセスできます。
 
 **注釈:** `remote` を経由してアクセスしたとき、配列とバッファは IPC でコピーされます。 それらをレンダラープロセス内で変更しても、メインプロセス内のものは変更されません。
 
@@ -99,40 +106,6 @@ console.log(app)
 
 `remote` オブジェクトには以下のメソッドがあります
 
-### `remote.require(module)`
-
-* `module` String
-
-戻り値 `any` - メインプロセス内の `require(module)` によって返されるオブジェクト。 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
-
-例
-
-```sh
-project/
-├── main
-│   ├── foo.js
-│   └── index.js
-├── package.json
-└── renderer
-    └── index.js
-```
-
-```js
-// メインプロセス: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
-```
-
-```js
-// 相対的に指定するちょっとしたモジュール: main/foo.js
-module.exports = 'bar
-```
-
-```js
-// レンダラープロセス: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
-```
-
 ### `remote.getCurrentWindow()`
 
 戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
@@ -151,6 +124,41 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## プロパティ
 
+### `remote.require`
+
+メインプロセスにおける `require(module)` と等価な `NodeJS.Require` 関数です。 相対パスで指定したモジュールは、メインプロセスのエントリポイントを基準に解決します。
+
+例
+
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
+
+```js
+// main process: main/index.js
+const { app } = require('electron')
+app.whenReady().then(() => { /* ... */ })
+```
+
+```js
+// 相対的に指定するちょっとしたモジュール: main/foo.js
+module.exports = 'bar
+```
+
+```js
+// レンダラープロセス: renderer/index.js
+const foo = require('electron').remote.require('./foo') // bar
+```
+
 ### `remote.process` _読み出し専用_
 
 `NodeJS.Process` 型のオブジェクト。  この `process` はメインプロセスのオブジェクトです。 これは `remote.getGlobal('process')` と同じですが、これはキャッシュされます。
+
+[rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
+[enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties

@@ -1,4 +1,4 @@
-# Aperçu du Système de compilation
+# Aperçu du Système de Build
 
 Electron utilise [GN](https://gn.googlesource.com/gn) pour la génération de projet et [ninja](https://ninja-build.org/) pour la construction. Les configurations du projet peuvent être trouvées dans les fichiers `.gn` et `.gni` .
 
@@ -17,7 +17,7 @@ Electron hérite de cette option de compilation de Chromium. Dans les versions `
 
 ## Tests
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _cette section est obsolète et contient des informations qui ne sont plus pertinentes pour l’électron construit par GN._
 
 Pour tester que vos changements soient conforme avec le code style du projet :
 
@@ -41,7 +41,7 @@ Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique 
 
 ```js
 describe.only('some feature', () => {
-  // ... only tests in this block will be run
+  // ... Seuls les tests de ce bloc seront exécutés
 })
 ```
 

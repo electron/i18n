@@ -22,7 +22,7 @@ const mainWindow = new BrowserWindow({
 
 ## Migration
 
-> Ich habe APIs von meinem Preload-Skript über das `Fenster bereitgestellt.X = apiObject` was jetzt?
+> Ich habe APIs von meinem Preload-Skript mit `window.X = apiObject` zur Verfügung gestellt, was nun?
 
 APIs von Ihrem Preload-Skript der geladenen Website zu belichten ist eine gemeinsame Usenecase und es gibt ein dediziertes Modul in Electron, das Ihnen dabei hilft, dies auf schmerzlose Art und Weise zu tun.
 

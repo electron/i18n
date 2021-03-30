@@ -1,4 +1,4 @@
-# Débogguer le Main Process
+# Débogguer le Processus Principal
 
 Les DevTools dans une fenêtre de navigateur d’Electron peut seulement débogguer le JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). Pour débogguer le code JavaScript qui s’exécute dans le main process, vous devrez utiliser un déboggueur externe et lancer Electron avec les variables d'environnement `--inspect` ou `--inspect-brk`.
 

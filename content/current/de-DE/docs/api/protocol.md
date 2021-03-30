@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -76,7 +76,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registering a scheme as standard will allow access to files through the [FileSystem API][file-system-api]. Otherwise the renderer will throw a security error for the scheme.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -86,7 +86,7 @@ Protocols that use streams (http and stream protocols) should set `stream: true`
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -102,7 +102,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -138,7 +138,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
 
@@ -152,7 +152,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
@@ -212,7 +212,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -224,7 +224,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
@@ -236,7 +236,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
@@ -248,7 +248,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
@@ -260,7 +260,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function
-  * `request` ProtocolRequest
+  * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
@@ -281,3 +281,5 @@ Remove the interceptor installed for `scheme` and restore its original handler.
 * `scheme` String
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem

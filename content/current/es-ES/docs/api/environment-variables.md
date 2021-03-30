@@ -51,13 +51,13 @@ Las opciones no respaldadas son:
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+El soporte de geolocalización en Electron requiere el uso del servicio web de Google Cloud Platform. Para habilitar esta función, adquiera una [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) y coloque el siguiente código en su archivo de proceso principal, antes de abrir cualquier ventana de buscador que vaya a realizar solicitudes de geolocalización:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+Por defecto, una clave API de Google recientemente generada podría no tener permitido hacer solicitudes de geolocalización. Para habilitar el servicio web de geolocalización para su proyecto, habilítelo a través de la [API library](https://console.cloud.google.com/apis/library).
 
 N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
@@ -92,6 +92,7 @@ No utilizar la barra de menú global en Linux.
 Set the trash implementation on Linux. Default is `gio`.
 
 Options:
+
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -100,7 +101,6 @@ Options:
 ## Variables de desarrollo
 
 Las siguientes variables de entorno están principalmente diseñadas para propósitos de desarrollo y depuración.
-
 
 ### `ELECTRON_ENABLE_LOGGING`
 

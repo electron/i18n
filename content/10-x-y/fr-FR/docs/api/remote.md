@@ -153,7 +153,7 @@ Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans
 
 ### `remote.process` _Readonly_
 
-Un objet `NodeJS.Process`.  L'objet `process` dispose des méthodes suivantes. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
+Un objet `NodeJS.Process`.  L'objet `process` dans le processus principal. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties

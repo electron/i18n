@@ -39,20 +39,30 @@ Returns `Promise<String>` - Resolves with a string containing the error message 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (可选)
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 默认值为 `true`。
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
+  * `workingDirectory`字符串 (可选的) _Windows_ - 工作目录
 
 Returns `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _废弃_
 
 * `fullPath` String
 * `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
 Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
+> 注意：此方法已废弃。 使用 `shell.trashitem` 代替。
+
 将给定的文件移动到垃圾箱，并返回操作的布尔状态。
+
+### `shell.trashItem(path)`
+
+* `path` String - path to the item to be moved to the trash.
+
+Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+
+This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
 
 ### `shell.beep()`
 

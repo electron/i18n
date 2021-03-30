@@ -1,4 +1,4 @@
-## Class: ServiceWorkers
+## Clase: ServiceWorkers
 
 > Query and receive events from a sessions active service workers.
 

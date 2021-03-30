@@ -18,9 +18,7 @@ La classe `Menu` a les méthodes statiques suivantes :
 
 Définit le menu `` comme le menu d'application sur macOS. Sous Windows et Linux, le menu `` sera défini comme le menu supérieur de chaque fenêtre.
 
-Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
-
-In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
+Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -282,11 +280,11 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 ### Nom du menu principal
 
-Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) pour plus d'informations.
+Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information][AboutInformationPropertyListFiles] pour plus d'informations.
 
 ## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
 
-La [`setMenu` méthode](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
+La [`setMenu` méthode][setMenu] des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 
 ## Position de l'élément de menu
 
@@ -363,3 +361,6 @@ Menu :
 - 2
 - 1
 ```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows

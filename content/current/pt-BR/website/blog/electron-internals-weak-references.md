@@ -37,8 +37,7 @@ v8Util. Remove todas as referências ao objeto, function () {
 
 // Remover todas as referências ao objeto.
 objeto = undefined
-// Inicia, Manualmente, um coletor.
-gc()
+// Inicia, Manualmente, um coletor. gc()
 // Imprime no console "O objeto é coletado no lixo".
 ```
 

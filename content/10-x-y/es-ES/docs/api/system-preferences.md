@@ -33,7 +33,7 @@ Devuelve:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondos oscuros) se esta usando, de otra manera `false`.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
 
 ### Evento: 'high-contrast-color-scheme-changed' _Windows_ _Obsoleto_
 
@@ -42,7 +42,7 @@ Devuelve:
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
 
 ## Métodos
 
@@ -90,7 +90,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Devuelve `Number` - El ID de la suscripción
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. El `object` es el remitente de la notificación y solo soporta valores `NSString` por ahora.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
@@ -316,7 +316,7 @@ Devuelve `String` - El sistema de color estándar formateado como `#RRGGBBAA`.
 
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Obsoleto_
 
 Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
@@ -334,7 +334,7 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Obsoleto_
 
 Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
@@ -380,7 +380,7 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - Puede ser `microphone`, `camera` o `screen`.
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 

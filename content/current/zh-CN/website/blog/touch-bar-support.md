@@ -124,5 +124,43 @@ app.once('ready', () => {
   window.loadURL('about:blank')
   window.setTouchBar(touchBar)
 })
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    结果.文本颜色="#FDFF00"
+  }其他=
+    //没有值是相同的
+    结果。标签="🙁再次旋转"
+    结果
+  
+
+
+
+  
+  。
+  新的触摸栏空间器（{size: 'large'}），
+  卷轴1，
+  新的触摸栏空间器（{size: 'small'}），
+  卷轴2，
+  个新的 TouchBarSpacer （{size: 'small'}），
+  卷轴 3，
+  个新的 TouchbarSpacer （{size: 'large'}），
+  结果
+]）
+
+让窗口
+
+应用程序
+    
+  > 。：假的，
+    标题BarStyle：'隐藏嵌套'，
+    宽度：200，
+    高度：200，
+    背景颜色："#000"
+  }）
+  窗口
+
+  。
 ```
 

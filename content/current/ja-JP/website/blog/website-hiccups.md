@@ -8,7 +8,7 @@ date: '2018-02-12'
 
 ---
 
-今後このようなダウンタイムを防ぐために、 [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) をアプリで有効化しました。失敗したリクエストや遅いレスポンスが一定のしきい値を超えて蓄積されるたびに、私たちのチームに通知され、素早く問題に対応できます。
+今後このようなダウンタイムを防ぐために、 [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) をアプリで有効化しました。 失敗したリクエストや遅いレスポンスが一定のしきい値を超えて蓄積されるたびに、私たちのチームに通知され、素早く問題に対応できます。
 
 ## すべての言語のオフラインドキュメント
 

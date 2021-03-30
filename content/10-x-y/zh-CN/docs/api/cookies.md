@@ -85,7 +85,7 @@ session.defaultSession.cookies.set(cookie)
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 默认为false。
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.  Default is `no_restriction`.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  可以被设置为`unspecified`，`no_restriction`，`lax`或者`strict`  Default is `no_restriction`.
 
 返回 `Promise<void>` - cookie 设置时解析的一个 promise。
 

@@ -1,6 +1,6 @@
 # macOS におけるデバッグ
 
-JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、lldb と Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したステップ実行デバッグを有効にできます。 グラフィカルインタフェースを希望する場合は、[Xcode におけるデバッグ](debugging-instructions-macos-xcode.md) を使用することもできます。
+JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 しかし、lldb と Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したステップ実行デバッグを有効にできます。 グラフィカルインタフェースを希望する場合は、[Xcode におけるデバッグ](debugging-instructions-macos-xcode.md) を使用することもできます。
 
 ## 要件
 
@@ -95,6 +95,10 @@ Process 25244 stopped
 
 ### 参考リンク
 
-LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) や [LLDB をスタンドアロンデバッガとして使用する方法](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) などの Apple のデバッグドキュメントを参照してください。
+LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス][lldb-command-structure] や [LLDB をスタンドアロンデバッガとして使用する方法][lldb-standalone] などの Apple のデバッグドキュメントを参照してください。
 
-さらに複雑なデバッグシナリオについて説明されている、LLDB の素晴らしい [マニュアルとチュートリアル](https://lldb.llvm.org/tutorial.html) も参考にできます。
+さらに複雑なデバッグシナリオについて説明している、LLDB の素晴らしい [マニュアルとチュートリアル][lldb-tutorial] もご参考にどうぞ。
+
+[lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
+[lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
+[lldb-tutorial]: https://lldb.llvm.org/tutorial.html

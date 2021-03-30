@@ -41,7 +41,7 @@ You can make the test suite run faster by isolating the specific test or block y
 
 ```js
 describe.only('some feature', () => {
-  // ... only tests in this block will be run
+  // ... только в этом блоке будут выполняться тесты
 })
 ```
 

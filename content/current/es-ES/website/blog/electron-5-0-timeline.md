@@ -4,7 +4,7 @@ author: sofianguía
 date: '25-01-2019'
 ---
 
-Por primera vez en la historia, Electron está emocionado de dar a conocer nuestro programa de lanzamiento a partir de la v5. .0. Este es nuestro primer paso para tener una cronología pública a largo plazo.
+Por primera vez en la historia, Electron está emocionado de dar a conocer nuestro programa de lanzamiento a partir de la v5. Este es nuestro primer paso para tener una cronología pública a largo plazo.
 
 ---
 

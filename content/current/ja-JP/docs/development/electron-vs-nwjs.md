@@ -1,6 +1,6 @@
 # Electron と NW.js との技術的差異
 
-[NW.js](https://nwjs.io/) のように、Electron はウェブ技術を使ったデスクトップアプリケーションを書くプラットフォームを提供します。 どちらのプラットフォームも、開発者は HTML、JavaScript、Node.js が利用できます。 表面上は、とても似ています。
+[NW.js][nwjs] のように、Electron はウェブ技術を使ったデスクトップアプリケーションを書くプラットフォームを提供します。 どちらのプラットフォームも、開発者は HTML、JavaScript、Node.js が利用できます。 表面上は、とても似ています。
 
 しかし、この 2 つのプロジェクトには根本的な違いがあり、Electron と NW.js は完全に別物です。
 
@@ -14,7 +14,7 @@ Electron は Node.js ランタイムのように動作します。 Electron の 
 
 ## 2) Node インテグレーション
 
-NW.js では、ウェブページで Node インテグレーションをするには Chromium にパッチを当てる必要があります。Electron では Chromium のハッキングを避けるために各プラットフォームのメッセージループに `libuv` ループを統合する、別の選択をしました。 これがどのように行われているかについては [`node_bindings`](https://github.com/electron/electron/tree/master/lib/common) コードを参照してください。
+NW.js では、ウェブページで Node インテグレーションをするには Chromium にパッチを当てる必要があります。Electron では Chromium のハッキングを避けるために各プラットフォームのメッセージループに `libuv` ループを統合する、別の選択をしました。 これがどのように行われているかについては [`node_bindings`][node-bindings] コードを参照してください。
 
 ## 3) JavaScript コンテキスト
 
@@ -34,8 +34,12 @@ NW.js では、Windows XP 対応の "レガシーリリース" がまだ提供�
 
 ## 5) 機能
 
-サポートする機能の量は多くの差異があります。 Electron にはより大きなコミュニティがあり、これを使用するアプリ製品の数も多く、[npm](https://www.npmjs.com/search?q=electron) で利用できる大量のユーザー製モジュールがあります。
+サポートする機能の量は多くの差異があります。 Electron にはより大きなコミュニティがあり、これを使用するアプリ製品の数も多く、[npm][electron-modules] で利用できる大量のユーザー製モジュールがあります。
 
 例えば、Electron には自動更新サポートが組み込まれており、インストーラ作成を容易にする無数のツールも用意されています。 NW.js の良いところを挙げると、NW.js は Chrome アプリ開発向けに `Chrome.*` API を数多くサポートしています。
 
 もちろん、ウェブ技術で構築された、洗練されたアプリケーション製品 (Visual Studio Code、Slack、Facebook Messenger など) のプラットフォームとしては Electron の方が優れていると考えます。しかし、ウェブ技術の仲間たるもの公平でありたいです。 Electron にはない機能が必要であれば、NW.js を試すのもいいかもしれません。
+
+[nwjs]: https://nwjs.io/
+[electron-modules]: https://www.npmjs.com/search?q=electron
+[node-bindings]: https://github.com/electron/electron/tree/master/lib/common

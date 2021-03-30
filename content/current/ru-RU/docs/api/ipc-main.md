@@ -4,11 +4,11 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-Модуль `ipcMain` представляет собой [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
+Модуль `ipcMain` представляет собой [Event Emitter][event-emitter]. При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
 
 ## Отправка сообщений
 
-Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#contentssendchannel-args).
+Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send][web-contents-send].
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
@@ -126,3 +126,6 @@ Handles a single `invoke`able IPC message, then removes the listener. See `ipcMa
 ## IpcMainInvokeEvent object
 
 Документацию по объекту `event`, переданном обратным вызовом `handle`, можно найти в документации по структуре [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md).
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[web-contents-send]: web-contents.md#contentssendchannel-args

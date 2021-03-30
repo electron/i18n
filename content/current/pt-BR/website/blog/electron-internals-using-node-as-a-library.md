@@ -4,7 +4,7 @@ author: zcbenz
 date: '2016-08-08'
 ---
 
-Este é o segundo post em uma série em curso explicando os internos do Electron. Confira o [primeiro post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) sobre a integração do loop de evento se você ainda não o fez.
+Este é o segundo post em uma série em curso explicando os internos do Electron. Confira o primeiro post [][event-loop] sobre integração de loop de eventos se você ainda não fez.
 
 A maioria das pessoas usa [Node](https://nodejs.org) para aplicativos do lado do servidor, mas devido à rica comunidade de API do Node definida e próspera, também é uma ótima opção para uma biblioteca incorporada. Este post explica como o nó é usado como uma biblioteca no Electron.
 
@@ -55,4 +55,7 @@ Depois de todo o trabalho de construção e link com o Node, o último passo é 
 O nó não fornece muitas APIs públicas para se incorporar em outros aplicativos. Geralmente, você pode apenas chamar [`node::Start` e `node::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) para iniciar uma nova instância do Node. No entanto, se você está construindo um aplicativo complexo com base no Node, você tem que usar APIs como `node::CreateEnvironment` para controlar precisamente cada passo.
 
 No Electron, o nó é iniciado em dois modos: o modo autônomo que é executado no processo principal, que é semelhante aos binários oficiais do Node e ao modo incorporado que insere as APIs do Node nas páginas web. Os detalhes disto serão explicados em uma postagem futura.
+
+[event-loop]: https://electronjs.org/blog/2016/07/28/electron-internals-node-integration
+[event-loop]: https://electronjs.org/blog/2016/07/28/electron-internals-node-integration
 

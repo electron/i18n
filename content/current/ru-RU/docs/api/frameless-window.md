@@ -8,7 +8,6 @@
 
 Для создания безрамного окна, нужно установить `frame: false` в `параметрах` [BrowserWindow](browser-window.md):
 
-
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -41,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые случаются со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -65,12 +64,12 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
 * В операционных системах Windows прозрачные окна не будут работать, когда DWM отключена.
-* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) на Linux.
+* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) на Linux.
 * На Mac, тень родного окна не будет отображаться в прозрачном окне.
 
 ## Невзаимодействующее окно
 
-Чтобы создать невзаимодействующее окно, те. которое не будет реагировать на событии мыши, необходимо вызвать функцию API:[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options)<br>Пример:
+Чтобы создать невзаимодействующее окно, те. которое не будет реагировать на событии мыши, необходимо вызвать функцию API:[win.setIgnoreMouseEvents(ignore)][ignore-mouse-events]<br>Пример:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -138,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Н
 ## Контекстное меню
 
 На некоторых платформах перетаскиваемая область будет рассматриваться как неклиентский фрейм, поэтому при щелчке правой кнопкой мыши на ней появится системное меню. Чтобы контекстное меню работало правильно на всех платформах, вы никогда не должны использовать настраиваемое контекстное меню в перетаскиваемых областях.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

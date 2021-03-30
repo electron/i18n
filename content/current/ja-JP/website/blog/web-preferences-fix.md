@@ -4,7 +4,7 @@ author: ckerr
 date: '2018-08-22'
 ---
 
-Electron バージョン (3.0.0-beta.6 、 2.0.7 、 1.8.7 、 1.7.15) において、ネストされた子ウィンドウを開くことのできるアプリに影響するリモートコード実行の脆弱性が発見されました。 この脆弱性には CVE 識別子 [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685) が割り当てられています。
+Electron バージョン (3.0.0-beta.6、2.0.7、1.8.7、1.7.15) において、ネストされた子ウィンドウを開くことのできるアプリに影響するリモートコード実行の脆弱性が発見されました。 この脆弱性には CVE 識別子 [CVE-2018-15685][] が割り当てられています。
 
 ---
 
@@ -58,6 +58,9 @@ enforceInheritance(mainWindow.webContents)
 
 この脆弱性は [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685) の [Matt Austin](https://twitter.com/mattaustin) により発見され、責任を持って Electron プロジェクトへ報告されました。
 
-Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル][] を参照してください。
 
 Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
+
+[セキュリティチュートリアル]: https://electronjs.org/docs/tutorial/security
+[CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685

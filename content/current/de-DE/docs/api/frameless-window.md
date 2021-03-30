@@ -8,7 +8,6 @@ Ein rahmenloses Fenster ist ein Fenster ohne die üblichen [Bestandteile](https:
 
 Um ein rahmenloses Fenster zu erstellen musst du `frame` in den [BrowserWindow](browser-window.md) `Optionen` auf `false` setzen:
 
-
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600, frame: false })
@@ -65,12 +64,12 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac, the native window shadow will not be shown on a transparent window.
 
 ## Click-through window
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -138,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Fo
 ## Context menu
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

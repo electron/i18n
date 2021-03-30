@@ -23,7 +23,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## ウインドウを違和感なく表示する
 
-ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリとしては良い挙動ではありません。チラつかせることなくウインドウを表示するには、さまざまな状況に応じた2つの解決策があります。
+ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリとしては良い挙動ではありません。 ちらつかせることなくウインドウを表示するには、さまざまな状況に応じた 2 つの解決策があります。
 
 ## `ready-to-show` イベントを使用する
 
@@ -85,7 +85,7 @@ child.once('ready-to-show', () => {
 
 ## ページの表示状態
 
-[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) は、以下のように動作します。
+[Page Visibility API][page-visibility-api] は、以下のように動作します。
 
 * すべてのプラットフォームおいて、表示状態はウインドウが非表示/最小化されているかどうかをトラッキングします。
 * さらに、macOSでは、表示状態はウインドウが重なり合った状態もトラッキングします。 ウインドウが別のウインドウと重なり合った (例えば、完全に覆い隠された) 場合、表示状態は、`hidden` になります。 他のプラットフォーム上では、ウインドウが最小化されるか、明示的に `win.hide()` で非表示にされた場合のみ、表示状態は `hidden` になります。
@@ -107,7 +107,7 @@ child.once('ready-to-show', () => {
 
 プロセス: [Main](../glossary.md#main-process)
 
-`BrowserWindow` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
+`BrowserWindow` は [EventEmitter][event-emitter] を継承しています。
 
 `options` によって設定されたネイティブプロパティで新しい `BrowserWindow` を生成します。
 
@@ -118,7 +118,7 @@ child.once('ready-to-show', () => {
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
   * `x` Integer (任意) - (y が使われている場合は **必須**) ウインドウの画面左のオフセット。 省略すると、ウインドウは中央に配置されます。
   * `y` Integer (任意) - (x が使われている場合は **必須**) ウインドウの画面上のオフセット。 省略すると、ウインドウは中央に配置されます。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
   * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 省略値は `0` です。
@@ -189,8 +189,8 @@ child.once('ready-to-show', () => {
     * `plugins` Boolean (任意) - プラグインを有効にするかどうか。 省略値は、`false` です。
     * `experimentalFeatures` Boolean (任意) - Chromium の実験的な機能を有効にします。 省略値は、`false` です。
     * `scrollBounce` Boolean (任意) - macOS でスクロールバウンス (ラバーバンディング) 効果を有効にします。 省略値は、`false` です。
-    * `enableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた有効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
-    * `disableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた無効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
+    * `enableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた有効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルで確認することができます。
+    * `disableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた無効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルで確認することができます。
     * `defaultFontFamily` Object (任意) - 各フォントファミリーの既定フォントを設定します。
       * `standard` String (任意) - 省略値は、`Times New Roman` です。
       * `serif` String (任意) - 省略値は、`Times New Roman` です。
@@ -204,11 +204,11 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
-    * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。  省略値は `false` です。 Electron 12 から、省略値は `true` に変更されます。 _非推奨_
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は `true` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト][chrome-content-scripts] のものと同じ技術を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
+    * `worldSafeExecuteJavaScript` Boolean (optional) - true の場合、`contextIsolation` を使用しているときに、JS の値がワールド間を安全に行き来できるように、`webFrame.executeJavaScript` から返される値はサニタイズされます。 省略値は `true` です。 _非推奨_
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
-    * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
+    * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
     * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は、`false` です。
@@ -223,6 +223,7 @@ child.once('ready-to-show', () => {
       * `code` - ヒューリスティックベースのコードキャッシュ
       * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
       * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
+    * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は、`false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -271,6 +272,7 @@ window.onbeforeunload = (e) => {
   e.returnValue = false // `return false` と同じですが、非推奨
 }
 ```
+
 _**注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 値のみを返すのではなく、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。_
 
 #### イベント: 'closed'
@@ -474,7 +476,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 システムコンテキストメニューがウィンドウ上でトリガーされたときに発生します。 通常ユーザーがウィンドウのクライアントエリア以外を右クリックしたときにトリガーされます。  これは、フレームレスウィンドウで`-webkit-app-region: drag`と宣言したウィンドウタイトルバーまたは任意の領域です。
 
-Calling `event.preventDefault()` will prevent the menu from being displayed.
+`event.preventDefault()` を呼ぶと、そのメニューは表示されなくなります。
 
 ### 静的メソッド
 
@@ -806,7 +808,7 @@ Returns `Boolean` - ウィンドウが通常の状態 (最大化されていな�
 #### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
- * `extraSize` [Size](structures/size.md) (任意) _macOS_ - アスペクト比を維持している間は含まれない余分のサイズ。
+* `extraSize` [Size](structures/size.md) (任意) _macOS_ - アスペクト比を維持している間は含まれない余分のサイズ。
 
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
@@ -825,11 +827,11 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 * `path` String - Quick Lookでプレビューするファイルへの絶対パス。 ここで、Quick Lookはパスのファイル名とファイル拡張子をファイルを開くためのコンテンツタイプを決定するのに使用する点が重要です。
 * `displayName` String (任意) - Quick Lookのモーダルビューに表示するファイルの名前。 これは純粋に見た目だけのもので、ファイルのコンテンツタイプには影響しません。 省略値は、`path` です。
 
-指定したパスでファイルをプレビューするために、[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) を使用します。
+指定したパスでファイルをプレビューするために、[Quick Look][quick-look] を使用します。
 
 #### `win.closeFilePreview()` _macOS_
 
-現在開いている [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) のパネルを閉じます。
+現在開いている [Quick Look][quick-look] のパネルを閉じます。
 
 #### `win.setBounds(bounds[, animate])`
 
@@ -885,7 +887,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+戻り値 `Boolean` - そのウインドウが有効かどうか。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -1004,7 +1006,7 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (任意) _macOS_ _Windows_ - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
+* `level` String (任意) _macOS_ _Windows_ - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント][window-levels] を参照してください。
 * `relativeLevel` Integer (任意) _macOS_ - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウィンドウを常に他のウィンドウの上に表示するかどうかを設定します。 この設定を行った後でも、ウィンドウはまだ通常のものであり、フォーカスが当てられないツールボックスウィンドウではありません。
@@ -1088,6 +1090,14 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `Boolean` - ウインドウがキオスクモードであるかどうか。
 
+#### `win.isTabletMode()` _Windows_
+
+戻り値 `Boolean` - ウインドウが Windows 10 タブレットモードであるかどうか。
+
+Windows 10 ユーザーは [PC をタブレットとして使用できる](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet) ので、アプリはこのモードの際にタイトルバーを大きくしたり、タイトルバーのボタンを非表示にしたりと、タブレット用に UI を最適化できます。
+
+この API は、ウインドウがタブレットモードかどうかを返します。`resize` イベントでタブレットモードへの変更をリッスンすることもできます。
+
 #### `win.getMediaSourceId()`
 
 戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。 例えば "window:1234:0" 。
@@ -1104,6 +1114,8 @@ win.setSheetOffset(toolbarRect.height)
 
 * `message` Integer
 * `callback` Function
+  * `wParam` any - WndProc に指定された `wParam`
+  * `lParam` any - WndProc に指定された `lParam`
 
 ウィンドウメッセージをフックします。 メッセージが WndProc で受信されると、 `callback` が呼び出されます。
 
@@ -1153,7 +1165,7 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+`rect` 内のページのスナップショットをキャプチャします。 `rect` を省略すると、表示されているページ全体をキャプチャします。 ページが表示されない場合、 `rect` が空である可能性があります。
 
 #### `win.loadURL(url[, options])`
 
@@ -1162,7 +1174,7 @@ win.setSheetOffset(toolbarRect.height)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTP リファラの URL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
   * `baseURLForDataURL` String (任意) - データ URL によってロードされたファイルの (最後のパス区切り文字を含む) ベース URL。 これは指定された `url` がデータ URL で、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
@@ -1392,7 +1404,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_MONITOR` で呼び出します。
+macOS では、NSWindow の共有タイプを NSWindowSharingNone に設定します。 Windows では、 SetWindowDisplayAffinity を `WDA_EXCLUDEFROMCAPTURE` で呼び出します。 Windows 10 バージョン 2004 以降からウインドウのキャプチャが完全に削除されましたが、古い Windows バージョンで `WDA_MONITOR` が適用された場合は黒いウィンドウをキャプチャするように動作します。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
@@ -1450,7 +1462,7 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
+* `type` String | null - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 詳細については、[macOSのドキュメント][vibrancy-docs] を参照してください。
 
 ブラウザウィンドウにバイブレンシーエフェクトを追加します。 `null` または空の文字列を渡すと、ウィンドウのバイブレンシーエフェクトを削除します。
 
@@ -1503,3 +1515,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 戻り値 `BrowserView[]` - `addBrowserView` または `setBrowserView` でアタッチされたすべての BrowserView の配列。
 
 **注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[page-visibility-api]: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+[quick-look]: https://en.wikipedia.org/wiki/Quick_Look
+[vibrancy-docs]: https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc
+[window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
+[chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

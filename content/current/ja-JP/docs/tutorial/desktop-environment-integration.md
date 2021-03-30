@@ -18,7 +18,7 @@
 
 ## Unity ランチャー
 
-[Unity ランチャードキュメント](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) を参照してください。
+[Unity ランチャードキュメント][unity-launcher] を参照してください。
 
 ## macOS のウインドウが表すファイル
 
@@ -27,3 +27,5 @@
 ## ウインドウ外へファイルをドラッグ
 
 [ネイティブのファイルドラッグ & ドロップのドキュメント](native-file-drag-drop.md) を参照してください。
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

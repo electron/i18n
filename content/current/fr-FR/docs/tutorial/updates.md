@@ -4,14 +4,14 @@ Il y a plusieurs méthodes pour mettre à jour une application Electron. La plus
 
 ## Utilisation de `update.electronjs.org`
 
-L'équipe d'Electron maintient [update.electronjs.org](https://github.com/electron/update.electronjs.org), un webservice gratuit et open-source que les applications Electron peuvent utiliser pour se mettre à jour automatiquement. Ce service est conçu pour les applications Electron répondant aux critères suivant:
+L'équipe d'Electron maintient [update.electronjs.org][], un webservice gratuit et open-source que les applications Electron peuvent utiliser pour se mettre à jour automatiquement. Ce service est conçu pour les applications Electron répondant aux critères suivant:
 
 - L'application tourne sous macOs ou Windows
 - L'application a un répertoire GitHub public
 - Les livrables sont publiés en tant que release sous Github
 - Les livrables sont signés
 
-La façon la plus simple d'utiliser ce service est d'installer [update-electron-app](https://github.com/electron/update-electron-app), un module Node.js pré-configuré pour être utilisé avec update.electronjs.org.
+La façon la plus simple d'utiliser ce service est d'installer [update-electron-app][], un module Node.js pré-configuré pour être utilisé avec update.electronjs.org.
 
 Installer le module:
 
@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 Par défaut, ce module vérifiera les mises à jour au démarrage de l'application, toutes les dix- minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. Une fois le téléchargement terminé, une boîte de dialogue s’affiche permettant à l’utilisateur de redémarrer l’application.
 
-Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des paramètres à `update-electron-app`](https://github.com/electron/update-electron-app) ou [utiliser le service de mise à jour directement](https://github.com/electron/update.electronjs.org).
+Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des paramètres à `update-electron-app`][update-electron-app] ou [utiliser le service de mise à jour directement][update.electronjs.org].
 
 ## Déploiement d’un serveur de mise à jour
 
@@ -35,10 +35,10 @@ Si vous développez une application Electron privée, ou si vous ne publiez pas 
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
-- [Hazel](https://github.com/zeit/hazel) – Serveur de mise à jour pour des applications privées ou open-source qui peuvent être déployées gratuitement sur [Now](https://zeit.co/now). Cela récupère les [releases GitHub](https://help.github.com/articles/creating-releases/) et exploite la puissance du CDN de GitHub.
-- [Nuts](https://github.com/GitbookIO/nuts) – Utilise aussi les [releases GitHub](https://help.github.com/articles/creating-releases/), mais met en cache les mises à jour des applications sur le disque et prend en charge les dépôts privés.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Fournit un tableau de bord pour la gestion des releases et n'exige pas que les releases soient créés sur GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – Un serveur de mise à jour complet pour les applications Electron maintenues par Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichiers statique pour minimiser le coût du serveur.
+- [Hazel][hazel] – Serveur de mise à jour pour des applications privées ou open-source qui peuvent être déployées gratuitement sur [Now][now]. Cela récupère les [releases GitHub][gh-releases] et exploite la puissance du CDN de GitHub.
+- [Nuts][nuts] – Utilise aussi les [releases GitHub][gh-releases], mais met en cache les mises à jour des applications sur le disque et prend en charge les dépôts privés.
+- [electron-release-server][electron-release-server] – Fournit un tableau de bord pour la gestion des releases et n'exige pas que les releases soient créés sur GitHub.
+- [Nucleus][nucleus] – Un serveur de mise à jour complet pour les applications Electron maintenues par Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichiers statique pour minimiser le coût du serveur.
 
 ## Implémentation des mises à jour dans votre application
 
@@ -80,7 +80,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Redémarrez l'application pour appliquer les mises à jour.'
+    detail: "A new version has been downloaded. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
@@ -101,3 +101,14 @@ autoUpdater.on('error', message => {
 ## Gestion manuelle des mises à jour
 
 Parce que les requêtes faites par la mise à jour automatique ne sont pas sous votre contrôle direct, vous pouvez trouver des situations difficiles à gérer (comme si le serveur de mise à jour est derrière l'authentification). Le champ `url` supporte les fichiers, ce qui signifie qu'avec un peu d'effort, vous pouvez ignorer l'aspect serveur-communication du processus. [Voici un exemple de comment cela pourrait fonctionner](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+
+[now]: https://zeit.co/now
+[hazel]: https://github.com/zeit/hazel
+[nuts]: https://github.com/GitbookIO/nuts
+[gh-releases]: https://help.github.com/articles/creating-releases/
+[electron-release-server]: https://github.com/ArekSredzki/electron-release-server
+[nucleus]: https://github.com/atlassian/nucleus
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app

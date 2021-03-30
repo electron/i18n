@@ -51,13 +51,13 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+Поддержка геолокации в Electron требует использования сервиса геолокации Google Cloud Platform. Для включения этой функции получите [Ключ Google API](https://developers.google.com/maps/documentation/geolocation/get-api-key) и поместите следующий код в ваш файл основного процесса перед открытием любых окон браузера, делающим запросы геолокации:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы включить веб-сервис геолокации для вашего проекта требуется [библиотека API](https://console.cloud.google.com/apis/library).
 
 N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
@@ -92,6 +92,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 Set the trash implementation on Linux. Default is `gio`.
 
 Параметры:
+
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`
@@ -100,7 +101,6 @@ Set the trash implementation on Linux. Default is `gio`.
 ## Переменные разработки (development)
 
 Следующие переменные окружения предназначены для использования в среде выполнения приложения Electron во время разработки и отладки.
-
 
 ### `ELECTRON_ENABLE_LOGGING`
 

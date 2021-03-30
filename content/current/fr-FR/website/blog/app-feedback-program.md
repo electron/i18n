@@ -25,7 +25,7 @@ Nos critères et attentes pour les applications qui rejoignent ce programme incl
 ## Heures de l'utilisateur
 Nous comprenons que tout le monde ne peut pas partager des numéros d'utilisateurs exacts, mais de meilleures données nous aident à décider de la stabilité d'une version particulière. Nous demandons que les applications s'engagent à tester un nombre minimum d'heures d'utilisation, actuellement 10 000 pour tout le cycle bêta.
 - 10 heures d'utilisation peuvent être de 10 personnes testant pendant une heure, ou une personne testant pendant 10 heures
-- Vous pouvez diviser les tests entre les versions bêta, par exemple les tests pour 5 000 heures d'utilisateurs sur la version 3.0.0-beta. puis testez 5 000 heures sur 3.0.0-beta.5. Plus c'est mieux, mais nous comprenons que certaines applications ne peuvent pas tester chaque version bêta
+- Vous pouvez diviser les tests entre des versions bêta, par exemple ceux pour 5 000 heures d'utilisateurs sur la version 3.0.0-beta et ensuite ceux pour 5 000 heures sur 3.0.0-beta.5. Plus on fait, mieux c'est, mais nous comprenons que certaines applications ne peuvent pas tester chaque version bêta
 - Les heures de CI ou de QA ne sont pas prises en compte dans le total; cependant, les versions internes comptent
 
 ## Pourquoi mon application Electron devrait-elle rejoindre ?

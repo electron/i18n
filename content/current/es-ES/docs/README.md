@@ -6,7 +6,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
-* [Preguntas más frecuentes sobre Electron](faq.md)
+* [Preguntas Frecuentes sobre Electron](faq.md)
 
 ## Guías y tutoriales
 
@@ -136,15 +136,14 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 ### Módulos para el proceso de renderizado (Página Web):
 
 * [contextBridge](api/context-bridge.md)
-* [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Módulos para ambos procesos:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
+* [desktopCapturer](api/desktop-capturer.md)
 * [NativeImage](api/native-image.md)
 * [shell](api/shell.md)
 

@@ -17,7 +17,7 @@ Electron网站有一个新的搜索引擎，为 API 文档、教程、与Electro
 
 ---
 
-学习像Electron这样的新技术或框架可能会引起恐惧。 一旦你完成 [快速启动](https://github.com/electron/electron-quick-start) 阶段， 就很难学习最佳做法。 找到正确的 API，或发现帮助您建立梦想应用的工具 我们希望Electron网站 成为一个更好的工具来寻找您更快地构建应用程序所需要的资源和更容易的 。
+学习像Electron这样的新技术或框架可能会引起恐惧。 一旦你完成 [快速启动](https://github.com/electron/electron-quick-start) 阶段， 就很难学习最佳做法。 找到正确的 API，或发现帮助您建立梦想应用的工具 我们希望Electron网站 成为一个更好的工具来寻找您更快地构建应用程序所需要的资源和更容易的 。 我们希望Electron网站 成为一个更好的工具来寻找您更快地构建应用程序所需要的资源和更容易的 。
 
 访问 [electronjs.org](https://electronjs.org) 上的任何页面, 你会在页面顶部找到 新的搜索输入.
 
@@ -50,7 +50,7 @@ Electron 有越来越多的教程来补充它的 API 文档。 现在你可以�
 
 ## npm 包
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. 为了更容易发现这些模块， 我们创建了[`electron-npm-packages`], 在 中的3400+模块集合的注册表专门与 Electron 使用。
+There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. 为了更容易发现这些模块， 我们创建了 [`electron-npm-packages`][]， 专门用于电子的 3400 多个模块的集合。
 
 [个图书馆上的民俗。 o](https://libraries.io) 已创建 [源排名](https://docs.libraries.io/overview.html#sourcerank), 基于诸如 代码、社区、文档和使用等综合指标的软件项目评分系统。 我们创建了一个 [`sourceranks`] 模块，它包含了在 npm 注册表中每个模块的分数。 并且我们 使用这些分数来排序包结果。
 
@@ -66,10 +66,10 @@ There are now over 700,000 packages in the npm registry and it's not always easy
 
 如果您在此之前使用过GitHub的 [代码搜索](https://github.com/search) 你很可能知道它与colon分离的密钥值过滤器，比如 `extension:js` 或 `user:defunkt` We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
 
-- [`是:api 缩略图`]
-- [`是:教程安全`]
-- [`是:package ipc`]
-- [`是:app graphql`]
+- [`[<code>是:api 缩略图`]</code>][]
+- [`[<code>是:教程安全`]</code>][]
+- [`[<code>是:package ipc`]</code>][]
+- [`[<code>是:app graphql`]</code>][]
 
 ## 键盘导航
 
@@ -98,3 +98,9 @@ There are now over 700,000 packages in the npm registry and it's not always easy
 ## 谢谢！
 
 特别感谢 [Emily Jordan](https://github.com/echjordan) 和 [Vanessa Yuen](https://github.com/vanessayuenn) 建立这些新的搜索能力 到 [库 o](https://libraries.io) 用于提供 [SourceRank](https://docs.libraries.io/overview.html#sourcerank) 分数，并提供给在Algolia的团队以帮助我们开始工作。 🍹
+
+[`electron-npm-packages`]: https://ghub.io/electron-npm-packages
+[`[&lt;code>是:api 缩略图`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>是:app graphql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>是:package ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>是:教程安全`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security

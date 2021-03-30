@@ -17,6 +17,6 @@ Electron公司有史以来第一次很高兴从v5开始公布我们的发布时�
 
 我们很乐意许诺未来的日期，如 [节点。 s](https://github.com/nodejs/Release) and [Chromium](https://chromiumdash.appspot.com/schedule) 确实，但我们还没有在那个地方 __ 我们感到乐观的是，我们今后将达到一个长期的时间表。
 
-考虑到这一点，我们正在采取第一步，将我们的发布计划发布到v5.0.0。您可以在这里找到 [](https://electronjs.org/docs/tutorial/electron-timelines)。
+考虑到这一点，我们正在采取第一步，将我们的发布计划发布到v5.0.0。 您可以在这里找到 [](https://electronjs.org/docs/tutorial/electron-timelines)。
 
 为了帮助我们测试我们的 beta 版本和稳定性，请考虑加入我们的 [App反馈程序](https://electronjs.org/blog/app-feedback-program)。

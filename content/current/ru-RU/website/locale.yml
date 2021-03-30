@@ -167,8 +167,8 @@ fiddle_launch_button:
 or: или
 pages:
   '/':
-    title: Electron | Создавайте кросс-платформенные приложения при помощи JavaScript, HTML и CSS.
-    description: 'Создавайте кросс-платформенные приложения при помощи JavaScript, HTML и CSS.'
+    title: Electron | Создавайте свои компьютерные кросс-платформенные приложения при помощи JavaScript, HTML и CSS.
+    description: 'Создавайте свои компьютерные кросс-платформенные приложения при помощи JavaScript, HTML и CSS.'
   '/apps':
     title: Приложения Electron
     description: Приложения, созданные на Electron
@@ -195,7 +195,7 @@ pages:
   '/releases':
     title: Релизы
   '/contact':
-    title: Контакты
+    title: Контакт
     description: Свяжитесь с командой Electron через Twitter, Slack, GitHub или по электронной почте.
   '/languages':
     title: Языки

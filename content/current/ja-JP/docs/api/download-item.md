@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`DownloadItem` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しており、Electron でのダウンロードアイテムを表します。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
+`DownloadItem` は [EventEmitter][event-emitter] を継承しており、Electron でのダウンロードアイテムを表します。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
 
 ```javascript
 // メインプロセス
@@ -53,7 +53,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'done'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `state` String - `completed`、`cancelled` か `interrupted` にできます。
@@ -74,7 +74,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - ダウロードアイテムを保存するファイルパスを設定します。
 
-このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 `path` が存在しない場合、Electron はディレクトリを再帰的に作成しようとします。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
 
 #### `downloadItem.getSavePath()`
 
@@ -173,3 +173,5 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 `String` 型のプロパティです。ダウンロードアイテムを保存するファイルパスを決定します。
 
 このプロパティは、セッションの `will-download` コールバック関数内でのみ利用可能です。 ユーザがこのプロパティを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

@@ -9,6 +9,7 @@
 * `colorSpace` 字符串 -  表示用于颜色转换的颜色空间(包含可选颜色的三维对象)
 * `colorDepth` 数字 - 表示Display对象对应于色彩空间的比特深度
 * `深度` 数字 - 每个颜色组件的比例数。
+* `displayFrequency` Number - The display refresh rate.
 * ` bounds`[ 矩形 ](rectangle.md)
 * ` size `[ 尺寸](size.md)
 * ` workArea `[ 矩形 ](rectangle.md)

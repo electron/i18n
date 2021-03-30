@@ -1,6 +1,6 @@
-# Objet Display
+# Objet d'Affichage
 
-* `id` Number - Identificateur unique associé à l'affichage.
+* `id` Nombre - Identifiant unique associé à l'affichage.
 * `rotation` Number - Peut être 0, 90, 180, 270, représente la rotation de l'écran en degrés dans le sens horaire.
 * `scaleFactor` Number - Facteur d'échelle en pixel du périphérique de sortie.
 * `touchSupport` String - Peut être `available`, `unavailable`, `unknown`.
@@ -9,6 +9,7 @@
 * `colorSpace` String -  représente un espace de couleurs (objet en trois dimensions contenant toutes les combinaisons de couleurs réalisables) servant aux conversions colorimétriques
 * `colorDepth` Number - Quantité de bits par pixel.
 * `depthPerComponent` Number - Quantité de bits par composant de couleur.
+* `displayFrequency` Number - The display refresh rate.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)

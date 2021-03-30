@@ -63,11 +63,11 @@ Una vez que tu editor esté configurado para TypeScript, empezarás a ver más c
 
 ## Comenzando con TypeScript
 
-If you're new to TypeScript and want to learn more, this [introductory video from Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) provides a nice overview of why the language was created, how it works, how to use it, and where it's headed.
+Si eres nuevo en TypeScript y quieres obtener más información, este [vídeo introductorio de Microsoft](http://video.ch9.ms/ch9/4ae3/062c336d-9cf0-498f-ae9a-582b87954ae3/B881_mid.mp4) ofrece una descripción general de la razón por la que se creó el lenguaje, cómo funciona, cómo usarlo y hacia dónde se dirige.
 
 También hay un manual [](https://www.typescriptlang.org/docs/handbook/basic-types.html) y un [patio de juegos](https://www.typescriptlang.org/play/index.html) en el sitio web oficial de TypeScript.
 
-Debido a que TypeScript es un superconjunto de JavaScript, su código JavaScript existente es TypeScript válido. This means you can gradually transition an existing JavaScript project to TypeScript, sprinkling in new language features as needed.
+Debido a que TypeScript es un superconjunto de JavaScript, su código JavaScript existente es TypeScript válido. Esto significa que puedes hacer una transición gradual de un proyecto de JavaScript de existente a TypeScript, rociando en las nuevas características del lenguaje según sea necesario.
 
 ## Gracias
 

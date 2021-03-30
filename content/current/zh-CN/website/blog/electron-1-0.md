@@ -30,13 +30,13 @@ Electron 1.0是API稳定性和成熟性的一个重要里程碑。 此 版本允
 
 连同1。 发布， 我们正在释放一个新的应用程序来帮助您探索 Electron API，并且了解更多关于如何使您的 Electron 应用程序感觉正常的信息。 [Electron API Demos](https://github.com/electron/electron-api-demos) 应用程序包含代码片段以帮助 你启动你的应用程序，并且提示如何有效地使用 Electron API。
 
-[![Electron API Demos](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Electron API Demos](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)][electron-api-demos]
 
 ## Devtron
 
 我们还添加了一个新的扩展来帮助您调试您的 Electron 应用。 [Devtron](https://electronjs.org/devtron) 是一个开放源码扩展到 [Chrome 开发者工具](https://developer.chrome.com/devtools) 旨在帮助您查看， 调试和疑难解答您的 Electron 应用。
 
-[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
+[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)][devtron]
 
 ### 功能
 
@@ -49,9 +49,9 @@ Electron 1.0是API稳定性和成熟性的一个重要里程碑。 此 版本允
 
 最后，我们正在发布一个新版本的 [Spectron](https://electronjs.org/spectron)，Electron 应用程序的集成 测试框架。
 
-[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
+[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)][spectron]
 
-Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron 基于 [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) and [WebDriverIO](http://webdriver.io) 所以它也有完整的API进行页面导航， 用户 输入和 JavaScript 执行。
+Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron 基于 [铬刀][chromedriver] 和 [WebDriverIO][webdriver] ，因此它还具有用于页面导航、用户 输入和 JavaScript 执行的完整 API。
 
 ## 社区
 
@@ -62,4 +62,9 @@ Electron 1.0 是数以百计的开发者的社区努力的结果。 在核心框
 Electron新建？ 查看 Electron 1.0 介绍视频：
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
+[chromedriver]: https://sites.google.com/a/chromium.org/chromedriver
+[devtron]: https://electronjs.org/devtron
+[electron-api-demos]: https://github.com/electron/electron-api-demos
+[spectron]: https://electronjs.org/spectron
+[webdriver]: http://webdriver.io
 

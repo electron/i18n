@@ -28,15 +28,15 @@ Electron 1.0 представляет собой главную веху в ст
 
 ## Демонстрации Electron API
 
-Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. Приложение [Electron API Demos](https://github.com/electron/electron-api-demos) содержит фрагменты кода, которые помогут запустить ваше приложение и советы по эффективному использованию Electron API.
+Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native.
 
-[![Демонстрации Electron API](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Демонстрации Electron API](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)][electron-api-demos]
 
 ## Devtron
 
 Мы также добавили новое расширение, чтобы помочь вам отладить ваши приложения Electron . [Devtron](https://electronjs.org/devtron) является открытым исходным кодом расширением для [Инструментов разработчика Chrome](https://developer.chrome.com/devtools) , призванных помочь вам проверить, отладка и устранение неполадок вашего приложения Electron.
 
-[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
+[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)][devtron]
 
 ### Возможности
 
@@ -49,7 +49,7 @@ Along with the 1.0 release, we're releasing a new app to help you explore the El
 
 Наконец, мы выпускаем новую версию [Spectron](https://electronjs.org/spectron), интеграцию тестирования фреймворка для Electron приложений.
 
-[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
+[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)][spectron]
 
 Спектр 3. имеет полную поддержку всего Electron API, позволяя более быстро писать тесты, которые подтверждают поведение вашего приложения в различных сценариях и окружениях. Спектр основан на [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) и [WebDriverIO](http://webdriver.io) , поэтому у него также полные API для навигации по страницам, пользователь вводит и выполняет JavaScript.
 
@@ -62,4 +62,7 @@ Electron 1.0 является результатом усилий сообщес
 Новые в Electron? Смотрите вводное видео Electron 1.0:
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
+[devtron]: https://electronjs.org/devtron
+[electron-api-demos]: https://github.com/electron/electron-api-demos
+[spectron]: https://electronjs.org/spectron
 

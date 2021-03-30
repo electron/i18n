@@ -2,13 +2,14 @@
 
 > process オブジェクトの拡張です。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Electron の `process` オブジェクトは、[Node.js `process` object](https://nodejs.org/api/process.html) から拡張されています。 以下のイベント、プロパティ、メソッドが追加されます。
 
 ## サンドボックス
 
 サンドボックス化されたレンダラーでは、`process` オブジェクトには以下に示す一部の API のみが含まれます。
+
 - `crash()`
 - `hang()`
 - `getCreationTime()`
@@ -89,6 +90,7 @@ process.once('loaded', () => {
 `stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のスタックトレースが出力されます。 `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.traceProcessWarnings`
+
 `stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
 ### `process.type` _読み出し専用_
@@ -121,7 +123,7 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
+戻り値 `Number | null` - 発生からのミリ秒数です。情報が利用できない場合は `null` を返します。
 
 アプリケーションの作成時間を示します。 時間はエポックからのミリ秒数として表されます。 プロセスの作成時間を取得できない場合は null を返します。
 
@@ -200,7 +202,7 @@ console.log(version)
 
 戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
-V8ヒープを取得して、`filePath`にそれを保存します。
+V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
 
 ### `process.hang()`
 

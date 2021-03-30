@@ -1,12 +1,12 @@
 # Problemas en Electron
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [Cómo contribuir a problemas](#how-to-contribute-to-issues)
 * [Pedir ayuda general](#asking-for-general-help)
 * [Presentar un informe de error](#submitting-a-bug-report)
 * [Seguimiento de un Informe de Error](#triaging-a-bug-report)
 * [Resolviendo un informe de error](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## Cómo contribuir a problemas
 
 Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
@@ -14,19 +14,19 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 2. Ayudando en el seguimiento del problema: Puedes hacerlo proporcionando detalles asistivos (un caso de prueba reproducible que demuestra el fallo) o proporcionando sugerencias para abordar el problema.
 3. Ayudando a resolver el problema: Esto se puede hacer demostrando que el problema no es un fallo o fue arreglado; Pero mas a menudo, abriendo un pull request que cambia el código fuente de `electron/electron` de una manera concreta y susceptible de revisión.
 
-## Pidiendo ayuda general
+## Pedir ayuda general
 
 ["Finding Support"](../tutorial/support.md#finding-support) tiene una lista de recursos para obtener ayuda de programación, reportar problemas de seguridad, contribuir y más. ¡Por favor, use el gestor de incidencias solo para errores!
 
 ## Presentar un informe de error
 
-To submit a bug report:
+Para enviar un informe de error:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
+Cuando abre una nueva incidencia en el [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), los usuarios se les presentará una plantilla que debe ser completada.
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+Si crees que has encontrado un error en Electron, rellena la plantilla lo mejor de tu habilidad.
 
-Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. It is easier to fix a bug if it can be reproduced.
+Las dos informaciones mas importantes necesarias para evaluar el informe son, la descripción del error y un caso de prueba simple para recrearlo. Es más fácil resolver un problema si este se puede reproducir.
 
 Véase [Como crear un Mínimo, Completo y Verificable ejemplo](https://stackoverflow.com/help/mcve).
 

@@ -2,7 +2,7 @@
 
 > Create a slider in the touch bar for native macOS applications
 
-Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarSlider(options)`
 
@@ -14,7 +14,7 @@
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - The value that the user selected on the Slider.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `TouchBarSlider`:
 

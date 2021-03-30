@@ -6,7 +6,7 @@ Proceso: [Main](../glossary.md#main-process)
 
 **Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter][event-emitter].
+`autoUpdater` es un [EventEmitter][event-emitter].
 
 ## Noticias de la plataforma
 

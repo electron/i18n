@@ -4,7 +4,7 @@ author: sofianguy
 date: '2019-01-25'
 ---
 
-Zum ersten Mal überhaupt begeistert sich Electron dafür, unseren Veröffentlichungsplan ab Version 5 bekannt zu geben. .0. Dies ist unser erster Schritt, eine öffentliche, langfristige Zeitleiste zu haben.
+Zum ersten Mal überhaupt begeistert sich Electron dafür, unseren Veröffentlichungsplan ab Version 5 bekannt zu geben. Dies ist unser erster Schritt, eine öffentliche, langfristige Zeitleiste zu haben.
 
 ---
 

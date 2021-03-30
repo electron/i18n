@@ -4,6 +4,6 @@
 > 
 > 注意: TouchBar 1 つあたりに追加できるのは、このクラスのインスタンス 1 つだけです。
 
-プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+プロセス: [Main](../glossary.md#main-process)
 
 ### `new TouchBarOtherItemsProxy()`

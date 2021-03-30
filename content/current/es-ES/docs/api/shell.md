@@ -45,14 +45,24 @@ Devuelve `Promise<void>`
 
 Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
 
 * `fullPath` Cadena
 * `deleteOnFail` Boolean (opcional) - Si eliminar o no eliminar unilateralmente el elemento si la papelera está desactivada o no es soportada en el volumen. _macOS_
 
 Devuelve `Boolean` - Si el elemento fue movido con éxito a la papelera o de lo contrario fue eliminado.
 
+> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+
 Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
+
+### `shell.trashItem(path)`
+
+* `path` String - path to the item to be moved to the trash.
+
+Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+
+This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
 
 ### `shell.beep()`
 

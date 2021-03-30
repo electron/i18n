@@ -29,6 +29,8 @@ Web SQL を使用する Electron アプリケーションが影響を受けま�
 
 この脆弱性は Tencent Blade チームによって発見されました。彼らは [この脆弱性について論じたブログ記事](https://blade.tencent.com/magellan/index_en.html) を公開しています。
 
-Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル][] を参照してください。
 
 Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
+
+[セキュリティチュートリアル]: https://electronjs.org/docs/tutorial/security

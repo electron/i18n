@@ -59,8 +59,8 @@ Electron
 |   |   ├── api/ - La implementación de las APIs del proceso principal.
 |   |   ├── net/ - Código relacionado con la red.
 |   |   ├── mac/ - Código fuente especifico Mac  Objective-C.
-|   |   └── resources/ - Iconos, archivos dependiente de la plataforma, etc.
-|   ├── renderer/ - Código que corre en el proceso renderizador.
+|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - La implementación de las APIs del proceso renderizador.
 |   └── common/ - Código que se usa por ambos procesos, main y el renderer, incluye algunos funciones útiles
 |       |         y código para integrar el bucle de mensaje de node dentro de bucle de mensaje de Chromium.

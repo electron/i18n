@@ -1,10 +1,10 @@
-# webContents
+# 网络控制
 
 > 渲染以及控制 web 页面
 
 进程：[主进程](../glossary.md#main-process)
 
-` webContents ` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+`webContents` is an [EventEmitter][event-emitter]. 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ Returns `WebContents` | undefined - A WebContents instance with the given ID, or
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-这个事件类似于 `did-finish-load` ，只不过是在加载失败之后触发。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
+这个事件类似于 `did-finish-load` ，只不过是在加载失败之后触发。 完整的错误码列表以及含义，[请看这](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h)
 
 #### Event: 'did-fail-provisional-load'
 
@@ -125,7 +125,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 当页面获取到favicon的连接时，触发该事件。
 
-#### Event: 'new-window'
+#### Event: 'new-window' _Deprecated_
 
 返回:
 
@@ -137,6 +137,8 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+
+已弃用：[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)。
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
@@ -168,6 +170,23 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
+#### Event: 'did-create-window'
+
+返回:
+* `window` BrowserWindow
+* `details` Object
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+
 #### Event: 'will-navigate'
 
 返回:
@@ -194,7 +213,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
 #### Event: 'will-redirect'
 
@@ -317,7 +336,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  可选值
+  * `reason` String - The reason the render process is gone.  可选值：
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
@@ -325,6 +344,7 @@ win.webContents.on('will-prevent-unload', (event) => {
     * `oom` - Process ran out of memory
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
@@ -341,7 +361,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 返回:
 
 * `event` Event
-* `name` 字符串
+* `name` String
 * `version` String
 
 当有插件进程崩溃时触发
@@ -357,14 +377,14 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 * `event` Event
 * `input` Object - Input properties.
   * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
-  * `key` String - 等同于 [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` code ` String - 等同于 [KeyboardEvent. code ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` control ` String - 等同于 [KeyboardEvent. controlKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` alt ` String - 等同于 [KeyboardEvent. altKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `key` String - 等同于 [KeyboardEvent.key][keyboardevent].
+  * ` code ` String - 等同于 [KeyboardEvent. code ][keyboardevent].
+  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ][keyboardevent].
+  * ` control ` String - 等同于 [KeyboardEvent. controlKey ][keyboardevent].
+  * ` alt ` String - 等同于 [KeyboardEvent. altKey ][keyboardevent].
+  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ][keyboardevent].
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -393,6 +413,7 @@ win.webContents.on('before-input-event', (event, input) => {
 #### Event: 'zoom-changed'
 
 返回:
+
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
 
@@ -735,6 +756,17 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调�
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
+#### Event: 'preferred-size-changed'
+
+返回:
+
+* `event` Event
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+
+Emitted when the `WebContents` preferred size has changed.
+
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
 ### 实例方法
 
 #### `contents.loadURL(url[, options])`
@@ -744,7 +776,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -982,6 +1014,16 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 Ignore application menu shortcuts while this web contents is focused.
 
+#### `contents.setWindowOpenHandler(handler)`
+
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  * `details` Object
+    * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
+    * `frameName` String - Name of the window provided in `window.open()`
+    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
@@ -1014,6 +1056,8 @@ Returns `Number` - the current zoom factor.
 
 更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
@@ -1029,8 +1073,9 @@ Returns `Promise<void>`
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.undo()`
 
@@ -1102,8 +1147,6 @@ Returns `Promise<void>`
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. 默认值为 `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -1179,7 +1222,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
   * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
   * `collate` Boolean (optional) - Whether the web page should be collated.
   * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[] (optional) - The page range to print. On macOS, only one range is honored.
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
@@ -1426,7 +1469,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1467,7 +1510,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1500,6 +1543,7 @@ Send a message to the renderer process, optionally transferring ownership of zer
 The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 例如：
+
 ```js
 // Main process
 const { port1, port2 } = new MessageChannelMain()
@@ -1719,3 +1763,26 @@ A [`Debugger`](debugger.md) instance for this webContents.
 #### `contents.backgroundThrottling`
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.mainFrame` _Readonly_
+
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage

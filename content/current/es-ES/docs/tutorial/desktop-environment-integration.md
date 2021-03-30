@@ -18,7 +18,7 @@ Ver la [Progress Bar documentation](progress-bar.md).
 
 ## Lanzador Unity
 
-Ver [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Ver [Unity Launcher documentation][unity-launcher].
 
 ## Archivo representado para la ventana macOS
 
@@ -27,3 +27,5 @@ Ver [Represented File documentation](represented-file.md).
 ## Arrastrando archivos fuera de la ventana
 
 Ver [Native File Drag & Drop documentation](native-file-drag-drop.md).
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

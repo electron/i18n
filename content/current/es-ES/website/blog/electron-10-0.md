@@ -29,7 +29,7 @@ En la versión Electron 10, también hicimos un cambio en nuestras notas de publ
     * [V8 8.4 blog post](https://v8.dev/blog/v8-release-84)
     * [V8 8.5 blog post](https://v8.dev/blog/v8-release-85)
 
-### Características Destacadas
+### Destacar características
 
 * Se añadió el método `contents.getBackgroundThrottling()` y la propiedad `contents.backgroundThrottling`. [#21036]
 * Expuso el módulo `desktopCapturer` en el proceso principal. [#23548](https://github.com/electron/electron/pull/23548)
@@ -49,7 +49,7 @@ Vea las [notas de lanzamiento 10.0.0](https://github.com/electron/electron/relea
 
 Puede encontrar más información sobre estos y futuros cambios en la página [Cambios de rotación planificados](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-## API Modificada
+## Cambios de API
 
 * Sesión: Ahora puede comprobar si una sesión `` dada es persistente llamando a la API `ses.isPersistent()`. [#22622](https://github.com/electron/electron/pull/22622)
 * Contenido: Añadida la propiedad `contents.getBackgroundThrottling()` y `contents.backgroundThrottling`. [#21036](https://github.com/electron/electron/pull/21036)
