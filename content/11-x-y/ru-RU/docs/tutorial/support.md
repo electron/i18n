@@ -2,7 +2,7 @@
 
 ## Поиск поддержки
 
-Если у вас есть проблема с безопасностью, смотрите [документ безопасности](https://github.com/electron/electron/tree/master/SECURITY.md).
+Если у вас есть вопросы безопасности, обратитесь к документу [безопасности](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 - [`electron`](https://discuss.atom.io/c/electron) категория на Atom форумы
@@ -16,7 +16,7 @@
 - [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
 - [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-Если вы хотите внести свой вклад в Electron, смотрите [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Если вы хотите внести свой вклад в Electron, см. [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
