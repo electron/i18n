@@ -19,7 +19,7 @@ Electron社区正在迅速增长，人们正在以惊人的速度创建强大的
 
 [Kap 是一个开放源码屏幕录像机](https://getkap.co) 主要是为设计人员和开发人员制作的，可以轻松地捕捉他们的工作。 人们使用它来分享动画的原型，文档错误，无声创建 GIF 和之间的一切。
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. 甚至创建生产资产！ 我们被我们的小边项目收到的好东西完全炸掉了。
+我们已经看到所有年龄和背景的人使用它在教育设置，截屏，教程。。。列表继续。 甚至创建生产资产！ 我们被我们的小边项目收到的好东西完全炸掉了。
 
 ## 你为什么要构建它？
 
