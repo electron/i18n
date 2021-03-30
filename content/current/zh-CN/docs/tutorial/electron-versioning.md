@@ -62,7 +62,7 @@ npm install --save-dev electron@latest
 
 GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# 测试版和Bug修复
+# 测试版和 Bug 修复
 
 开发人员想知道哪个版本可以 _安全_ 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
@@ -142,4 +142,4 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 * Release 分支永远不会合并回 master 分支
 * 发布分支 _在_ 其`package.json ` 中包含正确的版本
-* 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  I.e. `master` 总是作为下一个理论发布分支版本的
+* 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  I.e. `master` is always versioned as the next theoretical release branch
