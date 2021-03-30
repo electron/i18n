@@ -2,9 +2,9 @@
 
 > Rendert und steuert web pages.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
+`webContents` is an [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -45,7 +45,7 @@ Returns `WebContents` | undefined - A WebContents instance with the given ID, or
 
 Prozess: [Main](../glossary.md#main-process)
 
-### Instanz-Ereignisse
+### Instanz Events
 
 #### Event: 'did-finish-load'
 
@@ -55,8 +55,8 @@ Emittiert wenn die Navigation abgeschlossen ist, daher, wenn der Spinner des Tab
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>errorCode` Integer
+* `event` Event
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
@@ -69,8 +69,8 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>errorCode` Integer
+* `event` Event
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
@@ -81,7 +81,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+Rückgabewert:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -102,18 +102,16 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when the document in the given frame is loaded.</p>
+Emitted when the document in the given frame is loaded.
 
-<h4 spaces-before="0">Event: 'page-title-updated'</h4>
+#### Event: 'page-title-updated'
 
-<p spaces-before="0">Rückgabewert:</p>
+Rückgabewert:
 
-<ul>
-<li><code> Ereignis </ 0>  Ereignis</li>
-<li><code>title` String
+* `event` Event
+* `title` String
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
@@ -122,8 +120,8 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>favicons` String[] - Array mit URLs.
+* `event` Event
+* `favicons` String[] - Array mit URLs.
 
 Emitted when page receives favicon urls.
 
@@ -132,8 +130,8 @@ Emitted when page receives favicon urls.
 Rückgabewert:
 
 * `event` NewWindowWebContentsEvent
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String
+* `url` String
+* `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
@@ -193,8 +191,8 @@ See [`window.open()`](window-open.md) for more details and how to use this in co
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` String
+* `event` Event
+* `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -208,9 +206,9 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>isInPlace` Boolean
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -221,9 +219,9 @@ Emitted when any frame (including main) starts navigating. `isInPlace` will be `
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>isInPlace` Boolean
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -238,9 +236,9 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>isInPlace` Boolean
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -253,9 +251,9 @@ This event cannot be prevented, if you want to prevent redirects you should chec
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
 Emitted when a main frame navigation is done.
@@ -266,9 +264,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -282,8 +280,8 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` String
+* `event` Event
+* `url` String
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -296,10 +294,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<p spaces-before="0">Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p>
+Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
 Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
@@ -326,19 +323,19 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>killed` Boolean
+* `event` Event
+* `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
 #### Event: 'render-process-gone'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>details` Object
+* `event` Event
+* `details` Object
   * `reason` String - The reason the render process is gone.  Mögliche werte:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -363,8 +360,8 @@ Ausgegeben wenn eine Webseite, die zuvor nicht mehr antwortete, wieder antwortet
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>name` String
+* `event` Event
+* `name` String
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -377,17 +374,17 @@ Emitted when `webContents` is destroyed.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>input` Object - Input properties.
+* `event` Event
+* `input` Object - Input properties.
   * `type` String - Entweder `keyUp` oder `keyDown`.
-  * `key` String - Equivalent zu [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Equivalent zu [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Equivalent zu [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Equivalent zu [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Equivalent zu [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Equivalent zu [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent zu [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `key` String - Equivalent zu [KeyboardEvent.key][keyboardevent].
+  * `code` String - Equivalent zu [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Equivalent zu [KeyboardEvent.repeat][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Boolean - Equivalent zu [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Equivalent zu [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Equivalent zu [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Equivalent zu [KeyboardEvent.metaKey][keyboardevent].
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -417,8 +414,8 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>zoomDirection` String - Can be `in` or `out`.
+* `event` Event
+* `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -438,8 +435,8 @@ Emitted when DevTools is focused / opened.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` String
+* `event` Event
+* `url` String
 * `error` String - Der error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
@@ -453,8 +450,8 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` URL
+* `event` Event
+* `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
@@ -467,8 +464,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>authenticationResponseDetails` Object
+* `event` Event
+* `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
@@ -488,8 +485,8 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>result` Object
+* `event` Event
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -510,8 +507,8 @@ Emitted when media is paused or done playing.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -523,8 +520,8 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` String
+* `event` Event
+* `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
@@ -532,8 +529,8 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String
+* `event` Event
+* `type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
@@ -547,8 +544,8 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><p spaces-before="0"><code>params` Object</p>
+* `event` Event
+* `params` Object
   * `x` Integer - x Koordinate.
   * `y` Integer - y Koordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -590,8 +587,8 @@ Emitted when there is a new context menu that needs to be handled.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
+* `event` Event
+* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String
 
@@ -623,8 +620,8 @@ app.whenReady().then(() => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>dirtyRect` [Rectangle](structures/rectangle.md)
+* `event` Event
+* `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -647,8 +644,8 @@ Emitted when the devtools window instructs the webContents to reload
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><p spaces-before="0"><code>webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.</p>
+* `event` Event
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
@@ -661,8 +658,8 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
 
@@ -670,8 +667,8 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `event` Event
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
@@ -682,8 +679,8 @@ Emitted when the associated window logs a console message.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>preloadPath` String
+* `event` Event
+* `preloadPath` String
 * ` Fehler </ 0> Fehler</li>
 </ul>
 
@@ -693,8 +690,8 @@ Rückgabewert:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>channel` String
+* `event` Event
+* `channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
@@ -703,8 +700,8 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>channel` String
+* `event` Event
+* `channel` String
 * `...args` any[]
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
@@ -775,8 +772,8 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 
 #### `contents.loadURL(url[, options])`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Object (optional)
+* `url` String
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -1077,8 +1074,9 @@ Setzt das Maximum und Minimum pinch-to-zoom Level.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
 #### `contents.undo()`
 
@@ -1472,7 +1470,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1513,7 +1511,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1770,3 +1768,22 @@ A `Boolean` property that determines whether or not this WebContents will thrott
 #### `contents.mainFrame` _Readonly_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
