@@ -30,7 +30,7 @@ Algolia は、React、Vue、Bootstrap、Yarn、[その他多数](https://communi
 ここでは、Algolia が Electron プロジェクトに適していた機能をいくつか紹介します。
 
 - [InstantSearch.js](https://community.algolia.com/instantsearch.js) はタイプして通常 1ms 以内に結果を提供します。
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`][].
+- [タイプミス寛容性](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) により [`widnow`] と入力しても結果が得られます。
 - [高度なクエリ構文](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) により `"引用符で囲まれた完全一致"` と `-除外` ができます。
 - [API クライアント](https://www.algolia.com/doc/api-client/javascript/getting-started/) はオープンソースで、十分にドキュメント化されています。
 - [分析](https://www.algolia.com/doc/guides/analytics/analytics-overview/) により頻繁に検索されるものや、検索しても見つけらないものがわかります。 これにより、Electron のドキュメントの改善策について、貴重な知見を得ることができます。
@@ -40,36 +40,36 @@ Algolia は、React、Vue、Bootstrap、Yarn、[その他多数](https://communi
 
 時折、*何を達成したいか* 分かっていても、*どのように* それを行うかが正確に分からないことがあります。 Electron には 750 以上の API メソッド、イベント、プロパティがあります。 人間は簡単に全部覚えられませんが、コンピュータにとっては得意分野です。 Electron の [JSON API ドキュメント](https://electronjs.org/blog/api-docs-json-schema) を利用して、Algolia にあるすべてのデータをインデックス化し、探している APIを簡単に見つけられます。
 
-ウインドウをサイズ変更してみたいのですか? Search for [`resize`][] and jump straight to the method you need.
+ウインドウをサイズ変更してみたいのですか? [`resize`] で検索して、必要なメソッドに直接ジャンプしましょう。
 
 ## チュートリアル
 
 Electron では、API ドキュメントを補完するチュートリアルのコレクションが増え続けています。 これで、関連する API ドキュメントと一緒に、特定トピックのチュートリアルもより簡単に見つけられるようになりました。
 
-セキュリティのベストプラクティスをお探しですか? Search for [`security`][].
+セキュリティのベストプラクティスをお探しですか? [`security`] と検索しましょう。
 
 ## npm パッケージ
 
-npm レジストリには現在 70 万以上のパッケージがあり、必要なパッケージを見つけるのは簡単ではありません。 To make it easier to discover these modules, we've created [`electron-npm-packages`][], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
+npm レジストリには現在 70 万以上のパッケージがあり、必要なパッケージを見つけるのは簡単ではありません。 これらのモジュールをより簡単に探せるように、Electron 向けに特別に作られた 3400 以上のモジュールを集めた [`electron-npm-packages`] を作成しました。
 
-[Libraries.io][] の方々は、コード、コミュニティ、ドキュメント、使用状況などのメトリクスの組み合わせに基づいてソフトウェアプロジェクトをスコアリングするシステム、[SourceRank][] を作成しています。 We created a [`sourceranks`][] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
+[Libraries.io][] の方々は、コード、コミュニティ、ドキュメント、使用状況などのメトリクスの組み合わせに基づいてソフトウェアプロジェクトをスコアリングするシステム、[SourceRank][] を作成しています。 これらのスコアを使って、npm レジストリ内のすべてのモジュールのスコアを含む [`sourceranks`] モジュールを作成しパッケージの結果をソートしています。
 
-Electron 内蔵の IPC モジュールの代替品をお探しですか? Search for [`is:package ipc`][].
+Electron 内蔵の IPC モジュールの代替品をお探しですか? [`is:package ipc`] と検索しましょう。
 
 ## Electron アプリ
 
 [Algolia でデータをインデックスするのが簡単](https://github.com/electron/algolia-indices) なので、[electron/apps](https://github.com/electron/apps) から既存のアプリリストを追加しました。
 
-Try a search for [`music`][] or [`homebrew`][].
+[`music`] や [`homebrew`] と検索してみてください。
 
 ## 結果のフィルタリング
 
 GitHub の [コード検索](https://github.com/search) を使ったことがある人なら、`extension:js` や `user:defunkt` のようなコロンで区切られたキーバリューフィルタが存在すると気づいているでしょう。 このフィルタリング技術は非常に強力なものであると考えており、Electron の検索に `is:` キーワードを追加しました。これにより、一種類の結果のみを表示するようにフィルタできます。
 
-- [`is:api thumbnail`][]
-- [`is:tutorial security`][]
-- [`is:package ipc`][]
-- [`is:app graphql`][]
+- [`[<code>is:api thumbnail`]</code>][]
+- [`[<code>is:tutorial security`]</code>][]
+- [`[<code>is:package ipc`]</code>][]
+- [`[<code>is:app graphql`]</code>][]
 
 ## キーボードナビゲーション
 
@@ -99,17 +99,10 @@ GitHub の [コード検索](https://github.com/search) を使ったことがあ
 
 これらの新しい検索機能を構築してくださった [Emily Jordan](https://github.com/echjordan) と [Vanessa Yuen](https://github.com/vanessayuenn)、[Libraries.io][] のスコアを提供してくださった [SourceRank][] 、そして私たちの活動を支援してくださった Algolia のチームに感謝します。 🍹
 
-[`electron-npm-packages`]: https://ghub.io/electron-npm-packages
-[`homebrew`]: https://electronjs.org/?query=homebrew
-[`is:api thumbnail`]: https://electronjs.org/?query=is%3Aapi%20thumbnail
-[`is:app graphql`]: https://electronjs.org/?query=is%3Aapp%20graphql
-[`is:package ipc`]: https://electronjs.org/?query=is%3Apackage%20ipc
-[`is:tutorial security`]: https://electronjs.org/?query=is%3Atutorial%20security
-[`music`]: https://electronjs.org/?query=music
-[`resize`]: https://electronjs.org/?query=resize
-[`security`]: https://electronjs.org/?query=security
-[`sourceranks`]: https://github.com/nice-registry/sourceranks
-[`widnow`]: https://electronjs.org/?query=widnow
+[`[&lt;code>is:api thumbnail`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>is:app graphql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>is:package ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>is:tutorial security`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security
 [アAlgolia]: https://algolia.com
 [Libraries.io]: https://libraries.io
 [クイックスタート]: https://github.com/electron/electron-quick-start
