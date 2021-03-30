@@ -6,7 +6,7 @@ Tous les [modules intégrés de Node.js](https://nodejs.org/api/) sont disponibl
 
 Electron fournit également quelques modules supplémentaires intégrés pour le développement d'application de bureau natives. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. Vous devez être familier avec le concept de [processus main vs. processus renderer](../tutorial/quick-start.md#main-and-renderer-processes) pour pouvoir utiliser ces modules.
+La règle de base est : si un module est une [GUI][gui] ou un système de bas niveau est associé, il devrait être disponible dans le processus main. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
 
 Le script <0>main process</0> ressemble à script Node.js normal :
 
@@ -38,7 +38,7 @@ Pour lancer votre app, lisez [Lancer votre application](../tutorial/quick-start.
 
 ## Affectation par décomposition
 
-À partir de la 0.37, vous pouvez utiliser l'[affectation par décomposition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) pour rendre l'utilisation des modules intégrés plus simple.
+À partir de la 0.37, vous pouvez utiliser l'[affectation par décomposition][destructuring-assignment] pour rendre l'utilisation des modules intégrés plus simple.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -78,3 +78,6 @@ app.whenReady().then(() => {
   win.loadURL('https://github.com')
 })
 ```
+
+[gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
+[destructuring-assignment]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
