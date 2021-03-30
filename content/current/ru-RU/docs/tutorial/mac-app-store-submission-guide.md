@@ -2,15 +2,15 @@
 
 Начиная с версии 0.34.0, Electron позволяет отправлять упакованные приложения в Mac App Store (MAS). В этом руководстве содержится информация о том, как отправить ваше приложение и о ограничениях сборки MAS.
 
-**Примечание:** Отправка приложения в Mac App Store требует регистрации в [программе Apple Developer](https://developer.apple.com/support/compare-memberships/), которая стоит денег.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
 ## Как отправить приложение
 
-Следующие шаги представляют собой простой способ отправить ваше приложение в Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Следующие шаги представляют собой простой способ отправить ваше приложение в Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
 ### Получить сертификат
 
-Чтобы отправить ваше приложение в Mac App Store, вы должны получить сертификат от Apple. Вы можете следовать этим [существующим руководствам](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) в Интернете.
+Чтобы отправить ваше приложение в Mac App Store, вы должны получить сертификат от Apple. You can follow these [existing guides][nwjs-guide] on web.
 
 ### Получить Team ID
 
@@ -86,9 +86,9 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 ```sh
 #!/bin/bash
 
-# Имя вашего приложения.
+# Name of your app.
 APP="YourApp"
-# Путь вашего приложения к подписанию.
+# The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
 # Путь к местоположению, которое вы хотите поставить подписанный пакет.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST"$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-Если вы новичок в режиме песочницы приложений под macOS, вам также следует прочитать через япля [включив App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) , чтобы получить базовую идею, затем добавьте ключи для разрешений, необходимых вашему приложению в файлы прав.
+If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
 
-Кроме того, вы можете вручную подписать ваше приложение, используя модуль [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) для выполнения работы.
+Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
 #### Нативные модули подписи
 
@@ -128,15 +128,15 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Также обратите внимание на то, что родные модули могут иметь промежуточные файлы, которые не должны быть включены в (а также их нужно подписать). Если вы используете [электронных пакетов](https://github.com/electron/electron-packager) до версии 8.1.0, добавьте `--ignore=.+\.o$` к вашему шагу сборки, чтобы игнорировать эти файлы. Версии 8.1.0 и позже игнорировать эти файлы по умолчанию.
+Также обратите внимание на то, что родные модули могут иметь промежуточные файлы, которые не должны быть включены в (а также их нужно подписать). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Версии 8.1.0 и позже игнорировать эти файлы по умолчанию.
 
 ### Загрузите приложение
 
-После подписания вашего приложения, вы можете использовать загрузчик приложений для загрузки в iTunes Подключиться для обработки, убедитесь, что вы создали [запись](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) перед загрузкой.
+After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
 ### Отправить ваше приложение на проверку
 
-После этих шагов вы можете [отправить ваше приложение на проверку](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+After these steps, you can [submit your app for review][submit-for-review].
 
 ## Ограничения сборки MAS
 
@@ -151,29 +151,29 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * Некоторые функции специальных возможностей могут не работать.
 * Приложения не будут знать о изменениях DNS.
 
-Кроме того, из-за использования песочницы приложений, ресурсы, к которым можно получить доступ , строго ограничены; вы можете прочитать [песочницу приложения](https://developer.apple.com/app-sandboxing/) для более подробной информации.
+Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
 ### Дополнительные права
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+В зависимости от используемого Electron API вам может потребоваться добавить дополнительные права для вашего `родителя. список` файлов, которые смогут использовать эти API из сборки App Store вашего приложения для Mac на Mac.
 
-#### Network Access
+#### Сетевой доступ
 
-Enable outgoing network connections to allow your app to connect to a server:
+Включите исходящие сетевые подключения, чтобы позволить приложению подключаться к серверу:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Включите входящие сетевые подключения, чтобы позволить приложению открыть сеть с прослушиванием сокета:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+See the [Enabling Network Access documentation][network-access] for more details.
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 ## Криптографические алгоритмы, которые использует Electron
 
-В зависимости от стран, в которых вы выпускаете ваше приложение, вам может понадобиться для предоставления информации о криптографических алгоритмах, используемых в вашем программном обеспечении. Смотрите [документы по экспорту шифрования](https://help.apple.com/app-store-connect/#/devc3f64248f) для дополнительной информации.
+В зависимости от стран, в которых вы выпускаете ваше приложение, вам может понадобиться для предоставления информации о криптографических алгоритмах, используемых в вашем программном обеспечении. See the [encryption export compliance docs][export-compliance] for more information.
 
 Electron использует следующие криптографические алгоритмы:
 
@@ -213,7 +213,7 @@ Electron использует следующие криптографическ�
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](https://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](https://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - "Об дизайне и безопасности блочных шифров" книга Х. Лай
 * MD2 - [RFC 1319](https://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)
@@ -222,3 +222,16 @@ Electron использует следующие криптографическ�
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
+
+[developer-program]: https://developer.apple.com/support/compare-memberships/
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
+[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
+[electron-packager]: https://github.com/electron/electron-packager
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
+[user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
+[network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9
