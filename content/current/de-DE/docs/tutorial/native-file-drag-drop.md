@@ -1,4 +1,4 @@
-# Natives Datei Drag & Drop
+# Native Datei Drag & Drop
 
 ## Übersicht
 
