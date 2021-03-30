@@ -6,7 +6,7 @@
 
 **こちらも参照: [アプリケーションを更新する](../tutorial/updates.md)**
 
-`autoUpdater` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
+`autoUpdater` は [EventEmitter][event-emitter] を継承しています。
 
 ## プラットフォームに関する注意事項
 
@@ -16,19 +16,19 @@
 
 ### macOS
 
-macOSでは、`autoUpdater` モジュールは [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) で構築されているので、動作させるのに特別なセットアップ作業をする必要はありません。 サーバー側の要件については、[サーバーサポート](https://github.com/Squirrel/Squirrel.Mac#server-support) をお読みください。 [アプリケーショントランスポートセキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) が、更新処理の一部としてなされるすべてのリクエストに適用されることに注意してください。 アプリのplistに `NSAllowsArbitraryLoads` キーを追加することで、ATSを無効にすることができます。
+macOSでは、`autoUpdater` モジュールは [Squirrel.Mac][squirrel-mac] で構築されているので、動作させるのに特別なセットアップ作業をする必要はありません。 サーバー側の要件については、[サーバーサポート][server-support] をお読みください。 [アプリケーショントランスポートセキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) が、更新処理の一部としてなされるすべてのリクエストに適用されることに注意してください。 アプリのplistに `NSAllowsArbitraryLoads` キーを追加することで、ATSを無効にすることができます。
 
 **注:** macOS で自動更新を有効にするには、アプリ署名が必要です。 これは `Squirrel.Mac` の動作要件です。
 
 ### Windows
 
-Windowsでは、`autoUpdater` を使えるようにする前にユーザのマシンにアプリをインストールしなければなりません。そのため、[electron-winstaller](https://github.com/electron/windows-installer)、[electron-forge](https://github.com/electron-userland/electron-forge) または [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) パッケージを使ってWindowsインストーラーを作成することを推奨します。
+Windows で `autoUpdater` を使用するには、アプリをユーザのマシンにインストールする必要があります。[electron-winstaller][installer-lib]、[electron-forge][electron-forge-lib]、[grunt-electron-installer][installer] のいずれかのパッケージで Windows インストーラを生成することを推奨します。
 
-[electron-winstaller](https://github.com/electron/windows-installer) または [electron-forge](https://github.com/electron-userland/electron-forge) を使用する場合、[初回実行時に](https://github.com/electron/windows-installer#handling-squirrel-events)アプリを更新しようとしないようにしてください ([この問題の詳細情報](https://github.com/electron/electron/issues/7155)も参照してください)。 アプリのデスクトップショートカットを作成する [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) も使用することを推奨します。
+[electron-winstaller][installer-lib] または [electron-forge][electron-forge-lib] を使用する場合、[初回実行時に](https://github.com/electron/windows-installer#handling-squirrel-events) アプリを更新しようとしないようにしてください ([この issue の詳細情報](https://github.com/electron/electron/issues/7155) も参照)。 アプリのデスクトップショートカットを作成する [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) も使用することを推奨します。
 
-Squirrelで作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式による[アプリケーションユーザID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
+Squirrel で作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式の [アプリケーションユーザ ID][app-user-model-id] を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
-Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windowsの仕組みの詳細については、[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントをお読みください。
+Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windows の仕組みの詳細については、[Squirrel.Windows][squirrel-windows] のドキュメントをお読みください。
 
 ## イベント
 
@@ -85,7 +85,7 @@ Windowsでは `releaseName` のみ利用可能です。
 * `options` Object
   * `url` String
   * `headers` Record&lt;String, String&gt; (任意) _macOS_ - HTTP リクエストのヘッダ。
-  * `serverType` String (任意) _macOS_ - `json`、`default` のいずれかです。詳細は [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
+  * `serverType` String (任意) _macOS_ - `json`、`default` のいずれかです。詳細は [Squirrel.Mac][squirrel-mac] README を参照してください。
 
 `url` を設定して自動更新を初期化します。
 
@@ -104,3 +104,12 @@ Windowsでは `releaseName` のみ利用可能です。
 `autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
 **注意:** アップデートを適用するために必ずこの関数を呼ぶ必要はなく、ダウンロードに成功したアップデートは次回のアプリケーション起動時に必ず適用されます。
+
+[squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
+[server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
+[squirrel-windows]: https://github.com/Squirrel/Squirrel.Windows
+[installer]: https://github.com/electron/grunt-electron-installer
+[installer-lib]: https://github.com/electron/windows-installer
+[electron-forge-lib]: https://github.com/electron-userland/electron-forge
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
