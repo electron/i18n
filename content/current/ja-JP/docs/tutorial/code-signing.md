@@ -20,15 +20,15 @@ macOS アプリをリリースに向けて適切に準備するには、2 つの
 
 このプロセスを開始するには、以下に示すアプリへの署名と公証の要件を満たしていることを確認してください。
 
-1. [Apple Developer Program](https://developer.apple.com/programs/) に登録する (年会費が必要)
-2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする - これは macOS を実行しているコンピュータに必要です
-3. [署名証明書](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
+1. [Apple Developer Program][] に登録する (年会費が必要)
+2. [Xcode][] をダウンロードしてインストールする - これは macOS を実行しているコンピュータに必要です
+3. [署名証明書][] を生成、ダウンロードして、インストールする
 
 Electron のエコシステムでは構成とその自由度を重視しているため、アプリケーションの署名と公証の取得には複数の方法が用意されています。
 
 ## `electron-forge`
 
-好きな Electron のビルドツールを使用している場合、アプリケーションの署名と公証を行うにあたって、設定にいくつか追加する必要があります。 [Forge](https://electronforge.io) は、[`electron-packager`]、[`electron-osx-sign`]、[`electron-notarize`] を使用した、Electron 公式ツールの集合体です。
+好きな Electron のビルドツールを使用している場合、アプリケーションの署名と公証を行うにあたって、設定にいくつか追加する必要があります。 [forge](https://electronforge.io) は、内部で [`electron-packager`][]、[`electron-osx-sign`][]、[`electron-notarize`][] を使っている、Electron 公式のツールの集合体です。
 
 ここでは、すべての必須フィールドを設定した例を見てみましょう。 すべてが必須というわけでは無いのです。お使いのツールは適切な `identity` を自動的に見つけられるでしょう。それでも明示的に指定することを推奨します。
 
@@ -100,7 +100,7 @@ Electron Builder にはアプリケーションに署名するためのカスタ
 
 ## `electron-packager`
 
-Forge や Builder のような統合されたビルドパイプラインを使用していない場合は、[`electron-packager`] を使用していることでしょう。これには、[`electron-osx-sign`] や [`electron-notarize`] が含まれています。
+Forge や Builder のような統合されたビルドパイプラインを使用しない場合、[`electron-packager`][] を使用することが多く、これは [`electron-osx-sign`][] や [`electron-notarize`][] を同梱しています。
 
 Packager の API を使用している場合、[アプリケーションに署名と公証の両方を行う設定](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) を渡すことができます。
 
@@ -142,7 +142,7 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
 
 ## Mac App Store
 
-[Mac App Store Guide](mac-app-store-submission-guide.md) を参照してください。
+[Mac App Store Guide][] を参照してください。
 
 # Windows ビルドの署名
 
@@ -160,10 +160,22 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-* [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
-* [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名できます。
-* [`electron-builder`] ではその Windows ターゲットのいくつかに署名することができます
+* [`electron-winstaller`][] は Windows 用のインストーラを生成し、 あなたに署名します。
+* [`electron-forge`][] は、 Squirrel.Windows または MSI ターゲットを通じて生成されたインストーラに署名できます。
+* [`electron-builder`][] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 
-[Windows Store Guide](windows-store-guide.md) を参照してください。
+[Windows Store Guide][] を参照してください。
+
+[Apple Developer Program]: https://developer.apple.com/programs/
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
+[`electron-packager`]: https://github.com/electron/electron-packager
+[`electron-notarize`]: https://github.com/electron/electron-notarize
+[`electron-winstaller`]: https://github.com/electron/windows-installer
+[Xcode]: https://developer.apple.com/xcode
+[署名証明書]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Windows Store Guide]: windows-store-guide.md
