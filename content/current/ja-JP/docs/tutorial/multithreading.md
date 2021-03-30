@@ -1,6 +1,6 @@
 # マルチスレッド
 
-[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) により、JavaScript を OS レベルのスレッドで実行することが可能になります。
+[Web Workers][web-workers] により、JavaScript を OS レベルのスレッドで実行することが可能になります。
 
 ## マルチスレッド Node.js
 
@@ -34,3 +34,5 @@ process.dlopen = () => {
 }
 const worker = new Worker('script.js')
 ```
+
+[web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers
