@@ -37,7 +37,7 @@ Normalerweise führt `npm start` den main script mit Node.js aus. Um dies zu ver
 
 ```json
 {
-  "name": "deine-app",
+  "name": "your-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -79,7 +79,7 @@ function createWindow () {
     }
   })
 
-  // und lade den Inhalt von index.html
+  // und lade den Inhalt von index.html.
   win.loadFile('index.html')
 }
 
@@ -101,7 +101,7 @@ function createWindow () {
     }
   })
 
-  // und lade den Inhalt von index.html
+  // und lade den Inhalt von index.html.
   win.loadFile('index.html')
 
   // Öffnen der DevTools.
@@ -141,15 +141,15 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hallo Welt!</title>
+    <title>Hello World!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Hallo Welt!</h1>
-    Aktuell wird die node version <script>document.write(process.versions.node)</script>,
-    Chrome in der Version <script>document.write(process.versions.chrome)</script>,
-     und Electron in der Version <script>document.write(process.versions.electron)</script> benutzt.
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
