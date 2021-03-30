@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta 版本包含对macOS [Touch Bar](https://developer.apple.com/macos/touch-bar) 的初始支持。
+The Electron [1.6.3][] beta release contains initial support for the macOS [Touch Bar][].
 
 ---
 
@@ -125,4 +125,7 @@ app.once('ready', () => {
   window.setTouchBar(touchBar)
 })
 ```
+
+[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
+[Touch Bar]: https://developer.apple.com/macos/touch-bar
 
