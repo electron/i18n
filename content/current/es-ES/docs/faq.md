@@ -1,4 +1,4 @@
-# Preguntas más frecuentes sobre Electron
+# Preguntas Frecuentes sobre Electron
 
 ## ¿Por qué tengo problemas al instalar Electron?
 
@@ -24,9 +24,9 @@ Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que 
 
 ## ¿Cómo compartir datos entre páginas web?
 
-Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), y [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) son buenos candidatos.
+Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. Buenos candidatos son [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], y [IndexedDB][indexed-db].
 
-Alternativamente, puede utilizar los primitivos IPC proporcionados por Electron. Para compartir datos entre los procesos principales y renderizadores, puedes usar los módulos [`ipcMain`](api/ipc-main.md) y [`ipcRenderer`](api/ipc-renderer.md). Para comunicarte directamente entre páginas web, puedes enviar un [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) de uno a otro. posiblemente a través del proceso principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La comunicación posterior a través de los puertos de mensajes es directa y no se desvía a través de el proceso principal.
+Alternativamente, puede utilizar los primitivos IPC proporcionados por Electron. Para compartir datos entre los procesos principales y renderizadores, puedes usar los módulos [`ipcMain`](api/ipc-main.md) y [`ipcRenderer`](api/ipc-renderer.md). Para comunicarte directamente entre páginas web, puedes enviar un [`MessagePort`][message-port] de uno a otro. posiblemente a través del proceso principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La comunicación posterior a través de los puertos de mensajes es directa y no se desvía a través de el proceso principal.
 
 ## La ventana/bandeja de la aplicación desaparece después de unos minutos.
 
@@ -34,8 +34,8 @@ Esto sucede cuando la variable que es usada para almacenar la ventana/bandeja se
 
 Si encuentra este problema, los siguientes artículos pudiesen resultar útiles:
 
-* [Gestión de la Memoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Ámbito de la variable](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestión de la Memoria][memory-management]
+* [Ámbito de la variable][variable-scope]
 
 Si quiere una solución rápida, puede volver sus variables globales cambiando su código de este:
 
@@ -104,11 +104,11 @@ It is very likely you are using the module in the wrong process. Por ejemplo `el
 
 Si [](https://alienryderflex.com/sub_pixel/) de suavizado de subpíxeles está desactivado, las fuentes en las pantallas LCD pueden verse borrosas. Ejemplo:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![ejemplo de renderizado de subpíxeles][]
 
 El anti-aliasing de Sub-píxeles necesita un fondo no transparente de la capa que contenga los glifos de fuente. (Vea [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para más información).
 
-Para alcanzar este objetivo, establezca el fondo en el constructor para [BrowserWindow](api/browser-window.md):
+Para lograr este objetivo, establezca el fondo en el constructor para [Navegador][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,6 +117,16 @@ const win = new BrowserWindow({
 })
 ```
 
-El efecto es visible sólo en (algunos?) pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
+The effect is visible only on (some?) LCD screens. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+[message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[browser-window]: api/browser-window.md
+[ejemplo de renderizado de subpíxeles]: images/subpixel-rendering-screenshot.gif
