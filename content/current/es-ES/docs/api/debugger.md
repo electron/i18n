@@ -2,9 +2,9 @@
 
 > Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-Las herramientas para desarrolladores de Chrome tiene un [special binding](https://chromedevtools.github.io/devtools-protocol/) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
+Las herramientas para desarrolladores de Chrome tiene un [special binding][rdp] disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `reason` Cadena - Razón para desasociar el depurador.
 
 Emitido cuando la sesión de depuración es terminada. Esto ocurre cuando `webContents` es cerrado o el devtools es invocado para el `webContents` adjunto.
@@ -71,10 +71,16 @@ Desasocia el depurador de la `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
 * `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. El valor inicial puede ser obtenido enviando el mensaje [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget).
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 
 Envía el comando al objetivo de la depuración.
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[attachToTarget]: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget
