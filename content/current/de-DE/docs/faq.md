@@ -24,18 +24,18 @@ Neue Funktionalitäten von Node.js werden in der Regel durch V8 Upgrades ermögl
 
 ## Wie kann man Daten zwischen Webseiten austauschen?
 
-Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Gute Kandidaten sind [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`LocalStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) und [`SessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Alternativ können Sie auch die von Electron zur Verfügung gestellten IPC-Primitive verwenden. Um Daten zwischen Haupt- und Renderer-Prozessen zu teilen, Sie können die [`ipcMain`](api/ipc-main.md) und [`ipcRenderer`](api/ipc-renderer.md) Module verwenden. Um direkt zwischen den Webseiten zu kommunizieren, können Sie einen [`MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) von einem zur anderen senden möglicherweise über den Hauptprozess mit [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Nachträgliche Kommunikation über Nachrichten-Ports ist direkt und zieht nicht durch den Hauptprozess um.
+Alternativ können Sie auch die von Electron zur Verfügung gestellten IPC-Primitive verwenden. Um Daten zwischen Haupt- und Renderer-Prozessen zu teilen, Sie können die [`ipcMain`](api/ipc-main.md) und [`ipcRenderer`](api/ipc-renderer.md) Module verwenden. Um direkt zwischen den Webseiten zu kommunizieren, können Sie einen [`MessagePort`][message-port] von einem zur anderen senden möglicherweise über den Hauptprozess mit [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Nachträgliche Kommunikation über Nachrichten-Ports ist direkt und zieht nicht durch den Hauptprozess um.
 
-## Das Fenster/Icon meiner App verschwindet nach ein paar Minuten.
+## Meine App ist nach ein paar Minuten verschwunden.
 
 Dies geschieht, wenn die Variable die das Fenster speichert abgeräumt wird.
 
 Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 
-* [Speicherverwaltung](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Geltungsbereich von Variablen](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Speicherverwaltung][memory-management]
+* [Geltungsbereich von Variablen][variable-scope]
 
 Wenn Sie eine schnelle Lösung bevorzugen, machen Sie die Variablen global, indem Sie Ihren Code
 
@@ -104,11 +104,11 @@ Es ist sehr wahrscheinlich, dass das Modul im falschen Prozess verwendet wird. B
 
 If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Beispiel:
 
-![Subpixel Rendering Beispiel](images/subpixel-rendering-screenshot.gif)
+![Unterpixel-Rendering-Beispiel][]
 
 Subpixel Antialiasing benötigt einen nicht-transparenten Hintergrund der Ebene, die die Schrift-Glyphen enthält. (Siehe [dieses Problem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) für weitere Informationen).
 
-Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [BrowserWindow](api/browser-window.md):
+Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,6 +117,16 @@ const win = new BrowserWindow({
 })
 ```
 
-Der Effekt ist nur auf (einigen?) LCD-Bildschirmen sichtbar. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
+The effect is visible only on (some?) LCD screens. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
 
 Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+[message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[browser-window]: api/browser-window.md
+[Unterpixel-Rendering-Beispiel]: images/subpixel-rendering-screenshot.gif
