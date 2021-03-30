@@ -33,6 +33,8 @@ date: '2019-03-07'
 
 这种脆弱性是由谷歌威胁分析组Clement Lecigne发现的，并向Chrome小组报告。  Chrome博客文章可以在这里找到 [](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html)。
 
-要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 如果您想要报告Electron中的脆弱性，电子邮件security@electronjs.org。
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
