@@ -84,7 +84,7 @@ API SpellCheck был изменен, чтобы предоставить [ас�
 Следующие API устарели в Electron 5.0.0 и планируется удалить в 6.0.0:
 
 ### Бинарные файлы Mksnapshot для arm и arm64
-Родные файлы mksnapshot для arm и arm64 устарели и будут удалены в 6. .0. Снимки могут быть созданы для arm и arm64 с помощью двоичных файлов x64.
+Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
 
 ### ServiceWorker API на веб-контенте
 Устаревшие API ServiceWorker на WebContents при подготовке к их удалению.
