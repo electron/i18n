@@ -184,7 +184,7 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-戻り値 `Boolean` - [DWM Composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) が有効な場合は `true`、それ以外は `false`。
+戻り値 `Boolean` - [DWM Composition][dwm-composition] (Aero Glass) が有効な場合は `true`、それ以外は `false`。
 
 透明なウィンドウを作成するかどうかを決定するためにこのメソッドを使用する例です (透明なウィンドウは、DWM Composition が無効のときは正しく動作しません)。
 
@@ -192,13 +192,13 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
-// プラットフォームがサポートしている場合にのみウインドウを透明にします。
+// Windowを透明にする。ただしプラットフォームがサポートしている場合に限る。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// ウインドウを作成。
+// windowを作成します。
 const win = new BrowserWindow(browserOptions)
 
 // 移動します。
@@ -293,7 +293,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-background` - ウィンドウの背景
     * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [macOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細は [Windows ドキュメント][windows-colors] 及び [macOS ドキュメント][macos-colors] をご参照ください。
 
 次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
@@ -421,3 +421,8 @@ Windows 10 には、すべての win32 アプリケーションの `microphone` 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を返します。
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
