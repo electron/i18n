@@ -63,11 +63,11 @@ Nós passamos muito tempo focado no desempenho. Começamos com frameworks mas mo
 
 Neste momento, lidamos com coleções muito grandes. Grandes coleções significam, possivelmente, dezenas de milhares de imagens! Com o nó. O módulo de sistema de arquivos diretamente disponível no processo de renderização facilitou muito a carga preguiçosa e descarregou muitas imagens super rapidamente com base em eventos DOM.
 
-Em geral, *[setImmediar][]* e *[solicitaçãoIdleCallback][]* foram ferramentas super importantes para realizar muitos processamentos, mantendo a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva. Por exemplo, mudamos o contexto real de áudio para um processo separado, comunicando-se com ele sobre [][] IPC para evitar possíveis interrupções de uma Interface do Usuário ocupada.
+Em geral *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* e *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* foram ferramentas super importantes para executar muitos processamentos, mantendo a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva.
 
 ## Por que você escolheu construir o Voltra no Electron?
 
-A caixa de areia do navegador é muito restrita para o nosso aplicativo. Mas também estamos desenvolvendo um web player. Por isso, é uma grande vitória que possamos compartilhar quase 100% do código entre as duas implementações.
+O sandbox do navegador é muito restrito para nosso aplicativo. Mas também estamos desenvolvendo um jogador da web. Por isso, é uma grande vitória que possamos compartilhar quase 100% do código entre as duas implementações.
 
 Nós realmente começamos construindo um aplicativo nativo com Swift. O principal problema que encontrámos foi que estávamos a reinventar muitas coisas. A Internet tem o maior ecossistema de fonte aberta do mundo. Então nós rapidamente mudamos para o Electron.
 
@@ -88,9 +88,4 @@ Gostaríamos que o Electron apoiasse um único pacote. O embalador é tão impor
 ## O que vem a seguir?
 
 Desenvolvemos atualmente um aplicativo móvel, e trabalhamos com artistas e rótulos para adicionar suas músicas à loja Voltra. Ei! Se você é um artista ou etiqueta, [Cadastre-se agora](https://admin.voltra.co/signup)! Planeamos abrir a loja quando atingirmos o nosso objetivo de 10 milhões de trilhas.
-
-[setImmediar]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
-[solicitaçãoIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
-[3]: https://electronjs.org/docs/glossary/#ipc
-[4]: https://electronjs.org/docs/glossary/#ipc
 
