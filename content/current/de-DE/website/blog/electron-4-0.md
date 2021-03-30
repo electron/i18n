@@ -80,7 +80,8 @@ Bei macOS können Sie jetzt `App anrufen. howAboutPanel()` um das "Über Panel" 
 `WebContents` Instanzen haben jetzt eine Methode `setBackgroundThrottling(erlaubt)` , um das Drosseln von Timern und Animationen zu aktivieren oder zu deaktivieren, wenn die Seite zurückgegroundet ist.
 
 ```javascript
-let win = new BrowserWindow(...)
+lassen Sie gewinnen = new BrowserWindow(...)
+win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
 ```
 
