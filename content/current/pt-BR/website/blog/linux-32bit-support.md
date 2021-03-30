@@ -4,7 +4,7 @@ author: revestimento
 date: '2019-03-04'
 ---
 
-A equipe da Electron vai descontinuar o suporte para Linux de 32 bits (ia32 / i386) começando com o Electron v4.0. A última versão do Electron que suporta instalações baseadas em 32 bits do Linux é o Electron v3.1, que receberá versões de suporte até que o Electron v6 seja lançado. O suporte para Linux com base em 64 bits e `armv7l` continuará inalterado.
+A equipe do Electron descontinuará o suporte para Linux de 32 bits (ia32 / i386) começando com Electron v4.0. A última versão do Electron que suporta instalações baseadas em 32 bits do Linux é o Electron v3.1, que receberá versões de suporte até que o Electron v6 seja lançado. O suporte para Linux com base em 64 bits e `armv7l` continuará inalterado.
 
 ---
 
