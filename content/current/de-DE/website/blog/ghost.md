@@ -30,7 +30,7 @@ Dieses ist uns wichtig: Ghost ist eine unabhängige Non-Profit-Organisation. Wir
 
 ## Was ist Ghost Desktop?
 
-Ghost Desktop ermöglicht Autoren zu verwalten mehrere Blogs auf einmal - und sich auf ihre Schrift zu konzentrieren. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost Desktop ermöglicht Autoren zu verwalten mehrere Blogs auf einmal - und sich auf ihre Schrift zu konzentrieren. Einfache Dinge wie übliche Schreibverknüpfungen können nicht in einem Browser realisiert werden, sind aber in unserer Desktop-App verfügbar. Es erlaubt anderen Anwendungen, direkt [mit dem Blog über deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md) zu kommunizieren.
 
 ## Was ist Ghost for Journalismus?
 
