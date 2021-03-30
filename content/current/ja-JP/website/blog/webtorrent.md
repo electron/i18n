@@ -86,7 +86,7 @@ WebTorrent で作られた一番すごいものといえば、間違いなく、
   <img alt="WebTorrent デスクトップメインウインドウ" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
+Electron アプリはすべてのアプリに Chrome コンテンツモジュール全体を含むため、"肥大化" していると言われています。 これは、場合によっては部分的に当てはまります (Electron アプリインストーラーは通常 ~40MB ですが、OS 固有のアプリインストーラーでは通常 ~20MB)。
 
 しかし、WebTorrent デスクトップの場合、Electron のほぼすべての機能を使用しますし、通常の操作では何十もの Chrome 機能を使用します。 プラットフォームごとにこれらの機能をゼロから実装していれば、アプリを構築するのに数ヶ月から数年かかるか、単一のプラットフォームでしかリリースできなかったでしょう。
 
@@ -126,7 +126,7 @@ jQuery を使用する世代のフロントエンドプログラマーを Node.j
 
 ## 他の開発者に役立つ Electron 開発のノウハウはありますか?
 
-[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
+WebTorrent デスクトップのコントリビューターの 1 人である [Feross](http://feross.org/) は、最近 NodeConf Argentina で *"Electron の世界: JavaScript でクロスプラットフォームアプリを構築"* という講演を行い、洗練された Electron アプリをリリースするための便利なヒントを紹介しました。 この講演は、あなたが基本的な実用アプリを持っている段階にいて、それを次のレベルの洗練と専門的な領域に昇華させようとしているのであれば非常に役立ちます。
 
 [動画はこちら](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
