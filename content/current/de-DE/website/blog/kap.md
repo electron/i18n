@@ -19,7 +19,7 @@ Dieser Beitrag ist der erste in der Serie und Features [Kap](https://getkap.co/)
 
 [Kap ist ein Open-Source-Bildschirmrecorder](https://getkap.co) speziell für Designer und Entwickler entwickelt, um ihre Arbeit einfach zu erfassen. Die Leute nutzen es um animierte Prototypen zu teilen, Fehler zu dokumentieren, dumme GIFs zu erstellen und alles dazwischen.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Sogar um Produktionsanlagen zu schaffen! Wir sind völlig weggesprengt von der gut empfangenen kleinen Seite Projekt.
+We have seen people of all age and backgrounds use it in educational settings, screencasts, tutorials... die Liste geht weiter. Sogar um Produktionsanlagen zu schaffen! Wir sind völlig weggesprengt von der gut empfangenen kleinen Seite Projekt.
 
 ## Warum haben Sie es gebaut?
 
