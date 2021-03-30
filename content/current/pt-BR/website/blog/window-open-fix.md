@@ -24,6 +24,8 @@ view.webContents.on('-add-new-contents', e => e.preventDefault());
 
 Essa vulnerabilidade foi encontrada e reportada de forma responsável ao projeto Electron por [PalmerAL](https://github.com/PalmerAL).
 
-Para saber mais sobre as melhores práticas para manter seus apps Electron seguros, veja nosso [tutorial de segurança](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 Se você deseja relatar uma vulnerabilidade no Electron, envie e-mail security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
