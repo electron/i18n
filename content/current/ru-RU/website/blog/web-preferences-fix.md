@@ -4,7 +4,7 @@ author: ckerr
 date: '2018-08-22'
 ---
 
-Обнаружена уязвимость удаленного выполнения кода, затрагивающая приложения с возможностью открытия вложенных дочерних окон на версиях Electron (3. .0-beta.6, 2.0.7, 1.8.7 и 1.7.15). Эта уязвимость была назначена идентификатором CVE [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685).
+Обнаружена уязвимость удаленного выполнения кода, затрагивающая приложения с возможностью открытия вложенных дочерних окон на версиях Electron (3. .0-beta.6, 2.0.7, 1.8.7 и 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685][].
 
 ---
 
@@ -58,6 +58,9 @@ enforceInheritance(mainWindow. ebContents)
 
 Эта уязвимость была обнаружена и ответственно сообщила проекту Electron [Matt Austin](https://twitter.com/mattaustin) из [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-Чтобы узнать больше о лучших методах обеспечения безопасности приложений Electron, смотрите [наш учебник по безопасности](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 Если вы хотите сообщить об уязвимости в Electron, напишите на security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
+[CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685
