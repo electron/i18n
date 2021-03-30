@@ -4,7 +4,7 @@ author: 菲克斯里塞堡
 date: '2019-03-04'
 ---
 
-电子团队将从电子 v4.0 开始停止对 32 位 Linux （ia32 / i386） 的支持。 支持 Linux 32 位安装的电子的最后一个版本是电子 v3.1，它将接收支持版本，直到电子 v6 发布。 基于64 位的Linux和 `armv7l` 的支持将继续保持不变。
+Electron 团队将停止支持 32 位 Linux (ia32 / i386)，从Electron v4.0 开始。 支持基于32位的 Linux 安装的 Electron 最后版本是 Electron v3.1，它将获得支持版本直到Electron v6 被解除。 基于64 位的Linux和 `armv7l` 的支持将继续保持不变。
 
 ---
 
