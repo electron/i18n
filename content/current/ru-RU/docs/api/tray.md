@@ -2,9 +2,9 @@
 
 > Добавить иконки и контекстные меню в системную область уведомлений.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`Tray` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'ом.
+`Tray` является [EventEmitter][event-emitter]'ом.
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -226,7 +226,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
@@ -243,9 +243,9 @@ Sets the option to ignore double click events. Ignoring these events allows you 
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (опционально) - Не проигрывать соответствующий звук. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". По умолчанию - `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (опционально) - Не проигрывать соответствующий звук. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". По умолчанию - `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Отображает всплывающее сообщение в трее.
 
@@ -259,8 +259,8 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
+* `menu` Menu (опционально)
+* `position` [Point](structures/point.md) (опционально) - Позиция всплывающего сообщения.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
@@ -285,3 +285,9 @@ Closes an open context menu, as set by `tray.setContextMenu()`.
 #### `tray.isDestroyed()`
 
 Возвращает `Boolean` - уничтожен ли значок в трее.
+
+[NIIF_NOSOUND]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010
+[NIIF_LARGE_ICON]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020
+[NIIF_RESPECT_QUIET_TIME]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
