@@ -4,7 +4,7 @@ author: ckerr
 date: '2018-08-22'
 ---
 
-Eine Verwundbarkeit für die entfernte Codeausführung wurde entdeckt, die Apps betrifft, die verschachtelte Unterfenster in Electron-Versionen öffnen können (3. .0-beta.6, 2.0.7, 1.8.7 und 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685][].
+Eine Verwundbarkeit für die entfernte Codeausführung wurde entdeckt, die Apps betrifft, die verschachtelte Unterfenster in Electron-Versionen öffnen können (3. .0-beta.6, 2.0.7, 1.8.7 und 1.7.15). Diese Verwundbarkeit wurde der CVE-Kennung [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685) zugewiesen.
 
 ---
 
@@ -58,9 +58,6 @@ Dieser Code wird manuell erzwingen, dass die Fenster der obersten Ebene `webPref
 
 Diese Verwundbarkeit wurde von [Matt Austin](https://twitter.com/mattaustin) von [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685) gefunden und verantwortlich für das Electron-Projekt gemeldet.
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
+Um mehr über Best Practices für die Sicherheit Ihrer Electron-Apps zu erfahren, lesen Sie unsere [-Sicherheitshinweise](https://electronjs.org/docs/tutorial/security).
 
 Wenn Sie eine Verwundbarkeit in Electron melden möchten, schicken Sie eine E-Mail an security@electronjs.org.
-
-[security tutorial]: https://electronjs.org/docs/tutorial/security
-[CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685
