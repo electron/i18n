@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
@@ -92,7 +92,7 @@ The following additional roles are available on _macOS_:
 * `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
-* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
@@ -183,3 +183,5 @@ A `Number` indicating an item's sequential unique id.
 #### `menuItem.menu`
 
 A `Menu` that the item is a part of.
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
