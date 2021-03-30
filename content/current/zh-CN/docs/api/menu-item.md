@@ -10,7 +10,7 @@
 
 * `选项` 对象
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
-    * `menuItem` MenuItem
+    * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. 参见 [roles](#roles)
@@ -47,9 +47,9 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 `role ` 属性可以具有以下值:
 
-* `undo`
+* `撤消`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `redo`
+* `重做`
 * `cut`
 * `copy`
 * `paste`
@@ -92,7 +92,7 @@ The following additional roles are available on _macOS_:
 * `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
-* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
 
@@ -183,3 +183,5 @@ A `Number` indicating an item's sequential unique id.
 #### `menuItem.menu`
 
 A `Menu` that the item is a part of.
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
