@@ -24,8 +24,6 @@ view.webContents.on('-add-new-contents', e => e.preventDefault();
 
 [PalmerAL](https://github.com/PalmerAL) 已经发现这个脆弱性并负责任地报告给Electron项目。
 
-要了解有关保护电子应用安全的最佳实践的更多信息，请参阅我们的 [安全教程][]。
+要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
 
 如果您想要报告Electron中的脆弱性，电子邮件security@electronjs.org。
-
-[安全教程]: https://electronjs.org/docs/tutorial/security
