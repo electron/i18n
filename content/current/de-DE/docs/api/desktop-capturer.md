@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das folgende Beispiel zeigt, wie man Video von einem Desktop Fenster mit dem Titel `Electron` aufnehmen kann:
+Das folgende Beispiel zeigt, wie Sie ein Video von einem Desktop-Fenster aufnehmen, dessen Titel `Elektron` lautet:
 
 ```javascript
 // In the renderer process.
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
 
 ```javascript
 const constraints = {
@@ -68,21 +68,24 @@ const constraints = {
 
 ## Methoden
 
-The `desktopCapturer` module has the following methods:
+Das Modul `desktopCapturer` verfügt über die folgenden Methoden:
 
 ### `desktopCapturer.getSources(options)`
 
 * `options` Object
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `types` String[] - Ein Array von Strings, das die Typen der Desktop-Quellen auflistet die aufgezeichnet werden sollen, verfügbare Typen sind `screen` und `window`.
+  * `thumbnailSize` [Size](structures/size.md) (optional) - Die Größe, auf die die Miniaturansicht der Medienquelle skaliert werden soll. Voreinstellung ist `150` x `150`. Setzen Sie die Breite oder Höhe auf 0, wenn Sie kein Miniaturansichten benötigen. Dies reduziert die Verarbeitungszeit, die für die Erfassung des Inhalts der einzelnen Fenster und des Bildschirme benötigt wird.
+  * `fetchWindowIcons` Boolean (optional) - Auf true setzen, um das Abrufen von Fenstersymbolen zu aktivieren. Der Standard Wert ist false. Bei false gibt die appIcon-Eigenschaft der Quellen null zurück. Dasselbe gilt, wenn eine Quelle den Typ "screen" hat.
 
-Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Rückgabe `Promise<DesktopCapturerSource[]>` - Löst mit einem Array von [`DesktopCapturerSource`](structures/desktop-capturer-source.md)-Objekte auf, wobei jede `DesktopCapturerSource` einen Bildschirm oder ein einzelnes Fenster darstellt, das erfasst werden kann.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
 
-## Caveats
+## Vorbehalte
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+`navigator.mediaDevices.getUserMedia` funktioniert unter macOS nicht für Audioaufnahmen aufgrund einer grundsätzlichen Einschränkung, bei der Apps, die auf das Audiosystem zugreifen wollen, eine [signierte Kernel-Erweiterung](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html) benötigen. Chromium, und damit auch Electron, bieten dies nicht an.
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+Es ist möglich, diese Einschränkung zu umgehen, indem Sie das Systemaudio mit einer anderen macOS-App wie Soundflower aufnehmen und durch ein virtuelles Audioeingabegerät leiten. Dieses virtuellen Geräte können dann mit `navigator.mediaDevices.getUserMedia` abgefragt werden.
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
+[`systemPreferences.getMediaAccessStatus`]: system-preferences.md#systempreferencesgetmediaaccessstatusmediatype-windows-macos
