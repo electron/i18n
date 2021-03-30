@@ -16,7 +16,7 @@ Por padrão, os avisos serão mostrados se você estiver usando APIs obsoletas. 
 
 ## Nova maneira de usar módulos integrados
 
-Os módulos integrados agora estão agrupados em um módulo, em vez de serem separados em módulos independentes, para que você possa usá-los [sem conflitos com outros módulos](https://github.com/electron/electron/issues/387):
+Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
 
 ```javascript
 aplicativo = require('electron').app
@@ -94,4 +94,6 @@ O estilo dos eventos da `Bandeja` foi um pouco diferente dos outros módulos, en
 * `clicado` é renomeado para `clique`
 * `duplo clique` é renomeado para `duplo-clique`
 * `clique direito` é renomeado para `clique direito`
+
+[issue-387]: https://github.com/electron/electron/issues/387
 
