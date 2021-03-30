@@ -2,9 +2,9 @@
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), available at `chrome://tracing` in Chrome.
+This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
@@ -68,3 +68,5 @@ Returns `Promise<Object>` - Resolves with an object containing the `value` and `
 * `percentage` Number
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.
+
+[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
