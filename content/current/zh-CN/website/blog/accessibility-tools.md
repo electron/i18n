@@ -10,7 +10,7 @@ date: '2016-08-23'
 
 Electron 应用程序中的辅助功能关注类似于网站的关注，因为它们最终都是 HTML。 然而，通过 Electron 应用，您不能使用在线资源进行辅助审核，因为您的应用没有一个URL来指向审计师。
 
-这些新功能将这些审计工具带到您的 Electron 应用中。 您可以选择使用 Spectron 将审核添加到测试中，或者在 Devtron 的 DevTools 中使用 阅读工具摘要或结算我们的 [辅助文档](https://electronjs.org/docs/tutorial/accessibility/) 以获取更多信息。
+These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. 阅读工具摘要或结算我们的 [辅助文档](https://electronjs.org/docs/tutorial/accessibility/) 以获取更多信息。
 
 ### Spectron
 
