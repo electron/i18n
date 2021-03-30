@@ -71,6 +71,12 @@ Enables caller stack logging for the following APIs (filtering events):
 
 这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
 
+## --force-fieldtrials=`trials`
+
+Field trials to be forcefully enabled or disabled.
+
+For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`rules`
 
 以逗号分隔的`rules`列表，用于控制主机名的映射方式
