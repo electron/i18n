@@ -1,17 +1,17 @@
-# Updating Applications
+# Обновление приложений
 
 Существует несколько способов по обновлению Electron приложений. Самый простой и официально поддерживаемый - воспользоваться встроенным [Squirrel](https://github.com/Squirrel) фреймворком и модулем Electron [autoUpdater](../api/auto-updater.md).
 
 ## Используя `update.electronjs.org`
 
-Команда Electron поддерживает [update.electronjs.org](https://github.com/electron/update.electronjs.org), бесплатный и открытый веб-сервис, который Electron приложения могут использовать для самообновления. Сервис разработан для приложений Electron, отвечающих следующим критериям:
+Команда Electron поддерживает [update.electronjs.org][], бесплатный и открытый веб-сервис, который Electron приложения могут использовать для самообновления. Сервис разработан для приложений Electron, отвечающих следующим критериям:
 
 - Приложение работает на macOS или Windows
 - Приложение имеет публичный GitHub репозиторий
 - Сборки публикуются в GitHub Releases
 - Сборки с кодовой подписью
 
-Самый простой способ использовать этот сервис - установить [update-electron-app](https://github.com/electron/update-electron-app), модуль Node.js, сконфигурированный для использования с update.electronjs.org.
+Самый простой способ использовать этот сервис - установить [update-electron-app][], модуль Node.js, сконфигурированный для использования с update.electronjs.org.
 
 Установить модуль:
 
@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 По умолчанию этот модуль будет проверять наличие обновлений при запуске приложения, а затем каждые десять минут. При обнаружении обновления оно будет автоматически загружено в фоновом режиме. Когда загрузка завершится, будет отображено диалоговое окно, позволяющее пользователю перезапустить приложение.
 
-Если вам нужно настроить конфигурацию, вы можете [передать параметры в `update-electron-app`](https://github.com/electron/update-electron-app) или [использовать службу обновления напрямую](https://github.com/electron/update.electronjs.org).
+Если вам нужно настроить конфигурацию, вы можете [передать параметры в `update-electron-app`][update-electron-app] или [использовать службу обновления напрямую][update.electronjs.org].
 
 ## Развертывание сервера обновлений
 
@@ -35,10 +35,10 @@ If you're developing a private Electron application, or if you're not publishing
 
 Depending on your needs, you can choose from one of these:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
+- [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
+- [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
+- [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Поддержка нескольких приложений и каналов; использует статический файловый магазин для минимизации стоимости сервера.
 
 ## Внедрение обновлений в Ваше приложение
 
@@ -80,10 +80,10 @@ autoUpdater. n('update-downloaded', (событие, releaseNotes, releaseName) 
     кнопки: ['Перезапустить', 'Позже'],
     название: 'Application Update',
     сообщение: процесс. latform === 'win32' ? releaseNotes : releaseName,
-    detail: 'Новая версия была загружена. Перезапустите приложение, чтобы применить обновления.'
+    detail: 'Новая версия была загружена. Restart the application to apply the updates.'
   }
 
-  диалог.showMessageBox(dialogOpts).then((returnValue) => {
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
     if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
@@ -101,3 +101,14 @@ autoUpdater.on('error', сообщение => {
 ## Обработка обновлений вручную
 
 Потому что запросы, сделанные автоматическим обновлением, не находятся под вашим непосредственным контролем, вы можете обнаружить ситуации, с которыми сложно справиться (например, если сервер обновления находится за аутентификацией). Поле `url` выполняет поддержку файлов, что означает, что с некоторой стороны процесса можно отключить. [Вот пример того, как это могло бы работать](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
+
+[now]: https://zeit.co/now
+[hazel]: https://github.com/zeit/hazel
+[nuts]: https://github.com/GitbookIO/nuts
+[gh-releases]: https://help.github.com/articles/creating-releases/
+[electron-release-server]: https://github.com/ArekSredzki/electron-release-server
+[nucleus]: https://github.com/atlassian/nucleus
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app
