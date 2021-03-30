@@ -1,5 +1,5 @@
 # Objeto UploadData
 
 * `bytes` Buffer - Conteúdo sendo enviado.
-* `file` String (opcional) - Caminho do arquivo sendo carregado.
-* `blobUUID` String (opcional) - UUID de dados blob. Use o método [ses.getBlobData](../session.md#sesgetblobdataidentifier) para recuperar os dados.
+* `file` String (optional) - Path of file being uploaded.
+* `blobUUID` String (optional) - UUID of blob data. Use [ses.getBlobData](../session.md#sesgetblobdataidentifier) method to retrieve the data.
