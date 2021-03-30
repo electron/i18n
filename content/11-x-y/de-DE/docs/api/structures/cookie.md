@@ -9,4 +9,4 @@
 * `httpOnly` Boolean (optional) - Ist der Cookie als "HTTP only" markiert?
 * `session` Boolean (optional) - Ist der Cookie ein Session Cookie oder ein permanenter Cookie mit einem Ablaufdatum?
 * `expirationDate` Double (optional) - Das Ablaufdatum des Cookies in Sekunden seit Beginn der UNIX-Zeit. Bei Session-Cookies nicht angegeben.
-* `sameSite` String - Die [Gleiche-Seite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies)-Richtlinie, die für dieses Cookie gilt.  Sein Wert kann `nicht gesetzt `, `no_restriction`, `lax` oder `strict` sein.
+* </code></0>Strinxg-Die [Politik der selben Website](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies)diesem Cookie angewendet.  Sein Wert kann `nicht gesetzt `, `no_restriction`, `lax` oder `strict` sein.
