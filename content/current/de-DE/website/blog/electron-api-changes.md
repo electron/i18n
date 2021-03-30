@@ -16,7 +16,7 @@ Standardmäßig werden Warnungen angezeigt, wenn Sie veraltete APIs verwenden. U
 
 ## Neue Möglichkeit, integrierte Module zu verwenden
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules](https://github.com/electron/electron/issues/387):
+Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
 
 ```javascript
 var app = require('electron').app
@@ -94,4 +94,6 @@ Der Stil des `Tray` Ereignis-Namens war etwas anders als andere Module, so dass 
 * `angeklickt` wurde umbenannt in `klicken`
 * `Doppelklick` wurde umbenannt in `Doppelklick`
 * `Rechtsklickt` wird umbenannt zu `Rechtsklick`
+
+[issue-387]: https://github.com/electron/electron/issues/387
 
