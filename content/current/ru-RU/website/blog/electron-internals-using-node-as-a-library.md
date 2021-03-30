@@ -4,7 +4,7 @@ author: zcbenz
 date: '2016-08-08'
 ---
 
-Это вторая должность в текущей серии, объясняющая интернаты Electron. Посмотрите [первый пост](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) о интеграции цикла событий , если вы еще этого не сделали.
+Это вторая должность в текущей серии, объясняющая интернаты Electron. Check out the [first post][event-loop] about event loop integration if you haven't already.
 
 Most people use [Node](https://nodejs.org) for server-side applications, but because of Node's rich API set and thriving community, it is also a great fit for an embedded library. Это сообщение объясняет, как узел используется в качестве библиотеки в Electron.
 
@@ -12,17 +12,17 @@ Most people use [Node](https://nodejs.org) for server-side applications, but bec
 
 ## Система сборки
 
-Узел и Electron используют [`GYP`](https://gyp.gsrc.io) в качестве их систем сборки. Если вы хотите вставить узла внутри вашего приложения, вы также должны использовать его как систему сборки.
+Both Node and Electron use [`GYP`][gyp] as their build systems. Если вы хотите вставить узла внутри вашего приложения, вы также должны использовать его как систему сборки.
 
-Новый `GYP`? Прочтите [это руководство](https://gyp.gsrc.io/docs/UserDocumentation.md) прежде чем вы продолжите работу в этом сообщении.
+Новый `GYP`? Read [this guide][gyp-docs] before you continue further in this post.
 
 ## Флаги узла
 
-[`узел. yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) файл в директории исходного кода узла описывает, как строится узел , вместе со множеством переменных [`GYP`](https://gyp.gsrc.io) управляет какими частями узла и открывают ли некоторые конфигурации.
+The [`node.gyp`][nodegyp] file in Node's source code directory describes how Node is built, along with lots of [`GYP`][gyp] variables controlling which parts of Node are enabled and whether to open certain configurations.
 
 To change the build flags, you need to set the variables in the `.gypi` file of your project. The `configure` script in Node can generate some common configurations for you, for example running `./configure --shared` will generate a `config.gypi` with variables instructing Node to be built as a shared library.
 
-Electron не использует сценарий `настроить` так как у него есть свои собственные сценарии сборки. Конфигурации для узла определены в файле [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) в корневом каталоге исходного кода Electron.
+Electron не использует сценарий `настроить` так как у него есть свои собственные сценарии сборки. The configurations for Node are defined in the [`common.gypi`][commongypi] file in Electron's root source code directory.
 
 ## Связать узел с Electron
 
@@ -36,23 +36,36 @@ In Electron, Node is being linked as a shared library by setting the `GYP` varia
 
 В Electron, Node был построен как статическая библиотека долгое время. Это сделало сборку простым, включило лучшие оптимизации компилятора, и позволило Electron распространять без лишних `узлов.dll` файлов.
 
-Тем не менее, это изменилось после того, как Chrome переключился на использование [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL — это ответвление [OpenSSL](https://www.openssl.org) , которое удаляет несколько неиспользуемых API и изменяет многие существующие интерфейсы. Поскольку узел все еще использует OpenSSL, компилятор генерирует множество ошибок, связанных с конфликтующими символами, если они связаны вместе.
+However, this changed after Chrome switched to use [BoringSSL][boringssl]. BoringSSL is a fork of [OpenSSL][openssl] that removes several unused APIs and changes many existing interfaces. Поскольку узел все еще использует OpenSSL, компилятор генерирует множество ошибок, связанных с конфликтующими символами, если они связаны вместе.
 
-Electron не смог использовать BoringSSL в узле или использовать OpenSSL в Chromium, чтобы единственный вариант заключался в том, чтобы переключиться на построение узла в качестве разделяемой библиотеки, и [скрыть символы BoringSSL и OpenSSL](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) в компонентах каждого из них.
+Electron couldn't use BoringSSL in Node, or use OpenSSL in Chromium, so the only option was to switch to building Node as a shared library, and [hide the BoringSSL and OpenSSL symbols][openssl-hide] in the components of each.
 
 Это изменение принесло Electron некоторые положительные побочные эффекты. Перед изменением вы не можете переименовать исполняемый файл Electron на Windows, если вы использовали родные модули, так как имя исполняемого файла было закодировано в библиотеке импорта. После того, как узел был построен как общая библиотека, это ограничение было снято потому что все родные модули были связаны с узлом `. если`, имя которого не нужно изменить.
 
 ## Поддержка собственных модулей
 
-[Нативные модули](https://nodejs.org/api/addons.html) в работе узла определяют функцию ввода для загрузки узла, и затем поиск символов V8 и libuv из узла. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
+[Native modules][native-modules] in Node work by defining an entry function for Node to load, and then searching the symbols of V8 and libuv from Node. This is a bit troublesome for embedders because by default the symbols of V8 and libuv are hidden when building Node as a library and native modules will fail to load because they cannot find the symbols.
 
-Поэтому для того, чтобы родные модули работали, символы V8 и libuv были выставлены в Electron. Для V8 это выполняется [с помощью принудительного использования всех символов в конфигурационном файле Chromium](https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122). For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228).
+Поэтому для того, чтобы родные модули работали, символы V8 и libuv были выставлены в Electron. For V8 this is done by [forcing all symbols in Chromium's configuration file to be exposed][v8-expose]. For libuv, it is achieved by [setting the `BUILDING_UV_SHARED=1` definition][libuv-expose].
 
 ## Запуск узла в вашем приложении
 
 После всех работ по построению и связыванию с узлом последний шаг - запустить узел в вашем приложении.
 
-Узел не предоставляет много публичных API для встраивания себя в другие приложения. Обычно вы можете просто вызвать [`узел::Start` и `узел::Init`](https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191) , чтобы запустить новый экземпляр узла. Однако, если вы создаете сложное приложение на основе узла, вы должны использовать API, такие как `узел::CreateEnvironment` для точного контроля каждые шаги.
+Узел не предоставляет много публичных API для встраивания себя в другие приложения. Usually, you can just call [`node::Start` and `node::Init`][node-start] to start a new instance of Node. Однако, если вы создаете сложное приложение на основе узла, вы должны использовать API, такие как `узел::CreateEnvironment` для точного контроля каждые шаги.
 
 В Electron, узел запускается в двух режимах: автономный режим, который запускается в главном процессе , похожий на официальные узлы и встроенный режим , который вставляет API узлов на веб-страницы. Подробности об этом будут разъяснены на одной из будущих должностей.
+
+[gyp]: https://gyp.gsrc.io
+[nodegyp]: https://github.com/nodejs/node/blob/v6.3.1/node.gyp
+[commongypi]: https://github.com/electron/electron/blob/master/common.gypi
+[openssl-hide]: https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218
+[v8-expose]: https://github.com/electron/libchromiumcontent/blob/v51.0.2704.61/chromiumcontent/chromiumcontent.gypi#L104-L122
+[libuv-expose]: https://github.com/electron/electron/blob/v1.3.2/common.gypi#L219-L228
+[node-start]: https://github.com/nodejs/node/blob/v6.3.1/src/node.h#L187-L191
+[event-loop]: https://electronjs.org/blog/2016/07/28/electron-internals-node-integration
+[gyp-docs]: https://gyp.gsrc.io/docs/UserDocumentation.md
+[native-modules]: https://nodejs.org/api/addons.html
+[boringssl]: https://boringssl.googlesource.com/boringssl
+[openssl]: https://www.openssl.org
 
