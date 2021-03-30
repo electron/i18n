@@ -4,7 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`ipcRenderer` モジュールは [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 レンダラープロセス (ウェブページ) からメインプロセスに同期及び非同期メッセージを送れるように、いくつかのメソッドを提供します。 メインプロセスからの返信を受け取ることもできます。
+`ipcRenderer` モジュールは [Event Emitter][event-emitter] を継承しています。 レンダラープロセス (ウェブページ) からメインプロセスに同期及び非同期メッセージを送れるように、いくつかのメソッドを提供します。 メインプロセスからの返信を受け取ることもできます。
 
 サンプルコードについては [ipcMain](ipc-main.md) を参照して下さい。
 
@@ -49,7 +49,7 @@
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -57,7 +57,7 @@
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
-[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用します。
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用してください。
 
 メソッド呼び出しの結果のようにメインプロセスから応答を一つだけ受け取りたい場合は、[`ipcRenderer.invoke`](#ipcrendererinvokechannel-args) の使用を検討してください。
 
@@ -68,7 +68,7 @@
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -91,7 +91,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 })
 ```
 
-[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用します。
+[`MessagePort`][] をメインプロセスに転送する必要がある場合は、[`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer) を使用してください。
 
 メッセージの応答が必要ない場合は、[`ipcRenderer.send`](#ipcrenderersendchannel-args) の使用を検討してください。
 
@@ -102,7 +102,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window/postMessage`][] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`window.postMessage`][] と同じように [構造化複製アルゴリズム][SCA] によってシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
 > **注意:** DOM オブジェクトや特殊な Electron オブジェクトなど、非標準の JavaScript 型を送信すると例外が発生します。
 > 
@@ -118,7 +118,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `message` any
 * `transfer` MessagePort[] (任意)
 
-メインプロセスにメッセージを送信し、任意でゼロ個以上の [`MessagePort`][] オブジェクトの所有権を転送します。
+メッセージをメインプロセスに送信し、任意でゼロ個以上の [ `MessagePort`][] オブジェクトの所有権を転送します。
 
 転送した `MessagePort` オブジェクトは、発生したイベントの `ports` プロパティにアクセスすることで、[`MessagePortMain`](messageport-main.md) オブジェクトとしてメインプロセスで利用可能になります。
 
@@ -156,3 +156,9 @@ ipcMain.on('port', (e, msg) => {
 ## イベントオブジェクト
 
 `callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-renderer-event`](structures/ipc-renderer-event.md) 構造体ドキュメントにあります。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`window.postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+[`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[ `MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
