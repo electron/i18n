@@ -12,7 +12,7 @@ A partir de la versión 1.3.1 de Electron puede `instalar electron --save-dev` p
 
 ## El binario precompilado de Electron
 
-If you've ever worked on an Electron app before, you've likely come across the `electron-prebuilt` npm package. Este paquete es una parte indispensable de casi cada proyecto Electron. Cuando está instalado, detecta su sistema operativo y descarga un binario precompilado para trabajar en la arquitectura de su sistema.
+Si alguna vez has trabajado en una aplicación Electron, probablemente te hayas encontrado con el paquete Npm `electron-prebuilt`. Este paquete es una parte indispensable de casi cada proyecto Electron. Cuando está instalado, detecta su sistema operativo y descarga un binario precompilado para trabajar en la arquitectura de su sistema.
 
 ## El nuevo nombre
 
