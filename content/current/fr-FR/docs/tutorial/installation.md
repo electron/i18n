@@ -1,12 +1,12 @@
 # Installation
 
-Pour installer des binaires Electron précompilés, utilisez [`npm`](https://docs.npmjs.com). La méthode préférée est d'installer Electron en tant que dépendance de développement dans votre application :
+To install prebuilt Electron binaries, use [`npm`][npm]. La méthode préférée est d'installer Electron en tant que dépendance de développement dans votre application :
 
 ```sh
 npm install electron --save-dev
 ```
 
-Voir la [documentation du versionnage](./electron-versioning.md) pour plus d'informations sur la façon de gérer différentes versions d'Electron dans vos applications.
+Voir la [documentation du versionnage][versioning] pour plus d'informations sur la façon de gérer différentes versions d'Electron dans vos applications.
 
 ## Installation global
 
@@ -34,12 +34,12 @@ npm install --platform=win32 electron
 
 Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_GET_USE_PROXY` à n'importe quelle valeur plus des variables d'environnement supplémentaires en fonction de la version de Node de votre système hôte:
 
-* [Node 10 et plus](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Avant Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node 10 et plus][proxy-env-10]
+* [Avant Node 10][proxy-env]
 
 ## Mirroirs et Caches personnalisés
 
-Lors de l'installation, le module `electron` appellera à [`@electron/get`](https://github.com/electron/get) pour télécharger les binaires précompilés de Electron pour votre plate-forme. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).
+During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).
 
 Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de fournir un binaire personnalisé, vous pouvez aussi le faire en mettant à disposition un miroir ou un répertoire de cache existant.
 
@@ -121,11 +121,11 @@ Lorsque vous exécutez `npm install electron`, certains utilisateurs rencontrent
 
 Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau et non un soucis avec le packet npm `electron`. Les erreurs comme `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` et `ETIMEDOUT` sont toutes des indications d'un problème de réseau. La meilleure solution est d'essayer en changeant de réseau ou juste d'attendre un peu et de réessayer l'installation.
 
-Vous pouvez également essayer de télécharger Electron directement depuis [electron/electron/releases](https://github.com/electron/electron/releases) si l'installation via `npm` ne marche pas.
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
-Si l'installation échoue avec une erreur `EACCESS`, vous devez peut-être [réparer les droits npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) devrait être définit à true :
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -138,3 +138,12 @@ npm install --verbose electron
 ```
 
 Si vous devez forcer le re-téléchargement de l'asset et du fichier SHASUM, mettez la variable d'environnement `force_no_cache` à `true`.
+
+[npm]: https://docs.npmjs.com
+[versioning]: ./electron-versioning.md
+[releases]: https://github.com/electron/electron/releases
+[proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
+[proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
+[electron-get]: https://github.com/electron/get
+[npm-permissions]: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+[unsafe-perm]: https://docs.npmjs.com/misc/config#unsafe-perm
