@@ -2,7 +2,7 @@
 
 > Personnaliser le rendu de la page web actuelle.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
@@ -51,8 +51,9 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
 > **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -77,7 +78,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spellchecker) comme fournisseur :
+Un exemple d'utilisation de [node-spellchecker][spellchecker] comme fournisseur :
 
 ```javascript
 const { webFrame } = require('electron')
@@ -247,3 +248,5 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker
