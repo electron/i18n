@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-Electron の [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) ベータリリースは macOS の [Touch Bar](https://developer.apple.com/macos/touch-bar) に対する初期サポートを含みます。
+Electron の [1.6.3][] ベータリリースは macOS の [Touch Bar][] に対する初期サポートを含みます。
 
 ---
 
@@ -29,20 +29,20 @@ const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// リールのラベル
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// 結果のラベル
+// Spin result label
 const result = new TouchBarLabel()
 
-// スピンボタン
+// Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // 常に回っていれば無視
+    // Ignore clicks if already spinning
     if (spinning) {
       return
     }
@@ -60,7 +60,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // スピンごとに少し遅くする
+        // Slow down a bit on each spin
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -84,16 +84,16 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // 3 つの値がすべて同じ
-    result.label = '💰 ジャックポット!'
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 つの値が同じ
-    result.label = '😍 勝利!'
+    // 2 つの値が同じ場合
+    result.label = '😍 やったね!'
     result.textColor = '#FDFF00'
   } else {
-    // すべて違う値
-    result.label = '🙁 もう一回'
+    // No values are the same
+    result.label = '🙁 Spin Again'
     result.textColor = null
   }
   spinning = false
@@ -125,4 +125,7 @@ app.once('ready', () => {
   window.setTouchBar(touchBar)
 })
 ```
+
+[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
+[Touch Bar]: https://developer.apple.com/macos/touch-bar
 
