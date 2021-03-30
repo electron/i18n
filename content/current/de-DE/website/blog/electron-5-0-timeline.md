@@ -4,7 +4,7 @@ author: sofianguy
 date: '2019-01-25'
 ---
 
-Zum ersten Mal überhaupt begeistert sich Electron dafür, unseren Veröffentlichungsplan ab Version 5 bekannt zu geben. .0. Dies ist unser erster Schritt, eine öffentliche, langfristige Zeitleiste zu haben.
+For the first time ever, Electron is excited to publicize our release schedule starting with v5.0.0. This is our first step in having a public, long-term timeline.
 
 ---
 
@@ -17,6 +17,6 @@ In der letzten Hälfte des Jahres 2018 war es unsere oberste Priorität, schnell
 
 Wir würden gerne zukünftige Termine wie [Knoten versprechen. s](https://github.com/nodejs/Release) und [Chromium](https://chromiumdash.appspot.com/schedule) tun, aber wir sind noch nicht an diesem Ort __. Wir sind optimistisch, dass wir in Zukunft eine langfristige Zeitleiste erreichen werden.
 
-In diesem Sinne unternehmen wir erste Schritte, indem wir unseren Veröffentlichungsplan für v5.0.0 öffentlich veröffentlichen. Das findest du [hier](https://electronjs.org/docs/tutorial/electron-timelines).
+With that in mind, we are taking first steps by publicly posting our release schedule for v5.0.0. You can find that [here](https://electronjs.org/docs/tutorial/electron-timelines).
 
 Um uns beim Testen unserer Beta-Versionen und der Stabilisierung zu helfen, erwägen Sie bitte, unserem [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) beizutreten.
