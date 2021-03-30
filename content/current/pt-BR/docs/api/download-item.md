@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`DownloadItem` é um [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) que representa um item de download no Electron. É usado no evento `will-download` da classe `Session`, e permite aos usuários controlarem o item de download.
+`DownloadItem` é um [EventEmitter][event-emitter] que representa um item de download no Electron. É usado no evento `will-download` da classe `Session`, e permite aos usuários controlarem o item de download.
 
 ```javascript
 // No processo main.
@@ -166,10 +166,12 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 #### `downloadItem.savePath`
 
 A `String` property that determines the save file path of the download item.
 
 The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
