@@ -2,9 +2,9 @@
 
 > Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter][event-emitter].
 
 ### Eventos de Instancia
 
@@ -65,3 +65,5 @@ Un `Integer` que indica el número de la versión principal del protocolo HTTP.
 #### `response.httpVersionMinor`
 
 Un `Integer` que indica el número de la versión secundaria del protocolo HTTP.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
