@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-今週は GitHub 通知を管理する Electron ベースのツール、[Jasper](https://jasperapp.io) の作者にインタビューを伺いました。
+今週は GitHub 通知を管理する Electron ベースのツール、[Jasper][] の作者にインタビューを伺いました。
 
 ---
 
@@ -17,7 +17,7 @@ date: '2017-03-21'
 
 ## Jasper とは何ですか?
 
-[Jasper](https://jasperapp.io) は GitHub 向けの柔軟で強力な Issue リーダーです。 github.com や GitHub Enterprise での Issue やプルリクエストに対応しています。
+[Jasper][] は GitHub 向けの柔軟で強力な Issue リーダーです。 github.com や GitHub Enterprise での Issue やプルリクエストに対応しています。
 
 [![Jasper アプリスクリーンショット](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
@@ -127,7 +127,7 @@ Electron のこういったところが気に入っています。
 
 ## Jasper 開発の際に直面した課題はありますか?
 
-"ストリーム" の概念を考え出すところで苦労しました。 最初は GitHub の [Notifications API](https://developer.github.com/v3/activity/notifications/) を使おうと考えました。 しかし、特定のユースケースに対応していないと気づきました。 その後 Notification API に加えて、[Issues API](https://developer.github.com/v3/issues/) と [Pull Requests API](https://developer.github.com/v3/pulls/) の利用も検討しました。 それでも、望んでいたものにはなりませんでした。 そこで、いろいろな方法を考えていくうちに、GitHub の[Search API](https://developer.github.com/v3/search/) をポーリングするのが最も柔軟だと気づきました。 ここまでに約 1 ヶ月の実験期間を要しましたが、その後 2 日でストリームの概念を取り入れた Jasper のプロトタイプを実装しました。
+"ストリーム" の概念を考え出すところで苦労しました。 最初は GitHub の [Notifications API][] を使おうと考えました。 しかし、特定のユースケースに対応していないと気づきました。 その後 Notification API に加えて、[Issues API][] と [Pull Requests API][] の利用も検討しました。 それでも、望んでいたものにはなりませんでした。 そこで、いろいろな方法を考えていくうちに、GitHub の[Search API][] をポーリングするのが最も柔軟だと気づきました。 ここまでに約 1 ヶ月の実験期間を要しましたが、その後 2 日でストリームの概念を取り入れた Jasper のプロトタイプを実装しました。
 
 注: ポーリングは最大で 10 秒に 1 回までとなっています。 GitHub API の制限からすれば余裕を持たせてあります。
 
@@ -140,4 +140,10 @@ Electron のこういったところが気に入っています。
 - **パフォーマンス改善**: 今のところ WebView での Issue 読み込みは通常のブラウザよりも遅くなっています。
 
 更新情報は [@jasperappio](https://twitter.com/jasperappio) の Twitter を確認してください。
+
+[Jasper]: https://jasperapp.io
+[Notifications API]: https://developer.github.com/v3/activity/notifications/
+[Pull Requests API]: https://developer.github.com/v3/pulls/
+[Issues API]: https://developer.github.com/v3/issues/
+[Search API]: https://developer.github.com/v3/search/
 
