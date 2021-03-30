@@ -4,7 +4,7 @@
 
 关于如何使用 JavaScript构建高性能网站的技巧和方法通常也适用于Electron 应用程序。 在某种程度上，讨论如何构建高性能 Node.js 应用的方法同样也适用。但是小心理解“性能”一词的含义对于 Node.js 后端和客户端程序并不相同。
 
-文中的列表提供了一些方便，同时也需要注意，它和我们的[安全性检查列表](./security.md)类似，并不详尽。 即使你参照了下面提到的所有步骤，依然有可能构建出来一个性能低的Electron应用。 Electron是一个强大的开发平台，可以让开发人员按照自己所想，做更多的或更少的事情。 而这种自由的代价就是开发者需要承担大部分性能上的责任。
+文中的列表提供了一些方便，同时也需要注意，它和我们的[安全性检查列表][security]类似，并不详尽。 即使你参照了下面提到的所有步骤，依然有可能构建出来一个性能低的Electron应用。 Electron是一个强大的开发平台，可以让开发人员按照自己所想，做更多的或更少的事情。 而这种自由的代价就是开发者需要承担大部分性能上的责任。
 
 ## 再三权衡
 
@@ -16,8 +16,8 @@
 
 ### 推荐阅读
 
-* [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
-* [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [从分析运行时性能开始][chrome-devtools-tutorial]
+* [谈：“Visual Studio Code - 第一个一秒”][vscode-first-second]
 
 ## 检查列表
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
-！[性能-cpu-prof](../images/performance-cpu-prof.png)
+![performance-cpu-prof][]
 
-！[性能-Heap-prof](../images/performance-heap-prof.png)
+![performance-heap-prof][]
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
@@ -89,17 +89,13 @@ node --cpu-prof --heap-prof -e "require('request')"
 const fs = require('fs')
 const fooParser = require('foo-parser')
 
-class Parser 然后
-  conster () const fs = require('fs') 
- const foParser = require('foo-parser') 
-
- class parser (
- constructor () configurtor ()
-    this iles = fs.readdirSync('。 )
+class Parser {
+  constructor () {
+    this.files = fs.readdirSync('.')
   }
 
-  getParsedFiles () }
-    return foodParser.parse(this iles)
+  getParsedFiles () {
+    return fooParser.parse(this.files)
   }
 }
 
@@ -119,14 +115,14 @@ class Parser {
     // Touch the disk as soon as `getFiles` is called, not sooner.
     // 另外，请确保我们不会使用
     // 异步版本来阻止其他操作。
-    此文件=此文件|| 正在等待 fs.readdir('.')
+    this.files = this.files || await fs.readdir('.')
 
-    返回此文件。 less
+    return this.files
   }
 
-  async getParsedFiles () }
-    // 我们的虚拟泡沫解析器是一个需要加载的大而昂贵的模块。 这样
-    // 推迟工作，直到我们实际需要解析文件为止。
+  async getParsedFiles () {
+    // Our fictitious foo-parser is a big and expensive module to load, so
+    // defer that work until we actually need to parse files.
     // 既然`require()` 里有一个模块缓存， `require()`调用
     // 只会花费一次——其后的 `getParsedFiles()`
     // 将会更快。
@@ -147,13 +143,13 @@ const 解析器 = 新的 Parser()
 
 ## 3) 阻塞主进程
 
-Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理你应用中的窗口，交互和各种组件之间的通信。它还是UI线程的宿主进程。
+Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
 在任何情况下你都不应阻塞此进程或者运行时间长的用户界面线程。 阻塞UI线程意味着您的整个应用程序将冻结直到主进程准备好继续处理。
 
 ### 为什么？
 
-主进程及其UI线程基本上是你应用内重大操作的控制塔。 当操作系统告诉您的应用关于 鼠标点击时，它会在到达您的窗口之前通过主进程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
+The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
 Electron 和 Chromium 谨慎地将大型的磁盘I/O 和 CPU绑定的操作放入新线程，以避免阻塞UI 线程。 你也应该这样做。
 
@@ -161,7 +157,7 @@ Electron 和 Chromium 谨慎地将大型的磁盘I/O 和 CPU绑定的操作放�
 
 Electron强大的多进程架构随时准备帮助你完成你的长期任务，但其中也包含少量性能陷阱。
 
-1) 对于需要长期占用CPU繁重任务，使用 [worker threads](https://nodejs.org/api/worker_threads.html)， 考虑将它们移动到 BrowserWindow, 或 (作为最后手段) 生成一个专用进程。
+1) 对于需要长期占用CPU繁重任务，使用 [worker threads][worker-threads]， 考虑将它们移动到 BrowserWindow, 或 (作为最后手段) 生成一个专用进程。
 
 2) 尽可能避免使用同步IPC 和 `remote` 模块。 虽然有合法的使用案例，但使用`remote`模块的时候非常容易不知情地阻塞 UI线程。
 
@@ -181,9 +177,9 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 一般来说，所有用于构建现代浏览器的性能网络应用程序的建议，对于Electron 的渲染器也同样适用。 现在处理你的应用的主要两个方法是对于小的操作使用`requestIdleCallback()` 而长时间运行的操作使用 `Web Workers`。
 
-*`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
+*`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档][request-idle-callback]。
 
-*Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
+*Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档][multithreading] 和 [MDN 的 Web Workers文档][web-workers]。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
 
 ## 5) 不必要的polyfills
 
@@ -201,7 +197,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 假定当前版本的 Electron不需要使用polyfills。 如果你有所疑虑，检查 [caniuse.com](https://caniuse.com/) 以确认 是否[在你的Electron版本中使用的Chromium版本](../api/process.md#processversionschrome-readonly) 已经支持了你需要的特性.
 
-此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
+此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分][jquery-need]。
 
 如果您正在使用 TypeScript 这样的编译器，检查它的配置并确保你的目标是Electron 支持的最新 ECMAScript 版本。
 
@@ -227,7 +223,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 下一步，启用 `Network Throttling`。 查找当前读取`Online`的下拉列表，并选择较慢的速度，例如`Fast 3G`。 重新加载你的页面并查看你的应用程序是否有等待任何不必要的资源。 在大多数情况下，尽管实际上不需要相关的资源，应用还是会等待网络请求完成。
 
-作为一个提示, 从互联网上加载你可能想要更改的而不发送应用程序更新是一个强有力的策略。 为了进一步控制如何加载资源，请考虑使用[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
+作为一个提示, 从互联网上加载你可能想要更改的而不发送应用程序更新是一个强有力的策略。 为了进一步控制如何加载资源，请考虑使用[Service Worker][service-workers]。
 
 ## 7) 打包你的代码
 
@@ -239,6 +235,21 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 ### 怎么做？
 
-有许多JavaScript打包的方法可供使用，我们知道我们最好不要通过推荐一种工具来激怒社区。 然而，我们的确建议您使用一个能够处理Electron独特的环境的打包程序，它需要处理Node.js 和浏览器两种环境。
+有许多JavaScript打包的方法可供使用，我们知道我们最好不要通过推荐一种工具来导致社区不满。 然而，我们的确建议您使用一个能够处理Electron独特的环境的打包程序，它需要处理Node.js 和浏览器两种环境。
 
-在撰写这篇文章时，受欢迎的选择包括[Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/)和[rollup.js](https://rollupjs.org/)。
+在撰写这篇文章时，受欢迎的选择包括[Webpack][webpack], [Parcel][parcel]和[rollup.js][rollup]。
+
+[security]: ./security.md
+[performance-cpu-prof]: ../images/performance-cpu-prof.png
+[performance-heap-prof]: ../images/performance-heap-prof.png
+[chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
+[worker-threads]: https://nodejs.org/api/worker_threads.html
+[web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[request-idle-callback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[multithreading]: ./multithreading.md
+[jquery-need]: http://youmightnotneedjquery.com/
+[service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
+[parcel]: https://parceljs.org/
+[rollup]: https://rollupjs.org/
+[vscode-first-second]: https://www.youtube.com/watch?v=r0OeHRUCCb4
