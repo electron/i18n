@@ -8,7 +8,7 @@ Dies ist der erste Beitrag einer Serie, die die Internen von Electron erklärt. 
 
 ---
 
-There had been many attempts to use Node for GUI programming, like [node-gui][node-gui] for GTK+ bindings, and [node-qt][node-qt] for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
+Es gab viele Versuche, Knoten für GUI-Programmierung zu verwenden, wie [node-gui](https://github.com/zcbenz/node-gui) für GTK+ Bindungen und [node-qt](https://github.com/arturadib/node-qt) für QT Bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
 
 During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
 
@@ -16,7 +16,7 @@ During the development of Electron we met the same problem, though in a reversed
 
 Bevor wir in die Details der Integration von Message-Schleifen eintauchen, erkläre ich zuerst die Multiprozess-Architektur von Chromium.
 
-In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture][multi-process]). Der Hauptprozess ist für GUI verantwortlich wie das Erstellen von Fenstern, während sich der Renderer-Prozess nur mit beschäftigt, die Webseiten laufen lassen und rendern.
+In Electron gibt es zwei Arten von Prozessen: den Hauptprozess und den Renderer Prozess (dies ist eigentlich sehr vereinfacht, für eine vollständige Ansicht siehe [Multiprozess-Architektur](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). Der Hauptprozess ist für GUI verantwortlich wie das Erstellen von Fenstern, während sich der Renderer-Prozess nur mit beschäftigt, die Webseiten laufen lassen und rendern.
 
 Mit Electron können Sie sowohl den Hauptprozess als auch den Renderer Prozess steuern, was bedeutet, dass wir Knoten in beide Prozesse integrieren müssen.
 
@@ -42,12 +42,6 @@ In this way I avoided patching Chromium and Node, and the same code was used in 
 
 ## Der Code
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. Es kann leicht für Projekte wiederverwendet werden, die Knoten integrieren wollen.
+Sie finden die Implementierung der Message-Schleifen-Integration in den `node_bindings` Dateien unter [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Es kann leicht für Projekte wiederverwendet werden, die Knoten integrieren wollen.
 
-*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
-
-[node-gui]: https://github.com/zcbenz/node-gui
-[node-qt]: https://github.com/arturadib/node-qt
-[multi-process]: http://dev.chromium.org/developers/design-documents/multi-process-architecture
-[node-bindings]: https://github.com/electron/electron/tree/master/atom/common
-[node-bindings-updated]: https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
