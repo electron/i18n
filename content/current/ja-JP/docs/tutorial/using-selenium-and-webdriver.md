@@ -1,12 +1,12 @@
 # SeleniumとWebDriverを使用する
 
-[ChromeDriver - クローム向けのWebDriver](https://sites.google.com/a/chromium.org/chromedriver/):
+[ChromeDriver - クローム向けのWebDriver][chrome-driver]:
 
 > WebDriverは、ブラウザを横断的なテストの自動化を実現するためのオープンソースツールです。 このドライバはウェブページの遷移、インプット項目への入力、JavaScriptの実行などの機能を提供します。 ChromeDriverはChromium向けWebDriverのワイヤープロトコルを実装した、スタンドアローンサーバです。 このドライバは、ChromiumとWebDriverチームによって開発されています。
 
 ## Spectronを設定する
 
-[Spectron](https://electronjs.org/spectron)はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](https://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
+[Spectron][spectron]はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](https://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
 
 ```sh
 $ npm install --save-dev spectron
@@ -154,3 +154,6 @@ client
 Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)。
 
 Electron バイナリに引数を渡すことでも、実行するアプリのフォルダを指定できます。 こうすれば、アプリを Electron のリソースディレクトリにコピーペーストする必要はありません。
+
+[chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
+[spectron]: https://electronjs.org/spectron
