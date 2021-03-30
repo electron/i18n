@@ -10,11 +10,11 @@ Electron は、GN を使用して自身を構築しています。 その理由�
 
 # GYP と GN
 
-2013 年、最初に Electron がリリースされたとき、Chromium のビルド構成は [GYP](https://gyp.gsrc.io/) で記述されていました。これは "Generate Your Projects" の略です。
+2013 年、最初に Electron がリリースされたとき、Chromium のビルド構成は [GYP][] で記述されていました。これは "Generate Your Projects" の略です。
 
-2014 年、Chromium プロジェクトは [GN](https://gn.googlesource.com/gn/) ("Generate [Ninja](https://ninja-build.org/)") を導入しました。Chromium のビルドファイルは GN に移行され、GYP はソースコードから削除されました。
+2014 年、Chromium プロジェクトは [GN][] ("Generate [Ninja][]") を導入しました。Chromium のビルドファイルは GN に移行され、GYP はソースコードから削除されました。
 
-歴史的に、Electron はメインの [Electron コード](https://github.com/electron/electron) と [libchromiumcontent](https://github.com/electron/libchromiumcontent) を分離しています。これは、Chromium の 'content' サブモジュールをラップする Electron の一部です。 Electron は GYP を使用し続けましたが、Chromium の方の libchromiumcontent は GN に切り替えました。
+歴史的に、Electron はメインの [Electron コード][] と [libchromiumcontent][] を分離しています。これは、Chromium の 'content' サブモジュールをラップする Electron の一部です。 Electron は GYP を使用し続けましたが、Chromium の方の libchromiumcontent は GN に切り替えました。
 
 ピッタリ噛まない歯車のように、2 つのビルドシステムの間に摩擦がありました。 互換性の維持にはエラーが発生しやすくなりました。コンパイラフラグと `#define` を Chromium、Node、V8、Electron 間で細心の注意を払って同期する必要があるからです。
 
@@ -32,4 +32,12 @@ GN は GYP より [高速](https://chromium.googlesource.com/chromium/src/tools/
 
  * Chromium 67 では MSVC サポートを削除し、Windows でも Clang を使用したビルドに切り替えました。そのため、Electron 4.0.0 での開発は既に大幅に支援されています。 GN ビルドでは、Chromium からすべてのコンパイラコマンドを直接継承するため、Windows 用 Clang ビルドを無料で入手できます!
 
- * また、Electron、Chromium、Node 間で同じビルドの [BoringSSL](https://boringssl.googlesource.com/boringssl/) を Electron に使用しやすくなりました。これはもはや [過去の問題](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library) です。
+ * また、Electron、Chromium、Node 間で同じビルドの [BoringSSL][] を Electron に使用しやすくなりました。これはもはや [過去の問題](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library) です。
+
+
+[BoringSSL]: https://boringssl.googlesource.com/boringssl/
+[Electron コード]: https://github.com/electron/electron
+[GN]: https://gn.googlesource.com/gn/
+[GYP]: https://gyp.gsrc.io/
+[Ninja]: https://ninja-build.org/
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
