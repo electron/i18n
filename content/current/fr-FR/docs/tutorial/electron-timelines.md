@@ -3,7 +3,7 @@
 * Les dates -beta.1</ 0> et <code>stables</ 0> sont nos dates de sortie.</li>
 <li>Nous nous efforçons d'obtenir des versions bêta hebdomadaires, mais nous publions souvent plus de bêtas que prévu.</li>
 <li>Toutes les dates sont nos objectifs, mais il peut y avoir des raisons d’ajuster la date limite, telles que des problèmes de sécurité.</li>
-<li>Consultez l'article <a href="https://electronjs.org/blog/electron-5-0-timeline">5.0.0 Timeline</ 0> sur le blog Timeline pour plus d'informations sur la publication de nos dates de publication.</li>
+<li>Consultez l'article <a href="https://electronjs.org/blog/electron-5-0-timeline">5.0.0 Timeline</a> sur le blog Timeline pour plus d'informations sur la publication de nos dates de publication.</li>
 <li>Depuis Electron 6.0, nous ciblons toute nouvelle version de Chromium et publions notre version stable le même jour que Chrome. Vous pouvez référencer le calendrier de publication de Chromium <a href="https://chromiumdash.appspot.com/schedule">ici</a>. Consultez <a href="https://www.electronjs.org/blog/12-week-cadence">le blog de cadence de la nouvelle version d'Electron</a> pour plus de détails sur notre calendrier de publication.</li>
 </ul>
 
