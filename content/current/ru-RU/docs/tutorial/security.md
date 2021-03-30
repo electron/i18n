@@ -26,9 +26,9 @@ Electron обновляется с чередованием релизов Chrom
 
 ## Изоляция ненадежного контента
 
-Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. В качестве примера можно считать отображение удаленного сайта внутри по умолчанию [`BrowserWindow`](../api/browser-window.md). Если злоумышленник каким-то образом удается изменить указанное содержимое (либо напрямую атакуя исходный код, или сидя между вашим приложением и фактическим пунктом назначения), они смогут выполнить родной код на машине пользователя.
+Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. Если злоумышленник каким-то образом удается изменить указанное содержимое (либо напрямую атакуя исходный код, или сидя между вашим приложением и фактическим пунктом назначения), они смогут выполнить родной код на машине пользователя.
 
-> :warning:  ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. Для отображения удаленного контента используйте [`<webview>`](../api/webview-tag.md) тег или [`BrowserView`](../api/browser-view.md), убедитесь, что отключить `интеграцию узлов` и включить `контекстную изоляции`.
+> :warning:  ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Предупреждение безопасности Electron
 
@@ -87,7 +87,7 @@ browserWindow.loadURL('https://example.com')
 
 _Эта рекомендация является поведением по умолчанию в Electron начиная с 5.0.0._
 
-Это первостепенное значение, которое вы не включаете узел. с интеграцией в любом рендерере ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), или [`<webview>`](../api/webview-tag.md)), которая загружает удаленный контент. Цель - ограничить полномочия на удаленное содержимое, таким образом значительно сложнее нанести вред вашим пользователям, если они получат возможность выполнить JavaScript на вашем сайте.
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. Цель - ограничить полномочия на удаленное содержимое, таким образом значительно сложнее нанести вред вашим пользователям, если они получат возможность выполнить JavaScript на вашем сайте.
 
 После этого вы можете предоставить дополнительные права доступа для определенных узлов. Например, , если вы открываете браузер (BrowserWindow), указанный в `https://example. om/`, вы можете дать этому сайту точно необходимые ему возможности, но не больше.
 
@@ -190,7 +190,7 @@ const { session } = require('electron')
 
 _Recommendation is Electron's default_
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`&lt;webview&gt;`](../api/webview-tag.md)) disables crucial security features.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`&lt;webview&gt;`][webview-tag]) disables crucial security features.
 
 Do not disable `webSecurity` in production applications.
 
@@ -201,7 +201,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### Как?
 
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -240,17 +240,17 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
-### CSP HTTP Header
+### CSP HTTP заголовок
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
 ```javascript
 const { session } = require('electron')
 
-session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+session.defaultSession.webRequest. nHeadersReceived(details, callback) => {
   callback({
     responseHeaders: {
-      ...details.responseHeaders,
+      . .details.responseHeaders,
       'Content-Security-Policy': ['default-src \'none\'']
     }
   })
@@ -280,7 +280,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### Как?
 
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _Recommendation is Electron's default_
 
-Если вы используете [`<webview>`](../api/webview-tag.md), может потребоваться загрузка страниц и скриптов в вашем `<webview>` теге, чтобы открыть новые окна. Атрибут `allowpopups` позволяет им создавать новые [`BrowserWindows`](../api/browser-window.md) с помощью метода `window.open()`. `<webview>` тэги в противном случае не могут создавать новые окна.
+If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` тэги в противном случае не могут создавать новые окна.
 
 ### Почему?
 
-Если вам не нужны всплывающие окна, лучше отключить возможность создания новых [`BrowserWindows`](../api/browser-window.md) по умолчанию. Это следует принципу минимально необходимого доступа: Не позволяйте веб-сайту создавать новые всплывающие окна, если вы знаете, что он нуждается в этой функции.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Это следует принципу минимально необходимого доступа: Не позволяйте веб-сайту создавать новые всплывающие окна, если вы знаете, что он нуждается в этой функции.
 
 ### Как?
 
@@ -371,17 +371,17 @@ _Recommendation is Electron's default_
 
 WebView, созданный в процессе визуализации, который не имеет включенной интеграции Node.js не сможет включить интеграцию самостоятельно. Тем не менее, WebView всегда будет создавать независимый процесс визуализации с собственными `настройками`.
 
-Управлять созданием новых [`<webview>`](../api/webview-tag.md) тегов из основного процесса и проверять, что их предпочтения не отключают функции безопасности.
+It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
 
 ### Почему?
 
 Поскольку `<webview>` живут в DOM, они могут быть созданы скриптом, запущенным на вашем веб-сайте, даже если Node. s интеграция в противном случае отключена.
 
-Electron позволяет разработчикам отключать различные функции безопасности, которые контролируют процесс визуализации. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron позволяет разработчикам отключать различные функции безопасности, которые контролируют процесс визуализации. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
 
 ### Как?
 
-Перед прикреплением тега [`<webview>`](../api/webview-tag.md) , Electron запустит событие `will-attach-webview` на хостинге `webContents`. Используйте событие , чтобы предотвратить создание `веб-просмотров` с возможными небезопасными опциями.
+Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Используйте событие , чтобы предотвратить создание `веб-просмотров` с возможными небезопасными опциями.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -415,7 +415,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### Как?
 
-Если ваше приложение не нуждается в навигации, вы можете вызвать `event.preventDefault()` в [`will-navigate`](../api/web-contents.md#event-will-navigate) обработчик. Если вы знаете, какие страницы ваше приложение может перейти, проверьте URL в обработчике событий и пусть навигация возникает, только если она соответствует URL, которые вы ожидаете.
+If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. Если вы знаете, какие страницы ваше приложение может перейти, проверьте URL в обработчике событий и пусть навигация возникает, только если она соответствует URL, которые вы ожидаете.
 
 Мы рекомендуем вам использовать парсер узла для URL-адресов. Простые строковые сравнения могут иногда быть смущены - `startsWith('https://example.com')` тест позволил бы `example.com.attacker.com` сквозь.
 
@@ -445,7 +445,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### Как?
 
-[`webContents`](../api/web-contents.md) will delegate to its [window open handler](../api/web-contents.md#contentssetwindowopenhandlerhandler) before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents] will delegate to its [window open handler][window-open-handler] before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
 
 ```js
 const { shell } = require('electron')
@@ -470,11 +470,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) Не используйте `openExternal` с ненадежным содержимым
 
-Shell [`openExternal`](../api/shell.md#shellopenexternalurl-options) позволяет открыть данный URI протокола с родными утилитами рабочего стола. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
 
 ### Почему?
 
-Неправильное использование [`openExternal`](../api/shell.md#shellopenexternalurl-options) может быть использовано для компрометации узла пользователя. Когда openExternal используется с ненадежным содержимым, его можно использовать для выполнения произвольных команд.
+Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. Когда openExternal используется с ненадежным содержимым, его можно использовать для выполнения произвольных команд.
 
 ### Как?
 
@@ -498,4 +498,16 @@ shell.openExternal('https://example.com/index.html')
 
 Приложение, созданное с более старой версией Electron, Chromium и Node. s — это более легкая цель, чем приложение, использующее более свежие версии этих компонентов. Вообще проблемы безопасности и эксплойты для старых версий Chromium и Node.js более широко доступны.
 
-И Chromium, и Node.js являются впечатляющими подвигами инженерии, построенной тысячами талантливых разработчиков. С учетом их популярности, их безопасность тщательно тестируется и анализируется одинаково опытными исследователями в области безопасности. Многие из этих исследователей [ответственно раскрывают уязвимости](https://en.wikipedia.org/wiki/Responsible_disclosure), , что обычно означает, что исследователи дадут Chromium и Node. s некоторое время для исправления проблем до их публикации. Ваше приложение будет более безопасным, если будет запущена последняя версия Electron (и таким образом, Chromium и Node. s) для , какие потенциальные проблемы безопасности не известны.
+И Chromium, и Node.js являются впечатляющими подвигами инженерии, построенной тысячами талантливых разработчиков. С учетом их популярности, их безопасность тщательно тестируется и анализируется одинаково опытными исследователями в области безопасности. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Ваше приложение будет более безопасным, если будет запущена последняя версия Electron (и таким образом, Chromium и Node. s) для , какие потенциальные проблемы безопасности не известны.
+
+[browser-window]: ../api/browser-window.md
+
+[browser-window]: ../api/browser-window.md
+[browser-view]: ../api/browser-view.md
+[webview-tag]: ../api/webview-tag.md
+[webview-tag]: ../api/webview-tag.md
+[web-contents]: ../api/web-contents.md
+[window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandlerhandler
+[will-navigate]: ../api/web-contents.md#event-will-navigate
+[open-external]: ../api/shell.md#shellopenexternalurl-options
+[responsible-disclosure]: https://en.wikipedia.org/wiki/Responsible_disclosure
