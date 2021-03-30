@@ -1,4 +1,4 @@
-# Webbetten in Electron
+# Einbindung von Webseiten in Electron
 
 Um ein Web-Inhalt (eigenen oder den von Dritt-Anbieter) in ein Electron `BrowserWindow` einzubinden, gibt es insgesamt drei Optionen: `<iframe>` Tag, `<webview>` Tag, und `BrowserViews`. Jeder dieser Optionen haben leicht verschiedene Funktionen und sind nützlich in verschiedenen Situationen. Um bei der Auswahl der geeigneten Funktion zu helfen, erklärt diese Anleitung die Unterschiede und Fähigkeiten der einzelnen Optionen.
 
