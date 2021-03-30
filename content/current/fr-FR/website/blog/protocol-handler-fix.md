@@ -29,7 +29,7 @@ app.setAsDefaultProtocolClient(protocol, process.execPath, [
 ])
 ```
 
-See the [app.setAsDefaultProtocolClient][] API for more details.
+Voir l' [app.setAsDefaultProtocolClient][] API pour plus de détails.
 
 Voir l'API [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) pour plus de détails.
 
