@@ -1,6 +1,6 @@
 # ProtocolResponse Object
 
-* `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . For the available error numbers you can use, please see the [net error list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
+* `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . For the available error numbers you can use, please see the [net error list][net-error].
 * `statusCode` Number (optional) - The HTTP response code, default is 200.
 * `charset` String (optional) - The charset of response body, default is `"utf-8"`.
 * `mimeType` String (optional) - The MIME type of response body, default is `"text/html"`. Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.
@@ -12,3 +12,5 @@
 * `method` String (optional) - The HTTP `method`. This is only used for file and URL responses.
 * `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Setting `session` to `null` would use a random independent session. This is only used for URL responses.
 * `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (optional) - The data used as upload data. This is only used for URL responses when `method` is `"POST"`.
+
+[net-error]: https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h
