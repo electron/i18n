@@ -4,11 +4,11 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`ipcMain` モジュールは [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
+`ipcMain` モジュールは [Event Emitter][event-emitter] を継承しています。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
 
 ## メッセージ送信
 
-また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-args) を参照して下さい。
+また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send][web-contents-send] を参照して下さい。
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
@@ -126,3 +126,6 @@ async () => {
 ## IpcMainInvokeEvent オブジェクト
 
 `handle` コールバックに渡される `event` オブジェクトのドキュメントは、[`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) 構造体ドキュメントにあります。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[web-contents-send]: web-contents.md#contentssendchannel-args
