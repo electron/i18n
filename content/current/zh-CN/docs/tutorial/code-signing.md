@@ -20,15 +20,15 @@ macOS 系统能通过代码签名检测对app的任何修改，包括意外修�
 
 若要启动进程，请确保您满足签名要求并 认证您的应用：
 
-1. 加入 [Apple Developer Program](https://developer.apple.com/programs/)(需要缴纳年费)
-2. 下载并安装 [Xcode](https://developer.apple.com/xcode) - 这需要一台运行 macOS 的计算机。
-3. 生成，下载，然后安装[签名证书（signing certificates）](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. 加入 [Apple Developer Program][](需要缴纳年费)
+2. 下载并安装 [Xcode][] - 这需要运行macOS 的计算机。
+3. 生成，下载，然后安装[签名证书（signing certificates）][]
 
 Electron 的生态系统有利于配置和自由，所以有多种方法让您的应用程序签名和公证。
 
 ## `electron-forge`
 
-如果您正在使用 Electron 的最喜欢的构建工具，让您的应用程序签名 并经过公证需要对您的配置进行一些添加。 [Forge](https://electronforge.io) 是官方的 Electron 工具的 集合，使用 [`电子包装器`] [`electron-osx-signe`], and [`electronon-accentarization`] 处于立体下。
+如果您正在使用 Electron 的最喜欢的构建工具，让您的应用程序签名 并经过公证需要对您的配置进行一些添加。 [Forge](https://electronforge.io) 是官方的 Electron 工具的 集合，使用 [`电子包装器`][] [`electron-osx-signe`][] [`electronon-recentarization`][] under the lature.
 
 让我们看看一个所有必需字段的示例配置。 并不是所有都是必需的：工具非常聪明足以自动找到合适的 `identity`, 例如，但我们建议你明白无误。
 
@@ -100,7 +100,7 @@ Electron Builder 带有一个自定义解决方案用于签署您的应用程序
 
 ## `electron-packager`
 
-如果你不使用集成构建管道如Forge或Builder，你 很可能使用[`electron-packer`], 其中包括[`electron-osx-signe`] 和 [`electron-公证`]。
+如果你没有使用像Forge或Builder这样的集成构建水道， 您 可能使用 [`electron-packer`][]其中包括 [`electron-osx-signe`][] [`electron-公证`][].
 
 如果您正在使用Packager的 API，您可以通过配置 [来签名并对您的应用程序进行公证](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html)
 
@@ -142,7 +142,7 @@ packer(
 
 ## Mac App Store
 
-查看 [Mac App Store 指南](mac-app-store-submission-guide.md)。
+See the [Mac App Store Guide][].
 
 # 签署windows应用程序
 
@@ -160,10 +160,24 @@ packer(
 
 你可以运用许多方式来签署你的应用：
 
-* [`electron-winstaller`] 将生成一个窗口安装程序并为您签名
-* [`electron-forge`] 可以通过它来签署由 Squirel.Windows 或 MSI 生成的目标安装程序。
-* [`electron-builder`] 能签署一些windows安装包。
+* [`electron-winstaller`][] 将为窗口生成一个安装程序并为您签名
+* [`electron-forge`][] 可以签署它通过 Squirel.Windows 或 MSI目标生成的安装程序。
+* [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
 
-参考 [Windows Store Guide](windows-store-guide.md).
+参考 [Windows Store Guide][].
+
+[Apple Developer Program]: https://developer.apple.com/programs/
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`electron-osx-signe`]: https://github.com/electron-userland/electron-osx-sign
+[`电子包装器`]: https://github.com/electron/electron-packager
+[`electron-packer`]: https://github.com/electron/electron-packager
+[`electronon-recentarization`]: https://github.com/electron/electron-notarize
+[`electron-公证`]: https://github.com/electron/electron-notarize
+[`electron-winstaller`]: https://github.com/electron/windows-installer
+[Xcode]: https://developer.apple.com/xcode
+[签名证书（signing certificates）]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Windows Store Guide]: windows-store-guide.md
