@@ -10,7 +10,7 @@ Cada parche en Electron es una carga de mantenimiento. Cuando el código origina
 2. El parche permite que el código se compile en el entorno Electron, pero no se puede confirmar en upstream porque es específico de Electron (p.ej. parchear las referencias al `Profile` Chrome). Incluye razonamiento sobre por qué el cambio no se puede implementar sin un parche (por ejemplo, subclasificar o copiar el código).
 3. El parche realiza cambios específicos de Electron en la funcionalidad que son fundamentalmente incompatibles con el upstream.
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (Vea p.ej. [este](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) cambio en Chromium, el cual nos permitió eliminar un parche que hizo la misma cosa, o [este](https://github.com/nodejs/node/pull/22110) cambio en Node, el cual era no-op para Node pero resolvió un bug en Electron.) **Deberíamos apuntar a los cambios en upstream cuando sea posible y evitar los parches de vida indefinida **.
+In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **Deberíamos enfocarnos en los cambios siempre que podamos y evitar los parches de duración indefinida**.
 
 ## Sistema de parches
 
@@ -49,7 +49,7 @@ $ git commit
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-> **NOTA**: `git-export-patches` ignora cualquier archivo sin confirmar, así que debes crear un commit si quieres que tus cambios sean exportados. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **NOTA**: `git-export-patches` ignora cualquier archivo sin confirmar, así que debes crear un commit si quieres que tus cambios sean exportados. La línea de asunto del mensaje de confirmación se utilizará para derivar el nombre del archivo del parche, y el cuerpo del mensaje de confirmación debe incluir la razón de la existencia del parche.
 
 La reexportación de parches ocasionalmente causará que cambien los shasums en parches no relacionados. Esto es generalmente inofensivo y puede ser ignorado (pero sigue adelante y agrega esos cambios a tu PR, esto evitará que aparezcan para otras personas).
 
@@ -76,7 +76,7 @@ $ ../../electron/script/git-import-patches ../../electron/patches/node
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-Tenga en cuenta que `git-import-patches` marcará el commit que fue `HEAD` cundo este haya corrido como `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+Tenga en cuenta que `git-import-patches` marcará el commit que fue `HEAD` cundo este haya corrido como `refs/patches/upstream-head`. Esto te permite hacer un seguimiento de que commits son parches de Electron (aquellos que vienen después de `refs/patches/upstream-head`) y cuales commits están en upstream (aquellos antes `refs/patches/upstream-head`).
 
 #### Resolviendo conflictos
 
@@ -90,4 +90,4 @@ $ git am --abort
 $ ../../electron/script/git-import-patches -3 ../../electron/patches/node
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+Si `git-import-patches -3` encuentra un merge conflict que no puede resolver automáticamente, se pausará y te permitirá resolver el conflicto manualmente. Una vez que has resuelto el conflicto,`git add` los archivos resueltos y continua aplicando el resto de los parches ejecutando `git am --continue`.
