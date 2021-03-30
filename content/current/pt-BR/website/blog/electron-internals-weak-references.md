@@ -18,28 +18,28 @@ Uma referência fraca é uma referência a um objeto que permite que você obten
 
 Usando a classe `NativeImage` no Electron como exemplo, toda vez que você chamar a classe `nativeImage. reate()` API, uma instância `NativeImage` é retornada e é armazenando a imagem em C++. Uma vez que você for feito com a instância e o motor JavaScript (V8) tiver coletado o objeto, código em C++ será chamado para liberar os dados da imagem na memória, então não há necessidade de usuários gerenciarem manualmente.
 
-Another example is [the window disappearing problem][window-disappearing], which visually shows how the window is garbage collected when all the references to it are gone.
+Outro exemplo é [o problema de desaparecimento da janela][window-disappearing], o que mostra visualmente como a janela é coletada quando todas as referências a ela se foram.
 
 ## Testando referências fracas no Electron
 
-Não há nenhuma maneira de testar diretamente referências fracas em JavaScript bruto, já que a linguagem não tem uma maneira de atribuir referências fracas. The only API in JavaScript related to weak references is [WeakMap][WeakMap], but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
+Não há nenhuma maneira de testar diretamente referências fracas em JavaScript bruto, já que a linguagem não tem uma maneira de atribuir referências fracas. A única API em JavaScript relacionada a referências fracas é [][WeakMap]Do WeakMap, mas como ele só cria chaves de referência fraca, é impossível saber quando um objeto foi lixo coletado.
 
 Em versões do Electron anteriores à v0.37.8, você pode usar a interna`v8Util. API do Destruetctor` para testar referências fracas, que adiciona uma referência fraca para o objeto passado e chama o callback quando o objeto é coletado no lixo:
 
 ```javascript
-// Code below can only run on Electron < v0.37.8.
-var v8Util = process.atomBinding('v8_util')
+O código abaixo só pode ser executado em Electron < v0.37.8.
+var v8Util = process.atomBinding ('v8_util')
 
-var object = {}
-v8Util.setDestructor(object, function () {
-  console.log('The object is garbage collected')
+objeto var = {}
+v8Util.setDestructor (objeto, função () {
+  console.log('O objeto é coletado de lixo')
 })
 
-// Remove all references to the object.
-object = undefined
-// Manually starts a GC.
+// Remova todas as referências ao objeto.
+objeto =
+indefinido // Inicia manualmente um GC.
 gc()
-// Console prints "The object is garbage collected".
+// Console imprime "O objeto é coletado com lixo".
 ```
 
 Observe que você tem que iniciar o Electron com a função `--js-flags="--expose_gc"` switch para expor a função `gc`.
@@ -48,7 +48,7 @@ A API foi removida em versões posteriores porque o V8 na verdade não permite a
 
 ## Referências fracas no módulo `remoto`
 
-Além de gerenciar recursos nativos com C++, o Electron também precisa de referências fracas para gerenciar recursos JavaScript. An example is Electron's `remote` module, which is a [Remote Procedure Call][remote-procedure-call] (RPC) module that allows using objects in the main process from renderer processes.
+Além de gerenciar recursos nativos com C++, o Electron também precisa de referências fracas para gerenciar recursos JavaScript. Um exemplo é o módulo `remote` da Electron, que é um [módulo de chamada de procedimento remoto][remote-procedure-call] (RPC) que permite o uso de objetos no processo principal a partir de processos renderizadores.
 
 Um desafio com o módulo `remoto` é evitar vazamentos de memória. Quando os usuários obtiverem um objeto remoto no processo de renderização, o `módulo` remoto deve garantir que o objeto continue a ser publicado no processo principal até que as referências no processo de renderização sejam perdidas. Adicionalmente, também tem que garantir que o objeto possa ser coletado de lixo quando não há mais referência a ele em processos de renderização.
 
@@ -120,7 +120,7 @@ Ele primeiro usa muita memória criando objetos de proxy e, em seguida, ocupa a 
 
 Uma otimização óbvia é armazenar em cache os objetos remotos: quando já existe um objeto remoto com o mesmo ID, o objeto remoto anterior será retornado em vez de criar um novo.
 
-Isso não é possível com a API no núcleo do JavaScript. Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap][WeakMap] class can only use objects as weak keys.
+Isso não é possível com a API no núcleo do JavaScript. Usar o mapa normal para armazenar objetos impedirá que o V8 coleta os objetos, enquanto a classe [WeakMap][WeakMap] só pode usar objetos como teclas fracas.
 
 Para resolver isso, um tipo de mapa com valores como referências fracas é adicionado, o que é perfeito para armazenar em cache objetos com IDs. Agora o `remote.require` se parece com isto:
 
@@ -156,6 +156,8 @@ A API `createIDWeakMap`:
 * [`átomo_api_fraco_mapa_fraca`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)
 
 [window-disappearing]: https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
 [WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
 [remote-procedure-call]: https://en.wikipedia.org/wiki/Remote_procedure_call
 
