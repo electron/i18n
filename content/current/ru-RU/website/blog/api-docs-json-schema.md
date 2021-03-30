@@ -16,17 +16,17 @@ date: '2016-09-27'
 
 ```js
 {
-  имя: 'BrowserWindow',
-  описание: 'Создание и управление окнами браузера. ,
-  процесс: {
+  name: 'BrowserWindow',
+  description: 'Create and control browser windows.',
+  process: {
     main: true,
     renderer: false
   },
-  тип: 'Класс',
-  exanceName: 'win',
-  слаг: 'browser-window',
-  websiteUrl: 'https://electronjs. rg/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window. d',
+  type: 'Class',
+  instanceName: 'win',
+  slug: 'browser-window',
+  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
+  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
   staticMethods: [...],
   instanceMethods: [...],
   instanceProperties: [...],
