@@ -29,6 +29,8 @@ Il n'y a pas de signalement dans la nature ; cependant, les demandes affectées 
 
 Cette vulnérabilité a été découverte par l'équipe de Tencent Blade, qui a publié [un article de blog qui discute de la vulnérabilité](https://blade.tencent.com/magellan/index_en.html).
 
-Pour en savoir plus sur les meilleures pratiques pour sécuriser vos applications Electron, consultez notre [tutoriel de sécurité](https://electronjs.org/docs/tutorial/security).
+Pour en savoir plus sur les meilleures pratiques pour sécuriser vos applications Electron, consultez notre [tutoriel de sécurité][].
 
 Si vous souhaitez signaler une vulnérabilité dans Electron, envoyez un e-mail à security@electronjs.org.
+
+[tutoriel de sécurité]: https://electronjs.org/docs/tutorial/security
