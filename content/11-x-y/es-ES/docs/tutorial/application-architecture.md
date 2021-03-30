@@ -53,7 +53,7 @@ ipcMain. andle('perform-action', (event, ...args) => {
   // ... hacer algo en nombre del renderizador ...
 })
 
-// In the renderer process:
+// En el proceso de renderización:
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
