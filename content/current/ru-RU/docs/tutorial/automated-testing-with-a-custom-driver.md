@@ -9,12 +9,12 @@ const childProcess = require('child_process')
 const electronPath = require('electron')
 
 // порождаем процесс
-const env = { /* ... */ }
-const stdio = ['inherit', 'inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
+const env = { /* . . */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess. pawn(electronPath, ['./app'], { stdio, env })
 
-// прослушивание IPC сообщений из приложения
-appProcess.on('message', (msg) => {
+// прослушивание сообщений IPC из приложения
+appProcess. n('message', (msg) => {
   // ...
 })
 
@@ -45,34 +45,34 @@ class TestDriver {
 
     // запуск дочернего процесса
     env. PP_TEST_DRIVER = 1 // дайте приложению знать, что оно должно слушать сообщения
-    это. rocess = детский процесс. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    this.process = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
     // обрабатываем ответы rpc
-    это. рокес. n('сообщение', (message) => {
+    this.process. n('сообщение', (message) => {
       // pop the handler
       const rpcCall = this. pccalls[message.msgId]
       если (!rpcCall) возвращают
       это. pccalls[message.msgId] = null
       // отвергнуть/решить
       если (сообщение). eject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(сообщение. esolve)
+      else rpcall. esolve(message.resolve)
     })
 
-    // ждать готовые
+    // ожидание готовности
     this.isReady = this.rpc('isReady'). atch(err) => {
-      console.error('Application failed to start', err)
-      это. top()
-      процесс. xit(1)
+      консоли. rror('Application failed start', err)
+      this.stop()
+      . xit(1)
     })
   }
 
   // простой RPC-вызов
-  // к использованию: драйвер. pc('method', 1, 2, 3).затем (. .)
-  асинхронный rpc (cmd, ... rgs) {
-    // отправить запрос rpc
+  // к использованию: драйвер. pc ('метод', 1, 2, 3).затем(...)
+  async rpc (cmd, ...args) {
+    // send rpc request
     const msgId = this. pcCalls.length
     это.процесс. end({ msgId, cmd, args })
-    возвращают новый Promise((resolve, reject) => this.rpcalls. ush({ resolve, reject }))
+    вернуть новый Promise(resolve, reject) => this.rpcalls. ush({ resolve, reject }))
   }
 
   stop () {
