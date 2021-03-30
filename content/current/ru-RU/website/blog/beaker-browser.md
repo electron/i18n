@@ -16,7 +16,7 @@ date: '2017-02-07'
 
 Сеть является закрытым источником. Если вы хотите влиять на работу социальных сетей, вы должны работать в Facebook или Twitter. Для поиска, Google. Контроль находится в руках компаний, а не самих пользователей.
 
-У нас есть новый веб-протокол: [Децентрализованный архивный транспорт](https://datprotocol.com). "Dat." Он создает сайты по запросу, бесплатно и затем делится ими с устройства. Серверы не требуются. Это наше новшество.
+У нас есть новый веб-протокол: [Децентрализованный архивный транспорт](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. Серверы не требуются. Это наше новшество.
 
 ![Протоколы ключа](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
@@ -35,8 +35,8 @@ date: '2017-02-07'
 ```bash
 $ cd ~/my-site
 $ bkr init
-$ echo "Привет, мир!" > index.html
-$ bkr опубликовать
+$ echo "Hello, world!" > index.html
+$ bkr publish
 ```
 
 И вот форсирование сайта:
@@ -44,8 +44,8 @@ $ bkr опубликовать
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "My fork has no regard for the previous index. tml!" > index.html
-$ bkr опубликовать
+$ echo "My fork has no regard for the previous index.html!" > index.html
+$ bkr publish
 ```
 
 Затем эти сайты размещаются из вашего браузера. Это немного похоже на BitTorrent; вы делитесь сайтами в сетке P2P.
