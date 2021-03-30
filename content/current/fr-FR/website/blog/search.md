@@ -52,7 +52,7 @@ Vous recherchez les meilleures pratiques en matière de sécurité ? Rechercher 
 
 Il y a maintenant plus de 700 000 packages dans le registre npm et ce n'est pas toujours facile de trouver celui dont vous avez besoin. Pour faciliter la découverte de ces modules, nous avons créé [`electron-npm-packages`], une collection des plus de 3400 modules dans le registre qui sont construits spécifiquement pour être utilisés avec Electron.
 
-Les gens de [Bibliothèques. o](https://libraries.io) ont créé [SourceRank](https://docs.libraries.io/overview.html#sourcerank), un système de notation de projets logiciels basé sur une combinaison de métriques comme code, communauté, documentation et utilisation. Nous avons créé un module [`source`] qui inclut le score de chaque module dans le registre npm, et nous utilisons ces scores pour trier les résultats du paquet.
+Les gens de [Bibliothèques. o][] ont créé [SourceRank][], un système de notation de projets logiciels basé sur une combinaison de métriques comme code, communauté, documentation et utilisation. Nous avons créé un module [`source`] qui inclut le score de chaque module dans le registre npm, et nous utilisons ces scores pour trier les résultats du paquet.
 
 Vous voulez des solutions de rechange aux modules IPC intégrés à Electron? Recherche de [`is:package ipc`].
 
@@ -66,10 +66,10 @@ Essayez une recherche pour [`musique`] ou [`homebrew`].
 
 Si vous avez utilisé la recherche de code [de GitHub](https://github.com/search) avant, vous êtes probablement au courant de ses filtres de valeurs clés séparés par des deux-points comme `extension:js` ou `user:defunkt`. Nous pensons que cette technique de filtrage est assez puissante, donc nous avons ajouté un `est :` mot-clé à la recherche d'Electron qui vous permet de filtrer les résultats pour n'afficher qu'un seul type :
 
-- [`est:miniature d'api`]
-- [`est :tutoriel de sécurité`]
-- [`is:package ipc`]
-- [`est :app graphql`]
+- [`[<code>est:miniature d'api`]</code>][]
+- [`[<code>est :tutoriel de sécurité`]</code>][]
+- [`[<code>is:package ipc`]</code>][]
+- [`[<code>est :app graphql`]</code>][]
 
 ## Navigation du clavier
 
@@ -98,3 +98,10 @@ La meilleure façon de soumettre vos commentaires est de déposer un problème s
 ## Remerciements
 
 Remerciements spéciaux à [Emily Jordan](https://github.com/echjordan) et [Vanessa Yuen](https://github.com/vanessayuenn) pour avoir construit ces nouvelles capacités de recherche, à [Bibliothèques. o](https://libraries.io) pour fournir [scores SourceRank](https://docs.libraries.io/overview.html#sourcerank) et à l'équipe d'Algolia pour nous aider à commencer. 🍹
+
+[`[&lt;code>est:miniature d'api`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>est :app graphql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>is:package ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>est :tutoriel de sécurité`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security
+[Bibliothèques. o]: https://libraries.io
+[SourceRank]: https://docs.libraries.io/overview.html#sourcerank
