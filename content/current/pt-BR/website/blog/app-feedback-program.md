@@ -25,7 +25,7 @@ Nossos critérios e expectativas para aplicativos que participam deste programa 
 ## Horas
 Entendemos que nem todos podem compartilhar exatamente números de usuário, no entanto dados melhores nos ajudam a decidir o quão estável é uma determinada liberação. Pedimos que os aplicativos se comprometam a testar um número mínimo de horas de usuário, atualmente de 10.000 em todo o ciclo beta.
 - 10 horas de usuário podem ser 10 horas de teste por uma hora, ou uma pessoa de teste por 10 horas
-- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
+- Você pode dividir os testes entre versões beta, por exemplo, testar por 5.000 horas de usuário em 3.0.0-beta.2 e, em seguida, testar por 5.000 horas de usuário em 3.0.0-beta.5. Mais é melhor, mas entendemos que algumas aplicações não podem testar cada versão beta
 - As horas de CI ou QA não contam para o total; no entanto, os lançamentos internos não contam
 
 ## Por que meu app Electron deve entrar?
