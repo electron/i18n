@@ -42,7 +42,7 @@ Se você não escutar esse evento e todas as janelas forem fechadas, o comportam
 
 Retorna:
 
-* Evento `event`
+* `event` Event
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
@@ -119,10 +119,10 @@ Emitido quando a aplicação mac se torna ativa. Diferença do `evento` ativo é
 Retorna:
 
 * `event` Event
-* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
-Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando a atividade em outro dispositivo deseja ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+Emitido durante [Handoff][handoff] quando a atividade em outro dispositivo deseja ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
 Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
 
@@ -131,39 +131,39 @@ Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem 
 Retorna:
 
 * `event` Event
-* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 
-Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) antes de uma atividade em outro dispositivo desejar ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+Emitido durante o [Handoff][handoff] antes de uma atividade em outro dispositivo desejar ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
 ### Evento: 'continue-activity-error' _macOS_
 
 Retorna:
 
 * `event` Event
-* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `error` String - Uma string com a descrição traduzida do erro.
 
-Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando uma atividade de outro dispositivo falha ao ser resumida.
+Emitido durante o [Handoff][handoff] quando uma atividade de outro dispositivo falha ao ser resumida.
 
 ### Evento: 'activity-was-continued' _macOS_
 
 Retorna:
 
 * `event` Event
-* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitido durante o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) depois que uma atividade deste dispositivo foi continuada com sucesso em outro dispositivo.
+Emitido durante o [Handoff][handoff] depois que uma atividade deste dispositivo foi continuada com sucesso em outro dispositivo.
 
 ### Evento: 'update-activity-state' _macOS_
 
 Retorna:
 
 * `event` Event
-* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
+Emitido quando o [Handoff][handoff] está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no _macOS_
 
@@ -265,7 +265,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retorna:
 
-* `event` Evento
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
@@ -662,7 +662,7 @@ Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. Caso precise de mais detalhes, consulte a [documentação da Apple][CFBundleURLTypes].
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
@@ -686,7 +686,7 @@ This method checks if the current executable as the default handler for a protoc
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
-**Nota:** No macOS, você pode usar este método para verificar se a aplicação foi registrada como o manipulador padrão de um protocolo. Você também pode verificar isso consultando o `~/Library/Preferences/com.apple.LaunchServices.plist` na máquina macOS. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
+**Nota:** No macOS, você pode usar este método para verificar se a aplicação foi registrada como o manipulador padrão de um protocolo. Você também pode verificar isso consultando o `~/Library/Preferences/com.apple.LaunchServices.plist` na máquina macOS. Caso precise de mais detalhes, consulte a [documentação da Apple][LSCopyDefaultHandlerForURLScheme].
 
 The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
@@ -714,7 +714,7 @@ This method returns a promise that contains the application name, icon and path 
 
 * `tasks` [Task[]](structures/task.md) - Um array de objetos `Task`
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
+Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 
 `tasks` é um array de objetos [`Task`](structures/task.md).
 
@@ -726,7 +726,7 @@ Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Retorna `Object`:
 
-* `minItems` Integer - O número mínimo de itens que serão mostrados na Jump List (para uma descrição mais detalhada deste valor, consulte a [documentação no MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - O número mínimo de itens que serão mostrados na Jump List (para uma descrição mais detalhada deste valor, consulte a [documentação no MSDN][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Estes itens não devem ser adicionados novamente à Jump List na **próxima** chamada a `app.setJumpList()`. O Windows não irá mostrar nenhuma categoria personalizada que tiver qualquer um dos itens removidos.
 
 ### `app.setJumpList(categories)` _Windows_
@@ -855,11 +855,11 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
-* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Cria um `NSUserActivity` e o define como a atividade atual. A atividade, então, é qualificada para ser repassada (via [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)) a outro dispositivo de agora em diante.
+Cria um `NSUserActivity` e o define como a atividade atual. The activity is eligible for [Handoff][handoff] to another device afterward.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -867,15 +867,15 @@ Retorna `String` - O tipo da atividade atualmente em execução.
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Invalida a atividade de usuário atual do [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html).
+Invalida a atividade de usuário atual do [Handoff][handoff].
 
 ### `app.resignCurrentActivity()` no _macOS_
 
-Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
+Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
-* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Identificação única da atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any - App-specific state to store for use by another device.
 
 Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entradas de `userInfo` ao seu dicionário `userInfo` atual.
@@ -884,7 +884,7 @@ Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entra
 
 * `id` String
 
-Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) para `id`.
+Muda o [Application User Model ID][app-user-model-id] para `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -975,11 +975,11 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
-Muda o selo contador do aplicativo atual. Definí-lo como `0` irá ocultar o selo.
+Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1000,10 +1000,10 @@ If you provided `path` and `args` options to `app.setLoginItemSettings`, then yo
 Retorna `Object`:
 
 * `openAtLogin` Boolean - `true` se o aplicativo está configurado para abrir no login.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Isso indica que o aplicativo não deverá abrir nenhuma janela durante a inicialização. This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Isso indica que o aplicativo deverá restaurar as janelas que foram abertas da última vez que o aplicativo fora fechado. This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1016,13 +1016,13 @@ Retorna `Object`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Padrão sendo `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Padrão sendo `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Define as opções de execução do aplicativo na inicialização do sistema.
 
-Para funcionar com o `autoUpdater` do Electron no Windows, o qual usa o [Squirrel](https://github.com/Squirrel/Squirrel.Windows), recomendamos definir o caminho de inicialização para Update.exe e passar a ele os argumentos que especificam o nome do seu aplicativo. Como por exemplo:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Como por exemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1051,7 +1051,7 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 
 This API must be called after the `ready` event is emitted.
 
-**Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.showAboutPanel()`
 
@@ -1069,7 +1069,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Define as opções do painel sobre. This will override the values defined in the app's `.plist` file on macOS. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes. On Linux, values must be set in order to be shown; there are no defaults.
+Define as opções do painel sobre. This will override the values defined in the app's `.plist` file on macOS. Consulte a [documentação da Apple][about-panel-options] para mais detalhes. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1169,7 +1169,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.applicationMenu`
 
@@ -1181,7 +1181,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1220,3 +1220,17 @@ The intention is for these overrides to become disabled by default and then at s
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
+[tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
+[CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
+[LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
+[handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
+[activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
+[JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
+[about-panel-options]: https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc
