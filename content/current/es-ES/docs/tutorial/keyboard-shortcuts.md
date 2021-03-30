@@ -8,7 +8,7 @@ This feature allows you to configure local and global keyboard shortcuts for you
 
 ### Accesos directos locales
 
-Local keyboard shortcuts are triggered only when the application is focused. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`] cuando crea un [MenuItem](../api/menu-item.md) con el módulo [Menu](../api/menu.md).
+Local keyboard shortcuts are triggered only when the application is focused. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`][] al crear un [MenuItem][] dentro de módulo [Menu][].
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -38,7 +38,7 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 ### Accesos directos globales
 
-Para configurar un atajo de teclado global, necesita usar el módulo [globalShortcut](../api/global-shortcut.md) para detecta los eventos del teclado cuando la aplicación no tiene el focus del teclado.
+To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -60,7 +60,7 @@ After launching the Electron application, if you press the defined key combinati
 
 #### Using web APIs
 
-Si quieres manejar los atajos de teclado dentro de un [BrowserWindow](../api/browser-window.md), puedes escuchar por los [Eventos DOM](https://developer.mozilla.org/en-US/docs/Web/Events) `keyup` y `keydown` dentro del renderer process usando la [API addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
 
 ```js
 window.addEventListener('keyup', doSomething, true)
@@ -96,30 +96,38 @@ After launching the Electron application, if you open the terminal that you ran 
 
 #### Using third-party libraries
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap](https://github.com/ccampbell/mousetrap). Below are examples of usage of the `mousetrap` running in the Renderer process:
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. Below are examples of usage of the `mousetrap` running in the Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// Combinaciones
+// combinaciones
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// combinaciones múltiples para el mismo llamado
+// mapea combinaciones múltiples al mismo callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // devolver falso a comportamientos preventivos por defecto y detener eventos
+  // retorna falso para prevenir comportamientos predeterminados y detiene el evento del bubbling
   return false
 })
 
-// Secuencia de estilo gmail
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
 
-// ¡Código Konami!
+// gmail style sequences
+Mousetrap.bind('g i', () => { console.log('go to inbox') })
+Mousetrap.bind('* a', () => { console.log('select all') })!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('código konami')
 })
 ```
+
+[Menu]: ../api/menu.md
+[MenuItem]: ../api/menu-item.md
+[globalShortcut]: ../api/global-shortcut.md
+[`accelerator`]: ../api/accelerator.md
+[BrowserWindow]: ../api/browser-window.md
+[mousetrap]: https://github.com/ccampbell/mousetrap
+[dom-events]: https://developer.mozilla.org/en-US/docs/Web/Events
+[addEventListener-api]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
