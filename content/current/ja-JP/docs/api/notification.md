@@ -1,6 +1,6 @@
-# 通知
+# Notification
 
-> デスクトップ通知を作成します。
+> OSのデスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -14,7 +14,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
+`Notification` は [EventEmitter][event-emitter] を継承しています。
 
 `options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
@@ -178,3 +178,5 @@ macOS では、通知が表示されたときに再生したいサウンドの�
 * `/システム/ライブラリ/Sounds`
 
 より詳しくは、[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) ドキュメントを参照して下さい。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
