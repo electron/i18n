@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) бета-версия содержит первоначальную поддержку macOS [Touch Bar](https://developer.apple.com/macos/touch-bar).
+The Electron [1.6.3][] beta release contains initial support for the macOS [Touch Bar][].
 
 ---
 
@@ -34,34 +34,34 @@ const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Спин result label
+// Spin result label
 const result = new TouchBarLabel()
 
-// Кнопка Spin
+// Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
-  цвет фона: '#7851A9',
-  клик: () => {
-    // Игнорировать клики при уже вращении
+  backgroundColor: '#7851A9',
+  click: () => {
+    // Ignore clicks if already spinning
     if (spinning) {
       return
     }
 
     spinning = true
-    результат. abel = ''
+    result.label = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 секунды
-    const startTime = Date. ow()
+    const spinLength = 4 * 1000 // 4 seconds
+    const startTime = Date.now()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date. ow() - startTime) >= spinLength) {
+      if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Замедляем немного на каждом вращении
-        timeout *= 1.
+        // Slow down a bit on each spin
+        timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
     }
@@ -72,57 +72,60 @@ const spin = new TouchBarButton({
 
 const getRandomValue = () => {
   const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  возвращаемых значений[Math. loor(Math.random() * values.length)]
+  return values[Math.floor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1. abel = getRandomValue()
+  reel1.label = getRandomValue()
   reel2.label = getRandomValue()
-  reel3. abel = getRandomValue()
+  reel3.label = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1. abel, reel2.label, reel3.label]). ize
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // Все 3 значения являются тем же
-    результатом. abel = '💰 Jackpot!'
-    результат. extColor = '#FDFF00'
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
+    result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 значения являются тем же
-    результатом. abel = '😍 Победитель!'
-    результат. extColor = '#FDFF00'
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    result.textColor = '#FDFF00'
   } else {
-    // Нет одинаковых значений
-    результата. abel = '🙁 Spin Again'
-    result. extColor = null
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
   }
-  вращение = false
+  spinning = false
 }
 
-const touchbar = new TouchBar([
-  вращения,
-  новый TouchBarSpacer({size: 'large'}),
+const touchBar = new TouchBar([
+  spin,
+  new TouchBarSpacer({size: 'large'}),
   reel1,
-  новый TouchBarSpacer({size: 'small'}),
+  new TouchBarSpacer({size: 'small'}),
   reel2,
-  новый TouchBarSpacer({size: 'small'}),
+  new TouchBarSpacer({size: 'small'}),
   reel3,
-  нового TouchBarSpacer({size: 'large'}),
-  результат
+  new TouchBarSpacer({size: 'large'}),
+  result
 ])
 
-пустое окно
+let window
 
-. nce('ready', () => {
+app.once('ready', () => {
   window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hidden-inset',
-    ширина: 200,
-    высота: 200,
-    цвет фона: '#000'
+    width: 200,
+    height: 200,
+    backgroundColor: '#000'
   })
-  окно. oadURL('about:blank')
+  window.loadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```
+
+[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
+[Touch Bar]: https://developer.apple.com/macos/touch-bar
 
