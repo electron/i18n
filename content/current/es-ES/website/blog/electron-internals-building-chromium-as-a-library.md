@@ -30,7 +30,7 @@ El inconveniente es que el cromo es una base de código muy grande y requiere m�
 
 Como usuario del Módulo de Contenido, Electron no necesita modificar el código de Chromium en la mayoría de los casos, tan una manera obvia de mejorar la construcción de Electron es construir Chromium como una biblioteca compartida, y luego enlazar con él en Electron. De esta forma los desarrolladores ya no necesitan construir todo Chromium cuando contribuyen a Electron.
 
-El proyecto [libchromiumcontent](https://github.com/electron/libchromiumcontent) fue creado por [@aroben](https://github.com/aroben) para este propósito. Construye el Módulo de Contenido de Chromium como una biblioteca compartida, y luego proporciona cabeceras de Chromium y binarios preconstruidos para su descarga. El código de la versión inicial de libchromiumcontent puede encontrarse [en este enlace](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+El proyecto [libchromiumcontent](https://github.com/electron/libchromiumcontent) fue creado por [@aroben](https://github.com/aroben) para este propósito. Construye el Módulo de Contenido de Chromium como una biblioteca compartida, y luego proporciona cabeceras de Chromium y binarios preconstruidos para su descarga. Construye el Módulo de Contenido de Chromium como una biblioteca compartida, y luego proporciona cabeceras de Chromium y binarios preconstruidos para su descarga.
 
 El proyecto [brightray](https://github.com/electron/brightray) también nació como parte de libchromiumcontent, que proporciona una capa fina alrededor del Módulo de Contenido.
 
