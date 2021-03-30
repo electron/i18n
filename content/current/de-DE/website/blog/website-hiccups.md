@@ -8,7 +8,7 @@ Letzte Woche hatte die [electronjs.org](https://electronjs.org) Seite ein paar M
 
 ---
 
-Um diese Art von Ausfallzeit in Zukunft zu verhindern, haben wir [Heroku Schwellenwarnungen](https://devcenter.heroku.com/articles/metrics#threshold-alerting) in unserer App aktiviert. Jederzeit sammelt unser Webserver fehlgeschlagene Anfragen oder langsame Antworten über einen bestimmten Schwellenwert, unser Team wird benachrichtigt, damit wir das Problem schnell lösen können.
+To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
 
 ## Offline-Dokumente in jeder Sprache
 
