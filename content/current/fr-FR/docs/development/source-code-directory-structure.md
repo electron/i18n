@@ -1,4 +1,4 @@
-# Structure du répertoire du Code Source
+# Hiérarchie du Code Source
 
 Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 
@@ -61,8 +61,8 @@ Electron
 |   |   ├── api/ - L'implementation des principales API de processus.
 |   |   ├── net/ - Code lié au réseau.
 |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
-|   |   └── resources/ - Icônes, fichiers dépendant de la plateforme, etc.
-|   ├── renderer/ - Code qui s'exécute dans le moteur de rendu.
+|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - L'implementation des API de processus de rendu.
 | <unk> ─ common/ - Code qui est utilisé à la fois par les processus principaux et les processus de rendu,
 | | y compris quelques fonctions utilitaires et du code pour intégrer les nœuds
