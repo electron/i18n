@@ -30,7 +30,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `launchInfo` Record<string, any> _macOS_
 
-Electronが一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合、`launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 また、`app.isReady()` を呼び出して、このイベントがすでに起動されているかどうかを確認し、`app.whenReady()` を呼び出して、Electronが初期化されたときに満たされる Promise を取得することもできます。
+Electron が一度、初期化処理を完了したときに発生します。 macOS では、通知センターから起動された場合に `launchInfo` はアプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持します。 また、`app.isReady()` を呼び出してこのイベントが発生したことがあるかどうかを確認したり、`app.whenReady()` を呼び出して Electron 初期化時に解決される Promise を取得したりできます。
 
 ### イベント: 'window-all-closed'
 
@@ -163,7 +163,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要があれば、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` 辞書を構築して `app.updateCurrentActivity()` を適切に呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
@@ -307,7 +307,7 @@ GPU 情報の更新がある場合に発生します。
 
 GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
-**非推奨:** このイベントは `child-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 それはいつも、クラッシュしたから、ではありません。 `killed` boolean をイベントに切り替えたときに `reason === 'killed'` をチェックすることに置き換えることができます。
+**非推奨:** このイベントは `child-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。 移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
 ### イベント: 'renderer-process-crashed' _Deprecated_
 
@@ -319,7 +319,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 `webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
-**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 それはいつも、クラッシュしたから、ではありません。  `killed` boolean をイベントに切り替えたときに `reason === 'killed'` をチェックすることに置き換えることができます。
+**非推奨:** このイベントは `render-process-gone` イベント によって引き継がれます。このイベントには、子プロセスが失われた理由についての詳細情報が含まれています。 これはクラッシュした場合に限りません。  移植する場合は、Boolean 型の `killed` だと `reason === 'killed'` をチェックするように置き換えればできます。
 
 ### イベント: 'render-process-gone'
 
@@ -328,16 +328,16 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - レンダリングプロセスがなくなった理由。  取りうる値:
-    * `clean-exit` - 終了コードが0でプロセスが終了した
-    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
-    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
+  * `reason` String - The reason the render process is gone.  取りうる値:
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
 
-renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やまたは殺された場合、これは正常です。
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
 
 ### イベント: 'child-process-gone'
 
@@ -354,17 +354,17 @@ renderer processが予期せず消えたときに発生します。  プロセ�
     * `Pepper Plugin Broker`
     * `Unknown`
   * `reason` String - 子プロセスがなくなった理由。 取りうる値:
-    * `clean-exit` - 終了コードが0でプロセスが終了した
-    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
-    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
+    * `clean-exit` - ゼロの終了コードでプロセスが終了した
+    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
+    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
+    * `integrity-failure` - Windows コードの整合性チェックに失敗した
   * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
   * `name` String (任意) - そのプロセスの名前。 つまり、プラグインの場合はFlashになります。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
-子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やまたは殺された場合、これは正常です。 レンダラープロセスを含みません。
+子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やキルされた場合は正常です。 レンダラープロセスを含みません。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -520,11 +520,11 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 ### `app.focus([options])`
 
 * `options` Object (任意)
-  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、受信者をアクティブなアプリにします。
+  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、レシーバをアクティブにします。
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
-できるだけ慎重に `steal` オプションを使用してください。
+`steal` オプションはできるだけ慎重に使用してください。
 
 ### `app.hide()` _macOS_
 
@@ -568,7 +568,7 @@ Linux では、最初の表示ウィンドウにフォーカスします。 macO
   * `recent` ユーザーの最近のファイルのめのディレクトリ(Windows のみ)。
   * `logs` アプリのログフォルダのディレクトリ。
   * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
-  * `crashDumps` クラッシュダンプが格納されているディレクトリ。
+  * `crashDumps` クラッシュダンプを格納するディレクトリ。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
@@ -890,10 +890,10 @@ if (!gotTheLock) {
 
 アプリのアクティベーションポリシーを設定します。
 
-アクティベーションポリシーの種類:
-* 'regular' - アプリケーションはDockに表示される通常のアプリで、ユーザーインターフェイスを持っている可能性があります。
-* 'accessory' - このアプリケーションはドックに表示されませんし、メニューバーも持ちません。プログラムまたはウィンドウの1つをクリックすることでアクティベートできます。
-* 'prohibited' - アプリケーションはドックに表示できないし、ウィンドウを作成できないし、アクティベートできません。
+アクティベーションポリシーの種類は以下のとおりです。
+* 'regular' - Dock に表示される通常のアプリで、ユーザーインターフェースがあったりします。
+* 'accessory' - このアプリケーションはドックに表示されず、メニューバーもありません。プログラムから又はウィンドウをクリックすることでアクティベートできます。
+* 'prohibited' - アプリケーションはドックに表示されず、ウィンドウも作られず、アクティベートできません。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -913,7 +913,7 @@ if (!gotTheLock) {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はこの振る舞いを無効にします。
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はその振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
