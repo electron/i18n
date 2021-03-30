@@ -158,7 +158,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Запланированные критические изменения API (9.0)
+## Запланированные API изменения (9.0)
 
 ### По умолчанию изменено: Загрузка неконтекстных собственных модулей в процессе визуализации по умолчанию отключена
 
