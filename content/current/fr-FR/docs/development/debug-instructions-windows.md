@@ -10,7 +10,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Outils Visual Studio C++** : les éditions de la communauté gratuite de Visual Studio 2013 et Visual Studio 2015 fonctionnent tous les deux. Une fois installé, [configurer Visual Studio pour utiliser le serveur Symbole d’Electron](setting-up-symbol-server.md). Il permettra à Visual Studio d’acquérir une meilleure compréhension de ce qui se passe à l’intérieur d'Electron, rendant plus facile l'affichage des variables dans un format lisible par l’homme.
 
-* **ProcMon** : l'[outil gratuit de SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) vous permet d’inspecter un paramètres de processus, gère les fichiers et les opérations de registre.
+* **ProcMon** : l'[outil gratuit de SysInternals][sys-internals] vous permet d’inspecter un paramètres de processus, gère les fichiers et les opérations de registre.
 
 ## Débogage d'Electron
 
@@ -42,4 +42,7 @@ Vous pouvez être attaché à plusieurs programmes lorsque vous déboguez, mais 
 
 Alors que Visual Studio est fantastique pour l’inspection de code spécifiques, la force de ProcMon est vraiment dans l'observation de tout ce que fait votre application avec le système d’exploitation - il capture les fichiers, registre, réseau, processus et fait un profilage des processus. Il tente de logguer **tous** les événements qui se produisent et peut être assez écrasant, mais si vous cherchez à comprendre pourquoi et comment votre application fonctionne avec le système d’exploitation, il peut être une ressource précieuse.
 
-Pour une introduction aux fonctionnalités de débogage de base et avancées de ProcMon, allez voir [ce tutoriel vidéo](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fourni par Microsoft.
+Pour une introduction aux fonctionnalités de débogage de base et avancées de ProcMon, allez voir [ce tutoriel vidéo][procmon-instructions] fourni par Microsoft.
+
+[sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
+[procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor
