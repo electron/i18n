@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2016-12-09'
 ---
 
-Electron [1.4.12][] contains an important patch that fixes an upstream Chrome issue where some Symantec, GeoTrust, and Thawte SSL/TLS certificates are incorrectly rejected 10 weeks from the build time of [libchromiumcontent][], Electron's underlying Chrome library. 在受影响的网站上使用的 证书没有问题，替换这些证书将无济于事。
+电子 [1.412][] 包含一个重要的修补程序，可以修复上游铬 问题，其中一些赛门铁克、GeoTrust 和 Thawte SSL/TLS 证书 在 [][]的构建时间 10 周内被错误地拒绝，电子公司的基础 Chrome 库。 在受影响的网站上使用的 证书没有问题，替换这些证书将无济于事。
 
 ---
 
@@ -97,6 +97,8 @@ Electron [1.4.12][] contains an important patch that fixes an upstream Chrome is
 - [664177 Chrome 修复问题](https://codereview.chromium.org/2495583002)
 - [签发的 libchromiumcontent 补丁](https://github.com/electron/libchromiumcontent/pull/248)
 
-[libchromiumcontent]: https://github.com/electron/libchromiumcontent
-[1.4.12]: https://github.com/electron/electron/releases/tag/v1.4.12
+[3]: https://github.com/electron/libchromiumcontent
+
+[2]: https://github.com/electron/libchromiumcontent
+[1.412]: https://github.com/electron/electron/releases/tag/v1.4.12
 
