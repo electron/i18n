@@ -142,4 +142,4 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 * La rama `master` siempre contendrá la siguiente versión mayor `X.0.0-nightly.DATE` en su `package.json`
 * Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 * Las ramas de versión _do_contienen la versión correcta en su `package.json`
-* Tan pronto como se corta una rama de lanzamiento para un mayor, el maestro debe ser golpeado al siguiente mayor.  Es decir, `master` siempre está versionado como la siguiente rama teórica de lanzamiento
+* Tan pronto como se corta una rama de lanzamiento para un mayor, el maestro debe ser golpeado al siguiente mayor.  I.e. `master` is always versioned as the next theoretical release branch
