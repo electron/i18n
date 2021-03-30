@@ -9,7 +9,7 @@
 
 `status` 表现的数字在不同的平台代表不同的含义：在 Windows 的可能值可以在上可以在 [这里](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) 找到，在 Linux 和 macOS 上，可以在[这里](https://www.cups.org/doc/cupspm.html)找到 它们。
 
-## 例子
+## 示例
 
 下面是一些可能在每个平台上不同的附加选项的示例。
 
