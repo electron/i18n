@@ -43,7 +43,7 @@ Sous Windows, vous pouvez également charger les icônes `ICO` à partir de chem
   * 64x64 (200% DPI scale)
   * 256x256
 
-Consultez la section *Taille requise* dans [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Check the *Size requirements* section in [this article][icons].
 
 ## Images à haute résolution
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
@@ -155,7 +155,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Crée une nouvelle instance `NativeImage` à partir de `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
@@ -174,7 +174,7 @@ The `hslShift` is applied to the image with the following rules:
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Par conséquent, vous devrez déterminer la bonne représentation de votre image avant de la passer. Cela peut être fait avec les éléments suivants :
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
@@ -195,20 +195,20 @@ The following methods are available on instances of the `NativeImage` class:
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées `PNG` de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées `PNG` de l'image.
 
 #### `image.toJPEG(quality)`
 
 * `qualité` Entier - Entre 0 - 100.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées en `JPEG` de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées en `JPEG` de l'image.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient une copie des données du pixel brut bitmap de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ Retourne `String` - L'URL des données de l'image.
 * `options` Object (optional)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données brutes des pixels bitmap de l'image.
+Retourne `Buffer` - Un [tampon][buffer] qui contient les données brutes des pixels bitmap de l'image.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` _macOS_
 
-Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui stocke le pointeur C sur la gestion native sous-jacente de l'image . Sur macOS, un pointeur vers `NSImage` serait retourné.
+Retourne `Buffer` - Un [tampon][buffer] qui stocke le pointeur C sur la gestion native sous-jacente de l'image . Sur macOS, un pointeur vers `NSImage` serait retourné.
 
 Note que le pointeur retourné est un pointeur faible vers l'image native sous-jacente au lieu d'une copie, donc vous _devez_ vous assurer que l'instance associée `nativeImage` est conservée.
 
@@ -301,3 +301,9 @@ Add an image representation for a specific scale factor. This can be used to exp
 Une propriété `Boolean` qui détermine si l'image est considérée comme une [image de modèle](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Veuillez noter que cette propriété n'a qu'un effet sur macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
