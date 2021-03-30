@@ -16,7 +16,7 @@ Electron のビルドについては、以下のガイドラインに従って�
 
 ## GN 要件
 
-[`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
+[`depot_tools`][depot-tools] をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
 
 更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
@@ -110,7 +110,7 @@ $ ninja -C out/Testing electron
 $ ninja -C out/Release electron
 ```
 
-これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
+これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリと WebKit や V8 を含む依存関係) のすべてをビルドします。そのため時間がかかります。
 
 実行形式は `./out/Testing` 下に置かれます。
 
@@ -154,7 +154,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
-[`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許可されている値については、 GN リファレンスを参照してください。
+[`target_os`][target_os values] と [`target_cpu`][target_cpu values] に指定できる値については GN リファレンスをご参照ください。
 
 #### Arm 上で Windows (実験的)
 
@@ -233,3 +233,8 @@ $ gclient sync -f
 ### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
 
 Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
+
+[depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
+
+[target_os values]: https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values
+[target_cpu values]: https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values
