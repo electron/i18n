@@ -46,7 +46,7 @@ Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on 
 
 ### With an app source code archive
 
-Instead of from shipping your app by copying all of its source files, you can package your app into an [asar](https://github.com/electron/asar) archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
+Instead of from shipping your app by copying all of its source files, you can package your app into an [asar][] archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
 
 为了使用一个 `asar` 档案文件代替 `app` 文件夹，你需要修改这个档案文件的名字为 `app.asar` ， 然后将其放到 Electron 的资源文件夹下，然后 Electron 就会试图读取这个档案文件并从中启动。 如下所示：
 
@@ -64,7 +64,7 @@ electron/resources/
 └── app.asar
 ```
 
-You can find more details on how to use `asar` in the [`electron/asar` repository](https://github.com/electron/asar).
+You can find more details on how to use `asar` in the [`electron/asar` repository][asar].
 
 ### Rebranding with downloaded binaries
 
@@ -104,3 +104,7 @@ MyApp.app/Contents
 ### Rebranding by rebuilding Electron from source
 
 你也可以通过改变产品名称后从源码构建来重塑Electron的形象。 你只需要在 `args.gn` 文件中将构建参数设置为对应产品的名称(`electron_product_name = "YourProductName"`)，并进行重新构建。
+
+[asar]: https://github.com/electron/asar
+
+[asar]: https://github.com/electron/asar
