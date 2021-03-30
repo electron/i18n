@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
+`ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)接口, 因此是一个[EventEmitter][event-emitter]类型.
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 * `total` Integer - The number of bytes that will be uploaded this request
 
 您可以使用此方法获取使用 `POST` 请求的文件上传或其他数据传输的进度
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
