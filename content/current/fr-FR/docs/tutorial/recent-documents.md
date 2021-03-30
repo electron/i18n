@@ -6,13 +6,13 @@ Windows et macOS permettent d’accéder facilement à la liste des documents r�
 
 __JumpList :__
 
-![JumpList fichiers récents](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList fichiers récents][1]
 
 __Menu application du dock :__
 
-![Dock de macOS](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![Dock de macOS][2]
 
-Pour ajouter un fichier aux documents récents, vous devez utiliser l'API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows).
+To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
 
 ## Exemple
 
@@ -32,7 +32,7 @@ Après avoir lancé l'application Electron, faites un clic droit sur l'icône de
 
 ### Effacer la liste des documents récents
 
-Pour effacer la liste des documents récents, vous devez utiliser l'API [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) dans le fichier `main.js`:
+To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
 
 ```javascript
 const { app } = require('electron')
@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Remarques Windows
 
-Pour utiliser cette fonctionnalité sur Windows, votre application doit être enregistrée en tant que gestionnaire du type de fichier du document, sinon le fichier n'apparaîtra pas dans JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Pour utiliser cette fonctionnalité sur Windows, votre application doit être enregistrée en tant que gestionnaire du type de fichier du document, sinon le fichier n'apparaîtra pas dans JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
 
 Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela démarre une nouvelle instance de votre application avec le chemin d’accès du fichier ajouté comme un argument de ligne de commande.
 
@@ -71,6 +71,13 @@ Vous pouvez ajouter des éléments de menu pour accéder et effacer les document
 }
 ```
 
-![Élément de menu Documents récents macOS](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![Élément de menu Documents récents macOS][6]
 
 Lorsqu’un fichier est demandé dans le menu documents récents, l’événement `open-file` du module `app` sera émit.
+
+[1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
+[2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png
+[6]: https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png
+[addrecentdocument]: ../api/app.md#appaddrecentdocumentpath-macos-windows
+[clearrecentdocuments]: ../api/app.md#appclearrecentdocuments-macos-windows
+[app-registration]: https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx
