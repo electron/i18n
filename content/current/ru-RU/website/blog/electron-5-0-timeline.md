@@ -4,7 +4,7 @@ author: вежливость
 date: '2019-01-25'
 ---
 
-Впервые Electron рад обнародовать график выпуска нашего релиза начиная с версии 5. .0 Это наш первый шаг на пути к общественности, долгосрочному графику.
+For the first time ever, Electron is excited to publicize our release schedule starting with v5.0.0. This is our first step in having a public, long-term timeline.
 
 ---
 
@@ -17,6 +17,6 @@ date: '2019-01-25'
 
 Мы бы хотели обещать будущие даты, такие как [Node. s](https://github.com/nodejs/Release) и [Chromium](https://chromiumdash.appspot.com/schedule) делают, но мы не находимся в этом месте _еще_. Мы испытываем оптимизм в отношении того, что в будущем мы достигнем долгосрочных сроков.
 
-С учетом этого мы предпринимаем первые шаги, опубликовав график выпуска v5.0.0. Вы можете найти этот [здесь](https://electronjs.org/docs/tutorial/electron-timelines).
+With that in mind, we are taking first steps by publicly posting our release schedule for v5.0.0. You can find that [here](https://electronjs.org/docs/tutorial/electron-timelines).
 
 Чтобы помочь нам в тестировании бета-версий и стабилизации, пожалуйста, присоединяйтесь к нашей [Отзыв о приложении](https://electronjs.org/blog/app-feedback-program).
