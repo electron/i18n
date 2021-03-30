@@ -29,8 +29,6 @@ date: '2018-12-18'
 
 Tencent Blade团队发现了这种易受伤害性，他们已经发表了 [个博客文章讨论了易受伤害性](https://blade.tencent.com/magellan/index_en.html)。
 
-要了解有关保护电子应用安全的最佳实践的更多信息，请参阅我们的 [安全教程][]。
+要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
 
 如果您想要报告Electron中的脆弱性，电子邮件security@electronjs.org。
-
-[安全教程]: https://electronjs.org/docs/tutorial/security
