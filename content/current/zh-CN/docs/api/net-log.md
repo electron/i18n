@@ -38,7 +38,7 @@ Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
-## 属性
+## Properties
 
 ### `netLog.currentlyLogging` _Readonly_
 
