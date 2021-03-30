@@ -6,7 +6,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
-* [Preguntas más frecuentes sobre Electron](faq.md)
+* [Preguntas Frecuentes sobre Electron](faq.md)
 
 ## Guías y tutoriales
 
