@@ -1,4 +1,4 @@
-# Natives Datei Drag & Drop
+# Native Datei Drag & Drop
 
 Bestimmte Arten von Anwendungen, die Dateien manipulieren, könnten die native Datei-Drag & Drop Funktion des Betriebssystems unterstützen. Das Ziehen von Dateien in Webinhalte ist üblich und wird von vielen Webseiten unterstützt. Electron unterstützt zusätzlich das Ziehen von Dateien und Inhalten aus Webinhalten in die Welt des Betriebssystems .
 
