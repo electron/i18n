@@ -19,7 +19,7 @@ Esta postagem é a primeira da série, e recursos de [Kap](https://getkap.co/), 
 
 [Kap é um gravador de tela de código aberto](https://getkap.co) construído principalmente para designers e desenvolvedores capturarem facilmente seu trabalho. As pessoas o usam para compartilhar protótipos animados, bugs de documentos, criar GIFs bobos e tudo o que pode.
 
-We've seen people of all ages and backgrounds use it in educational settings, screencasts, tutorials... the list goes on. Mesmo para criar ativos de produção! Nós estamos completamente impressionados pelo quão bem recebido foi o nosso pequeno projeto lateral.
+Vimos pessoas de todas as idades e origens usá-lo em ambientes educacionais, screencasts, tutoriais... a lista continua. Mesmo para criar ativos de produção! Nós estamos completamente impressionados pelo quão bem recebido foi o nosso pequeno projeto lateral.
 
 ## Por que você o construiu?
 
