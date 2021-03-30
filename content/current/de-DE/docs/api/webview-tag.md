@@ -2,7 +2,7 @@
 
 ## Warnung
 
-Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/docs/extensions/reference/webviewTag/), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
+Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
 ## Enabling
 
@@ -181,7 +181,7 @@ The string follows the same format as the features string in `window.open`. A na
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ## Methoden
 
@@ -222,10 +222,9 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
 
 ### `<webview>.downloadURL(url)`
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating.</p>
+Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
@@ -329,7 +328,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `code` Zeichenkette
+* `code` String
 * `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -548,7 +547,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom Level.
+* `level` Number - Zoom level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
@@ -587,8 +586,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>isMainFrame` Boolean
+* `url` String
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -699,8 +698,8 @@ console.log(requestId)
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String
+* `url` String
+* `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
@@ -724,11 +723,9 @@ webview.addEventListener('new-window', async (e) => {
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p>
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -740,27 +737,22 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when a navigation is done.</p>
+Emitted when a navigation is done.
 
-<p spaces-before="0">This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p>
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Event: 'did-navigate-in-page'
 
 Rückgabewert:
 
 * `isMainFrame` Boolean
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when an in-page navigation happened.</p>
+Emitted when an in-page navigation happened.
 
-<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
-navigation outside of the page. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p>
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Event: 'close'
 
@@ -845,19 +837,21 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Rückgabewert:
 
-*  URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-<h3 spaces-before="0">Event: 'devtools-opened'</h3>
+### Event: 'devtools-opened'
 
-<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
+Emittiert wenn die DevTools geöffnet wurden.
 
-<h3 spaces-before="0">Event: 'devtools-closed'</h3>
+### Event: 'devtools-closed'
 
-<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
+Emittiert wenn die DevTools geschlossen wurden.
 
-<h3 spaces-before="0">Event: 'devtools-focused'</h3>
+### Event: 'devtools-focused'
 
-<p spaces-before="0">Emitted when DevTools is focused / opened.</p>
+Emitted when DevTools is focused / opened.
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
