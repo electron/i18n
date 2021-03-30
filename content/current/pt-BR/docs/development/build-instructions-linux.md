@@ -5,9 +5,9 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 ## Pré-requisitos
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
-* Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  Por favor verifique se o seu sistema suporta no mínimo a versão do Python TLS 1.2. Para um teste rápido, execute o seguinte script:
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
   $ npx @electron/check-python-tls
