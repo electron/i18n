@@ -30,7 +30,7 @@ The Electron team will [continue to support](https://electronjs.org/docs/tutoria
 
 ## 📝 Electron 版本的简短历史
 
-关于在 v3.0.0 之前稳定释放的决定没有按照时间表进行。 我们为项目添加了 v3.0.0 和 v4.0.0 的内部计划。 今年早些时候，我们决定首次公布 [电子v5.0.0](https://electronjs.org/blog/electron-5-0-timeline)稳定发布日期。 宣布我们稳定的发布日期总体上得到好评，我们很高兴为今后的发布继续这样做。
+关于在 v3.0.0 之前稳定释放的决定没有按照时间表进行。 我们添加了项目的内部时间表与 v3.0.0 和 v4.0.0。 今年早些时候，我们决定首次发布 [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline) 的稳定发布日期。 宣布我们稳定的发布日期总体上得到好评，我们很高兴为今后的发布继续这样做。
 
 为了更好地简化这些与升级有关的努力， 我们的 [升级](https://github.com/electron/governance/tree/master/wg-upgrades) 和 [发布](https://github.com/electron/governance/tree/master/wg-releases) 工作组是在我们的 [治理](https://electronjs.org/blog/governance) 系统中创建的。 它们使我们能够更好地优先安排和授权这项工作，我们希望随着随后每次公布情况而变得更加明显。
 
