@@ -46,7 +46,7 @@ Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on 
 
 ### With an app source code archive
 
-Instead of from shipping your app by copying all of its source files, you can package your app into an [asar](https://github.com/electron/asar) archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
+Instead of from shipping your app by copying all of its source files, you can package your app into an [asar][] archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
 
 Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et la placer dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
 
@@ -64,7 +64,7 @@ electron/resources/
 └── app.asar
 ```
 
-You can find more details on how to use `asar` in the [`electron/asar` repository](https://github.com/electron/asar).
+You can find more details on how to use `asar` in the [`electron/asar` repository][asar].
 
 ### Rebranding with downloaded binaries
 
@@ -104,3 +104,7 @@ Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 ### Rebranding by rebuilding Electron from source
 
 Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. Pour faire cela, vous devez définir les arguments de compilation correspondant au nom du produit (`electron_product_name = "LeNomDeVotreProduit"`) dans le fichier `args.gn` et recompiler.
+
+[asar]: https://github.com/electron/asar
+
+[asar]: https://github.com/electron/asar
