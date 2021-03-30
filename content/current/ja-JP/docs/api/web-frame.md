@@ -51,8 +51,9 @@ webFrame.setZoomFactor(2)
 
 > **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -77,7 +78,7 @@ const mainWindow = new BrowserWindow({
 
 `provider` は、スペルチェックのために個々の単語の配列を受け取る `spellCheck` メソッドを持つオブジェクトである必要があります。 `spellCheck` 関数は非同期的に実行され、完了時にスペルミスの単語を含む `callback` 関数を呼び出します。
 
-[node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
+[node-spellchecker][spellchecker] をプロバイダとして使用するサンプルです。
 
 ```javascript
 const { webFrame } = require('electron')
@@ -247,3 +248,5 @@ console.log(webFrame.getResourceUsage())
 ### `webFrame.routingId` _読み出し専用_
 
 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
+
+[spellchecker]: https://github.com/atom/node-spellchecker
