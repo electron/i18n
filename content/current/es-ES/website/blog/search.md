@@ -46,7 +46,7 @@ A veces sabes *qué* quieres conseguir, pero no sabes exactamente *cómo* hacerl
 
 Electron tiene una colección cada vez mayor de tutoriales para complementar su documentación de API. Ahora puedes encontrar más fácilmente tutoriales sobre un tema determinado, justo al lado de la documentación API relacionada.
 
-¿Buscando mejores prácticas de seguridad? Buscar [`security`].
+¿Buscando mejores prácticas de seguridad? Search for [`security`][].
 
 ## paquetes npm
 
@@ -66,10 +66,10 @@ Prueba a buscar [`music`] o [`homebrew`].
 
 Si has usado GitHub [búsqueda de código](https://github.com/search) antes, probablemente esté al tanto de sus filtros de clave-valor separados por dos puntos como `extension:js` o `user:defunkt`. Creemos que esta técnica de filtrado es bastante poderosa, así que hemos añadido una `es:` palabra clave a la búsqueda de Electron que le permite filtrar resultados para mostrar sólo un solo tipo:
 
-- [`es:api miniatura`]
-- [`es:tutorial security`]
-- [`es:paquete ipc`]
-- [`es:app grafiql`]
+- [`[<code>es:api miniatura`]</code>][]
+- [`[<code>es:tutorial security`]</code>][]
+- [`[<code>es:paquete ipc`]</code>][]
+- [`[<code>es:app grafiql`]</code>][]
 
 ## Navegación de teclado
 
@@ -97,4 +97,12 @@ La mejor manera de enviar sus comentarios es archivando un problema en GitHub en
 
 ## Gracias
 
-Agradecimientos especiales a [Emily Jordan](https://github.com/echjordan) y [Vanessa Yuen](https://github.com/vanessayuenn) por construir estas nuevas capacidades de búsqueda, a [Bibliotecas. o](https://libraries.io) por proporcionar [SourceRank](https://docs.libraries.io/overview.html#sourcerank) puntuaciones, y al equipo de Algolia por ayudarnos a empezar. 🍹
+Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io][] for providing [SourceRank][] scores, and to the team at Algolia for helping us get started. 🍹
+
+[`[&lt;code>es:api miniatura`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`[&lt;code>es:app grafiql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`[&lt;code>es:paquete ipc`]</code>]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`[&lt;code>es:tutorial security`]</code>]: https://electronjs.org/?query=is%3Atutorial%20security
+[`security`]: https://electronjs.org/?query=security
+[Libraries.io]: https://libraries.io
+[SourceRank]: https://docs.libraries.io/overview.html#sourcerank
