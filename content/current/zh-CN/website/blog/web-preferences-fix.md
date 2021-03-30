@@ -4,7 +4,7 @@ author: ckerr
 date: '2018-08-22'
 ---
 
-已经发现远程代码执行功能，影响到能够在 Electron 版本上打开嵌套子窗口的应用 (3)。 0-6、2.0.7、1.8.7和1.7.15。 这个脆弱性已经被分配到CVE标识符 [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685)。
+已经发现远程代码执行功能，影响到能够在 Electron 版本上打开嵌套子窗口的应用 (3)。 0-6、2.0.7、1.8.7和1.7.15。 This vulnerability has been assigned the CVE identifier [CVE-2018-15685][].
 
 ---
 
@@ -58,6 +58,9 @@ enforceInheritance(mainWindow.webContents)
 
 由 [Matt Austin](https://twitter.com/mattaustin) [对比安全](https://www.contrastsecurity.com/security-influencers/cve-2018-15685) 中发现了这个脆弱性并负责任地报告给Electron 项目。
 
-要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 如果您想要报告Electron中的脆弱性，电子邮件security@electronjs.org。
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
+[CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685
