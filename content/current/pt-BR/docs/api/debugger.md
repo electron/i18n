@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-As ferramentas de desenvolvedor do Chrome possuem [special binding](https://chromedevtools.github.io/devtools-protocol/) disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
+As ferramentas de desenvolvedor do Chrome possuem [special binding][rdp] disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Retorna:
 
-* Evento `event`
+* `event` Event
 * `method` String - Method name.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
@@ -71,10 +71,16 @@ Retira o debugger de `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
 * `commandParams` any (optional) - JSON object with request parameters.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 Send given command to the debugging target.
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[attachToTarget]: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget
