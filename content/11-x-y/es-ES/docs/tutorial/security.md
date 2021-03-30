@@ -192,7 +192,7 @@ session
 
 _La recomendación por defecto es Electrón_
 
-Puede que haya adivinado que deshabilitando la propiedad `webSecurity` en un render process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) desactiva características de seguridad cruciales.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 No deshabilite `webSecurity` en aplicaciones de producción.
 
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _La recomendación por defecto es Electrón_
 
-Si estas usando [`<webview>`][webview-tag], puede que necesites las paginas y los scripts cargados en tu tag `<webview>` par abrir nuevas ventanas. El atributo `allowpopups` les permite crear nuevas [`BrowserWindows`][browser-window] usando el método `window.open()`. tags `<webview>` de otra manera no se permite crear nuevas ventanas.
+Si estas usando [`<webview>`][webview-tag], puede que necesites las paginas y los scripts cargados en tu tag `<webview>` par abrir nuevas ventanas. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. tags `<webview>` de otra manera no se permite crear nuevas ventanas.
 
 ### ¿Por qué?
 
-Si usted no necesita ventanas emergentes, le conviene no permitir la creación de nuevos [`BrowserWindows`][browser-window] por defecto. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
 
 ### ¿Cómo?
 
