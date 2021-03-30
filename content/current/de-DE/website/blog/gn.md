@@ -10,11 +10,11 @@ Electron benutzt nun GN um sich selbst zu bauen. Hier ist eine Diskussion darüb
 
 # GYP und GN
 
-Als Electron 2013 zum ersten Mal veröffentlicht wurde, wurde die Chromium-Build-Konfiguration mit [GYP](https://gyp.gsrc.io/)geschrieben, kurz für "Generate Your Projects".
+When Electron was first released in 2013, Chromium's build configuration was written with [GYP][], short for "Generate Your Projects".
 
-2014 das Chromium-Projekt führte ein neues Build-Konfigurationswerkzeug namens [GN](https://gn.googlesource.com/gn/) ein (kurz für "Generate [Ninja](https://ninja-build.org/)") Die Build-Dateien von Chromium wurden auf GN migriert und GYP wurde aus dem Quellcode entfernt.
+In 2014, the Chromium project introduced a new build configuration tool called [GN][] (short for "Generate [Ninja][]") Chromium's build files were migrated to GN and GYP was removed from the source code.
 
-Electron hat historisch eine Trennung zwischen dem Hauptcode [Electron](https://github.com/electron/electron) und [libchromiumcontent](https://github.com/electron/libchromiumcontent)beibehalten, der Teil von Electron, der Chromium's 'content' Submodul umfasst. Electron verwendet weiterhin GYP, während libchromiumcontent -- als Teilmenge von Chromium -- auf GN umgeschaltet wird, wenn Chromium dies tat.
+Electron has historically kept a separation between the main [Electron code][] and [libchromiumcontent][], the part of Electron that wraps Chromium's 'content' submodule. Electron verwendet weiterhin GYP, während libchromiumcontent -- als Teilmenge von Chromium -- auf GN umgeschaltet wird, wenn Chromium dies tat.
 
 Wie Gänge, die nicht ganz mesh, gab es Reibung zwischen der Verwendung der beiden Build-Systeme. Die Wartung der Kompatibilität war fehleranfällig, von Compiler-Flags und `#Definiert` die genau zwischen Chromium, Node, V8 und Electron synchronisiert werden mussten.
 
@@ -32,4 +32,12 @@ GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/4806280
 
  * Es ist bereits bei der Entwicklung von Electron 4.0.0 erheblich geholfen, da Chromium 67 die Unterstützung für MSVC entfernt und mit Clang unter Windows auf Build umgestellt wurde. Mit dem GN Build, erben wir alle Compiler-Befehle von Chromium direkt, so dass wir die Clang Build auf Windows kostenlos!
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * It's also made it easier for Electron to use [BoringSSL][] in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+
+
+[BoringSSL]: https://boringssl.googlesource.com/boringssl/
+[Electron code]: https://github.com/electron/electron
+[GN]: https://gn.googlesource.com/gn/
+[GYP]: https://gyp.gsrc.io/
+[Ninja]: https://ninja-build.org/
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
