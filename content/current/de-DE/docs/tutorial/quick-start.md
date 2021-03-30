@@ -8,7 +8,7 @@ Normalerweise erstellt man eine Desktop-Anwendung separat für jedes Betriebssys
 
 ### Vorrausetzungen
 
-Bevor Sie mit Electron fortfahren, müssen Sie [Node.js](https://nodejs.org/en/download/) installieren. Wir empfehlen Ihnen, entweder die neueste `LTS` oder `Aktuelle` Version zu installieren.
+Before proceeding with Electron you need to install [Node.js][node-download]. Wir empfehlen Ihnen, entweder die neueste `LTS` oder `Aktuelle` Version zu installieren.
 
 > Bitte installieren Sie Node.js mit vorkompilierten Installern für Ihre Plattform. Andernfalls könnten Inkompatibilitätsprobleme mit verschiedenen Entwicklungstools auftreten.
 
@@ -334,3 +334,5 @@ Dann benötigen Sie in Ihrer Electron-Anwendung das Modul:
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/
