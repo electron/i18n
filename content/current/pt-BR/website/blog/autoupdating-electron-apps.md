@@ -4,7 +4,7 @@ author: zeke
 date: '2018-05-01'
 ---
 
-Hoje estamos lançando um código aberto gratuito, hospedado [atualiza o webservice](https://github.com/electron/update.electronjs.org) e o companion [pacote npm](https://github.com/electron/update-electron-app) para habilitar atualizações automáticas fáceis para aplicativos Electron de código aberto. Este é um passo para capacitar os desenvolvedores de aplicativos a pensarem menos sobre implantação e mais sobre desenvolver experiências de alta qualidade para seus usuários.
+Today we're releasing a free, open-source, hosted [updates webservice][update.electronjs.org] and companion [npm package][update-electron-app] to enable easy automatic updates for open-source Electron apps. Este é um passo para capacitar os desenvolvedores de aplicativos a pensarem menos sobre implantação e mais sobre desenvolver experiências de alta qualidade para seus usuários.
 
 ---
 
@@ -17,7 +17,7 @@ Hoje estamos lançando um código aberto gratuito, hospedado [atualiza o webserv
 
 ## Tornar a vida mais fácil
 
-Electron tem uma API [autoUpdater](https://electronjs.org/docs/tutorial/updates) que dá aos aplicativos a capacidade de consumir metadados de um ponto de extremidade remota para verificar se há atualizações, baixe-os em segundo plano e instale-os automaticamente.
+Electron has an [autoUpdater][] API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
 
 Ativar essas atualizações tem sido um passo pesado no processo de implantação para muitos desenvolvedores de aplicativos do Electron porque requer que um servidor web seja implantado e mantido apenas para servir metadados de histórico de versão do aplicativo.
 
@@ -25,48 +25,50 @@ Hoje estamos anunciando uma nova solução drop-in para atualizações automáti
 
 ## Usando o novo módulo
 
-Para minimizar a configuração de sua parte, criamos [update-electron-app](https://github.com/electron/update-electron-app), um módulo npm que se integra ao novo
-
-webservice [ update.electronjs.org](https://github.com/electron/update.electronjs.org).</p> 
+To minimize configuration on your part, we've created [update-electron-app][], an npm module which integrates with the new [update.electronjs.org][] webservice.
 
 Instalando o módulo:
-
-
 
 ```sh
 npm install update-electron-app
 ```
 
-
-Chame-a de qualquer lugar do [processo principal do seu aplicativo](https://electronjs.org/docs/glossary#main-process):
-
-
+Call it from anywhere in your app's [main process][]:
 
 ```js
 require('update-electron-app')()
 ```
 
-
 É isso! O módulo irá verificar se há atualizações na inicialização do aplicativo e, em seguida, a cada dez minutos. Quando uma atualização for encontrada, ele baixará automaticamente em segundo plano, e uma caixa de diálogo será exibida quando a atualização estiver pronta.
-
-
 
 ## Migrando apps existentes
 
-Apps já usando a API de autoUpdater do Electron também podem usar este serviço. Para fazer isso, é possível [personalizar o `módulo update-electron-app`](https://github.com/electron/update-electron-app) ou [se integrar diretamente com update.electronjs.org](https://github.com/electron/update.electronjs.org).
-
-
+Apps já usando a API de autoUpdater do Electron também podem usar este serviço. To do so, you can [customize the `update-electron-app`][update-electron-app] module or [integrate directly with update.electronjs.org][update.electronjs.org].
 
 ## Alternativas
 
-Se você estiver usando o [electron-builder](https://github.com/electron-userland/electron-builder) para empacotar seu aplicativo, você poderá usar o atualizador built-in dele. Para obter detalhes, consulte [electron.build/auto-update](https://www.electron.build/auto-update).
+If you're using [electron-builder][] to package your app, you can use its built-in updater. Para obter detalhes, consulte [electron.build/auto-update](https://www.electron.build/auto-update).
 
-Se seu app é privado, você pode precisar executar seu próprio servidor de atualização. Há uma série de ferramentas de código aberto para isso, incluindo [de Zeit](https://github.com/zeit/hazel) e Nucleus [da Atlassian](https://github.com/atlassian/nucleus). Veja o [Tutorial](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) de Atualização do Servidor para mais informações.
-
-
+Se seu app é privado, você pode precisar executar seu próprio servidor de atualização. There are a number of open-source tools for this, including Zeit's [Hazel][] and Atlassian's [Nucleus][]. See the [Deploying an Update Server][] tutorial for more info.
 
 ## Agradecimentos
 
-Graças ao [Julian Gruber](http://juliangruber.com/) por ajudar a projetar e construir este simples e escalável serviço da web . Graças aos funcionários do [Zeit](https://zeit.co) pelo seu serviço open-source [Hazel](https://github.com/zeit/hazel) do qual saímos uma inspiração de design. Graças ao [Samuel Attard](https://www.samuelattard.com/) para análises de código. Obrigado pela comunidade do Electron por ajudar a testar este serviço.
+Thanks to [Julian Gruber][] for helping design and build this simple and scalable web service. Thanks to the folks at [Zeit][] for their open-source [Hazel][] service, from which we drew design inspiration. Thanks to [Samuel Attard][] for the code reviews. Obrigado pela comunidade do Electron por ajudar a testar este serviço.
 
 🌲 Aqui está um futuro eterno para aplicativos do Electron!
+
+[autoUpdater]: https://electronjs.org/docs/tutorial/updates
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[Hazel]: https://github.com/zeit/hazel
+[Julian Gruber]: http://juliangruber.com/
+[main process]: https://electronjs.org/docs/glossary#main-process
+[Deploying an Update Server]: https://electronjs.org/docs/tutorial/updates#deploying-an-update-server
+[Nucleus]: https://github.com/atlassian/nucleus
+[Samuel Attard]: https://www.samuelattard.com/
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[Zeit]: https://zeit.co
