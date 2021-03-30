@@ -35,8 +35,8 @@ Nous avons [un outil en ligne de commande appelé bkr](https://github.com/beaker
 ```bash
 $ cd ~/mon-site
 $ bkr init
-$ echo "Bonjour, monde!" > index.html
-$ bkr publish
+$ echo "Bonjour, monde!" > 'indice.html
+$ bkr publier
 ```
 
 Et voici le forking d'un site :
@@ -44,8 +44,8 @@ Et voici le forking d'un site :
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "Mon fork n'a aucune considération pour l'index précédent. > index.html
-$ bkr publish
+$ echo "Mon fork n'a aucune considération pour l'index précédent. > 'indice.html
+$ bkr publier
 ```
 
 Ces sites sont ensuite hébergés à partir de votre navigateur. C'est un peu comme BitTorrent; vous partagez les sites dans un maillage P2P.
