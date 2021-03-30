@@ -4,7 +4,7 @@ author: ckerr
 date: '2018-08-22'
 ---
 
-Uma vulnerabilidade de execução de código remoto foi descoberta afetando apps com a capacidade de abrir janelas filhas aninhadas em versões do Electron (3. .0-beta.6, 2.0.7, 1.8.7 e 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685][].
+Uma vulnerabilidade de execução de código remoto foi descoberta afetando apps com a capacidade de abrir janelas filhas aninhadas em versões do Electron (3. .0-beta.6, 2.0.7, 1.8.7 e 1.7.15). Essa vulnerabilidade foi atribuída ao identificador CVE [CVE-2018-15685][].
 
 ---
 
@@ -58,9 +58,11 @@ Este código irá manualmente forçar que as janelas de nível superior `webPref
 
 Essa vulnerabilidade foi encontrada e reportada de forma responsável ao projeto Electron por [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
+Para saber mais sobre as melhores práticas para manter seus aplicativos Electron seguros, consulte nosso tutorial de segurança [][].
 
 Se você deseja relatar uma vulnerabilidade no Electron, envie e-mail security@electronjs.org.
 
-[security tutorial]: https://electronjs.org/docs/tutorial/security
+[3]: https://electronjs.org/docs/tutorial/security
+
+[2]: https://electronjs.org/docs/tutorial/security
 [CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685
