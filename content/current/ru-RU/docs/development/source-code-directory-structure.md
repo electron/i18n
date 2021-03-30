@@ -61,7 +61,7 @@ Electron
 |   |   ├── api/ - The implementation of the main process APIs.
 |   |   ├── net/ - Код, связанный с сетью.
 |   |   ├── mac/ - Исходный код на Objective-C специфичный для Mac.
-|   |   └── resources/ - Иконки, платформозависимые файлы и т.д.
+|   |   └── resources/ - Icons, platform-dependent files, etc.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
 |   └── common/ - Code that used by both the main and renderer processes,
