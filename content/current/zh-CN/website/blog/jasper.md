@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-本周我们会见了 [Jasper](https://jasperapp.io)的创建者，这是一个基于 Electron 的 管理GitHub 通知的工具。
+This week we interviewed the creator of [Jasper][], an Electron-based tool for managing GitHub notifications.
 
 ---
 
@@ -17,7 +17,7 @@ date: '2017-03-21'
 
 ## Jasper 是什么？
 
-[Jasper](https://jasperapp.io) 是 GitHub 灵活而强大的问题阅读器。 它支持github.com和GitHub Enterprise的问题和请求。
+[Jasper][] is a flexible and powerful issue reader for GitHub. 它支持github.com和GitHub Enterprise的问题和请求。
 
 [![Jasper 应用截图](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
@@ -127,7 +127,7 @@ Jasper 是12美元。 然而，您可以使用 [免费试用版](https://jaspera
 
 ## 你在开发 Jasper 时面临什么挑战？
 
-我很难找到“流”概念。 首先，我考虑使用 GitHub 的 [通知 API](https://developer.github.com/v3/activity/notifications/)。 然而，我注意到它不支持某些使用案例。 此后，除了通知API外，我考虑使用 [问题 API](https://developer.github.com/v3/issues/) 和 [合并请求 API](https://developer.github.com/v3/pulls/)。 但这从来没有成为我想要的。 然后在思考各种方法时，我认识到轮询GitHub的 [搜索 API](https://developer.github.com/v3/search/) 将提供最大的灵活性。 达到这一点需要大约一个月的实验。 然后我在两天内用流概念执行了Jasper原型。
+我很难找到“流”概念。 At first I considered using GitHub's [Notifications API][]. 然而，我注意到它不支持某些使用案例。 After that I considered using the [Issues API][] and [Pull Requests API][], in addition to the Notification API. 但这从来没有成为我想要的。 Then while thinking about various methods, I realized that polling GitHub's [Search API][] would offer the most flexibility. 达到这一点需要大约一个月的实验。 然后我在两天内用流概念执行了Jasper原型。
 
 注：投票最多每十秒钟一次。 这足够限制GitHub API。
 
@@ -140,4 +140,10 @@ Jasper 是12美元。 然而，您可以使用 [免费试用版](https://jaspera
 - **提高性能**: 现在在 WebView 中加载一个问题的速度低于正常浏览器。
 
 在 Twitter 上关注 [@jasperappio](https://twitter.com/jasperappio) 以获取更新。
+
+[Jasper]: https://jasperapp.io
+[Notifications API]: https://developer.github.com/v3/activity/notifications/
+[Pull Requests API]: https://developer.github.com/v3/pulls/
+[Issues API]: https://developer.github.com/v3/issues/
+[Search API]: https://developer.github.com/v3/search/
 
