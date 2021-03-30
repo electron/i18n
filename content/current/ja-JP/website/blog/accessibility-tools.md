@@ -10,7 +10,7 @@ date: '2016-08-23'
 
 Electron アプリケーションのアクセシビリティに関する懸念は、どちらも最終的に HTML であるため、ウェブサイトと同様です。 しかし、Electron アプリケーションでは、アプリケーションに監査機を指す URL がないため、アクセシビリティ監査にオンラインリソースを使用することはできません。
 
-これらの新機能は、監査ツールを Electron アプリに提供します。 Spectron でテストに監査を追加するか、開発者向けツール内で Devtron で監査を使用するかを選択できます。 詳細は、ツールの概要を読むか [アクセシビリティドキュメント](https://electronjs.org/docs/tutorial/accessibility/) をご覧ください。
+これらの新機能は、監査ツールを Electron アプリに提供します。 Spectron でテストに監査を追加するか、デベロッパー ツール内の Devtron を使用するかを選択できます。 詳細は、ツールの概要を読むか [アクセシビリティドキュメント](https://electronjs.org/docs/tutorial/accessibility/) をご覧ください。
 
 ### Spectron
 
