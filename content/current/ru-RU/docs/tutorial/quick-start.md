@@ -8,7 +8,7 @@ Electron - это фреймворк, который позволяет созд
 
 ### Требования
 
-Перед продолжением с Electron необходимо установить [Node.js](https://nodejs.org/en/download/). Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
+Before proceeding with Electron you need to install [Node.js][node-download]. Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
 
 > Пожалуйста, установите Node.js с помощью предварительно собранных инсталляторов для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
 
@@ -329,3 +329,5 @@ npm install --save aws-sdk
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/
