@@ -8,13 +8,13 @@
 
 `.snap` ファイルを作成する方法は3つあります。:
 
-1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
+1) [`electron-forge`][electron-forge] または [`electron-builder`][electron-builder]の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
 場合によっては、`snapcraft` ツールをインストールしている必要があります。 特定ディストリビューションの `snapcraft` のインストール手順は [こちら](https://snapcraft.io/docs/installing-snapcraft) です。
 
 ## `electron-installer-snap`の使用
 
-このモジュールは、[`electron-winstaller`](https://github.com/electron/windows-installer)のように動作します。またそのスコープ内の類似のモジュールは、snapパッケージのビルドに制限されます。 次のようにインストールできます:
+このモジュールは、[`electron-winstaller`][electron-winstaller]のように動作します。またそのスコープ内の類似のモジュールは、snapパッケージのビルドに制限されます。 次のようにインストールできます:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -22,7 +22,7 @@ npm install --save-dev electron-installer-snap
 
 ### ステップ1: Electronアプリケーションのパッケージ化
 
-[electron-packager](https://github.com/electron/electron-packager) (または類似ツール) を用いてパッケージします。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
+[electron-packager][electron-packager] (または類似ツール) を用いてパッケージします。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
 
 出力はおおよそ以下のようになります:
 
@@ -51,7 +51,7 @@ npm install --save-dev electron-installer-snap
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-もし既存のビルドパイプラインがある場合は、 `electron-installer-snap`をプログラムとして利用できます。 詳しい情報については、[Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax)を参照してください。
+もし既存のビルドパイプラインがある場合は、 `electron-installer-snap`をプログラムとして利用できます。 詳しい情報については、[Snapcraft API docs][snapcraft-syntax]を参照してください。
 
 ```js
 const snap = require('electron-installer-snap')
@@ -138,11 +138,11 @@ Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに�
 
 ### ステップ1: デビアンパッケージの作成
 
-`.deb` パッケージがない場合、`electron-installer-snap`で容易 にsnapパッケージを作成できます。 しかし、Debianパッケージを作成する方法はいつくかあります。例えば、[`electron-forge`](https://github.com/electron-userland/electron-forge)や[`electron-builder`](https://github.com/electron-userland/electron-builder)または [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian)があります。
+`.deb` パッケージがない場合、`electron-installer-snap`で容易 にsnapパッケージを作成できます。 しかし、Debianパッケージを作成する方法はいつくかあります。例えば、[`electron-forge`][electron-forge]や[`electron-builder`][electron-builder]または [`electron-installer-debian`][electron-installer-debian]があります。
 
 ### ステップ2: snapcraft.yamlファイルの作成
 
-利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント](https://docs.snapcraft.io/build-snaps/syntax) を参照してください。 以下で例を見てみましょう。
+利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント][snapcraft-syntax] を参照してください。 以下で例を見てみましょう。
 
 ```yaml
 name: myApp
@@ -204,3 +204,11 @@ apps:
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
+
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[electron-packager]: https://github.com/electron/electron-packager
+[electron-forge]: https://github.com/electron-userland/electron-forge
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[electron-installer-debian]: https://github.com/unindented/electron-installer-debian
+[electron-winstaller]: https://github.com/electron/windows-installer
