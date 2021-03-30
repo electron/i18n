@@ -10,11 +10,11 @@ Electron 现在使用GN来构建自己。 这里是为什么要讨论的。
 
 # GYP 和 GN
 
-当Electron于2013年首次发布时，Chromium的构建配置是用 [GYP](https://gyp.gsrc.io/)编写的，短于“生成你的项目”。
+When Electron was first released in 2013, Chromium's build configuration was written with [GYP][], short for "Generate Your Projects".
 
-2014年， Chromium项目引入了一个新的构建配置工具，叫做 [GN](https://gn.googlesource.com/gn/) (简称“生成 [Ninja](https://ninja-build.org/)”)，Chromium的构建文件被迁移到GN ，GYP 被从源代码中删除。
+In 2014, the Chromium project introduced a new build configuration tool called [GN][] (short for "Generate [Ninja][]") Chromium's build files were migrated to GN and GYP was removed from the source code.
 
-Electron 历史上一直保持主 [Electron 代码](https://github.com/electron/electron) 和 [libchromiumcontent](https://github.com/electron/libchromiumcontent)之间的分离， 对 Chromium 的 'content' 子模块的 Electron 部分。 Electron 已经继续使用 GYP, 而libchromiumcontent -- 作为Chromium 的子集--则在Chromium 的确切时间切换到GN
+Electron has historically kept a separation between the main [Electron code][] and [libchromiumcontent][], the part of Electron that wraps Chromium's 'content' submodule. Electron 已经继续使用 GYP, 而libchromiumcontent -- 作为Chromium 的子集--则在Chromium 的确切时间切换到GN
 
 像不很网格的渔具一样，使用两种构建系统之间存在摩擦。 维护兼容性是错误的，来自编译器的标志和 `#定义了需要仔细保持Chromium、节点、V8和Electron之间同步的`
 
@@ -32,4 +32,12 @@ GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/4806280
 
  * 它已经有助于在 Electron 4.0.0 上的开发，因为Chromium 67 已经移除了对 MSVC 的支持，并且已经切换到 Clang 在 Windows 上的建筑。 通过 GN 构建，我们直接继承了Chromium 的所有编译器命令，所以我们可以免费在 Windows 上的 Clang 构建！
 
- * 它也使Electron更容易在整个Electron的一个统一构建中使用 [BoringSSL](https://boringssl.googlesource.com/boringssl/) 。 Chromium, and Node -</a> 之前有问题 </p></li> </ul>
+ * It's also made it easier for Electron to use [BoringSSL][] in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+
+
+[BoringSSL]: https://boringssl.googlesource.com/boringssl/
+[Electron code]: https://github.com/electron/electron
+[GN]: https://gn.googlesource.com/gn/
+[GYP]: https://gyp.gsrc.io/
+[Ninja]: https://ninja-build.org/
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
