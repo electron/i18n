@@ -153,7 +153,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _読み出し専用_
 
-`NodeJS.Process` 型のオブジェクト。  この `process` はメインプロセスのオブジェクトです。 これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
+`NodeJS.Process` 型のオブジェクト。  この `process` はメインプロセスのオブジェクトです。 これは `remote.getGlobal('process')` と同じですが、これはキャッシュされます。
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
