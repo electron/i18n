@@ -1,10 +1,10 @@
-# contentTracing
+# class="VfPpkd-ksKsZd-XxIAqe">
 
 > Recopila datos de seguimiento de Chromium para encontrar cuellos de botella y operaciones lentas.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-Este módulo no incluye una interfaz web. Para ver las huellas gravadas, use [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), disponible en `chrome://tracing` en Chrome.
+Este módulo no incluye una interfaz web. Para ver las huellas gravadas, use [trace viewer][], disponible en `chrome://tracing` en Chrome.
 
 **Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
 
@@ -68,3 +68,5 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo el `value` y `pe
 * `percentage` Número
 
 Obtener el uso máximo a través de procesos de trace buffer como un porcentaje del estado completo.
+
+[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
