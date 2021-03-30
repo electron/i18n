@@ -1,4 +1,4 @@
-# Repräsentative Datei für macOS BrowserWindows
+# Repräsentierte Datei für macOS BrowserWindows
 
 Auf macOS kann ein Fenster seine repräsentierte Datei festlegen damit das Dateisymbol in die Titelleiste anzeigen kann und wenn Benutzer Befehlsklick oder Strg-Klick auf den Titel anzeigen, wird ein Pfad Popup angezeigt.
 
