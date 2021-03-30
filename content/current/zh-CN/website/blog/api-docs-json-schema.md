@@ -15,22 +15,22 @@ date: '2016-09-27'
 下面是描述 `浏览窗口` 类的方案摘要：
 
 ```js
-{
-  name: 'BrowserWindow',
-  description: 'Create and control browser windows.',
-  process: {
+•
+  名称："浏览器窗口"，
+  描述："创建和控制浏览器窗口"，
+  过程： {
     main: true,
     renderer: false
-  },
-  type: 'Class',
-  instanceName: 'win',
-  slug: 'browser-window',
-  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
-  staticMethods: [...],
-  instanceMethods: [...],
-  instanceProperties: [...],
-  instanceEvents: [...]
+  }，
+  类型："类"，
+  实例名称："赢"，
+  ：'浏览器窗口'，
+  网站Url：'https://electronjs.org/docs/api/browser-window'，
+  回购：'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md'，
+  静态的Methods： [...]，
+  实例： [...]，
+  实例项目： [...]，
+  实例事件： [...]
 }
 ```
 
