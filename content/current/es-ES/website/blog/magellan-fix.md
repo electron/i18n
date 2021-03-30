@@ -29,6 +29,8 @@ No hay informes al respecto en el desierto; sin embargo, se insta a las solicitu
 
 Esta vulnerabilidad fue descubierta por el equipo de Tencent Blade, que ha publicado [una publicación de blog que discute la vulnerabilidad](https://blade.tencent.com/magellan/index_en.html).
 
-Para obtener más información sobre las mejores prácticas para mantener sus aplicaciones Electron seguras, consulte nuestro [tutorial de seguridad](https://electronjs.org/docs/tutorial/security).
+Para aprender más sobre las buenas prácticas para mantener tus aplicaciones Electron seguras, ve nuestro [tutorial de seguridad][].
 
 Si desea reportar una vulnerabilidad en Electron, envíe un correo electrónico a security@electronjs.org.
+
+[tutorial de seguridad]: https://electronjs.org/docs/tutorial/security
