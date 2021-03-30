@@ -16,7 +16,7 @@ Beaker é um navegador participativo. É um navegador de hackers indie.
 
 A Web é fonte fechada. Se você quer influenciar a forma como as redes sociais funcionam, você tem que trabalhar no Facebook ou no Twitter. Para pesquisar, Google. O controlo está nas mãos das empresas, e não dos próprios utilizadores.
 
-Com Beaker, temos um novo protocolo Web: o [Transporte de arquivo descentralizado](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. Nenhum servidor necessário. Essa é a nossa inovação.
+Com Beaker, temos um novo protocolo Web: o [Transporte de arquivo descentralizado](https://datprotocol.com). "Dat". Ele cria sites sob demanda, de graça, e depois compartilha-os do dispositivo. Nenhum servidor necessário. Essa é a nossa inovação.
 
 ![Protocolos de bichos](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
@@ -33,19 +33,19 @@ Hackers. Modders. Tipos criativos. Pessoas que gostam de mexer.
 Nós temos [uma ferramenta de linha de comando chamada bkr](https://github.com/beakerbrowser/bkr) que é como git + npm. Está criando um site:
 
 ```bash
-$ cd ~/my-site
+$ cd ~/meu site
 $ bkr init
-$ echo "Hello, world!" > index.html
-$ bkr publish
+$ echo "Hello, world!" > índice.html
+$ bkr publicar
 ```
 
 E aqui está o fork de um site:
 
 ```bash
-$ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
-$ cd ~/my-fork
-$ echo "My fork has no regard for the previous index.html!" > index.html
-$ bkr publish
+$ bkr garfo dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/meu garfo
+$ cd ~/meu garfo
+$ echo "Meu garfo não tem respeito pelo índice anterior.html!" > índice.html
+$ bkr publicar
 ```
 
 Em seguida, esses sites são hospedados fora do seu navegador. É um pouco como o BitTorrent; você compartilha os sites em uma malha P2P.
