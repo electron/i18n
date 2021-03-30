@@ -4,7 +4,7 @@ author: sofianguy
 date: '2019-01-25'
 ---
 
-v5.0.0 以降の Electron のリリーススケジュールを初めて公開することにドキドキしています。これは公開される長期のスケジュールを設定する第一歩です。
+v5.0.0 以降の Electron のリリーススケジュールを初めて公開することにドキドキしています。 これは公開される長期スケジュール設定の第一歩です。
 
 ---
 
@@ -17,6 +17,6 @@ Electron と Chromium の変遷を並べて見てみましょう。
 
 [Node.js](https://github.com/nodejs/Release) や [Chromium](https://chromiumdash.appspot.com/schedule) のように将来の日付を約束したいのですが、_まだ_ その段階ではありません。 将来的には長期的なスケジュールに変化するだろうと楽観視しています。
 
-それを念頭に置いて、v5.0.0 のリリーススケジュールを公開することで第一段階を進めています。スケジュールは [こちら](https://electronjs.org/docs/tutorial/electron-timelines) にあります。
+それを念頭に置いて、v5.0.0 のリリーススケジュールを公開することで第一段階を進めています。 スケジュールは [こちら](https://electronjs.org/docs/tutorial/electron-timelines) にあります。
 
 ベータ版リリースと安定化のテストに役立てるため、[アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) への参加をご検討ください。
