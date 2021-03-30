@@ -9,4 +9,4 @@
 * `httpOnly` Boolean (任意) - Cookie に HttpOnly フラグがついているか。
 * `session` Boolean (任意) - Cookie がセッション Cookie か、有効期限のある永続的 Cookie かどうか。
 * `expirationDate` Double (任意) - UNIX エポックからの秒数による Cookie の有効期限。 セッション Cookie には提供されません。
-* `sameSite` String - このクッキーに適用するポリシーの[Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies)  `unspecified`, `no_restriction`, `lax` または `strict`。
+* `sameSite` String - この Cookie に適用する [SameSite](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#SameSite_attribute) ポリシー。  `unspecified`、`no_restriction`、`lax`、`strict` のいずれかにできます。
