@@ -184,7 +184,7 @@ Removes the `key` in `NSUserDefaults`. This can be used to restore the default o
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-返回 `Boolean` - `true` 如果启用了 [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass), 否则为 `false`.
+返回 `Boolean` - `true` 如果启用了 [DWM composition][dwm-composition] (Aero Glass), 否则为 `false`.
 
 使用它来确定是否应创建透明窗口的示例 (当禁用 DWM 组合时, 透明窗口无法正常工作):
 
@@ -293,7 +293,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -406,7 +406,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Returns an object with system animation settings.
 
-## 属性
+## Properties
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 
@@ -421,3 +421,8 @@ This property is only available on macOS 10.14 Mojave or newer.
 A `String` property that can be `dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
