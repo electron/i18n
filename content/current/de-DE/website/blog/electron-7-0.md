@@ -6,7 +6,7 @@ author:
 date: '2019-10-22'
 ---
 
-Electron 7.0.0 wurde veröffentlicht! It includes upgrades to Chromium 78, V8 7.8, and Node.js 12.8.1. We've added a Window on Arm 64 release, faster IPC methods, a new `nativeTheme` API, and much more!
+Electron 7.0.0 wurde veröffentlicht! Es enthält Upgrades auf Chromium 78, V8 7.8 und Node.js 12.8.1. Wir haben ein Fenster auf Arm 64 Release hinzugefügt, schnellere IPC-Methoden, eine `nativeTheme` API und vieles mehr!
 
 ---
 
