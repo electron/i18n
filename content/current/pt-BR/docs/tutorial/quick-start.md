@@ -8,7 +8,7 @@ Normalmente, você cria um aplicativo desktop para um sistema operacional (OS) u
 
 ### Pré-requisitos
 
-Antes de prosseguir com o Electron você precisa instalar o [Node.js](https://nodejs.org/en/download/). Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
+Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
@@ -259,7 +259,7 @@ Como foi mencionado anteriormente, o Electron tem dois tipos de processos: Princ
 ----
 
 * O processo de renderização **gerencia** apenas a página web correspondente. Uma falha num processo de renderização não afeta outros processos de renderização.
-* O processo de renderização **se comunica** com o processo principal através de IPC (instruções por ciclo) para executar operações na GUI (interface gráfica do usuário) em uma página web. Chamar APIs relacionadas a GUI nativas diretamente do processo de renderização é restrito, devido a questões de segurança e potencial vazamento de recursos.
+* O processo de renderização **se comunica** com o processo principal através de IPC (inter process communication) para executar operações na GUI (interface gráfica do usuário) em uma página web. Chamar APIs relacionadas a GUI nativas diretamente do processo de renderização é restrito, devido a questões de segurança e potencial vazamento de recursos.
 
 ----
 
@@ -329,3 +329,5 @@ Em seguida, em seu aplicativo Electron, requer o módulo:
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/

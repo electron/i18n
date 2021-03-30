@@ -8,13 +8,13 @@ Para crear un controlador personalizado, usaremos la API de Node.js [child_proce
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
-const env = { /* ... */ }
+// genera el proceso
+const env = { /* . . */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
+const appProcess = childProcess. pawn(electronPath, ['./app'], { stdio, env })
 
-// escuchar mensajes IPC desde la aplicación
-appProcess.on('message', (msg) => {
+// escucha mensajes IPC desde la app
+appProcess. n('message', (msg) => {
   // ...
 })
 
@@ -44,31 +44,31 @@ class TestDriver {
     esto. pcCalls = []
 
     // iniciar proceso secundario
-    env. PP_TEST_DRIVER = 1 // dejar que la aplicación sepa que debería escuchar los mensajes
-    esto. rocess = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    env. PP_TEST_DRIVER = 1 // dejar que la aplicación sepa que debe escuchar los mensajes
+    this.process = childProcess. pawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
     // manejar respuestas rpc
-    esto. rocesa. n('mensaje', (message) => {
+    this.process. n('mensaje', (message) => {
       // pop the handler
       const rpcCall = this. pcCalls[message.msgId]
       si (!rpcCall) devuelve
       esto. pcCalls[message.msgId] = null
       // rechazar/resolver
       if (mensaje. eject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(mensaje. esolve)
+      else rpcCall. esolve(message.resolve)
     })
 
     // esperar por lista
     this.isReady = this.rpc('isReady'). atch((err) => {
-      console.error('La aplicación falló al iniciar', err)
-      esto. top()
+      consola. rror('La aplicación no pudo iniciar', err)
+      this.stop()
       proceso. xit(1)
     })
   }
 
   // simple llamada RPC
-  // para usar: driver. pc('método', 1, 2, 3).then(. .)
-  async rpc (cmd, ... rgs) {
+  // para usar: driver. pc('método', 1, 2, 3).then(...)
+  async rpc (cmd, ...args) {
     // enviar solicitud rpc
     const msgId = this. pcCalls.length
     this.process. end({ msgId, cmd, args })

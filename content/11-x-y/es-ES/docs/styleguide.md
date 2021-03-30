@@ -21,7 +21,7 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-## Proceso Renderer
+## Proceso de renderizado
 
 ...
 
@@ -29,7 +29,7 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-### Ejecuta como una distribución
+### Ejecutar como una distribución
 
 ...
 
@@ -95,10 +95,10 @@ Usando `autoUpdater` como ejemplo:
 * Los constructores deben ser listrados con títulos de nivel `#`-.
 * Los [Métodos Estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) deben ser listados bajo un capítulo de`### Métodos Estáticos`.
 * Los [Métodos de Instancia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) deben ser listados bajo un capítulo de `### Métodos de Instancia`.
-* Todos los métodos que tienen un valor de retorno deben empezar su descripción con "Returns `[TYPE]` - Return description"
+* Todos los métodos que tienen un valor de retorno deben comenzar su descripción con "Devuelve `[TYPE]` - Descripción de retorno"
   * Si el método devuelve un `Objeto`, su estructura puede ser especificada usando una coma seguida de un salto de línea y luego una lista desordenada de propiedades en el mismo estilo como parámetros de la función.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Las Propiedades de Instancia deben ser listadas bajo un capitulo `### Instance Properties`.
+* Las propiedades de la instancia deben estar listadas bajo un capítulo `### Propiedades de Instancia`.
   * Las propiedades de instancia deben empezar con "Un [Tipo de Propiedad]..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
@@ -140,17 +140,17 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
-### `nombreDeObjeto.nombreDeMetodo(required[, opcional]))`
+### `objectName.methodName(required[, optional]))`
 
 * `required` String - Una descripción del parámetro.
-* `opcional` Integer (opcional) - Otra descripción del parámetro.
+* `optional` Integer (opcional) - Otra descripción de parámetro.
 
 ...
 ```
 
 El título puede ser `###` o `####`-niveles dependiendo de si es un método de un módulo o una clase.
 
-Para módulos, el `objectName` es el nombre del módulo. Para las clases debe ser el nombre de la instancia de la clase y no debe ser el mismo nombre del módulo.
+Para módulos, el `objectName` es el nombre del módulo. Para las clases, debe ser el nombre de la instancia de la clase, y no debe ser el mismo que el nombre del módulo.
 
 Por ejemplo, los métodos de la clase `Session` bajo el módulo `session` deben usar `ses` como el `objectName`.
 

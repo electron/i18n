@@ -28,7 +28,7 @@ Se você quiser o arm64 como arquitetura de destino, uma lógica como essa norma
 ### Módulos nativos
 Se você usar módulos nativos, você deve se certificar de que eles compilam contra v142 do compilador MSVC (fornecido no Visual Studio 2017). Você também deve verificar se qualquer `.dll` ou `pré-construído. arquivos ib` fornecidos ou referenciados pelo módulo nativo estão disponíveis para Windows no Arm.
 
-### Testar seu aplicativo
+### Testando seu aplicativo
 Para testar seu aplicativo, use um dispositivo ARM executando o Windows 10 ARM (versão 1903 ou mais tarde). Certifique-se de copiar seu aplicativo para o dispositivo de destino - a sandbox do Chromium não funcionará corretamente ao carregar seus recursos de aplicativo a partir de um local de rede.
 
 ## Pré-requisitos de desenvolvimento

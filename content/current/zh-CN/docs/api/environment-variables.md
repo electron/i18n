@@ -2,7 +2,7 @@
 
 > 在不更改代码的情况下控制应用程序配置和行为。
 
-Electrond的某些行为受环境变量的控制, 因为它们比命令行标志和应用程序的代码更早初始化。
+Electron的某些行为受环境变量的控制, 因为它们比命令行标志和应用程序的代码更早初始化。
 
 POSIX shell示例:
 
@@ -26,7 +26,7 @@ Windows 控制台示例:
 
 Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) 的子集的支持。 除与 Chromium 使用 BoringSSL 相抵触的情况外，大多数都得到了支持。
 
-示例：
+示例:
 
 ```sh
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"

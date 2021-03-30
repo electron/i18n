@@ -80,8 +80,8 @@ Sur macOS, vous pouvez maintenant appeler l'application `. howAboutPanel()` pour
 `Les instances WebContents` ont maintenant une méthode `setBackgroundThrottling(autorisé)` pour activer ou désactiver le limitation des minuteurs et des animations lorsque la page est en arrière-plan.
 
 ```javascript
-let win = new BrowserWindow(...)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+let win = nouveau BrowserWindow (...)
+win.webContents.setBackgroundThrottling (enableBackgroundThrottling)
 ```
 
 Voir [la documentation `setBackgroundThrottling`](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) pour plus d'informations.

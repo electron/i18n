@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://chromedevtools.github.io/devtools-protocol/)を持っています。
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング][rdp]を持っています。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -71,10 +71,16 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - メソッド名。[リモートデバッグプロトコル](https://chromedevtools.github.io/devtools-protocol/)で定義されているいずれかのメソッドになります。
+* `method` String - メソッド名。[リモートデバッグプロトコル][rdp] で定義されているメソッドのいずれかである必要があります。
 * `commandParams` any (任意) - リクエストパラメータの JSON オブジェクト。
-* `sessionId` String (任意) - デバッグセッション ID に関連付けられたターゲットにコマンドを送信します。 初期値は [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) メッセージを送信することで取得できます。
+* `sessionId` String (任意) - デバッグセッション ID に関連付けられたターゲットにコマンドを送信します。 初期値は [Target.attachToTarget][attachToTarget] メッセージを送信することで取得できます。
 
 戻り値 `Promise<any>` - リモートデバッグプロトコル内のコマンドの説明の 'returns' 属性で定義されたレスポンスで解決されるか、またはコマンドの失敗を示すために拒否されるプロミス。
 
 指定したコマンドをデバッグ対象に送信します。
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[attachToTarget]: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget

@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`ClientRequest` implémente l'interface de [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) et, du coup, elle est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` implémente l'interface de [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) et, du coup, elle est un [EventEmitter][event-emitter].
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Retourne `Object`:
 * `total` Integer - Le nombre d'octets qui seront chargés dans cette requête
 
 Vous pouvez utiliser cette méthode en conjonction avec les requêtes `POST` pour obtenir la progression d'un téléchargement de fichier ou d'un autre transfert de données.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

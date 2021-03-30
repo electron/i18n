@@ -12,7 +12,7 @@ date: '2018-01-22'
 
 Electron приложения, предназначенные для запуска на Windows, которые зарегистрированы как обработчик по умолчанию для протокола, например `myapp://`, уязвимы.
 
-Такие приложения могут быть затронуты независимо от того, как зарегистрирован протокол, это может быть родной код, реестр Windows или API Electron [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows).
+Такие приложения могут быть затронуты независимо от того, как зарегистрирован протокол, это может быть родной код, реестр Windows или API Electron [app.setAsDefaultProtocolClient][].
 
 macOS и Linux **не уязвимы** к этой проблеме.
 
@@ -34,3 +34,5 @@ app.setAsDefaultProtocolClient(протокол, process.execPath, [
 Чтобы узнать больше о лучших методах обеспечения безопасности приложений Electron, смотрите наш [учебник по безопасности](https://electronjs.org/docs/tutorial/security).
 
 Если вы хотите сообщить об уязвимости в Electron, напишите security@electronjs.org.
+
+[app.setAsDefaultProtocolClient]: https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows

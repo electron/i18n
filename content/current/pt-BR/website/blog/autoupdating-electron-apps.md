@@ -27,43 +27,29 @@ Hoje estamos anunciando uma nova solução drop-in para atualizações automáti
 
 Para minimizar a configuração de sua parte, criamos [update-electron-app](https://github.com/electron/update-electron-app), um módulo npm que se integra ao novo
 
-webservice [ update.electronjs.org](https://github.com/electron/update.electronjs.org).</p> 
-
 Instalando o módulo:
-
-
 
 ```sh
 npm install update-electron-app
 ```
 
-
-Chame-a de qualquer lugar do [processo principal do seu aplicativo](https://electronjs.org/docs/glossary#main-process):
-
-
+Instalando o módulo:
 
 ```js
 require('update-electron-app')()
 ```
 
-
 É isso! O módulo irá verificar se há atualizações na inicialização do aplicativo e, em seguida, a cada dez minutos. Quando uma atualização for encontrada, ele baixará automaticamente em segundo plano, e uma caixa de diálogo será exibida quando a atualização estiver pronta.
-
-
 
 ## Migrando apps existentes
 
-Apps já usando a API de autoUpdater do Electron também podem usar este serviço. Para fazer isso, é possível [personalizar o `módulo update-electron-app`](https://github.com/electron/update-electron-app) ou [se integrar diretamente com update.electronjs.org](https://github.com/electron/update.electronjs.org).
-
-
+Apps já usando a API de autoUpdater do Electron também podem usar este serviço. Se você estiver usando o [electron-builder](https://github.com/electron-userland/electron-builder) para empacotar seu aplicativo, você poderá usar o atualizador built-in dele.
 
 ## Alternativas
 
-Se você estiver usando o [electron-builder](https://github.com/electron-userland/electron-builder) para empacotar seu aplicativo, você poderá usar o atualizador built-in dele. Para obter detalhes, consulte [electron.build/auto-update](https://www.electron.build/auto-update).
+Apps já usando a API de autoUpdater do Electron também podem usar este serviço. Para obter detalhes, consulte [electron.build/auto-update](https://www.electron.build/auto-update).
 
 Se seu app é privado, você pode precisar executar seu próprio servidor de atualização. Há uma série de ferramentas de código aberto para isso, incluindo [de Zeit](https://github.com/zeit/hazel) e Nucleus [da Atlassian](https://github.com/atlassian/nucleus). Veja o [Tutorial](https://electronjs.org/docs/tutorial/updates#deploying-an-update-server) de Atualização do Servidor para mais informações.
-
-
 
 ## Agradecimentos
 

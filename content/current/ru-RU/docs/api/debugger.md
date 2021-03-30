@@ -2,9 +2,9 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-Инструменты разработчика Chrome имеют [специальную привязку](https://chromedevtools.github.io/devtools-protocol/) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
+Инструменты разработчика Chrome имеют [специальную привязку][rdp] доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `reason` String - причина отсоединения отладчика.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -71,10 +71,16 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
 * `commandParams` any (опционально) - JSON объект с параметрами запроса.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
 Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.
 
 Отправьте заданную команду на цель отладки.
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[attachToTarget]: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget

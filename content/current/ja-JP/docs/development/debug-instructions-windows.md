@@ -1,6 +1,6 @@
 # Windows におけるデバッグ
 
-JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、Visual Studio、Electron がホストするシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内のブレークポイントを使ったステップスルーデバッグができます。
+JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 しかし、Visual Studio、Electron がホストするシンボルサーバーと Electron のソースコードを使用することで、Electron のソースコード内のブレークポイントを使ったステップスルーデバッグができます。
 
 **こちらも参照**: Chromium のデバッグに関する豊富な情報があります。その多くは Chromium 開発者サイト ([Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows)) の Electron にも適しています。
 
@@ -10,7 +10,7 @@ JavaScript アプリケーションに起因しないと思われるクラッシ
 
 * **Visual Studio with C++ Tools**: Visual Studio 2013 と Visual Studio 2015 の無料コミュニティ版両方が動きます。 インストール後、[Electron のシンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
 
-* **ProcMon**: [無料の SysInternals ツール](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)を使うことでプロセスパラメーター、ファイル操作、レジストリ操作を検査することができます。
+* **ProcMon**: [無料の SysInternals ツール][sys-internals]を使うことでプロセスパラメーター、ファイル操作、レジストリ操作を検査することができます。
 
 ## Electronへの接続とデバッグ
 
@@ -42,4 +42,7 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 **すべての**イベントをログに記録しようするので非常に巨大になる可能性がありますが、アプリケーションがオペレーティングシステムに対して何をどのようにして行っているのかを理解しようとするには価値のあるリソースになるかもしれません。
 
-ProcMon の基本及び高度なデバッグ機能については、Microsoft が提供する [このビデオチュートリアル](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) を参照してください。
+ProcMon の基本及び高度なデバッグ機能については、Microsoft が提供する [このビデオチュートリアル][procmon-instructions] を参照してください。
+
+[sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
+[procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor

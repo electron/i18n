@@ -2,15 +2,15 @@
 
 v0.34.0 から、Electron のパッケージしたアプリを Mac App Store (MAS) に登録できるようになります。 このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
 
-**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/) に登録する必要があります。これには費用がかかります。
+**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program][developer-program] に登録する必要があります。これには費用がかかります。
 
 ## アプリを登録する方法
 
-Mac App Store にアプリを提出する簡単な方法をご紹介します。 これらの手順は、アプリがAppleによって承認することを保証しているわけではありません。Mac App Storeの登録要件を満たすために、Appleの[アプリを登録するには](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html)ガイドも読んでおく必要があります。
+Mac App Store にアプリを提出する簡単な方法をご紹介します。 これらの手順は、アプリがAppleによって承認することを保証しているわけではありません。Mac App Storeの登録要件を満たすために、Appleの[アプリを登録するには][submitting-your-app]ガイドも読んでおく必要があります。
 
 ### 証明書の取得
 
-Mac App Store にアプリを提出するには、Appleからまず証明書を取得する必要があります。 詳しくは、[こちらのガイド](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)をご覧ください。
+Mac App Store にアプリを提出するには、Appleからまず証明書を取得する必要があります。 詳しくは、[こちらのガイド][nwjs-guide]をご覧ください。
 
 ### チーム ID の取得
 
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-macOS でのアプリのサンドボックス化を行うことが初めてなら、Apple の [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) へアプリに必要なパーミッションキーを追加します。
+macOS で初めてアプリをサンドボックス化するのであれば、Apple の [Enabling App Sandbox][enable-app-sandbox] を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) にアプリで必要なパーミッションキーを追加しましょう。
 
-署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) モジュールを使用することも出来ます。
+署名を手動で行う代わりに、[electron-osx-sign][electron-osx-sign] モジュールを使用することも出来ます。
 
 #### ネイティブ モジュールに署名
 
@@ -128,15 +128,15 @@ macOS でのアプリのサンドボックス化を行うことが初めてな�
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager](https://github.com/electron/electron-packager) を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
+また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager][electron-packager] を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
 
 ### App をアップロード
 
-アプリに署名後、iTunes ConnectにアップロードするためにApplication Loaderを使用できます。アップロードする前に[レコードを作成していること](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)を確認してください。
+アプリに署名後、iTunes Connect にアップロードするために Application Loader を使用できます。アップロードする前に [レコードを作成していること][create-record] を確認してください。
 
 ### アプリケーションを審査に提出
 
-これらのステップを終えた後、[レビュー用にアプリを登録](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)できます。
+これらのステップを終えれば、[アプリをレビュー登録][submit-for-review] できます。
 
 ## MAS Buildの制限
 
@@ -151,7 +151,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は、 [App Sandboxing](https://developer.apple.com/app-sandboxing/) を参照してください。
+サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
 
 ### 追加のエンタイトルメント
 
@@ -173,7 +173,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-詳細は、[ネットワークアクセスを有効にするドキュメント](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) を参照してください。
+詳細は [Enabling Network Access ドキュメント][network-access] を参照してください。
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-詳細は、[ユーザが選択したファイルのアクセスを有効にするドキュメント](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) を参照してください。
+詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-詳細は、[ユーザが選択したファイルのアクセスを有効にするドキュメント](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) を参照してください。
+詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
 ## Electronが使用する暗号化アルゴリズム
 
-アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 より詳しくは、[暗号化対象:輸出コンプライアンス書類](https://help.apple.com/app-store-connect/#/devc3f64248f) を参照してください。
+アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 詳細は [暗号輸出コンプライアンスドキュメント][export-compliance] を参照してください。
 
 Electron は次の暗号アルゴリズムを使用しています:
 
@@ -222,3 +222,16 @@ Electron は次の暗号アルゴリズムを使用しています:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
+
+[developer-program]: https://developer.apple.com/support/compare-memberships/
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
+[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
+[electron-packager]: https://github.com/electron/electron-packager
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
+[user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
+[network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9

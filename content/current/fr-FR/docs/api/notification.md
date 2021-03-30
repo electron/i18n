@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` est un [EventEmitter][event-emitter].
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -32,8 +32,8 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silent` Boolean (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
-  * `icon` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
+  * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
+  * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (facultatif) _macOS_ - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
@@ -51,7 +51,7 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 #### Événement : 'show'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 
@@ -69,7 +69,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
@@ -178,3 +178,5 @@ Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'
 * `/System/Library/Sounds`
 
 Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

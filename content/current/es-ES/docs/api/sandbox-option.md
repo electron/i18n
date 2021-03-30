@@ -44,7 +44,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Precargado
+## Precarga
 
 An app can make customizations to sandboxed renderers using a preload script. Aquí hay un ejemplo:
 
@@ -99,7 +99,7 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
-  - `nativeImage`
+  - `NativeImage`
   - `webFrame`
 - `eventos`
 - `contadores`

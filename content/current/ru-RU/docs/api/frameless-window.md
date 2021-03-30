@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти пользовательские кнопки предотвращают проблемы с событиями мыши, которые случаются со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -69,7 +69,7 @@ win.show()
 
 ## Невзаимодействующее окно
 
-Чтобы создать невзаимодействующее окно, те. которое не будет реагировать на событии мыши, необходимо вызвать функцию API:[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options)<br>Пример:
+Чтобы создать невзаимодействующее окно, те. которое не будет реагировать на событии мыши, необходимо вызвать функцию API:[win.setIgnoreMouseEvents(ignore)][ignore-mouse-events]<br>Пример:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Н
 ## Контекстное меню
 
 На некоторых платформах перетаскиваемая область будет рассматриваться как неклиентский фрейм, поэтому при щелчке правой кнопкой мыши на ней появится системное меню. Чтобы контекстное меню работало правильно на всех платформах, вы никогда не должны использовать настраиваемое контекстное меню в перетаскиваемых областях.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

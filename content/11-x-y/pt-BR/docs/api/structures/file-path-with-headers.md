@@ -1,4 +1,4 @@
-# Objeto FilePathWithHeaders
+# FilePathWithHeaders Object
 
-* `path` String - O caminho para o arquivo a ser enviado.
-* `headers` Record<string, string> (opcional) - Cabeçalhos adicionais a serem enviados.
+* `path` String - The path to the file to send.
+* `headers` Record<string, string> (optional) - Additional headers to be sent.

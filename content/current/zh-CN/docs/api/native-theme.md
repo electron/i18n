@@ -12,7 +12,7 @@
 
 当以下NativeTheme属性发生变化时会触发此事件： `shouldUseDarkColors`, `shouldUseHighContrastColors`或`shouldUseInvertedColorScheme` 。 你需要自己检查到底是哪个属性发生了变化。
 
-## 属性
+## Properties
 
 `nativeTheme` 模块具备以下属性：
 

@@ -18,7 +18,7 @@ Veja a [documentação da Barra de Progresso](progress-bar.md).
 
 ## Iniciador do Unity
 
-Veja a [documentação do Unity Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+See the [Unity Launcher documentation][unity-launcher].
 
 ## Arquivo Representado para a Janela do macOS
 
@@ -27,3 +27,5 @@ Veja a [documentação do Arquivo reapresentada](represented-file.md).
 ## Arrastando arquivos para fora da janela
 
 Veja a [documentação de Arrastar & Soltar arquivos nativos](native-file-drag-drop.md).
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

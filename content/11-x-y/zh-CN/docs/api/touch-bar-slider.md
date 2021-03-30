@@ -2,7 +2,7 @@
 
 > 为本机 macOS 应用程序在触摸栏中创建滑块
 
-进程：[主进程](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSlider(options)`
 

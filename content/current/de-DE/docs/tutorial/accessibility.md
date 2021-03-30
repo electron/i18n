@@ -1,12 +1,12 @@
 # Barrierefreiheit
 
-Das Erstellen von zugänglichen Anwendungen ist wichtig und wir freuen uns, Funktionen für [Devtron](https://electronjs.org/devtron) und [Spektron](https://electronjs.org/spectron) bereitstellen zu können, was Entwicklern die Möglichkeit gibt, ihre Apps für alle besser zu machen.
+Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
 Accessibility Bedenken in Electron Anwendungen ähneln denen von Webseiten, da sie beide letztendlich HTML sind. Mit Electron-Apps jedoch Sie können die Online-Ressourcen nicht für Zugänglichkeitsprüfungen verwenden, weil Ihre App keine URL hat, auf die Sie den Auditor verweisen können.
 
-Diese Funktionen bringen diese Audit-Tools in Ihre Electron-App. Du kannst wählen, ob du Audits zu deinen Tests mit Spektron hinzufügen möchtest oder sie innerhalb von DevTools mit Devtron verwenden möchtest. Lesen Sie weiter für eine Zusammenfassung der Werkzeuge.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Lesen Sie weiter für eine Zusammenfassung der Werkzeuge.
 
 ## Spectron
 
@@ -20,27 +20,27 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation](https://github.com/electron/spectron#accessibility-testing).
+Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation][spectron-a11y].
 
 ## Devtron
 
 In Devtron gibt es einen Tab für Barrierefreiheit, der es Ihnen erlaubt, eine Seite in Ihrer App zu überprüfen, zu sortieren und zu filtern.
 
-![Screenshot von Devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![Screenshot von Devtron][4]
 
-Beide Tools verwenden die [Barrierefreiheitstools](https://github.com/GoogleChrome/accessibility-developer-tools) Bibliothek, die von Google für Chrome erstellt wurde. Sie können mehr über die Zugänglichkeit Auditregeln erfahren, die diese Bibliothek im Wiki des [Repositorys verwendet.](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules)
+Both of these tools are using the [Accessibility Developer Tools][a11y-devtools] library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki][a11y-devtools-wiki].
 
 Wenn Sie andere großartige Zugänglichkeitstools für Electron kennen, fügen Sie sie der Zugänglichkeitsdokumentation mit einem Pull-Request hinzu.
 
 ## Bedienungshilfen manuell aktivieren
 
-Elektron-Anwendungen ermöglichen automatisch Zugänglichkeitsfunktionen im Vorhandensein von unterstützender Technologie (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) unter Windows oder [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) unter macOS). Schauen Sie in die [Dokumentation für Barrierefreiheit](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) für weitere Informationen.
+Elektron-Anwendungen ermöglichen automatisch Zugänglichkeitsfunktionen im Vorhandensein von unterstützender Technologie (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) unter Windows oder [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) unter macOS). Schauen Sie in die [Dokumentation für Barrierefreiheit][a11y-docs] für weitere Informationen.
 
 Sie können diese Funktionen auch manuell in Ihrer Electron-Anwendung oder in der nativen Software von Drittanbietern einstellen.
 
 ### Elektronische API verwenden
 
-Durch Verwendung der [`app.setAccessibilitySupportEnabled(aktiviert)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API können Sie Chromes Barrierefreiheitsbaum in den Anwendungseinstellungen manuell freigeben. Beachten Sie, dass die Systemwerkzeuge des Benutzers Vorrang vor dieser Einstellung haben und sie überschreibt.
+By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Beachten Sie, dass die Systemwerkzeuge des Benutzers Vorrang vor dieser Einstellung haben und sie überschreibt.
 
 ### Innerhalb von Drittanbieter-Software
 
@@ -62,3 +62,13 @@ CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
     CFRelease(appRef);
 }
 ```
+
+[4]: https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png
+
+[devtron]: https://electronjs.org/devtron
+[spectron]: https://electronjs.org/spectron
+[spectron-a11y]: https://github.com/electron/spectron#accessibility-testing
+[a11y-docs]: https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology
+[a11y-devtools]: https://github.com/GoogleChrome/accessibility-developer-tools
+[a11y-devtools-wiki]: https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules
+[setAccessibilitySupportEnabled]: ../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows

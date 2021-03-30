@@ -10,15 +10,15 @@ Electron 10.0.0 est disponible ! Cette version inclue les mises à jour vers Chr
 
 ---
 
-La team Electron est excitée d'annoncer la sortie de Electron 10.0.0 ! Vous pouvez l'installer via `npm install electron@latest` ou le télécharger depuis notre [site officiel](https://electronjs.org/releases/stable). Cette version inclue des mises à jour, des correctifs et de nouvelles fonctionnalités.
+La team Electron est excitée d'annoncer la sortie de Electron 10.0.0 ! Vous pouvez l'installer avec npm via `npm install electron@latest` ou le télécharger sur notre [site web](https://electronjs.org/releases/stable). La version est remplie de mises à jour, de correctifs et de nouvelles fonctionnalités.
 
 Dans cette version 10 de Electron, nous avons également modifié notre note de sorte. Pour qu'il soit plus facile de distiniguer ce qui est nouveau dans Electron 10 et ce qui peut avoir changé entre Electron 10 et les versions précédentes, nous incluons maintenant également des changements qui ont été introduits dans Electron 10, mais qui ont été rétroportés aux versions précédentes. Nous espérons que cela rendra l'intégration de nouvelles fonctionnalités et corrections plus facile pour les applications lors des mises à niveau d'Electron.
 
-On a hâte de voir vos prochaines créations avec cette version ! Continuez de lire pour plus de détails sur cette version, et s'il vous plaît, partagez vos commentaires et remarques !
+Nous avons hâte de voir ce que vous construisez avec eux ! Continuer à lire pour plus de détails sur cette version, et s'il vous plaît partager tout commentaire que vous avez!
 
 ## Changements notables
 
-### Changements de la Stack
+### Changements de pile
 
 * Chromium `85.0.4183.84`
     * [Nouveau avec Chrome 84](https://developers.google.com/web/updates/2020/07/nic84)

@@ -23,10 +23,10 @@ You can install modules like other Node projects, and then rebuild the modules f
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
-./node_modules/.bin/electron-rebuild
+# При каждом запуске "npm install", запустите так:
+./node_modules/. in/electron-rebuild
 
-# On Windows if you have trouble, try:
+# В Windows если у вас возникли проблемы, попробуйте
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
@@ -55,7 +55,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### Manually building for Electron
+### Построение для Electron вручную
 
 If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
 
@@ -69,7 +69,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 * `--dist-url=...` указывает, где загружать заголовки.
 * `--arch=x64` говорит, что модуль собран для 64-битной системы.
 
-### Manually building for a custom build of Electron
+### Создание пользовательской версии Electron вручную
 
 To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
 
@@ -86,7 +86,7 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 * Убедитесь, что `win_delay_load_hook` не установлен на `false` в модуле `binding.gyp`.
 * After you upgrade Electron, you usually need to rebuild the modules.
 
-### A note about `win_delay_load_hook`
+### Примечание о `win_delay_load_hook`
 
 По умолчанию в Windows `node-gyp` ссылается на родные модули с `node.dll`. Однако, в Electron 4.x и выше символы, необходимые для использования родными модулями, экспортируются с помощью `электрона. xe`, и нет `узла.dll`. Чтобы загрузить родные модули в Windows, `node-gyp` устанавливает [задержка хук](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) , который запускает при загрузке родного модуля, и перенаправляет узел `. ll` со ссылкой на использование исполняемый файл загрузки вместо поиска узла `. ll` в поиске библиотеки путь (ничего не получится). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
@@ -106,13 +106,13 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 Смотрите [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) для примера хука задержки загрузки, если вы реализуете свой собственный.
 
-## Modules that rely on `prebuild`
+## Модули, полагающиеся на `перед сборкой`
 
 [`prebuild`](https://github.com/prebuild/prebuild) предоставляет возможность публиковать родные модули узлов с предварительно собранными двоичными файлами для нескольких версий узла и Electron.
 
 If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
-## Modules that rely on `node-pre-gyp`
+## Модули, полагающиеся на `узлов пред-гипс`
 
 The [`node-pre-gyp` tool][node-pre-gyp] provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
 

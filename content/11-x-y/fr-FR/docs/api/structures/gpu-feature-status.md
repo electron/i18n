@@ -16,7 +16,7 @@
 
 Valeurs possibles :
 
-* `disabled_software` - Seulement pour les logiciels. Accélération matérielle désactivée (jaune)
+* `disabled_software` - Logiciel uniquement. Accélération matérielle désactivée (jaune)
 * `disabled_off` - Désactivé (rouge)
 * `disabled_off_ok` - Désactivé (jaune)
 * `disabled_software` - Logiciel uniquement, accélération matérielle indisponible (jaune)

@@ -18,7 +18,7 @@
 
 ## 启动器（Unity Launcher）
 
-参考 [Unity Launcher 文档](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+参考 [Unity Launcher 文档][unity-launcher].
 
 ## 针对 macOS系统 Window的展示文件
 
@@ -27,3 +27,5 @@
 ## 将文件拖出窗口
 
 参考[本地文件拖放（Native File Drag & Drop） 文档](native-file-drag-drop.md)
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

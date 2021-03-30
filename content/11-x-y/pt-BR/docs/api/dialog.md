@@ -254,8 +254,8 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
 | Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
 | ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Sucesso   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |    Erro     | `['']` (array of empty string) |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
 | macOS mas  | False                           |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
 

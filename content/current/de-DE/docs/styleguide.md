@@ -40,7 +40,7 @@ Am Beispiel von `Schnellstart`:
 
 Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
-## Regeln für Markdown
+## Markdown-Dateien
 
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
@@ -59,7 +59,7 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Seitentitel
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Baby636.
 
 Under the page title must be a one-line description starting with `>`.
 

@@ -30,7 +30,7 @@ L'inconvénient est, Chromium est une très grande base de code et nécessite de
 
 En tant qu'utilisateur du Module de contenu, Electron n'a pas besoin de modifier le code de Chromium dans la plupart des cas, donc une façon évidente d'améliorer la construction d'Electron est de compiler Chromium en tant que bibliothèque partagée, puis reliez avec lui dans Electron. De cette façon les développeurs n'ont plus besoin de construire tout Chromium lorsqu'ils contribuent à Electron.
 
-Le projet [libchromiumcontent](https://github.com/electron/libchromiumcontent) a été créé par [@aroben](https://github.com/aroben) à cet effet. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger. Le code de la version initiale de libchromiumcontent peut être trouvé [dans ce lien](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+Le projet [libchromiumcontent](https://github.com/electron/libchromiumcontent) a été créé par [@aroben](https://github.com/aroben) à cet effet. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger.
 
 Le projet [brillant](https://github.com/electron/brightray) est également né dans le cadre de libchromiumcontent, qui fournit une fine couche autour du module de contenu.
 

@@ -10,7 +10,7 @@
 
 * **Visual Studio 与 C++ 工具**: Visual Studio 2013 和 Visual Studio 2015 的免费社区版本都可以使用。 Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). 它将使 Visual Studio 能够更好地理解 Electron 中发生的事情，从而更容易以人类可读的格式呈现变量。
 
-* **ProcMon**: [免费的 SysInternals 工具](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)允许您检查进程参数，文件句柄和注册表操作。
+* **ProcMon**: [免费的 SysInternals 工具][sys-internals]允许您检查进程参数，文件句柄和注册表操作。
 
 ## 附加并调试 Electron
 
@@ -42,4 +42,7 @@ Code executed within the main process (that is, code found in or eventually run 
 
 虽然 Visual Studio 非常适合检查特定的代码路径，但 ProcMon 的优势在于它可以监视应用程序对操作系统的所有操作 - 捕获进程的文件，注册表，网络，进程和分析详细信息。 它试图记录发生的 **所有** 事件，并且可能是相当压倒性的，而且果你想了解你的应用程序对操作系统做什么和如何做，它则是一个很有价值的资源。
 
-有关 ProcMon 的基本和高级调试功能的介绍，请查看Microsoft提供的 [视频教程](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor).
+有关 ProcMon 的基本和高级调试功能的介绍，请查看Microsoft提供的 [视频教程][procmon-instructions].
+
+[sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
+[procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor

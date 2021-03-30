@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-En Linux, también hay un portapapeles `selección`. Para manipularlo necesita pasar `selección` a cada método:
+En Linux, además hay un portapapeles `selection`. Para manipularlo necesitas pasar `selection` a cada método:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,7 +17,7 @@ console.log(clipboard.readText ('selección'))
 
 El módulo `portapapeles` tiene los siguientes métodos:
 
-**Nota:** Las API experimentales están marcadas como tales y podrían eliminarse en el futuro.
+**Nota:** APIs experimentales son marcadas como tales y podría ser removidas en el futuro.
 
 ### `clipboard.readText([type])`
 
@@ -138,7 +138,7 @@ Devuelve un Objeto que contiene las claves `title` y `url` que representan el ma
 
 Escribe el `título` y la `url` en el portapapeles como un marcador.
 
-**Nota:** La mayoría de las aplicaciones en Windows no admiten el pegado de marcadores en ellas para que pueda usar `clipboard.write` para escribir un marcador y un texto alternativo en el portapapeles.
+**Nota:** La mayoría de las aplicaciones en Windows no soportan el pegado de marcadores dentro de ellas así que puedes usar `clipboard.write` para escribir tanto un marcador como un texto de respaldo en el portapapeles.
 
 ```js
 const { clipboard } = require('electron')
@@ -202,7 +202,7 @@ console.log(hasFormat)
 
 Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
-### `clipboard.readBuffer(formato)` _Experimental_
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` Cadena
 

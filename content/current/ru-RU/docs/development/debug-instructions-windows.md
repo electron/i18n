@@ -10,7 +10,7 @@
 
 * **Visual Studio с инструментами C++**: бесплатная общественная редакция Visual Studio, можно использовать версии VS2013 и VS2015. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). Это позволит Visual Studio получить лучшее представление о том, что происходит внутри Electron, что позводит представить переменные в удобочитаемом формате.
 
-* **ProcMon**: [бесплатный инструмент от SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx), позволяющий вам просматривать параметры процессов, файловые дескрипторы, и операции над реестром.
+* **ProcMon**: [бесплатный инструмент от SysInternals][sys-internals], позволяющий вам просматривать параметры процессов, файловые дескрипторы, и операции над реестром.
 
 ## Подключение к Electron для отладки
 
@@ -42,4 +42,7 @@ Code executed within the main process (that is, code found in or eventually run 
 
 В то время как Visual Studio отлично подходит для изучения конкретных путей выполнения, ProcMon действительно силен в наблюдении за всем, что делает ваше приложение с операционной системой - включая файлы, реестр, сеть, процессы и детальное профилирование процессов. Он пытается протоколировать **все** происходящие события, что может быть даже весьма излишним, но если вы стремитесь понять, что и как делает ваше приложение с операционной системой, это может быть ценным ресурсом.
 
-В качестве введения в базовые и расширенные возможности отладки через ProcMon можно рекомендовать [это видео руководство](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) от Microsoft.
+В качестве введения в базовые и расширенные возможности отладки через ProcMon можно рекомендовать [это видео руководство][procmon-instructions] от Microsoft.
+
+[sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
+[procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor

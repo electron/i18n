@@ -142,4 +142,4 @@ Wir bemühen uns um mehr Klarheit auf allen Ebenen des Update- und Release-Proze
 * Der `Master` Zweig wird immer die nächste Hauptversion `X.0.0-nachts enthalten. DATE` in seinem `package.json`
 * Release-Zweige werden nie wieder zum Master zusammengeführt
 * Versionszweige _enthalten_ die richtige Version in ihrem `package.json`
-* Sobald ein Release-Zweig für einen Major geschnitten ist, muss Meister auf den nächsten Major gestohlen werden.  D.h. `Master` ist immer versioniert als nächster theoretischer Release-Zweig
+* Sobald ein Release-Zweig für einen Major geschnitten ist, muss Meister auf den nächsten Major gestohlen werden.  I.e. `master` is always versioned as the next theoretical release branch

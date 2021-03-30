@@ -2,13 +2,13 @@
 
 ## Обзор
 
-У Electron есть API для настройки иконки приложения в macOS Dock. API macOS только существует для создания меню док-станции, но Electron также использует значок приложения dock в качестве входной точки для кросс-платформенных функций, таких как [последние документы](./recent-documents.md) и [прогресс приложения](./progress-bar.md).
+У Electron есть API для настройки иконки приложения в macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 Пользовательская панель обычно используется для добавления ярлыков к задачам, для которых пользователь не хочет открыть окно всего приложения.
 
 __Dock меню из Terminal.app:__
 
-![Меню док-станции](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Меню док-станции][3]
 
 Чтобы настроить меню док-станции, вам нужно использовать [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, который доступен только в macOS.
 
@@ -19,13 +19,13 @@ __Dock меню из Terminal.app:__
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
-const dockMenu = Меню. uildFromTemplate([
+const dockMenu = Menu.buildFromTemplate([
   {
     label: 'New Window',
-    click () { console. og('Новое Window') }
+    click () { console.log('New Window') }
   }, {
-    метка: 'Новое окно с настройками',
-    подменю: [
+    label: 'New Window with Settings',
+    submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
@@ -33,7 +33,7 @@ const dockMenu = Меню. uildFromTemplate([
   { label: 'New Command...' }
 ])
 
-приложение. henReady().then(() => {
+app.whenReady().then(() => {
   app.dock.setMenu(dockMenu)
 })
 ```
@@ -41,3 +41,7 @@ const dockMenu = Меню. uildFromTemplate([
 После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. Вы должны увидеть пользовательское меню, которое вы только что определили:
 
 ![macOS док-меню](../images/macos-dock-menu.png)
+
+[3]: https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png
+[recent-documents]: ./recent-documents.md
+[progress-bar]: ./progress-bar.md

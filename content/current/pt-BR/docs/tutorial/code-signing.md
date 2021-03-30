@@ -21,15 +21,15 @@ Para preparar apropriadamente aplicativos macOS para a versão requer dois passo
 
 Para iniciar o processo, certifique-se de cumprir os requisitos para assinatura e notando seu aplicativo:
 
-1. Inscreva-se no [Programa de Desenvolvedor Apple](https://developer.apple.com/programs/) (requer uma taxa anual)
-2. Baixar e instalar o [Xcode](https://developer.apple.com/xcode) - isto requer um computador executando o macOS
-3. Gerar, baixar e instalar [a assinatura de certificados](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Enroll in the [Apple Developer Program][] (requires an annual fee)
+2. Baixar e instalar o [Xcode][] - isto requer um computador executando o macOS
+3. Generate, download, and install [signing certificates][]
 
 O ecossistema do Electron favorece a configuração e a liberdade, por isso existem várias maneiras de assinar sua aplicação e notarizar.
 
 ## `electron-forge`
 
-Se você estiver usando a ferramenta de compilação favorita do Electron, obter sua aplicação assinada e notarizada requer algumas adições à sua configuração. [Forge](https://electronforge.io) é uma coleção das ferramentas oficiais do Electron, usando [`electron-packager`], [`electron-osx-sign`], e [`electron-notarize`] debaixo do pano.
+Se você estiver usando a ferramenta de compilação favorita do Electron, obter sua aplicação assinada e notarizada requer algumas adições à sua configuração. [Forge](https://electronforge.io) é uma coleção das ferramentas oficiais do Electron, usando [`electron-packager`][], [`electron-osx-sign`][], e [`electron-notarize`][] sob o capacete.
 
 Vamos dar uma olhada em uma configuração de exemplo com todos os campos obrigatórios. Nem todas as são necessárias: as ferramentas serão inteligentes o suficiente para encontrar automaticamente uma identidade `adequada,`, Por exemplo, mas recomendamos que seja explícito.
 
@@ -101,7 +101,7 @@ Electron Builder vem com uma solução personalizada para assinar seu aplicativo
 
 ## `electron-packager`
 
-Se você não estiver usando um build pipeline integrado como Forge ou Builder, provavelmente está usando [`electron-packager`], que inclui [`electron-osx-sign`] e [`electron-notarize`].
+Se você não estiver usando uma build pipeline integrada como Forge ou Builder, você provavelmente está usando [`electron-packager`][], que inclui [`electron-osx-sign`][] e [`electron-notarize`][].
 
 Se você estiver usando a API do Packager, você pode passar [na configuração que assina e notarizes sua aplicação ](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
@@ -143,7 +143,7 @@ O arquivo `plist` referenciado aqui precisa dos seguintes direitos específicos 
 
 ## Mac App Store
 
-Veja o [Guia da Loja para Aplicativos Mac](mac-app-store-submission-guide.md).
+See the [Mac App Store Guide][].
 
 # Assinando compilações do Windows
 
@@ -161,10 +161,22 @@ Você pode obter um certificado de assinatura de um grande número de revendedor
 
 Existem várias ferramentas para assinar seu aplicativo de pacotes:
 
-* [`electron-winstaller`] irá gerar um instalador para janelas e assiná-lo para você
-* [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-* [`Construtor de elétrons`] pode assinar alguns de seus alvos de janelas
+* [`electron-winstaller`][] irá gerar um instalador para janelas e assiná-lo para você
+* [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
+* [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
 
-Consulte o [Guia da Windows Store](windows-store-guide.md).
+See the [Windows Store Guide][].
+
+[Apple Developer Program]: https://developer.apple.com/programs/
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
+[`electron-packager`]: https://github.com/electron/electron-packager
+[`electron-notarize`]: https://github.com/electron/electron-notarize
+[`electron-winstaller`]: https://github.com/electron/windows-installer
+[Xcode]: https://developer.apple.com/xcode
+[signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Windows Store Guide]: windows-store-guide.md

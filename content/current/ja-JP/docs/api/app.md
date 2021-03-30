@@ -19,13 +19,13 @@ app.on('window-all-closed', () => {
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
+アプリケーションが基本的な起動処理を完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知を表しています。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
 ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
 ### イベント: 'ready'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
@@ -119,10 +119,10 @@ macOS のアプリケーションがアクティブになったときに発生�
 戻り値:
 
 * `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
+[ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
 ユーザのアクティビティはアクティビティ元のアプリと同一の開発者チームIDを持ち、アクティビティタイプをサポートするアプリでしか継続させることができません。 サポートされるアクティビティタイプは、アプリの `Info.plist` の `NSUserActivityTypes` キーで指定されています。
 
@@ -131,39 +131,39 @@ macOS のアプリケーションがアクティブになったときに発生�
 戻り値:
 
 * `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとする前に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
+[ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続しようとする前に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
 ### イベント: 'continue-activity-error' _macOS_
 
 戻り値:
 
 * `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `error` String - エラーのローカライズされた説明としての文字列。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続できなかったときに発生します。
+[ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続できなかったときに発生します。
 
 ### イベント: 'activity-was-continued' _macOS_
 
 戻り値:
 
 * `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
+[ハンドオフ][handoff] 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
 
 ### イベント: 'update-activity-state' _macOS_
 
 戻り値:
 
 * `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要があれば、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` 辞書を構築して `app.updateCurrentActivity()` を適切に呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要があれば、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` 辞書を構築して `app.updateCurrentActivity()` を適切に呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
@@ -524,7 +524,7 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 * `options` Object (任意)
   * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、レシーバをアクティブにします。
 
-Linux では、最初の表示ウィンドウにフォーカスします。 macOS ではアプリケーションをアクティブなアプリにします。Windows では、アプリケーションの最初のウインドウにフォーカスを当てます。
+Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
 `steal` オプションはできるだけ慎重に使用してください。
 
@@ -662,7 +662,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 このメソッドは現在の実行形式をプロトコル (または URI スキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合できます。 登録すると、`プロトコル://` によるすべてのリンクは現在の実行形式で開かれるようになります。 プロトコルを含むリンク全体が、アプリケーションに引数として渡されます。
 
-**注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge](https://www.electronforge.io/) や [Electron Packager](https://github.com/electron/electron-packager) を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
+**注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge][electron-forge] や [Electron Packager][electron-packager] を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント][CFBundleURLTypes] を参照するようにしてください。
 
 **注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。  Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
@@ -686,7 +686,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 戻り値 `Boolean` - 現在の実行形式がプロトコル (または URI スキーム) の既定のハンドラーかどうか。
 
-**注:** macOSの場合、このメソッドは、アプリがプロトコルの既定のハンドラーとして登録されていたかをチェックするのに使えます。 macOSのマシン上の `~/Library/Preferences/com.apple.LaunchServices.plist` を確認することでもこれを検証することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) を参照するようにしてください。
+**注:** macOSの場合、このメソッドは、アプリがプロトコルの既定のハンドラーとして登録されていたかをチェックするのに使えます。 macOSのマシン上の `~/Library/Preferences/com.apple.LaunchServices.plist` を確認することでもこれを検証することができます。 詳細は [Apple社のドキュメント][LSCopyDefaultHandlerForURLScheme] を参照するようにしてください。
 
 この API は内部的に Windows レジストリ や `LSCopyDefaultHandlerForURLScheme` を使用します。
 
@@ -714,7 +714,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 * `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
-`tasks` を Windows でのジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに追加します。
+`tasks` を Windows でのジャンプリストの [タスク][tasks] カテゴリに追加します。
 
 `tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
@@ -726,7 +726,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 戻り値 `Object`:
 
-* `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
+* `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント][JumpListBeginListMSDN] を参照してください) 。
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザが、ジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した、`JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
 
 ### `app.setJumpList(categories)` _Windows_
@@ -761,38 +761,38 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // name があるので `type` は "custom" になります
+  { // 名前があるため `type` は "custom" になります
     name: 'ツール',
     items: [
       {
         type: 'task',
-        title: 'ツールA',
+        title: 'ツール A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'ツールAを実行する'
+        description: 'ツール A を実行する'
       },
       {
         type: 'task',
-        title: 'ツールB',
+        title: 'ツール B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'ツールBを実行する'
+        description: 'ツール B を実行する'
       }
     ]
   },
   { type: 'frequent' },
-  { // name がないので `type`は "tasks" になります
+  { // 名前がないため `type` は "tasks" になります
     items: [
       {
         type: 'task',
         title: '新規プロジェクト',
         program: process.execPath,
         args: '--new-project',
-        description: '新しいプロジェクトを作成する。'
+        description: '新規プロジェクトを作成します。'
       },
       { type: 'separator' },
       {
@@ -800,7 +800,7 @@ app.setJumpList([
         title: 'プロジェクトの復元',
         program: process.execPath,
         args: '--recover-project',
-        description: 'プロジェクト路を復元する'
+        description: 'プロジェクトを復元します。'
       }
     ]
   }
@@ -813,7 +813,7 @@ app.setJumpList([
 
 このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。  ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。  既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
+つまり、 このメソッドは、プロセスがアプリケーションの 1 つ目のインスタンスで、アプリがロード処理を続行する必要がある場合に `true` を返します。  既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
@@ -855,11 +855,11 @@ if (!gotTheLock) {
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
-* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 * `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。 スキームは `http` もしくは `https` でなければなりません。
 
-`NSUserActivity` を作成し、現在のアクティビティとして設定します。 その後、アクティビティは、別のデバイスでの[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)に適用されます。
+`NSUserActivity` を作成し、現在のアクティビティとして設定します。 そのアクティビティは後に別のデバイスでの [ハンドオフ][handoff] に適用されます。
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -867,15 +867,15 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-現在の[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)ユーザアクティビティを無効にします。
+現在の[ハンドオフ][handoff]ユーザアクティビティを無効にします。
 
 ### `app.resignCurrentActivity()` _macOS_
 
-現在の [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ユーザーアクティビティを、無効にせずに非アクティブにします。
+現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに非アクティブにします。
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
-* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 
 タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
@@ -884,7 +884,7 @@ if (!gotTheLock) {
 
 * `id` String
 
-[アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を `id` に変更します。
+[アプリケーションユーザモデルID][app-user-model-id]を `id` に変更します。
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -975,11 +975,11 @@ if (!gotTheLock) {
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-現在のアプリのカウンターバッジを設定します。count を `0` に設定すると、バッジを非表示にします。
+現在のアプリのカウンターバッジを設定します。 カウントを `0` に設定すると、バッジを非表示にします。
 
 macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
+**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1000,10 +1000,10 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 戻り値 `Object`:
 
 * `openAtLogin` Boolean - アプリがログイン時に開くように設定されている場合、`true`。
-* `openAsHidden` Boolean _macOS_ - アプリがログイン時に隠して開くように設定されている場合 `true` です。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
-* `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+* `openAsHidden` Boolean _macOS_ - アプリがログイン時に隠して開くように設定されている場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `wasOpenedAtLogin` Boolean _macOS_ - アプリがログイン時に自動的に開かれた場合 `true` です。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `wasOpenedAsHidden` Boolean _macOS_ - アプリが非表示のログイン項目として開かれていた場合 `true` です。 これは、アプリが起動時に何もウインドウを開いてはいけないことを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
+* `restoreState` Boolean _macOS_ - 以前のセッションから状態を復元する必要があるログイン項目としてアプリを開いた場合 `true` です。 アプリが最後に閉じたとき開いていたウインドウをアプリが復元する必要があることを示します。 この設定は [MAS ビルド][mas-builds] では利用できません。
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` アプリはログイン時に開くように設定されており、その実行キーが無効化されていない場合。 `openAtLogin`は`args` オプションを無視する点が異なっています。与えられた実行ファイルがログイン時**なんらか**の引数が与えれた場合にこのプロパティは 真 になります。
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - レジストリエントリの名前の値。
@@ -1016,13 +1016,13 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
 
 * `settings` Object
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合は `true`、ログイン項目からアプリを外す場合は `false` にします。 省略値は `false` 。
-  * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+  * `openAsHidden` Boolean (任意) _macOS_ - アプリを非表示で開く場合 `true` にします。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができるので、現在の値を取得するために `app.getLoginItemSettings().wasOpenedAsHidden` をアプリが開かれたときに確認するようにしてください。 この設定は [MAS ビルド][mas-builds] では利用できません。
   * `path` String (任意) _Windows_ - ログイン時に起動する実行形式。 省略値は `process.execPath` です。
   * `args` String[] (任意) _Windows_ - 実行ファイルに渡すコマンドライン引数。 省略値は空の配列です。 パスはテンプレート文字列にするようにしましょう。
   * `enabled` Boolean (任意) _Windows_ - `true` の場合、スタートアップが承認したレジストリキーを変更し、 `タスクマネージャと Windows 設定で` アプリを有効/無効にします。 省略値は `true` です。
   * `name` String (任意) _Windows_ - レジストリに書きこむ値の名前。 デフォルトはアプリの AppUserModelId() です。 アプリのログイン項目設定を設定します。
 
-WindowsでElectronの `autoUpdater` を [Squirrel](https://github.com/Squirrel/Squirrel.Windows) を使って動かす場合、起動パスをUpdate.exeに設定し、アプリケーション名を特定する引数を渡してください。 例:
+Windows 上で Electron の `autoUpdater` を [Squirrel][Squirrel-Windows] を使って動かす場合、起動パスを Update.exe に設定し、渡す引数にアプリケーション名を指定してください。 例:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1051,7 +1051,7 @@ app.setLoginItemSettings({
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
-**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。 既定で有効にすべきではありません。
 
 ### `app.showAboutPanel()`
 
@@ -1069,7 +1069,7 @@ app.setLoginItemSettings({
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
@@ -1100,7 +1100,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-アプリの完全なサンドボックスモードを有効にします。これは、WebPreferences の `sandbox` フラグの値に関係なく、すべてのレンダラーがサンドボックスで起動されることを意味します。
+アプリで完全サンドボックスモードを有効にします。 これは、WebPreferences の `sandbox` フラグの値に関係なく、すべてのレンダラーがサンドボックスで起動されることを意味します。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -1169,7 +1169,7 @@ app.moveToApplicationsFolder({
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
-**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。 既定で有効にすべきではありません。
 
 ### `app.applicationMenu`
 
@@ -1177,11 +1177,11 @@ app.moveToApplicationsFolder({
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-`Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
+`Integer` 型のプロパティです。現在のアプリのバッジカウントを返します。 カウントを `0` に設定するとバッジを非表示にします。
 
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) を読んでください。
+**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
 
 **注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
 
@@ -1220,3 +1220,17 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 `Boolean` 型で、`true` の場合アプリが [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) 下で動作していることを示します。
 
 このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
+
+[tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
+[CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
+[LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
+[handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
+[activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
+[JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
+[about-panel-options]: https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc

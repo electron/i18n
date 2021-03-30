@@ -1,6 +1,6 @@
 # Multitarefa
 
-Com o [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), é possível executar JavaScript em nível de tarefas de um sistema operacional.
+Com o [Web Workers][web-workers], é possível executar JavaScript em nível de tarefas de um sistema operacional.
 
 ## Multi-tarefas com Node.js
 
@@ -34,3 +34,5 @@ process.dlopen = () => {
 }
 const worker = new Worker('script.js')
 ```
+
+[web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

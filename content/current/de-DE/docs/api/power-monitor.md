@@ -2,9 +2,9 @@
 
 > Monitor power state changes.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-## Events
+## Ereignisse
 
 The `powerMonitor` module emits the following events:
 

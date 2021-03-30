@@ -1,12 +1,12 @@
 # 使用 Selenium 和 WebDriver
 
-引自 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+引自 [ChromeDriver - WebDriver for Chrome][chrome-driver]:
 
 > WebDriver 是一款开源的支持多浏览器的自动化测试工具。 它提供了操作网页、用户输入、JavaScript 执行等能力。 ChromeDriver 是一个实现了 WebDriver 与 Chromium 联接协议的独立服务。 它也是由开发了 Chromium 和 WebDriver 的团队开发的。
 
 ## 配置 Spectron
 
-[Spectron](https://electronjs.org/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](https://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
+[Spectron][spectron] 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](https://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
 
 ```sh
 $ npm install --save-dev spectron
@@ -154,3 +154,6 @@ const 客户端 = webdriverio。 emote(选项)
 无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
 或者，传递一个参数，与您的 Electron 二进制运行，指向您的 个应用文件夹。 这就消除了将您的应用复制粘贴到 Electron 资源目录的必要性。
+
+[chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
+[spectron]: https://electronjs.org/spectron

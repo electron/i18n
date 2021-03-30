@@ -16,7 +16,7 @@ clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('
 
 Le module `clipboard` dispose des méthodes suivantes :
 
-**Remarque :** Les APIs expérimentales sont marquées comme telles et sont susceptibles d'être supprimés à l'avenir.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
@@ -137,7 +137,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
-**Remarque :** La plupart des applications sur Windows ne supportent pas le format marque-page, du coup vous pouvez utiliser `clipboard.write` pour écrire un marque-page et un texte de secours dans le presse-papiers.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 const { clipboard } = require('electron')

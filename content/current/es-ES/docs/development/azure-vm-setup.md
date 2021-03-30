@@ -1,6 +1,6 @@
 # Actualizar una imagen Azure Appveyor
 
-Electron CI en Windows utiliza AppVeyor, el cual a su vez utiliza imágenes de Azure VM para ejecutarse.  Ocasionalmente, estas imagenes VM necesitan actualizarse debido a cambios en los requerimientos de Chormium.  Para actualizar usted necesitará [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) y el [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
+Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.  Ocasionalmente, estas imagenes VM necesitan actualizarse debido a cambios en los requerimientos de Chormium.  Para actualizar usted necesitará [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) y el [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
 
 Ocasionalmente necesitaremos actualizar estas imágenes debido a cambios en Chromium u otros requisitos varios de construcción.
 

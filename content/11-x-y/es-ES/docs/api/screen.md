@@ -8,7 +8,7 @@ Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es
 
 `screen` es un [EventEmitter][event-emitter].
 
-**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let { screen } = require('electron')` no funcionará.
+**Nota:** En el renderer / DevTools, `window.screen` propiedad reservada DOM, así que escribir `let { screen } = require('electron')` no funcionará.
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 

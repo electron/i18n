@@ -8,7 +8,7 @@ Atom Shell 现在叫做Electron。 您可以了解更多关于 Electron 以及�
 
 ---
 
-[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
+[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)][electron]
 
 Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台应用程序外壳，以处理Chromium/Node.js 事件循环集成和原生API。
 
@@ -23,4 +23,6 @@ Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台
 如果您已经开始了，我们很乐意与您聊天，了解您在 Electron 上正在开发的应用程序。 电子邮件 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) 告诉我们更多。 您也可以关注新的 [@ElectronJS](https://twitter.com/electronjs) Twitter 帐户以保持与项目的连接。
 
 :zap: :blue_heart: :electric_plug:
+
+[electron]: https://electronjs.org
 

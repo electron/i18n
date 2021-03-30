@@ -32,6 +32,7 @@ Aqui está um excerto do esquema que descreve a classe `BrowserWindow` (Janela d
   instâncias: [...],
   eventos: [...]
 }
+}
 ```
 
 E aqui está um exemplo de uma descrição de método, neste caso o método de instância `apis.BrowserWindow.instanceMethods.setMaximumSize`:

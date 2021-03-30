@@ -91,7 +91,7 @@ Don't use the global menu bar on Linux.
 
 Set the trash implementation on Linux. Default is `gio`.
 
-Opções:
+Options:
 * `gvfs-trash`
 * `trash-cli`
 * `kioclient5`

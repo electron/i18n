@@ -89,7 +89,7 @@ Los siguientes métodos de `chrome.tabs` son soportados:
 
 ### `chrome.management`
 
-Los siguientes métodos de `chrome.management` son soportados:
+The following methods of `chrome.management` are supported:
 
 - `chrome.management.getAll`
 - `chrome.management.get`

@@ -1,29 +1,31 @@
-# Интеграция со средами рабочего стола
+# Desktop Environment Integration
 
-Различные операционные системы предоставляют различные возможности для интеграции приложений для настольных компьютеров в их окружения рабочего стола. Например в Windows, приложения можно поместить ярлыки в JumpList панели задач, а на Mac, приложение можно поместить пользовательское меню в меню dock.
+Different operating systems provide different features for integrating desktop applications into their desktop environments. Например в Windows, приложения можно поместить ярлыки в JumpList панели задач, а на Mac, приложение можно поместить пользовательское меню в меню dock.
 
-Это руководство объясняет, как интегрировать в эти настольные среды Electron APIs приложение.
+This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Уведомления
+## Notification (Оповещения)
 
-See the [Notifications documentation](notifications.md).
+Смотрите [Notifications](notifications.md).
 
-## Недавние документы
+## Recent Documents
 
-See [Recent Documents documentation](recent-documents.md).
+Смотрите [последнюю документацию документов](recent-documents.md).
 
-## Progress Bar
+## Индикаторы выполнения
 
-See the [Progress Bar documentation](progress-bar.md).
+Смотрите [Документ прогресс-бара](progress-bar.md).
 
-## Unity Launcher
+## Лаунчер Unity
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+See the [Unity Launcher documentation][unity-launcher].
 
-## Represented File for macOS Window
+## Представлен файл для окна macOS
 
-See the [Represented File documentation](represented-file.md).
+Смотрите [Представленную файловую документацию](represented-file.md).
 
-## Dragging files out of the window
+## Перетаскивание файлов из окна
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+См. [Native File Drag & Drop документация](native-file-drag-drop.md).
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher

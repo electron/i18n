@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-`webContents` es un [EventEmitter][event-emitter]. Es responsable del renderizar y el controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso al objeto `webContents`:
+`webContents` es un [EventEmitter][event-emitter]. Es responsable de renderizar y controlar una página web y es una propiedad del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso al objeto `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Este evento es como `did-finish-load` pero emitido cuando la carga falló. La lista completa de los códigos de error y su significado está disponible [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Este evento es como `did-finish-load` pero emitido cuando falló la carga. La lista completa de errores de código y su significado está disponible [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 #### Evento: 'did-fail-provisional-load'
 
@@ -77,7 +77,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Este evento es como `did-fail-load` pero emitido cuando la carga fue cancelada (e.g. `window.stop()` fue invocado).
+Este evento es como `did-fail-load` pero emitido cuando la carga fue cancelada (p. e. fue invocado `window.stop()`).
 
 #### Evento: 'did-frame-finish-load'
 
@@ -133,7 +133,7 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - Las opciones que serán usadas para crear la nueva [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - Las opciones que serán utilizadas para la creación del nuevo [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
 * `postBody` [PostBody](structures/post-body.md) (opcional) - Los datos que serán enviados a la nueva ventana, junto con las cabeceras apropiadas que se establecerán. Si no hay datos para enviar, el valor será `null`. Solo se define cuando la ventana está siendo creada por un formulario que establece `target=_blank`.
@@ -920,9 +920,9 @@ Devuelve `String` - El agente usuario para esta página web.
 * `options` Object (opcional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser usado más tarde prar quitar el CSS vía `contents.removeInsertedCSS(key)`.
+Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser utilizado más tarde para eliminar el CSS a través `contents.removeInsertedCSS(key)`.
 
-Inyecta CSS en la página web actual y devuelve una llave única para la hoja de estilo insertada.
+Inyecta CSS en la página web actual y devuelve un identificador único para la hoja de estilo insertada.
 
 ```js
 contents.on('did-finish-load', () => {
@@ -934,9 +934,9 @@ contents.on('did-finish-load', () => {
 
 * `llave` Cadena
 
-Devuelve `Promise<void>` - Se resuelve si la eliminación fue exitosa.
+Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
-Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, el cual es devuelto desde `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -956,7 +956,7 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-La ejecución del código se suspenderá hasta que la página web deje de cargarse.
+La ejecución de código se suspenderá hasta que la pagina pare de cargarse.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1138,22 +1138,22 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 #### `contents.isBeingCaptured()`
 
-Devuelve `Boolean` - Si esta página está siendo capturada. Devuelve true cuando el recuento de capturadores es mas grande que 0.
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
 * `size` [Tamaño](structures/size.md) (opcional) - El tamaño preferido para el capturador.
 * `stayHidden` Boolean (opcional) - Mantiene la página oculta en lugar de visible.
 
-Incrementa el recuento del capturador en uno. La página se considera visible cuando su ventana de navegador está oculta y el recuento de captadores no es cero. Si desea que la página quede oculta, debería asegurarse que `stayHidden` está establecida a true.
+Incrementa el contador de captura en uno. La página es considerada visible cuando su ventana de navegador está oculta y el recuento del capturador no es cero. Si le gustaría que la página permanezca oculta, debería asegurarse que `stayHidden` está establecido a true.
 
-Esto también afecta a la API de visibilidad de página.
+Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
 * `stayHidden` Boolean (opcional) - Mantiene la página en estado oculto en lugar de visible.
 
-Disminuye el numero de de contador en uno. La página se establecerá al estado oculto u ocluido cuando la ventana de su navegador está oculta u ocluida y el recuento del capturador llegue a cero. Si quiere disminuir el contador de capturador en su lugar debería establecer `stayHidden` a true.
+Disminuye el recuento del capturador en uno. La página se establecerá en el estado oculto u ocluido cuando la ventana del navegador esté oculta u ocluida y el recuento del capturador llegue a cero. Si quiere disminuir el contador del caputador en su lugar debería establecer `stayHidden` a true.
 
 #### `contents.getPrinters()`
 
@@ -1195,7 +1195,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 
 Cuando es pasado un `pageSize` personalizado, Chromium intenta validar los valores mínimos específicos de la plataforma para `width_microns` y `height_microns`. Ambos anchura y altura deben ser mínimamente 353 microns, pero puede ser más grande en algunos sistemas operativos.
 
-Imprime la página web de la ventana. Cuando `silent` está establecido a `true`, Electron tomará la impresora predeterminada del sistema si `deviceName` está vacío y las configuraciones por defecto para imprimir.
+Imprime la página web de la ventana. Cuando `silent` es establecido a `true`, Electron tomará la impresora por defecto del sistema si `deviceName` está vacío y la configuraciones por defecto para imprimir.
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
@@ -1281,7 +1281,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Agrega la ruta especificada al workspace de DevTools. Debe ser usado después de la creación de DevTools:
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1411,11 +1411,11 @@ Abre las herramientas de desarrollador para el contexto de los trabajadores comp
 
 * Cadena `workerId`
 
-Inspecciona el worker compartido basado en su ID.
+Inspecciona el shared worker basado en su ID.
 
 #### `contents.getAllSharedWorkers()`
 
-Devuelve [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Información acerca de todos los Workers Compartidos.
+Devuelve [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Información sobre todos los Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1426,7 +1426,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al render process a través de `channel`, junto con los argumentos. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1467,13 +1467,13 @@ app.whenReady().then(() => {
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-Si quieres obtener el `frameId` de un renderer context dado deberías usar el valor `webFrame.routingId`.  Por ejemplo.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Por ejemplo.
 
 ```js
 // En un proceso renderizador
@@ -1610,7 +1610,7 @@ Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que e
 
 * `fps` Integer
 
-Si *offscreen rendering* está activada establece el radio del frame al número especificado. Sólo se aceptan valores entre 1 y 240.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Sólo se aceptan valores entre 1 y 240.
 
 #### `contents.getFrameRate()`
 
@@ -1634,7 +1634,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-La configuración de política de manejo WebRTC IP, le permite controlar cuales IPs son expuestas a través de WebRTC. Vea [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
@@ -1654,13 +1654,13 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. Esto también afecta a la API de visibilidad de página.
+Devuelve `Boolean` - si este contenido web acelerará o no animaciones y temporizadores cuando la página se haga de fondo. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Controla si este WebContents acelerará o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de página.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.getType()`
 
@@ -1670,29 +1670,29 @@ Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`,
 
 #### `contents.audioMuted`
 
-Una propiedad `Boolean` que determina si la página está silenciada.
+Una propiedad `Boolean` que determina si esta página esta silenciada o no.
 
 #### `contents.userAgent`
 
-Una propiedad `String` que determina el user agent para esta página web.
+Una propiedad `String` que determina el agente de usuario para esta página web.
 
 #### `contents.zoomLevel`
 
-Una propiedad `Number` que determina el nivel de zoom de este contenido web.
+Una propiedad `Number` que determina el nivel de zoom para web contents.
 
-El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La formula para esto es `scale := 1.2 ^ level`.
+El tamaño original es 0 y en cada incremento arriba o abajo representa un 20% más grande o más pequeño para los limites por defecto que son de 300% y 50% del tamaño original respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-Una propiedad `Number` que determina el facto del zoom para este contenido web.
+Una propiedad `Number` que determina el facto de zoom para este web contents.
 
-El factor de zoom es el porcentaje de zoom dividido entre 100, por lo que 300% = 3.0.
+El factor de zoom es el porcentaje de zoom dividido por 100, así que 300% = 3.0.
 
 #### `contents.frameRate`
 
-Una propiedad `Integer` que establece el ratio del frame del contenido web al número especificado. Sólo se aceptan valores entre 1 y 240.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Sólo se aceptan valores entre 1 y 240.
 
-Solo aplicable si *offscreen rendering* está habilitado.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
@@ -1718,7 +1718,7 @@ Una instancia [`Debugger`](debugger.md) para este webContents.
 
 #### `contents.backgroundThrottling`
 
-Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de página.
+Una propiedad `Boolean` que determina si este WebContents acelera o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de la página.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

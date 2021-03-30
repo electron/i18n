@@ -76,7 +76,7 @@ Registering a scheme as standard allows relative and absolute resources to be re
 </body>
 ```
 
-注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
+注册一个scheme作为标准scheme将允许其通过[FileSystem 接口][file-system-api]访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -281,3 +281,5 @@ Returns `Boolean` - Whether the protocol was successfully unintercepted
 * `scheme` String
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem

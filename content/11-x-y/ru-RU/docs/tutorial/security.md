@@ -197,7 +197,7 @@ const { session } = require('electron')
 
 _Recommendation is Electron's default_
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`&lt;webview&gt;`][webview-tag]) disables crucial security features.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 Do not disable `webSecurity` in production applications.
 
@@ -207,7 +207,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 
 ### Как?
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -247,17 +247,17 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
-### CSP HTTP Header
+### CSP HTTP заголовок
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
 ```javascript
 const { session } = require('electron')
 
-session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+session.defaultSession.webRequest. nHeadersReceived(details, callback) => {
   callback({
     responseHeaders: {
-      ...details.responseHeaders,
+      . .details.responseHeaders,
       'Content-Security-Policy': ['default-src \'none\'']
     }
   })
@@ -288,7 +288,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### Как?
 
 ```js
-// Bad
+// Плохая
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -592,7 +592,6 @@ app.on('remote-get-current-web-contents', (event, webContents) => {
 
 [browser-window]: ../api/browser-window.md
 [browser-view]: ../api/browser-view.md
-[webview-tag]: ../api/webview-tag.md
 [webview-tag]: ../api/webview-tag.md
 [web-contents]: ../api/web-contents.md
 [new-window]: ../api/web-contents.md#event-new-window

@@ -2,7 +2,7 @@
 
 > Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Модуль `session` может быть использован для создания новых объектов `Session`.
 
@@ -46,7 +46,7 @@ console.log(ses.getUserAgent())
 
 > Получает и устанавливает свойства сеанса.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Вы можете создать объект `Session` в модуле `session`:
 
@@ -676,7 +676,7 @@ Returns `Extension[]` - A list of all loaded extensions.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `Session`:
 

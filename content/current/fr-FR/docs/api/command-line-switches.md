@@ -2,7 +2,7 @@
 
 > Paramètres de ligne de commande pris en charge par Electron.
 
-Vous pouvez utiliser [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) pour l'ajouter au script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
+Vous pouvez utiliser [app.commandLine.appendSwitch][append-switch] pour l'ajouter au script principal de votre application avant que l'événement [ready][ready] du module [app][app] soit émis :
 
 ```javascript
 const { app } = require('electron')
@@ -48,7 +48,7 @@ Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 Empêche Chromium d'abaisser la priorité des processus de rendu des pages invisibles.
 
-Ce commutateur est global à tous les processus de rendu, si vous voulez seulement désactiver l'ajustement d'une fenêtre, vous pouvez passer par la modification de [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Ce commutateur est global à tous les processus de rendu, si vous voulez seulement désactiver l'ajustement d'une fenêtre, vous pouvez passer par la modification de [playing silent audio][play-silent-audio].
 
 ### --disk-cache-size=`size`
 
@@ -104,7 +104,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
-Consultez la documentation [Node.js](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre terminal pour une liste des drapeaux disponibles. De plus, exécutez `node --v8-options` pour voir une liste de drapeaux qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.js.
+Consultez la documentation [Node.js][node-cli] ou exécutez `node --help` dans votre terminal pour une liste des drapeaux disponibles. De plus, exécutez `node --v8-options` pour voir une liste de drapeaux qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.js.
 
 ### --lang
 
@@ -155,9 +155,9 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
 ### --vmodule=`pattern`
 
-Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Par exemple `my_module=2,foo*=3` changera le niveau de logging pour tout le code source des fichiers `my_module.*` à 2 et `foo*.*` à 3.
+Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Exemple : `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin et pas seulement le module. Par exemple `*/foo/bar/*=2` changera le niveau de log pour tout le code source des fichiers du dossier `foo/bar`.
+Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin et pas seulement le module. Exemple : `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
@@ -171,7 +171,7 @@ Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 
-Electron prend en charge certains des [drapeaux CLI](https://nodejs.org/api/cli.html) pris en charge par Node.js.
+Electron prend en charge certains des [drapeaux CLI][node-cli] pris en charge par Node.js.
 
 **Remarque :** Le passage d'options de ligne de commande non supportées n'aura aucun effet lorsque Electron ne s'exécute pas en mode `ELECTRON_RUN_AS_NODE`.
 
@@ -193,7 +193,7 @@ Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+See the [Debugging the Main Process][debugging-main-process] guide for more details.
 
 Aliased to `--debug[=[host:]port`.
 
@@ -202,3 +202,11 @@ Aliased to `--debug[=[host:]port`.
 Specify ways of the inspector web socket url exposure.
 
 Par défaut, l'url du websocket de l'inspecteur est disponible dans stderr et dans /json/list endpoint sur http://host:port/json/list.
+
+[app]: app.md
+[append-switch]: command-line.md#commandlineappendswitchswitch-value
+[ready]: app.md#event-ready
+[play-silent-audio]: https://github.com/atom/atom/pull/9485/files
+[debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
+[node-cli]: https://nodejs.org/api/cli.html

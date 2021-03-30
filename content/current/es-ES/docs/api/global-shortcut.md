@@ -1,8 +1,8 @@
-# acceso rápido global
+# globalShortcut
 
 > Detecta los eventos del teclado cuando la aplicación no tiene el enfoque en el teclado.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global con el sistema operativo para que se puedan personalizar las operaciones para varios atajos.
 

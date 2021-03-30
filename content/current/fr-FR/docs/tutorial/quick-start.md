@@ -8,7 +8,7 @@ Généralement, vous créez une application de bureau pour un système d'exploit
 
 ### Prerequisites
 
-Avant de continuer avec Electron, vous devez installer [Node.js](https://nodejs.org/en/download/). Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
+Before proceeding with Electron you need to install [Node.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
 
 > Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
 
@@ -285,11 +285,11 @@ const win = new BrowserWindow()
 Pour appeler le processus principal à partir du moteur de rendu, utilisez le module IPC :
 
 ```js
-// Dans le processus principal
+// In the Main process
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... actions réalisées au nom du Renderer
+  // ... do actions on behalf of the Renderer
 })
 ```
 
@@ -327,3 +327,5 @@ Ensuite, dans votre application Electron, demandez le module :
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/

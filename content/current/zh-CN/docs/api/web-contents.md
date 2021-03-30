@@ -1,10 +1,10 @@
-# webContents
+# 网络控制
 
 > 渲染以及控制 web 页面
 
 进程：[主进程](../glossary.md#main-process)
 
-` webContents ` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+`webContents` is an [EventEmitter][event-emitter]. 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -377,14 +377,14 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 * `event` Event
 * `input` Object - Input properties.
   * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
-  * `key` String - 等同于 [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` code ` String - 等同于 [KeyboardEvent. code ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` control ` String - 等同于 [KeyboardEvent. controlKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` alt ` String - 等同于 [KeyboardEvent. altKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * `key` String - 等同于 [KeyboardEvent.key][keyboardevent].
+  * ` code ` String - 等同于 [KeyboardEvent. code ][keyboardevent].
+  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ][keyboardevent].
+  * ` control ` String - 等同于 [KeyboardEvent. controlKey ][keyboardevent].
+  * ` alt ` String - 等同于 [KeyboardEvent. altKey ][keyboardevent].
+  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ][keyboardevent].
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -1073,8 +1073,9 @@ Returns `Promise<void>`
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  contents.setVisualZoomLevelLimits(1, 3)`
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.undo()`
 
@@ -1468,7 +1469,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1509,7 +1510,7 @@ app.whenReady().then(() => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1766,3 +1767,22 @@ A `Boolean` property that determines whether or not this WebContents will thrott
 #### `contents.mainFrame` _Readonly_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+[`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage

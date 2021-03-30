@@ -2,7 +2,7 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ## Использование в Рендерер-процессе
 
@@ -12,9 +12,9 @@
 
 > Создание уведомлений на рабочем столе ОС
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`Notification` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` является [EventEmitter][event-emitter].
 
 Так создается новый экземпляр `BrowserWindow` с собственными свойствами, установленными в `options`.
 
@@ -114,7 +114,7 @@ Emitted when an error is encountered while creating and showing the native notif
 
 Отклоняет уведомление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `notification.title`
 
@@ -178,3 +178,5 @@ A `String` property representing the custom Toast XML of the notification.
 * `/System/Library/Sounds (/Система/Библиотека/Звуки)`
 
 Смотрите документацию [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) для получения дополнительной информации.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

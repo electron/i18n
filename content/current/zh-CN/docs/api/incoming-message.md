@@ -4,9 +4,9 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`ClientRequest`实现了[Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
+`ClientRequest`实现了[Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter][event-emitter]类型.
 
-### 事件
+### 实例事件
 
 #### Event: 'data'
 
@@ -24,7 +24,7 @@
 
 正在进行的 HTTP 事务被取消后触发。
 
-#### Event: 'error'
+#### 事件: 'error'
 
 返回:
 
@@ -65,3 +65,5 @@ A `Record<string, string | string[]>` representing the HTTP response headers. Th
 #### `response.httpVersionMinor`
 
 表示http协议次要版本号的`整数`。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

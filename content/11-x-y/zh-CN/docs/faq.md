@@ -28,7 +28,7 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 
 或者，您可以使用 Electron 提供的原始版 IPC 。 在主进程和渲染器进程之间共享数据， 您可以使用 [`ipcMain`](api/ipc-main.md) 和 [`ipcRenderer`](api/ipc-renderer.md) 模块。 若要直接在网页之间进行沟通，您可以发送一个 [`MessagePort`][message-port] 可能通过主进程 使用 [`ipcRendererer。 ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). 随后在邮件端口上的通信是直接的，不会绕过主进程 。
 
-## 我的程序的托盘一段时间后消失了？
+## 几分钟后我的应用托盘消失了。
 
 当用来存储托盘的变量得到 垃圾收集时，就会发生这种情况。
 
@@ -98,7 +98,7 @@ delete window.module;
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-很可能是你在过程中使用了错误的模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+你很可能在错误的过程中使用该模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
 ## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 

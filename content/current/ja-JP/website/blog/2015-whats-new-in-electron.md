@@ -61,22 +61,18 @@ Atom は Chrome 44 を動かしている Electron `v0.30.6` にアップグレ�
 GitHubber の [Amy Palamountain](https://github.com/ammeep) は、[Nordic.js](https://nordicjs2015.confetti.events) の講演で Electron について素晴らしい紹介をしました。 彼女は [electron-accelerator](https://github.com/ammeep/electron-accelerator) ライブラリも作成しています。
 
 #### Amy Palomountain による Electron でのネイティブアプリケーション構築
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
 同じく Atom チームの [Ben Ogle](https://github.com/benogle) は、[YAPC Asia](http://yapcasia.org/2015/) で Electron の講演を行いました。
 
 #### Ben Ogle によるウェブ技術を使用したデスクトップアプリ構築
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
 Atom チームのメンバー [Kevin Sawicki](https://github.com/kevinsawicki) などが最近 [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) 交流会で Electron について講演しました。 こちらに [映像](http://www.wagonhq.com/blog/electron-meetup) が二つ投稿されています。
 
 #### Kevin Sawicki による Electron 史
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
 #### Ben Gotow によるネイティブ風ウェブアプリ制作
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

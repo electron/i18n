@@ -4,7 +4,7 @@ author: sofiangria
 date: '2019-01-25'
 ---
 
-Pela primeira vez, o Electron está animado para divulgar a nossa programação de lançamento, começando com a v5. .0. Este é nosso primeiro passo para ter um cronograma público de longo prazo.
+Pela primeira vez, o Electron está animado para divulgar a nossa programação de lançamento, começando com a v5. Este é nosso primeiro passo para ter um cronograma público de longo prazo.
 
 ---
 

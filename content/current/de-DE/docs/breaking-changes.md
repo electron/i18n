@@ -296,9 +296,9 @@ Wir [empfehlen Ihnen, sich vom Remote- Modul](https://medium.com/@nornagon/elect
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
 ```javascript
-// Veraltet
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Ersetzen durch
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -325,9 +325,9 @@ protocol.unregisterProtocol(scheme)
 Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
 ```javascript
-// Veraltet
+// Deprecated
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Ersetzt durch
+// Replace with
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -338,11 +338,11 @@ Das registrierte oder abgefangene Protokoll hat keine Auswirkungen auf die aktue
 Diese Schnittstelle ist veraltet anstatt dessen sollten Benutzer `protocol.isProtocolRegistered` und `protocol.isProtocolIntercepted` nutzen.
 
 ```javascript
-// Veraltet
+// Deprecated
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Ersetzen mit
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
-const isIntercepted = protocolIntercepted(scheme)
+const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
 ## Geplante API-Änderungen (9.0)
@@ -410,7 +410,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Entfernt: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. Die Funktion wurde in Electron 8.x veraltet und in Electron 9.x entfernt. Die Layout-Zoomgrenzen sind jetzt auf ein Minimum von 0 festgelegt. 5 und ein Maximum von 5.0, wie definiert [hier](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Verhalten geändert: Das Senden von Nicht-JS-Objekten über IPC wirft jetzt eine Ausnahme
 
@@ -426,7 +426,7 @@ Die `shell.openItem` API wurde durch eine asynchrone `shell.openPath` API ersetz
 
 ### Verhalten geändert: Über IPC gesendete Werte werden nun serialisiert mit dem strukturierten Clone Algorithmus
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
@@ -779,7 +779,7 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-E.g. Re-enabling the webviewTag
+z.B. Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -1159,3 +1159,5 @@ Each Electron release includes two identical ARM builds with slightly different 
 Die Datei _ohne das Präfix_ wird immer noch veröffentlicht, um zu vermeiden, dass Setups, die sie verbrauchen könnten, unterbrochen werden. Starting at 2.0, the unprefixed file will no longer be published.
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm

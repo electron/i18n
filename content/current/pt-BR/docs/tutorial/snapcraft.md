@@ -8,13 +8,13 @@ Junto com a comunidade mais ampla do Linux, Canônica visa corrigir muitos dos p
 
 Existem três maneiras de criar um arquivo `.snap`:
 
-1) Usando [`electron-forge`](https://github.com/electron-userland/electron-forge) ou [`electron-builder`](https://github.com/electron-userland/electron-builder), ambas as ferramentas que vêm com `snap` suporte de fora da caixa. Esta é a opção mais fácil. 2) Usando `electron-installer-snap`, que leva a saída do `electron-packager`. 3) Usando um pacote `.deb` já criado.
+1) Using [`electron-forge`][electron-forge] or [`electron-builder`][electron-builder], both tools that come with `snap` support out of the box. Esta é a opção mais fácil. 2) Usando `electron-installer-snap`, que leva a saída do `electron-packager`. 3) Usando um pacote `.deb` já criado.
 
 Em alguns casos, você precisará ter a ferramenta `snapcraft` instalada. Instruções para instalar `snapcraft` para sua distribuição específica estão disponíveis [aqui](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Usando `electron-installer-snap`
 
-O módulo funciona como o [`electron_winstaller`](https://github.com/electron/windows-installer)e módulos semelhantes em que seu escopo é limitado a construir pacotes snap. Você pode testá-lo com:
+The module works like [`electron-winstaller`][electron-winstaller] and similar modules in that its scope is limited to building snap packages. Você pode instalar com:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -22,7 +22,7 @@ npm install --save-dev electron-installer-snap
 
 ### Etapa 1: Empacotar sua aplicação Electron
 
-Empacote a aplicação usando o [electron-packager](https://github.com/electron/electron-packager) (ou uma ferramenta similar). Certifique-se de remover `node_modules` que você não precisa no seu aplicativo final, desde qualquer módulo de que você não precisa aumentará o tamanho do seu aplicativo.
+Package the application using [electron-packager][electron-packager] (or a similar tool). Certifique-se de remover `node_modules` que você não precisa no seu aplicativo final, desde qualquer módulo de que você não precisa aumentará o tamanho do seu aplicativo.
 
 A saída deve ser algo mais ou menos assim:
 
@@ -52,7 +52,7 @@ De um terminal que tem `snapcraft` em seu `PATH`, run `electron-installer-snap` 
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-Se você tiver uma pipeline de compilação existente, você pode usar programaticamente o `electron-installer-snap` . Para obter mais informações, consulte a [documentação da API do Snapcraft](https://docs.snapcraft.io/build-snaps/syntax).
+Se você tiver uma pipeline de compilação existente, você pode usar programaticamente o `electron-installer-snap` . For more information, see the [Snapcraft API docs][snapcraft-syntax].
 
 ```js
 const snap = require('electron-installer-snap')
@@ -139,11 +139,11 @@ Snapcraft é capaz de pegar um arquivo `.deb` existente e transformá-lo em um a
 
 ### Passo 1: Crie um pacote Debian
 
-Se você ainda não tiver um pacote `.deb` , usar `electron-installer-snap` pode ser um caminho mais fácil para criar pacotes de snap. No entanto, existem várias soluções para a criação de pacotes Debian, incluindo o [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) ou [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Se você ainda não tiver um pacote `.deb` , usar `electron-installer-snap` pode ser um caminho mais fácil para criar pacotes de snap. However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
 
 ### Passo 2: Criar um snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
 
 ```yaml
 name: minhaApp
@@ -206,3 +206,11 @@ apps:
     comando: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
+
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[electron-packager]: https://github.com/electron/electron-packager
+[electron-forge]: https://github.com/electron-userland/electron-forge
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[electron-installer-debian]: https://github.com/unindented/electron-installer-debian
+[electron-winstaller]: https://github.com/electron/windows-installer

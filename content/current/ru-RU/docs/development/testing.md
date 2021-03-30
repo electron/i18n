@@ -1,12 +1,12 @@
 # Тестирование
 
-Мы стремимся сохранить покрытие кода тестами на высоком уровне. Мы просим всех кто делает pull requests не только прогонять все существующие тесты, но также в идеале добавлять новые тесты на внесённые изменения и новые сценария тестирования. https://crowdin.com/translate/electron/159/en-ru#13105.
+Мы стремимся сохранить кодовое покрытие Electron высоким. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. https://crowdin.com/translate/electron/159/en-ru#13105.
 
 This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
+To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons][standard-addons] to be informed of coding style violations before you ever commit them.
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
@@ -58,3 +58,5 @@ To configure display scaling:
 
 1. Push the Windows key and search for _Display settings_.
 2. Under _Scale and layout_, make sure that the device is set to 100%.
+
+[standard-addons]: https://standardjs.com/#are-there-text-editor-plugins

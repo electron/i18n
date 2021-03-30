@@ -1,6 +1,6 @@
 # ネイティブのNodeモジュールを使用する
 
-Electron ではネイティブ Node.js モジュールがサポートされていますが、Electron は (OpenSSL ではなく Chromium の BoringSSL を使用するなどの違いにより) 指定の Node.js バイナリと異なる [アプリケーションバイナリインターフェイス (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) であるため、使用するネイティブモジュールを Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
+Electron ではネイティブ Node.js モジュールがサポートされていますが、Electron は (OpenSSL ではなく Chromium の BoringSSL を使用するなどの違いにより) 指定の Node.js バイナリと異なる [アプリケーションバイナリインターフェイス (ABI)][abi] であるため、使用するネイティブモジュールを Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -16,7 +16,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### モジュールをインストールしてElectronをリビルド
 
-他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`](https://github.com/electron/electron-rebuild) パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは Electron のバージョンを自動的に判断し、ヘッダーのダウンロードやアプリ用のネイティブモジュールの再ビルドといった手動のステップを処理します。[Electron Forge](https://electronforge.io/) を使用している場合、このツールは開発モードでも頒布物の作成でも自動で使用されます。
+他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`][electron-rebuild] パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。 [Electron Forge][electron-forge] を使用している場合、このツールは開発モードでも頒布物の作成でも自動で使用されます。
 
 例えば、スタンドアローンの `electron-rebuild` ツールをインストールして、コマンドラインからモジュールを再ビルドするには、以下のようにします。
 
@@ -30,7 +30,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-[Electron Packager](https://github.com/electron/electron-packager) のような他ツールとの統合や使い方の詳細は、当該プロジェクトの README を参照してください。
+[Electron Packager][electron-packager] のような他ツールとの統合や使い方の詳細は、当該プロジェクトの README を参照してください。
 
 ### `npm` を使用
 
@@ -113,8 +113,14 @@ Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイ�
 
 ## `node-pre-gyp`を使用したモジュール
 
-[`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)は、ビルド済みのバイナリを含んだネイティブNodeモジュールを展開する方法を提供します。多くの人気のモジュールがこのツールを使用しています。
+[`node-pre-gyp`][node-pre-gyp]は、ビルド済みのバイナリを含んだネイティブNodeモジュールを展開する方法を提供します。多くの人気のモジュールがこのツールを使用しています。
 
 これらのモジュールが Electron でも正常に動作することはありますが、Electron 固有のバイナリがない場合はソースからビルドする必要があります。 このため、これらのモジュールには `electron-rebuild` の使用を推奨します。
 
 `npm` でモジュールをインストールする場合は、`--build-from-source` を `npm` に渡すか `npm_config_build_from_source` 環境変数を設定する必要があります。
+
+[abi]: https://en.wikipedia.org/wiki/Application_binary_interface
+[electron-rebuild]: https://github.com/electron/electron-rebuild
+[electron-forge]: https://electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
+[node-pre-gyp]: https://github.com/mapbox/node-pre-gyp

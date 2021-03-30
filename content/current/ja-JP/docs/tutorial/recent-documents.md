@@ -6,13 +6,13 @@ Windows と macOS は、それぞれジャンプリストまたは Dock メニ�
 
 __ジャンプリスト:__
 
-![ジャンプリストの最近使った書類](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![ジャンプリストの最近使った書類][1]
 
 __アプリケーションの Dock メニュー:__
 
-![macOS の Dock メニュー](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS の Dock メニュー][2]
 
-最近のドキュメントにファイルを追加するには、 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API を使用する必要があります。
+最近の使った書類にファイルを追加するには、[app.addRecentDocument][addrecentdocument] API を使用する必要があります。
 
 ## サンプル
 
@@ -32,7 +32,7 @@ Electron アプリケーションを起動した後、アプリケーション�
 
 ### 最近使ったドキュメントのリストをクリアする
 
-最近のドキュメントのリストをクリアするには、 main.js[ファイルの](../api/app.md#appclearrecentdocuments-macos-windows) `app.clearRecentDocuments` API を使用する必要があります。
+最近使った書類のリストをクリアするには、以下のように [app.clearRecentDocuments][clearrecentdocuments] API を `main.js` ファイル内で使う必要があります。
 
 ```javascript
 const { app } = require('electron')
@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Windows での注意
 
-Windows でこの機能を使用する際にアプリケーションが書類のファイルタイプのハンドラとして登録されていない場合、ファイルを追加してもジャンプリストに表示されません。 アプリケーションの登録に関するすべてのことは、[アプリケーションの登録](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) にあります。
+Windows でこの機能を使用する際にアプリケーションが書類のファイルタイプのハンドラとして登録されていない場合、ファイルを追加してもジャンプリストに表示されません。 アプリケーションの登録に関するすべてのことは、[アプリケーションの登録][app-registration] にあります。
 
 ユーザーがジャンプリストからファイルをクリックすると、アプリケーションの新しいインスタンスが、ファイルのパスがコマンドライン引数として追加されて起動されます。
 
@@ -71,6 +71,13 @@ Windows でこの機能を使用する際にアプリケーションが書類の
 }
 ```
 
-![macOS 最近使ったドキュメントメニュー項目](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![macOS 最近使ったドキュメントメニュー項目][6]
 
 最近使った書類メニューからファイルが要求されると、それに対して `app` モジュールの `open-file` イベントが発生します。
+
+[1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
+[2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png
+[6]: https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png
+[addrecentdocument]: ../api/app.md#appaddrecentdocumentpath-macos-windows
+[clearrecentdocuments]: ../api/app.md#appclearrecentdocuments-macos-windows
+[app-registration]: https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx

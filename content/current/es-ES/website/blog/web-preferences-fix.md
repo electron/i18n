@@ -4,7 +4,7 @@ author: ckerr
 date: '22-08-2018'
 ---
 
-Se ha descubierto una vulnerabilidad de ejecución de un código remoto la cual afecta aplicaciones con la capacidad de abrir ventanas anidadas hijas en versiones de Electron (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). La vulnerabilidad ha sido asignada al identificador CVE [CVE-2018-15685](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685).
+Se ha descubierto una vulnerabilidad de ejecución de un código remoto la cual afecta aplicaciones con la capacidad de abrir ventanas anidadas hijas en versiones de Electron (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). La vulnerabilidad ha sido asignada al identificador CVE [CVE-2018-15685][].
 
 ---
 
@@ -58,6 +58,9 @@ Este código forzará manualmente las ventanas de nivel superior (`webPreference
 
 Esta vulnerabilidad fue encontrada y reportada responsablemente al proyecto Electron por [Matt Austin](https://twitter.com/mattaustin) de [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-Para obtener más información sobre las mejores prácticas para mantener sus aplicaciones Electron seguras, consulte nuestro [tutorial de seguridad](https://electronjs.org/docs/tutorial/security).
+Para aprender más sobre las buenas prácticas para mantener tus aplicaciones Electron seguras, ve nuestro [tutorial de seguridad][].
 
 Si desea reportar una vulnerabilidad en Electron, envíe un correo electrónico a security@electronjs.org.
+
+[tutorial de seguridad]: https://electronjs.org/docs/tutorial/security
+[CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685

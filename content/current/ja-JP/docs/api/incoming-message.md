@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`IncomingMessage` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
+`IncomingMessage` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter][event-emitter] です。
 
 ### インスタンスイベント
 
@@ -65,3 +65,5 @@ HTTPプロトコルのメジャーバージョン番号を示す `Integer`。
 #### `response.httpVersionMinor`
 
 HTTPプロトコルのマイナーバージョン番号を示す `Integer`。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

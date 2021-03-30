@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Ce module n'inclut pas d'interface web. Pour afficher les traces enregistrées, utilisez [visionneuse de traces](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), disponible sur `chrome://tracing` dans Chrome.
+Ce module n'inclut pas d'interface web. Pour afficher les traces enregistrées, utilisez [visionneuse de traces][], disponible sur `chrome://tracing` dans Chrome.
 
 **Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `ready` du module de l'application n'est pas émis.
 
@@ -68,3 +68,5 @@ Retourne `Promise<Object>` - Résolution avec un objet contenant la `valeur` et 
 * `percentage` Number
 
 Récupère l'utilisation maximale sur les processus de mémoire tampon trace en pourcentage de l'état complet de .
+
+[visionneuse de traces]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md

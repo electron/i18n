@@ -13,13 +13,13 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-谷歌为他们的开发者工具提供了[杰出的文档](https://developer.chrome.com/devtools)。 我们建议您熟悉它们，它们对于任何Electron开发者来说通常都是工具包中最强大的工具之一。
+谷歌为他们的开发者工具提供了[杰出的文档][devtools]。 我们建议您熟悉它们，它们对于任何Electron开发者来说通常都是工具包中最强大的工具之一。
 
 ## 主进程
 
-调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
+调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程][node-inspect]，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
 
-如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)
+如果想获取更多信息，可以看[调试主进程的文档][main-debug]
 
 ## V8 故障
 
@@ -30,3 +30,7 @@ win.webContents.openDevTools()
 Chromium日志可以通过`ELECTRON_ENABLE_LOGGING`环境变量启用。 有关更多信息，请参见[环境变量文档](../api/environment-variables.md#electron_enable_logging)。
 
 或者，可以传递命令行参数`--enable-logging`。 更多信息请查看[命令行开关文档](../api/command-line-switches.md#--enable-logging)
+
+[node-inspect]: https://nodejs.org/en/docs/inspector/
+[devtools]: https://developer.chrome.com/devtools
+[main-debug]: ./debugging-main-process.md

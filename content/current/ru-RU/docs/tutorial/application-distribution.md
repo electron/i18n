@@ -42,11 +42,11 @@ electron/resources/app
 └── index.html
 ```
 
-Затем необходимо выполнить `Electron.app` или `electron` на Linux, `electron.exe` на Windows, и Electron запустится в качестве приложения. Каталог `electron` станет вашим дистрибутивом для доставки конечным пользователям.
+Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on Windows, and Electron will start as your app. The `electron` directory will then be your distribution to deliver to users.
 
 ### С архивом исходного кода приложения
 
-Вместо того, чтобы отправлять ваше приложение, копируя все исходные файлы, вы можете запаковать ваше приложение в [asar](https://github.com/electron/asar) архив, чтобы улучшить производительность чтения файлов на платформах, таких как Windows, если вы еще не используете такой пакет как Parcel или Webpack.
+Вместо того, чтобы отправлять ваше приложение, копируя все исходные файлы, вы можете запаковать ваше приложение в [asar][] архив, чтобы улучшить производительность чтения файлов на платформах, таких как Windows, если вы еще не используете такой пакет как Parcel или Webpack.
 
 Чтобы использовать архив `asar` для замены каталога `app`, необходимо переименовать архив в `app.asar` и положить его в каталог ресурсов Electron, как показано ниже, и Electron будет пытаться прочитать архив и начать с него.
 
@@ -64,7 +64,7 @@ electron/resources/
 └── app.asar
 ```
 
-Более подробную информацию об использовании `asar` вы можете найти в репозитории [`electron/asar`](https://github.com/electron/asar).
+Более подробную информацию об использовании `asar` вы можете найти в репозитории [`electron/asar`][asar].
 
 ### Ребрендинг скачанных бинарных файлов
 
@@ -104,3 +104,7 @@ MyApp.app/Contents
 ### Проведите ребрендинг, пересобрав Electron из исходных кодов
 
 Можно изменить бренд Electron путем изменения имени продукта и сборки его из исходных кодов. Для этого вам надо установить аргумент, отвечающий за имя продукта (`electron_product_name = "YourProductName"`) в файле `args.gn` и пересобрать Electron.
+
+[asar]: https://github.com/electron/asar
+
+[asar]: https://github.com/electron/asar

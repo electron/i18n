@@ -92,7 +92,7 @@ Les rôles supplémentaires suivants sont disponibles sur _macOS_:
 * `services` - Le sous-menu est un menu ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Ceci est uniquement destiné à être utilisé dans le menu de l'application et n'est *pas* le même que le sous-menu "Services" utilisé dans les menus contextuels des applications macOS, qui n'est pas implémentée dans Electron.
 * `recentDocuments` - Le sous-menu est un menu "Ouvrir Récents".
 * `clearRecentDocuments` - Carte à l'action `clearRecentDocuments`.
-* `shareMenu` - The submenu is [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 Lorsque vous spécifiez un `rôle` sur macOS, `label` et `accélérateur` sont les seules options qui affecteront l'élément de menu. Toutes les autres options seront ignorées. La minuscule `rôle`, par exemple `toggledevtools`, est toujours supportée.
 
@@ -183,3 +183,5 @@ Un `Nombre` indiquant l'identifiant unique d'un élément.
 #### `menuItem.menu`
 
 Un `Menu` dont l'item fait partie.
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/

@@ -73,9 +73,9 @@ Esta opción no puede ser usada en `app.commandLine.appendSwitch` ya que es proc
 
 ## --force-fieldtrials=`trials`
 
-Field trials to be forcefully enabled or disabled.
+Las pruebas de campo se habilitan o deshabilitan por la fuerza.
 
-For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+Por ejemplo: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 ### --host-rules=`rules`
 

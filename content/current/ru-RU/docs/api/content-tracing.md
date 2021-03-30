@@ -2,9 +2,9 @@
 
 > Собирает данные трассировки из содержимого модуля Chromium для поиска узких мест производительности и медленных операций.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md), доступного по адресу `chrome://tracing` в Chrome.
+Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer][], доступного по адресу `chrome://tracing` в Chrome.
 
 **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` модуля app не произошло.
 
@@ -68,3 +68,5 @@ app.whenReady().then(() => {
 * `percentage` Number
 
 Максимальное использование в различных процессах буфера трассировки в процентах от полного состояния.
+
+[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md

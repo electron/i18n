@@ -6,7 +6,7 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ASAR steht für Atom-Shell-Archiv-Format. Ein [asar][asar]-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Das ASAR-Format wurde primär für bessere Performance unter Windows entwickelt... TODO
+Das ASAR-Format wurde vor allem zur Verbesserung der Leistung unter Windows entwickelt... TODO
 
 ### CRT
 
@@ -22,7 +22,7 @@ Input Method Editor. Ein Programm, dass dem Benutzer die Eingabe von Buchstaben 
 
 ### IDL
 
-Interface description language. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, mit dem Schnittstellen in Java, C++, JavaScript usw. generiert werden können.
+Sprache der Schnittstellenbeschreibung. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, das verwendet werden kann, um Schnittstellen in Java, C++, JavaScript, etc. zu generieren.
 
 ### IPC
 
@@ -38,15 +38,15 @@ Eine gemeinsame Bibliothek, die das [Chromium Content Modul][] und alle seine Ab
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Die Datei für den Hauptprozess jeder App ist in der `main` Eigenschaft in `package.json` angegeben. So ist `Elektron .` weiß, welche Datei beim Start ausgeführt werden soll.
+Die Hauptprozessdatei jeder App ist in der Eigenschaft `Haupt` in `package.json` angegeben. So ist `Elektron .` weiß, welche Datei beim Start ausgeführt werden soll.
 
-In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. In Electron wird er umbenannt, um Verwechslung mit Renderer-Prozessen zu vermeiden.
+In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. In Electron wird umbenannt, um Verwirrung mit Renderer-Prozessen zu vermeiden.
 
 Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Abkürzung für Apple's Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung][].
+Acronym für Apple's Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung][].
 
 ### Mojo
 

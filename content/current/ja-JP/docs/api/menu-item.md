@@ -47,9 +47,9 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role` プロパティは、以下の値を持つことができます。
 
-* `undo`
+* `元に戻します`
 * `about` - ネイティブのこの App についてのパネル (専用のパネルを提供しない、Window 上のカスタムメッセージボックス) をトリガーします。
-* `redo`
+* `やり直します`
 * `cut`
 * `copy`
 * `paste`
@@ -92,7 +92,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 これはこのアプリケーションのメニューにのみ使うことを意図しており、macOSアプリのコンテキストメニューで使用される "サービス"サブメニューと同じでは*ありません*。この"サービス"サブメニューはElectronでは実装しません。
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
-* `shareMenu` - このサブメニューは [共有メニュー](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/) です。 `sharingItem` プロパティは、共有アイテムを示すためにも設定する必要があります。
+* `shareMenu` - このサブメニューは [共有メニュー][ShareMenu] です。 `sharingItem` プロパティは、共有アイテムを示すためにも設定する必要があります。
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
@@ -183,3 +183,5 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 #### `menuItem.menu`
 
 そのアイテムが属する `Menu`。
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/

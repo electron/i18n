@@ -33,6 +33,8 @@ La última beta de Electron 5 fue el seguimiento de Chromium 73 y por lo tanto y
 
 Esta vulnerabilidad la descubrió Clement Lecigne del Grupo de Análisis de Amenazas de Google e informó al equipo de Chrome.  La entrada del blog de Chrome se puede encontrar [aquí](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-Para obtener más información sobre las mejores prácticas para mantener sus aplicaciones Electron seguras, consulte nuestro [tutorial de seguridad](https://electronjs.org/docs/tutorial/security).
+Para aprender más sobre las buenas prácticas para mantener tus aplicaciones Electron seguras, ve nuestro [tutorial de seguridad][].
 
 Si desea reportar una vulnerabilidad en Electron, envíe un correo electrónico a security@electronjs.org.
+
+[tutorial de seguridad]: https://electronjs.org/docs/tutorial/security

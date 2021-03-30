@@ -1,12 +1,12 @@
 # インストール
 
-Electron のビルド済みバイナリをインストールするには、[`npm`](https://docs.npmjs.com) を使用します。 アプリの開発用依存関係として Electron をインストールする方法を推奨します。
+Electron のビルド済みバイナリをインストールするには、[`npm`][npm] を使用します。 アプリの開発用依存関係として Electron をインストールする方法を推奨します。
 
 ```sh
 npm install electron --save-dev
 ```
 
-アプリ内で Electron のバージョンを管理する方法については、[Electron のバージョン管理](./electron-versioning.md) を参照して下さい。
+アプリ内で Electron のバージョンを管理する方法については、[Electron のバージョン管理][versioning] を参照して下さい。
 
 ## グローバルインストール
 
@@ -30,16 +30,16 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## プロキシ環境下
+## プロキシ
 
 HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PROXY` 変数を任意の値に設定する必要があります。さらに、ホストシステムの Node のバージョンに応じて追加の環境変数を設定する必要があります。
 
-* [Node 10 以降](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Node 10 以前](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node 10 以降][proxy-env-10]
+* [Node 10 以前][proxy-env]
 
 ## ミラーとキャッシュのカスタマイズ
 
-インストール中、`electron` モジュールは [`@electron/get`](https://github.com/electron/get) を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これは Github のリリースダウンロードページ (`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION` は Electron の正確なバージョン) からダウンロードします。
+インストール中、`electron` モジュールは [`@electron/get`][electron-get] を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これは Github のリリースダウンロードページ (`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION` は Electron の正確なバージョン) からダウンロードします。
 
 もし Github にアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
@@ -121,11 +121,11 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ほとんどの場合、このエラーはネットワークによるもので、`electron` の npm パッケージに問題はありません。 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET`、`ETIMEDOUT` といったエラーは、ネットワーク上の問題を示しています。 最善の解決策は、ネットワークを切り替えるか、少し待ってからもう一度インストールしてることです。
 
-`npm` でのインストールに失敗する場合、Electron を [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードすることもできます。
+`npm` でのインストールに失敗する場合、Electron を [electron/electron/releases][releases] から直接ダウンロードすることもできます。
 
-`EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 必要があります。
+`EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する][npm-permissions] 必要があります。
 
-上記のエラーが継続する場合は、 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) フラグをtrueにする必要があるかもしれません。
+上記のエラーが継続する場合は、 [unsafe-perm][unsafe-perm] フラグをtrueにする必要があるかもしれません。
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -138,3 +138,12 @@ npm install --verbose electron
 ```
 
 強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
+
+[npm]: https://docs.npmjs.com
+[versioning]: ./electron-versioning.md
+[releases]: https://github.com/electron/electron/releases
+[proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
+[proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
+[electron-get]: https://github.com/electron/get
+[npm-permissions]: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+[unsafe-perm]: https://docs.npmjs.com/misc/config#unsafe-perm

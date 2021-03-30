@@ -37,7 +37,7 @@ Par défaut, `npm start` exécuterait le script principal avec Node.js. Afin de 
 
 ```json
 {
-  "name": "votre-app",
+  "name": "your-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {

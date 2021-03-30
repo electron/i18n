@@ -1,6 +1,6 @@
 # Objeto ProtocolResponse
 
-* `error` Integer (opcional) - Cuando se asigna, el `request` fallará con el número `error`. Para números de errores que puede usar, por favor vea la [lista de errores de red][net-error].
+* `error` Integer (opcional) - Cuando se asigna, el `request` fallará con el número `error`. For the available error numbers you can use, please see the [net error list][net-error].
 * `statusCode` Number (opcional) - El código de repuesta HTTP, por defecto es 200.
 * `charset` String (opcional) - El conjunto de caracteres del cuerpo de respuesta, por defecto es `"utf-8"`.
 * `mimeType` String (opcional) - El tipo MIME de cuerpo de respuesta, por defecto es `"text/html"`. Establecer `mimeType` establecería de forma implícita la cabecera `content-type` en la respuesta, pero si `content-type` ya esta configurada en las `headers`, el `mimeType` sería ignorado.

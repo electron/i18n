@@ -63,6 +63,6 @@ Pepper Flash プラグインがロードされているかどうかを確認す�
 
 Pepper Flash プラグインのアーキテクチャは、Electron のものと一致する必要があります。 Windows では、64 ビット版の Electron に対して 32 ビット版の Flash プラグインを使用してしまうエラーがよくあります。
 
-Windows で `--ppapi-flash-path` に渡すパスの区切り文字は、'\' を使用する必要があります。POSIX スタイルのパスを使用しても機能しません。
+Windows では、`--ppapi-flash-path` に渡されるパスは、パス区切り文字として `\` を使用する必要があります。POSIX スタイルのパスを使用しても機能しません。
 
 RTMP を使用したメディアのストリーミングのような、いくつかの操作では、Flash Player の `.swf` ファイルに対してより広範な権限を付与する必要があります。 これを実現する方法の 1 つは、[nw-flash-trust](https://github.com/szwacz/nw-flash-trust) を使用することです。

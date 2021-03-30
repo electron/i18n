@@ -1,6 +1,6 @@
 # 多线程
 
-通过[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)，可以实现用操作系统级别的线程来跑JavaScript
+通过[Web Workers][web-workers]，可以实现用操作系统级别的线程来跑JavaScript
 
 ## 多线程的Node.js
 
@@ -34,3 +34,5 @@ process.dlopen = () => {
 }
 const worker = new Worker('script.js')
 ```
+
+[web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers

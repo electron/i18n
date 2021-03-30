@@ -63,6 +63,6 @@ Usted puede comprobar si el plugin Pepper Flasha sido cargado inspeccionando `na
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
+En Windows la ruta pasada a `--ppapi-flash-path` tiene que usar `\` como delimitador de ruta, usando el estilo de rutas POSIX no funcionará.
 
 Para algunas operaciones, como streaming de medios usando RTMP, es necesario conceder permisos más amplios a los reproductores de archivos `.swf`. Una forma de lograr esto, es usar [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).

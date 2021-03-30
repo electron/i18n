@@ -2,7 +2,7 @@
 title: Electron 10.0.0
 author:
   - VerteDinde
-  - sofianguy
+  - вежливость
 date: '2020-08-25'
 ---
 

@@ -4,7 +4,7 @@ author: zeke
 date: '13-11-2017'
 ---
 
-¡Electron tiene un nuevo sitio web en [electronjs.org](https://electronjs.org)! Hemos reemplazado nuestro sitio Jekyll estático por un Nodo. s servidor web, dándonos flexibilidad para internacionalizar el sitio y allanar el camino para nuevas características más interesantes.
+¡Electron tiene un nuevo sitio web en [electronjs.org](https://electronjs.org)! Hemos reemplazado nuestro sitio Jekyll estático por un Nodo. Hemos reemplazado nuestro sitio Jekyll estático por un Nodo. s servidor web, dándonos flexibilidad para internacionalizar el sitio y allanar el camino para nuevas características más interesantes.
 
 ---
 

@@ -2,9 +2,9 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](tutorial/electron-versioning.md#semver).
 
-### 重大更改的类型
+### 打破更改类型
 
-本文档使用以下约定对重大更改进行分类：
+本文件利用以下公约对重大变化进行分类：
 
 - **API 更改：** 一个 API 更改的方式使得尚未更新的代码保证会丢弃异常。
 - **行为有所改变：** Electron的行为已经改变，但并不是一定会抛出例外情况。
@@ -47,7 +47,7 @@ If your crash ingestion server does not support compressed payloads, you can tur
 
 11.0没有计划的分区更改。
 
-## 计划重写的 API (10.0)
+## 计划破解API更改(10.0)
 
 ### Deprecated: `companyName` argument to `crashReporter.start()`
 
@@ -158,7 +158,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## 计划重写的 API (9.0)
+## 计划破解API更改(9.0)
 
 ### 默认更改：默认禁用在渲染器进程中加载不了解上下文的本地模块
 

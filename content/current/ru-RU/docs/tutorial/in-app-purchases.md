@@ -93,18 +93,18 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
 // Проверьте, разрешено ли пользователю совершать покупку внутри приложения.
 if (!inAppPurchase.canMakePayments()) {
-  console.log('Пользователю не разрешено совершать покупки в приложении.')
+  console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Восстановить и отобразить описания продукта.
+// Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Проверьте параметры.
   if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Не удается получить информацию о продукте. )
+    console.log('Unable to retrieve the product informations.')
     return
   }
 
-  // Отображать имя и цену каждого продукта.
+  // Display the name and price of each product.
   products.forEach(product => {
     console.log(`Цена ${product.localizedTitle} составляет ${product.formattedPrice}.`)
   })
@@ -116,11 +116,11 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Купить выбранный продукт.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
-      console. og('Продукт недействителен.')
-      вернуть
+      console.log('The product is not valid.')
+      return
     }
 
-    консоль. og('Платёж был добавлен в очередь оплаты.')
+    console.log('The payment has been added to the payment queue.')
   })
 })
 ```

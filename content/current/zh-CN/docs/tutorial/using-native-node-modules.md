@@ -1,6 +1,6 @@
-# 使用原生 Node 模块
+# 使用 Node 原生模块
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)](https://en.wikipedia.org/wiki/Application_binary_interface) from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
+Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -16,7 +16,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 包重建这些模块以适配 Electron 。 This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app. If you are using [Electron Forge](https://electronforge.io/), this tool is used automatically in both development mode and when making distributables.
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
 
 For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
@@ -30,7 +30,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools such as [Electron Packager](https://github.com/electron/electron-packager), consult the project's README.
+For more information on usage and integration with other tools such as [Electron Packager][electron-packager], consult the project's README.
 
 ### 通过 `npm` 安装
 
@@ -115,8 +115,14 @@ If the `prebuild`-powered module provide binaries for the usage in Electron, mak
 
 ## 依赖于 `node-pre-gyp` 的模块
 
-[`node-pre-gyp` 工具](https://github.com/mapbox/node-pre-gyp) 提供一种部署原生 Node 预编译二进制模块的方法， 许多流行的模块都是使用它。
+[`node-pre-gyp` 工具][node-pre-gyp] 提供一种部署原生 Node 预编译二进制模块的方法， 许多流行的模块都是使用它。
 
 Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
 
 If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+
+[abi]: https://en.wikipedia.org/wiki/Application_binary_interface
+[electron-rebuild]: https://github.com/electron/electron-rebuild
+[electron-forge]: https://electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
+[node-pre-gyp]: https://github.com/mapbox/node-pre-gyp

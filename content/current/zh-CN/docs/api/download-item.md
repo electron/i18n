@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-在Electron中，`DownloadItem` 是一个代表下载项目的[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+在Electron中，`DownloadItem` 是一个代表下载项目的[EventEmitter][event-emitter]。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### 事件
+### 实例事件
 
 #### 事件名: 'updated'
 
@@ -96,11 +96,11 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+返回`Boolean` - 下载是否暂停。
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+恢复已暂停的下载。
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
@@ -173,3 +173,5 @@ Returns `String[]` - The complete URL chain of the item including any redirects.
 A `String` property that determines the save file path of the download item.
 
 The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

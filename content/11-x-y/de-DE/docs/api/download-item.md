@@ -44,7 +44,7 @@ Rückgabewert:
 * `event` Event
 * `state` String - Can be `progressing` or `interrupted`.
 
-Ausgelöst, wenn sich der Status des Downloads geändert hat, aber der Download nicht fertig ist.
+Emitted when the download has been updated and is not done.
 
 The `state` can be one of following:
 

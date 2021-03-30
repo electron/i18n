@@ -22,21 +22,21 @@ const mainWindow = new BrowserWindow({
 
 ## Migration
 
-> J'avais l'habitude de fournir des API depuis mon script de préchargement en utilisant `window</0>.Que dois faire désormais?</p>
-</blockquote>
+> J'avais l'habitude de fournir des API à partir de mon script de préchargement en utilisant `window.X = apiObject` maintenant quoi ?
 
-<p spaces-before="0">Exposer au site web des API depuis votre script de préchargement est un cas d'utilisation courant et il existe un un module dédié dans Electron pour vous y aider à le faire sans peine.</p>
+Exposer au site web des API depuis votre script de préchargement est un cas d'utilisation courant et il existe un un module dédié dans Electron pour vous y aider à le faire sans peine.
 
-<p spaces-before="0"><strong x-id="1">Avant: avec l'isolation de contexte désactivée</strong></p>
+**Avant: avec l'isolation de contexte désactivée**
 
-<pre><code class="javascript">window.myAPI = {
+```javascript
+window.myAPI = {
   doAThing: () => {}
 }
-`</pre> 
-> 
-> **Après: Avec l'isolation du contexte activée**
-> 
-> ```javascript
+```
+
+**Après: Avec l'isolation du contexte activée**
+
+```javascript
 const { contextBridge } = require('electron')
 contextBridge.exposeInMainWorld('myAPI', {
   doAThing: () => {}

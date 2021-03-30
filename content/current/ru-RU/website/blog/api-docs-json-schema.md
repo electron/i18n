@@ -32,6 +32,7 @@ date: '2016-09-27'
   instanceProperties: [...],
   instanceEvents: [...]
 }
+}
 ```
 
 And here's an example of a method description, in this case the `apis.BrowserWindow.instanceMethods.setMaximumSize` instance method:

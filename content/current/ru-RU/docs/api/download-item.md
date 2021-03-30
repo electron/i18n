@@ -2,9 +2,9 @@
 
 > Контроль загрузки файлов из удаленных источников.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-`DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
+`DownloadItem` это [EventEmitter][event-emitter], который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
 
 ```javascript
 // В основном процессе.
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `state` String - Может быть `progressing` или `interrupted`.
 
 Возникает, когда загрузка была обновлена и не завершена.
@@ -96,21 +96,21 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Возвращает `Boolean` - приостановлена ли загрузка.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Возобновляет загрузку, которая была приостановлена.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. В противном случае `resume()` удалит ранее полученные байты и перезапустит загрузку с начала.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Возвращает `Boolean` - Может ли загрузка возобновиться.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Отменяет операцию загрузки.
 
 #### `downloadItem.getURL()`
 
@@ -118,31 +118,31 @@ Cancels the download operation.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Возвращает `String` - Файлы mime типа.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Возвращает `Boolean` - Есть ли у загрузки пользовательский жест.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Возвращает `String` - Имя файла элемента загрузки.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Note:** The file name is not always the same as the actual one saved in local disk. Если пользователь изменит имя файла в запрашиваемом диалоговом окне сохранения файла, то действительное имя файла будет отличаться.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Возвращает `Integer` - Общий размер элемента загрузки в байтах.
 
-If the size is unknown, it returns 0.
+Если размер неизвестен, он возвращает 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Возвращает `Integer` - Полученные байты элемента загрузки.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Возвращает `String` - Поле Content-Disposition из заголовка ответа.
 
 #### `downloadItem.getState()`
 
@@ -156,15 +156,15 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Возвращает `String` - Последнее измененное значение заголовка.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Возвращает `String` - значение ETag заголовка.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Возвращает `Double` - Количество секунд с начала UNIX, когда началась загрузка.
 
 ### Свойства экземпляра
 
@@ -173,3 +173,5 @@ Returns `Double` - Number of seconds since the UNIX epoch when the download was 
 Свойство `String`, которое определяет путь к файлу сохранения элемента загрузки.
 
 Свойство доступно только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через свойство, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-`Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos][event-emitter].
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Devuelve `Objecto`:
 * `total` Integer - El número de bytes que ha subido esta solicitud
 
 Puedes usar este método en conjunto con solicitudes `POST` para obtener el progreso de la carga de un archivo u otro dato de transferencia.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

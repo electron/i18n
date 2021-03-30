@@ -1,4 +1,4 @@
-# 构建说明
+# 构建指南
 
 请遵循以下指南来构建Electron。
 
@@ -16,7 +16,7 @@
 
 ## 前置知识
 
-此外，你还需要安装[`depot_tools`](https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)，这是一个用于获取Chromium，及其相关依赖工具。
+此外，你还需要安装[`depot_tools`][depot-tools]，这是一个用于获取Chromium，及其相关依赖工具。
 
 另外，如果使用Windows系统, 你需要设置环境变量`DEPOT_TOOLS_WIN_TOOLCHAIN=0`。 依次打开 `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` ，然后添加系统变量 `DEPOT_TOOLS_WIN_TOOLCHAIN` ，并设置默认值为 `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
@@ -28,10 +28,10 @@ Security` → `System` → `Advanced system settings` ，然后添加系统变�
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# 这将使用大约16G
+# This will use about 16G.
 ```
 
-## 获取代码
+## 获得源码
 
 ```sh
 $ mkdir electron && cd electron
@@ -57,7 +57,7 @@ $ cd -
 
 :memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
 
-运行以下命令拉取源码：
+因此，为了拉取，您将运行以下命令：
 
 ```sh
 $ cd src/electron
@@ -78,7 +78,7 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
 这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
@@ -112,7 +112,7 @@ For the release configuration:
 $ ninja -C out/Release electron
 ```
 
-这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
+This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
 The built executable will be under `./out/Testing`:
 
@@ -156,7 +156,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 
 If you test other combinations and find them to work, please update this document :)
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values).
+See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
 
 #### Windows on Arm (experimental)
 
@@ -235,3 +235,8 @@ $ gclient sync -f
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
+
+[depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
+
+[target_os values]: https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values
+[target_cpu values]: https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values

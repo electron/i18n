@@ -1,12 +1,12 @@
 # Utilisation de Selenium et WebDriver
 
-De [ChromeDriver - WebDriver pour Chrome](https://sites.google.com/a/chromium.org/chromedriver/) :
+De [ChromeDriver - WebDriver pour Chrome][chrome-driver] :
 
 > WebDriver est un outil open source pour les tests automatisés d'applications web sur plusieurs navigateurs. Il fournit des fonctions pour naviguer vers les pages web, simuler l'input utilisateur, l’exécution de JavaScript, etc... . ChromeDriver est un serveur autonome qui implémente le protocole de WebDriver (WebDriver's wire protocol) pour Chromium. Il est développé par des membres des équipes chrome et WebDriver.
 
 ## Mise en place de Spectron
 
-[Spectron](https://electronjs.org/spectron) est le framework ChromeDriver de test officiel pour Electron. Il est basé sur [WebdriverIO](https://webdriver.io/) et a des helpers pour accéder aux APIS d'Electron dans vos tests et bundles ChromeDriver.
+[Spectron][spectron] est le framework ChromeDriver de test officiel pour Electron. Il est basé sur [WebdriverIO](https://webdriver.io/) et a des helpers pour accéder aux APIS d'Electron dans vos tests et bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -153,3 +153,6 @@ client
 Pour tester votre application sans re-compiler Electron, il suffit de [placer](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la source de votre app dans le dossier des ressources d'Electron.
 
 Sinon, passez un argument à exécuter avec votre binaire Electron qui pointe vers le dossier de votre application. Cela élimine le besoin de copier-coller votre application dans le répertoire de ressources de Electron.
+
+[chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
+[spectron]: https://electronjs.org/spectron

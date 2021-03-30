@@ -4,7 +4,7 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`ClientRequest` реализует интерфейс [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) и [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` реализует интерфейс [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) и [EventEmitter][event-emitter].
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 * `total` Integer - количество байтов, которые будут загружены в этом запросе
 
 Вы можете использовать этот метод в сочетании с запросами `POST`, чтобы получить прогресс загрузки файла или другой передачи данных.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

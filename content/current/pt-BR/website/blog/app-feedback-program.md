@@ -34,5 +34,5 @@ Os erros de seu aplicativo serão rastreados e serão no radar da equipe princip
 ## As informações da minha aplicação serão compartilhadas publicamente? Quem pode ver estas informações?
 Não, as informações do seu aplicativo não serão compartilhadas com o público em geral. As informações são mantidas em um repositório privado do GitHub que só é visível para membros do Programa de Feedback de Aplicativos e [Governança do Electron](https://github.com/electron/governance). Todos os membros concordaram em seguir o [Código de Conduta do Electron](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
-## inscrever
+## Criar conta
 No momento, estamos aceitando um *número limitado* de cadastros. Se você está interessado e consegue cumprir os requisitos acima, por favor, preencha este [formulário](https://goo.gl/forms/OpMEKV75ScN6we7g1).

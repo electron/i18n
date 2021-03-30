@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -56,16 +56,16 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instanz-Ereignisse
+### Instanz Events
 
 The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-Returns:
+Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>item` [DownloadItem](download-item.md)
+* `event` Event
+* `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
@@ -86,8 +86,8 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>extension` [Extension](structures/extension.md)
+* `event` Event
+* `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. This includes:
 
@@ -98,10 +98,10 @@ Emitted after an extension is loaded. This occurs whenever an extension is added
 
 #### Event: 'extension-unloaded'
 
-Kehrt zurück:
+Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>extension` [Extension](structures/extension.md)
+* `event` Event
+* `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
 
@@ -109,8 +109,8 @@ Emitted after an extension is unloaded. This occurs when `Session.removeExtensio
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>extension` [Extension](structures/extension.md)
+* `event` Event
+* `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
 
@@ -118,8 +118,8 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><p spaces-before="0"><code>preconnectUrl` String - The URL being requested for preconnection by the renderer.</p>
+* `event` Event
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
@@ -222,7 +222,7 @@ Rückgabewert:
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 The following methods are available on instances of `Session`:
 

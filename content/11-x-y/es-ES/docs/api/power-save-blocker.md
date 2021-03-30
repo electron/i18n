@@ -29,7 +29,7 @@ Devuelve `Integer` - El ID bloqueador que se asigna al bloqueador de energía.
 
 Starts preventing the system from entering lower-power mode. Devuelve un entero que identifica el bloqueador de ahorro de energía.
 
-**Nota:** `prevent-display-sleep` tiene mayor prioridad que `prevent-app-suspension`. Solo el tipo de mayor prioridad tiene efecto. En otras palabras, `prevent-display-sleep` tiene mayor prioridad sobre `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Solo el tipo de mayor prioridad tiene efecto. En otras palabras, `prevent-display-sleep` tiene mayor prioridad sobre `prevent-app-suspension`.
 
 Por ejemplo, una API llamada A solicita a `prevent-app-suspension`, y otra llamada B solicita a `prevent-display-sleep`. Se utilizará `prevent-display-sleep` hasta que B detenga su solicitud. Luego de eso, se utilizará `prevent-app-suspension`.
 

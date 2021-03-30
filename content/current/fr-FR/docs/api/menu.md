@@ -280,11 +280,11 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 ### Nom du menu principal
 
-Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) pour plus d'informations.
+Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information][AboutInformationPropertyListFiles] pour plus d'informations.
 
 ## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
 
-La [`setMenu` méthode](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
+La [`setMenu` méthode][setMenu] des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 
 ## Position de l'élément de menu
 
@@ -361,3 +361,6 @@ Menu :
 - 2
 - 1
 ```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows

@@ -8,7 +8,7 @@
 
 `screen` 是一个 [EventEmitter][event-emitter].
 
-** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let { screen } = require('electron') ` 将不起作用。
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 创建填充整个屏幕的窗口的示例:
 

@@ -1,6 +1,6 @@
 # 辅助功能
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
 
 ---
 
@@ -20,27 +20,27 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-你可以从这里[Spectron文档](https://github.com/electron/spectron#accessibility-testing)阅读到更多有关于这个功能的信息。
+你可以从这里[Spectron文档][spectron-a11y]阅读到更多有关于这个功能的信息。
 
 ## Devtron
 
 在Devtron，有一个辅助选项卡，您可以在您的应用中审核一个 页面，并排序和过滤结果。
 
-![devtron 截图](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron 截图][4]
 
-这两种工具都使用了Google 为 Chrome 所构建的 [ 辅助功能开发工具 ](https://github.com/GoogleChrome/accessibility-developer-tools) 库。 您可以在 [ repository's wiki ](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 上了解到更加详细的辅助功能审核规则。
+这两种工具都使用了Google 为 Chrome 所构建的 [ 辅助功能开发工具 ][a11y-devtools] 库。 您可以在 [ repository's wiki ][a11y-devtools-wiki] 上了解到更加详细的辅助功能审核规则。
 
 如果你知道其他适用于Electron的辅助功能开发工具, 请通过pull request添加到本文档中.
 
 ## 手动启用辅助功能
 
-当辅助技术存在时，Electron 应用程序将自动启用辅助功能（例如 Windows 上的 [JAWS](https://www.freedomscientific.com/products/software/jaws/) 或 macOS 上的 [VoiceOver](https://help.apple.com/voiceover/mac/10.15/)）。 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
+当辅助技术存在时，Electron 应用程序将自动启用辅助功能（例如 Windows 上的 [JAWS](https://www.freedomscientific.com/products/software/jaws/) 或 macOS 上的 [VoiceOver](https://help.apple.com/voiceover/mac/10.15/)）。 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ][a11y-docs]。
 
 您也可以在您的 Electron 应用程序 中手动切换这些功能，或者在第三方本机软件中设置标记。
 
 ### 使用 Electron 的 API
 
-通过使用 [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) API，您可以在应用程序首选项中的手动向用户暴露Chrome的访问树。 请注意，用户的系统辅助工具优先于此设置并将覆盖它。
+By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. 请注意，用户的系统辅助工具优先于此设置并将覆盖它。
 
 ### 在第三方软件内
 
@@ -62,3 +62,13 @@ CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
     CFRelease(appRef);
 }
 ```
+
+[4]: https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png
+
+[devtron]: https://electronjs.org/devtron
+[spectron]: https://electronjs.org/spectron
+[spectron-a11y]: https://github.com/electron/spectron#accessibility-testing
+[a11y-docs]: https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology
+[a11y-devtools]: https://github.com/GoogleChrome/accessibility-developer-tools
+[a11y-devtools-wiki]: https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules
+[setAccessibilitySupportEnabled]: ../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows

@@ -32,4 +32,4 @@ GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/4806280
 
  * 它已经有助于在 Electron 4.0.0 上的开发，因为Chromium 67 已经移除了对 MSVC 的支持，并且已经切换到 Clang 在 Windows 上的建筑。 通过 GN 构建，我们直接继承了Chromium 的所有编译器命令，所以我们可以免费在 Windows 上的 Clang 构建！
 
- * 它也使Electron更容易在整个Electron的一个统一构建中使用 [BoringSSL](https://boringssl.googlesource.com/boringssl/) 。 Chromium, and Node -</a> 之前有问题 </p></li> </ul>
+ * 它也使Electron更容易在整个Electron的一个统一构建中使用 [BoringSSL](https://boringssl.googlesource.com/boringssl/) 。 Chromium, and Node -</a> 之前有问题

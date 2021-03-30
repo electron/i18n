@@ -4,13 +4,13 @@ Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desa
 
 ### Tipos de cambios de ruptura
 
-Este documento usa la siguiente convención para clasificar los cambios de ruptura:
+Este documento utiliza la siguiente convención para clasificar los cambios de ruptura:
 
-- **API Modificada:** Se cambió una API de tal manera que se garantiza que el código que no ha sido actualizado produzca una excepción.
-- **Comportamiento Modificado: ** El comportamiento de Electron ha cambiado, pero no de tal manera que una excepción se produzca necesariamente.
-- **Valor por defecto Modificado:** Código dependiente del viejo valor por defecto puede romperse, no necesariamente lanzando una excepción. El comportamiento antiguo puede ser restaurado especificando explícitamente el valor.
+- **API cambiada:** Una API fue cambiada de tal manera que el código que no ha sido actualizado se garantiza para arrojar una excepción.
+- **Comportamiento Cambiado:** El comportamiento de Electron ha cambiado, pero no de tal manera que necesariamente se lanzará una excepción.
+- **Predeterminado cambiado:** El código dependiendo del valor predeterminado puede romperse, no necesariamente arrojando una excepción. El comportamiento antiguo se puede restaurar especificando explícitamente el valor.
 - **Obsoleto:** Una API fue marcada como obsoleta. La API continuará funcionando, pero emitirá una advertencia de desaprobación y será eliminada en una futura versión.
-- **Eliminado:** Una API o característica fue eliminada y ya no es compatible por Electron.
+- **Eliminado:** Se ha eliminado una API o característica y ya no es compatible con Electron.
 
 ## Cambios planeados en la API(12.0)
 
@@ -47,7 +47,7 @@ Si su servidor de gestión de fallos no soporta cargas comprimidas, puedes desac
 
 No hay cambios de ruptura planeados para 11.0.
 
-## Cambios planeados en la API(10.0)
+## Cambios de API de ruptura planificados (10.0)
 
 ### Desaprobado: argumento `companyName` para `crashReporter.start()`
 
@@ -92,11 +92,11 @@ Vea [#23265](https://github.com/electron/electron/pull/23265) para mas detalles.
 
 Establecer `{ compress: false }` en `crashReporter.start` está obsoleto. Casi todos los servidores de gestión de fallos soportan compresión gzip. Esta opción será eliminada en una futura versión de Electron.
 
-### Eliminado: Browser Window Affinity
+### Eliminado: Afinidad de Ventana del Navegador
 
-La opción `affinity` al construir una nueva `BrowserWindow` se eliminará como parte de nuestro plan para alinear más estrechamente con el modelo de proceso de Chromium por seguridad, rendimiento y mantenimiento.
+La opción `affinity` al construir un nuevo `BrowserWindow` será removida como parte de nuestro plan para alinearse más estrechamente con el modelo de proceso de Chromium por seguridad, rendimiento y mantenimiento.
 
-Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
+Para obtener información más detallada consulte [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Cambiado por defecto: `enableRemoteModule` por defecto a `false`
 
@@ -118,9 +118,9 @@ Recomendamos [alejarnos del módulo remoto](https://medium.com/@nornagon/electro
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Reemplazar con 
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -138,9 +138,9 @@ protocol.unregisterProtocol(scheme)
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Reemplazar con 
+// Replace with
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -151,14 +151,14 @@ El protocolo registrado o interceptado no tiene efecto en la página actual hast
 Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
 ```javascript
-// Obsoleto
+// Deprecated
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Reemplazar con
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Cambios planeados en la API(9.0)
+## Cambios de API de ruptura planificados (9.0)
 
 ### Cambiado por defecto: Cargando módulos nativos no conscientes del contexto en el proceso de renderizado está desactivado por defecto
 
@@ -166,7 +166,7 @@ A partir de Electron 9 no permitimos la carga de módulos nativos no conscientes
 
 Si esto le impacta, puede establecer temporalmente `app.allowRendererProcessReuse` a `false` para revertir al viejo comportamiento.  Esta bandera solo será una opción hasta Electron 11, así que debe planear actualizar sus módulos nativos para que sean conscientes de contexto.
 
-Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
+Para obtener información más detallada consulte [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Obsoleto: APIs de extensión `BrowserWindow`
 

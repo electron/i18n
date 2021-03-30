@@ -8,7 +8,7 @@ Atom Shell ahora se llama Electron. Puedes aprender más sobre Electron y lo que
 
 ---
 
-[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
+[![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)][electron]
 
 Electron es el shell de aplicación multiplataforma que originalmente construimos para el [editor Atom](https://atom.io) para manejar la integración de bucle de eventos Chromium/Node.js y APIs nativas.
 
@@ -23,4 +23,6 @@ Echa un vistazo a los nuevos [electronjs. rg](https://electronjs.org) para ver m
 Si ya has comenzado, nos encantaría chatear contigo sobre las aplicaciones que estás construyendo en Electron. Envía un correo electrónico a [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) para decirnos más. También puedes seguir la nueva cuenta [@ElectronJS](https://twitter.com/electronjs) de Twitter para estar conectado con el proyecto.
 
 :zap: :blue_heart: :electric_plug:
+
+[electron]: https://electronjs.org
 

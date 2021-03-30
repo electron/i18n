@@ -76,7 +76,7 @@ protocol.registerSchemesAsPrivileged([
 </body>
 ```
 
-スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
+スキームを標準で登録すると、[FileSystem API][file-system-api] を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
 デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
@@ -281,3 +281,5 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `scheme` String
 
 戻り値 `Boolean` - `scheme` がすでにインターセプトされているかどうか。
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem

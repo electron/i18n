@@ -58,7 +58,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 * `options` Object
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto `app.name`.
-  * `companyName` String (opcional) _Deprecated_ - Obsoleto alias para `{ globalExtra: { _companyName: ... } }`.
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (octional) - Si los reportes de fallos deberían ser enviados a un servidor. Si es false, los reportes de fallos serán recolectados y almacenados en un directorio de fallas, pero no serán subidos. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Boolean (opcional) - Si es true, los fallos generados en el main process no serán reenviados al gestor de gallos del sistema. Por defecto es `false`.
   * `rateLimit` Boolean (opcional) _macOS_ _Windows_ - Si es true, limita el numero de fallos subidos a 1/hora. Por defecto es `false`.
@@ -117,7 +117,7 @@ Los parámetros agregados de esta manera (o a través del parámetro `extra` al 
 
 **Nota:** Los parámetros tienen límites de longitud de llaves y valores. Los nombre de la llaves deben ser como máximo de 39 bytes de largo, y los valores no deben ser mayor que 127 bytes. Las llaves con nombres más largo que el máximo serán ignoradas de forma silenciosa. Los valores de las llaves más largo que la longitud máxima serán truncados.
 
-**Nota:** En linux los valores que son más grandes que 127 bytes se dividirá en varias claves, cada una de 127 bytes de longitud.  Por ejemplo, `addExtraParameter('foo', 'a'.repeat(130))` serán dividirán en dos llaves `foo__1` y `foo__2`, el primero contendrá los primeros 127 bytes y el segundo contendrá los restantes 3 bytes.  En el backend de informes de fallos, debería unir las claves en este formato.
+**Nota:** En linux los valores que son más grandes que 127 bytes se dividirá en varias claves, cada una de 127 bytes de longitud.  Por ejemplo. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  En el backend de informes de fallos, debería unir las claves en este formato.
 
 ### `crashReporter.removeExtraParameter(key)`
 
@@ -137,9 +137,9 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `platform` String - por ejemplo, "win32".
 * `process_type` String - por ejemplo, "renderer".
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
-* `_version` String - La versión en `package.json`.
+* `_version` Cadena - La versión en `package.json`.
 * `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
 * `prod` String - Nombre del producto subyacente. En esta caso Electron.
-* `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
+* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
 * `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

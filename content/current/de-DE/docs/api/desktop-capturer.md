@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Zugriff auf Informationen über Medienquellen, zum Erfassen von Audio und Video vom Desktop mit Hilfe der [`navigator.mediaDevices.getUserMedia`]-API.
+> Zugriff auf Informationen über Medienquellen, zum Erfassen von Audio und Video vom Desktop mit Hilfe der [`navigator.mediaDevices.getUserMedia`][] API.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das folgende Beispiel zeigt, wie man Video von einem Desktop Fenster mit dem Titel `Electron` aufnehmen kann:
+Das folgende Beispiel zeigt, wie Sie ein Video von einem Desktop-Fenster aufnehmen, dessen Titel `Elektron` lautet:
 
 ```javascript
 // In the renderer process.
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-Um ein Video von einer von `desktopCapturer` bereitgestellten Quelle zu erfassen, müssen die an [`navigator.mediaDevices.getUserMedia`] übergebenen Beschränkungen `chromeMediaSource: 'desktop'`, und `audio: false` enthalten.
+Um ein Video von einer von `desktopCapturer` bereitgestellten Quelle zu erfassen, müssen die an [`navigator.mediaDevices.getUserMedia`][] übergebenen Beschränkungen `chromeMediaSource: 'desktop'`, und `audio: false` enthalten.
 
-Um sowohl Audio als auch Video vom gesamten Desktop zu erfassen, müssen die an [`navigator.mediaDevices.getUserMedia`] übergebenen Constraints `chromeMediaSource: 'desktop'` enthalten, sowohl für `Audio` als auch für `Video`. Es sollte aber keine `chromeMediaSourceId`-Beschränkung enthalten.
+Um sowohl Audio als auch Video vom gesamten Desktop zu erfassen, müssen die an [`navigator.mediaDevices.getUserMedia`][] übergebenen Constraints `chromeMediaSource: 'desktop'` enthalten, sowohl für `Audio` als auch für `Video`. Es sollte aber keine `chromeMediaSourceId`-Beschränkung enthalten.
 
 ```javascript
 const constraints = {
@@ -79,10 +79,13 @@ Das Modul `desktopCapturer` verfügt über die folgenden Methoden:
 
 Rückgabe `Promise<DesktopCapturerSource[]>` - Löst mit einem Array von [`DesktopCapturerSource`](structures/desktop-capturer-source.md)-Objekte auf, wobei jede `DesktopCapturerSource` einen Bildschirm oder ein einzelnes Fenster darstellt, das erfasst werden kann.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
 
 ## Vorbehalte
 
 `navigator.mediaDevices.getUserMedia` funktioniert unter macOS nicht für Audioaufnahmen aufgrund einer grundsätzlichen Einschränkung, bei der Apps, die auf das Audiosystem zugreifen wollen, eine [signierte Kernel-Erweiterung](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html) benötigen. Chromium, und damit auch Electron, bieten dies nicht an.
 
 Es ist möglich, diese Einschränkung zu umgehen, indem Sie das Systemaudio mit einer anderen macOS-App wie Soundflower aufnehmen und durch ein virtuelles Audioeingabegerät leiten. Dieses virtuellen Geräte können dann mit `navigator.mediaDevices.getUserMedia` abgefragt werden.
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
+[`systemPreferences.getMediaAccessStatus`]: system-preferences.md#systempreferencesgetmediaaccessstatusmediatype-windows-macos

@@ -63,7 +63,7 @@ Nós passamos muito tempo focado no desempenho. Começamos com frameworks mas mo
 
 Neste momento, lidamos com coleções muito grandes. Grandes coleções significam, possivelmente, dezenas de milhares de imagens! Com o nó. O módulo de sistema de arquivos diretamente disponível no processo de renderização facilitou muito a carga preguiçosa e descarregou muitas imagens super rapidamente com base em eventos DOM.
 
-Em geral *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* e *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* foram ferramentas super importantes para executar muitos processamentos, mantendo a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva. Por exemplo, movemos o próprio contexto do áudio para um processo separado, comunicando com ele através do [IPC](https://electronjs.org/docs/glossary/#ipc) para evitar possíveis interrupções de uma interface de usuário ocupada.
+Em geral *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* e *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* foram ferramentas super importantes para executar muitos processamentos, mantendo a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva. Mais especificamente, distribuir tarefas com CPU em processos separados realmente ajuda a manter a interface do usuário responsiva.
 
 ## Por que você escolheu construir o Voltra no Electron?
 

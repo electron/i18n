@@ -63,6 +63,6 @@ app.whenReady(). hen(() => por
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `\` as path delimiter, using POSIX-style paths will not work.
+在 Windows 中，传递给 `--ppapi-flash-path` 的路径必须使用 `\` 作为路径分隔符，使用 POSIX-style 的路径将无法工作。
 
 对于一些操作，例如使用 RTMP 的流媒体，有必要向播放器的 `.swf` 文件授予更多的权限。 实现这一点的一种方式是使用 [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).

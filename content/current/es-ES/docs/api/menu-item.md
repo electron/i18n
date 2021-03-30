@@ -2,7 +2,7 @@
 
 > Agregue elementos a los menús y menús de contexto de la aplicación nativa.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Vea [`Menú`](menu.md) para obtener ejemplos.
 
@@ -47,15 +47,15 @@ Cada elemento del menu deve tener un `role`, `label`, o en el caso de un separad
 
 La propiedad `role` puede tener los siguientes valores:
 
-* `deshacer`
+* `undo`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `rehacer`
-* `cortar`
-* `copiar`
-* `pegar`
+* `redo`
+* `cut`
+* `copy`
+* `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `eliminar`
+* `delete`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
 * `quit` - Salir de la aplicación.
@@ -92,13 +92,13 @@ Los siguientes roles adicionales están disponibles en _macOS_:
 * `services` - El sub menú es una menú ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Esto sólo está destinado a ser usado en el menú de aplicación y es *not* el mismo que el submenú "Servicios" usado en los menús contextuales en las aplicaciones macOS, el cual no está implementado en Electron.
 * `recentDocuments` - El submenú es un menú "Abrir reciente".
 * `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
-* `shareMenu` - El sub menú es [share menu](https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/). The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
-### Propiedades de la instancia
+### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en instancias del `menú de elementos`:
 
@@ -183,3 +183,5 @@ Un `Number` indicando el id único secuencial de un elemento.
 #### `menuItem.menu`
 
 Un `Menu` del cual el elemento es parte.
+
+[ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/

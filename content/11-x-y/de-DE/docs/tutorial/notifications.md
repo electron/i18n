@@ -1,6 +1,6 @@
-# Notifications (Windows, Linux, macOS)
+# Benachrichtigungen (Windows, Linux, MacOS)
 
-Alle drei Betriebssysteme bieten Möglichkeiten für Anwendungen, um notifications an den Benutzer zu senden. Electron ermöglicht Entwicklern das Senden von notifications mit der [HTML5 Notification-API](https://notifications.spec.whatwg.org/), durch die Verwendung der nativen notification APIs des laufenden Betriebssystems.
+Alle drei Betriebssysteme bieten Möglichkeiten für Anwendungen, um Benachrichtigungen an den Benutzer zu senden. Electron ermöglicht Entwicklern das Senden von Benachrichtigungen mit der [HTML5 Notification-API](https://notifications.spec.whatwg.org/), durch die Verwendung der nativen notification APIs des laufenden Betriebssystems.
 
 **Hinweis:** Da es sich um eine HTML5-API handelt, ist sie nur im renderer prozess verfügbar. Wenn Sie Benachrichtigungen im main process anzeigen möchten, schauen Sie sich bitte das Modul [Notification](../api/notification.md) an.
 

@@ -2,7 +2,7 @@
 
 > Abfragen und modifizieren von Session Cookies.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 Auf Instanzen der `Cookies-Klasse` wird über die Cookie-Eigenschaft einer Sitzung zugegriffen.
 
@@ -46,8 +46,8 @@ The following events are available on instances of `Cookies`:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
+* `event` Event
+* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` String - The cause of the change with one of the following values:
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.

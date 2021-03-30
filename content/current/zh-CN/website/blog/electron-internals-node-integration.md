@@ -8,7 +8,7 @@ date: '2016-07-28'
 
 ---
 
-曾多次尝试在图形界面编程中使用节点。 像 [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 所以在 节点中运行图形界面消息循环的常见技巧是在非常短的时间内抽取消息循环。 这 使得界面响应缓慢，并且占用了大量的 CPU 资源。
+像 [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 所以在 节点中运行图形界面消息循环的常见技巧是在非常短的时间内抽取消息循环。 这 使得界面响应缓慢，并且占用了大量的 CPU 资源。
 
 在开发Electron期间，我们遇到了同样的问题。 不过，以 逆向方式：我们必须将诺德的事件循环整合到Chromium的消息 循环中。
 

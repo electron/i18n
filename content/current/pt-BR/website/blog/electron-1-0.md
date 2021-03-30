@@ -30,13 +30,13 @@ Nesses dois últimos anos, vimos empresas e projetos de código aberto escolhere
 
 Juntamente com o 1. liberar, estamos lançando um novo aplicativo para ajudá-lo a explorar as APIs do Electron e aprender mais sobre como fazer seu aplicativo Electron se sentir nativo. O aplicativo [Demos da API do Electron](https://github.com/electron/electron-api-demos) contém trechos de código para ajudar você a iniciar seu aplicativo e dicas sobre como usar efetivamente a API do Electron.
 
-[![Demonstrações da API Electron](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)](https://github.com/electron/electron-api-demos)
+[![Demonstrações da API Electron](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)][electron-api-demos]
 
 ## Devtron
 
 Nós também adicionamos uma nova extensão para ajudá-lo a depurar seus apps Electron. [Devtron](https://electronjs.org/devtron) é uma extensão de código aberto para [Chrome Developer Tools](https://developer.chrome.com/devtools) criada para ajudá-lo a inspecionar, debug, e resolva seus problemas.
 
-[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)](https://electronjs.org/devtron)
+[![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)][devtron]
 
 ### Funcionalidades
 
@@ -49,7 +49,7 @@ Nós também adicionamos uma nova extensão para ajudá-lo a depurar seus apps E
 
 Finalmente, estamos lançando uma nova versão do [Spectron](https://electronjs.org/spectron), a integração framework de testes para aplicativos Electron.
 
-[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)](https://electronjs.org/spectron)
+[![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)][spectron]
 
 Spectron 3. tem suporte abrangente para toda a API do Electron que lhe permite escrever testes mais rapidamente que verificam o comportamento da sua aplicação em vários cenários e ambientes. Spectron é baseado em [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver) e [WebDriverIO](http://webdriver.io) então ele também tem APIs completas para navegação na página, entrada do usuário e execução de JavaScript.
 
@@ -62,4 +62,7 @@ Existe agora uma nova página de [comunidade](https://electronjs.org/community) 
 Novo no Electron? Assista ao vídeo de introdução do Electron 1.0:
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
+[devtron]: https://electronjs.org/devtron
+[electron-api-demos]: https://github.com/electron/electron-api-demos
+[spectron]: https://electronjs.org/spectron
 

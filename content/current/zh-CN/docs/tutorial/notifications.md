@@ -66,11 +66,11 @@ app.whenReady().then(createWindow).then(showNotification)
 
 ### Windows
 
-* 在 Windows 10 上，您的应用程序的快捷方式必须安装到启动菜单中，包含一个 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx). 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
-* 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
+* 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）][app-user-model-id] 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
-Electron尝试将应用程序用户模型 ID 的相关工作自动化。 Electron在和安装和更新框架 Squirrel 协同使用的时候，[快捷方式将被自动正确的配置好](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events)。 更棒的是，Electron 会自动检测 Squirrel 的存在，并且使用正确的值来自动调用`app.setAppUserModelId()`。 在开发的过程中, 你可能需要自己调用[`app.setAppUserModelld()`](../api/app.md#appsetappusermodelidid-windows)
+Electron尝试将应用程序用户模型 ID 的相关工作自动化。 Electron在和安装和更新框架 Squirrel 协同使用的时候，[快捷方式将被自动正确的配置好][squirrel-events]。 更棒的是，Electron 会自动检测 Squirrel 的存在，并且使用正确的值来自动调用`app.setAppUserModelId()`。 在开发的过程中, 你可能需要自己调用[`app.setAppUserModelld()`][set-app-user-model-id]
 
 此外，在Windows 8中，通知正文的最大长度为250个字符，Windows团队建议将通知保留为200个字符。 然而，Windows 10中已经删除了这个限制，但是Windows团队要求开发人员合理使用。 尝试将大量文本发送到API(数千个字符) 可能会导致不稳定。
 
@@ -88,20 +88,32 @@ Windows 的更高版本允许高级通知，自定义模板，图像和其他灵
 
 ### macOS
 
-MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人机接口指南（Apple's Human Interface guidelines regarding notifications）](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人机接口指南（Apple's Human Interface guidelines regarding notifications）][apple-notification-guidelines].
 
 请注意，通知的大小限制为256个字节，如果超过该限制，则会被截断。
 
 #### 高级通知
 
-后来的 macOS 版本允许有一个输入字段的通知，允许用户快速回复通知。 为了通过输入字段发送通知，请使用用户区模块[node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier)。
+后来的 macOS 版本允许有一个输入字段的通知，允许用户快速回复通知。 为了通过输入字段发送通知，请使用用户区模块[node-mac-notifier][node-mac-notifier]。
 
 #### 勿扰 / 会话状态
 
-要检测是否允许发送通知，请使用用户区模块 [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state)。
+要检测是否允许发送通知，请使用用户区模块 [electron-notification-state][electron-notification-state]。
 
 这样可以提前检测是否显示通知。
 
 ### Linux
 
-通知是通过`libnotify`发送的，libnotify可以在任何实现了[桌面通知规范（Desktop Notifications Specification）](https://developer.gnome.org/notification-spec/)的桌面环境中发送通知，包括Cinnamon、Enlightenment、Unity、GNOME、KDE
+通知是通过`libnotify`发送的，libnotify可以在任何实现了[桌面通知规范（Desktop Notifications Specification）][notification-spec]的桌面环境中发送通知，包括Cinnamon、Enlightenment、Unity、GNOME、KDE
+
+[apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
+
+[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
+
+[electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
+
+[notification-spec]: https://developer.gnome.org/notification-spec/
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
+[squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events

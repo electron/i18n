@@ -2,7 +2,7 @@
 
 > Запрашивайте и изменяйте cookie.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Экземпляры класса `Cookies` доступны через свойство `cookies` объекта `Session`.
 
@@ -46,7 +46,7 @@ session.defaultSession.cookies.set(cookie)
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `cookie` [Cookie](structures/cookie.md) - Cookie, который был изменен.
 * `cause` String - The cause of the change with one of the following values:
   * `explic` - Cookie был изменен непосредственно действием потребителя.

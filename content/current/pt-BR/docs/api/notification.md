@@ -1,6 +1,6 @@
-# Notificações
+# Notificação
 
-> 產生作業系統桌面通知。
+> Criar notificações para o desktop do sistema
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -10,11 +10,11 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 ## Class: Notification
 
-> 產生作業系統桌面通知。
+> Criar notificações para o desktop do sistema
 
 Processo: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` is an [EventEmitter][event-emitter].
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -53,7 +53,7 @@ Objects created with `new Notification` emit the following events:
 
 Retorna:
 
-* Evento `event`
+* `event` Event
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
@@ -178,3 +178,5 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/System/Library/Sounds`
 
 See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

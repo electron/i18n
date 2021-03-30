@@ -2,7 +2,7 @@
 
 > Electronによってサポートされているコマンドラインスイッチ。
 
-[app](app.md) モジュールで [ready](app.md#event-ready) イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) を使って、コマンドラインスイッチを追加することができます。
+[app][app] モジュールで [ready][ready] イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch][append-switch] を使って、コマンドラインスイッチを追加することができます。
 
 ```javascript
 const { app } = require('electron')
@@ -48,7 +48,7 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 Chromiumが隠れたページのレンダラープロセスの優先順位を下げるのを防止します。
 
-このフラグはすべてのレンダラープロセスに影響を及ぼすので、1つのウインドウの制限を無効にしたいだけの場合、[無音のオーディオを再生する](https://github.com/atom/atom/pull/9485/files)というテクニックを使うことができます。
+このフラグはすべてのレンダラープロセスに影響を及ぼすので、1つのウインドウの制限を無効にしたいだけの場合、[無音のオーディオを再生する][play-silent-audio]というテクニックを使うことができます。
 
 ### --disk-cache-size=`size`
 
@@ -104,7 +104,7 @@ Node.js エンジンへ渡されるフラグを指定します。 `flags` をメ
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-利用できるフラグの一覧については、[Node.js のドキュメント](https://nodejs.org/api/cli.html)を参照するか、ターミナルで `node --help` を実行してください。 さらに、Node.js の V8 JavaScript エンジンに関するフラグの一覧を具体的に見るには、`node --v8-options` を実行してください。
+利用できるフラグの一覧については、[Node.js のドキュメント][node-cli]を参照するか、ターミナルで `node --help` を実行してください。 さらに、Node.js の V8 JavaScript エンジンに関するフラグの一覧を具体的に見るには、`node --v8-options` を実行してください。
 
 ### --lang
 
@@ -155,9 +155,9 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ### --vmodule=`pattern`
 
-`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 例えば、`my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
+`--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 以下は例です。 `my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
 
-スラッシュまたはバックスラッシュを含むパターンは、モジュールだけでなく全体のパス名に対してテストされます。 例えば、`*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
+スラッシュまたはバックスラッシュを含むパターンは、モジュールだけでなく全体のパス名に対してテストされます。 以下は例です。 `*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
@@ -171,7 +171,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## Node.js フラグ
 
-Electron は Node.js でサポートされている [CLI フラグ](https://nodejs.org/api/cli.html) の一部をサポートしています。
+Electron は Node.js でサポートされている [CLI フラグ][node-cli] の一部をサポートしています。
 
 **注:** `ELECTRON_RUN_AS_NODE` で実行していないときに未サポートのコマンドラインスイッチを Electron に渡しても、効果はありません。
 
@@ -193,7 +193,7 @@ host:port でインスペクタを起動し、ユーザスクリプトの開始�
 
 V8 インスペクタの統合により、Chrome デベロッパー ツールや IDE などのツールで Electron インスタンスのデバッグやプロファイルが可能になりました。 ツールは TCP ポートを介して Electron インスタンスにアタッチし、[Chrome デベロッパー ツールプロトコル](https://chromedevtools.github.io/devtools-protocol/) を使用して通信します。
 
-詳細は [メインプロセスのデバッグ](../tutorial/debugging-main-process.md) ガイドを参照してください。
+詳細は [メインプロセスのデバッグ][debugging-main-process] ガイドを参照してください。
 
 `--debug[=[host:]port]` のエイリアスです。
 
@@ -202,3 +202,11 @@ V8 インスペクタの統合により、Chrome デベロッパー ツールや
 インスペクタの WebSocket URL の公開方法を指定します。
 
 デフォルトでは、インスペクタの WebSocket URL は標準エラーで、http://host:port/json/list の /json/list エンドポイント下にあります。
+
+[app]: app.md
+[append-switch]: command-line.md#commandlineappendswitchswitch-value
+[ready]: app.md#event-ready
+[play-silent-audio]: https://github.com/atom/atom/pull/9485/files
+[debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
+[node-cli]: https://nodejs.org/api/cli.html

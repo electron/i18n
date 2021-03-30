@@ -1,14 +1,14 @@
-# Pantalla
+# screen
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es emitido.
 
-`screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` es un [EventEmitter][event-emitter].
 
-**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let { screen } = require('electron')` no funcionará.
+**Nota:** En el renderer / DevTools, `window.screen` propiedad reservada DOM, así que escribir `let { screen } = require('electron')` no funcionará.
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
@@ -54,7 +54,7 @@ El módulo `screen` emite los siguientes eventos:
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Emitido cuando `newDisplay` ha sido añadido.
@@ -141,3 +141,5 @@ Convierte una rect física de pantalla a una rect DIP de pantalla. La escala DPI
 Devuelve [`Rectangle`](structures/rectangle.md)
 
 Convierte una pantalla DIP rect a una rect física de pantalla. La escala DPI se realiza en relación a la pantalla más cercana a `window`. Si `window` es nulo, el escalamiento se realizará a la pantalla mas cercana a `rect`.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

@@ -69,7 +69,7 @@ win.show()
 
 ## Fenêtre non cliquable
 
-Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) :
+Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Pa
 ## Menu contextuel
 
 Sur certaines plateformes, la zone glissable sera traitée comme une image non-client, donc lorsque vous faites un clic droit dessus un menu système apparaîtra. Pour que le menu contextuel se comporte correctement sur toutes les plates-formes, vous ne devriez jamais utiliser un menu contextuel personnalisé sur zones glissables.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

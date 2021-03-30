@@ -14,7 +14,7 @@
 
 ### アーキテクチャ固有のコード
 
-Windows 固有のコードの多くには、if... else ロジックが含まれています。これは、x64 アーキテクチャと x86 アーキテクチャのどちらかを選択するものです。
+Windows 固有コードの多くには if... else ロジックが含まれています。これは、x64 アーキテクチャと x86 アーキテクチャのどちらかを選択するものです。
 
 ```js
 if (process.arch === 'x64') {
@@ -75,7 +75,7 @@ Arm 版 Windows デバイスでアプリケーションを直接開発したい�
 
 ### 正しい `node.lib` に対してリンクする
 
-デフォルトでは、`node-gyp` は Electron の node ヘッダーをアンパックし、`node.lib` の x86 および x64 バージョンを `%APPDATA%\..\Local\node-gyp\Cache` にダウンロードします。ただし、arm64 バージョンはダウンロードされません ([この修正は開発中です](https://github.com/nodejs/node-gyp/pull/1875))。これを修正するには以下のようにします。
+デフォルトでは、`node-gyp` は Electron の node ヘッダーをアンパックし、`node.lib` の x86 および x64 バージョンを `%APPDATA%\..\Local\node-gyp\Cache` にダウンロードします。ただし、arm64 バージョンはダウンロードされません ([この修正は開発中です](https://github.com/nodejs/node-gyp/pull/1875))。 これを修正するには以下のようにします。
 
 1. https://electronjs.org/headers/v6.0.9/win-arm64/node.lib から arm64 の `node.lib` をダウンロードします
 2. それを `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib` に移動します

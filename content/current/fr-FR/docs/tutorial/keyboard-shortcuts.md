@@ -8,7 +8,7 @@ Cette fonctionnalité vous permet de configurer les raccourcis clavier locaux et
 
 ### Raccourcis Locaux
 
-Les raccourcis clavier locaux ne sont déclenchés que lorsque l'application a le focus. Afin de configurer un raccourci clavier local, vous devez spécifier une propriété [`accelerator`] lors de la création d'un [MenuItem](../api/menu-item.md) du module [Menu](../api/menu.md).
+Les raccourcis clavier locaux ne sont déclenchés que lorsque l'application a le focus. To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
@@ -24,6 +24,8 @@ menu.append(new MenuItem({
     click: () => { console.log('Electron rocks!') }
   }]
 }))
+
+Menu.setApplicationMenu(menu)
 ```
 
 > REMARQUE : Dans le code ci-dessus, vous pouvez voir que l'accélérateur diffère selon le système d'exploitation de l'utilisateur . Pour MacOS, c'est `Alt+Cmd+I`, alors que pour Linux et Windows, c'est `Alt+Shift+I`.
@@ -36,7 +38,7 @@ Si vous cliquez sur `Aide` ou appuyez sur l'accélérateur défini, puis ouvrez 
 
 ### Raccourcis globaux
 
-Pour configurer un raccourci clavier global, vous devez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements du clavier même si l'application n'a pas le focus.
+Pour configurer un raccourci clavier global, vous devez utiliser le module [globalShortcut][] pour détecter les événements du clavier même si l'application n'a pas le focus.
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
@@ -58,7 +60,7 @@ Après avoir lancé l'application Electron, si vous appuyez sur la combinaison d
 
 #### Utilisation des API web
 
-Si vous voulez gérer les raccourcis clavier dans une [BrowserWindow](../api/browser-window.md), vous pouvez écouter les `keyup` et `keydown` [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events) dans le processus de rendu en utilisant l'API [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+Si vous voulez gérer les raccourcis clavier dans une [BrowserWindow][], vous pouvez écouter les `keyup` et `keydown` [DOM events][dom-events] dans le processus de rendu en utilisant l'API [addEventListener()][addEventListener-api].
 
 ```js
 window.addEventListener('keyup', doSomething, true)
@@ -94,7 +96,7 @@ Après avoir lancé l'application Electron, si vous ouvrez le terminal depuis le
 
 #### Utilisation de bibliothèques tierces
 
-Si vous ne voulez pas analyser manuellement les raccourcis, il existe des bibliothèque qui font de la détection avancée comme par exemple [mousetrap](https://github.com/ccampbell/mousetrap). Voici des exemples d’utilisation de `mousetrap` s'exécutant dans le processus Renderer :
+Si vous ne voulez pas analyser manuellement les raccourcis, il existe des bibliothèque qui font de la détection avancée comme par exemple [mousetrap][]. Voici des exemples d’utilisation de `mousetrap` s'exécutant dans le processus Renderer :
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
@@ -121,3 +123,12 @@ Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
 ```
+
+[Menu]: ../api/menu.md
+[MenuItem]: ../api/menu-item.md
+[globalShortcut]: ../api/global-shortcut.md
+[`accelerator`]: ../api/accelerator.md
+[BrowserWindow]: ../api/browser-window.md
+[mousetrap]: https://github.com/ccampbell/mousetrap
+[dom-events]: https://developer.mozilla.org/en-US/docs/Web/Events
+[addEventListener-api]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener

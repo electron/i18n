@@ -192,7 +192,7 @@ session
 
 _Cette recommandation est appliquée par défaut sur Electron_
 
-Vous avez peut-être déjà deviné que la désactivation de la propriété `webSecurity` sur un processus de rendu ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], ou [`<webview>`][webview-tag]<4></code></a>) désactive les fonctionnalités de sécurité cruciales .
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 Ne pas désactiver `webSecurity` dans les applications de production.
 
@@ -351,11 +351,11 @@ const mainWindow = new BrowserWindow()
 
 _Cette recommandation est appliquée par défaut sur Electron_
 
-Si vous utilisez [`<webview>`][webview-tag]`<webview>`</0>, vous aurez peut-être besoin des pages et des scripts chargés dans votre balise <2> pour ouvrir de nouvelles fenêtres. L'attribut `allowpopups` leur permet de créer un nouveau [`BrowserWindows`][browser-window] en utilisant la méthode `window.open()`. Les balises `<webview>` ne sont pas autorisées à créer de nouvelles fenêtres .
+Si vous utilisez [`<webview>`][webview-tag]`<webview>`</0>, vous aurez peut-être besoin des pages et des scripts chargés dans votre balise <2> pour ouvrir de nouvelles fenêtres. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. Les balises `<webview>` ne sont pas autorisées à créer de nouvelles fenêtres .
 
 ### Pourquoi ?
 
-Si vous n'avez pas besoin de popups, il vaut mieux ne pas autoriser la création de nouveaux [`BrowserWindows`][browser-window] par défaut. Cela suit le principe d'accès minimum requis : ne laissez pas un site web créer de nouvelles fenêtres popups à moins que vous sachiez qu'il a besoin de cette fonctionnalité.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Cela suit le principe d'accès minimum requis : ne laissez pas un site web créer de nouvelles fenêtres popups à moins que vous sachiez qu'il a besoin de cette fonctionnalité.
 
 ### Comment ?
 

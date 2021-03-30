@@ -2,9 +2,9 @@
 
 > Control de descargas de archivos desde fuentes remotas.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
-`DownloadItem` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
+`DownloadItem` es un [EventEmitter][event-emitter] que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
 ```javascript
 // En el proceso principal.
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `state` String - Puede ser `en progresso` o `interrumpido`.
 
 Aparece cuando la descara ha sido actualizada y no está terminada.
@@ -166,10 +166,12 @@ Devuelve `String` - El valor de cabecera Etag.
 
 Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la descarga.
 
-### Propiedades de la instancia
+### Propiedades de Instancia
 
 #### `downloadItem.savePath`
 
 Una propiedad `String` que determina la ruta del archivo de guardado del elemento de descarga.
 
 La propiedad solo esta disponible en la función callback `will-download` de la sesión. Si el usuario no establece la ruta de guardado a través de la propiedad, Electron usará la rutina original para determinar la ruta de guardado; esto suele generar un cuadro de diálogo para guardar.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

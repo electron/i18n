@@ -125,8 +125,8 @@ $ npm установить webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Использование localhost как chrome driver server
+  port: 9515, // "9515" - порт, открытый chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
@@ -149,9 +149,9 @@ client
   .end()
 ```
 
-## Workflow
+## Рабочий процесс
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Чтобы протестировать ваше приложение без пересборки Electron, [поместите](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) источник приложения в каталог ресурсов Electron.
 
 В качестве альтернативы, передайте аргумент для запуска в бинарном файле Electron, который указывает на папку вашего приложения. Это устраняет необходимость копирования вашего приложения в каталог ресурсов Electron.
 

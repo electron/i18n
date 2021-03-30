@@ -2,9 +2,9 @@
 
 > Fügen Sie Symbole und Kontextmenüs in den Benachrichtigungsbereich des Systems hinzu.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-`Tray` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` ist ein [EventEmitter][event-emitter].
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -61,7 +61,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instanz-Ereignisse
+### Instanz Events
 
 Das `Tray` Modul sendet folgende Ereignisse aus:
 
@@ -113,8 +113,8 @@ Emitted when any dragged items are dropped on the tray icon.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>files` String[] - The paths of the dropped files.
+* `event` Event
+* `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
@@ -122,8 +122,8 @@ Emitted when dragged files are dropped in the tray icon.
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>text` String - the dropped text string.
+* `event` Event
+* `text` String - the dropped text string.
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -243,9 +243,9 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Standard ist `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (optional) - Do not play the associated sound. Standard ist `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Standard ist `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Standard ist `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (optional) - Do not play the associated sound. Standard ist `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Standard ist `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Displays a tray balloon.
 
@@ -285,3 +285,9 @@ The `bounds` of this tray icon as `Object`.
 #### `tray.isDestroyed()`
 
 Returns `Boolean` - Whether the tray icon is destroyed.
+
+[NIIF_NOSOUND]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010
+[NIIF_LARGE_ICON]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020
+[NIIF_RESPECT_QUIET_TIME]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

@@ -17,13 +17,13 @@ Please also ensure that your system and Python version support at least TLS 1.2.
 $ npx @electron/check-python-tls
 ```
 
-Если скрипт возвращает, что ваша конфигурация использует устаревший протокол безопасности, вы можете либо обновить macOS на High Sierra, либо установить новую версию Python 2.7.x. Чтобы обновить Python, используйте [Homebrew](https://brew.sh/):
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Если вы используете Python предоставленный Homebrew, вам также необходимо установить следующие модули Python:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 

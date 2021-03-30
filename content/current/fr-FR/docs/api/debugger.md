@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Les outils de développement de chrome a une [liaison spéciale](https://chromedevtools.github.io/devtools-protocol/) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
+Les outils de développement de chrome a une [liaison spéciale][rdp] disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `method` String - Nom de la méthode.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
@@ -71,10 +71,16 @@ Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
 * `commandParams` n'importe quel objet (facultatif) - JSON avec les paramètres de la requête.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget) message.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
-Retourne `Promise<any>` - Une promesse qui résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
+Retourne `Promise<any>` - Une promesse qui se résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
 
 Envoi une commande au débogueur.
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
+
+[attachToTarget]: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-attachToTarget

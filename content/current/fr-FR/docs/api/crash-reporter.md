@@ -12,7 +12,7 @@ const { crashReporter } = require('electron')
 crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
-Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser projets suivants :
+Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser les projets suivants :
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
@@ -58,7 +58,7 @@ Le module `crashReporter` dispose des méthodes suivantes :
 * `options` Object
   * `submitURL` String - URL à laquelle les rapports de plantage seront envoyés en tant que POST.
   * `productName` String (facultatif) - `app.name`.
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }` .
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. La valeur par défaut est `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Par défaut la valeur est `false`.
   * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Par défaut la valeur est `false`.
@@ -117,7 +117,7 @@ Parameters added in this fashion (or via the `extra` parameter to `crashReporter
 
 **Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
 
-**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  E.g. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  Exemple : `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
 
 ### `crashReporter.removeExtraParameter(key)`
 

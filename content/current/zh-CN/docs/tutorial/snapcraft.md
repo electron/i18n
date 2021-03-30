@@ -8,13 +8,13 @@
 
 创建 `.snap` 文件有三种方法:
 
-1) 使用 [`electron-forge`](https://github.com/electron-userland/electron-forge) 或 [`electron-builder`](https://github.com/electron-userland/electron-builder), 与 `snap` 支持的两个工具都不在该框中。 这是最简单的选择。 2) 使用 `electron-installer-snap`, 它采用 `electron-packager` 的输出。 3) 使用已经创建的 `.deb` 包。
+1) 使用 [`electron-forge`][electron-forge] 或 [`electron-builder`][electron-builder], 与 `snap` 支持的两个工具都不在该框中。 这是最简单的选择。 2) 使用 `electron-installer-snap`, 它采用 `electron-packager` 的输出。 3) 使用已经创建的 `.deb` 包。
 
 在某些情况下，您需要安装 `snapcraft` 工具。 安装特定发行版的 `snapcraft` 的指南[在这里](https://snapcraft.io/docs/installing-snapcraft)能看到。
 
 ## 使用 `electron-installer-snap`
 
-该模块的工作原理与[` electron-winstaller `](https://github.com/electron/windows-installer)类似 因为它的范围仅限于构建捕捉包。 你可以这样安装:
+该模块的工作原理与[` electron-winstaller `][electron-winstaller]类似 因为它的范围仅限于构建捕捉包。 你可以这样安装:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -22,7 +22,7 @@ npm install --save-dev electron-installer-snap
 
 ### 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron/electron-packager) (或类似工具)。 请务必删除 `node_modules` 您在您的 最后应用程序中不需要 因为您不需要任何模块，您将会增加 您的应用程序的大小。
+打包应用程序使用 [electron-packager][electron-packager] (或类似工具)。 请务必删除 `node_modules` 您在您的 最后应用程序中不需要 因为您不需要任何模块，您将会增加 您的应用程序的大小。
 
 结构输出应该看起来大致像这样:
 
@@ -51,7 +51,7 @@ npm install --save-dev electron-installer-snap
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-如果您有一个现有的构建管道，您可以程序性地使用 `electron-installer-snap` 欲了解更多信息，请参阅 [Snapcraft API 文档](https://docs.snapcraft.io/build-snaps/syntax)。
+如果您有一个现有的构建管道，您可以程序性地使用 `electron-installer-snap` For more information, see the [Snapcraft API docs][snapcraft-syntax].
 
 ```js
 const snap = require('electron-installer-snap')
@@ -138,11 +138,11 @@ Snapcraft 能够拿起现有的 `.deb` 文件并将其转换为 一个 `.snap` �
 
 ### 步骤 1: 创建一个 Debian 包
 
-如果您还没有一个 `.deb` 包，使用 `electron-installer-snap` 可能是一个更容易创建吸附包的路径。 然而，存在多个创建 Debian 软件包的解决方案 ，包括 [`Electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+如果您还没有一个 `.deb` 包，使用 `electron-installer-snap` 可能是一个更容易创建吸附包的路径。 However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
 
 ### 步骤 2: 创建一个 snapcraft.yaml
 
-有关可用配置选项的详细信息，请参阅快照 [snapcraft 语法文档](https://docs.snapcraft.io/build-snaps/syntax)。 Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
 
 ```yaml
 name: myApp
@@ -205,3 +205,11 @@ apps:
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
+
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[snapcraft-syntax]: https://docs.snapcraft.io/build-snaps/syntax
+[electron-packager]: https://github.com/electron/electron-packager
+[electron-forge]: https://github.com/electron-userland/electron-forge
+[electron-builder]: https://github.com/electron-userland/electron-builder
+[electron-installer-debian]: https://github.com/unindented/electron-installer-debian
+[electron-winstaller]: https://github.com/electron/windows-installer

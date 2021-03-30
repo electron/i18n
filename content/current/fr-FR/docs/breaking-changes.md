@@ -1,16 +1,16 @@
-# Modifications importantes
+# Breaking Changes
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
-### Types de modifications majeures
+### Types de changements de rupture
 
-Ce document utilise la convention suivante pour catégoriser les modifications majeures :
+Ce document utilise la convention suivante pour catégoriser les modifications en cours :
 
-* **API modifiée :** Une API a été modifiée avec la garantie que du code non modifié déclenchera une exception.
-* **Comportement modifié :** Le comportement d'Electron a changé, mais pas de telle manière qu'une exception soit nécessairement déclenchée.
-* **Valeur par défaut modifiée :** Le code dépendant de l'ancienne valeur par défaut peut ne plus fonctionner, sans nécessairement déclencher une exception. Le comportement d'origine peut être restauré en spécifiant explicitement la valeur.
-* **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
-* **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
+* **API modifiée :** Une API a été modifiée de manière à ce que le code qui n'a pas été mis à jour soit garanti de lancer une exception.
+* **Comportement modifié :** Le comportement d'Electron a changé, mais pas de telle manière qu'une exception soit nécessairement levée.
+* **Valeur par défaut modifiée :** Le code dépendant de l'ancienne valeur par défaut peut se briser, sans nécessairement lancer une exception. L'ancien comportement peut être restauré en spécifiant explicitement la valeur.
+* **Obsolète :** Une API a été marquée comme obsolète. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
+* **Supprimé:** Une API ou une fonctionnalité a été supprimée, et n'est plus prise en charge par Electron.
 
 ## Changements majeurs prévus de l'API (14.0)
 
@@ -410,7 +410,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Supprimé: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction a été dépréciée dans Electron 8.x, et a été supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction a été dépréciée dans Electron 8.x, et supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportement modifié : l'envoi d'objets non-JS via IPC lance maintenant une exception
 
@@ -426,7 +426,7 @@ L'API `shell.openItem` a été remplacée par une API `shell.openPath` asynchron
 
 ### Comportement modifié : les valeurs envoyées par IPC sont maintenant sérialisées avec l'algorithme de clonage structuré
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
@@ -509,11 +509,11 @@ Les événements `systemPreferences` suivants ont été dépréciés :
 Utilisez à la place le nouvel événement `updated` sur le module `nativeTheme`.
 
 ```js
-// Déprécié
+// Deprecated
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Remplacer par
+// Replace with
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
@@ -779,7 +779,7 @@ Les options suivantes de `webPreferences` seront dépréciées en faveur de nouv
 | `nodeIntegration`  | `true`                                | `false`                    |
 | `webviewTag`       | `nodeIntegration` si mis sinon `true` | `false`                    |
 
-E.g. Re-enabling the webviewTag
+Exemple : Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -1159,3 +1159,5 @@ Chaque version d'Electron contient deux versions ARM identiques avec des noms l�
 Le fichier _sans le préfixe_ est toujours publié afin d'éviter de casser les installations qui pourraient l'utiliser. Starting at 2.0, the unprefixed file will no longer be published.
 
 Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
+
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm

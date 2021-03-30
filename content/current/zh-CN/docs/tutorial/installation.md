@@ -1,12 +1,12 @@
 # 安装
 
-要安装预构建的 Electron 二进制，请使用 [`npm`](https://docs.npmjs.com)。 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
+要安装预编译的 Electron 二进制文件，请使用 [`npm`][npm]。 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
 
 ```sh
 npm install electron --save-dev
 ```
 
-查看[versioning doc](./electron-versioning.md)获取如何在你的应用中管理Electron的相关信息。
+查看[versioning doc][versioning]获取如何在你的应用中管理Electron的相关信息。
 
 ## 全局安装
 
@@ -34,12 +34,12 @@ npm install --platform=win32 electron
 
 如果您需要使用 HTTP 代理，您需要设置 `ELECTRON_GET_USE_PROXY` 变量为 任何值。 附加额外的环境变量，取决于您的主机系统Node版本：
 
-* [Node10及以上](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Node10前](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node10及以上][proxy-env-10]
+* [Node10前][proxy-env]
 
 ## 自定义镜像和缓存
 
-在安装过程中，`electron` 模块会通过 [`electron-download`](https://github.com/electron/get) 为您的平台下载 Electron 的预编译二进制文件。 这将通过访问 GitHub 的发布下载页面来完成 (`https://github.com/electron/electron/releases/tag/v$VERSION`, 这里的 `$VERSION` 是 Electron 的确切版本).
+在安装过程中，`electron` 模块会通过 [`electron-download`][electron-get] 为您的平台下载 Electron 的预编译二进制文件。 这将通过访问 GitHub 的发布下载页面来完成 (`https://github.com/electron/electron/releases/tag/v$VERSION`, 这里的 `$VERSION` 是 Electron 的确切版本).
 
 如果您无法访问GitHub，或者您需要提供自定义构建，则可以通过提供镜像或现有的缓存目录来实现。
 
@@ -121,11 +121,11 @@ ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 
 在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
-如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
+如果通过`npm`安装失败，您也可以尝试通过从[electron/electron/release][releases]直接下载Electron。
 
-如果安装失败并出现 ` EACCESS ` 错误, 则可能需要 [ 修复您的 npm 权限 ](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。（例如使用 sudo ）
+如果安装失败并报错`EACCESS`，您可能需要[修复npm权限][npm-permissions]。
 
-如果上述错误仍然存在, 则可能需要将参数 unsafe-perm 设置为 true
+如果上述报错持续出现，[unsafe-perm][unsafe-perm] 标志可能需要被设置为 true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -138,3 +138,12 @@ npm install --verbose electron
 ```
 
 如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。
+
+[npm]: https://docs.npmjs.com
+[versioning]: ./electron-versioning.md
+[releases]: https://github.com/electron/electron/releases
+[proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
+[proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
+[electron-get]: https://github.com/electron/get
+[npm-permissions]: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+[unsafe-perm]: https://docs.npmjs.com/misc/config#unsafe-perm

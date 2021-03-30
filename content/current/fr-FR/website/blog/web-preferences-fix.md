@@ -58,6 +58,8 @@ Ce code va imposer manuellement que les `webPreferences` de haut niveau soient a
 
 Cette vulnérabilité a été trouvée et signalée de manière responsable au projet Electron par [Matt Austin](https://twitter.com/mattaustin) de [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-Pour en savoir plus sur les meilleures pratiques pour sécuriser vos applications Electron, consultez notre [tutoriel de sécurité](https://electronjs.org/docs/tutorial/security).
+Pour en savoir plus sur les meilleures pratiques pour sécuriser vos applications Electron, consultez notre [tutoriel de sécurité][].
 
 Si vous souhaitez signaler une vulnérabilité dans Electron, envoyez un e-mail à security@electronjs.org.
+
+[tutoriel de sécurité]: https://electronjs.org/docs/tutorial/security

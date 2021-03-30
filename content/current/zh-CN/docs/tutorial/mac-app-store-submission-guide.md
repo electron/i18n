@@ -2,15 +2,15 @@
 
 从 v0.34.0 开始，Electron 允许将封装应用提交Mac App Store (MAS)。 本指南提供以下信息：如何提交您的应用程序和 MAS 构建的 限制。
 
-**注意：** 将一个应用程序提交给Mac App Store需要注册 [Apple Developer 程序](https://developer.apple.com/support/compare-memberships/), 这需要资金。
+**注意：**提交一个应用到Mac应用商店需要加入[Apple Develpoer Program][developer-program]，这需要花钱。
 
 ## 如何提交你的应用
 
-下面步骤介绍了一个简单的提交应用到商店方法。 然而，这些步骤不能保证你的应用被 Apple 接受；你仍然需要阅读 Apple 的 [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) 关于如何满足 Mac App Store 要求的向导。
+下面步骤介绍了一个简单的提交应用到商店方法。 然而，这些步骤不能保证你的应用被 Apple 接受；你仍然需要阅读 Apple 的 [Submitting Your App][submitting-your-app] 关于如何满足 Mac App Store 要求的向导。
 
 ### 获得证书
 
-为了提交应用到商店，首先需要从 Apple 获得一个证书 可以参照 [现有的指南](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)。
+为了提交应用到商店，首先需要从 Apple 获得一个证书 可以参照 [现有的指南][nwjs-guide]。
 
 ### 获得 Team ID
 
@@ -86,9 +86,9 @@
 ```sh
 #!/bin/bash
 
-# 你的应用名称
+# Name of your app.
 APP="YourApp"
-# 要签名的应用路径
+# The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
 # 生成安装包路径
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-如果你是 macOS 下的应用沙箱使用新手，应当仔细阅读 Apple 的 [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) 了解一些基础，然后在授权文件内添加你的应用需要的许可。
+如果你刚接触 macOS 下的应用沙箱，应当仔细阅读 Apple 的 [Enabling App Sandbox][enable-app-sandbox] 了解一些基本概念，然后在 entitlements 文件内添加你的应用需要的权限。
 
-除了手动签名你的应用，你也可以选择使用 [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) 模块来做这项工作。
+除了手动给你的应用签名，你也可以选择使用 [electron-osx-sign][electron-osx-sign] 模块来做这件事。
 
 #### 原生模块签名
 
@@ -128,15 +128,15 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 版本8.1.0以及之后的版本默认忽略这些文件.
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用的 [electron-packager][electron-packager] 是8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 参数以忽略这些文件。 版本8.1.0以及之后的版本默认忽略这些文件.
 
 ### 上传你的应用
 
-在签名应用之后，你可以使用 Application Loader 上传软件到 iTunes Connect 进行处理。请确保在上传之前你已经 [创建应用记录](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)。
+在给你的应用签名之后，你可以使用 Application Loader 上传到 iTunes Connect 进行处理。请确保在上传之前你已经进行了 [created a record][create-record] 操作。
 
 ### 检查并提交你的应用
 
-最后, 你可以 [检查并提交你的应用](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)。
+在这些步骤之后，你可以 [提交你的应用程序进行审核][submit-for-review]。
 
 ## MAS 构建限制
 
@@ -151,7 +151,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * 某些辅助功能无法访问。
 * 应用无法检测 DNS 变化。
 
-也由于应用沙箱的使用方法，应用可以访问的资源被严格限制了；阅读更多信息[ App Sandboxing](https://developer.apple.com/app-sandboxing/)。
+此外，由于应用沙盒的使用，应用程序可以访问的资源受到严格限制；您可以阅读 [应用沙盒][app-sandboxing] ，了解更多信息。
 
 ### 附加授权
 
@@ -173,7 +173,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-详情查看 [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9).
+有关更多 详细信息，请参阅[启用网络访问文档][network-access]。
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-详情查看 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6).
+有关更多详细信息，请参阅["启用访问用户选择的文件"文档][user-selected]。
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-详情查看 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6).
+有关更多详细信息，请参阅["启用访问用户选择的文件"文档][user-selected]。
 
 ## Electron 使用的加密算法
 
-根据你发布应用所在的国家或地区，你可能需要提供您软件使用的加密算法的信息。 获取更多信息，请参阅[encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f)。
+根据你发布应用所在的国家或地区，你可能需要提供您软件使用的加密算法的信息。 更多信息，请参阅[ 加密导出合规性文档 ][export-compliance]。
 
 Electron 使用下列加密算法：
 
@@ -222,3 +222,16 @@ Electron 使用下列加密算法：
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
+
+[developer-program]: https://developer.apple.com/support/compare-memberships/
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
+[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
+[electron-packager]: https://github.com/electron/electron-packager
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
+[user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
+[network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9

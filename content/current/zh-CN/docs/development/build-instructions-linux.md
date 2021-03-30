@@ -1,19 +1,19 @@
-# 构建步骤 (Linux)
+# 构建步骤（Linux）
 
 遵循下面的准则在 Linux 上创建 Electron 。
 
-## 基本要求
+## 前提条件
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
-* Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
-  $ npx @electron/check-python-tls
+  $npx @emen/chect-python-tls
   ```
 
-  如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。
+  如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问 https://www.python.org/downloads/ ，以获取更加详细的指导信息。
 
 * Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](https://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
 * [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
@@ -84,7 +84,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 参照[Build Instructions: GN](build-instructions-gn.md)
 
-## 疑难解答
+## 故障排查
 
 ### 加载共享库时出现错误： libtinfo.so.5
 

@@ -1,4 +1,4 @@
-# Объект SharedWorkerInfo
+# SharedWorkerInfo Object
 
-* `id` String - уникальный ID разделяемого воркера.
-* `url` String - Url разделяемого воркера.
+* `id` String - The unique id of the shared worker.
+* `url` String - The url of the shared worker.

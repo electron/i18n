@@ -1,25 +1,25 @@
-## Класс: TouchBarButton
+## Class: TouchBarButton
 
-> Создает кнопку в сенсорной панели для нативных приложений macOS
+> Create a button in the touch bar for native macOS applications
 
 Процесс: [Основной](../glossary.md#main-process)
 
 ### `new TouchBarButton(options)`
 
 * `options` Object
-  * `label` String (необязаельный) - Текст кнопки.
+  * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `backgroundColor` String (необязательный) - Цвет фона кнопки в шестнадцатиричном представлении, т.е. `#ABCDEF`.
+  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (необязательный) - Позиция иконки, может иметь значения `left`, `right` или `overlay`. Defaults to `overlay`.
-  * `click` Function (необязательный) - Функция которая будет вызвана при нажатии на кнопку.
+  * `click` Function (optional) - Function to call when the button is clicked.
   * `enabled` Boolean (optional) - Whether the button is in an enabled state.  По умолчанию - `true`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Instance Properties
+### Свойства экземпляра
 
-Для экземпляров `TouchBarButton` доступны следующие свойства:
+The following properties are available on instances of `TouchBarButton`:
 
 #### `touchBarButton.accessibilityLabel`
 

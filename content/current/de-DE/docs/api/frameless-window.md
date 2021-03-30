@@ -69,7 +69,7 @@ win.show()
 
 ## Click-through window
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Fo
 ## Context menu
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

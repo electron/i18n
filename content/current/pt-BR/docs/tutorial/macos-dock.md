@@ -2,13 +2,13 @@
 
 ## Visão Geral
 
-Electron possui API's para configurar ícones de aplicativos no dock do macOS. Uma API somente macOS existe para criar um menu personalizado no Dock, mas o Electron também usa o ícone do dock do aplicativo como o ponto de entrada para recursos de multi-plataforma, como [documentos recentes](./recent-documents.md) e [progresso do aplicativo](./progress-bar.md).
+Electron possui API's para configurar ícones de aplicativos no dock do macOS. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 O dock customizado é frequentemente usado para adicionar atalhos para tarefas as quais o usuário não irá querer abrir totalmente a janela do aplicativo para acessá-la.
 
 __Menu do Dock do Terminal.app:__
 
-![Menu do Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Menu do Dock][3]
 
 Para definir seu menu personalizado do dock, você precisa usar o [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, que só está disponível no macOS.
 
@@ -19,12 +19,12 @@ Começando com um aplicativo de trabalho do [Guia de início rápido](quick-star
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
-const dockMenu = Menu. uildFromTemplate([
+const dockMenu = Menu.buildFromTemplate([
   {
-    label: 'Nova Janela',
-    click () { console. og('Nova janela') }
+    label: 'New Window',
+    click () { console.log('New Window') }
   }, {
-    rótulo: 'Nova janela com configurações',
+    label: 'New Window with Settings',
     submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
@@ -33,7 +33,7 @@ const dockMenu = Menu. uildFromTemplate([
   { label: 'New Command...' }
 ])
 
-aplicativo. henReady().then(() => {
+app.whenReady().then(() => {
   app.dock.setMenu(dockMenu)
 })
 ```
@@ -41,3 +41,7 @@ aplicativo. henReady().then(() => {
 Após iniciar o aplicativo Electron, clique com o botão direito no ícone do aplicativo. Você deve ver o menu personalizado que você acabou de definir:
 
 ![Menu dock do macOS](../images/macos-dock-menu.png)
+
+[3]: https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png
+[recent-documents]: ./recent-documents.md
+[progress-bar]: ./progress-bar.md

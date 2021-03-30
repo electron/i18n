@@ -69,7 +69,7 @@ win.show()
 
 ## Ventana Click-through
 
-Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options):
+Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Po
 ## Menú de contexto
 
 En algunas plataformas, el área desplazable puede ser considerada como un borde que no forma parte del cliente, de esta manera cuando se haga clic sobre él, aparecerá un menú del sistema. Para que el menú de contexto se comporte correctamente en todas las plataformas, nunca debe usarse un menú de contexto personalizado en áreas desplazables.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

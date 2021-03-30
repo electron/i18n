@@ -10,7 +10,7 @@ Se experimentar falhas ou problemas no Electron que acredita que não são causa
 
 * **Visual Studio com ferramentas C++**: As edições de comunidade livre de Visual Studio de 2013 e Visual Studio 2015, ambos trabalham. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). Permitirá que o Visual Studio obtenha uma melhor compreensão do que acontece dentro de Electron, tornando mais fácil para apresentar as variáveis num formato legível.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: The [free SysInternals tool][sys-internals] allows you to inspect a processes parameters, file handles, and registry operations.
 
 ## Anexar e depurar o Electron
 
@@ -42,4 +42,7 @@ You can be attached to multiple programs when you are debugging, but only one pr
 
 While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial][procmon-instructions] provided by Microsoft.
+
+[sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
+[procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor

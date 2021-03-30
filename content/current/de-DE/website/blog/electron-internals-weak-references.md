@@ -37,8 +37,7 @@ v8Util. etDestructor(object, function () {
 
 // Alle Verweise auf das Objekt entfernen.
 object = undefiniert
-// Manuell ein GC starten.
-gc()
+// Manuell ein GC starten. gc()
 // Konsole druckt "Das Objekt ist Garbage gesammelt".
 ```
 

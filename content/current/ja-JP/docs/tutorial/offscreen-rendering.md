@@ -22,7 +22,7 @@ GPU アクセラレーションレンダリングとは、GPU が構成に使用
 
 このモードでは、CPU レンダリングのソフトウェア出力デバイスが使用されているため、フレーム生成は非常に高速です。 したがって、このモードは GPU アクセラレーションよりも好まれます。
 
-このモードを有効にするには、[`app.disableHardwareAcceleration()` API](../api/app.md#appdisablehardwareacceleration) を呼び出して GPU アクセラレーションを無効にする必要があります。
+このモードを有効にするには、[`app.disableHardwareAcceleration()` API][disablehardwareacceleration] を呼び出して GPU アクセラレーションを無効にする必要があります。
 
 ## サンプル
 
@@ -48,3 +48,5 @@ app.whenReady().then(() => {
 ```
 
 この Electron アプリケーションを起動したら、アプリケーションを開いたフォルダを見てみましょう。
+
+[disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration

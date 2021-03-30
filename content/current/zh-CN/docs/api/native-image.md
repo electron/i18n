@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (200% DPI scale)
   * 256x256
 
-在[这篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx)中查看 *尺寸说明* 的章节
+在[这篇文章][icons]中查看 *尺寸说明* 的章节
 
 ## 高分辨率
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `选项` 对象
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (可选)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
@@ -195,20 +195,20 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 * `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ][buffer]。
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer - Between 0 - 100.
 
-返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ][buffer]。
 
 #### `image.toBitmap([options])`
 
 * `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ][buffer]。
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 * `options` Object (可选)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ][buffer]。
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` _macOS_
 
-返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
+返回 ` Buffer `-一个 [ Buffer ][buffer], 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
 
 请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 _ 必须 _ 确保关联的 ` nativeImage ` 实例保留在周围。
 
@@ -301,3 +301,9 @@ Add an image representation for a specific scale factor. This can be used to exp
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Please note that this property only has an effect on macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer

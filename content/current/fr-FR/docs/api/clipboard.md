@@ -27,11 +27,11 @@ Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeText('bonjour je suis un peu de texte!')
+clipboard.writeText('hello i am a bit of text!')
 
-const text = presse-papiers. eadText()
+const text = clipboard.readText()
 console.log(text)
-// bonjour je suis un peu de texte !'
+// hello i am a bit of text!'
 ```
 
 ### `clipboard.writeText(text[, type])`

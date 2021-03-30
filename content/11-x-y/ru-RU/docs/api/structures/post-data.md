@@ -1,7 +1,7 @@
 # Объект PostData
 
 * `type` String - Один из следующих вариантов:
-  * `rawData` - Данные доступны как `Buffer`, в `rawData` поле.
+  * `rawData` - Данные доступны как `Buffer`, в поле `rawData`.
   * `file` - Объект представляет файл. Для описания файла будут использоваться поля `filePath`, `offset`, `length` и `modificationTime`.
   * `blob` - Объект представляет `Blob`. Поле `blobUUID` будет использоваться для описания `Blob`.
 * `bytes` String (опционально) - сырые байты данных в `Buffer`. Обязательно для типа `rawData`.

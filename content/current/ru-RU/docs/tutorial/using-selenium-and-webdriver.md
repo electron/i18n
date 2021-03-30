@@ -1,12 +1,12 @@
 # Использование Selenium и WebDriver
 
-От [ChromeDriver - WebDriver для Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+От [ChromeDriver - WebDriver для Chrome][chrome-driver]:
 
 > WebDriver — это инструмент с открытым исходным кодом для автоматизации тестирования веб-приложений во многих браузерах. Он предоставляет возможности для навигации на веб-страницы, ввода пользователя, - выполнение JavaScript и многое другое. ChromeDriver - это автономный сервер, который использует протокол провода WebDriver для Chromium. Он разрабатывается членами команд Chromium и WebDriver.
 
 ## Настройка Spectron
 
-[Spectron](https://electronjs.org/spectron) - официально поддерживаемая среда тестирования ChromeDriver для Electron. Он построен на основе [WebdriverIO](https://webdriver.io/) и имеет помощников для доступа к API Electron в ваших тестах и в комплекте с ChromeDriver.
+[Spectron][spectron] - официально поддерживаемая среда тестирования ChromeDriver для Electron. Он построен на основе [WebdriverIO](https://webdriver.io/) и имеет помощников для доступа к API Electron в ваших тестах и в комплекте с ChromeDriver.
 
 ```sh
 $ npm установить --save-dev спектр
@@ -125,8 +125,8 @@ $ npm установить webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Использование localhost как chrome driver server
+  port: 9515, // "9515" - порт, открытый chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
@@ -149,8 +149,11 @@ client
   .end()
 ```
 
-## Workflow
+## Рабочий процесс
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Чтобы протестировать ваше приложение без пересборки Electron, [поместите](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) источник приложения в каталог ресурсов Electron.
 
 В качестве альтернативы, передайте аргумент для запуска в бинарном файле Electron, который указывает на папку вашего приложения. Это устраняет необходимость копирования вашего приложения в каталог ресурсов Electron.
+
+[chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
+[spectron]: https://electronjs.org/spectron

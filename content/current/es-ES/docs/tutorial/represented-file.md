@@ -4,13 +4,13 @@
 
 On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
 
-![Archivo representado](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![Archivo representado][1]
 
 > NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
 
 You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
 
-Para configurar el archivo representado de la ventana, puede utilizarse las APIs [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) y [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs.
+Para configurar el archivo representado de la ventana, puede utilizarse las APIs [BrowserWindow.setRepresentedFilename][setrepresentedfilename] y [BrowserWindow.setDocumentEdited][setdocumentedited] APIs.
 
 ## Ejemplo
 
@@ -30,3 +30,7 @@ app.whenReady().then(() => {
 After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
 
 ![Archivo representado](../images/represented-file.png)
+
+[1]: https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png
+[setrepresentedfilename]: ../api/browser-window.md#winsetrepresentedfilenamefilename-macos
+[setdocumentedited]: ../api/browser-window.md#winsetdocumenteditededited-macos

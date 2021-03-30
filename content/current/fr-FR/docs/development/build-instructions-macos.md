@@ -1,8 +1,8 @@
-# Instructions de compilation (macOS)
+# Instructions de Build (macOS)
 
 Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
-## Prérequis
+## Prerequisites
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9,0,0
@@ -11,13 +11,13 @@ Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
 ## Python
 
-S’il vous plaît également s’assurer que votre système et la version Python prendre en charge au moins TLS 1.2. Cela dépend à la fois de votre version de macOS et Python. Pour un test rapide, exécutez :
+Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. Pour un test rapide, exécutez :
 
 ```sh
 $ npx @electron/check-python-tls
 ```
 
-Si le script vous retourne que votre configuration utilise un protocole de sécurité obsolète, vous pouvez soit mettre à jour macOS vers High Sierra ou installer une nouvelle version de Python 2.7.x. Pour mettre à jour Python, utilisez [Homebrew](https://brew.sh/):
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force

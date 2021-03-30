@@ -27,7 +27,7 @@ Starts the sending of messages queued on the port. Messages will be queued until
 
 Disconnects the port, so it is no longer active.
 
-### Instanz-Ereignisse
+### Instanz Events
 
 #### Event: 'message'
 

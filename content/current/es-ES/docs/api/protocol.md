@@ -2,7 +2,7 @@
 
 > Registrar un protocolo personalizado e interceptar las peticiones de protocolo existentes.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 
@@ -76,7 +76,7 @@ Por ejemplo cuando usted carga la siguiente carga con un protocolo personalizado
 </body>
 ```
 
-Registrando un esquema como estándar permitirá el acceso a archivos mediante la [Api de archivos de sistema](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). De otra manera el renderizador arrojará un error de seguridad en el sistema.
+Registrando un esquema como estándar permitirá el acceso a archivos mediante la [Api de archivos de sistema][file-system-api]. De otra manera el renderizador arrojará un error de seguridad en el sistema.
 
 Por defecto las apis de web storage (localStorage, sessionStorage, webSQL, indexedDB, cookies) están deshabilitadas para esquemas no estándares. Así que en general, si quieres registrar un protocolo personalizado para reemplazar el protocolo `http`, tienes que registrarlo como un esquema estándar.
 
@@ -281,3 +281,5 @@ Elimina el interceptor instalado para el `scheme` y restaura su controlador orig
 * `scheme` String
 
 Devuelve `Boolean` - Si el `scheme` ya está interceptado.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem

@@ -191,7 +191,7 @@ session
 
 _Electron的默认值即是建议值。_
 
-在渲染进程（[`BrowserWindow`][browser-window]、[`BrowserView`][browser-view] 和 [`<webview>`][webview-tag]）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
 
 不要在生产环境中禁用`webSecurity`。
 
@@ -350,11 +350,11 @@ const mainWindow = new BrowserWindow()
 
 _Electron的默认值即是建议值。_
 
-如果您正在使用 [`<webview>`][webview-tag] ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`][browser-window]可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
+如果您正在使用 [`<webview>`][webview-tag] ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. 否则， `<webview>` 标签内不允许创建新窗口。
 
 ### 为什么？
 
-如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`][browser-window]的创建。 以下是最低的权限要求原则：若非必要，不要再网站中创建新窗口。
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. 以下是最低的权限要求原则：若非必要，不要再网站中创建新窗口。
 
 ### 怎么做？
 

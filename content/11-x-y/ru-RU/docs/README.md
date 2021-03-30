@@ -44,7 +44,7 @@
   * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
   * [Поддержка Темного режима macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Встраивание веб в Electron](tutorial/web-embeds.md)
+  * [Веб-встраивание в Electron](tutorial/web-embeds.md)
 * [Доступность](tutorial/accessibility.md)
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -89,7 +89,7 @@
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Тестирование Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 ---

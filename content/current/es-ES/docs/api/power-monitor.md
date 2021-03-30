@@ -2,7 +2,7 @@
 
 > Monitorea los cambios de estado de energía.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ## Eventos
 

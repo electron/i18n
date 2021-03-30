@@ -6,7 +6,7 @@
 
 ## Lint
 
-JavaScript が Electron コーディングスタイルに準拠していることを確認するには、`npm run lint-js` を実行します。これは、Electron 自身とユニットテストの両方に対し `standard` を実行します。 プラグイン/アドオンシステムを備えたエディタを使用している場合は、多くの [StandardJS アドオン](https://standardjs.com/#are-there-text-editor-plugins) にコーディングスタイルの違反が通知されます。
+JavaScript が Electron コーディングスタイルに準拠していることを確認するには、`npm run lint-js` を実行します。これは、Electron 自身とユニットテストの両方に対し `standard` を実行します。 プラグイン/アドオンシステムを備えたエディタを使用している場合は、多くの [StandardJS アドオン][standard-addons] にコーディングスタイルの違反が通知されます。
 
 引数つきで `standard` を実行するには、`npm run lint-js --` に `standard` に渡したい引数を続けて書いて実行します。
 
@@ -57,3 +57,5 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 1. Windows キーを押して _ディスプレイの設定_ と検索します。
 2. _スケールとレイアウト_ で、そのデバイスが 100% に設定されていることを確認します。
+
+[standard-addons]: https://standardjs.com/#are-there-text-editor-plugins

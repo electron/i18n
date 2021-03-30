@@ -6,7 +6,7 @@
 
 Кроме того, Electron предоставляет дополнительные встроенные модули для разработки нативных дестопных приложений. Некоторые модули доступны только в главном процессе, некоторые доступны только в процессе отрисовки (веб-страницы), а некоторые могут быть использованы в обоих процессах.
 
-Основное правило: если модуль связан с [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) или системой низкого уровня, то должно быть доступно только в основном процессе. Вы должны быть знакомы с понятием [основной процесс против редеринга](../tutorial/quick-start.md#main-and-renderer-processes) скриптов для использования этих модулей.
+Основное правило: если модуль связан с [GUI][gui] или системой низкого уровня, то должно быть доступно только в основном процессе. Вам нужно быть знакомым с концепцией скриптов [главного процесса и процесса отрисовки](../tutorial/quick-start.md#main-and-renderer-processes), чтобы иметь возможность использовать эти модули.
 
 Скрипт основного процесса похож на обычный скрипт Node.js:
 
@@ -38,7 +38,7 @@ app.whenReady().then(() => {
 
 ## Деструктирующее присваивание
 
-Начиная с версии 0.37 можно использовать [деструктирующее присваивание](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), для того чтобы упростить использование встроенных модулей.
+Начиная с версии 0.37 можно использовать [деструктирующее присваивание][destructuring-assignment], для того чтобы упростить использование встроенных модулей.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -78,3 +78,6 @@ app.whenReady().then(() => {
   win.loadURL('https://github.com')
 })
 ```
+
+[gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
+[destructuring-assignment]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment

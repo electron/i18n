@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`IncomingMessage` Implémente l'interface [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) et est donc un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` Implémente l'interface [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) et est donc un [EventEmitter][event-emitter].
 
 ### Événements d’instance
 
@@ -65,3 +65,5 @@ Un `Integer`indiquant le numéro de version majeur du protocol HTTP.
 #### `response.httpVersionMinor`
 
 Un `Integer` indiquant le numéro de version mineur du protocol HTTP.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

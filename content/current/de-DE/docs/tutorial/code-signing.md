@@ -1,4 +1,4 @@
-# Codesignatur
+# Code Signierung
 
 Code-Signierung ist eine Sicherheitstechnologie, mit der Sie bestätigen, dass eine App von Ihnen erstellt wurde.
 
@@ -21,15 +21,15 @@ Die richtige Vorbereitung von MacOS-Anwendungen für die Veröffentlichung erfor
 
 Um den Prozess zu starten, stellen Sie sicher, dass Sie die Voraussetzungen für die Unterzeichnung erfüllen und Ihre App notarisieren:
 
-1. Einschreiben für das [Apple Developer Program](https://developer.apple.com/programs/) (erfordert eine jährliche Gebühr)
-2. [Xcode](https://developer.apple.com/xcode) herunterladen und installieren - dies erfordert einen Computer mit macOS
-3. Erstellen, downloaden und installieren [Zertifikate signieren](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Enroll in the [Apple Developer Program][] (requires an annual fee)
+2. [Xcode][] herunterladen und installieren - dies erfordert einen Computer mit macOS
+3. Generate, download, and install [signing certificates][]
 
 Das elektronische Ökosystem bevorzugt die Konfiguration und Freiheit, so gibt es mehrere Möglichkeiten, Ihre Bewerbung zu signieren und zu beglaubigen.
 
 ## `electron-forge`
 
-Wenn Sie Electron's Lieblings-Build-Werkzeug verwenden, benötigen Sie ein paar Ergänzungen zu Ihrer Konfiguration, um Ihre Anwendung zu signieren und notariell zu beglaubigen. [Forge](https://electronforge.io) ist eine Sammlung der offiziellen Electron-Tools mit [`Elektron-Packager`], [`electron-osx-sign`], und [`electron-notarize`] unter der Haube.
+Wenn Sie Electron's Lieblings-Build-Werkzeug verwenden, benötigen Sie ein paar Ergänzungen zu Ihrer Konfiguration, um Ihre Anwendung zu signieren und notariell zu beglaubigen. [Forge](https://electronforge.io) ist eine Sammlung der offiziellen Electron-Tools mit [`Elektron-Packager`][], [`Elektron-osx-Schild`][]und [`Elektron-Notaren`][] unter der Haube.
 
 Werfen wir einen Blick auf eine Beispielkonfiguration mit allen erforderlichen Feldern. Nicht alle werden benötigt: Die Werkzeuge werden intelligent genug sein, um automatisch eine passende `Identität zu finden`, zum Beispiel, aber wir empfehlen, dass Sie explizit sind.
 
@@ -101,7 +101,7 @@ Electron Builder enthält eine benutzerdefinierte Lösung für die Signierung Ih
 
 ## `electron-packager`
 
-Wenn Sie keine integrierte Build-Pipeline wie Forge oder Builder verwenden, verwenden Sie wahrscheinlich [`Elektron-packager`], mit [`Electron-osx-sign`] und [`Elektron-notarize`].
+Wenn Sie keine integrierte Build-Pipeline wie Forge oder Builder verwenden Sie verwenden wahrscheinlich [`Elektron-packager`][], mit [`Elektron-osx-sign`][] und [`Elektron-notarize`][].
 
 Wenn Sie die API von Packager verwenden, können Sie [in der Konfiguration übergeben, die sowohl Zeichen als auch Ihre Anwendung notariell beglaubigt](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
@@ -143,7 +143,7 @@ Die `plist` Datei, auf die hier verwiesen wird, benötigt die folgenden macOS-sp
 
 ## Mac App Store
 
-Siehe [Mac App Store Guide](mac-app-store-submission-guide.md).
+See the [Mac App Store Guide][].
 
 # Signiere Windows-Builds
 
@@ -161,10 +161,25 @@ Sie können ein Zertifikat von vielen Wiederverkäufern erhalten. Die Preise var
 
 Es gibt eine Reihe von Tools zum Signieren Ihrer gepackten App:
 
-* [`Elektron-winstaller`] generiert einen Installer für Fenster und signiert ihn für Sie
-* [`electron-forge`] kann Installer signieren, die es über die Squirrel.Windows oder MSI Ziele generiert.
-* [`Elektron-Builder`] kann einige seiner Windows-Ziele unterzeichnen
+* [`Elektron-winstaller`][] generiert einen Installer für Fenster und signiert ihn für Sie
+* [`electron-forge`][] kann Installer signieren, die es über die Squirrel.Windows oder MSI Ziele generiert.
+* [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
 
-Siehe [Windows Store Guide](windows-store-guide.md).
+See the [Windows Store Guide][].
+
+[Apple Developer Program]: https://developer.apple.com/programs/
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`Elektron-osx-Schild`]: https://github.com/electron-userland/electron-osx-sign
+[`Elektron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
+[`Elektron-Packager`]: https://github.com/electron/electron-packager
+[`Elektron-packager`]: https://github.com/electron/electron-packager
+[`Elektron-Notaren`]: https://github.com/electron/electron-notarize
+[`Elektron-notarize`]: https://github.com/electron/electron-notarize
+[`Elektron-winstaller`]: https://github.com/electron/windows-installer
+[Xcode]: https://developer.apple.com/xcode
+[signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Windows Store Guide]: windows-store-guide.md

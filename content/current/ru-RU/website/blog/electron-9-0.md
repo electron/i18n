@@ -1,7 +1,7 @@
 ---
 title: Electron 9.0.0
 author:
-  - sofianguy
+  - вежливость
   - VerteDinde
 date: '2020-05-19'
 ---

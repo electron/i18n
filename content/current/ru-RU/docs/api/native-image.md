@@ -43,7 +43,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
   * 64x64 (200% DPI scale)
   * 256x256
 
-Проверьте раздел *Size requirements* в [этой статье](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Проверьте раздел *Size requirements* в [этой статье][icons].
 
 ## Изображения с высоким разрешением
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (опционально)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (опционально) - требуется для буферов растровых изображений.
@@ -195,20 +195,20 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 * `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `PNG`.
+Возвращает `Buffer` - A [Buffer][buffer], который содержит закодированные данные изображения `PNG`.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer - Качество От 0 до 100.
 
-Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `JPEG`.
+Возвращает `Buffer` - A [Buffer][buffer], который содержит закодированные данные изображения `JPEG`.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
+Возвращает `Buffer` - [Buffer][buffer], который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 * `options` Object (опционально)
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.
+Возвращает `Buffer` - [Buffer][buffer], который содержит сырые данные растровых пикселей изображения.
 
 The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` _macOS_
 
-Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) в котором хранится указатель C на базовый собственный дескриптор изображения. На macOS возвращается указатель на экземпляр `NSImage`.
+Возвращает `Buffer` - [Buffer][buffer] в котором хранится указатель C на базовый собственный дескриптор изображения. На macOS возвращается указатель на экземпляр `NSImage`.
 
 Обратите внимание, что возвращаемый указатель - это слабый указатель на исходное изображение, а не на копию, поэтому вы _должны_ убедиться, что связанный с ним экземпляр `NativeImage` находится рядом.
 
@@ -301,3 +301,7 @@ Add an image representation for a specific scale factor. This can be used to exp
 Свойство `Boolean` определяет, считается ли [изображение шаблоном](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Пожалуйста, обратите внимание, что это свойство влияет только на macOS.
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer

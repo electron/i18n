@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter][event-emitter].
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Gibt das `Object` zurück:
 * `total` Integer - Die Anzahl der Bytes, die für diese Anforderung hochgeladen werden
 
 Sie können diese Methode in Verbindung mit `POST`-Anfragen verwenden, um den Fortschritt von einem Datei-Upload oder einer anderen Datenübertragung abzurufen.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

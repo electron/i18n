@@ -1,4 +1,4 @@
-# 在 C++ 代码中使用 clang-format 工具
+# 在 C++ 代码中使用clang-tidy
 
 [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html)是一个自动格式化 C/C++/Objective-C 代码的工具, 可以让开发人员不需要担心代码审查期间的样式问题.
 

@@ -66,11 +66,11 @@ Si bien el código y la experiencia del usuario en los sistemas operativos son s
 
 ### Windows
 
-* En Windows 10, un acceso directo a su aplicación con un [modelo de usuario de aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) debe estar instalado en el menú Inicio. Esto puede ser anulado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco . Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
-* En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Esto puede ser anulado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco . Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
+* En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID][app-user-model-id] debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 
-Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. Durante el desarrollo, puede tener para llamar a [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) usted mismo.
+Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly][squirrel-events]. Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
 Además, en Windows 8, la longitud máxima para el cuerpo de la notificación es de 250 caracteres, y el equipo de Windows recomienda que las notificaciones se mantengan en 200 caracteres. Dicho eso, esa limitación se eliminó en Windows 10, y el equipo de Windows les pidió a los desarrolladores que fuesen razonables. Intentar enviar cantidades gigantescas de texto a la API (miles de caracteres) puede provocar inestabilidad.
 
@@ -88,20 +88,31 @@ Esto le permite determinar con antelación si Windows lanzará o no silenciosame
 
 ### macOS
 
-Las notificaciones son directas en macOS, pero usted debe ser conciente de [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Las notificaciones son directas en macOS, pero usted debe ser conciente de [Apple's Human Interface guidelines regarding notifications][apple-notification-guidelines].
 
 Tenga en cuenta que las notificaciones están limitadas a 256 bytes de tamaño y se truncarán si supera ese límite.
 
 #### Notificaciones Avanzadas
 
-Las versiones posteriores de macOS permiten notificaciones con un campo de entrada, lo que permite al usuario responder rápidamente a una notificación. Para enviar notificaciones con un campo de entrada, use el módulo de usuario [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Las versiones posteriores de macOS permiten notificaciones con un campo de entrada, lo que permite al usuario responder rápidamente a una notificación. Para enviar notificaciones con un campo de entrada, use el módulo de usuario [node-mac-notifier][node-mac-notifier].
 
 #### No molestar / Estado de Sesión
 
-Para detectar si se le permite o no enviar una notificación, use el módulo de usuario [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Para detectar si se le permite o no enviar una notificación, use el módulo de usuario [electron-notification-state][electron-notification-state].
 
 Esto le permitirá detectar con anticipación si la notificación se mostrará o no.
 
 ### Linux
 
-Las notificaciones se envían utilizando `libnotify` que puede mostrar notificaciones en cualquier entorno de escritorio que siga la [Especificación de Notificaciones de Escritorio](https://developer.gnome.org/notification-spec/), incluidos Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Las notificaciones se envían utilizando `libnotify` que puede mostrar notificaciones en cualquier entorno de escritorio que siga la [Especificación de Notificaciones de Escritorio][notification-spec], incluidos Cinnamon, Enlightenment, Unity, GNOME, KDE.
+
+[apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
+
+[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
+
+[electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
+
+[notification-spec]: https://developer.gnome.org/notification-spec/
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
+[squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events

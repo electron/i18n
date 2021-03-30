@@ -12,7 +12,7 @@ Proceso: [Renderer](../glossary.md#renderer-process)
 
 El módulo `remote` proporciona una manera sencilla de hacer una comunicación (IPC) entre el proceso de renderizado (página web) y el proceso principal.
 
-En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
+En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI][rmi] de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -33,7 +33,7 @@ Cada objeto (incluidas las funciones) devuelto por el módulo `remote` represent
 
 En el ejemplo anterior, tanto [`BrowserWindow`](browser-window.md) y `win` fueron objetos remotos y `new BrowserWindow` no creó un objeto `BrowserWindow` en el proceso de renderizado. En cambio, creó un objeto `BrowserWindow` en el proceso principal y devolvió el objeto remoto correspondiente en el proceso de renderizado, concretamente el objeto `win`.
 
-**Nota:** Solamente las [enumarable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) que están presentes cuando primero se hace referencia al objeto remoto son accesibles vía el remota.
+**Nota:** Solamente las [enumarable properties][enumerable-properties] que están presentes cuando primero se hace referencia al objeto remoto son accesibles vía el remota.
 
 **Note:** Los arreglos y búferes son copiados sobre el IPC cuando son accedidas a través del módulo `remote`. Cuando se modifican en el proceso de renderizado no se modifican en el proceso principal y viceversa.
 
@@ -158,3 +158,6 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.process` _Readonly_
 
 A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+
+[rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
+[enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
