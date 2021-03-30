@@ -14,7 +14,7 @@ La mayoría de la gente usa [Nodo](https://nodejs.org) para aplicaciones del lad
 
 Tanto Node como Electron usan [`GYP`](https://gyp.gsrc.io) como sus sistemas de compilación. Si quieres incrustar Nodo dentro de tu aplicación, también tienes que usarlo como sistema de compilación.
 
-¿Nuevo en `GYP`? Leer [esta guía](https://gyp.gsrc.io/docs/UserDocumentation.md) antes de continuar en esta publicación.
+¿Nuevo en `GYP`? ¿Nuevo en `GYP`? Leer [esta guía](https://gyp.gsrc.io/docs/UserDocumentation.md) antes de continuar en esta publicación.
 
 ## Banderas del nodo
 
