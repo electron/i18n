@@ -4,9 +4,9 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Este módulo não pode ser usado até que o evento `ready` do módulo `app` seja emitido.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
-`screen` é um [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` é um [EventEmitter][event-emitter].
 
 **Nota:** No renderizador / DevTools, `window.screen` é uma propriedade reservada do DOM, portanto, escrever `let {screen} = require ('electron')` pode não funcionar.
 
@@ -63,7 +63,7 @@ Emitted when `newDisplay` has been added.
 
 Retorna:
 
-* Evento `event`
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
@@ -141,3 +141,5 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 Returns [`Rectangle`](structures/rectangle.md)
 
 Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
