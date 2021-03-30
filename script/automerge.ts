@@ -2,8 +2,8 @@ import { Octokit } from '@octokit/rest'
 
 const OWNER = 'electron'
 const REPO = 'i18n'
-const BOTNAME = 'github-actions[bot]'
-const ORIGINAL_TITLE = 'New Crowdin translations by Github Action'
+const BOTNAMES = ['github-actions[bot]', 'MarshallOfSound']
+const ORIGINAL_TITLE = 'New Crowdin updates'
 const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merged 🤖)'
 const MERGEABILITY_RETRY_WAIT_TIME = 5_000
 
@@ -38,7 +38,9 @@ const findPRNumber = async (): Promise<{ found: boolean; number: number }> => {
     repo: REPO,
     per_page: 100,
   })
-  const glotbot = prs.data.filter((pr) => pr.user?.login === BOTNAME)
+  const glotbot = prs.data.filter((pr) =>
+    BOTNAMES.includes(pr.user?.login || '')
+  )
   const title = prs.data.filter((pr) => pr.title === ORIGINAL_TITLE)
   if (glotbot.length > 0 && title.length > 0) {
     const prNumber = glotbot[0].number
@@ -123,10 +125,10 @@ const mergeAndDeleteBranch = async (pr: number) => {
 }
 
 async function autoMerger() {
-  console.log(`Searching for a ${BOTNAME} PR...`)
+  console.log(`Searching for a Crowdin PR...`)
   const pr = await findPRNumber()
   if (!pr.found) {
-    console.log(`Cound not find a ${BOTNAME} PR to merge`)
+    console.log(`Cound not find a Crowdin PR to merge`)
     process.exit(0)
   }
   const prNumber = pr.number
