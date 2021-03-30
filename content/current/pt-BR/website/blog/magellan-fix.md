@@ -29,8 +29,10 @@ Não existem relatórios deste tipo na natureza, mas os pedidos afectados são i
 
 Essa vulnerabilidade foi descoberta pela equipe Tencent Blade, que publicou [um post de blog que discute a vulnerabilidade](https://blade.tencent.com/magellan/index_en.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
+Para saber mais sobre as melhores práticas para manter seus aplicativos Electron seguros, consulte nosso tutorial de segurança [][].
 
 Se você deseja relatar uma vulnerabilidade no Electron, envie e-mail security@electronjs.org.
 
-[security tutorial]: https://electronjs.org/docs/tutorial/security
+[1]: https://electronjs.org/docs/tutorial/security
+
+[2]: https://electronjs.org/docs/tutorial/security
