@@ -8,7 +8,7 @@ date: '2018-02-12'
 
 ---
 
-To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
+Чтобы предотвратить такие задержки в будущем, мы включили [пороговые оповещения Heroku](https://devcenter.heroku.com/articles/metrics#threshold-alerting) в нашем приложении. Каждый раз, когда наш веб-сервер накапливает неудачные запросы или медленные отклики сверх определенного порога, наша команда будет уведомлена, чтобы мы могли решить проблему быстро.
 
 ## Автономная документация на каждом языке
 
