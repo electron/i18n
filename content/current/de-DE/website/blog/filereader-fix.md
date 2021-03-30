@@ -33,6 +33,8 @@ Die letzte Beta von Electron 5 wurde Chromium 73 nachverfolgt und ist daher bere
 
 Diese Verwundbarkeit wurde von Clement Lecigne von Googles Threat Analysis Group entdeckt und dem Chrome-Team gemeldet.  Der Chrome Blog Beitrag kann [hier gefunden werden](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-Um mehr über Best Practices für die Sicherheit Ihrer Electron-Apps zu erfahren, lesen Sie unsere [-Sicherheitshinweise](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
 Wenn Sie eine Verwundbarkeit in Electron melden möchten, schicken Sie eine E-Mail an security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
