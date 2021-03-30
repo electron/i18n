@@ -1,6 +1,6 @@
 # Windows 10 ARM
 
-如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 这大大提高了性能，但需要重新编译应用中使用的任何原生模块。 它还可能需要小修理你的构建和包装脚本。
+如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 
 ## 运行基本应用
 
@@ -14,7 +14,7 @@
 
 ### 建筑特定代码
 
-如果包含大量适合Windows的代码... 否则逻辑可以在x64或x86建筑之间选择。
+Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
 
 ```js
 if (process.arch === 'x64') {
@@ -75,7 +75,7 @@ If you want to develop your application directly on a Windows on Arm device, sub
 
 ### 与正确的 `node.lib 链接`
 
-默认情况下， `node-gyp` unpacks Electron的节点头并下载x86 和 x64 版本的 `节点头. ib` 到 `%APPDATA%\. \local\node-gyp\Cache`, 但它没有下载arm64版本([此修复正在开发中](https://github.com/nodejs/node-gyp/pull/1875)。 要解决这个问题：
+By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) 要解决这个问题：
 
 1. Download the arm64 `node.lib` from https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
 2. 移动到 `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
