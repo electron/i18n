@@ -2,7 +2,7 @@
 
 ## 警告
 
-Electron の `webview` タグは [Chromium の `webview`](https://developer.chrome.com/docs/extensions/reference/webviewTag/) に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは、`webview` タグを使用せずに、`iframe` や Electron の `BrowserView` 、埋め込みコンテンツを完全に避けるアーキテクチャといった代替案を検討することを推奨しています。
+Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは、`webview` タグを使用せずに、`iframe` や Electron の `BrowserView` 、埋め込みコンテンツを完全に避けるアーキテクチャといった代替案を検討することを推奨しています。
 
 ## 有効にする
 
@@ -14,9 +14,9 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
+`webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。 ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
-`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
+`iframe` と異なり、 `webview` はアプリとは別のプロセスで実行されます。 これはウェブページと同じ権限を持っておらず、アプリと埋め込みコンテンツの間のやりとりは全て非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
 
 ## サンプル
 
@@ -35,7 +35,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'ロード中...'
+      indicator.innerText = 'loading...'
     }
 
     const loadstop = () => {
@@ -181,7 +181,7 @@ webview に設定するウェブ設定を指定する文字列のコンマ区切
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-有効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+有効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルにあります。
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ webview に設定するウェブ設定を指定する文字列のコンマ区切
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-無効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+無効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルにあります。
 
 ## メソッド
 
@@ -852,3 +852,6 @@ webContents が破棄されたときに発生します。
 ### イベント: 'devtools-focused'
 
 開発者向けツールがフォーカスされた / 開かれたときに発行されます。
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
