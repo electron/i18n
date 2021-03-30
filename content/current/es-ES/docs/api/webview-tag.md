@@ -2,7 +2,7 @@
 
 ## Advertencia
 
-La etiqueta `webview` de Electron está basada en [Chromium's `webview`](https://developer.chrome.com/docs/extensions/reference/webviewTag/), el cual está experimentado cambios de arquitectura dramáticos. Esto impacta la estabilidad de `webviews`, incluyendo el renderizado, navegación y el enrutamiento de evento. Nosotros actualmente recomendamos no usar la etiqueta `webviews` y considerar alternativas como `iframe`, `BrowserView` de Electron o una arquitectura que evite embeber contenido incrustado.
+La etiqueta `webview` de Electron está basada en [Chromium's `webview`][chrome-webview], el cual está experimentado cambios de arquitectura dramáticos. Esto impacta la estabilidad de `webviews`, incluyendo el renderizado, navegación y el enrutamiento de evento. Nosotros actualmente recomendamos no usar la etiqueta `webviews` y considerar alternativas como `iframe`, `BrowserView` de Electron o una arquitectura que evite embeber contenido incrustado.
 
 ## Activando
 
@@ -14,10 +14,9 @@ By default the `webview` tag is disabled in Electron >= 5.  Usted necesita habil
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-Usa el etiqueta de `webview` para incrustar contenido (tales como páginas web) en tu aplicación de Electron. El contenido de invitados se encuentra dentro del contenedor `webview<\0>.
-Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.</p>
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.
 
-<p spaces-before="0">A diferencia de <code>iframe`, el `webview` se ejecuta en un proceso distinto al de tu aplicación. No tiene los mismos permisos que tu página web y todas las interacciones entre tu aplicación y el contenido incrustado será asincrónico. Esto mantiene a tu aplicación a salvo del contenido incrustado. **Note:** Muchos de los métodos en la vista web de la página anfitriona requieren una llamada sincrónica al proceso principal.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. Esto mantiene a tu aplicación a salvo del contenido incrustado. **Note:** Muchos de los métodos en la vista web de la página anfitriona requieren una llamada sincrónica al proceso principal.
 
 ## Ejemplo
 
@@ -182,7 +181,7 @@ La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. 
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Un `String` que es una lista de cadenas que especifica las funciones de parpadeo que se habilitarán separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+Un `String` que es una lista de cadenas que especifica las funciones de parpadeo que se habilitarán separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
 
 ### `disableblinkfeatures`
 
@@ -190,7 +189,7 @@ Un `String` que es una lista de cadenas que especifica las funciones de parpadeo
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Un `String` que es una lista de cadenas que especifica las funciones de parpadeo a ser desactivadas separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+Un `String` que es una lista de cadenas que especifica las funciones de parpadeo a ser desactivadas separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5][runtime-enabled-features].
 
 ## Métodos
 
@@ -223,7 +222,7 @@ Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. 
 
 ### `<webview>.downloadURL(url)`
 
-* `url` Cadena
+* `url` String
 
 Inicia una descarga del recurso en `url` sin navegar.
 
@@ -329,7 +328,7 @@ Elimina el CSS insertado desde la página web actual. The stylesheet is identifi
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `code` Cadena de caracteres
+* `codigo` String
 * `userGesture` Boolean (opcional) - Por defecto `false`.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
@@ -497,15 +496,15 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
-  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
 
 Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
@@ -588,7 +587,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -603,7 +602,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -611,7 +610,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -627,11 +626,11 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: "page-title-updated"
+### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `title` Cadena
+* `title` String
 * `explicitSet` Boolen
 
 Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
@@ -748,14 +747,14 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: 'close'
+### Evento: "close"
 
 Disparado cuando la página de invitado intenta cerrarse.
 
@@ -853,3 +852,6 @@ Emitido cuando Devtools es cerrado.
 ### Evento: 'devtools-focused'
 
 Emitido cuando DevTools es centrado o abierto.
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
