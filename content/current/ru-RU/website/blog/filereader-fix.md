@@ -33,8 +33,6 @@ date: '2019-03-07'
 
 Эта уязвимость была обнаружена Clement Lecigne of Google Threat Analysis Group и доведена до сведения команды Chrome.  Запись в блоге Chrome находится [здесь](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
+Чтобы узнать больше о лучших методах обеспечения безопасности приложений Electron, смотрите [наш учебник по безопасности](https://electronjs.org/docs/tutorial/security).
 
 Если вы хотите сообщить об уязвимости в Electron, напишите на security@electronjs.org.
-
-[security tutorial]: https://electronjs.org/docs/tutorial/security
