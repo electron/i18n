@@ -16,7 +16,7 @@ Beaker は参加型ブラウザです。 個人ハッカー向けのブラウザ
 
 ウェブはオープンソースではありません。 ソーシャルメディアの機能に影響を与えたい場合、Facebook や Twitter に働きかける必要があります。 検索なら、Google です。 この制御は、ユーザー自身ではなく企業が握ってます。
 
-Beaker には、新しいウェブプロトコル [Decentralized Archive Transport](https://datprotocol.com) があります。 "Dat"。それはオンデマンドかつ無料でサイトを作成し、デバイスから共有します。 サーバーは要りません。 これは革命です。
+Beaker には、新しいウェブプロトコル [Decentralized Archive Transport](https://datprotocol.com) があります。 "Dat"。 オンデマンドでサイトを作成し、無料でデバイスから共有できます。 サーバーは要りません。 これは革命です。
 
 ![Beaker のプロトコル](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
