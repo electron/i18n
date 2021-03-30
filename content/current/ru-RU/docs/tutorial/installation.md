@@ -1,12 +1,12 @@
 # Установка
 
-Для установки предварительных бинарных файлов Electron используйте [`npm`](https://docs.npmjs.com). Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
+To install prebuilt Electron binaries, use [`npm`][npm]. Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
 
 ```sh
 npm install electron --save-dev
 ```
 
-Смотри [документацию к версиям Electron](./electron-versioning.md), чтобы узнать, как управлять версиями Electron в приложении.
+Смотри [документацию к версиям Electron][versioning], чтобы узнать, как управлять версиями Electron в приложении.
 
 ## Глобальная установка
 
@@ -30,16 +30,16 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## Прокси
+## Полномочия
 
 Если вам нужно использовать HTTP-прокси, необходимо установить переменную `ELECTRON_GET_USE_PROXY` в любое значение , плюс дополнительные переменные окружения в зависимости от версии узла вашей системы:
 
-* [Узел 10 и выше](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [До узла 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Узел 10 и выше][proxy-env-10]
+* [До узла 10][proxy-env]
 
 ## Пользовательские зеркала и кэши
 
-Во время установки, модуль `Электрон` вызовет [`@electron/get`](https://github.com/electron/get) для загрузки готовых бинарных файлов Electron для вашей платформы. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
+During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
 Если доступа к GitHub нет или нужна другая сборка, можно задать зеркало или папку кеша.
 
@@ -121,11 +121,11 @@ ELECTRON_SKIP_BINARY_DESCRIPTION
 
 В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки, как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сеть, или немного подождать, и попытаться установить снова.
 
-Также вы можете попытаться скачать Electron непосредственно из [electron/electron/releases](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
-Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Если ошибки не пропадают, можно использовать аргумент [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm):
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -138,3 +138,12 @@ npm install --verbose electron
 ```
 
 Если нужно перезагрузить файлы без кеша, нужно использовать переменную окружения `force_no_cache` = `true`.
+
+[npm]: https://docs.npmjs.com
+[versioning]: ./electron-versioning.md
+[releases]: https://github.com/electron/electron/releases
+[proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
+[proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
+[electron-get]: https://github.com/electron/get
+[npm-permissions]: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+[unsafe-perm]: https://docs.npmjs.com/misc/config#unsafe-perm
