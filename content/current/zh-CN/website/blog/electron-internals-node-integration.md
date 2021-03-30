@@ -8,7 +8,7 @@ date: '2016-07-28'
 
 ---
 
-曾多次尝试在图形界面编程中使用节点。 像 [node-gui](https://github.com/zcbenz/node-gui) for GTK+ bindings, and [node-qt](https://github.com/arturadib/node-qt) for QT bindings. 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 所以在 节点中运行图形界面消息循环的常见技巧是在非常短的时间内抽取消息循环。 这 使得界面响应缓慢，并且占用了大量的 CPU 资源。
+There had been many attempts to use Node for GUI programming, like [node-gui][node-gui] for GTK+ bindings, and [node-qt][node-qt] for QT bindings. 但其中没有一个在生产中工作，因为图形界面工具包有自己的消息 循环，而诺德则在自己的事件循环中使用 libuv ， 并且主线程只能同时运行 个循环。 所以在 节点中运行图形界面消息循环的常见技巧是在非常短的时间内抽取消息循环。 这 使得界面响应缓慢，并且占用了大量的 CPU 资源。
 
 在开发Electron期间，我们遇到了同样的问题。 不过，以 逆向方式：我们必须将诺德的事件循环整合到Chromium的消息 循环中。
 
@@ -16,7 +16,7 @@ date: '2016-07-28'
 
 在我们深入到消息循环集成细节之前，我将首先解释 Chromium的多进程结构。
 
-Electron 有两种类型的进程：主进程和渲染器 进程(这实际上是非常简化的, 完整的视图请查看 [多进程架构](http://dev.chromium.org/developers/design-documents/multi-process-architecture)。 主进程负责 GUI 工作像创建窗口，而渲染器进程只处理 运行和渲染网页。
+In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture][multi-process]). 主进程负责 GUI 工作像创建窗口，而渲染器进程只处理 运行和渲染网页。
 
 Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味着我们必须将节点并入两个进程。
 
@@ -42,6 +42,12 @@ Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味�
 
 ## 代码
 
-您可以在 `node_bindings` 文件中找到消息循环整合的实现方式。 [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common)。 It can be easily reused for projects that want to integrate Node.
+You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. It can be easily reused for projects that want to integrate Node.
 
-*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
+
+[node-gui]: https://github.com/zcbenz/node-gui
+[node-qt]: https://github.com/arturadib/node-qt
+[multi-process]: http://dev.chromium.org/developers/design-documents/multi-process-architecture
+[node-bindings]: https://github.com/electron/electron/tree/master/atom/common
+[node-bindings-updated]: https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc
