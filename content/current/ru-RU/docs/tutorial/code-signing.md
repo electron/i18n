@@ -21,15 +21,15 @@
 
 Чтобы начать процесс, убедитесь, что вы выполнили требования для подписания и заверяете ваше приложение:
 
-1. Зарегистрироваться в [Apple Developer Program](https://developer.apple.com/programs/) (требует оплату раз в год)
-2. Скачать и установить [Xcode](https://developer.apple.com/xcode) - для этого требуется компьютер под управлением macOS
-3. Сгенерировать [подписанные сертификаты](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Зарегистрироваться в [Apple Developer Program][] (требует оплату раз в год)
+2. Скачать и установить [Xcode][] - для этого требуется компьютер под управлением macOS
+3. Сгенерировать [подписанные сертификаты][]
 
 Конфигурация и свобода экосистем Electron, так что есть несколько способов подписать ваше приложение и заверять его нотариально.
 
 ## `electron-forge`
 
-Если вы используете любимый инструмент для сборки Electron, то для того, чтобы ваше приложение подписано и нотариально заверено требуется несколько дополнений к вашей конфигурации. [Кузка](https://electronforge.io) представляет собой набор официальных инструментов Electron, используя [`электро-упаковщик`], [`Электрон-осс-знак`] и [`Электрон-нотариус`] под капюшоном.
+Если вы используете любимый инструмент для сборки Electron, то для того, чтобы ваше приложение подписано и нотариально заверено требуется несколько дополнений к вашей конфигурации. [Forge](https://electronforge.io) - это набор официальных инструментов Electron, [`электро-упаковщика`][], [`Электрон-osx-знак`][]и [`Электрон-нотариус`][] под капюшоном.
 
 Давайте рассмотрим конфигурацию примера со всеми обязательными полями. Необходимы не все из них: инструменты будут достаточно умными, чтобы автоматически найти подходящий `идентификатор`, Например, но мы рекомендуем вам откровенно.
 
@@ -101,7 +101,7 @@ Electron Builder поставляется с пользовательским р
 
 ## `electron-packager`
 
-Если вы не используете встроенную конвейерную линию сборки типа Forge или Builder, то скорее всего вы используете [`электродвигатель`], которая включает [`Электронный Знак`] и [`Электронотариально нотариально`].
+Если вы не используете интегрированную трубопроводную линию, как Forge или Builder, вы вероятно используете [`электронно-упаковочный`][], которая включает [`электрон-осс-знак`][] и [`Электрон-нотариус`][].
 
 Если вы используете API Packager, вы можете передать [в конфигурации, что оба знака и заверяет ваше приложение ](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
 
@@ -143,7 +143,7 @@ packager({
 
 ## Mac App Store
 
-Смотрите [Mac App Store Guide](mac-app-store-submission-guide.md).
+See the [Mac App Store Guide][].
 
 # Подписывание сборок для Windows
 
@@ -161,10 +161,24 @@ packager({
 
 Существует ряд инструментов для подписывания приложений:
 
-* [`Электрон-winstaller`] создаст программу установки для Windows и подпишет ее за вас
-* [`Электронная ковка`] может подписать процесс установки, который он генерирует через Squirrel.Windows или MSI цели.
-* [`electron-builder`] подписывает некоторые приложения для Windows
+* [`Электрон-winstaller`][] создаст программу установки для Windows и подпишет её для вас
+* [`Электронная кузница`][] может подписывать установщики, которые она генерирует через Squirrel.Windows или MSI цели.
+* [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
 
-Смотри страницу [Windows Store Guide](windows-store-guide.md).
+Смотри страницу [Windows Store Guide][].
+
+[Apple Developer Program]: https://developer.apple.com/programs/
+[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`Электронная кузница`]: https://github.com/electron-userland/electron-forge
+[`Электрон-osx-знак`]: https://github.com/electron-userland/electron-osx-sign
+[`электрон-осс-знак`]: https://github.com/electron-userland/electron-osx-sign
+[`электро-упаковщика`]: https://github.com/electron/electron-packager
+[`электронно-упаковочный`]: https://github.com/electron/electron-packager
+[`Электрон-нотариус`]: https://github.com/electron/electron-notarize
+[`Электрон-winstaller`]: https://github.com/electron/windows-installer
+[Xcode]: https://developer.apple.com/xcode
+[подписанные сертификаты]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Windows Store Guide]: windows-store-guide.md
