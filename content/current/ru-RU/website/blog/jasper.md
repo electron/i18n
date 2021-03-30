@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-На этой неделе мы опросили создателя [Jasper](https://jasperapp.io), инструмента на основе Electron для управления уведомлениями GitHub.
+This week we interviewed the creator of [Jasper][], an Electron-based tool for managing GitHub notifications.
 
 ---
 
@@ -17,7 +17,7 @@ date: '2017-03-21'
 
 ## Что такое Jasper?
 
-[Jasper](https://jasperapp.io) является гибким и мощным читателем задач для GitHub. Поддерживает проблемы и pull-запросы на github.com и GitHub Enterprise.
+[Jasper][] is a flexible and powerful issue reader for GitHub. Поддерживает проблемы и pull-запросы на github.com и GitHub Enterprise.
 
 [![Скриншот приложения Jasper](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
@@ -127,7 +127,7 @@ Jasper равен $12. Однако вы можете использовать [
 
 ## Каковы некоторые вызовы, с которыми вы столкнулись при разработке Jasper?
 
-У меня было трудное время разобраться с концепцией "поток". Сначала я подумал использовать [Notifications API](https://developer.github.com/v3/activity/notifications/). Однако я заметил, что он не поддерживает некоторые варианты использования. После этого я считал использование [Issues API](https://developer.github.com/v3/issues/) и [Pull requests API](https://developer.github.com/v3/pulls/), в дополнение к API уведомлений. Но это никогда не стало то, что я хотел. Затем, думая о различных методах, я понял, что опрос [поискового API GitHub's](https://developer.github.com/v3/search/) предоставит самую гибкую возможность. Прошло около месяца экспериментов, чтобы добраться до этого момента. Затем я реализовал прототип Jasper с концепцией потока в два дня.
+У меня было трудное время разобраться с концепцией "поток". At first I considered using GitHub's [Notifications API][]. Однако я заметил, что он не поддерживает некоторые варианты использования. After that I considered using the [Issues API][] and [Pull Requests API][], in addition to the Notification API. Но это никогда не стало то, что я хотел. Then while thinking about various methods, I realized that polling GitHub's [Search API][] would offer the most flexibility. Прошло около месяца экспериментов, чтобы добраться до этого момента. Затем я реализовал прототип Jasper с концепцией потока в два дня.
 
 Примечание: опрос ограничивается один раз в 10 секунд. Это достаточно приемлемо для ограничения GitHub API.
 
@@ -140,4 +140,10 @@ Jasper равен $12. Однако вы можете использовать [
 - **Улучшение производительности**: На данный момент проблема загрузки в WebView является низкой скоростью, чем обычный браузер.
 
 Подпишитесь на [@jasperappio](https://twitter.com/jasperappio) в Twitter для обновлений.
+
+[Jasper]: https://jasperapp.io
+[Notifications API]: https://developer.github.com/v3/activity/notifications/
+[Pull Requests API]: https://developer.github.com/v3/pulls/
+[Issues API]: https://developer.github.com/v3/issues/
+[Search API]: https://developer.github.com/v3/search/
 
