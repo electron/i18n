@@ -16,7 +16,7 @@ Electron は 1.0 リリースに向けて準備を進めていますが、この
 
 ## 組み込みモジュールの新しい利用方法
 
-組み込みモジュールは、独立したモジュールに分離されるのではなく 1 つのモジュールにまとめられるようになったので、[他のモジュールと競合することなく](https://github.com/electron/electron/issues/387) 使用できます。
+組み込みモジュールは、独立したモジュールに分離されるのではなく 1 つのモジュールにまとめられるようになったので、[他のモジュールと競合することなく][issue-387] 使用できます。
 
 ```javascript
 var app = require('electron').app
@@ -94,4 +94,6 @@ Electron の API 名は、以前は `URL`ではなく `Url` のように、す�
 * `clicked` を `click` に名称変更しました。
 * `double-clicked` を `double-click` に名称変更しました。
 * `right-clicked` を `right-click` に名称変更しました。
+
+[issue-387]: https://github.com/electron/electron/issues/387
 
