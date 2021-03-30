@@ -30,7 +30,7 @@ Por favor, considere juntar-se ao nosso [Programa de Feedback de Aplicativos](ht
 
 ## 📝 Um breve histórico de versões do Electron
 
-As decisões em torno de lançamentos estáveis antes da v3.0.0 não seguiram uma agenda. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Anunciar nossas datas de lançamento estável foi recebido de forma geral e estamos animados para continuar fazendo isso para versões futuras.
+As decisões em torno de lançamentos estáveis antes da v3.0.0 não seguiram uma agenda. Adicionamos horários internos ao projeto com v3.0.0 e v4.0.0. No início deste ano, decidimos divulgar nossa data de lançamento estável pela primeira vez para [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Anunciar nossas datas de lançamento estável foi recebido de forma geral e estamos animados para continuar fazendo isso para versões futuras.
 
 Para racionalizar melhor estes esforços de atualização, nossos [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) e [Releases](https://github.com/electron/governance/tree/master/wg-releases) Grupos de Trabalho foram criados dentro de nosso sistema de [governança](https://electronjs.org/blog/governance). Permitiram-nos definir melhor as nossas prioridades e delegar este trabalho, que esperamos venha a tornar-se mais evidente a cada nova libertação.
 
