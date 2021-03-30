@@ -30,7 +30,7 @@ Ghost был основан в апреле 2013 года, после очень
 
 ## Что такое Ghost Desktop?
 
-Ghost Desktop позволяет писателям управлять несколькими блогами сразу - и сосредоточиться на их написании. Простые вещи, такие как общие сочетания клавиш, не могут быть реализованы в браузере, но доступны в нашем настольном приложении. Это позволяет другим приложениям напрямую общаться с блогом [через глубокие ссылки](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost Desktop позволяет писателям управлять несколькими блогами сразу - и сосредоточиться на их написании. Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
 
 ## Что такое Ghost for Journalism?
 
