@@ -15,7 +15,7 @@ nav:
   userland: ユーザーランド
   governance: ガバナンス
 keyboard_modal:
-  title: キーボード ショート カット
+  title: キーボードショートカット
   key: キー
   action: アクション
   focus_search: 検索バーにフォーカス
@@ -90,7 +90,7 @@ electron_is_good:
   title: Electron 製のアプリは、ユーザーに愛されています
   description: あらゆる業界の何千もの組織が、Electron を使用してクロスプラットフォームソフトウェアを構築しています。
 electron_is_easy:
-  title: 簡単に開発できます
+  title: 想像以上に簡単です
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
 web_technologies:
   title: Web技術
