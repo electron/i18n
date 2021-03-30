@@ -22,7 +22,7 @@ Un autre exemple est [le problème de disparition de fenêtre](https://electronj
 
 ## Tester les références faibles dans Electron
 
-Il n'y a aucun moyen de tester directement les références faibles en JavaScript brut, puisque le langage n'a pas de moyen d'assigner des références faibles. La seule API en JavaScript liée à des références faibles est [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), mais comme cela seulement crée des clés de référence faible, il est impossible de savoir quand un objet a été déchet collecté.
+Il n'y a aucun moyen de tester directement les références faibles en JavaScript brut, puisque le langage n'a pas de moyen d'assigner des références faibles. Il n'y a aucun moyen de tester directement les références faibles en JavaScript brut, puisque le langage n'a pas de moyen d'assigner des références faibles.
 
 Dans les versions d'Electron antérieures à la v0.37.8, vous pouvez utiliser l'utilitaire interne `v8Util. etDestructor` API pour tester les références faibles, qui ajoute une référence faible à l'objet passé et appelle la callback lorsque l'objet est collecté :
 
@@ -37,8 +37,7 @@ v8Util. etDestructor(object, function () {
 
 // Supprime toutes les références à l'objet.
 object = undefined
-// Démarre manuellement un GC.
-gc()
+// Démarre manuellement un GC. gc()
 // La console affiche "L'objet est ramassé".
 ```
 
