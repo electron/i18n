@@ -84,7 +84,7 @@ Die Rechtschreibprüfungs-API wurde geändert, um [asynchrone Ergebnisse](https:
 Die folgenden APIs sind in Electron 5.0.0 neu veraltet und sollen in 6.0.0 entfernt werden:
 
 ### Mksnapshot-Binärdateien für Arm und Arm 64
-Native Binärdateien von mksnapshot für Arm und arm64 sind veraltet und werden in 6 entfernt. .0. Snapshots können für Arm und arm64 mit den x64 Binärdateien erstellt werden.
+Native binaries of mksnapshot for arm and arm64 are deprecated and will be removed in 6.0.0. Snapshots can be created for arm and arm64 using the x64 binaries.
 
 ### ServiceWorker-APIs auf Webcontent
 Veraltete ServiceWorker-APIs auf WebContent in Vorbereitung auf deren Entfernung.
