@@ -46,7 +46,7 @@ A veces sabes *qué* quieres conseguir, pero no sabes exactamente *cómo* hacerl
 
 Electron tiene una colección cada vez mayor de tutoriales para complementar su documentación de API. Ahora puedes encontrar más fácilmente tutoriales sobre un tema determinado, justo al lado de la documentación API relacionada.
 
-¿Buscando mejores prácticas de seguridad? Search for [`security`][].
+¿Buscando mejores prácticas de seguridad? Buscar [`security`][].
 
 ## paquetes npm
 
@@ -97,7 +97,7 @@ La mejor manera de enviar sus comentarios es archivando un problema en GitHub en
 
 ## Gracias
 
-Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io][] for providing [SourceRank][] scores, and to the team at Algolia for helping us get started. 🍹
+Un agradecimiento especial a [Emily Jordan](https://github.com/echjordan) y [Vanessa Yuen](https://github.com/vanessayuenn) por la construcción de estas nuevas capacidades de búsqueda, a [Libraries.io][] para proporcionar [SourceRank][] puntuaciones, y para el equipo de Algolia por ayudarnos a comenzar. 🍹
 
 [`[&lt;code>es:api miniatura`]</code>]: https://electronjs.org/?query=is%3Aapi%20thumbnail
 [`[&lt;code>es:app grafiql`]</code>]: https://electronjs.org/?query=is%3Aapp%20graphql
