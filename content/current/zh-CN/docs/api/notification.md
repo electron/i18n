@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` is an [EventEmitter][event-emitter].
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -178,3 +178,5 @@ A `String` property representing the custom Toast XML of the notification.
 * `/System/Library/Sounds`
 
 有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
