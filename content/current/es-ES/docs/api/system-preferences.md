@@ -2,7 +2,7 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = requiere('electron')
@@ -17,7 +17,7 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event`
+* `event` Event
 * `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' _Windows_
@@ -39,7 +39,7 @@ Devuelve:
 
 Devuelve:
 
-* `event` Evento
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
 **Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
@@ -184,7 +184,7 @@ Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
+Devuelve `Boolean` - `true` si [DWM composition][dwm-composition] (Aero Glass) está habilitada, y `false` de lo contrario.
 
 Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
 
@@ -193,12 +193,12 @@ const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
 // Make the window transparent only if the platform supports it.
-si (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
-  browserOptions.transparent = verdad
-  browserOptions.frame = falso
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+  browserOptions.transparent = true
+  browserOptions.frame = false
 }
 
-// Crea la  ventana.
+// Create the window.
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
@@ -293,7 +293,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-background` - El fondo de una ventana.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Vea el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) y el [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) para más detalles.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
@@ -360,7 +360,7 @@ Devuelve `Promise<void>` - Se resuelve si el usuario se ha autenticado con éxit
 const { systemPreferences } = require('electron')
 
 systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
-  console.log('Te has autenticado exitosamente correctamente con Touch ID!')
+  console.log('You have successfully authenticated with Touch ID!')
 }).catch(err => {
   console.log(err)
 })
@@ -421,3 +421,8 @@ Esta propiedad solo está disponible en macOS 10.14 Mojave o posteriores.
 Una propiedad `String` que puede ser `dark`, `light` o `unknown`.
 
 Devuelve la configuración de apariencia de macOS que esta aplicada actualmente a tu aplicación mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
