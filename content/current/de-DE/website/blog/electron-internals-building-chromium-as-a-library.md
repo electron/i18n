@@ -30,19 +30,19 @@ Der Nachteil ist, Chromium ist eine sehr große Codebase und erfordert sehr leis
 
 Als Benutzer des Content-Moduls muss Electron den Chromium-Code in den meisten Fällen nicht ändern eine offensichtliche Möglichkeit, das Bauen von Electron zu verbessern, ist das Chromium als gemeinsame Bibliothek zu bauen, und dann mit ihm in Electron verbinden. Auf diese Weise müssen Entwickler nicht mehr alles aus Chromium bauen, wenn sie zu Electron beitragen.
 
-Das [libchromiumcontent](https://github.com/electron/libchromiumcontent) Projekt wurde von [@aroben](https://github.com/aroben) zu diesem Zweck erstellt. Es baut das Content Modul von Chromium als freigegebene Bibliothek und stellt dann die Kopfzeilen von Chromium und vorkompilierte Binärdateien zum Download bereit. Der Code der Anfangsversion von libchromiumcontent finden Sie [in diesem Link](https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c).
+The [libchromiumcontent][] project was created by [@aroben](https://github.com/aroben) for this purpose. Es baut das Content Modul von Chromium als freigegebene Bibliothek und stellt dann die Kopfzeilen von Chromium und vorkompilierte Binärdateien zum Download bereit. The code of the initial version of libchromiumcontent can be found [in this link][libcc-classic].
 
-Das [brightray](https://github.com/electron/brightray) Projekt wurde ebenfalls als Teil von libchromiumcontent geboren, das eine dünne Schicht um das Content-Modul bereitstellt.
+The [brightray][] project was also born as part of libchromiumcontent, which provides a thin layer around Content Module.
 
 Durch die Verwendung von libchromiumcontent und Helligkeit zusammen können Entwickler schnell einen Browser erstellen, ohne in die Details der Erstellung von Chromium zu kommen. Und es entfernt die Anforderung eines schnellen Netzwerks und einer leistungsstarken Maschine für den Bau des Projekts.
 
-Außer Electron wurden auch andere Chromium-basierte Projekte auf diese Art und Weise eingebaut, wie der [Breach-Browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
+Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser][breach].
 
 ## Exportierte Symbole werden gefiltert
 
 Unter Windows gibt es eine Beschränkung darauf, wie viele Symbole eine Shared Library exportieren kann. Als die Codebase von Chromium wuchs, übertraf die Anzahl der in exportierten Symbole bald die Einschränkung.
 
-Die Lösung bestand darin, beim Erstellen der DLL-Datei unnötige Symbole herauszufiltern. Es hat funktioniert, indem [ein `zur Verfügung stellt. ef` Datei zum Linker](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), und verwenden Sie dann ein Skript um [zu beurteilen, ob Symbole unter einem Namensraum exportiert werden sollen](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd).
+Die Lösung bestand darin, beim Erstellen der DLL-Datei unnötige Symbole herauszufiltern. It worked by [providing a `.def` file to the linker][libcc-def], and then using a script to [judge whether symbols under a namespace should be exported][libcc-filter].
 
 Durch diesen Ansatz konnte libchromiumcontent weiterhin freigegebene Bibliotheksdateien erzeugen, indem mehr Symbole entfernt wurden.
 
@@ -56,7 +56,7 @@ Als ein riesiges Projekt dauert der Verbindungsschritt in Chromium sehr lange, w
 
 Mit dem anhaltenden Wachstum von Chromium es gab so viele exportierte Symbole in Chromium, dass sogar die Symbole des Content-Moduls und des Webkits mehr als die Einschränkung waren. Es war nicht möglich, eine nutzbare geteilte Bibliothek zu generieren, indem einfach Symbole entfernt wurden.
 
-Am Ende mussten wir [die rohen Binärdateien von Chromium](https://github.com/electron/libchromiumcontent/pull/98) verschicken, anstatt eine einzige gemeinsame Bibliothek zu erstellen.
+In the end, we had to [ship the raw binaries of Chromium][libcc-gyp] instead of generating a single shared library.
 
 Wie bereits eingeführt, gibt es zwei Build-Modi in Chromium. Als Ergebnis von roher Binärdateien müssen wir zwei verschiedene Distributionen von Binärdateien in libchromiumcontent versenden. Eines heißt `static_library` build, das alle statischen Bibliotheken jedes Moduls beinhaltet, das durch die normale Chromium-Build generiert wurde. Das andere ist `shared_library`, die alle gemeinsam genutzten Bibliotheken jedes Moduls enthält, das vom Komponentenbau generiert wurde.
 
@@ -74,11 +74,21 @@ Eine der Verbesserungen von `gn` ist die Einführung von `source_set`, die eine 
 
 Diese Verbesserung machte libchromiumcontent jedoch sehr schwierig, da die statischen Bibliotheksdateien tatsächlich von libchromiumcontent benötigt wurden.
 
-Der erste Versuch, dies zu lösen, war [Patch `gn` um eine statische Bibliothek zu generieren Dateien](https://github.com/electron/libchromiumcontent/pull/239), die das Problem gelöst hat, aber weit von einer anständigen Lösung entfernt war.
+The first try to solve this was to [patch `gn` to generate static library files][libcc-gn-hack], which solved the problem, but was far from a decent solution.
 
-Der zweite Versuch wurde von [@alespergl](https://github.com/alespergl) bis [erstellt benutzerdefinierte statische Bibliotheken aus der Liste der Objektdateien](https://github.com/electron/libchromiumcontent/pull/249). Es wurde ein Trick verwendet, um zuerst eine Dummy-Build zu starten, um eine Liste von Objektdateien zu sammeln und erstellen Sie dann tatsächlich die statischen Bibliotheken, indem Sie `gn` mit der Liste füttern. Es hat nur minimale Änderungen am Quellcode von Chromium vorgenommen und die Bauarchitektur von Electronic stillgehalten.
+The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files][libcc-gn]. Es wurde ein Trick verwendet, um zuerst eine Dummy-Build zu starten, um eine Liste von Objektdateien zu sammeln und erstellen Sie dann tatsächlich die statischen Bibliotheken, indem Sie `gn` mit der Liste füttern. Es hat nur minimale Änderungen am Quellcode von Chromium vorgenommen und die Bauarchitektur von Electronic stillgehalten.
 
 ## Summary
 
 Wie Sie sehen können, verglichen mit dem Bau von Electron als Teil von Chromium, das Erstellen von Chromium als Bibliothek erfordert größere Anstrengungen und kontinuierliche Wartung. Letztere entfernt jedoch die Anforderung an leistungsstarke Hardware um Electron zu erstellen Auf diese Weise kann eine viel größere Anzahl von Entwicklern gebaut werden und zu Electron beitragen. Die Anstrengungen sind es wert.
+
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
+[brightray]: https://github.com/electron/brightray
+[breach]: https://www.quora.com/Is-Breach-Browser-still-in-development
+[libcc-classic]: https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c
+[libcc-def]: https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b
+[libcc-filter]: https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd
+[libcc-gyp]: https://github.com/electron/libchromiumcontent/pull/98
+[libcc-gn-hack]: https://github.com/electron/libchromiumcontent/pull/239
+[libcc-gn]: https://github.com/electron/libchromiumcontent/pull/249
 
