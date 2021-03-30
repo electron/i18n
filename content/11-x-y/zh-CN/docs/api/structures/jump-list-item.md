@@ -1,6 +1,6 @@
 # JumpListItem 对象
 
-* `type` 字符串 (可选) - 下列之一：
+* `type` String (optional) - One of the following:
   * ` task `-任务将启动具有特定参数的应用程序。
   * ` separator`-可用于分隔标准 ` Tasks ` 类别中的项目。
   * ` file `-一个文件的链接将使用创建跳转列表的应用程序打开文件, 为此, 应用程序必须注册为该文件类型的默认程序 (尽管它并不需要成为默认程序)。
