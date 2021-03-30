@@ -2,7 +2,7 @@
 
 > Crear y controlar vistas.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro de un [`BrowserWindow`](browser-window.md). Es como una ventana hija, excepto que su posición es relativa a la de su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
