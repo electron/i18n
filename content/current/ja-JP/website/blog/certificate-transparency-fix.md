@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2016-12-09'
 ---
 
-Electron の基盤となる Chrome のライブラリ [libchromiumcontent](https://github.com/electron/libchromiumcontent) には、ビルド時間から 10 週間ずれた時間になることによって、一部の Symantec、GeoTrust、Thawte SSL/TLS 証明書が拒否されてしまう問題があります。Electron [1.4.12](https://github.com/electron/electron/releases/tag/v1.4.12) には、この上流の Chrome の問題を修正する重要なパッチが含まれています。 影響を受けるサイトの証明書自体に問題はなく、これらの証明書を置き換えても何もありません。
+Electron の基盤となる Chrome のライブラリ [libchromiumcontent][] には、ビルド時間から 10 週間ずれた時間になることによって、一部の Symantec、GeoTrust、Thawte SSL/TLS 証明書が拒否されてしまう問題があります。Electron [1.4.12][] には、この上流の Chrome の問題を修正する重要なパッチが含まれています。 影響を受けるサイトの証明書自体に問題はなく、これらの証明書を置き換えても何もありません。
 
 ---
 
@@ -96,4 +96,7 @@ Electron 1.4.0 &mdash; 1.4.11 では、これらの影響を受ける証明書�
 - [Chrome issue 664177](https://bugs.chromium.org/p/chromium/issues/detail?id=664177)
 - [issue 664177 の Chrome 修正](https://codereview.chromium.org/2495583002)
 - [issue 664177 の libchromiumcontent パッチ](https://github.com/electron/libchromiumcontent/pull/248)
+
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
+[1.4.12]: https://github.com/electron/electron/releases/tag/v1.4.12
 
