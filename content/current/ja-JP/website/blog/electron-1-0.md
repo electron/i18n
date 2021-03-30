@@ -22,19 +22,19 @@ Electron で次に何を作るのか、楽しみにしています。
 
 いま Electron を突き動かしているのは、[メール](https://nylas.com)、[チャット](https://slack.com)、[Git アプリ](https://www.gitkraken.com) から、[SQL 分析ツール](https://www.wagonhq.com)、[torrent クライアント](https://webtorrent.io/desktop)、[ロボット](https://www.jibo.com) まで、あらゆる開発者や企業のコミュニティの成長です。
 
-この 2 年間、企業とオープンソースプロジェクトの両方で、アプリケーション基盤として Electron が採用されています。 この 1 年間で、Electron は 120 万回以上ダウンロードされています。 素晴らしい Electron アプリたちを [こちらでご紹介][apps] しています。あなたのアプリがまだない場合は追加しましょう。
+この 2 年間、企業とオープンソースプロジェクトの両方で、アプリケーション基盤として Electron が採用されています。 この 1 年間で、Electron は 120 万回以上ダウンロードされています。 素晴らしい Electron アプリを [こちらでご紹介](https://electronjs.org/apps) します。 あなたのアプリがまだない場合は追加しましょう。
 
 ![Electron のダウンロード数](https://cloud.githubusercontent.com/assets/378023/15037731/af7e87e0-12d8-11e6-94e2-117c360d0ac9.png)
 
 ## Electron API デモ
 
-1.0 のリリースに合わせて、Electron API を調べたり、Electron アプリをネイティブ風にする方法の詳細を学べる新アプリをリリースします。 [Electron API デモ][electron-api-demos] アプリには、アプリの立ち上げに役立つコードスニペットと、Electron API を効果的に使うヒントが入っています。
+1.0 のリリースに合わせて、Electron API を調べたり、Electron アプリをネイティブ風にする方法の詳細を学べる新アプリをリリースします。 1.0 のリリースに合わせて、Electron API を調べたり、Electron アプリをネイティブ風にする方法の詳細を学べる新アプリをリリースします。
 
 [![Electron API デモ](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)][electron-api-demos]
 
 ## Devtron
 
-Electron アプリのデバッグに役立つ新しい拡張機能も追加しました。 [Devtron][devtron] はオープンソース拡張機能です。[Chrome デベロッパー ツール][devtools] の拡張で、Electron アプリのインスペクト、デバッグ、トラブルシューティングを支援するように設計しました。
+Electron アプリのデバッグに役立つ新しい拡張機能も追加しました。 [Devtron](https://electronjs.org/devtron) はオープンソース拡張機能です。 [Chrome デベロッパー ツール](https://developer.chrome.com/devtools) の拡張で、Electron アプリのインスペクト、デバッグ、トラブルシューティングを支援する設計です。
 
 [![Devtron](https://cloud.githubusercontent.com/assets/378023/15138217/590c8b06-16c9-11e6-8af6-ef96299e85bc.png)][devtron]
 
@@ -47,35 +47,25 @@ Electron アプリのデバッグに役立つ新しい拡張機能も追加し�
 
 ## Spectron
 
-最後に、Electron アプリの統合テストフレームワーク [Spectron][spectron] の新バージョンをリリースします。
+最後に、Electron アプリの統合テストフレームワーク [Spectron](https://electronjs.org/spectron) の新バージョンをリリースします。
 
 [![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)][spectron]
 
-Spectron 3.0 は Electron API 全体を包括的にサポートするため、さまざまなシナリオや環境でアプリケーションを動作検証するテストを、より迅速に記述できます。 Spectron は [ChromeDriver][chromedriver]と[WebDriverIO][webdriver] をベースにしているため、ページナビゲーション、ユーザー入力、JavaScript 実行といった API も備えています。
+Spectron 3.0 は Electron API 全体を包括的にサポートするため、さまざまなシナリオや環境でアプリケーションを動作検証するテストを、より迅速に記述できます。 Spectron は [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver)と[WebDriverIO](http://webdriver.io) をベースにしているため、ページナビゲーション、ユーザー入力、JavaScript 実行といった API も備えています。
 
 ## コミュニティ
 
 Electron 1.0 は、何百人もの開発者によるコミュニティの努力の成果です。 コアフレームワーク以外では、Electron アプリの構築、パッケージ、デプロイを容易にするライブラリやツールが何百とリリースされています。
 
-新しい [コミュニティ][community] ページでは、開発中の素晴らしい Electron のツール、アプリ、ライブラリ、フレームワークを多数掲載しています。 [Electron][electron-org] や [Electron Userland][electron-userland] といった Organization を覗けば、こういった素晴らしいプロジェクトをいくつか見られます。
+新しい [コミュニティ](https://electronjs.org/community) ページでは、開発中の素晴らしい Electron のツール、アプリ、ライブラリ、フレームワークを多数掲載しています。 [Electron](https://github.com/electron) や [Electron Userland](https://github.com/electron-userland) といった Organization を覗けば、こういった素晴らしいプロジェクトをいくつか見られます。
 
 Electron は初めてですか? Electron 1.0 の紹介ビデオはこちらです。
 
 <div class="video"><iframe src="https://www.youtube.com/embed/8YP_nOCO-4Q?rel=0" frameborder="0" allowfullscreen></iframe></div>
-[apps]: https://electronjs.org/apps
 [atom]: https://atom.io
-[chromedriver]: https://sites.google.com/a/chromium.org/chromedriver
-[community]: https://electronjs.org/community
-[devtools]: https://developer.chrome.com/devtools
-[devtron]: https://electronjs.org/devtron
 [devtron]: https://electronjs.org/devtron
 [electronjs.org]: https://electronjs.org
 [electron-api-demos]: https://github.com/electron/electron-api-demos
-[electron-api-demos]: https://github.com/electron/electron-api-demos
-[electron-org]: https://github.com/electron
-[electron-userland]: https://github.com/electron-userland
 [quick-start]: https://electronjs.org/docs/tutorial/quick-start
 [spectron]: https://electronjs.org/spectron
-[spectron]: https://electronjs.org/spectron
-[webdriver]: http://webdriver.io
 
