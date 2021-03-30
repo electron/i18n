@@ -63,11 +63,11 @@ Voltra をデザインするにあたって、ネイティブアプリやウェ�
 
 私たちはこの時点で非常に大きなコレクションをかなりうまく扱います。 大きなコレクションは、おそらく数万の画像を意味します! ノードを持つ。 レンダリングプロセスから直接利用できるsのファイルシステムモジュールにより、DOM イベントに基づいて多くの画像をすばやく読み込むことが容易になりました。
 
-一般的に、*[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* と *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* は、UI の応答性を維持しながら多くの処理を実行するにあたってとてつもなく重要な道具です。 具体的には、CPU に依存するタスクを別のプロセスに分散させることで、ユーザーインターフェースの応答性を保つことができます。 たとえば、実際のオーディオコンテキストを別のプロセスに移動し、ビジーな UI による潜在的な中断を [IPC](https://electronjs.org/docs/glossary/#ipc) を介した通信で回避しました。
+一般的に、*[setImmediate][]* と *[requestIdleCallback][]* は、UI の応答性を維持しながら多くの処理を実行するにあたってとてつもなく重要な道具です。 具体的には、CPU に依存するタスクを別のプロセスに分散させることで、ユーザーインターフェースの応答性を保つことができます。 たとえば、実際のオーディオコンテキストを別のプロセスに移動し、ビジーな UI による潜在的な中断を [IPC][] を介した通信で回避しました。
 
 ## Electron で Voltra を構築することにしたのはなぜですか?
 
-ブラウザのサンドボックスはとても制限されていますが、私たちはウェブプレイヤーも開発しています。 そのため、2 つの実装間でほぼ 100% のコードを共有できるのは大きな利点です。
+The browser’s sandbox is too restricted for our app. But we are also developing a web player. そのため、2 つの実装間でほぼ 100% のコードを共有できるのは大きな利点です。
 
 実際には、Swift でネイティブアプリを構築するところから始めました。 一番の問題点は、多くの再発明をしていることでした。 ウェブには世界最大のオープンソースエコシステムがあります。 そこで、すぐに Electron に切り替えました。
 
@@ -88,4 +88,8 @@ Electronが単一の包装会社を支持するのを見たいと思います。
 ## 今後の予定は何ですか?
 
 私たちは現在、モバイルアプリを開発しており、アーティストやラベルと協力して、Voltraショップに音楽を追加しています。 やあ！ アーティストやラベルがあれば、 [今すぐサインアップ](https://admin.voltra.co/signup)! 1,000万曲という目標を達成したら開店を計画しています。
+
+[setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+[requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[IPC]: https://electronjs.org/docs/glossary/#ipc
 
