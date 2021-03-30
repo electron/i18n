@@ -63,11 +63,11 @@ date: '2017-03-07'
 
 Мы занимаемся очень большими коллекциями довольно хорошо. Большие коллекции означают, возможно, десятки тысяч изображений! Имеет узел. Модуль файловой системы непосредственно доступный из процесса рендеринга облегчил загрузку и выгрузку множества образов супер быстро на основе DOM-событий.
 
-В целом *[setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate)* и *[requestIdleCallback](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)* были супер важными инструментами для выполнения большого количества обработки, сохраняя пользовательский интерфейс. Если говорить конкретно, то распределение задач, связанных с процессором, в отдельных процессах действительно помогает поддерживать гибкость пользовательского интерфейса. Например, мы переместили контекст аудио в отдельный процесс, общаться с ним через [IPC](https://electronjs.org/docs/glossary/#ipc) , чтобы избежать потенциальных прерываний с занятого пользовательского интерфейса.
+In general *[setImmediate][]* and *[requestIdleCallback][]* have been super important tools for performing lots of processing while keeping the UI responsive. Если говорить конкретно, то распределение задач, связанных с процессором, в отдельных процессах действительно помогает поддерживать гибкость пользовательского интерфейса. For example, we moved the actual audio context into a separate process, communicating with it over [IPC][] to avoid potential interruptions from a busy UI.
 
 ## Почему вы решили построить Voltra на Electron?
 
-Песочница браузера слишком ограничены для нашего приложения. Но мы также разрабатываем веб-плеер. Так что это огромная победа, что мы можем поделиться почти 100% кода между двумя реализациями.
+The browser’s sandbox is too restricted for our app. But we are also developing a web player. Так что это огромная победа, что мы можем поделиться почти 100% кода между двумя реализациями.
 
 На самом деле мы начали с создания родного приложения с помощью Swift. Главная проблема, которую мы обнаружили, заключается в том, что мы заново изобрели много вещей. Веб имеет самую большую в мире экосистему с открытым исходным кодом. Поэтому мы очень быстро переключились на Electron.
 
@@ -88,4 +88,8 @@ date: '2017-03-07'
 ## Что будет дальше?
 
 В настоящее время мы разрабатываем мобильное приложение и работаем с исполнителями и этикетками, чтобы добавить свою музыку в магазин Voltra. Эй! Если вы артист или лейбл, [зарегистрируйтесь](https://admin.voltra.co/signup)! Мы планируем открыть магазин, когда достигнем нашей цели 10 миллионов направлений.
+
+[setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+[requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[IPC]: https://electronjs.org/docs/glossary/#ipc
 
