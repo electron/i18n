@@ -10,11 +10,11 @@ Electron теперь использует GN для самостоятельн�
 
 # ГиП и GN
 
-Когда Electron был впервые выпущен в 2013 году, конфигурация сборки Chromium была написана [GYP](https://gyp.gsrc.io/), короче "Генерировать ваши проекты".
+When Electron was first released in 2013, Chromium's build configuration was written with [GYP][], short for "Generate Your Projects".
 
-В 2014 году Проект Chromium представил новый инструмент конфигурации сборки [GN](https://gn.googlesource.com/gn/) (короче "Generate [Ninja](https://ninja-build.org/)") файлы сборки Chrome были перенесены в GN и GYP были удалены из исходного кода.
+In 2014, the Chromium project introduced a new build configuration tool called [GN][] (short for "Generate [Ninja][]") Chromium's build files were migrated to GN and GYP was removed from the source code.
 
-Electron исторически держал разделение между основными [кодами Electron](https://github.com/electron/electron) и [libchromiumcontent](https://github.com/electron/libchromiumcontent), часть Electron, которая завершает содержимое подмодуля Chromium. Electron использовал GYP, в то время как libchromiumcontent -- в качестве подмножества Chromium -- переключался на GN, когда это делал Chromium.
+Electron has historically kept a separation between the main [Electron code][] and [libchromiumcontent][], the part of Electron that wraps Chromium's 'content' submodule. Electron использовал GYP, в то время как libchromiumcontent -- в качестве подмножества Chromium -- переключался на GN, когда это делал Chromium.
 
 Как и не совсем сетка, между использованием двух систем сборки было трение. Поддерживаемая совместимость была подвержена ошибкам, с помощью флагов компилятора и `#определяет` которые должны быть тщательно синхронизированы между Chromium, Node, V8 и Electron.
 
@@ -32,4 +32,12 @@ GN [быстрее](https://chromium.googlesource.com/chromium/src/tools/gn/+/48
 
  * Уже помогли в разработке Electron 4.0.0, потому что Chromium 67 убрал поддержку MSVC и переключился на здание с Clang on Windows. С помощью сборки GN, мы непосредственно наследуем все команды компилятора от Chromium, так что мы получили сборку Clang на Windows бесплатно!
 
- * Electron также упростил использование [BoringSSL](https://boringssl.googlesource.com/boringssl/) в единой сборке через Electron, Хромий и Узел -- то, что было [проблемным до](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * It's also made it easier for Electron to use [BoringSSL][] in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+
+
+[BoringSSL]: https://boringssl.googlesource.com/boringssl/
+[Electron code]: https://github.com/electron/electron
+[GN]: https://gn.googlesource.com/gn/
+[GYP]: https://gyp.gsrc.io/
+[Ninja]: https://ninja-build.org/
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
