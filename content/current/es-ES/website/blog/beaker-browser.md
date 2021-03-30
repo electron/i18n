@@ -33,18 +33,18 @@ Hackers. Modders. Tipos creativos. A la gente a la que le gusta retocarse.
 Tenemos [una herramienta de línea de comandos llamada bkr](https://github.com/beakerbrowser/bkr) que es como git + npm. Aquí está creando un sitio:
 
 ```bash
-$ cd ~/my-site
-$ bkr init
-$ echo "¡Hola, mundo!" > index.html
-$ publicación bkr
+$ bifurcación bkr dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
+$ cd ~/my-fork
+$ echo "Mi bifurcación no tiene en cuenta el índice anterior. tml!" > index.html
+$ bkr publicar
 ```
 
 Y aquí está bifurcando un sitio:
 
 ```bash
-$ bifurcación bkr dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
+$ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "Mi bifurcación no tiene en cuenta el índice anterior. tml!" > index.html
+$ echo "My fork has no regard for the previous index.html!" tml!" > index.html
 $ bkr publicar
 ```
 
