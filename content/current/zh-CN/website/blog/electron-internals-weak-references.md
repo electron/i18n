@@ -18,28 +18,28 @@ date: '2016-09-20'
 
 在 Electron 中使用 `NativeImage` 类作为示例，每次调用 `本地图像。 reate()` API，一个 `NativeImage` 实例已返回，它是 正在C++中存储图像数据。 完成实例后， JavaScript 引擎(V8) 就收集了物品， C++中的代码将调用 来释放内存中的图像数据，所以用户不需要手动管理
 
-另一个例子是 [窗口消失的问题](https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes)， 哪些 视觉显示当所有引用都消失时窗口是如何收集垃圾的
+Another example is [the window disappearing problem][window-disappearing], which visually shows how the window is garbage collected when all the references to it are gone.
 
 ## 在 Electron 中测试较弱的引用
 
-无法直接测试原始JavaScript中的软弱引用，因为 语言没有办法分配软弱引用。 The only API in JavaScript related to weak references is [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
+无法直接测试原始JavaScript中的软弱引用，因为 语言没有办法分配软弱引用。 The only API in JavaScript related to weak references is [WeakMap][WeakMap], but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
 
 在 v0.37.8 之前的 Electron 版本中，您可以使用内部的 `v8Util。 etDestructor` API 来测试薄弱的引用， 它给传递的对象添加了一个虚弱的引用 并在收集到的对象垃圾时调用回调：
 
 ```javascript
-// 下面的代码只能在 Electron < v0.37.8. 上运行。
+// Code below can only run on Electron < v0.37.8.
 var v8Util = process.atomBinding('v8_util')
 
-var 对象 = {}
-v8实用程序。 etDestructor(object, function () }
-  console.log('对象是垃圾收集')
+var object = {}
+v8Util.setDestructor(object, function () {
+  console.log('The object is garbage collected')
 })
 
-// 移除对象的所有引用。
-对象 = 未定义的
-// 手动启动一个 GC。
+// Remove all references to the object.
+object = undefined
+// Manually starts a GC.
 gc()
-// 控制台打印“对象是垃圾收集”。
+// Console prints "The object is garbage collected".
 ```
 
 请注意，您必须使用 `--js-flags="--expose_gc"` 命令 开启Electron 才能暴露内部的 `gc` 函数。
@@ -48,7 +48,7 @@ API 已被删除，因为V8实际上不允许在销毁器中运行 JavaScript �
 
 ## `远程` 模块中的参考信息不足
 
-除了使用 C++ 管理本机资源外，Electron 也需要 微弱引用来管理JavaScript 资源。 Electron的 `远程` 模块就是一个例子。 这是一个 [远程程序调用](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) 模块 允许在主进程中使用渲染器进程中的物体。
+除了使用 C++ 管理本机资源外，Electron 也需要 微弱引用来管理JavaScript 资源。 An example is Electron's `remote` module, which is a [Remote Procedure Call][remote-procedure-call] (RPC) module that allows using objects in the main process from renderer processes.
 
 `远程` 模块的一个关键挑战是避免内存泄漏。 When users acquire a remote object in the renderer process, the `remote` module must guarantee the object continues to live in the main process until the references in the renderer process are gone. 此外， 它还必须确保在 渲染过程中不再有任何引用时， 对象可能会被收集到垃圾。
 
@@ -120,7 +120,7 @@ for (flet i = 0; i < 10000; ++i) 2002,
 
 明显优化是缓存远程对象：当已经有 个具有相同ID的远程对象， 先前的远程对象将返回 ，而不是创建一个新的对象。
 
-使用 JavaScript 核心的 API 无法做到这一点。 使用普通地图 缓存对象将阻止V8收集物品。 [虚拟地图](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) 类只能使用对象作为弱键。
+使用 JavaScript 核心的 API 无法做到这一点。 Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap][WeakMap] class can only use objects as weak keys.
 
 为了解决这个问题，添加了一个具有虚弱引用值的地图类型，这个类型是 完美的缓存对象的 ID 。 现在 `remote.requires` 看起来像 这样：
 
@@ -154,4 +154,8 @@ remote.requires = 函数 (name) }
 
 * [`key_fine_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_web map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)
+
+[window-disappearing]: https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+[remote-procedure-call]: https://en.wikipedia.org/wiki/Remote_procedure_call
 
