@@ -4,7 +4,7 @@ Entwickler fragen häufig nach Strategien zur Optimierung der Performance von El
 
 Weisheit und Informationen darüber, wie performante Websites mit JavaScript erstellt werden können, gelten in der Regel auch für Electron-Apps. Bis zu einem gewissen Grad diskutieren Ressourcen , wie man leistungsfähige Knoten baut. s Anwendungen gelten auch, aber seien Sie vorsichtig zu verstehen, dass der Begriff "Performance" verschiedene Dinge für einen Knoten bedeutet. s backend als für eine Anwendung, die auf einem Client läuft.
 
-Diese Liste wird Ihnen zur Verfügung gestellt – und ist ähnlich wie unsere [Sicherheits-Checkliste](./security.md) – nicht erschöpfend. Es ist wahrscheinlich möglich, eine langsame Electron-App zu erstellen, die allen unten beschriebenen Schritten folgt. Electron ist eine leistungsstarke Entwicklungsplattform, die es Ihnen, dem Entwickler, ermöglicht, mehr oder weniger zu tun, was Sie wollen. All diese Freiheit bedeutet, dass Leistung größtenteils Ihre Verantwortung ist.
+This list is provided for your convenience – and is, much like our [security checklist][security] – not meant to exhaustive. Es ist wahrscheinlich möglich, eine langsame Electron-App zu erstellen, die allen unten beschriebenen Schritten folgt. Electron ist eine leistungsstarke Entwicklungsplattform, die es Ihnen, dem Entwickler, ermöglicht, mehr oder weniger zu tun, was Sie wollen. All diese Freiheit bedeutet, dass Leistung größtenteils Ihre Verantwortung ist.
 
 ## Messe, Messung, Messung
 
@@ -16,8 +16,8 @@ Um mehr darüber zu erfahren, wie Sie den Code Ihrer App profitieren, machen Sie
 
 ### Empfohlenes Lesen
 
-* [Beginnen Sie mit der Analyse der Laufzeitleistung](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
-* [Vortrag: "Visual Studio Code - Die erste Sekunde"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Beginnen Sie mit der Analyse der Laufzeitleistung][chrome-devtools-tutorial]
+* [Vortrag: "Visual Studio Code - Die erste Sekunde"][vscode-first-second]
 
 ## Checklist
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Das Ausführen dieses Befehls resultiert in einer `.cpuprofile` Datei und einer `.heappro-Datei` Datei in dem Verzeichnis, in dem Sie es ausgeführt haben. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![Performance-cpu-prof](../images/performance-cpu-prof.png)
+![performance-cpu-prof][]
 
-![Performance-Heap-Prof](../images/performance-heap-prof.png)
+![performance-heap-prof][]
 
 In diesem Beispiel haben wir auf dem Computer des Autors gesehen, dass das Laden der `-Anfrage` fast eine halbe Sekunde gedauert hat, wobei `Knotenabruf` drastisch weniger Arbeitsspeicher benötigt hat und weniger als 50ms.
 
@@ -91,11 +91,11 @@ const fooParser = require('foo-parser')
 
 class Parser {
   constructor () {
-    . iles = fs.readdirSync('. )
+    this.files = fs.readdirSync('.')
   }
 
   getParsedFiles () {
-    gibt fooParser.parse(this zurück. iles)
+    return fooParser.parse(this.files)
   }
 }
 
@@ -115,14 +115,14 @@ class Parser {
     // Berühren Sie die Festplatte, sobald `getFiles` aufgerufen wird, nicht früher.
     // Stellen Sie außerdem sicher, dass wir andere Operationen nicht durch Verwendung von
     // der asynchronen Version blockieren.
-    this.files = this.files || warten fs.readdir('.')
+    this.files = this.files || await fs.readdir('.')
 
-    geben dies zurück. iles
+    return this.files
   }
 
   async getParsedFiles () {
-    // Unser fiktiver Foo-Parser ist ein großes und kostspieliges Modul zum laden, also
-    // Verschieben Sie diese Arbeit, bis wir tatsächlich Dateien parsen müssen.
+    // Our fictitious foo-parser is a big and expensive module to load, so
+    // defer that work until we actually need to parse files.
     // Da `require()` mit einem Modul-Cache ausgestattet ist, der `require()` Aufruf
     // wird nur einmal teuer sein - nachfolgende Aufrufe von `getParsedFiles()`
     // werden schneller sein.
@@ -143,13 +143,13 @@ Kurz gesagt, Ressourcen "just in time" zuweisen, anstatt sie alle beim Start Ihr
 
 ## 3) Blockieren des Hauptprozesses
 
-Der elektronische Hauptprozess (manchmal "Browser-Prozess") ist speziell: Es ist der übergeordnete Prozess für alle anderen Prozesse Ihrer App und der primäre Prozess mit dem das Betriebssystem interagiert. Es verarbeitet Fenster, Interaktionen und die Kommunikation zwischen verschiedenen Komponenten innerhalb Ihrer App. Es beherbergt auch den UI Thread.
+Der elektronische Hauptprozess (manchmal "Browser-Prozess") ist speziell: Es ist der übergeordnete Prozess für alle anderen Prozesse Ihrer App und der primäre Prozess mit dem das Betriebssystem interagiert. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
 Unter keinen Umständen sollten Sie diesen Prozess und den UI-Thread mit langanhaltenden Operationen blockieren. Das Blockieren des UI-Threads bedeutet, dass Ihre gesamte App einfriert, bis der Hauptprozess bereit ist, die Verarbeitung fortzusetzen.
 
 ### Warum?
 
-Der Hauptprozess und sein UI-Thread sind im Wesentlichen der Kontrollturm für große Operationen innerhalb deiner App. Wenn das Betriebssystem Ihrer App einen Mausklick mitteilt, wird es den Hauptprozess durchlaufen, bevor es Ihr Fenster erreicht. Wenn Ihr Fenster eine blutglatte Animation wiedergibt, es muss sich mit über den GPU-Prozess unterhalten – einmal mehr durch den Hauptprozess.
+The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. Wenn Ihr Fenster eine blutglatte Animation wiedergibt, es muss sich mit über den GPU-Prozess unterhalten – einmal mehr durch den Hauptprozess.
 
 Elektron und Chromium achten darauf, schwere Festplattenein- und CPU-gebundene Operationen auf neue Threads zu setzen, um den UI-Thread nicht zu blockieren. Sie sollten das Gleiche tun.
 
@@ -157,7 +157,7 @@ Elektron und Chromium achten darauf, schwere Festplattenein- und CPU-gebundene O
 
 Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
 
-1) Für lange CPU-schwere Aufgaben verwenden Sie [Arbeiterthreads](https://nodejs.org/api/worker_threads.html), überlegen Sie, sie in das BrowserFenster zu verschieben, oder (als letzter Ausgang) einen dedizierten Prozess zu erzeugen.
+1) For long running CPU-heavy tasks, make use of [worker threads][worker-threads], consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
 
 2) Vermeiden Sie die Verwendung der synchronen IPC und des `Remote-Moduls` so weit wie möglich. Es gibt zwar legitime Anwendungsfälle, aber es ist viel zu einfach, unwissentlich den UI-Thread mit Hilfe des `entfernten` Moduls zu blockieren.
 
@@ -177,9 +177,9 @@ Orchestrating the flow of operations in your renderer's code is particularly use
 
 Generell gelten alle Ratschläge für die Erstellung leistungsfähiger Web-Apps für moderne -Browser auch für die Renderer von Electronic. Die beiden primären Werkzeuge, die Ihnen zur Verfügung stehen, sind derzeit `requestIdleCallback()` für kleine Operationen und `Webworkers` für lang laufende Operationen.
 
-*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. Es ermöglicht Ihnen, mit niedriger Priorität oder Hintergrundarbeit durchzuführen, ohne die Benutzererfahrung zu beeinträchtigen. Für weitere Informationen, wie Sie es verwenden können, lesen Sie [die Dokumentation auf MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. Es ermöglicht Ihnen, mit niedriger Priorität oder Hintergrundarbeit durchzuführen, ohne die Benutzererfahrung zu beeinträchtigen. For more information about how to use it, [check out its documentation on MDN][request-idle-callback].
 
-*Webworkers* sind ein leistungsfähiges Werkzeug, um Code auf einem separaten Thread auszuführen. Es gibt einige Vorbehalte zu beachten – konsultieren Sie die elektronische [Multithreading-Dokumentation](./multithreading.md) und die [MDN-Dokumentation für Webworkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Sie sind eine ideale Lösung für jede Operation, die eine hohe CPU-Leistung für einen längeren Zeitraum von erfordert.
+*Webworkers* sind ein leistungsfähiges Werkzeug, um Code auf einem separaten Thread auszuführen. There are some caveats to consider – consult Electron's [multithreading documentation][multithreading] and the [MDN documentation for Web Workers][web-workers]. Sie sind eine ideale Lösung für jede Operation, die eine hohe CPU-Leistung für einen längeren Zeitraum von erfordert.
 
 ## 5) Unnötige Polyfelle
 
@@ -197,7 +197,7 @@ Es ist selten, dass ein JavaScript-basiertes Polyfill schneller ist als die glei
 
 Operieren unter der Annahme, dass Polyfillments in aktuellen Versionen von Electron nicht notwendig sind. Wenn du Zweifel hast, überprüfe [Caniuse. om](https://caniuse.com/) und überprüfen, ob die [Version von Chromium, die in Ihrer Electron Version](../api/process.md#processversionschrome-readonly) verwendet wird, die von Ihnen gewünschte Funktion unterstützt.
 
-Außerdem sollten Sie die von Ihnen verwendeten Bibliotheken sorgfältig prüfen. Sind sie wirklich notwendig? `jQuery`, zum Beispiel war so ein Erfolg, dass viele seiner Funktionen nun Teil des [Standard JavaScript-Feature-Sets verfügbar](http://youmightnotneedjquery.com/) sind.
+Außerdem sollten Sie die von Ihnen verwendeten Bibliotheken sorgfältig prüfen. Sind sie wirklich notwendig? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available][jquery-need].
 
 Wenn Sie einen Transpiler/Compiler wie TypeScript verwenden, überprüfen Sie die Konfiguration und stellen Sie sicher, dass Sie die aktuellste ECMAScript-Version auswählen, die von Electron unterstützt wird.
 
@@ -223,7 +223,7 @@ Die Tools werden nun alle Netzwerkanfragen sorgfältig aufzeichnen. In einem ers
 
 Aktiviere `Network Throttling` als nächsten Schritt. Finden Sie das Dropdown-Menü, das `Online` liest und wählen Sie eine langsamere Geschwindigkeit wie `Schneller 3G`. Lade deinen Renderer neu und überprüfe, ob es Ressourcen gibt, auf die deine App unnötig wartet. In vielen Fällen wird eine App darauf warten, dass eine Netzwerkanfrage abgeschlossen wird, obwohl sie nicht die betroffene Ressource benötigt.
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. Für erweiterte Kontrolle darüber, wie Ressourcen geladen werden, sollten Sie in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) investieren.
+As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers][service-workers].
 
 ## 7) Bundle deinen Code
 
@@ -237,4 +237,19 @@ Moderne JavaScript-Entwicklung umfasst in der Regel viele Dateien und Module. W�
 
 Es gibt eine Vielzahl von JavaScript-Paketen und wir wissen es besser, als die Gemeinschaft zu ärgern, indem wir ein Werkzeug über ein anderes empfehlen. Wir empfehlen Ihnen jedoch ein Bundler zu verwenden, das in der Lage ist, die einzigartige Umgebung von Electronic zu behandeln, die beide Knoten behandeln muss. s und Browser-Umgebungen.
 
-Zum Schreiben dieses Artikels sind [Webpack](https://webpack.js.org/), [Paket](https://parceljs.org/)und [rollup.js](https://rollupjs.org/) beliebt.
+As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
+
+[security]: ./security.md
+[performance-cpu-prof]: ../images/performance-cpu-prof.png
+[performance-heap-prof]: ../images/performance-heap-prof.png
+[chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
+[worker-threads]: https://nodejs.org/api/worker_threads.html
+[web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[request-idle-callback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[multithreading]: ./multithreading.md
+[jquery-need]: http://youmightnotneedjquery.com/
+[service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
+[parcel]: https://parceljs.org/
+[rollup]: https://rollupjs.org/
+[vscode-first-second]: https://www.youtube.com/watch?v=r0OeHRUCCb4
