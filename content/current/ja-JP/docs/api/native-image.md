@@ -2,7 +2,7 @@
 
 > tray や Dock やアプリケーションのアイコンを PNG や JPG ファイルで作成します。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Electron では、 API が画像を取る場合、ファイルパスまたは `NativeImage` インスタンスを渡すことができます。 `null` が渡されたときは空の画像が使用されます。
 
@@ -43,7 +43,7 @@ Windows では、ファイルパスから `ICO` アイコンを読み込むこ�
   * 64x64 (DPI スケール 200%)
   * 256x256
 
-[この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
+[この記事][icons] 内の *サイズ要件* の章を確認して下さい。
 
 ## 高解像度の画像
 
@@ -127,7 +127,7 @@ console.log(image)
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object
   * `width` Integer
   * `height` Integer
@@ -139,7 +139,7 @@ console.log(image)
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `buffer` [Buffer][buffer]
 * `options` Object (任意)
   * `width` Integer (任意) - ビットマップバッファに必要。
   * `height` Integer (任意) - ビットマップバッファに必要。
@@ -195,20 +195,20 @@ console.log(image)
 * `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer][buffer]。
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer - 0 - 100 の間です。
 
-戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer][buffer]。
 
 #### `image.toBitmap([options])`
 
 * `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer][buffer]。
 
 #### `image.toDataURL([options])`
 
@@ -222,13 +222,13 @@ console.log(image)
 * `options` Object (任意)
   * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer][buffer]。
 
 `getBitmap()` と `toBitmap()` には違いがあります。`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
 
 #### `image.getNativeHandle()` _macOS_
 
-戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
+戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer][buffer]。 macOS では、`NSImage` のインスタンスのポインタが返されます。
 
 返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に_保持されなければなりません_。
 
@@ -301,3 +301,7 @@ console.log(image)
 `Boolean` 型のプロパティです。その画像が [テンプレート画像](https://developer.apple.com/documentation/appkit/nsimage/1520017-template) と見なされるかどうかを決定します。
 
 このプロパティは macOS にのみ影響することに注意してください。
+
+[icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
+
+[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
