@@ -1,4 +1,4 @@
-# 源代码目录结构
+# 源码目录结构
 
 Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。
 
@@ -60,8 +60,8 @@ Electron
 |   |   ├── api/ - 主进程 API 的实现.
 |   |   ├── net/ - 网络相关的代码.
 |   |   ├── mac/ - 与 Mac 有关的 Objective-C 代码.
-|   |   └── resources/ - 图标，平台相关的文件等.
-|   ├── renderer/ - 运行在渲染进程中的代码.
+|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - 渲染进程 API 的实现.
 |   └── common/ - 同时被主进程和渲染进程用到的代码,
 |       |         包括了一些用来将 node 的消息循环整合到 Chromium 的
