@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-This week we interviewed the creator of [Jasper][], an Electron-based tool for managing GitHub notifications.
+本周，我们采访了 [贾斯珀][]的创造者，这是一种基于电子的 管理GitHub通知的工具。
 
 ---
 
@@ -17,9 +17,13 @@ This week we interviewed the creator of [Jasper][], an Electron-based tool for m
 
 ## Jasper 是什么？
 
-[Jasper][] is a flexible and powerful issue reader for GitHub. 它支持github.com和GitHub Enterprise的问题和请求。
+贾斯珀</a>
+
+是 GitHub 灵活而强大的问题读者。 它支持github.com和GitHub Enterprise的问题和请求。</p> 
 
 [![Jasper 应用截图](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
+
+
 
 ## 你为什么要这样做？
 
@@ -32,6 +36,8 @@ This week we interviewed the creator of [Jasper][], an Electron-based tool for m
 - 很难抓住我的团队的所有活动。
 
 我正在花费大量时间和精力来防止这些问题。 所以我决定为 GitHub 提供一个问题阅读器，以有效地解决这些问题，并开始开发Jasper。
+
+
 
 ## 谁在使用Jasper？
 
@@ -49,9 +55,12 @@ Jasper 被正在使用GitHub 的几家公司的开发者、设计者和经理使
 
 这个“串流”是Jasper的核心特征。 例如，如果你想看到“在电子/电子存储库中分配给@zeke的问题”，你创建以下流：
 
+
+
 ```
 repo:electron/electron transnee:zeke is:issue
 ```
+
 
 [![Jasper 开始屏幕 2](https://cloud.githubusercontent.com/assets/2289/24108648/75f403ec-0d4b-11e7-9ed4-4599ecd26b78.png)](https://jasperapp.io/)
 
@@ -59,9 +68,13 @@ repo:electron/electron transnee:zeke is:issue
 
 [![Jasper 开始屏幕 3](https://cloud.githubusercontent.com/assets/2289/24108646/75b7fea6-0d4b-11e7-9d05-7dd4e595403c.png)](https://jasperapp.io/)
 
+
+
 ## 我们能够对流做什么？
 
 我将介绍一下可以用什么样的条件来进行流浪。
+
+
 
 ### 用户和团队
 
@@ -74,7 +87,10 @@ repo:electron/electron transnee:zeke is:issue
 | `参与者:cat involves:dog`                        | "包含" `cat` 或 `bob` 的问题     |
 | `team:animal/white-cat team:animal/black-dog` | `动物/白猫` 或 `动物/黑狗` 在里面提到的问题 |
 
+
 `involves` means `referred`, `author`, `assigner` or `commenter`
+
+
 
 ### 仓库和组织
 
@@ -83,7 +99,10 @@ repo:electron/electron transnee:zeke is:issue
 | `repo:cat/jump repo:dog/run`   | `猫/跳跃` 或 `狗/运行` 中的问题    |
 | `org:electron 用户:cat user:dog` | `electron`, `cat` 或 `狗` |
 
+
 `org` 与 `用户` 相同
+
+
 
 ### 属性
 
@@ -93,6 +112,9 @@ repo:electron/electron transnee:zeke is:issue
 | `repo:cat/jump label:bug label:blocker` | 附加 `bug` **和** `blocker` in `cat/jump` |
 | `电源或原子shell`                            | 包含 `electron` 或 `atomshell` 的问题        |
 
+
+
+
 ### 审核状态
 
 | 流                            | 问题                                      |
@@ -100,6 +122,7 @@ repo:electron/electron transnee:zeke is:issue
 | `是：pr 审核：必填项`                | `cat/jump` 需要审核的问题                      |
 | `is:pr review-requested:cat` | 由 `cat` 请求审核的问题。 <br/> 但这些还没有被审核。 |
 | `is:pr reviewed by :cat`     | 由 `cat` 审查的问题                           |
+
 
 <br/>
 
@@ -111,9 +134,13 @@ repo:electron/electron transnee:zeke is:issue
 
 Jasper 还拥有未读问题管理、未读评论管理、标记星、通知更新、过滤问题、键盘快捷键等功能。
 
+
+
 ## Jasper 是一种付费产品吗？ 花费多少钱？
 
 Jasper 是12美元。 然而，您可以使用 [免费试用版](https://jasperapp.io/) 30天。
+
+
 
 ## 您为什么选择在Electron上构建Jasper？
 
@@ -125,11 +152,15 @@ Jasper 是12美元。 然而，您可以使用 [免费试用版](https://jaspera
 
 这些功能能够快速简单地开发桌面应用程序。 太棒了！ 如果你有任何产品想法，你应该考虑以一切方式使用 Electron。
 
+
+
 ## 你在开发 Jasper 时面临什么挑战？
 
-我很难找到“流”概念。 At first I considered using GitHub's [Notifications API][]. 然而，我注意到它不支持某些使用案例。 After that I considered using the [Issues API][] and [Pull Requests API][], in addition to the Notification API. 但这从来没有成为我想要的。 Then while thinking about various methods, I realized that polling GitHub's [Search API][] would offer the most flexibility. 达到这一点需要大约一个月的实验。 然后我在两天内用流概念执行了Jasper原型。
+我很难找到“流”概念。 起初，我考虑使用GitHub的 [通知API][]。 然而，我注意到它不支持某些使用案例。 之后，我考虑使用 [问题API][] 和 [拉请求API][]，除了通知API。 但这从来没有成为我想要的。 然后，在思考各种方法时，我意识到投票 GitHub 的 [搜索 API][] 将提供最大的灵活性。 达到这一点需要大约一个月的实验。 然后我在两天内用流概念执行了Jasper原型。
 
 注：投票最多每十秒钟一次。 这足够限制GitHub API。
+
+
 
 ## 接下来是什么？
 
@@ -141,9 +172,9 @@ Jasper 是12美元。 然而，您可以使用 [免费试用版](https://jaspera
 
 在 Twitter 上关注 [@jasperappio](https://twitter.com/jasperappio) 以获取更新。
 
-[Jasper]: https://jasperapp.io
-[Notifications API]: https://developer.github.com/v3/activity/notifications/
-[Pull Requests API]: https://developer.github.com/v3/pulls/
-[Issues API]: https://developer.github.com/v3/issues/
-[Search API]: https://developer.github.com/v3/search/
+[贾斯珀]: https://jasperapp.io
+[通知API]: https://developer.github.com/v3/activity/notifications/
+[拉请求API]: https://developer.github.com/v3/pulls/
+[问题API]: https://developer.github.com/v3/issues/
+[搜索 API]: https://developer.github.com/v3/search/
 
