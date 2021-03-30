@@ -51,8 +51,9 @@ The factor must be greater than 0.0.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
-> `js
-  webFrame.setVisualZoomLevelLimits(1, 3)`
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -77,7 +78,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
+Пример использования [node-spellchecker][spellchecker] как поставщик:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -247,3 +248,5 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 ### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+
+[spellchecker]: https://github.com/atom/node-spellchecker
