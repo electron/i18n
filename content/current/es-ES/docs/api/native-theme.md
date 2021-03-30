@@ -2,7 +2,7 @@
 
 > Lee y respondo a los cambios en el tema de color nativo de Chromium.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Proceso: [Main](../glossary.md#main-process)
 
 ## Eventos
 
@@ -29,16 +29,16 @@ Estableciendo esta propiedad a `system` eliminará la sobreescritura y todo ser�
 Estableciendo esta propiedad a `dark` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `true` cuando se accede
-* Cualquier UI de Electron renderiza en Linux y Windows incluyendo menús contextuales, devtools, etc. empleará la IU oscura.
-* Cualquier interfaz de usuario que el sistema operativo muestre en macOS, incluyendo menús, marcos de ventanas, etc. empleará la IU oscura.
+* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
+* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `dark`.
 * El evento `updated` será emitido
 
 Estableciendo esta propiedad a `light` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `false` cuando se acceda
-* Cualquier UI de Electron renderiza en Linux y Windows incluyendo menús contextuales, devtools, etc. usará el UI light.
-* Cualquier interfaz de usuario que el sistema operativo muestre en macOS, incluyendo menús, marcos de ventanas, etc. usará el UI light.
+* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
+* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `light`.
 * El evento `updated` será emitido
 
