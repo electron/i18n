@@ -59,7 +59,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 デフォルトでは、新しく生成された Google API キーではジオロケーションリクエストを行えない場合があります。 プロジェクトで地理位置情報ウェブサービスを有効にするには、[API ライブラリ](https://console.cloud.google.com/apis/library) から有効にしてください。
 
-注: 地理位置情報ウェブサービスを動かすには、API キーに関連付けられたプロジェクトに [請求先アカウント](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) を追加する必要があります。
+注: 地理位置情報ウェブサービスが動作するには、API キーに関連付けられたプロジェクトに [請求先アカウント](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) を追加する必要があります。
 
 ### `ELECTRON_NO_ASAR`
 
