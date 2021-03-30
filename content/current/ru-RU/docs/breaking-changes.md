@@ -296,9 +296,9 @@ We [recommend moving away from the remote module](https://medium.com/@nornagon/e
 API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
 
 ```javascript
-// Устаревшее
+// Deprecated
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Заменить на
+// Replace with
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -325,9 +325,9 @@ protocol.unregisterProtocol(scheme)
 API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
 
 ```javascript
-// Устаревшее
+// Deprecated
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// заменить на
+// Replace with
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -338,9 +338,9 @@ protocol.registerFileProtocol(scheme, handler)
 Этот API является устаревшим, пользователи должны использовать `protocol.isProtocolRegistered` и `protocol.isProtocolIntercepted`.
 
 ```javascript
-// Устаревшее
+// Deprecated
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Заменить на
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -410,7 +410,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Удалено: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. Функция устарела в Electron 8.x, и была удалена в Electron 9.x. Ограничения масштаба масштаба теперь фиксированы не менее 0. 5 и максимум 5.0, как определено [здесь](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Изменено поведение: Отправка не JS объектов поверх IPC теперь выводит исключение
 
@@ -426,7 +426,7 @@ API `shell.openItem` был заменен асинхронной командо
 
 ### Изменено поведение: Значения, отправленные над IPC, теперь сериализированы с структурированным алгоритмом клонирования
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
 * Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
@@ -779,7 +779,7 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                                            | `false` |
 | `webviewTag`       | `nodeIntegration`, если установлено, иначе `true` | `false` |
 
-Например, повторное включение webviewTag
+Например, Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -864,11 +864,11 @@ console.log(factor)
 ### `app.makeSingleInstance`
 
 ```js
-// Устарело
+// Deprecated
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Заменено на
+// Replace with
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -1159,3 +1159,5 @@ webview.setVisualZoomLevelLimits(1, 2)
 Файл _без префикса_ по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
 Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
+
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
