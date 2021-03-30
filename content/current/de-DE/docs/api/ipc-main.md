@@ -4,11 +4,11 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an [Event Emitter][event-emitter]. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
 ## Sending Messages
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-args) for more information.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send][web-contents-send] for more information.
 
 * When sending a message, the event name is the `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
@@ -126,3 +126,6 @@ The documentation for the `event` object passed to the `callback` can be found i
 ## IpcMainInvokeEvent object
 
 The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[web-contents-send]: web-contents.md#contentssendchannel-args
