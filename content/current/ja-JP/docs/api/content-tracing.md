@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー](https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md) を使用します。Chrome では `chrome://tracing` で利用できます。
+このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー][] を使用します。Chrome では `chrome://tracing` で利用できます。
 
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
@@ -68,3 +68,5 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 * `percentage` Number
 
 完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。
+
+[トレースビュアー]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
