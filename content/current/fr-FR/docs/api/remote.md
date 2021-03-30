@@ -2,7 +2,7 @@
 
 > Utilise les modules du processus main depuis le processus renderer.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 > ⚠️ ATTENTION ⚠️ Le module `remote` est [obsolète](https://github.com/electron/electron/issues/21408). Au lieu de `remote`, utilisez [`ipcRenderer`](ipc-renderer.md) et [`ipcMain`](ipc-main.md).
 > 
@@ -10,9 +10,9 @@ Processus : [Renderer](../glossary.md#renderer-process)
 > 
 > Si vous voulez toujours utiliser `remote` malgré les problèmes de performance et de sécurité , voir [@electron/remote](https://github.com/electron/remote).
 
-Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
+Le module `remote` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
-Dans Electron, les modules liés à l'interface graphique (comme `dialogue`, `menu` etc.) ne sont disponibles que dans le processus principal, pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
+Dans Electron, les modules liés à l'interface graphique (comme `dialog`, `menu` etc.) ne sont disponibles que dans le processus principal et pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -30,11 +30,11 @@ win.loadURL('https://github.com')
 
 <h2 spaces-before="0">Objet remote</h2>
 
-<p spaces-before="0">Chaque objet (y compris les fonctions) retourné par le module <code>distance` représente un objet dans le processus principal (nous l'appelons un objet distant ou une fonction distante). Lorsque vous appelez des méthodes d'un objet distant, appelez une fonction distante, ou créez un nouvel objet avec le constructeur distant (fonction), vous envoyez en fait messages inter-processus synchrones.</p>
+<p spaces-before="0">Chaque objet (y compris les fonctions) retourné par le module <code>remote` représente un objet dans le processus principal (nous l'appelons un objet distant ou une fonction distante). Lorsque vous appelez des méthodes d'un objet distant, appelez une fonction distante, ou créez un nouvel objet avec le constructeur distant (fonction), vous envoyez en fait des messages inter-processus synchrones.</p>
 
 Dans l'exemple ci-dessus, [`BrowserWindow`](browser-window.md) et `win` étaient des objets distants et `new BrowserWindow` n'a pas créé d'objet `BrowserWindow` dans le processus de rendu . Au lieu de cela, il a créé un objet `BrowserWindow` dans le processus principal et a renvoyé l'objet distant correspondant dans le processus de rendu, soit l'objet `win`.
 
-**Remarque :** Seules les [propriétés énumérables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) présentes lorsque l'objet distant est référencé pour la première fois sont accessibles par télécommande.
+**Remarque :** Seules les [propriétés énumérables][enumerable-properties] présentes lorsque l'objet distant est référencé pour la première fois sont accessibles par télécommande.
 
 **Remarque :** Les tableaux et les tampons sont copiés par IPC lorsque vous y accédez via le module `distance` . Les modifier dans le processus de rendu ne les modifie pas dans le processus principal et vice versa.
 
@@ -87,15 +87,15 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-Mais n'oubliez pas que le callback est référencé par le processus principal jusqu'à ce que vous le désinstallez explicitement explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
+Mais n'oubliez pas que la callback est référencée par le processus principal jusqu'à ce que vous la désinstalliez explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
 
-Pour empirer les choses, puisque le contexte des callbacks précédemment installés a été libéré, les exceptions seront levées dans le processus principal lorsque l'événement `close` est émis.
+Pour compliquer la situation, puisque le contexte des callbacks précédemment installées a été libéré, des exceptions seront levées dans le processus principal lorsque l'événement `close` sera émis.
 
-Pour éviter ce problème, assurez-vous de nettoyer toutes les références pour rendre les callbacks passés au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou en s'assurant que le processus principal est explicitement dit de déréférencer les callbacks qui sont venus d'un processus de rendu qui se termine.
+Pour éviter ce problème, assurez-vous de nettoyer toutes les références aux callbacks du processus de rendu transmises au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou de s'assurer que l'on a indiqué explicitement au processus principal de déréférencer les callbacks venant d'un processus de rendu se terminant.
 
 ## Accès aux modules intégrés dans le processus principal
 
-Les modules intégrés dans le processus principal sont ajoutés en tant que récupérateurs dans le module `distance` , ainsi vous pouvez les utiliser directement comme le module `electron`.
+Les modules intégrés dans le processus principal sont ajoutés en tant que récupérateurs dans le module `remote` , ainsi vous pouvez les utiliser directement comme le module `electron`.
 
 ```javascript
 const app = require('electron').remote.app
@@ -159,3 +159,6 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.process` _Readonly_
 
 Un objet `NodeJS.Process`.  L'objet `process` dans le processus principal. C'est la même chose que `remote.getGlobal('process')` mais est mis en cache.
+
+[rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
+[enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
