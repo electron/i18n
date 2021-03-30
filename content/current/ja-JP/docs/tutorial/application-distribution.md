@@ -42,11 +42,11 @@ electron/resources/app
 └── index.html
 ```
 
-そして macOS では `Electron.app`、Linux では `electron`、Windows では `electron.exe` を実行すると、Electron がアプリとして起動します。この `electron` ディレクトリがユーザーに配布するディストリビューションとなります。
+その後、macOS では `Electron.app`、Linux では `electron`、Windows では `electron.exe` を実行すると、Electron がアプリとして起動します。 そして、その `electron` ディレクトリがユーザーに頒布する頒布物となります。
 
 ### アプリソースコードのアーカイブの利用
 
-Parcel や Webpack などのバンドラを使用していない場合、ソースファイルをすべてコピーしてアプリを頒布するのではなく [asar](https://github.com/electron/asar) アーカイブにアプリをパッケージすることで、Windows のようなプラットフォーム上でファイルの読み出しパフォーマンスを改善できます。
+Parcel や Webpack などのバンドラを使用していない場合、ソースファイルをすべてコピーしてアプリを頒布するのではなく [asar][] アーカイブにアプリをパッケージすることで、Windows のようなプラットフォーム上でファイルの読み出しパフォーマンスを改善できます。
 
 `app` フォルダの代わりに `asar` アーカイブを使用するためには、アーカイブファイルを `app.asar` という名前に変更し、Electron のリソースディレクトリに以下のように配置する必要があります。そうすれば、Electron はアーカイブを読み込みを試み、そこから起動します。
 
@@ -64,7 +64,7 @@ electron/resources/
 └── app.asar
 ```
 
-[`electron/asar` リポジトリ ](https://github.com/electron/asar)に `asar` の使い方の詳細を掲載してあります。
+[`electron/asar` リポジトリ ][asar]に `asar` の使い方の詳細を掲載してあります。
 
 ### ダウンロードしたバイナリの名称変更
 
@@ -104,3 +104,7 @@ MyApp.app/Contents
 ### ソースから Electron を再ビルドすることによる名称変更
 
 ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。 これを行うには、製品名に対応するビルド引数 (`electron_product_name = "YourProductName" `) を `args.gn` ファイルに設定して再ビルドする必要があります。
+
+[asar]: https://github.com/electron/asar
+
+[asar]: https://github.com/electron/asar
