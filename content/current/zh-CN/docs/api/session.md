@@ -34,7 +34,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 
 要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
-## 属性
+## Properties
 
 ` session ` 模块具有以下方法:
 
