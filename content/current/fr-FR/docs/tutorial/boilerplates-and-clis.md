@@ -1,18 +1,18 @@
-# Les standards et CLI (Command-line interface)
+# Les Boilerplates et CLIs
 
-Le développement avec Electron est sans parti pris - il n'y a pas "un unique chemin" pour développer, construire, packager, ou sortir une application Electron. Des fonctionnalités supplémentaires pour Electron, à la fois pour la construction et l'exécution, peuvent généralement être trouvées sur [npm](https://www.npmjs.com/search?q=electron) dans des paquets individuels, permettant aux développeurs de construire l'application et de construire le pipeline dont ils ont besoin.
+Le développement avec Electron est sans parti pris - il plus d'une "bonne manière" pour développer, générer, packager et publier une application Electron. Des fonctionnalités supplémentaires pour Electron, à la fois pour la construction et l'exécution, peuvent généralement être trouvées sur [npm](https://www.npmjs.com/search?q=electron) dans des paquets individuels, permettant aux développeurs de construire l'application et de construire le pipeline dont ils ont besoin.
 
 Ce niveau de modularité et d'extensibilité garantit que tous les développeurs travaillant avec Electron, que ce soit dans de grandes ou de petites équipes, ne sont jamais limités dans ce qu'ils peuvent ou ne peuvent pas faire pendant leur cycle de vie de développement. Cependant, pour de nombreux développeurs, l'un des boilerplates communautaires ou un outil en ligne de commande peut rendre la compilation, le paquetage et la publication d'une application extrêmement faciles.
 
 ## Boilerplate vs CLI
 
-Un "Boilerplate" n'est qu'un point de départ - une toile, pour ainsi dire - à partir de laquelle vous construisez votre application. Ils se présentent généralement sous la forme d'un dossier que vous pouvez cloner et personnaliser.
+Un "Boilerplate" n'est qu'un point de départ - un canevas, pour ainsi dire - à partir de laquelle vous construisez votre application. Ils se présentent généralement sous la forme d'un dossier que vous pouvez cloner et personnaliser.
 
-Un outil en ligne de commande quant à lui est à vos côtés durant tout le processus de développement et de déploiement. Ils sont plus assistants et utiles mais imposent une ligne de conduite sur la manière dont votre code doit être structuré et construit. *Pour les débutants utiliser un outil en ligne de commande peut-être utile*.
+Un outil en ligne de commande quant à lui vous soutient durant tout le processus de développement et de publication. C'est plus utile et convivial mais impose une ligne de conduite sur la manière dont votre code doit être structuré et généré. *Pour les débutants utiliser un outil en ligne de commande peut-être utile*.
 
 ## electron-forge
 
-Un "outil complet pour construire des applications Electron modernes". Electron Forge unifie l'actuel outil de build (déjà bien maintenu) pour le développement sous Electron en un paquet afin que chacun puisse se lancer rapidement dans le développement sous Electron.
+Un "outil complet pour construire des applications Electron modernes". Electron Forge unifie les outil de build actuels (et bien maintenus) pour le développement sous Electron en un paquet homogène afin que chacun puisse se lancer rapidement dans le développement sous Electron.
 
 Forge est livré avec [un template prêt à l'usage](https://electronforge.io/templates), reposant sur Webpack. Il comprend un exemple de configuration typescript et offre deux fichiers de configuration pour permettre une customisation aisée. Il utilise les mêmes modules de base utilisés par la communauté grande Electron (comme [`electron-packager`](https://github.com/electron/electron-packager)) – modifications apportées par les mainteneurs d'Electron (comme Slack) bénéficient aux utilisateurs de Forge. De même, il y a aussi un grand nombre de choses à faire.
 
@@ -32,4 +32,4 @@ Si vous ne voulez pas d'outils, mais seulement un passe-partout solide à partir
 
 ## Autres outils et boilerplates
 
-La liste [ "Awesome Electron" ](https://github.com/sindresorhus/awesome-electron#boilerplates) contient plus d'outils et de passe-partout. Si vous trouvez la longueur de la liste intimidante, n'oubliez pas que l'ajout d'outils au fur et à mesure est également une approche valable.
+La liste [« Awesome Electron»](https://github.com/sindresorhus/awesome-electron#boilerplates) contient ancore d'autres outils et boilerplates. Si vous trouvez la longueur de la liste intimidante, n'oubliez pas que l'ajout d'outils au fur et à mesure est également une approche valable.
