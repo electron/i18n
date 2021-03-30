@@ -76,19 +76,19 @@ Developers want to know which releases are _safe_ to use. Даже невинн�
 Этот процесс является следующим:
 
 1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+    1. Изменение обратного API-совместимо (допускается устаревание)
+    2. Риск соблюдения сроков стабильности должен быть низким.
+2. Если допустимые изменения необходимо внести после выпуска бета-версии, то они применяются и увеличивается тэг prerelease, e. . `2.0.0-beta.2`.
+3. If a particular beta release is _generally regarded_ as stable, it will be re-released as a stable build, changing only the version information. например, `2.0.0`. После первой стабильности, все изменения должны быть обратно совместимыми с ошибками или исправлениями безопасности.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the _patch_ version is incremented e.g. `2.0.1`.
 
-Specifically, the above means:
+В частности, вышеуказанное означает:
 
 1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-effects.
 2. Внесение изменений в функционал, которые в противном случае не изменяют существующие пути кода, в большинстве точек в бета-цикле нормально. Пользователи могут явно включать эти флаги в своих приложениях.
 3. Добавляются возможности любого рода после 3-й недели в бета-цикле 👎 без очень хорошей причины.
 
-For each major and minor bump, you should expect to see something like the following:
+По каждому главному и второстепенному шару, вы должны ожидать что-то вроде следующих:
 
 ```plaintext
 2.0.0-beta.1
@@ -99,7 +99,7 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Пример жизненного цикла изображений:
 
 * Создана новая ветка релиза, включающая в себя последний набор функций. Он опубликован как `2.0.0-beta.1`. ![New Release Branch](../images/versioning-sketch-3.png)
 * Исправление ошибки входит в мастер, который может быть обращен в ветку выпуска. Патч применяется, и новая бета-версия опубликована как `2.0.0-beta.2`. ![Bugfix Backport to Beta](../images/versioning-sketch-4.png)
@@ -110,36 +110,36 @@ A few examples of how various SemVer ranges will pick up new releases:
 
 ![Semvers and Releases](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# Отсутствующие возможности: Альпийский
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Наша стратегия имеет несколько компромиссов, которые на сегодняшний день мы считаем подходящими. Самое важное, что новые возможности в master могут занять некоторое время до достижения стабильной линии выпуска. Если вы хотите сразу же попробовать новую функцию, вам придется создать Electron самостоятельно.
 
-As a future consideration, we may introduce one or both of the following:
+В качестве будущего рассмотрения мы можем представить одно или оба из нижеследующих:
 
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in _alpha_
 
-# Feature Flags
+# Функциональные флаги
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Флаги свойств являются общей практикой в Chromium, и хорошо зарекомендовали себя в экосистеме веб-разработки. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
-* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+* включено/отключено либо во время выполнения, либо во время сборки; мы не поддерживаем концепцию флага функции с охватом запроса
 * it completely segments new and old code paths; refactoring old code to support a new feature _violates_ the feature-flag contract
-* feature flags are eventually removed after the feature is released
+* флаги фиксации в конце концов удаляются после выхода функции
 
-# Semantic Commits
+# Семантические коммиты
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Мы стремимся к повышению четкости на всех уровнях процесса обновления и выпуска. Начиная с `2.0.0` , нам потребуется придерживаться спецификации [Обычные Коммиты](https://conventionalcommits.org/) для pull-запросов, которая может быть обобщена следующим образом:
 
 * Commits that would result in a SemVer **major** bump must start their body with `BREAKING CHANGE:`.
 * Commits that would result in a SemVer **minor** bump must start with `feat:`.
 * Commits that would result in a SemVer **patch** bump must start with `fix:`.
 
 * Мы разрешаем размывать коммиты при условии, что это сообщение приближается к указанному выше формату сообщения.
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+* Допустимо наличие некоторых фиксаций в pull-запросе, чтобы он не включал семантический префикс, до тех пор, пока заголовок Pull Request содержит значимое охватывающее семантическое сообщение.
 
-# Versioned `master`
+# Версия `master`
 
-* The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-* Release branches are never merged back to master
+* Ветка `master` всегда будет содержать следующую основную версию `X.0.0-nightly.DATE` в `package.json`
+* Отпустить ветки никогда не сливаются с master
 * Release branches _do_ contain the correct version in their `package.json`
-* Как только выпускная ветка будет перерезана на основной, мастер должен быть доставлен к следующему основному.  То есть `мастер-` всегда версируется в качестве следующей теоретической ветки релиза
+* Как только выпускная ветка будет перерезана на основной, мастер должен быть доставлен к следующему основному.  I.e. `master` is always versioned as the next theoretical release branch
