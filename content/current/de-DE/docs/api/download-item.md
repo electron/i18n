@@ -2,9 +2,9 @@
 
 > Control file downloads from remote sources.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
 // Im Hauptprozess.
@@ -41,8 +41,8 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `progressing` or `interrupted`.
+* `event` Event
+* `state` String - Can be `progressing` or `interrupted`.
 
 Emitted when the download has been updated and is not done.
 
@@ -55,8 +55,8 @@ The `state` can be one of following:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `event` Event
+* `state` String - Can be `completed`, `cancelled` or `interrupted`.
 
 Ausgelöst, wenn der Download beendet wurde. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
@@ -173,3 +173,5 @@ Returns `Double` - Number of seconds since the UNIX epoch when the download was 
 A `String` property that determines the save file path of the download item.
 
 The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
