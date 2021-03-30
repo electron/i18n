@@ -6,7 +6,7 @@ Este repositorio viene con reglas de borrado tanto para JavaScript como para C++
 
 ## Borrador
 
-Asegúrese de que su JavaScript cumpla con la codificación de Electron estilo, run `npm run lint-js`, que se ejecutara `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. Si estás usando un editor con un sistema de plugin/addon, es posible que desees utilizar uno de los muchos [ Complementos de StandardJS ](https://standardjs.com/#are-there-text-editor-plugins), para estar informado de violaciones de estilo de codificación antes de comprometerlas.
+Asegúrese de que su JavaScript cumpla con la codificación de Electron estilo, run `npm run lint-js`, que se ejecutara `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. Si estás usando un editor con un sistema de plugin/addon, es posible que desees utilizar uno de los muchos [ Complementos de StandardJS ][standard-addons], para estar informado de violaciones de estilo de codificación antes de comprometerlas.
 
 Para ejecutar `estándar` con parámetros, ejecute `npm run lint-js --` seguido de los argumentos que quieras pasar a `estándar`.
 
@@ -57,3 +57,5 @@ Para configurar el escalamiento de pantalla:
 
 1. Presione la tecla Windows y busca _Ajustes de pantalla_.
 2. Bajo _Escalar y disposición_, asegúrese de que el dispositivo está fijado al 100%.
+
+[standard-addons]: https://standardjs.com/#are-there-text-editor-plugins
