@@ -149,7 +149,7 @@ cliente
   .end()
 ```
 
-## Fluxo de trabalho
+## Workflow
 
 Para testar sua aplicação sem reconstruir o Electron, [lugar](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) seu aplicativo fonte no diretório de recursos do Electron.
 
