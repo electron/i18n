@@ -51,7 +51,7 @@ Le module `protocol` dispose des méthodes suivantes :
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** Cette méthode ne peut être utilisée qu'avant l'événement `ready` du `app` est émis et ne peut être appelé qu'une seule fois.
+**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
 
@@ -76,7 +76,7 @@ Par exemple lorsque vous chargez la page suivante avec un protocole personnalis�
 </body>
 ```
 
-L'enregistrement d'un schéma en tant que standard permettra l'accès aux fichiers via l'API [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Sinon, le moteur de rendu lancera une erreur de sécurité pour le schéma.
+L'enregistrement d'un schéma en tant que standard permettra l'accès aux fichiers via l'API [FileSystem API][file-system-api]. Sinon, le moteur de rendu lancera une erreur de sécurité pour le schéma.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -281,3 +281,5 @@ Remove the interceptor installed for `scheme` and restore its original handler.
 * `scheme` String
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
