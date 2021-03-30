@@ -16,7 +16,7 @@ Beaker ist ein partizipatorischer Browser. Es ist ein Browser für Indie-Hacker.
 
 Das Web ist geschlossene Quelle. Wenn Sie beeinflussen wollen, wie Social Media funktioniert, müssen Sie bei Facebook oder Twitter arbeiten. Für die Suche, Google. Die Kontrolle liegt in den Händen der Unternehmen und nicht in den Händen der Nutzer selbst.
 
-Mit Beaker haben wir ein neues Web-Protokoll: den [dezentralisierten Archivtransport](https://datprotocol.com). "Datum" Es erstellt kostenlose Websites bei Bedarf und teilt sie dann vom Gerät aus. Keine Server erforderlich. Das ist unsere Innovation.
+Mit Beaker haben wir ein neues Web-Protokoll: den [dezentralisierten Archivtransport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. Keine Server erforderlich. Das ist unsere Innovation.
 
 ![Beakers Protokolle](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
@@ -35,8 +35,8 @@ Wir haben [ein Kommandozeilenwerkzeug namens bkr](https://github.com/beakerbrows
 ```bash
 $ cd ~/my-site
 $ bkr init
-$ echo "Hallo, world!" > index.html
-$ bkr veröffentlichen
+$ echo "Hello, world!" > index.html
+$ bkr publish
 ```
 
 Und hier ist Forking eine Website:
@@ -44,8 +44,8 @@ Und hier ist Forking eine Website:
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
 $ cd ~/my-fork
-$ echo "Meine Fork hat keine Rücksicht auf den vorherigen Index. tml!" > index.html
-$ bkr veröffentlichen
+$ echo "My fork has no regard for the previous index.html!" > index.html
+$ bkr publish
 ```
 
 Diese Seiten werden dann aus Ihrem Browser gehostet. Es ist ein wenig wie BitTorrent; Sie teilen die Seiten in einem P2P-Netz.
