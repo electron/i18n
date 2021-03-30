@@ -2,31 +2,31 @@
 
 ## Avertissement
 
-La balise `webview` d'Electron est basée sur la webview [de `Chromium`](https://developer.chrome.com/docs/extensions/reference/webviewTag/), qui subit des changements architecturaux spectaculaires. Cela affecte la stabilité des `webviews`, y compris le rendu, la navigation et le routage des événements. Nous recommandons actuellement de ne pas utiliser la balise `webview` et de considérer des alternatives, comme `iframe`, Electron's `BrowserView`, ou une architecture qui évite complètement le contenu intégré.
+La balise `webview` d'Electron est basée sur la webview [de `Chromium`][chrome-webview], qui subit des changements architecturaux spectaculaires. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
 ## Enabling
 
-Par défaut, la balise `webview` est désactivée dans Electron >= 5.  Vous devez activer la balise en définissant l'option `webviewTag ` des webPréferenceslors de l'instanciation de votre `BrowserWindow`. Pour plus d'information voir la doc pour : [BrowserWindow constructor ](browser-window.md).
+Par défaut, la balise `webview` est désactivée dans Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Vue d'ensemble
 
-> Affiche un contenu web externe dans une frame et un processus isolés.
+> Display external web content in an isolated frame and process.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. Une page intégrée dans votre application gère la façon dont le contenu est mis en page et affiché.
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. Cela protège votre application du contenu incorporé. **Remarque :** La plupart des méthodes appelées sur la webview à partir de la page hôte nécessitent un appel synchrone au processus principal.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Remarque :** La plupart des méthodes appelées sur la webview à partir de la page hôte nécessitent un appel synchrone au processus principal.
 
-## Example
+## Exemple
 
-Pour intégrer une page web dans votre application, ajoutez la balise `webview` à la page de votre application qui va l'intégrer (c'est la page de l'application qui affichera le contenu de cette page). Dans sa forme la plus simple la balise `webview` inclut la `src` de la page web et les styles css qui contrôlent l'apparence du conteneur `webview`:
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Si vous voulez contrôler de quelque manière que ce soit le contenu hébergé , vous pouvez écrire du JavaScript qui écoute les événements `webview` et répond à ces événements en utilisant les méthodes de la `webview`. Voici un exemple de code avec deux écouteurs d'événements : un qui écoute quand la page web commence à télécharger, l'autre quand la page web arrête le chargement, et affiche un message "loading..." pendant le temps de chargement :
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
@@ -48,11 +48,11 @@ Si vous voulez contrôler de quelque manière que ce soit le contenu hébergé ,
 </script>
 ```
 
-## Implémentation interne
+## Internal implementation
 
-Dans les détails `webview` est implémentée avec des [iframes hors processus (OOPIF)](https://www.chromium.org/developers/design-documents/oop-iframes). La balise `webview` est essentiellement un élément personnalisé utilisant un DOM fantôme pour encapsuler un élément `iframe`.
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
-Donc, le comportement d'une `webview` est très similaire à une `iframe ` cross-domain, comme dans ces exemples :
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
 * You can not add keyboard, mouse, and scroll event listeners to `webview`.
@@ -74,9 +74,9 @@ La balise `webview` possède les attributs suivants :
 
 Un `String` représentant l'URL visible. Writing to this attribute initiates top-level navigation.
 
-En affectant sa propre valeur l'attribut `src` on rechargera la page actuelle.
+Assigning `src` its own value will reload the current page.
 
-L'attribut `src` peut également accepter des URL de données, telles que `data:text/plain,Hello, world !`.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
 ### `nodeintegration`
 
@@ -84,7 +84,7 @@ L'attribut `src` peut également accepter des URL de données, telles que `data:
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-A `Boolean`. Lorsque cet attribut est présent, la page hébergée dans la `webview ` pourra utiliser les API de node de nœud telles que `require` ou `process` pour accéder à des ressources système de bas niveau. Node integration est désactivée par défaut dans la page hébergée .
+A `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `nodeintegrationinsubframes`
 
@@ -116,7 +116,7 @@ A `Boolean`. When this attribute is present the guest page in `webview` will be 
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-`String ` (facultatif) Spécifie un script qui sera chargé avant les autres scripts exécutés dans la page hébergée. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
 When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
@@ -181,7 +181,7 @@ The string follows the same format as the features string in `window.open`. A na
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ## Méthodes
 
@@ -197,7 +197,7 @@ La balise `webview` possède les méthodes suivantes :
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Exemple**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -852,3 +852,6 @@ Retourne :
 ### Événement : 'devtools-focused'
 
 Émis lorsque la DevTools est active / ouverte.
+
+[runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
+[chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
