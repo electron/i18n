@@ -4,7 +4,7 @@
 
 Мудрость и информация о том, как создавать производительные сайты с JavaScript обычно применимы и к Electron. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
 
-Этот список предоставлен для вашего удобства – и это, так же, как и наш [контрольный список](./security.md) – не предназначен для исчерпывающего характера. Вероятно, для создания медленного приложения Electron, которое следовало бы всем шагам, описанным ниже. Electron — это мощная платформа для разработки, позволяющая разработчикам делать больше или меньше того, что вы хотите. Вся эта свобода означает, что производительность в значительной степени вашей ответственности.
+This list is provided for your convenience – and is, much like our [security checklist][security] – not meant to exhaustive. Вероятно, для создания медленного приложения Electron, которое следовало бы всем шагам, описанным ниже. Electron — это мощная платформа для разработки, позволяющая разработчикам делать больше или меньше того, что вы хотите. Вся эта свобода означает, что производительность в значительной степени вашей ответственности.
 
 ## Измерение, Измерение, Измерение
 
@@ -16,8 +16,8 @@
 
 ### Рекомендуемое чтение
 
-* [Начните с анализа производительности Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
-* [Говорить: "Визуальный код студии - первая секунда"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [Начните с анализа производительности Runtime Performance][chrome-devtools-tutorial]
+* [Говорить: "Визуальный код студии - первая секунда"][vscode-first-second]
 
 ## Checklist
 
@@ -25,9 +25,9 @@
 
 1. [Безвозвратно включая модули](#1-carelessly-including-modules)
 2. [Загрузка и запуск кода слишком скоро](#2-loading-and-running-code-too-soon)
-3. [Блокировка основного процесса](#3-blocking-the-main-process)
+3. [Блокирование главного процесса](#3-blocking-the-main-process)
 4. [Блокировка процесса рендерера](#4-blocking-the-renderer-process)
-5. [Ненужные polyfills](#5-unnecessary-polyfills)
+5. [Необязательные полифилы](#5-unnecessary-polyfills)
 6. [Нет необходимости или блокирует сетевые запросы](#6-unnecessary-or-blocking-network-requests)
 7. [Составь свой код](#7-bundle-your-code)
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Выполнение этой команды приводит к появлению файла `.cpuprofile` и файла `.heapprofile` в папке, в которой вы его запустили. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![performance-cpu-prof](../images/performance-cpu-prof.png)
+![performance-cpu-prof][]
 
-![performance-heap-prof](../images/performance-heap-prof.png)
+![performance-heap-prof][]
 
 В этом примере на машине автора мы увидели, что загрузка `запроса` заняла почти половину секунды, в то время как `node-fetch` занимал значительно меньше памяти и менее 50 мс.
 
@@ -117,12 +117,12 @@ const fs = require('fs')
     // асинхронной версии.
     this.files = this.files || await fs.readdir('.')
 
-    вернуться к этому. iles
+    return this.files
   }
 
   async getParsedFiles () {
-    // Наш вымышленный foo-parser - большой и дорогой модуль для загрузки, so
-    // Отложить эту работу до тех пор, пока нам не нужно разбирать файлы.
+    // Our fictitious foo-parser is a big and expensive module to load, so
+    // defer that work until we actually need to parse files.
     // Поскольку `require()` поставляется с кэшем модуля, `require()` call
     // будет дорого только один раз - последующие вызовы `getParsedFiles()`
     // будут быстрее.
@@ -143,13 +143,13 @@ module.exports = { parser }
 
 ## 3) Блокировка основного процесса
 
-Основной процесс Electron (иногда называемый "процесс браузера") является особенным: родительский процесс для всех других процессов вашего приложения и основной процесс взаимодействия с операционной системой. Он обрабатывает окна, взаимодействия, и взаимодействие между различными компонентами в вашем приложении. Также он содержит поток пользовательского интерфейса .
+Основной процесс Electron (иногда называемый "процесс браузера") является особенным: родительский процесс для всех других процессов вашего приложения и основной процесс взаимодействия с операционной системой. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
 Ни при каких обстоятельствах вы не должны блокировать этот процесс и пользовательскую тему длинными операциями. Блокировка пользовательского интерфейса означает, что все ваше приложение заморозится до тех пор, пока главный процесс не будет готов продолжить обработку.
 
 ### Почему?
 
-Главный процесс и пользовательский интерфейс по сути являются контрольной башней для основных операций внутри вашего приложения. Когда операционная система расскажет вашему приложению нажать на кнопку , он будет проходить главный процесс до того, как он достигнет вашего окна. Если в окне отображается гладкая бабочка, он должен поговорить с процессом GPU о нем – еще раз пройдя через основной процесс.
+The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. Если в окне отображается гладкая бабочка, он должен поговорить с процессом GPU о нем – еще раз пройдя через основной процесс.
 
 Electron и Chromium осторожно помещают операции ввода-вывода и CPU-привязки к процессору в новые потоки, чтобы избежать блокировки пользовательского интерфейса. Вы должны сделать то же самое.
 
@@ -157,7 +157,7 @@ Electron и Chromium осторожно помещают операции вво
 
 Мощная многопроцессная архитектура Electron готова помочь с долгосрочными задачами, но также включает небольшое количество ловушек производительности.
 
-1) Для долгих запущенных процессорных задач, используйте [рабочих потоков](https://nodejs.org/api/worker_threads.html), рассмотреть вопрос о перемещении их в браузерное окно, или (в качестве последнего средства) порождает целеустремленный процесс.
+1) For long running CPU-heavy tasks, make use of [worker threads][worker-threads], consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
 
 2) Avoid using the synchronous IPC and the `remote` module as much as possible. Хотя есть законные варианты использования, слишком легко случайно заблокировать пользовательский интерфейс, используя удаленный</code> модуль `.</p>
 
@@ -178,9 +178,9 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 Вообще говоря, все советы по созданию эффективных веб-приложений для современных браузеров применимы и к устройствам работы Electron. Две основные инструменты , находящиеся в вашем распоряжении в настоящее время `requestIdleCallback()` для небольших операций и `Web Workers` для длительных операций.
 
-*`requestIdleCallback()`* позволяет разработчикам выставить функцию в очередь на выполнение сразу же после входа процесса в период простоя. Это позволяет выполнять низкоприоритетную или фоновую работу без ущерба для пользовательского опыта. Для получения дополнительной информации о том, как его использовать, [ознакомьтесь с документацией по MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* позволяет разработчикам выставить функцию в очередь на выполнение сразу же после входа процесса в период простоя. Это позволяет выполнять низкоприоритетную или фоновую работу без ущерба для пользовательского опыта. For more information about how to use it, [check out its documentation on MDN][request-idle-callback].
 
-*Web Workers* является мощным инструментом для запуска кода в отдельном потоке. Есть некоторые предостережения для рассмотрения – обратитесь к документации Electron [многопоточности](./multithreading.md) и [MDN документации для Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). Они являются идеальным решением для любой операции, требующей большой мощности процессора в течение длительного периода времени.
+*Web Workers* является мощным инструментом для запуска кода в отдельном потоке. There are some caveats to consider – consult Electron's [multithreading documentation][multithreading] and the [MDN documentation for Web Workers][web-workers]. Они являются идеальным решением для любой операции, требующей большой мощности процессора в течение длительного периода времени.
 
 ## 5) Ненужные polyfills
 
@@ -198,7 +198,7 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 Действует при том предположении, что многополы в текущих версиях Electron не нужны. Если у вас есть сомнения, проверьте [caniuse. om](https://caniuse.com/) и проверьте, поддерживает ли [версия Chromium, используемая в вашей Electron версии](../api/process.md#processversionschrome-readonly) функцию, которую вы хотите.
 
-Кроме того, внимательно изучите используемые вами библиотеки. Действительно ли они необходимы? Например, `jQuery`, был настолько успешным, что многие его функции теперь являются частью [стандартного набора возможностей JavaScript](http://youmightnotneedjquery.com/).
+Кроме того, внимательно изучите используемые вами библиотеки. Действительно ли они необходимы? Например, `jQuery`, был настолько успешным, что многие его функции теперь являются частью [стандартного набора возможностей JavaScript][jquery-need].
 
 Если вы используете транспонлер/компилятор, например TypeScript, изучите его конфигурацию и убедитесь, что вы ориентируетесь на последнюю версию ECMAScript, поддерживаемую Electron.
 
@@ -224,7 +224,7 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 В качестве следующего шага включите `сетевой тротлинг`. Найдите выпадающий список, который читает `Онлайн` и выберите более медленную скорость, такую как `Быстрое 3G`. Перезагрузите ваш рендерер и проверьте, есть ли какие-либо ресурсы, которые ваше приложение неоправданно ожидает. Во многих случаях приложение ждет завершения сетевого запроса , несмотря на то, что он фактически не нуждается в соответствующем ресурсе.
 
-Подсказка: загрузка ресурсов из интернета, которые вы можете изменить , без доставки обновлений приложения является мощной стратегией. Для расширенного контроля над загрузкой ресурсов , рассмотрите возможность инвестирования в [Рабочие Сервисы](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+Подсказка: загрузка ресурсов из интернета, которые вы можете изменить , без доставки обновлений приложения является мощной стратегией. For advanced control over how resources are being loaded, consider investing in [Service Workers][service-workers].
 
 ## 7) Набор вашего кода
 
@@ -238,4 +238,19 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 Там есть много пакетов JavaScript, и мы знаем лучше, чем угрожать сообществу, рекомендуя один инструмент по отношению к другому. Тем не менее, мы рекомендуем вам использовать комплект, способный работать с уникальной средой , которая должна работать с обоими узлами. и окружения браузеров.
 
-Начиная с написания этой статьи, популярные варианты включают [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), и [rollup.js](https://rollupjs.org/).
+As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
+
+[security]: ./security.md
+[performance-cpu-prof]: ../images/performance-cpu-prof.png
+[performance-heap-prof]: ../images/performance-heap-prof.png
+[chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
+[worker-threads]: https://nodejs.org/api/worker_threads.html
+[web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[request-idle-callback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[multithreading]: ./multithreading.md
+[jquery-need]: http://youmightnotneedjquery.com/
+[service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
+[parcel]: https://parceljs.org/
+[rollup]: https://rollupjs.org/
+[vscode-first-second]: https://www.youtube.com/watch?v=r0OeHRUCCb4
