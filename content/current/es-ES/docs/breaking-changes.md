@@ -4,13 +4,13 @@ Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desa
 
 ### Tipos de cambios de ruptura
 
-Este documento usa la siguiente convención para clasificar los cambios de ruptura:
+Este documento utiliza la siguiente convención para clasificar los cambios de ruptura:
 
-* **API Modificada:** Se cambió una API de tal manera que se garantiza que el código que no ha sido actualizado produzca una excepción.
-* **Comportamiento Modificado: ** El comportamiento de Electron ha cambiado, pero no de tal manera que una excepción se produzca necesariamente.
-* **Valor por defecto Modificado:** Código dependiente del viejo valor por defecto puede romperse, no necesariamente lanzando una excepción. El comportamiento antiguo puede ser restaurado especificando explícitamente el valor.
+* **API cambiada:** Una API fue cambiada de tal manera que el código que no ha sido actualizado se garantiza para arrojar una excepción.
+* **Comportamiento Cambiado:** El comportamiento de Electron ha cambiado, pero no de tal manera que necesariamente se lanzará una excepción.
+* **Predeterminado cambiado:** El código dependiendo del valor predeterminado puede romperse, no necesariamente arrojando una excepción. El comportamiento antiguo se puede restaurar especificando explícitamente el valor.
 * **Obsoleto:** Una API fue marcada como obsoleta. La API continuará funcionando, pero emitirá una advertencia de desaprobación y será eliminada en una futura versión.
-* **Eliminado:** Una API o característica fue eliminada y ya no es compatible por Electron.
+* **Eliminado:** Se ha eliminado una API o característica y ya no es compatible con Electron.
 
 ## Cambios planeados en la API(14.0)
 
@@ -410,7 +410,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Eliminado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función fue obsoleta en Electron 8.x, y se ha eliminado en Electron 9.x. Los límites de nivel de diseño ahora se fijan al menos 0. 5 y un máximo de 5.0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función fue marcada como obsoleta en Electron 8.x, y ha sido eliminada en Electron 9.x. Los niveles de zoom limites ahora están fijados a un mínimo de 0.25 y un máximo de 5.0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportamiento cambiado: Enviar objetos no JS sobre IPC ahora arroja una excepción
 
@@ -426,7 +426,7 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 
 ### Comportamiento cambiado: Los valores enviados a través de IPC ahora se serializan con el algoritmo de clon estructurado
 
-El algoritmo usado para serializar los objetos enviados sobre IPC (mediante `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` y métodos relacionados) han sido cambiados de un algoritmo personalizado a los de V8 [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), el mismo algoritmo usado para serializar los mensajes para `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
 
 * Enviar Functions, Promises, WeakMaps, WeakSets, o objetos que contengan tales valores sobre IPC no lanzará ninguna excepción, en lugar de convertir las funciones a `undefined`.
 
@@ -497,7 +497,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Desaprobado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función emitirá una advertencia en Electron 8.x y dejará de existir en Electron 9.x. Los limites del nivel de zoom del layout ahora se fijaron a un mínimo de 0.25 y a un máximo de 5.0, como se definió [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Deprecated events in `systemPreferences`
 
@@ -779,7 +779,7 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 | `nodeIntegration`  | `cierto`                             | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-Por ejemplo, rehabilitar la webviewTag
+Por ejemplo. Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -1159,3 +1159,5 @@ Cada versión de Electrón incluye dos versiones de ARM idénticas con diferente
 El archivo _sin el prefijo_ todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. A partir de 2.0, el archivo sin prefijo ya no será publicado.
 
 Para más detalles, vea: [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).
+
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
