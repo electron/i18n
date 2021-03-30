@@ -80,8 +80,8 @@ No macOS, agora você pode chamar o aplicativo `. howAboutPanel()` para mostrar 
 `instâncias do WebContents` agora têm um método `setBackgroundThrottling(permitido)` para ativar ou desativar a redução de temporizadores e animações quando a página está com back-ground.
 
 ```javascript
-let win = new BrowserWindow(...)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+let win = novo BrowserWindow(...)
+win.webContents.setBackgroundThrottling (habilitarBackgroundThrottling)
 ```
 
 Consulte [a `setBackgroundThrottling` documentação](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) para obter mais informações.
