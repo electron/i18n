@@ -4,7 +4,7 @@
 
 JavaScript でパフォーマンスの高いウェブサイトを構築する方法に関する知恵と情報は、Electron アプリにも一般的に適用されます。 ある程度であれば、パフォーマンスの高い Node.js アプリケーションを構築する方法を述べたノウハウも適用されますが、Node.js バックエンドでの "パフォーマンス" という用語はクライアントで実行されるアプリケーションとは異なることを意味することに注意してください。
 
-このリストは利便性のために提供されており、[セキュリティチェックリスト](./security.md) とよく似ていますが、完全なものではありません。 以下に概説するすべての手順に従っても、遅い Electron アプリを構築してしまうかもしれません。 Electron は強力な開発プラットフォームであり、開発者であるあなたがやりたいことは多かれ少なかれ行うことができます。 その自由はパフォーマンスがほとんどあなたの責任であることを意味します。
+このリストは利便性のために提供されており、[セキュリティチェックリスト][security] とよく似ていますが、完全なものではありません。 以下に概説するすべての手順に従っても、遅い Electron アプリを構築してしまうかもしれません。 Electron は強力な開発プラットフォームであり、開発者であるあなたがやりたいことは多かれ少なかれ行うことができます。 その自由はパフォーマンスがほとんどあなたの責任であることを意味します。
 
 ## 計って、測って、図る
 
@@ -16,8 +16,8 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ### 推薦図書
 
-* [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
-* [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+* [始めよう実行時パフォーマンス分析][chrome-devtools-tutorial]
+* [談話: "Visual Studio Code - 最初の一秒"][vscode-first-second]
 
 ## チェックリスト
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 このコマンドを実行すると、実行したディレクトリに `.cpuprofile` ファイルと `.heapprofile` ファイルが作成されます。 両方のファイルは、Chrome デベロッパーツールを使用して、それぞれ `Performance` および `Memory` タブを使用して分析できます。
 
-![performance-cpu-prof](../images/performance-cpu-prof.png)
+![performance-cpu-prof][]
 
-![performance-heap-prof](../images/performance-heap-prof.png)
+![performance-heap-prof][]
 
 この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
@@ -121,8 +121,8 @@ class Parser {
   }
 
   async getParsedFiles () {
-    // 架空の foo-parser はロードするには大きくて重いモジュールなので、
-    // 実際にファイルを解析する必要があるまでその動作を後回しします。
+    // この架空の foo-parser は大きくて重いモジュールであり
+    // 実際にファイルを解析する必要があるまで動作を後回しにします。
     // `require()` にはモジュールキャッシュが付属しているため、
     // この `require()` 呼び出しは 1 回だけ重く、
     // 後続の `getParsedFiles()` 呼び出しはより高速になります。
@@ -149,7 +149,7 @@ Electron のメインプロセス ("ブラウザプロセス" と呼ばれるこ
 
 ### なぜ？
 
-メインプロセスとその UI スレッドは、本質的にアプリ内の主要な操作の管制塔です。 オペレーティングシステムがマウスクリックについてアプリに通知すると、アプリはウィンドウに到達する前にメインプロセスを通過します。 ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
+メインプロセスとその UI スレッドは、基本的にアプリ内の主要な操作の制御塔です。 オペレーティングシステムがマウスクリックについてアプリに通知すると、そのクリックはウィンドウに到達する前にメインプロセスを通過します。 ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
 
 Electron と Chromium は、UI スレッドのブロックを回避するために、新しいスレッドに重いディスク I/O および CPU バウンド操作を配置するよう配慮します。 あなたもおなじようにしましょう。
 
@@ -157,7 +157,7 @@ Electron と Chromium は、UI スレッドのブロックを回避するため�
 
 Electron の強力なマルチプロセスアーキテクチャは、長時間実行するタスクを支援する準備ができていますが、少数のパフォーマンストラップも含まれています。
 
-1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread](https://nodejs.org/api/worker_threads.html) を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
+1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread][worker-threads] を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
 
 2) 同期 IPC と `remote` モジュールの使用はできるだけ避けてください。 正しい使用方法もありますが、`remote` モジュールを使用して知らないうちに UI スレッドをブロックするのは非常に容易です。
 
@@ -177,9 +177,9 @@ Electron には Chrome の最新バージョンが同梱されているため、
 
 平たく言えば、最新のブラウザー用の高性能ウェブアプリを構築するためのすべてのアドバイスは、Electron のレンダリングにも適用されます。 現在、自由に使える 2 つの主要なツールがあります。小規模な操作用の `requestIdleCallback()` と、長時間実行する操作用の `Web Workers` です。
 
-*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
+*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください][request-idle-callback]。
 
-*Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
+*Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント][multithreading] および [Web Worker の MDN ドキュメント][web-workers] を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
 
 ## 5) 不要な polyfill
 
@@ -197,7 +197,7 @@ JavaScript ベースの polyfill が Electron の同等のネイティブ機能�
 
 Electron の現在のバージョンへの ployfill は不要であるという仮定の下で操作します。 疑問がある場合は、[caniuse.com](https://caniuse.com/) を確認し、[利用している Electron のバージョンに対応した Chromium のバージョン](../api/process.md#processversionschrome-readonly) が必要な機能をサポートしているかどうかを確認してください。
 
-さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット](http://youmightnotneedjquery.com/) の一部になりました。
+さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット][jquery-need] の一部になりました。
 
 TypeScript などのトランスパイラー/コンパイラを使用している場合は、その構成を調べて、Electron でサポートされている最新の ECMAScript バージョンをターゲットにしていることを確認してください。
 
@@ -223,7 +223,7 @@ Electron アプリを作成するとき、フォントをダウンロードし�
 
 次のステップとして、`Network Throttling` を有効にします。 現在 `Online` と表示されているドロップダウンを見つけて、`Fast 3G` などの低速なものを選択します。 レンダラーをリロードし、アプリが不必要に待機しているリソースがあるかどうかを確認します。 アプリは多くの場合、実際に関連するリソースを必要としないにもかかわらず、ネットワークリクエストが完了するのを待っています。
 
-豆知識として、アプリケーションの更新を公開するのではなくインターネットから変更したいリソースをロードすることも強力な戦略です。 リソースのロード方法を高度に制御するには、[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) への注力を検討してください。
+豆知識として、アプリケーションの更新を公開するのではなくインターネットから変更したいリソースをロードすることも強力な戦略です。 リソースのロード方法を高度に制御するには、[Service Worker][service-workers] への注力を検討してください。
 
 ## 7) コードをバンドルする
 
@@ -237,4 +237,19 @@ Electron アプリを作成するとき、フォントをダウンロードし�
 
 多数の JavaScript バンドルが存在しますが、あるツールを別のツールよりも推奨してコミュニティを怒らせるよりも、良い方法が知られています。 ただし、Node.js 環境とブラウザ環境の両方を処理する必要がある Electron 独自の環境を処理できるバンドラーを使用することを推奨します。
 
-この記事を書いている時点での一般的な選択肢には、[Webpack](https://webpack.js.org/)、[Parcel](https://parceljs.org/)、および [rollup.js](https://rollupjs.org/) があります。
+この記事を書いている時点での一般的な選択肢には、[Webpack][webpack]、[Parcel][parcel]、および [rollup.js][rollup] があります。
+
+[security]: ./security.md
+[performance-cpu-prof]: ../images/performance-cpu-prof.png
+[performance-heap-prof]: ../images/performance-heap-prof.png
+[chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
+[worker-threads]: https://nodejs.org/api/worker_threads.html
+[web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+[request-idle-callback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
+[multithreading]: ./multithreading.md
+[jquery-need]: http://youmightnotneedjquery.com/
+[service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
+[parcel]: https://parceljs.org/
+[rollup]: https://rollupjs.org/
+[vscode-first-second]: https://www.youtube.com/watch?v=r0OeHRUCCb4
