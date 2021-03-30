@@ -30,7 +30,7 @@ Ghost は、プロ向け出版物作成だけに特化した新しいプラッ�
 
 ## Ghost デスクトップとは何ですか?
 
-Ghost デスクトップなら、ライターは複数のブログを一度に管理でき、執筆に集中できます。 Simple things like common writing shortcuts can't be realized in a browser, but are available in our desktop app. It allows other applications to communicate directly [with the blog via deeplinks](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md).
+Ghost デスクトップなら、ライターは複数のブログを一度に管理でき、執筆に集中できます。 一般的な執筆ショートカットのような単純なものでも、ブラウザでは実現できませんがデスクトップアプリならできます。 他のアプリケーションが [ディープリンク経由のブログ](https://github.com/tryghost/ghost-desktop/blob/master/docs/deeplinks.md) と直接通信できるようにします。
 
 ## Ghost ジャーナリズム版とは何ですか?
 
