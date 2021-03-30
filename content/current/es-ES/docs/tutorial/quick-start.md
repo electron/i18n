@@ -8,7 +8,7 @@ Por lo general, usted crea una aplicación de escritorio para un sistema operati
 
 ### Prerequisitos
 
-Antes de continuar con Electron necesita instalar [Node.js](https://nodejs.org/en/download/). Recomendamos que instale la última versión de `LTS` o `Current` disponible.
+Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que instale la última versión de `LTS` o `Current` disponible.
 
 > Por favor instale Node.js usando instaladores precompilados para su plataforma. De lo contrario, puede encontrarse con problemas de incompatibilidad con diferentes herramientas de desarrollo.
 
@@ -287,11 +287,11 @@ const win = new BrowserWindow()
 Para llamar al proceso principal desde el Renderer, utilice el módulo IPC:
 
 ```js
-// En el proceso principal
+// In the Main process
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... hacer acciones en el nombre del Renderer
+  // ... do actions on behalf of the Renderer
 })
 ```
 
@@ -329,3 +329,5 @@ Luego, en su aplicación Electron requiere el módulo:
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/
