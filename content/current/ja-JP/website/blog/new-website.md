@@ -55,7 +55,7 @@ ls electron-i18n/content
 
 Electron の素晴らしいアプリがいくつかありますが、それらを見つけるのは簡単ではありませんし、すべての開発者がアプリを市場に出して配布するために適切なウェブサイトを構築する時間やリソースを持っているわけではありません。
 
-Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. 各アプリのアイコンから抽出したカラーパレットを使用しつつ、[強調されたアクセシビリティの高い色](https://github.com/zeke/pick-a-good-color) を作成し、各アプリページに視覚の分別をつけることもできます。
+[PNG アイコンファイルとアプリメタデータが少しあれば](https://github.com/electron/electron-apps/blob/master/contributing.md)、特定のアプリに関する多くの情報を収集できます。 GitHub から収集したデータで、公開リポジトリがある全アプリのスクリーンショット、ダウンロードリンク、バージョン、リリースノート、README をアプリページに表示できるようになりました。 各アプリのアイコンから抽出したカラーパレットを使用しつつ、[強調されたアクセシビリティの高い色](https://github.com/zeke/pick-a-good-color) を作成し、各アプリページに視覚の分別をつけることもできます。
 
 [アプリのインデックスページ](https://electronjs.org/apps) には、[GraphQL GUI](https://electronjs.org/apps?q=graphql) や [p2p ツール](https://electronjs.org/apps?q=graphql) のような面白いアプリを見つけられるように、カテゴリとキーワードフィルタが追加されました。
 
