@@ -76,7 +76,7 @@ Por exemplo, quando você carrega a página seguinte com o protocolo personaliza
 </body>
 ```
 
-Registrar um esquema como padrão permitirá o acesso aos arquivos através do[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Caso contrário, o renderizador lançará um erro de segurança para o esquema.
+Registrar um esquema como padrão permitirá o acesso aos arquivos através do[FileSystem API][file-system-api]. Caso contrário, o renderizador lançará um erro de segurança para o esquema.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -281,3 +281,5 @@ Remove the interceptor installed for `scheme` and restore its original handler.
 * `scheme` String
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
