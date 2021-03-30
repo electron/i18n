@@ -31,7 +31,7 @@
     "handlebars": "^4.7.4",
     "href-type": "^1.0.1",
     "hubdown": "^2.6.0",
-    "husky": "^4.0.1",
+    "husky": "^6.0.0",
     "locale-code": "^2.0.1",
     "lodash": "^4.17.4",
     "make-dir": "^3.0.0",
@@ -76,11 +76,6 @@
   "electronMasterBranchCommit": "9fecf8369fdc37e50c4631f7f23fbbf2d4e12537",
   "engines": {
     "node": ">=10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "check-for-leaks"
-    }
   },
   "supportedVersions": [
     "10-x-y",
