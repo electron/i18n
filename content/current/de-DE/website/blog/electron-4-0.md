@@ -82,7 +82,7 @@ Bei macOS können Sie jetzt `App anrufen. howAboutPanel()` um das "Über Panel" 
 ```javascript
 lassen Sie gewinnen = new BrowserWindow(...)
 win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+win.webContents.setHintergrundThrottling(enableBackgroundThrottling)
 ```
 
 Siehe [die `setBackgroundThrottling` Dokumentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) für weitere Informationen.
