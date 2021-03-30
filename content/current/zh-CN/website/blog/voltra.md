@@ -63,15 +63,21 @@ date: '2017-03-07'
 
 我们目前处理非常大量的收藏。 大型收藏可能意味着数以万计的图像！ 拥有节点。 sh 文件系统模块可直接从渲染过程中获取，使得快速在 DOM 事件的基础上下载和卸载大量图像非常容易。
 
-In general *[setImmediate][]* and *[requestIdleCallback][]* have been super important tools for performing lots of processing while keeping the UI responsive. 更具体地说，将受CPU约束的任务分配到单独的进程确实有助于保持用户界面的响应性。 For example, we moved the actual audio context into a separate process, communicating with it over [IPC][] to avoid potential interruptions from a busy UI.
+一般来说， *[设置即时][]* 和 *[请求IdleCallback][]* 一直是执行大量处理，同时保持UI响应能力的超级重要工具。 更具体地说，将受CPU约束的任务分配到单独的进程确实有助于保持用户界面的响应性。 例如，我们将实际音频上下文移入一个单独的过程，通过 IPC</a>
+
+与它进行通信，以避免繁忙的 UI 可能中断。</p> 
+
+
 
 ## 为什么你选择在Electron上建造Voltra？
 
-The browser’s sandbox is too restricted for our app. But we are also developing a web player. 所以这是一个巨大的胜利，我们可以在两个实现之间分享几乎100%的代码。
+浏览器的沙盒对于我们的应用来说太受限制了。 但我们也在开发一个网络播放器。 所以这是一个巨大的胜利，我们可以在两个实现之间分享几乎100%的代码。
 
 我们实际上是通过使用 Swift 构建本地应用程序开始的。 我们发现的主要问题是，我们正在重新塑造许多东西。 该网络拥有世界上最大的开放源码生态系统。 所以我们很快切换到 Electron。
 
 而且，最重要的是，你可以通过 Electron 开发一次，并且它应该在所有主要平台上使用 WorkTM 。 它没有保证，但是每个平台的本地编码成本肯定超过了电子引入的任何其他成本。
+
+
 
 ## 您最喜欢的 Electron？
 
@@ -81,15 +87,18 @@ The browser’s sandbox is too restricted for our app. But we are also developin
 
 **社区**: 有一个组织严密的社区知道如何真正地沟通！ 我们非常希望以这种支持来发展。
 
+
+
 ## 在哪些领域可以改进Electron？
 
 我们希望看到Electron认可单个包装程序。 软件包对Electron 的重要性与软件包管理器对节点的同样重要。 用户土地中有多个软件包，每个软件包都有有趣的功能，但每个软件包都有漏洞。 社区的共识将有助于引导捐助方花费的精力。
+
+
 
 ## 接下来是什么？
 
 我们目前正在开发一个移动应用，与艺术家和标签合作，将他们的音乐添加到Voltra 商店。 嘿！ 如果您是艺术家或标签， [现在注册](https://admin.voltra.co/signup)！ 当我们达到1 000万条轨道的目标时，我们计划开办这家商店。
 
-[setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
-[requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
-[IPC]: https://electronjs.org/docs/glossary/#ipc
+[设置即时]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+[请求IdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
 
