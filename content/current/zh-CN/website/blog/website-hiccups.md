@@ -8,7 +8,7 @@ date: '2018-02-12'
 
 ---
 
-为了防止将来出现这种故障，我们已经在我们的应用上启用 [Heroku 阈值警报](https://devcenter.heroku.com/articles/metrics#threshold-alerting) 任何时候我们的 web 服务器都会积聚失败的请求或超越某个阈值的缓慢响应。 我们的团队将收到通知，以便我们能够 快速解决这个问题。
+To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
 
 ## 每种语言的离线文档
 
