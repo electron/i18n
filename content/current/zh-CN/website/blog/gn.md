@@ -10,11 +10,11 @@ Electron 现在使用GN来构建自己。 这里是为什么要讨论的。
 
 # GYP 和 GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP][], short for "Generate Your Projects".
+当电子在2013年首次发布时，Chromium的构建配置是用 [GYP][]编写的，简称"生成您的项目"。
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN][] (short for "Generate [Ninja][]") Chromium's build files were migrated to GN and GYP was removed from the source code.
+2014 年，Chromium 项目推出了一种名为 [GN][] 的新型构建配置工具（简称"生成 [忍者][]"）Chromium 的生成文件已迁移到 GN，GYP 从源代码中删除。
 
-Electron has historically kept a separation between the main [Electron code][] and [libchromiumcontent][], the part of Electron that wraps Chromium's 'content' submodule. Electron 已经继续使用 GYP, 而libchromiumcontent -- 作为Chromium 的子集--则在Chromium 的确切时间切换到GN
+电子在历史上一直将主要 [电子代码][] 和 [硅含量][]分离，这是电子包裹铬的"内容"亚模组的一部分。 Electron 已经继续使用 GYP, 而libchromiumcontent -- 作为Chromium 的子集--则在Chromium 的确切时间切换到GN
 
 像不很网格的渔具一样，使用两种构建系统之间存在摩擦。 维护兼容性是错误的，来自编译器的标志和 `#定义了需要仔细保持Chromium、节点、V8和Electron之间同步的`
 
@@ -32,12 +32,12 @@ GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/4806280
 
  * 它已经有助于在 Electron 4.0.0 上的开发，因为Chromium 67 已经移除了对 MSVC 的支持，并且已经切换到 Clang 在 Windows 上的建筑。 通过 GN 构建，我们直接继承了Chromium 的所有编译器命令，所以我们可以免费在 Windows 上的 Clang 构建！
 
- * It's also made it easier for Electron to use [BoringSSL][] in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * 这也使得电子更容易在电子、铬和节点的统一构建中使用 [BoringSL][] ，这在</a>之前 有问题。</p></li> </ul>
 
 
-[BoringSSL]: https://boringssl.googlesource.com/boringssl/
-[Electron code]: https://github.com/electron/electron
+[BoringSL]: https://boringssl.googlesource.com/boringssl/
+[电子代码]: https://github.com/electron/electron
 [GN]: https://gn.googlesource.com/gn/
 [GYP]: https://gyp.gsrc.io/
-[Ninja]: https://ninja-build.org/
-[libchromiumcontent]: https://github.com/electron/libchromiumcontent
+[忍者]: https://ninja-build.org/
+[硅含量]: https://github.com/electron/libchromiumcontent
