@@ -16,7 +16,7 @@ date: '2015-11-17'
 
 ## 使用内置模块的新方式
 
-Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
+内置模块现在被分组到一个模块中，而不是被分成独立的模块，因此您可以 [使用它们，而无需与其他模块][issue-387]冲突：
 
 ```javascript
 var app = require('electron').app
