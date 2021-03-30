@@ -165,7 +165,7 @@ La poderosa arquitectura multiproceso de Electron está lista para ayudarte con 
 
 ## 4) Bloquear el proceso de procesamiento
 
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+Dado que Electron se envía con una versión actual de Chrome, puede hacer uso de las últimas y mejores funciones que ofrece la plataforma web para aplazar o descargar operaciones pesadas de una manera que mantenga su aplicación fluida y receptiva.
 
 ### ¿Por què?
 

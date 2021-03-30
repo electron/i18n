@@ -2,4 +2,4 @@
 
 * `label` String (optional) - Der in diesem Segment erscheinende Text.
 * `icon` NativeImage (optional) - Das in diesem Segment erscheinende Bild.
-* `enabled` Boolean (optional) - Whether this segment is selectable. Default: true.
+* `enabled` Boolean (optional) - Ob dieses Segment auswählbar ist. Standard: true.

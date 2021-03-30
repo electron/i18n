@@ -8,19 +8,19 @@ Electron tiene un despliegue de un Goma Backend personalizado que hacemos dispon
 
 Actualmente la única forma de usar Goma es usar nuestro [Build Tools](https://github.com/electron/build-tools). Goma configuración es automáticamente incluida cuando instalas `build-tools`.
 
-If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+Si eres un mantenedor y tienes acceso a nuestro cluster, por favor asegúrate de correr `e init` con `--goma=cluster` para configurar `build-tools` para utilizar Goma cluster.  Si tienes una configuración existente, puedes establecer `"goma": "cluster"` en tu archivo de configuración.
 
 ## Construyendo con Goma
 
 Cuando estás usando Goma, puedes correr `ninja` con un valor sustancialmente alto de `j` que normalmente sería soportado por tu máquina.
 
-Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+Por favor no establezca un valor mayor a **200** en Windows o Linux y **50** en macOS. Supervisamos el uso del sistema Goma, y los usuarios que abusan de él con concurrencia irrazonable serán desactivados.
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
+Si está usando ` build-tools `, los valores apropiados de ` -j ` se usarán automáticamente.
 
 ## Monitoreando Goma
 
@@ -28,10 +28,10 @@ Si accedes a [http://localhost:8088](http://localhost:8088) en tu máquina local
 
 ## Acceso
 
-For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  Si quieres acceder, por favor dirigase a `#access-requests` en Slack y pregunte a `@goma-squad` por el acceso.  Por favor ten en cuenta que siendo un mantenedor no se concede *automáticamente* el acceso, y éste es determinado en caso por caso.
+Por razones de seguridad y costos, el acceso al cluster Goma de Electron actualmente está restringido a los Mantenedores de Electron.  Si quieres acceder, por favor dirigase a `#access-requests` en Slack y pregunte a `@goma-squad` por el acceso.  Por favor ten en cuenta que siendo un mantenedor no se concede *automáticamente* el acceso, y éste es determinado en caso por caso.
 
 ## Tiempo de actividad / Soporte
 
-We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
+Hemos automatizado el monitoreo de nuestro clúster Goma y caché en https://status.notgoma.com
 
-We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
+No proporcionamos soporte para el uso de Goma cualquier propuesta planteada pidiendo ayuda / teniendo problemas _probablemente_ se cerrarán sin mucha razón, no tenemos la capacidad para manejar ese tipo de soporte.

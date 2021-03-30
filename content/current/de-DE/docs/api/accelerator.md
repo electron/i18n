@@ -46,7 +46,7 @@ Verwenden Sie `Alt` anstelle von `Option`. `Option` existiert nur unter macOS, w
 * `0` bis `9`
 * `A` bis `Z`
 * `F1` bis `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space (Leerzeichen)`
 * `Tab`

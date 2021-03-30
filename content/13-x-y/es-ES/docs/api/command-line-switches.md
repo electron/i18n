@@ -71,6 +71,12 @@ Escribe registros de Chromium en la consola.
 
 Esta opción no puede ser usada en `app.commandLine.appendSwitch` ya que es procesada antes que la app del usuario es cargada, pero puedes establecer la variable de entorno `ELECTRON_ENABLE_LOGGING` para lograr el mismo efecto.
 
+## --force-fieldtrials=`trials`
+
+Field trials to be forcefully enabled or disabled.
+
+For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`rules`
 
 Lista de `rules` separadas por coma que controlan como los nombres de host son mapeados.

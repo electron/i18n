@@ -70,6 +70,12 @@ Envoie les traces de Chromium à la console.
 
 Ce commutateur ne peut pas être utilisé dans `app.commandLine.appendSwitch` car il est pris en compte avant que l'app utilisateur soit chargée, mais vous pouvez activer la variable d'environnement `ELECTRON_ENABLE_LOGGING` pour obtenir le même résultat.
 
+## --force-fieldtrials=`trials`
+
+Les essais sur le terrain doivent être activés ou désactivés de force.
+
+For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`rules`
 
 Une liste séparée par des virgules de `rules` qui contrôle comment les noms d'hôtes sont mappés.
