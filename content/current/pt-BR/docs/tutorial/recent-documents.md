@@ -6,13 +6,13 @@ Windows e macOS fornecem acesso a uma lista de documentos recentes abertos pelo 
 
 __JumpList:__
 
-![Arquivos recentes do JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Arquivos recentes do JumpList][1]
 
 __Menu dock de aplicação:__
 
-![Menu Dock do macOS](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![Menu Dock do macOS][2]
 
-Para adicionar um arquivo a documentos recentes, você precisa usar a API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows).
+To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
 
 ## Exemplo
 
@@ -32,7 +32,7 @@ Após iniciar o aplicativo Electron, clique com o botão direito no ícone do ap
 
 ### Limpar a lista de documentos recentes
 
-Para limpar a lista de documentos recentes, você precisa usar a [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API no arquivo `main.js`:
+To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
 
 ```javascript
 const { app } = require('electron')
@@ -44,7 +44,7 @@ app.clearRecentDocuments()
 
 ### Notas do Windows
 
-Para usar este recurso no Windows, seu aplicativo precisa ser registrado como um manipulador do tipo de arquivo do documento, caso contrário, o arquivo não aparecerá no JumpList mesmo depois de adicioná-lo. Você pode encontrar tudo o que ao registrar seu aplicativo no [Registro de Aplicação](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Para usar este recurso no Windows, seu aplicativo precisa ser registrado como um manipulador do tipo de arquivo do documento, caso contrário, o arquivo não aparecerá no JumpList mesmo depois de adicioná-lo. You can find everything on registering your application in [Application Registration][app-registration].
 
 Quando um usuário clica em um arquivo do JumpList, uma nova instância de sua aplicação será iniciada com o caminho do arquivo adicionado como um argumento de linha de comando.
 
@@ -71,6 +71,13 @@ Você pode adicionar itens de menu para acessar e limpar documentos recentes adi
 }
 ```
 
-![Item de menu recentes do macOS Documents](https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png)
+![Item de menu recentes do macOS Documents][6]
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+
+[1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
+[2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png
+[6]: https://user-images.githubusercontent.com/3168941/33003655-ea601c3a-cd70-11e7-97fa-7c062149cfb1.png
+[addrecentdocument]: ../api/app.md#appaddrecentdocumentpath-macos-windows
+[clearrecentdocuments]: ../api/app.md#appclearrecentdocuments-macos-windows
+[app-registration]: https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx
