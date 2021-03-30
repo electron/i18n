@@ -524,7 +524,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 * `options` Object (optional)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+On Linux, focuses on the first visible window. Macht unter macOS die Anwendung zur aktiven Anwendung. Unter Windows: Fokussiert es das erste Fenster der Anwendung.
 
 Du solltest versuchen, die `steal` Option so selten wie möglich zu verwenden.
 
@@ -979,7 +979,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1051,7 +1051,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Hinweis:** Das Rendern des Barrierefreiheits-Baums kann die Leistung Ihrer App erheblich beeinträchtigen. Es sollte nicht standardmäßig aktiviert sein.
 
 ### `app.showAboutPanel()`
 
@@ -1100,7 +1100,7 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 ### `app.enableSandbox()`
 
-Aktiviert den vollen Sandbox-Modus auf der App. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Aktiviert den vollständigen Sandbox-Modus für die App. Das bedeutet, dass alle Renderer in der Sandbox gestartet werden, unabhängig vom Wert des Flags `sandbox` in den WebPreferences.
 
 Diese Methode kann nur vor dem Start der App aufgerufen werden.
 
@@ -1169,7 +1169,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Hinweis:** Das Rendern des Barrierefreiheits-Baums kann die Leistung Ihrer App erheblich beeinträchtigen. Es sollte nicht standardmäßig aktiviert sein.
 
 ### `app.applicationMenu`
 
@@ -1181,7 +1181,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
