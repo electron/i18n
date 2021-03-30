@@ -29,20 +29,20 @@ const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// Reel labels
+// リールのラベル
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// 結果のラベル
 const result = new TouchBarLabel()
 
-// Spin button
+// スピンボタン
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // Ignore clicks if already spinning
+    // 常に回っていれば無視
     if (spinning) {
       return
     }
@@ -60,7 +60,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
+        // スピンごとに少し遅くする
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -84,46 +84,16 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
+    // 3 つの値がすべて同じ
+    result.label = '💰 ジャックポット!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
     // 2 つの値が同じ場合
     result.label = '😍 やったね!'
     result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
-  }
-  spinning = false
-}
-
-const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({size: 'large'}),
-  reel1,
-  new TouchBarSpacer({size: 'small'}),
-  reel2,
-  new TouchBarSpacer({size: 'small'}),
-  reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
-])
-
-let window
-
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
-  })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
+  } else if (uniqueValues === 2) {
+    // 2 つの値が同じ
+    result.label = '😍 勝利!'
 ```
 
 [1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
