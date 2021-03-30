@@ -1,15 +1,15 @@
-# systemEinstellungen
+# systemPreferences
 
 > Systemeinstellungen anschauen.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Ereignisse
 
 The `systemPreferences` object emits the following events:
 
@@ -17,23 +17,21 @@ The `systemPreferences` object emits the following events:
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `event` Event
+* `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' _Windows_
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-</ul>
+* `event` Event
 
-<h3 spaces-before="0">Event: 'inverted-color-scheme-changed' <em x-id="4">Windows</em> <em x-id="4">Deprecated</em></h3>
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
-<p spaces-before="0">Rückgabewert:</p>
+Rückgabewert:
 
-<ul>
-<li><code> Ereignis </ 0>  Ereignis</li>
-<li><code>invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `event` Event
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
@@ -186,7 +184,7 @@ Removes the `key` in `NSUserDefaults`. This can be used to restore the default o
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Returns `Boolean` - `true` if [DWM composition][dwm-composition] (Aero Glass) is enabled, and `false` otherwise.
 
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
@@ -295,7 +293,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [macOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
@@ -423,3 +421,8 @@ This property is only available on macOS 10.14 Mojave or newer.
 A `String` property that can be `dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
+[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
