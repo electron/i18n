@@ -6,7 +6,7 @@ All of [Node.js's built-in modules](https://nodejs.org/api/) are available in El
 
 Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
+The basic rule is: if a module is [GUI][gui] or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
 
 Das Main-Prozess Script ist wie ein normales Node.js Script:
 
@@ -38,7 +38,7 @@ To run your app, read [Run your app](../tutorial/quick-start.md#run-your-applica
 
 ## Destructuring assignment
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+As of 0.37, you can use [destructuring assignment][destructuring-assignment] to make it easier to use built-in modules.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -78,3 +78,6 @@ app.whenReady().then(() => {
   win.loadURL('https://github.com')
 })
 ```
+
+[gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
+[destructuring-assignment]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
