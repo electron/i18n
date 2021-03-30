@@ -25,7 +25,7 @@ Unsere Kriterien und Erwartungen für den Beitritt von Apps zu diesem Programm b
 ## Benutzer-Stunden
 Wir verstehen, dass nicht jeder exakte Benutzernummern teilen kann, aber bessere Daten helfen uns zu entscheiden, wie stabil eine bestimmte Version ist. Wir bitten darum, dass sich Apps dazu verpflichten, eine Mindestanzahl von Benutzerstunden, derzeit 10.000 im Beta-Zyklus, zu testen.
 - 10 Benutzer-Stunden könnten 10 Personen für eine Stunde testen oder eine Person für 10 Stunden testen
-- Sie können das Testen auf Beta-Versionen aufteilen, zum Beispiel auf 3.0.0-Beta für 5.000 User-Stunden. und dann 5.000 Userstunden auf 3.0.0-beta.5 testen. Mehr ist besser, aber wir verstehen, dass einige Anwendungen nicht jede Beta-Version testen können
+- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
 - CI oder QA Stunden zählen nicht auf die Gesamtanzahl; interne Releases zählen jedoch
 
 ## Warum sollte meine Electron-App beitreten?
