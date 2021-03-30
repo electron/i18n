@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2016-12-09'
 ---
 
-Electron [1.4. 2](https://github.com/electron/electron/releases/tag/v1.4.12) contém uma atualização importante que corrige um problema a montante do Chrome onde algum Symantec, GeoTrust, e os certificados Thawte SSL/TLS são rejeitados incorretamente 10 semanas do tempo de compilação do [libchromiumcontent](https://github.com/electron/libchromiumcontent), biblioteca do Chrome subjacente do Electron. Não há problemas com os certificados usados nos sites afetados e a substituição destes certificados não ajudará.
+Electron [1.4.12][] contains an important patch that fixes an upstream Chrome issue where some Symantec, GeoTrust, and Thawte SSL/TLS certificates are incorrectly rejected 10 weeks from the build time of [libchromiumcontent][], Electron's underlying Chrome library. Não há problemas com os certificados usados nos sites afetados e a substituição destes certificados não ajudará.
 
 ---
 
@@ -96,4 +96,7 @@ Você pode ler mais sobre esse tópico, a issue original e a correção nos segu
 - [Problema Chrome 664177](https://bugs.chromium.org/p/chromium/issues/detail?id=664177)
 - [Correção do Chrome para o problema 664177](https://codereview.chromium.org/2495583002)
 - [patch libchromiumcontent para issue 664177](https://github.com/electron/libchromiumcontent/pull/248)
+
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
+[1.4.12]: https://github.com/electron/electron/releases/tag/v1.4.12
 
