@@ -5,9 +5,9 @@
 ## Требования
 
 * Как минимум 25 ГБ дискового пространства и 8 ГБ памяти.
-* Python 2.7.x. Некоторые дистрибутивы, такие как CentOS 6.x, по-прежнему используют Python 2.6.x, поэтому вам нужно проверить версию Python командой `python -V`.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  Также убедитесь, что ваша система и версия Python поддерживают как минимум TLS 1.2. Для быстрого теста запустите следующий скрипт:
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
   $ npx @electron/check-python-tls
