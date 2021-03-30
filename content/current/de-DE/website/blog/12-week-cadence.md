@@ -30,7 +30,7 @@ Bitte erwägen Sie, unserem [App Feedback Programm](https://electronjs.org/blog/
 
 ## 📝 Eine kurze Geschichte der Electron-Veröffentlichungen
 
-Die Entscheidungen über stabile Releases vor v3.0.0 folgten nicht einem Zeitplan. Wir haben dem Projekt interne Zeitpläne mit v3.0.0 und v4.0.0 hinzugefügt. Anfang dieses Jahres haben wir beschlossen, unser Stable-Veröffentlichungsdatum zum ersten Mal für [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline) bekannt zu geben. Die Ankündigung unserer stabilen Veröffentlichungsdaten wurde insgesamt positiv aufgenommen und wir freuen uns, dies für zukünftige Veröffentlichungen weiterhin tun zu können.
+Die Entscheidungen über stabile Releases vor v3.0.0 folgten nicht einem Zeitplan. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Die Ankündigung unserer stabilen Veröffentlichungsdaten wurde insgesamt positiv aufgenommen und wir freuen uns, dies für zukünftige Veröffentlichungen weiterhin tun zu können.
 
 Um diese Verbesserungsbemühungen zu optimieren, unsere [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) und [Releases](https://github.com/electron/governance/tree/master/wg-releases) Arbeitsgruppen wurden in unserem [Governance](https://electronjs.org/blog/governance) System erstellt. Sie haben es uns ermöglicht, diese Arbeit besser zu priorisieren und zu delegieren, was hoffentlich mit jeder späteren Veröffentlichung deutlicher zutage treten wird.
 
