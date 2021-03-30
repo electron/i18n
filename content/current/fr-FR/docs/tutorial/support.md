@@ -22,7 +22,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 * [`electron-id`](https://electron-id.slack.com) *(Indonésien)*
 * [`electron-pl`](https://electronpl.github.io) *(Polonais)*
 
-Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Si vous souhaitez contribuer à Electron, voir le document de contribution [](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si vous découvrez une erreur dans une [version supportée](#supported-versions) d'Electron, veuillez s’il vous plaît la signaler dans notre [suivi d'erreurs](../development/issues.md).
 
