@@ -22,7 +22,7 @@ const mainWindow = new BrowserWindow({
 
 ## 移行
 
-> 私は`window.X = apiObject</0> を使ってプリロードスクリプトから API を提供していました。今はどうすればいいですか?X = apiObject` は何ですか?
+> 私は`window.X = apiObject` を使ってプリロードスクリプトから API を提供していました。今はどうすればいいですか?
 
 ロードされたウェブサイトに preload スクリプトから API を公開することは一般的なユースケースであり、Electron にはこれを簡単に行うための専用モジュールがあります。
 
