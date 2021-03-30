@@ -6,7 +6,7 @@ This repository comes with linting rules for both JavaScript and C++ – as well
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
+To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons][standard-addons] to be informed of coding style violations before you ever commit them.
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
@@ -58,3 +58,5 @@ To configure display scaling:
 
 1. Drücken Sie die Window-Taste und suchen Sie nach _Anzeigeeinstellungen_.
 2. Stellen Sie unter _Skalieren und Layout_ sicher, dass das Gerät auf 100% gesetzt ist.
+
+[standard-addons]: https://standardjs.com/#are-there-text-editor-plugins
