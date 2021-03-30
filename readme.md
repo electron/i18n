@@ -65,7 +65,7 @@ const i18n = require('electron-i18n')
 `i18n.docs` is an object with locale strings as keys:
 
 ```js
-Object.keys(i18n.docs)
+> Object.keys(i18n.docs)
 [ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
@@ -73,7 +73,6 @@ Each locale object contains an object with doc HREFs as keys:
 
 ```js
 > Object.keys(i18n.docs['en-US'])
-
 [
   '/docs/tutorial/about',
   '/docs/api/accelerator',
@@ -87,8 +86,7 @@ Each doc object contains metadata and an HTML version of itself, ready to be
 rendered:
 
 ```js
-i18n.docs['en-US']['/docs/api/app']
-
+> i18n.docs['en-US']['/docs/api/app']
 {
   locale: 'en-US',
   slug: 'app',
@@ -114,7 +112,7 @@ i18n.docs['en-US']['/docs/api/app']
 `i18n.locales` is an object with locale strings as keys:
 
 ```js
-Object.keys(i18n.locales)
+> Object.keys(i18n.locales)
 [ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
@@ -122,8 +120,7 @@ Each locale object contains language names, country info, and translation
 progress:
 
 ```js
-i18n.locales['en-US']
-
+> i18n.locales['en-US']
 { locale: 'en-US',
   languageCode: 'en',
   languageName: 'English',
@@ -144,13 +141,12 @@ i18n.locales['en-US']
 It is an object with locale strings as keys:
 
 ```js
-Object.keys(i18n.locales)
+> Object.keys(i18n.locales)
 [ 'en-US', 'fr-FR', 'ja-JP', 'zh-CN', '...']
 ```
 
 ```js
-i18n.website['fr-FR']
-
+> i18n.website['fr-FR']
 {
   tagline: 'Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS',
   nav: '...'
