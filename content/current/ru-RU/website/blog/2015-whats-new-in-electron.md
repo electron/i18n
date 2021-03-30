@@ -61,22 +61,18 @@ Atom обновлён до Electron `v0.30.6` под управлением Chro
 GitHubber [Amy Palamountain](https://github.com/ammeep) дал отличное представление о Electron в разговоре на [Nordic.js](https://nordicjs2015.confetti.events). Она также создала [-ускоритель](https://github.com/ammeep/electron-accelerator) библиотеку.
 
 #### Создание собственных приложений с Electron от Amy Palomountain
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
 [Бен Огл](https://github.com/benogle), также командой Atom , дал доклад Electron на [YAPC Asia](http://yapcasia.org/2015/):
 
 #### Создание настольных приложений с помощью веб-технологий от Ben Ogle
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
 Член команды Atom [Кевин Савицки](https://github.com/kevinsawicki) , а другие провели переговоры о Electron в [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) недавно. [видео](http://www.wagonhq.com/blog/electron-meetup) были опубликованы, вот пара:
 
 #### История Electron от Кевина Савицки
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
 #### Заставить веб-приложение чувствовать себя народным Бен Гооу
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 
