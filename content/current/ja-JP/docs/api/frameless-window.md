@@ -69,7 +69,7 @@ win.show()
 
 ## クリックスルーウインドウ
 
-クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) APIを呼び出して下さい。
+クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] APIを呼び出して下さい。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -137,3 +137,5 @@ button {
 ## コンテキストメニュー
 
 いくつかのプラットフォームでは、ドラッグ可能な領域は非クライアントのフレームとして扱われます。そのため、ドラッグ可能な領域を右クリックすると、システムメニューが現れます。 すべてのプラットフォームでコンテキストメニューが正しく動作するようにするには、絶対にカスタムのコンテキストメニューをドラッグ可能な領域で使用しないようにしてください。
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
