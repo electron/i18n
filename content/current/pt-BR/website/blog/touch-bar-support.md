@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-A versão beta do Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) contém suporte inicial para o macOS [Barra de Toque](https://developer.apple.com/macos/touch-bar).
+The Electron [1.6.3][] beta release contains initial support for the macOS [Touch Bar][].
 
 ---
 
@@ -27,41 +27,41 @@ const {app, BrowserWindow, TouchBar} = require('electron')
 
 const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
-let girando = false
+let spinning = false
 
-// Etiquetas de realm
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Rótulo de resultado de giração
+// Spin result label
 const result = new TouchBarLabel()
 
-// Botão de girar
+// Spin button
 const spin = new TouchBarButton({
-  rótulo: '🎰 Giro ',
-  fundoCor: '#7851A9',
-  clique: () => {
-    // Ignore cliques se já estiver girando
-    if (girando) {
+  label: '🎰 Spin',
+  backgroundColor: '#7851A9',
+  click: () => {
+    // Ignore clicks if already spinning
+    if (spinning) {
       return
     }
 
-    giros = true
-    result . abel = ''
+    spinning = true
+    result.label = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 segundos
-    const startTime = Date. ow()
+    const spinLength = 4 * 1000 // 4 seconds
+    const startTime = Date.now()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date. ow() - startTime) >= spinLength) {
+      if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Desacelere um pouco em cada giro
-        timeout *= 1.
+        // Slow down a bit on each spin
+        timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
     }
@@ -71,58 +71,61 @@ const spin = new TouchBarButton({
 })
 
 const getRandomValue = () => {
-  const values = ['🍒', ':gem_pedra:', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  valores de retorno[Matemática. loor(Math.random() * valores.length)]
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  return values[Math.floor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
-  reel1. abel = getRandomValue()
+  reel1.label = getRandomValue()
   reel2.label = getRandomValue()
-  reel3. abel = getRandomValue()
+  reel3.label = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1. abel, reel2.label, reel3.label]). ize
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // Todos os 3 valores são o mesmo resultado
-    . abel = '💰 Jackpot!'
-    resultado. extColor = '#FDFF00'
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
+    result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 valores são o mesmo
-    resultado. abel = '😍 Vencedor!'
-    resultado. extColor = '#FDFF00'
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    result.textColor = '#FDFF00'
   } else {
-    // Nenhum valor é o mesmo resultado
-    . abel = '🙁 Girar Novamente'
-    resultados. extColor = null
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
   }
-  giros = false
+  spinning = false
 }
 
 const touchBar = new TouchBar([
-  giros,
-  novo TouchBarSpacer({size: 'large'}),
-  fileira,
-  novo TouchBarSpacer({size: 'small'}),
-  fileiras2,
+  spin,
+  new TouchBarSpacer({size: 'large'}),
+  reel1,
   new TouchBarSpacer({size: 'small'}),
-  fileiras 3
-  novos TouchBarSpacer({size: 'large'}),
-  resultado
+  reel2,
+  new TouchBarSpacer({size: 'small'}),
+  reel3,
+  new TouchBarSpacer({size: 'large'}),
+  result
 ])
 
-let janela
+let window
 
-app. nce('ready', () => {
-  janela = new BrowserWindow({
+app.once('ready', () => {
+  window = new BrowserWindow({
     frame: false,
     titleBarStyle: 'hidden-inset',
-    largura: 200,
-    de altura: 200,
+    width: 200,
+    height: 200,
     backgroundColor: '#000'
   })
-  janela. oadURL('about:blank')
+  window.loadURL('about:blank')
   window.setTouchBar(touchBar)
 })
 ```
+
+[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
+[Touch Bar]: https://developer.apple.com/macos/touch-bar
 
