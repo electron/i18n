@@ -2,7 +2,7 @@
 
 > Opções de linha de comando suportados pelo Electron.
 
-You can use [app.commandLine.appendSwitch](command-line.md#commandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+You can use [app.commandLine.appendSwitch][append-switch] to append them in your app's main script before the [ready][ready] event of the [app][app] module is emitted:
 
 ```javascript
 const { app } = require('electron')
@@ -48,7 +48,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio][play-silent-audio].
 
 ### --disk-cache-size=`size`
 
@@ -104,7 +104,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" seu-app
 ```
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ### --lang
 
@@ -155,9 +155,9 @@ This switch only works when `--enable-logging` is also passed.
 
 ### --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Gives the per-module maximal V-logging levels to override the value given by `--v`. Ex. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Ex. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
 
@@ -171,7 +171,7 @@ Force using integrated GPU when there are multiple GPUs available.
 
 ## Node.js Flags
 
-Electron supports some of the [CLI flags](https://nodejs.org/api/cli.html) supported by Node.js.
+Electron supports some of the [CLI flags][node-cli] supported by Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
@@ -193,7 +193,7 @@ Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for more details.
+See the [Debugging the Main Process][debugging-main-process] guide for more details.
 
 Aliased to `--debug[=[host:]port`.
 
@@ -202,3 +202,11 @@ Aliased to `--debug[=[host:]port`.
 Specify ways of the inspector web socket url exposure.
 
 By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+
+[app]: app.md
+[append-switch]: command-line.md#commandlineappendswitchswitch-value
+[ready]: app.md#event-ready
+[play-silent-audio]: https://github.com/atom/atom/pull/9485/files
+[debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
+[node-cli]: https://nodejs.org/api/cli.html
