@@ -4,14 +4,14 @@
 
 ## 使用 `update.electronjs.org`
 
-Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
+Electron团队保留 [update.electronjs.org][]，一个免费的开源 网络服务，Electron应用可以用来自我更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
 
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
 - 编译的版本发布在 GitHub Releases
 - 编译的版本已代码签名
 
-使用这个服务最简单的方法是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
+使用这个服务最简单的方法是安装 [update-electron-app][]，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
 
 安装模块
 
@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 默认情况下，这个模块会在应用启动的时候检查更新，然后每隔十分钟再检查一次。 当发现了一个更新，它会自动在后台下载。 当下载完成后，会显示一个对话框以允许用户重启应用。
 
-如果你需要定制化你的配置，你可以 [将配置设置传递给 `update-electron-app`](https://github.com/electron/update-electron-app) 或者 [直接使用更新服务](https://github.com/electron/update.electronjs.org)。
+如果你需要定制化你的配置，你可以 [将配置设置传递给 `update-electron-app`][update-electron-app] 或者 [直接使用更新服务][update.electronjs.org]。
 
 ## 部署更新服务器
 
@@ -35,10 +35,10 @@ require('update-electron-app')()
 
 根据你的需要，你可以从下方选择：
 
-- [Hazel](https://github.com/zeit/hazel) – 用于私人或开源应用的更新服务器，可以在 [Now](https://zeit.co/now) 上免费部署。 它从[GitHub Releases](https://help.github.com/articles/creating-releases/)中拉取更新文件，并且利用 GitHub CDN 的强大性能。
-- [Nuts](https://github.com/GitbookIO/nuts)－同样使用[GitHub Releases](https://help.github.com/articles/creating-releases/), 但得在磁盘上缓存应用程序更新并支持私有存储库.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
-- [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
+- [Hazel][hazel] – 用于私人或开源应用的更新服务器，可以在 [Now][now] 上免费部署。 它从[GitHub Releases][gh-releases]中拉取更新文件，并且利用 GitHub CDN 的强大性能。
+- [Nuts][nuts]－同样使用[GitHub Releases][gh-releases], 但得在磁盘上缓存应用程序更新并支持私有存储库.
+- [electron-release-server][electron-release-server] – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
+- [Nucleus][nucleus] – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
 
 ## 在你的应用中实施更新
 
@@ -80,11 +80,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. 重启应用程序来应用更新。'
+    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) =>
-    如果(returnValue.response === 0) autoUpdater.quitAnd()
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
 ```
@@ -101,3 +101,14 @@ autoUpdater.on('error', message => {
 ## 手动处理更新
 
 因为自动更新请求不在您的直接控制之下。 您可能发现了难以处理的情况(例如更新服务器在认证后面)。 `url` 字段确实支持文件, 这意味着你可以通过一些努力跳过该进程的服务器通信方面。 [这是一个如何工作的示例](https://github.com/electron/electron/issues/5020#issuecomment-477636990)。
+
+[now]: https://zeit.co/now
+[hazel]: https://github.com/zeit/hazel
+[nuts]: https://github.com/GitbookIO/nuts
+[gh-releases]: https://help.github.com/articles/creating-releases/
+[electron-release-server]: https://github.com/ArekSredzki/electron-release-server
+[nucleus]: https://github.com/atlassian/nucleus
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update.electronjs.org]: https://github.com/electron/update.electronjs.org
+[update-electron-app]: https://github.com/electron/update-electron-app
+[update-electron-app]: https://github.com/electron/update-electron-app
