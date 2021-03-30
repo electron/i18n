@@ -84,7 +84,7 @@ A API SpellCheck foi alterada para fornecer [resultados assíncronos](https://gi
 As seguintes APIs estão recém descontinuadas no Electron 5.0.0 e estão planejadas para remoção na 6.0.0:
 
 ### Mkshot binários instantâneos para braço e arm64
-Binários nativos de mksnapshot para braço e braço64 são preteridos e serão removidos em 6.0.0. Instantâneos podem ser criados para braço e braço64 usando os binários x64.
+binários nativos do mksnapshot para braço e arm64 estão obsoletos e serão removidos em 6. .0. Os snapshots podem ser criados para braço e arm64 usando os binários x64.
 
 ### APIs do ServiceWorker em WebContents
 APIs de Worker obsoletas sobre WebContents em preparação para sua remoção.
