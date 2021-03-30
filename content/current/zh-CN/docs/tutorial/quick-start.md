@@ -8,7 +8,7 @@ Electron 是一个能让你使用 JavaScript, HTML 和 CSS 来创建桌面应用
 
 ### 前提条件
 
-在使用 Electron 之前，您需要安装 [Node.js](https://nodejs.org/en/download/)。 我们建议您安装最新可用的 `LTS` 或 `Current 版本` 。
+Before proceeding with Electron you need to install [Node.js][node-download]. 我们建议您安装最新可用的 `LTS` 或 `Current 版本` 。
 
 > 请使用为你平台预构建的 Node.js 安装器来进行安装。 否则，您可能会遇到与不同开发工具不兼容的问题。
 
@@ -287,11 +287,11 @@ const win = new BrowserWindow()
 若要从渲染进程调用主进程，请使用 IPC 模块：
 
 ```js
-// 在主进程中
+// In the Main process
 const { ipcMain } = require('electron')
 
 ipcMain.handle('perform-action', (event, ...args) => {
-  // ... 执行渲染器的相关操作
+  // ... do actions on behalf of the Renderer
 })
 ```
 
@@ -329,3 +329,5 @@ npm install --save aws-sdk
 ```js
 const S3 = require('aws-sdk/clients/s3')
 ```
+
+[node-download]: https://nodejs.org/en/download/
