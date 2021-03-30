@@ -2,7 +2,7 @@
 
 > Покупки внутри приложения в Mac App Store.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ## События
 
@@ -14,7 +14,7 @@
 
 Возвращает:
 
-* Событие типа `event`
+* `event` Event
 * `transactions` Transaction[] - Массив [`Transaction`](structures/transaction.md) объектов.
 
 ## Методы
