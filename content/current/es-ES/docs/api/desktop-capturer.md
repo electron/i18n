@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Información de acceso sobre los recursos de medios que pueden ser utilizados para capturar audio y video desde el escritorio utilizando la API [`navigator.mediaDevices.getUserMedia`] API.
+> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-Para capturar vídeo desde una fuente proporcionada por `desktopCapturer` las limitaciones pasadas a [`navigator.mediaDevices.getUserMedia`] deben incluir `chromeMediaSource: 'desktop'`, y `audio: false`.
+To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
-Para capturar tanto audio y video desde todo el escritorio, las limitaciones pasadas a [`navigator.mediaDevices.getUserMedia`] deben incluir `chromeMediaSource: 'desktop'`, para ambos `audio` y `video`, pero no deben incluir una limitación `chromeMediaSourceId`.
+To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
 
 ```javascript
 const constraints = {
@@ -79,10 +79,13 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 Devuelve `Promise<DesktopCapturerSource[]>` - Resuelve con un array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
-**Nota** Capturar los contenidos de la pantalla en macOS 10.15 Catalina o superior requiere consentimiento del usuario, el cual puede ser detectado por [`systemPreferences.getMediaAccessStatus`].
+**Nota** La capturar del contenido de la pantalla requiere el consentimiento del usuario en macOS 10.15 Catalina o superior, el cual puede ser detectado por [`systemPreferences.getMediaAccessStatus`][].
 
 ## Advertencias
 
 `navigator.mediaDevices.getUserMedia` no trabaja en macOS para captura de audio debido a una limitación fundamental porque las aplicaciones que quieren acceder al audio del sistema requieren un [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, y por extensión Electron, no proporciona esto.
 
 Es posible eludir esta limitación capturando el audio del sistema con otra aplicación macOS como Soundflower y pasar esto a través de una dispositivo de entrada de audio virtual. Este dispositivo virtual puede ser consultado con `navigator.mediaDevices.getUserMedia`.
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
+[`systemPreferences.getMediaAccessStatus`]: system-preferences.md#systempreferencesgetmediaaccessstatusmediatype-windows-macos
