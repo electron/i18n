@@ -84,7 +84,7 @@ L'API de vérification orthographique a été modifiée pour fournir [des résul
 Les API suivantes sont nouvellement obsolètes dans Electron 5.0.0 et sont prévues pour la suppression en 6.0.0 :
 
 ### binaires Mksnapshot pour bras et arm64
-Les binaires natifs de mksnapshot pour bras et arm64 sont dépréciés et seront supprimés en 6. .0. Snapshots can be created for arm and arm64 using the x64 binaries.
+Les binaires natifs de mksnapshot pour bras et arm64 sont dépréciés et seront supprimés en 6. .0. Des instantanés peuvent être créés pour le bras et le bras64 à l’aide des binaires x64.
 
 ### APIs ServiceWorker sur WebContents
 Les API ServiceWorker obsolètes sur WebContents en préparation de leur suppression.
