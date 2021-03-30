@@ -6,7 +6,7 @@
 * Dê uma olhada na [postagem no blog 5.0.0 do Tempo](https://electronjs.org/blog/electron-5-0-timeline) para informações sobre como divulgar nossas datas de lançamento.
 * Desde Electron 6.0, temos buscado todas as outras versões do Chromium e lançamos o nosso estável no mesmo dia que o Chrome. Você pode fazer referência ao horário de lançamento do Chromium [aqui](https://chromiumdash.appspot.com/schedule). Consulte [o novo post de blog de cadência de lançamento](https://www.electronjs.org/blog/12-week-cadence) do Electron para obter mais detalhes sobre nossa agenda de lançamento.
 
-| Versão | -beta.1    | Estável    | Crômo      | Nó         |
+| Versão | -beta.1    | Estável    | Crômo      | Servidor   |
 | ------ | ---------- | ---------- | ---------- | ---------- |
 | 2.0.0  | 2018-02-21 | 2018-05-01 | M61        | v8.9       |
 | 3.0.0  | 2018-06-21 | 2018-09-18 | M66        | v10.2      |
