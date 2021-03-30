@@ -1,6 +1,6 @@
 # Multithreading
 
-С помощью [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), есть возможность запускать JavaScript в потоках на уровне операционной системы.
+С помощью [Web Workers][web-workers], есть возможность запускать JavaScript в потоках на уровне операционной системы.
 
 ## Multi-threaded Node.js
 
@@ -22,11 +22,11 @@ Tous les modules intégrés de Node.js sont pris en charge dans les Web Workers,
 
 ## Modules natifs de Node.js
 
-N’importe quel module de Node.js natif peut être chargé directement dans Web Workers, mais il est fortement recommandé de ne pas le faire. La plupart des modules natifs existants ont été écrit en supposant un environnement mono-thread, leur utilisation dans les Web Workers peut entrainer des crash et corruptions de mémoire.
+N’importe quel module de Node.js natif peut être chargé directement dans les Web Workers, mais il est fortement recommandé de ne pas le faire. La plupart des modules natifs existants ont été écrits en supposant un environnement mono-thread, leur utilisation dans les Web Workers peut entrainer des crash et corruptions de mémoire.
 
 Notez que même si un module natif de Node.js est thread-safe, il n’est toujours pas sûr de le charger dans un Web Worker car la fonction `process.dlopen` n’est pas thread-safe.
 
-La seule façon de charger un module natif en toute sécurité pour l’instant, est de s’assurer de l’application ne charge aucun modules natifs après que les Web Workers aient démarrés.
+La seule façon de charger un module natif en toute sécurité pour l’instant, est de s’assurer que l’application ne charge aucun module natif après que les Web Workers aient démarré.
 
 ```javascript
 process.dlopen = () => {
@@ -34,3 +34,5 @@ process.dlopen = () => {
 }
 const worker = new Worker('script.js')
 ```
+
+[web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers
