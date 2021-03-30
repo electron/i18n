@@ -1,10 +1,10 @@
-# 自定义 Linux 桌面启动器行为
+# 自定义 Linux 桌面动作i
 
 ## 概览
 
-在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 关于 Canonical 的 Unity 启动器文档， 参考 [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)。 详细的参考信息请见 [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html)。
+在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audacious][3]
 
 > 注：上面的截图是 Audacious 音频播放器中启动器快捷方式的一个例子
 
@@ -29,3 +29,8 @@ Exec=audacious -r
 ```
 
 Unity 推荐应用程序操作的首选方式是使用参数。 您可以在应用的全局变量 `process.argv` 中找到它们。
+
+[3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
+
+[unity-launcher]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
+[spec]: https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html
