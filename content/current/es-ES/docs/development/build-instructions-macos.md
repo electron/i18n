@@ -11,13 +11,13 @@ Siga las pautas a continuación para construir Electron en macOS.
 
 ## Python
 
-Por favor, asegúrese de que su sistema y Python soporten al menos TLS 1.2. Esto depende tanto de su versión de macOS como de Python. Para una prueba rápida, ejecuta:
+Please also ensure that your system and Python version support at least TLS 1.2. Esto depende tanto de la versión de macOS como la de Python. Para una prueba rápida, ejecuta:
 
 ```sh
 $ npx @electron/check-python-tls
 ```
 
-Si el script devuelve que su configuración está usando un protocolo de seguridad obsoleto, puede actualizar macOS a High Sierra o instalar una nueva versión de Python 2.7.x. Para actualizar Python use [Homebrew](https://brew.sh/):
+Si el script devuelve que tu configuración está usando un protocolo de seguridad obsoleto, puedes actualizar macOS a High Sierra o instalar una nueva versión de Python 2.7.x. Para actualizar Python, usa [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
