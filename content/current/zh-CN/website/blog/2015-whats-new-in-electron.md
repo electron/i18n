@@ -61,22 +61,18 @@ Atom 现已升级到 Electron `v0.30.6` 运行 Chrome 44。 升级到 `v0.33.0` 
 GitHubber [Amy Palamountain](https://github.com/ammeep) 在 [Nordic.js](https://nordicjs2015.confetti.events) 的谈话中对Electron 作了很好的介绍。 她还创建了 [电子加速器](https://github.com/ammeep/electron-accelerator) 库。
 
 #### 由 Amy Palomountain 用 Electron 构建本地应用程序
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
 [Ben Ogle](https://github.com/benogle), 也在Atom 团队中，在 [YAPC Asia](http://yapcasia.org/2015/) 给出了一个 Electron 语音：
 
 #### 由 Ben Ogle 使用 Web 技术构建桌面应用
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
 Atom 团队成员 [Kevin Sawicki](https://github.com/kevinsawicki) 和其他人在 [Bay 是Electron 用户组](http://www.meetup.com/Bay-Area-Electron-User-Group/) 最近举行会议。 [视频](http://www.wagonhq.com/blog/electron-meetup) 已发布，此处是一个对方：
 
 #### Kevin Sawicki的 Electron 历史
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
 #### Ben Gotow 让网页应用感觉是原生的
-
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 
