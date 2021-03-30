@@ -2,13 +2,13 @@
 
 ## Übersicht
 
-Electron hat APIs zum Konfigurieren des App-Symbols im MacOS-Dock. Eine nur macOS- API existiert um ein benutzerdefiniertes Dock-Menü zu erstellen, aber Electron verwendet auch das Symbol für App-Dock als Einstiegspunkt für plattformübergreifende Funktionen wie [letzte Dokumente](./recent-documents.md) und [Anwendungsfortschritt](./progress-bar.md).
+Electron hat APIs zum Konfigurieren des App-Symbols im MacOS-Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 Das benutzerdefinierte Dock wird häufig verwendet, um Verknüpfungen zu Aufgaben hinzuzufügen, für die der Benutzer nicht das gesamte App-Fenster öffnen möchte.
 
 __Dock Menu der Terminal.app:__
 
-![Dock-Menü](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Dock-Menü][3]
 
 Um Ihr benutzerdefiniertes Dock-Menü festzulegen, müssen Sie das [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, verwenden, das nur auf macOS verfügbar ist.
 
@@ -19,13 +19,13 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, Menu } = require('electron')
 
-const dockMenu = Menü. uildFromTemplate([
+const dockMenu = Menu.buildFromTemplate([
   {
     label: 'New Window',
-    click () { console. og('Neues Window') }
+    click () { console.log('New Window') }
   }, {
-    label: 'Neues Fenster mit Einstellungen',
-    Untermenü: [
+    label: 'New Window with Settings',
+    submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
@@ -33,7 +33,7 @@ const dockMenu = Menü. uildFromTemplate([
   { label: 'New Command...' }
 ])
 
-App. henReady().then(() => {
+app.whenReady().then(() => {
   app.dock.setMenu(dockMenu)
 })
 ```
@@ -41,3 +41,7 @@ App. henReady().then(() => {
 Nachdem Sie die Electron-Anwendung gestartet haben, klicken Sie mit der rechten Maustaste auf das Symbol der Anwendung. Sie sollten das benutzerdefinierte Menü sehen, das Sie gerade definiert haben:
 
 ![macOS-Dock-Menü](../images/macos-dock-menu.png)
+
+[3]: https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png
+[recent-documents]: ./recent-documents.md
+[progress-bar]: ./progress-bar.md
