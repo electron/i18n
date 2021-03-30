@@ -84,7 +84,7 @@ Electron 5继续 [Promisation倡议](https://github.com/electron/electron/blob/5
 下面的 API 在 Electron 5.0.0 中新近被废弃，计划在 6.0.0 中被移除：
 
 ### Mksnapshot 二进制武器64
-手臂和手臂的 mksnapshot 的原生二进制文件被弃用， 将在 6.0.0 中删除。 可以使用 x64 二进制文件为手臂和手臂创建快照 64。
+mksnapshot 用于武器和arm64 的本机二进制二进制已废弃，将在6秒后移除。 .0 可以使用 x64 二进制程序为手臂和arm64 创建快照。
 
 ### Webcontent上的ServiceeWorker APIs
 已废弃的 Webcontent上的ServiceWorker API，为其移除做准备。
