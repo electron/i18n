@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-Esta semana, entrevistamos o criador do [Jasper][], uma ferramenta baseada em elétrons para gerenciamento de notificações do GitHub.
+Esta semana, entrevistamos o criador do [Jasper](https://jasperapp.io), uma ferramenta baseada em Electron para gerenciar notificações do GitHub.
 
 ---
 
@@ -17,7 +17,7 @@ Sou [Ryo Maruyama](https://github.com/h13i32maru), um desenvolvedor de software 
 
 ## O que é Jasper?
 
-[Jasper][] é um leitor de problemas flexível e poderoso para o GitHub. Ele suporta problemas e pull requests no github.com e no GitHub Enterprise.
+[Jasper](https://jasperapp.io) é um leitor de issues flexível e poderoso para o GitHub. Ele suporta problemas e pull requests no github.com e no GitHub Enterprise.
 
 [![Captura de tela do Jasper](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
@@ -127,13 +127,9 @@ Esses recursos permitem o desenvolvimento rápido e simples de aplicativos para 
 
 ## Quais são alguns desafios que você enfrentou ao desenvolver o Jasper?
 
-Eu tive dificuldade em descobrir o conceito de "stream". No início, considerei usar a API de notificações [do GitHub][]. No entanto, constatei que não apoia certos casos de utilização. Depois disso, considerei usar a A</a> PI de
-
-e [Solicitações de Puxão][], além da API de Notificação. Mas nunca se tornou o que eu queria. Então, enquanto pensava em vários métodos, percebi que pesquisar a [API do GitHub][] ofereceria mais flexibilidade. Demorou cerca de um mês de experimentação para chegar a esse ponto. então eu implementei um protótipo de Jasper com o conceito de fluxo em dois dias.</p> 
+Eu tive dificuldade em descobrir o conceito de "stream". No começo eu considerei usar o [API de Notificações do GitHub](https://developer.github.com/v3/activity/notifications/). No entanto, constatei que não apoia certos casos de utilização. Depois disso, considerei o uso da [API de problemas](https://developer.github.com/v3/issues/) e [Pull Requests API](https://developer.github.com/v3/pulls/), além da API de notificação. Mas nunca se tornou o que eu queria. Então, enquanto pensando em vários métodos, eu percebi que [API de pesquisa](https://developer.github.com/v3/search/) do GitHub ofereceria a maior flexibilidade. Demorou cerca de um mês de experimentação para chegar a esse ponto. então eu implementei um protótipo de Jasper com o conceito de fluxo em dois dias.
 
 Nota: A votação é limitada a cada 10 segundos, no máximo. Isto é aceitável o suficiente para a restrição da API do GitHub.
-
-
 
 ## O que vem a seguir?
 
@@ -144,9 +140,4 @@ Tenho um plano para desenvolver as seguintes funcionalidades:
 - **Melhorar o desempenho**: Por enquanto, a carga de um problema no WebView é baixa velocidade do que o navegador normal.
 
 Siga [@jasperappio](https://twitter.com/jasperappio) no Twitter para mais atualizações.
-
-[Jasper]: https://jasperapp.io
-[do GitHub]: https://developer.github.com/v3/activity/notifications/
-[Solicitações de Puxão]: https://developer.github.com/v3/pulls/
-[API do GitHub]: https://developer.github.com/v3/search/
 
