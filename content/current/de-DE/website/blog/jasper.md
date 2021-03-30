@@ -7,7 +7,7 @@ author:
 date: '2017-03-21'
 ---
 
-This week we interviewed the creator of [Jasper][], an Electron-based tool for managing GitHub notifications.
+Diese Woche haben wir den Ersteller von [Jasper](https://jasperapp.io)interviewt, einem Electron-basierten Werkzeug für die Verwaltung von GitHub Benachrichtigungen.
 
 ---
 
@@ -17,7 +17,7 @@ Ich bin [Ryo Maruyama](https://github.com/h13i32maru), ein Software-Entwickler i
 
 ## Was ist Jasper?
 
-[Jasper][] is a flexible and powerful issue reader for GitHub. Es unterstützt Probleme und Pull-Requests auf github.com und GitHub Enterprise.
+[Jasper](https://jasperapp.io) ist ein flexibler und mächtiger Issue-Reader für GitHub. Es unterstützt Probleme und Pull-Requests auf github.com und GitHub Enterprise.
 
 [![Jasper App Screenshot](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
@@ -127,7 +127,7 @@ Diese Funktionen ermöglichen eine schnelle und einfache Entwicklung von Desktop
 
 ## Was sind einige Herausforderungen, denen Sie bei der Entwicklung von Jasper gegenüberstehen?
 
-Ich hatte es schwer mit dem Stream-Konzept umzugehen. At first I considered using GitHub's [Notifications API][]. Ich habe jedoch festgestellt, dass sie bestimmte Anwendungsfälle nicht unterstützt. After that I considered using the [Issues API][] and [Pull Requests API][], in addition to the Notification API. Aber es wurde nie das, was ich wollte. Then while thinking about various methods, I realized that polling GitHub's [Search API][] would offer the most flexibility. Es dauerte etwa einen Monat der Experimente bis zu diesem Punkt dann implementierte ich einen Prototypen von Jasper mit dem Stream-Konzept in zwei Tagen.
+Ich hatte es schwer mit dem Stream-Konzept umzugehen. Zuerst habe ich über die Verwendung von GitHubs [Benachrichtigungs-API](https://developer.github.com/v3/activity/notifications/) nachgedacht. Ich habe jedoch festgestellt, dass sie bestimmte Anwendungsfälle nicht unterstützt. Danach habe ich die [Issues API](https://developer.github.com/v3/issues/) und [Pull-Requests API](https://developer.github.com/v3/pulls/)zusätzlich zur Benachrichtigungs-API in Erwägung gezogen. Aber es wurde nie das, was ich wollte. Während ich über verschiedene Methoden nachdachte, erkannte ich, dass das Umfragen von GitHubs [Such-API](https://developer.github.com/v3/search/) die größte Flexibilität bieten würde. Es dauerte etwa einen Monat der Experimente bis zu diesem Punkt dann implementierte ich einen Prototypen von Jasper mit dem Stream-Konzept in zwei Tagen.
 
 Hinweis: The polling is limited to once every 10 seconds at most. Dies ist für die Beschränkung der GitHub API akzeptabel.
 
@@ -140,10 +140,4 @@ Ich habe einen Plan, die folgenden Funktionen zu entwickeln:
 - **Performance**verbessern: Vorerst ist das Laden eines Problems in WebView eine niedrige Geschwindigkeit als normale Browser.
 
 Folge [@jasperappio](https://twitter.com/jasperappio) auf Twitter für Updates.
-
-[Jasper]: https://jasperapp.io
-[Notifications API]: https://developer.github.com/v3/activity/notifications/
-[Pull Requests API]: https://developer.github.com/v3/pulls/
-[Issues API]: https://developer.github.com/v3/issues/
-[Search API]: https://developer.github.com/v3/search/
 
