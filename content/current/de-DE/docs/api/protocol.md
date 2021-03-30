@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -76,7 +76,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registering a scheme as standard will allow access to files through the [FileSystem API][file-system-api]. Otherwise the renderer will throw a security error for the scheme.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -281,3 +281,5 @@ Remove the interceptor installed for `scheme` and restore its original handler.
 * `scheme` String
 
 Returns `Boolean` - Whether `scheme` is already intercepted.
+
+[file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
