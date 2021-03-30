@@ -9,4 +9,4 @@
 * `httpOnly` Boolean (опционально) - помечена ли cookie как http-only.
 * `session` Boolean (опционально) - является ли cookie только для сессии или постоянной с датой истечения срока действия.
 * `expirationDate` Double (опционально) - Дата истечения срока действия cookie в виде количества секунд эпохи UNIX.  Cookies для сессий не поддерживается.
-* `sameSite` String - [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy применяемая к cookie.  Может быть `unspecified`, `no_restriction`, `lax` или `strict`.
+* `sameSite` String - [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) политика применяемая к cookie.  Может быть `unspecified`, `no_restriction`, `lax` или `strict`.
