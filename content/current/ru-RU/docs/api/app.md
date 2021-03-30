@@ -2,7 +2,7 @@
 
 > Контролируйте жизненный цикл Вашего приложения.
 
-Процесс: [Главный](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Этот пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
@@ -119,10 +119,10 @@ app.on('window-all-closed', () => {
 Возвращает:
 
 * `event` Event
-* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфическое для приложения состояние, сохраненное на другом устройстве.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff][handoff], когда активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
 Активность пользователя может быть продолжена только в приложении, которое имеет тот же ID команды разработчика, что и активность исходного приложения, и поддерживает тип активности. Поддерживаемые типы активности, указаны в `Info.plist` приложения под ключом `NSUserActivityTypes`.
 
@@ -131,39 +131,39 @@ app.on('window-all-closed', () => {
 Возвращает:
 
 * `event` Event
-* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) до того, как активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff][handoff] до того, как активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
 ### Событие: 'continue-activity' _macOS_
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `error` String - cтрока с локализованным описанием ошибки.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), при ошибочном возобновлении активности на различных устройствах.
+Происходит во время [Handoff][handoff], при ошибочном возобновлении активности на различных устройствах.
 
 ### Событие: 'activity-was-continued' _macOS_
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), после удачного возобновления на другом устройстве.
+Происходит во время [Handoff][handoff], после удачного возобновления на другом устройстве.
 
 ### Событие: 'update-activity-state' _macOS_
 
 Возвращает:
 
 * `event` Event
-* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff][handoff], когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
 ### Событие: 'new-window-for-tab' _macOS_
 
@@ -524,7 +524,7 @@ app.exit(0)
 * `options` Object (опционально)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
-On Linux, focuses on the first visible window. В macOS делает приложение активным. В Windows фокусируется на первом окне приложения.
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
 You should seek to use the `steal` option as sparingly as possible.
 
@@ -662,7 +662,7 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. За подробными сведениями обращайтесь к [документации компании Apple][CFBundleURLTypes].
 
 **Примечание:** В окружении Windows Store (когда упаковано как `appx`) этот метод вернет `true` для всех вызовов, но ключ реестра, который он устанавливает, не будет доступен другим приложениям.  Чтобы зарегистрировать Ваше приложения в Windows Store как обработчик протокола по умолчанию, Вы должны [объявить протокол в Вашем манифесте](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
@@ -686,7 +686,7 @@ This method checks if the current executable as the default handler for a protoc
 
 Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
-**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, установив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
+**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, установив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple][LSCopyDefaultHandlerForURLScheme].
 
 The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
@@ -714,7 +714,7 @@ This method returns a promise that contains the application name, icon and path 
 
 * `tasks` [Task[]](structures/task.md) - массив объектов `Task`
 
-Добавляет `tasks` к категории [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в JumpList на Windows.
+Добавляет `tasks` к категории [Tasks][tasks] в JumpList на Windows.
 
 `tasks` массив объектов [`Task`](structures/task.md).
 
@@ -726,7 +726,7 @@ This method returns a promise that contains the application name, icon and path 
 
 Возвращает `Object`:
 
-* `minItems` Integer - минимальное количество элементов, которые будут показаны в списке переходов (для более подробного описания этого значения, см. [документацию MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - минимальное количество элементов, которые будут показаны в Jump List (для более подробного описания этого значение см. [документация MSDN][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem []](structures/jump-list-item.md) - массив объектов `JumpListItem`, которые соответствуют элементам, которые пользователь явно удалил из настраиваемых категорий в Jump List. Эти элементы не должны быть снова добавлены в Jump List, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую настраиваемую категорию, содержащую любой из удаленных пунктов.
 
 ### `app.setJumpList(categories)` _Windows_
@@ -755,52 +755,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Недавние проекты',
+    name: 'Recent Projects',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // Есть имя, так что под `type` подразумевается "custom"
+  { // has a name so `type` is assumed to be "custom"
     name: 'Tools',
     items: [
       {
         type: 'task',
-        title: 'Инструмент А',
+        title: 'Tool A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Запустить инструмент A'
+        description: 'Runs Tool A'
       },
       {
         type: 'task',
-        title: 'Инструмент Б',
+        title: 'Tool B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Запустить инструмент Б'
+        description: 'Runs Tool B'
       }
     ]
   },
   { type: 'frequent' },
-  { // Нет имени и типа, так что под `type` подразумевается "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
-        title: 'Новый проект',
+        title: 'New Project',
         program: process.execPath,
         args: '--new-project',
-        description: 'Создать новый проект.'
+        description: 'Create a new project.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Восстановить проект',
+        title: 'Recover Project',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Восстановить проект'
+        description: 'Recover Project'
       }
     ]
   }
@@ -813,7 +813,7 @@ app.setJumpList([
 
 Значение, которое возвращает этот метод, указывает, успешно или нет экземпляр Вашего приложения получило блокировку.  Если не удалось получить блокировку, можно предположить, что другой экземпляр Вашего приложения уже запущен с блокировкой и немедленно выходит.
 
-Т.е. этот метод возвращает `true`, если Ваш процесс является основным экземпляром Вашего приложения, а Ваше приложение должно продолжать загружаться.  Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
 
 На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
@@ -855,11 +855,11 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any- специфичное, для приложения, состояние для использования другими устройствами.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на другом устройстве.
+Создает `NSUserActivity` и задает её в качестве текущей активности. The activity is eligible for [Handoff][handoff] to another device afterward.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -867,15 +867,15 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-Аннулирует текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя.
+Аннулирует текущую [Handoff][handoff] активность пользователя.
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Помечает текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя как неактивную без ее отмены.
+Помечает текущую [Handoff][handoff] активность пользователя как неактивную без ее отмены.
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any- специфичное, для приложения, состояние для использования другими устройствами.
 
 Обновляет текущую активность, если ее тип соответствует `type`, объединяя записи с `userInfo` в свой текущий словарь `userInfo`.
@@ -884,7 +884,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 * `id` String
 
-Изменяет [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
+Изменяет [Application User Model ID][app-user-model-id] на `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -975,11 +975,11 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
+Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
 На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
-**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1000,10 +1000,10 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1016,13 +1016,13 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Установите приложению параметры при входе в систему.
 
-Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1051,7 +1051,7 @@ app.setLoginItemSettings({
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Отрисовка древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.showAboutPanel()`
 
@@ -1069,7 +1069,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (опционально) _Linux_ - веб-сайт приложения.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Установите описание панели опций. This will override the values defined in the app's `.plist` file on macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
+Установите описание панели опций. This will override the values defined in the app's `.plist` file on macOS. Смотрите [Apple docs][about-panel-options] для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1100,7 +1100,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-Включает режим песочницы во всём приложении. Это означает, что все рендереры будут запущены в песочнице, независимо от значения флага `sandbox` в WebPreferences.
+Включает полноценный режим песочницы в приложении. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
@@ -1169,7 +1169,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Отрисовка древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.applicationMenu`
 
@@ -1177,11 +1177,11 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-Свойство `Integer`, которое возвращает значок количества для текущего приложения. Установка количества в `0` скроет значок.
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 
@@ -1220,3 +1220,17 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
+[tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
+[CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
+[LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
+[handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
+[activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
+[JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
+[about-panel-options]: https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc
