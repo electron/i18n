@@ -17,20 +17,20 @@ O site do Electron tem um novo motor de busca que oferece resultados instantâne
 
 ---
 
-Aprender uma nova tecnologia ou quadro, como o Electron pode intimidar tudo. Uma vez que você passe da fase [de início rápido](https://github.com/electron/electron-quick-start) , pode ser difícil aprender as melhores práticas, encontre as APIs certas, ou descubra as ferramentas que ajudarão você a construir o aplicativo dos seus sonhos. Queremos que o site do Electron seja uma ferramenta melhor para encontrar os recursos que você precisa para criar aplicativos mais rápido e mais facilmente.
+Aprender uma nova tecnologia ou quadro, como o Electron pode intimidar tudo. Once you get past the [quick-start][] phase, it can be difficult to learn best practices, find the right APIs, or discover the tools that will help you build the app of your dreams. Queremos que o site do Electron seja uma ferramenta melhor para encontrar os recursos que você precisa para criar aplicativos mais rápido e mais facilmente.
 
 Visite qualquer página no [electronjs.org](https://electronjs.org) e você encontrará a nova entrada de pesquisa no topo da página.
 
 ## O Mecanismo de Busca
 
-Quando começamos a adicionar pesquisa ao site, lançamos nosso próprio mecanismo de pesquisa usando GraphQL como um backend. Gráfico do QL foi divertido para trabalhar e o motor de busca foi intérprete, mas nós rapidamente percebemos que construir um motor de pesquisa não é uma tarefa trivial. Coisas como busca e detecção de erros de digitação exigem muito trabalho para acertar. Em vez de reinventar a roda, decidimos usar uma solução de busca existente: [Algolia](https://algolia.com).
+Quando começamos a adicionar pesquisa ao site, lançamos nosso próprio mecanismo de pesquisa usando GraphQL como um backend. Gráfico do QL foi divertido para trabalhar e o motor de busca foi intérprete, mas nós rapidamente percebemos que construir um motor de pesquisa não é uma tarefa trivial. Coisas como busca e detecção de erros de digitação exigem muito trabalho para acertar. Rather than reinventing the wheel, we decided to use an existing search solution: [Algolia][].
 
 Algolia é um serviço de pesquisa hospedado que rapidamente se tornou o mecanismo de busca escolha entre projetos de código aberto populares como React, Vue, Bootstrap, Yarn e [muitos outros](https://community.algolia.com/docsearch/).
 
 Aqui estão alguns dos recursos que fizeram com que Algolia se encaixe bem no projeto Electron:
 
 - [InstantSearch.js](https://community.algolia.com/instantsearch.js) fornece resultados conforme você digita, geralmente em cerca de 1ms.
-- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) significa que você ainda obterá resultados mesmo quando você digitar [`widnow`].
+- [Typo tolerance](https://www.algolia.com/doc/guides/textual-relevance/typo-tolerance/) means you'll still get results even when you type [`widnow`][].
 - [Sintaxe de consulta avançada](https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/) habilita `"correspondências de cotações exatas"` e `-exclusão`.
 - [Clientes de API](https://www.algolia.com/doc/api-client/javascript/getting-started/) são código aberto e com bem documentado.
 - [Analise](https://www.algolia.com/doc/guides/analytics/analytics-overview/) nos diz o que as pessoas estão procurando mais, bem como o que estão procurando mas não encontrando. Isso dar-nos-á uma informação valiosa sobre como melhorar a documentação do Electron.
@@ -40,36 +40,36 @@ Aqui estão alguns dos recursos que fizeram com que Algolia se encaixe bem no pr
 
 Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. O Electron tem mais de 750 métodos, eventos e propriedades da API. Nenhum humano se recorda de todos eles, mas os computadores são bons nessas coisas. Usando a [documentação da API JSON do Electron](https://electronjs.org/blog/api-docs-json-schema), indexamos todos esses dados no Algolia, E agora você pode encontrar facilmente a API exata que está procurando.
 
-Tentando redimensionar uma janela? Pesquisar por [`redimensionar`] e pular direto para o método que você precisa.
+Tentando redimensionar uma janela? Search for [`resize`][] and jump straight to the method you need.
 
 ## Tutoriais
 
 Electron tem uma coleção cada vez maior de tutoriais para complementar sua documentação da API. Agora você pode encontrar mais facilmente tutoriais em um determinado tópico, junto com documentação de API relacionada.
 
-Procurando as melhores práticas em matéria de segurança? Pesquisar por [`segurança`].
+Procurando as melhores práticas em matéria de segurança? Search for [`security`][].
 
 ## Pacotes npm
 
-Agora há mais de 700.000 pacotes no registro npm e não é sempre fácil encontrar o que você precisa. Para tornar mais fácil descobrir estes módulos, nós criamos [`electron-npm-packages`], uma coleção dos mais de 3400 módulos no o registro que é construído especificamente para uso com o Electron.
+Agora há mais de 700.000 pacotes no registro npm e não é sempre fácil encontrar o que você precisa. To make it easier to discover these modules, we've created [`electron-npm-packages`][], a collection of the 3400+ modules in the registry that are built specifically for use with Electron.
 
-As pessoas das [Bibliotecas. o](https://libraries.io) criou [SourceRank](https://docs.libraries.io/overview.html#sourcerank), um sistema para marcar projetos de software com base em uma combinação de métricas como: código, comunidade, documentação e uso. Criamos um módulo [`sourceranks`] que inclui a pontuação de cada módulo no registro npm, e nós usamos essas pontuações para classificar os resultados do pacote.
+The folks at [Libraries.io][] have created [SourceRank][], a system for scoring software projects based on a combination of metrics like code, community, documentation, and usage. We created a [`sourceranks`][] module that includes the score of every module in the npm registry, and we use these scores to sort the package results.
 
-Quer alternativas aos módulos IPC integrados do Electron? Pesquisa por [`é:package ipc`].
+Quer alternativas aos módulos IPC integrados do Electron? Search for [`is:package ipc`][].
 
 ## Apps Electron
 
 É [fácil indexar dados com o Algolia](https://github.com/electron/algolia-indices), então adicionamos a lista de apps existentes a partir de [electron/apps](https://github.com/electron/apps).
 
-Tente uma busca por [`música`] ou [`homebrew`].
+Try a search for [`music`][] or [`homebrew`][].
 
 ## Filtrando resultados
 
 Se você usou a pesquisa de código [do GitHub](https://github.com/search) antes, você provavelmente está ciente de seus filtros de chave-valor separados por vírgula, como `extensão:js` ou `user:defunkt`. Nós achamos que essa técnica de filtragem é bastante poderosa, então adicionamos uma `é:` palavra-chave na pesquisa do Electron, que permite que você os resultados do filtro para mostrar somente um único tipo:
 
-- [`é:api thumbnail`]
-- [`é:segurança do tutorial`]
-- [`é:package ipc`]
-- [`é:app graphql`]
+- [`is:api thumbnail`][]
+- [`is:tutorial security`][]
+- [`is:package ipc`][]
+- [`is:app graphql`][]
 
 ## Navegação do teclado
 
@@ -97,4 +97,20 @@ A melhor maneira de enviar seu feedback é deixando um problema no GitHub no rep
 
 ## Agradecimentos
 
-Um agradecimento especial a [Emmily Jordan](https://github.com/echjordan) e [Vanessa Yuen](https://github.com/vanessayuenn) por construir estas novas capacidades de pesquisa, para [Bibliotecas. o](https://libraries.io) para fornecer [SourceRank](https://docs.libraries.io/overview.html#sourcerank) pontuações, e para a equipe do Algolia por nos ajudar a começar. 🍹
+Special thanks to [Emily Jordan](https://github.com/echjordan) and [Vanessa Yuen](https://github.com/vanessayuenn) for building these new search capabilities, to [Libraries.io][] for providing [SourceRank][] scores, and to the team at Algolia for helping us get started. 🍹
+
+[`electron-npm-packages`]: https://ghub.io/electron-npm-packages
+[`homebrew`]: https://electronjs.org/?query=homebrew
+[`is:api thumbnail`]: https://electronjs.org/?query=is%3Aapi%20thumbnail
+[`is:app graphql`]: https://electronjs.org/?query=is%3Aapp%20graphql
+[`is:package ipc`]: https://electronjs.org/?query=is%3Apackage%20ipc
+[`is:tutorial security`]: https://electronjs.org/?query=is%3Atutorial%20security
+[`music`]: https://electronjs.org/?query=music
+[`resize`]: https://electronjs.org/?query=resize
+[`security`]: https://electronjs.org/?query=security
+[`sourceranks`]: https://github.com/nice-registry/sourceranks
+[`widnow`]: https://electronjs.org/?query=widnow
+[Algolia]: https://algolia.com
+[Libraries.io]: https://libraries.io
+[quick-start]: https://github.com/electron/electron-quick-start
+[SourceRank]: https://docs.libraries.io/overview.html#sourcerank
