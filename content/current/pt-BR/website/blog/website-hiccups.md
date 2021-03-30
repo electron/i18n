@@ -8,7 +8,7 @@ Na semana passada, o site [electronjs.org](https://electronjs.org) teve alguns m
 
 ---
 
-Para evitar esse tipo de inatividade no futuro, ativamos [alertas de limiar de Heroku](https://devcenter.heroku.com/articles/metrics#threshold-alerting) em nosso aplicativo. Sempre que nosso servidor web acumular solicitações fracassadas ou respostas lentas além de um determinado limite, nossa equipe será notificada para que possamos resolver o problema rapidamente.
+Para evitar esse tipo de tempo de inatividade no futuro, nós permitimos [Heroku Alertas](https://devcenter.heroku.com/articles/metrics#threshold-alerting) em nossa aplicação. Sempre que nosso servidor web acumular solicitações falhadas ou respostas lentas além de um determinado limite, nossa equipe será notificada para que possamos resolver o problema rapidamente.
 
 ## Documentação Offline em Todos os Idiomas
 
