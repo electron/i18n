@@ -8,7 +8,7 @@ date: '2018-02-12'
 
 ---
 
-To prevent this kind of downtime in the future, we've enabled [Heroku threshold alerts](https://devcenter.heroku.com/articles/metrics#threshold-alerting) on our app. Any time our web server accumulates failed requests or slow responses beyond a certain threshold, our team will be notified so we can address the problem quickly.
+为了防止这种停机在未来，我们已经启用了 [Heroku 阈值警报](https://devcenter.heroku.com/articles/metrics#threshold-alerting) 在我们的应用程序上。 每当我们的 Web 服务器累积失败请求或响应速度超过一定阈值时，都会通知我们的团队，以便我们 快速解决问题。
 
 ## 每种语言的离线文档
 
