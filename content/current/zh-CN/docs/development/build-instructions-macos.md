@@ -1,8 +1,8 @@
-# 构建步骤 (macOS)
+# 构建步骤（macOS）
 
 遵循下面的引导，在 macOS 上构建 Electron.
 
-## 基本要求
+## 前提条件
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -14,10 +14,10 @@
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ npx @electron/check-python-tls
+$npx @emen/chect-python-tls
 ```
 
-如果以上命令的回调显示你正在使用过期的安全协议，你可以把macOS系统更新至High Sierra版，或者安装2.7.x版的Python。你可以使用[Homebrew](https://brew.sh/)来更新Python版本：
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
