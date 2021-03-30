@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Este módulo não pode ser usado até que o evento `ready` do módulo `app` seja emitido.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` é um [EventEmitter][event-emitter].
 
