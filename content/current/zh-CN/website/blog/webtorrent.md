@@ -86,7 +86,7 @@ WebTorrent 最令人兴奋的用途之一是同行协助。 [Wikipedia](https://
   <img alt="WebTorrent 桌面主窗口" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-Electron应用程序“繁忙”因为在每个应用程序中包含整个Chrome内容模块。 在某些情况下，这部分是真的 (Electron 应用程序安装器通常是 ~40MB, 其中，指定的 OST 安装器通常是 ~20MB)。
+There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
 
 然而，在 WebTorrent 桌面中，我们在正常运行过程中使用了几乎所有的 Electron 功能和几十个Chrome 功能。 如果我们想要从零开始为每个平台实现这些功能。 构建我们的应用需要几个月或几年的时间，否则我们只能释放出一个平台。
 
@@ -126,7 +126,7 @@ WebTorrent图书馆作为一个开放源码侧项目已经开发了两年。 **�
 
 ## 任何可能对其他开发者有用的 Electron 开发提示？
 
-[Feross](http://feross.org/), 是WebTorrent 桌面贡献者之一， 最近在阿根廷NodeConf 进行了一次谈话 *"真实世界的电子：使用JavaScript构建跨平台桌面应用程序"* 其中含有发布破解的 Electron 应用程序的有用提示。 如果你处于一个基本的工作应用程序的阶段，并且你正在试图将它带到一个更高水平的打造和专业水平上，这个话尤其有用。
+[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
 
 [在这里观看](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
