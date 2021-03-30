@@ -22,7 +22,7 @@ const mainwindow = new BrowserWindow(format@@
 
 ## 迁移
 
-> 以前采用</code>window.X = apiObject</0> 的方式从预加载脚本提供API，那现在该怎么做？
+> 我曾经使用 `window .X = apiObject` 提供我的预加载脚本中的 API？
 
 一个常见的方法是从您的预加载脚本中暴露API给加载的网站，而 Electron 提供了一个量身定做的模块帮您不费吹灰之力做到这一点。
 
