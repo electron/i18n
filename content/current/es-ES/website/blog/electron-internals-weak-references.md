@@ -22,7 +22,7 @@ Otro ejemplo es [el problema desaparecido de la ventana](https://electronjs.org/
 
 ## Prueba de referencias débiles en Electron
 
-No hay forma de probar directamente referencias débiles en JavaScript puro, ya que el idioma no tiene una forma de asignar referencias débiles. La única API en JavaScript relacionado con referencias débiles es [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), pero dado que sólo crea llaves de referencia débil, es imposible saber cuándo un objeto ha sido basura recolectada.
+No hay forma de probar directamente referencias débiles en JavaScript puro, ya que el idioma no tiene una forma de asignar referencias débiles. No hay forma de probar directamente referencias débiles en JavaScript puro, ya que el idioma no tiene una forma de asignar referencias débiles.
 
 En versiones de Electron anteriores a v0.37.8, puede utilizar el interno `v8Util. la API etDocutor` para probar referencias débiles, el cual añade una referencia débil al objeto pasado y llama al callback cuando el objeto es recolectado de basura:
 
@@ -62,7 +62,7 @@ for (let i = 0; i < 10000; ++i) {
 }
 ```
 
-La gestión de recursos en el módulo `remoto` es simple. Whenever an object is requested, a message is sent to the main process and Electron will store the object in a map and assign an ID for it, then send the ID back to the renderer process. En el proceso de renderizado, el módulo `remoto` recibirá el ID y lo envuelve con un objeto proxy y cuando el objeto proxy es basura recolectado, se enviará un mensaje al proceso principal para liberar el objeto.
+La gestión de recursos en el módulo `remoto` es simple. Cada vez que un objeto es solicitado, un mensaje es enviado al main process y Electron guardara el objeto en un mapa y le asignara un ID, luego envia de vuelta el ID al renderer process. En el proceso de renderizado, el módulo `remoto` recibirá el ID y lo envuelve con un objeto proxy y cuando el objeto proxy es basura recolectado, se enviará un mensaje al proceso principal para liberar el objeto.
 
 Usando `remote.require` API como ejemplo, una implementación simplificada se ve así:
 
