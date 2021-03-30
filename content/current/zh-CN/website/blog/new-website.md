@@ -4,13 +4,13 @@ author: zeke
 date: '2017-11-13'
 ---
 
-Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
+Electron has a new website at [electronjs.org][]! We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
 
 ---
 
 ## 🌍 翻译
 
-我们已经开始了网站国际化的进程，目标是 使Electron应用程序开发能够为全球的 开发者所访问。 我们正在使用一个名为 [Crowdin](https://crowdin.com/project/electron) 的本地化平台，它与GitHub集成了 当内容被翻译成不同语言时，打开和更新拉取请求。
+我们已经开始了网站国际化的进程，目标是 使Electron应用程序开发能够为全球的 开发者所访问。 We're using a localization platform called [Crowdin][] that integrates with GitHub, opening and updating pull requests automatically as content is translated into different languages.
 
 <figure>
   <a href="https://electronjs.org/languages">
@@ -30,7 +30,7 @@ Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ We've
   </a>
 </figure>
 
-如果你想要帮助翻译Electron的文档 和网站，请访问 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme) repo， 或向右跳转到 翻译于 [Crowdin](https://crowdin.com/project/electron), 您可以在那里登录使用您的 GitHub 帐户。
+If you're multilingual and interested in helping translate Electron's docs and website, visit the [electron/electron-i18n][] repo, or jump right into translating on [Crowdin][], where you can sign in using your GitHub account.
 
 目前在 Crowdin 上的 Electron 项目启用了21种语言。 添加对更多语言的支持是很容易的，所以如果您对 的帮助翻译感兴趣，但您看不到您的语言列表， [让我们知道](https://github.com/electron/electronjs.org/issues/new) 和 我们会启用它。
 
@@ -55,15 +55,15 @@ ls electron-i18n/content
 
 这里有一些令人难以置信的 Electron 应用，但它们并非总是容易找到 ， 而不是每个开发者都有时间或资源来构建一个合适的 网站来推销和分发他们的应用。
 
-仅使用 [PNG 图标文件和少量应用元数据](https://github.com/electron/electron-apps/blob/master/contributing.md)， 我们能够收集很多关于某个应用的信息。 使用从 GitHub 收集的数据，应用程序页面现在可以显示屏幕截图， 下载链接， 有公共仓库的每个应用程序的版本、发布笔记和README。 使用从每个应用图标中提取的调色板 我们可以生成 [粗胆和可访问的颜色](https://github.com/zeke/pick-a-good-color) 给每个应用页面一些可视化的特性。
+Using just a [PNG icon file and a small amount of app metadata](https://github.com/electron/electron-apps/blob/master/contributing.md), we're able to collect a lot of information about a given app. Using data collected from GitHub, app pages can now display screenshots, download links, versions, release notes, and READMEs for every app that has a public repository. 使用从每个应用图标中提取的调色板 我们可以生成 [粗胆和可访问的颜色](https://github.com/zeke/pick-a-good-color) 给每个应用页面一些可视化的特性。
 
 [应用程序索引页面](https://electronjs.org/apps) 现在也有类别 和关键字过滤器来查找有趣的应用，如 [GraphQL GUIs](https://electronjs.org/apps?q=graphql) 和 [p2p 工具](https://electronjs.org/apps?q=graphql)。
 
-如果您有一个您喜欢在网站上推荐的 Electron 应用程序，请在 [electron/electron-apps](https://github.com/electron/electron-apps) 仓库中打开一个 拉取请求。
+If you've got an Electron app that you'd like featured on the site, open a pull request on the [electron/electron-apps][] repository.
 
 ## Homebrew 的一行安装
 
-macOS 的 [Homebrew](https://brew.sh) 软件包管理器有一个叫做 [cask](https://caskroom.github.io) 的子命令，这使得在您的 终端中使用单个命令安装桌面应用程序变得容易， 像 `酿造箱安装原子`。
+The [Homebrew][] package manager for macOS has a subcommand called [cask][] that makes it easy to install desktop apps using a single command in your terminal, like `brew cask install atom`.
 
 我们已经开始为热门的 Electron 应用程序收集Homebrew 卡片名，并且现在 在有卡片的每个应用程序页 上显示安装命令(对于macOS 访客)：
 
@@ -78,17 +78,17 @@ macOS 的 [Homebrew](https://brew.sh) 软件包管理器有一个叫做 [cask](h
 
 ## 🌐 一个新域
 
-我们已经将站点从electron.atom.io移动到一个新域： [electronjs.org](https://electronjs.org)。
+We've moved the site from electron.atom.io to a new domain: [electronjs.org][].
 
-Electron 项目生于 [Atom](https://atom.io), GitHub的开源文本编辑器 建立在网页技术上。 Electron 原来叫做 `atom-shell`。 Atom 是第一个使用它的应用。 但民间并不需要很长时间才能认识到 这个神奇的 Chromium + 节点运行时间可以用于各种不同的 应用程序。 当像Microsoft 和 Slack这样的公司开始使用 `atom-shell`, 项目显然需要一个新名称。
+The Electron project was born inside [Atom][], GitHub's open-source text editor built on web technologies. Electron 原来叫做 `atom-shell`。 Atom 是第一个使用它的应用。 但民间并不需要很长时间才能认识到 这个神奇的 Chromium + 节点运行时间可以用于各种不同的 应用程序。 当像Microsoft 和 Slack这样的公司开始使用 `atom-shell`, 项目显然需要一个新名称。
 
 所以“电子”诞生了。 In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
 
-支持 GitHub 的 Electron 项目，例如Atom 和 [GitHub 桌面](https://desktop.github.com) 仍然是我们团队的 优先事项。 但通过移到一个新域，我们希望帮助澄清 Atom和 Electron之间的技术区别。
+Supporting GitHub's Electron projects like Atom and [GitHub Desktop][] is still a priority for our team, but by moving to a new domain we hope to help clarify the technical distinction between Atom and Electron.
 
 ## 🐢:ro火箭: Node.js
 
-上一个 Electron 网站是使用 [Jekyll](https://jekyllrb.com)、流行的 静态网站生成器构建的。 Jekyl是建立静态网站的一个伟大工具，但 网站已经开始扩展。 我们想要更多的动态能力，如正确的重定向和动态内容渲染，所以 [Node.js](https://nodejs.org) 服务器是一个明显的选择。
+The previous Electron website was built with [Jekyll][], the popular Ruby-based static site generator. Jekyl是建立静态网站的一个伟大工具，但 网站已经开始扩展。 We wanted more dynamic capabilities like proper redirects and dynamic content rendering, so a [Node.js][] server was the obvious choice.
 
 Electron 生态系统包括组件用许多 不同编程语言编写的项目，从Python到C++到Bash。 但JavaScript是Electron的基础，而它是我们社区中使用最多的语言。
 
@@ -96,7 +96,7 @@ Electron 生态系统包括组件用许多 不同编程语言编写的项目，�
 
 ## :hig_voltage: 更容易打开源代码的参与
 
-如果你有 [个节点。 s](https://nodejs.org) (8或更高)和 [git](https://git-scm.org) 安装在您的系统上 您可以轻松获取本地运行的 站点：
+If you've got [Node.js][] (8 or higher) and [git](https://git-scm.org) installed on your system, you can easily get the site running locally:
 
 ```sh
 git clone https://github.com/electron/electronijs.org
@@ -114,3 +114,13 @@ npm rune dev
 <figure>
   <img src="https://user-images.githubusercontent.com/2289/32871386-92eaa4ea-ca35-11e7-9511-a746c7fbf2c4.png">
 </figure>
+[Atom]: https://atom.io
+[cask]: https://caskroom.github.io
+[Crowdin]: https://crowdin.com/project/electron
+[electron/electron-apps]: https://github.com/electron/electron-apps
+[electron/electron-i18n]: https://github.com/electron/electron-i18n#readme
+[electronjs.org]: https://electronjs.org
+[GitHub Desktop]: https://desktop.github.com
+[Homebrew]: https://brew.sh
+[Jekyll]: https://jekyllrb.com
+[Node.js]: https://nodejs.org
