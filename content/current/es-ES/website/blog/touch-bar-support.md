@@ -20,7 +20,7 @@ Grandes gracias a [@MarshallOfSound](https://github.com/MarshallOfSound) por con
 
 ![Pulsar barra Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-A continuación se muestra un ejemplo de la creación de un juego sencillo de tragaperras en la barra táctil. Demuestra cómo crear una barra táctil, diseñar los artículos, asociarla con una ventana de , manejar el botón haga clic en eventos, y actualice las etiquetas dinámicamente.
+A continuación se muestra un ejemplo de cómo crear un juego simple de máquina tragaperras en la barra táctil. Demuestra cómo crear una barra táctil, diseñar los artículos, asociarla con una ventana de , manejar el botón haga clic en eventos, y actualice las etiquetas dinámicamente.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -61,8 +61,7 @@ const spin = new TouchBarButton({
         finishSpin()
       } else {
         // Ralentiza un poco en cada giro
-        timeout *= 1.
-        setTimeout(spinReels, timeout)
+        timeout *= 1. setTimeout(spinReels, timeout)
       }
     }
 
@@ -86,11 +85,12 @@ const finishSpin = () => {
   if (uniqueValues === 1) {
     // Todos los 3 valores son los mismos
     resultados. abel = '💰 ¡Jackpot!'
-    resultados. extColor = '#FDF00'
+    resultados.
+    result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 valores son los mismos
-    resultados. abel = '😍 ¡Ganador!'
-    resultados. extColor = '#FDF00'
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    extColor = '#FDF00'
   } else {
     // Ningún valor es el mismo
     resultado. abel = ': tly_frowning_face: Deslizar en'
