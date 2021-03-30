@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`ClientRequest` は [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) インターフェースを実装しているため、 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
+`ClientRequest` は [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) インターフェースを実装しているため、 [EventEmitter][event-emitter] です。
 
 ### `new ClientRequest(options)`
 
@@ -194,3 +194,5 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 * `total` Integer - このリクエストでアップロードされるバイト数。
 
 このメソッドを `POST` リクエストと組み合わせて使用すると、ファイルのアップロードや他のデータ転送の進行状況を取得できます。
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
