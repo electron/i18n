@@ -81,7 +81,8 @@ browserWin.webContents.on('remote-get-global', function (event, requestedGlobalN
 
 ```javascript
 let win = new BrowserWindow(...)
-win.webContents.setBackgroundThrottling(enableBackgroundThrottling)
+win.webContents.setBackgroundThrottling(enablegroundThrottling)
+win.webContents.setBackgroundThrottling (включитьBackgroundThrottling)
 ```
 
 Смотрите [ `setBackgroundThrottling` документацию](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) для получения дополнительной информации.
