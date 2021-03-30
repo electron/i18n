@@ -86,7 +86,7 @@ Einer der Mitbegründer von Brave ist Brendan Eich, der Schöpfer von JavaScript
   <img alt="WebTorrent-Desktop-Hauptfenster" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-Es gibt eine Meme, die Electron-Apps "geblockt" werden, da sie das gesamte Chrome-Inhaltsmodul in jeder App enthalten. In einigen Fällen ist dies teilweise der Fall (ein Electron-App-Installer ist normalerweise ~40MB, wobei ein OS-spezifischer App-Installer normalerweise ~20MB beträgt).
+There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
 
 Allerdings, im Fall von WebTorrent Desktop, verwenden wir fast alle Electron Funktionen, und viele Dutzende von Chrome Funktionen im Laufe des normalen Betriebs. Wenn wir diese Funktionen von Grund auf für jede Plattform implementieren wollten, es hätte Monate oder Jahre länger gedauert, unsere App zu bauen, sonst hätten wir nur für eine einzige Plattform freigegeben.
 
@@ -126,7 +126,7 @@ Wenn Sie daran interessiert sind, sich am Projekt zu beteiligen, schauen Sie sic
 
 ## Etwas Electron Entwicklungstipps, die für andere Entwickler nützlich sein könnten?
 
-[Feross](http://feross.org/), einer der Mitwirkenden des WebTorrent-Desktops, Vor kurzem hielt ein Vortrag *"Real world Electron: Building Cross-Plattform Desktop Apps mit JavaScript"* auf NodeConf Argentinien, die nützliche Tipps für die Freigabe einer polierten Electron App enthält. Der Vortrag ist besonders nützlich, wenn Sie sich in der Phase befinden, in der Sie eine grundlegende Arbeits-App haben und Sie versuchen, sie auf die nächste Stufe von Polnisch und Professionalität zu bringen.
+[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
 
 [Hier ansehen](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
