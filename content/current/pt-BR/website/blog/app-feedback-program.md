@@ -25,7 +25,7 @@ Nossos critérios e expectativas para aplicativos que participam deste programa 
 ## Horas
 Entendemos que nem todos podem compartilhar exatamente números de usuário, no entanto dados melhores nos ajudam a decidir o quão estável é uma determinada liberação. Pedimos que os aplicativos se comprometam a testar um número mínimo de horas de usuário, atualmente de 10.000 em todo o ciclo beta.
 - 10 horas de usuário podem ser 10 horas de teste por uma hora, ou uma pessoa de teste por 10 horas
-- Você pode dividir os testes entre versões beta, por exemplo, teste por 5.000 horas de usuário em 3.0.0-beta. e, em seguida, teste por 5.000 horas de usuário na 3.0.0-beta.5. Mais é melhor, mas entendemos que algumas aplicações não podem testar cada lançamento beta
+- You can split the testing between beta releases, for example test for 5,000 user-hours on 3.0.0-beta.2 and then test for 5,000 user-hours on 3.0.0-beta.5. More is better, but we understand that some applications cannot test every beta release
 - As horas de CI ou QA não contam para o total; no entanto, os lançamentos internos não contam
 
 ## Por que meu app Electron deve entrar?
@@ -34,5 +34,5 @@ Os erros de seu aplicativo serão rastreados e serão no radar da equipe princip
 ## As informações da minha aplicação serão compartilhadas publicamente? Quem pode ver estas informações?
 Não, as informações do seu aplicativo não serão compartilhadas com o público em geral. As informações são mantidas em um repositório privado do GitHub que só é visível para membros do Programa de Feedback de Aplicativos e [Governança do Electron](https://github.com/electron/governance). Todos os membros concordaram em seguir o [Código de Conduta do Electron](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
-## inscrever
+## Criar conta
 No momento, estamos aceitando um *número limitado* de cadastros. Se você está interessado e consegue cumprir os requisitos acima, por favor, preencha este [formulário](https://goo.gl/forms/OpMEKV75ScN6we7g1).
