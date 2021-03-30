@@ -18,16 +18,16 @@ JavaScript でオブジェクトを変数に代入するというのは、必ず
 
 Electron の `NativeImage` クラスを例に挙げると、`nativeImage.create()` APIを呼び出すたびに `NativeImage` インスタンスが返され、これに画像データが C++ 側で格納されます。 インスタンスの処理が終わり JavaScript エンジン (V8) がオブジェクトをガベージコレクトしたら、C++ のコードが呼び出されてメモリ内の画像データが解放されるので、ユーザが手動で管理する必要はありません。
 
-別の例としては、[ウインドウ消失問題](https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes) があります。これはウインドウへの参照がすべてなくなったときにガベージコレクトされる様子を、視覚的に観察できます。
+別の例としては、[ウインドウ消失問題][window-disappearing] があります。これはウインドウへの参照がすべてなくなったときにガベージコレクトされる様子を、視覚的に観察できます。
 
 ## Electron での弱参照のテスト
 
-生の JavaScript には弱参照を代入する方法がないので、弱参照を直接テストする方法はありません。 弱参照に関連する JavaScript の API だと [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) がありますが、これは弱参照のキーを作成するだけなので、オブジェクトがガベージコレクトされたかどうかは知ることができません。
+生の JavaScript には弱参照を代入する方法がないので、弱参照を直接テストする方法はありません。 弱参照に関連する JavaScript の API だと [WeakMap][WeakMap] がありますが、これは弱参照のキーを作成するだけなので、オブジェクトがガベージコレクトされたかどうかは知ることができません。
 
 v0.37.8 以前のバージョンの Electron では、内部の `v8Util.setDestructor` API を使用して弱参照をテストできました。以下のように、渡されたオブジェクトに弱参照を追加し、オブジェクトがガベージコレクションされたときにコールバックを呼び出すものです。
 
 ```javascript
-// 以下のコードは Electron < v0.37.8 のみで動作します。
+// 以下のコードは Electron < v0.37.8 でのみ実行できます。
 var v8Util = process.atomBinding('v8_util')
 
 var object = {}
@@ -39,7 +39,7 @@ v8Util.setDestructor(object, function () {
 object = undefined
 // GC を手動で起動します。
 gc()
-// "The object is garbage collected" とコンソールに出力されます。
+// コンソールに "The object is garbage collected" と出力されます。
 ```
 
 注意としては、内部の `gc` 関数を公開させるために、`--js-flags="--expose_gc"` コマンドスイッチで Electron を起動する必要があります。
@@ -48,7 +48,7 @@ gc()
 
 ## `remote` モジュールでの弱参照
 
-C++ でネイティブリソースを管理する以外にも、Electron は JavaScript のリソースを管理するために弱参照が必要です。 例えば、Electron の `remote` モジュールはいわゆる [Remote Procedure Call](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) モジュールで、レンダラープロセスからメインプロセス内のオブジェクトを使用できるようにます。
+C++ でネイティブリソースを管理する以外にも、Electron は JavaScript のリソースを管理するために弱参照が必要です。 例えば、Electron の `remote` モジュールはいわゆる [Remote Procedure Call][remote-procedure-call] (RPC) モジュールで、レンダラープロセスからメインプロセス内のオブジェクトを使用できるようにます。
 
 `remote` モジュールの重要な課題の 1 つに、メモリリークを避けるというものがあります。 ユーザがレンダラープロセス内のリモートオブジェクトを取得する場合、`remote` モジュールは、レンダラープロセス内の参照がなくなるまでオブジェクトがメインプロセスに存在し続けるよう保証しなければなりません。 さらに、レンダラープロセスでリモートオブジェクトへの参照がなくなったときに、そのオブジェクトがガベージコレクションされるようにする必要があります。
 
@@ -120,7 +120,7 @@ for (let i = 0; i < 10000; ++i) {
 
 明白な最適化としては、リモートオブジェクトのキャッシュがあります。すなわち、すでに同じ ID のリモートオブジェクトが存在する場合、新しいオブジェクトを作成するのではなく以前のリモートオブジェクトを返すようにします。
 
-これは JavaScript コアの API ではできません。 通常の辞書配列を使ってオブジェクトをキャッシュすれば V8 によるオブジェクトのガベージコレクションを防げますが、[WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) クラスではオブジェクトのみが弱参照のキーに使えます。
+これは JavaScript コアの API ではできません。 通常の辞書配列を使ってオブジェクトをキャッシュすれば V8 によるオブジェクトのガベージコレクションを防げますが、[WeakMap][WeakMap] クラスではオブジェクトのみが弱参照のキーに使えます。
 
 これを解決するために、値を弱参照として持つマップ型を追加しました。ID を持つオブジェクトのキャッシュに最適です。 これで、`remote.require` は以下のようになります。
 
@@ -154,4 +154,8 @@ Electron の弱参照の C++ コードに興味がある方は、以下のファ
 
 * [`key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)
+
+[window-disappearing]: https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+[remote-procedure-call]: https://en.wikipedia.org/wiki/Remote_procedure_call
 
