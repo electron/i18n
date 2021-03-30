@@ -4,7 +4,7 @@ author: kevinsawicki
 date: '2017-03-08'
 ---
 
-The Electron [1.6.3][] beta release contains initial support for the macOS [Touch Bar][].
+电子 [1.63][] 测试版包含对macOS [触摸杆][]的初始支持。
 
 ---
 
@@ -23,109 +23,109 @@ You can install this version via `npm install electron@beta` and learn more abou
 下面是在触摸条中创建一个简单的栏位游戏的例子。 它演示如何创建一个触摸栏，样式条目，将其与 窗口关联， 按键点击事件并动态更新标签。
 
 ```js
-const {app, BrowserWindow, TouchBar} = require('electron')
+康斯特 {app, BrowserWindow, TouchBar} =要求（'电子'）
 
-const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
+锥 {TouchBarButton, TouchBarLabel, TouchBarSpacer} =TouchBar
 
-let spinning = false
+让旋转=假
 
-// Reel labels
-const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
-const reel3 = new TouchBarLabel()
+//卷轴标签
+锥卷轴1=新的触摸巴拉贝尔（）
+锥卷轴2=新的触摸杆卷轴（）
+锥卷轴3= 新的 TouchBar 标签 （）
 
-// Spin result label
-const result = new TouchBarLabel()
+// 旋转结果标签
+缺点结果 = 新的 TouchBar 标签 （）
 
-// Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+// 旋转按钮
+康斯特旋转 = 新的触摸巴按钮 （+
+  标签： "🎰旋转"，
+  背景颜色： '#7851A9'，
+  单击：（）=> {
+    //如果（旋转） {
       return
     }
 
-    spinning = true
-    result.label = ''
+    旋转
 
-    let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    旋转，请忽略单击。标签="
 
-    const spinReels = () => {
-      updateReels()
+    让超时=10
+    const旋转长=4*100 0//4秒
+    const开始时间=日期。now（）
 
-      if ((Date.now() - startTime) >= spinLength) {
-        finishSpin()
-      } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
-        setTimeout(spinReels, timeout)
-      }
-    }
+    const旋转音圈=（）=> =
+      更新（）
 
-    spinReels()
-  }
-})
+      如果（（日期.now）-开始时间） >=旋转长）{
+        完成Spin（）
+      }其他{
+        //每次旋转
+        超时减慢一点*=1.1
+        设置超时（旋转， 超时）
+      =
+    =
 
-const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
-}
+    旋转（）
+  =
+}）
 
-const updateReels = () => {
-  reel1.label = getRandomValue()
-  reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
-}
+连续获得随机值=（）=> {
+  const值=[🍒'，'💎'，'7️♥'，'🍊'，'🔔' "⭐"， "🍇"， "🍀"]
+  返回值 [Math. 地板 （数学. 随机 ）] [值. 长度]]
+[
 
-const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
+续更新] （） => [
+  卷轴 1. 标签 = 获取随机价值 （）
+  卷轴 2. 标签 = 获取随机价值 （）
+  重新标记 = 获取
+[
+
+const 完成Spin = （） => =
+  const 唯一价值 = 新集 （[卷轴 1.标签， 卷轴 2.标签， 卷轴 3.标签]）. 大小
+  如果 （唯一价值 == 1） {
+    // 所有 3 个值都是相同的
+    结果 💰。
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
     // 2 values are the same
     result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
-  }
-  spinning = false
-}
+    结果.文本颜色="#FDFF00"
+  }其他=
+    //没有值是相同的
+    结果。标签="🙁再次旋转"
+    结果
+  
 
-const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({size: 'large'}),
-  reel1,
-  new TouchBarSpacer({size: 'small'}),
-  reel2,
-  new TouchBarSpacer({size: 'small'}),
-  reel3,
-  new TouchBarSpacer({size: 'large'}),
-  result
-])
 
-let window
 
-app.once('ready', () => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hidden-inset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
-  })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
+  
+  。
+  新的触摸栏空间器（{size: 'large'}），
+  卷轴1，
+  新的触摸栏空间器（{size: 'small'}），
+  卷轴2，
+  个新的 TouchBarSpacer （{size: 'small'}），
+  卷轴 3，
+  个新的 TouchbarSpacer （{size: 'large'}），
+  结果
+]）
+
+让窗口
+
+应用程序
+    
+  > 。：假的，
+    标题BarStyle：'隐藏嵌套'，
+    宽度：200，
+    高度：200，
+    背景颜色："#000"
+  }）
+  窗口
+
+  。
 ```
 
-[1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
-[Touch Bar]: https://developer.apple.com/macos/touch-bar
+[1.63]: https://github.com/electron/electron/releases/tag/v1.6.3
+[触摸杆]: https://developer.apple.com/macos/touch-bar
 
