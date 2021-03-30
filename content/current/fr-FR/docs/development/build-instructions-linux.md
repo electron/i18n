@@ -1,13 +1,13 @@
 # Instructions de compilation (Linux)
 
-Suivez les indications ci-dessous pour compiler Electron sur Linux.
+Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
-## Prérequis
+## Prerequisites
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
-* Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
   $ npx @electron/check-python-tls
