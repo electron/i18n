@@ -158,7 +158,7 @@ blog:
   feedback: 对这篇文章有反馈意见吗？ 可以在在 Twitter 上<a href="https://twitter.com/electronjs">@electronjs</a>
   help: 需要帮助或发现了一个错误？ <a href="/contact">联系我们</a>。
 clipboard:
-  copy: 复制
+  copy: Copy
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
 fiddle_launch_button:
@@ -179,7 +179,7 @@ pages:
     title: 所有的 Electron 的文档
     description: 所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。
   '/docs/api':
-    title: 应用开发接口（API）
+    title: API
     description: 最新的 Electron 的指南和 API 参考文档
   '/docs/development':
     title: 开发
@@ -258,7 +258,7 @@ governance:
     title: 管理
     description: 行政工作组监督整个治理和项目。
   api:
-    title: 应用开发接口（API）
+    title: API
     description: 根据项目原则监督公共API设计。
   global:
     overview: 概览
