@@ -255,7 +255,7 @@ Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 | Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
 | ---------- | ------------------------------- |:-----------:| ------------------------------ |
 | macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |     错误      | `['']` (array of empty string) |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
 | macOS mas  | False                           |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
 
