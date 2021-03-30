@@ -16,21 +16,21 @@ Aqui está um excerto do esquema que descreve a classe `BrowserWindow` (Janela d
 
 ```js
 {
-  nome: 'BrowserWindow',
-  descrição: 'Criar e controlar janelas de navegador. ,
-  processo: {
+  name: 'BrowserWindow',
+  description: 'Create and control browser windows.',
+  process: {
     main: true,
     renderer: false
   },
-  tipo: 'Class',
-  instância: 'win',
+  type: 'Class',
+  instanceName: 'win',
   slug: 'browser-window',
-  websiteUrl: 'https://electronjs. rg/docs/api/browser-window',
-  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window. d',
-  Métodos estáticos: [...],
-  exemploMédios: [...],
-  instâncias: [...],
-  eventos: [...]
+  websiteUrl: 'https://electronjs.org/docs/api/browser-window',
+  repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
+  staticMethods: [...],
+  instanceMethods: [...],
+  instanceProperties: [...],
+  instanceEvents: [...]
 }
 ```
 
