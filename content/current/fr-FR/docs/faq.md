@@ -24,9 +24,9 @@ Les nouvelles fonctionnalités de Node.js sont généralement ajoutées dans les
 
 ## Comment partager les données entre les pages web ?
 
-Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Quelques choix possible : [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) et [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-Vous pouvez également utiliser les primitives IPC fournies par Electron. Pour partager des données entre le processus principal et le moteur de rendu, vous pouvez utiliser les modules [`ipcMain`](api/ipc-main.md) et [`ipcRenderer`](api/ipc-renderer.md). Pour communiquer directement entre les pages web, vous pouvez envoyer un [`Port Messagerie`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) de l'une à l'autre, éventuellement via le processus principal en utilisant [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La communication ultérieure sur les ports de message est directe et ne détache pas à travers le processus principal.
+Vous pouvez également utiliser les primitives IPC fournies par Electron. Pour partager des données entre le processus principal et le moteur de rendu, vous pouvez utiliser les modules [`ipcMain`](api/ipc-main.md) et [`ipcRenderer`](api/ipc-renderer.md). Pour communiquer directement entre les pages web, vous pouvez envoyer un [`Port Messagerie`][message-port] de l'une à l'autre, éventuellement via le processus principal en utilisant [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La communication ultérieure sur les ports de message est directe et ne détache pas à travers le processus principal.
 
 ## La fenêtre/icône de mon application a disparu au bout de quelques minutes.
 
@@ -34,15 +34,15 @@ Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est d
 
 Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles :
 
-* [Gestion de la mémoire](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Portée des variables](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestion de la mémoire][memory-management]
+* [Portée des variables][variable-scope]
 
-Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code comme celui-ci :
+Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code de ceci :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
+const { app, Tray } = require('electron')
+app.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
@@ -50,8 +50,9 @@ app.on('ready', () => {
 pour cela :
 
 ```javascript
-const { app, Tray } = require('electron')let tray = null
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -97,17 +98,17 @@ Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une er
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Il est très probable que vous utilisez le module dans le mauvais processus.francais Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
+Il est très probable que vous utilisez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
 Si [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) est désactivé sur les écrans LCD les polices peuvent être floues. Exemple . Exemple :
 
-![exemple de rendu de sous-pixel](images/subpixel-rendering-screenshot.gif)
+![Exemple de rendu de sous-pixel][]
 
 L'anticrénelage des sous-pixels nécessite un fond non transparent pour la fenêtre contenant les glyphes d'une police d'écriture. (Voir [cette issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pour plus d'infos).
 
-Pour atteindre cet objectif, définissez la couleur de fond dans le constructeur du [BrowserWindow](api/browser-window.md) :
+Pour atteindre cet objectif, définissez l'arrière-plan du constructeur pour [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -116,6 +117,16 @@ const win = new BrowserWindow({
 })
 ```
 
-L'effet n'est visible que sur (certains?) écrans LCD. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent le faire. Il est préférable de toujours définir le contexte de cette manière, à moins que vous n'ayez des raisons de ne pas le faire.
+The effect is visible only on (some?) LCD screens. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent le faire. Il est préférable de toujours définir le contexte de cette manière, à moins que vous n'ayez des raisons de ne pas le faire.
 
 Veuillez noter que simplement paramétrer la couleur de fond avec le CSS ne donnera pas l'effet souhaité.
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+[message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
+[browser-window]: api/browser-window.md
+[Exemple de rendu de sous-pixel]: images/subpixel-rendering-screenshot.gif
