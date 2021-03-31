@@ -137,7 +137,6 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 * [contextBridge](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Módulos para ambos procesos:

@@ -77,24 +77,24 @@ const driver = new webdriver.Builder()
   // "9515" - это порт, открытый chrome драйвером.
   .usingServer('http://localhost:9515')
   .withCapabilities({
-    chromeOptions: {
-      // Вот путь к вашему двоичному файлу Electron.
+    'goog:chromeOptions': {
+      // Here is the path to your Electron binary.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('electron')
-  . uild()
+  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
+  .build()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q').sendKeys('webdriver')
-драйвер. indElement(webdriver.By.name('btnG')).click()
+driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
+driver.findElement(webdriver.By.name('btnG')).click()
 driver.wait(() => {
-  return driver.getTitle(). hen((title) => {
+  return driver.getTitle().then((title) => {
     return title === 'webdriver - Google Search'
   })
 }, 1000)
 
-водителя. uit()
+driver.quit()
 ```
 
 ## Настройка с WebdriverIO

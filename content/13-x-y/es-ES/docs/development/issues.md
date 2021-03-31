@@ -22,7 +22,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 Para enviar un informe de error:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with [a template](https://github.com/electron/electron/blob/master/.github/ISSUE_TEMPLATE/Bug_report.md) that should be filled in.
+Cuando abre una nueva incidencia en el [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), los usuarios se les presentará una plantilla que debe ser completada.
 
 Si crees que has encontrado un error en Electron, rellena la plantilla lo mejor de tu habilidad.
 
