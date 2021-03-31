@@ -192,16 +192,17 @@ La forma más simple y rápida de distribuir su aplicación recién creada es us
 1. Importar Electron Forge a su carpeta App:
 
     ```sh
-    npx @electron-forge/cli import
+    npm install --save-dev @electron-forge/cli
+    npx electron-forge import
 
-    ✔ Verificando su sistema
-    ✔ Inicializando repositorio Git
-    ✔ Escribiendo paquete modificado. son archivo
-    ✔ Instalando dependencias
-    ✔ Escribiendo paquete modificado. archivo hijo
-    ✔ Arreglo . itignore
+    ✔ Checking your system
+    ✔ Initializing Git Repository
+    ✔ Writing modified package.json file
+    ✔ Installing dependencies
+    ✔ Writing modified package.json file
+    ✔ Fixing .gitignore
 
-    Tenemos ATTEMPTADO para convertir su aplicación en un formato que electron-forge entienda.
+    Hemos INTENTADO convertir tu aplicación a un formato que electron-forge entiende.
 
     Gracias por usar "electron-forge"!!!
     ```
