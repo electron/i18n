@@ -77,12 +77,12 @@ const driver = new webdriver.Builder()
   // El "9515" es el puerto abierto por chrome driver.
   .usingServer('http://localhost:9515')
   .withCapabilities({
-    chromeOptions: {
-      // Aquí va la dirección de tu Electron binario.
+    'goog:chromeOptions': {
+      // Aquí va  la dirección de tu binario Electron.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('electron')
+  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
   .build()
 
 driver.get('http://www.google.com')
