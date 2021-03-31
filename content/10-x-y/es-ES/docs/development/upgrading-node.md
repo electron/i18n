@@ -8,7 +8,7 @@ La actualización del nodo es mucho más fácil que actualizar Chromium, así qu
 
 Electron tiene su propio [Node fork](https://github.com/electron/node) con modificaciones para los detalles de construcción del V8 mencionados anteriormente y para exponer el API necesitado por Electron. Una vez que se elija la liberación del nodo ascendente, es colocado en una ramificación en la bifurcación del Nodo de Electron y cualquier parche del Nodo del Electron son colocados ahí.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Otro factor es que el proyecto Node parchee su versión de V8. Como se menciono anteriormente, Electron compila todo con una simple copia de V8, así que los parches a V8 de Node deben ser portados a esa copia.
 
 Una vez que todas las dependencias de Electron están construyendo y usando la misma copia V8, el siguiente paso es arreglar cualquier problema de código de Electron causado por la actualización del Nodo.
 
