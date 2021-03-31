@@ -18,7 +18,7 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 
 需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
 
-* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#17-use-a-current-version-of-electron)”以获取更多信息。
+* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#15-use-a-current-version-of-electron)”以获取更多信息。
 
 * **评估你的依赖项目**NPM提供了五百万可重用的软件包，而你应当承担起选择可信任的第三方库。 如果你使用了受已知漏洞的过时的库，或是依赖于维护的很糟糕的代码，你的程序安全就可能面临威胁。
 
@@ -54,9 +54,7 @@ Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [E
 12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
 13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
 14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
-15. [禁用 `remote` 模块](#15-disable-the-remote-module)
-16. [限制 `remote` 模块](#16-filter-the-remote-module)
-17. [使用当前版本的 Electron](#17-use-a-current-version-of-electron)
+15. [使用当前版本的 Electron](#15-use-a-current-version-of-electron)
 
 如果你想要自动检测错误的配置或是不安全的模式，可以使用[electronegativity](https://github.com/doyensec/electronegativity) 关于在使用Electron进行应用程序开发中的潜在薄弱点或者bug，您可以参考[开发者与审核人员指南](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -476,101 +474,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) 禁用 `远程` 模块
-
-`远程` 模块为渲染器访问 的 API 提供了一种途径，通常只能在主流程中使用。 使用 渲染器可以调用一个主进程对象的方法，而不会明确发送 进程间信息。 如果您的桌面应用程序没有运行不信任的 内容 这可以是一个有用的方式，让您的渲染器进程访问和 只适用于主进程的模块。 例如： GUI相关模块(对话框、菜单等)。
-
-However, if your app can run untrusted content and even if you [sandbox][sandbox] your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. 因此， 应该在这种情况下禁用。
-
-### 为什么？
-
-`远程` 使用内部IPC 通道与主进程进行通信。 “原型污染”攻击可以让恶意代码访问内部 IPC 通道， 然后可以通过模仿 `远程`来逃避沙盒。 IPC 消息并访问运行更高的 权限的主要流程模块。
-
-此外，预加载脚本可能意外泄露模块到 沙盒渲染器。 跳跃 `遥控` 武器恶意代码，包含大量 的主进程模块来进行攻击。
-
-禁用 `remote` 模块会消除这些攻击向量。 启用上下文隔离也会阻止 “prototype pollution” 攻击成功。
-
-### 怎么做？
-
-```js
-// Bad if the renderer can run untrusted content
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    enableRemoteModule: true
-  }
-})
-```
-
-```js
-// 良好
-const mainwindow = new BrowserWindow(
-  webPreferences: {
-    enableRemoteModule: false
-  }
-})
-```
-
-```html
-<!-- Bad if the renderer can run untrusted content  -->
-<webview enableremotemodule="true" src="page.html"></webview>
-
-<!-- Good -->
-<webview enableremotemodule="false" src="page.html"></webview>
-```
-
-> **注意**：从 Electron 10 开始 `enableRemoteModule` 选项默认为 `false`。 对于之前的版本，你需要显式禁用 `remote` 模块。
-
-## 16) 筛选 `远程` 模块
-
-如果您不能禁用 `远程` 模块，您应该筛选全局， 节点， 和 Electron 模块 (所谓内置) 可以通过 `远程` 访问您的应用程序不需要的。 This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
-
-### 为什么？
-
-由于主要过程的系统访问权限， 主流程模块提供的功能 可能在渲染过程中运行的 恶意代码手中具有危险性。 限制您的应用程序所需的 套可访问的模块以及 过滤其他模块。 您可以减少恶意代码 用于攻击系统的工具集。
-
-请注意，最安全的选项是 [完全禁用远程模块](#15-disable-the-remote-module)。 If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
-
-### 怎么做？
-
-```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
-
-const allowedModules = new Set(['crypto'])
-const proxiedModules = new Map([['fs', readOnlyFsProxy]])
-const allowedElectronModules = new Set(['shell'])
-const allowedGlobals = new Set()
-
-app.on('remote-require', (event, webContents, moduleName) => {
-  if (proxiedModules.has(moduleName)) {
-    event.returnValue = proxiedModules.get(moduleName)
-  }
-  if (!allowedModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-builtin', (event, webContents, moduleName) => {
-  if (!allowedElectronModules.has(moduleName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-global', (event, webContents, globalName) => {
-  if (!allowedGlobals.has(globalName)) {
-    event.preventDefault()
-  }
-})
-
-app.on('remote-get-current-window', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-```
-
-## 17) 使用当前版本的 Electron
+## 15) 使用当前版本的 Electron
 
 你应该努力始终去使用最新版本的 Electron。 每当发布新的主要版本时，你应该尝试尽快更新您的应用。
 
@@ -589,5 +493,4 @@ Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深�
 [window-open-handler]: ../api/web-contents.md#contentssetwindowopenhandlerhandler
 [will-navigate]: ../api/web-contents.md#event-will-navigate
 [open-external]: ../api/shell.md#shellopenexternalurl-options
-[sandbox]: ../api/sandbox-option.md
 [responsible-disclosure]: https://en.wikipedia.org/wiki/Responsible_disclosure
