@@ -16,7 +16,7 @@ Par défaut, les avertissements apparaîtront si vous utilisez des API obsolète
 
 ## Nouvelle façon d'utiliser les modules intégrés
 
-Les modules intégrés sont maintenant regroupés en un seul module, au lieu d'être séparés en modules indépendants, pour que vous puissiez les utiliser [sans conflits avec d'autres modules](https://github.com/electron/electron/issues/387):
+Les modules intégrés sont maintenant regroupés en un seul module, au lieu d'être séparés en modules indépendants, pour que vous puissiez les utiliser sans conflits avec d'autres modules [](https://github.com/electron/electron/issues/387):
 
 ```javascript
 var app = require('electron').app
