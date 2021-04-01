@@ -5,9 +5,9 @@ Siga las indicaciones a continuación para construir Electron en Linux. vm
 ## Prerequisitos
 
 * Al menos 25GB de espacio de disco y 8GB de RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. Algunas distribuciones como CentOS 6. x siguen usando Python 2.6. x por lo que puede que debas verificar tu versión de Python con `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Asegúrate también de que tu sistema y versión de Python admitan al menos TLS 1,2. Para una prueba rápida, ejecuta el siguiente script:
 
   ```sh
   $ npx @electron/check-python-tls
