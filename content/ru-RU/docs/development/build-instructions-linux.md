@@ -5,9 +5,9 @@
 ## Требования
 
 * Как минимум 25 ГБ дискового пространства и 8 ГБ памяти.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Питон 2.7.x. Некоторые дистрибутивы, такие как CentOS 6.x, по-прежнему используют Python 2.6.x поэтому вам может понадобиться проверить свою версию Python с помощью `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Пожалуйста, также убедитесь, что ваша система и версия Python поддерживают по крайней мере TLS 1.2. Для быстрого теста запустите следующий скрипт:
 
   ```sh
   $ npx @electron/check-python-tls
@@ -47,16 +47,16 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
-On Arch Linux / Manjaro, install the following libraries:
+На Arch Linux / Manjaro установите следующие библиотеки:
 
 ```sh
-$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
-                   libgnome-keyring alsa-lib libcap libcups libxtst \
-                   libxss nss gcc-multilib curl gperf bison \
+$ судо pacman -Syu базы-devel лязг libdbus gtk2 libnotify -
+                   libgnome-ключ alsa-lib libcap libcups libxtst -
+                   libxss nss gss gcc-multilib curl gperf bison -
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Другие дистрибутивы могут предлагать аналогичные пакеты для установки с помощью пакетных менеджеров, таких как pacman. Или можно компилировать из исходных кодов.
 
 ### Кросс-компиляция
 
@@ -88,7 +88,7 @@ See [Build Instructions: GN](build-instructions-gn.md)
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Предварительно `clang` постараемся связать с `libtinfo.so.5`. В зависимости от архитектуры , симлинка к соответствующим `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Advanced topics
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Конфигурация здания по умолчанию предназначена для основных настольных дистрибутивов Linux linux. Чтобы создать для конкретного дистрибутива или устройства, может помочь вам следующая информация.
 
 ### Using system `clang` instead of downloaded `clang` binaries
 
