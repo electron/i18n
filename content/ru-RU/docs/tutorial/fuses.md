@@ -1,54 +1,54 @@
-# Electron Fuses
+# Электронные предохранители
 
-> Package time feature toggles
+> Функция времени упаковки переключается
 
-## What are fuses?
+## Что такое предохранители?
 
-For a subset of Electron functionality it makes sense to disable certain features for an entire application.  For example, 99% of apps don't make use of `ELECTRON_RUN_AS_NODE`, these applications want to be able to ship a binary that is incapable of using that feature.  We also don't want Electron consumers building Electron from source as that is both a massive technical challenge and has a high cost of both time and money.
+Для подмножества функций Electron имеет смысл отключить определенные функции для всего приложения.  Например, 99% приложений не используют `ELECTRON_RUN_AS_NODE`, эти приложения хотят иметь возможность отправить двоичный, который не в состоянии использовать эту функцию.  Мы также не хотим, чтобы потребители Electron строили Electron из источника, так как это одновременно и массовая техническая проблема, и имеет высокую стоимость как времени, так и денег.
 
-Fuses are the solution to this problem, at a high level they are "magic bits" in the Electron binary that can be flipped when packaging your Electron app to enable / disable certain features / restrictions.  Because they are flipped at package time before you code sign your app the OS becomes responsible for ensuring those bits aren't flipped back via OS level code signing validation (Gatekeeper / App Locker).
+Предохранители являются решением этой проблемы, на высоком уровне они являются "волшебные биты" в электронной двоичной, которые могут быть отражены при упаковке вашего electron приложение, чтобы / отключить определенные функции / ограничения.  Потому что они flipped на времени пакета прежде чем вы подписываете код ваше app OS будет ответственн для обеспечивать те биты не flipped назад через проверку подписания кода уровня OS (Gatekeeper / Locker App).
 
-## How do I flip the fuses?
+## Как перевернуть предохранители?
 
-### The easy way
+### Простой способ
 
-We've made a handy module `@electron/fuses` to make flipping these fuses easy.  Check out the README of that module for more details on usage and potential error cases.
+Мы сделали удобный модуль для `@electron/fuses` сделать листать эти предохранители легко.  Ознакомьтесь с README этого модуля для получения более подробной информации об использовании и потенциальных случаях ошибок.
 
 ```js
-require('@electron/fuses').flipFuses(
-  // Path to electron
-  require('electron'),
-  // Fuses to flip
+требуют ('@electron/fuses').flipFuses (
+  // Путь к электрону
+  требуют ('электрон'),
+  // Предохранители, чтобы перевернуть
   {
     runAsNode: false
   }
 )
 ```
 
-### The hard way
+### Трудный путь
 
-#### Quick Glossary
+#### Быстрый глоссарий
 
-* **Fuse Wire**: A sequence of bytes in the Electron binary used to control the fuses
-* **Sentinel**: A static known sequence of bytes you can use to locate the fuse wire
-* **Fuse Schema**: The format / allowed values for the fuse wire
+* **предохранитель**: Последовательность байтов в бинарной electron используется для управления предохранителями
+* **Sentinel**: статическая известная последовательность байтов, которые можно использовать для обнаружения предохранителя провода
+* **предохранитель**: Формат / разрешенные значения для предохранителя провода
 
-Manually flipping fuses requires editing the Electron binary and modifying the fuse wire to be the sequence of bytes that represent the state of the fuses you want.
+Вручную листать предохранители требует редактирования Электронного двоичного и изменения предохранителя провода, чтобы быть последовательность байтов, которые представляют состояние предохранителей вы хотите.
 
-Somewhere in the Electron binary there will be a sequence of bytes that look like this:
+Где-то в двоичном Electron будет последовательность байтов, которые выглядят так:
 
 ```text
-| ...binary | sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ...binary |
+| ... двоичные | sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ... двоичные |
 ```
 
-* `sentinel_bytes` is always this exact string `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
-* `fuse_version` is a single byte whose unsigned integer value represents the version of the fuse schema
-* `fuse_wire_length` is a single byte whose unsigned integer value represents the number of fuses in the following fuse wire
-* `fuse_wire` is a sequence of N bytes, each byte represents a single fuse and its state.
-  * "0" (0x30) indicates the fuse is disabled
-  * "1" (0x31) indicates the fuse is enabled
-  * "r" (0x72) indicates the fuse has been removed and changing the byte to either 1 or 0 will have no effect.
+* `sentinel_bytes` всегда именно эта строка `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
+* `fuse_version` представляет собой единый тотализатор, чье неподписаное целое значение представляет собой версию схемы предохранителя
+* `fuse_wire_length` представляет собой единый ряд, чье неподписаное целое значение представляет собой количество предохранителей в следующем предохранителе провода
+* `fuse_wire` представляет собой последовательность N байтов, каждый байт представляет собой единый предохранитель и его состояние.
+  * "0" (0x30) указывает на то, что предохранитель отключен
+  * "1" (0x31) означает, что предохранитель включен
+  * "r" (0x72) указывает на то, что предохранитель был удален, и изменение времени на 1 или 0 не будет иметь никакого эффекта.
 
-To flip a fuse you find its position in the fuse wire and change it to "0" or "1" depending on the state you'd like.
+Чтобы перевернуть предохранитель, вы найдете его положение в предохранителе провода и изменить его на "0" или "1" в зависимости от состояния вы хотите.
 
-You can view the current schema [here](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
+Вы можете просмотреть текущую схему [здесь](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
