@@ -75,5 +75,5 @@ The prebuilt binaries of Electron are built on Ubuntu 18.04.
 Si el compilado binario puede correr en una distribución depende de que la distribución incluye las librerías a las que está ligada Electron en la plataforma construida, así que solo hay garantía de que Ubuntu 18.04 trabaje, pero las siguientes plataformas también están verificadas para correr el precompilado binario de Electron:
 
 * Ubuntu 14.04 y posteriores
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 y más nuevo
+* Debian 8 y más nuevo
