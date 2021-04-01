@@ -75,31 +75,31 @@ const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
   // "9515" - это порт, открытый chrome драйвером.
-  .usingServer('http://localhost:9515')
-  .withCapabilities({
-    'goog:chromeOptions': {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
-    }
-  })
-  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
-  .build()
+  .usingServer ('http://localhost:9515')
+  .withCapabilities (no
+    'goog:chromeOptions':
+      // Вот путь к вашему электронному двоичному.
+      двоичный: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+    -
+  )
+  .forBrowser ('chrome') // Примечание: используйте .forBrowser ('electron') для селен-веб-файла <3.6.0
+  .build ()
 
-driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
-  return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
-  })
-}, 1000)
+driver.get ('http://www.google.com')
+driver.findElement (веб-пилот. By.name ('q')).sendKeys ('webdriver')
+driver.findElement (webdriver. By.name ('btnG')).)) нажмите кнопку ()
+driver.wait (()) -
+  > - водитель возврата.getTitle().., затем ((название) -> -
+    заголовок возврата - 'webdriver - Поиск Google'
+  )
+, 1000)
 
 driver.quit()
 ```
 
 ## Настройка с WebdriverIO
 
-[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](https://webdriver.io/) пакет узла для тестирования с помощью драйвера веб-приложений.
 
 ### 1. Запустить ChromeDriver
 
