@@ -1,93 +1,93 @@
 # Patches in Electron
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+Electron basiert auf zwei großen vorgelagerten Projekten: Chrom und Node.js. Jedes dieser Projekte hat auch mehrere eigene Abhängigkeiten. Wir versuchen unser Bestes, um diese Abhängigkeiten genau so zu nutzen, wie sie sind, aber manchmal können wir unsere Ziele nicht erreichen, ohne diese vorgelagerten Abhängigkeiten zu patchen, um unsere Anwendungsfälle anzupassen.
 
-## Patch justification
+## Patch-Begründung
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Jeder Patch in Electron ist eine Wartungslast. Wenn sich der Originalcode ändert, können Patches brechen – manchmal auch ohne Patchkonflikt oder Kompilierungsfehler. Es ist eine kontinuierliche Anstrengung, um unser Patch auf dem neuesten Stand und effektiv zu halten. Daher bemühen wir uns, unsere Patchanzahl auf ein Minimum zu beschränken. Zu diesem Zweck muss jeder Patch seinen Grund für die Existenz in seiner Commit-Nachricht beschreiben. Dieser Grund muss einer der folgenden sein:
 
-1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
-2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
-3. The patch makes Electron-specific changes in functionality which are fundamentally incompatible with upstream.
+1. Der Patch ist temporär und soll vorgelagert oder anderweitig entfernt werden (oder wurde). Fügen Sie einen Link zu einer Upstream-PR- oder Codeüberprüfung ein, falls verfügbar, oder ein Verfahren zum Überprüfen, ob der Patch zu einem späteren Zeitpunkt noch benötigt wird.
+2. Der Patch ermöglicht es dem Code, in der Electron-Umgebung zu kompilieren, kann aber nicht vorgelagert werden, da er elektronenspezifisch ist (z. B. Patchen von Verweisen auf Chromes `Profile`). Geben Sie Überlegungen darüber an, warum die Änderung nicht ohne Patch implementiert werden kann (z. B. durch Unterklassen oder Kopieren des Codes).
+3. Der Patch nimmt elektronenspezifische Änderungen in der Funktionalität vor, die grundsätzlich nicht mit upstream kompatibel sind.
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+Im Allgemeinen sind alle vorgelagerten Projekte, mit denen wir zusammenarbeiten, freundliche Leute und akzeptieren oft gerne Umgestaltungen, die es ermöglichen, dass der betreffende Code sowohl mit Electron als auch mit dem Upstream-Projekt kompatibel ist. (Siehe z.B. [diese](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) Änderung in Chrom, die es uns erlaubte, einen Patch zu entfernen, der dasselbe tat, oder [diese](https://github.com/nodejs/node/pull/22110) Änderung in Node, die ein No-op für Node war, aber einen Fehler in Electron behoben hat.) **Wir sollten darauf abzielen, Vorlaufänderungen vorzunehmen, wann immer wir können, und Patches für die unbegrenzte Lebensdauer**vermeiden.
 
-## Patch system
+## Patch-System
 
-If you find yourself in the unfortunate position of having to make a change which can only be made through patching an upstream project, you'll need to know how to manage patches in Electron.
+Wenn Sie sich in der unglücklichen Lage befinden, eine Änderung vornehmen zu müssen, die nur durch Patchen eines Upstream-Projekts vorgenommen werden kann, müssen Sie wissen, wie Patches in Electron verwaltet werden.
 
-All patches to upstream projects in Electron are contained in the `patches/` directory. Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Alle Patches für Vorgelagerte Projekte in Electron sind im Verzeichnis `patches/` enthalten. Jedes Unterverzeichnis von `patches/` enthält mehrere Patch-Dateien, zusammen mit einer `.patches` -Datei, die die Reihenfolge auflistet, in der die Patches angewendet werden sollen. Stellen Sie sich diese Dateien als eine Reihe von Git-Commits vor, die nach dem Auschecken auf das Upstream-Projekt angewendet werden.
 
 ```text
-patches
-├── config.json   <-- this describes which patchset directory is applied to what project
-├── chromium
-│   ├── .patches
-│   ├── accelerator.patch
-│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
-│   ⋮
-├── node
-│   ├── .patches
-│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
-│   ├── build_add_gn_build_files.patch
-│   ⋮
+Patches
+config.json   <-- dies beschreibt, auf welches Projekt
+-- Chromium-
+- .patches
 ⋮
+⋮
+build_add_gn_build_files
+add_openssl_is_boringssl_guard_to_oaep_hash_check
+
+⋮
+
+add_contentgpuclient_precreatemessageloop_callback
+.
 ```
 
-To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
+Um diese Patch-Sets zu verwalten, stellen wir zwei Tools bereit: `git-import-patches` und `git-export-patches`. `git-import-patches` importiert eine Reihe von Patchdateien in ein Git-Repository, indem jeder Patch in der richtigen Reihenfolge angewendet und für jeden Patch ein Commit erstellt wird. `git-export-patches` macht das Gegenteil; Es exportiert eine Reihe von Git-Commits in einem Repository in eine Reihe von Dateien in einem Verzeichnis und eine begleitende `.patches` -Datei.
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> Randbemerkung: Der Grund, warum wir eine `.patches` -Datei verwenden, um die Reihenfolge der angewendeten Patches beizubehalten, anstatt eine Zahl wie `001-` zu jeder Datei vorzuspeichern, ist, dass dadurch Konflikte im Zusammenhang mit der Patchreihenfolge reduziert werden. Es verhindert die Situation, dass zwei PRs beide einen Patch am Ende der Serie mit der gleichen Nummerierung hinzufügen und am Ende beide zusammengeführt werden, was zu einem doppelten Bezeichner führt, und es reduziert auch die Abwanderung, wenn ein Patch in der Mitte der Serie hinzugefügt oder gelöscht wird.
 
 ### Beispiel
 
-#### Adding a new patch
+#### Hinzufügen eines neuen Patches
 
 ```bash
 $ cd src/third_party/electron_node
-$ vim some/code/file.cc
-$ git commit
-$ ../../electron/script/git-export-patches -o ../../electron/patches/node
+- vim some/code/file.cc
+git commit
+. /.. /electron/script/git-export-patches -o .. /.. /electron/patches/node
 ```
 
-> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **HINWEIS**: `git-export-patches` ignoriert alle nicht festgeschriebenen Dateien, daher müssen Sie einen Commit erstellen, wenn Sie möchten, dass Ihre Änderungen exportiert werden. Die Betreffzeile der Commitnachricht wird verwendet, um den Patchdateinamen abzuleiten, und der Text der Commitnachricht sollte den Grund für das Vorhandensein des Patches enthalten.
 
-Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+Das erneute Exportieren von Patches führt manchmal dazu, dass sich Shasums in nicht verwandten Patches ändern. Dies ist im Allgemeinen harmlos und kann ignoriert werden (aber gehen Sie vor und fügen Sie diese Änderungen zu Ihrer PR hinzu, es wird sie davon abhalten, für andere Personen zu zeigen).
 
-#### Editing an existing patch
+#### Bearbeiten eines vorhandenen Patches
 
 ```bash
 $ cd src/v8
-$ vim some/code/file.cc
-$ git log
-# Find the commit sha of the patch you want to edit.
+- vim some/code/file.cc
+' git log
+' Suchen Sie den Commit-Sha des Patches, den Sie bearbeiten möchten.
 $ git commit --fixup [COMMIT_SHA]
-$ git rebase --autosquash -i [COMMIT_SHA]^
-$ ../electron/script/git-export-patches -o ../electron/patches/v8
+$ git rebase --autosquash -i [COMMIT_SHA].
+. /electron/script/git-export-patches -o .. /electron/patches/v8
 ```
 
-#### Removing a patch
+#### Entfernen eines Patches
 
 ```bash
-$ vim src/electron/patches/node/.patches
-# Delete the line with the name of the patch you want to remove
-$ cd src/third_party/electron_node
-$ git reset --hard refs/patches/upstream-head
-$ ../../electron/script/git-import-patches ../../electron/patches/node
-$ ../../electron/script/git-export-patches -o ../../electron/patches/node
+$im src/electron/patches/node/.patches
+- Löschen Sie die Zeile mit dem Namen des Patches, den Sie entfernen möchten,
+cd src/third_party/electron_node
+- git reset --hard refs/patches/upstream-head
+. /.. /electron/script/git-import-patches .. /.. /electron/patches/node
+. /.. /electron/script/git-export-patches -o .. /.. /electron/patches/node
 ```
 
-Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+Beachten Sie, dass `git-import-patches` den Commit markiert, der `HEAD` wurde, als er ausgeführt wurde, als `refs/patches/upstream-head`. Auf diese Weise können Sie nachverfolgen, welche Commits von Electron-Patches stammen (die nach `refs/patches/upstream-head`) und welche Commits sich im Upstream befinden (die vor `refs/patches/upstream-head`).
 
 #### Konflikte beheben
 
-When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+Beim Aktualisieren einer Upstream-Abhängigkeit können Patches möglicherweise nicht ordnungsgemäß angewendet werden. Häufig kann der Konflikt automatisch durch git mit einer 3-Wege-Zusammenführung gelöst werden. Sie können `git-import-patches` anweisen, den 3-Wege-Zusammenführungsalgorithmus zu verwenden, indem Sie das argument `-3` übergeben:
 
 ```bash
-$ cd src/third_party/electron_node
-# If the patch application failed midway through, you can reset it with:
-$ git am --abort
-# And then retry with 3-way merge:
-$ ../../electron/script/git-import-patches -3 ../../electron/patches/node
+electron_node
+third_party Wenn die Patch-Anwendung in der Mitte des Vorgangs fehlgeschlagen ist, können Sie sie zurücksetzen mit:
+--abort
+- Und wiederholen Sie dann mit 3-Wege-Zusammenführung:
+. /.. /electron/script/git-import-patches -3 .. /.. /electron/patches/node
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+Wenn `git-import-patches -3` auf einen Zusammenführungskonflikt stößt, den er nicht automatisch lösen kann, wird er angehalten und ermöglicht es Ihnen, den Konflikt manuell zu lösen. Nachdem Sie den Konflikt gelöst haben, `git add` die aufgelösten Dateien und wenden Sie die restlichen Patches weiter an, indem Sie `git am --continue`ausführen.
