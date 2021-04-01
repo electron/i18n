@@ -1,12 +1,12 @@
 # Accesibilidad
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
+Hacer que las aplicaciones accesibles sea importante y estemos encantados de proporcionar funcionalidad a [Devtron][devtron] y [Spectron][spectron] que le brinda a los programadores de la oportunidad de hacer que sus aplicaciones mejoren para todos.
 
 ---
 
 Los problemas de accesibilidad en las aplicaciones Electron son similares a los de los sitios web debido a que ambos son básicamente HTML. Sin embargo, con las aplicaciones de Electron, no puedes usar los recursos online para las auditorías de accesibilidad, ya que la aplicación no posee una URL para apuntar al auditor.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Sigue leyendo para un resumen de las herramientas.
+Estas características traen esas herramientas de auditoría a tu App Electron. Puedes elegir agregar auditorías a tus pruebas con Spectron o utilizarlas dentro de DevTools con Devtron. Sigue leyendo para un resumen de las herramientas.
 
 ## Spectron
 
@@ -40,7 +40,7 @@ También puede cambiar manualmente estas características dentro de su aplicaci�
 
 ### Utilizando la API de Electron
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Tenga en cuenta que las utilidades de asistencia al sistema del usuario tienen prioridad sobre esta configuración y la reemplazará.
+Al usar el [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, puedes exponer de forma manual el árbol de accesibilidad de Chrome a los usuarios en las preferencias de la aplicación. Tenga en cuenta que las utilidades de asistencia al sistema del usuario tienen prioridad sobre esta configuración y la reemplazará.
 
 ### Dentro de software de terceros
 
