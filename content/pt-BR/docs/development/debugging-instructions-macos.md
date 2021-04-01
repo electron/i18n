@@ -1,104 +1,104 @@
 # Depuração no macOS
 
-Se experimentar falhas ou problemas no Electron que acredita que não são causados pelo seu aplicativo de JavaScript, mas devido ao próprio Electron, a depuração pode ser um pouco complicada, especialmente para os desenvolvedores que não usam a depuração nativa/C++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Se experimentar falhas ou problemas no Electron que acredita que não são causados pelo seu aplicativo de JavaScript, mas devido ao próprio Electron, a depuração pode ser um pouco complicada, especialmente para os desenvolvedores que não usam a depuração nativa/C++. No entanto, usando o lldb e o código-fonte Electron, você pode habilitar depuração passo-a-passo com pontos de interrupção dentro do código fonte de Electron. Você também pode usar [XCode para depurar](debugging-instructions-macos-xcode.md) se você preferir uma interface gráfica.
 
 ## Requisitos
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Uma construção de depuração de**Eletrônica : A maneira mais fácil é geralmente construí-lo si mesmo, usando as ferramentas e pré-requisitos listados no [instruções de construção para](build-instructions-macos.md)macOS . Embora você possa anexar e depurar Electron como você pode baixá-lo diretamente, você descobrirá que ele é fortemente otimizado, tornando a depuração substancialmente mais difícil: O depurador não será capaz de mostrar-lhe o conteúdo de todas as variáveis e o caminho de execução pode parecer estranho por causa da inlinação, chamadas de cauda e outras otimizações do compilador.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on macOS. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Além do Xcode, também instale as ferramentas da linha de comando Xcode. Eles incluem LLDB, o depurador padrão em Xcode no macOS. Suporta depuração C, Objective-C e C++ nos dispositivos desktop e iOS e simulador.
 
-* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+* **.lldbinit**: Criar ou editar `~/.lldbinit` para permitir que o código do Cromo seja devidamente mapeado.
 
    ```text
-   command script import ~/electron/src/tools/lldb/lldbinit.py
+   importação de script de comando ~/elétron/src/tools/lldb/lldbinit.py
    ```
 
 ## Anexar e depurar o Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Para iniciar uma sessão de depuração, abra o Terminal e inicie `lldb`, passando uma construção de elétrons sem liberação como parâmetro.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
-(lldb) target create "./out/Testing/Electron.app"
-Current executable set to './out/Testing/Electron.app' (x86_64).
+(lldb) criar "./out/Testing/Electron.app"
+Conjunto executável atual para './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Definir pontos de interrupção
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+O LLDB é uma ferramenta poderosa e suporta múltiplas estratégias para inspeção de código. Para esta introdução básica, vamos supor que você está chamando um comando do JavaScript que não está se comportando corretamente - então você gostaria de quebrar a C++ desse comando dentro da fonte Electron.
 
-Relevant code files can be found in `./shell/`.
+Arquivos de código relevantes podem ser encontrados em `./shell/`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Vamos supor que você queira depurar `app.setName()`, que é definido em `browser.cc` como `Browser::SetName()`. Defina o ponto de interrupção usando o comando `breakpoint` , especificando arquivo e linha para quebrar:
 
 ```sh
-(lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+(lldb) conjunto de pontos de interrupção --arquivo browser.cc --linha 117
+Breakpoint 1: onde = Electron Framework'atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 em browser.cc:118, endereço = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Em seguida, inicie Electron:
 
 ```sh
-(lldb) run
+(lldb) executar
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+O aplicativo será imediatamente pausado, já que a Electron define o nome do aplicativo no lançamento:
 
 ```sh
-(lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron.app/Contents/MacOS/Electron' (x86_64)
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
+(lldb) executar
+Processo 25244 lançado: '/Users/fr/Code/electron/out/Testing/Electron.app/Contents/MacOS/Electron' (x86_64)
+Processo 25244 parou
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 átomo do Electron Framework::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 em browser.cc:118, fila = 'com.apple.main-thread', razão de parada = ponto de interrupção 1.1
+    #0 de quadro: 0x0000000100162db4 átomo do quadro de elétrons::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 a browser.cc:118
+   115 }
    116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
+   117 vazio Navegador::SetName(const std::string& nome) {
+-> 118 name_override_ = nome;
+   119 }
    120
-   121  int Browser::GetBadgeCount() {
+   121 int Browser ::GetBadgeCount() {
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Para mostrar os argumentos e variáveis locais para o quadro atual, execute `frame variable` (ou `fr v`), que mostrará que o aplicativo está atualmente definindo o nome para "Elétron".
 
 ```sh
-(lldb) frame variable
-(atom::Browser *) this = 0x0000000108b14f20
-(const string &) name = "Electron": {
+(lldb) variável de quadro
+(átomo::Navegador *) este = 0x0000000108b14f20
+( &de corda const ) nome = "Elétron": {
     [...]
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Para fazer uma etapa única de nível de origem no segmento selecionado atualmente, execute `step` (ou `s`). Isso te levaria para `name_override_.empty()`. Para prosseguir e dar um passo mais, executar `next` (ou `n`).
 
 ```sh
-(lldb) step
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
-    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
+(lldb) passo
+Processo 25244 parou
+* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', razão de parada = passo em
+    quadro #0: 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 em browser.cc:119
    116
-   117  void Browser::SetName(const std::string& name) {
-   118    name_override_ = name;
--> 119  }
+   117 void Browser::SetName(const std::string& nome) {
+   118 name_override_ = nome;
+-> 119 }
    120
-   121  int Browser::GetBadgeCount() {
-   122    return badge_count_;
+   121 int Navegador::GetBadgeCount() {
+   122 badge_count_ de retorno;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**NOTA:** Se você não ver o código-fonte quando acha que deveria, você pode não ter adicionado o arquivo `~/.lldbinit` acima.
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Para terminar a depuração neste momento, corra `process continue`. Você também pode continuar até que uma certa linha de seja atingida neste segmento (`thread until 100`). Este comando executará o segmento no quadro de atual até atingir a linha 100 neste quadro ou parar se ele deixar o quadro atual.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Agora, se você abrir as ferramentas de desenvolvedor da Electron e chamar `setName`, você mais uma vez atingirá o ponto de interrupção .
 
 ### Leia mais
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
+LLDB é uma ferramenta poderosa com uma ótima documentação. Para saber mais sobre isso, considere a documentação de depuração da Apple, por exemplo, o</a> de referência da estrutura de comando
 
-You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
+LLDB ou a introdução ao [usando o LLDB como um][lldb-standalone]de depuração autônomo .</p> 
 
-[lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
+Você também pode conferir o fantástico</a>manual e tutorial do LLDB, o que explicará cenários de depuração mais complexos.</p>
+
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
-[lldb-tutorial]: https://lldb.llvm.org/tutorial.html
