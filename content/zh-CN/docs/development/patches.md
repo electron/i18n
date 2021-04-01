@@ -1,93 +1,93 @@
-# Patches in Electron
+# 电子补丁
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+电子是建立在两个主要的上游项目：铬和节点.js。 每个项目也有各自的依赖关系。 我们尽最大努力使用这些依赖项，但有时如果不修补这些上游依赖项以适应我们的使用情况，我们就无法实现我们的目标。
 
-## Patch justification
+## 修补程序理由
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+电子中的每个补丁都是维护负担。 当上游代码更改时，修补程序可能会中断-有时甚至没有修补程序冲突或编译错误。 这是一个持续的努力，以保持我们的补丁设置最新和有效。 因此，我们努力将补丁计数保持在最低水平。 为此，每个修补程序都必须在其承诺信息中描述其存在的原因。 该原因必须是以下原因之一：
 
-1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
-2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
-3. The patch makes Electron-specific changes in functionality which are fundamentally incompatible with upstream.
+1. 该修补程序是临时性的，旨在（或已）在上游或最终删除。 包括指向上游 PR 的链接或代码审核（如果可用）或验证以后是否仍需要修补程序。
+2. 该修补程序允许代码在电子环境中编译，但不能上游，因为它是针对电子的（例如修补对 Chrome `Profile`的引用）。 包括关于为什么没有修补程序（例如，通过子分类或复制代码）无法实现更改的推理。
+3. 该修补程序使与上游根本不兼容的功能发生电子特定的变化。
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+一般来说，我们合作的所有上游项目都是友好的人，他们通常乐于接受重构，使有关代码与电子和上游项目兼容。 （请参阅 [铬的这种](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) 变化，这使我们能够删除做同样的事情的修补程序，或在节点中 [这种](https://github.com/nodejs/node/pull/22110) 更改，节点为非操作，但在 Electron 中修复了错误。 **我们应该尽可能瞄准上游的变化，避免无限期的补丁**。
 
-## Patch system
+## 修补程序系统
 
-If you find yourself in the unfortunate position of having to make a change which can only be made through patching an upstream project, you'll need to know how to manage patches in Electron.
+如果你发现自己处于一个不幸的境地，不得不做出改变，这只能通过修补上游项目，你需要知道如何管理电子补丁。
 
-All patches to upstream projects in Electron are contained in the `patches/` directory. Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+电子中上游项目的所有修补程序都包含在 `patches/` 目录中。 `patches/` 的每个子目录都包含多个修补程序文件，以及一个 `.patches` 文件，其中列出了应用修补程序的顺序。 将这些文件视为组成一系列 git 提交，这些提交在检查完后应用于上游项目之上。
 
 ```text
-patches
-├── config.json   <-- this describes which patchset directory is applied to what project
-├── chromium
-│   ├── .patches
-│   ├── accelerator.patch
-│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
-│   ⋮
-├── node
-│   ├── .patches
-│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
-│   ├── build_add_gn_build_files.patch
-│   ⋮
+补丁
+├----配置.json   <--这描述了哪个补丁集目录适用于什么项目
+├--铬
+│ ├----修补程序
+│ ├--加速器。 补丁
+│ ├---add_contentgpuclient_precreatemessageloop_callback.patch
+│ ⋮
+├--节点
+│ ├--修补程序
+│ ├--add_openssl_is_boringssl_guard_to_oaep_hash_check 修补程序
+│ ├--build_add_gn_build_files-修补程序
+│ ⋮
 ⋮
 ```
 
-To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
+为了帮助管理这些修补程序集，我们提供了两个工具： `git-import-patches` 和 `git-export-patches`。 `git-import-patches` 通过按正确的顺序应用每个修补程序并为每个修补程序创建提交，将一组修补程序文件导入 git 存储库。 `git-export-patches` 做相反的：它将存储库中的一系列 git 提交导出到目录中的一组文件以及随附的 `.patches` 文件中。
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> 旁注：我们之所以使用 `.patches` 文件来维护应用修补程序的顺序，而不是将 `001-` 等数字预用于每个文件，是因为它减少了与修补程序订购相关的冲突。 它防止了两个 PR 在系列末尾添加具有相同编号的修补程序，最终两者都被合并导致重复标识符的情况，并且当在系列中间添加或删除修补程序时，它还减少了流失。
 
 ### 用法
 
-#### Adding a new patch
+#### 添加新修补程序
 
 ```bash
-$ cd src/third_party/electron_node
-$ vim some/code/file.cc
-$ git commit
-$ ../../electron/script/git-export-patches -o ../../electron/patches/node
+$cd src/third_party/electron_node
+$vim一些/代码/文件.cc
+$git提交
+$。。/../电子/脚本/吉特出口补丁-o.。/../电子/补丁/节点
 ```
 
-> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **注意**： `git-export-patches` 忽略任何未提交的文件，因此，如果您希望输出更改，则必须创建提交文件。 提交消息的主题行将用于推导修补程序文件名称，提交消息的主体应包括修补程序存在的原因。
 
-Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+重新导出修补程序有时会导致不相关的修补程序中的沙苏姆发生变化。 这通常是无害的，可以忽略（但继续前进，并添加到您的公关这些变化，它会阻止他们出现在其他人）。
 
-#### Editing an existing patch
+#### 编辑现有修补程序
 
 ```bash
-$ cd src/v8
-$ vim some/code/file.cc
-$ git log
-# Find the commit sha of the patch you want to edit.
-$ git commit --fixup [COMMIT_SHA]
-$ git rebase --autosquash -i [COMMIT_SHA]^
-$ ../electron/script/git-export-patches -o ../electron/patches/v8
+$cd src/v8
+$vim 一些/代码/文件.cc
+$ git 日志
+# 找到您要编辑的修补程序的提交剃须刀。
+$git提交-修复 [COMMIT_SHA]
+$git重新基础-自动壁球-i [COMMIT_SHA]^
+$。。/电子/脚本/吉特出口补丁-o.。/电子/补丁/v8
 ```
 
-#### Removing a patch
+#### 删除修补程序
 
 ```bash
-$ vim src/electron/patches/node/.patches
-# Delete the line with the name of the patch you want to remove
-$ cd src/third_party/electron_node
-$ git reset --hard refs/patches/upstream-head
-$ ../../electron/script/git-import-patches ../../electron/patches/node
-$ ../../electron/script/git-export-patches -o ../../electron/patches/node
+$vim src/电子/补丁/节点/。补丁
+# 删除要删除的补丁名称的行
+$cd src/third_party/electron_node
+$git 重置 - 硬参考/补丁/上游头
+$./../电子/脚本/吉特进口补丁。。/../电子/补丁/节点
+美元。/../电子/脚本/吉特出口补丁-o.。/../电子/补丁/节点
 ```
 
-Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+请注意， `git-import-patches` 将标志着承诺，这是 `HEAD` 时，它是运行为 `refs/patches/upstream-head`。 这可以让你跟踪哪些承诺来自电子补丁（那些 `refs/patches/upstream-head`后），哪些提交是在上游（那些之前 `refs/patches/upstream-head`）。
 
 #### 解决冲突
 
-When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+更新上游依赖关系时，修补程序可能无法干净地应用。 通常，冲突可以通过通过 3 向合并的 git 自动解决。 您可以通过 `-3` 参数指示 `git-import-patches` 使用三方合并算法：
 
 ```bash
-$ cd src/third_party/electron_node
-# If the patch application failed midway through, you can reset it with:
-$ git am --abort
-# And then retry with 3-way merge:
-$ ../../electron/script/git-import-patches -3 ../../electron/patches/node
+$cd src/third_party/electron_node
+# 如果修补程序应用程序中途失败，您可以重置它与：
+$git am - 中止
+# 然后重试与 3 向合并：
+$./../电子/脚本/git进口补丁-3 。。/../电子/补丁/节点
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+如果 `git-import-patches -3` 遇到无法自动解决的合并冲突，它将暂停并允许您手动解决冲突。 解决冲突后， `git add` 已解决的文件，并通过运行 `git am --continue`继续应用其余修补程序。
