@@ -2,133 +2,133 @@
 
 ## Обзор
 
-This feature allows you to configure local and global keyboard shortcuts for your Electron application.
+Эта функция позволяет настроить локальные и глобальные сочетания клавиш для приложения Electron.
 
 ## Пример
 
 ### Локальные горячие клавиши
 
-Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
+Локальные сочетания клавиш запускаются только тогда, когда приложение сфокусировано. Чтобы настроить локальный ярлык клавиатуры, необходимо указать свойство [`accelerator`][] при создании [MenuItem][] в [меню][] модуля.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
-const { Menu, MenuItem } = require('electron')
+const { Menu, MenuItem } - требуют ('электрон')
 
-const menu = new Menu()
-menu.append(new MenuItem({
-  label: 'Electron',
-  submenu: [{
-    role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-    click: () => { console.log('Electron rocks!') }
-  }]
-}))
+const меню - новое меню ()
+menu.append (новый MenuItem):
+  'Electron',
+  submenu:
+    роль: 'помощь', ускоритель
+    : process.platform - 'darwin'? 'Alt'Cmd'I': 'Alt'Shift'I',
+    щелчок: ()> консоль.log ('Electron rocks!') (
+  ))
+Menu.
 
-Menu.setApplicationMenu(menu)
+setApplicationMenu (меню)
 ```
 
-> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
+> ПРИМЕЧАНИЕ: В коде выше, вы можете видеть, что ускоритель отличается операционной системы пользователя. Для MacOS, это `Alt+Cmd+I`, в то время как Linux и Windows, это `Alt+Shift+I`.
 
-After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
+После запуска приложения Electron, вы должны увидеть меню приложения вместе с локальным ярлыком вы только что определили:
 
-![Menu with a local shortcut](../images/local-shortcut.png)
+![Меню с местным ярлыком](../images/local-shortcut.png)
 
-If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+Если вы нажмете `Help` или нажмете на определенный ускоритель, а затем откройте терминал , с которого вы запустили приложение Electron, вы увидите сообщение, которое было сгенерировано после запуска события `click` : "Electron rocks!".
 
 ### Глобальные сочетания клавиш
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
+Чтобы настроить глобальный ярлык клавиатуры, необходимо использовать модуль [GlobalShortcut][] для обнаружения событий клавиатуры, даже если приложение не имеет клавиатуре.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } - требуют ('электрон')
 
-app.whenReady().then(() => {
-  globalShortcut.register('Alt+CommandOrControl+I', () => {
-    console.log('Electron loves global shortcuts!')
-  })
-}).then(createWindow)
+app.whenReady ().,после этого (()) -> -
+  globalShortcut.register ('Alt'CommandOrControl'i', () -> -
+    консоли.log ("Электрон любит глобальные ярлыки!")
+  В)
+й).,тогда (создайтеWindow)
 ```
 
-> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
+> ПРИМЕЧАНИЕ: В коде выше, комбинация `CommandOrControl` использует `Command` на macOS и `Control` windows/Linux.
 
-After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+После запуска приложения Electron, если вы нажимаете на определенную комбинацию клавиш , то откройте терминал, с которого вы запустили приложение Electron, вы увидите, что Electron любит глобальные ярлыки!
 
 ### Горячие клавиши в BrowserWindow
 
-#### Using web APIs
+#### Использование веб-API
 
-If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
+Если вы хотите обрабатывать сочетания клавиш в [BrowserWindow][], вы можете прослушать события `keyup` и `keydown` [DOM][dom-events] внутри процесса рендерера с помощью [addEventListener () API][addEventListener-api].
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Обратите внимание на третий параметр `true` , что слушатель всегда будет получать клавиши перед другими слушателями, чтобы они не могли `stopPropagation()` на них.
 
-#### Intercepting events in the main process
+#### Перехват событий в основном процессе
 
 Событие [` before-input-event `](../api/web-contents.md#event-before-input-event) генерируется перед отправкой событий ` keydown ` и ` keyup ` на странице. Может быть использовано для захвата и управления ярлыками, которые не видны в меню.
 
 ##### Пример
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } требует ('электрон')
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+app.whenReady ().., то (())>
+  const win - новый BrowserWindow (ширина: 800, высота: 600, webPreferences: { nodeIntegration: true } )
 
-  win.loadFile('index.html')
-  win.webContents.on('before-input-event', (event, input) => {
-    if (input.control && input.key.toLowerCase() === 'i') {
-      console.log('Pressed Control+I')
-      event.preventDefault()
-    }
-  })
-})
+  win.loadFile ('индекс.html')
+  win.webContents.on ('до ввода-события', (событие, входные данные) -> -
+    если (входной.контроль && ввод.key.toLowerCase () - 'i') - консоль
+      .log ('Pressed Control'I')
+      event.preventDefault ()
+    -
+  )
+)
 ```
 
-After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+После запуска приложения Electron, если вы откроете терминал, который вы запустили ваше приложение Electron от и нажмите комбинацию клавиш `Ctrl+I` , вы увидите, эта комбинация ключей была успешно перехвачена.
 
-#### Using third-party libraries
+#### Использование сторонних библиотек
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. Below are examples of usage of the `mousetrap` running in the Renderer process:
+Если вы не хотите делать ручной анализ ярлыка, есть библиотеки, которые делают обнаружения ключей, таких как [мышеловка][]. Ниже приведены примеры использования `mousetrap` в процессе Renderer:
 
 ```js
-Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind ('4', () -> - консоль.log ('4')
+Mousetrap.bind ('?', () -> - консоль.log ("Показать ярлыки!") В)
+Mousetrap.bind ('esc', () -> консоль.log ('escape'), 'keyup')
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+// комбинации
+Mousetrap.bind ('команда-смена'k', () -> - консоль.log ('command shift k') -
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+// карта нескольких комбинаций к одному и тому же обратному вызову
+Mousetrap.bind ('command'k', 'ctrl'k', ()> - консоль
+  .log ("команда k или control k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
-})
+  // возвращение ложного, чтобы предотвратить поведение по умолчанию и остановить событие от восходящей
+  возвращение ложных
+q)
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// Gmail стиль последовательности
+Mousetrap.bind ('g i', () - консоль> .log (перейдите в почтовый ящик')
+Mousetrap.bind ('a', () -> - консоль.log ('выбрать все')
 
-// konami code!
+// konami код!
 Mousetrap.bind('Вверх вниз слева справа b enter', () => {
   console.log('konami code')
 })
 ```
 
-[Menu]: ../api/menu.md
+[меню]: ../api/menu.md
 [MenuItem]: ../api/menu-item.md
-[globalShortcut]: ../api/global-shortcut.md
+[GlobalShortcut]: ../api/global-shortcut.md
 [`accelerator`]: ../api/accelerator.md
 [BrowserWindow]: ../api/browser-window.md
-[mousetrap]: https://github.com/ccampbell/mousetrap
+[мышеловка]: https://github.com/ccampbell/mousetrap
 [dom-events]: https://developer.mozilla.org/en-US/docs/Web/Events
 [addEventListener-api]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
