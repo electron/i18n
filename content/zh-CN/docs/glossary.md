@@ -26,7 +26,7 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IPC
 
-IPC 代表进程间交流。 Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+IPC 代表进程间交流。 电子使用 IPC 在 [主][] 和 [渲染器之间发送 串行的 JSON 消息，][] 过程。
 
 ### libchromiumcontent
 
@@ -36,7 +36,7 @@ IPC 代表进程间交流。 Electron uses IPC to send serialized JSON messages 
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. 它也管理着系统原生元素比如菜单，菜单栏，Dock 栏，托盘等。 The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+主要过程，通常名为 `main.js`的文件，是每个 电子应用程序的入口点。 它控制应用程序的寿命，从打开到关闭。 它也管理着系统原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主流程负责在应用中创建每个新的渲染器过程。 完整的节点API内置。
 
 每个应用的主进程文件都在 中的 `个主` 属性中指定`package.json`。 这是 `电子版。` 知道启动时要执行什么文件。
 
@@ -46,7 +46,7 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 ### MAS
 
-Apple's Mac App Store的缩写。 For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Apple's Mac App Store的缩写。 有关将应用提交给 MAS 的详细信息，请参阅 [Mac 应用商店提交指南][]。
 
 ### Mojo
 
@@ -56,7 +56,7 @@ Apple's Mac App Store的缩写。 For details on submitting your app to the MAS,
 
 ### native modules
 
-Native modules (also called [addons][] in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 它主要用于桥接在 JavaScript 上运行 Node.js 和 C/C++ 的库。
+原生模块（也称为 节点.js中的 [插件][] ）是用C或C++编写的模块，可以使用要求（）函数加载到节点.js或 电子，并用作 普通节点.js模块。 它主要用于桥接在 JavaScript 上运行 Node.js 和 C/C++ 的库。
 
 Electron 支持了原生的 Node 模块，但是 Electron 非常可能安装一个不一样的 V8 引擎通过 Node 二进制编码，所以在打包原生模块的时候你需要在 指定具体的 Electron 本地头文件。
 
@@ -80,7 +80,7 @@ OSR (Off-screen 渲染) 可以在 背景下加载重页面然后在其后显示(
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. 它们也可以被掩盖。
+渲染器过程是应用中的浏览器窗口。 与主过程不同， 可能有多个过程，每个过程都在单独的进程中运行。 它们也可以被掩盖。
 
 在普通的浏览器中，web页面通常在沙盒环境中运行，并且无法访问操作系统的原生资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
 
@@ -110,18 +110,18 @@ V8的版本号总是与 Google Chrome 的版本号相对应。 Chrome 59 包括V
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. 作为页面它拥有不一样的权限并且所有的嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
+`webview` 标签用于在电子应用 嵌入"访客"内容（如外部网页）。 它们类似于 `iframe`，但不同的是，每个 webview 都以单独的流程运行。 作为页面它拥有不一样的权限并且所有的嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
 
-[addons]: https://nodejs.org/api/addons.html
+[插件]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
 [ Chromium Content module ]: https://www.chromium.org/developers/content-module
 [electron-builder ]: https://github.com/electron-userland/electron-builder
 [electron-builder]: https://github.com/electron-userland/electron-builder
-[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
-[main]: #main-process
+[Mac 应用商店提交指南]: tutorial/mac-app-store-submission-guide.md
+[主]: #main-process
 [main(主进程)]: #main-process
-[renderer]: #renderer-process
+[渲染器之间发送 串行的 JSON 消息，]: #renderer-process
 [rendere(渲染进程)]: #renderer-process
 [Using Native Node Modules]: tutorial/using-native-node-modules.md
 [ V8 ]: #v8
