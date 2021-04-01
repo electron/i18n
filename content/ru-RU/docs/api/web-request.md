@@ -39,7 +39,7 @@ The following methods are available on instances of `WebRequest`:
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -81,7 +81,7 @@ Some examples of valid `urls`:
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -106,7 +106,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -125,7 +125,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -154,7 +154,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -176,7 +176,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -200,7 +200,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
@@ -223,7 +223,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * `details` объект
     * `id` Integer
     * `url` String
     * `method` String
