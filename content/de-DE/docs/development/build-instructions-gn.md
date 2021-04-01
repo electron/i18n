@@ -1,146 +1,146 @@
-# Build Instructions
+# Build-Anweisungen
 
-Follow the guidelines below for building Electron.
+Befolgen Sie die folgenden Richtlinien für den Aufbau von Electron.
 
-## Platform prerequisites
+## Plattformvoraussetzungen
 
-Check the build prerequisites for your platform before proceeding
+Überprüfen Sie die Buildvoraussetzungen für Ihre Plattform, bevor Sie fortfahren
 
 * [macOS](build-instructions-macos.md#prerequisites)
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## Buildtools
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron es Build Tools](https://github.com/electron/build-tools) einen Großteil des Setups für die Kompilierung von Electron aus der Quelle mit unterschiedlichen Konfigurationen und Buildzielen automatisieren. Wenn Sie die Umgebung manuell einrichten möchten, finden Sie die folgenden Anweisungen.
 
-## GN prerequisites
+## GN-Voraussetzungen
 
-You'll need to install [`depot_tools`][depot-tools], the toolset used for fetching Chromium and its dependencies.
+Sie müssen [`depot_tools`][depot-tools]installieren, das Toolset , das zum Abrufen von Chromium und seinen Abhängigkeiten verwendet wird.
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Außerdem müssen Sie unter Windows die Umgebungsvariable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`festlegen. Öffnen Sie dazu `Control Panel` → `System- und
+-Sicherheits` → `System` → `Advanced system settings` und fügen Sie eine Systemvariable `DEPOT_TOOLS_WIN_TOOLCHAIN` mit dem Wert `0`hinzu.  Dadurch wird `depot_tools` aufgefordert, Ihre lokal installierte Version von Visual Studio zu verwenden (standardmäßig wird `depot_tools` versuchen, eine Google-interne Version herunterzuladen, auf die nur Googler Zugriff haben).
 
-### Setting up the git cache
+### Einrichten des Git-Cache
 
-If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
-
-```sh
-$ export GIT_CACHE_PATH="${HOME}/.git_cache"
-$ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
-```
-
-## Getting the code
+Wenn Sie beabsichtigen, Electron mehrmals auszuchecken (z. B. um mehrere parallele Verzeichnisse auf verschiedene Zweige auszuchecken), beschleunigt die Verwendung des Git- -Cache nachfolgende Aufrufe von `gclient`. Legen Sie dazu eine `GIT_CACHE_PATH` Umgebungsvariable fest:
 
 ```sh
-$ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
-$ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+• Export GIT_CACHE_PATH="${HOME}/.git_cache"
+"${GIT_CACHE_PATH}"
+" Dies wird etwa 16G verwenden.
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+## Abrufen des Codes
 
-### A note on pulling/pushing
+```sh
+$ mkdir-Elektronen- && -elektro-
+--name "src/electron" --unmanaged https://github.com/electron/electron
+--with_branch_heads --with_tags
+- Dies wird eine Weile dauern, gehen Sie einen Kaffee.
+```
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+> Anstelle `https://github.com/electron/electron`können Sie hier Ihre eigene Gabel verwenden (so etwas wie `https://github.com/<username>/electron`).
+
+### Ein Hinweis zum Ziehen/Schieben
+
+Wenn Sie in Zukunft `git pull` oder aus dem offiziellen `electron` -Repository  oder `git push` möchten, müssen Sie nun die Ursprungs-URLs des jeweiligen Ordners aktualisieren.
 
 ```sh
 $ cd src/electron
-$ git remote remove origin
-$ git remote add origin https://github.com/electron/electron
-$ git checkout master
-$ git branch --set-upstream-to=origin/master
-$ cd -
+- git remote remove origin
+' git remote add origin https://github.com/electron/electron
+' git checkout master
+'git branch --set-upstream-to=origin/master
+' cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` funktioniert, indem eine Datei mit dem Namen `DEPS` im Ordner `src/electron` auf Abhängigkeiten überprüft wird (z. B. Chrom oder Node.js). Durch das Ausführen `gclient sync -f` wird sichergestellt, dass alle abhängigkeiten, die zum Erstellen von Electron erforderlich sind, mit dieser Datei übereinstimmen.
 
-So, in order to pull, you'd run the following commands:
+Um zu ziehen, würden Sie die folgenden Befehle ausführen:
 
 ```sh
 $ cd src/electron
-$ git pull
-$ gclient sync -f
+' git pull
+-f
 ```
 
 ## Building
 
 ```sh
 $ cd src
-$ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+- Export CHROMIUM_BUILDTOOLS_PATH='pwd'/buildtools
+'gn gen out/Testing --args="import('>electron/build/args/testing.gn. $GN_EXTRA_ARGSgn.gn)"
 ```
 
-Or on Windows (without the optional argument):
+Oder unter Windows (ohne optionales Argument):
 
 ```sh
 $ cd src
-$ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
+- set CHROMIUM_BUILDTOOLS_PATH=%cd%'buildtools
+'gn gen out/Testing --args="import('>electron/build/args/testing.gn'")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+Dadurch wird ein Buildverzeichnis generiert, das mit der Testbuildkonfiguration `out/Testing` unter `src/` wird. Sie können `Testing` durch einen anderen Namen ersetzen, aber es sollte ein Unterverzeichnis von `out`sein. Außerdem sollten Sie `gn gen` nicht erneut ausführen müssen – wenn Sie die Buildargumente ändern möchten, können Sie `gn args out/Testing` ausführen, um einen Editor aufzuladen.
 
-To see the list of available build configuration options, run `gn args
-out/Testing --list`.
+Um die Liste der verfügbaren Buildkonfigurationsoptionen anzuzeigen, führen Sie `gn args
+out/Testing --list`aus.
 
-**For generating Testing build config of Electron:**
+**Zum Generieren von Testing Build-Konfiguration von Electron:**
 
 ```sh
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(">electron/build/args/testing.gn.gn") $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Zum Generieren von Release (auch als "nicht-Komponente" oder "statisch") build config von Electron:**
 
 ```sh
-$ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Release --args="import(">electron/build/args/release.gn") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**Um zu bauen, laufen Sie `ninja` mit dem `electron` Ziel:** Nota Bene: Das wird auch eine Weile dauern und wahrscheinlich Ihre Runde aufheizen.
 
-For the testing configuration:
+Für die Testkonfiguration:
 
 ```sh
-$ ninja -C out/Testing electron
+$ Ninja -C-Out/Testing-Elektron
 ```
 
-For the release configuration:
+Für die Release-Konfiguration:
 
 ```sh
-$ ninja -C out/Release electron
+$ Ninja -C-Out/Release-Elektron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+Dadurch wird das gesamte zuvor "libchromiumcontent" (d. h. das `content/` Verzeichnis von `chromium` und seinen Abhängigkeiten, inkl. WebKit und V8), , so dass es eine Weile dauern wird.
 
-The built executable will be under `./out/Testing`:
+Die gebaute ausführbare Datei wird unter `./out/Testing`:
 
 ```sh
 $ ./out/Testing/Electron.app/Contents/MacOS/Electron
-# or, on Windows
-$ ./out/Testing/electron.exe
-# or, on Linux
-$ ./out/Testing/electron
+oder, unter Windows
+. ..exe
+.
+.
 ```
 
 ### Pakete erstellen
 
-On linux, first strip the debugging and symbol information:
+Entfernen Sie unter Linux zuerst die Debugging- und Symbolinformationen:
 
 ```sh
-electron/script/strip-binaries.py -d out/Release
+elektro/script/strip-binaries.py -d out/Release
 ```
 
-To package the electron build as a distributable zip file:
+So verpacken Sie den Elektronenbuild als verteilbare ZIP-Datei:
 
 ```sh
-ninja -C out/Release electron:electron_dist_zip
+ninja -C out/Release-Elektron:electron_dist_zip
 ```
 
-### Cross-compiling
+### Cross-Compiling
 
-To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
+Um für eine Plattform zu kompilieren, die nicht mit der Plattform identisch ist, auf der Sie aufbauen, die `target_cpu` - und `target_os` GN-Argumente festlegen. Um beispielsweise ein x86-Ziel von einem x64-Host zu kompilieren, geben Sie `target_cpu = "x86"` in `gn args`an.
 
 ```sh
 $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
@@ -156,7 +156,7 @@ Nicht alle Kombinationen von Quell- und Ziel-Prozessor/Betriebssystem werden von
 
 Wenn Sie andere Kombinationen testen und diese funktionieren aktualisieren Sie bitte dieses Dokument :)
 
-See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
+Siehe GN-Referenz für zulässige Werte von [`target_os`][target_os values] und [`target_cpu`][target_cpu values].
 
 #### Windows auf Arm (experimentell)
 
@@ -181,60 +181,60 @@ Als nächstes führe `gn gen` aus wie oben mit `target_cpu="arm64"`.
 Um die Tests durchzuführen, müssen Sie zuerst die Testmodule gegen die gleiche Version von Node.js bauen, die als Teil des Build-Prozesses gebaut wurde. Um Build Header für die Module zu kompilieren, führen Sie folgende Befehle in dem `src/` Verzeichnis aus.
 
 ```sh
-$ ninja -C out/Testing third_party/electron_node:headers
+$ Ninja -C out/Testing third_party/electron_node:headers
 ```
 
-You can now [run the tests](testing.md#unit-tests).
+Sie können nun die Tests [](testing.md#unit-tests)ausführen.
 
 Wenn Sie etwas debuggen kann es hilfreich sein einige zusätzlichen Flaggen zu der Electron Binärdatei zu übergeben:
 
 ```sh
-$ npm run test -- \
-  --enable-logging -g 'BrowserWindow module'
+$pm-Lauftest -- -
+  --enable-logging -g 'BrowserWindow-Modul'
 ```
 
-## Sharing the git cache between multiple machines
+## Freigeben des Git-Cache zwischen mehreren Computern
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Es ist möglich, den gclient git-Cache mit anderen Computern zu teilen, indem Sie ihn als SMB-Freigabe unter Linux exportieren, aber nur ein Prozess/Computer kann den Cache zu einem Zeitpunkt verwenden. Die sperren, die durch das Git-Cache-Skript erstellt werden, versuchen dies zu verhindern, aber es kann in einem Netzwerk nicht perfekt funktionieren.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Unter Windows verfügt SMBv2 über einen Verzeichniscache, der Probleme mit dem Git- Cacheskript verursacht, daher ist es notwendig, ihn durch Festlegen des Registrierungsschlüssels zu deaktivieren.
 
 ```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+HKEY_LOCAL_MACHINE-System-CurrentControlSet-Services-Lanmanworkstation-Parameter-DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+auf 0. Weitere Informationen: https://stackoverflow.com/a/9935126
 
-This can be set quickly in powershell (ran as administrator):
+Dies kann schnell in powershell (als Administrator ausgeführt) eingestellt werden:
 
 ```powershell
-New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+New-ItemProperty -Pfad "HKLM:'System'CurrentControlSet'Services'Lanmanworkstation'Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
 ```
 
 ## Problemlösungen
 
-### gclient sync complains about rebase
+### gclient sync beschwert sich über Rebase
 
-If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+Wenn `gclient sync` unterbrochen wird, kann der Git-Baum in einem schlechten Zustand bleiben, was zu einer kryptischen Meldung führt, wenn `gclient sync` in der Zukunft ausgeführt wird:
 
 ```plaintext
-2> Conflict while rebasing this branch.
-2> Fix the conflict and run gclient again.
-2> See man git-rebase for details.
+2> Konflikt beim Umbasieren dieses Zweigs.
+2> Beheben Sie den Konflikt und führen Sie gclient erneut aus.
+2> Siehe man git-rebase für Details.
 ```
 
-If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+Wenn es in `src/electron`keine Git-Konflikte oder -Rebasen gibt, müssen Sie möglicherweise einen `git am` in `src`abbrechen:
 
 ```sh
-$ cd ../
-$ git am --abort
-$ cd electron
-$ gclient sync -f
+$ cd .. /
+git am --abort
+- cd-Elektron
+- gclient sync -f
 ```
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### Ich werde nach einem Benutzernamen/Passwort für chromium-internal.googlesource.com
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Wenn beim Ausführen `gclient sync` unter Windows eine Eingabeaufforderung für `Username for 'https://chrome-internal.googlesource.com':` angezeigt wird, liegt dies wahrscheinlich daran, dass die `DEPOT_TOOLS_WIN_TOOLCHAIN` Umgebungsvariable nicht auf 0 festgelegt ist. Öffnen Sie `Control Panel` → `System and Security` → `System` → `Advanced system settings` , und fügen Sie eine Systemvariable `DEPOT_TOOLS_WIN_TOOLCHAIN` mit dem Wert `0`hinzu.  Dadurch wird `depot_tools` aufgefordert, Ihre lokal installierte Version von Visual Studio zu verwenden (standardmäßig wird `depot_tools` versuchen, eine Google-interne Version herunterzuladen, auf die nur Googler Zugriff haben).
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
