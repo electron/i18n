@@ -4,30 +4,30 @@ Siga as instruções abaixo para compilar o Electron no macOS.
 
 ## Pré-requisitos
 
-* macOS >= 10.11.6
+* >macOS = 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) (externo)
 * Python 2.7 com suporte para TLS 1.2
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+Certifique-se também de que seu sistema e versão Python suportam pelo menos o TLS 1.2. Isso depende tanto da sua versão do macOS quanto do Python. Para um teste rápido, execute:
 
 ```sh
 $ npx @electron/check-python-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+Se o script retornar que sua configuração está usando um protocolo de de segurança desatualizado, você pode atualizar o macOS para High Sierra ou instalar uma nova versão do Python 2.7.x. Para atualizar o Python, use [Homebrew](https://brew.sh/):
 
 ```sh
-$ brew install python@2 && brew link python@2 --force
+$ brew instalar python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Se você estiver usando python conforme fornecido pelo Homebrew, você também precisa instalar os seguintes módulos Python:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Você pode usar `pip` para instalá-lo:
 
 ```sh
 $ pip instalar pyobjc
@@ -37,7 +37,7 @@ $ pip instalar pyobjc
 
 Se está desenvolvendo com Electron e não planeja redistribuir sua construção personalizada, pode pular essa seção.
 
-Official Electron builds are built with [Xcode 12.2](https://download.developer.apple.com/Developer_Tools/Xcode_12.2/Xcode_12.2.xip), and the macOS 11.0 SDK. Compilar com um SDK mais recente também funciona, mas os lançamentos atualmente usam o SDK 11.0.
+As compilações oficiais da Electron são construídas com [Xcode 12.2](https://download.developer.apple.com/Developer_Tools/Xcode_12.2/Xcode_12.2.xip)e o macOS 11.0 SDK. Compilar com um SDK mais recente também funciona, mas os lançamentos atualmente usam o SDK 11.0.
 
 ## Construindo Electron
 
