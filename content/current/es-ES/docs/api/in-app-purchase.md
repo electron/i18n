@@ -44,9 +44,9 @@ Devuelve `Boolean` - si un usuario puede realizar un pago.
 
 ### `inAppPurchase.restoreCompletedTransactions()`
 
-Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+Restaura las transacciones finalizadas. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
 
-[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Cada transacción incluye una copia de la transacción original.
 
 ### `inAppPurchase.getReceiptURL()`
 
