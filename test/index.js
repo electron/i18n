@@ -258,7 +258,7 @@ describe('API Structures', () => {
 
   it('sets expected crowdinFileId', () => {
     const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
-    doc.crowdinFileId.should.equal('128')
+    doc.crowdinFileId.should.equal('250646')
   })
 })
 

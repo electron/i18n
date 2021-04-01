@@ -32,8 +32,7 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   // build a reference to the source
   const githubUrl = `https://github.com/electron/electron/tree/master${href}.md`
 
-  // TODO: this needs to be updated once the flattening happens
-  const crowdinFileId = ids[`master_old/content/en-US${href}.md`]
+  const crowdinFileId = ids[`[electron.i18n] master/content/en-US${href}.md`]
 
   // convenience booleans for use in templates
   const isTutorial = category === 'tutorial'
@@ -112,7 +111,9 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
         // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
         src = convertToUrlSlash(path.resolve(dirname, src))
 
-        const newSrc = [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
+        const newSrc = [baseUrl, packageJSON.electronLatestStableTag, src].join(
+          '/'
+        )
 
         const parsed = URL.parse(newSrc)
         if (!parsed.path) return
