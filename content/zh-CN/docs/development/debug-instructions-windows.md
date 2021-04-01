@@ -1,14 +1,14 @@
 # 在 Windows 中调试
 
-如果你在 Electron 中遇到问题或者引起崩溃，你认为它不是由你的JavaScript应用程序引起的，而是由 Electron 本身引起的。调试可能有点棘手，特别是对于不习惯 native/C++ 调试的开发人员。 However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+如果你在 Electron 中遇到问题或者引起崩溃，你认为它不是由你的JavaScript应用程序引起的，而是由 Electron 本身引起的。调试可能有点棘手，特别是对于不习惯 native/C++ 调试的开发人员。 但是，使用 Visual Studio、Electron 托管的符号服务器、 和电子源代码，您可以在电子源代码内使用断点实现分步调试 。
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**另见**： 在铬开发者网站上，有大量有关调试铬的信息，其中大部分也适用于电子： [调试视窗上的铬](https://www.chromium.org/developers/how-tos/debugging-on-windows)。
 
 ## 要求
 
-* **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [Windows 的构建说明](build-instructions-windows.md)中列出的工具和先决条件要求。 While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [Windows 的构建说明](build-instructions-windows.md)中列出的工具和先决条件要求。 虽然您可以 连接到并调试电子，因为您可以直接下载它，但您 会发现它经过了大量优化，使得调试更加困难 ：调试器无法向您显示所有 变量的内容，执行路径可能因为内衬、 尾呼叫和其他编译器优化而显得很奇怪。
 
-* **Visual Studio 与 C++ 工具**: Visual Studio 2013 和 Visual Studio 2015 的免费社区版本都可以使用。 Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). 它将使 Visual Studio 能够更好地理解 Electron 中发生的事情，从而更容易以人类可读的格式呈现变量。
+* **Visual Studio 与 C++ 工具**: Visual Studio 2013 和 Visual Studio 2015 的免费社区版本都可以使用。 安装后， [配置视觉工作室，使用电子符号服务器](setting-up-symbol-server.md)。 它将使 Visual Studio 能够更好地理解 Electron 中发生的事情，从而更容易以人类可读的格式呈现变量。
 
 * **ProcMon**: [免费的 SysInternals 工具][sys-internals]允许您检查进程参数，文件句柄和注册表操作。
 
@@ -17,14 +17,14 @@
 要启动调试会话，请打开 PowerShell/CMD 并执行 Electron 的调试版本，使用应用程序作为参数打开。
 
 ```powershell
-$ ./out/Testing/electron.exe ~/my-electron-app/
+$。/出/测试/电子.exe~/我的电子应用程序/
 ```
 
 ### 设置断点
 
 然后，打开 Visual Studio。 Electron 不是使用 Visual Studio 构建的，因此不包含项目文件 - 但是您可以打开源代码文件 "As File"，这意味着 Visual Studio 将自己打开它们。 您仍然可以设置断点 - Visual Studio 将自动确定源代码与附加过程中运行的代码相匹配，并相应地中断。
 
-Relevant code files can be found in `./shell/`.
+相关代码文件可以在 `./shell/`中找到。
 
 ### 附加
 
@@ -34,7 +34,7 @@ Relevant code files can be found in `./shell/`.
 
 ### 我应该附加哪个进程?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
+主过程内执行的代码（即主 JavaScript 文件中找到的或最终运行 的代码）将在主过程内运行，而其他 代码将在其各自的渲染器过程中执行。
 
 您可以在调试时附加到多个程序，但在任何时候只有一个程序在调试器中处于活动状态。 您可以在 `调试位置` 工具栏或 `进程窗口` 中设置活动程序。
 
