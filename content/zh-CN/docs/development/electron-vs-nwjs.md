@@ -1,44 +1,44 @@
 # Electron 和 NW.js 之间的技术差异
 
-Like [NW.js][nwjs], Electron provides a platform to write desktop applications with web technologies. Both platforms enable developers to utilize HTML, JavaScript, and Node.js. On the surface, they seem very similar.
+与 [NW.js][nwjs]一样，Electron 提供了一个平台，可以使用 Web 技术编写桌面应用程序。 这两个平台都使开发人员能够利用HTML、JavaScript和 节点.js。 从表面上看，它们看起来非常相似。
 
-There are however fundamental differences between the two projects that make Electron a completely separate product from NW.js.
+然而，这两个项目之间有着根本的区别，它们使 电子成为与NW.js完全分离的产品。
 
-## 1) Entry of Application
+## 1） 申请录入
 
-In NW.js, the main entry point of an application can be an HTML web page. In that case, NW.js will open the given entry point in a browser window.
+在 NW .js 中，应用程序的主要切入点可能是 HTML 网页。 在这种情况下 ，NW.js将在浏览器窗口中打开给定的入口点。
 
-In Electron, the entry point is always a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+在电子中，入口点始终是 JavaScript 脚本。 您不是直接提供 URL，而是手动创建浏览器窗口，并使用 API 加载 HTML 文件。 您还需要收听窗口事件，以决定何时退出 应用程序。
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](https://phantomjs.org/).
+电子的工作原理更像节点.js运行时间。 Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](https://phantomjs.org/).
 
-## 2) Node Integration
+## 2） 节点集成
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. 你可以查看 [`node_bindings`][node-bindings] 来了解这是如何完成的。
+在 NW .js 中，网页中的节点集成需要修补 Chromium 才能工作， 而在 Electron 中，我们选择了一种不同的方式将 `libuv` 环与每个平台的消息循环 集成，以避免黑客攻击 Chromium。 你可以查看 [`node_bindings`][node-bindings] 来了解这是如何完成的。
 
-## 3) JavaScript Contexts
+## 3） 爪哇脚本上下文
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+如果您是经验丰富的NW.js用户，您应该熟悉 节点上下文和 Web 上下文的概念。 这些概念的发明是因为NW.js 是如何实现的。
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+通过使用节点的 [多上下文](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 功能，Electron 不会在 web 页面中引入新的 JavaScript 上下文。
 
 注意: 自从 0.13 以来，NW.js 选择性支持多上下文。
 
-## 4) Legacy Support
+## 4） 传统支持
 
-NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
+NW.js仍然提供支持WindowsXP的"传统版本"。 它不会 收到安全更新。
 
-Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
+鉴于硬件制造商，微软，铬和节点.js还没有 发布该系统的关键安全更新，我们必须警告你 使用Windows XP是非常不安全和完全不负责任的。
 
-However, we understand that requirements outside our wildest imagination may exist, so if you're looking for something like Electron that runs on Windows XP, the NW.js legacy release might be the right fit for you.
+但是，我们理解，超出我们最疯狂想象力的要求可能 存在，因此，如果您正在寻找类似在 Windows XP 上运行的电子， NW.js传统版本可能适合您。
 
-## 5) Features
+## 5） 特点
 
-There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm][electron-modules].
+支持功能的数量存在许多差异。 电子已经 一个更大的社区，更多的生产应用程序使用它，并 [大量的 用户区模块可在npm][electron-modules]。
 
-As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. As an example in favor of NW.js, NW.js supports more `Chrome.*` APIs for the development of Chrome Apps.
+例如，Electron 内置了对自动更新的支持，以及无数 工具，使安装程序的创建更加容易。 例如，支持 NW.js，NW.js支持更多 `Chrome.*` ABI 开发 Chrome 应用程序。
 
-Naturally, we believe that Electron is the better platform for polished production applications built with web technologies (like Visual Studio Code, Slack, or Facebook Messenger); however, we want to be fair to our web technology friends. If you have feature needs that Electron does not meet, you might want to try NW.js.
+当然，我们相信电子是更好的平台，抛光 生产应用程序建立与网络技术（如视觉工作室代码， 松弛，或Facebook信使）：然而，我们希望公平对待我们的网络技术 朋友。 如果您有电子无法满足的功能需求，您可能需要 尝试 NW .js。
 
 [nwjs]: https://nwjs.io/
 [electron-modules]: https://www.npmjs.com/search?q=electron
