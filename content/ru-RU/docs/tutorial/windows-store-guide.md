@@ -2,7 +2,7 @@
 
 С выходом Windows 10, старый добрый исполнительный файл win32 обзавелся новым братом: универсальной платформой Windows (The Universal Windows Platform). Новый формат `.appx` не только позволяет применять различные новые API, как push-уведомления от Кортаны, но также значительно упрощает установку и обновления через Windows Store.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages][electron-windows-store], enabling developers to use some of the goodies found in the new application model. Этот гайд объясняет как его использовать - и какие возможности и ограничения присутствуют у пакета Electron AppX.
+Microsoft [разработала инструмент, который компилирует electron приложений в качестве пакетов `.appx`][electron-windows-store], что позволяет разработчикам использовать некоторые лакомства, найденные в новом приложении модели. Этот гайд объясняет как его использовать - и какие возможности и ограничения присутствуют у пакета Electron AppX.
 
 ## Предыстория и требования
 
@@ -29,19 +29,19 @@ npm install -g electron-windows-store
 Консольный вывод должен иметь примерный вид:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+├ «Призрак.exe
+├» LICENSE
+├ е content_resources_200_percent.пак
+├ »content_shell.пак
+├ » d3dcompiler_47.dll
+├ »ffmpeg.dll
+├ » "icudtl.dat
+├ libEGL.dll
+├"libGLESv2.dll
+├ '" локалов
+│ ├ утра.пак
+│ ├ "ar.pak
+│ ├" [...]
 <unk> ・ node.dll
 <unk> 다-Ресурсы
 <unk> <unk> <unk> <unk> <unk> <unk> <unk> -app.asar
