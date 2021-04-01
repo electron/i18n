@@ -30,15 +30,15 @@ Para correr solo pruebas especificas que coincidan con un patrón, corra `npm ru
 2. Las cabeceras de Node han de estar compiladas para tu configuración.
 
    ```powershell
-   ninja -C out\Testing third_party\electron_node:headers
+   Ninja-C out\TEsting third_party \ electron_node: encabezados
    ```
 
 3. El electron.lib ha de ser copiada como node.lib.
 
    ```powershell
-   cd out\Testing
+   salida de CD\TEsting
    mkdir gen\node_headers\Release
-   copy electron.lib gen\node_headers\Release\node.lib
+   Copy Electron. lib gen\node_headers\Release\nODE. lib
    ```
 
 #### Fuentes no encontradas
