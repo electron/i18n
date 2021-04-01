@@ -39,35 +39,35 @@ process.send({ my: 'message' })
 为了方便起见，你可能需要封装`appProcess`到一个驱动对象，以便提供更多高级函数。 下面是一个如何这样做的示例：
 
 ```js
-class TestDriver {
-  constructor ({ path, args, env }) {
-    this.rpcCalls = []
+类测试驾驶者{
+  构建器（{ path, args, env }）{
+    此。rpc呼叫=[]
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    //启动
+    env的儿童过程。APP_TEST_DRIVER=1///让应用程序知道它应该听消息
+    这一点。过程=儿童过程。生（路径，args，{stdio：['继承'，'继承'，'继承'， "ipc"，env}）
 
-    // handle rpc responses
-    this.process.on('message', (message) => {
-      // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
-    })
+    //处理rpc响应
+    此。过程。on（"消息"，（消息）=> {
+      //弹出处理程序
+      const rpcCall=此。rpc呼叫[message.msgId]
+      如果（！rpcCall）返回
+      此。rpccalls[message.msgId] =
+      //拒绝/解决
+      如果（消息。拒绝）rpcCall.拒绝（消息。拒绝）
+      其他rpcCall.解决（消息.解决）
+    }）
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
-      this.stop()
-      process.exit(1)
-    })
+    //等待就绪
+    。 已准备好。catch（呃）=> {
+      控制台。错误（"应用程序未启动"，错误）
+      此。停止（）
+      过程。退出（1）
+    }）
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
+  //简单的RPC呼叫
+  //使用：驱动程序。rpc（"方法"，1，2，3）然后。。。）
   async rpc (cmd, ...args) 然后
     // 发送 rpc request
     const msgId = 这个。 pcalls.length
@@ -84,32 +84,32 @@ class TestDriver {
 在应用中, 你需要为 RPC 回调编写一个简单的处理程序:
 
 ```js
-if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
-}
+如果（过程.env.APP_测试_驱动程序）{
+  过程。on（"消息"， 在信息）
+=
 
-async function onMessage ({ msgId, cmd, args }) {
-  let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
-  try {
-    const resolve = await method(...args)
-    process.send({ msgId, resolve })
-  } catch (err) {
-    const reject = {
+信息上的不对称功能（{ msgId, cmd, args }）{
+  让方法=方法[cmd]
+  如果（！方法）方法=（）=> 新的错误（'无效方法：'+cmd）
+  尝试{
+    const解决=等待方法（。。。args）
+    过程。发送（{ msgId, resolve }）
+  }捕获（呃）{
+    拒绝= {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    过程。发送（{ msgId, reject }）
   }
 }
 
-const METHODS = {
-  isReady () {
-    // do any setup needed
-    return true
-  }
-  // define your RPC-able methods here
+方法={
+  已准备好（）{
+    //
+    返回真实
+  所需的任何设置}
+  //在这里定义您的RPC方法
 }
 ```
 
