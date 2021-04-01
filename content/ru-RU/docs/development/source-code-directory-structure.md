@@ -1,100 +1,100 @@
 # Структура каталога с исходным кодом
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Исходный код Electron разделен на несколько частей, в основном после Хрома на конвенциях разделения.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Возможно, вам придется ознакомиться [многопроцесовой архитектурой Chromium ,](https://dev.chromium.org/developers/design-documents/multi-process-architecture) лучше понять исходный код.
 
-## Structure of Source Code
+## Структура исходных кодов
 
 ```diff
 Electron
-├── build/ - Build configuration files needed to build with GN.
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
-├── docs/ - Electron's documentation.
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
-|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
-├── lib/ - JavaScript/TypeScript source code.
-|   ├── browser/ - Main process initialization code.
-|   |   ├── api/ - API implementation for main process modules.
-|   |   └── remote/ - Code related to the remote module as it is
-|   |                 used in the main process.
-|   ├── common/ - Relating to logic needed by both main and renderer processes.
-|   |   └── api/ - API implementation for modules that can be used in
-|   |              both the main and renderer processes
-|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
-|   |                        contextIsolation is enabled.
-|   ├── renderer/ - Renderer process initialization code.
-|   |   ├── api/ - API implementation for renderer process modules.
-|   |   ├── extension/ - Code related to use of Chrome Extensions
-|   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handles use of the remote module in
-|   |   |             the main process.
-|   |   └── web-view/ - Logic that handles the use of webviews in the
-|   |                   renderer process.
-|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
-|   |   |                     processes.
-|   |   └── api/ - API implementation for sandboxed renderer processes.
-|   └── worker/ - Logic that handles proper functionality of Node.js
-|                 environments in Web Workers.
-├── patches/ - Patches applied on top of Electron's core dependencies
-|   |          in order to handle differences between our use cases and
-|   |          default functionality.
-|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
-|   ├── chromium/ - Patches applied to Chromium.
-|   ├── node/ - Patches applied on top of Node.js.
-|   └── v8/ - Patches applied on top of Google's V8 engine.
-├── shell/ - C++ source code.
+├/ - Создайте файлы конфигурации, необходимые для построения с помощью GN.
+├ buildflags/ - Определяет набор функций, которые могут быть условно построены.
+├- chromium_src/ - Исходный код, скопированный из хрома, который не является частью слоя содержимого.
+├ й default_app/ - Приложение по умолчанию работает, когда Electron запущен без
+|                  предоставление потребительского приложения.
+├ документы/ - Документация Electron.
+|   ├ API/ - Документация для внешних модулей Electron и API.
+|   ├ / - Документация, чтобы помочь в разработке для и с Electron.
+|   ├ скрипки/ - Набор фрагментов кода можно запустить в Electron Fiddle.
+|   ├ изображения/ - Изображения, используемые в документации.
+|   └ учебник/ - Учебные документы по различным аспектам Electron.
+├ lib/ - исходный код JavaScript/TypeScript.
+|   ├/ - Основной код инициализации процесса.
+|   |   ├ api/ - реализация API для основных модулей процесса.
+|   |   └/ - Код, связанный с удаленным модулем, как это
+|   |                 используется в основном процессе.
+|   ├/ - Отношение к логике, необходимой как основным, так и рендерим-процессам.
+|   |   └ API/ - реализация API для модулей, которые могут быть использованы в
+|   |              как основные, так и рендерные процессы
+|   ├- isolated_renderer/ - Обрабатывает создание изолированных процессов рендерера при
+|   |                        contextIsolation включен.
+|   ├ рендерера/ - Код инициализации процесса Renderer.
+|   |   ├ api/ - реализация API для модулей процессов рендеров.
+|   |   ├/ - Код, связанный с использованием Chrome расширений
+|   |   |                в процессе рендерера Electron.
+|   |   ├/ - Логика, которая обрабатывает использование удаленного модуля в
+|   |   |             основной процесс.
+|   |   └ веб-вид/ - Логика, которая обрабатывает использование веб-просмотров в
+|   |                   процесс рендерера.
+|   ├ й sandboxed_renderer/ - Логика, которая обрабатывает создание песочнице рендеринга
+|   |   |                     Процессов.
+|   |   └ api/ - реализация API для процессов рендеринга в песочнице.
+|   └/ - Логика, которая обрабатывает правильную функциональность узла.js
+|                 среды в веб-работников.
+├ патчи/ - Патчи, применяемые поверх основных зависимостей Electron,
+|   |          для того, чтобы справиться с различиями между нашими случаями использования и
+|   |          функциональность по умолчанию.
+|   ├ boringssl/ - Патчи применяются к вилке Google OpenSSL, BoringSSL.
+|   ├ хром/ - Патчи, применяемые к хрому.
+|   ├ узел/ - Патчи, налагаемые поверх узла.js.
+|   └ v8/ - Патчи применяются поверх двигателя V8 от Google.
+├ оболочка/ - исходный код C.
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
+|   |   |   ├ какао/ - Какао конкретный исходный код.
 |   |   |   ├── win/ - исходный код специфичный для Windows GUI.
 |   |   ├── net/ - исходный код специфичный для X11.
-|   |   ├── api/ - The implementation of the main process APIs.
+|   |   ├ API/ - Реализация основных API-интерфейсов процесса.
 |   |   ├── net/ - Код, связанный с сетью.
 |   |   ├── mac/ - Исходный код на Objective-C специфичный для Mac.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
-├── spec/ - Components of Electron's test suite run in the renderer process.
-├── spec-main/ - Components of Electron's test suite run in the main process.
-└── BUILD.gn - Building rules of Electron.
+|   |   └ ресурсы/ - Иконки, зависящие от платформы файлы и т.д.
+|   ├/ - Код, который выполняется в процессе рендерера.
+|   |   └ API/ - Реализация API-интерфейса процесса рендеров.
+|   └/ - Код, который используется как основными процессами, так и процессами рендеров,
+|       |         включая некоторые функции утилиты и код для интеграции
+|       |         цикл сообщений в цикл сообщений Chromium.
+|       └ API/ - Внедрение общих API и основ
+|                  Встроенные модули Electron.
+├ спецификация/ - Компоненты тестового набора Electron, запускаемые в процессе визуализации.
+├- spec-main/ - Компоненты тестового набора Electron, запускаемые в основном процессе.
+└ - BUILD.gn правила строительства Electron.
 ```
 
 ## Structure of Other Directories
 
-* **.circleci** - Config file for CI with CircleCI.
-* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
+* **.circleci** - Файл Config для CI с CircleCI.
+* **.github** - GitHub-специфические файлы конфига, включая шаблоны проблем и CODEOWNERS.
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 * **node_modules** - Third party node modules used for building.
-* **npm** - Logic for installation of Electron via npm.
+* **npm** - Логика для установки Electron через npm.
 * **out** - Temporary output directory of `ninja`.
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 
 ```diff
-script/ - The set of all scripts Electron runs for a variety of purposes.
-├── codesign/ - Fakes codesigning for Electron apps; used for testing.
-├── lib/ - Miscellaneous python utility scripts.
-└── release/ - Scripts run during Electron's release process.
-    ├── notes/ - Generates release notes for new Electron versions.
-    └── uploaders/ - Uploads various release-related files during release.
+скрипт/ - Набор всех скриптов Electron работает для различных целей.
+├ codesign/ - Подделки codesigning для electron приложений; используется для тестирования.
+├ lib/ - Разные скрипты утилиты питона.
+└» релиз/ - Сценарии запуска во время процесса выпуска Electron.
+    ├/ - Генерирует примечания к выпуску для новых версий Electron.
+    └ загрузчиков/ - Загружает различные файлы, связанные с выпуском во время выпуска.
 ```
 
-* **tools** - Helper scripts used by GN files.
-  * Scripts put here should never be invoked by users directly, unlike those in `script`.
-* **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
+* **инструменты** - скрипты Helper, используемые файлами GN.
+  * Сценарии, помещенные здесь, никогда не должны вызываться пользователями напрямую, в отличие от тех, `script`.
+* **ввода** - ТипКрипт ввода для внутреннего кода Electron.
+* **поставщик** - Исходный код для некоторых сторонних зависимостей.
