@@ -22,9 +22,9 @@
 
 Чтобы сообщить об ошибке:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+При открытии нового выпуска в [`electron/electron` трекера](https://github.com/electron/electron/issues/new/choose), будут представлены шаблон, который должен быть заполнен.
 
-If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
+Если вы считаете, что нашли ошибку в Electron, пожалуйста, заполните шаблон в меру своих возможностей.
 
 Двумя наиболее важными частями информации, необходимой для оценки отчета, являются описание ошибки и простой тестовый случай для его создания. Легче исправить ошибку, если она может быть воспроизведена.
 
@@ -36,8 +36,8 @@ If you believe that you have found a bug in Electron, please fill out the templa
 
 Краткие ответы, которые не предоставляют ни дополнительного контекста, ни вспомогательных деталей не полезны или не профессиональны. Многих такие ответы раздражают и не дружественны.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. При этом мы часто можем достичь правильного результата быстрее.
+Участникам предлагается совместно решать вопросы и помогать одному из добиться прогресса. Если вы столкнулись с проблемой, которая, по вашим мнению, является недействительной, или , которая содержит неверную информацию, объясните *почему* вы чувствуете, что путь с дополнительный контекст поддержки, и быть готовым быть убеждены, что вы ошибаться. При этом мы часто можем достичь правильного результата быстрее.
 
 ## Разрешение отчета об ошибке
 
-Большинство проблем решается путем открытия pull-запроса. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Большинство проблем решается путем открытия pull-запроса. Процесс открытия и рассмотрения запроса на тянуть похож на процесс открытия и сортировки вопросов, но несет с собой необходимый обзор и утверждение рабочего процесса, который гарантирует, что предлагаемые изменения отвечают минимальным качеством и функциональным руководящим принципам проекта Electron.
