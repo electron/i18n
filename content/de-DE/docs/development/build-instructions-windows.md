@@ -1,31 +1,31 @@
 # Build Anweisungen (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Befolgen Sie die folgenden Richtlinien für den Aufbau von Electron unter Windows.
 
 ## Vorrausetzungen
 
-* Windows 10 / Server 2012 R2 or higher
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
-  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path.
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+* Windows 10 / Server 2012 R2 oder höher
+* Visual Studio 2017 15.7.2 oder höher - [DOWNLOAD VS 2019 Community Edition zum kostenlos](https://www.visualstudio.com/vs/)
+  * Weitere Informationen dazu, welche Visual Studio- Komponenten erforderlich sind, finden Sie in [der Chromium-Builddokumentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) .
+  * Wenn Visual Studio in einem anderen Verzeichnis als dem Standard verzeichnis installiert ist, müssen Sie einige Umgebungsvariablen festlegen, um die Toolchains auf ihren Installationspfad zu verweisen.
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, ersetzen Sie `2019` und `Community` durch die installierten Versionen und ersetzen Sie `DRIVE:` durch das Laufwerk, auf dem Visual Studio ist. Oft wird dies `C:`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, ersetzen Sie `DRIVE:` durch das Laufwerk, auf dem windows Kits installiert ist. Oft wird dies `C:`.
+  * [Python für Windows (pywin32) Erweiterungen](https://pypi.org/project/pywin32/#files) ist auch erforderlich, um den Buildprozess auszuführen.
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+* Debugtools für Windows von Windows SDK 10.0.15063.468, wenn Sie planen, eine vollständige Verteilung zu erstellen , da `symstore.exe` zum Erstellen eines Symbols verwendet wird, aus `.pdb` Dateien speichern.
+  * Verschiedene Versionen des SDK können nebeneinander installiert werden. Um das SDK zu installieren, öffnen Sie Visual Studio Installer, wählen Sie `Change` → `Individual Components`aus , scrollen Sie nach unten, und wählen Sie die entsprechende zu installierenden Windows SDK aus. Eine andere Möglichkeit wäre, die [Windows SDK und das Emulatorarchiv](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) zu betrachten und die eigenständige Version des SDK herunterzuladen.
+  * Die SDK-Debugging-Tools müssen ebenfalls installiert sein. Wenn das Windows 10 SDK über das Visual Studio-Installationsprogramm installiert wurde, können sie installiert werden, indem Sie zu: `Control Panel` → `Programs` → `Programs and Features` → Wählen Sie das "Windows Software Development Kit" → `Change` → `Change` → überprüfen Sie "Debugging Tools For Windows" → `Change`. Sie können auch das eigenständige SDK-Installationsprogramm herunterladen und es zum Installieren der Debugging-Tools verwenden.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Wenn Sie derzeit keine Windows-Installation haben, verfügt [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) über zeitbombte Windows-Versionen, mit denen Sie Electron erstellen können.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Das Erstellen von Electron erfolgt vollständig mit Befehlszeilenskripts und kann nicht mit Visual Studio durchgeführt werden. Sie können Electron mit jedem Editor entwickeln, aber Die Unterstützung für Erstellen mit Visual Studio wird in der Zukunft kommen.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Hinweis:** Obwohl Visual Studio nicht zum Erstellen verwendet wird, ist es immer noch **erforderlich** , da wir die Build-Toolchains benötigen, die es bereitstellt.
 
-## Exclude source tree from Windows Security
+## Quellstruktur aus Windows Security ausschließen
 
-Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+Windows Security mag eine der Dateien im Chromium-Quellcode nicht (siehe https://crbug.com/441184), daher wird sie ständig gelöscht, was `gclient sync` Probleme verursacht. Sie können ausschließen, dass die Quellstruktur von Windows Security überwacht wird, indem Sie [diesen Anweisungen](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26)folgen.
 
 ## Building
 
@@ -33,17 +33,17 @@ Siehe [Build Instruktionen: GN](build-instructions-gn.md)
 
 ## 32-Bit-Build
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+Um für das 32-Bit-Ziel zu bauen, müssen Sie `target_cpu = "x86"` als GN- arg übergeben. Sie können das 32-Bit-Ziel zusammen mit dem 64-Bit-Ziel erstellen, indem Sie ein anderes Ausgabeverzeichnis für GN verwenden, z. B. `out/Release-x86`mit unterschiedlichen Argumenten.
 
 ```powershell
-$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
+$ gn gen out/Release-x86 --args="import(">electron/build/args/release.gn") target_cpu= "x86""
 ```
 
-The other building steps are exactly the same.
+Die anderen Bauschritte sind genau die gleichen.
 
-## Visual Studio project
+## Visual Studio-Projekt
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+Um ein Visual Studio-Projekt zu generieren, können Sie den `--ide=vs2017` -Parameter an `gn gen`übergeben:
 
 ```powershell
 $ gn gen out/Testing --ide=vs2017
@@ -51,46 +51,46 @@ $ gn gen out/Testing --ide=vs2017
 
 ## Problemlösungen
 
-### Command xxxx not found
+### Befehl xxxx nicht gefunden
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Wenn sie auf einen Fehler wie `Command xxxx not found`gestoßen sind, können Sie versuchen, der `VS2015 Command Prompt` Konsole zu verwenden, um die Buildskripts auszuführen.
 
-### Fatal internal compiler error: C1001
+### Schwerwiegender interner Compilerfehler: C1001
 
 Stellen Sie sicher, dass Sie die neueste Visual Studio Version installiert haben.
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: Eingabedatei 'kernel32.lib' kann nicht geöffnet werden
 
-Try reinstalling 32bit Node.js.
+Versuchen Sie, 32bit Node.js neu zu installieren.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Fehler: ENOENT, stat 'C:'Users'USERNAME'AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Das Erstellen dieses Verzeichnisses [sollte das Problem beheben](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
-$ mkdir ~\AppData\Roaming\npm
+$ mkdir -AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp wird nicht als interner oder externer Befehl erkannt
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Diese Fehlermeldung wird möglicherweise angezeigt, wenn Sie Git Bash zum Erstellen verwenden, stattdessen PowerShell oder VS2015-Eingabeaufforderung verwenden sollten.
 
-### cannot create directory at '...': Filename too long
+### kann verzeichnis bei '...' nicht erstellen: Dateiname zu lang
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js hat einige [extrem langen Pfadnamen](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), und standardmäßig wird git in Windows nicht korrekt mit langen Pfadnamen behandelt (obwohl Windows sie unterstützt). Dies sollte es beheben:
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### Fehler: Verwendung des nicht deklarierten Bezeichners 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Dies kann während des Builds geschehen, wenn Debugging Tools für Windows mit Windows Driver Kit installiert wurde. Deinstallieren Sie Das Windows Driver Kit und installieren Sie Die Debugging Tools mit den oben beschriebenen Schritten.
 
-### ImportError: No module named win32file
+### ImportError: Kein Modul mit dem Namen win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+Stellen Sie sicher, dass Sie `pywin32` mit `pip install pywin32`installiert haben.
 
-### Build Scripts Hang Until Keypress
+### Build-Skripte hängen, bis Keypress
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Dieser Fehler ist ein "Feature" der Windows-Eingabeaufforderung. Dies geschieht, wenn Sie im Eingabeaufforderungsfenster mit aktiviertem `QuickEdit` klicken und das einfache Auswählen und Kopieren von Ausgabetext ermöglichen sollen. Da bei jedem versehentlichen Klick der Buildprozess angehalten wird, sollten Sie dieses -Funktion in den Eingabeaufforderungseigenschaften deaktivieren.
