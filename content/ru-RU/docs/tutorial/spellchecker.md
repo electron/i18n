@@ -32,7 +32,7 @@ myWindow.session. etSpellCheckerLanguages(['en-US', 'fr'])
 
 ## Как поместить результаты проверки орфографии в контекстное меню?
 
-All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  Ниже представлен небольшой пример того, как сделать контекстное меню с этой информацией.
+Вся необходимая информация для создания контекстной меню предоставляется в [`context-menu`](../api/web-contents.md#event-context-menu) на каждом `webContents` примере.  Ниже представлен небольшой пример того, как сделать контекстное меню с этой информацией.
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -70,4 +70,4 @@ myWindow.webContents. n('context-menu', (событие, params) => {
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Проверьте документы для [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) более подробной информации о том, где получить словарь файлы и как вам нужно разместить их.
