@@ -13,7 +13,7 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
   * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de compilación.
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* Herramientas de depuración para Windows del SDK de Windows 10.0.15063.468 si planeas en crear una distribución completa desde que se usa `symstore.exe` para crear un símbolo tienda desde `.pdb` archivos.
   * Diferentes versiones del SDK se pueden instalar juntas. Para instalar el SDK, abre Visual Studio Installer, selecciona `Cambiar` → `Componentes Individuales`, desplázate hacia abajo y selecciona el SDK apropiado para Windows para instalar. Otra opción sería mirar el [Windows SDK y el archivo emulador](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) y descargar la versión independiente del SDK respectivamente.
   * Las herramientas de depuración de SDK también deben ser instaladas.https://crowdin.com/translate/electron/13/en-es#246828 Si el SDK de Windows 10 fue instalado a través del instalador de Visual Studio, entonces se puede instalar yendo a: `Panel de Control` → `Programas ` → `Programas y Características` → Seleccione "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. O puede descargar el instalador independiente del SDK y usarlo para instalar el Debugging Tools.
 
@@ -85,7 +85,7 @@ $ git config --system core.longpaths true
 
 ### error: uso del identificador no declarado 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Esto puede suceder durante la compilación, cuando se instalaron herramientas de depuración para Windows con el kit de controladores de Windows. Desinstala el kit de controladores de Windows e instala herramientas de depuración con los pasos descritos anteriormente.
 
 ### Error de importación: No existe un módulo llamado win32file
 
