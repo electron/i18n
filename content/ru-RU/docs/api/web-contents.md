@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Возвращает:
 * `window` BrowserWindow
-* `details` Object
+* `details` объект
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Emitted when the renderer process crashes or is killed.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**:** Это событие затухает событие `render-process-gone` , содержит больше информации о том, почему процесс визуализации исчез. Это не всегда, потому что он разбился.  На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
 
-#### Event: 'render-process-gone'
+#### Событие: 'рендер-процесс-ушел'
 
 Возвращает:
 
 * `event` Event
-* `details` Object
-  * `reason` String - The reason the render process is gone.  Возможные значения:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+* `details` объект
+  * `reason` Строка - Причина, по которой процесс рендеров исчез.  Возможные значения:
+    * `clean-exit` - Процесс вышел с кодом выхода нуля
+    * `abnormal-exit` - Процесс вышел с ненулевой код выхода
+    * `killed` - Процесс был отправлен SIGTERM или иным образом убит извне
+    * `crashed` - Процесс разбился
+    * `oom` - Процесс закончился в памяти
+    * `launch-failed` - Процесс так и не был успешно запущен
+    * `integrity-failure` - Проверки целостности кода Windows не удалось
+  * `exitCode` Integer - Код выхода процесса, если `reason` не `launch-failed`, и в этом случае `exitCode` будет платформы конкретных код ошибки запуска.
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Испускаемый при процессе рендерера неожиданно исчезает.  Это, как правило потому что он разбился или погиб.
 
 #### Событие: 'unresponsive'
 
@@ -713,7 +713,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Вызов `event.preventDefault()` вернет пустые источники.
 
-#### Event: 'remote-require' _Deprecated_
+#### Событие: «дистанционное требует» _Deprecated_
 
 Возвращает:
 
@@ -722,7 +722,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. �
 
 Emitted when `remote.require()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-global' _Deprecated_
+#### Событие: «дистанционно-получить-глобальный» _Deprecated_
 
 Возвращает:
 
@@ -731,7 +731,7 @@ Emitted when `remote.require()` is called in the renderer process. Вызов `e
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-builtin' _Deprecated_
+#### Событие: 'удаленный-получить-builtin' _Deprecated_
 
 Возвращает:
 
@@ -740,7 +740,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Вызов 
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-current-window' _Deprecated_
+#### Событие: 'дистанционное начало-текущее окно' _Deprecated_
 
 Возвращает:
 
@@ -748,7 +748,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Вызов
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents' _Deprecated_
+#### Событие: "дистанционное получить-текущий-веб-содержимое" _Deprecated_
 
 Возвращает:
 
@@ -776,7 +776,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData)](structures/upload-raw-data.md) | [UploadFile)](structures/upload-file.md)) (по желанию)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -1017,7 +1017,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
+  * `details` объект
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
@@ -1469,7 +1469,7 @@ Opens the developer tools for the service worker context.
 * `channel` String (Строка)
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1512,7 +1512,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **ПРИМЕЧАНИЕ:** отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
