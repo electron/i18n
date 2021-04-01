@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
+En macOS, puede establecer un archivo representado para cualquier ventana en tu aplicación. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
 
 ![Archivo representado][1]
 
