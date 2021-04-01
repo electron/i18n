@@ -46,12 +46,12 @@ $ gclient sync --with_branch_heads --with_tags
 Si usted tiene la intención de `git pull` or `git push` desde el repositorio oficial `electron` en el futuro, ahora necesita actualizar las URLs de la carpeta origin correspondiente.
 
 ```sh
-$ cd src/electron
-$ git remote remove origin
-$ git remote add origin https://github.com/electron/electron
-$ git checkout master
-$ git branch --set-upstream-to=origin/master
-$ cd -
+$ CD src/Electron
+$ git remoto eliminar origen
+$ git Remote Add Origin https://github.com/electron/electron
+$ git Checkout Master
+$ git Branch--Set-upstream-to = Origin/Master
+$ CD-
 ```
 
 :memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Ejecutar `gclient sync -f` asegura que todas las dependencias requeridas para compilar Electron coninciden con ese archivo.
@@ -75,9 +75,9 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 O en Windows (sin el argumento opcional):
 
 ```sh
-$ cd src
-$ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
+$ CD src
+$ Set CHROMIUM_BUILDTOOLS_PATH =%cd%\buildtools
+$ GN gen out/Testing--args = "Import (\"//Electron/Build/args/testing.gn\ ")"
 ```
 
 Esto generará un directorio de compilación `out/Testing` under `src/` con la configuración de compilación de pruebas. Usted puede reemplazar `Testing` con otro nombre, pero debería ser a subdirectorio de `out`. Además no deberías ejecutar `gn gen` de nuevo — si quieres cambiar los argumentos de compilación, puedes ejecutar `gn args out/Testing` para traer un editor.
@@ -87,7 +87,7 @@ Para ver la lista de opciones de configuraciones disponible, ejecute `gn args ou
 **Para generar la configuración de compilación de prueba de Electron:**
 
 ```sh
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+$ GN gen out/Testing--args = "Import (\"//Electron/Build/args/testing.gn\ ") $GN_EXTRA_ARGS"
 ```
 
 **Para generar la configuración de lanzamiento (alias "non-component" o "static") de Electron:**
@@ -101,7 +101,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 Para la configuración de depuración:
 
 ```sh
-$ ninja -C out/Testing electron
+$ Ninja-C out/Testing Electron
 ```
 
 Para la configuración de la lanzamiento:
@@ -110,16 +110,16 @@ Para la configuración de la lanzamiento:
 $ ninja -C out/Release electron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+Esto construirá todo lo que antes era ' libchromiumcontent ' (es decir, el `content/` directorio de `chromium` y sus dependencias, incl. WebKit y V8), por lo que tomará un tiempo.
 
 El ejecutable compilado estará en `./out/Testing`:
 
 ```sh
-$ ./out/Testing/Electron.app/Contents/MacOS/Electron
-# or, on Windows
-$ ./out/Testing/electron.exe
-# or, on Linux
-$ ./out/Testing/electron
+$./out/Testing/Electron.app/Contents/MacOS/Electron
+# o, en Windows
+$./out/Testing/electron.exe
+# o, en Linux
+$./out/Testing/electron
 ```
 
 ### Embalaje
@@ -141,7 +141,7 @@ ninja -C out/Release electron:electron_dist_zip
 Para compilar una plataforma que no sea la misma que la que estás construyendo, establece los argumentos GN `target_cpu` y `target_os`. Por ejemplo, para compilar un objetivo x86 de un host x64, especificar `target_cpu = "x86"` en `gn args`.
 
 ```sh
-$ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
+$ GN gen out/Testing-x86--args = '... target_cpu = "x86" '
 ```
 
 No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium.
@@ -179,7 +179,7 @@ Despues, corra `gn gen` como arriba con `target_cpu="arm64"`.
 Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. Para generar cabeceras de compilación para los módulos a compilar, ejecute lo siguiente en el directorio `src/`.
 
 ```sh
-$ ninja -C out/Testing third_party/electron_node:headers
+$ Ninja-C out/Testing third_party/electron_node: encabezados
 ```
 
 Ahora puede ejecutar [run the tests](testing.md#unit-tests).
@@ -187,8 +187,8 @@ Ahora puede ejecutar [run the tests](testing.md#unit-tests).
 Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
 
 ```sh
-$ npm run test -- \
-  --enable-logging -g 'BrowserWindow module'
+$ NPM Run test--\
+  --enable-Logging-g ' BrowserWindow module '
 ```
 
 ## Compartir la caché git entre varias máquinas
