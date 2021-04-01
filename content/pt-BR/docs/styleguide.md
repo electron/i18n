@@ -46,7 +46,7 @@ Para referencias à API, existem exceções a está regra.
 * Linhas devem ser quebradas em 80 colunas.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* Para listas não rdenadas, use asteriscos em vez de traços
 
 ## Picking words
 
@@ -178,7 +178,7 @@ Se um argumento ou um método for exclusivo para determinadas plataformas, essas
 
 Os argumentos do tipo `Array` devem especificar quais elementos a array pode incluir na descrição abaixo.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+A descrição dos argumentos do tipo `Function` deve deixar claro como ele pode ser chamado e listar os tipos dos parâmetros que serão passados a ele.
 
 ### Eventos
 
