@@ -2,7 +2,7 @@
 
 В Electron можно использовать библиотеку CDM Widevine, поставляемую через браузер Chrome.
 
-Модули расшифровки содержимого (Widevine Content Decryption Modules (CDM) - вот как службы потокового вещания защищают контент с помощью видео HTML5 для веб-браузеров без использования NPAPI плагина , такого как Flash или Silverlight. Широкая поддержка - это альтернативное решение для сервисов потокового вещания, которые в настоящее время полагаются на Silverlight для воспроизведения защищённого DRM-видео контента. Это позволит веб-сайтам отображать содержимое защищённого DRM-видео в Firefox без использования NPAPI плагинов. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Модули расшифровки содержимого (Widevine Content Decryption Modules (CDM) - вот как службы потокового вещания защищают контент с помощью видео HTML5 для веб-браузеров без использования NPAPI плагина , такого как Flash или Silverlight. Широкая поддержка - это альтернативное решение для сервисов потокового вещания, которые в настоящее время полагаются на Silverlight для воспроизведения защищённого DRM-видео контента. Это позволит веб-сайтам отображать содержимое защищённого DRM-видео в Firefox без использования NPAPI плагинов. Widevine CDM работает в открытой CDM с открытым исходным кодом, обеспечивающей лучшую безопасность пользователей, чем плагины NPAPI.
 
 #### Примечание о VMP
 
@@ -34,9 +34,9 @@
 
 ## Использование библиотеки
 
-После получения файлов библиотеки, вы должны передать путь к файлу с помощью командной строки `--widevine-cdm-path` , и библиотека с помощью переключателя `--widevine-cdm-version`. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+После получения файлов библиотеки, вы должны передать путь к файлу с помощью командной строки `--widevine-cdm-path` , и библиотека с помощью переключателя `--widevine-cdm-version`. Переключатели командной строки должны быть до `ready` случая `app` модуля.
 
-Example code:
+Пример кода:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -46,13 +46,13 @@ const { app, BrowserWindow } = require('electron')
 // * `widevinecdm.dll` в Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 // Версия плагина может быть получена на странице `chrome://components` в Chrome.
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
+app.commandLine.appendSwitch ('widevine-cdm-version', '1.4.8.866')
 
-let win = null
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  win.show()
-})
+пусть выигрывают - null
+
+app.whenReady ().),))
+  
+  > ;)
 ```
 
 ## Проверка поддержки CDM Widevine
