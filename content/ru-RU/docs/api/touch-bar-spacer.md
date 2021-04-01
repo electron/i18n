@@ -8,7 +8,7 @@
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:
-    * `small` - Небольшое пространство между элементами. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `small` - Небольшое пространство между элементами. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. Это по умолчанию.
     * `large` - Большое пространство между элементами. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Занимает всё доступное пространство. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
 
