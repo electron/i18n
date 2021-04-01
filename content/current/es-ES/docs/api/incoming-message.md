@@ -46,13 +46,13 @@ Una `String` representando el mensaje de estado HTTP.
 
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
+Un `Record<string, string | string[]>` que representa las cabeceras de la respuesta HTTP. El objeto `headers` tiene el siguiente formato:
 
 * Todos los nombres de los encabezados son puestos en minúsculas.
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* Duplicados de `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, o `user-agent` son descartados.
+* `set-cookie` siempre es un array. Los duplicados son agregados al array.
+* Para los encabezados `cookie` duplicados, los valores se unen con '; '.
+* Para todos los otros encabezados, los valores se unen con ', '.
 
 #### `response.httpVersion`
 
