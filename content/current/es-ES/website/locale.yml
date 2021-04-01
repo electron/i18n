@@ -128,12 +128,12 @@ quick_start:
   dive_deeper: O sumérgete mas y lee la <a href='/docs'>documentación</a>.
 need_help:
   title: '¿Necesitas ayuda?'
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Haz preguntas en el foro <a href='https://discuss.atom.io/c/electron'>Discuss</a>. Sigue <a href="https://twitter.com/electronjs">@electronjs</a> en Twitter para anuncios importantes. ¿Necesitas contactar de forma privada? <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
   languages: Encuentra contenido en nuestra increíble comunidad global de desarrolladores.
-  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
+  announcement: 'Black Lives Matter. Apoya <a href="https://support.eji.org/give/153413/#!/donation/checkout">la Iniciativa de Justicia Igualitaria</a> y <a href="/blacklivesmatter">lee nuestra declaración aquí</a>.'
 help_translate: "Ayuda a traducir"
 footer:
   see_the_faq: Ver las preguntas frecuentes

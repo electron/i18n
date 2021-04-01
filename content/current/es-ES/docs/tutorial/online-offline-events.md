@@ -6,16 +6,16 @@ La detección de [Evento en línea y fuera de líena ](https://developer.mozilla
 
 El atributo `navigator.onLine` devuelve:
 
-* `false` if all network requests are guaranteed to fail (e.g. when disconnected from the network).
-* `true` in all other cases.
+* `false` si todas la solicitudes de red están garantizada para fallar (p.ej. cuando se desconecta de la red).
+* `true` en todo los otros casos.
 
-Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. For example, in cases when the computer is running a virtualization software that has virtual Ethernet adapters in "always connected" state. Therefore, if you want to determine the Internet access status of Electron, you should develop additional means for this check.
+Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. Por ejemplo, en casos cuando la computadora esta corriendo un programa de virtualización que tiene un adaptador Ethernet virtual en estado "siempre conectado". Por lo tanto, si quieres determinar el estado de la conexión a Internet de Electron, deberías desarrollar una manera adicional para comprobar esto.
 
 ## Ejemplo
 
-### Event detection in the Renderer process
+### Detección de eventos en el Renderer process
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -47,13 +47,13 @@ alertOnlineStatus()
 
 Después de lanzar la aplicación Electron deberías ver la notificación:
 
-![Online-offline-event detection](../images/online-event-detection.png)
+![Detección de eventos online-offline](../images/online-event-detection.png)
 
-### Event detection in the Main process
+### Detección de eventos en el Main process
 
-There may be situations when you want to respond to online/offline events in the Main process as well. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+Puede haber situaciones cuando quieras responder a eventos online/offline en el Main process también. El Main process, sin embargo, no tiene un objeto `navigator` y no puede detectar estos eventos directamente. En este caso, necesitas reenviar los eventos al Main process usando la utilidad inter-process comunication (IPC).
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -87,7 +87,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-After launching the Electron application, you should see the notification in the Console:
+Después de lanzar la aplicación Electron, deberías ver la notificación en la Consola:
 
 ```sh
 npm start

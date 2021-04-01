@@ -2,13 +2,13 @@
 
 ## Descripción general
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+En muchos entornos Linux, puede agregar entradas personalizadas al lanzador del sistema modificando el archivo `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
 ![audaz][3]
 
-> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+> NOTA: La captura de la pantalla anterior es un ejemplo de atajos de lanzador en el reproductor de audio Audacious
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+Para crear un atajo, necesita proveer las propiedades `Name` y `Exec` para la entrada que quieres agregar al atajo del menú. Unity ejecutará el comando definido en el campo `Exec` después que el usuario pulse en el elemento del menú de acceso directo. Un ejemplo del archivo `.desktop` puede lucir de la siguiente manera:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -29,7 +29,7 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.
+La forma preferida de Unity para instruir a su aplicación sobre qué hacer es usar parámetros. Puedes encontrarlos en tu aplicación en la variable global `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 

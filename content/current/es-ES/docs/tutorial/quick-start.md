@@ -158,7 +158,7 @@ Su aplicación Electron utiliza el archivo `package.json` como el punto de entra
 
 > NOTA: Si se omite el campo `principal` , Electron intentará cargar un índice `. s` archivo del directorio que contiene `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> NOTA: Los campos `author` y `description` son requeridos para el empaquetado, de lo contrario ocurrirá un error cuando se ejecuta `npm run make`.
 
 Por defecto, el comando `npm start` ejecutará el script principal con Node.js. Para ejecutar el script con Electron, necesitas cambiarlo como tal:
 
