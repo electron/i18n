@@ -24,9 +24,9 @@ En resumidas cuentas, los principales pasos son:
 ## Actualizando la [bifurcación](https://github.com/electron/node) del Nodo del Electrón
 
 1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update
+2. Crea una rama en https://github.com/electron/node: `electron-node-vX.X.X` en la que la base desde la que estás bifurcando es la etiqueta para la actualización deseada
   - `vX.X.X` Debe usar una versión de Node compatible con nuestra actual versión de Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X`
+3. Volver a aplicar nuestros commits desde la versión anterior de Node que estábamos usando (`vY.Y.Y`) a `v.X.X.X`
   - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
   - Escoger el rango de encomendares:
     1. Revisa los `vY.Y.Y` & `v.X.X.X`
@@ -76,7 +76,7 @@ Actualizar el archivo `DEPS` en la raíz de [electron/electron](https://github.c
 - Nosotros actualizamos el código de tal forma que sólo usamos una copia de V8 en todo Electron
   - P.ej.: Electron, Chromium y Node.js
 - No rastreamos el stream ascendente debido a logística:
-   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+   - Upstream usa múltiples repositorios y, por lo tanto, fusionarse en un solo repositorio daría como resultado la pérdida del historial. Así que solo actualizamos cuando estamos planeando un aumento de la versión de Node en Electron.
 - Chromium es grande y requiere mucho tiempo para actualizar, así que normalmente elegimos la versión del Node basada en la cual de sus versiones tiene una versión de V8 que está más cerca de la versión en Chromium que estamos usando.
   - A veces tenemos que esperar la próxima versión periódica de Node porque sincronizará más estrechamente con la versión de V8 en el nuevo Chromium
  - Electron mantiene todos sus parches en el repositorio porque es más sencillo que mantener diferentes repositorios para parches por cada proyecto superior.
