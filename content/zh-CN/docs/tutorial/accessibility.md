@@ -1,12 +1,12 @@
 # 辅助功能
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
+制作可访问的应用程序非常重要，我们很乐意为 [Devtron][devtron] 和 [Spectron][spectron] 提供 功能，让 开发人员有机会使他们的应用程序更好地为每个人服务。
 
 ---
 
 Electron 应用中有关辅助功能的开发和网站是相似的，因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. 详见各工具的文档.
+这些功能将这些审核工具带到您的电子应用。 您可以 选择使用 Spectron 将审核添加到您的测试中，或在 DevTools 与 Devtron 一起使用它们。 详见各工具的文档.
 
 ## Spectron
 
@@ -40,7 +40,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### 使用 Electron 的 API
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. 请注意，用户的系统辅助工具优先于此设置并将覆盖它。
+通过使用 [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API，您可以手动向应用首选项中的用户展示 Chrome 的可访问性树。 请注意，用户的系统辅助工具优先于此设置并将覆盖它。
 
 ### 在第三方软件内
 
