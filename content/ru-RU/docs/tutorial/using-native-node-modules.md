@@ -1,6 +1,6 @@
 # Использование модулей узлов
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Иначе, при запуске приложения вы получите следующий класс ошибок:
+Модули родного узла.js поддерживаются Electron, но так как Electron имеет другой двоичный интерфейс приложения [(ABI)][abi] от данного узла.js двоичный (из-за различий , таких как использование Chromium BoringSSL вместо OpenSSL), родные модули , которые вы используете, должны быть перекомпилированы для Electron. Иначе, при запуске приложения вы получите следующий класс ошибок:
 
 ```sh
 Ошибка: Модуль '/path/to/native/module.node'
@@ -16,21 +16,21 @@ NODE_MODULE_VERSION $ABC. Попробуйте перекомпилироват�
 
 ### Installing modules and rebuilding for Electron
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`][electron-rebuild] package. Этот модуль может автоматически определить версию Electron и выполнить ручные шаги загрузки заголовков и пересборки родных модулей для вашего приложения. If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+Вы можете установить модули, как и другие проекты узла, а затем восстановить модули для Electron с [`electron-rebuild`][electron-rebuild] пакетом. Этот модуль может автоматически определить версию Electron и выполнить ручные шаги загрузки заголовков и пересборки родных модулей для вашего приложения. Если вы используете [Electron Forge][electron-forge], этот инструмент используется автоматически как в режиме разработки, так и при распространении.
 
-For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
+Например, установить автономный инструмент `electron-rebuild` а затем восстановить с ним через командную строку:
 
 ```sh
-npm install --save-dev electron-rebuild
+npm установить --сохранить-dev электрон-восстановить
 
-# Every time you run "npm install", run this:
+- Каждый раз, когда вы запустите "npm установить", запустить это:
 ./node_modules/.bin/electron-rebuild
 
-# If you have trouble on Windows, try:
-.\node_modules\.bin\electron-rebuild.cmd
+- Если у вас есть проблемы на Windows, попробуйте:
+.\node_modules .bin электрон-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools such as [Electron Packager][electron-packager], consult the project's README.
+Для получения дополнительной информации об использовании и интеграции с другими инструментами, [Electron Packager][electron-packager], проконсультируйтесь с README проекта.
 
 ### При помощи `npm`
 
@@ -71,7 +71,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 ### Создание пользовательской версии Electron вручную
 
-To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Чтобы составить модули родного узла против пользовательской сборки Electron, которая не соответствует публичному выпуску, поручите `npm` использовать версию узла, которую вы в комплекте с пользовательской сборкой.
 
 ```sh
 npm rebuild --nodedir=/path/to/electron/vendor/node
@@ -90,8 +90,8 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 По умолчанию в Windows `node-gyp` ссылается на родные модули с `node.dll`. Однако, в Electron 4.x и выше символы, необходимые для использования родными модулями, экспортируются с помощью `электрона. xe`, и нет `узла.dll`. Чтобы загрузить родные модули в Windows, `node-gyp` устанавливает [задержка хук](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) , который запускает при загрузке родного модуля, и перенаправляет узел `. ll` со ссылкой на использование исполняемый файл загрузки вместо поиска узла `. ll` в поиске библиотеки путь (ничего не получится). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
-If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  Если модуль собран с помощью узла , убедитесь в том, что переменная `win_delay_load_hook` имеет значение `true` в связывании `. yp` файл, и нигде не переопределен.  Если модуль построен с другой системой, вам нужно убедиться, что вы строили с помощью хука с задержкой загрузки в главном `. ode` файл. Ваш `link.exe` вызов должен выглядеть следующим образом:
+Если вы получаете ошибку, как `Module did not self-register`, или `Указанная процедура
+не может быть найдена`, это может означать, что модуль, который вы пытаетесь использовать не правильно включить задержку нагрузки крючок.  Если модуль собран с помощью узла , убедитесь в том, что переменная `win_delay_load_hook` имеет значение `true` в связывании `. yp` файл, и нигде не переопределен.  Если модуль построен с другой системой, вам нужно убедиться, что вы строили с помощью хука с задержкой загрузки в главном `. ode` файл. Ваш `link.exe` вызов должен выглядеть следующим образом:
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -110,15 +110,15 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 [`prebuild`](https://github.com/prebuild/prebuild) предоставляет возможность публиковать родные модули узлов с предварительно собранными двоичными файлами для нескольких версий узла и Electron.
 
-If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Если модуль `prebuild`обеспечивает двоичные файлы для использования в Electron, убедитесь, что опустить `--build-from-source` и `npm_config_build_from_source` окружающей среды переменной, с тем чтобы в полной мере воспользоваться заранее встроенных двоичных файлов.
 
 ## Модули, полагающиеся на `узлов пред-гипс`
 
 The [`node-pre-gyp` tool][node-pre-gyp] provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
 
-Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
+Иногда эти модули прекрасно работают под Electron, но когда нет electron-специфических дьят, вам нужно построить из источника. В связи с этим рекомендуется использовать `electron-rebuild` этих модулей.
 
-If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Если вы следуете `npm` способу установки модулей, вам нужно будет пройти `--build-from-source` `npm`, или установить `npm_config_build_from_source` среду переменной.
 
 [abi]: https://en.wikipedia.org/wiki/Application_binary_interface
 [electron-rebuild]: https://github.com/electron/electron-rebuild
