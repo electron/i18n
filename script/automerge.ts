@@ -103,12 +103,12 @@ const ableToMerge = async (pr: number): Promise<boolean> => {
 }
 
 /**
- * Merges pull request and deletes branch after merge completed.
+ * Merges pull request.
  *
  * @param pr The number of pull request. Takes automatically
  *           in autoMerger() function.
  */
-const mergeAndDeleteBranch = async (pr: number) => {
+const mergePR = async (pr: number) => {
   await github.pulls.merge({
     owner: OWNER,
     repo: REPO,
@@ -116,12 +116,6 @@ const mergeAndDeleteBranch = async (pr: number) => {
     commit_message: '', // make commit message smaller.
     merge_method: 'squash',
   })
-  await github.git.deleteRef({
-    owner: OWNER,
-    repo: REPO,
-    ref: 'heads/new-translations',
-  })
-  return
 }
 
 async function autoMerger() {
@@ -141,7 +135,7 @@ async function autoMerger() {
 
   if (isMergeable) {
     console.log(`Merging PR ${prNumber}`)
-    await mergeAndDeleteBranch(prNumber)
+    await mergePR(prNumber)
   } else {
     throw new Error(`PR ${prNumber} is not mergeable`)
   }
