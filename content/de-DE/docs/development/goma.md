@@ -1,37 +1,37 @@
 # Goma
 
-> Goma is a distributed compiler service for open-source projects such as Chromium and Android.
+> Goma ist ein verteilter Compilerdienst für Open-Source-Projekte wie Chromium und Android.
 
-Electron hat ein eigenes Goma-Backend, das wir allen Electron-Betreuern zur Verfügung stellen.  See the [Access](#access) section below for details on authentication.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
+Electron hat ein eigenes Goma-Backend, das wir allen Electron-Betreuern zur Verfügung stellen.  Weitere Informationen zur Authentifizierung finden Sie im Abschnitt [Access](#access) unten.  Es gibt auch eine `cache-only` Goma-Endpunkt, die standardmäßig verwendet wird, wenn Sie keine Anmeldeinformationen haben.  Anfragen an den Cache-only- Goma nicht auf unseren Cluster treffen, sondern aus unserem Cache lesen und zu deutlich schnelleren Buildzeiten führen.
 
-## Enabling Goma
+## Aktivieren von Goma
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+Derzeit ist die einzige unterstützte Möglichkeit, Goma zu verwenden, unsere [Build Tools](https://github.com/electron/build-tools). Die Goma-Konfiguration wird automatisch einbezogen, wenn Sie `build-tools`einrichten.
 
-If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+Wenn Sie ein Betreuer sind und Zugriff auf unseren Cluster haben, stellen Sie bitte sicher, dass Sie `e init` mit `--goma=cluster` ausführen, um `build-tools` für die Verwendung Goma-Clusters zu konfigurieren.  Wenn Sie über eine vorhandene Konfiguration verfügen, können Sie einfach `"goma": "cluster"` in Ihrer Konfigurationsdatei festlegen.
 
-## Building with Goma
+## Bauen mit Goma
 
-When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.
+Wenn Sie Goma verwenden, können Sie `ninja` mit einem wesentlich höheren `j` -Wert ausführen, als normalerweise von Ihrem Computer unterstützt wird.
 
-Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
+Legen Sie keinen Wert fest, der höher als **200** unter Windows oder Linux und **50** unter macOS liegt. Wir überwachen die Verwendung des Goma-Systems, und Benutzer, die es mit unangemessener Parallelität missbrauchen, werden deaktiviert.
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
+Wenn Sie `build-tools`verwenden, werden automatisch geeignete `-j` Werte für Sie verwendet.
 
-## Monitoring Goma
+## Überwachung von Goma
 
-If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
+Wenn Sie auf [http://localhost:8088](http://localhost:8088) auf Ihrem lokalen -Computer zugreifen, können Sie Kompilierungsaufträge überwachen, während sie durch das Goma-System fließen.
 
-## Access
+## Zugriff
 
-For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Aus Sicherheits- und Kostengründen ist der Zugriff auf den Goma-Cluster von Electron derzeit auf Electron Maintainer beschränkt.  Wenn Sie Zugang wünschen, gehen Sie bitte zu `#access-requests` in Slack und Ping `@goma-squad` , um zugang zu fragen.  Bitte beachten Sie, dass es sich nicht darum handelt, dass ein Betreuer nicht automatisch *,* den Zugriff zu gewähren, und dass der Zugriff von Fall zu Fall von Fall zu Fall bestimmt wird.
 
-## Uptime / Support
+## Betriebszeit / Support
 
-We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
+Wir haben die automatisierte Überwachung unseres Goma-Clusters und Caches zu https://status.notgoma.com
 
-We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
+Wir bieten keine Unterstützung für die Nutzung von Goma und alle Fragen, die um Hilfe bitten / Probleme werden _wahrscheinlich_ ohne viel Grund geschlossen werden, haben wir nicht die Fähigkeit, dieser Art von Support zu behandeln.
