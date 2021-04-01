@@ -7,49 +7,49 @@ Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部�
 ## 源代码的目录结构
 
 ```diff
-Electron
-├── build/ - Build configuration files needed to build with GN.
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
-├── docs/ - Electron's documentation.
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
-|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
-├── lib/ - JavaScript/TypeScript source code.
-|   ├── browser/ - Main process initialization code.
-|   |   ├── api/ - API implementation for main process modules.
-|   |   └── remote/ - Code related to the remote module as it is
-|   |                 used in the main process.
-|   ├── common/ - Relating to logic needed by both main and renderer processes.
-|   |   └── api/ - API implementation for modules that can be used in
-|   |              both the main and renderer processes
-|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
-|   |                        contextIsolation is enabled.
-|   ├── renderer/ - Renderer process initialization code.
-|   |   ├── api/ - API implementation for renderer process modules.
-|   |   ├── extension/ - Code related to use of Chrome Extensions
-|   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handles use of the remote module in
-|   |   |             the main process.
-|   |   └── web-view/ - Logic that handles the use of webviews in the
-|   |                   renderer process.
-|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
-|   |   |                     processes.
-|   |   └── api/ - API implementation for sandboxed renderer processes.
-|   └── worker/ - Logic that handles proper functionality of Node.js
-|                 environments in Web Workers.
-├── patches/ - Patches applied on top of Electron's core dependencies
-|   |          in order to handle differences between our use cases and
-|   |          default functionality.
-|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
-|   ├── chromium/ - Patches applied to Chromium.
-|   ├── node/ - Patches applied on top of Node.js.
-|   └── v8/ - Patches applied on top of Google's V8 engine.
-├── shell/ - C++ source code.
+电子
+├--构建/-使用GN构建所需的配置文件。
+├---构建旗子/-确定可有条件构建的功能集。
+├---chromium_src/-从不属于内容层的Chromium复制的源代码。
+├---default_app/-当电子启动时运行默认应用程序，而没有
+|                 提供一个消费者应用程序。
+├--文档/-电子的文档。
+|  ├--api/-电子面向外部模块和API的文档。
+|  ├--开发/-文档，以帮助开发和与电子。
+|  ├---小提琴/-一组代码片段，一个人可以运行在电子小提琴。
+|  ├--图像/-文档中使用的图像。
+|  └---电子各方面的教程/-教程文档。
+├---自由/-爪哇脚本/类型脚本源代码。
+|  ├--浏览器/-主流程初始化代码。
+|  |  ├--api/-主要过程模块的API实现。
+|  |  └--远程/-与远程模块相关的代码，因为它是
+|  |                用于主要过程。
+|  ├---常见/-与主和渲染器过程所需的逻辑相关。
+|  |  └--api/-可用于
+|的模块的API实现  |             主和渲染器过程
+|  ├---isolated_renderer/-当
+|时处理隔离渲染器过程的创建  |                       上下文隔离已启用。
+|  ├---渲染器/-渲染器过程初始化代码。
+|  |  ├--api/-渲染器处理模块的API实现。
+|  |  ├---扩展/-与使用铬扩展相关的代码
+|  |  |               在电子渲染器过程中。
+|  |  ├--远程/-处理
+|远程模块使用的逻辑  |  |            主要过程。
+|  |  └---网络视图/-处理
+|中网络视图使用的逻辑  |                  渲染器过程。
+|  ├---sandboxed_renderer/-处理沙盒渲染器创建的逻辑
+|  |  |                    过程。
+|  |  └--api/-沙盒渲染器流程的API实现。
+|  └--工人/-处理节点正确功能的逻辑.js
+|                网络工作者的环境。
+├---补丁/-补丁应用于电子的核心依赖性
+|  |         为了处理我们的使用案例和
+|之间的差异  |         默认功能。
+|  ├---无聊/-补丁适用于谷歌的开叉，无聊。
+|  ├--铬/-贴片应用于铬。
+|  ├--节点/-在节点顶部应用补丁.js。
+|  └---v8/-补丁应用在谷歌的V8引擎之上。
+├--壳/-C++源代码。
 |   ├── app/ - 系统入口代码.
 |   ├── browser/ - 包含了主窗口、UI 和所有主进程相关的东西.
 |   |   |          它会告诉渲染进程如何管理页面.
@@ -60,40 +60,40 @@ Electron
 |   |   ├── api/ - 主进程 API 的实现.
 |   |   ├── net/ - 网络相关的代码.
 |   |   ├── mac/ - 与 Mac 有关的 Objective-C 代码.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
+|  |  └--资源/-图标、依赖平台的文件等
+|  ├--渲染器/-在渲染器过程中运行的代码。
 |   |   └── api/ - 渲染进程 API 的实现.
 |   └── common/ - 同时被主进程和渲染进程用到的代码,
 |       |         包括了一些用来将 node 的消息循环整合到 Chromium 的
 |       |         消息循环中时用到的工具函数和代码.
 |       └── api/ - 同时被主进程和渲染进程使用到的 API 的实现,
 |                  并且是 Electron 内置模块的基础.
-├── spec/ - Components of Electron's test suite run in the renderer process.
-├── spec-main/ - Components of Electron's test suite run in the main process.
+├--规格/-电子测试套件的组件在渲染器过程中运行。
+├--规格主/-电子测试套件的组件在主要过程中运行。
 └── BUILD.gn - Electron 的构建规则.
 ```
 
 ## 其它目录的结构
 
-* **.circleci** - Config file for CI with CircleCI.
-* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
+* **.圆环** -与Ci圈CI的配置文件。
+* **.github** -GitHub特定的配置文件，包括问题模板和代码所有者。
 * **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
 * **external_binaries** - 下载了不支持用 `gn` 构建的第三方框架的二进制文件.
 * **node_modules** - 在构建中用到的第三方 node 模块.
-* **npm** - Logic for installation of Electron via npm.
+* **npm** -通过npm安装电子的逻辑。
 * **out** - `ninja` 的临时输出目录.
 * **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
 
 ```diff
-script/ - The set of all scripts Electron runs for a variety of purposes.
-├── codesign/ - Fakes codesigning for Electron apps; used for testing.
-├── lib/ - Miscellaneous python utility scripts.
-└── release/ - Scripts run during Electron's release process.
-    ├── notes/ - Generates release notes for new Electron versions.
-    └── uploaders/ - Uploads various release-related files during release.
+脚本/- 所有脚本集电子运行出于各种目的。
+├––代码符号/-伪造电子应用的代码签名：用于测试。
+├--自由/-杂蛇实用脚本。
+└---释放/-脚本在电子的发布过程中运行。
+    ├---注释/-生成新电子版本的发布笔记。
+    └--上传者/-在发布过程中上传各种与发布相关的文件。
 ```
 
-* **tools** - Helper scripts used by GN files.
-  * Scripts put here should never be invoked by users directly, unlike those in `script`.
-* **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
+* **工具** - GN 文件使用的帮手脚本。
+  * 与 `script`中的脚本不同，用户不应直接使用此处的脚本。
+* **键入** - 电子内部代码的类型脚本键入。
+* **供应商** - 某些第三方依赖关系的源代码。
