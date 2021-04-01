@@ -1,6 +1,6 @@
 # Установка
 
-To install prebuilt Electron binaries, use [`npm`][npm]. Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
+Для установки предварительно встроенных электронных двоичных файлов используйте [`npm`][npm]. Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
 
 ```sh
 npm install electron --save-dev
@@ -39,7 +39,7 @@ npm install --platform=win32 electron
 
 ## Пользовательские зеркала и кэши
 
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
+Во время установки `electron` будет призывать к [`@electron/get`][electron-get] скачать предварительно встроенные двоичные файлы Electron для вашей платформы. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
 Если доступа к GitHub нет или нужна другая сборка, можно задать зеркало или папку кеша.
 
@@ -82,23 +82,23 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-│   └── electron-v1.7.9-darwin-x64.zip
+│ └── electron-v1.7.9-darwin-x64.zip
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
-│   └── SHASUMS256.txt
+│ └── SHASUMS256.txt
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
-│   └── electron-v1.8.1-darwin-x64.zip
+│ └── electron-v1.8.1-darwin-x64.zip
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
-│   └── SHASUMS256.txt
+│ └── SHASUMS256.txt
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-│   └── electron-v1.8.2-beta.1-darwin-x64.zip
+│ └── electron-v1.8.2-beta.1-darwin-x64.zip
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-│   └── SHASUMS256.txt
+│ └── SHASUMS256.txt
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-│   └── electron-v1.8.2-beta.2-darwin-x64.zip
+│ └── electron-v1.8.2-beta.2-darwin-x64.zip
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
-│   └── SHASUMS256.txt
+│ └── SHASUMS256.txt
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
-│   └── electron-v1.8.2-beta.3-darwin-x64.zip
+│ └── electron-v1.8.2-beta.3-darwin-x64.zip
 └── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
     └── SHASUMS256.txt
 ```
@@ -121,11 +121,11 @@ ELECTRON_SKIP_BINARY_DESCRIPTION
 
 В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки, как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сеть, или немного подождать, и попытаться установить снова.
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+Вы также можете попытаться скачать Electron непосредственно из [электрон / электрон / релизы][releases] если установка через `npm` не удается.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+Если установка не удается с `EACCESS` ошибкой, возможно, потребуется исправить [npm][npm-permissions].
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+Если вышеупомяхаемая ошибка сохраняется, [, возможно][unsafe-perm] должен быть установлен на истинный:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
