@@ -1,62 +1,62 @@
 # Updating an Appveyor Azure Image
 
-Electron CI на Windows использует AppVeyor, который в свою очередь использует изображения Azure VM для запуска.  Occasionally, these VM images need to be updated due to changes in Chromium requirements.  In order to update you will need [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) and the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
+Electron CI на Windows использует AppVeyor, который в свою очередь использует изображения Azure VM для запуска.  Иногда эти VM-изображения необходимо обновлять из-за изменений в требованиях к хрому.  Для обновления вам понадобится [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) [модуля Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
 
-Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
+Иногда нам нужно обновить эти изображения из-за изменений в хроме или других различных изменений требования сборки.
 
 Пример применения:
-    * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
+    * Нам нужна `VS15.9` , и мы `VS15.7` установлены; это потребует от нас обновления изображения Azure.
 
-1. Identify the image you wish to modify.
-    * In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*.
-        * The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    * Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key.
-        * You will need this URI path to copy into a new image.
-    * You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+1. Определите изображение, которое вы хотите изменить.
+    * В [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), изображение идентифицируется свойством *изображения*.
+        * Используемые имена соответствуют *"изображениям",* для облака сборки, например, [libcc-20](https://windows-ci.electronjs.org/build-clouds/8).
+    * Найдите изображение, которое вы хотите изменить в облаке сборки, и обратите внимание на **VHD Blob Path** для этого изображения, которое является значением для этого соответствующего ключа.
+        * Вам понадобится этот путь URI, чтобы скопировать в новое изображение.
+    * Вам также понадобится имя учетной записи хранения, которое помечено в AppVeyor как **имя учетной записи**
 
-2. Get the Azure storage account key
-    * Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor.
-        * Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts
-            * Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+2. Получить ключ учетной записи хранения Azure
+    * Войдите в Azure с помощью учетных данных, хранящихся в LastPass (в рамках Azure Enterprise), а затем найдите учетную запись хранения, соответствующую имени, найденному в AppVeyor.
+        * Пример, для `appveyorlibccbuilds` **учетной записи disk** , которую вы `appveyorlibccbuilds` в списке учетных записей хранения данных и учетных записей домашнего < хранения данных
+            * Нажмите на него и ищите `Access Keys`, а затем вы можете использовать любой из ключей, присутствующих в списке.
 
-3. Get the full virtual machine image URI from Azure
-    * Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images
-        * In the following list, look for the VHD path name you got from Appveyor and then click on it.
-            * Copy the whole URL from the top of the subsequent window.
+3. Получить полное изображение виртуальной машины URI от Azure
+    * Перейдите на домашние < хранения данных < `$ACCT_NAME` < Blobs < Images
+        * В следующем списке ищите имя пути VHD, которое вы получили от Appveyor, а затем нажмите на него.
+            * Скопировать весь URL из верхней части последующего окна.
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
-    * It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    * Use the storage account name, key, and URI obtained from Azure to run this script.
-        * See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        * Use default destination container name `(images)`
-        * Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp.
-            * Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    * Go into Azure and get the URI for the newly created image as described in a previous step
+4. Копировать изображение с помощью [Master Image PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
+    * Очень важно скопировать VM, потому что если вы вращаете VM против изображения, что изображение не может в то же время быть использованы AppVeyor.
+    * Для запуска этого скрипта используйте имя учетной записи хранения данных, ключ и URI, полученные из Azure.
+        * См. Шаг 3 для URI & по запросу, нажмите введите использовать ту же учетную запись хранения, что и пункт назначения.
+        * Используйте имя контейнера назначения по умолчанию `(images)`
+        * Кроме того, при наименовании копии используйте имя, указывая, что будет содержать новое изображение (если это изменилось) и штамп даты.
+            * Бывший. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+    * Перейдите в Azure и получите URI для вновь созданного изображения, описанного на предыдущем этапе
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
-    * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    * You will need the credential information available in the AppVeyor build cloud definition.
-        * This includes:
-            * Client ID
-            * Client Secret
-            * Tenant ID
-            * Subscription ID
-            * Resource Group
-            * Virtual Network
-    * You will also need to specify
-        * Master VM name - just a unique name to identify the temporary VM
-        * Master VM size - use `Standard_F32s_v2`
-        * Master VHD URI - use URI obtained @ end of previous step
-        * Location use `East US`
+5. Закрути новый VM с помощью [создать мастер VM от VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
+    * Из PowerShell выполните `ps1` файл с `./create_master_vm_from_vhd.ps1`
+    * Вам понадобится информация о учетных данных, доступная в определении облака сборки AppVeyor.
+        * Это включает в себя:
+            * Идентификатор клиента
+            * Секрет клиента
+            * Идентификатор арендатора
+            * Идентификатор подписки
+            * Ресурсная группа
+            * Виртуальная сеть
+    * Вам также нужно будет указать
+        * Master VM имя - просто уникальное имя для идентификации временного VM
+        * Мастер VM размер - использование `Standard_F32s_v2`
+        * Мастер VHD URI - использование URI, полученное в конце предыдущего шага
+        * Использование местоположения `East US`
 
-6. Log back into Azure and find the VM you just created in Home < Virtual Machines < `$YOUR_NEW_VM`
-    * You can download a RDP (Remote Desktop) file to access the VM.
+6. Вернитесь в Azure и найдите только что созданный вами VM в < виртуальных < `$YOUR_NEW_VM`
+    * Вы можете скачать файл RDP (Remote Desktop) для доступа к VM.
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
-    * Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+7. Используя удаленный рабочий стол Майкрософт, `Connect` кнопку для подключения к VM.
+    * Учетные данные для входа в VM находятся в LastPass под `AppVeyor Enterprise master VM` данных.
 
-8. Modify the VM as required.
+8. Измените VM по мере необходимости.
 
-9. Shut down the VM and then delete it in Azure.
+9. Выключите VM, а затем удалите его в Azure.
 
-10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
+10. Добавьте новое изображение в настройки Облака Appveyor или измените существующее изображение, чтобы указать на новый VHD.
