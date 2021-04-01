@@ -40,6 +40,6 @@ Detener la grabación de los eventos de red. Si no se llama, la grabación de lo
 
 ## Propiedades
 
-### `netLog.currentlyLogging` _Readonly_
+### `netLog.currentlyLogging` _SoloLectura_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+Una propiedad `Boolean` que indica si los registros de red están siendo grabados actualmente.
