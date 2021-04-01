@@ -2,47 +2,47 @@
 
 Мы стремимся сохранить кодовое покрытие Electron высоким. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. https://crowdin.com/translate/electron/159/en-ru#13105.
 
-This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
+Этот репозиторий поставляется с правилами linting как для JavaScript, так и для C- а также для единиц и интеграционных тестов. Чтобы узнать больше о стиле кодирования Electron , пожалуйста, [в стиле кодирования](coding-style.md) документа.
 
-## Linting
+## Линтинг
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons][standard-addons] to be informed of coding style violations before you ever commit them.
+Чтобы убедиться, что ваш JavaScript соответствует стилю Electron coding , запустите `npm run lint-js`, который будет работать `standard` как против самого Electron, так и против унитарных тестов. Если вы используете редактор с плагином / аддон системы, вы можете использовать один из многих [StandardJS аддоны][standard-addons] быть информированы о стиле кодирования нарушений, прежде чем когда-либо совершить их.
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+Чтобы запустить `standard` с параметрами, `npm run lint-js --` с последующими , которые вы хотите передать `standard`.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+Чтобы убедиться, что ваш C- соответствует стилю кодирования Electron, запустите `npm run lint-cpp`, который запускает `cpplint` скрипт. Мы рекомендуем, вы используете `clang-format` и [к короткой учебной](clang-format.md).
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+В этом репозитории не так много Python, но он также регулируется правилами стиля кодирования. `npm run lint-py` проверят всех Python, используя `pylint` для этого.
 
-## Unit Tests
+## Унитарные тесты
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+Если вы не используете [build-tools](https://github.com/electron/build-tools), убедитесь, что это имя, которое вы настроили для вашей локальной сборки Electron, является одним из `Testing`, `Release`, `Default`, `Debug`, или вы установили `process.env.ELECTRON_OUT_DIR`. Без этих наборов Electron не сможет выполнить некоторые этапы предварительного тестирования.
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Чтобы выработать все унитарные тесты, `npm run test`. Единица испытаний Electron (сюрприз!), которые можно найти в `spec` папке. Обратите внимание, что имеет свой `package.json` и что его зависимости, следовательно не определены в верхнем `package.json`.
 
-To run only specific tests matching a pattern, run `npm run test --
--g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+Чтобы выработать только конкретные тесты, соответствующие шаблону, запустите тест `npm -
+-g'PATTERN`, заменив `PATTERN` регексом, который соответствует тестам которые вы хотели бы запустить. В качестве примера: Если вы хотите запустить только IPC-тесты, вы будет работать `npm run test -- -g ipc`.
 
 ### Проверка на устройствах Windows 10
 
-#### Extra steps to run the unit test:
+#### Дополнительные шаги для запуска удельного теста:
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration.
+1. Визуальная студия 2019 должна быть установлена.
+2. Головки узла должны быть составлены для вашей конфигурации.
 
    ```powershell
-   ninja -C out\Testing third_party\electron_node:headers
+   ниндзя-C\Testing third_party-electron_node:headers
    ```
 
-3. The electron.lib has to be copied as node.lib.
+3. Electron.lib должен быть скопирован как node.lib.
 
    ```powershell
-   cd out\Testing
+   cd из\Testing
    mkdir gen\node_headers\Release
-   copy electron.lib gen\node_headers\Release\node.lib
+   копия electron.lib gen\node_headers\Release\node.lib
    ```
 
-#### Missing fonts
+#### Отсутствующие шрифты
 
 [На некоторых устройства на Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) может быть не установлен шрифт Meriyo, что может привести к провалу fallback теста. Для того чтобы установить шрифт Meiryo:
 
@@ -50,13 +50,13 @@ To run only specific tests matching a pattern, run `npm run test --
 2. Нажмите _Добавить функцию_.
 3. Выберите _Японские дополнительные шрифты_ и нажмите _Установить_.
 
-#### Pixel measurements
+#### Измерения пикселей
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+Некоторые тесты, которые полагаются на точные измерения пикселей, могут неправильно работать устройствах с настройками экрана Hi-DPI из-за ошибок точности плавающей точки. Чтобы вывести эти тесты под корректно, убедитесь, что устройство настроено на 100% масштабирование.
 
-To configure display scaling:
+Настройка масштабирования дисплея:
 
-1. Push the Windows key and search for _Display settings_.
-2. Under _Scale and layout_, make sure that the device is set to 100%.
+1. Нажмите клавишу Windows и _настройки_.
+2. В _шкалы и_, убедитесь, что устройство настроено на 100%.
 
 [standard-addons]: https://standardjs.com/#are-there-text-editor-plugins
