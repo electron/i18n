@@ -12,7 +12,7 @@ Para ejecutar `estándar` con parámetros, ejecute `npm run lint-js --` seguido 
 
 Para garantizar que tu C ++ cumpla con el estilo de codificación de electrones, ejecuta `npm run lint-cpp`, que ejecuta un script `cpplint`. Le recomendamos que utilice el `Formato clang` y se prepare con [un breve tutorial](clang-format.md).
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+No hay mucho de Python en este repositorio, pero también se rige por las reglas de estilo de código. `npm run lint-py` comprobará todo el Python, usando `pylint` para hacerlo.
 
 ## Pruebas unitarias
 

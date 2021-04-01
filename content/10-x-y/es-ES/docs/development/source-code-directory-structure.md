@@ -88,7 +88,7 @@ script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad
     ├── notes/ - Genera notas de lanzamiento para las nuevas versiones de Electron.
     └── uploaders/ - Sube varios archivos relacionados con la nueva versión durante el lanzamiento.
 ```
-* **tools** - Helper scripts used by GN files.
+* **tools** - Scripts de ayuda utilizados por los archivos GN.
   * Los Scripts puestos aquí nunca deberían ser invocados directamente por los usuarios, a diferencia de los de `script`.
 * **typings** - Tipos de TypeScript para el código interno de Electron.
 * **vendor** - Código fuente para algunas dependencias de terceros incluyendo `boto` y `requests`.

@@ -137,7 +137,7 @@ Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como ent
 
 ## Añadiendo archivos desempaquetados a ficheros `asar`
 
-Como se ha dicho anteriormente, algunas APIs de Nodo desempaquetarán el archivo en el sistema de archivos cuando se llame. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Como se ha dicho anteriormente, algunas APIs de Nodo desempaquetarán el archivo en el sistema de archivos cuando se llame. Aparte de los problemas de rendimiento, puede que varios escáneres de antivirus sean lanzados por este comportamiento.
 
 Como solución de trabajo, puede dejar varios archivos desempaquetados usando la opción `--unpack`. En el siguiente ejemplo, las librerías compartidas de módulos nativos Node.js no serán empaquetadas:
 

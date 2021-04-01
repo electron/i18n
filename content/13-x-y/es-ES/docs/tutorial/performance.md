@@ -49,8 +49,8 @@ En resumen, un módulo aparentemente excelente escrito principalmente para servi
 
 Al considerar un módulo, le recomendamos que verifique:
 
-1. the size of dependencies included
-2. the resources required to load (`require()`) it
+1. el tamaño de las dependencias incluidas
+2. los recursos requeridos para cargarlo (`require()`)
 3. los recursos necesarios para realizar la acción en la que estás interesado
 
 Generar un perfil de CPU y un perfil de memoria acumulada para cargar un módulo puede hacerse con un solo comando en la línea de comandos. En el ejemplo de abajo, estamos mirando la popular solicitud de módulo ``.

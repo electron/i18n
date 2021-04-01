@@ -2,13 +2,13 @@
 
 ## Descripción general
 
-This feature allows you to configure local and global keyboard shortcuts for your Electron application.
+Esta característica le permite configurar atajos de teclado loca y global para tu aplicación Electron.
 
 ## Ejemplo
 
 ### Accesos directos locales
 
-Local keyboard shortcuts are triggered only when the application is focused. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`][] al crear un [MenuItem][] dentro de módulo [Menu][].
+Los atajos de teclado locales son activadas sólo cuando la aplicación está enfocada. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`][] al crear un [MenuItem][] dentro de módulo [Menu][].
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -28,11 +28,11 @@ menu.append(new MenuItem({
 Menu.setApplicationMenu(menu)
 ```
 
-> NOTE: In the code above, you can see that the accelerator differs based on the user's operating system. For MacOS, it is `Alt+Cmd+I`, whereas for Linux and Windows, it is `Alt+Shift+I`.
+> NOTA: En el código anterior, puede ver que el acelerador difiere según el sistema operativo del usuario. Para MacOS, es  `Alt+Cmd+I`, mientras que para  Linux y   Windows, es `Alt+Shift+I`.
 
-After launching the Electron application, you should see the application menu along with the local shortcut you just defined:
+Después de lanzar la aplicación Electron, deberías ver el menú de la aplicación junto con el el atajo local que acabas de definir:
 
-![Menu with a local shortcut](../images/local-shortcut.png)
+![Menú con un atajo local](../images/local-shortcut.png)
 
 If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
 
@@ -52,13 +52,13 @@ app.whenReady().then(() => {
 }).then(createWindow)
 ```
 
-> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
+> NOTA: En el código anterior, la combinación `CommandOrControl` usa `Command` en macOS y `Control` en Windows/Linux.
 
 After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
 
 ### Accesos directos en una ventana de buscador
 
-#### Using web APIs
+#### Usando APIs web
 
 If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
 
@@ -68,7 +68,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
-#### Intercepting events in the main process
+#### Interceptando eventos en el main process
 
 El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-event) es emitido antes de enviar los eventos `flecha hacia arriba` y `flecha hacia abajo` en la página. Puede ser usado para capturar y manejar accesos directos personalizados que no son visibles en el menú.
 
@@ -94,9 +94,9 @@ app.whenReady().then(() => {
 
 After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
 
-#### Using third-party libraries
+#### Usando librerías de terceros
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. Below are examples of usage of the `mousetrap` running in the Renderer process:
+If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. A continuación se muestran ejemplos de uso de `mousetrap` corriendo en el Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

@@ -16,13 +16,13 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 > NOTE: The screenshot above is an example of general tasks of Internet Explorer
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+A diferencia del dock menú en macOS el cual es un menú real, user tasks en Windows funcionan como atajos de aplicación. Por ejemplo, cuando un usuario pulsa en un task, el programa será ejecutado con argumentos especificados.
 
 To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
 
 #### Ejemplos
 
-##### Set user tasks
+##### Establecer tareas de usuario
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -134,7 +134,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ### Flash Frame
 
-On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
+En Windows, puedes resaltar el botón de la barra de tareas para obtener la atención del usuario. Esto es similar al rebote del ícono en el dock de macOS.
 
 Como se cita desde [MSDN][msdn-flash-frame]:
 
@@ -155,7 +155,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+> NOTA: No olvides llamar a `win.flashFrame(false)` para desactivar el destello. En el ejemplo anterior,  es llamado cuando la ventana entra en foco, pero puede que uses un temporizador o algún otro evento para desactivarlo.
 
 [msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
