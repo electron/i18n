@@ -5,9 +5,9 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 ## Pré-requisitos
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. Algumas distribuições como o CentOS 6.x ainda usam Python 2.6.x então você pode precisar verificar sua versão Python com `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Certifique-se também de que seu sistema e versão Python suportam pelo menos o TLS 1.2. Para um teste rápido, execute o seguinte script:
 
   ```sh
   $ npx @electron/check-python-tls
@@ -22,7 +22,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 No Ubuntu, é necessário instalar as seguintes bibliotecas:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+$ sudo apt-get instalar build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -32,31 +32,31 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
 No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
+$ sudo yum instalar clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   copos-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
 No Fedora, é necessário instalar as seguintes bibliotecas:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
+$ sudo dnf instalar clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   copos-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-On Arch Linux / Manjaro, install the following libraries:
+No Arch Linux / Manjaro, instale as seguintes bibliotecas:
 
 ```sh
 $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
-                   libgnome-keyring alsa-lib libcap libcups libxtst \
+                   libgnome-keyring alsa-libcap libcups libxtst \
                    libxss nss gcc-multilib curl gperf bison \
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Outras distribuições podem oferecer pacotes semelhantes para instalação via pacote gerentes, como pacman. Ou pode-se compilar a partir do código fonte.
 
 ### Forçar compilação
 
@@ -88,7 +88,7 @@ Veja [Instruções de build: GN](build-instructions-gn.md)
 
 ### Erro ao carregar bibliotecas compartilhadas: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prebuilt `clang` tentará vincular-se a `libtinfo.so.5`. Dependendo da arquitetura do host, symlink para `libncurses`apropriado:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tópicos Avançados
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+A configuração de construção padrão é direcionada para as principais distribuições de Linux de desktop. Para construir para uma distribuição ou dispositivo específico, as seguintes informações podem ajudá-lo.
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
