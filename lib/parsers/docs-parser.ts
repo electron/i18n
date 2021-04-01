@@ -112,9 +112,7 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
         // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
         src = convertToUrlSlash(path.resolve(dirname, src))
 
-        const newSrc = isApiDoc
-          ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
-          : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
+        const newSrc = [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
 
         const parsed = URL.parse(newSrc)
         if (!parsed.path) return

@@ -12,12 +12,7 @@ const JSTemplate = `module.exports = {
   navs: require('./navs.json'),
   website: require('./website.json'),
 
-  electronLatestStableVersion: \'${packageJSON.electronLatestStableTag.replace(
-    /^v/,
-    ''
-  )}\',
   electronLatestStableTag: \'${packageJSON.electronLatestStableTag}\',
-  electronMasterBranchCommit: \'${packageJSON.electronMasterBranchCommit}\',
 
   date: \'${now}\'
 }
@@ -30,9 +25,7 @@ export declare const locales: typeof import('./locales.json')
 export declare const navs: typeof import('./navs.json')
 export declare const website: typeof import('./website.json')
 
-export declare const electronLatestStableVersion: string
 export declare const electronLatestStableTag: string
-export declare const electronMasterBranchCommit: string
 
 export declare const date: string
 `

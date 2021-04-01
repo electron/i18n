@@ -382,26 +382,6 @@ describe('i18n.navs', () => {
   })
 })
 
-describe('i18n.electronMasterBranchCommit', () => {
-  it('exists', () => {
-    i18n.electronMasterBranchCommit.should.be.a('string')
-  })
-
-  it('is a SHA', () => {
-    i18n.electronMasterBranchCommit.length.should.eq(40)
-  })
-})
-
-describe('i18n.electronLatestStableVersion', () => {
-  it('exists', () => {
-    i18n.electronLatestStableVersion.should.be.a('string')
-  })
-
-  it('is a version number', () => {
-    i18n.electronLatestStableVersion.should.match(/^\d+\.\d+\.\d+$/)
-  })
-})
-
 describe('i18n.electronLatestStableTag', () => {
   it('exists', () => {
     i18n.electronLatestStableTag.should.be.a('string')
@@ -409,9 +389,6 @@ describe('i18n.electronLatestStableTag', () => {
 
   it('is a tag name', () => {
     i18n.electronLatestStableTag.should.match(/^v\d+\.\d+\.\d+$/)
-    i18n.electronLatestStableTag.should.eq(
-      'v' + i18n.electronLatestStableVersion
-    )
   })
 })
 
