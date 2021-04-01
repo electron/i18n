@@ -12,7 +12,7 @@ __Dock меню приложения:__
 
 ![macOS панель меню][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
+Чтобы добавить файл к последним документам, необходимо использовать приложение [addRecentDocument][addrecentdocument] API.
 
 ## Пример
 
@@ -32,7 +32,7 @@ app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 
 ### Очистить список последних документов
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
+Чтобы очистить список последних документов, необходимо использовать [app.clearRecentDocuments][clearrecentdocuments] API в `main.js` файле:
 
 ```javascript
 const { app } = require('electron')
