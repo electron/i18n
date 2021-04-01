@@ -87,7 +87,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-After launching the Electron application, you should see the notification in the Console:
+Después de lanzar la aplicación Electron, deberías ver la notificación en la Consola:
 
 ```sh
 npm start
