@@ -51,7 +51,7 @@ Después de lanzar la aplicación Electron deberías ver la notificación:
 
 ### Detección de eventos en el Main process
 
-Puede haber situaciones cuando quieras responder a eventos online/offline en el Main process también. The Main process, however, does not have a `navigator` object and cannot detect these events directly. In this case, you need to forward the events to the Main process using Electron's inter-process communication (IPC) utilities.
+Puede haber situaciones cuando quieras responder a eventos online/offline en el Main process también. El Main process, sin embargo, no tiene un objeto `navigator` y no puede detectar estos eventos directamente. En este caso, necesitas reenviar los eventos al Main process usando la utilidad inter-process comunication (IPC).
 
 Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
