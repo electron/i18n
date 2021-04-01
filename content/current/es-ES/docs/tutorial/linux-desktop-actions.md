@@ -8,7 +8,7 @@ En muchos entornos Linux, puede agregar entradas personalizadas al lanzador del 
 
 > NOTA: La captura de la pantalla anterior es un ejemplo de atajos de lanzador en el reproductor de audio Audacious
 
-Para crear un atajo, necesita proveer las propiedades `Name` y `Exec` para la entrada que quieres agregar al atajo del menú. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. Un ejemplo del archivo `.desktop` puede lucir de la siguiente manera:
+Para crear un atajo, necesita proveer las propiedades `Name` y `Exec` para la entrada que quieres agregar al atajo del menú. Unity ejecutará el comando definido en el campo `Exec` después que el usuario pulse en el elemento del menú de acceso directo. Un ejemplo del archivo `.desktop` puede lucir de la siguiente manera:
 
 ```plaintext
 Actions=PlayPause;Next;Previous
