@@ -64,7 +64,7 @@ snap(options)
 
 ### Paso 1: Crear proyecto de Snapcraft de Ejemplo
 
-Create your project directory and add the following to `snap/snapcraft.yaml`:
+Crea el directorio de tu proyecto y agrega lo siguiente al `snap/snapcraft.yaml`:
 
 ```yaml
 name: electron-packager-hello-world

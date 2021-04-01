@@ -2,13 +2,13 @@
 
 ## Descripción general
 
-On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
+En macOS, puede establecer un archivo representado para cualquier ventana en tu aplicación. El icono del archivo representado será mostrado en la barra de título, y cuando los usuarios `Command-Click` o `Control-Click` en una ventana emergente con una ruta al archivo será mostrada.
 
 ![Archivo representado][1]
 
-> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
+> NOTA: La captura de pantalla anterior es un ejemplo donde esta característica es usada para indicar el archivo abierto actualmente en el editor de texto Atom.
 
-You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
+También puede establecer el estado editado de una ventana para que el ícono del archivo pueda indicar si el documento en esta ventana ha sido modificado.
 
 Para configurar el archivo representado de la ventana, puede utilizarse las APIs [BrowserWindow.setRepresentedFilename][setrepresentedfilename] y [BrowserWindow.setDocumentEdited][setdocumentedited] APIs.
 
@@ -27,7 +27,7 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+Después de lanzar la aplicación Electron, pulse en el título con la tecla `Command` o `Control` presionada. Deberías ver la ventana emergente con el archivo que acabas de definir:
 
 ![Archivo representado](../images/represented-file.png)
 

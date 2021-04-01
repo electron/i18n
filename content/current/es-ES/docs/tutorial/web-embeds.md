@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-Si quiere incrustar contenido web (de terceros) en un `BrowserWindow` de Electron, hay tres opciones disponible para usted: `<iframe>` tags, `<webview>` tags, y `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
+Si quiere incrustar contenido web (de terceros) en un `BrowserWindow` de Electron, hay tres opciones disponible para usted: `<iframe>` tags, `<webview>` tags, y `BrowserViews`. Cada una ofrece una funcionalidad ligeramente diferente y es útil en diferentes situaciones. To help you choose between these, this guide explains the differences and capabilities of each option.
 
 ### Iframes
 

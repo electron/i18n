@@ -30,13 +30,13 @@ L'inconvénient est, Chromium est une très grande base de code et nécessite de
 
 En tant qu'utilisateur du Module de contenu, Electron n'a pas besoin de modifier le code de Chromium dans la plupart des cas, donc une façon évidente d'améliorer la construction d'Electron est de compiler Chromium en tant que bibliothèque partagée, puis reliez avec lui dans Electron. De cette façon les développeurs n'ont plus besoin de construire tout Chromium lorsqu'ils contribuent à Electron.
 
-Le projet [libchromiumcontent](https://github.com/electron/libchromiumcontent) a été créé par [@aroben](https://github.com/aroben) à cet effet. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger.
+Le projet [libchromiumcontent](https://github.com/electron/libchromiumcontent) a été créé par [@aroben](https://github.com/aroben) à cet effet. Il construit le module de contenu de Chromium en tant que bibliothèque partagée, puis fournit les en-têtes de Chromium et les binaires précompilés à télécharger. Le code de la version initiale de libchromiumcontent peut être trouvé dans ce lien[][libcc-classic].
 
 Le projet [brillant](https://github.com/electron/brightray) est également né dans le cadre de libchromiumcontent, qui fournit une fine couche autour du module de contenu.
 
 En utilisant libchromiumcontent et lumineux ensemble, les développeurs peuvent construire rapidement un navigateur sans entrer dans les détails de la construction de Chromium. Et cela supprime l'exigence d'un réseau rapide et d'une machine puissante pour construire le projet.
 
-En dehors d'Electron, il y avait aussi d'autres projets basés sur Chromium construits de cette manière , comme le navigateur [Breach](https://www.quora.com/Is-Breach-Browser-still-in-development).
+En dehors d'Electron, il y a eu aussi d'autres projets basés sur Chromium construits de cette manière , comme le navigateur [Breach](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
 ## Filtrage des symboles exportés
 
@@ -81,4 +81,7 @@ La seconde tentative a été faite par [@alespergl](https://github.com/alespergl
 ## Summary
 
 Comme vous pouvez le voir, comparé à la construction d'Electron dans Chromium, construction Chromium en tant que bibliothèque prend plus d'efforts et nécessite une maintenance continue de . Cependant ce dernier supprime l'exigence de matériel puissant pour construire Electron, permettant ainsi à une gamme beaucoup plus étendue de développeurs de construire et de contribuer à Electron. Les efforts en valent la peine.
+
+[libcc-classic]: https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c
+[libcc-classic]: https://github.com/electron/libchromiumcontent/tree/873daa8c57efa053d48aa378ac296b0a1206822c
 

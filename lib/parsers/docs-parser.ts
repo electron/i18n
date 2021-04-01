@@ -32,7 +32,8 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   // build a reference to the source
   const githubUrl = `https://github.com/electron/electron/tree/master${href}.md`
 
-  const crowdinFileId = ids[`master/content/en-US${href}.md`]
+  // TODO: this needs to be updated once the flattening happens
+  const crowdinFileId = ids[`master_old/content/en-US${href}.md`]
 
   // convenience booleans for use in templates
   const isTutorial = category === 'tutorial'
