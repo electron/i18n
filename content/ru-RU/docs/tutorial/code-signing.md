@@ -143,7 +143,7 @@ packager({
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+Смотрите [Mac App Store Руководство][].
 
 # Подписывание сборок для Windows
 
@@ -155,7 +155,7 @@ See the [Mac App Store Guide][].
 Вы можете получить сертификат подписи кода у многих реселлеров. Цены варьируются, поэтому может стоить вашего времени для покупок. Популярные реселлеры включают:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
+* [Сектиго](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Среди других, пожалуйста, купите, чтобы найти тот, который подходит вашим потребностям, Google является вашим другом 😄
 
@@ -163,7 +163,7 @@ See the [Mac App Store Guide][].
 
 * [`Электрон-winstaller`][] создаст программу установки для Windows и подпишет её для вас
 * [`Электронная кузница`][] может подписывать установщики, которые она генерирует через Squirrel.Windows или MSI цели.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-builder`][] можете подписать некоторые из своих окон целей
 
 ## Windows Store
 
@@ -180,5 +180,5 @@ See the [Mac App Store Guide][].
 [`Электрон-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [подписанные сертификаты]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
-[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Mac App Store Руководство]: mac-app-store-submission-guide.md
 [Windows Store Guide]: windows-store-guide.md
