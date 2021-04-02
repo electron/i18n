@@ -6,7 +6,7 @@ Auf macOS kann das System Änderungen an der App erkennen, ob die Änderung vers
 
 Unter Windows weist das System Ihrem Codesignierungszertifikat eine Vertrauensstufe zu, die, wenn Sie es nicht haben oder wenn Ihr Vertrauenslevel niedrig ist, werden Sicherheitsdialoge angezeigt, wenn Benutzer Ihre Anwendung verwenden.  Vertrauen Sie dem Level im Laufe der Zeit zu, so dass es besser ist, die Codesignierung so früh wie möglich zu starten.
 
-Obwohl es möglich ist, unsignierte Apps zu verbreiten, wird es nicht empfohlen. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Beginnend mit macOS Catalina (Version 10.15) müssen Benutzer mehrere manuelle Schritte durchlaufen, um unsignierte Anwendungen zu öffnen.
+Obwohl es möglich ist, unsignierte Apps zu verbreiten, wird es nicht empfohlen. Sowohl Windows als auch macOS verhindern standardmäßig den Download oder die Ausführung nicht signierter Anwendungen. Beginnend mit macOS Catalina (Version 10.15) müssen Benutzer mehrere manuelle Schritte durchlaufen, um unsignierte Anwendungen zu öffnen.
 
 ![macOS Catalina Gatekeeper Warnung: Die App kann nicht geöffnet werden, da der Entwickler
 nicht verifiziert werden kann](../images/gatekeeper.png)
@@ -21,9 +21,9 @@ Die richtige Vorbereitung von MacOS-Anwendungen für die Veröffentlichung erfor
 
 Um den Prozess zu starten, stellen Sie sicher, dass Sie die Voraussetzungen für die Unterzeichnung erfüllen und Ihre App notarisieren:
 
-1. Enroll in the [Apple Developer Program][] (requires an annual fee)
+1. Einschreiben in das [Apple Developer Program][] (erfordert eine jährliche Gebühr)
 2. [Xcode][] herunterladen und installieren - dies erfordert einen Computer mit macOS
-3. Generate, download, and install [signing certificates][]
+3. Generieren, Herunterladen und Installieren [Signierzertifikate][]
 
 Das elektronische Ökosystem bevorzugt die Konfiguration und Freiheit, so gibt es mehrere Möglichkeiten, Ihre Bewerbung zu signieren und zu beglaubigen.
 
@@ -61,7 +61,7 @@ Die `plist` Datei, auf die hier verwiesen wird, benötigt die folgenden macOS-sp
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<! DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/DE" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
@@ -128,7 +128,7 @@ Die `plist` Datei, auf die hier verwiesen wird, benötigt die folgenden macOS-sp
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<! DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/DE" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
@@ -143,7 +143,7 @@ Die `plist` Datei, auf die hier verwiesen wird, benötigt die folgenden macOS-sp
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+Siehe [Mac App Store Guide][].
 
 # Signiere Windows-Builds
 
@@ -163,11 +163,11 @@ Es gibt eine Reihe von Tools zum Signieren Ihrer gepackten App:
 
 * [`Elektron-winstaller`][] generiert einen Installer für Fenster und signiert ihn für Sie
 * [`electron-forge`][] kann Installer signieren, die es über die Squirrel.Windows oder MSI Ziele generiert.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-builder`][] können einige seiner Windows-Ziele signieren
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Siehe [Windows Store Guide][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
@@ -180,6 +180,6 @@ See the [Windows Store Guide][].
 [`Elektron-notarize`]: https://github.com/electron/electron-notarize
 [`Elektron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
-[signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Signierzertifikate]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
 [Mac App Store Guide]: mac-app-store-submission-guide.md
 [Windows Store Guide]: windows-store-guide.md
