@@ -141,9 +141,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+メインプロセス: メイン/インデックス.js
+const { app } = 必須 ('electron')
+アプリ.whenReady().その後()=> { /* .
 ```
 
 ```js
