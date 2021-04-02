@@ -7,19 +7,19 @@ Proceso: [Main](../glossary.md#main-process)
 `Tray` es un [EventEmitter][event-emitter].
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = require (' Electron ')
 
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+Let Tray = null
+app. whenReady (). then (() => {
+  Tray = New Tray ('/Path/to/my/Icon ')
+  const contextMenu = menu. buildFromTemplate ([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
+  Tray. setToolTip (' This is My Application. ')
+  Tray. setContextMenu (contextMenu)
 })
 ```
 
@@ -29,24 +29,24 @@ __Limitaciones de la plataforma:__
 * En distribuciones de Linux que sólo tienen soporte de indicador de aplicación, tienes que instalar `libappindicator1` para que funcione el icono.
 * El indicador de aplicación sólo se muestra cuando tiene un menú contextual.
 * Cuando se utiliza el indicador de aplicación en Linux, el evento `click` es ignorado.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Por ejemplo:
+* En Linux para que los cambios hechos a los `MenuItem` individuales hagan efecto, tienes que llamar otra vez a `setContextMenu`. Por ejemplo:
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = require (' Electron ')
 
-let appIcon = null
-app.whenReady().then(() => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+permitir que appIcon = null
+app. whenReady (). then (() => {
+  appIcon = New Tray ('/Path/to/my/Icon ')
+  const contextMenu = menu. buildFromTemplate ([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
+  //hacer un cambio en el menú contextual
+  contextMenu. Items[1]. Checked = false
 
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
+  //vuelva a llamar a esto para Linux porque modificamos el menú contextual
+  appIcon. setContextMenu (contextMenu)
 })
 ```
 
@@ -54,10 +54,10 @@ app.whenReady().then(() => {
 
 Si se quiere mantener los mismos comportamientos en todas las plataformas, no se debe confiar en el evento `click` y siempre hay que adjuntar el menú de contexto al icono de bandeja.
 
-### `new Tray(image, [guid])`
+### `Nueva bandeja (imagen, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (opcional) _Windows_ - Asigna un GUID al icono de la bandeja. Si el ejecutable está firmado y la firma contiene una organización en la línea del asunto, el GUID se asocia de manera permanente con esa firma. Los parámetros de nivel de SO como la posición del icono de la bandeja en la bandeja del sistema persistirán incluso si cambia la ruta al ejecutable. Si el ejecutable no tiene firma de código, el GUID se asocia de forma permanente con la ruta al ejecutable. Si cambias la ruta al ejecutable, se romperá la creación del icono de la bandeja y se debe usar un nuevo GUID. Sin embargo, es muy recomendable usar el parámetro GUID solo en conjunción con un ejecutable con firma de código. Si una App define múltiples íconos de bandejas, cada icono debe usar un GUID separado.
 
 Crea un nuevo icono de bandeja asociado con la `image`.
 
@@ -146,9 +146,9 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the mouse is released from clicking the tray icon.
+Se emite cuando se libera el ratón del clic en el icono de la bandeja.
 
-Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+Nota: esto no se emitirá si has establecido un menú contextual para tu bandeja usando `tray.setContextMenu`, como resultado de las restricciones a nivel de macOS.
 
 #### Evento: 'mouse-down' _macOS_
 
@@ -157,7 +157,7 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the mouse clicks the tray icon.
+Se emite cuando el ratón hace clic en el icono de la bandeja.
 
 #### Evento: 'mouse-enter' _macOS_
 
@@ -216,7 +216,7 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` String
 * `options` Object (opcional)
-  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
+  * `fontType` String (opcional)-la variante de la familia de fuentes que se debe mostrar, puede ser `monospaced` o `monospacedDigit`. `monospaced` está disponible en macOS 10.15 + y `monospacedDigit` está disponible en macOS 10.11 +.  Cuando se deja en blanco, el título usa la fuente de sistema predeterminada.
 
 Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 
@@ -228,7 +228,7 @@ Devuelve `String` - el título mostrado junto al icono de la bandeja en la barra
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Establece la opción para omitir los eventos de doble clic. Ignorar estos eventos te permite para detectar cada clic individual del icono de la bandeja.
 
 Este valor se establece en falso por defecto.
 
@@ -240,12 +240,12 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - Icono a usar cuando `iconType` es `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (opcional)-puede ser `none`, `info`, `warning`, `error` o `custom`. El valor predeterminado es `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Mapea a [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Mapea a [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Mapea a [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Muestra un globo de la bandeja.
 
@@ -262,13 +262,13 @@ Devuelve el foco al área de notificación de la barra de tarea. Los iconos del 
 * `menu` Menu (opcional)
 * `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Aparece el menú contextual del icono de la bandeja. Cuando se pasa `menu` , el `menu` se mostrará en lugar del menú contextual del icono de la bandeja.
 
 La `position` solo está disponible en Windows, y por defecto es (0, 0).
 
 #### `tray.closeContextMenu()` _macOS_ _Windows_
 
-Closes an open context menu, as set by `tray.setContextMenu()`.
+Cierra un menú contextual abierto, tal como lo establece `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 
