@@ -20,7 +20,7 @@ Establece `menu` como el menú de la aplicación en macOS. En Windows y Linux el
 
 Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Al pasar `null` , se suprime el menú predeterminado. En Windows y Linux, esto tiene el efecto adicional de eliminar la barra de menú de la ventana.
 
 **Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
@@ -44,7 +44,7 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 Devuelve `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Por lo general, el `template` es una matriz de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado arriba.
 
 Usted puede además adjuntar otros campos al elemento del `template` y se convierten en propiedades de los items del menú construido.
 
@@ -79,7 +79,7 @@ Anexa el `menuItem` al menú.
 
 * `id` Cadena
 
-Returns `MenuItem | null` the item with the specified `id`
+Devuelve `MenuItem | null` el elemento con el `id`especificado
 
 #### `menu.insert(pos, menuItem)`
 
@@ -125,15 +125,15 @@ Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem
 Un ejemplo de creación de una menú de la aplicación con el API simple template:
 
 ```javascript
-const { app, Menu } = require('electron')
+const { app, Menu } = require (' Electron ')
 
-const isMac = process.platform === 'darwin'
+const isMac = Process. Platform = = = ' darwin'
 
 const template = [
   // { role: 'appMenu' }
-  ...(isMac ? [{
-    label: app.name,
-    submenu: [
+  ... (isMac? [{
+    Label: app.name,
+    submenú: [
       { role: 'about' },
       { type: 'separator' },
       { role: 'services' },
@@ -144,12 +144,12 @@ const template = [
       { type: 'separator' },
       { role: 'quit' }
     ]
-  }] : []),
+  }]: []),
   // { role: 'fileMenu' }
   {
-    label: 'File',
-    submenu: [
-      isMac ? { role: 'close' } : { role: 'quit' }
+    Label: ' file ',
+    submenú: [
+      isMac? { role: 'close' } : { role: 'quit' }
     ]
   },
   // { role: 'editMenu' }
@@ -168,13 +168,13 @@ const template = [
         { role: 'selectAll' },
         { type: 'separator' },
         {
-          label: 'Speech',
-          submenu: [
+          Label: ' Speech ',
+          submenú: [
             { role: 'startSpeaking' },
             { role: 'stopSpeaking' }
           ]
         }
-      ] : [
+      ]: [
         { role: 'delete' },
         { type: 'separator' },
         { role: 'selectAll' }
@@ -183,8 +183,8 @@ const template = [
   },
   // { role: 'viewMenu' }
   {
-    label: 'View',
-    submenu: [
+    Label: ' View ',
+    submenú: [
       { role: 'reload' },
       { role: 'forceReload' },
       { role: 'toggleDevTools' },
@@ -198,11 +198,11 @@ const template = [
   },
   // { role: 'windowMenu' }
   {
-    label: 'Window',
-    submenu: [
+    Label: ' Window ',
+    submenú: [
       { role: 'minimize' },
       { role: 'zoom' },
-      ...(isMac ? [
+      ... (isMac? [
         { type: 'separator' },
         { role: 'front' },
         { type: 'separator' },
@@ -264,7 +264,7 @@ ipcMain.on('show-context-menu', (event) => {
 
 ## Notas sobre el menú de la aplicación en macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS tiene un estilo de menú de aplicación completamente diferente desde Windows y Linux. Aquí hay algunas notas sobre cómo hacer que el menú de tu App sea más parecido a un nativo.
 
 ### Menús Estándar
 
