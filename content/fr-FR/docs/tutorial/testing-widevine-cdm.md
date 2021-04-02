@@ -16,27 +16,38 @@ Par [Widevine](https://www.widevine.com/):
 > 
 > Widevine recommande que nos intégrations basées sur le navigateur (vendeurs et applications basées sur le navigateur) ajoutent la prise en charge de VMP.
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+Pour permettre la lecture vidéo avec cette nouvelle restriction, [castLabs](https://castlabs.com/open-source/downstream/) a créé un</a> de fourche
+qui a mis en œuvre les modifications nécessaires pour permettre à Widevine d’être joué dans une application Electron si on a obtenu les licences nécessaires de widevine.</p> 
+
+
 
 ## Obtention de la bibliothèque
 
 Ouvrez `chrome://components/` dans le navigateur Chrome, trouver `le Module de déchiffrement de contenu Widevine` et assurez-vous qu'il est à jour, vous pouvez alors trouver les fichiers de la bibliothèque dans le répertoire de l'application .
 
+
+
 ### Sur Windows 
 
 Le fichier de bibliothèque `widevinecdm.dll` sera sous `dossier Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` .
 
+
+
 ### Sur macOS 
 
-Le fichier de bibliothèque `libwidevinecdm.dylib` sera sous `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` dossier
+Le fichier de bibliothèque `libwidevinecdm.dylib` sera sous `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` dossier 
 
 **Remarque :** Assurez-vous que la version de chrome utilisée par Electron est supérieure ou égale à la `min_chrome_version` valeur de la composante de cdm widevine de Chrome. La valeur peut être trouvée dans le répertoire `manifest.json` sous `WidevineCdm`.
+
+
 
 ## Utilisation de la bibliothèque
 
 Après avoir récupéré les fichiers de la bibliothèque, vous devez passer le chemin vers le fichier avec le commutateur de ligne de commande `--widevine-cdm-path` , et la version de la bibliothèque avec le commutateur `--widevine-cdm-version`. Les commutateurs de ligne de commande doivent être passés avant que l'événement `prêt` du module `app` ne soit émis.
 
 Exemple de code :
+
+
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -55,9 +66,13 @@ app.whenReady().then(() => {
 })
 ```
 
+
+
+
 ## Vérification de la prise en charge de Widevine CDM
 
 Pour vérifier si Widevine fonctionne, vous pouvez utiliser les méthodes suivantes:
 
 * Ouvrez https://shaka-player-demo.appspot.com/ et charger un manifeste qui utilise `Widevine`.
+
 * Ouvrez http://www.dash-player.com/demo/drm-test-area/, vérifier que la page indique `bitdash uses Widevine in your browser`, puis lancez la vidéo.
