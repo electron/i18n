@@ -12,23 +12,23 @@ Informationen dazu, wie sie eine Electron-Sicherheitslücke richtig melden könn
 
 ## Chromium Sicherheitsprobleme und Updates
 
-Electron hält auf dem Laufenden mit wechselnden Chrom-Releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron hält auf dem Laufenden mit wechselnden Chrom-Releases. Weitere Informationen finden Sie im [-Blogbeitrag](https://electronjs.org/blog/12-week-cadence)Electron Release Cadence .
 
 ## Sicherheit ist für jeden verantwortlich
 
 Es ist wichtig daran zu erinnern, dass die Sicherheit Ihrer Electron-Anwendung das Ergebnis der allgemeinen Sicherheit der Rahmen-Stiftung (*Chromium*, *Knoten. s*), Electron selbst, alle NPM-Abhängigkeiten und Ihren Code. Daher liegt es in Ihrer Verantwortung, ein paar wichtige Best Methoden zu verfolgen:
 
-* **Halten Sie Ihre Anwendung auf dem Laufenden mit der neuesten Version von Electron Framework.** Wenn Sie Ihr Produkt freigeben, versenden Sie auch ein Paket aus Electron, Chromium shared library und Node.js. Verwundbarkeiten, die diese Komponenten betreffen, können die Sicherheit Ihrer Anwendung beeinflussen. Durch Aktualisieren von Electron auf die neueste Version stellen Sie sicher, dass kritische Verwundbarkeiten (wie *nodeIntegration umgangen*) bereits gepatcht sind und nicht in Ihrer Anwendung ausgenutzt werden können. For more information, see "[Use a current version of Electron](#15-use-a-current-version-of-electron)".
+* **Halten Sie Ihre Anwendung auf dem Laufenden mit der neuesten Version von Electron Framework.** Wenn Sie Ihr Produkt freigeben, versenden Sie auch ein Paket aus Electron, Chromium shared library und Node.js. Verwundbarkeiten, die diese Komponenten betreffen, können die Sicherheit Ihrer Anwendung beeinflussen. Durch Aktualisieren von Electron auf die neueste Version stellen Sie sicher, dass kritische Verwundbarkeiten (wie *nodeIntegration umgangen*) bereits gepatcht sind und nicht in Ihrer Anwendung ausgenutzt werden können. Weitere Informationen finden Sie unter "[Verwenden einer aktuellen Version von Electron](#15-use-a-current-version-of-electron)".
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **Bewerten Sie Ihre Abhängigkeiten aus.** Während NPM eine halbe Million wiederverwendbarer Pakete bereitstellt, liegt es in Ihrer Verantwortung, vertrauenswürdige Bibliotheken von Drittanbietern auszuwählen. Wenn Sie veraltete Bibliotheken verwenden, die von bekannten Sicherheitsanfälligkeiten betroffen sind, oder sich auf schlecht verwalteten Code verlassen, Die Anwendungssicherheit gefährdet sein könnte.
 
 * **Sichere Codierungspraktiken.** Die erste Verteidigungslinie für Ihre Anwendung ist Ihr eigener Code. Übliche Web-Verwundbarkeiten, wie Cross-Site Scripting (XSS), G heeft heeft heeft heeft heeft heeft heeft het gebruik van Electron-Applikationen opgehaald. De gebruikte van de sicherheitskomplexen van bestelen van de softwareentwickling en te te betaalen.
 
 ## Isolation für nicht vertrauenswürdige Inhalte
 
-Ein Sicherheitsproblem besteht immer, wenn Sie Code von einer nicht vertrauenswürdigen Quelle erhalten (z.B. ein entfernter Server) und ihn lokal ausführen. As an example, consider a remote website being displayed inside a default [`BrowserWindow`][browser-window]. Wenn ein Angreifer es irgendwie schafft, den besagten Inhalt zu ändern (entweder indem er die Quelle direkt angreift, oder durch Sitzen zwischen Ihrer App und dem eigentlichen Ziel), können diese nativen Code auf dem Rechner des Benutzers ausführen.
+Ein Sicherheitsproblem besteht immer, wenn Sie Code von einer nicht vertrauenswürdigen Quelle erhalten (z.B. ein entfernter Server) und ihn lokal ausführen. Betrachten Sie beispielsweise eine Remote- Website, die in einem Standard- [`BrowserWindow`][browser-window]angezeigt wird. Wenn ein Angreifer es irgendwie schafft, den besagten Inhalt zu ändern (entweder indem er die Quelle direkt angreift, oder durch Sitzen zwischen Ihrer App und dem eigentlichen Ziel), können diese nativen Code auf dem Rechner des Benutzers ausführen.
 
-> :warning: unter keinen Umständen sollten Sie Remote-Code laden und ausführen, wobei die Node.js Integration aktiviert ist. Verwenden Sie stattdessen nur lokale Dateien (zusammen mit Ihrer Anwendung gepackt), um den Node.js-Code auszuführen. To display remote content, use the [`<webview>`][webview-tag] tag or [`BrowserView`][browser-view], make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning: unter keinen Umständen sollten Sie Remote-Code laden und ausführen, wobei die Node.js Integration aktiviert ist. Verwenden Sie stattdessen nur lokale Dateien (zusammen mit Ihrer Anwendung gepackt), um den Node.js-Code auszuführen. Um Remoteinhalte anzuzeigen, verwenden Sie [`<webview>`][webview-tag] -Tag oder [`BrowserView`][browser-view], um sicherzustellen, , die `nodeIntegration` zu deaktivieren und `contextIsolation`zu aktivieren.
 
 ## Electron Sicherheitswarnungen
 
@@ -66,7 +66,7 @@ Alle Ressourcen, die nicht in Ihrer Anwendung enthalten sind, sollten mit einem 
 
 `HTTPS` hat drei Hauptvorteile:
 
-1) Es authentifiziert den Remote-Server, und stellt sicher, dass sich Ihre App mit dem korrekten Host anstatt mit einem Imitator verbindet. 2) Es stellt die Integrität der Daten sicher, wobei behauptet wird, dass die Daten während des Transits zwischen Ihrer Anwendung und dem Host nicht verändert wurden. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) Es authentifiziert den Remote-Server, und stellt sicher, dass sich Ihre App mit dem korrekten Host anstatt mit einem Imitator verbindet. 2) Es stellt die Integrität der Daten sicher, wobei behauptet wird, dass die Daten während des Transits zwischen Ihrer Anwendung und dem Host nicht verändert wurden. 3) Es verschlüsselt den Datenverkehr zwischen Ihrem Benutzer und dem Zielhost, so dass es schwieriger zu hören, die Informationen zwischen Ihrer App und dem Host gesendet.
 
 ### Wie?
 
@@ -87,7 +87,7 @@ browserWindow.loadURL('https://example.com')
 
 _Diese Empfehlung ist das Standardverhalten in Electron seit 5.0.0._
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) that loads remote content. Das Ziel ist es, die Befugnisse zu beschränken, die Sie entfernten Inhalten gewähren auf diese Weise wird es für einen Angreifer erheblich schwieriger Ihre Benutzer zu schädigen, wenn sie die Möglichkeit erhalten, JavaScript auf Ihrer Website auszuführen.
+Es ist von größter Bedeutung, dass Sie node.js Integration in keine Renderer- ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view]oder [`<webview>`][webview-tag]) aktivieren, die Remoteinhalte lädt. Das Ziel ist es, die Befugnisse zu beschränken, die Sie entfernten Inhalten gewähren auf diese Weise wird es für einen Angreifer erheblich schwieriger Ihre Benutzer zu schädigen, wenn sie die Möglichkeit erhalten, JavaScript auf Ihrer Website auszuführen.
 
 Danach können Sie zusätzliche Berechtigungen für bestimmte Hosts erteilen. Zum Beispiel wenn Sie ein BrowserWindow öffnen, verwies auf `https://example. om/`, können Sie der Website genau die Fähigkeiten geben, die sie braucht, aber nicht mehr.
 
@@ -142,11 +142,11 @@ Kontext-Isolierung ist eine Electron-Funktion, die es Entwicklern erlaubt, Code 
 
 Electron verwendet die gleiche Technologie wie Chromiums [Inhaltsskripte](https://developer.chrome.com/extensions/content_scripts#execution-environment) um dieses Verhalten zu aktivieren.
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+Selbst wenn `nodeIntegration: false` verwendet wird, um wirklich starke Isolation zu erzwingen und die Verwendung von Knotenprimitiven zu verhindern, müssen</strong> `contextIsolation` **auch verwendet werden.</p>
 
 ### Warum & Wie?
 
-For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
+Weitere Informationen darüber, was `contextIsolation` ist und wie Sie es aktivieren können, finden Sie unserem speziellen dokument [Context Isolation](context-isolation.md) .
 
 ## 4) Anfragen zur Bearbeitung von Sitzungsgenehmigungen von Remote-Inhalten
 
@@ -185,7 +185,7 @@ session
 
 _Empfehlung ist Electronic Standard_
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view], or [`<webview>`][webview-tag]) disables crucial security features.
+Möglicherweise haben Sie bereits erraten, dass das Deaktivieren der `webSecurity` -Eigenschaft bei einem -Renderer-Prozess ([`BrowserWindow`][browser-window], [`BrowserView`][browser-view]oder [`<webview>`][webview-tag]) wichtige Sicherheitsfunktionen deaktiviert.
 
 `WebSecurity` in Produktionsanwendungen nicht deaktivieren.
 
@@ -291,7 +291,7 @@ Erweiterte Benutzer von Electron können experimentelle Chromi-Funktionen mithil
 
 ### Warum?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Außerdem wurde ihr Einfluss auf Electron insgesamt wahrscheinlich nicht getestet.
+Experimentelle Funktionen sind, wie der Name schon sagt, experimentell und wurden nicht für alle Chromium-Benutzer aktiviert. Außerdem wurde ihr Einfluss auf Electron insgesamt wahrscheinlich nicht getestet.
 
 Rechtmäßige Verwendungsfälle existieren bereits, aber wenn Sie nicht wissen, was Sie tun, sollten Sie diese Eigenschaft nicht aktivieren.
 
@@ -341,11 +341,11 @@ const mainWindow = new BrowserWindow()
 
 _Empfehlung ist Electronic Standard_
 
-If you are using [`<webview>`][webview-tag], you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`][browser-window] using the `window.open()` method. `<webview>` Tags dürfen sonst keine neuen Fenster erstellen.
+Wenn Sie [`<webview>`][webview-tag]verwenden, benötigen Sie möglicherweise die Seiten und Skripts, die in Ihr `<webview>` -Tag geladen , um neue Fenster zu öffnen. Das `allowpopups` -Attribut ermöglicht es ihnen, neue [`BrowserWindows`][browser-window] mit der `window.open()` -Methode zu erstellen. `<webview>` Tags dürfen sonst keine neuen Fenster erstellen.
 
 ### Warum?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`][browser-window] by default. Dies folgt dem Prinzip des minimal benötigten Zugriffs: Eine Webseite darf keine neuen Popups erstellen, es sei denn, Sie wissen, dass sie diese Funktion benötigt.
+Wenn Sie keine Popups benötigen, sind Sie besser dran, standardmäßig die Erstellung von neuen [`BrowserWindows`][browser-window] zuzulassen. Dies folgt dem Prinzip des minimal benötigten Zugriffs: Eine Webseite darf keine neuen Popups erstellen, es sei denn, Sie wissen, dass sie diese Funktion benötigt.
 
 ### Wie?
 
@@ -354,36 +354,36 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ## 11) WebView-Optionen vor der Erstellung überprüfen
 
-Ein in einem Renderer-Prozess erstellter WebView mit aktivierter Node.js-Integration kann die Integration selbst nicht aktivieren. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Ein in einem Renderer-Prozess erstellter WebView mit aktivierter Node.js-Integration kann die Integration selbst nicht aktivieren. Eine WebView erstellt jedoch immer einen unabhängigen Rendererprozess mit einem eigenen `webPreferences`.
 
-It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
+Es ist eine gute Idee, die Erstellung neuer [`<webview>`][webview-tag] Tags zu steuern, die aus dem Hauptprozess stammen, und zu überprüfen, ob ihre webPreferences Sicherheitsfunktionen nicht deaktivieren.
 
 ### Warum?
 
 Seit `<webview>` im DOM, sie können durch ein Skript erstellt werden, das auf Ihrer Webseite ausgeführt wird, auch wenn Knoten. s Integration ist ansonsten deaktiviert.
 
-Mit Electron können Entwickler verschiedene Sicherheitsfunktionen deaktivieren, die einen Renderer-Prozess steuern. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`][webview-tag] tags.
+Mit Electron können Entwickler verschiedene Sicherheitsfunktionen deaktivieren, die einen Renderer-Prozess steuern. In den meisten Fällen müssen Entwickler keine diese Features deaktivieren - und Sie sollten daher keine unterschiedlichen Konfigurationen zulassen, die für neu erstellte [`<webview>`][webview-tag] Tags .
 
 ### Wie?
 
-Before a [`<webview>`][webview-tag] tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Bevor ein [`<webview>`][webview-tag] -Tag angefügt wird, feuert Electron das `will-attach-webview` -Ereignis auf dem hostenden `webContents`. Verwenden Sie das Ereignis, um die Erstellung von `webViews` mit möglicherweise unsicheren Optionen zu verhindern.
 
 ```js
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+app.on('web-contents-created', (ereignis, contents) => '
+  contents.on('will-attach-webview', (event, webPreferences, params) => -
+    / / Preload-Skripte entfernen, wenn nicht verwendet werden, oder überprüfen Sie, ob ihr Speicherort legitim ist,
+    webPreferences.preload
+    löschen webPreferences.preloadURL
 
-    // Disable Node.js integration
+    / / Disable Node.js Integration
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://example.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+    / verify URL being loaded
+    if (!params.src.starts
+
+  
+    
+      .com With
 ```
 
 Wieder einmal minimiert diese Liste lediglich das Risiko, sie beseitigt es nicht. Wenn Ihr Ziel darin besteht, eine Website anzuzeigen, wird ein Browser eine sicherere Option sein.
@@ -400,7 +400,7 @@ Ein häufiges Angriffsmuster ist, dass der Angreifer die Benutzer Ihrer App davo
 
 ### Wie?
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+Wenn Ihre App keine Navigation benötigt, können Sie `event.preventDefault()` in einem [`will-navigate`][will-navigate] Handler aufrufen. Wenn Sie wissen, zu welchen Seiten Ihre App navigieren können, überprüfen Sie die URL im Ereignishandler, und lassen Sie die Navigation nur dann erfolgen, wenn sie mit den erwarteten URLs übereinstimmt.
 
 Wir empfehlen Ihnen, den Parser von Node für URLs zu verwenden. Einfache Vergleiche an Zeichenketten können manchmal getäuscht werden - ein `startsWith('https://example.com')` Test würde `https://example.com.attacker.com` durchlaufen lassen.
 
@@ -430,36 +430,36 @@ Wenn Sie nicht zusätzlich zu den Fenstern erstellen müssen, müssen Sie erstel
 
 ### Wie?
 
-[`webContents`][web-contents] will delegate to its [window open handler][window-open-handler] before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents] delegiert an das [Fenster, das Handler][window-open-handler] geöffnet wird, bevor neue Fenster erstellt werden. Der Handler erhält unter anderem die `url` das Fenster wurde aufgefordert, und die zum Erstellen verwendeten Optionen zu öffnen. Es wird empfohlen, einen Handler zu registrieren, um die Erstellung von Fenstern überwachen und unerwartete Fenstererstellung zu verweigern.
 
 ```js
 const { shell } = require('electron')
 
-app.on('web-contents-created', (event, contents) => {
-  contents.setWindowOpenHandler(({ url }) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
-    //
-    // See the following item for considerations regarding what
-    // URLs should be allowed through to shell.openExternal.
-    if (isSafeForExternalOpen(url)) {
-      setImmediate(() => {
+app.on('web-contents-created', (event, contents) => '
+  contents.setWindowOpenHandler(({ url }) => '
+    * In diesem Beispiel bitten wir das Betriebssystem
+    /, die URL dieses Ereignisses im Standardbrowser zu öffnen.
+    
+    / Beachten Sie das folgende Element für Überlegungen, was
+    / URLs an shell.openExternal zugelassen werden sollten.
+    if (isSafeForExternalOpen(url)) -
+      setImmediate(() =>
         shell.openExternal(url)
-      })
-    }
+      )
 
-    return { action: 'deny' }
-  })
-})
+
+    geben { action: 'deny' }
+  zurück
+.
 ```
 
 ## 14) Verwenden Sie `openExterne` nicht mit nicht vertrauenswürdigen Inhalten
 
-Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. Zum Beispiel auf macOS, diese Funktion ist ähnlich wie das `geöffnete` Terminal Command Utilities und öffnet die spezifische Anwendung basierend auf der URI und der Dateityp-Zuordnung.
+Die shell- [`openExternal`][open-external] ermöglicht das Öffnen eines bestimmten Protokoll-URI mit den systemeigenen Dienstprogrammen des Desktops. Zum Beispiel auf macOS, diese Funktion ist ähnlich wie das `geöffnete` Terminal Command Utilities und öffnet die spezifische Anwendung basierend auf der URI und der Dateityp-Zuordnung.
 
 ### Warum?
 
-Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. Wenn openExterne mit nicht vertrauenswürdigen Inhalten verwendet wird, kann es genutzt werden, um beliebige Befehle auszuführen.
+Die unsachgemäße Verwendung von [`openExternal`][open-external] kann genutzt werden, um den Host des Benutzers zu gefährden. Wenn openExterne mit nicht vertrauenswürdigen Inhalten verwendet wird, kann es genutzt werden, um beliebige Befehle auszuführen.
 
 ### Wie?
 
@@ -475,7 +475,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Use a current version of Electron
+## 15) Verwenden Sie eine aktuelle Version von Electron
 
 Sie sollten bestrebt sein, immer die aktuellste Version von Electron zu verwenden. Wann immer eine neue Hauptversion veröffentlicht wird, solltest du versuchen, deine -App so schnell wie möglich zu aktualisieren.
 
@@ -483,7 +483,7 @@ Sie sollten bestrebt sein, immer die aktuellste Version von Electron zu verwende
 
 Eine Anwendung, die mit einer älteren Version von Electron, Chromium, und Knoten erstellt wurde. s ist ein einfacheres Ziel als eine Anwendung, die neuere Versionen von dieser Komponenten verwendet. Generell sind Sicherheitsprobleme und Exploits für ältere Versionen von Chromium und Node.js häufiger verfügbar.
 
-Sowohl Chromium als auch Node.js sind beeindruckende Leistungen im Engineering von tausenden talentierten Entwicklern. Aufgrund ihrer Beliebtheit wird ihre Sicherheit von sorgfältig getestet und von gleichermaßen qualifizierten Sicherheitsforschern analysiert. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Ihre Anwendung wird sicherer sein, wenn eine aktuelle Version von Electron (und damit Chromium und Knoten) verwendet. s) für die potenzielle Sicherheitsprobleme nicht so bekannt sind.
+Sowohl Chromium als auch Node.js sind beeindruckende Leistungen im Engineering von tausenden talentierten Entwicklern. Aufgrund ihrer Beliebtheit wird ihre Sicherheit von sorgfältig getestet und von gleichermaßen qualifizierten Sicherheitsforschern analysiert. Viele der , die diese Forscher [Schwachstellen verantwortungsvoll][responsible-disclosure]offenlegen, was im Allgemeinen bedeutet, dass Forscher Chromium und Node geben.js etwas Zeit , um Probleme zu beheben, bevor sie veröffentlicht werden. Ihre Anwendung wird sicherer sein, wenn eine aktuelle Version von Electron (und damit Chromium und Knoten) verwendet. s) für die potenzielle Sicherheitsprobleme nicht so bekannt sind.
 
 [browser-window]: ../api/browser-window.md
 
