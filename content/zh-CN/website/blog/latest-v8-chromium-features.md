@@ -33,15 +33,15 @@ console.log(`octocat的名称是 ${octocat}`);
 **New Target**
 
 ```js
-Octocat() => {
-  if (!new.target) throw "Not new";
-  console.log("New Octocat");
-}
+八角形（）=> =
+  如果（！新目标）抛出"不新鲜";
+  控制台.log（"新八角形"）;
+=
 
-// Throws
-Octocat();
-// Logs
-new Octocat();
+//抛出
+八角形（）：
+//日志
+新的八角形（）：
 ```
 
 **数组包含**
