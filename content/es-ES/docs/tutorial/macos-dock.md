@@ -17,20 +17,20 @@ Para configurar tu menú de acoplamiento personalizado, necesitas usar la [`app.
 Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), actualice el archivo `main.js` con las siguientes líneas:
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
-const { app, Menu } = require('electron')
+const { app, Menu } = require (' Electron ')
 
-const dockMenu = Menu.buildFromTemplate([
+const dockMenu = menu. buildFromTemplate ([
   {
-    label: 'New Window',
-    click () { console.log('New Window') }
+    Label: ' New Window ',
+    click () {Console. log (' New Window ')}
   }, {
-    label: 'New Window with Settings',
-    submenu: [
+    Label: ' New window with Settings ',
+    submenú: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
   },
-  { label: 'New Command...' }
+  {Label: ' New Command... ' }
 ])
 
 app.whenReady().then(() => {
