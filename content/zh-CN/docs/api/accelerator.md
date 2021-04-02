@@ -12,10 +12,10 @@
 快捷方式使用 [` register `](global-shortcut.md#globalshortcutregisteraccelerator-callback) 方法在 [` globalShortcut `](global-shortcut.md) 模块中注册, 即:
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+康斯特 { app, globalShortcut } =需要（'电子'）
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+应用程序。当准备（然后）=> {
+  //注册一个"指挥官控制+Y"快捷方式的听众。
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
   })
@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 * `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* 标点符号如 `~`、 `!`、 `@`、 `#`、 `$`等。
 * `Plus`
 * `Space`
 * `Tab`
