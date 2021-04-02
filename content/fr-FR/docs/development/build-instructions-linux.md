@@ -5,9 +5,9 @@ Suivez les indications ci-dessous pour compiler Electron sur Windows.
 ## Prerequisites
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent toujours Python 2.6.x de sorte que vous devrez peut-être vérifier votre version Python avec `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  S’il vous plaît également s’assurer que votre système et la version Python prendre en charge au moins TLS 1.2. Pour un test rapide, exécutez le script suivant :
 
   ```sh
   $ npx @electron/check-python-tls
@@ -56,7 +56,7 @@ $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+D’autres distributions peuvent offrir des paquets similaires pour l’installation via des de paquets tels que pacman. Ou on peut compiler à partir du code source.
 
 ### Multi-compilation
 
@@ -88,7 +88,7 @@ Voir les [Instructions de compilation : GN](build-instructions-gn.md)
 
 ### Erreur lors du chargement Shared Libraries : libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Les `clang` préconstruits essaieront de se lier à `libtinfo.so.5`. Selon l’architecture de hôte, symlink à l' `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+La configuration de construction par défaut est ciblée pour les principales distributions linux bureau. Pour créer une distribution ou un périphérique spécifique, les informations informations peuvent vous aider.
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
