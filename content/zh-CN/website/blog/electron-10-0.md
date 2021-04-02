@@ -51,7 +51,7 @@ Electron 团队很高兴发布了 Electron 10.0.0.0！ 您可以通过 `npm 安�
 
 ## API 更改
 
-* Session: Can now check if a given `session` is persistent by calling the `ses.isPersistent()` API. [#22622](https://github.com/electron/electron/pull/22622)
+* 会话：现在可以通过调用 `ses.isPersistent()` API 来检查给定 `session` 是否持久。 [#22622](https://github.com/electron/electron/pull/22622)
 * 内容: 添加 `contents.getBackgroundThrotling()` methods and `contents.backgroundThrottling` property. [#21036](https://github.com/electron/electron/pull/21036)
 
 ### 已弃用 API
@@ -74,7 +74,7 @@ Electron 7.x.y 已经按照项目的 [支持策略](https://electronjs.org/docs/
 ### 继续废弃 `远程` 模块的工作 (在 Electron 11)
 我们开始了删除 [Electron 9](https://www.electronjs.org/blog/electron-9-0) 中的远程模块的工作，我们正在继续删除 `远程` 模块的计划。 在 Electron 11中，我们计划像在 Electron 10 中那样，继续重新调整实现 [虚弱Ref](https://v8.dev/features/weak-references) 的工作。 请阅读并关注 [这个问题](https://github.com/electron/electron/issues/21408) 以获取废弃的完整计划和详细信息。
 
-### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
-_Edit: Originally, this blog post stated that we would disable renderer process reuse in Electron 11. Disabling renderer process reuse has now been pushed to Electron 12._
+### 要求本地节点模块具有上下文感知或 N-API 的最后一步（电子 12 中）
+_编辑：最初，这篇博文说，我们将禁用电子11中的渲染程序重复使用。 禁用渲染器过程重用现已推至电子 12。_
 
-From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.
+从 Electron 6 开始，我们一直在打下基础，要求在渲染器过程中加载</a> 原生节点模块 [N-API](https://nodejs.org/api/n-api.html) 或 [上下文感知](https://nodejs.org/api/addons.html#addons_context_aware_addons)。 实施此更改可增强安全性、更快的性能并减少维护工作量。 此计划的最后一步是消除在 Electron 12 中禁用渲染过程重用的能力。 阅读本期 [](https://github.com/electron/electron/issues/18397) ，了解包括拟议时间表在内的完整详细信息。</p>
