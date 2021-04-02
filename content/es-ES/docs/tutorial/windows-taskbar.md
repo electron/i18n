@@ -2,11 +2,11 @@
 
 ## Descripción general
 
-Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Esta de API admite características de solo Windows [como la creación de una](#jumplist)de `JumpList`, [miniaturas y barras de herramientas](#thumbnail-toolbars), [icono superposiciones](#icon-overlays-in-taskbar)y el efecto de ["marco de Flash"](#flash-frame), y las características multiplataforma como [documentos recientes][recent-documents] y [progreso de la aplicación][progress-bar].
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Ese menú contextual se llama `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
+Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. Puedes especificar acciones personalizadas en la categoría de `Tasks` de JumpList, como se cita desde [][msdn-jumplist]MSDN:
 
 > Las aplicaciones definen tareas basadas tanto en las características del programa como en las cosas claves que se espera que haga un usuario con ellas. Las tareas deben estar libres de contexto, en que la aplicación no necesita ejecutarse para que funcione. También deberían ser las acciones estadísticamente más comunes que un usuario normal llevaría a cabo en una aplicación, como redactar un mensaje de correo electrónico o abrir el calendario en un programa de correo, crear un nuevo documento en un procesador de texto, iniciar una aplicación en un determinado modo, o ejecuta uno de sus subcomandos. Una aplicación no debe saturar el menú con características avanzadas que los usuarios estándar no necesitarán o acciones únicas como el registro. No utilice tareas para artículos promocionales como actualizaciones u ofertas especiales.
 > 
@@ -14,17 +14,17 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 ![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-> NOTE: The screenshot above is an example of general tasks of Internet Explorer
+> NOTA: La captura anterior es un ejemplo de tareas generales de Internet Explorer
 
 A diferencia del dock menú en macOS el cual es un menú real, user tasks en Windows funcionan como atajos de aplicación. Por ejemplo, cuando un usuario pulsa en un task, el programa será ejecutado con argumentos especificados.
 
-To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
+Para configurar las tareas del usuario para tu aplicación, puedes usar [app. setUserTasks][setusertaskstasks] API.
 
 #### Ejemplos
 
 ##### Establecer tareas de usuario
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
 const { app } = require('electron')
@@ -41,9 +41,9 @@ app.setUserTasks([
 ])
 ```
 
-##### Clear tasks list
+##### Limpiar la lista de tareas
 
-To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
+Para limpiar tu lista de tareas, necesitas llamar a `app.setUserTasks` con un array vacío en el archivo `main.js`.
 
 ```javascript
 const { app } = require('electron')
@@ -51,11 +51,11 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
+> Nota: las tareas del usuario seguirán mostrándose incluso después de cerrar tu aplicación de , por lo que debe existir el icono y la ruta del programa especificados para una tarea hasta que se desinstale tu aplicación.
 
 ### Barra de tareas de Thumbnail
 
-On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
+En Windows, puedes agregar una barra de herramientas en miniatura con botones especificados a una barra de tareas diseño de una ventana de aplicación. Brinda a los usuarios una manera de acceder a un comando de ventana particular sin restaurar o activar la ventana.
 
 Como se cita desde [MSDN][msdn-thumbnail]:
 
@@ -65,39 +65,39 @@ Como se cita desde [MSDN][msdn-thumbnail]:
 
 ![intérprete](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
+> NOTA: La captura de pantalla anterior es un ejemplo de thumbnail toolbar del Media Player de  Windows
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
+Para configurar una barra de herramientas en miniatura en tu aplicación, debes usar [BrowserWindow. setThumbarButtons][setthumbarbuttons]
 
 #### Ejemplos
 
-##### Set thumbnail toolbar
+##### Establecer thumbnail toolbar
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const path = require('path')
+const { BrowserWindow } = require (' Electron ')
+const path = require (' path ')
 
-const win = new BrowserWindow()
+const Win = New BrowserWindow ()
 
-win.setThumbarButtons([
+Win. setThumbarButtons ([
   {
-    tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    Tooltip: ' button1 ',
+    icono: path. join (__dirname, ' Button1. png '),
+    click () {Console. log (' button1 clicked ')}
   }, {
-    tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
-    flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    Tooltip: ' BUTTON2 ',
+    Icon: path. join (__dirname, ' Button2. png '),
+    Flags: [' Enabled ', ' destitusonclick '],
+    click () {Console. log (' BUTTON2 Clicked. ') }
   }
 ])
 ```
 
-##### Clear thumbnail toolbar
+##### Limpiar thumbnail toolbar
 
-To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
+Para borrar los botones de thumbnail toolbar, necesitas llamar `BrowserWindow.setThumbarButtons` con un array vacío en el archivo `main.js`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -108,7 +108,7 @@ win.setThumbarButtons([])
 
 ### Encubrimiento de íconos en la barra de tareas
 
-On Windows, a taskbar button can use a small overlay to display application status.
+En Windows, un botón de la barra de tareas puede usar una pequeña superposición para mostrar el estado de la aplicación.
 
 Como se cita desde [MSDN][msdn-icon-overlay]:
 
@@ -116,20 +116,20 @@ Como se cita desde [MSDN][msdn-icon-overlay]:
 
 ![Encubrimiento en botones de la barra de tareas](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-> NOTE: The screenshot above is an example of overlay on a taskbar button
+> NOTA: La captura de pantalla anterior es un ejemplo de superposición en un botón de la barra de tareas
 
-To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
+Para configurar el icono de superposición de una ventana, debes usar el [BrowserWindow. setOverlayIcon][setoverlayicon] API.
 
 #### Ejemplo
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require (' Electron ')
 
-const win = new BrowserWindow()
+const Win = New BrowserWindow ()
 
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+Win. setOverlayIcon (' Path/to/Overlay. png ', ' Description for overlay ')
 ```
 
 ### Flash Frame
@@ -140,22 +140,24 @@ Como se cita desde [MSDN][msdn-flash-frame]:
 
 > Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
-To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
+Para destellar el botón de la barra de tareas del BrowserWindow, debes usar el [BrowserWindow. flashFrame][flashframe] API.
 
 #### Ejemplo
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require (' Electron ')
 
-const win = new BrowserWindow()
+const Win = New BrowserWindow ()
 
-win.once('focus', () => win.flashFrame(false))
-win.flashFrame(true)
+Win. once (' Focus ', () => Win. flashFrame (false))
+Win. flashFrame (true)
 ```
 
 > NOTA: No olvides llamar a `win.flashFrame(false)` para desactivar el destello. En el ejemplo anterior,  es llamado cuando la ventana entra en foco, pero puede que uses un temporizador o algún otro evento para desactivarlo.
+
+[msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
 [msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
