@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
+> Acceder a información acerca de los orígenes de medios que se pueden usar para capturar audio y vídeo desde el escritorio utilizando la API [`navigator.mediaDevices.getUserMedia`][] .
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Para capturar vídeo desde una fuente proporcionada por `desktopCapturer` las restricciones pasadas a [`navigator.mediaDevices.getUserMedia`][] debe incluir `chromeMediaSource: 'desktop'`y `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Para capturar tanto el audio como el vídeo desde el escritorio completo, las restricciones pasadas a [`navigator.mediaDevices.getUserMedia`][] deben incluir `chromeMediaSource: 'desktop'`, tanto para `audio` como para `video`, pero no deben incluir una restricción de `chromeMediaSourceId` .
 
 ```javascript
 const constraints = {
