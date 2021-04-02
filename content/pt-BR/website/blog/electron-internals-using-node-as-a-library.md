@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Using Node as a Library'
+title: 'Internals eletrônicos: Usando nó como biblioteca'
 author: zcbenz
 date: '2016-08-08'
 ---
@@ -34,7 +34,7 @@ Uma vez que o Electron usa a biblioteca V8 enviada com Chromium, a biblioteca V8
 
 Ao conectar com o Node, existem duas opções: você pode construir o Node como uma biblioteca estática e incluí-lo no executável final, ou você pode construí-la como uma biblioteca compartilhada e enviá-la ao lado do executável final.
 
-No Electron, o nó foi construído como uma biblioteca estática por muito tempo. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
+No Electron, o nó foi construído como uma biblioteca estática por muito tempo. Isso tornou a construir simples, permitiu as melhores otimizações do compilador e permitiu que a Electron fosse distribuída sem um arquivo extra `node.dll` .
 
 No entanto, isto mudou depois que o Chrome mudou para usar o [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL é um fork do [OpenSSL](https://www.openssl.org) que remove várias APIs não utilizadas e altera muitas interfaces existentes. Como o nó ainda usa o OpenSSL, o compilador geraria vários erros de ligação devido a símbolos conflitantes se eles fossem conectados.
 
