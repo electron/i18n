@@ -20,7 +20,7 @@
 
 ### 学习基础知识
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+* [电子的工艺模型](tutorial/quick-start.md#application-architecture)
   * [主进程和渲染器进程](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -45,17 +45,17 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [其它工具和模板](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### 高级步骤
 
 * 应用架构
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
   * [性能策略](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [安全策略](tutorial/security.md)
 * [辅助功能](tutorial/accessibility.md)
   * [手动启用辅助功能](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)
   * [调试主进程](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [使用可视化工作室代码调试](tutorial/debugging-vscode.md)
   * [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [开发工具扩展程序](tutorial/devtools-extension.md)
@@ -120,7 +120,7 @@
 * [MenuItem](api/menu-item.md)
 * [网络](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeTheme](api/native-theme.md)
+* [本地主题](api/native-theme.md)
 * [通知](api/notification.md)
 * [电源监视器](api/power-monitor.md)
 * [省电拦截器 | powerSaveBlocker](api/power-save-blocker.md)
@@ -135,7 +135,7 @@
 
 ### 渲染进程（网页）可用的模块:
 
-* [contextBridge](api/context-bridge.md)
+* [上下文桥](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
