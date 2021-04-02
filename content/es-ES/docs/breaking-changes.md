@@ -77,7 +77,7 @@ En su lugar use las APIs de session:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
-* `ses.getAllExtensions()`
+* `SES. getAllExtensions ()`
 
 ```js
 // Eliminado en Electron 13
@@ -105,17 +105,17 @@ session.defaultSession.getAllExtensions()
 
 ### Eliminado: métodos en `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Los siguientes métodos de `systemPreferences` han quedado obsoletos:
 
-* `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
-* `systemPreferences.isHighContrastColorScheme()`
+* `systemPreferences. isDarkMode ()`
+* `systemPreferences. isInvertedColorScheme ()`
+* `systemPreferences. isHighContrastColorScheme ()`
 
-Use the following `nativeTheme` properties instead:
+En su lugar, utiliza las siguientes propiedades de `nativeTheme` :
 
-* `nativeTheme.shouldUseDarkColors`
-* `nativeTheme.shouldUseInvertedColorScheme`
-* `nativeTheme.shouldUseHighContrastColors`
+* `nativeTheme. Deberdusedarkcolors`
+* `nativeTheme. asumir Duseinvertedcolorscheme`
+* `nativeTheme. shouldUseHighContrastColors`
 
 ```js
 // Removed in Electron 13
@@ -218,11 +218,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Cambios planeados en la API(11.0)
 
-### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+### Eliminado: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` y `id` propiedad de `BrowserView`
 
-The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+Ahora se eliminaron las API experimentales `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` . Además, también se eliminó la propiedad `id` de `BrowserView` .
 
-For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
+Para obtener información más detallada, consulta [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Cambios de API de ruptura planificados (10.0)
 
@@ -296,10 +296,10 @@ Recomendamos [alejarnos del módulo remoto](https://medium.com/@nornagon/electro
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
-protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
-protocol.unregisterProtocol(scheme)
+Obsoleto
+Protocol. unregisterProtocol (Scheme, () => {/*... */})
+//reemplazar con
+Protocol. unregisterProtocol (Scheme)
 ```
 
 ### `protocol.registerFileProtocol`
@@ -310,39 +310,39 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.registerHttpProtocol`
 
-### `protocol.registerStreamProtocol`
+### `Protocol. registerStreamProtocol`
 
-### `protocol.interceptFileProtocol`
+### `Protocol. interceptFileProtocol`
 
-### `protocol.interceptStringProtocol`
+### `Protocol. interceptStringProtocol`
 
-### `protocol.interceptBufferProtocol`
+### `Protocol. interceptBufferProtocol`
 
-### `protocol.interceptHttpProtocol`
+### `Protocol. interceptHttpProtocol`
 
-### `protocol.interceptStreamProtocol`
+### `Protocol. interceptStreamProtocol`
 
 Las APIs ahora son síncronas y el callback opcional ya no es necesario.
 
 ```javascript
-// Deprecated
-protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
-protocol.registerFileProtocol(scheme, handler)
+Obsoleto
+Protocol. registerFileProtocol (Scheme, handler, () => {/*... */})
+//reemplazar con
+Protocol. registerFileProtocol (Scheme, handler)
 ```
 
 El protocolo registrado o interceptado no tiene efecto en la página actual hasta que ocurra la navegación.
 
-### `protocol.isProtocolHandled`
+### `Protocol. isProtocolHandled`
 
 Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
 ```javascript
-// Deprecated
-protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
-const isRegistered = protocol.isProtocolRegistered(scheme)
-const isIntercepted = protocol.isProtocolIntercepted(scheme)
+Obsoleto
+Protocol. isProtocolHandled (Scheme). then (() => {/*... */})
+//reemplazar con
+const isRegistered = Protocol. isProtocolRegistered (Scheme)
+const Isintercepto = Protocol. Isprotocolintercept (Scheme)
 ```
 
 ## Cambios de API de ruptura planificados (9.0)
@@ -370,7 +370,7 @@ En su lugar use las APIs de session:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
-* `ses.getAllExtensions()`
+* `SES. getAllExtensions ()`
 
 ```js
 // Obsoleto en Electron 9
@@ -426,18 +426,18 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 
 ### Comportamiento cambiado: Los valores enviados a través de IPC ahora se serializan con el algoritmo de clon estructurado
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
+El algoritmo utilizado para serializar los objetos enviados sobre IPC (a través de `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` y métodos de relacionados) se ha cambiado de un algoritmo personalizado a un V8's integrado [algoritmo de clon estructurado][SCA], el mismo algoritmo que se usa para serializar mensajes para `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
 
 * Enviar Functions, Promises, WeakMaps, WeakSets, o objetos que contengan tales valores sobre IPC no lanzará ninguna excepción, en lugar de convertir las funciones a `undefined`.
 
 ```js
-// Previously:
-ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
-// => results in { value: 3 } arriving in the main process
+Anteriormente:
+ipcRenderer. Send (' Channel ', {Value: 3, someFunction: () => {}})
+//=> resulta en { value: 3 } que llegan al proceso principal
 
-// From Electron 8:
-ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
-// => throws Error("() => {} could not be cloned.")
+//de Electron 8:
+ipcRenderer. Send (' Channel ', {Value: 3, someFunction: () => {}})
+//=> produce un error ("() => {} no se pudo clonar.")
 ```
 
 * `NaN`, `Infinity` y `-Infinity` ahora serán correctamente serializados en lugar de ser convertidos a `null`.
@@ -450,7 +450,7 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 * Los objetos Node.js `Buffer` serán transferidos como `Uint8Array`s. Puedes convertir un `Uint8Array` de nuevo a un Node.js `Buffer` envolviendo el `ArrayBuffer` subyacente:
 
 ```js
-Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+Buffer. from (Value. buffer, Value. byteOffset, Value. byteLength)
 ```
 
 Enviar objetos que no son de tipos nativos de JS, tales como objetos DOM (p.ej. `Element`, `Location`, `DOMMatrix`),objetos Node.js (p.ej. `process.env`, `Stream`), u objetos Electron (p.ej. `WebContents`, `BrowserWindow`, `WebFrame`) es obsoleto. En Electron 8, estos objetos serán serializados como antes con un mensaje DeprecationWarning, pero a partir de Electron 9, enviar estos tipos de objetos lanzará un error 'could not be cloned'.
@@ -460,11 +460,11 @@ Enviar objetos que no son de tipos nativos de JS, tales como objetos DOM (p.ej. 
 Esta API está implementada usando el módulo `remote`, el cual tiene implicaciones de rendimiento y seguridad. Por lo tanto, su uso debe ser explícito.
 
 ```js
-// Deprecated
-webview.getWebContents()
-// Replace with
-const { remote } = require('electron')
-remote.webContents.fromId(webview.getWebContentsId())
+Obsoleto
+WebView. getWebContents ()
+//reemplazar con
+const { remote } = require (' Electron ')
+remoto. webContents. fromId (WebView. getWebContentsId ())
 ```
 
 Sin embargo, es recomendado evitar el uso por completo del modulo `remote`.
@@ -497,16 +497,16 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Desaprobado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función emitirá una advertencia en Electron 8. x y dejará de existir en Electron 9. x. El nivel de zoom de diseño límites ahora se fijan a un mínimo de 0,25 y a un máximo de 5,0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Deprecated events in `systemPreferences`
+### Eventos en desuso en `systemPreferences`
 
-The following `systemPreferences` events have been deprecated:
+Los siguientes eventos de `systemPreferences` han quedado obsoletos:
 
-* `inverted-color-scheme-changed`
-* `high-contrast-color-scheme-changed`
+* `invertido-color-Scheme-Changed`
+* `alto contraste-color-Scheme-Changed`
 
-Use the new `updated` event on the `nativeTheme` module instead.
+En su lugar, usa el nuevo evento `updated` en el módulo `nativeTheme` .
 
 ```js
 // Obsoleto
@@ -517,19 +517,19 @@ systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Deprecated: methods in `systemPreferences`
+### Obsoleto: métodos en `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Los siguientes métodos de `systemPreferences` han quedado obsoletos:
 
-* `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
-* `systemPreferences.isHighContrastColorScheme()`
+* `systemPreferences. isDarkMode ()`
+* `systemPreferences. isInvertedColorScheme ()`
+* `systemPreferences. isHighContrastColorScheme ()`
 
-Use the following `nativeTheme` properties instead:
+En su lugar, utiliza las siguientes propiedades de `nativeTheme` :
 
-* `nativeTheme.shouldUseDarkColors`
-* `nativeTheme.shouldUseInvertedColorScheme`
-* `nativeTheme.shouldUseHighContrastColors`
+* `nativeTheme. Deberdusedarkcolors`
+* `nativeTheme. asumir Duseinvertedcolorscheme`
+* `nativeTheme. shouldUseHighContrastColors`
 
 ```js
 // Obsoleto
@@ -563,10 +563,10 @@ Reemplazar con: https://electronjs.org/headers
 La API `session.clearAuthCache` ya no acepta opciones de que limpiar y en su lugar incondicionalmente limpia la cache entera.
 
 ```js
-// Deprecated
-session.clearAuthCache({ type: 'password' })
-// Replace with
-session.clearAuthCache()
+Obsoleto
+Session. clearAuthCache ({ type: 'password' })
+//reemplazar con
+Session. clearAuthCache ()
 ```
 
 ### API cambiada: `powerMonitor.querySystemIdleState` ahora es `powerMonitor.getSystemIdleState`
@@ -590,12 +590,12 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### API cambiada: `webFrame.setIsolatedWorldInfo` reemplaza métodos separados
 
 ```js
-// Removed in Electron 7.0
-webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
-webFrame.setIsolatedWorldHumanReadableName(worldId, name)
-webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
-webFrame.setIsolatedWorldInfo(
+Eliminado en Electron 7,0
+webFrame. setIsolatedWorldContentSecurityPolicy (worldId, CSP)
+webFrame. setIsolatedWorldHumanReadableName (worldId, Name)
+webFrame. setIsolatedWorldSecurityOrigin (worldId, securityOrigin)
+//reemplazar con
+webFrame. setIsolatedWorldInfo (
   worldId,
   {
     securityOrigin: 'some_origin',
@@ -617,24 +617,24 @@ A partir de Electron 7, esa `Lista de archivos` ahora es la lista de todos los a
 Como ilustración, coger una carpeta con esta estructura:
 
 ```console
-folder
-├── file1
-├── file2
-└── file3
+carpeta
+├ ─ ─ File1
+├ ─ ─ File2
+└ ─ ─ File3
 ```
 
 En Electron <=6, esto devolvería una `Lista de archivos` con un `Archivo` objeto para:
 
 ```console
-path/to/folder
+ruta/a/carpeta
 ```
 
 En Electron 7, esto ahora devuelve una `Lista de archivos` con un objeto `File` para:
 
 ```console
-/path/to/folder/file3
-/path/to/folder/file2
-/path/to/folder/file1
+/path/to/Folder/File3
+/path/to/Folder/File2
+/path/to/Folder/File1
 ```
 
 Tenga en cuenta que `webkitdirectory` ya no expone la ruta a la carpeta seleccionada. Si necesita la ruta a la carpeta seleccionada en lugar de los contenidos de la carpeta, vea la API `Dialog. showOpenDialog` ([Link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
@@ -751,8 +751,8 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### Desaprobado: `app.enableMixedSandbox()` ya no es necesario
 
 ```js
-// Deprecated
-app.enableMixedSandbox()
+Obsoleto
+app. enableMixedSandbox ()
 ```
 
 El modo Mixed-sandox ahora está activado por defecto.
@@ -779,7 +779,7 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 | `nodeIntegration`  | `cierto`                             | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-Por ejemplo. Re-enabling the webviewTag
+Por ejemplo. Volver a habilitar la webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -819,16 +819,16 @@ webFrame.setIsolatedWorldInfo(
 El callback `spellCheck` ahora es asíncrono, y el parametro `autoCorrectWord` ha sido eliminado.
 
 ```js
-// Deprecated
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck: (text) => {
-    return !spellchecker.isMisspelled(text)
+Obsoleto
+webFrame. setSpellCheckProvider (' en-US ', true, {
+  spellCheck: (Text) => {
+    Return! SpellChecker. ismisdeletreado (texto)
   }
 })
-// Replace with
-webFrame.setSpellCheckProvider('en-US', {
+//reemplazar con
+webFrame. setSpellCheckProvider (' en-US ', {
   spellCheck: (words, callback) => {
-    callback(words.filter(text => spellchecker.isMisspelled(text)))
+    callback (words. Filter (Text => SpellChecker. Ismisortografía (Text))))
   }
 })
 ```
@@ -864,14 +864,14 @@ La siguiente lista incluye cambios efectuados en la API 4.0 de Electrón.
 ### `app.makeSingleInstance`
 
 ```js
-// Deprecated
-app.makeSingleInstance((argv, cwd) => {
-  /* ... */
+
+App desusada. makeSingleInstance ((argv, CWD) => {
+  /*... */
 })
-// Replace with
-app.requestSingleInstanceLock()
-app.on('second-instance', (event, argv, cwd) => {
-  /* ... */
+//reemplazar con
+app. requestSingleInstanceLock ()
+app. on (' Second-instance ', (Event, argv, CWD) => {
+  /*... */
 })
 ```
 
