@@ -21,15 +21,15 @@ Le module `powerSaveBlocker` dispose des méthodes suivantes :
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type.
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String - Type de bloqueur d’économiseur de puissance.
+  * `prevent-app-suspension` - Empêcher la suspension de la demande. Maintient le système actif, mais permet d’éteindre l’écran. Exemple de cas d’utilisation : télécharger un fichier ou lire de l’audio.
+  * `prevent-display-sleep` - Empêchez l’affichage d’aller dormir. Maintient système et l’écran actifs. Exemple de cas d’utilisation : lecture vidéo.
 
 Retourne `Integer` - L'ID du blocage assigné à ce power blocker.
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Commence à empêcher le système d’entrer en mode basse puissance. Renvoie un integer le bloqueur d’économiseur d’énergie.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Seulement le type de priorité le plus élevé prendra effet. En d'autres termes, `prevent-display-sleep` a toujours la priorité sur `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` a une priorité plus élevée sur `prevent-app-suspension`. Seulement le type de priorité le plus élevé prendra effet. En d'autres termes, `prevent-display-sleep` a toujours la priorité sur `prevent-app-suspension`.
 
 Par exemple, une API requête A pour `prevent-app-suspension`, et un autre requête B pour `prevent-display-sleep`. `prevent-display-sleep` sera utilisé jusqu’à ce que la requête B se stoppe. Après cela, `prevent-app-suspension` est utilisé.
 
