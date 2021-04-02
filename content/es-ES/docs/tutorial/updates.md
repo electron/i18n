@@ -80,11 +80,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Reiniciar', 'Despues'],
     title: 'Actualización de aplicación',
     message: process.platform === 'win32' ? lanzamiento de notas: Lanzamiento de nombre
-Detalles: Una nueva versión ha sido descargada. Restart the application to apply the updates.'
+Detalles: Una nueva versión ha sido descargada. Reinicia la aplicación para aplicar las actualizaciones. '
   }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  Dialog. showMessageBox (dialogOpts). then ((returnValue) => {
+    if (returnValue. Response = = = 0) autoUpdater. quitAndInstall ()
   })
 })
 ```
