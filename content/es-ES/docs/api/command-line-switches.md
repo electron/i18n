@@ -5,12 +5,12 @@
 Puedes usar [app.commandLine.appendSwitch][append-switch] para añadirlas en el código principal de tu app antes de que el evento [ready][ready] del modulo [app][app] es emitido:
 
 ```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+const { app } = require (' Electron ')
+app. commandLine. appendSwitch (' Remote-Debugging-Port ', ' 8315 ')
+app. commandLine. appendSwitch (' host-rules ', ' MAP * 127.0.0.1 ')
 
-app.whenReady().then(() => {
-  // Your code here
+app. whenReady (). then (() => {
+  //Your Code here here
 })
 ```
 
@@ -30,11 +30,11 @@ entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será c
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Sin el prefijo `*` la URL ha de coincidir exactamente.
+Una lista de servidores separados por comas para las cuales se necesita la delegación de credenciales de usuario. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
-### --disable-ntlm-v2
+### --Disable-NTLM-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Inhabilita NTLM v2 para plataformas POSIX, sin efecto en otro lugar.
 
 ### --disable-http-cache
 
@@ -79,7 +79,7 @@ Por ejemplo:
 
 * `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
 * `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` obliga a "test.com" a resolver el loopback de IPv6. También obligará al puerto de la dirección de socket resultante a ser 77.
 * `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
 Estos mapeados aplican al host punto final en una petición de red (la conexión TCP y el host se solventan en una conexión directa, `CONNECT` en una conexión HTTP proxy, y el host punto fila en una conexión proxy `SOCKS`).
@@ -98,13 +98,13 @@ Ignore el limite de conexión para la lista de `domains` separados por `,`.
 
 ### --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Especifica los indicadores que se pasan al motor node. js. Se tiene que pasar cuando se inicia electrón si quieres habilitar el `flags` en el proceso principal.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
+Consulta la documentación de [node. js][node-cli] o ejecuta `node --help` en tu terminal para obtener una lista de las banderas disponibles. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
 
 ### --lang
 
@@ -116,15 +116,15 @@ Habilita el registro de los eventos de red para ser salvados y escritos en la ru
 
 ### --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+No uses un servidor proxy y siempre realices conexiones directas. Reemplaza cualquier otro indicadores del servidor proxy que se pasen.
 
 ### --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Inhabilita el Sandbox de cromo, que ahora está habilitado de forma predeterminada. Solo se debe usar para las pruebas.
 
 ### --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Indica a Electron que omita el servidor proxy para la lista de hosts separados por punto y coma. Esta marca tiene un efecto solo si se usa en tándem con `--proxy-server`.
 
 Por ejemplo:
 
@@ -149,64 +149,65 @@ Habilita depuración remota sobre HTTP en el `port` especificado.
 
 ### --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Brinda el nivel de V-Logging activo predeterminado máximo; 0 es el valor predeterminado. Normalmente valores positivos se usan para los niveles de V-Logging.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
 ### --vmodule=`pattern`
 
-Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. Por ejemplo. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. Por ejemplo. `my_module=2,foo*=3` cambiaría el nivel de registro para todo el código en archivos de código fuente `my_module.*` y `foo*.*`.
 
-Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. Por ejemplo. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. Por ejemplo. `*/foo/bar/*=2` cambiaría el nivel de registro de para todo el código en los archivos de origen en un directorio `foo/bar` .
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+Forzar el uso de una GPU discreta cuando haya múltiples GPU disponibles.
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+Forzar el uso de GPU integrada cuando hay múltiples GPU disponibles.
 
 ## Banderas Node.js
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron admite algunas de las banderas de la CLI de [][node-cli] admitidas por node. js.
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**Nota:** pasar modificadores de la línea de comando no compatibles a Electron cuando no se ejecuta en `ELECTRON_RUN_AS_NODE` no tendrá ningún efecto.
 
-### --inspect-brk[=[host:]port]
+### --Inspect-BRK [= [host:] Puerto]
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+Activa el inspector en el host: puerto y rompe en el inicio del script del usuario. Host predeterminado: el puerto es 127.0.0.1:9229.
 
-Aliased to `--debug-brk=[host:]port`.
+Con alias para `--debug-brk=[host:]port`.
 
-### --inspect-port=[host:]port
+### --Inspect-Port = [host:] Puerto
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+Configura el `host:port` para que se use cuando el inspector esté activado. Útil cuando se activa el inspector enviando la señal SIGUSR1. El host predeterminado es `127.0.0.1`.
 
-Aliased to `--debug-port=[host:]port`.
+Con alias para `--debug-port=[host:]port`.
 
-### --inspect[=[host:]port]
+### --Inspect [= [host:] Port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+Activa el inspector en `host:port`. El valor predeterminado es `127.0.0.1:9229`.
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+La integración con el inspector V8 permite que las herramientas como Chrome DevTools y IDEs se depuren y se perfien las instancias de electrones. Las herramientas se adjuntan a las instancias de electrones mediante un puerto TCP y se comunican utilizando el protocolo [Chrome DevTools](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+Consulta la [depurar la][debugging-main-process] guía del proceso principal para obtener más detalles.
 
-Aliased to `--debug[=[host:]port`.
+Con alias para `--debug[=[host:]port`.
 
-### --inspect-publish-uid=stderr,http
+### --Inspect-Publish-UID = stderr, http
 
-Specify ways of the inspector web socket url exposure.
+Especifica las formas de la exposición a la URL del socket web del inspector.
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+Por defecto, el inspector WebSocket URL está disponible en stderr y en el punto final/JSON/List en http://host: Port/JSON/List.
 
 [app]: app.md
 [append-switch]: command-line.md#commandlineappendswitchswitch-value
 [ready]: app.md#event-ready
 [play-silent-audio]: https://github.com/atom/atom/pull/9485/files
 [debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
 [node-cli]: https://nodejs.org/api/cli.html
 [node-cli]: https://nodejs.org/api/cli.html
