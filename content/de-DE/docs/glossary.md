@@ -36,7 +36,7 @@ Eine gemeinsame Bibliothek, die das [Chromium Content Modul][] und alle seine Ab
 
 ### Main-Prozess
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Der Hauptprozess, häufig eine Datei mit dem Namen `main.js`, ist der Einstiegspunkt für jede Electron-App. Es steuert die Lebensdauer der App, von offen bis schließen. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. Der Hauptprozess ist für die Erstellung jedes neuen Rendererprozesses in der App verantwortlich. Die vollständige Knoten-API ist integriert.
 
 Die Hauptprozessdatei jeder App ist in der Eigenschaft `Haupt` in `package.json` angegeben. So ist `Elektron .` weiß, welche Datei beim Start ausgeführt werden soll.
 
@@ -80,7 +80,7 @@ Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. Sie können auch versteckt werden.
+Der Rendererprozess ist ein Browserfenster in Ihrer App. Im Gegensatz zum Hauptprozess kann mehrere davon vorhanden sein und jeder wird in einem separaten Prozess ausgeführt. Sie können auch versteckt werden.
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
@@ -110,7 +110,7 @@ V8 Versionsnummern entsprechen immer denen von Google Chrome. Chrome 59 enthält
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` Tags werden verwendet, um "Gast"-Inhalte (z. B. externe Webseiten) in Ihrer Electron-App einzubetten. Sie ähneln `iframe`s, unterscheiden sich jedoch dadurch, dass jede Webview in einem separaten Prozess ausgeführt wird. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
 
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
