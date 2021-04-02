@@ -1,57 +1,57 @@
 # remote
 
-> Use main process modules from the renderer process.
+> Verwenden Sie die Hauptprozessmodule aus dem Rendererprozess.
 
 Prozess: [Renderer](../glossary.md#renderer-process)
 
-> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ WARNUNG ⚠️ Das `remote` -Modul ist</a>veraltet. Verwenden Sie anstelle von `remote` [`ipcRenderer`](ipc-renderer.md) und [`ipcMain`](ipc-main.md).</p> 
 > 
-> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> Lesen Sie hier mehr darüber, warum das `remote` -Modul veraltet ist [](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
-
-The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
-
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI][rmi]. An example of creating a browser window from a renderer process:
-
-```javascript
+> Wenn Sie `remote` trotz der Probleme mit der Leistung und Sicherheit weiterhin verwenden möchten, finden Sie weitere Informationen unter [@electron/Remote-](https://github.com/electron/remote).</blockquote> 
+> 
+> Das `remote` -Modul bietet eine einfache Möglichkeit, die prozessübergreifende Kommunikation (IPC) zwischen dem Rendererprozess (Webseite) und dem Hauptprozess zu verarbeiten.
+> 
+> In Electron sind GUI-bezogene Module (wie `dialog`, `menu` usw.) nur im Hauptprozess verfügbar, nicht im Renderer-Prozess. Um sie aus dem Rendererprozess zu verwenden, ist das `ipc` Modul erforderlich, um prozessübergreifende Nachrichten an den Hauptprozess zu senden. Mit dem `remote` -Modul können Sie Methoden des Hauptprozessobjekts aufrufen, ohne explizit prozessübergreifende Nachrichten zu senden, ähnlich wie Javas [RMI][rmi]. Ein Beispiel für das Erstellen eines Browserfensters aus einem Rendererprozess:
+> 
+> ```javascript
 const { BrowserWindow } = require('electron').remote
 const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**Hinweis:** Für die Rückseite (Zugriff auf den Renderer-Prozess aus dem Hauptprozess), Können Sie [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture)verwenden.
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**Hinweis:** Das Remotemodul kann aus Sicherheitsgründen in den folgenden Kontexten deaktiviert werden:
 
-- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+- [`BrowserWindow`](browser-window.md) - indem Sie die Option `enableRemoteModule` auf `false`.
+- [`<webview>`](webview-tag.md) : Durch Festlegen des `enableremotemodule` -Attributs auf `false`.
 
-## Remote Objects
+## Remoteobjekte
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Jedes Objekt (einschließlich Funktionen), das vom `remote` -Modul zurückgegeben wird, stellt ein Objekt im Hauptprozess dar (wir nennen es ein Remoteobjekt oder eine Remotefunktion). Wenn Sie Methoden eines Remoteobjekts aufrufen, eine Remotefunktion aufrufen oder ein neues Objekt mit dem Remotekonstruktor (Funktion) erstellen, senden Sie tatsächlich synchrone interprozessübergreifende Nachrichten.
 
-In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+Im obigen Beispiel waren sowohl [`BrowserWindow`](browser-window.md) als auch `win` Remoteobjekte, und `new BrowserWindow` erstellten kein `BrowserWindow` Objekt im Renderer- -Prozess. Stattdessen wurde ein `BrowserWindow` Objekt im Hauptprozess erstellt und das entsprechende Remoteobjekt im Rendererprozess zurückgegeben, nämlich das `win` -Objekt.
 
-**Note:** Only [enumerable properties][enumerable-properties] which are present when the remote object is first referenced are accessible via remote.
+**Hinweis:** Nur [aufzählbare Eigenschaften][enumerable-properties] , die vorhanden sind, wenn auf das Remoteobjekt verwiesen wird, sind über die Fernbedienung zugänglich.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Hinweis:** Arrays und Puffer werden über IPC kopiert, wenn über das `remote` -Modul zugegriffen wird. Wenn Sie sie im Rendererprozess ändern, werden sie im Hauptprozess nicht geändert und umgekehrt.
 
-## Lifetime of Remote Objects
+## Lebensdauer von Remoteobjekten
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron stellt sicher, dass das entsprechende Objekt, das im Hauptprozess , nicht freigegeben wird, solange das entfernte Objekt im Renderer-Prozess Leben (d. h. nicht garbage collected) nicht freigegeben wird. Wenn das Remoteobjekt Garbage Collection wurde, wird das entsprechende Objekt im Hauptprozess dereferenziert.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Wenn das entfernte Objekt im Renderer-Prozess durchgesickert ist (z. B. in einer Karte gespeichert, aber nie freigegeben), wird auch das entsprechende Objekt im Hauptprozess undicht, daher sollten Sie sehr vorsichtig sein, keine entfernten Objekte zu durchsickern.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Primäre Werttypen wie Zeichenfolgen und Zahlen werden jedoch per Kopie gesendet.
 
 ## Übergeben von Callbacks an den Main-Prozess
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Code im Hauptprozess kann Rückrufe vom Renderer akzeptieren - zum Beispiel das `remote` -Modul - aber Sie sollten äußerst vorsichtig sein, wenn Sie diese -Funktion verwenden.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Erstens werden die Rückrufe, die an den Hauptprozess übergeben werden, asynchron aufgerufen, um Deadlocks zu vermeiden. Sie sollten nicht erwarten, dass der Hauptprozess den Rückgabewert der übergebenen Rückrufe .
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Sie können z. B. eine Funktion aus dem Rendererprozess in einem `Array.map` , der im Hauptprozess aufgerufen wird, nicht verwenden:
 
 ```javascript
 // main process mapNumbers.js
@@ -74,27 +74,27 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Wie Sie sehen können, war der synchrone Rückgabewert des Rendererrückrufs nicht wie erwartet und stimmte nicht mit dem Rückgabewert eines identischen Rückrufs überein, der im Hauptprozess lebt.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Zweitens bleiben die Rückrufe, die an den Hauptprozess übergeben werden, so lange bestehen, bis der Hauptprozess sie auf sammelt.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Beispielsweise scheint der folgende Code auf den ersten Blick unschuldig zu sein. Es installiert einen Rückruf für das `close` -Ereignis auf einem Remoteobjekt:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+require('electron').remote.getCurrentWindow().on('close', () => '
+  / / Fenster wurde geschlossen...
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Aber denken Sie daran, dass der Rückruf vom Hauptprozess referenziert wird, bis Sie ihn explizit deinstallieren . Wenn Sie dies nicht tun, wird jedes Mal, wenn Sie Das Fenster neu laden, der Rückruf erneut installiert, wobei für jeden Neustart ein Rückruf ausläuft.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Erschwerend kommt hinzu, dass, da der Kontext zuvor installierter Rückrufe freigegeben wurde, Im Hauptprozess Ausnahmen ausgelöst werden, wenn das `close` -Ereignis ausgesendet wird.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
+Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verweise auf Rendererrückrufe bereinigen an den Hauptprozess übergeben werden. Dazu gehört das Bereinigen von Ereignishandlern oder , die sicherstellen, dass der Hauptprozess explizit angewiesen wird, Rückrufe zu dereferenzieren, die von einem Rendererprozess stammen, der beendet wird.
 
-## Accessing built-in modules in the main process
+## Zugriff auf integrierte Module im Hauptprozess
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Die integrierten Module im Hauptprozess werden als Getter im `remote` Modul hinzugefügt, so dass Sie sie direkt wie das `electron` Modul verwenden können.
 
 ```javascript
 const app = require('electron').remote.app
@@ -107,25 +107,25 @@ Das `remote` Modul hat folgende Methoden:
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Gibt [`BrowserWindow`](browser-window.md) zurück - Das Fenster, zu dem diese Webseite gehört.
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**Hinweis:** Verwenden Sie `removeAllListeners` nicht auf [`BrowserWindow`](browser-window.md). Die Verwendung dieser kann alle [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) Listener entfernen, Klickereignisse auf Touchleistenschaltflächen deaktivieren und andere unbeabsichtigte Folgen.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Gibt [`WebContents`](web-contents.md) zurück - Der Webinhalt dieser Webseite.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Gibt `any` zurück - Die globale Variable von `name` (z. B. `global[name]`) im Hauptprozess .
 
 ## Eigenschaften
 
 ### `remote.require`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Eine `NodeJS.Require` Funktion, die `require(module)` im Hauptprozess entspricht. Module, die durch ihren relativen Pfad angegeben werden, werden relativ zum Einstiegspunkt des Hauptprozesses aufgelöst.
 
 z.B.
 
@@ -140,9 +140,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
+Hauptprozess: main/index.js
 const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+app.whenReady().then()=>
 ```
 
 ```js
@@ -157,7 +157,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _Readonly_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ein `NodeJS.Process` Objekt.  Das `process` Objekt im Hauptprozess. Dies ist das gleiche wie `remote.getGlobal('process')` , wird aber zwischengespeichert.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
