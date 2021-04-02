@@ -8,19 +8,19 @@
 
 ` powerMonitor ` 模块触发以下事件:
 
-### Event: 'suspend' _macOS_ _Windows_
+### 活动： "暂停" _macos_ _窗口_
 
 在系统挂起时触发。
 
-### Event: 'resume' _macOS_ _Windows_
+### 活动： "恢复" _macos_ _窗口_
 
 在系统恢复时触发。
 
-### Event: 'on-ac' _macOS_ _Windows_
+### 活动： "交流" _macos_ _窗口_
 
 当系统变为交流电源时触发。
 
-### Event: 'on-battery' _macOS_  _Windows_
+### 活动： "电池上" _macos_  _窗口_
 
 当系统更改为电池电量时触发。
 
@@ -48,21 +48,21 @@
 
 `电源监视器` 模块具有以下方法：
 
-### `powerMonitor.getSystemIdleState(idleThreshold)`
+### `电源监控器.获取系统状态（空闲状态）`
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+返回 `String` - 系统的当前状态。 可以 `active`， `idle`， `locked` 或 `unknown`。
 
-计算系统空闲状态。 `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
+计算系统空闲状态。 `idleThreshold` 是在被视为空闲之前 的时间量（在几秒钟内）。  仅支持系统提供 `locked` 。
 
-### `powerMonitor.getSystemIdleTime()`
+### `电源监控器。获取系统时间（）`
 
-Returns `Integer` - Idle time in seconds
+返回 `Integer` - 空闲时间在几秒钟内
 
 计算系统空闲时间以秒为单位。
 
-### `powerMonitor.isOnBatteryPower()`
+### `电源监视器。是巴蒂电源（）`
 
 返回`Boolean`，表示系统是否使用电池电源。
 
@@ -70,8 +70,8 @@ Returns `Integer` - Idle time in seconds
 
 ## Properties
 
-### `powerMonitor.onBatteryPower`
+### `电源监视器。`
 
-A `Boolean` property. 如果系统处于电池电源状态，则为 true。
+`Boolean` 属性。 如果系统处于电池电源状态，则为 true。
 
 参见 [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower)。
