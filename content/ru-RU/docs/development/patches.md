@@ -1,42 +1,42 @@
 # Патчи в Electron
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+Электрон построен на двух крупных проектах вверх по течению: Хром и узел.js. Каждый из этих проектов имеет несколько своих собственных зависимостей, тоже. Мы стараемся изо всех сил использовать эти зависимости именно так, как они есть, но иногда мы не можем достичь наших целей без исправления этих зависимостей вверх по течению, чтобы соответствовать нашим случаям использования.
 
-## Patch justification
+## Обоснование патча
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Каждый патч в Electron является бременем обслуживания. При изменении кода вверх по течению патчи могут ломаться, иногда даже без конфликта патчей или ошибки компиляции. Это постоянные усилия, чтобы сохранить наш патч настройки в курсе и эффективным. Таким образом, мы стремимся сохранить наш патч рассчитывать на минимум. С этой целью каждый патч должен описать свою причину существования в своем сообщении о совершении. Эта причина должна быть одной из следующих:
 
-1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
-2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
-3. The patch makes Electron-specific changes in functionality which are fundamentally incompatible with upstream.
+1. Патч является временным, и предназначен для (или был) совершен вверх по течению или иным образом в конечном итоге удалены. Включите ссылку на обзор PR или кода вверх по течению, если таковые имеются, или процедуру проверки того, нужен ли патч позже.
+2. Патч позволяет компилировать код в среде Electron, но не может быть вверх по течению, потому что это электрон-специфический (например, исправление ссылок на `Profile`). Включите рассуждения о том, почему изменение не может быть реализовано без патча (например, путем подклассификации или копирования кода).
+3. Патч вносит электрон-специфические изменения в функциональности, которые принципиально несовместимы с вверх по течению.
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+В целом, все проекты, с которых мы работаем, являются дружественными людьми и часто рады принять рефакторинги, которые позволяют коду, о котором идет речь, быть совместимым как с Electron, так и с проектом вверх по течению. (См., например, [это](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) изменение в Хроме, которое позволило нам удалить патч, который сделал то же самое, или [это изменение](https://github.com/nodejs/node/pull/22110) в узел, который был не-оп для узла, но исправлена ошибка в Electron.) **Мы должны стремиться к изменениям вверх по течению, когда мы можем, и избежать неопределенной жизни патчи**.
 
-## Patch system
+## Патч-система
 
-If you find yourself in the unfortunate position of having to make a change which can only be made through patching an upstream project, you'll need to know how to manage patches in Electron.
+Если вы окажетесь в неблагоприятном положении того, чтобы внести изменения, которые могут быть сделаны только путем исправления вверх по течению проекта, вам нужно знать, как управлять патчи в Electron.
 
-All patches to upstream projects in Electron are contained in the `patches/` directory. Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Все патчи для проектов вверх по течению в Electron содержатся в `patches/` каталоге. Каждая поднаправленная `patches/` содержит несколько патч-файлов, а также `.patches` файл, в котором перечислен порядок, в котором патчи должны быть применены. Думайте об этих файлах, как составление серии git коммитов, которые применяются в верхней части проекта вверх по течению после того, как мы проверим его.
 
 ```text
-patches
-├── config.json   <-- this describes which patchset directory is applied to what project
-├── chromium
-│   ├── .patches
-│   ├── accelerator.patch
-│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
-│   ⋮
-├── node
-│   ├── .patches
-│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
-│   ├── build_add_gn_build_files.patch
-│   ⋮
+патчи
+├ config.json   <- это описывает, какой каталог патчетов применяется к тому, что проект
+├ " хром
+│ ├ ".патчи
+│ ├" accelerator.patch.
+│ ├ add_contentgpuclient_precreatemessageloop_callback.патч
+│ ⋮
+├ й узел
+│ ├ .»
+│ ├ add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
+│ ├ build_add_gn_build_files.patch
+│ ⋮
 ⋮
 ```
 
-To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
+Чтобы помочь управлять этими наборами патчей, мы предоставляем два инструмента: `git-import-patches` и `git-export-patches`. `git-import-patches` импортирует набор патч-файлов в репозиторий git, применяя каждый патч в правильном порядке и создавая коммит для каждого из них. `git-export-patches` делает обратное; он экспортирует ряд git коммитов в репозитории в набор файлов в каталоге и сопровождающий его `.patches` файл.
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> Примечание стороны: причина, по которой мы используем файл `.patches` для поддержания порядка прикладных патчей, а не для того, чтобы предрасходовать номер типа `001-` к каждому файлу, заключается в том, что он уменьшает конфликты, связанные с заказом патчей. Это предотвращает ситуацию, когда два PRs оба добавить патч в конце серии с той же проемовой и в конечном итоге как получить объединены в результате дубликат идентификатора, а также уменьшает отток, когда патч добавляется или удаляется в середине серии.
 
 ### Использование
 
@@ -49,9 +49,9 @@ $ git commit
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **ПРИМЕЧАНИЕ**: `git-export-patches` игнорирует любые незавершенные файлы, поэтому вы должны создать коммит, если вы хотите, чтобы ваши изменения были экспортированы. Тема сообщения коммита будет использоваться для получения имени файла патча, а тело сообщения коммита должно включать причину существования патча.
 
-Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+Реэкспорт патчей иногда вызывает shasums в несвязанных патчей изменить. Это, как правило, безвредны и могут быть проигнорированы (но идти вперед и добавить эти изменения в ваш PR, это остановит их от показа для других людей).
 
 #### Редактирование существующего патча
 
@@ -69,25 +69,25 @@ $ ../electron/script/git-export-patches -o ../electron/patches/v8
 
 ```bash
 $ vim src/electron/patches/node/.patches
-# Delete the line with the name of the patch you want to remove
-$ cd src/third_party/electron_node
+- Удалите строку с названием патча, который вы хотите удалить
+$ CD src/third_party/electron_node
 $ git reset --hard refs/patches/upstream-head
-$ ../../electron/script/git-import-patches ../../electron/patches/node
-$ ../../electron/script/git-export-patches -o ../../electron/patches/node
+$ . . . . . . . . . /.. /электрон/скрипт/гит-импорт-патчи .. /.. /электрон/патчи/узел
+$ .. /.. /электрон/скрипт/git-экспорт-патчи -o .. /.. /электрон/патчи/узел
 ```
 
-Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+Обратите внимание, `git-import-patches` он будет отмечать коммит, который был `HEAD` , когда он был запущен `refs/patches/upstream-head`. Это позволяет отслеживать, какие коммиты из Electron патчи (те, которые приходят после `refs/patches/upstream-head`) и какие коммиты находятся в вверх по течению (те, `refs/patches/upstream-head`).
 
 #### Разрешение конфликтов
 
-When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+При обновлении зависимости вверх по течению патчи могут не применяться чисто. Часто конфликт может быть решен автоматически с помощью 3-способного слияния. Вы можете поручить `git-import-patches` использовать 3-путь алгоритм слияния, передавая `-3` аргумент:
 
 ```bash
-$ cd src/third_party/electron_node
-# If the patch application failed midway through, you can reset it with:
+$ CD src/third_party/electron_node
+- Если приложение патча не удалось на полпути, вы можете сбросить его с:
 $ git am --abort
-# And then retry with 3-way merge:
-$ ../../electron/script/git-import-patches -3 ../../electron/patches/node
+- А затем повторить с 3-путь слияния:
+. . . /.. /электрон/скрипт/гит-импорт-патчи -3 .. /.. /электрон/патчи/узел
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+Если `git-import-patches -3` сталкивается с конфликтом слияния, который он не может решить автоматически, он остановится и позволит вам разрешить конфликт вручную. После того как вы разрешили `git add` , вы можете использовать разрешенные файлы и продолжать применять остальные патчи, `git am --continue`.
