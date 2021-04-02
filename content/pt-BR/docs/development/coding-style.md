@@ -17,34 +17,34 @@ Você pode executar `npm run lint` para visualizar qualquer problemas de estilos
 * Evite código dependente à uma plataforma:
   * Use `path.join()` para concatenar nome de arquivos.
   * Use `os.tmpdir()` ao invés de `/tmp` quando você precisar fazer referência ao diretório temporário.
-* Using a plain `return` when returning explicitly at the end of a function.
-  * Not `return null`, `return undefined`, `null` or `undefined`
+* Usar um `return` simples ao retornar explicitamente no final de uma função.
+  * Não `return null`, `return undefined`, `null` ou `undefined`
 
 ## C++ e Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Para C++ e Python, seguimos o [coding Style da Chromium](https://www.chromium.org/developers/coding-style). Você pode usar [](clang-format.md) em formato clang para formatar o código C++automaticamente. Há também um script `script/cpplint.py` para verificar se todos os arquivos estão em conformidade.
 
-The Python version we are using now is Python 2.7.
+A versão Python que estamos usando agora é Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+O código C++ usa muitas abstrações e tipos de Cromo, por isso é recomendado para se familiarizar com eles. Um bom lugar para começar é [documento de abstrações e estruturas](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) de dados  importantes do Chromium. O documento menciona alguns tipos especiais, tipos escopo (que liberam automaticamente sua memória ao sair do escopo), mecanismos de registro etc.
 
 ## Documentação
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Escreva [comentário](https://github.com/remarkjs/remark) estilo de marcação.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Você pode executar `npm run lint-docs` para garantir que as alterações da documentação sejam formatadas corretamente.
 
 ## JavaScript
 
-* Write [standard](https://www.npmjs.com/package/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* Escreva [padrão](https://www.npmjs.com/package/standard) estilo JavaScript.
+* Os nomes dos arquivos devem ser concatenados com `-` em vez de `_`, por exemplo, `file-name.js` em vez de `file_name.js`, porque em [os nomes do módulo de](https://github.com/github/atom) github/átomo geralmente estão em a forma `module-name` . Essa regra só se aplica a `.js` arquivos.
+* Use a sintaxe ES6/ES2015 mais nova, quando for o caso
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) para as requerações e outras constantes.  Se o valor for primitivo, use nomeação maiúsdia (por exemplo, `const NUMBER_OF_RETRIES = 5`).
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) para definir variáveis
+  * [seta funciona](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) em vez de `function () { }`
+  * [Modelo literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) em vez de concatenação de string usando `+`
 
-## Naming Things
+## Nomeando coisas
 
 As APIs do Electron usam o mesmo esquema de capitalização do Node.js:
 
@@ -53,4 +53,4 @@ As APIs do Electron usam o mesmo esquema de capitalização do Node.js:
 * Quando a API é uma propriedade de objeto, e é complexo o suficiente para estar em capítulo separado como `win.webContents`, use `mixedCase`.
 * Para outras APIs não-módulo, use títulos naturais, como `<webview> Tag` ou `Process Object`.
 
-Ao criar uma nova API, é preferível usar getters e setters em vez de estilo de uma função do jQuery. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Ao criar uma nova API, é preferível usar getters e setters em vez de estilo de uma função do jQuery. Por exemplo, `.getText()` e `.setText(text)` são preferidos para `.text([text])`. Há uma [discussão](https://github.com/electron/electron/issues/46) sobre isso.
