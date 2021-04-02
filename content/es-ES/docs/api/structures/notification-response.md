@@ -1,7 +1,7 @@
 # Objeto NotificationResponse
 
-* `actionIdentifier` String - The identifier string of the action that the user selected.
-* `date` Number - The delivery date of the notification.
-* `identifier` String - The unique identifier for this notification request.
-* `userInfo` Record<String, any> - A dictionary of custom information associated with the notification.
-* `userText` String (optional) - The text entered or chosen by the user.
+* `actionIdentifier` String-la cadena de identificador de la acción que el usuario seleccionó.
+* `date` número-la fecha de entrega de la notificación.
+* `identifier` String-el identificador único para esta solicitud de notificación.
+* `userInfo`<String, any> de registro-un diccionario de información personalizada asociada con la notificación.
+* `userText` String (opcional)-el texto ingresado o elegido por el usuario.
