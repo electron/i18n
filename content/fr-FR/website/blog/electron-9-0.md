@@ -34,7 +34,7 @@ L'équipe d'Electron est heureuse d'annoncer la sortie d'Electron 9.0.0 ! Vous p
 
 Voir les [notes de version 9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0) pour une liste complète des nouvelles fonctionnalités et des changements.
 
-## Breaking Changes
+## Briser les changements
 
 * Avertissement de dépréciation lors de l'utilisation de `remote` sans `enableRemoteModule : true`. [#21546](https://github.com/electron/electron/pull/21546)
     * C'est la première étape de nos plans pour déprécier le module `distant` et le déplacer vers le site utilisateur. Vous pouvez lire et suivre [ce problème](https://github.com/electron/electron/issues/21408) qui détaille nos raisons pour cela et inclut un calendrier proposé pour la dépréciation.
@@ -68,7 +68,7 @@ Les API suivantes sont maintenant obsolètes ou supprimées :
 
 ## Fin du support pour 6.x.y
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
+Electron 6.x.y a a atteint la fin du support selon la politique de soutien [projet](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
 
 ## Ce qui suit
 
