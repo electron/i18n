@@ -5,9 +5,9 @@
 ## 前提条件
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. 一些分布，如CentOS 6.x仍然使用Python 2.6.x ，所以你可能需要检查你的Python版本与 `python -V`。
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  也请确保您的系统和Python版本支持至少TLS 1.2。 要快速测试，运行以下脚本：
 
   ```sh
   $npx @emen/chect-python-tls
@@ -47,16 +47,16 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-On Arch Linux / Manjaro, install the following libraries:
+在拱门Linux/曼贾罗，安装以下库：
 
 ```sh
-$ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
-                   libgnome-keyring alsa-lib libcap libcups libxtst \
-                   libxss nss gcc-multilib curl gperf bison \
-                   python2 python-dbusmock jdk8-openjdk
+$苏多·帕克曼-Syu基地-德维尔·克兰格·利布布斯gtk2自由通知-
+                   利布格诺姆-基林阿尔萨-libcap图书馆图书馆-
+                   libxs ns gcc-多利布卷曲gperf野牛-
+                   蟒蛇2蟒蛇-德布斯莫克jdk8-开放
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+其他分销可能提供类似的包安装通过包 经理，如pacman。 或者可以从源代码进行编译。
 
 ### 交叉编译
 
@@ -77,7 +77,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 并为 `arm` 或 `ia32` 目标交叉编译 您应该将 `target_cpu` 参数传递给 `gn gen`:
 
 ```sh
-$ gn gen out/Testing --args='import(...) target_cpu="arm"'
+$gn 基因出 / 测试 - args = "进口 （...） target_cpu= "手臂"
 ```
 
 ## 构建
@@ -88,7 +88,7 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+预建 `clang` 将尝试链接到 `libtinfo.so.5`。 根据主机 架构，与适当的 `libncurses`相链接：
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高级提示
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+默认构建配置针对主要桌面 Linux 分布。 要构建特定的分布或设备，以下 信息可能会对您有所帮助。
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
@@ -105,7 +105,7 @@ The default building configuration is targeted for major desktop Linux distribut
 例如如果你的 `clang`安装在 `/usr/local/bin/clang`下：
 
 ```sh
-$ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
+$gn gen 出/测试 -- -- args="导入（"//电子/生成/args/测试.gn"）clang_base_path= "/usr/本地/bin"
 ```
 
 ### 使用 `clang` 之外的其它编译器
