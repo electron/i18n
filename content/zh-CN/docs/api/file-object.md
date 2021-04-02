@@ -8,21 +8,21 @@ DOM的文件接口提供了关于原生文件的抽象，以便用户可以直�
 
 ```html
 <div id="holder">
-  Drag your file here
+
 </div>
 
 <script>
-  document.addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  文档中拖动您的文件。 （e） => =
+    防止故障 （）;
+    e. 停止提交 （）;
 
-    for (const f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
-    }
-  });
-  document.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  });
+    （e. 数据传输. 文件） [
+      控制台.log （"文件" 你拖在这里： '， f. path）
+    [
+  ]）;
+  文档. add 事件听者 （"拖动"， （e） => {
+    以防止过失 （）;
+    e. 停止提交 （）;
+  [）;
 </script>
 ```
