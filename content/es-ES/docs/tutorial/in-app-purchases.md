@@ -92,19 +92,19 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 })
 
 // Verifica si el usuario tiene permitido realizar la compra.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
+if (! inAppPurchase. canMakePayments ()) {
+  Console. log (' el usuario no está autorizado a realizar compras en la App. ')
 }
 
-// Retrieve and display the product descriptions.
+//recuperar y mostrar las descripciones del producto.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Verificar los parámetros.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
+  if (! Array. isArray (Products) | | Products. length <= 0) {
+    Console. log (' no se puede recuperar la información del producto. ')
+    Devuelve
   }
 
-  // Display the name and price of each product.
+  //mostrar el nombre y el precio de cada producto.
   products.forEach(product => {
     console.log(`El precio de  ${product.localizedTitle} es ${product.formattedPrice}.`)
   })
@@ -114,13 +114,13 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedQuantity = 1
 
   // Compra el producto seleccionado.
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
-    if (!isProductValid) {
-      console.log('The product is not valid.')
-      return
+  inAppPurchase. purchaseProduct (selectedProduct. productIdentifier, selectedQuantity). then (isProductValid => {
+    if (! isProductValid) {
+      Console. log (' el producto no es válido. ')
+      Devuelve
     }
 
-    console.log('The payment has been added to the payment queue.')
+    Console. log (' el pago se ha agregado a la cola de pago. ')
   })
 })
 ```
