@@ -40,13 +40,13 @@
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` (MenuItemConstructorOptions | MenuItem)[]
+* `template` （菜单构造|菜单网站）[]
 
 返回 ` Menu `
 
 一般来说， `template`是一个`options`类型的数组，用于构建[MenuItem](menu-item.md)。 使用方法可参考前文。
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+您还可以将其他字段附加到 `template` 元素中，它们将成为构建菜单项的属性。
 
 ### 实例方法
 
@@ -58,7 +58,7 @@ You can also attach other fields to the element of the `template` and they will 
   * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * `x` Number (可选) - 默认为当前鼠标的位置。 如果指定了`y`，则该选项必选。
   * `y` Number (可选) - 默认为当前鼠标的位置。 如果指定了`x`，则该选项必选。
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. 默认值为 -1。
+  * `positioningItem` 编号（可选） _macOS_ - 要 的菜单项索引位于指定坐标的鼠标光标下。 默认值为 -1。
   * `callback` Function (optional) - 会在菜单关闭后被调用.
 
 将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
@@ -108,7 +108,7 @@ You can also attach other fields to the element of the `template` and they will 
 </ul>
 
 <p spaces-before="0">
-  Returns <code>MenuItem | null</code> the item with the specified <code>id</code>
+  <code>MenuItem | null</code> 物品返回，并注明 <code>id</code>
 </p>
 
 
@@ -137,7 +137,7 @@ You can also attach other fields to the element of the `template` and they will 
 </h3>
 
 <p spaces-before="0">
-  Objects created with <code>new Menu</code> or returned by <code>Menu.buildFromTemplate</code> emit the following events:
+  用 <code>new Menu</code> 创建或由 <code>Menu.buildFromTemplate</code> 返回的对象会发出以下事件：
 </p>
 
 <p spaces-before="0">
@@ -215,112 +215,112 @@ You can also attach other fields to the element of the `template` and they will 
 </h2>
 
 <p spaces-before="0">
-  An example of creating the application menu with the simple template API:
+  使用简单的模板 API 创建应用程序菜单的示例：
 </p>
 
-<pre><code class="javascript">const { app, Menu } = require('electron')
+<pre><code class="javascript">康斯特 { app, Menu } =要求 （'电子'）
 
-const isMac = process.platform === 'darwin'
+缺点是Mac = 过程. 平台 = "达尔文"
 
-const template = [
-  // { role: 'appMenu' }
-  ...(isMac ? [{
-    label: app.name,
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
+缺点模板 = [
+  / / { role: 'appMenu' }
+  ...（是麦克？ [{
+    标签：app.name，
+    子梅努："[
+      { role: 'about' }，
+      { type: 'separator' }，
+      { role: 'services' }，
+      { type: 'separator' }，
+      { role: 'hide' }，
+      { role: 'hideothers' }，
+      { role: 'unhide' }，
+      { type: 'separator' }，
       { role: 'quit' }
     ]
-  }] : []),
+  []），
   // { role: 'fileMenu' }
   {
-    label: 'File',
-    submenu: [
-      isMac ? { role: 'close' } : { role: 'quit' }
+    标签："文件"，
+    子梅努：[
+      是Mac？ { role: 'close' } ： { role: 'quit' }
     ]
-  },
+  [，
   // { role: 'editMenu' }
-  {
-    label: 'Edit',
-    submenu: [
-      { role: 'undo' },
-      { role: 'redo' },
-      { type: 'separator' },
-      { role: 'cut' },
-      { role: 'copy' },
-      { role: 'paste' },
-      ...(isMac ? [
-        { role: 'pasteAndMatchStyle' },
-        { role: 'delete' },
-        { role: 'selectAll' },
-        { type: 'separator' },
+  ]
+    标签："编辑"，
+    子梅努：[
+      { role: 'undo' }，
+      { role: 'redo' }，
+      { type: 'separator' }，
+      { role: 'cut' }，
+      { role: 'copy' }，
+      { role: 'paste' }，
+      。。。（是麦克？ •
+        { role: 'pasteAndMatchStyle' }，
+        { role: 'delete' }，
+        { role: 'selectAll' }，
+        { type: 'separator' }，
         {
-          label: 'Speech',
-          submenu: [
-            { role: 'startSpeaking' },
+          标签："语音"，
+          子梅努："[
+            { role: 'startSpeaking' }，
             { role: 'stopSpeaking' }
           ]
-        }
-      ] : [
-        { role: 'delete' },
-        { type: 'separator' },
+        [
+      ]：" [
+        { role: 'delete' }，
+        { type: 'separator' }，
         { role: 'selectAll' }
-      ])
+      ]）
     ]
-  },
-  // { role: 'viewMenu' }
+  [，
+  / / { role: 'viewMenu' }
   {
-    label: 'View',
-    submenu: [
-      { role: 'reload' },
-      { role: 'forceReload' },
-      { role: 'toggleDevTools' },
-      { type: 'separator' },
-      { role: 'resetZoom' },
-      { role: 'zoomIn' },
-      { role: 'zoomOut' },
-      { type: 'separator' },
+    标签： 'View'，
+    子梅努： [
+      { role: 'reload' }，
+      { role: 'forceReload' }，
+      { role: 'toggleDevTools' }，
+      { type: 'separator' }，
+      { role: 'resetZoom' }，
+      { role: 'zoomIn' }，
+      { role: 'zoomOut' }，
+      { type: 'separator' }，
       { role: 'togglefullscreen' }
     ]
-  },
+  [，
   // { role: 'windowMenu' }
   {
-    label: 'Window',
-    submenu: [
-      { role: 'minimize' },
-      { role: 'zoom' },
-      ...(isMac ? [
-        { type: 'separator' },
-        { role: 'front' },
-        { type: 'separator' },
+    标签："窗口"，
+    子梅努：[
+      { role: 'minimize' }，
+      { role: 'zoom' }，
+      。。。（是麦克？ [
+        { type: 'separator' }，
+        { role: 'front' }，
+        { type: 'separator' }，
         { role: 'window' }
-      ] : [
+      ]："[
         { role: 'close' }
-      ])
+      ]）
     ]
-  },
+  [，
   {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click: async () =&gt; {
-          const { shell } = require('electron')
-          await shell.openExternal('https://electronjs.org')
-        }
-      }
+    角色："帮助"，
+    子梅努： [
+      ]
+        标签： '了解更多'，
+        点击： 不对称 （） =&gt; =
+          康斯特 { shell } = 需要 （'电子'）
+          等待壳。
+        [
+      ]
     ]
-  }
+  [
 ]
 
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
+const菜单=菜单
+。
 </code></pre>
 
 
@@ -330,36 +330,36 @@ Menu.setApplicationMenu(menu)
 </h3>
 
 <p spaces-before="0">
-  To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+  要创建由渲染器过程启动的菜单，请使用 IPC 将所需的 信息发送到主过程，并让主过程代表渲染器显示 菜单。
 </p>
 
 <p spaces-before="0">
-  Below is an example of showing a menu when the user right clicks the page:
+  以下是用户右键单击页面时显示菜单的示例：
 </p>
 
-<pre><code class="js">// renderer
-window.addEventListener('contextmenu', (e) =&gt; {
-  e.preventDefault()
-  ipcRenderer.send('show-context-menu')
-})
+<pre><code class="js">渲染器
+窗口。
 
-ipcRenderer.on('context-menu-command', (e, command) =&gt; {
-  // ...
-})
 
-// main
-ipcMain.on('show-context-menu', (event) =&gt; {
-  const template = [
+
+  
+  ipcRenderer.on（&gt; "上下文菜单命令"，（e，命令）=&gt; {
+  //
+[）
+
+//主要
+ipcMain.on（"显示上下文菜单"，（事件）=&gt; {
+  const模板=[
     {
-      label: 'Menu Item 1',
-      click: () =&gt; { event.sender.send('context-menu-command', 'menu-item-1') }
-    },
-    { type: 'separator' },
+      标签："菜单项目1"，
+      单击：（）=&gt; {事件.发送者.发送者.发送（"上下文-菜单命令"，"菜单-项目-1"）=
+    }，
+    { type: 'separator' }，
     { label: 'Menu Item 2', type: 'checkbox', checked: true }
   ]
-  const menu = Menu.buildFromTemplate(template)
-  menu.popup(BrowserWindow.fromWebContents(event.sender))
-})
+  const菜单=菜单
+
+  。
 </code></pre>
 
 
@@ -447,12 +447,12 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   </li>
   <li>
     <p spaces-before="0">
-      <code>beforeGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+      <code>beforeGroupContaining</code> - 提供一种手段，使单个上下文菜单在包含带有指定标签的项目组之前声明其包含组的放置 。
     </p>
   </li>
   <li>
     <p spaces-before="0">
-      <code>afterGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+      <code>afterGroupContaining</code> - 提供一种手段，使单个上下文菜单 在包含带有指定标签的项目组之后声明其包含组的位置。
     </p>
   </li>
 </ul>
@@ -472,9 +472,9 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </p>
 
 <pre><code class="javascript">[
-  { id: '1', label: 'one' },
-  { id: '2', label: 'two' },
-  { id: '3', label: 'three' },
+  { id: '1', label: 'one' }，
+  { id: '2', label: 'two' }，
+  { id: '3', label: 'three' }，
   { id: '4', label: 'four' }
 ]
 </code></pre>
@@ -483,7 +483,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   菜单:
 </p>
 
-<pre><code class="sh">- 1
+<pre><code class="sh">-1
 - 2
 - 3
 - 4
@@ -494,11 +494,11 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </p>
 
 <pre><code class="javascript">[
-  { id: '1', label: 'one' },
-  { type: 'separator' },
-  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
-  { id: '4', label: 'four', afterGroupContaining: ['2'] },
-  { type: 'separator' },
+  { id: '1', label: 'one' }，
+  { type: 'separator' }，
+  +id：'3'，标签：'3'，组控制前：['1]，
+  {id：'4'，标签：'4'，后组包含：['2][，
+  { type: 'separator' }，
   { id: '2', label: 'two' }
 ]
 </code></pre>
@@ -507,7 +507,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   菜单:
 </p>
 
-<pre><code class="sh">- 3
+<pre><code class="sh">-3
 - 4
 - ---
 - 1
@@ -520,8 +520,8 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </p>
 
 <pre><code class="javascript">[
-  { id: '1', label: 'one', after: ['3'] },
-  { id: '2', label: 'two', before: ['1'] },
+  {id：'1'，标签：'1'后：['3]，
+  {id：'2'，标签：'2'，之前：['1][，
   { id: '3', label: 'three' }
 ]
 </code></pre>
@@ -530,7 +530,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   菜单:
 </p>
 
-<pre><code class="sh">- ---
+<pre><code class="sh">----
 - 3
 - 2
 - 1
