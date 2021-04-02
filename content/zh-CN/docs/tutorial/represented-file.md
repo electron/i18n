@@ -2,34 +2,34 @@
 
 ## 概览
 
-在 macOS 上，您可以为应用程序中的任何窗口设置一个代表文件。 The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
+在 macOS 上，您可以为应用程序中的任何窗口设置一个代表文件。 所示文件的图标将显示在标题栏中，当用户 `Command-Click` 或 `Control-Click`时，将 显示带有文件路径的弹出窗口。
 
 ![展示文件（Represented File）][1]
 
-> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
+> 注：上面的屏幕截图是使用此功能表示 Atom 文本编辑器中当前打开的文件的示例。
 
-You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
+您还可以为窗口设置经过编辑的状态，以便文件图标可以 指示此窗口中的文档是否已修改。
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs.
+要设置所表示的窗口文件，您可以使用 [浏览器窗口.集代表菲莱娜][setrepresentedfilename] 和 [浏览器窗口][setdocumentedited] 。
 
 ## 示例
 
 从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/represented-file'
-const { app, BrowserWindow } = require('electron')
+康斯特 { app, BrowserWindow } =需要（'电子'）
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow()
+应用程序。当准备好（然后）=> {
+  缺点赢=新的浏览器窗口（）
 
-  win.setRepresentedFilename('/etc/passwd')
-  win.setDocumentEdited(true)
-})
+  赢
+
+  。
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+启动 Electron 应用程序后，单击标题时按下 `Command` 或 `Control` 键。 您应该会看到一个弹出窗口，其中有您刚刚定义的文件：
 
-![Represented file](../images/represented-file.png)
+![表示文件](../images/represented-file.png)
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png
 [setrepresentedfilename]: ../api/browser-window.md#winsetrepresentedfilenamefilename-macos
