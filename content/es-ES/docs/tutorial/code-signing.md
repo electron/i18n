@@ -60,15 +60,15 @@ Echemos un vistazo a una configuración de ejemplo con todos los campos requerid
 El archivo `plist` mencionado aquí necesita los siguientes derechos específicos de macOS para asegurar los mecanismos de seguridad de Apple que tu aplicación está haciendo estas cosas sin tener ningún daño:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<? XML version = "1.0" Encoding = "UTF-8"?>
+<! DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com. Apple. Security. cs. allow-JIT</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com. Apple. Security. cs. allow-unsigned-Executable-Memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. Apple. Security. cs. Debugger</key>
     <true/>
   </dict>
 </plist>
@@ -127,15 +127,15 @@ packager({
 El archivo `plist` mencionado aquí necesita los siguientes derechos específicos de macOS para asegurar los mecanismos de seguridad de Apple que tu aplicación está haciendo estas cosas sin tener ningún daño:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<? XML version = "1.0" Encoding = "UTF-8"?>
+<! DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.cs.allow-jit</key>
+    <key>com. Apple. Security. cs. allow-JIT</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <key>com. Apple. Security. cs. allow-unsigned-Executable-Memory</key>
     <true/>
-    <key>com.apple.security.cs.debugger</key>
+    <key>com. Apple. Security. cs. Debugger</key>
     <true/>
   </dict>
 </plist>
@@ -163,7 +163,7 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
 
 * [`electron-winstaller`][] generará un instalador para Windows y lo firmará usted
 * [`electron-forge`][] puede firmar instaladores que genera a través de Squirrel.Windows o objetivos MSI.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-builder`][] puede firmar algunos de sus objetivos de Windows
 
 ## Windows Store
 
