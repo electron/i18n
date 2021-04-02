@@ -28,11 +28,11 @@ window.electron.doThing()
 
 ### Main World / Основной Мир
 
-The "Main World" is the JavaScript context that your main renderer code runs in. By default, the page you load in your renderer executes code in this world.
+"Главный мир" - это контекст JavaScript, в котором работает ваш основной код рендерера. По умолчанию веб- , которую вы загружаете в рендерер, выполняет код в этом мире.
 
 ### Isolated World / Изолированный Мир
 
-When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+Когда `contextIsolation` включен в вашем `webPreferences`, `preload` скрипты работают в "Изолированном мире".  Вы можете прочитать больше об изоляции контекста и о том, что она влияет [безопасности](../tutorial/security.md#3-enable-context-isolation-for-remote-content) документов.
 
 ## Методы
 
@@ -41,17 +41,17 @@ When `contextIsolation` is enabled in your `webPreferences`, your `preload` scri
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
 * `apiKey` String - Ключ для вставки API в `window`.  API будет доступен в `window[apiKey]`.
-* `api` any - Your API, more information on what this API can be and how it works is available below.
+* `api` - Ваш API, более подробная информация о том, что этот API может быть и как он работает доступна ниже.
 
 ## Использование
 
 ### API
 
-The `api` provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be a `Function`, `String`, `Number`, `Array`, `Boolean`, or an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+В `api` , предоставленном [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) , должен быть объект `Function`, `String`, `Number`, `Array`, `Boolean`, или объект ключами которого являются строки и значения `Function`, `String`, `Number`, `Array`, `Boolean`или другой вложенный объект, который отвечает тем же условиям.
 
-Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. Any data / primitives sent in the API become immutable and updates on either side of the bridge do not result in an update on the other side.
+Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. Любые данные / примитивы, отправленные , когда API становятся неизменными, а обновления по обе стороны моста не приводят к обновлению с другой стороны.
 
-An example of a complex API is shown below:
+Пример сложного API приведен ниже:
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -85,19 +85,19 @@ contextBridge.exposeInMainWorld(
 
 #### Параметр / Ошибка / Поддержка возвращаемого типа
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  Ниже для полноты изложения приводится таблица поддержки типов:
+Поскольку параметры, ошибки и значения возврата **скопированы** когда они отправляются по мосту, есть только определенные типы, которые могут быть использованы. На высоком уровне, если тип, который вы хотите использовать, может быть сериализован и deserialized в тот же объект, он будет работать.  Ниже для полноты изложения приводится таблица поддержки типов:
 
-| Тип                                                                                                            | Сложность | Поддержка параметров | Возврат значения поддержки | Ограничения                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------- | --------- | -------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`                                                                                                       | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                 |
-| `Number`                                                                                                       | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                 |
-| `Boolean`                                                                                                      | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                 |
-| `Object`                                                                                                       | Сложный   | ✅                    | ✅                          | Keys must be supported using only "Simple" types in this table.  Значения должны поддерживаться в этой таблице.  Модификации прототипа отбрасываются.  Отправка пользовательских классов будет копировать значения, но не прототип. |
-| `Array`                                                                                                        | Сложный   | ✅                    | ✅                          | Те же ограничения, что и в типе `Object`                                                                                                                                                                                            |
-| `Error`                                                                                                        | Сложный   | ✅                    | ✅                          | Ошибки, которые выбрасываются также копируются, это может привести к тому, что сообщение и трассировка стека ошибки немного изменятся из-за того, что они будут выброшены в другом контексте                                        |
-| `Promise`                                                                                                      | Сложный   | ✅                    | ✅                          | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                                                   |
-| `Function`                                                                                                     | Сложный   | ✅                    | ✅                          | Модификации прототипа отбрасываются.  Отправка классов или конструкторов не будет работать.                                                                                                                                         |
-| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Простой   | ✅                    | ✅                          | Смотрите связанный документ по клонируемым типам                                                                                                                                                                                    |
-| `Symbol`                                                                                                       | Нет       | ❌                    | ❌                          | Символы не могут быть скопированы в разных контекстах, поэтому они отбрасываются                                                                                                                                                    |
+| Тип                                                                                                            | Сложность | Поддержка параметров | Возврат значения поддержки | Ограничения                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------- | --------- | -------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `String`                                                                                                       | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                                    |
+| `Number`                                                                                                       | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                                    |
+| `Boolean`                                                                                                      | Простой   | ✅                    | ✅                          | Нет                                                                                                                                                                                                                                                    |
+| `Object`                                                                                                       | Сложный   | ✅                    | ✅                          | Ключи должны поддерживаться с использованием только типов "Просто" в этой таблице.  Значения должны поддерживаться в этой таблице.  Модификации прототипа отбрасываются.  Отправка пользовательских классов будет копировать значения, но не прототип. |
+| `Array`                                                                                                        | Сложный   | ✅                    | ✅                          | Те же ограничения, что и в типе `Object`                                                                                                                                                                                                               |
+| `Error`                                                                                                        | Сложный   | ✅                    | ✅                          | Ошибки, которые выбрасываются также копируются, это может привести к тому, что сообщение и трассировка стека ошибки немного изменятся из-за того, что они будут выброшены в другом контексте                                                           |
+| `Promise`                                                                                                      | Сложный   | ✅                    | ✅                          | Обещания только прокси, если они являются значение возврата или точный параметр.  Обещания, вложенные в массивы или объекты, будут удалены.                                                                                                            |
+| `Function`                                                                                                     | Сложный   | ✅                    | ✅                          | Модификации прототипа отбрасываются.  Отправка классов или конструкторов не будет работать.                                                                                                                                                            |
+| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Простой   | ✅                    | ✅                          | Смотрите связанный документ по клонируемым типам                                                                                                                                                                                                       |
+| `Symbol`                                                                                                       | Нет       | ❌                    | ❌                          | Символы не могут быть скопированы в разных контекстах, поэтому они отбрасываются                                                                                                                                                                       |
 
-If the type you care about is not in the above table, it is probably not supported.
+Если тип, который вас волнует, не находится в таблице выше, он, вероятно, не поддерживается.
