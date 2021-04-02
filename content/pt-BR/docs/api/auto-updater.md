@@ -4,9 +4,9 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Veja também: [Um guia detalhado sobre como implementar atualizações em seu aplicativo](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter][event-emitter].
+`autoUpdater` é um [][event-emitter]eventEmitter.
 
 ## Avisos de plataforma
 
@@ -22,13 +22,13 @@ No macOS, o módulo `autoUpdater` é construído em cima do [Squirrel.Mac][squir
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
+No Windows, você tem que instalar seu aplicativo na máquina de um usuário antes de usar o `autoUpdater`, por isso é recomendável que você use o [][installer-lib]de elétrons-winstaller, [][electron-forge-lib] forja de elétrons ou o [][installer] -instalador de elétrons-elétrons para gerar um instalador do Windows.
 
-When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). Também é recomendado utilizar o [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) para obter atalhos da área de trabalho para sua aplicação.
+Ao usar [][installer-lib] elétron-winstaller ou [forja de elétrons][electron-forge-lib] certifique-se de não tentar atualizar seu aplicativo [primeira vez que ele é executado](https://github.com/electron/windows-installer#handling-squirrel-events) (Veja também [este problema para obter mais informações](https://github.com/electron/electron/issues/7155)). Também é recomendado utilizar o [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) para obter atalhos da área de trabalho para sua aplicação.
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Você deve usar o mesmo ID para sua aplicação com a API `app.setAppUserModelId`, caso contrário, o Windows não será capaz de fixar sua aplicação corretamente na barra de tarefas.
+O instalador gerado com o Squirrel criará um ícone de atalho com um [][app-user-model-id] de ID do modelo de usuário do aplicativo no formato de `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, exemplos são `com.squirrel.slack.Slack` e `com.squirrel.code.Code`. Você deve usar o mesmo ID para sua aplicação com a API `app.setAppUserModelId`, caso contrário, o Windows não será capaz de fixar sua aplicação corretamente na barra de tarefas.
 
-Ao contrário do Squirrel.Mac, o Windows pode hospedar atualizações em S3 ou qualquer outro arquivo estático de hospedagem. You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+Ao contrário do Squirrel.Mac, o Windows pode hospedar atualizações em S3 ou qualquer outro arquivo estático de hospedagem. Você pode ler os documentos de [Squirrel.Windows][squirrel-windows] para obter mais detalhes sobre como o Squirrel.Windows funciona.
 
 ## Eventos
 
@@ -80,18 +80,18 @@ Quando esta API é chamada, o evento `before-quit` não é emitido antes de toda
 
 O objeto `autoUpdater` possui os seguintes métodos:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(opções)`
 
-* `options` Object
+* objeto `options`
   * String `url`
   * `headers` Record<String, String> (opcional) _macOS_ - Cabeçalhos da solicitação HTTP.
-  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (opcional) __ macOS - Pode ser `json` ou `default`, consulte o [Squirrel.Mac][squirrel-mac] README para obter mais informações.
 
 Define a `url` e inicializa a atualização automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Devoluções `String` - A URL de alimentação de atualização atual.
 
 ### `autoUpdater.checkForUpdates()`
 
@@ -109,7 +109,15 @@ Sob o capô chamando `autoUpdater.quitAndInstall()` fechará todos os aplicativo
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
 [squirrel-windows]: https://github.com/Squirrel/Squirrel.Windows
 [installer]: https://github.com/electron/grunt-electron-installer
+[installer]: https://github.com/electron/grunt-electron-installer
+[installer-lib]: https://github.com/electron/windows-installer
+[installer-lib]: https://github.com/electron/windows-installer
+[installer-lib]: https://github.com/electron/windows-installer
 [installer-lib]: https://github.com/electron/windows-installer
 [electron-forge-lib]: https://github.com/electron-userland/electron-forge
+[electron-forge-lib]: https://github.com/electron-userland/electron-forge
+[electron-forge-lib]: https://github.com/electron-userland/electron-forge
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
