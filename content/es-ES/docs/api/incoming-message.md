@@ -18,7 +18,7 @@ El evento `data` es el método habitual de transferir datos de respuesta en cód
 
 #### Evento: "end"
 
-Indica que la respuesta del cuerpo ha finalizado. Must be placed before 'data' event.
+Indica que la respuesta del cuerpo ha finalizado. Debe colocarse antes del evento ' Data '.
 
 #### Evento: "aborted"
 
