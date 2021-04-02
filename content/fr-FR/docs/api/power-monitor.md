@@ -8,19 +8,19 @@ Processus : [Main](../glossary.md#main-process)
 
 Le module `powerMonitor` émet les événements suivants :
 
-### Event: 'suspend' _macOS_ _Windows_
+### Evénement: 'suspendre' _macOS_ _Windows_
 
 Émis lorsque le système est suspendu.
 
-### Event: 'resume' _macOS_ _Windows_
+### Evénement: 'resume' _macOS_ _Windows_
 
 Émis lorsque le système reprend.
 
-### Event: 'on-ac' _macOS_ _Windows_
+### Evénement: 'on-ac' _macOS_ _Windows_
 
 Émis lorsque le système est branché sur prise.
 
-### Event: 'on-battery' _macOS_  _Windows_
+### Evénement: 'on-battery' _macOS_  _Windows_
 
 Émis lorsque le système passe sur batterie.
 
@@ -36,13 +36,13 @@ Le module `powerMonitor` émet les événements suivants :
 
 Émis dès que l'écran du système est déverrouillé.
 
-### Event: 'user-did-become-active' _macOS_
+### Evénement: 'user-did-become-active' _macOS_
 
-Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
+Émis lors de l’activation d’une session de connexion. Consultez [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) plus d’informations.
 
-### Event: 'user-did-resign-active' _macOS_
+### Evénement: 'user-did-resign-active' _macOS_
 
-Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
+Émis lors de la désactivation d’une session de connexion. Consultez [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) plus d’informations.
 
 ## Méthodes
 
@@ -52,9 +52,9 @@ Le module `powerMonitor` a les méthodes suivantes :
 
 * `idleThreshold` Entier
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Retours `String` - L’état actuel du système. Peut être `active`, `idle`, `locked` ou `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
+Calculez l’état d’inactivité du système. `idleThreshold` 'est la quantité de temps (en secondes) considérée comme inactive.  `locked` est disponible uniquement sur les systèmes pris en charge.
 
 ### `getSystemIdleTime()`
 
@@ -62,16 +62,16 @@ Retourne `Integer` - Temps d'inactivité en secondes
 
 Calculer le temps d'inactivité du système en secondes.
 
-### `powerMonitor.isOnBatteryPower()`
+### `powerMonitor.isOnBatteryPower ()`
 
-Returns `Boolean` - Whether the system is on battery power.
+Retours `Boolean` - Que le système soit alimenté par batterie.
 
-To monitor for changes in this property, use the `on-battery` and `on-ac` events.
+Pour surveiller les modifications apportées à cette propriété, utilisez les `on-battery` et `on-ac` événements.
 
 ## Propriétés
 
-### `powerMonitor.onBatteryPower`
+### `powerMonitor.onBatteryPower Power PowerMonitor.onBatteryPower PowerMonitor.onBatteryPower Power`
 
-A `Boolean` property. True if the system is on battery power.
+Une `Boolean` propriété. C’est vrai si le système est alimenté par batterie.
 
-See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+Voir [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
