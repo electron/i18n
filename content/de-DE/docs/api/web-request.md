@@ -1,18 +1,18 @@
 ## Class: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> Fangen und ändern Sie den Inhalt einer Anforderung in verschiedenen Phasen ihrer Lebensdauer.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+Auf Instances der `WebRequest` -Klasse wird mithilfe der `webRequest` -Eigenschaft eines `Session`zugegriffen.
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request.
+Die Methoden `WebRequest` akzeptieren eine optionale `filter` und eine `listener`. Die `listener` werden mit `listener(details)` aufgerufen, wenn das Ereignis der API eingetreten ist. Das `details` Objekt s. beschreibt die Anforderung.
 
-⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
+⚠️ Nur die zuletzt angefügten `listener` werden verwendet. Wenn Sie `null` als `listener` übergeben, wird das Ereignis abgemeldet.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+Das `filter` -Objekt verfügt über eine `urls` -Eigenschaft, die ein Array von URL- -Mustern ist, die verwendet werden, um die Anforderungen herauszufiltern, die nicht mit der URL Mustern übereinstimmen. Wenn die `filter` weggelassen wird, werden alle Anforderungen abgeglichen.
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+Bei bestimmten Ereignissen wird die `listener` mit einem `callback`übergeben, der mit einem `response` Objekt aufgerufen werden sollte, wenn `listener` seine Arbeit erledigt hat.
 
 Ein Beispiel zum hinzufügen von `User-Agent` Headern für Requests:
 
@@ -36,10 +36,10 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -51,17 +51,17 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `response` Object
+    * `response` -Objekt
       * `cancel` Boolean (optional)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `redirectURL` String (optional) - Die ursprüngliche Anforderung wird daran gehindert, gesendet oder abgeschlossen zu werden, und wird stattdessen an die angegebene URL umgeleitet.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+Die `listener` wird mit `listener(details, callback)` aufgerufen, wenn eine Anforderung auferstehen.
 
 `uploadData` ist ein Array mit `UploadData` Objekten.
 
 Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
-Some examples of valid `urls`:
+Einige Beispiele für gültige `urls`:
 
 ```js
 'http://foo:1234/'
@@ -78,10 +78,10 @@ Some examples of valid `urls`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -91,22 +91,22 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Record<string, string>
+    * `requestHeaders` -Rekord<string, string>
   * `callback` Function
-    * `beforeSendResponse` Object
+    * `beforeSendResponse` -Objekt
       * `cancel` Boolean (optional)
-      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (optional) - Wenn angegeben, wird die Anforderung mit diesen Headern gestellt.
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+Die `listener` werden mit `listener(details, callback)` aufgerufen, bevor eine HTTP-Anforderung gesendet wird, sobald die Anforderungsheader verfügbar sind. Dies kann auftreten, nachdem eine TCP-Verbindung mit dem Server hergestellt wurde, aber bevor http-Daten gesendet werden.
 
-The `callback` has to be called with a `response` object.
+Die `callback` muss mit einem `response` Objekt aufgerufen werden.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -116,16 +116,16 @@ The `callback` has to be called with a `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Record<string, string>
+    * `requestHeaders` -Rekord<string, string>
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+Die `listener` mit `listener(details)` aufgerufen werden, kurz bevor eine Anforderung an den Server gesendet wird, werden Änderungen der vorherigen `onBeforeSendHeaders` Antwort zum Zeitpunkt der Anzeige dieses Listeners sichtbar.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -137,24 +137,24 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `requestHeaders` Record<string, string>
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `requestHeaders` -Rekord<string, string>
+    * `responseHeaders` Datensatz<string, string[]> (optional)
   * `callback` Function
-    * `headersReceivedResponse` Object
+    * `headersReceivedResponse` -Objekt
       * `cancel` Boolean (optional)
-      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
-      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+      * `responseHeaders` Record<string, string | string[]> (optional) - Wenn angegeben, wird davon ausgegangen, dass der Server mit diesen Headern geantwortet hat.
+      * `statusLine` String (optional) - Sollte beim Überschreiben `responseHeaders` angegeben werden, um den Headerstatus zu ändern, andernfalls wird die ursprüngliche Antwort -Headerverwendet werden.
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+Die `listener` werden mit `listener(details, callback)` aufgerufen, wenn HTTP Antwortheader einer Anforderung empfangen wurden.
 
-The `callback` has to be called with a `response` object.
+Die `callback` muss mit einem `response` Objekt aufgerufen werden.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -164,19 +164,19 @@ The `callback` has to be called with a `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string[]> (optional)
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `responseHeaders` Datensatz<string, string[]> (optional)
+    * `fromCache` Boolean - Gibt an, ob die Antwort vom Datenträger Cache abgerufen wurde.
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+Die `listener` wird mit `listener(details)` aufgerufen, wenn das erste Byte des Antwortgremiums empfangen wird. Bei HTTP-Anforderungen bedeutet dies, dass die Statuszeile und Antwortheader verfügbar sind.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -191,16 +191,16 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `statusLine` String
     * `ip` String (optional) - Die Server IP Adresse an den der Request ursprünglich gesendet wurde.
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Datensatz<string, string[]> (optional)
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+Die `listener` wird mit `listener(details)` aufgerufen, wenn ein Server, der Umleitung initiiert wird, im Begriff ist, zu erfolgen.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -210,20 +210,20 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Datensatz<string, string[]> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
     * `error` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+Die `listener` wird mit `listener(details)` aufgerufen, wenn eine Anforderung abgeschlossen ist.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (optional)
+* `filter` Objekt (optional)
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Function | null
-  * `details` Object
+* `listener` Funktion | Null
+  * `details` -Objekt
     * `id` Integer
     * `url` String
     * `method` String
@@ -236,4 +236,4 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `fromCache` Boolean
     * `error` String - The error description.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+Die `listener` wird mit `listener(details)` aufgerufen, wenn ein Fehler auftritt.
