@@ -5,13 +5,13 @@
 Processus : [Main](../glossary.md#main-process)
 
 ```javascript
-const { netLog } = require('electron')
+const { netLog } = require ('electron')
 
 app.whenReady().then(async () => {
-  await netLog.startLogging('/path/to/net-log')
+  await netLog.startLogging ('/path/to/net-log')
   // After some network events
   const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+  console.log ('Net-logs written to', chemin)
 })
 ```
 
@@ -24,17 +24,17 @@ Voir [`--log-net-log`](command-line-switches.md#--log-net-logpath) pour log les 
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - Chemin du fichier où sera enregistré le log.
-* `options` Object (optional)
-  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
-  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+* `options` objet (facultatif)
+  * `captureMode` String (facultatif) - Quels types de données doivent être capturées. Par , seules les métadonnées sur les demandes seront saisies. La configuration de ce `includeSensitive` inclut des cookies et des données d’authentification. Le le rendre `everything` comprendra tous les octets transférés sur des prises. Peut être `default`, `includeSensitive` ou `everything`.
+  * `maxFileSize` (facultatif) - Lorsque le journal dépasse cette taille, la s’arrête automatiquement. Par défaut à illimité.
 
-Returns `Promise<void>` - resolves when the net log has begun recording.
+Retours `Promise<void>` - se résout lorsque le journal net a commencé à enregistrer.
 
 Commence d'enregistrer les évènements de réseau dans `path` .
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<void>` - resolves when the net log has been flushed to disk.
+Retourne `Promise<void>` - se résout lorsque le journal net a été rincé sur le disque.
 
 Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
 
@@ -42,4 +42,4 @@ Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle
 
 ### `netLog.currentlyLogging` _Readonly_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+Une `Boolean` qui indique si des journaux réseau sont actuellement enregistrés.
