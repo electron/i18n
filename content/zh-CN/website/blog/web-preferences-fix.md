@@ -12,7 +12,7 @@ date: '2018-08-22'
 
 您受到影响的条件是：
 
-1. You embed _any_ remote user content, even in a sandbox
+1. 您嵌入 _任何_ 远程用户内容，甚至在沙盒中
 2. 您接受任何XSS 脆弱性的用户输入
 
 _详细信息_
@@ -34,22 +34,22 @@ mainWindow.webContents.on('new-window', e => e.preventDefault())
 如果你依靠你的子窗口制造孙子窗口的能力， 然后第三个缓减策略是在您的顶级窗口上使用以下代码：
 
 ```javascript
-const enforceInheritance = (topWebContents) => {
-  const handle = (webContents) => {
-    webContents.on('new-window', (event, url, frameName, disposition, options) => {
-      if (!options.webPreferences) {
-        options.webPreferences = {}
-      }
-      Object.assign(options.webPreferences, topWebContents.getLastWebPreferences())
-      if (options.webContents) {
-        handle(options.webContents)
-      }
-    })
-  }
-  handle(topWebContents)
-}
+继续执行继承=（顶部网络控制）=> {
+  续句柄=（网络控制）=> {
+    网络控制。on（"新窗口"，（事件，网址，帧名， 处置，选项）=> {
+      如果（！选项.webPreences）{
+        选项。webPrefers={}
+      =
+      对象。分配（选项.Web高级，顶部Web会议。获取 如果（选项.web会议）=
+        处理（选项.web会议）
+      [
+    ]）
+  =
+  句柄（顶部网络会议）
+=
 
-enforceInheritance(mainWindow.webContents)
+执行继承（主窗口。web会议），则
+
 ```
 
 此代码将手动强制执行顶级窗口 `web 首选项` 被手动应用到所有子窗口深度。
